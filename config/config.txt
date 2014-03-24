@@ -77,13 +77,13 @@ LOG_PDA
 ## 
 ## default probablity is 1, increase to make that mode more likely to be picked
 ## set to 0 to disable that mode
-PROBABILITY EXTENDED 1
+PROBABILITY EXTENDED 0
 PROBABILITY MALFUNCTION 1
 PROBABILITY NUCLEAR 1
 PROBABILITY WIZARD 1
 PROBABILITY CHANGELING 1
 PROBABILITY CULT 1
-PROBABILITY EXTEND-A-TRAITORMONGOUS 6
+PROBABILITY EXTEND-A-TRAITORMONGOUS 3
 
 ## Hash out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
@@ -147,7 +147,7 @@ ALLOW_AI
 
 
 ## disable abandon mob
-# NORESPAWN
+NORESPAWN
 
 ## disables calling del(src) on newmobs if they logout before spawnin in
 # DONT_DEL_NEWMOB
@@ -221,7 +221,7 @@ GATEWAY_DELAY 18000
 #CONTINUOUS_ROUNDS
 
 ## Uncomment to restrict non-admins from using humanoid alien races
-USEALIENWHITELIST
+#USEALIENWHITELIST
 
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
