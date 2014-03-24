@@ -95,7 +95,7 @@
 
 	flesh_color = "#34AF10"
 
-/datum/species/tajaran
+/*/datum/species/tajaran  //FUUUUUUUUUUUUUCK YOUUUUUUUUUU
 	name = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
@@ -117,7 +117,7 @@
 
 	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | HAS_TAIL
 
-	flesh_color = "#AFA59E"
+	flesh_color = "#AFA59E"*/
 
 /datum/species/skrell
 	name = "Skrell"
@@ -218,7 +218,7 @@
 
 	H.visible_message("\red[H] splits apart with a wet slithering noise!")
 
-/datum/species/machine
+/*/datum/species/machine
 	name = "Machine"
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
@@ -243,4 +243,4 @@
 	flags = IS_WHITELISTED | NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | IS_SYNTHETIC
 
 	blood_color = "#1F181F"
-	flesh_color = "#575757"
+	flesh_color = "#575757"*/
