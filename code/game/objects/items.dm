@@ -40,6 +40,8 @@
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
 
+	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands
+
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 

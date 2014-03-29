@@ -1,9 +1,5 @@
 AFFECTED BS12 FILES // Let's do this right this time.
 
- code/controllers/voting.dm -- autogamemode bullshit
-
- code/game/gamemodes/gameticker.dm -- autogamemode bullshit
-
  code/game/verbs/suicide.dm -- allowing suicide
 
  code/modules/mob/living/carbon/species.dm -- Tajaran fetish outta my game
@@ -11,5 +7,18 @@ AFFECTED BS12 FILES // Let's do this right this time.
  code/modules/projectiles/gun.dm -- removes firing delay
 
  code/modules/projectiles/projectile/energy.dm -- buffs stuns
+
+**3d sound
+
+ code/modules/projectiles/guns/projectile/shotgun.dm
+
+ code/game/sound.dm
+
+ code/game/objects/explosion.dm 
+
+ code/game/objects/structures/musician.dm
+
+
+
 
 
