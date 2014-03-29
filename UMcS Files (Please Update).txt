@@ -8,6 +8,8 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/modules/projectiles/projectile/energy.dm -- buffs stuns
 
+ code/modules/mob/living/carbon/human/update_icons.dm -- urist shit
+
 **3d sound
 
  code/modules/projectiles/guns/projectile/shotgun.dm
