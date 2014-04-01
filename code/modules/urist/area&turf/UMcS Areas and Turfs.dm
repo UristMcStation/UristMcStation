@@ -90,6 +90,17 @@ Basically, if you need to add areas or turfs for UMcS, use this file -Glloyd */
 	name = "\improper Medbay Dormitories"
 	icon_state = "Sleep"
 
+//fixing tcomms
+
+/area/tcommsat/chamber/abandoned
+	name = "\improper Abandoned Satellite"
+	icon_state = "tcomsatcham"
+
+/area/tcommsat/chamber/server
+	name = "\improper Telecoms Server Room"
+	icon_state = "tcomsatcham"
+
+
 /*TURFS
 ********I SWEAR, IF ANYONE FUCKS WITH THIS, I WILL KILL YOU. -Glloyd********
 
