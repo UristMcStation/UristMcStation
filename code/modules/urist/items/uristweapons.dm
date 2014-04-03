@@ -155,3 +155,29 @@ the sprite and make my own projectile -Glloyd*/
 	stun = 5
 	weaken = 5
 	stutter = 5*/
+
+//Syndie mini-bomb from /tg/
+
+/obj/item/weapon/grenade/syndieminibomb
+	desc = "A syndicate manufactured explosive used to sow destruction and chaos"
+	name = "syndicate minibomb"
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "syndicate"
+	item_state = "flashbang"
+	origin_tech = "materials=3;magnets=4;syndicate=4"
+
+/obj/item/weapon/grenade/syndieminibomb/prime()
+	explosion(src.loc,1,2,4,flame_range = 2)
+	del(src)
+
+//dual saber proc
+
+/obj/item/weapon/melee/energy/sword/attackby(obj/item/weapon/W, mob/living/user)
+	..()
+	if(istype(W, /obj/item/weapon/melee/energy/sword))
+		if(W == src)
+			user << "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>"
+			if(ishuman(user))
+				user.adjustBrainLoss(10)
+		else
+			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
