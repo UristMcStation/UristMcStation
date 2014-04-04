@@ -54,7 +54,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 /obj/item/clothing/head/emergencyhood
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
 	icon = 'icons/urist/items/uristclothes.dmi'
@@ -69,7 +69,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 /obj/item/clothing/head/bio_hood/asec
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	name = "armoured bio hood"
 	icon = 'icons/urist/items/uristclothes.dmi'
 	icon_state = "Armouredbiohood"
@@ -111,7 +111,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 /obj/item/clothing/head/helmet/space/naval
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval space helmet"
 	desc = "A high quality space helmet used by the Nanotrasen Navy."
 	icon = 'icons/urist/items/uristclothes.dmi'
@@ -134,7 +134,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 /obj/item/clothing/head/helmet/space/rig/commando
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval commando helmet"
 	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
 	icon = 'icons/urist/items/uristclothes.dmi'
@@ -226,7 +226,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 /obj/item/clothing/head/terran
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/uristclothes.dmi'
 
 /obj/item/clothing/under/terran/trader
@@ -259,7 +259,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 /obj/item/clothing/head/wizard/urist
 	urist_only = 1
 	icon = 'icons/urist/items/uristclothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 
 /obj/item/clothing/suit/wizrobe/urist/necro
 	name = "necromancer's robes"
@@ -273,108 +273,3 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_state = "necrohood"
 	item_state = "necrohood"
 
-//Fancy Station. I'm porting clothing from TG which is starting with the suits from "https://github.com/tgstation/-tg-station/pull/2957" -Nien
-
-/obj/item/clothing/under/urist/suit_jacket
-	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
-
-/obj/item/clothing/under/urist/suit_jacket/charcoal
-	name = "charcoal suit"
-	desc = "A charcoal suit and red tie. Very professional."
-	icon_state = "charcoal_suit"
-	item_state = "charcoal_suit"
-	item_color = "charcoal_suit"
-
-/obj/item/clothing/under/urist/suit_jacket/black
-	name = "black suit"
-	desc = "Black dress pants and a black skinny tie. Very professional."
-	icon_state = "blacksuit"
-	item_state = "blacksuit"
-	item_color = "blacksuit"
-
-/obj/item/clothing/under/urist/suit_jacket/navy
-	name = "navy suit"
-	desc = "A navy suit and red tie, intended for the station's finest."
-	icon_state = "navy_suit"
-	item_state = "navy_suit"
-	item_color = "navy_suit"
-
-/obj/item/clothing/under/urist/suit_jacket/burgundy
-	name = "burgundy suit"
-	desc = "A burgundy suit and black tie. Somewhat formal."
-	icon_state = "burgundy_suit"
-	item_state = "burgundy_suit"
-	item_color = "burgundy_suit"
-
-/obj/item/clothing/under/urist/suit_jacket/checkered
-	name = "checkered suit"
-	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
-	icon_state = "checkered_suit"
-	item_state = "checkered_suit"
-	item_color = "checkered_suit"
-
-/obj/item/clothing/under/urist/suit_jacket/tan
-	name = "tan suit"
-	desc = "A tan suit with a yellow tie. Smart, but casual."
-	icon_state = "tan_suit"
-	item_state = "tan_suit"
-	item_color = "tan_suit"
-
-/obj/item/clothing/under/urist/formal
-	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
-
-/obj/item/clothing/under/urist/formal/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
-	icon_state = "captain_formal"
-	item_state = "captain_formal"
-	item_color = "captain_formal"
-
-/obj/item/clothing/under/urist/formal/hosformalmale
-	name = "head of security's formal uniform"
-	desc = "A male head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_male"
-	item_state = "hos_formal_male"
-	item_color = "hos_formal_male"
-
-/obj/item/clothing/under/urist/formal/hosformalfem
-	name = "head of security's formal uniform"
-	desc = "A female head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_fem"
-	item_state = "hos_formal_fem"
-	item_color = "hos_formal_fem"
-
-/obj/item/clothing/under/urist/formal/assistantformal
-	name = "assistant's formal uniform"
-	desc = "An assistant's formal-wear. Why an assistant needs formal-wear is still unknown."
-	icon_state = "assistant_formal"
-	item_state = "assistant_formal"
-	item_color = "assistant_formal"
-
-/obj/item/clothing/under/urist/formal/hopformal
-	name = "head of personal's formal uniform"
-	desc = "The head of personal's formal-wear, for special occasions."
-	icon_state = "hopformal"
-	item_state = "hopformal"
-	item_color = "hopformal"
-
-/obj/item/clothing/under/urist/formal/blacktango
-	name = "black tango dress"
-	desc = "Filled with latin fire."
-	icon_state = "black_tango"
-	item_state = "black_tango"
-	item_color = "black_tango"
-
-/obj/item/clothing/suit/urist/blackjacket
-	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
-	name = "black suit jacket"
-	desc = "A professional suit jacket."
-	icon_state = "suitjacket_black"
-	item_state = "suitjacket_black"
-	blood_overlay_type = "coat"
