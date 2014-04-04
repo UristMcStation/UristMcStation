@@ -92,3 +92,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sign leading to Escape."
 	icon_state = "esc"
 
+//hacky, but I don't give a fuck. nicer beds
+
+/obj/structure/stool/bed/nice
+	name = "bed"
+	icon = 'icons/urist/items/tgitems.dmi'
+	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
+	icon_state = "bed"
