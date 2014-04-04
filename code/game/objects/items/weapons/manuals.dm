@@ -781,9 +781,8 @@
 /obj/item/weapon/book/manual/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "cooked_book"
-	author = "Victoria Ponsonby"
+	author = "Lord Frenrir Cageth"
 	title = "Chef Recipes"
-
 	dat = {"<html>
 				<head>
 				<style>
@@ -799,41 +798,64 @@
 				<h1>Food for Dummies</h1>
 				Here is a guide on basic food recipes and also how to not poison your customers accidentally.
 
-				<h2>Basics:<h2>
-				Knead an egg and some flour to make dough. Bake that to make a bun or flatten and cut it.
-
 				<h2>Burger:<h2>
-				Put a bun and some meat into the microwave and turn it on. Then wait.
+				Put 1 meat and 1 flour into the microwave and turn it on. Then wait.
 
 				<h2>Bread:<h2>
-				Put some dough and an egg into the microwave and then wait.
+				Put 3 flour into the microwave and then wait.
 
 				<h2>Waffles:<h2>
-				Add two lumps of dough and 10u of sugar to the microwave and then wait.
+				Add 2 flour and 2 egg to the microwave and then wait.
 
 				<h2>Popcorn:<h2>
 				Add 1 corn to the microwave and wait.
 
 				<h2>Meat Steak:<h2>
-				Put a slice of meat, 1 unit of salt and 1 unit of pepper into the microwave and wait.
+				Put 1 meat, 1 unit of salt and 1 unit of pepper into the microwave and wait.
 
 				<h2>Meat Pie:<h2>
-				Put a flattened piece of dough and some meat into the microwave and wait.
+				Put 1 meat and 2 flour into the microwave and wait.
 
-				<h2>Boiled Spaghetti:<h2>
-				Put the spaghetti (processed flour) and 5 units of water into the microwave and wait.
+				<h2>Boiled Spagetti:<h2>
+				Put 1 spagetti and 5 units of water into the microwave and wait.
 
 				<h2>Donuts:<h2>
-				Add some dough and 5 units of sugar to the microwave and wait.
+				Add 1 egg and 1 flour to the microwave and wait.
 
 				<h2>Fries:<h2>
-				Add one potato to the processor, then bake them in the microwave.
+				Add one potato to the processor and wait.
+
+				<h2>Customizables:<h2>
+				In addition to the foods above, you can create unique dishes. Here's how:
+
+				<h2>SANDWICH:<h2>
+				Add any food item to a bread slice.
+
+				<h2>BURGER:<h2>
+				Add any food item to a bun.
+
+				<h2>SPAGETTI:<h2>
+				Add any food item to a boiled spaghetti.
+
+				<h2>PERSONAL PAN PIZZA:<h2>
+				Add any food item to some flat dough.
+
+				<h2>SOUP:<h2>
+				Add any food item to a bowl, which you can get from a dinnerware vendor.
+
+				<h2>Dough:<h2>
+				Combine a thing of flour and an egg inhand.
+
+				<h2>Flat Dough:<h2>
+				Use a rolling pin on some dough.
+
+				<h2>Bun:<h2>
+				Bake a dough in the microwave.
 
 
 				</body>
 				</html>
 			"}
-
 
 /obj/item/weapon/book/manual/barman_recipes
 	name = "Barman Recipes"
