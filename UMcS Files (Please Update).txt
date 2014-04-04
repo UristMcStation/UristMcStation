@@ -14,5 +14,7 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/game/objects/items/devices/uplinks.dm -- minibombs
 
+ code/global.dm -- Change from Exodus to Urist McStation
+
 
 
