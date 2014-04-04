@@ -30,7 +30,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	for(var/D in ItemList)
 		var/list/O = text2list(D, ":")
 		if(O.len>0)
-			valid_items += O[1]		
+			valid_items += O[1]
 
 
 
@@ -141,6 +141,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(uses > 4)
 		randomItems.Add("/obj/item/weapon/gun/energy/crossbow") //Energy Crossbow
 		randomItems.Add("/obj/item/device/powersink") //Powersink
+		randomItems.Add("/obj/item/weapon/grenade/syndieminibomb") //Syndie minibomb
 
 	if(uses > 3)
 		randomItems.Add("/obj/item/weapon/melee/energy/sword") //Energy Sword
