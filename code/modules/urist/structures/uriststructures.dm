@@ -7,7 +7,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/sign/uristmap
 	name = "station map"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "A framed picture of the station."
 
 /obj/structure/sign/uristmap/left
@@ -21,7 +21,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/closet/emsuits //Tossing the closet here, because why the fuck not.
 	name = "emergency suit closet"
 	desc = "It's a closet for storing emergency equipment and suits. A small  sign on the bottom reads 'use only in extreme emergencies'"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "ecloset"
 	icon_closed = "ecloset"
 	icon_opened = "eclosetopen"
@@ -70,7 +70,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/sign/deptsigns
 	name = "departmental sign"
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/urist/structures&machinery/structures.dmi'
 
 /obj/structure/sign/deptsigns/sec
 	desc = "A sign leading to Security."
@@ -96,6 +96,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/stool/bed/nice
 	name = "bed"
-	icon = 'icons/urist/items/tgitems.dmi'
+	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
