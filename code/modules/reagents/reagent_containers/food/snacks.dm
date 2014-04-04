@@ -112,6 +112,11 @@
 		usr << "\blue \The [src] was bitten multiple times!"
 
 /obj/item/weapon/reagent_containers/food/snacks/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/pen))
+		var/n_name = copytext(sanitize(input(usr, "What would you like to name this dish?", "Food Renaming", null)  as text), 1, MAX_NAME_LEN)
+		if((loc == usr && usr.stat == 0))
+			name = "[n_name]"
+		return
 	if(istype(W,/obj/item/weapon/storage))
 		..() // -> item/attackby()
 	if(istype(W,/obj/item/weapon/storage))
