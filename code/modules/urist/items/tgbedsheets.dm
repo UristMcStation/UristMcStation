@@ -5,10 +5,10 @@ LINEN BINS
 */
 
 /obj/item/weapon/bedsheet
-	icon_override = 'icons/uristmob/back.dmi'
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
 	icon = 'icons/urist/items/tgitems.dmi'
+	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "sheet"
 	item_state = "bedsheet"
 	slot_flags = SLOT_BACK
