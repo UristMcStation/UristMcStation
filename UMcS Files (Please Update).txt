@@ -10,16 +10,7 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/modules/mob/living/carbon/human/update_icons.dm -- urist shit
 
-**3d sound
-
- code/modules/projectiles/guns/projectile/shotgun.dm
-
- code/game/sound.dm
-
- code/game/objects/explosion.dm 
-
- code/game/objects/structures/musician.dm
-
+ code/game/machinery/hydroponics.dm -- botany time changes
 
 
 
