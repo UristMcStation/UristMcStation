@@ -1,6 +1,6 @@
 UristMcStation
 
-Urist McStation's BS12 branch.
+Urist McStation's BS12 branch. [![Build Status](https://travis-ci.org/UristMcStation/UristMcStation.png)](https://travis-ci.org/UristMcStation/UristMcStation)
 
 # baystation12
 
