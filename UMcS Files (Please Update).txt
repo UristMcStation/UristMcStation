@@ -12,6 +12,7 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/game/machinery/hydroponics.dm -- botany time changes
 
+ code/game/objects/items/devices/uplinks.dm -- minibombs
 
 
 
