@@ -1332,6 +1332,8 @@
 #include "code\modules\urist\items\uristpapers.dm"
 #include "code\modules\urist\items\uristpills.dm"
 #include "code\modules\urist\items\uristweapons.dm"
+#include "code\modules\urist\machinery\monkey_recycler.dm"
+#include "code\modules\urist\machinery\PDA_painter.dm"
 #include "code\modules\urist\machinery\UMcSTelecomms.dm"
 #include "code\modules\urist\machinery\uristvending.dm"
 #include "code\modules\urist\mob\necromorph.dm"
