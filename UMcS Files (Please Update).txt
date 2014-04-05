@@ -16,5 +16,5 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/global.dm -- Change from Exodus to Urist McStation
 
-
+ code/game/gamemode/game_mode.dm -- orderable minibomb
 
