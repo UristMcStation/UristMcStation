@@ -273,3 +273,25 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_state = "necrohood"
 	item_state = "necrohood"
 
+//NT Outfits
+
+/obj/item/clothing/under/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "nt outfit"
+	desc = "A standered Nanotrasen outfit with a white NT on back."
+	icon = 'icons/urist/items/uristclothes.dmi'
+	icon_state = "NTsuit"
+	item_state = "NTsuit"
+	item_color = "NTsuit"
+
+
+/obj/item/clothing/under/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "white nt outfit"
+	desc = "A standered white Nanotrasen outfit with a blue NT on back."
+	icon = 'icons/urist/items/uristclothes.dmi'
+	icon_state = "NTWsuit"
+	item_state = "NTWsuit"
+	item_color = "NTWsuit"
