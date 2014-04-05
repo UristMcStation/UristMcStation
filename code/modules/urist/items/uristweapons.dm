@@ -167,7 +167,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "materials=3;magnets=4;syndicate=4"
 
 /obj/item/weapon/grenade/syndieminibomb/prime()
-	explosion(src.loc, 1, 1, 2, 4)
+	explosion(src.loc, 1, 2, 4, 4)
 	del(src)
 
 //dual saber proc
