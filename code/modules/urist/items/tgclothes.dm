@@ -161,3 +161,12 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon_state = "suitjacket_black"
 	item_state = "suitjacket_black"
 	blood_overlay_type = "coat"
+
+/obj/item/clothing/head/helmet/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "head of personal cap"
+	icon = 'icons/urist/items/uristclothes.dmi'
+	desc = "A fancy hat made just for the HoP"
+	icon_state = "hopcap"
+	item_state = "hopcap"

@@ -181,3 +181,18 @@ the sprite and make my own projectile -Glloyd*/
 				user.adjustBrainLoss(10)
 		else
 			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
+
+//Pokertable parts
+
+/obj/item/weapon/table_parts/wood/poker/attack_self(mob/user as mob)
+	new /obj/structure/table/woodentable/poker( user.loc )
+	user.drop_item()
+	del(src)
+
+/obj/item/weapon/table_parts/wood/poker
+	name = "poker table parts"
+	desc = "Keep away from fire, and keep near seedy dealers."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "poker_tableparts"
+	flags = null
+
