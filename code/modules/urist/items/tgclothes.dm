@@ -15,8 +15,8 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon = 'icons/urist/items/tgitems.dmi'
 	desc = "An ancient helmet made of bronze and leather."
 	armor = list(melee = 25, bullet = 0, laser = 25, energy = 10, bomb = 10, bio = 0, rad = 0)
-	icon_state = "roman"
-	item_state = "roman"
+	icon_state = "roman_helm"
+	item_state = "roman_helm"
 
 /obj/item/clothing/head/helmet/roman/legionaire
 	urist_only = 1
@@ -24,8 +24,8 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	name = "roman legionaire helmet"
 	icon = 'icons/urist/items/tgitems.dmi'
 	desc = "An ancient helmet made of bronze and leather. Has a red crest on top of it."
-	icon_state = "roman_c"
-	item_state = "roman_c"
+	icon_state = "roman_helm_c"
+	item_state = "roman_helm_c"
 
 /obj/item/clothing/under/roman
 	urist_only = 1
@@ -44,8 +44,8 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	name = "roman sandals"
 	icon = 'icons/urist/items/tgitems.dmi'
 	desc = "Sandals with buckled leather straps on it."
-	icon_state = "roman"
-	item_state = "roman"
+	icon_state = "roman_boots"
+	item_state = "roman_boots"
 
 /obj/item/weapon/shield/riot/roman
 	urist_only = 1
@@ -161,3 +161,12 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon_state = "suitjacket_black"
 	item_state = "suitjacket_black"
 	blood_overlay_type = "coat"
+
+/obj/item/clothing/head/helmet/urist/hopformal
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "head of personnel cap"
+	icon = 'icons/urist/items/uristclothes.dmi'
+	desc = "A fancy hat made just for the HoP"
+	icon_state = "hopcap"
+	item_state = "hopcap"
