@@ -99,3 +99,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
+
+//poker tables
+
+/obj/structure/table/woodentable/poker //No specialties, Just a mapping object.
+	name = "gambling table"
+	desc = "A seedy table for seedy dealings in seedy places."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "pokertable"
+	parts = /obj/item/weapon/table_parts/wood/poker
+	health = 50
+
+/obj/item/weapon/table_parts/wood/poker
+	name = "poker table parts"
+	desc = "Keep away from fire, and keep near seedy dealers."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "poker_tableparts"
+	flags = null
