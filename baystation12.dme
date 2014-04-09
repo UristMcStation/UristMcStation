@@ -1321,6 +1321,7 @@
 #include "code\modules\telesci\gps.dm"
 #include "code\modules\telesci\telepad.dm"
 #include "code\modules\telesci\telesci_computer.dm"
+#include "code\modules\urist\admin_poll.dm"
 #include "code\modules\urist\uristscience.dm"
 #include "code\modules\urist\area&turf\UMcS Areas and Turfs.dm"
 #include "code\modules\urist\items\airlock_painter.dm"

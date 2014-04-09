@@ -230,6 +230,12 @@ var/list/admin_verbs_hideable = list(
 	/proc/possess,
 	/proc/release
 	)
+
+var/list/admin_verbs_poll = list(
+	/client/proc/showpollpanel	/*allows adding of polls to the database*/
+	)
+
+
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -261,6 +267,7 @@ var/list/admin_verbs_mod = list(
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
+		if(holder.rights & R_POLL)			verbs += admin_verbs_poll
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
@@ -277,6 +284,7 @@ var/list/admin_verbs_mod = list(
 		admin_verbs_rejuv,
 		admin_verbs_sounds,
 		admin_verbs_spawn,
+		admin_verbs_poll,
 		/*Debug verbs added by "show debug verbs"*/
 		/client/proc/Cell,
 		/client/proc/do_not_use_these,
