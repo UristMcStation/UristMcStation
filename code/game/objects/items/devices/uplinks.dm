@@ -134,6 +134,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(uses > 6)
 		randomItems.Add("/obj/item/weapon/aiModule/syndicate") //Hacked AI Upload Module
 		randomItems.Add("/obj/item/device/radio/beacon/syndicate") //Singularity Beacon
+		randomItems.Add("/obj/item/weapon/grenade/syndieminibomb") //Syndie minibomb
 
 	if(uses > 5)
 		randomItems.Add("/obj/item/weapon/gun/projectile") //Revolver
@@ -141,7 +142,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(uses > 4)
 		randomItems.Add("/obj/item/weapon/gun/energy/crossbow") //Energy Crossbow
 		randomItems.Add("/obj/item/device/powersink") //Powersink
-		randomItems.Add("/obj/item/weapon/grenade/syndieminibomb") //Syndie minibomb
 
 	if(uses > 3)
 		randomItems.Add("/obj/item/weapon/melee/energy/sword") //Energy Sword
