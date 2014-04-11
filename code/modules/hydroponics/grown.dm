@@ -19,7 +19,6 @@
 	var/yield = 0
 	var/potency = -1
 	var/plant_type = 0
-	var/splicedreagent
 	icon = 'icons/obj/harvest.dmi'
 	New(newloc,newpotency)
 		if (!isnull(newpotency))

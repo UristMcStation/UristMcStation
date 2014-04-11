@@ -1,4 +1,4 @@
-#define HYDRO_SPEED_MULTIPLIER 3
+#define HYDRO_SPEED_MULTIPLIER 2
 
 /obj/machinery/hydroponics
 	name = "hydroponics tray"
@@ -829,7 +829,6 @@ obj/machinery/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 		t_prod.yield = yield
 		t_prod.potency = potency
 		t_prod.plant_type = plant_type
-		t_prod.splicedreagent = splicedreagent
 		t_prod.postnew()
 		t_amount++
 
