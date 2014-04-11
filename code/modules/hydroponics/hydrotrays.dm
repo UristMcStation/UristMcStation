@@ -829,7 +829,6 @@ obj/machinery/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 		t_prod.yield = yield
 		t_prod.potency = potency
 		t_prod.plant_type = plant_type
-		t_prod.postnew()
 		t_amount++
 
 	parent.update_tray()
