@@ -14,3 +14,27 @@ Please only put items here that don't have a huge definition - Glloyd											
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
 	brightness_on = 5 // A little better than the standard flashlight.
+
+//Fucking powergamers
+
+/obj/item/weapon/book/manual/security_space_law/tg
+	name = "Space Law"
+	desc = "A set of Nanotrasen guidelines for keeping law and order on their space stations."
+	icon_state = "bookSpaceLaw"
+	author = "Nanotrasen"
+	title = "Space Law"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe width='100%' height='97%' src="http://wiki.nanotrasen.com/index.php?title=Space_Law&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+

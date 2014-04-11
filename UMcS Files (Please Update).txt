@@ -18,3 +18,14 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/game/gamemode/game_mode.dm -- orderable minibomb
 
+//Poll stuff
+
+ code/modules/admin/admin_verbs.dm
+
+ code/modules/admin/topic.dm
+
+ code/__HELPERS/type2type.dm 
+
+ code/setup.dm 
+
+
