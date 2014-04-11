@@ -27,10 +27,6 @@
 		src.pixel_x = rand(-5.0, 5)
 		src.pixel_y = rand(-5.0, 5)
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/proc/postnew() // For spliced reagents.
-	if(splicedreagent)
-		reagents.add_reagent(splicedreagent, 1+round((potency / 5), 1))
-
 /obj/item/weapon/reagent_containers/food/snacks/grown/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	..()
 	if (istype(O, /obj/item/device/analyzer/plant_analyzer))
