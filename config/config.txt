@@ -78,11 +78,11 @@ LOG_PDA
 ## default probablity is 1, increase to make that mode more likely to be picked
 ## set to 0 to disable that mode
 PROBABILITY EXTENDED 0
-PROBABILITY MALFUNCTION 1
-PROBABILITY NUCLEAR 1
+PROBABILITY MALFUNCTION 2
+PROBABILITY NUCLEAR 3
 PROBABILITY WIZARD 1
 PROBABILITY CHANGELING 1
-PROBABILITY CULT 1
+PROBABILITY CULT 3
 PROBABILITY EXTEND-A-TRAITORMONGOUS 3
 
 ## Hash out to disable random events during the round.
@@ -101,7 +101,7 @@ TRAITOR_SCALING
 
 
 ## If security is prohibited from being most antagonists
-#PROTECT_ROLES_FROM_ANTAGONIST
+PROTECT_ROLES_FROM_ANTAGONIST
 
 ## Comment this out to stop admins being able to choose their personal ooccolor
 ALLOW_ADMIN_OOCCOLOR
@@ -170,13 +170,13 @@ GUEST_BAN
 #SERVER server.net:port
 
 ## forum address
-# FORUMURL http://example.com
+ FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
 
 ## Wiki address
-# WIKIURL http://example.com
+ WIKIURL http://baystation12.net/wiki/
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-# BANAPPEALS http://example.com
+ BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
