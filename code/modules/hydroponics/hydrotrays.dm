@@ -1,4 +1,4 @@
-#define HYDRO_SPEED_MULTIPLIER 3
+#define HYDRO_SPEED_MULTIPLIER 2
 
 /obj/machinery/hydroponics
 	name = "hydroponics tray"
