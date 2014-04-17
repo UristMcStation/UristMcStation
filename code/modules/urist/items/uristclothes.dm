@@ -295,3 +295,50 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_state = "NTWsuit"
 	item_state = "NTWsuit"
 	item_color = "NTWsuit"
+
+// Trainer outfits
+
+/obj/item/clothing/head/dawn
+	name = "pink beanie"
+	icon_state = "dawnhat"
+	desc = "A cute pink beanie with a wig."
+	item_state = "dawnhat"
+
+/obj/item/clothing/head/redshat
+	name = "red hat"
+	icon_state = "redoutfithat"
+	desc = "A red baseball cap."
+	item_state = "redoutfithat"
+
+/obj/item/clothing/head/blackshat
+	name = "red and white hat"
+	icon_state = "blackoutfithat"
+	desc = "A red and white baseball cap."
+	item_state = "blackoutfithat"
+
+/obj/item/clothing/shoes/dawn
+	name = "pink boots"
+	desc = "Cute pink boots."
+	icon_state = "dawnboots"
+	item_color = "dawnboots"
+
+/obj/item/clothing/under/dawn
+	name = "pink skirt"
+	desc = "This looks recent, but not new."
+	icon_state = "dawnskirt"
+	item_state = "dawnskirt"
+	item_color = "dawnskirt"
+
+/obj/item/clothing/under/redoutfit
+	name = "red outfit"
+	desc = "This looks old."
+	icon_state = "redoutfit"
+	item_state = "redoutfit"
+	item_color = "redoutfit"
+
+/obj/item/clothing/under/blackoutfit
+	name = "blue sweater"
+	desc = "This looks new."
+	icon_state = "blackoutfit"
+	item_state = "blackoutfit"
+	item_color = "blackoutfit"
