@@ -13,7 +13,7 @@ obj/machinery/recharger
 obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(istype(user,/mob/living/silicon))
 		return
-	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton))
+	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton) || istype(G,/obj/item/device/laptop))
 		if(charging)
 			return
 
@@ -79,6 +79,16 @@ obj/machinery/recharger/process()
 				use_power(150)
 			else
 				icon_state = "recharger2"
+			return
+		if(istype(charging, /obj/item/device/laptop))
+			var/obj/item/device/laptop/L = charging
+			if(L.stored_computer.battery.charge < L.stored_computer.battery.maxcharge)
+				L.stored_computer.battery.give(100)
+				icon_state = "recharger1"
+				use_power(250)
+			else
+				icon_state = "recharger2"
+			return
 
 obj/machinery/recharger/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN) || !anchored)
@@ -93,6 +103,8 @@ obj/machinery/recharger/emp_act(severity)
 	else if(istype(charging, /obj/item/weapon/melee/baton))
 		var/obj/item/weapon/melee/baton/B = charging
 		B.charges = 0
+	else if(istype(charging, /obj/item/device/laptop))
+		charging.emp_act(severity)
 	..(severity)
 
 obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
