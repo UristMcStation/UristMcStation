@@ -42,6 +42,8 @@ datum/controller/game_controller/New()
 			del(master_controller)
 		master_controller = src
 
+	createRandomZlevel()
+
 	if(!job_master)
 		job_master = new /datum/controller/occupations()
 		job_master.SetupOccupations()
@@ -55,8 +57,8 @@ datum/controller/game_controller/New()
 datum/controller/game_controller/proc/setup()
 	world.tick_lag = config.Ticklag
 
-	spawn(20)
-		createRandomZlevel()
+	//spawn(20)
+
 
 	if(!air_master)
 		air_master = new /datum/controller/air_system()
@@ -275,7 +277,7 @@ datum/controller/game_controller/proc/process_machines()
 					if(M)
 						if(M.use_power)
 							M.auto_use_power()
-			
+
 		if(A.apc.len && A.master == A)
 			i++
 			continue
@@ -291,8 +293,8 @@ datum/controller/game_controller/proc/process_machines()
 				active_areas |= A
 		rebuild_active_areas = 0
 
-	
-		
+
+
 
 datum/controller/game_controller/proc/process_objects()
 	var/i = 1
