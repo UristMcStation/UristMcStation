@@ -24,7 +24,7 @@ var/const/GENETICIST		=(1<<5)
 var/const/VIROLOGIST		=(1<<6)
 var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
-var/const/XENOBIOLOGIST		=(1<<9)
+//var/const/XENOBIOLOGIST		=(1<<9)
 
 
 var/const/CIVILIAN			=(1<<2)
@@ -80,7 +80,7 @@ var/list/science_positions = list(
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist",
-	"Xenobiologist"
+	//"Xenobiologist"
 )
 
 //BS12 EDIT

@@ -40,13 +40,13 @@
 	flag = SCIENTIST
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 3
+	total_positions = 6
+	spawn_positions = 5
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Plasma Researcher")
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology)
+	alt_titles = list("Xenoarcheologist", "Anomalist", "Plasma Researcher", "Xenobiologist")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -63,7 +63,7 @@
 
 
 
-/datum/job/xenobiologist
+/*/datum/job/xenobiologist
 	title = "Xenobiologist"
 	flag = XENOBIOLOGIST
 	department_flag = MEDSCI
@@ -86,7 +86,7 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
-		return 1
+		return 1*/
 
 
 /datum/job/roboticist
