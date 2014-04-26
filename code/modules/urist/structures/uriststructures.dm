@@ -102,15 +102,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //poker tables
 
-/obj/structure/table/woodentable/poker //No specialties, Just a mapping object.
+/obj/structure/table/poker //No specialties, Just a mapping object.
 	name = "gambling table"
 	desc = "A seedy table for seedy dealings in seedy places."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "pokertable"
-	parts = /obj/item/weapon/table_parts/wood/poker
+	icon_state = "pokertable_table"
+	parts = /obj/item/weapon/table_parts/poker
 	health = 50
 
-/obj/item/weapon/table_parts/wood/poker
+/obj/item/weapon/table_parts/poker
 	name = "poker table parts"
 	desc = "Keep away from fire, and keep near seedy dealers."
 	icon = 'icons/urist/items/tgitems.dmi'
