@@ -1,5 +1,7 @@
 AFFECTED BS12 FILES // Let's do this right this time.
 
+ code/controllers/master_controller.dm -- breaking reality. Oh, and allowing awaymissions to work. LOOK WHAT I DO FOR YOU
+
  code/game/verbs/suicide.dm -- allowing suicide
 
  code/modules/mob/living/carbon/species.dm -- Tajaran fetish outta my game
@@ -17,6 +19,16 @@ AFFECTED BS12 FILES // Let's do this right this time.
  code/global.dm -- Change from Exodus to Urist McStation
 
  code/game/gamemode/game_mode.dm -- orderable minibomb
+
+ code/game/machinery/kitchen/processor.dm -- process ma slimes
+
+ code/game/jobs/jobs.dm -- clowns and mimes and xenobiologist
+
+ code/game/jobs/civilian.dm -- ^
+
+ code/game/jobs/access.dm -- ^
+
+ maps/RandomZLevels -- almost everything here because BS12 doesn't care for awaymaps.
 
 //Poll stuff
 
