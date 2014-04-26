@@ -46,3 +46,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					/obj/item/weapon/reagent_containers/food/drinks/ice = 12,
 					/obj/item/weapon/reagent_containers/food/snacks/candy_corn = 6)
 	contraband = list(/obj/item/weapon/kitchen/utensil/knife = 6)
+
+//nt vanity machine. more here later
+
+/obj/machinery/vending/nanotrasen
+	name = "Nanotrasen vending machine"
+	desc = "A vending machine that dispenses goods with the Nanotrasen colours and logo."
+	product_slogans = "Nanotrasen, working for you!.;Show your loyalty to Nanotrasen!.;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
+	product_ads = "Nanotrasen, definitely not evil!;Nanotrasen, expanding out of control since the 22nd century!;Nanotrasen cares!;Quality goods, quality prices!;Glory to Nanotrasen!;Nanotrasen, paving a brighter future.;Look stylish and loyal!;Nanotrasen, making your work experience better one toolbox at a time!"
+	vend_delay = 34
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "clothing2"
+	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4)
+	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
+	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/weapon/storage/toolbox/nanotrasen = 200)
