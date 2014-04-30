@@ -154,6 +154,11 @@
 					O.show_message(text("\red <B>[src] starts having a seizure!"), 1)
 				Paralyse(10)
 				make_jittery(1000)
+		//woah man, slow down there
+		if(dna.GetSEState(HALLUCINATIONBLOCK))
+			if(prob(1) && hallucination < 1)
+				hallucination += 20
+
 		if (disabilities & COUGHING)
 			if ((prob(5) && paralysis <= 1))
 				drop_item()
@@ -180,17 +185,7 @@
 		if (disabilities & NERVOUS)
 			if (prob(10))
 				stuttering = max(10, stuttering)
-		// No. -- cib
-		/*if (getBrainLoss() >= 60 && stat != 2)
-			if (prob(3))
-				switch(pick(1,2,3))
-					if(1)
-						say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge")] [pick("mellens", "melons", "mwrlins")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#"))
-					if(2)
-						say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!"))
-					if(3)
-						emote("drool")
-		*/
+		// No. -- cib // YES -- Glloyd
 
 		if(stat != 2)
 			var/rn = rand(0, 200)
@@ -209,6 +204,15 @@
 				if(10 <= rn && rn <= 12) if(!lying)
 					src << "\red Your legs won't respond properly, you fall down."
 					resting = 1
+			if (getBrainLoss() >= 60 && stat != 2)
+				if (prob(3))
+					switch(pick(1,2,3))
+						if(1)
+							say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge")] [pick("mellens", "melons", "mwrlins")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#"))
+						if(2)
+							say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!", "VICTOR, RESTART TEH SERVAH","GLLERD FIX PLOS"))
+						if(3)
+							emote("drool")
 
 	proc/handle_stasis_bag()
 		// Handle side effects from stasis bag
@@ -999,7 +1003,7 @@
 			updatehealth()	//TODO
 			if(!in_stasis)
 				handle_organs()	//Optimized.
-				handle_blood()  
+				handle_blood()
 
 			if(health <= config.health_threshold_dead || brain_op_stage == 4.0)
 				death()
@@ -1076,7 +1080,7 @@
 				E = get_visible_implants(0)
 				if(!E.len)
 					embedded_flag = 0
-				
+
 
 			//Eyes
 			if(sdisabilities & BLIND)	//disabled-blind, doesn't get better on its own
@@ -1136,7 +1140,7 @@
 
 		if(hud_updateflag)
 			handle_hud_list()
-	
+
 
 		for(var/image/hud in client.images)
 			if(copytext(hud.icon_state,1,4) == "hud") //ugly, but icon comparison is worse, I believe
@@ -1303,7 +1307,7 @@
 			else if(!seer)
 				see_invisible = SEE_INVISIBLE_LIVING
 
-			
+
 
 			if(healths)
 				if (analgesic)
@@ -1448,7 +1452,7 @@
 					V.activate(src)
 				// activate may have deleted the virus
 				if(!V) continue
-	
+
 				// check if we're immune
 				if(V.antigen & src.antibodies)
 					V.dead = 1

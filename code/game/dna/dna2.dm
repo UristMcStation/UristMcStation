@@ -32,9 +32,9 @@
 #define DNA_UI_HAIR_STYLE  13
 #define DNA_UI_LENGTH      13 // Update this when you add something, or you WILL break shit.
 
-#define DNA_SE_LENGTH 27
-// For later:
-//#define DNA_SE_LENGTH 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
+//#define DNA_SE_LENGTH 27
+// For later: //LATER IS NOW
+#define DNA_SE_LENGTH 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
 
 
 // Defines which values mean "on" or "off".
