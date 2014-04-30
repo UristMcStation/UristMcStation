@@ -195,7 +195,7 @@
 			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
 				var/mob/living/carbon/human/H = src
 				H.w_uniform.add_fingerprint(M)
-
+				
 			if(lying)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)
@@ -205,7 +205,7 @@
 			else
 				M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
 								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-
+								
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)

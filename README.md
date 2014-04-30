@@ -21,6 +21,13 @@ The more complicated and easier to update method is using git.  You'll need to d
 
 This will take a while to download, but it provides an easier method for updating.
 
+Once the repository is in place, run this command:
+```bash
+cd Baystation12
+git update-index --assume-unchanged baystation12.int
+```
+Now git will ignore changes to the file baystation12.int.
+
 ### INSTALLATION
 
 First-time installation should be fairly straightforward.  First, you'll need BYOND installed.  You can get it from [here](http://www.byond.com/).
@@ -77,4 +84,4 @@ The SQL backend for the library and stats tracking requires a MySQL server.  You
 ### IRC Bot Setup
 
 Included in the repo is an IRC bot capable of relaying adminhelps to a specified IRC channel/server (thanks to Skibiliano).  Instructions for bot setup are included in the /bot/ folder along with the bot/relay script itself.
->>>>>>> 8db88ba00a931c9da571ee62d69c5602712df876
+
