@@ -30,6 +30,8 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  maps/RandomZLevels -- almost everything here because BS12 doesn't care for awaymaps.
 
+  icon/mon/human_races --Added two new files
+ 
 //Poll stuff
 
  code/modules/admin/admin_verbs.dm
