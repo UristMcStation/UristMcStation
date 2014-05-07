@@ -41,3 +41,9 @@ Head Admin		+EVERYTHING
 Host			+EVERYTHING
 
 Coder			+DEBUG +VAREDIT +SERVER +SPAWN
+
+Mentor                  +MENTOR
+
+Developer		+DEBUG +VAREDIT +SERVER +SPAWN +REJUV +POSSESS +BUILDMODE
+
+Dev Mod			+@ +MOD
