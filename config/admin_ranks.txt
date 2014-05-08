@@ -42,7 +42,7 @@ Host			+EVERYTHING
 
 Coder			+DEBUG +VAREDIT +SERVER +SPAWN
 
-Mentor                  +MENTOR
+Mentor			+MENTOR
 
 Developer		+DEBUG +VAREDIT +SERVER +SPAWN +REJUV +POSSESS +BUILDMODE
 
