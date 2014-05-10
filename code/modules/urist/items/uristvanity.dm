@@ -74,3 +74,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/weapon/wrench(src)
 		new /obj/item/weapon/crowbar/nanotrasen(src)
 		new /obj/item/device/flashlight/nanotrasen(src)
+
+/obj/item/weapon/storage/fancy/cigarettes/lights
+	name = "cigarette packet lights"
+	desc = "The cigarettes for those who like things on the light side."
+	icon = 'icons/urist/uristicons.dmi'
+	icon_state = "Lpacket"
+	item_state = "Lpacket"
+	w_class = 1
+	throwforce = 2
+	flags = TABLEPASS
+	slot_flags = SLOT_BELT
+	storage_slots = 6
+	can_hold = list("/obj/item/clothing/mask/cigarette")
+	icon_type = "cigarette"
