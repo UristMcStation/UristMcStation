@@ -57,6 +57,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_delay = 34
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "clothing2"
-	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4)
+	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4,/obj/item/weapon/storage/fancy/cigarettes/lights = 10)
 	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
-	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/weapon/storage/toolbox/nanotrasen = 200)
+	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/weapon/storage/toolbox/nanotrasen = 200,/obj/item/weapon/storage/fancy/cigarettes/lights = 15)
