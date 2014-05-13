@@ -5,12 +5,12 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-kg333 - Host
-vactor - Host
+kg333 - Host #Founder
+vactor - Host #Hero of the Station
 electronics111 - Game Master
 #Electronics
 bdthemag - Game Master
-androidsfv - Game Master
+androidsfv - Game Master #Former Head Admin
 glloyd - Head Admin
 Nienhaus2 - Game Master
 hanspanda - Game Master
@@ -22,6 +22,7 @@ CoraiUnki - Game Master
 #Corai
 Kydrasz - Game Master
 MisterTeeth - Game Master
+Stefender - Trial Admin
 
 
 greatorder - Moderator
