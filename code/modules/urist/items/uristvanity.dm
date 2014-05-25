@@ -75,6 +75,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/weapon/crowbar/nanotrasen(src)
 		new /obj/item/device/flashlight/nanotrasen(src)
 
+
+
+//light cigs
+
 /obj/item/weapon/storage/fancy/cigarettes/lights
 	name = "cigarette packet lights"
 	desc = "The cigarettes for those who like things on the light side."
@@ -88,3 +92,40 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/cigarette")
 	icon_type = "cigarette"
+
+//watches
+
+/obj/item/clothing/tie/watch
+	icon = 'icons/urist/items/uristclothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+
+/obj/item/clothing/tie/watch/wrist
+	name = "wrist watch"
+	desc = "A black plastic analog wristwatch."
+	icon_state = "w_watch"
+	item_color = "w_watch"
+
+/obj/item/clothing/tie/watch/pocket
+	name = "pocket watch"
+	desc = "A fancy brass analog pocketwatch."
+	icon_state = "p_watch"
+	item_color = "p_watch"
+
+/obj/item/clothing/tie/watch/examine()
+	usr << "[desc] The time reads [worldtime2text()]."
+
+//comb
+
+obj/item/weapon/vanity/comb
+	name = "purple comb"
+	desc = "A pristine purple comb made from flexible plastic."
+	w_class = 2.0
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "purplecomb"
+	item_state = "purplecomb"
+
+	attack_self(mob/user)
+		if(user.r_hand == src || user.l_hand == src)
+			for(var/mob/O in viewers(user, null))
+				O.show_message(text("\red [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.", user, src), 1)
+		return

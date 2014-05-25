@@ -92,3 +92,29 @@
 	desc="A silver zippo lighter with intricate engravings made just for you!"
 	typepath=/obj/item/weapon/lighter/zippo/vanity/engraved
 	cost = 650
+
+/////////////////////////////////////////////////////////
+//                      A COMB.                        //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/combpurple
+	name="Purple Comb"
+	desc="A simple purple comb made out of flexible plastic."
+	typepath=/obj/item/weapon/vanity/comb
+	cost = 200
+
+/////////////////////////////////////////////////////////
+//                     Watches                         //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/pocketwatch
+	name="Brass Pocket Watch"
+	desc="A brass pocket watch, for keeping track of time in the cold dark void!"
+	typepath=/obj/item/clothing/tie/watch/pocket
+	cost = 300
+
+/datum/storeitem/wristwatch
+	name="Black Wrist Watch"
+	desc="A black plastic wrist watch, for keeping track of time in the cold dark void!"
+	typepath=/obj/item/clothing/tie/watch/wrist
+	cost = 300
