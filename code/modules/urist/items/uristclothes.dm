@@ -5,6 +5,14 @@ All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how muc
 
 Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swimsuits, detective gear, cap's jacket, HoP whimsy and storage webbing stuff.*/
 
+//this is important to save me time with all these dresses
+
+/obj/item/clothing/under/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'icons/urist/items/uristclothes.dmi'
+
+
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
 
@@ -295,3 +303,86 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_state = "NTWsuit"
 	item_state = "NTWsuit"
 	item_color = "NTWsuit"
+
+//matching hats
+
+/obj/item/clothing/head/soft/nanotrasen/blue
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "blue nanotrasen cap"
+	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a white N on the front."
+	icon = 'icons/urist/items/uristclothes.dmi'
+	icon_state = "ntbluesoft"
+	item_color = "ntblue"
+
+/obj/item/clothing/head/soft/nanotrasen/white
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "white nanotrasen cap"
+	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a blue N on the front."
+	icon = 'icons/urist/items/uristclothes.dmi'
+	icon_state = "ntwhitesoft"
+	item_color = "ntwhite"
+
+//SO MANY FUCKING DRESSES
+
+/obj/item/clothing/under/urist/dress/teal
+	name = "teal dress"
+	desc = "A pretty teal dress, for pretty ladies."
+	icon_state = "tealdress"
+	item_color = "tealdress"
+	item_state = "tealdress"
+
+/obj/item/clothing/under/urist/dress/yellow
+	name = "floral yellow dress"
+	desc = "A pretty yellow dress with some cute designs on it."
+	icon_state = "yellowdress"
+	item_color = "yellowdress"
+	item_state = "yellowdress"
+
+/obj/item/clothing/under/urist/dress/white1
+	name = "short white dress"
+	desc = "A pretty white dress. Short and sweet!"
+	icon_state = "wd1"
+	item_color = "wd1"
+	item_state = "wd1"
+
+/obj/item/clothing/under/urist/dress/white2
+	name = "long white dress"
+	desc = "A beautiful long white dress. Looks more formal than most dresses."
+	icon_state = "wd2"
+	item_color = "wd2"
+	item_state = "wd2"
+
+/obj/item/clothing/under/urist/dress/princess
+	name = "princess dress"
+	desc = "A cute dress fit for a princess!"
+	icon_state = "princess"
+	item_color = "princess"
+	item_state = "princess"
+
+obj/item/clothing/head/princessbow
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/uristclothes.dmi'
+	name = "princess bow"
+	desc = "A cute bow fit for a princess."
+	icon_state = "princess_bow"
+	item_color = "princess_bow"
+	item_state = "princess_bow"
+
+//nurse joy
+
+obj/item/clothing/under/urist/rank/nurse
+	name = "white nurse outfit"
+	desc = "A pretty nurse outfit. It brings a sense of joy to you."
+	icon_state = "nursejoy"
+	item_color = "nursejoy"
+	item_state = "nursejoy"
+
+//alt alt RD
+
+obj/item/clothing/under/urist/rank/rdgreen
+	name = "green RD's outfit"
+	desc = "A cute green outfit sometimes worn by the Research Director."
+	icon_state = "emaRD"
+	item_color = "emaRD"
+	item_state = "emaRD"
