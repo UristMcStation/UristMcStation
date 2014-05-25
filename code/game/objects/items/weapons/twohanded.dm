@@ -139,6 +139,7 @@
  * Double-Bladed Energy Swords - Cheridan
  */
 /obj/item/weapon/twohanded/dualsaber
+	urist_only = 1
 	icon_state = "dualsaber0"
 	name = "double-bladed energy sword"
 	desc = "Handle with care."
@@ -156,6 +157,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
 /obj/item/weapon/twohanded/dualsaber/update_icon()
+	urist_only = 1
 	icon_state = "dualsaber[wielded]"
 	return
 
