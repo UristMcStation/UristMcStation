@@ -1679,6 +1679,34 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbox
+	elem "donate"
+		type = BUTTON
+		pos = 480,-2
+		size = 60x20
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = #A3E0FF
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Donate"
+		image = ""
+		command = "Donate"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = ""
+		button-type = pushbutton
 
 window "browserwindow"
 	elem "browserwindow"
