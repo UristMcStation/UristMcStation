@@ -30,7 +30,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "vest_wire_tight_metal"
 	item_state = "hazard"
-	armor = list(melee = 25, bullet = 10, laser = 5, energy = 0, bomb = 5, bio = 0, rad = 0)//roughly half as effective as sec armour
+	armor = list(melee = 27, bullet = 12, laser = 5, energy = 0, bomb = 5, bio = 0, rad = 0)//roughly half as effective as sec armour
 
 /obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
 	..()
