@@ -12,6 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "machete"
 	item_state = "machete"
+	sharp = 1
 	flags = FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
 	force = 20
