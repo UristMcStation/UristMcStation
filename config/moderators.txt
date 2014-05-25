@@ -6,5 +6,8 @@
 ;ozarck
 ;donuts223
 ;frost titan
+
+magnetite
+
 ; Why u no keep list in alphabetical order?! Lazies! Lazies! -Abi
 ; Imma best alphabetiser - Erthilo
