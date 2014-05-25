@@ -99,6 +99,12 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	charges = 1
 	slot_flags = null
 
+/obj/item/weapon/melee/baton/cattleprod/update_icon()
+	if(status)
+		icon_state = "stunprod_active"
+	else
+		icon_state = "stunprod"
+
 //END /tg/ stuff
 
 //begin Urist stuff
@@ -134,20 +140,28 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together and sharpened on one end."
 	throwforce = 15	*/
 
-/obj/item/weapon/shard/shiv
-	urist_only = 1
+/obj/item/weapon/shiv
 	name = "shiv"
 	desc = "A small improvised blade made out of a glass shard. Looks like it could do some damage to a kidney or two..."
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "shiv"
+	item_state = "shard-glass"
 	force = 10
 	throwforce = 5
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	w_class = 2.0
+	sharp = 1
+
+	suicide_act(mob/user)
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the shard of glass! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the shard of glass! It looks like \he's trying to commit suicide.</b>")
+		return (BRUTELOSS)
 
 obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
-		var/obj/item/weapon/shard/shiv/S = new /obj/item/weapon/shard/shiv
+		var/obj/item/weapon/shiv/S = new /obj/item/weapon/shiv
 		user.before_take_item(I)
 		user.before_take_item(src)
 

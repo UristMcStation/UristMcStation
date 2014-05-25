@@ -12,6 +12,11 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/uristclothes.dmi'
 
+/obj/item/clothing/head/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/uristclothes.dmi'
+
 
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
@@ -386,3 +391,42 @@ obj/item/clothing/under/urist/rank/rdgreen
 	icon_state = "emaRD"
 	item_color = "emaRD"
 	item_state = "emaRD"
+
+//fixing hats
+
+/obj/item/clothing/head/urist/beaverhat
+	name = "beaver hat"
+	icon_state = "beaver_hat"
+	item_state = "beaver_hat"
+	desc = "Like a top hat, but made of beavers."
+	flags = FPRINT|TABLEPASS
+
+/obj/item/clothing/head/urist/boaterhat
+	name = "boater hat"
+	icon_state = "boater_hat"
+	item_state = "boater_hat"
+	desc = "Goes well with celery."
+	flags = FPRINT|TABLEPASS
+
+/obj/item/clothing/head/urist/fedora
+	name = "\improper fedora"
+	icon_state = "fedora"
+	item_state = "fedora"
+	desc = "A great hat ruined by being within fifty yards of you."
+	flags = FPRINT|TABLEPASS
+
+//TIPS FEDORA
+/obj/item/clothing/head/urist/fedora/verb/tip_fedora()
+	set name = "Tip Fedora"
+	set category = "Object"
+	set desc = "Show those scum who's boss."
+
+	usr << "You tip your fedora."
+	usr.visible_message("[usr] tips his fedora.")
+
+/obj/item/clothing/head/urist/fez
+	name = "\improper fez"
+	icon_state = "fez"
+	item_state = "fez"
+	desc = "Put it on your monkey, make lots of cash money."
+	flags = FPRINT|TABLEPASS
