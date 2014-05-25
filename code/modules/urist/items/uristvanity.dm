@@ -80,7 +80,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //light cigs
 
 /obj/item/weapon/storage/fancy/cigarettes/lights
-	name = "cigarette packet lights"
+	name = "'lights' cigarette packet"
 	desc = "The cigarettes for those who like things on the light side."
 	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "Lpacket"
