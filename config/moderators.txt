@@ -8,6 +8,7 @@
 ;frost titan
 
 magnetite
+knoxon
 
 ; Why u no keep list in alphabetical order?! Lazies! Lazies! -Abi
 ; Imma best alphabetiser - Erthilo
