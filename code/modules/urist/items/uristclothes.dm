@@ -430,3 +430,13 @@ obj/item/clothing/under/urist/rank/rdgreen
 	item_state = "fez"
 	desc = "Put it on your monkey, make lots of cash money."
 	flags = FPRINT|TABLEPASS
+
+//trolololo
+
+/obj/item/clothing/under/sakura_hokkaido_kimono
+	name = "Kimono"
+	desc = "A pale-pink, nearly white, kimono with a red and gold obi. There is a embroidered design of cherry blossom flowers covering the kimono."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "sakura_hokkaido_kimono"
+	item_state = "sakura_hokkaido_kimono"
+	item_color = "sakura_hokkaido_kimono"
