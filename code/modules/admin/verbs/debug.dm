@@ -533,6 +533,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	//log_admin("[key_name(src)] has alienized [M.key].")
 	var/list/dresspacks = list(
 		"strip",
+		"assistant grey",
 		"standard space gear",
 		"tournament standard red",
 		"tournament standard green",
@@ -567,6 +568,25 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	switch(dresscode)
 		if ("strip")
 			//do nothing
+		if ("assistant grey")
+			var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack(M)
+			new /obj/item/weapon/storage/box/survival(BPK)
+			M.equip_to_slot_or_del(BPK, slot_back,1)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card (Assistant)"
+			W.assignment = "Assistant"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+			var/obj/item/device/pda/P = new(M)
+			P.owner = M.real_name
+			P.ownjob = "Assistant"
+			P.name = "PDA-[M.real_name] (Assistant)"
+			M.equip_to_slot_or_del(P, slot_belt)
+
 		if ("standard space gear")
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
 
@@ -1043,13 +1063,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		T.zone.air.nitrogen += 450
 		T.zone.air.temperature = 50
 		T.zone.air.update_values()
-				
-				
+
+
 	log_admin("[key_name(usr)] setup the supermatter engine [response == "Setup except coolant" ? "without coolant" : ""]")
 	message_admins("\blue [key_name_admin(usr)] setup the supermatter engine  [response == "Setup except coolant" ? "without coolant": ""]", 1)
 	return
-			
-	
+
+
 
 /client/proc/cmd_debug_mob_lists()
 	set category = "Debug"
