@@ -96,7 +96,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //watches
 
 /obj/item/clothing/tie/watch
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 
 /obj/item/clothing/tie/watch/wrist

@@ -61,7 +61,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/under/urist/suit_jacket
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/under/urist/suit_jacket/charcoal
 	name = "charcoal suit"
@@ -108,7 +108,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/under/urist/formal
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
 
 /obj/item/clothing/under/urist/formal/captainformal
 	name = "captain's formal uniform"
@@ -155,7 +155,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/suit/urist/blackjacket
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 	name = "black suit jacket"
 	desc = "A professional suit jacket."
 	icon_state = "suitjacket_black"
@@ -166,7 +166,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	urist_only = 1
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "head of personnel cap"
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
 	desc = "A fancy hat made just for the HoP"
 	icon_state = "hopcap"
 	item_state = "hopcap"

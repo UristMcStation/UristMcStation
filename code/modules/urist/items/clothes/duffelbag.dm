@@ -3,7 +3,7 @@
 /obj/item/weapon/storage/backpack/duffel
 	urist_only = 1
 	icon_override = 'icons/uristmob/back.dmi'
-	icon = 'icons/urist/items/uristclothes.dmi'
+	icon = 'icons/urist/items/clothes/back.dmi'
 
 /obj/item/weapon/storage/backpack/duffel/duffel_norm
 	name = "duffel bag"
