@@ -18,7 +18,7 @@ LINEN BINS
 	throw_range = 2
 	w_class = 1.0
 	item_color = "white"
-
+	var/on = 1
 
 /obj/item/weapon/bedsheet/attack_self(mob/user as mob)
 	user.drop_item()
@@ -29,6 +29,9 @@ LINEN BINS
 	add_fingerprint(user)
 	return
 
+/obj/item/weapon/bedsheet/white
+	icon_state = "sheet"
+	item_color = "white"
 
 /obj/item/weapon/bedsheet/blue
 	icon_state = "sheetblue"
@@ -202,13 +205,13 @@ LINEN BINS
 	if(amount >= 1)
 		amount--
 
-		var/obj/item/weapon/bedsheet/B
+		var/obj/item/weapon/bedsheet/white/B
 		if(sheets.len > 0)
 			B = sheets[sheets.len]
 			sheets.Remove(B)
 
 		else
-			B = new /obj/item/weapon/bedsheet(loc)
+			B = new /obj/item/weapon/bedsheet/white(loc)
 
 		B.loc = user.loc
 		user.put_in_hands(B)
@@ -226,13 +229,13 @@ LINEN BINS
 	if(amount >= 1)
 		amount--
 
-		var/obj/item/weapon/bedsheet/B
+		var/obj/item/weapon/bedsheet/white/B
 		if(sheets.len > 0)
 			B = sheets[sheets.len]
 			sheets.Remove(B)
 
 		else
-			B = new /obj/item/weapon/bedsheet(loc)
+			B = new /obj/item/weapon/bedsheet/white(loc)
 
 		B.loc = loc
 		user << "<span class='notice'>You telekinetically remove [B] from [src].</span>"
@@ -244,3 +247,330 @@ LINEN BINS
 
 
 	add_fingerprint(user)
+
+//bedsheet bandanas
+//I KNOW THERE IS A BETTER WAY TO DO THIS USING COLOURS, BUT I'M DOING THIS QUICK AND DIRTY SO PEOPLE STOP BITCHING AT ME. I WILL RETURN TO CLEAN THIS UP.
+
+/obj/item/weapon/bedsheet/white/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/white/B = new /obj/item/clothing/mask/bandana/bedsheet/white
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/blue/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/blue/B = new /obj/item/clothing/mask/bandana/bedsheet/blue
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/orange/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/orange/B = new /obj/item/clothing/mask/bandana/bedsheet/orange
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/red/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/red/B = new /obj/item/clothing/mask/bandana/bedsheet/red
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/purple/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/purple/B = new /obj/item/clothing/mask/bandana/bedsheet/purple
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/green/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/green/B = new /obj/item/clothing/mask/bandana/bedsheet/green
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/yellow/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/yellow/B = new /obj/item/clothing/mask/bandana/bedsheet/yellow
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/rainbow/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/rainbow/B = new /obj/item/clothing/mask/bandana/bedsheet/rainbow
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/brown/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/brown/B = new /obj/item/clothing/mask/bandana/bedsheet/brown
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/captain/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/captain/B = new /obj/item/clothing/mask/bandana/bedsheet/captain
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/hop/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/hop/B = new /obj/item/clothing/mask/bandana/bedsheet/hop
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/ce/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/ce/B = new /obj/item/clothing/mask/bandana/bedsheet/ce
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/hos/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/hos/B = new /obj/item/clothing/mask/bandana/bedsheet/hos
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+
+/obj/item/weapon/bedsheet/medical/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/medical/B = new /obj/item/clothing/mask/bandana/bedsheet/medical
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/cmo/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/cmo/B = new /obj/item/clothing/mask/bandana/bedsheet/cmo
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/rd/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/rd/B = new /obj/item/clothing/mask/bandana/bedsheet/rd
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/qm/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/qm/B = new /obj/item/clothing/mask/bandana/bedsheet/qm
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/centcom/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/centcom/B = new /obj/item/clothing/mask/bandana/bedsheet/centcom
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/syndie/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/syndie/B = new /obj/item/clothing/mask/bandana/bedsheet/syndie
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/cult/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/cult/B = new /obj/item/clothing/mask/bandana/bedsheet/cult
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/wiz/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/wiz/B = new /obj/item/clothing/mask/bandana/bedsheet/wiz
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/clown/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/clown/B = new /obj/item/clothing/mask/bandana/bedsheet/clown
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
+/obj/item/weapon/bedsheet/mime/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	var/mob/living/carbon/human/user = usr
+	if(on)
+		var/obj/item/clothing/mask/bandana/bedsheet/mime/B = new /obj/item/clothing/mask/bandana/bedsheet/mime
+
+		user.before_take_item(src)
+
+		user.put_in_hands(B)
+		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
+		del(src)
+
