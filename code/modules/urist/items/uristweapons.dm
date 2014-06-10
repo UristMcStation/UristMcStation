@@ -86,8 +86,8 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/energy/plasmapistol
 	urist_only = 1
-	name = "plasma pistol"
-	desc = "An experimental weapon that works by ionizing plasma and firing it in a particular direction, poisoning someone."
+	name = "phoron pistol"
+	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "plasmapistol"
 	item_state = "gun"
@@ -104,7 +104,7 @@ the sprite and make my own projectile -Glloyd*/
 		return(BRUTELOSS)
 
 /obj/item/projectile/energy/plasma2
-	name = "ionized plasma"
+	name = "ionized phoron"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "plasma"
 	damage = 20
