@@ -108,7 +108,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 /obj/item/clothing/under/urist/formal
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/clothes/head.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/under/urist/formal/captainformal
 	name = "captain's formal uniform"
