@@ -778,6 +778,8 @@ datum
 			on_mob_life(var/mob/living/M as mob)
 				if (volume > overdose)
 					M.hallucination = max(M.hallucination, 2)
+				..()
+				return
 
 		tramadol
 			name = "Tramadol"
@@ -790,6 +792,8 @@ datum
 			on_mob_life(var/mob/living/M as mob)
 				if (volume > overdose)
 					M.hallucination = max(M.hallucination, 2)
+				..()
+				return
 
 		oxycodone
 			name = "Oxycodone"
@@ -803,6 +807,8 @@ datum
 				if (volume > overdose)
 					M.druggy = max(M.druggy, 10)
 					M.hallucination = max(M.hallucination, 3)
+				..()
+				return
 
 
 		virus_food
@@ -1543,10 +1549,10 @@ datum
 				..()
 				return
 
-		toxin/plasma
-			name = "Plasma"
-			id = "plasma"
-			description = "Plasma in its liquid form."
+		toxin/phoron
+			name = "Phoron"
+			id = "phoron"
+			description = "Phoron in its liquid form."
 			reagent_state = LIQUID
 			color = "#E71B00" // rgb: 231, 27, 0
 			toxpwr = 3

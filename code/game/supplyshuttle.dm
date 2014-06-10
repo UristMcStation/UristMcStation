@@ -37,8 +37,8 @@ var/list/mechtoys = list(
 //SUPPLY PACKS MOVED TO /code/defines/obj/supplypacks.dm
 
 /obj/structure/plasticflaps //HOW DO YOU CALL THOSE THINGS ANYWAY
-	name = "\improper Plastic flaps"
-	desc = "I definitely cant get past those. No way."
+	name = "\improper plastic flaps"
+	desc = "Completely impassable - or are they?"
 	icon = 'icons/obj/stationobjs.dmi' //Change this.
 	icon_state = "plasticflaps"
 	density = 0
@@ -56,7 +56,7 @@ var/list/mechtoys = list(
 
 	else if(istype(A, /mob/living)) // You Shall Not Pass!
 		var/mob/living/M = A
-		if(!M.lying && !istype(M, /mob/living/carbon/monkey) && !istype(M, /mob/living/carbon/slime) && !istype(M, /mob/living/simple_animal/mouse))  //If your not laying down, or a small creature, no pass.
+		if(!M.lying && !istype(M, /mob/living/carbon/monkey) && !istype(M, /mob/living/carbon/slime) && !istype(M, /mob/living/simple_animal/mouse) && !istype(M, /mob/living/silicon/robot/drone))  //If your not laying down, or a small creature, no pass.
 			return 0
 	return ..()
 
@@ -134,7 +134,7 @@ var/list/mechtoys = list(
 	var/points_per_process = 1
 	var/points_per_slip = 2
 	var/points_per_crate = 5
-	var/plasma_per_point = 2 // 2 plasma for 1 point
+	var/phoron_per_point = 2 // 2 phoron for 1 point
 	//control
 	var/ordernum
 	var/list/shoppinglist = list()
@@ -234,7 +234,7 @@ var/list/mechtoys = list(
 		var/area/shuttle = locate(shuttle_at)
 		if(!shuttle)	return
 
-		var/plasma_count = 0
+		var/phoron_count = 0
 
 		for(var/atom/movable/MA in shuttle)
 			if(MA.anchored)	continue
@@ -254,14 +254,14 @@ var/list/mechtoys = list(
 							find_slip = 0
 						continue
 
-					// Sell plasma
-					if(istype(A, /obj/item/stack/sheet/mineral/plasma))
-						var/obj/item/stack/sheet/mineral/plasma/P = A
-						plasma_count += P.amount
+					// Sell phoron
+					if(istype(A, /obj/item/stack/sheet/mineral/phoron))
+						var/obj/item/stack/sheet/mineral/phoron/P = A
+						phoron_count += P.amount
 			del(MA)
 
-		if(plasma_count)
-			points += Floor(plasma_count / plasma_per_point)
+		if(phoron_count)
+			points += Floor(phoron_count / phoron_per_point)
 
 	//Buyin
 	proc/buy()
@@ -497,36 +497,8 @@ var/list/mechtoys = list(
 		user << "\blue Special supplies unlocked."
 		hacked = 1
 		return
-	if(istype(I, /obj/item/weapon/screwdriver))
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
-			if (stat & BROKEN)
-				user << "\blue The broken glass falls out."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( loc )
-				new /obj/item/weapon/shard( loc )
-				var/obj/item/weapon/circuitboard/supplycomp/M = new /obj/item/weapon/circuitboard/supplycomp( A )
-				for (var/obj/C in src)
-					C.loc = loc
-				A.circuit = M
-				A.state = 3
-				A.icon_state = "3"
-				A.anchored = 1
-				del(src)
-			else
-				user << "\blue You disconnect the monitor."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( loc )
-				var/obj/item/weapon/circuitboard/supplycomp/M = new /obj/item/weapon/circuitboard/supplycomp( A )
-				if(can_order_contraband)
-					M.contraband_enabled = 1
-				for (var/obj/C in src)
-					C.loc = loc
-				A.circuit = M
-				A.state = 4
-				A.icon_state = "4"
-				A.anchored = 1
-				del(src)
 	else
-		attack_hand(user)
+		..()
 	return
 
 /obj/machinery/computer/supplycomp/Topic(href, href_list)

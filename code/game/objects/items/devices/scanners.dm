@@ -174,13 +174,14 @@ REAGENT SCANNER
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
 			var/blood_percent =  blood_volume / 560
+			var/blood_type = M.dna.b_type
 			blood_percent *= 100
-			if(blood_volume <= 500)
-				user.show_message("\red <b>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl")
+			if(blood_volume <= 500 && blood_volume > 336)
+				user.show_message("\red <b>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl.\blue Type: [blood_type]")
 			else if(blood_volume <= 336)
-				user.show_message("\red <b>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl")
+				user.show_message("\red <b>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl.\blue Type: [blood_type]")
 			else
-				user.show_message("\blue Blood Level Normal: [blood_percent]% [blood_volume]cl")
+				user.show_message("\blue Blood Level Normal: [blood_percent]% [blood_volume]cl. Type: [blood_type]")
 		user.show_message("\blue Subject's pulse: <font color='[H.pulse == PULSE_THREADY || H.pulse == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font>")
 	src.add_fingerprint(user)
 	return
@@ -238,9 +239,9 @@ REAGENT SCANNER
 		var/o2_concentration = environment.oxygen/total_moles
 		var/n2_concentration = environment.nitrogen/total_moles
 		var/co2_concentration = environment.carbon_dioxide/total_moles
-		var/plasma_concentration = environment.toxins/total_moles
+		var/phoron_concentration = environment.phoron/total_moles
 
-		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
+		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+phoron_concentration)
 		if(abs(n2_concentration - N2STANDARD) < 20)
 			user.show_message("\blue Nitrogen: [round(n2_concentration*100)]%", 1)
 		else
@@ -256,8 +257,8 @@ REAGENT SCANNER
 		else
 			user.show_message("\blue CO2: [round(co2_concentration*100)]%", 1)
 
-		if(plasma_concentration > 0.01)
-			user.show_message("\red Plasma: [round(plasma_concentration*100)]%", 1)
+		if(phoron_concentration > 0.01)
+			user.show_message("\red Phoron: [round(phoron_concentration*100)]%", 1)
 
 		if(unknown_concentration > 0.01)
 			user.show_message("\red Unknown: [round(unknown_concentration*100)]%", 1)

@@ -34,6 +34,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole
 	name = "R&D Console"
 	icon_state = "rdcomp"
+	circuit = /obj/item/weapon/circuitboard/rdconsole
 	var/datum/research/files							//Stores all the collected research data.
 	var/obj/item/weapon/disk/tech_disk/t_disk = null	//Stores the technology disk.
 	var/obj/item/weapon/disk/design_disk/d_disk = null	//Stores the design disk.
@@ -46,7 +47,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/id = 0			//ID of the computer (for server restrictions).
 	var/sync = 1		//If sync = 0, it doesn't show up on Server Control Console
 
-	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
+	req_access = list(access_research)	//Data and setting manipulation requires scientist access.
 
 
 /obj/machinery/computer/rdconsole/proc/CallTechName(var/ID) //A simple helper proc to find the name of a tech with a given ID.
@@ -77,8 +78,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				return_name = "Gold"
 			if("silver")
 				return_name = "Silver"
-			if("plasma")
-				return_name = "Solid Plasma"
+			if("phoron")
+				return_name = "Solid Phoron"
 			if("uranium")
 				return_name = "Uranium"
 			if("diamond")
@@ -141,35 +142,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 */
 
 /obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
-	//The construction/deconstruction of the console code.
-	if(istype(D, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
-			if (src.stat & BROKEN)
-				user << "\blue The broken glass falls out."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-				new /obj/item/weapon/shard( src.loc )
-				var/obj/item/weapon/circuitboard/rdconsole/M = new /obj/item/weapon/circuitboard/rdconsole( A )
-				for (var/obj/C in src)
-					C.loc = src.loc
-				A.circuit = M
-				A.state = 3
-				A.icon_state = "3"
-				A.anchored = 1
-				del(src)
-			else
-				user << "\blue You disconnect the monitor."
-				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-				var/obj/item/weapon/circuitboard/rdconsole/M = new /obj/item/weapon/circuitboard/rdconsole( A )
-				for (var/obj/C in src)
-					C.loc = src.loc
-				A.circuit = M
-				A.state = 4
-				A.icon_state = "4"
-				A.anchored = 1
-				del(src)
 	//Loading a disk into it.
-	else if(istype(D, /obj/item/weapon/disk))
+	if(istype(D, /obj/item/weapon/disk))
 		if(t_disk || d_disk)
 			user << "A disk is already loaded into the machine."
 			return
@@ -186,6 +160,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
 		user << "\blue You you disable the security protocols"
+	else
+		//The construction/deconstruction of the console code.
+		..()
+	
 	src.updateUsrDialog()
 	return
 
@@ -377,8 +355,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 									linked_lathe.gold_amount = max(0, (linked_lathe.gold_amount-being_built.materials[M]))
 								if("$silver")
 									linked_lathe.silver_amount = max(0, (linked_lathe.silver_amount-being_built.materials[M]))
-								if("$plasma")
-									linked_lathe.plasma_amount = max(0, (linked_lathe.plasma_amount-being_built.materials[M]))
+								if("$phoron")
+									linked_lathe.phoron_amount = max(0, (linked_lathe.phoron_amount-being_built.materials[M]))
 								if("$uranium")
 									linked_lathe.uranium_amount = max(0, (linked_lathe.uranium_amount-being_built.materials[M]))
 								if("$diamond")
@@ -469,9 +447,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			if("silver")
 				type = /obj/item/stack/sheet/mineral/silver
 				res_amount = "silver_amount"
-			if("plasma")
-				type = /obj/item/stack/sheet/mineral/plasma
-				res_amount = "plasma_amount"
+			if("phoron")
+				type = /obj/item/stack/sheet/mineral/phoron
+				res_amount = "phoron_amount"
 			if("uranium")
 				type = /obj/item/stack/sheet/mineral/uranium
 				res_amount = "uranium_amount"
@@ -739,8 +717,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 								if(D.materials[M] > linked_lathe.gold_amount) check_materials = 0
 							if("$silver")
 								if(D.materials[M] > linked_lathe.silver_amount) check_materials = 0
-							if("$plasma")
-								if(D.materials[M] > linked_lathe.plasma_amount) check_materials = 0
+							if("$phoron")
+								if(D.materials[M] > linked_lathe.phoron_amount) check_materials = 0
 							if("$uranium")
 								if(D.materials[M] > linked_lathe.uranium_amount) check_materials = 0
 							if("$diamond")
@@ -786,12 +764,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			if(linked_lathe.silver_amount >= 10000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=silver;lathe_ejectsheet_amt=5'>(5 Sheets)</A> "
 			if(linked_lathe.silver_amount >= 2000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=silver;lathe_ejectsheet_amt=50'>(Max Sheets)</A>"
 			dat += "<BR>"
-			//Plasma
-			dat += "* [linked_lathe.plasma_amount] cm<sup>3</sup> of Solid Plasma || "
+			//Phoron
+			dat += "* [linked_lathe.phoron_amount] cm<sup>3</sup> of Solid Phoron || "
 			dat += "Eject: "
-			if(linked_lathe.plasma_amount >= 2000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=plasma;lathe_ejectsheet_amt=1'>(1 Sheet)</A> "
-			if(linked_lathe.plasma_amount >= 10000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=plasma;lathe_ejectsheet_amt=5'>(5 Sheets)</A> "
-			if(linked_lathe.plasma_amount >= 2000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=plasmalathe_ejectsheet_amt=50'>(Max Sheets)</A>"
+			if(linked_lathe.phoron_amount >= 2000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=phoron;lathe_ejectsheet_amt=1'>(1 Sheet)</A> "
+			if(linked_lathe.phoron_amount >= 10000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=phoron;lathe_ejectsheet_amt=5'>(5 Sheets)</A> "
+			if(linked_lathe.phoron_amount >= 2000) dat += "<A href='?src=\ref[src];lathe_ejectsheet=phoronlathe_ejectsheet_amt=50'>(Max Sheets)</A>"
 			dat += "<BR>"
 			//Uranium
 			dat += "* [linked_lathe.uranium_amount] cm<sup>3</sup> of Uranium || "

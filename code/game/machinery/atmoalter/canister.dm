@@ -34,8 +34,8 @@
 	icon_state = "blue"
 	canister_color = "blue"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/toxins
-	name = "Canister \[Toxin (Bio)\]"
+/obj/machinery/portable_atmospherics/canister/phoron
+	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
 	can_label = 0
@@ -171,7 +171,7 @@ update_flag
 	else
 		can_label = 0
 
-	if(air_contents.temperature > PLASMA_FLASHPOINT)
+	if(air_contents.temperature > PHORON_FLASHPOINT)
 		air_contents.zburn()
 	return
 
@@ -275,10 +275,15 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
 
-	//Do not use "if(..()) return" here, canisters will stop working in unpowered areas like space or on the derelict.	
+	//Do not use "if(..()) return" here, canisters will stop working in unpowered areas like space or on the derelict. // yeah but without SOME sort of Topic check any dick can mess with them via exploits as he pleases -walter0o
 	if (!istype(src.loc, /turf))
 		return 0
-		
+
+	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
+		usr << browse(null, "window=canister")
+		onclose(usr, "canister")
+		return
+
 	if(href_list["toggle"])
 		if (valve_open)
 			if (holding)
@@ -328,11 +333,11 @@ update_flag
 	
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/toxins/New()
+/obj/machinery/portable_atmospherics/canister/phoron/New()
 
 	..()
 
-	src.air_contents.toxins = (src.maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
+	src.air_contents.phoron = (src.maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 	air_contents.update_values()
 
 	src.update_icon()

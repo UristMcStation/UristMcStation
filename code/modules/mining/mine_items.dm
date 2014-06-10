@@ -161,28 +161,8 @@ proc/move_mining_shuttle()
 		src.req_access = list()
 		hacked = 1
 		usr << "You fried the consoles ID checking system. It's now available to everyone!"
-
-	else if(istype(W, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
-			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-			var/obj/item/weapon/circuitboard/mining_shuttle/M = new /obj/item/weapon/circuitboard/mining_shuttle( A )
-			for (var/obj/C in src)
-				C.loc = src.loc
-			A.circuit = M
-			A.anchored = 1
-
-			if (src.stat & BROKEN)
-				user << "\blue The broken glass falls out."
-				new /obj/item/weapon/shard( src.loc )
-				A.state = 3
-				A.icon_state = "3"
-			else
-				user << "\blue You disconnect the monitor."
-				A.state = 4
-				A.icon_state = "4"
-
-			del(src)
+	else
+		..()
 
 /******************************Lantern*******************************/
 
@@ -259,7 +239,7 @@ proc/move_mining_shuttle()
 		w_class = 3.0 //it is smaller than the pickaxe
 		damtype = "fire"
 		digspeed = 20 //Can slice though normal walls, all girders, or be used in reinforced wall deconstruction/ light thermite on fire
-		origin_tech = "materials=4;plasmatech=3;engineering=3"
+		origin_tech = "materials=4;phorontech=3;engineering=3"
 		desc = "A rock cutter that uses bursts of hot plasma. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
 		drill_verb = "cutting"
 
