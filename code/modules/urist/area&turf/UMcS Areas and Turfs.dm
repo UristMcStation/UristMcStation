@@ -252,3 +252,33 @@ turf/simulated/floor/beach/pool/New()
 	is_catwalk()
 		return 1
 
+//moon turfs for nien
+
+/turf/simulated/floor/plating/airless/moon //floor piece
+	name = "Moon"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "moon"
+	oxygen = 0.01
+	nitrogen = 0.01
+	temperature = T0C
+	icon_plating = "moon"
+
+
+/turf/simulated/floor/plating/airless/moon/New()
+	var/proper_name = name
+	..()
+	name = proper_name
+	if(prob(20))
+		icon_state = "moon[rand(0,12)]"
+
+
+/turf/simulated/floor/airless/uristturf
+	name = "floor"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "moon_floor"
+	floor_tile = new/obj/item/stack/tile/plasteel
+
+/turf/simulated/floor/plating/airless/uristturf
+	name = "plating"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "moon_plating"
