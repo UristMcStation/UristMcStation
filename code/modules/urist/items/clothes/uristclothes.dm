@@ -297,6 +297,22 @@ obj/item/clothing/under/urist/rank/rdgreen
 
 //Super hero/villain stuff
 
+obj/item/clothing/under/urist/trickster
+	name = "The Trickster suit"
+	desc = "Go pull some tricks."
+	icon_state = "trickster"
+	item_color = "trickster"
+	item_state = "trickster"
+
+obj/item/clothing/suit/trickster
+	urist_only = 1
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "The Trickster coat"
+	desc = "Go pull some tricks."
+	icon_state = "trickstercoat"
+	item_state = "trickstercoat"
+
 obj/item/clothing/under/urist/darveyflint
 	name = "Darvey Flint work suit"
 	desc = "Suit on one side, party on the other."

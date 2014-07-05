@@ -69,6 +69,23 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
 		return(BRUTELOSS)
 
+//umbrella gun
+
+/obj/item/weapon/gun/projectile/umbrellagun
+	urist_only = 1
+	name = "Umbrella"
+	desc = "An umbrella with a small hole at the end, doesn't seem to open."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "umbrellagun"
+	item_state = "umbrellagun"
+	w_class = 2
+	max_shells = 2
+	caliber = "9mm"
+	silenced = 1
+	origin_tech = "combat=2;materials=2"
+	ammo_type = "/obj/item/ammo_casing/c9mm"
+	load_method = 2
+
 //Space drugs pill. LET'S PARTY!
 
 /obj/item/weapon/reagent_containers/pill/spacedrugs
