@@ -342,3 +342,11 @@ obj/item/clothing/suit/jester
 	desc = "A 'Happy' jester coat."
 	icon_state = "the_jester_coat"
 	item_state = "the_jester_coat"
+
+obj/item/clothing/under/urist/penguin
+	name = "Penguin's suit"
+	desc = "The Penguin's suit."
+	icon_state = "penguin"
+	item_color = "penguin"
+	item_state = "penguin"
+

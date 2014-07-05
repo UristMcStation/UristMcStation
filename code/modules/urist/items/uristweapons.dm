@@ -86,6 +86,49 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	load_method = 2
 
+//BANG BANG BANG, BANG BANG
+
+/obj/item/weapon/gun/projectile/BANG
+	urist_only = 1
+	icon_override = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/uristweapons.dmi'
+	name = "BANG gun"
+	desc = "Shoots out a BANG"
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "gun"
+	item_state = "gun"
+	var/on = 0
+
+/obj/item/weapon/gun/projectile/BANG/attack_self(mob/user as mob)
+	urist_only = 1
+	icon_override = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/uristweapons.dmi'
+	on = !on
+	if(on)
+		user.visible_message("\red [user] fires the gun, BANG.",\
+		"\red You fire the gun.",\
+		"You hear a BANG.")
+		icon_state = "gunbang"
+		item_state = "gunbang"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+	else
+		user.visible_message("\blue [user] pushes the BANG back into the barrel.",\
+		"\blue You push the BANG back into the barrel.",\
+		"You hear a click.")
+		icon_state = "gun"
+		item_state = "gun"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+
 //Space drugs pill. LET'S PARTY!
 
 /obj/item/weapon/reagent_containers/pill/spacedrugs
