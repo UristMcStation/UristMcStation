@@ -8,3 +8,12 @@
 	body_parts_covered = HEAD
 	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
+
+/obj/item/clothing/mask/penguin
+	icon = 'icons/urist/items/clothes/masks.dmi'
+	icon_override = 'icons/uristmob/mask.dmi'
+	item_state = "penguincig"
+	icon_state = "penguincig"
+	body_parts_covered = HEAD
+	flags = FPRINT|TABLEPASS
+	slot_flags = SLOT_MASK

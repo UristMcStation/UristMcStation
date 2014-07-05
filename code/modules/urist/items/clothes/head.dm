@@ -171,8 +171,17 @@ obj/item/clothing/head/princessbow
 	urist_only = 1
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
-	name = "Trickster Hat"
-	desc = "An ancient helmet made of bronze and leather."
+	name = "Trickster's Hat"
+	desc = "The Trickster's hat."
 	armor = list(melee = 0, bullet = 15, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)
 	icon_state = "tricksterhat"
 	item_state = "tricksterhat"
+
+/obj/item/clothing/head/urist/penguin
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
+	name = "Penguin's Hat"
+	desc = "The Penguin's hat."
+	icon_state = "penguinhat"
+	item_state = "penguinhat"
