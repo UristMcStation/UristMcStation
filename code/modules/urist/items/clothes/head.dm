@@ -165,3 +165,14 @@ obj/item/clothing/head/princessbow
 	desc = "Put it on your monkey, make lots of cash money."
 	flags = FPRINT|TABLEPASS
 
+//Villian and hero stuff
+
+/obj/item/clothing/head/urist/trickster
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
+	name = "Trickster Hat"
+	desc = "An ancient helmet made of bronze and leather."
+	armor = list(melee = 0, bullet = 15, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)
+	icon_state = "tricksterhat"
+	item_state = "tricksterhat"
