@@ -294,3 +294,59 @@ obj/item/clothing/under/urist/rank/rdgreen
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
 	item_color = "sakura_hokkaido_kimono"
+
+//Super hero/villain stuff
+
+obj/item/clothing/under/urist/trickster
+	name = "The Trickster suit"
+	desc = "Go pull some tricks."
+	icon_state = "trickster"
+	item_color = "trickster"
+	item_state = "trickster"
+
+obj/item/clothing/suit/trickster
+	urist_only = 1
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "The Trickster coat"
+	desc = "Go pull some tricks."
+	icon_state = "trickstercoat"
+	item_state = "trickstercoat"
+
+obj/item/clothing/under/urist/darveyflint
+	name = "Darvey Flint work suit"
+	desc = "Suit on one side, party on the other."
+	icon_state = "harvey_flint"
+	item_color = "harvey_flint"
+	item_state = "harvey_flint"
+
+obj/item/clothing/under/urist/darvetflint_skin
+	name = "Darvey Flint work suit"
+	desc = "Suit on one side, party on the other with fake skin?"
+	icon_state = "harvey_flint"
+	item_color = "harvey_flint_skin"
+	item_state = "harvey_flint_skin"
+
+obj/item/clothing/under/urist/jester
+	name = "The Jester"
+	desc = "A 'Happy' jester outfit."
+	icon_state = "the_jester"
+	item_color = "the_jester"
+	item_state = "the_jester"
+
+obj/item/clothing/suit/jester
+	urist_only = 1
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "The Jester coat"
+	desc = "A 'Happy' jester coat."
+	icon_state = "the_jester_coat"
+	item_state = "the_jester_coat"
+
+obj/item/clothing/under/urist/penguin
+	name = "Penguin's suit"
+	desc = "The Penguin's suit."
+	icon_state = "penguin"
+	item_color = "penguin"
+	item_state = "penguin"
+
