@@ -12,6 +12,13 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
+//backtracking and putting this here to clean things up
+
+obj/item/clothing/suit/urist
+	urist_only = 1
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
 
@@ -71,7 +78,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 //Welder apron done by ShoesandHats and added by Cozarctan. Moved from welder. Welder machete goes into the new uristweapons.dm
 
-/obj/item/clothing/suit/welderapron
+/obj/item/clothing/suit/urist/welderapron
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "welder's apron"
@@ -113,7 +120,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 //Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
-/obj/item/clothing/suit/meido
+/obj/item/clothing/suit/urist/meido
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "meido costume"
@@ -269,7 +276,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 //nurse joy
 
-obj/item/clothing/under/urist/rank/nurse
+/obj/item/clothing/under/urist/rank/nurse
 	name = "white nurse outfit"
 	desc = "A pretty nurse outfit. It brings a sense of joy to you."
 	icon_state = "nursejoy"
@@ -278,7 +285,7 @@ obj/item/clothing/under/urist/rank/nurse
 
 //alt alt RD
 
-obj/item/clothing/under/urist/rank/rdgreen
+/obj/item/clothing/under/urist/rank/rdgreen
 	name = "green RD's outfit"
 	desc = "A cute green outfit sometimes worn by the Research Director."
 	icon_state = "emaRD"
@@ -297,56 +304,73 @@ obj/item/clothing/under/urist/rank/rdgreen
 
 //Super hero/villain stuff
 
-obj/item/clothing/under/urist/trickster
+/obj/item/clothing/under/urist/trickster
 	name = "The Trickster suit"
 	desc = "Go pull some tricks."
 	icon_state = "trickster"
 	item_color = "trickster"
 	item_state = "trickster"
 
-obj/item/clothing/suit/trickster
-	urist_only = 1
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+/obj/item/clothing/suit/urist/trickster
 	name = "The Trickster coat"
 	desc = "Go pull some tricks."
 	icon_state = "trickstercoat"
 	item_state = "trickstercoat"
 
-obj/item/clothing/under/urist/darveyflint
+/obj/item/clothing/under/urist/darveyflint
 	name = "Darvey Flint work suit"
 	desc = "Suit on one side, party on the other."
 	icon_state = "harvey_flint"
 	item_color = "harvey_flint"
 	item_state = "harvey_flint"
 
-obj/item/clothing/under/urist/darvetflint_skin
+/obj/item/clothing/under/urist/darvetflint_skin
 	name = "Darvey Flint work suit"
 	desc = "Suit on one side, party on the other with fake skin?"
 	icon_state = "harvey_flint"
 	item_color = "harvey_flint_skin"
 	item_state = "harvey_flint_skin"
 
-obj/item/clothing/under/urist/jester
+/obj/item/clothing/under/urist/jester
 	name = "The Jester"
 	desc = "A 'Happy' jester outfit."
 	icon_state = "the_jester"
 	item_color = "the_jester"
 	item_state = "the_jester"
 
-obj/item/clothing/suit/jester
-	urist_only = 1
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+/obj/item/clothing/suit/urist/jester
 	name = "The Jester coat"
 	desc = "A 'Happy' jester coat."
 	icon_state = "the_jester_coat"
 	item_state = "the_jester_coat"
 
-obj/item/clothing/under/urist/penguin
+/obj/item/clothing/under/urist/penguin
 	name = "Penguin's suit"
 	desc = "The Penguin's suit."
 	icon_state = "penguin"
 	item_color = "penguin"
 	item_state = "penguin"
 
+//fancy cmo shit
+
+/obj/item/clothing/under/urist/rank/cmoalt
+	name = "CMO's formal outfit"
+	desc = "A fancy outfit sometimes worn by the CMO."
+	icon_state = "cmo"
+	item_color = "cmo"
+	item_state = "cmo"
+
+/obj/item/clothing/suit/storage/labcoat/cmo/alt
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	desc = "A slightly fancier labcoat sometimes worn by the CMO."
+	icon_state = "cmo_lab_open"
+
+//sexy captain's outfit by imblyings from /tg/
+
+/obj/item/clothing/under/urist/rank/capdressalt
+	name = "captain's formal outfit"
+	desc = "A formal outfit for female captains. Or really flamboyant male captains."
+	icon_state = "captainfemaleformal"
+	item_color = "captainfemaleformal"
+	item_state = "captainfemaleformal"
