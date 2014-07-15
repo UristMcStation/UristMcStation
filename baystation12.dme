@@ -1381,6 +1381,8 @@
 #include "code\modules\urist\items\clothes\bandanas.dm"
 #include "code\modules\urist\items\clothes\duffelbag.dm"
 #include "code\modules\urist\items\clothes\head.dm"
+#include "code\modules\urist\items\clothes\mask.dm"
+#include "code\modules\urist\items\clothes\ntclothes.dm"
 #include "code\modules\urist\items\clothes\tgclothes.dm"
 #include "code\modules\urist\items\clothes\uristclothes.dm"
 #include "code\modules\urist\items\improvised\ghettobomb.dm"
@@ -1493,8 +1495,4 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\Glloydstation.dmm"
-#include "maps\RandomZLevels\Academy.dm"
-#include "maps\RandomZLevels\challenge.dm"
-#include "maps\RandomZLevels\stationCollision.dm"
-#include "maps\RandomZLevels\wildwest.dm"
 // END_INCLUDE
