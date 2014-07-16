@@ -4,11 +4,11 @@ cls
 title Server AutoRestart
 
 rem # path to dmb to run
-set gamedmb="C:\path\goes\here\UristMcStation\baystation12.dmb"
+set gamedmb="C:\Users\Graham\Desktop\SS13\UristMcStation\baystation12.dmb"
 rem # parameters for Dream Daemon
 set launchoptions=-port 12345
 rem # path to dreamdaemon executable (in quotes)
-set dreamdaemonpath="C:\path\goes\here\byond\bin\dreamdaemon.exe"
+set dreamdaemonpath="C:\Users\Graham\Desktop\501.1217_byond\byond\bin\dreamdaemon.exe"
 rem # process name in task manager
 set processname=dreamdaemon.exe
 rem # time between checks
