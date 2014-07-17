@@ -114,4 +114,4 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /mob/living/simple_animal/turtle/mule
 	name = "Mule"
-	desc = "Mule, the Quartermaster's turtle. It has it's home on it's back. Jealous?"
+	desc = "Mule, the Quartermaster's turtle. It has its home on its back. Jealous?"
