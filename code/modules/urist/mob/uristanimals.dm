@@ -107,6 +107,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	speak_chance = 1
 	turns_per_move = 10
 	see_in_dark = 6
+	health = 250
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "rubs"
 	response_disarm = "gently pushes aside"
@@ -115,3 +116,4 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/turtle/mule
 	name = "Mule"
 	desc = "Mule, the Quartermaster's turtle. It has its home on its back. Jealous?"
+
