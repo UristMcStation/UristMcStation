@@ -197,3 +197,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/weapon/tank/jetpack/oxygen(src)
 		new /obj/item/clothing/mask/gas(src)
 		return
+/* << -Ignore this code until i figure out how to make my own version of the vending machine...
+/obj/machinery/trecycling/matterAssembler/
+	name = "A Matter Assembler"
+	desc = "A machine that puts matter together into other things"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "matterConstructer"
+	density = 1
+	anchored = 1
+	var/matterPellet
+
+/obj/machinery/trecycling/matterAssembler/attack_hand(mob/user as mob)
+*/
