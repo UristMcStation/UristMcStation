@@ -374,3 +374,11 @@ obj/item/clothing/suit/urist
 	icon_state = "captainfemaleformal"
 	item_color = "captainfemaleformal"
 	item_state = "captainfemaleformal"
+
+//hooonk bs12
+
+/obj/item/clothing/suit/storage/labcoat/robotics
+	name = "Robotics labcoat"
+	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "aeneasrinil_open"
