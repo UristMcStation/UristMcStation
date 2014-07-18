@@ -92,3 +92,28 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	response_help = "pets"
 	turns_per_move = 10
 	voice_name = "unidentifiable voice"
+
+//The Quartermaster's Turtle - Art + Code by TGameCo
+
+/mob/living/simple_animal/turtle
+	name = "Turtle"
+	real_name = "Turtle"
+	desc = "An animal with it's home on it's back. Jealous?"
+	icon = 'icons/uristmob/uristanimal.dmi'
+	icon_state = "turtle"
+	icon_dead = "turtle_dead"
+	speak = list("...", "...", "...") //Turtles don't speak
+	emote_see = list("snaps", "blinks", "stares into your soul...")
+	speak_chance = 1
+	turns_per_move = 10
+	see_in_dark = 6
+	health = 250
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "rubs"
+	response_disarm = "gently pushes aside"
+	response_harm   = "tries to kick"
+
+/mob/living/simple_animal/turtle/mule
+	name = "Mule"
+	desc = "Mule, the Quartermaster's turtle. It has its home on its back. Jealous?"
+
