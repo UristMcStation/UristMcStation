@@ -382,3 +382,45 @@ obj/item/clothing/suit/urist
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "aeneasrinil_open"
+
+//TGC - Moar Roboticist stuff. As Glloyd added a fanchy labcoat, i decided to add in the belt and bag.
+//Also, why is a toolbelt under the weapon catagory?
+
+/obj/item/weapon/storage/belt/robotics
+	name = "Robotics Toolbelt"
+	desc = "A toolbelt that has roboticist colors on it."
+	icon = 'icons/urist/items/clothes/misc_clothes.dmi'
+	icon_state = "roboticsBelt"
+	can_hold = list(
+	"/obj/item/weapon/crowbar",
+	"/obj/item/weapon/screwdriver",
+	"/obj/item/weapon/weldingtool",
+	"/obj/item/weapon/wirecutters",
+	"/obj/item/weapon/wrench",
+	"/obj/item/device/multitool",
+	"/obj/item/device/flashlight",
+	"/obj/item/weapon/cable_coil",
+	"/obj/item/device/analyzer",
+	"/obj/item/device/mmi")
+
+/obj/item/weapon/storage/backpack/robotics
+	name = "Robotics Backpack"
+	desc = "A Backpack that has roboticist colors on it."
+	icon = 'icons/urist/items/clothes/misc_clothes.dmi'
+	icon_state = "backpack-robo"
+
+/obj/item/weapon/storage/backpack/satchel_robo
+	name = "Robotics Satchel"
+	desc = "A Satchel that has roboticist colors on it."
+	icon = 'icons/urist/items/clothes/misc_clothes.dmi'
+	icon_state = "satchel-robo"
+
+
+/obj/item/weapon/storage/belt/robotics/full/New()
+	..()
+	new /obj/item/weapon/screwdriver(src)
+	new /obj/item/weapon/wrench(src)
+	new /obj/item/weapon/weldingtool(src)
+	new /obj/item/weapon/crowbar(src)
+	new /obj/item/weapon/wirecutters(src)
+	new /obj/item/weapon/cable_coil(src,30,pick("red","yellow","orange"))
