@@ -202,9 +202,10 @@
 
 		var/is_chest_organ_damaged = 0
 		var/datum/organ/external/chest/chest = target.get_organ("chest")
-		for(var/datum/organ/internal/I in chest.internal_organs) if(I.damage > 0)
-			is_chest_organ_damaged = 1
-			break
+		for(var/datum/organ/internal/I in chest.internal_organs) 
+			if(I.damage > 0)
+				is_chest_organ_damaged = 1
+				break
 		return ..() && is_chest_organ_damaged && target.op_stage.ribcage == 2
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -223,7 +224,7 @@
 					user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 					"You start treating damage to [target]'s [I.name] with [tool_name]." )
 				else
-					user.visible_message("\blue [user] attempts to repair [target]'s mechanical [I.name] with [tool_name]...", \
+					user.visible_message("[user] attempts to repair [target]'s mechanical [I.name] with [tool_name]...", \
 					"\blue You attempt to repair [target]'s mechanical [I.name] with [tool_name]...")
 
 		target.custom_pain("The pain in your chest is living hell!",1)
@@ -242,7 +243,7 @@
 		for(var/datum/organ/internal/I in chest.internal_organs)
 			if(I && I.damage > 0)
 				if(I.robotic < 2)
-					user.visible_message("[user] treats damage to [target]'s [I.name] with [tool_name].", \
+					user.visible_message("\blue [user] treats damage to [target]'s [I.name] with [tool_name].", \
 					"You treat damage to [target]'s [I.name] with [tool_name]." )
 				else
 					user.visible_message("\blue [user] pokes [target]'s mechanical [I.name] with [tool_name]...", \
@@ -285,7 +286,7 @@
 			return 0
 
 		var/is_chest_organ_damaged = 0
-		var/datum/organ/internal/heart/heart = target.internal_organs["heart"]
+		var/datum/organ/internal/heart/heart = target.internal_organs_by_name["heart"]
 		var/datum/organ/external/chest/chest = target.get_organ("chest")
 		for(var/datum/organ/internal/I in chest.internal_organs) if(I.damage > 0)
 			is_chest_organ_damaged = 1
@@ -293,7 +294,7 @@
 		return ..() && is_chest_organ_damaged && heart.robotic == 2 && target.op_stage.ribcage == 2
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/datum/organ/internal/heart/heart = target.internal_organs["heart"]
+		var/datum/organ/internal/heart/heart = target.internal_organs_by_name["heart"]
 
 		if(heart.damage > 0)
 			user.visible_message("[user] starts mending the mechanisms on [target]'s heart with \the [tool].", \
@@ -302,14 +303,14 @@
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/datum/organ/internal/heart/heart = target.internal_organs["heart"]
+		var/datum/organ/internal/heart/heart = target.internal_organs_by_name["heart"]
 		if(heart.damage > 0)
 			user.visible_message("\blue [user] repairs [target]'s heart with \the [tool].", \
 			"\blue You repair [target]'s heart with \the [tool]." )
 			heart.damage = 0
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/datum/organ/internal/heart/heart = target.internal_organs["heart"]
+		var/datum/organ/internal/heart/heart = target.internal_organs_by_name["heart"]
 		user.visible_message("\red [user]'s hand slips, smearing [tool] in the incision in [target]'s heart, gumming it up!!" , \
 		"\red Your hand slips, smearing [tool] in the incision in [target]'s heart, gumming it up!")
 		heart.take_damage(5, 0)

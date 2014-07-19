@@ -6,7 +6,7 @@
 	item_state = "gun"
 	flags =  FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
-	m_amt = 2000
+	matter = list("metal" = 2000)
 	w_class = 3.0
 	throwforce = 5
 	throw_speed = 4

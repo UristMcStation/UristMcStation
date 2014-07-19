@@ -8,7 +8,7 @@ obj/machinery/recharger
 	use_power = 1
 	idle_power_usage = 4
 	active_power_usage = 250
-	var/obj/item/weapon/charging = null
+	var/obj/item/charging = null
 
 obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(istype(user,/mob/living/silicon))
@@ -31,6 +31,11 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 			return
 		if (istype(G, /obj/item/weapon/gun/energy/staff))
 			return
+		if(istype(G, /obj/item/device/laptop))
+			var/obj/item/device/laptop/L = G
+			if(!L.stored_computer.battery)
+				user << "There's no battery in it!"
+				return
 		user.drop_item()
 		G.loc = src
 		charging = G
