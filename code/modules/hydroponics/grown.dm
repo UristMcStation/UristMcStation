@@ -19,6 +19,7 @@
 	var/yield = 0
 	var/potency = -1
 	var/plant_type = 0
+	var/splicedreagent
 	icon = 'icons/obj/harvest.dmi'
 	New(newloc,newpotency)
 		if (!isnull(newpotency))
@@ -26,6 +27,10 @@
 		..()
 		src.pixel_x = rand(-5.0, 5)
 		src.pixel_y = rand(-5.0, 5)
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/proc/postnew() // For spliced reagents.
+	if(splicedreagent)
+		reagents.add_reagent(splicedreagent, 1+round((potency / 5), 1))
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	..()

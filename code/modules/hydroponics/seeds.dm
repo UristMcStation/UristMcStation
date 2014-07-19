@@ -32,6 +32,7 @@
 	var/potency = -1
 	var/growthstages = 0
 	var/plant_type = 0 // 0 = 'normal plant'; 1 = weed; 2 = shroom
+	var/splicedreagent // The spliced reagent that is added to a spliced seed packet.
 
 /obj/item/seeds/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (istype(O, /obj/item/device/analyzer/plant_analyzer))

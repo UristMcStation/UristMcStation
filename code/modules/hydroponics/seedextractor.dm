@@ -23,6 +23,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 			t_prod.production = F.production
 			t_prod.yield = F.yield
 			t_prod.potency = F.potency
+			t_prod.splicedreagent = F.splicedreagent
 			t_amount++
 		del(O)
 
