@@ -2807,7 +2807,7 @@
 "bbY" = (/obj/structure/table,/obj/item/weapon/storage/box/gloves,/obj/item/weapon/storage/box/masks{pixel_x = 5; pixel_y = 5},/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/medbay)
 "bbZ" = (/obj/structure/table,/obj/item/weapon/crowbar,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/medbay)
 "bca" = (/obj/structure/table,/obj/item/weapon/storage/box/rxglasses,/obj/item/weapon/hand_labeler,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/medbay)
-"bcb" = (/obj/structure/stool/bed/roller,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/medbay)
+"bcb" = (/obj/structure/stool/bed/chair/wheelchair,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/medbay)
 "bcc" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/camera{c_tag = "Medbay Lounge North"; dir = 8; network = list("SS13")},/turf/simulated/floor{tag = "icon-whitegreen (SOUTHEAST)"; icon_state = "whitegreen"; dir = 6},/area/medical/medbay)
 "bcd" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/virology)
 "bce" = (/obj/machinery/atmospherics/unary/vent_scrubber{on = 1; scrub_N2O = 0; scrub_Toxins = 0},/obj/machinery/camera{c_tag = "Virology Entrance"; dir = 1; network = list("SS13")},/obj/machinery/light/small,/turf/simulated/floor{icon_state = "whitegreen"},/area/medical/virology)
