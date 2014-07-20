@@ -22,7 +22,7 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/game/machinery/kitchen/processor.dm -- process ma slimes
 
- code/game/jobs/jobs.dm -- clowns and mimes and xenobiologist
+ code/game/jobs/jobs.dm -- clowns and mimes and xenobiologist and blueshield
 
  code/game/jobs/civilian.dm -- ^
 
@@ -42,4 +42,14 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/setup.dm 
 
+//nations shit
 
+ code/modules/mob/new_player/new_player.dm
+
+ code/modules/mob/dead/observer/observer.dm
+
+ code/datums/mind.dm
+
+ code/game/gamemodes/gameticker.dm 
+
+ code/game/jobs/job_controller.dm 
