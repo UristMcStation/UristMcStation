@@ -47,7 +47,6 @@
 #define FILE_DIR "icons/urist/items/clothes"
 #define FILE_DIR "icons/urist/structures&machinery"
 #define FILE_DIR "icons/urist/turf"
-#define FILE_DIR "icons/urist/WIP"
 #define FILE_DIR "icons/uristmob"
 #define FILE_DIR "icons/vending_icons"
 #define FILE_DIR "nano"
