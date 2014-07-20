@@ -131,3 +131,33 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	prices = list(/obj/item/clothing/shoes/black = 50,/obj/item/clothing/shoes/brown = 50,/obj/item/clothing/shoes/blue = 50,/obj/item/clothing/shoes/green = 50,/obj/item/clothing/shoes/yellow = 50,/obj/item/clothing/shoes/purple = 50,/obj/item/clothing/shoes/red = 50,/obj/item/clothing/shoes/white = 50)
 	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
 	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//pants!
+
+/obj/machinery/vending/pantsdispenser
+	name = "Pantslord 9000"
+	desc = "Wait a minute... Pants without shirts? What will they think of next?"
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "pants"
+	vend_reply = "Pants: Wear them."
+	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
+	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
+	products = list(/obj/item/clothing/under/pants/jeans = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10)
+	prices = list(/obj/item/clothing/under/pants/jeans = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100)
+//	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
+//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//coats!
+
+/obj/machinery/vending/coatdispenser
+	name = "Coatlord 9000"
+	desc = "A vendor for coats and jackets. For some reason, you feel like this should be called the suit machine..."
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "coat"
+	vend_reply = "Stay classy!"
+	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you.."
+	product_slogans = "Cover yourself!;Dress to impress!;Lumberjack approved!;Warning, leather jackets are not vegan.;Can't afford shoes, pants, suits or dresses? Well fuck off, we didn't want your money anyways."
+	products = list(/obj/item/clothing/suit/coat/jacket/leather = 5,/obj/item/clothing/suit/coat/jacket = 10,/obj/item/clothing/suit/coat = 10,/obj/item/clothing/suit/storage/lawyer/bluejacket = 10,/obj/item/clothing/suit/storage/lawyer/purpjacket = 10,/obj/item/clothing/suit/urist/blackjacket = 10)
+	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300)
+//	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
+//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
