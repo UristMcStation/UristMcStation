@@ -197,3 +197,32 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/weapon/tank/jetpack/oxygen(src)
 		new /obj/item/clothing/mask/gas(src)
 		return
+
+//blooshield locker
+
+/obj/structure/closet/secure_closet/blueshield
+	name = "Blueshield Locker"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	req_access = list(access_blueshield)
+	icon_state = "bssecure1"
+	icon_closed = "bssecure"
+	icon_locked = "bssecure1"
+	icon_opened = "bssecureopen"
+	icon_broken = "bssecurebroken"
+	icon_off = "bssecureoff"
+
+	New()
+		..()
+		sleep(2)
+		new	/obj/item/weapon/storage/firstaid/adv(src)
+		new /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas(src)
+		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/weapon/grenade/flashbang(src)
+		new /obj/item/weapon/melee/baton(src)
+		new /obj/item/weapon/gun/energy/taser(src)
+		new /obj/item/clothing/tie/storage/black_vest(src)
+		new /obj/item/clothing/glasses/sunglasses(src)
+		new /obj/item/clothing/under/rank/centcom_officer(src)
+		new /obj/item/device/flash(src)
+		new /obj/item/weapon/handcuffs(src)
+		return

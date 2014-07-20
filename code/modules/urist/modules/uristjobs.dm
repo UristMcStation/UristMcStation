@@ -1,5 +1,3 @@
-
-
 //Urist jobs!
 
 /datum/job/blueshield
@@ -9,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Whichever head you protect, and ultimately the Captain"
+	supervisors = "whichever head you protect. Remember, you are NOT security. Ultimately, you report to the Captain"
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id/centcom
 	req_admin_notify = 1
