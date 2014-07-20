@@ -118,3 +118,13 @@
 	desc="A black plastic wrist watch, for keeping track of time in the cold dark void!"
 	typepath=/obj/item/clothing/tie/watch/wrist
 	cost = 300
+
+/////////////////////////////////////////////////////////
+//                     Razor                           //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/razor
+	name="Electric Razor"
+	desc="An electric razor. The perfect thing for keeping your hair trimmed, and you looking classy."
+	typepath=/obj/item/weapon/razor
+	cost = 300
