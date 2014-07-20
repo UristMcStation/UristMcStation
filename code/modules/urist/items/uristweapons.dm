@@ -88,18 +88,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //BANG BANG BANG, BANG BANG
 
-/obj/item/weapon/gun/projectile/BANG
+/obj/item/weapon/gag/BANG
 	urist_only = 1
 	icon_override = 'icons/urist/items/uristweapons.dmi'
 	icon = 'icons/urist/items/uristweapons.dmi'
 	name = "BANG gun"
 	desc = "Shoots out a BANG"
-	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "gun"
 	item_state = "gun"
 	var/on = 0
+	w_class = 2
 
-/obj/item/weapon/gun/projectile/BANG/attack_self(mob/user as mob)
+/obj/item/weapon/gag/BANG/attack_self(mob/user as mob)
 	urist_only = 1
 	icon_override = 'icons/urist/items/uristweapons.dmi'
 	icon = 'icons/urist/items/uristweapons.dmi'
