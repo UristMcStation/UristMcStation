@@ -169,6 +169,16 @@ obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
 		del(I)
 		del(src)
 
+//scrapper
+
+/obj/item/weapon/shield/riot/scrapper
+	urist_only = 1
+	name = "scrapper shield"
+	desc = "A large rectangular shield made out of hastily assembled chuncks of plasteel."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "scrappershield"
+	item_state = "scrappershield"
+
 
 //end Urist stuff
 
