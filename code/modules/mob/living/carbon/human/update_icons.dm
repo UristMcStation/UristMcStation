@@ -865,9 +865,9 @@ proc/get_damage_icon_part(damage_state, body_part)
 		var/t_state = r_hand.item_state
 		if(!t_state)	t_state = r_hand.icon_state
 
-		if(!r_hand.urist_only)
-			t_state = "[t_state]_r"
-			overlays_standing[R_HAND_LAYER] = image("icon" = r_hand.icon_override, "icon_state" = "[t_state]")
+		if(r_hand.urist_only)
+//			t_state = "[t_state]_r"
+			overlays_standing[R_HAND_LAYER] = image("icon" = 'icons/uristmob/items_righthand.dmi', "icon_state" = "[t_state]")
 		else
 			overlays_standing[R_HAND_LAYER] = image("icon" = 'icons/mob/items_righthand.dmi', "icon_state" = "[t_state]")
 
@@ -884,9 +884,9 @@ proc/get_damage_icon_part(damage_state, body_part)
 		var/t_state = l_hand.item_state
 		if(!t_state)	t_state = l_hand.icon_state
 
-		if(!l_hand.urist_only)
-			t_state = "[t_state]_l"
-			overlays_standing[L_HAND_LAYER] = image("icon" = l_hand.icon_override, "icon_state" = "[t_state]")
+		if(l_hand.urist_only)
+//			t_state = "[t_state]_l"
+			overlays_standing[L_HAND_LAYER] = image("icon" = 'icons/uristmob/items_lefthand.dmi', "icon_state" = "[t_state]")
 		else
 			overlays_standing[L_HAND_LAYER] = image("icon" = 'icons/mob/items_lefthand.dmi', "icon_state" = "[t_state]")
 

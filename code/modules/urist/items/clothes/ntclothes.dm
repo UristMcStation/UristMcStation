@@ -129,6 +129,8 @@
 /obj/item/clothing/head/helmet/space/rig/security/cold
 	name = "security cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has an additional layer of armor."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-seccold"
 	item_state = "sec_cold"
 	item_color = "seccold"
@@ -145,6 +147,8 @@
 /obj/item/clothing/head/helmet/space/rig/cold
 	name = "engineering cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has radiation shielding."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-engicold"
 	item_state = "eng_cold"
 	item_color = "engicold"
@@ -161,6 +165,8 @@
 /obj/item/clothing/head/helmet/space/rig/atmos/cold
 	name = "atmospherics cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has thermal shielding."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-atmocold"
 	item_state = "atmo_cold"
 	item_color = "atmocold"
@@ -177,6 +183,8 @@
 /obj/item/clothing/head/helmet/space/rig/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-minecold"
 	item_state = "mining_cold"
 	item_color = "minecold"

@@ -140,3 +140,10 @@
 	mineralAmt = 3
 	spreadChance = 0
 	spread = 0
+
+//honk
+
+/obj/item/weapon/ore/clown
+	name = "Bananium ore"
+	icon_state = "Clown ore"
+	origin_tech = "materials=4"
