@@ -11,5 +11,6 @@
 
 	new_name = "APLU \"Clown-ply\""
 	new_desc = "This ordinary mining Ripley has been customized to look like a Clown."
-	new_icon = "clowny"
+	new_icon_state = "clowny"
+	new_icon = 'icons/urist/structures&machinery/Mecha.dmi'
 	allowed_types = list("ripley","firefighter")

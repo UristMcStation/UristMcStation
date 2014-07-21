@@ -1077,6 +1077,7 @@
 
 	var/new_name = "mech"    //What is the variant called?
 	var/new_desc = "A mech." //How is the new mech described?
-	var/new_icon = "ripley"  //What base icon will the new mech use?
+	var/new_icon = 'icons/mecha/mecha.dmi'  //What icon file will it use?
+	var/new_icon_state = "ripley" //What icon will it use?
 	var/removable = null     //Can the kit be removed?
 	var/list/allowed_types = list() //Types of mech that the kit will work on.
