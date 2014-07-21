@@ -777,7 +777,8 @@
 
 		src.name = P.new_name
 		src.desc = P.new_desc
-		src.initial_icon = P.new_icon
+		src.icon = P.new_icon
+		src.initial_icon = P.new_icon_state
 		src.reset_icon()
 
 		user.drop_item()
