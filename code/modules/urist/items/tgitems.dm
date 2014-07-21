@@ -30,7 +30,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="http://wiki.nanotrasen.com/index.php?title=Space_Law&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="http://www.tgstation13.org/wiki/Space_Law?title=Space_Law&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
