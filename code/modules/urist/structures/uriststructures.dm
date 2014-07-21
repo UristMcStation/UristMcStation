@@ -117,6 +117,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "poker_tableparts"
 	flags = null
 
+/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/stack/tile/grass))
+		var/obj/item/stack/tile/grass/R = I
+		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
+		R.use(1)
+
+		user.before_take_item(src)
+
+		user.put_in_hands(H)
+		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
+
+		del(src)
+		del(I)
+
 //
 //                   ???
 //
