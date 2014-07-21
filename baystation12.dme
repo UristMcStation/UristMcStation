@@ -1451,6 +1451,7 @@
 #include "code\modules\urist\modules\genetics\_genetics.dm"
 #include "code\modules\urist\modules\genetics\disabilities.dm"
 #include "code\modules\urist\modules\genetics\powers.dm"
+#include "code\modules\urist\modules\mecha\uristpaintkits.dm"
 #include "code\modules\urist\structures\Couch&UMcSflora.dm"
 #include "code\modules\urist\structures\dresser.dm"
 #include "code\modules\urist\structures\hoverseg.dm"

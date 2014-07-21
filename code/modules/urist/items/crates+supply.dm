@@ -39,3 +39,14 @@
 	new /obj/structure/particle_accelerator/particle_emitter/center(src)
 	new /obj/structure/particle_accelerator/particle_emitter/left(src)
 	new /obj/structure/particle_accelerator/particle_emitter/right(src)
+
+//Ripley Paint Crate - TGC
+
+/datum/supply_packs/paintkits/ripley
+	name = "Customization Crate (APLU \"Ripley\")"
+	contains = list(/obj/item/weapon/paintkit/fluff/clownply)//Put Ripley Customization stuff here
+	cost = 15
+	access = access_robotics
+	containertype = /obj/structure/closet/crate/secure
+	containername = "APLU \"Ripley\" Customization Crate"
+	group = "Engineering"

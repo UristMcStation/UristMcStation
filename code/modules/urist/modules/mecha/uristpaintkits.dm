@@ -3,7 +3,7 @@
 //File	by	TGameCo			//
 //////////////////////////////
 
-//Clownpy - TGameCo
+//Clownply - TGameCo
 /obj/item/weapon/paintkit/fluff/clownply
  	name = "Ripley customization kit"
  	desc = "A kit containing all the needed tools and parts to turn an APLU Ripley into a Clown-style Ripley."
