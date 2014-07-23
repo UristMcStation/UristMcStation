@@ -45,7 +45,7 @@
 /datum/supply_packs/paintkits/ripley
 	name = "Customization Crate (APLU \"Ripley\")"
 	contains = list(/obj/item/weapon/paintkit/fluff/clownply)//Put Ripley Customization stuff here
-	cost = 15
+	cost = 100
 	access = access_robotics
 	containertype = /obj/structure/closet/crate/secure
 	containername = "APLU \"Ripley\" Customization Crate"
