@@ -18,7 +18,7 @@
 	contains = list()
 	cost = 50
 	containertype = /mob/living/simple_animal/turtle
-	containername = "Turtle Crate"
+	containername = "Turtle"
 	group = "Hydroponics"
 
 //A crate.

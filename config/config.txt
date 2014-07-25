@@ -102,7 +102,7 @@ ALLOW_RANDOM_EVENTS
 TRAITOR_SCALING
 
 ## if objectives are disabled
-OBJECTIVES_DISABLED
+#OBJECTIVES_DISABLED
 
 ## make ERT's be only called by admins
 
@@ -138,7 +138,7 @@ VOTE_PERIOD 600
 #VOTE_AUTOTRANSFER_INTERVAL 36000
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
- VOTE_AUTOGAMEMODE_TIMELEFT 500
+ VOTE_AUTOGAMEMODE_TIMELEFT 100
 
 ## prevents dead players from voting or starting votes
 NO_DEAD_VOTE
