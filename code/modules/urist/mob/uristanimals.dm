@@ -96,7 +96,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //TGC: Turtle, art+code by me, nothing revolutionary here.
 
 /mob/living/simple_animal/turtle
-	name = "Turtle"
+	name = "turtle"
 	desc = "Look out for bites!"
 	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "turtle"

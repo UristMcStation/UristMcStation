@@ -9,7 +9,7 @@ VOX HEIST ROUNDTYPE
 	name = "heist"
 	config_tag = "heist"
 	required_players = 15
-	required_players_secret = 20
+	required_players_secret = 15
 	required_enemies = 4
 	recommended_enemies = 6
 
@@ -106,19 +106,19 @@ VOX HEIST ROUNDTYPE
 		vox.f_style = "Shaved"
 		for(var/datum/organ/external/limb in vox.organs)
 			limb.status &= ~(ORGAN_DESTROYED | ORGAN_ROBOT)
-		
+
 		//Now apply cortical stack.
-		var/datum/organ/external/E = vox.get_organ("head")	
+		var/datum/organ/external/E = vox.get_organ("head")
 		var/obj/item/weapon/implant/cortical/I = new(vox)
 		I.imp_in = vox
 		I.implanted = 1
 		I.part = E
 		E.implants += I
 		cortical_stacks += I
-		
+
 		vox.equip_vox_raider()
 		vox.regenerate_icons()
-		
+
 		raider.objectives = raid_objectives
 		greet_vox(raider)
 
