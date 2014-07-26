@@ -1,9 +1,11 @@
- /*										*****New space to put all UristMcStation Clothing (except stuff for on your head, that's head.dm)*****
+ /*										*****New space to put all UristMcStation Clothing (clothing/suit and clothing/under. I may split them up anyways)*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/clothes.dmi'
-All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd
+All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd //haha, i got that one right.
 
-Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swimsuits, detective gear, cap's jacket, HoP whimsy and storage webbing stuff.*/
+Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swimsuits, detective gear, cap's jacket, HoP whimsy and storage webbing stuff.
+
+Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/urist. All generic suits go under /obj/item/clothing/suit/urist*/
 
 //this is important to save me time with all these dresses
 
@@ -14,7 +16,7 @@ Update 23/03/2014 - removed all the ports of BS12 clothing. So, naval stuff, swi
 
 //backtracking and putting this here to clean things up
 
-obj/item/clothing/suit/urist
+/obj/item/clothing/suit/urist
 	urist_only = 1
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
