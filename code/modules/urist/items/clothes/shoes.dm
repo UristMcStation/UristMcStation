@@ -14,7 +14,7 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 //ingame wouldn't even be allowed on a modern constuction site without steel toed boots, let alone allowed to work on one.
 
 /obj/item/clothing/shoes/urist/leather //not OP. Corai said so ;)
-	desc = "A pair of steel toed leather work boots. They are quite heavy, but protect your feet from pretty much everything and have a thin metal strip in the sole to protect against nails. The rubber bottoms protect against slipping."
+	desc = "A pair of steel toed leather work boots. They are quite heavy, but protect your feet from most brute damage and have a thin metal strip in the sole to protect against nails. The rubber bottoms protect against slipping."
 	name = "leather"
 	icon_state = "leather"
 	permeability_coefficient = 0.05
