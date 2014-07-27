@@ -157,7 +157,7 @@ ALLOW_AI
 
 
 ## disable abandon mob
- NORESPAWN
+# NORESPAWN
 
 ## disables calling del(src) on newmobs if they logout before spawnin in
 # DONT_DEL_NEWMOB
@@ -180,13 +180,13 @@ GUEST_BAN
 #SERVER server.net:port
 
 ## forum address
- FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
+FORUMURL http://www.bay12forums.com/smf/index.php?topic=123140.0
 
 ## Wiki address
- WIKIURL http://baystation12.net/wiki/
+WIKIURL "http://baystation12.net/wiki/"
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
- BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
+BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
