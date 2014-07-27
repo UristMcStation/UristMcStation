@@ -37,15 +37,15 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 
 //Engineers need their PPE!
 
-/obj/item/clothing/gloves/leather //these are actually the best gloves in the game.
-	desc = "These tactical gloves are somewhat fire and impact resistant."
-	name = "combat gloves"
-	icon_state = "black"
-	item_state = "swat_gl"
+/obj/item/clothing/gloves/urist/leather //these are actually the best gloves in the game. //invalidating my comment 5 minutes after I write it. I win life.
+	desc = "A pair of leather gloves worn by engineers. These gloves protect against hurting one's hands while working, and have the added benefits of being insulated against electric shock, as well as heat resistant. A cloth liner inside provides cold resistance."
+	name = "leather work gloves" //not OP. Corai said so ;)
+	icon_state = "leather" //although, they're second only to swat gloves and combat gloves, although only combat are insulated as well.
+	item_state = "leather"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(melee = 15, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
