@@ -8,7 +8,7 @@
  	name = "Ripley customization kit"
  	desc = "A kit containing all the needed tools and parts to turn an APLU Ripley into a Clown-style Ripley."
  	icon = 'icons/urist/uristicons.dmi'
- 	icon_state = "clown_kit"
+ 	icon_state = "clown_pkit"
 
  	new_name = "APLU \"Clown-ply\""
  	new_desc = "This ordinary mining Ripley has been customized to look like a Clown."
