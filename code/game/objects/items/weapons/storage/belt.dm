@@ -175,49 +175,49 @@
 	name = "leather belt"
 	desc = "A belt made out of the finest space cow hide!"
 	icon_state = "leatherbelt"
-	item_state = "leatherbelt2"
+	item_state = "leatherbelt"
 
 /obj/item/weapon/storage/belt/vanity/cowboy
 	name = "cowboy belt"
 	desc = "Just like in the Wild West!"
-	icon_state = "cowboybelt"
-	item_state = "cowboybelt2"
+	icon_state = "cowboybelts"
+	item_state = "cowboybelts"
 
 /obj/item/weapon/storage/belt/vanity/black
 	name = "black belt"
 	desc = "A simple black belt."
 	icon_state = "blackbelt"
-	item_state = "blackbelt2"
+	item_state = "blackbelt"
 
 /obj/item/weapon/storage/belt/vanity/red
 	name = "red belt"
 	desc = "A simple red belt."
 	icon_state = "redbelt"
-	item_state = "redbelt2"
+	item_state = "redbelt"
 
 /obj/item/weapon/storage/belt/vanity/green
 	name = "green belt"
 	desc = "A simple green belt."
 	icon_state = "greenbelt"
-	item_state = "greenbelt2"
+	item_state = "greenbelt"
 
 /obj/item/weapon/storage/belt/vanity/purple
 	name = "purple belt"
 	desc = "A simple purple belt."
 	icon_state = "purplebelt"
-	item_state = "purplebelt2"
+	item_state = "purplebelt"
 
 /obj/item/weapon/storage/belt/vanity/blue
 	name = "blue belt"
 	desc = "A simple blue belt."
 	icon_state = "bluebelt"
-	item_state = "bluebelt2"
+	item_state = "bluebelt"
 
 /obj/item/weapon/storage/belt/vanity/
 	name = "orange belt"
 	desc = "A simple orange belt."
 	icon_state = "orangebelt"
-	item_state = "orangebelt2"
+	item_state = "orangebelt"
 
 
 
