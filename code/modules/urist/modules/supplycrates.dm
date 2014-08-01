@@ -1,8 +1,12 @@
-//
-//Put SupplyPacks and crates here
-//Made by TGameCo
+/*										*****New space to put all UristMcStation /datum/supply_packs and their relevant crates.*****
+
+Crates that can't be ordered go to urist/structures/crates.dm
+
+Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd*/
+
+
 //Reference files are in crate.dm, largecrate.dm, supplypacks.dm
-//
+
 
 //Turtle Crates - TGC
 /obj/structure/largecrate/turtle //Lisacrates are perfect for images
@@ -20,25 +24,6 @@
 	containertype = /obj/structure/largecrate/turtle
 	containername = "Turtle Crate"
 	group = "Hydroponics"
-
-//A crate.
-
-/obj/structure/closet/crate/secure/large/reinforced/singulo
-	name = "Particle Accelerator Storage"
-	desc = "A hefty, reinforced metal crate with an electronic locking system."
-	req_access = list(access_ce)
-	icon_state = "largermetal"
-	icon_opened = "largermetalopen"
-	icon_closed = "largermetal"
-
-/obj/structure/closet/crate/secure/large/reinforced/singulo/New()
-	..()
-	new /obj/structure/particle_accelerator/end_cap(src)
-	new /obj/structure/particle_accelerator/fuel_chamber(src)
-	new /obj/structure/particle_accelerator/power_box(src)
-	new /obj/structure/particle_accelerator/particle_emitter/center(src)
-	new /obj/structure/particle_accelerator/particle_emitter/left(src)
-	new /obj/structure/particle_accelerator/particle_emitter/right(src)
 
 //Ripley Paint Crate - TGC
 

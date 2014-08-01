@@ -8,6 +8,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(melee = 15, bullet = 0, laser = 5,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
@@ -28,6 +29,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(melee = 20, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
@@ -40,6 +42,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	armor = list(melee = 25, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 10, rad = 0)
 
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
@@ -49,6 +52,7 @@
 	siemens_coefficient = 0.30
 	permeability_coefficient = 0.01
 	item_color="white"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)
 
 	cmo
 		item_color = "medical"		//Exists for washing machines. Is not different from latex gloves in any way.
@@ -60,3 +64,4 @@
 	item_state = "ggloves"
 	permeability_coefficient = 0.9
 	siemens_coefficient = 0.9
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
