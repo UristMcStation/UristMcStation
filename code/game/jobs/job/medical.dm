@@ -207,8 +207,8 @@
 	spawn_positions = 1
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
-	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_psychiatrist)
-	minimal_access = list(access_medical, access_psychiatrist)
+	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_psychiatrist, access_sec_doors)
+	minimal_access = list(access_medical, access_psychiatrist, access_chemistry, access_sec_doors)
 	alt_titles = list("Psychologist")
 
 
