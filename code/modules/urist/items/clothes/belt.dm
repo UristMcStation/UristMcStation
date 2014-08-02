@@ -29,7 +29,7 @@
  	new /obj/item/weapon/wirecutters(src)
  	new /obj/item/weapon/cable_coil(src, 30, pick("red", "yellow", "orange"))
 
- /obj/item/weapon/storage/belt/vanity
+/obj/item/weapon/storage/belt/vanity
 	icon = 'icons/urist/items/clothes/belt.dmi'
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 	storage_slots = 1
@@ -79,7 +79,7 @@
 	icon_state = "bluebelt"
 	item_state = "bluebelt"
 
-/obj/item/weapon/storage/belt/vanity/
+/obj/item/weapon/storage/belt/vanity/orange
 	name = "orange belt"
 	desc = "A simple orange belt."
 	icon_state = "orangebelt"

@@ -161,3 +161,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
 //	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//Belts!
+
+/obj/machinery/vending/beltdispenser
+	name = "Beltlord 9000"
+	desc = "A place to buy belts of all kinds! Useful belts! Useless belts! We have them all!"
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "belt"
+	vend_reply = "Remember to buckle up!"
+	product_ads = "Keeping pants from falling down since 2456!; All the belts you could ask for!"
+	product_slogans = "Belts for everyone!; I knew a guy who didn't wear belts, he died!; All belt buckles are made from 100% pure silver, honest!"
+	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
+	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
+	contraband = list(/obj/item/weapon/storage/belt/utility = 1)
