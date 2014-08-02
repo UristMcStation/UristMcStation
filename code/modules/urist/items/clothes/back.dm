@@ -12,4 +12,9 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "satchel-robo"
 
-/obj/item/weapon/storage/backpack/
+/obj/item/weapon/storage/backpack/robo
+	name = "Robotics Backpack
+	desc = "A Backpack with roboticist markings on it"
+	icon = 'icons/urist/items/clothes/back.dmi'
+	icon_override = 'icons/uristmob/back.dmi'
+	icon_state = "backpack-robo"
