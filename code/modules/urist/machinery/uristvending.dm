@@ -2,12 +2,16 @@
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/structures&machinery/machinery.dmi' -Glloyd													*/
 
+//base define to clean up the object tree.
+
+/obj/machinery/vending/urist
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+
 //attadrabe -- autodrobe from /tg/
 
-/obj/machinery/vending/autodrobe
+/obj/machinery/vending/urist/autodrobe
 	name = "\improper AutoDrobe"
 	desc = "A vending machine for costumes."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access_txt = "46" //Theatre access needed, unless hacked.
@@ -35,9 +39,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //sustenance from /tg/
 
-/obj/machinery/vending/sustenance
+/obj/machinery/vending/urist/sustenance
 	name = "\improper Sustenance Vendor"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	desc = "A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement."
 	product_slogans = "Enjoy your meal.;Enough calories to support strenuous labor."
 	product_ads = "Sufficiently healthy.;Efficiently produced tofu!;Mmm! So good!;Have a meal.;You need food to live!;Have some more candy corn!;Try our new ice cups!"
@@ -49,14 +52,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //nt vanity machine.
 
-/obj/machinery/vending/nanotrasen
+/obj/machinery/vending/urist/nanotrasen
 	name = "\improper Nanotrasen vending machine"
 	desc = "A vending machine that dispenses goods with the Nanotrasen colours and logo."
 	product_slogans = "Nanotrasen, working for you!;Show your loyalty to Nanotrasen!;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
 	product_ads = "Nanotrasen, definitely not evil!;Nanotrasen, expanding out of control since the 22nd century!;Nanotrasen cares!;Quality goods, quality prices!;Glory to Nanotrasen!;Nanotrasen, paving a brighter future.;Look stylish and loyal!;Nanotrasen, making your work experience better one toolbox at a time!"
 	vend_delay = 15
 	vend_reply = "Glory to Nanotrasen!"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "clothing2"
 	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4,/obj/item/weapon/storage/fancy/cigarettes/lights = 10)
 	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
@@ -64,14 +66,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //dresses!
 
-/obj/machinery/vending/dress
+/obj/machinery/vending/urist/dress
 	name = "\improper Automated Dress Vendor"
 	desc = "A vending machine that apparently dispenses dresses... What will Nanotrasen think of next?"
 	product_ads = "Say yes!;Say yes to the dress!;Buy the dress you've always wanted today!;Beautiful dresses... In space.;Want to impress? Buy a dress!"
 	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress people, buy a dress!"
 	vend_delay = 15
 	vend_reply = "Enjoy your beautiful new dress!"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "dress"
 	products = list(/obj/item/clothing/under/urist/dress/teal = 5,/obj/item/clothing/under/urist/dress/yellow = 5,/obj/item/clothing/under/urist/dress/white1 = 5,/obj/item/clothing/under/urist/dress/white2 = 5,/obj/item/clothing/under/dress/dress_fire = 5,/obj/item/clothing/under/dress/dress_green = 5,/obj/item/clothing/under/dress/dress_orange = 5,/obj/item/clothing/under/dress/dress_pink = 5,
 					/obj/item/clothing/under/dress/dress_saloon = 5,/obj/item/clothing/under/dress/plaid_blue = 5,/obj/item/clothing/under/dress/plaid_purple = 5,/obj/item/clothing/under/dress/plaid_red = 5,
@@ -85,10 +86,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Hats!
 
-/obj/machinery/vending/hatdispenser
+/obj/machinery/vending/urist/hatdispenser
 	name = "Hatlord 9000"
 	desc = "It doesn't seem the slightest bit unusual. This frustrates you immensly."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "hats"
 	vend_reply = "Take care now!"
 	product_ads = "Buy some hats!;A bare head is absolutely ASKING for a robusting!"
@@ -100,10 +100,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //suits! (although technically not /clothing/suits. honk)
 
-/obj/machinery/vending/suitdispenser
+/obj/machinery/vending/urist/suitdispenser
 	name = "Suitlord 9000"
 	desc = "You wonder for a moment why all of your shirts and pants come conjoined. This hurts your head and you stop thinking about it."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "suits"
 	vend_reply = "Come again!"
 	product_ads = "Skinny? Looking for some clothes? Suitlord is the machine for you!;BUY MY PRODUCT!"
@@ -119,10 +118,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //shoes!
 
-/obj/machinery/vending/shoedispenser
+/obj/machinery/vending/urist/shoedispenser
 	name = "Shoelord 9000"
 	desc = "Wow, hatlord looked fancy, suitlord looked streamlined, and this is just normal. The guy who designed these must be an idiot."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "shoes"
 	vend_reply = "Enjoy your pair!"
 	product_ads = "Dont be a hobbit: Choose shoelord.;Shoes snatched? Get on it with shoelord."
@@ -134,10 +132,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //pants!
 
-/obj/machinery/vending/pantsdispenser
+/obj/machinery/vending/urist/pantsdispenser
 	name = "Pantslord 9000"
 	desc = "Wait a minute... Pants without shirts? What will they think of next?"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "pants"
 	vend_reply = "Pants: Wear them."
 	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
@@ -149,10 +146,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //coats!
 
-/obj/machinery/vending/coatdispenser
+/obj/machinery/vending/urist/coatdispenser
 	name = "Coatlord 9000"
 	desc = "A vendor for coats and jackets. For some reason, you feel like this should be called the suit machine..."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "coat"
 	vend_reply = "Stay classy!"
 	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you.."
@@ -161,3 +157,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
 //	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//Belts!
+
+/obj/machinery/vending/urist/beltdispenser
+	name = "Beltlord 9000"
+	desc = "A place to buy belts of all kinds! Useful belts! Useless belts! We have them all!"
+	icon_state = "belt"
+	vend_reply = "Remember to buckle up!"
+	product_ads = "Keeping pants from falling down since 2456!; All the belts you could ask for!"
+	product_slogans = "Belts for everyone!; I knew a guy who didn't wear belts, he died!; All belt buckles are made from 100% pure silver, honest!"
+	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
+	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
+	contraband = list(/obj/item/weapon/storage/belt/utility = 1)

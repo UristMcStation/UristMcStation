@@ -162,8 +162,3 @@
 		"/obj/item/device/radio/headset",
 		"/obj/item/weapon/melee"
 		)
-
-
-
-
-

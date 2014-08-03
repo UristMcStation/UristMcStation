@@ -1,4 +1,3 @@
-#define SAY_MINIMUM_PRESSURE 10
 var/list/department_radio_keys = list(
 	  ":r" = "right ear",	"#r" = "right ear",		".r" = "right ear",
 	  ":l" = "left ear",	"#l" = "left ear",		".l" = "left ear",
@@ -15,6 +14,7 @@ var/list/department_radio_keys = list(
 	  ":t" = "Syndicate",	"#t" = "Syndicate",		".t" = "Syndicate",
 	  ":u" = "Supply",		"#u" = "Supply",		".u" = "Supply",
 	  ":g" = "changeling",	"#g" = "changeling",	".g" = "changeling",
+	  ":d" = "dronechat",	"#d" = "dronechat",		".d" = "dronechat",
 
 	  ":R" = "right ear",	"#R" = "right ear",		".R" = "right ear",
 	  ":L" = "left ear",	"#L" = "left ear",		".L" = "left ear",
@@ -31,6 +31,7 @@ var/list/department_radio_keys = list(
 	  ":T" = "Syndicate",	"#T" = "Syndicate",		".T" = "Syndicate",
 	  ":U" = "Supply",		"#U" = "Supply",		".U" = "Supply",
 	  ":G" = "changeling",	"#G" = "changeling",	".G" = "changeling",
+	  ":D" = "dronechat",	"#D" = "dronechat",		".D" = "dronechat",
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -112,7 +113,7 @@ var/list/department_radio_keys = list(
 	var/datum/gas_mixture/environment = T.return_air()
 	if(environment)
 		var/pressure = environment.return_pressure()
-		if(pressure < SAY_MINIMUM_PRESSURE)
+		if(pressure < SOUND_MINIMUM_PRESSURE)
 			italics = 1
 			message_range = 1
 			
