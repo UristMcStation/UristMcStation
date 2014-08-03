@@ -184,7 +184,7 @@
 		return 0
 
 //spears, bay edition
-/obj/item/weapon/twohanded/spear
+/*/obj/item/weapon/twohanded/spear
 	icon_state = "spearglass0"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
@@ -204,4 +204,4 @@
 /obj/item/weapon/twohanded/spear/update_icon()
 	icon_state = "spearglass[wielded]"
 	return
-
+*/

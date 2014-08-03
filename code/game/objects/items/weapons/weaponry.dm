@@ -240,8 +240,8 @@
 	if(active)
 		user << "<span class='notice'>You flip out your [src].</span>"
 		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
-		force = 15 //bay adjustments
-		throwforce = 12
+		force = 14 //bay adjustments
+		throwforce = 7
 		edge = 1
 		sharp = 1
 		hitsound = 'sound/weapons/bladeslice.ogg'
@@ -260,7 +260,7 @@
 		add_fingerprint(user)
 
 
-obj/item/weapon/wirerod
+/*obj/item/weapon/wirerod
 	name = "wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
@@ -291,4 +291,4 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 		del(I)
 		del(src)
 		update_icon(user)
-	update_icon(user)
+	update_icon(user)*/

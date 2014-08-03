@@ -2,7 +2,7 @@
 
 //begin /tg/ weapons
 
-obj/item/weapon/wirerod
+/obj/item/weapon/wirerod
 	urist_only = 1
 	name = "Wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
@@ -15,7 +15,7 @@ obj/item/weapon/wirerod
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 
-obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/shard))
 		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear
@@ -71,11 +71,11 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	icon_state = "spearglass0"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
-	force = 10
+	force = 12
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 10
-	force_wielded = 18 // Was 13, Buffed - RR
+	force_unwielded = 12
+	force_wielded = 20 // Was 13, Buffed - RR
 	throwforce = 15
 	flags = NOSHIELD
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -87,15 +87,14 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod
-	urist_only = 1
 	name = "stunprod"
 	desc = "An improvised stun baton."
 	icon_state = "stunprod_nocell"
-	icon = 'icons/urist/items/improvised.dmi'
 	item_state = "prod"
 	force = 3
 	throwforce = 5
-	charges = 1
+	stunforce = 5
+	hitcost = 2500
 	slot_flags = null
 
 /obj/item/weapon/melee/baton/cattleprod/update_icon()
@@ -121,10 +120,9 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	w_class = 4.0
 	slot_flags = SLOT_BACK
 	force_unwielded = 8
-	force_wielded = 13
+	force_wielded = 14
 	throwforce = 8
 	flags = NOSHIELD
-	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
 
 /obj/item/weapon/twohanded/quarterstaff/update_icon()
@@ -145,7 +143,7 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "shiv"
 	item_state = "shard-glass"
-	force = 10
+	force = 11
 	throwforce = 5
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
@@ -157,7 +155,7 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 							"\red <b>[user] is slitting \his throat with the shard of glass! It looks like \he's trying to commit suicide.</b>")
 		return (BRUTELOSS)
 
-obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
 		var/obj/item/weapon/shiv/S = new /obj/item/weapon/shiv
@@ -178,7 +176,6 @@ obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
-
 
 //end Urist stuff
 
