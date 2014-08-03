@@ -521,13 +521,18 @@
 	if(wear_id)
 		return wear_id.GetID()
 
-//Added a safety check in case you want to shock a human mob directly through electrocute_act.
-/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/safety = 0)
-	if(!safety)
-		if(gloves)
-			var/obj/item/clothing/gloves/G = gloves
-			siemens_coeff = G.siemens_coefficient
-	return ..(shock_damage,source,siemens_coeff)
+//Removed the horrible safety parameter. It was only being used by ninja code anyways.
+//Now checks siemens_coefficient of the affected area by default
+/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null)
+	if(status_flags & GODMODE)	return 0	//godmode
+	
+	if (!def_zone)
+		def_zone = pick("l_hand", "r_hand")
+	
+	var/datum/organ/external/affected_organ = get_organ(check_zone(def_zone))
+	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
+	
+	return ..(shock_damage, source, siemens_coeff, def_zone)
 
 
 /mob/living/carbon/human/Topic(href, href_list)
@@ -1383,7 +1388,7 @@
 	status_flags |= LEAPING
 
 	src.visible_message("<span class='warning'><b>\The [src]</b> leaps at [T]!</span>")
-	src.throw_at(get_step(get_turf(T),get_turf(src)), 5, 1)
+	src.throw_at(get_step(get_turf(T),get_turf(src)), 5, 1, src)
 	playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
 
 	sleep(5)
@@ -1457,3 +1462,39 @@
 		M.apply_damage(50,BRUTE)
 		if(M.stat == 2)
 			M.gib()
+
+/mob/living/carbon/human/proc/commune()
+	set category = "IC"
+	set name = "Commune with creature"
+	set desc = "Send a telepathic message to an unlucky recipient."
+
+	var/list/targets = list()
+	var/target = null
+	var/text = null
+
+	targets += getmobs() //Fill list, prompt user with list
+	target = input("Select a creature!", "Speak to creature", null, null) as null|anything in targets
+
+	if(!target) return
+
+	text = input("What would you like to say?", "Speak to creature", null, null)
+
+	text = trim(copytext(sanitize(text), 1, MAX_MESSAGE_LEN))
+
+	if(!text) return
+
+	var/mob/M = targets[target]
+
+	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+		src << "Not even a [src.species.name] can speak to the dead."
+		return
+
+	log_say("[key_name(src)] communed to [key_name(M)]: [text]")
+
+	M << "\blue Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		if(H.species.name == src.species.name)
+			return
+		H << "\red Your nose begins to bleed..."
+		H.drip(1)
