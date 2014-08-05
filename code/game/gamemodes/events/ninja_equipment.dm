@@ -519,7 +519,7 @@ ________________________________________________________________________________
 			var/damage = min(cell.charge, rand(50,150))//Uses either the current energy left over or between 50 and 150.
 			if(damage>1)//So they don't spam it when energy is a factor.
 				spark_system.start()//SPARKS THERE SHALL BE SPARKS
-				U.electrocute_act(damage, src,0.1,1)//The last argument is a safety for the human proc that checks for gloves.
+				U.electrocute_act(damage, src, 0.1)
 				if(cell.charge < damage)
 					cell.use(cell.charge)
 				else
@@ -1377,19 +1377,17 @@ It is possible to destroy the net by the occupant or someone else.
 					playsound(M.loc, 'sound/effects/sparks2.ogg', 50, 1)
 					anim(M.loc,M,'icons/mob/mob.dmi',,"phasein",,M.dir)
 					del(src)//Wait for everything to finish, delete the net. Else it will stop everything once net is deleted, including the spawn(0).
-			else
-				M.loc = null
 
-			M << "\red You appear in a strange place!"
+				M << "\red You appear in a strange place!"
 
-			for(var/mob/O in viewers(src, 3))
-				O.show_message(text("[] vanished!", M), 1, text("You hear sparks flying!"), 2)
+				for(var/mob/O in viewers(src, 3))
+					O.show_message(text("[] vanished!", M), 1, text("You hear sparks flying!"), 2)
 
-			if(!isnull(master))//As long as they still exist.
-				master << "\blue <b>SUCCESS</b>: \black transport procedure of \the [affecting] complete."
+				if(!isnull(master))//As long as they still exist.
+					master << "\blue <b>SUCCESS</b>: \black transport procedure of \the [affecting] complete."
 
-			M.captured = 0 //Important.
-			M.anchored = initial(M.anchored) //Changes the mob's anchored status to the original one; this is not handled by the can_move proc.
+				M.captured = 0 //Important.
+				M.anchored = initial(M.anchored) //Changes the mob's anchored status to the original one; this is not handled by the can_move proc.
 
 		else//And they are free.
 			M << "\blue You are free of the net!"

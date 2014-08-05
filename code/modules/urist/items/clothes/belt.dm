@@ -8,6 +8,7 @@
 	icon = 'icons/urist/items/clothes/belt.dmi'
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 	icon_state = "beltRobo"
+	storage_slots = 7
 	can_hold = list(
  	"/obj/item/weapon/crowbar",
  	"/obj/item/weapon/screwdriver",

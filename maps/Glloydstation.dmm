@@ -3527,7 +3527,11 @@
 "bpQ" = (/obj/machinery/door/airlock{name = "Unit 1"},/turf/simulated/floor{icon_state = "freezerfloor"},/area/crew_quarters/toilet)
 "bpR" = (/obj/machinery/door/airlock{name = "Unit 2"},/turf/simulated/floor{icon_state = "freezerfloor"},/area/crew_quarters/toilet)
 "bpS" = (/obj/machinery/door/airlock{name = "Unit B"},/turf/simulated/floor{icon_state = "freezerfloor"},/area/crew_quarters/toilet)
+<<<<<<< HEAD
 "bpT" = (/obj/item/clothing/head/soft/nanotrasen,/turf/simulated/floor/wood,/area/crew_quarters)
+=======
+"bpT" = (/obj/machinery/vending/urist/nanotrasen,/turf/simulated/floor/wood,/area/crew_quarters)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "bpU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/carpet,/area/crew_quarters)
 "bpV" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/carpet,/area/crew_quarters)
 "bpW" = (/obj/machinery/atmospherics/unary/vent_scrubber{dir = 8; on = 1; scrub_Toxins = 0},/turf/simulated/floor/wood,/area/crew_quarters)
@@ -4002,7 +4006,11 @@
 "byX" = (/obj/machinery/flasher{id = "PCell 3"; pixel_y = -26},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "byY" = (/obj/structure/closet/crate/internals,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/tank/emergency_oxygen,/obj/item/clothing/mask/breath,/obj/item/clothing/mask/breath,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
 "byZ" = (/obj/structure/table,/obj/item/weapon/folder/blue,/obj/machinery/flasher{id = "PCell 3"; pixel_x = -26; pixel_y = 0; pixel_z = 0},/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
+<<<<<<< HEAD
 "bza" = (/obj/machinery/light{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/vending/sustenance,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
+=======
+"bza" = (/obj/machinery/light{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/vending/urist/sustenance,/turf/simulated/floor{icon_state = "floorgrime"},/area/security/prison)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "bzb" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/turf/simulated/wall/r_wall,/area/security/prison)
 "bzc" = (/obj/machinery/door/airlock/security{name = "Lethal Injection Closet"; req_access = null; req_access_txt = "63; 42"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/simulated/floor{icon_state = "red"; dir = 8},/area/security/prison)
 "bzd" = (/obj/machinery/requests_console{department = "Detective's office"; pixel_x = -30; pixel_y = 0},/obj/machinery/light/small{dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/storage/box/evidence,/obj/item/weapon/reagent_containers/food/drinks/flask/detflask,/turf/simulated/floor{icon_state = "grimy"},/area/security/detectives_office)
@@ -4739,7 +4747,11 @@
 "bNg" = (/obj/structure/rack,/obj/effect/landmark/costume,/obj/structure/disposalpipe/segment{dir = 4; icon_state = "pipe-c"},/turf/simulated/floor/wood,/area/crew_quarters/theatre)
 "bNh" = (/obj/machinery/power/apc{cell_type = 5000; dir = 2; name = "Theatre Storage APC"; pixel_y = -24},/obj/structure/cable,/obj/structure/rack,/obj/item/clothing/mask/horsehead,/obj/item/clothing/mask/muzzle,/obj/item/clothing/mask/pig,/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/wood,/area/crew_quarters/theatre)
 "bNi" = (/obj/structure/disposalpipe/trunk{dir = 8},/obj/machinery/disposal,/turf/simulated/floor/wood,/area/crew_quarters/theatre)
+<<<<<<< HEAD
 "bNj" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/vending/autodrobe,/turf/simulated/floor/wood,/area/crew_quarters/theatre)
+=======
+"bNj" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/vending/urist/autodrobe,/turf/simulated/floor/wood,/area/crew_quarters/theatre)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "bNk" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/drinks/shaker,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/turf/simulated/floor/wood,/area/crew_quarters/bar)
 "bNl" = (/obj/effect/landmark{name = "xeno_spawn"; pixel_x = -1},/turf/simulated/floor/wood,/area/crew_quarters/bar)
 "bNm" = (/obj/machinery/atmospherics/unary/vent_scrubber{on = 1; scrub_N2O = 0; scrub_Toxins = 0},/turf/simulated/floor/wood,/area/crew_quarters/bar)
@@ -5403,7 +5415,11 @@
 "bZU" = (/obj/machinery/atmospherics/unary/vent_scrubber{dir = 8; icon_state = "off"; on = 1; scrub_N2O = 0; scrub_Toxins = 0},/turf/simulated/floor,/area/quartermaster/office)
 "bZV" = (/obj/structure/stool/bed/chair{dir = 8},/turf/simulated/floor{tag = "icon-browncorner"; icon_state = "browncorner"; dir = 2},/area/quartermaster/office)
 "bZW" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/crew_quarters/pool)
+<<<<<<< HEAD
 "bZX" = (/obj/item/clothing/under/dress,/obj/machinery/atm{pixel_x = -30},/turf/simulated/floor,/area/crew_quarters/pool)
+=======
+"bZX" = (/obj/machinery/vending/urist/dress,/obj/machinery/atm{pixel_x = -30},/turf/simulated/floor,/area/crew_quarters/pool)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "bZY" = (/turf/simulated/floor,/area/crew_quarters/pool)
 "bZZ" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
 "caa" = (/obj/machinery/atmospherics/unary/vent_scrubber{on = 1; scrub_N2O = 0; scrub_Toxins = 0},/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
@@ -5487,7 +5503,7 @@
 "cbA" = (/obj/machinery/light{dir = 4},/turf/simulated/floor{dir = 6; icon_state = "brown"},/area/quartermaster/office)
 "cbB" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{tag = "icon-manifold-r-f (WEST)"; icon_state = "manifold-r-f"; dir = 8},/turf/simulated/floor/plating,/area/crew_quarters/pool)
 "cbC" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/wall,/area/crew_quarters/pool)
-"cbD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/extinguisher_cabinet{pixel_x = -32},/obj/machinery/vending/hatdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+"cbD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/extinguisher_cabinet{pixel_x = -32},/obj/machinery/vending/urist/hatdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
 "cbE" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1},/turf/simulated/floor,/area/crew_quarters/pool)
 "cbF" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor,/area/crew_quarters/pool)
 "cbG" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/glass{name = "Pool"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor,/area/crew_quarters/pool)
@@ -5567,7 +5583,7 @@
 "cdc" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{dir = 2; name = "Trading Post Desk"},/turf/simulated/floor,/area/quartermaster/office)
 "cdd" = (/obj/machinery/door/airlock/maintenance{req_access_txt = "12"},/turf/simulated/floor/plating,/area/maintenance/atmos_control)
 "cde" = (/turf/simulated/wall,/area/maintenance/atmos_control)
-"cdf" = (/obj/item/device/radio/intercom{freerange = 1; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -30},/obj/machinery/vending/suitdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+"cdf" = (/obj/item/device/radio/intercom{freerange = 1; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -30},/obj/machinery/vending/urist/suitdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
 "cdg" = (/obj/machinery/atmospherics/unary/vent_scrubber{dir = 1; on = 1; scrub_N2O = 0; scrub_Toxins = 0},/turf/simulated/floor,/area/crew_quarters/pool)
 "cdh" = (/obj/structure/flora/pottedplant,/turf/simulated/floor,/area/crew_quarters/pool)
 "cdi" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/crew_quarters/pool)
@@ -5661,7 +5677,11 @@
 "ceS" = (/obj/machinery/door_control{id = "TradingPost"; name = "Trading Post Door Control"; pixel_x = -28},/turf/simulated/floor,/area/quartermaster/office)
 "ceT" = (/turf/simulated/floor/plating,/area/maintenance/atmos_control)
 "ceU" = (/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/hallway/primary/port)
+<<<<<<< HEAD
 "ceV" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/machinery/vending/shoedispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+=======
+"ceV" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/machinery/vending/urist/shoedispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "ceW" = (/obj/machinery/hologram/holopad,/turf/simulated/floor,/area/crew_quarters/pool)
 "ceX" = (/obj/structure/rack{dir = 8; layer = 2.9},/turf/simulated/floor,/area/crew_quarters/pool)
 "ceY" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/crew_quarters/pool)
@@ -5736,7 +5756,11 @@
 "cgp" = (/obj/machinery/light{dir = 4},/turf/simulated/floor,/area/quartermaster/miningdock)
 "cgq" = (/obj/machinery/camera{c_tag = "Trading Post"; dir = 8; network = list("SS13")},/obj/item/device/radio/intercom{dir = 4; name = "Station Intercom (General)"; pixel_x = 27},/obj/machinery/light{dir = 4},/turf/simulated/floor,/area/quartermaster/office)
 "cgr" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc{dir = 4; name = "Port Primary Hallway APC"; pixel_x = 26; pixel_y = 0},/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/hallway/primary/port)
+<<<<<<< HEAD
 "cgs" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc{cell_type = 2500; dir = 8; name = "Pool Room APC"; pixel_x = -24; pixel_y = 0},/obj/machinery/vending/pantsdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+=======
+"cgs" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc{cell_type = 2500; dir = 8; name = "Pool Room APC"; pixel_x = -24; pixel_y = 0},/obj/machinery/vending/urist/pantsdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "cgt" = (/obj/structure/stool,/obj/machinery/light,/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
 "cgu" = (/obj/machinery/space_heater,/turf/simulated/floor/plating,/area/storage/emergency2)
 "cgv" = (/obj/item/weapon/rack_parts,/turf/simulated/floor/plating,/area/maintenance/fsmaint2)
@@ -5890,7 +5914,11 @@
 "cjn" = (/obj/structure/disposalpipe/segment,/obj/machinery/door/firedoor,/obj/machinery/door/airlock/glass{name = "Central Access"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor,/area/hallway/primary/port)
 "cjo" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/glass{name = "Central Access"},/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/hallway/primary/port)
 "cjp" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/wall,/area/crew_quarters/pool)
+<<<<<<< HEAD
 "cjq" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22},/obj/machinery/vending/coatdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+=======
+"cjq" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22},/obj/machinery/vending/urist/coatdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "cjr" = (/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/turf/simulated/floor/uristturf{tag = "icon-siding1"; icon_state = "siding1"},/area/crew_quarters/pool)
 "cjs" = (/obj/machinery/camera{c_tag = "Pool 2"; dir = 8},/obj/structure/extinguisher_cabinet{pixel_x = 32},/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
 "cjt" = (/obj/structure/window/reinforced/tinted,/obj/machinery/shower{dir = 4},/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
@@ -5964,9 +5992,15 @@
 "ckJ" = (/obj/structure/disposalpipe/segment,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor,/area/hallway/primary/port)
 "ckK" = (/obj/structure/closet/emcloset,/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/hallway/primary/aft)
 "ckL" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8},/turf/simulated/wall,/area/crew_quarters/pool)
+<<<<<<< HEAD
 "ckM" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/item/clothing/head/soft/nanotrasen,/obj/machinery/atm{pixel_x = -30},/turf/simulated/floor,/area/crew_quarters/pool)
 "ckN" = (/obj/machinery/atmospherics/unary/vent_pump{dir = 8; on = 1},/turf/simulated/floor,/area/crew_quarters/pool)
 "ckO" = (/obj/machinery/vending/beltdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+=======
+"ckM" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/vending/urist/nanotrasen,/obj/machinery/atm{pixel_x = -30},/turf/simulated/floor,/area/crew_quarters/pool)
+"ckN" = (/obj/machinery/atmospherics/unary/vent_pump{dir = 8; on = 1},/turf/simulated/floor,/area/crew_quarters/pool)
+"ckO" = (/obj/machinery/vending/urist/beltdispenser,/turf/simulated/floor,/area/crew_quarters/pool)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "ckP" = (/obj/structure/closet/athletic_mixed,/obj/machinery/alarm{dir = 1; pixel_y = -22},/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
 "ckQ" = (/obj/structure/closet{name = "Female Bathing Suits"},/obj/item/clothing/under/swimsuit/black,/obj/item/clothing/under/swimsuit/blue,/obj/item/clothing/under/swimsuit/green,/obj/item/clothing/under/swimsuit/purple,/obj/item/clothing/under/swimsuit/red,/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
 "ckR" = (/obj/machinery/hologram/holopad,/turf/simulated/floor/uristturf{tag = "icon-pooldecktile"; icon_state = "pooldecktile"},/area/crew_quarters/pool)
@@ -7388,7 +7422,11 @@
 "cMd" = (/obj/machinery/atmospherics/unary/cold_sink/freezer,/turf/simulated/floor,/area/atmos)
 "cMe" = (/obj/structure/extinguisher_cabinet{pixel_y = 27},/obj/machinery/light{dir = 1},/turf/simulated/floor,/area/atmos)
 "cMf" = (/obj/machinery/power/apc{dir = 1; name = "Atmospherics APC"; pixel_x = 0; pixel_y = 24},/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor,/area/atmos)
+<<<<<<< HEAD
 "cMg" = (/obj/structure/table,/obj/item/weapon/storage/belt/utility,/obj/item/weapon/storage/belt/utility,/obj/machinery/camera{c_tag = "Atmospherics Central"; dir = 2; network = list("SS13"); pixel_x = 0; pixel_y = 0},/obj/item/device/pipe_painter,/turf/simulated/floor,/area/atmos)
+=======
+"cMg" = (/obj/structure/table,/obj/item/weapon/storage/belt/utility,/obj/item/weapon/storage/belt/utility,/obj/machinery/camera{c_tag = "Atmospherics Central"; dir = 2; network = list("SS13"); pixel_x = 0; pixel_y = 0},/turf/simulated/floor,/area/atmos)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "cMh" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/atmos)
 "cMi" = (/obj/structure/rack{dir = 8; layer = 2.9},/obj/item/clothing/suit/space/rig/atmos,/obj/item/clothing/mask/breath,/obj/item/clothing/head/helmet/space/rig/atmos,/obj/machinery/atmospherics/unary/vent_pump{dir = 1; on = 1},/obj/item/clothing/shoes/magboots,/turf/simulated/floor{dir = 4; icon_state = "warning"},/area/atmos)
 "cMj" = (/obj/structure/sign/nosmoking_2{pixel_y = 32},/turf/simulated/floor,/area/atmos)
@@ -7481,7 +7519,11 @@
 "cNS" = (/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/airlock/glass_engineering{name = "Engineering Storage"; req_access_txt = "32"},/turf/simulated/floor,/area/engine/engineering)
 "cNT" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor,/area/engine/engineering)
 "cNU" = (/obj/structure/rack{dir = 8; layer = 2.9},/obj/item/weapon/storage/belt/utility,/obj/item/weapon/wrench,/obj/item/weapon/weldingtool,/obj/item/clothing/head/welding{pixel_x = -3; pixel_y = 5},/turf/simulated/floor,/area/engine/engineering)
+<<<<<<< HEAD
 "cNV" = (/obj/structure/table,/obj/item/weapon/crowbar,/obj/item/weapon/storage/box/lights/mixed,/obj/item/weapon/storage/box/lights/mixed,/obj/item/weapon/storage/box/lights/mixed,/obj/item/device/pipe_painter,/turf/simulated/floor,/area/engine/engineering)
+=======
+"cNV" = (/obj/structure/table,/obj/item/weapon/crowbar,/obj/item/weapon/storage/box/lights/mixed,/obj/item/weapon/storage/box/lights/mixed,/obj/item/weapon/storage/box/lights/mixed,/turf/simulated/floor,/area/engine/engineering)
+>>>>>>> 24e01c522daa910beb863de4d0d36b53af3c060f
 "cNW" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = ""},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor,/area/engine/engineering)
 "cNX" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/turf/simulated/floor,/area/engine/engineering)
 "cNY" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/turf/simulated/floor,/area/engine/engineering)

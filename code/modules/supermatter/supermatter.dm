@@ -123,27 +123,31 @@
 		shift_light(5, warning_color)
 		if((world.timeofday - lastwarning) / 10 >= WARNING_DELAY)
 			var/stability = num2text(round((damage / explosion_point) * 100))
+			var/alert_msg
 
 			if(damage > emergency_point)
 				shift_light(7, emergency_color)
-				radio.autosay(addtext(emergency_alert, " Instability: ",stability,"%"), "Supermatter Monitor")
+				alert_msg = addtext(emergency_alert, " Instability: ",stability,"%")
 				lastwarning = world.timeofday
-
 			else if(damage >= damage_archived) // The damage is still going up
-				radio.autosay(addtext(warning_alert," Instability: ",stability,"%"), "Supermatter Monitor")
+				alert_msg = addtext(warning_alert," Instability: ",stability,"%")
 				lastwarning = world.timeofday - 150
-
-			else                                                 // Phew, we're safe
-				radio.autosay(safe_alert, "Supermatter Monitor")
+			else // Phew, we're safe
+				alert_msg = safe_alert
 				lastwarning = world.timeofday
+
+			if(!istype(L, /turf/space) && alert_msg)
+				radio.autosay(alert_msg, "Supermatter Monitor")
 
 		if(damage > explosion_point)
 			for(var/mob/living/mob in living_mob_list)
-				if(istype(mob, /mob/living/carbon/human))
-					//Hilariously enough, running into a closet should make you get hit the hardest.
-					mob:hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
-				var/rads = DETONATION_RADS * sqrt( 1 / (get_dist(mob, src) + 1) )
-				mob.apply_effect(rads, IRRADIATE)
+				if(loc.z == mob.loc.z)
+					if(istype(mob, /mob/living/carbon/human))
+						//Hilariously enough, running into a closet should make you get hit the hardest.
+						var/mob/living/carbon/human/H = mob
+						H.hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
+					var/rads = DETONATION_RADS * sqrt( 1 / (get_dist(mob, src) + 1) )
+					mob.apply_effect(rads, IRRADIATE)
 
 			explode()
 	else
@@ -329,10 +333,15 @@
 			if(is_type_in_list(X, uneatable))	continue
 			if(((X) && (!istype(X,/mob/living/carbon/human))))
 				step_towards(X,src)
-				if(!X:anchored) //unanchored objects pulled twice as fast
+				if(istype(X, /obj)) //unanchored objects pulled twice as fast
+					var/obj/O = X
+					if(!O.anchored)
+						step_towards(X,src)
+				else
 					step_towards(X,src)
 				if(istype(X, /obj/structure/window)) //shatter windows
-					X.ex_act(2.0)
+					var/obj/structure/window/W = X
+					W.ex_act(2.0)
 			else if(istype(X,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = X
 				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
