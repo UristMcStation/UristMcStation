@@ -1,8 +1,9 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
+	desc = "It paints pipes!"
 	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "paint sprayer"
-	item_state = "paint sprayer"
+	icon_state = "paint_sprayer"
+	item_state = "paint_sprayer"
 	var/list/modes = list("grey","red","blue","cyan","green","yellow","purple")
 	var/mode = "grey"
 
