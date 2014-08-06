@@ -136,7 +136,7 @@ obj/item/weapon/vanity/unathi
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "unathi"
 	item_state = "unathi"
-	w_class = 1
+	w_class = 2
 
 /obj/item/weapon/vanity/unathi/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
