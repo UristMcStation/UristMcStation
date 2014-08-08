@@ -28,3 +28,22 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+//winter boots, for the shoevend
+
+/obj/item/clothing/shoes/urist/winter
+	desc = "A pair of cozy winter boots. Those will surely keep your toes from falling off!"
+	name = "winter boots"
+	icon_state = "winterboots"
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+
+//kneesocks, for the shoevend
+
+/obj/item/clothing/shoes/urist/kneesock
+	desc = "A pair of cute white kneesocks."
+	name = "kneesocks"
+	icon_state = "kneesock"
+	item_state = "kneesock"
