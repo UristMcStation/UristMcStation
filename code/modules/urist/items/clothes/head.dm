@@ -189,3 +189,9 @@ obj/item/clothing/head/princessbow
 	desc = "A peaked cap worn by the CMO on formal occasions."
 	icon_state = "cmo"
 	item_state = "cmo"
+
+/obj/item/clothing/head/urist/motorhelm
+	name = "Black Motorcycle Helmet"
+	desc = "A Black Motorcycle Helmet. Useful to prevent head injuries."
+	icon_state = "blackmotor"
+	item_state = "blackmotor"
