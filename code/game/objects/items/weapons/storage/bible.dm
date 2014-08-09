@@ -8,6 +8,7 @@
 	flags = FPRINT | TABLEPASS
 	var/mob/affecting = null
 	var/deity_name = "Christ"
+	var/stupidreligion = 0
 
 /obj/item/weapon/storage/bible/booze
 	name = "bible"
@@ -69,7 +70,7 @@
 			M << "\red The power of [src.deity_name] clears your mind of heresy!"
 			user << "\red You see how [M]'s eyes become clear, the cult no longer holds control over him!"
 			ticker.mode.remove_cultist(M.mind)*/
-		if ((istype(M, /mob/living/carbon/human) && prob(60)))
+		if ((istype(M, /mob/living/carbon/human) && prob(60) && src.stupidreligion==0))
 			bless(M)
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("\red <B>[] heals [] with the power of [src.deity_name]!</B>", user, M), 1)
@@ -77,8 +78,8 @@
 			playsound(src.loc, "punch", 25, 1, -1)
 		else
 			if(ishuman(M) && !istype(M:head, /obj/item/clothing/head/helmet))
-				switch(src.name)
-					if("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight")
+				switch(src.stupidreligion)
+					if(1)
 						M.adjustBrainLoss(rand(15, 50))
 						M << "\red You feel like your brain rotted slightly."
 					else
