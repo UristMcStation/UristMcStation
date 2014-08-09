@@ -22,7 +22,7 @@
 	new /obj/item/weapon/spacecash(src)
 	new /obj/item/weapon/spacecash(src)
 //BS12 EDIT
-/* // All cult functionality moved to Null Rod
+ // All cult functionality moved to Null Rod
 /obj/item/weapon/storage/bible/proc/bless(mob/living/carbon/M as mob)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -77,8 +77,13 @@
 			playsound(src.loc, "punch", 25, 1, -1)
 		else
 			if(ishuman(M) && !istype(M:head, /obj/item/clothing/head/helmet))
-				M.adjustBrainLoss(10)
-				M << "\red You feel dumber."
+				switch(src.name)
+					if("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight")
+						M.adjustBrainLoss(rand(15, 50))
+						M << "\red You feel like your brain rotted slightly."
+					else
+						M.adjustBrainLoss(10)
+						M << "\red You feel dumber."
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("\red <B>[] beats [] over the head with []!</B>", user, M, src), 1)
 			playsound(src.loc, "punch", 25, 1, -1)
@@ -87,7 +92,7 @@
 			O.show_message(text("\red <B>[] smacks []'s lifeless corpse with [].</B>", user, M, src), 1)
 		playsound(src.loc, "punch", 25, 1, -1)
 	return
-*/
+
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity) return
 /*	if (istype(A, /turf/simulated/floor))
