@@ -116,7 +116,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //comb
 
-obj/item/weapon/vanity/comb
+/obj/item/weapon/vanity/comb
 	name = "purple comb"
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 2.0
@@ -130,7 +130,7 @@ obj/item/weapon/vanity/comb
 				O.show_message(text("\red [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.", user, src), 1)
 		return
 
-obj/item/weapon/vanity/unathi
+/obj/item/weapon/vanity/unathi
 	name = "unathi doll"
 	desc = "A fluffy version of everyone's favorite giant lizards!"
 	icon = 'icons/urist/items/misc.dmi'

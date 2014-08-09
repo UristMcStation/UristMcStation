@@ -128,3 +128,13 @@
 	desc="An electric razor. The perfect thing for keeping your hair trimmed, and you looking classy."
 	typepath=/obj/item/weapon/razor
 	cost = 300
+
+/////////////////////////////////////////////////////////
+//                     Doll(s?)                        //
+/////////////////////////////////////////////////////////
+
+datum/storeitem/dollunathi
+	name="Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard!"
+	typepath=/obj/item/weapon/vanity/unathi
+	cost = 300
