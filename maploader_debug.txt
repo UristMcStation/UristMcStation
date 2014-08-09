@@ -1,0 +1,12 @@
+Starting Map Load @ (0, 0, 7), 100 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 100 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 100 tiles per second.
+	Building turf array.
+	Failure /obj/effect/alien/weeds/node @ (28, 37, 7)  fields:
+	Failure /obj/effect/landmark/sc_bible_spawner @ (48, 21, 7)  fields:
+Starting Map Load @ (0, 0, 7), 100 tiles per second.
+	Building turf array.
+	Failure /obj/effect/alien/weeds/node @ (28, 37, 7)  fields:
+	Failure /obj/effect/landmark/sc_bible_spawner @ (48, 21, 7)  fields:
