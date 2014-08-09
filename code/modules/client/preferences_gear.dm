@@ -405,3 +405,29 @@ proc/populate_gear_list()
 	cost = 2
 	slot = slot_wear_suit
 	whitelisted = "Unathi"
+
+/datum/gear/zippogold
+	display_name = "gold zippo"
+	path = /obj/item/weapon/lighter/zippo/vanity/gold
+	cost = 1
+
+/datum/gear/zippored
+	display_name = "red zippo"
+	path = /obj/item/weapon/lighter/zippo/vanity/red
+	cost = 1
+
+/datum/gear/zippoblue
+	display_name = "blue zippo"
+	path = /obj/item/weapon/lighter/zippo/vanity/blue
+	cost = 1
+
+/datum/gear/zippoblack
+	display_name = "black zippo"
+	path = /obj/item/weapon/lighter/zippo/vanity/black
+	cost = 1
+
+/datum/gear/engravedzip
+	display_name = "engraved zippo"
+	path = /obj/item/weapon/lighter/zippo/vanity/engraved
+	cost = 1
+
