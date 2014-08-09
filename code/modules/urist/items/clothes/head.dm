@@ -195,3 +195,4 @@ obj/item/clothing/head/princessbow
 	desc = "A Black Motorcycle Helmet. Useful to prevent head injuries."
 	icon_state = "blackmotor"
 	item_state = "blackmotor"
+	armor = list(melee = 20, bullet = 5, laser = 0,energy = 0, bomb = 5, bio = 2, rad = 0)
