@@ -156,7 +156,7 @@ obj/item/clothing/head/princessbow
 	set desc = "Show those scum who's boss."
 
 	usr << "You tip your fedora."
-	usr.visible_message("[usr] tips his fedora.")
+	usr.visible_message("[usr] tips \his fedora.")
 
 /obj/item/clothing/head/urist/fez
 	name = "\improper fez"
