@@ -87,7 +87,7 @@
 	typepath=/obj/item/weapon/lighter/zippo/vanity/red
 	cost = 650
 
-/datum/storeitem/zippored
+/datum/storeitem/zippofancy
 	name="Engraved Zippo"
 	desc="A silver zippo lighter with intricate engravings made just for you!"
 	typepath=/obj/item/weapon/lighter/zippo/vanity/engraved
