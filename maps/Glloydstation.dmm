@@ -9635,7 +9635,7 @@
 "dDo" = (/obj/structure/rack,/obj/item/weapon/storage/lockbox,/turf/simulated/shuttle/plating{dir = 1; icon_state = "warning"},/area/shuttle/escape/centcom)
 "dDp" = (/obj/structure/rack,/obj/item/clothing/mask/breath,/obj/item/weapon/tank/emergency_oxygen,/obj/item/clothing/head/emergencyhood,/obj/item/clothing/suit/emergencysuit,/turf/simulated/shuttle/plating{dir = 1; icon_state = "warning"},/area/shuttle/escape/centcom)
 "dDq" = (/turf/simulated/shuttle/wall{icon_state = "swallc2"; dir = 2},/area/shuttle/escape/centcom)
-"dDr" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "escape_shuttle_hatch"; locked = 1; name = "Shuttle Hatch"; req_access_txt = "13"},/turf/simulated/shuttle/floor,/area/shuttle/escape/centcom)
+"dDr" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "escape_shuttle_hatch"; locked = 1; name = "Shuttle Hatch"; req_access_txt = "0"},/turf/simulated/shuttle/floor,/area/shuttle/escape/centcom)
 "dDs" = (/obj/machinery/door/airlock/external{name = "Escape Airlock"; req_access_txt = "2"},/turf/simulated/shuttle/plating,/area/shuttle/escape/centcom)
 "dDt" = (/turf/simulated/shuttle/wall{icon_state = "swall_s9"; dir = 2},/area/shuttle/escape/centcom)
 "dDu" = (/turf/simulated/shuttle/wall{icon_state = "swall_s6"; dir = 2},/area/shuttle/naval1/centcom)
