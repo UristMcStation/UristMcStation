@@ -651,7 +651,7 @@
 	model_text = "Nonstandard"
 	req_access = list(access_syndicate)
 	departments = list("Mercenary")
-	species = list("Human""Unathi","Skrell")
+	species = list("Human","Unathi","Skrell")
 	can_repair = 1
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
