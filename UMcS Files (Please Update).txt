@@ -34,7 +34,6 @@ AFFECTED BS12 FILES // Let's do this right this time.
  
  code/modules/mob/new_player/sprite_accessories.dm -- Hair http://i.imgur.com/UHBRezI.png
 
- icons/mob/human_face.dmi -- ^ 
 
 //Poll stuff
 
