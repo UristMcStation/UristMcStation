@@ -32,6 +32,9 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
   icon/mon/human_races --Added two new files
  
+ code/modules/mob/new_player/sprite_accessories.dm -- Hair http://i.imgur.com/UHBRezI.png
+
+
 //Poll stuff
 
  code/modules/admin/admin_verbs.dm
