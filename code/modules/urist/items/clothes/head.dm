@@ -158,7 +158,7 @@ obj/item/clothing/head/princessbow
 	set desc = "Show those scum who's boss."
 
 	usr << "You tip your fedora."
-	usr.visible_message("[usr] tips his fedora.")
+	usr.visible_message("[usr] tips \his fedora.")
 
 /obj/item/clothing/head/urist/fez
 	name = "\improper fez"
@@ -189,3 +189,10 @@ obj/item/clothing/head/princessbow
 	desc = "A peaked cap worn by the CMO on formal occasions."
 	icon_state = "cmo"
 	item_state = "cmo"
+
+/obj/item/clothing/head/urist/motorhelm
+	name = "Black Motorcycle Helmet"
+	desc = "A Black Motorcycle Helmet. Useful to prevent head injuries."
+	icon_state = "blackmotor"
+	item_state = "blackmotor"
+	armor = list(melee = 20, bullet = 5, laser = 0,energy = 0, bomb = 5, bio = 2, rad = 0)

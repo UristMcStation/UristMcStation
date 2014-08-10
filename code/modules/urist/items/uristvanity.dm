@@ -116,7 +116,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //comb
 
-obj/item/weapon/vanity/comb
+/obj/item/weapon/vanity/comb
 	name = "purple comb"
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 2.0
@@ -129,3 +129,15 @@ obj/item/weapon/vanity/comb
 			for(var/mob/O in viewers(user, null))
 				O.show_message(text("\red [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.", user, src), 1)
 		return
+
+/obj/item/weapon/vanity/unathi
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards!"
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "unathi"
+	item_state = "unathi"
+	w_class = 2
+
+/obj/item/weapon/vanity/unathi/attack_self(mob/user as mob)
+	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
+						 "<span class='notice'>You hug [src], [src] hisses! Awww! </span>")

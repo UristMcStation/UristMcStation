@@ -87,7 +87,7 @@
 	typepath=/obj/item/weapon/lighter/zippo/vanity/red
 	cost = 650
 
-/datum/storeitem/zippored
+/datum/storeitem/zippofancy
 	name="Engraved Zippo"
 	desc="A silver zippo lighter with intricate engravings made just for you!"
 	typepath=/obj/item/weapon/lighter/zippo/vanity/engraved
@@ -127,4 +127,20 @@
 	name="Electric Razor"
 	desc="An electric razor. The perfect thing for keeping your hair trimmed, and you looking classy."
 	typepath=/obj/item/weapon/razor
+	cost = 300
+
+/////////////////////////////////////////////////////////
+//                     Doll(s?)                        //
+/////////////////////////////////////////////////////////
+
+datum/storeitem/dollunathi
+	name="Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard!"
+	typepath=/obj/item/weapon/vanity/unathi
+	cost = 300
+
+datum/storeitem/dollfarwa
+	name="Farwa Doll"
+	desc="A plush little farwa doll to keep you company in the lonely depths of space."
+	typepath=/obj/item/weapon/fluff/farwadoll
 	cost = 300

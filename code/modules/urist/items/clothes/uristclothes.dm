@@ -276,6 +276,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "princess"
 	item_state = "princess"
 
+/obj/item/clothing/under/urist/dress/red
+	name = "red cocktail dress"
+	desc = "A very pretty red cocktail dress."
+	icon_state = "reddress"
+	item_color = "reddress"
+	item_state = "reddress"
+
 //nurse joy
 
 /obj/item/clothing/under/urist/rank/nurse

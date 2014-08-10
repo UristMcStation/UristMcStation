@@ -1,7 +1,7 @@
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
-	icon = 'icons/mob/robots.dmi'
+	icon = 'icons/uristmob/robots.dmi'
 	icon_state = "robot"
 	maxHealth = 200
 	health = 200
@@ -180,6 +180,7 @@
 			module_sprites["Basic"] = "robot_old"
 			module_sprites["Android"] = "droid"
 			module_sprites["Default"] = "robot"
+			module_sprites["Ravensdale"] = "ravensdale-Standard"
 
 		if("Service")
 			module = new /obj/item/weapon/robot_module/butler(src)
@@ -188,6 +189,7 @@
 			module_sprites["Bro"] = "Brobot"
 			module_sprites["Rich"] = "maximillion"
 			module_sprites["Default"] = "Service2"
+			module_sprites["Ravensdale"] = "ravensdale-Service"
 
 		if("Clerical")
 			module = new /obj/item/weapon/robot_module/clerical(src)
@@ -196,6 +198,7 @@
 			module_sprites["Bro"] = "Brobot"
 			module_sprites["Rich"] = "maximillion"
 			module_sprites["Default"] = "Service2"
+			module_sprites["Ravensdale"] = "ravensdale-Service"
 
 		if("Miner")
 			module = new /obj/item/weapon/robot_module/miner(src)
@@ -205,6 +208,7 @@
 			module_sprites["Basic"] = "Miner_old"
 			module_sprites["Advanced Droid"] = "droid-miner"
 			module_sprites["Treadhead"] = "Miner"
+			module_sprites["Ravensdale"] = "ravensdale-Miner"
 
 		if("Crisis")
 			module = new /obj/item/weapon/robot_module/crisis(src)
@@ -215,6 +219,7 @@
 			module_sprites["Standard"] = "surgeon"
 			module_sprites["Advanced Droid"] = "droid-medical"
 			module_sprites["Needles"] = "medicalrobot"
+			module_sprites["Ravensdale"] = "ravensdale-Medical"
 
 		if("Surgeon")
 			module = new /obj/item/weapon/robot_module/surgeon(src)
@@ -226,6 +231,7 @@
 			module_sprites["Standard"] = "surgeon"
 			module_sprites["Advanced Droid"] = "droid-medical"
 			module_sprites["Needles"] = "medicalrobot"
+			module_sprites["Ravensdale"] = "ravensdale-Medical"
 
 		if("Security")
 			module = new /obj/item/weapon/robot_module/security(src)
@@ -234,6 +240,7 @@
 			module_sprites["Red Knight"] = "Security"
 			module_sprites["Black Knight"] = "securityrobot"
 			module_sprites["Bloodhound"] = "bloodhound"
+			module_sprites["Ravensdale"] = "ravensdale-Security"
 
 		if("Engineering")
 			module = new /obj/item/weapon/robot_module/engineering(src)
@@ -243,6 +250,7 @@
 			module_sprites["Basic"] = "Engineering"
 			module_sprites["Antique"] = "engineerrobot"
 			module_sprites["Landmate"] = "landmate"
+			module_sprites["Ravensdale"] = "ravensdale-Engineering"
 
 		if("Construction")
 			module = new /obj/item/weapon/robot_module/construction(src)
@@ -252,12 +260,14 @@
 			module_sprites["Basic"] = "Engineering"
 			module_sprites["Antique"] = "engineerrobot"
 			module_sprites["Landmate"] = "landmate"
+			module_sprites["Ravensdale"] = "ravensdale-Engineering"
 
 		if("Janitor")
 			module = new /obj/item/weapon/robot_module/janitor(src)
 			module_sprites["Basic"] = "JanBot2"
 			module_sprites["Mopbot"]  = "janitorrobot"
 			module_sprites["Mop Gear Rex"] = "mopgearrex"
+			module_sprites["Ravensdale"] = "ravensdale-Janitor"
 
 		if("Combat")
 			module = new /obj/item/weapon/robot_module/combat(src)
@@ -598,6 +608,10 @@
 				return
 
 	if (istype(W, /obj/item/weapon/weldingtool))
+		if (src == user)
+			user << "<span class='warning'>You lack the reach to be able to repair yourself.</span>"
+			return
+
 		if (!getBruteLoss())
 			user << "Nothing to fix here!"
 			return
@@ -1097,10 +1111,10 @@
 
 /mob/living/silicon/robot/Topic(href, href_list)
 	..()
-	
+
 	if(usr != src)
 		return
-	
+
 	if (href_list["showalerts"])
 		robot_alerts()
 		return
@@ -1112,9 +1126,9 @@
 
 	if (href_list["act"])
 		var/obj/item/O = locate(href_list["act"])
-		if (!istype(O) || !(O.loc == src || O.loc == src.module))
+		if (!istype(O) || !(O in src.module.modules))
 			return
-		
+
 		if(activated(O))
 			src << "Already activated"
 			return

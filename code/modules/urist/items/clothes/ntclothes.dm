@@ -144,7 +144,7 @@
 	item_state = "sec_coldsuit"
 
 //Engineering
-/obj/item/clothing/head/helmet/space/rig/cold
+/obj/item/clothing/head/helmet/space/rig/engineering/cold
 	name = "engineering cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -153,7 +153,7 @@
 	item_state = "eng_cold"
 	item_color = "engicold"
 
-/obj/item/clothing/suit/space/rig/cold
+/obj/item/clothing/suit/space/rig/engineering/cold
 	name = "engineering cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -263,3 +263,27 @@
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	armor = list(melee = 50, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+//billydonka
+
+/obj/item/clothing/suit/urist/billydonka
+	name = "candyman vest"
+	desc = "The candy man can 'cause he mixes it with love and makes the world taste good."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_state = "billydonkaoutfit"
+	item_state = "billydonkaoutfit"
+
+/obj/item/clothing/under/urist/billydonka
+	name = "candyman outfit"
+	desc = "Who can take a rainbow and wrap it in a sigh?"
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_state = "billydonka"
+	item_state = "billydonka"
+	item_color = "billydonka"
+
+/obj/item/clothing/head/urist/billydonka
+	name = "candyman's hat"
+	desc = "And the world tastes good 'cause the candyman thinks it should.."
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
+	icon_state = "billydonkahat"
+	item_state = "billydonkahat"
