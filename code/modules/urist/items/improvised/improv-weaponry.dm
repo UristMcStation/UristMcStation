@@ -41,8 +41,6 @@
 
 	else if(istype(I, /obj/item/stack/rods))
 
-
-	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		var/obj/item/weapon/twohanded/quarterstaff/S = new /obj/item/weapon/twohanded/quarterstaff
 		R.use(1)
