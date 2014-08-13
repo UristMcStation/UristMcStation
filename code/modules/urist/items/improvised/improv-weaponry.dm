@@ -193,16 +193,18 @@
 
 /obj/item/weapon/baseballbat/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/weapon/baseballbat/nailed/S = new /obj/item/weapon/baseballbat/nailed
+        if(istype(I, /obj/item/stack/rods))
+            var/obj/item/stack/rods/R = I
+            var/obj/item/weapon/baseballbat/nailed/S = new /obj/item/weapon/baseballbat/nailed
+            R.use(3)
 
-		user.before_take_item(I)
-		user.before_take_item(src)
+            user.before_take_item(I)
+            user.before_take_item(src)
 
-		user.put_in_hands(S)
-		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
-		del(I)
-		del(src)
+            user.put_in_hands(S)
+            user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
+
+            del(src)
 
 
 //end Urist stuff
