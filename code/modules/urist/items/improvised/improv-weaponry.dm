@@ -177,5 +177,33 @@
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
 
+//Baseball bat with nails
+
+/obj/item/weapon/baseballbat/nailed
+	name = "nailed baseball bat"
+	desc = "A wooden baseball bat with a bunch of sharpened rods attached to it."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "nailed"
+	item_state = "nailed"
+	force = 18
+	sharp = 1
+	edge = 0
+	w_class = 3
+	urist_only = 1
+
+/obj/item/weapon/baseballbat/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/stack/rods))
+		var/obj/item/weapon/baseballbat/nailed/S = new /obj/item/weapon/baseballbat/nailed
+
+		user.before_take_item(I)
+		user.before_take_item(src)
+
+		user.put_in_hands(S)
+		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
+		del(I)
+		del(src)
+
+
 //end Urist stuff
 
