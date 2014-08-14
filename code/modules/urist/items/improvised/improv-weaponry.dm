@@ -40,14 +40,16 @@
 		del(src)
 
 	else if(istype(I, /obj/item/stack/rods))
-		var/obj/item/weapon/twohanded/quarterstaff/S = new /obj/item/weapon/twohanded/quarterstaff
 
-		user.before_take_item(I)
+		var/obj/item/stack/rods/R = I
+		var/obj/item/weapon/twohanded/quarterstaff/S = new /obj/item/weapon/twohanded/quarterstaff
+		R.use(1)
+
 		user.before_take_item(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
-		del(I)
+
 		del(src)
 
 /obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)

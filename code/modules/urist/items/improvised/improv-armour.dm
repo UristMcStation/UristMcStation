@@ -49,7 +49,7 @@
 	if(istype(I, /obj/item/weapon/cable_coil))
 		var/obj/item/weapon/cable_coil/R = I
 		var/obj/item/improv/hazardvest/step2/H = new /obj/item/improv/hazardvest/step2
-		R.use(1)
+		R.use(2)
 
 		user.before_take_item(src)
 
