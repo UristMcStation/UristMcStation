@@ -196,3 +196,10 @@ obj/item/clothing/head/princessbow
 	icon_state = "blackmotor"
 	item_state = "blackmotor"
 	armor = list(melee = 20, bullet = 5, laser = 0,energy = 0, bomb = 5, bio = 2, rad = 0)
+
+//Paper Crown
+/obj/item/clothing/head/urist/papercrown
+	name = "Paper Crown"
+	desc = "A Paper Crown."
+	icon_state = "papercrown"
+	item_state = "papercrown"

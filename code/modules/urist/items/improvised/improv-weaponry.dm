@@ -206,6 +206,32 @@
 
 		del(src)
 
+//Half of a scissor... Ow
+
+/obj/item/weapon/scissors/knife
+	name = "Knife"
+	desc = "The seperated part of a scissor. Where's the other half?"
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "scissor-knife"
+	item_state = "scissor"
+	force = 10
+	throwforce = 10.0
+	throw_speed = 5
+	throw_range = 10
+
+/obj/item/weapon/scissors/knife/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/weapon/scissors/knife))
+		var/obj/item/weapon/scissors/assembly/N = new /obj/item/weapon/scissors/assembly
+
+		user.before_take_item(I)
+		user.before_take_item(src)
+
+		user.put_in_hands(N)
+		user << "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>"
+
+		del(I)
+		del(src)
 
 //end Urist stuff
 
