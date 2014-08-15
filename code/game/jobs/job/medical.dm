@@ -117,7 +117,6 @@
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_chemistry)
 	alt_titles = list("Pharmacist")
-	minimal_player_age = 1
 
 
 	equip(var/mob/living/carbon/human/H)
