@@ -289,9 +289,8 @@
 
 	var/mob/living/carbon/monkey/diona/S = new(get_turf(H))
 
-	if(H.key)
-		S.key = H.key
-		H.key = ""
+	if(H.mind)
+		H.mind.transfer_to(S)
 
 	for(var/mob/living/carbon/monkey/diona/D in H.contents)
 		if(D.client)
