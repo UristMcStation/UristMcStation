@@ -144,7 +144,6 @@
 
 //Paper Box
 /obj/item/weapon/storage/box/papercrafts
-	urist_only = 0
 	name = "paper box"
 	desc = "A paper box. Store stuff in it!"
 	icon_state = "box"
