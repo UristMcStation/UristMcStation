@@ -218,6 +218,7 @@
 	throwforce = 10.0
 	throw_speed = 4
 	throw_range = 10
+	attack_verb = list("slices", "cuts", "stabs", "jabs")
 
 /obj/item/weapon/scissors/knife/attackby(var/obj/item/I, mob/user as mob)
 	..()

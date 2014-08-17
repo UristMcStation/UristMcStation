@@ -12,8 +12,10 @@
 	item_state = "scissor"
 	force = 5
 	sharp = 1
+	edge = 1
 	w_class = 2
 	urist_only = 1
+	attack_verb = list("slices", "cuts", "stabs", "jabs")
 
 /obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/weapon/screwdriver))
@@ -50,6 +52,7 @@
 
 //Papercrafts definition
 /obj/item/weapon/papercrafts
+	w_class = 1
 	urist_only = 1
 	icon = 'icons/urist/items/papercrafts.dmi'
 
@@ -149,7 +152,7 @@
 
 //What happens on paper
 /obj/item/weapon/paper/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/scissors))
+	if(istype(I, /obj/item/weapon/scissors) && !istype(I, /obj/item/weapon/scissors/knife))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")
 		switch(want)
 			if("Cancel")
