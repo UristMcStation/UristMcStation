@@ -200,6 +200,6 @@ obj/item/clothing/head/princessbow
 //Paper Crown
 /obj/item/clothing/head/urist/papercrown
 	name = "Paper Crown"
-	desc = "A Paper Crown."
+	desc = "A Paper Crown. Long Live The King!"
 	icon_state = "papercrown"
 	item_state = "papercrown"

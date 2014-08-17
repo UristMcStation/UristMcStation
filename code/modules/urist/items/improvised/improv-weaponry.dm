@@ -216,7 +216,7 @@
 	item_state = "scissor"
 	force = 10
 	throwforce = 10.0
-	throw_speed = 5
+	throw_speed = 4
 	throw_range = 10
 
 /obj/item/weapon/scissors/knife/attackby(var/obj/item/I, mob/user as mob)
