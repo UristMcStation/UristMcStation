@@ -26,7 +26,7 @@ var/bomb_set
 	flags = FPRINT
 	use_power = 0
 
-
+	var/previous_level = ""
 
 /obj/machinery/nuclearbomb/New()
 	..()
@@ -332,12 +332,16 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 							src.icon_state = "nuclearbomb2"
 						if(!src.safety)
 							bomb_set = 1//There can still be issues with this reseting when there are multiple bombs. Not a big deal tho for Nuke/N
+							src.previous_level = "[get_security_level()]"
+							set_security_level("delta")
 						else
 							bomb_set = 0
+							set_security_level("[previous_level]")
 					else
 						bomb_set = 0
 						if(!src.lighthack)
 							src.icon_state = "nuclearbomb1"
+						set_security_level("[previous_level]")
 				if (href_list["safety"])
 					src.safety = !( src.safety )
 					if(safety)
