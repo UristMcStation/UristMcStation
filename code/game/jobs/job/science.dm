@@ -50,7 +50,6 @@
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher", "Xenobiologist")
 
-	minimal_player_age = 0
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
