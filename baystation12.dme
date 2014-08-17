@@ -1380,6 +1380,7 @@
 #include "code\modules\urist\mob\necromorph.dm"
 #include "code\modules\urist\mob\uristanimals.dm"
 #include "code\modules\urist\modules\admin_poll.dm"
+#include "code\modules\urist\modules\autolathe&saw_datums.dm"
 #include "code\modules\urist\modules\donate.dm"
 #include "code\modules\urist\modules\mining.dm"
 #include "code\modules\urist\modules\supplycrates.dm"
