@@ -8,7 +8,7 @@
 	selection_color = "#ccffcc"
 	supervisors = "your laws"
 	req_admin_notify = 1
-	minimal_player_age = 7
+	minimal_player_age = 3
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
