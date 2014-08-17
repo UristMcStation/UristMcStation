@@ -11,6 +11,16 @@
 	else
 		icon_state = icon_opened
 
+/obj/structure/closet/cabinet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		del(src)
+	else
+		..()
+
 /obj/structure/closet/acloset
 	name = "strange closet"
 	desc = "It looks alien!"
