@@ -104,6 +104,8 @@
 		flick(animated_state, src)  // I JUST FOUND THIS PROC AND I AM HAPPY !!!!1!!!
 		playsound(src.loc, 'sound/effects/pageturn2.ogg', 50, 1) //Plays the paper shuffling sound
 		user << animated_message //Send the animated message
+	else
+		return
 
 //Paper Swan...
 /obj/item/weapon/papercrafts/oragami/swan
@@ -128,10 +130,10 @@
 
 //Paper Shuriken
 /obj/item/weapon/papercrafts/oragami/shuriken
-	name = "paper shurkien"
-	desc = "A Paper Shurkien."
+	name = "paper shuriken"
+	desc = "A Paper Shuriken."
 	icon_state = "shuriken"
-	item_state = "shuriken"
+	item_state = "paper"
 	force = 1
 	throwforce = 5
 	throw_speed = 2
