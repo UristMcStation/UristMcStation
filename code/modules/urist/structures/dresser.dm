@@ -56,3 +56,13 @@
 	add_fingerprint(H) // Addind stuff for detectives
 	H.update_body() // Putting on the underclothes
 	//H << "Done" <--Debug code
+
+/obj/structure/dresser/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		del(src)
+	else
+		..()

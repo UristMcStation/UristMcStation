@@ -36,6 +36,12 @@
 			return
 		else
 			name = ("bookcase ([sanitize(newname)])")
+	else if(istype(O, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		new /obj/item/stack/sheet/wood(src.loc)
+		del(src)
 	else
 		..()
 
