@@ -11,6 +11,7 @@
 	icon_state = "scissor"
 	item_state = "scissor"
 	force = 5
+	matter = list("metal" = 35)
 	sharp = 1
 	edge = 1
 	w_class = 2
@@ -33,7 +34,7 @@
 	..()
 
 /obj/item/weapon/scissors/assembly //So you can put it together!
-	name = "Scissor Assembley"
+	name = "Scissor Assembly"
 	desc = "Two parts of a scissor loosely combined"
 	force = 3
 
