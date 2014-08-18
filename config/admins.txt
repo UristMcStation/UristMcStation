@@ -18,10 +18,12 @@ jacob_lee - Game Master
 USEC_OFFICER - Game Master
 Rabidgam3r - Game Master
 CoraiUnki - Game Master
-#Corai
+#Aedel
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
+
+TGameCo - Coder
 
 Frost Titan - Moderator
 greatorder - Moderator
