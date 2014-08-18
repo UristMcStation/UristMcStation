@@ -11,7 +11,7 @@
 	selection_color = "#ddddff"
 	idtype = /obj/item/weapon/card/id/centcom
 	req_admin_notify = 1
-	minimal_player_age = 10
+	minimal_player_age = 1
 	access = list(access_security, access_sec_doors, access_brig, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
