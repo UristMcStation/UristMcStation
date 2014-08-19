@@ -153,8 +153,8 @@
 	sharp = 1
 
 	suicide_act(mob/user)
-		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the shard of glass! It looks like \he's trying to commit suicide.</b>", \
-							"\red <b>[user] is slitting \his throat with the shard of glass! It looks like \he's trying to commit suicide.</b>")
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
 		return (BRUTELOSS)
 
 /obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
@@ -221,6 +221,11 @@
 	throw_speed = 4
 	throw_range = 10
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
+
+	suicide_act(mob/user)
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
+		return (BRUTELOSS)
 
 /obj/item/weapon/scissors/knife/attackby(var/obj/item/I, mob/user as mob)
 	..()
