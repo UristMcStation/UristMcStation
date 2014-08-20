@@ -141,7 +141,7 @@ VOTE_PERIOD 600
  VOTE_AUTOGAMEMODE_TIMELEFT 100
 
 ## prevents dead players from voting or starting votes
-NO_DEAD_VOTE
+#NO_DEAD_VOTE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")
 DEFAULT_NO_VOTE
