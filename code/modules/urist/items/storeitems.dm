@@ -136,7 +136,7 @@
 datum/storeitem/dollunathi
 	name="Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard!"
-	typepath=/obj/item/weapon/vanity/unathi
+	typepath=/obj/item/weapon/vanity/doll/unathi
 	cost = 300
 
 datum/storeitem/dollfarwa
