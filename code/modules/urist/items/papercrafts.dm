@@ -33,7 +33,7 @@
 
 		user.put_in_hands(N)
 		user.put_in_hands(N2)
-		user << "<span class='notice'>You seperate the parts of the screwdriver</span>"
+		user << "<span class='notice'>You seperate the parts of the [src]</span>"
 
 		del(src)
 	..()
