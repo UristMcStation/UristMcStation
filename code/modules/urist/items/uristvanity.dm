@@ -137,6 +137,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "unathi"
 	item_state = "unathi"
 	w_class = 2
+	urist_only = 1
 
 /obj/item/weapon/vanity/unathi/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
