@@ -48,7 +48,7 @@ datum/controller/game_controller/New()
 
 	createRandomZlevel()
 
-	createPlanetOutpost() //creating it before geometry is done and before the jungle controller processes
+//	createPlanetOutpost() //creating it before geometry is done and before the jungle controller processes
 
 	if(!job_master)
 		job_master = new /datum/controller/occupations()

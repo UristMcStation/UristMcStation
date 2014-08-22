@@ -5,7 +5,8 @@
 #Really only Glloyd should be messing with this.
 
 #maps/PlanetOutposts/test.dmm
-maps/PlanetOutposts/jungleoutpost.dmm
+
+#maps/PlanetOutposts/jungleoutpost.dmm
 
 
 
