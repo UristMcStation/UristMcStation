@@ -53,5 +53,5 @@ proc/createPlanetOutpost()
 		world << "\red \b Planetary Outpost loaded."
 
 	else
-		world << "\red \b Oh shit, the Planetary Outpost failed to load. Better just kill yourself right now."
+		world << "\red \b No Planetary Outpost loaded."
 		return
