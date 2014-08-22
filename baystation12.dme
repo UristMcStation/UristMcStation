@@ -1390,6 +1390,7 @@
 #include "code\modules\urist\modules\genetics\disabilities.dm"
 #include "code\modules\urist\modules\genetics\powers.dm"
 #include "code\modules\urist\modules\genetics\vgpowers.dm"
+#include "code\modules\urist\modules\jungle\planetloader.dm"
 #include "code\modules\urist\modules\mecha\uristpaintkits.dm"
 #include "code\modules\urist\structures\Couch&UMcSflora.dm"
 #include "code\modules\urist\structures\crates.dm"
