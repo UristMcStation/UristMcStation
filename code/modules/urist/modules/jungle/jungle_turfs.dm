@@ -116,9 +116,9 @@
 	bushes_spawn = 0
 	name = "murky water"
 	desc = "thick, murky water"
-	icon = 'icons/misc/beach.dmi'
-	icon_state = "water"
-	icon_spawn_state = "water"
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "rivernew"
+	icon_spawn_state = "rivernew"
 
 /turf/unsimulated/jungle/water/New()
 	..()
@@ -166,8 +166,9 @@
 /turf/unsimulated/jungle/water/deep
 	plants_spawn = 0
 	density = 1
-	icon_state = "water2"
-	icon_spawn_state = "water2"
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "deepnew"
+	icon_spawn_state = "deepnew"
 
 /turf/unsimulated/jungle/temple_wall
 	name = "temple wall"
