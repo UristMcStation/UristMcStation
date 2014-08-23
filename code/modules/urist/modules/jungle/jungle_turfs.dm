@@ -2,6 +2,9 @@
 /turf/unsimulated/jungle
 	var/bushes_spawn = 1
 	var/plants_spawn = 1
+	var/small_trees = 1
+	var/large_trees_low = 0
+	var/large_trees_high = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
@@ -35,15 +38,47 @@
 				J.pixel_y = rand(-6,6)
 		if(bushes_spawn && prob(90))
 			new /obj/structure/bush(src)
+		if(small_trees && prob(10)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
+			new /obj/structure/flora/tree/jungle/small/tree1(src)
+		if(large_trees_low && prob(1))
+			if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree1(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree2(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree3(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree4(src)
+		if(large_trees_high && prob(5)) //1 in ten? //noooooope
+			if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree1(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree2(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree3(src)
+			else if(prob(25))
+				new /obj/structure/flora/tree/jungle/large/tree4(src)
+
+/turf/unsimulated/jungle/med
+	large_trees_low = 1
+	icon_state = "grass4"
+	icon_spawn_state = "grass1"
+
+/turf/unsimulated/jungle/thick
+	large_trees_high = 1
+	icon_state = "grass_path"
+	icon_spawn_state = "grass1"
 
 /turf/unsimulated/jungle/clear
 	bushes_spawn = 0
 	plants_spawn = 0
+	small_trees = 0
 	icon_state = "grass_clear"
 	icon_spawn_state = "grass3"
 
 /turf/unsimulated/jungle/path
 	bushes_spawn = 0
+	small_trees = 0
 	name = "wet grass"
 	desc = "thick, long wet grass"
 	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
@@ -75,6 +110,9 @@
 
 /turf/unsimulated/jungle/impenetrable
 	bushes_spawn = 0
+	small_trees = 0
+	large_trees_high = 1
+	large_trees_low = 1
 	icon_state = "grass_impenetrable"
 	icon_spawn_state = "grass1"
 	New()
@@ -85,6 +123,7 @@
 //copy paste from asteroid mineral turfs
 /turf/unsimulated/jungle/rock
 	bushes_spawn = 0
+	small_trees = 0
 	plants_spawn = 0
 	density = 1
 	name = "rock wall"
@@ -114,6 +153,8 @@
 
 /turf/unsimulated/jungle/water
 	bushes_spawn = 0
+	small_trees = 0 //fucking rivers winning the small tree RNG
+	plants_spawn = 0 //until I get a metric for spawning reeds only
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
@@ -124,6 +165,8 @@
 	..()
 	for(var/obj/structure/bush/B in src)
 		del(B)
+	for(var/obj/structure/flora/tree/jungle/small/T in src)
+		del(T)
 
 /turf/unsimulated/jungle/water/Entered(atom/movable/O)
 	..()
