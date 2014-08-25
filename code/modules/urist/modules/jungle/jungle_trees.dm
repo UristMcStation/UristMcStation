@@ -25,4 +25,17 @@
 /obj/structure/flora/tree/jungle/small/tree1
 	icon_state = "tree1"
 
-///obj/structure/flora/tree/jungle/small/tree2
+/obj/structure/flora/tree/jungle/small/tree2
+	icon_state = "tree2"
+
+/obj/structure/flora/tree/jungle/small/tree3
+	icon_state = "tree3"
+
+/obj/structure/flora/tree/jungle/small/tree4
+	icon_state = "tree4"
+
+/obj/structure/flora/tree/jungle/small/tree5
+	icon_state = "tree5"
+
+/obj/structure/flora/tree/jungle/small/tree6
+	icon_state = "tree6"
