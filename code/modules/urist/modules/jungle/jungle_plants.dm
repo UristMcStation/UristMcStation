@@ -118,3 +118,21 @@ var/jungle_plants_init = 0
 		overlays += fruit_overlay
 	else
 		user << "\red There are no fruit left on [src]."
+
+//reeds
+
+/obj/structure/flora/reeds
+	name = "reeds"
+	desc = "A bunch of reeds. This plant typically grows in wet areas."
+	icon = 'icons/obj/flora/ausflora.dmi'
+	icon_state = "reedbush_1"
+
+/obj/structure/flora/reeds/New()
+	if(prob(25))
+		icon_state = "reedbush_1"
+	if(prob(25))
+		icon_state = "reedbush_2"
+	if(prob(25))
+		icon_state = "reedbush_3"
+	if(prob(25))
+		icon_state = "reedbush_4"

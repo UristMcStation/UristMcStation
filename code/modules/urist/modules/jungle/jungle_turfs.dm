@@ -5,6 +5,7 @@
 	var/small_trees = 1
 	var/large_trees_low = 0
 	var/large_trees_high = 0
+	var/reeds_spawn = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
@@ -69,6 +70,8 @@
 				new /obj/structure/flora/tree/jungle/large/tree3(src)
 			else if(prob(25))
 				new /obj/structure/flora/tree/jungle/large/tree4(src)
+		if(reeds_spawn && prob(10))
+			new /obj/structure/flora/reeds(src)
 
 /turf/unsimulated/jungle/med
 	large_trees_low = 1
@@ -137,6 +140,7 @@
 	small_trees = 0
 	plants_spawn = 0
 	density = 1
+	opacity = 1
 	name = "rock wall"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
@@ -166,6 +170,7 @@
 	bushes_spawn = 0
 	small_trees = 0 //fucking rivers winning the small tree RNG
 	plants_spawn = 0 //until I get a metric for spawning reeds only
+	reeds_spawn = 1 //get dem reeds boi
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
@@ -176,7 +181,7 @@
 	..()
 	for(var/obj/structure/bush/B in src)
 		del(B)
-	for(var/obj/structure/flora/tree/jungle/small/T in src)
+	for(var/obj/structure/flora/tree/jungle/small/T in src) //fuck you random gen
 		del(T)
 
 /turf/unsimulated/jungle/water/Entered(atom/movable/O)
@@ -220,6 +225,7 @@
 /turf/unsimulated/jungle/water/deep
 	plants_spawn = 0
 	density = 1
+	reeds_spawn = 0 //too deep for reeds
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "deepnew"
 	icon_spawn_state = "deepnew"
