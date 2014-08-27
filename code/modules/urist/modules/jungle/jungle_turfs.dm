@@ -40,36 +40,11 @@
 		if(bushes_spawn && prob(90))
 			new /obj/structure/bush(src)
 		if(small_trees && prob(10)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
-			if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree1(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree2(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree3(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree4(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree5(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/small/tree6(src)
+			new /obj/structure/flora/tree/jungle/small(src)
 		if(large_trees_low && prob(1))
-			if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree1(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree2(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree3(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree4(src)
+			new /obj/structure/flora/tree/jungle/large(src)
 		if(large_trees_high && prob(5)) //1 in ten? //noooooope
-			if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree1(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree2(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree3(src)
-			else if(prob(25))
-				new /obj/structure/flora/tree/jungle/large/tree4(src)
+			new /obj/structure/flora/tree/jungle/large(src)
 		if(reeds_spawn && prob(10))
 			new /obj/structure/flora/reeds(src)
 
@@ -181,9 +156,10 @@
 	..()
 	for(var/obj/structure/bush/B in src)
 		del(B)
-	for(var/obj/structure/flora/tree/jungle/small/T in src) //fuck you random gen
+	for(var/obj/structure/flora/tree/jungle/T in src) //fuck you random gen
 		del(T)
-
+	for(var/obj/structure/jungle_plant/J in src)
+		del(J)
 /turf/unsimulated/jungle/water/Entered(atom/movable/O)
 	..()
 	if(istype(O, /mob/living/))
@@ -195,7 +171,7 @@
 			M.Weaken(1)
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
-		if(prob(25))
+		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
 			M << "\blue You feel something slithering around your legs."
 			if(prob(50))
 				spawn(rand(25,50))

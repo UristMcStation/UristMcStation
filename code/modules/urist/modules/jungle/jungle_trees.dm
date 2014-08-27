@@ -6,36 +6,40 @@
 
 /obj/structure/flora/tree/jungle/large
 	icon = 'icons/urist/jungle/trees-large.dmi'
-
-/obj/structure/flora/tree/jungle/large/tree1
 	icon_state = "tree1"
 
-/obj/structure/flora/tree/jungle/large/tree2
-	icon_state = "tree2"
-
-/obj/structure/flora/tree/jungle/large/tree3
-	icon_state = "tree3"
-
-/obj/structure/flora/tree/jungle/large/tree4
-	icon_state = "tree4"
+/obj/structure/flora/tree/jungle/large/New()
+	if(prob(25))
+		icon_state = "tree1"
+	if(prob(25))
+		icon_state = "tree2"
+	if(prob(25))
+		icon_state = "tree3"
+	if(prob(25))
+		icon_state = "tree4"
 
 /obj/structure/flora/tree/jungle/small
 	icon = 'icons/urist/jungle/trees-small.dmi'
-
-/obj/structure/flora/tree/jungle/small/tree1
 	icon_state = "tree1"
 
-/obj/structure/flora/tree/jungle/small/tree2
-	icon_state = "tree2"
-
-/obj/structure/flora/tree/jungle/small/tree3
-	icon_state = "tree3"
-
-/obj/structure/flora/tree/jungle/small/tree4
-	icon_state = "tree4"
-
-/obj/structure/flora/tree/jungle/small/tree5
-	icon_state = "tree5"
-
-/obj/structure/flora/tree/jungle/small/tree6
-	icon_state = "tree6"
+/obj/structure/flora/tree/jungle/small/New()
+	if(prob(10))
+		icon_state = "tree1"
+	if(prob(10))
+		icon_state = "tree2"
+	if(prob(10))
+		icon_state = "tree3"
+	if(prob(10))
+		icon_state = "tree4"
+	if(prob(10))
+		icon_state = "tree5"
+	if(prob(10))
+		icon_state = "tree6"
+	if(prob(10))
+		icon_state = "tree7"
+	if(prob(10))
+		icon_state = "tree8"
+	if(prob(10))
+		icon_state = "tree9"
+	if(prob(10))
+		icon_state = "tree10"
