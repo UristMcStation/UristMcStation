@@ -2,20 +2,27 @@
 // Generic undergrowth //
 //*********************//
 
-/obj/structure/bush
+/obj/structure/bush //time to rewrite this shit
 	name = "foliage"
 	desc = "Pretty thick scrub, it'll take something sharp and a lot of determination to clear away."
-	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
-	icon_state = "bush1"
+	icon = 'icons/urist/jungle/plants.dmi'
+	icon_state = "bushnew1" //FUCKED UP THE ICON STATE, EVERYTHING IS MUSHROOMS
 	density = 1
 	anchored = 1
 	layer = 3.2
 	var/indestructable = 0
 	var/stump = 0
 
-/obj/structure/bush/New()
+/obj/structure/bush/New() //holy shit, they have a lot to go through when spawned //wait, better idea.
+	icon_state = "bushnew[rand(1,2)]"
+
 	if(prob(20))
 		opacity = 1
+		desc = "Very thick scrub that blocks your vision. It'll take something sharp and a lot of determination to clear away"
+		icon_state = "thickbush[rand(1,2)]"
+
+	if(indestructable)
+		icon_state = "thickbush[rand(1,2)]"
 
 /obj/structure/bush/Bumped(M as mob)
 	if (istype(M, /mob/living/simple_animal))
@@ -36,16 +43,20 @@
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
 					user << "\blue You clear away [src]."
-					var/obj/item/stack/sheet/wood/W = new(src.loc)
-					W.amount = rand(3,15)
+//					var/obj/item/stack/sheet/wood/W = new(src.loc) //was fun for testing, but no longer.
+//					W.amount = rand(3,15)
 					if(prob(50))
-						icon_state = "stump[rand(1,2)]"
+//						icon_state = "stump[rand(1,2)]" //time to resprite stumps.
 						name = "cleared foliage"
 						desc = "There used to be dense undergrowth here."
 						density = 0
 						stump = 1
 						pixel_x = rand(-6,6)
 						pixel_y = rand(-6,6)
+						if (icon_state == "newbush1")
+							icon_state = "newstump1"
+						else if (icon_state == "newbush2")
+							icon_state = "newstump2"
 					else
 						del(src)
 	else
