@@ -55,7 +55,7 @@
 
 /turf/unsimulated/jungle/thick
 	large_trees_high = 1
-	icon_state = "grass_path"
+	icon_state = "grass3"
 	icon_spawn_state = "grass1"
 
 /turf/unsimulated/jungle/clear
