@@ -13,8 +13,16 @@
 	var/indestructable = 0
 	var/stump = 0
 
-/obj/structure/bush/New() //holy shit, they have a lot to go through when spawned //wait, better idea.
-	icon_state = "bushnew[rand(1,2)]"
+/obj/structure/bush/New()
+
+	if(prob(25)) //3,2,1,4. Don't ask.
+		icon_state = "bushnew3"
+	else if(prob(25))
+		icon_state = "bushnew1"
+	else if(prob(25))
+		icon_state = "bushnew2"
+	else if(prob(25))
+		icon_state = "bushnew4"
 
 	if(prob(20))
 		opacity = 1
@@ -50,6 +58,7 @@
 						name = "cleared foliage"
 						desc = "There used to be dense undergrowth here."
 						density = 0
+						opacity = 0 //so we don't get any opaque stumps from thick bushes
 						stump = 1
 						pixel_x = rand(-6,6)
 						pixel_y = rand(-6,6)
@@ -57,6 +66,12 @@
 							icon_state = "newstump1"
 						else if (icon_state == "newbush2")
 							icon_state = "newstump2"
+						else if (icon_state == "newbush3")
+							icon_state = "newstump2"
+						else if (icon_state == "newbush4")
+							icon_state = "newstump1"
+						else
+							icon_state = "newstump1"
 					else
 						del(src)
 	else
