@@ -19,3 +19,15 @@
 	body_parts_covered = HEAD
 	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
+
+//Paper flower, fits in the mouth, like tango
+
+/obj/item/clothing/mask/flower
+	name = "paper flower"
+	icon = 'icons/urist/items/papercrafts.dmi'
+	icon_override = 'icons/uristmob/mask.dmi'
+	desc = "A Paper flower."
+	item_state = "paperflower"
+	icon_state = "paperflower"
+	flags = FPRINT|TABLEPASS
+	slot_flags = SLOT_MASK

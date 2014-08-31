@@ -70,7 +70,7 @@
 
 //What happens on a paper square
 /obj/item/weapon/papercrafts/square/attack_self(mob/user as mob)
-	var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Swan", "Paper Plane", "Paper Box", "Paper Shuriken")
+	var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Swan", "Paper Plane", "Paper Box", "Paper Shuriken", "Paper Mask", "Paper Flower")
 	switch(want)
 		if("Cancel")
 			return
@@ -86,6 +86,12 @@
 		if("Paper Shuriken")
 			var/obj/item/weapon/papercrafts/oragami/shuriken/N = new /obj/item/weapon/papercrafts/oragami/shuriken
 			fold(N, "<span class='alert'>You fold the square into a shuriken</span>", user)
+		if("Paper Mask")
+			var/obj/item/clothing/glasses/paper/N = new /obj/item/clothing/glasses/paper
+			fold(N, "<span class='alert'>You fold the paper into a mask</span>", user)
+		if("Paper Flower")
+			var/obj/item/clothing/mask/flower/N = new /obj/item/clothing/mask/flower
+			fold(N, "<span class='alert'>You fold the paper into a flower</span>", user)
 		else
 			return
 
