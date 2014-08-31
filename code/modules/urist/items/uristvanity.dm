@@ -130,14 +130,73 @@ Please keep it tidy, by which I mean put comments describing the item before the
 				O.show_message(text("\red [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.", user, src), 1)
 		return
 
-/obj/item/weapon/vanity/unathi
-	name = "unathi doll"
-	desc = "A fluffy version of everyone's favorite giant lizards!"
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "unathi"
-	item_state = "unathi"
-	w_class = 2
+//unathi doll and doll parent type
 
-/obj/item/weapon/vanity/unathi/attack_self(mob/user as mob)
+/obj/item/weapon/vanity/doll
+	icon = 'icons/urist/items/misc.dmi'
+	w_class = 2
+	urist_only = 1
+
+/obj/item/weapon/vanity/doll/unathi/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\
 						 "<span class='notice'>You hug [src], [src] hisses! Awww! </span>")
+
+/obj/item/weapon/vanity/doll/unathi/green
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is lime green."
+	icon_state = "greenunathi"
+	item_state = "greenunathi"
+
+/obj/item/weapon/vanity/doll/unathi/red
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is dark red."
+	icon_state = "redunathi"
+	item_state = "redunathi"
+
+/obj/item/weapon/vanity/doll/unathi/lightblue
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is cyan blue."
+	icon_state = "lightblueunathi"
+	item_state = "lightblueunathi"
+
+/obj/item/weapon/vanity/doll/unathi/black
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a shiny black."
+	icon_state = "blackunathi"
+	item_state = "blackunathi"
+
+
+/obj/item/weapon/vanity/doll/unathi/yellow
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a Royal's yellow!"
+	icon_state = "yellowunathi"
+	item_state = "yellowunathi"
+
+/obj/item/weapon/vanity/doll/unathi/white
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a bleached white."
+	icon_state = "whiteunathi"
+	item_state = "whiteunathi"
+
+/obj/item/weapon/vanity/doll/unathi/purple
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a dark purple."
+	icon_state = "purpleunathi"
+	item_state = "purpleunathi"
+
+/obj/item/weapon/vanity/doll/unathi/purple/attack_self(mob/user as mob)
+	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' How cute! </span>",\
+						 "<span class='notice'>You hug [src], [src] hisses, 'Lovingsss yousss, lovingsss messs?' Awww! </span>")
+
+
+/obj/item/weapon/vanity/doll/unathi/orange
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a earthen orange."
+	icon_state = "orangeunathi"
+	item_state = "orangeunathi"
+
+/obj/item/weapon/vanity/doll/unathi/brown
+	name = "unathi doll"
+	desc = "A fluffy version of everyone's favorite giant lizards! This one is a dark brown."
+	icon_state = "brownunathi"
+	item_state = "brownunathi"

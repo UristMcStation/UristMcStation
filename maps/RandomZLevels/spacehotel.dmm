@@ -207,7 +207,7 @@
 "dY" = (/obj/machinery/vending/cola,/turf/simulated/floor/carpet,/area/awaymission)
 "dZ" = (/obj/item/candle,/turf/simulated/floor/engine/cult,/area/awaymission)
 "ea" = (/obj/effect/rune,/turf/simulated/floor/engine/cult,/area/awaymission)
-"eb" = (/obj/item/weapon/tome,/turf/simulated/floor/engine/cult,/area/awaymission)
+"eb" = (/obj/item/weapon/book/tome,/turf/simulated/floor/engine/cult,/area/awaymission)
 "ec" = (/obj/structure/stool/bed/chair/comfy,/obj/item/device/soulstone,/obj/effect/decal/remains/human,/turf/simulated/floor/engine/cult,/area/awaymission)
 "ed" = (/obj/item/trash/sosjerky,/turf/simulated/floor/carpet,/area/awaymission)
 "ee" = (/obj/structure/table/woodentable,/obj/item/weapon/paper/pamphlet,/turf/simulated/floor/carpet,/area/awaymission)

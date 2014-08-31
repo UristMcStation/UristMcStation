@@ -18,17 +18,22 @@
 	urist_only = 1
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 
+	suicide_act(mob/user)
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
+		return (BRUTELOSS)
+
 /obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/weapon/screwdriver))
 
-		var/obj/item/weapon/scissors/knife/N = new /obj/item/weapon/scissors/knife
-		var/obj/item/weapon/scissors/knife/N2 = new /obj/item/weapon/scissors/knife
+		var/obj/item/weapon/improvised/scissorknife/N = new /obj/item/weapon/improvised/scissorknife
+		var/obj/item/weapon/improvised/scissorknife/N2 = new /obj/item/weapon/improvised/scissorknife
 
 		user.before_take_item(src)
 
 		user.put_in_hands(N)
 		user.put_in_hands(N2)
-		user << "<span class='notice'>You seperate the parts of the screwdriver</span>"
+		user << "<span class='notice'>You seperate the parts of the [src]</span>"
 
 		del(src)
 	..()
@@ -152,7 +157,7 @@
 
 //What happens on paper
 /obj/item/weapon/paper/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/scissors) && !istype(I, /obj/item/weapon/scissors/knife))
+	if(istype(I, /obj/item/weapon/scissors))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")
 		switch(want)
 			if("Cancel")

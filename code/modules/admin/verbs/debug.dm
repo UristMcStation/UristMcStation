@@ -533,6 +533,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	//log_admin("[key_name(src)] has alienized [M.key].")
 	var/list/dresspacks = list(
 		"strip",
+		"as job...",
 		"assistant grey",
 		"standard space gear",
 		"tournament standard red",
@@ -560,6 +561,12 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
 		return
+
+	var/datum/job/jobdatum //gotta love dem datums
+	if (dresscode == "as job...")
+		var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
+		jobdatum = job_master.GetJob(jobname)
+
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	for (var/obj/item/I in M)
 		if (istype(I, /obj/item/weapon/implant))
@@ -568,6 +575,20 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	switch(dresscode)
 		if ("strip")
 			//do nothing
+
+		if ("as job...") //you're welcome admins
+			if(jobdatum)
+				dresscode = "[jobdatum.title]"
+				jobdatum.equip(M)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "id"
+			W.item_state = "id_inv"
+			W.access = get_all_accesses()
+			W.assignment = "[jobdatum.title]"
+			W.registered_name = M.real_name
+			M.equip_if_possible(W, slot_wear_id)
+
 		if ("assistant grey")
 			var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack(M)
 			new /obj/item/weapon/storage/box/survival(BPK)
@@ -598,6 +619,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			J.toggle()
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(M), slot_wear_mask)
 			J.Topic(null, list("stat" = 1))
+
 		if ("tournament standard red","tournament standard green") //we think stunning weapon is too overpowered to use it on tournaments. --rastaf0
 			if (dresscode=="tournament standard red")
 				M.equip_to_slot_or_del(new /obj/item/clothing/under/color/red(M), slot_w_uniform)
