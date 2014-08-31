@@ -1,12 +1,12 @@
 datum/directive/terminations/alien_fraud
 	special_orders = list(
-		"Suspend financial accounts of all Tajaran and Unathi personnel.",
+		"Suspend financial accounts of all Skrell and Unathi personnel.",
 		"Transfer their payrolls to the station account.",
 		"Terminate their employment.")
 
 	proc/is_alien(mob/M)
 		var/species = M.get_species()
-		return species == "Tajaran" || species == "Unathi"
+		return species == "Skrell" || species == "Unathi"
 
 datum/directive/terminations/alien_fraud/get_crew_to_terminate()
 	var/list/aliens[0]
@@ -24,18 +24,18 @@ datum/directive/terminations/alien_fraud/get_description()
 	"}
 
 datum/directive/terminations/alien_fraud/meets_prerequisites()
-	// There must be at least one Tajaran and at least one Unathi, but the total
-	// of the Tajarans and Unathi combined can't be more than 1/3rd of the crew.
-	var/tajarans = 0
+	// There must be at least one Skrell and at least one Unathi, but the total
+	// of the Skrell and Unathi combined can't be more than 1/3rd of the crew.
+	var/skrell = 0
 	var/unathi = 0
 	for(var/mob/M in player_list)
 		var/species = M.get_species()
-		if(species == "Tajaran")
-			tajarans++
+		if(species == "Skrell")
+			skrell++
 		if(species == "Unathi")
 			unathi++
 
-	if (!tajarans || !unathi)
+	if (!skrell || !unathi)
 		return 0
 
-	return (tajarans + unathi) <= (player_list.len / 3)
+	return (skrell + unathi) <= (player_list.len / 3)
