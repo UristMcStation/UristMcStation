@@ -153,8 +153,8 @@
 	sharp = 1
 
 	suicide_act(mob/user)
-		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the shard of glass! It looks like \he's trying to commit suicide.</b>", \
-							"\red <b>[user] is slitting \his throat with the shard of glass! It looks like \he's trying to commit suicide.</b>")
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
 		return (BRUTELOSS)
 
 /obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
@@ -210,7 +210,7 @@
 
 //Half of a scissor... Ow
 
-/obj/item/weapon/scissors/knife
+/obj/item/weapon/improvised/scissorknife
 	name = "Knife"
 	desc = "The seperated part of a scissor. Where's the other half?"
 	icon = 'icons/urist/items/improvised.dmi'
@@ -221,10 +221,19 @@
 	throw_speed = 4
 	throw_range = 10
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
+	sharp = 1
+	edge = 1
+	w_class = 2
+	urist_only = 1
 
-/obj/item/weapon/scissors/knife/attackby(var/obj/item/I, mob/user as mob)
+	suicide_act(mob/user)
+		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
+		return (BRUTELOSS)
+
+/obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/scissors/knife))
+	if(istype(I, /obj/item/weapon/improvised/scissorknife))
 		var/obj/item/weapon/scissors/assembly/N = new /obj/item/weapon/scissors/assembly
 
 		user.before_take_item(I)
