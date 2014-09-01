@@ -31,3 +31,12 @@
 	icon_state = "paperflower"
 	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
+
+/obj/item/clothing/mask/flower/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/weapon/scissors))
+		var/obj/item/clothing/head/urist/paperflower/F = new /obj/item/clothing/head/urist/paperflower
+		user.before_take_item(src)
+		user.put_in_hands(F)
+		user << "<span class='notice'>You snip the stem off the flower.</span>"
+		del src
+	..()
