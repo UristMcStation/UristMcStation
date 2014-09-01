@@ -1400,7 +1400,6 @@
 #include "code\modules\urist\modules\jungle\jungle_tribe.dm"
 #include "code\modules\urist\modules\jungle\jungle_turfs.dm"
 #include "code\modules\urist\modules\jungle\misc_helpers.dm"
-#include "code\modules\urist\modules\jungle\planetloader.dm"
 #include "code\modules\urist\modules\mecha\uristpaintkits.dm"
 #include "code\modules\urist\structures\Couch&UMcSflora.dm"
 #include "code\modules\urist\structures\crates.dm"
