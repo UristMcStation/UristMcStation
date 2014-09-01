@@ -4,14 +4,14 @@ datum/directive/conscription
 	proc/is_civilian(mob/M)
 		return M.mind.assigned_role in civilian_positions - "Head of Personnel" && "Lawyer"
 
-proc/get_civilians()
+	proc/get_civilians()
 		var/list/civilians[0]
 		for(var/mob/M in player_list)
 			if (M.is_ready() && is_civilian_positions(M))
 				civilians.Add(M)
 		return civilians
 
-proc/count_civilians_reassigned()
+	proc/count_civilians_reassigned()
 		var/civilians_reassigned = 0
 		for(var/obj/item/weapon/card/id in ids_to_reassign)
 			if (ids_to_reassign[id])
@@ -27,21 +27,21 @@ datum/directive/conscription/get_description()
 		</p>
 	"}
 
-	datum/directive/conscription/meets_prerequisites()
+datum/directive/conscription/meets_prerequisites()
 	var/list/civilians = get_civilians()
 	return civilians.len > 3
 
-	datum/directive/conscription/initialize()
+datum/directive/conscription/initialize()
 	for(var/mob/living/carbon/human/R in get_civilians())
 		ids_to_reassign[R.wear_id] = 0
 
-		special_orders = list(
+	special_orders = list(
 		"Reassign all civilian personnel, excluding the Head of Personnel, to security.",)
 
 		datum/directive/conscription/directives_complete()
 	return count_civilians_reassigned() == ids_to_reassign.len
 
-for(var/id in ids_to_reassign)
+	for(var/id in ids_to_reassign)
 		if(!ids_to_reassign[id])
 			text += "<li>Reassign [id] to Security Officer</li>"
 
