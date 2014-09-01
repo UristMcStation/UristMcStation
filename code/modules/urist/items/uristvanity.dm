@@ -50,21 +50,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	urist_only = 1
 	name = "Nanotrasen crowbar"
 	desc = "A crowbar in the Nanotrasen colours."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "ncrowbar"
 	item_state = "ncrowbar"
 
 /obj/item/device/flashlight/nanotrasen //nt flashlight
 	name = "Nanotrasen flashlight"
 	desc = "A hand-held emergency light in the Nanotrasen colours with a white NT embossed on the side."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "flashlight"
 	item_state = "flashlight"
 
 /obj/item/weapon/storage/toolbox/nanotrasen //nt toolbox
 	name = "Nanotrasen toolbox"
 	desc = "A tooldbox in the Nanotrasen colours with a white NT emblazoned on the side."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "ntoolbox"
 	item_state = "toolbox_blue"
 
