@@ -7,7 +7,7 @@ datum/directive/conscription
 	proc/get_civilians()
 		var/list/civilians[0]
 		for(var/mob/M in player_list)
-			if (M.is_ready() && is_civilian_positions(M))
+			if (M.is_ready() && is_civilian(M))
 				civilians.Add(M)
 		return civilians
 
@@ -38,21 +38,15 @@ datum/directive/conscription/initialize()
 	special_orders = list(
 		"Reassign all civilian personnel, excluding the Head of Personnel, to security.",)
 
-		datum/directive/conscription/directives_complete()
+datum/directive/conscription/directives_complete()
 	return count_civilians_reassigned() == ids_to_reassign.len
-
-	for(var/id in ids_to_reassign)
-		if(!ids_to_reassign[id])
-			text += "<li>Reassign [id] to Security Officer</li>"
-
-	return text
 
 /hook/reassign_employee/proc/civilian_reassignments(obj/item/weapon/card/id/id_card)
 	var/datum/directive/conscription/D = get_directive("conscription")
 	if(!D) return 1
 
+
 	if(D.ids_to_reassign && D.ids_to_reassign.Find(id_card))
 		D.ids_to_reassign[id_card] = id_card.assignment == "Security Officer" ? 1 : 0
 
 	return 1
-
