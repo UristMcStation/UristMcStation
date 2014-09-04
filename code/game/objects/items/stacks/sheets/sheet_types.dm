@@ -137,9 +137,10 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("baseball bat", /obj/item/weapon/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1), \
-	new/datum/stack_recipe("bookcase", /obj/structure/bookcase, 8, time = 20, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 20, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 6, time = 20, one_per_turf = 1, on_floor = 1) \
+	new/datum/stack_recipe("bookcase", /obj/structure/bookcase, 8, time = 30, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 40, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 6, time = 25, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 5, time = 15, one_per_turf = 1, on_floor = 1) \
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	)
 
