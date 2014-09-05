@@ -8,22 +8,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Pirate Server Room"
 	icon_state = "tcomsatcham"
 
-/area/shuttle/pirate1/centcom
-	name = "\improper Pirate Ship Centcom" //WIP
-	icon_state = "shuttle"
-
-/area/shuttle/pirate1/station
-	name = "\improper Pirate Ship"
-	icon_state = "shuttle"
-
-/area/shuttle/naval1/centcom
-	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers
-	icon_state = "shuttle"
-
-/area/shuttle/naval1/station
-	name = "\improper Navy Ship"
-	icon_state = "shuttle"
-
 /area/crew_quarters/pool
 	name = "\improper Pool"
 	icon_state = "bluenew"
@@ -86,6 +70,14 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/bridge/blueshield
 	name = "\improper Blueshield's Office"
 
+/area/quartermaster/carpenter
+	name = "\improper Carpenter's Workshop"
+	icon_state = "dark128"
+
+/area/quartermaster/hunter
+	name = "\improper Hunter's Workshop"
+	icon_state = "dark160"
+
 //awaymap shit
 
 /area/awaymission/snowventure
@@ -110,3 +102,28 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Telecoms Server Room"
 	icon_state = "tcomsatcham"
 
+//Shuttlessssssss
+
+/area/shuttle/pirate1/centcom
+	name = "\improper Pirate Ship Centcom" //WIP
+	icon_state = "shuttle"
+
+/area/shuttle/pirate1/station
+	name = "\improper Pirate Ship"
+	icon_state = "shuttle"
+
+/area/shuttle/naval1/centcom
+	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers
+	icon_state = "shuttle"
+
+/area/shuttle/naval1/station
+	name = "\improper Navy Ship"
+	icon_state = "shuttle"
+
+/area/shuttle/outpost/jungle
+	name = "\improper Outpost Shuttle Jungle"
+	icon_state = "shuttle"
+
+/area/shuttle/outpost/station
+	name = "\improper Outpost Shuttle"
+	icon_state = "shuttle"
