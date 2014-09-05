@@ -151,6 +151,7 @@
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	w_class = 2.0
 	sharp = 1
+	edge = 1
 
 	suicide_act(mob/user)
 		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
