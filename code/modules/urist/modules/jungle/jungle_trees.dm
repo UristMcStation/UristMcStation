@@ -4,13 +4,11 @@
 	name = "jungle tree"
 	desc = "A large tree commonly found in jungle areas."
 	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
-	var/large = 0
 	var/small = 0
 
 /obj/structure/flora/tree/jungle/large
 	icon = 'icons/urist/jungle/trees-large.dmi'
 	icon_state = "tree1"
-	large = 1
 
 /obj/structure/flora/tree/jungle/large/New()
 	if(prob(25))
@@ -53,6 +51,8 @@
 	if(istype(I, /obj/item/weapon/carpentry/axe))
 		user << "<span class='notice'>You chop the [src] with the [I].</span>"
 //		playsound(src.loc, '', 50, 0) //gotta record chopping sounds
+		sleep(5)
+
 		if(chops == 0)
 			chops = 1
 		else if(chops == 1)
@@ -70,7 +70,7 @@
 			chops = 4
 		else if(chops == 4)
 			chops = 5
-		else if(chops == 5)
+		else if(chops == 5)	//todo, add a small chance for a hostile animal to jump out.
 			chops = 6
 		else if(chops == 6)
 			chops = 7
@@ -80,8 +80,8 @@
 //			new /obj/structure/log(src.loc) //need to get_step still, do this later
 
 			del(src)
-	else
-		return
+
+	return
 
 /obj/structure/log
 	icon = 'icons/urist/items/wood.dmi'
@@ -92,12 +92,13 @@
 /obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/saw))
 		user << "<span class='notice'>You saw the [src] with the [I].</span>"
-//		playsound(src.loc, '', 50, 0) //gotta record crashing sounds
-		sleep(20)
-		var/obj/item/stack/sheet/r_wood/W = new /obj/item/stack/sheet/r_wood(src.loc)
+//		playsound(src.loc, '', 50, 0) //gotta record sawing sounds
+		if(do_after(user, 20))
 
-		W.amount = 2 //going to mess with this value for a while, we'll see
+			var/obj/item/stack/sheet/r_wood/W = new /obj/item/stack/sheet/r_wood(src.loc)
 
-		del(src)
-	else
-		return
+			W.amount = 2 //going to mess with this value for a while, we'll see
+
+			del(src)
+
+	return
