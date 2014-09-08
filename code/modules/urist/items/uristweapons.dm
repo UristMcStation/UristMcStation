@@ -248,22 +248,5 @@ the sprite and make my own projectile -Glloyd*/
 			del(W)
 			del(src)
 
-//Ballon sword, honk
-
-/obj/item/weapon/melee/balloon
-	name = "balloon sword"
-	desc = "A ballon tied into the shape of a sword. How menacing!"
-	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "balloon"
-	item_state = "balloon"
-	flags = FPRINT | TABLEPASS | CONDUCT
-	slot_flags = SLOT_BELT
-	force = 0
-	throwforce = 0
-	w_class = 3
-	hitsound = 'sound/items/bikehorn.ogg'
-	urist_only = 1
-
-
 
 
