@@ -25,6 +25,7 @@
 		icon_state = "bushnew4"
 
 	if(prob(20))
+		name = "thick foliage"
 		opacity = 1
 		desc = "Very thick scrub that blocks your vision. It'll take something sharp and a lot of determination to clear away"
 		icon_state = "thickbush[rand(1,2)]"

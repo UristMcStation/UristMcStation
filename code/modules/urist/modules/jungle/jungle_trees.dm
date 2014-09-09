@@ -7,6 +7,8 @@
 	var/small = 0
 
 /obj/structure/flora/tree/jungle/large
+	desc = "An extremely large tree commonly found in jungle areas."
+	name = "large jungle tree"
 	icon = 'icons/urist/jungle/trees-large.dmi'
 	icon_state = "tree1"
 
