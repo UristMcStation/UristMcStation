@@ -11,6 +11,7 @@
 	name = "large jungle tree"
 	icon = 'icons/urist/jungle/trees-large.dmi'
 	icon_state = "tree1"
+	pixel_x = -32
 
 /obj/structure/flora/tree/jungle/large/New()
 	if(prob(25))
@@ -51,8 +52,10 @@
 
 /obj/structure/flora/tree/jungle/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
-		user << "<span class='notice'>You chop the [src] with the [I].</span>"
-//		playsound(src.loc, '', 50, 0) //gotta record chopping sounds
+		user << "<span class='notice'>You chop [src] with [I].</span>"
+
+		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
+
 		sleep(5)
 
 		if(chops == 0)
@@ -62,8 +65,8 @@
 		else if(chops == 2)
 			chops = 3
 		else if(chops == 3 && small)
-			user << "<span class='notice'>The [src] comes crashing down!</span>"
-//			playsound(src.loc, '', 50, 0) //gotta record crashing sounds
+			user << "<span class='notice'>[src] comes crashing down!</span>"
+			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			del(src)
@@ -77,9 +80,17 @@
 		else if(chops == 6)
 			chops = 7
 		else if(chops == 7)
-			user << "<span class='notice'>The [src] comes crashing down!</span>"
-//			playsound(src.loc, '', 50, 0) //gotta record crashing sounds
-//			new /obj/structure/log(src.loc) //need to get_step still, do this later
+			user << "<span class='notice'>[src] comes crashing down!</span>"
+
+			sleep(5)
+
+			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
+
+			new /obj/structure/log(get_step(src, NORTH))
+			new /obj/structure/log(src.loc)
+			var/obj/structure/log/L = new /obj/structure/log(get_step(src, NORTH))
+
+			L.pixel_y = 32
 
 			del(src)
 
@@ -93,12 +104,13 @@
 
 /obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/saw))
-		user << "<span class='notice'>You saw the [src] with the [I].</span>"
-//		playsound(src.loc, '', 50, 0) //gotta record sawing sounds
+		user << "<span class='notice'>You saw the [src] with [I].</span>"
+
 		if(do_after(user, 20))
 
 			var/obj/item/stack/sheet/r_wood/W = new /obj/item/stack/sheet/r_wood(src.loc)
 
+			W.pixel_y = src.pixel_y
 			W.amount = 2 //going to mess with this value for a while, we'll see
 
 			del(src)
