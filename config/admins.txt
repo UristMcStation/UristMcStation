@@ -6,7 +6,7 @@
 ######################################################################
 
 kg333 - Host
-vactor - Host
+vactor - Host 
 electronics111 - Game Master
 #Electronics
 bdthemag - Game Master
@@ -17,14 +17,21 @@ hanspanda - Game Master
 jacob_lee - Game Master
 USEC_OFFICER - Game Master
 Rabidgam3r - Game Master
-M3hillus - Game Master
 CoraiUnki - Game Master
-#Corai
+#Aedel
 Kydrasz - Game Master
+MisterTeeth - Game Master
+Stefender - Game Master
+
+TGameCo - Coder
 
 greatorder - Moderator
 andreathesecond - Moderator
-MisterTeeth - Moderator
 Ozarck - Moderator
 Donuts223 - Moderator
-Frost Titan - Moderator
+
+
+Magnetite - Mentor
+Knoxon - Mentor
+Iceblaster98 - Mentor
+Vakothu - Mentor

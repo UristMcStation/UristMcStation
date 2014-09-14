@@ -6,7 +6,7 @@
 	name = "wizard"
 	config_tag = "wizard"
 	required_players = 2
-	required_players_secret = 10
+	required_players_secret = 15
 	required_enemies = 1
 	recommended_enemies = 1
 
@@ -64,6 +64,9 @@
 
 
 /datum/game_mode/proc/forge_wizard_objectives(var/datum/mind/wizard)
+	if (config.objectives_disabled)
+		return
+
 	switch(rand(1,100))
 		if(1 to 30)
 

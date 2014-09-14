@@ -25,7 +25,7 @@
 	t+= "\red Temperature: [environment.temperature] \n"
 	t+= "\blue Nitrogen: [environment.nitrogen] \n"
 	t+= "\blue Oxygen: [environment.oxygen] \n"
-	t+= "\blue Plasma : [environment.toxins] \n"
+	t+= "\blue Phoron : [environment.phoron] \n"
 	t+= "\blue Carbon Dioxide: [environment.carbon_dioxide] \n"
 	for(var/datum/gas/trace_gas in environment.trace_gases)
 		usr << "\blue [trace_gas.type]: [trace_gas.moles] \n"
@@ -600,6 +600,20 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/is_active()
 	return (0 >= usr.stat)
 
+/mob/proc/is_dead()
+	return stat == DEAD
+
+/mob/proc/is_mechanical()
+	if(mind && (mind.assigned_role == "Cyborg" || mind.assigned_role == "AI"))
+		return 1
+	return istype(src, /mob/living/silicon) || get_species() == "Machine"
+
+/mob/proc/is_ready()
+	return client && !!mind
+
+/mob/proc/get_gender()
+	return gender
+
 /mob/proc/see(message)
 	if(!is_active())
 		return 0
@@ -741,13 +755,27 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-	if(buckled)
+	if(istype(buckled, /obj/vehicle))
+		var/obj/vehicle/V = buckled
+		if(stat || weakened || paralysis || resting || sleeping || (status_flags & FAKEDEATH))
+			lying = 1
+			canmove = 0
+			pixel_y = V.mob_offset_y - 5
+		else
+			lying = 0
+			canmove = 1
+			pixel_y = V.mob_offset_y
+	else if(buckled && (!buckled.movable))
 		anchored = 1
 		canmove = 0
 		if( istype(buckled,/obj/structure/stool/bed/chair) )
 			lying = 0
 		else
 			lying = 1
+	else if(buckled && (buckled.movable))
+		anchored = 0
+		canmove = 1
+		lying = 0
 	else if( stat || weakened || paralysis || resting || sleeping || (status_flags & FAKEDEATH))
 		lying = 1
 		canmove = 0
@@ -758,7 +786,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 		anchored = 1
 		canmove = 0
 		lying = 0
-	else
+	else if (!buckled)
 		lying = !can_stand
 		canmove = has_limbs
 
@@ -781,36 +809,34 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return canmove
 
 
-/mob/verb/eastface()
-	set hidden = 1
+/mob/proc/facedir(var/ndir)
 	if(!canface())	return 0
-	dir = EAST
+	dir = ndir
+	if(buckled && buckled.movable)
+		buckled.dir = ndir
+		buckled.handle_rotation()
 	client.move_delay += movement_delay()
 	return 1
+
+
+/mob/verb/eastface()
+	set hidden = 1
+	return facedir(EAST)
 
 
 /mob/verb/westface()
 	set hidden = 1
-	if(!canface())	return 0
-	dir = WEST
-	client.move_delay += movement_delay()
-	return 1
+	return facedir(WEST)
 
 
 /mob/verb/northface()
 	set hidden = 1
-	if(!canface())	return 0
-	dir = NORTH
-	client.move_delay += movement_delay()
-	return 1
+	return facedir(NORTH)
 
 
 /mob/verb/southface()
 	set hidden = 1
-	if(!canface())	return 0
-	dir = SOUTH
-	client.move_delay += movement_delay()
-	return 1
+	return facedir(SOUTH)
 
 
 /mob/proc/IsAdvancedToolUser()//This might need a rename but it should replace the can this mob use things check
@@ -928,7 +954,7 @@ mob/proc/yank_out_object()
 	if(S == U)
 		self = 1 // Removing object from yourself.
 
-	valid_objects = get_visible_implants(1)
+	valid_objects = get_visible_implants(0)
 	if(!valid_objects.len)
 		if(self)
 			src << "You have nothing stuck in your body that is large enough to remove."
@@ -939,9 +965,9 @@ mob/proc/yank_out_object()
 	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
 
 	if(self)
-		src << "<span class='warning'>You attempt to get a good grip on the [selection] in your body.</span>"
+		src << "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>"
 	else
-		U << "<span class='warning'>You attempt to get a good grip on the [selection] in [S]'s body.</span>"
+		U << "<span class='warning'>You attempt to get a good grip on [selection] in [S]'s body.</span>"
 
 	if(!do_after(U, 80))
 		return
@@ -956,8 +982,7 @@ mob/proc/yank_out_object()
 	if(valid_objects.len == 1) //Yanking out last object - removing verb.
 		src.verbs -= /mob/proc/yank_out_object
 
-	if(istype(src,/mob/living/carbon/human))
-
+	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		var/datum/organ/external/affected
 
@@ -967,13 +992,17 @@ mob/proc/yank_out_object()
 					affected = organ
 
 		affected.implants -= selection
-		H.shock_stage+=10
-		H.bloody_hands(S)
+		H.shock_stage+=20
+		affected.take_damage((selection.w_class * 3), 0, 0, 1, "Embedded object extraction")
 
-		if(prob(10)) //I'M SO ANEMIC I COULD JUST -DIE-.
+		if(prob(selection.w_class * 5)) //I'M SO ANEMIC I COULD JUST -DIE-.
 			var/datum/wound/internal_bleeding/I = new (15)
 			affected.wounds += I
 			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 1)
+		
+		if (ishuman(U))
+			var/mob/living/carbon/human/human_user = U
+			human_user.bloody_hands(H)
 
 	selection.loc = get_turf(src)
 

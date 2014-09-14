@@ -381,7 +381,7 @@
 "hq" = (/obj/structure/shuttle/engine/heater{tag = "icon-heater (EAST)"; icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/awaymission/spacebattle/syndicate7)
 "hr" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion_r (WEST)"; icon_state = "propulsion_r"; dir = 8},/turf/space,/area/awaymission/spacebattle/syndicate7)
 "hs" = (/obj/structure/largecrate,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
-"ht" = (/obj/structure/closet/crate/secure/plasma,/obj/item/weapon/tank/plasma,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
+"ht" = (/obj/structure/closet/crate/secure/phoron,/obj/item/weapon/tank/phoron,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
 "hu" = (/obj/structure/closet/crate/medical,/obj/item/weapon/storage/firstaid/fire,/turf/simulated/floor/plating,/area/awaymission/spacebattle/cruiser)
 "hv" = (/obj/structure/rack,/obj/item/clothing/suit/space/rig,/obj/item/clothing/head/helmet/space/rig,/turf/simulated/floor,/area/awaymission/spacebattle/cruiser)
 "hw" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor{dir = 5; icon_state = "warning"},/area/awaymission/spacebattle/cruiser)
@@ -481,9 +481,9 @@
 "jm" = (/obj/structure/shuttle/engine/heater,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating/airless,/area/awaymission/spacebattle/syndicate6)
 "jn" = (/obj/structure/shuttle/engine/propulsion,/turf/space,/area/awaymission/spacebattle/syndicate6)
 "jo" = (/turf/simulated/floor/plating/airless/asteroid,/area)
-"jp" = (/turf/simulated/wall/mineral/plasma,/area/awaymission/spacebattle/secret)
+"jp" = (/turf/simulated/wall/mineral/phoron,/area/awaymission/spacebattle/secret)
 "jq" = (/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
-"jr" = (/obj/machinery/door/airlock/plasma,/turf/simulated/wall/mineral/plasma,/area/awaymission/spacebattle/secret)
+"jr" = (/obj/machinery/door/airlock/phoron,/turf/simulated/wall/mineral/phoron,/area/awaymission/spacebattle/secret)
 "js" = (/obj/item/clothing/suit/space/rig/wizard,/obj/item/clothing/head/helmet/space/rig/wizard,/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
 
 (1,1,1) = {"

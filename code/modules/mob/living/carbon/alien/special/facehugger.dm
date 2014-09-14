@@ -72,7 +72,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	Die()
 	return
 
-/obj/item/clothing/mask/facehugger/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/clothing/mask/facehugger/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
 		Die()
 	return
@@ -107,6 +107,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(stat == CONSCIOUS)
 		icon_state = "[initial(icon_state)]"
 		Attach(hit_atom)
+		throwing = 0
 
 /obj/item/clothing/mask/facehugger/proc/Attach(M as mob)
 	if( (!iscorgi(M) && !iscarbon(M)) || isalien(M))

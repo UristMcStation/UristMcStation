@@ -533,7 +533,7 @@ datum/mind
 						special_role = null
 						var/datum/game_mode/cult/cult = ticker.mode
 						if (istype(cult))
-							cult.memoize_cult_objectives(src)
+							cult.memorize_cult_objectives(src)
 						current << "\red <FONT size = 3><B>The nanobots in the loyalty implant remove all thoughts about being in a cult.  Have a productive day!</B></FONT>"
 						memory = ""
 					if(src in ticker.mode.traitors)
@@ -543,7 +543,7 @@ datum/mind
 						log_admin("[key_name_admin(usr)] has de-traitor'ed [current].")
 
 		else if (href_list["revolution"])
-			current.hud_updateflag |= (1 << SPECIALROLE_HUD)   
+			current.hud_updateflag |= (1 << SPECIALROLE_HUD)
 
 			switch(href_list["revolution"])
 				if("clear")
@@ -648,7 +648,7 @@ datum/mind
 						var/datum/game_mode/cult/cult = ticker.mode
 						if (istype(cult))
 							if(!config.objectives_disabled)
-								cult.memoize_cult_objectives(src)
+								cult.memorize_cult_objectives(src)
 						current << "\red <FONT size = 3><B>You have been brainwashed! You are no longer a cultist!</B></FONT>"
 						memory = ""
 						log_admin("[key_name_admin(usr)] has de-cult'ed [current].")
@@ -663,12 +663,12 @@ datum/mind
 						var/datum/game_mode/cult/cult = ticker.mode
 						if (istype(cult))
 							if(!config.objectives_disabled)
-								cult.memoize_cult_objectives(src)
+								cult.memorize_cult_objectives(src)
 						log_admin("[key_name_admin(usr)] has cult'ed [current].")
 				if("tome")
 					var/mob/living/carbon/human/H = current
 					if (istype(H))
-						var/obj/item/weapon/tome/T = new(H)
+						var/obj/item/weapon/book/tome/T = new(H)
 
 						var/list/slots = list (
 							"backpack" = slot_in_backpack,
@@ -1049,7 +1049,7 @@ datum/mind
 			special_role = "malfunction"
 			current.icon_state = "ai-malf"
 
-	proc/make_Tratior()
+	proc/make_Traitor()
 		if(!(src in ticker.mode.traitors))
 			ticker.mode.traitors += src
 			special_role = "traitor"
@@ -1126,7 +1126,7 @@ datum/mind
 			current << "<font color=\"purple\"><b><i>Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring It back.</b></i></font>"
 			var/datum/game_mode/cult/cult = ticker.mode
 			if (istype(cult))
-				cult.memoize_cult_objectives(src)
+				cult.memorize_cult_objectives(src)
 			else
 				var/explanation = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it."
 				current << "<B>Objective #1</B>: [explanation]"
@@ -1136,7 +1136,7 @@ datum/mind
 
 		var/mob/living/carbon/human/H = current
 		if (istype(H))
-			var/obj/item/weapon/tome/T = new(H)
+			var/obj/item/weapon/book/tome/T = new(H)
 
 			var/list/slots = list (
 				"backpack" = slot_in_backpack,

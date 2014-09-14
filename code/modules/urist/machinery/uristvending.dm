@@ -2,12 +2,16 @@
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/structures&machinery/machinery.dmi' -Glloyd													*/
 
+//base define to clean up the object tree.
+
+/obj/machinery/vending/urist
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+
 //attadrabe -- autodrobe from /tg/
 
-/obj/machinery/vending/autodrobe
+/obj/machinery/vending/urist/autodrobe
 	name = "\improper AutoDrobe"
 	desc = "A vending machine for costumes."
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access_txt = "46" //Theatre access needed, unless hacked.
@@ -35,9 +39,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //sustenance from /tg/
 
-/obj/machinery/vending/sustenance
+/obj/machinery/vending/urist/sustenance
 	name = "\improper Sustenance Vendor"
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	desc = "A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement."
 	product_slogans = "Enjoy your meal.;Enough calories to support strenuous labor."
 	product_ads = "Sufficiently healthy.;Efficiently produced tofu!;Mmm! So good!;Have a meal.;You need food to live!;Have some more candy corn!;Try our new ice cups!"
@@ -47,16 +50,123 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					/obj/item/weapon/reagent_containers/food/snacks/candy_corn = 6)
 	contraband = list(/obj/item/weapon/kitchen/utensil/knife = 6)
 
-//nt vanity machine. more here later
+//nt vanity machine.
 
-/obj/machinery/vending/nanotrasen
-	name = "Nanotrasen vending machine"
+/obj/machinery/vending/urist/nanotrasen
+	name = "\improper Nanotrasen vending machine"
 	desc = "A vending machine that dispenses goods with the Nanotrasen colours and logo."
-	product_slogans = "Nanotrasen, working for you!.;Show your loyalty to Nanotrasen!.;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
+	product_slogans = "Nanotrasen, working for you!;Show your loyalty to Nanotrasen!;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
 	product_ads = "Nanotrasen, definitely not evil!;Nanotrasen, expanding out of control since the 22nd century!;Nanotrasen cares!;Quality goods, quality prices!;Glory to Nanotrasen!;Nanotrasen, paving a brighter future.;Look stylish and loyal!;Nanotrasen, making your work experience better one toolbox at a time!"
-	vend_delay = 34
-	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	vend_delay = 15
+	vend_reply = "Glory to Nanotrasen!"
 	icon_state = "clothing2"
-	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4)
+	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4,/obj/item/weapon/storage/fancy/cigarettes/lights = 10)
 	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
-	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/weapon/storage/toolbox/nanotrasen = 200)
+	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/head/soft/nanotrasen/blue = 50,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/clothing/head/soft/nanotrasen/white = 50,/obj/item/weapon/storage/toolbox/nanotrasen = 200,/obj/item/weapon/storage/fancy/cigarettes/lights = 15)
+
+//dresses!
+
+/obj/machinery/vending/urist/dress
+	name = "\improper Automated Dress Vendor"
+	desc = "A vending machine that apparently dispenses dresses... What will Nanotrasen think of next?"
+	product_ads = "Say yes!;Say yes to the dress!;Buy the dress you've always wanted today!;Beautiful dresses... In space.;Want to impress? Buy a dress!"
+	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress people, buy a dress!"
+	vend_delay = 15
+	vend_reply = "Enjoy your beautiful new dress!"
+	icon_state = "dress"
+	products = list(/obj/item/clothing/under/urist/dress/teal = 5,/obj/item/clothing/under/urist/dress/yellow = 5,/obj/item/clothing/under/urist/dress/white1 = 5,/obj/item/clothing/under/urist/dress/white2 = 5,/obj/item/clothing/under/dress/dress_fire = 5,/obj/item/clothing/under/dress/dress_green = 5,/obj/item/clothing/under/dress/dress_orange = 5,/obj/item/clothing/under/dress/dress_pink = 5,
+					/obj/item/clothing/under/dress/dress_saloon = 5,/obj/item/clothing/under/dress/plaid_blue = 5,/obj/item/clothing/under/dress/plaid_purple = 5,/obj/item/clothing/under/dress/plaid_red = 5,/obj/item/clothing/under/urist/dress/red = 5,
+					/obj/item/clothing/under/sundress = 5,/obj/item/clothing/under/wedding/bride_white = 5,/obj/item/clothing/under/urist/formal/blacktango = 5,
+					/obj/item/clothing/under/sakura_hokkaido_kimono = 1,/obj/item/clothing/under/urist/dress/princess = 2,/obj/item/clothing/head/princessbow = 2)
+	prices = list(/obj/item/clothing/under/urist/dress/teal = 250,/obj/item/clothing/under/urist/dress/yellow = 250,/obj/item/clothing/under/urist/dress/white1 = 250,/obj/item/clothing/under/urist/dress/white2 = 250,/obj/item/clothing/under/dress/dress_fire = 250,/obj/item/clothing/under/dress/dress_green = 250,/obj/item/clothing/under/dress/dress_orange = 250,/obj/item/clothing/under/dress/dress_pink = 250,
+					/obj/item/clothing/under/dress/dress_saloon = 250,/obj/item/clothing/under/dress/plaid_blue = 250,/obj/item/clothing/under/dress/plaid_purple = 250,/obj/item/clothing/under/dress/plaid_red = 250,/obj/item/clothing/under/urist/dress/red = 250,
+					/obj/item/clothing/under/sundress = 250,/obj/item/clothing/under/wedding/bride_white = 250,/obj/item/clothing/under/urist/formal/blacktango = 250,
+					/obj/item/clothing/under/sakura_hokkaido_kimono = 600,/obj/item/clothing/under/urist/dress/princess = 500,/obj/item/clothing/head/princessbow = 100)
+	contraband = list(/obj/item/clothing/under/stripper/mankini = 2)
+
+//Hats!
+
+/obj/machinery/vending/urist/hatdispenser
+	name = "Hatlord 9000"
+	desc = "It doesn't seem the slightest bit unusual. This frustrates you immensly."
+	icon_state = "hats"
+	vend_reply = "Take care now!"
+	product_ads = "Buy some hats!;A bare head is absolutely ASKING for a robusting!"
+	product_slogans = "Warning, not all hats are dog/monkey compatable. Apply forcefully with care.;Apply directly to the forehead.;Who doesn't love spending cash on hats?!;From the people that brought you collectable hat crates, Hatlord!"
+	products = list(/obj/item/clothing/head/bowler = 10,/obj/item/clothing/head/urist/beaverhat = 10,/obj/item/clothing/head/urist/boaterhat = 10,/obj/item/clothing/head/urist/fedora = 5,/obj/item/clothing/head/urist/fez = 10,/obj/item/clothing/head/soft/blue = 10,/obj/item/clothing/head/soft/green = 10,/obj/item/clothing/head/soft/purple = 10,/obj/item/clothing/head/soft/yellow = 10,/obj/item/clothing/head/fluff/bruce_hachert = 10,/obj/item/clothing/head/beanie = 10,/obj/item/clothing/head/flatcap = 5)
+	prices = list(/obj/item/clothing/head/bowler = 50,/obj/item/clothing/head/urist/beaverhat = 50,/obj/item/clothing/head/urist/boaterhat = 50,/obj/item/clothing/head/urist/fedora = 100,/obj/item/clothing/head/urist/fez = 50,/obj/item/clothing/head/soft/blue = 30,/obj/item/clothing/head/soft/green = 30,/obj/item/clothing/head/soft/purple = 30,/obj/item/clothing/head/soft/yellow = 30,/obj/item/clothing/head/fluff/bruce_hachert = 50,/obj/item/clothing/head/beanie = 50,/obj/item/clothing/head/flatcap = 100)
+	contraband = list(/obj/item/clothing/head/bearpelt = 1)
+	premium = list(/obj/item/clothing/head/soft/rainbow = 1)
+
+//suits! (although technically not /clothing/suits. honk)
+
+/obj/machinery/vending/urist/suitdispenser
+	name = "Suitlord 9000"
+	desc = "You wonder for a moment why all of your shirts and pants come conjoined. This hurts your head and you stop thinking about it."
+	icon_state = "suits"
+	vend_reply = "Come again!"
+	product_ads = "Skinny? Looking for some clothes? Suitlord is the machine for you!;BUY MY PRODUCT!"
+	product_slogans = "Pre-Ironed, Pre-Washed, Pre-Wor-*BZZT*;Blood of your enemys washes right out!;Who are YOU wearing?;Look dapper! Look like an idiot!;Dont carry your size? How about you shave off some pounds you fat lazy- *BZZT*"
+	products = list(/obj/item/clothing/under/brown = 10,/obj/item/clothing/under/gentlesuit = 10,/obj/item/clothing/under/suit_jacket = 10,/obj/item/clothing/under/suit_jacket/female = 10,/obj/item/clothing/under/suit_jacket/really_black = 10,
+					/obj/item/clothing/under/sl_suit = 10,/obj/item/clothing/under/urist/formal/assistantformal = 10,/obj/item/clothing/under/urist/suit_jacket/black = 10,/obj/item/clothing/under/urist/suit_jacket/burgundy = 10,/obj/item/clothing/under/urist/suit_jacket/charcoal = 10,
+					/obj/item/clothing/under/urist/suit_jacket/checkered = 10,/obj/item/clothing/under/urist/suit_jacket/navy = 10,/obj/item/clothing/under/urist/suit_jacket/tan = 10)
+	prices = list(/obj/item/clothing/under/brown = 150,/obj/item/clothing/under/gentlesuit = 150,/obj/item/clothing/under/suit_jacket = 150,/obj/item/clothing/under/suit_jacket/female = 150,/obj/item/clothing/under/suit_jacket/really_black = 150,
+					/obj/item/clothing/under/sl_suit = 150,/obj/item/clothing/under/urist/formal/assistantformal = 150,/obj/item/clothing/under/urist/suit_jacket/black = 150,/obj/item/clothing/under/urist/suit_jacket/burgundy = 150,/obj/item/clothing/under/urist/suit_jacket/charcoal = 150,
+					/obj/item/clothing/under/urist/suit_jacket/checkered = 150,/obj/item/clothing/under/urist/suit_jacket/navy = 150,/obj/item/clothing/under/urist/suit_jacket/tan = 150)
+	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 1,/obj/item/clothing/under/psyche = 1,/obj/item/clothing/under/color/orange = 1)
+	premium = list(/obj/item/clothing/under/rainbow = 1)
+
+//shoes!
+
+/obj/machinery/vending/urist/shoedispenser
+	name = "Shoelord 9000"
+	desc = "Wow, hatlord looked fancy, suitlord looked streamlined, and this is just normal. The guy who designed these must be an idiot."
+	icon_state = "shoes"
+	vend_reply = "Enjoy your pair!"
+	product_ads = "Dont be a hobbit: Choose shoelord.;Shoes snatched? Get on it with shoelord."
+	product_slogans = "Put your foot down!;One size fits all!;IM WALKING ON SUNSHINE!;No hobbits allowed.;NO PLEASE WILLY, DONT HURT ME- *BZZT*"
+	products = list(/obj/item/clothing/shoes/black = 10,/obj/item/clothing/shoes/brown = 10,/obj/item/clothing/shoes/blue = 10,/obj/item/clothing/shoes/green = 10,/obj/item/clothing/shoes/yellow = 10,/obj/item/clothing/shoes/purple = 10,/obj/item/clothing/shoes/red = 10,/obj/item/clothing/shoes/white = 10,/obj/item/clothing/shoes/urist/kneesock = 100,/obj/item/clothing/shoes/urist/winter = 100)
+	prices = list(/obj/item/clothing/shoes/black = 50,/obj/item/clothing/shoes/brown = 50,/obj/item/clothing/shoes/blue = 50,/obj/item/clothing/shoes/green = 50,/obj/item/clothing/shoes/yellow = 50,/obj/item/clothing/shoes/purple = 50,/obj/item/clothing/shoes/red = 50,/obj/item/clothing/shoes/white = 50,/obj/item/clothing/shoes/urist/kneesock = 100,/obj/item/clothing/shoes/urist/winter = 100)
+	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
+	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//pants!
+
+/obj/machinery/vending/urist/pantsdispenser
+	name = "Pantslord 9000"
+	desc = "Wait a minute... Pants without shirts? What will they think of next?"
+	icon_state = "pants"
+	vend_reply = "Pants: Wear them."
+	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
+	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
+	products = list(/obj/item/clothing/under/pants/jeans = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10)
+	prices = list(/obj/item/clothing/under/pants/jeans = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100)
+//	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
+//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//coats!
+
+/obj/machinery/vending/urist/coatdispenser
+	name = "Coatlord 9000"
+	desc = "A vendor for coats and jackets. For some reason, you feel like this should be called the suit machine..."
+	icon_state = "coat"
+	vend_reply = "Stay classy!"
+	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you.."
+	product_slogans = "Cover yourself!;Dress to impress!;Lumberjack approved!;Warning, leather jackets are not vegan.;Can't afford shoes, pants, suits or dresses? Well fuck off, we didn't want your money anyways."
+	products = list(/obj/item/clothing/suit/coat/jacket/leather = 5,/obj/item/clothing/suit/coat/jacket = 10,/obj/item/clothing/suit/coat = 10,/obj/item/clothing/suit/storage/lawyer/bluejacket = 10,/obj/item/clothing/suit/storage/lawyer/purpjacket = 10,/obj/item/clothing/suit/urist/blackjacket = 10)
+	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300)
+//	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
+//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+
+//Belts!
+
+/obj/machinery/vending/urist/beltdispenser
+	name = "Beltlord 9000"
+	desc = "A place to buy belts of all kinds! Useful belts! Useless belts! We have them all!"
+	icon_state = "belt"
+	vend_reply = "Remember to buckle up!"
+	product_ads = "Keeping pants from falling down since 2456!; All the belts you could ask for!"
+	product_slogans = "Belts for everyone!; I knew a guy who didn't wear belts, he died!; All belt buckles are made from 100% pure silver, honest!"
+	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
+	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
+	contraband = list(/obj/item/weapon/storage/belt/utility = 1)

@@ -6,6 +6,7 @@
 	var/name = "an unknown language" // Fluff name of language if any.
 	var/desc = "A language."         // Short description for 'Check Languages'.
 	var/speech_verb = "says"         // 'says', 'hisses', 'farts'.
+	var/signlang_verb = list()       // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"         // CSS style to use for strings in this language.
 	var/key = "x"                    // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0                    // Various language flags.
@@ -21,7 +22,7 @@
 
 /datum/language/tajaran
 	name = "Siik'tajr"
-	desc = "An expressive language that combines yowls and chirps with posture, tail and ears. Native to the Tajaran."
+	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
 	colour = "tajaran"
 	key = "j"
@@ -89,6 +90,11 @@
 	languages.Remove(all_languages[rem_language])
 
 	return 0
+
+// Can we speak this language, as opposed to just understanding it?
+/mob/proc/can_speak(datum/language/speaking)
+
+	return (universal_speak || speaking in src.languages)
 
 //TBD
 /mob/verb/check_languages()

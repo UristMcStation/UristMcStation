@@ -18,6 +18,12 @@
 	var/list/reagent_ids = list("tricordrazine", "inaprovaline", "spaceacillin")
 	//var/list/reagent_ids = list("dexalin", "kelotane", "bicaridine", "anti_toxin", "inaprovaline", "spaceacillin")
 
+/obj/item/weapon/reagent_containers/borghypo/surgeon
+	reagent_ids = list("bicaridine", "inaprovaline", "dexalin")
+
+/obj/item/weapon/reagent_containers/borghypo/crisis
+	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
+
 /obj/item/weapon/reagent_containers/borghypo/New()
 	..()
 	for(var/R in reagent_ids)
@@ -62,14 +68,15 @@
 	var/datum/reagents/R = reagent_list[reagent_list.len]
 	R.add_reagent(reagent, 30)
 
-/obj/item/weapon/reagent_containers/borghypo/attack(mob/M as mob, mob/user as mob)
+/obj/item/weapon/reagent_containers/borghypo/attack(mob/living/M as mob, mob/user as mob)
 	var/datum/reagents/R = reagent_list[mode]
 	if(!R.total_volume)
 		user << "\red The injector is empty."
 		return
-	if (!( istype(M, /mob) ))
+	if (!(istype(M)))
 		return
-	if (R.total_volume)
+
+	if (R.total_volume && M.can_inject(user,1))
 		user << "\blue You inject [M] with the injector."
 		M << "\red You feel a tiny prick!"
 

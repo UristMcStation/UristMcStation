@@ -34,7 +34,7 @@
 	var/heat_damage_per_tick = 3	//amount of damage applied if animal's body temperature is higher than maxbodytemp
 	var/cold_damage_per_tick = 2	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
 
-	//Atmos effect - Yes, you can make creatures that require plasma or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
+	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
 	var/min_oxy = 5
 	var/max_oxy = 0					//Leaving something at 0 means it's off - has no maximum
 	var/min_tox = 0
@@ -82,7 +82,7 @@
 
 
 	if(health < 1)
-		Die()
+		death()
 
 	if(health > maxHealth)
 		health = maxHealth
@@ -141,48 +141,42 @@
 	//Atmos
 	var/atmos_suitable = 1
 
-	var/atom/A = src.loc
-	if(isturf(A))
-		var/turf/T = A
-		var/areatemp = T.temperature
-		if( abs(areatemp - bodytemperature) > 40 )
-			var/diff = areatemp - bodytemperature
-			diff = diff / 5
-			//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
-			bodytemperature += diff
+	var/atom/A = src.loc		
 
-		if(istype(T,/turf/simulated))
-			var/turf/simulated/ST = T
-			if(ST.air)
-				var/tox = ST.air.toxins
-				var/oxy = ST.air.oxygen
-				var/n2  = ST.air.nitrogen
-				var/co2 = ST.air.carbon_dioxide
-
-				if(min_oxy)
-					if(oxy < min_oxy)
-						atmos_suitable = 0
-				if(max_oxy)
-					if(oxy > max_oxy)
-						atmos_suitable = 0
-				if(min_tox)
-					if(tox < min_tox)
-						atmos_suitable = 0
-				if(max_tox)
-					if(tox > max_tox)
-						atmos_suitable = 0
-				if(min_n2)
-					if(n2 < min_n2)
-						atmos_suitable = 0
-				if(max_n2)
-					if(n2 > max_n2)
-						atmos_suitable = 0
-				if(min_co2)
-					if(co2 < min_co2)
-						atmos_suitable = 0
-				if(max_co2)
-					if(co2 > max_co2)
-						atmos_suitable = 0
+	if(istype(A,/turf))
+		var/turf/T = A	
+		
+		var/datum/gas_mixture/Environment = T.return_air()
+	
+		if(Environment)
+			
+			if( abs(Environment.temperature - bodytemperature) > 40 )
+				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
+			
+			if(min_oxy)
+				if(Environment.oxygen < min_oxy)
+					atmos_suitable = 0
+			if(max_oxy)
+				if(Environment.oxygen > max_oxy)
+					atmos_suitable = 0
+			if(min_tox)
+				if(Environment.phoron < min_tox)
+					atmos_suitable = 0
+			if(max_tox)
+				if(Environment.phoron > max_tox)
+					atmos_suitable = 0
+			if(min_n2)
+				if(Environment.nitrogen < min_n2)
+					atmos_suitable = 0
+			if(max_n2)
+				if(Environment.nitrogen > max_n2)
+					atmos_suitable = 0
+			if(min_co2)
+				if(Environment.carbon_dioxide < min_co2)
+					atmos_suitable = 0
+			if(max_co2)
+				if(Environment.carbon_dioxide > max_co2)
+					atmos_suitable = 0
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -235,7 +229,9 @@
 		adjustBruteLoss(damage)
 
 /mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj)	return
+	if(!Proj || Proj.nodamage)
+		return
+	
 	adjustBruteLoss(Proj.damage)
 	return 0
 
@@ -405,13 +401,11 @@
 	statpanel("Status")
 	stat(null, "Health: [round((health / maxHealth) * 100)]%")
 
-/mob/living/simple_animal/proc/Die()
-	living_mob_list -= src
-	dead_mob_list += src
+/mob/living/simple_animal/death()
 	icon_state = icon_dead
 	stat = DEAD
 	density = 0
-	return
+	return ..()
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -462,7 +456,7 @@
 	if(copytext(message,1,2) == "*")
 		return emote(copytext(message,2))
 
-	if(stat)	
+	if(stat)
 		return
 
 	var/verb = "says"

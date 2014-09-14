@@ -26,7 +26,7 @@ var/global/list/frozen_items = list()
 /obj/machinery/computer/cryopod/attack_ai()
 	src.attack_hand()
 
-obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
+/obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -43,12 +43,11 @@ obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
 	dat += "<a href='?src=\ref[src];log=1'>View storage log</a>.<br>"
 	dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>"
 	dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>"
-	dat += "<a href='?src=\ref[src];crew=1'>Revive crew</a>.<br/><hr/>"
 
 	user << browse(dat, "window=cryopod_console")
 	onclose(user, "cryopod_console")
 
-obj/machinery/computer/cryopod/Topic(href, href_list)
+/obj/machinery/computer/cryopod/Topic(href, href_list)
 
 	if(..())
 		return
@@ -94,9 +93,6 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 		for(var/obj/item/I in frozen_items)
 			I.loc = get_turf(src)
 			frozen_items -= I
-
-	else if(href_list["crew"])
-		user << "\red Functionality unavailable at this time."
 
 	src.updateUsrDialog()
 	return
@@ -156,7 +152,8 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 		/obj/item/clothing/suit,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
-		/obj/item/clothing/head/helmet/space/
+		/obj/item/clothing/head/helmet/space,
+		/obj/item/weapon/storage/internal
 	)
 
 /obj/machinery/cryopod/right
@@ -190,6 +187,8 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 
 				if(W.contents.len) //Make sure we catch anything not handled by del() on the items.
 					for(var/obj/item/O in W.contents)
+						if(istype(O,/obj/item/weapon/storage/internal)) //Stop eating pockets you fuck!
+							continue
 						O.loc = src
 
 			//Delete all items not on the preservation list.
@@ -198,6 +197,7 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 			items -= announce // or the autosay radio.
 
 			for(var/obj/item/W in items)
+
 				var/preserve = null
 				for(var/T in preserve_items)
 					if(istype(W,T))
@@ -208,11 +208,14 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 					del(W)
 				else
 					frozen_items += W
+					W.loc = null
 
 			//Update any existing objectives involving this mob.
 			for(var/datum/objective/O in all_objectives)
-				if(istype(O,/datum/objective/mutiny) && O.target == occupant.mind) //We don't want revs to get objectives that aren't for heads of staff. Letting them win or lose based on cryo is silly so we remove the objective.
-					del(O) //TODO: Update rev objectives on login by head (may happen already?) ~ Z
+				// We don't want revs to get objectives that aren't for heads of staff. Letting
+				// them win or lose based on cryo is silly so we remove the objective.
+				if(istype(O,/datum/objective/mutiny) && O.target == occupant.mind)
+					del(O)
 				else if(O.target && istype(O.target,/datum/mind))
 					if(O.target == occupant.mind)
 						if(O.owner && O.owner.current)
@@ -240,7 +243,7 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 					current_mode.possible_traitors.Remove(occupant)
 
 			// Delete them from datacore.
-			
+
 			if(PDA_Manifest.len)
 				PDA_Manifest.Cut()
 			for(var/datum/data/record/R in data_core.medical)
@@ -322,7 +325,8 @@ obj/machinery/computer/cryopod/Topic(href, href_list)
 			time_entered = world.time
 
 			// Book keeping!
-			log_admin("[key_name_admin(M)] has entered a stasis pod.")
+			var/turf/location = get_turf(src)
+			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 			message_admins("\blue [key_name_admin(M)] has entered a stasis pod.")
 
 			//Despawning occurs when process() is called with an occupant without a client.

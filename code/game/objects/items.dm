@@ -38,10 +38,31 @@
 	var/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
+
+	/* Species-specific sprites, concept stolen from Paradise//vg/.
+	ex:
+	sprite_sheets = list(
+		"Tajaran" = 'icons/cat/are/bad'
+		)
+	If index term exists and icon_override is not set, this sprite sheet will be used.
+	*/
+	var/list/sprite_sheets = null
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
 
 	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands
 
+	/* Species-specific sprite sheets for object and inhand sprites
+	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
+	*/
+	var/list/sprite_sheets_obj = null
+	
+	//Inhand is not as big a deal as the object sprites, so I'm not sure if these are worth the extra vars.
+	//Maybe in the future:
+	//var/list/sprite_sheets_inhand_l = null
+	//var/list/sprite_sheets_inhand_r = null
+	//var/icon_l_hand = 'icons/mob/items_lefthand.dmi'
+	//var/icon_r_hand = 'icons/mob/items_righthand.dmi'
+	
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 
@@ -212,6 +233,7 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
+// apparently called whenever an item is removed from a slot, container, or anything else.
 /obj/item/proc/dropped(mob/user as mob)
 	..()
 
@@ -238,18 +260,6 @@
 // note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	return
-
-//returns 1 if the item is equipped by a mob, 0 otherwise.
-//This might need some error trapping, not sure if get_equipped_items() is safe for non-human mobs.
-/obj/item/proc/is_equipped()
-	if(!ismob(loc)) 
-		return 0
-	
-	var/mob/M = loc
-	if(src in M.get_equipped_items())
-		return 1
-	else
-		return 0
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
@@ -489,6 +499,12 @@
 /obj/item/proc/IsShield()
 	return 0
 
+/obj/item/proc/get_loc_turf()
+	var/atom/L = loc
+	while(L && !istype(L, /turf/))
+		L = L.loc
+	return loc
+
 /obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 
 	var/mob/living/carbon/human/H = M
@@ -537,7 +553,9 @@
 			"\red You stab yourself in the eyes with [src]!" \
 		)
 	if(istype(M, /mob/living/carbon/human))
-		var/datum/organ/internal/eyes/eyes = H.internal_organs["eyes"]
+		var/datum/organ/internal/eyes/eyes = H.internal_organs_by_name["eyes"]
+		if(!eyes)
+			return
 		eyes.damage += rand(3,4)
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
@@ -617,4 +635,3 @@
 	var/obj/item/I = get_active_hand()
 	if(I && !I.abstract)
 		I.showoff(src)
-

@@ -92,3 +92,26 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	response_help = "pets"
 	turns_per_move = 10
 	voice_name = "unidentifiable voice"
+
+//TGC: Turtle, art+code by me, nothing revolutionary here.
+
+/mob/living/simple_animal/turtle
+	name = "turtle"
+	desc = "Look out for bites!"
+	icon = 'icons/urist/uristicons.dmi'
+	icon_state = "turtle"
+	icon_living = "turtle"
+	icon_dead = "turtle_dead"
+	//Turtles don't speak or make noise...
+	emote_see = list("blinks", "snaps the air")
+	turns_per_move = 10
+	health = 150 //Turtles are tanky
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "hits"
+
+/mob/living/simple_animal/turtle/mule
+	name = "Mule"
+	desc = "The QuarterMaster's turtle. Look out for bites!"
+

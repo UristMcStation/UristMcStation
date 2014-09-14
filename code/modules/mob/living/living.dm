@@ -211,6 +211,9 @@
 		O.emp_act(severity)
 	..()
 
+/mob/living/proc/can_inject()
+	return 1
+
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter:zone_sel.selecting
@@ -306,13 +309,14 @@
 		dead_mob_list -= src
 		living_mob_list += src
 		tod = null
+		timeofdeath = 0
 
 	// restore us to conciousness
 	stat = CONSCIOUS
 
 	// make the icons look correct
 	regenerate_icons()
-	
+
 	hud_updateflag |= 1 << HEALTH_HUD
 	hud_updateflag |= 1 << STATUS_HUD
 	return
@@ -428,7 +432,8 @@
 	else
 		stop_pulling()
 		. = ..()
-	if ((s_active && !( s_active in contents ) ))
+
+	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 		s_active.close(src)
 
 	if(update_slimes)
@@ -447,9 +452,23 @@
 
 	//Getting out of someone's inventory.
 	if(istype(src.loc,/obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = src.loc
-		src.loc = get_turf(src.loc)
-		del(H)
+		var/obj/item/weapon/holder/H = src.loc //Get our item holder.
+		var/mob/M = H.loc                      //Get our mob holder (if any).
+
+		if(istype(M))
+			M.drop_from_inventory(H)
+			M << "[H] wriggles out of your grip!"
+			src << "You wriggle out of [M]'s grip!"
+		else if(istype(H.loc,/obj/item))
+			src << "You struggle free of [H.loc]."
+			H.loc = get_turf(H)
+
+		if(istype(M))
+			for(var/atom/A in M.contents)
+				if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
+					return
+
+		M.status_flags &= ~PASSEMOTES
 		return
 
 	//Resisting control by an alien mind.
@@ -468,14 +487,8 @@
 			B.host.adjustBrainLoss(rand(5,10))
 			H << "\red <B>With an immense exertion of will, you regain control of your body!</B>"
 			B.host << "\red <B>You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you.</b>"
-			B.controlling = 0
 
-			B.ckey = B.host.ckey
-			B.host.ckey = H.ckey
-
-			H.ckey = null
-			H.name = "host brain"
-			H.real_name = "host brain"
+			B.detatch()
 
 			verbs -= /mob/living/carbon/proc/release_control
 			verbs -= /mob/living/carbon/proc/punish_host
@@ -582,6 +595,7 @@
 					sleep(10)
 					SC.broken = 1
 					SC.locked = 0
+					SC.update_icon()
 					usr << "\red You successfully break out!"
 					for(var/mob/O in viewers(L.loc))
 						O.show_message("\red <B>\the [usr] successfully broke out of \the [SC]!</B>", 1)
@@ -591,6 +605,7 @@
 					SC.open()
 				else
 					C.welded = 0
+					C.update_icon()
 					usr << "\red You successfully break out!"
 					for(var/mob/O in viewers(L.loc))
 						O.show_message("\red <B>\the [usr] successfully broke out of \the [C]!</B>", 1)
@@ -685,7 +700,7 @@
 	resting = !resting
 	src << "\blue You are now [resting ? "resting" : "getting up"]"
 
-/mob/living/proc/handle_ventcrawl(var/obj/machinery/atmospherics/unary/vent_pump/vent_found = null) // -- TLE -- Merged by Carn
+/mob/living/proc/handle_ventcrawl(var/obj/machinery/atmospherics/unary/vent_pump/vent_found = null, var/ignore_items = 0) // -- TLE -- Merged by Carn
 	if(stat)
 		src << "You must be conscious to do this!"
 		return
@@ -740,10 +755,12 @@
 		src << "Never mind, you left."
 		return
 
-	for(var/obj/item/carried_item in contents)//If the monkey got on objects.
-		if( !istype(carried_item, /obj/item/weapon/implant) && !istype(carried_item, /obj/item/clothing/mask/facehugger) )//If it's not an implant or a facehugger
-			src << "\red You can't be carrying items or have items equipped when vent crawling!"
-			return
+	if(!ignore_items)
+		for(var/obj/item/carried_item in contents)//If the monkey got on objects.
+			if( !istype(carried_item, /obj/item/weapon/implant) && !istype(carried_item, /obj/item/clothing/mask/facehugger) )//If it's not an implant or a facehugger
+				src << "\red You can't be carrying items or have items equipped when vent crawling!"
+				return
+
 	if(isslime(src))
 		var/mob/living/carbon/slime/S = src
 		if(S.Victim)

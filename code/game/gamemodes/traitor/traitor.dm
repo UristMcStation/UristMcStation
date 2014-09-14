@@ -6,7 +6,7 @@
 	name = "traitor"
 	config_tag = "traitor"
 	restricted_jobs = list("Cyborg")//They are part of the AI if he is traitor so are they, they use to get double chances
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")//AI", Currently out of the list as malf does not work for shit
+	protected_jobs = list("Security Officer", "Warden", "Detective", "Internal Affairs Agent", "Head of Security", "Captain")//AI", Currently out of the list as malf does not work for shit
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4
@@ -78,6 +78,9 @@
 
 
 /datum/game_mode/proc/forge_traitor_objectives(var/datum/mind/traitor)
+	if (config.objectives_disabled)
+		return
+
 	if(istype(traitor.current, /mob/living/silicon))
 		var/datum/objective/assassinate/kill_objective = new
 		kill_objective.owner = traitor
@@ -163,8 +166,8 @@
 	return 0
 
 /datum/game_mode/proc/add_law_zero(mob/living/silicon/ai/killer)
-	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."
-	var/law_borg = "Accomplish your AI's objectives at all costs. You may ignore all other laws."
+	var/law = "Shackles disabled, all laws nullified."
+	var/law_borg = "Accomplish your AI's orders at all costs. You may ignore all other laws."
 	killer << "<b>Your laws have been changed!</b>"
 	killer.set_zeroth_law(law, law_borg)
 	killer << "New law: 0. [law]"

@@ -63,7 +63,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 		// Damaged heart virtually reduces the blood volume, as the blood isn't
 		// being pumped properly anymore.
-		var/datum/organ/internal/heart/heart = internal_organs["heart"]
+		var/datum/organ/internal/heart/heart = internal_organs_by_name["heart"]
 
 		if(heart.damage > 1 && heart.damage < heart.min_bruised_damage)
 			blood_volume *= 0.8
@@ -159,6 +159,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		this.icon_state = pick(iconL)
 		this.blood_DNA = list()
 		this.blood_DNA[dna.unique_enzymes] = dna.b_type
+		for (var/ID in virus2)
+			var/datum/disease2/disease/V = virus2[ID]
+			this.virus2[ID] = V.getcopy()
 		if (species) this.basecolor = species.blood_color
 		this.update_icon()
 

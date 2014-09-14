@@ -21,14 +21,46 @@
 	return damage >= min_broken_damage
 
 
+
 /datum/organ/internal/New(mob/living/carbon/human/H)
 	..()
 	var/datum/organ/external/E = H.organs_by_name[src.parent_organ]
 	if(E.internal_organs == null)
 		E.internal_organs = list()
-	E.internal_organs += src
-	H.internal_organs[src.name] = src
+	E.internal_organs |= src
+	H.internal_organs |= src
 	src.owner = H
+
+/datum/organ/internal/process()
+	//Process infections
+
+	if (robotic >= 2 || (owner.species && owner.species.flags & IS_PLANT))	//TODO make robotic internal and external organs separate types of organ instead of a flag
+		germ_level = 0
+		return
+
+	if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
+		//** Handle antibiotics and curing infections
+		handle_antibiotics()
+
+		//** Handle the effects of infections
+		var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+		
+		if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
+			germ_level--
+		
+		if (germ_level >= INFECTION_LEVEL_ONE/2)
+			//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
+			if(antibiotics < 5 && prob(round(germ_level/6)))
+				germ_level++
+
+		if (germ_level >= INFECTION_LEVEL_TWO)
+			var/datum/organ/external/parent = owner.get_organ(parent_organ)
+			//spread germs
+			if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
+				parent.germ_level++
+			
+			if (prob(3))	//about once every 30 seconds
+				take_damage(1,silent=prob(30))
 
 /datum/organ/internal/proc/take_damage(amount, var/silent=0)
 	if(src.robotic == 2)
@@ -39,7 +71,6 @@
 	var/datum/organ/external/parent = owner.get_organ(parent_organ)
 	if (!silent)
 		owner.custom_pain("Something inside your [parent.display_name] hurts a lot.", 1)
-
 
 /datum/organ/internal/proc/emp_act(severity)
 	switch(robotic)
@@ -90,13 +121,18 @@
 	parent_organ = "chest"
 
 	process()
+		..()
+		if (germ_level > INFECTION_LEVEL_ONE)
+			if(prob(5))
+				owner.emote("cough")		//respitory tract infection
+		
 		if(is_bruised())
 			if(prob(2))
 				spawn owner.emote("me", 1, "coughs up blood!")
 				owner.drip(10)
 			if(prob(4))
 				spawn owner.emote("me", 1, "gasps for air!")
-				owner.losebreath += 5
+				owner.losebreath += 15
 
 /datum/organ/internal/liver
 	name = "liver"
@@ -104,6 +140,14 @@
 	var/process_accuracy = 10
 
 	process()
+		..()
+		if (germ_level > INFECTION_LEVEL_ONE)
+			if(prob(1))
+				owner << "\red Your skin itches."
+		if (germ_level > INFECTION_LEVEL_TWO)
+			if(prob(1))
+				spawn owner.vomit()
+		
 		if(owner.life_tick % process_accuracy == 0)
 			if(src.damage < 0)
 				src.damage = 0
@@ -115,9 +159,9 @@
 					src.damage += 0.2 * process_accuracy
 				//Damaged one shares the fun
 				else
-					var/victim = pick(owner.internal_organs)
-					var/datum/organ/internal/O = owner.internal_organs[victim]
-					O.damage += 0.2  * process_accuracy
+					var/datum/organ/internal/O = pick(owner.internal_organs)
+					if(O)
+						O.damage += 0.2  * process_accuracy
 
 			//Detox can heal small amounts of damage
 			if (src.damage && src.damage < src.min_bruised_damage && owner.reagents.has_reagent("anti_toxin"))
@@ -146,6 +190,7 @@
 	parent_organ = "head"
 
 	process() //Eye damage replaces the old eye_stat var.
+		..()
 		if(is_bruised())
 			owner.eye_blurry = 20
 		if(is_broken())

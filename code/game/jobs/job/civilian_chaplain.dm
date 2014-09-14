@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
-	alt_titles = list("Counselor")
+	alt_titles = list("Counselor","Morale Officer")
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -51,9 +51,10 @@
 					B.name = "Toolbox Manifesto"
 				if("homosexuality")
 					B.name = "Guys Gone Wild"
-				//if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks")
-				//	B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition")
-				//	H.setBrainLoss(100) // starts off retarded as fuck
+				if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks", "beiberism", "beleiberism", "glloydism")
+					B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight")
+					H.setBrainLoss(50) // Toned down the dumb, so they can play
+					B.stupidreligion = 1 // This should make future reference easier
 				if("science")
 					B.name = pick("Principle of Relativity", "Quantum Enigma: Physics Encounters Consciousness", "Programming the Universe", "Quantum Physics and Theology", "String Theory for Dummies", "How To: Build Your Own Warp Drive", "The Mysteries of Bluespace", "Playing God: Collector's Edition")
 				else

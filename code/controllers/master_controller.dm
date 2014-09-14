@@ -33,6 +33,10 @@ datum/controller/game_controller
 	var/mob/list/expensive_mobs = list()
 	var/rebuild_active_areas = 0
 
+	var/list/shuttle_list	                    // For debugging and VV
+	var/datum/ore_distribution/asteroid_ore_map // For debugging and VV.
+
+
 datum/controller/game_controller/New()
 	//There can be only one master_controller. Out with the old and in with the new.
 	if(master_controller != src)
@@ -52,7 +56,8 @@ datum/controller/game_controller/New()
 
 	if(!syndicate_code_phrase)		syndicate_code_phrase	= generate_code_phrase()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
-	if(!emergency_shuttle)			emergency_shuttle = new /datum/shuttle_controller/emergency_shuttle()
+	if(!emergency_shuttle)			emergency_shuttle = new /datum/emergency_shuttle_controller()
+	if(!shuttle_controller)			shuttle_controller = new /datum/shuttle_controller()
 
 datum/controller/game_controller/proc/setup()
 	world.tick_lag = config.Ticklag
@@ -106,6 +111,17 @@ datum/controller/game_controller/proc/setup_objects()
 			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
 			T.broadcast_status()
 
+	//Create the mining ore distribution map.
+	//Create the mining ore distribution map.
+	asteroid_ore_map = new /datum/ore_distribution()
+	asteroid_ore_map.populate_distribution_map()
+
+	//Set up spawn points.
+	populate_spawn_points()
+
+	//Set up gear list.
+	populate_gear_list()
+
 	world << "\red \b Initializations complete."
 	sleep(-1)
 
@@ -128,6 +144,7 @@ datum/controller/game_controller/proc/process()
 
 				vote.process()
 				transfer_controller.process()
+				shuttle_controller.process()
 				process_newscaster()
 
 				//AIR
@@ -223,7 +240,7 @@ datum/controller/game_controller/proc/process()
 				total_cost = air_cost + sun_cost + mobs_cost + diseases_cost + machines_cost + objects_cost + networks_cost + powernets_cost + nano_cost + events_cost + ticker_cost
 
 				var/end_time = world.timeofday
-				if(end_time < start_time)
+				if(end_time < start_time)	//why not just use world.time instead?
 					start_time -= 864000    //deciseconds in a day
 				sleep( round(minimum_ticks - (end_time - start_time),1) )
 			else
@@ -256,6 +273,10 @@ datum/controller/game_controller/proc/process_diseases()
 		active_diseases.Cut(i,i+1)
 
 datum/controller/game_controller/proc/process_machines()
+	process_machines_process()
+	process_machines_power()
+	process_machines_rebuild()
+datum/controller/game_controller/proc/process_machines_process()
 	var/i = 1
 	while(i<=machines.len)
 		var/obj/machinery/Machine = machines[i]
@@ -267,7 +288,8 @@ datum/controller/game_controller/proc/process_machines()
 					continue
 		machines.Cut(i,i+1)
 
-	i=1
+datum/controller/game_controller/proc/process_machines_power()
+	var/i=1
 	while(i<=active_areas.len)
 		var/area/A = active_areas[i]
 		if(A.powerupdate && A.master == A)
@@ -285,7 +307,7 @@ datum/controller/game_controller/proc/process_machines()
 		A.powerupdate = 0
 		active_areas.Cut(i,i+1)
 
-
+datum/controller/game_controller/proc/process_machines_rebuild()
 	if(controller_iteration % 150 == 0 || rebuild_active_areas)	//Every 300 seconds we retest every area/machine
 		for(var/area/A in all_areas)
 			if(A == A.master)

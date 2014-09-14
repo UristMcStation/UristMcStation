@@ -117,27 +117,102 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "poker_tableparts"
 	flags = null
 
-//
-//                   ???
-//
+/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/stack/tile/grass))
+		var/obj/item/stack/tile/grass/R = I
+		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
+		R.use(1)
 
-/obj/structure/largecrate/schrodinger
-	name = "Schrodinger's Crate"
-	desc = "What happens if you open it?"
+		user.before_take_item(src)
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/crowbar))
-			var/mob/living/simple_animal/cat/Cat1 = new(loc)
-			Cat1.apply_damage(250)//,TOX)
-			Cat1.name = "Schrodinger's Cat"
-			Cat1.desc = "It seems it's been dead for a while."
+		user.put_in_hands(H)
+		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
 
-			var/mob/living/simple_animal/cat/Cat2 = new(loc)
-			Cat2.name = "Schrodinger's Cat"
-			Cat2.desc = "It was alive the whole time!"
-			sleep(2)
-			if(prob(50))
-				del Cat1
-			else
-				del Cat2
+		del(src)
+		del(I)
+
+//captain's lockers. got sick of the lag when rightclicking.
+
+/obj/structure/closet/secure_closet/captainsclothes
+	name = "Captain's Clothing Locker"
+	req_access = list(access_captain)
+	icon_state = "capsecure1"
+	icon_closed = "capsecure"
+	icon_locked = "capsecure1"
+	icon_opened = "capsecureopen"
+	icon_broken = "capsecurebroken"
+	icon_off = "capsecureoff"
+
+	New()
 		..()
+		sleep(2)
+		new /obj/item/weapon/storage/backpack/duffel/duffel_cap(src)
+		new /obj/item/weapon/storage/backpack/captain(src)
+		new /obj/item/weapon/storage/backpack/satchel_cap(src)
+		new /obj/item/clothing/suit/captunic(src)
+		new /obj/item/clothing/suit/captunic/capjacket(src)
+		new /obj/item/clothing/under/rank/captain(src)
+		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/clothing/gloves/captain(src)
+		new /obj/item/clothing/under/dress/dress_cap(src)
+		new /obj/item/clothing/suit/coat/captain(src)
+		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/under/urist/rank/capdressalt(src)
+		return
+
+/obj/structure/closet/secure_closet/captainsequipment
+	name = "Captain's Equipment Locker"
+	req_access = list(access_captain)
+	icon_state = "capsecure1"
+	icon_closed = "capsecure"
+	icon_locked = "capsecure1"
+	icon_opened = "capsecureopen"
+	icon_broken = "capsecurebroken"
+	icon_off = "capsecureoff"
+
+	New()
+		..()
+		sleep(2)
+		new /obj/item/clothing/suit/armor/vest(src)
+		new /obj/item/weapon/cartridge/captain(src)
+		new /obj/item/clothing/head/helmet/swat(src)
+		new /obj/item/device/radio/headset/heads/captain(src)
+		new /obj/item/weapon/gun/energy/gun(src)
+		new /obj/item/clothing/suit/armor/captain(src)
+		new /obj/item/weapon/melee/telebaton(src)
+		new /obj/item/clothing/suit/armor/vest/capcarapace(src)
+		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/head/helmet/space/capspace(src)
+		new /obj/item/weapon/tank/jetpack/oxygen(src)
+		new /obj/item/clothing/mask/gas(src)
+		return
+
+//blooshield locker
+
+/obj/structure/closet/secure_closet/blueshield
+	name = "Blueshield Locker"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	req_access = list(access_blueshield)
+	icon_state = "bssecure1"
+	icon_closed = "bssecure"
+	icon_locked = "bssecure1"
+	icon_opened = "bssecureopen"
+	icon_broken = "bssecurebroken"
+	icon_off = "bssecureoff"
+
+	New()
+		..()
+		sleep(2)
+		new	/obj/item/weapon/storage/firstaid/adv(src)
+		new /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas(src)
+		new /obj/item/weapon/storage/belt/security(src)
+		new /obj/item/weapon/grenade/flashbang(src)
+		new /obj/item/weapon/melee/baton(src)
+		new /obj/item/weapon/gun/energy/taser(src)
+		new /obj/item/clothing/tie/storage/black_vest(src)
+		new /obj/item/clothing/glasses/sunglasses(src)
+		new /obj/item/clothing/under/rank/centcom_officer(src)
+		new /obj/item/device/flash(src)
+		new /obj/item/weapon/handcuffs(src)
+		return

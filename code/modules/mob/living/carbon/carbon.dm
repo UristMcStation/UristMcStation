@@ -1,3 +1,10 @@
+/mob/living/carbon/Life()
+	..()
+
+	// Increase germ_level regularly
+	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
+		germ_level++
+
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
 	if(.)
@@ -7,6 +14,10 @@
 				src.nutrition -= HUNGER_FACTOR/10
 		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
 			src.bodytemperature += 2
+
+		// Moving around increases germ_level faster
+		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
+			germ_level++
 
 /mob/living/carbon/relaymove(var/mob/user, direction)
 	if(user in src.stomach_contents)
@@ -88,24 +99,29 @@
 
 	return
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
 	shock_damage *= siemens_coeff
 	if (shock_damage<1)
 		return 0
-	src.take_overall_damage(0,shock_damage,used_weapon="Electrocution")
-	//src.burn_skin(shock_damage)
-	//src.adjustFireLoss(shock_damage) //burn_skin will do this for us
-	//src.updatehealth()
-	src.visible_message(
-		"\red [src] was shocked by the [source]!", \
-		"\red <B>You feel a powerful shock course through your body!</B>", \
-		"\red You hear a heavy electrical crack." \
-	)
-//	if(src.stunned < shock_damage)	src.stunned = shock_damage
-	Stun(10)//This should work for now, more is really silly and makes you lay there forever
-//	if(src.weakened < 20*siemens_coeff)	src.weakened = 20*siemens_coeff
-	Weaken(10)
+
+	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+
+	playsound(loc, "sparks", 50, 1, -1)
+	if (shock_damage > 10)
+		src.visible_message(
+			"\red [src] was shocked by the [source]!", \
+			"\red <B>You feel a powerful shock course through your body!</B>", \
+			"\red You hear a heavy electrical crack." \
+		)
+		Stun(10)//This should work for now, more is really silly and makes you lay there forever
+		Weaken(10)
+	else
+		src.visible_message(
+			"\red [src] was mildly shocked by the [source].", \
+			"\red You feel a mild shock course through your body.", \
+			"\red You hear a light zapping." \
+		)
 	return shock_damage
 
 
@@ -195,8 +211,8 @@
 			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
 				var/mob/living/carbon/human/H = src
 				H.w_uniform.add_fingerprint(M)
-				
-			if(lying)
+
+			if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)
 					src.resting = 0
@@ -205,7 +221,7 @@
 			else
 				M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
 								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-								
+
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)
@@ -252,11 +268,13 @@
 
 /mob/living/carbon/proc/throw_mode_off()
 	src.in_throw_mode = 0
-	src.throw_icon.icon_state = "act_throw_off"
+	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
+		src.throw_icon.icon_state = "act_throw_off"
 
 /mob/living/carbon/proc/throw_mode_on()
 	src.in_throw_mode = 1
-	src.throw_icon.icon_state = "act_throw_on"
+	if(src.throw_icon)
+		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/throw_item(atom/target)
 	return
@@ -317,7 +335,7 @@
 */
 
 
-		item.throw_at(target, item.throw_range, item.throw_speed)
+		item.throw_at(target, item.throw_range, item.throw_speed, src)
 
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
@@ -410,23 +428,17 @@
 
 	var/mob/living/simple_animal/borer/B = has_brain_worms()
 
-	if(!B)
-		return
-
-	if(B.controlling)
+	if(B && B.host_brain)
 		src << "\red <B>You withdraw your probosci, releasing control of [B.host_brain]</B>"
-		B.host_brain << "\red <B>Your vision swims as the alien parasite releases control of your body.</B>"
-		B.ckey = ckey
-		B.controlling = 0
-	if(B.host_brain.ckey)
-		ckey = B.host_brain.ckey
-		B.host_brain.ckey = null
-		B.host_brain.name = "host brain"
-		B.host_brain.real_name = "host brain"
 
-	verbs -= /mob/living/carbon/proc/release_control
-	verbs -= /mob/living/carbon/proc/punish_host
-	verbs -= /mob/living/carbon/proc/spawn_larvae
+		B.detatch()
+
+		verbs -= /mob/living/carbon/proc/release_control
+		verbs -= /mob/living/carbon/proc/punish_host
+		verbs -= /mob/living/carbon/proc/spawn_larvae
+
+	else
+		src << "\red <B>ERROR NO BORER OR BRAINMOB DETECTED IN THIS MOB, THIS IS A BUG !</B>"
 
 //Brain slug proc for tormenting the host.
 /mob/living/carbon/proc/punish_host()

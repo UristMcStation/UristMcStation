@@ -12,6 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "machete"
 	item_state = "machete"
+	sharp = 1
 	flags = FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
 	force = 20
@@ -68,6 +69,66 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
 		return(BRUTELOSS)
 
+//umbrella gun
+
+/obj/item/weapon/gun/projectile/umbrellagun
+	urist_only = 1
+	name = "Umbrella"
+	desc = "An umbrella with a small hole at the end, doesn't seem to open."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "umbrellagun"
+	item_state = "umbrellagun"
+	w_class = 2
+	max_shells = 2
+	caliber = "9mm"
+	silenced = 1
+	origin_tech = "combat=2;materials=2"
+	ammo_type = "/obj/item/ammo_casing/c9mm"
+	load_method = 2
+
+//BANG BANG BANG, BANG BANG
+
+/obj/item/weapon/gag/BANG
+	urist_only = 1
+	icon_override = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/uristweapons.dmi'
+	name = "BANG gun"
+	desc = "Shoots out a BANG"
+	icon_state = "gun"
+	item_state = "gun"
+	var/on = 0
+	w_class = 2
+
+/obj/item/weapon/gag/BANG/attack_self(mob/user as mob)
+	urist_only = 1
+	icon_override = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/uristweapons.dmi'
+	on = !on
+	if(on)
+		user.visible_message("\red [user] fires the gun, BANG.",\
+		"\red You fire the gun.",\
+		"You hear a BANG.")
+		icon_state = "gunbang"
+		item_state = "gunbang"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+	else
+		user.visible_message("\blue [user] pushes the BANG back into the barrel.",\
+		"\blue You push the BANG back into the barrel.",\
+		"You hear a click.")
+		icon_state = "gun"
+		item_state = "gun"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+
 //Space drugs pill. LET'S PARTY!
 
 /obj/item/weapon/reagent_containers/pill/spacedrugs
@@ -85,8 +146,8 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/energy/plasmapistol
 	urist_only = 1
-	name = "plasma pistol"
-	desc = "An experimental weapon that works by ionizing plasma and firing it in a particular direction, poisoning someone."
+	name = "phoron pistol"
+	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "plasmapistol"
 	item_state = "gun"
@@ -103,7 +164,7 @@ the sprite and make my own projectile -Glloyd*/
 		return(BRUTELOSS)
 
 /obj/item/projectile/energy/plasma2
-	name = "ionized plasma"
+	name = "ionized phoron"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "plasma"
 	damage = 20

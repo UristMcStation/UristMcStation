@@ -145,7 +145,7 @@
 		..(M,connected,flags)
 		M.pass_flags &= ~1 //This may cause issues down the track, but offhand I can't think of any other way for humans to get passtable short of varediting so it should be fine. ~Z
 
-/datum/dna/gene/basic/hulk
+/*/datum/dna/gene/basic/hulk
 	name="Hulk"
 	activation_messages=list("Your muscles hurt.")
 	mutation=HULK
@@ -173,7 +173,7 @@
 			M.update_mutations()		//update our mutation overlays
 			M << "\red You suddenly feel very weak."
 			M.Weaken(3)
-			M.emote("collapse")
+			M.emote("collapse")*/
 
 /datum/dna/gene/basic/xray
 	name="X-Ray Vision"

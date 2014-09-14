@@ -87,8 +87,108 @@
 	typepath=/obj/item/weapon/lighter/zippo/vanity/red
 	cost = 650
 
-/datum/storeitem/zippored
+/datum/storeitem/zippofancy
 	name="Engraved Zippo"
 	desc="A silver zippo lighter with intricate engravings made just for you!"
 	typepath=/obj/item/weapon/lighter/zippo/vanity/engraved
 	cost = 650
+
+/////////////////////////////////////////////////////////
+//                      A COMB.                        //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/combpurple
+	name="Purple Comb"
+	desc="A simple purple comb made out of flexible plastic."
+	typepath=/obj/item/weapon/vanity/comb
+	cost = 200
+
+/////////////////////////////////////////////////////////
+//                     Watches                         //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/pocketwatch
+	name="Brass Pocket Watch"
+	desc="A brass pocket watch, for keeping track of time in the cold dark void!"
+	typepath=/obj/item/clothing/tie/watch/pocket
+	cost = 300
+
+/datum/storeitem/wristwatch
+	name="Black Wrist Watch"
+	desc="A black plastic wrist watch, for keeping track of time in the cold dark void!"
+	typepath=/obj/item/clothing/tie/watch/wrist
+	cost = 300
+
+/////////////////////////////////////////////////////////
+//                     Razor                           //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/razor
+	name="Electric Razor"
+	desc="An electric razor. The perfect thing for keeping your hair trimmed, and you looking classy."
+	typepath=/obj/item/weapon/razor
+	cost = 300
+
+/////////////////////////////////////////////////////////
+//                     Doll(s?)                        //
+/////////////////////////////////////////////////////////
+
+datum/storeitem/dollunathigreen
+	name="Green Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is green."
+	typepath=/obj/item/weapon/vanity/doll/unathi/green
+	cost = 300
+
+datum/storeitem/dollunathired
+	name="Red Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is red."
+	typepath=/obj/item/weapon/vanity/doll/unathi/red
+	cost = 300
+
+datum/storeitem/dollunathilightblue
+	name="Light Blue Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is light blue."
+	typepath=/obj/item/weapon/vanity/doll/unathi/lightblue
+	cost = 300
+
+datum/storeitem/dollunathiblack
+	name="Black Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is black."
+	typepath=/obj/item/weapon/vanity/doll/unathi/black
+	cost = 350 //Hey, that extra dye costs extra!
+
+datum/storeitem/dollunathiyellow
+	name="Yellow Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is yellow."
+	typepath=/obj/item/weapon/vanity/doll/unathi/yellow
+	cost = 300
+
+datum/storeitem/dollunathiwhite
+	name="White Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is white."
+	typepath=/obj/item/weapon/vanity/doll/unathi/white
+	cost = 200 //No dye is very cheap!
+
+datum/storeitem/dollunathipurple
+	name="Purple Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is purple."
+	typepath=/obj/item/weapon/vanity/doll/unathi/purple
+	cost = 300
+
+datum/storeitem/dollunathiorange
+	name="Orange Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is orange."
+	typepath=/obj/item/weapon/vanity/doll/unathi/orange
+	cost = 300
+
+datum/storeitem/dollunathibrown
+	name="Brown Unathi Doll"
+	desc="A cute little doll modeled after an ugly lizard! This one is brown."
+	typepath=/obj/item/weapon/vanity/doll/unathi/brown
+	cost = 300
+
+datum/storeitem/dollfarwa
+	name="Farwa Doll"
+	desc="A plush little farwa doll to keep you company in the lonely depths of space."
+	typepath=/obj/item/weapon/fluff/farwadoll
+	cost = 300

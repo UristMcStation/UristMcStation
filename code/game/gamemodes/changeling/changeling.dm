@@ -10,7 +10,7 @@ var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon"
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
 	required_players = 2
-	required_players_secret = 10
+	required_players_secret = 20
 	required_enemies = 1
 	recommended_enemies = 4
 
@@ -87,6 +87,9 @@ var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon"
 	//If they have two objectives as well as absorb, they must survive rather than escape
 	//No escape alone because changelings aren't suited for it and it'd probably just lead to rampant robusting
 	//If it seems like they'd be able to do it in play, add a 10% chance to have to escape alone
+
+	if (config.objectives_disabled)
+		return
 
 	var/datum/objective/absorb/absorb_objective = new
 	absorb_objective.owner = changeling
@@ -215,6 +218,8 @@ var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon"
 
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/absorbed_dna = list()
+	var/list/absorbed_species = list()
+	var/list/absorbed_languages = list()
 	var/absorbedcount = 0
 	var/chem_charges = 20
 	var/chem_recharge_rate = 0.5

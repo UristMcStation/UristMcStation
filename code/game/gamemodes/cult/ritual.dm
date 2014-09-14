@@ -91,7 +91,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 
 
 	attackby(I as obj, user as mob)
-		if(istype(I, /obj/item/weapon/tome) && iscultist(user))
+		if(istype(I, /obj/item/weapon/book/tome) && iscultist(user))
 			user << "You retrace your steps, carefully undoing the lines of the rune."
 			del(src)
 			return
@@ -178,13 +178,15 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 		check_icon()
 			icon = get_uristrune_cult(word1, word2, word3)
 
-/obj/item/weapon/tome
+/obj/item/weapon/book/tome
 	name = "arcane tome"
+	icon = 'icons/obj/weapons.dmi'
 	icon_state ="tome"
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
 	flags = FPRINT | TABLEPASS
+	unique = 1
 	var/notedat = ""
 	var/tomedat = ""
 	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
@@ -313,7 +315,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 						[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
 						"}
 			usr << browse("[notedat]", "window=notes")
-//		call(/obj/item/weapon/tome/proc/edit_notes)()
+//		call(/obj/item/weapon/book/tome/proc/edit_notes)()
 		else
 			usr << browse(null, "window=notes")
 			return
@@ -408,33 +410,65 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 					[words[9]] is <a href='byond://?src=\ref[src];number=9;action=change'>[words[words[9]]]</A> <A href='byond://?src=\ref[src];number=9;action=clear'>Clear</A><BR>
 					[words[10]] is <a href='byond://?src=\ref[src];number=10;action=change'>[words[words[10]]]</A> <A href='byond://?src=\ref[src];number=10;action=clear'>Clear</A><BR>
 					"}
-//						call(/obj/item/weapon/tome/proc/edit_notes)()
+//						call(/obj/item/weapon/book/tome/proc/edit_notes)()
 						user << browse("[notedat]", "window=notes")
 						return
 			if(usr.get_active_hand() != src)
 				return
 
-			var/w1
-			var/w2
-			var/w3
+			var/list/dictionary = list (
+				"convert" = list("join","blood","self"),
+				"wall" = list("destroy","travel","self"),
+				"blood boil" = list("destroy","see","blood"),
+				"blood drain" = list("travel","blood","self"),
+				"raise dead" = list("blood","join","hell"),
+				"summon narsie" = list("hell","join","self"),
+				"communicate" = list("self","other","technology"),
+				"emp" = list("destroy","see","technology"),
+				"manifest" = list("blood","see","travel"),
+				"summon tome" = list("see","blood","hell"),
+				"see invisible" = list("see","hell","join"),
+				"hide" = list("hide","see","blood"),
+				"reveal" = list("blood","see","hide"),
+				"astral journey" = list("hell","travel","self"),
+				"imbue" = list("hell","technology","join"),
+				"sacrifice" = list("hell","blood","join"),
+				"summon cultist" = list("join","other","self"),
+				"free cultist" = list("travel","technology","other"),
+				"deafen" = list("hide","other","see"),
+				"blind" = list("destroy","see","other"),
+				"stun" = list("join","hide","technology"),
+				"armor" = list("hell","destroy","other"),
+				"teleport" = list("travel","self"),
+				"teleport other" = list("travel","other")
+			)
+
 			var/list/english = list()
-			for (var/w in words)
-				english+=words[w]
+
+			var/list/scribewords = list("none")
+
+			for (var/entry in words)
+				if (words[entry] != entry)
+					english += list(words[entry] = entry)
+
+			for (var/entry in dictionary)
+				var/list/required = dictionary[entry]
+				if (length(english&required) == required.len)
+					scribewords += entry
+
+			var/chosen_rune = null
+
 			if(usr)
-				w1 = input("Write your first rune:", "Rune Scribing") in english
-				for (var/w in words)
-					if (words[w] == w1)
-						w1 = w
-			if(usr)
-				w2 = input("Write your second rune:", "Rune Scribing") in english
-				for (var/w in words)
-					if (words[w] == w2)
-						w2 = w
-			if(usr)
-				w3 = input("Write your third rune:", "Rune Scribing") in english
-				for (var/w in words)
-					if (words[w] == w3)
-						w3 = w
+				chosen_rune = input ("Choose a rune to scribe.") in scribewords
+				if (!chosen_rune)
+					return
+				if (chosen_rune == "none")
+					user << "\red You decide against scribing a rune, perhaps you should take this time to study your notes."
+					return
+				if (chosen_rune == "teleport")
+					dictionary[chosen_rune] += input ("Choose a destination word") in english
+				if (chosen_rune == "teleport other")
+					dictionary[chosen_rune] += input ("Choose a destination word") in english
 
 			if(usr.get_active_hand() != src)
 				return
@@ -449,9 +483,10 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 				var/mob/living/carbon/human/H = user
 				var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 				user << "\red You finish drawing the arcane markings of the Geometer."
-				R.word1 = w1
-				R.word2 = w2
-				R.word3 = w3
+				var/list/required = dictionary[chosen_rune]
+				R.word1 = english[required[1]]
+				R.word2 = english[required[2]]
+				R.word3 = english[required[3]]
 				R.check_icon()
 				R.blood_DNA = list()
 				R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
@@ -460,8 +495,8 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 			user << "The book seems full of illegible scribbles. Is this a joke?"
 			return
 
-	attackby(obj/item/weapon/tome/T as obj, mob/living/user as mob)
-		if(istype(T, /obj/item/weapon/tome)) // sanity check to prevent a runtime error
+	attackby(obj/item/weapon/book/tome/T as obj, mob/living/user as mob)
+		if(istype(T, /obj/item/weapon/book/tome)) // sanity check to prevent a runtime error
 			switch(alert("Copy the runes from your tome?",,"Copy", "Cancel"))
 				if("cancel")
 					return
@@ -470,8 +505,8 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 	//				return
 	//		for(var/mob/M in nearby)
 	//			if(M == user)
-			for(var/w in words)
-				words[w] = T.words[w]
+			for(var/entry in words)
+				words[entry] = T.words[entry]
 			user << "You copy the translation notes from your tome."
 
 
@@ -482,7 +517,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 		else
 			usr << "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
 
-/obj/item/weapon/tome/imbued //admin tome, spawns working runes without waiting
+/obj/item/weapon/book/tome/imbued //admin tome, spawns working runes without waiting
 	w_class = 2.0
 	var/cultistsonly = 1
 	attack_self(mob/user as mob)

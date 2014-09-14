@@ -32,11 +32,19 @@
 
 //This generates the randomized airlock wire assignments for the game.
 /proc/RandomAirlockWires()
+	var/list/wire_assignments = CreateRandomAirlockWires()
+
+	globalAirlockIndexToFlag = wire_assignments[2]
+	globalAirlockIndexToWireColor = wire_assignments[3]
+	globalAirlockWireColorToIndex = wire_assignments[4]
+	return wire_assignments[1]
+
+/proc/CreateRandomAirlockWires()
 	//to make this not randomize the wires, just set index to 1 and increment it in the flag for loop (after doing everything else).
 	var/list/wires = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	airlockIndexToFlag = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	airlockIndexToWireColor = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	airlockWireColorToIndex = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	var/airlockIndexToFlag = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	var/airlockIndexToWireColor = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	var/airlockWireColorToIndex = list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	var/flagIndex = 1
 	for (var/flag=1, flag<4096, flag+=flag)
 		var/valid = 0
@@ -54,7 +62,7 @@
 				airlockWireColorToIndex[colorIndex] = flagIndex
 				colorList -= colorIndex
 		flagIndex+=1
-	return wires
+	return list(wires, airlockIndexToFlag, airlockIndexToWireColor, airlockWireColorToIndex)
 
 /* Example:
 Airlock wires color -> flag are { 64, 128, 256, 2, 16, 4, 8, 32, 1 }.
@@ -69,6 +77,7 @@ Airlock index -> wire color are { 9, 4, 6, 7, 5, 8, 1, 2, 3 }.
 	icon_state = "door_closed"
 	power_channel = ENVIRON
 
+	explosion_resistance = 15
 	var/aiControlDisabled = 0 //If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
 	var/hackProof = 0 // if 1, this door can't be hacked by the AI
 	var/secondsMainPowerLost = 0 //The number of seconds until power is restored.
@@ -93,6 +102,11 @@ Airlock index -> wire color are { 9, 4, 6, 7, 5, 8, 1, 2, 3 }.
 	normalspeed = 1
 	var/obj/item/weapon/airlock_electronics/electronics = null
 	var/hasShocked = 0 //Prevents multiple shocks from happening
+	var/secured_wires = 0	//for mapping use
+	var/list/airlockIndexToFlag
+	var/list/airlockWireColorToFlag
+	var/list/airlockIndexToWireColor
+	var/list/airlockWireColorToIndex
 
 /obj/machinery/door/airlock/command
 	name = "Airlock"
@@ -258,45 +272,40 @@ Airlock index -> wire color are { 9, 4, 6, 7, 5, 8, 1, 2, 3 }.
 		L.apply_effect(15,IRRADIATE,0)
 	return
 
-/obj/machinery/door/airlock/plasma
-	name = "Plasma Airlock"
+/obj/machinery/door/airlock/phoron
+	name = "Phoron Airlock"
 	desc = "No way this can end badly."
-	icon = 'icons/obj/doors/Doorplasma.dmi'
-	mineral = "plasma"
+	icon = 'icons/obj/doors/Doorphoron.dmi'
+	mineral = "phoron"
 
-/obj/machinery/door/airlock/plasma/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/obj/machinery/door/airlock/plasma/proc/ignite(exposed_temperature)
+/obj/machinery/door/airlock/phoron/proc/ignite(exposed_temperature)
 	if(exposed_temperature > 300)
-		PlasmaBurn(exposed_temperature)
+		PhoronBurn(exposed_temperature)
 
-/obj/machinery/door/airlock/plasma/proc/PlasmaBurn(temperature)
+/obj/machinery/door/airlock/phoron/proc/PhoronBurn(temperature)
 	for(var/turf/simulated/floor/target_tile in range(2,loc))
 //		if(target_tile.parent && target_tile.parent.group_processing) // THESE PROBABLY DO SOMETHING IMPORTANT BUT I DON'T KNOW HOW TO FIX IT - Erthilo
 //			target_tile.parent.suspend_group_processing()
 		var/datum/gas_mixture/napalm = new
-		var/toxinsToDeduce = 35
-		napalm.toxins = toxinsToDeduce
+		var/phoronToDeduce = 35
+		napalm.phoron = phoronToDeduce
 		napalm.temperature = 400+T0C
 		target_tile.assume_air(napalm)
 		spawn (0) target_tile.hotspot_expose(temperature, 400)
-	for(var/obj/structure/falsewall/plasma/F in range(3,src))//Hackish as fuck, but until temperature_expose works, there is nothing I can do -Sieve
+	for(var/obj/structure/falsewall/phoron/F in range(3,src))//Hackish as fuck, but until temperature_expose works, there is nothing I can do -Sieve
 		var/turf/T = get_turf(F)
-		T.ChangeTurf(/turf/simulated/wall/mineral/plasma/)
+		T.ChangeTurf(/turf/simulated/wall/mineral/phoron/)
 		del (F)
-	for(var/turf/simulated/wall/mineral/plasma/W in range(3,src))
+	for(var/turf/simulated/wall/mineral/phoron/W in range(3,src))
 		W.ignite((temperature/4))//Added so that you can't set off a massive chain reaction with a small flame
-	for(var/obj/machinery/door/airlock/plasma/D in range(3,src))
+	for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 		D.ignite(temperature/4)
 	new/obj/structure/door_assembly( src.loc )
 	del (src)
-
-/obj/machinery/door/airlock/clown
-	name = "Bananium Airlock"
-	icon = 'icons/obj/doors/Doorbananium.dmi'
-	mineral = "clown"
 
 /obj/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
@@ -366,26 +375,19 @@ About the new airlock wires panel:
 			//Sending a pulse through this flashes the red light on the door (if the door has power).
 			if((src.arePowerSystemsOn()) && (!(stat & NOPOWER)))
 				do_animate("deny")
-		if(AIRLOCK_WIRE_MAIN_POWER1 || AIRLOCK_WIRE_MAIN_POWER2)
+		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 			//Sending a pulse through either one causes a breaker to trip, disabling the door for 10 seconds if backup power is connected, or 1 minute if not (or until backup power comes back on, whichever is shorter).
 			src.loseMainPower()
 		if(AIRLOCK_WIRE_DOOR_BOLTS)
 			//one wire for door bolts. Sending a pulse through this drops door bolts if they're not down (whether power's on or not),
 			//raises them if they are down (only if power's on)
 			if(!src.locked)
-				src.locked = 1
-				for(var/mob/M in range(1,src))
-					M << "You hear a click from the bottom of the door."
-				src.updateUsrDialog()
+				src.lock()
 			else
-				if(src.arePowerSystemsOn()) //only can raise bolts if power's on
-					src.locked = 0
-					for(var/mob/M in range(1,src))
-						M << "You hear a click from the bottom of the door."
-					src.updateUsrDialog()
-			update_icon()
+				src.unlock()
+			src.updateUsrDialog()
 
-		if(AIRLOCK_WIRE_BACKUP_POWER1 || AIRLOCK_WIRE_BACKUP_POWER2)
+		if(AIRLOCK_WIRE_BACKUP_POWER1, AIRLOCK_WIRE_BACKUP_POWER2)
 			//two wires for backup power. Sending a pulse through either one causes a breaker to trip, but this does not disable it unless main power is down too (in which case it is disabled for 1 minute or however long it takes main power to come back, whichever is shorter).
 			src.loseBackupPower()
 		if(AIRLOCK_WIRE_AI_CONTROL)
@@ -440,18 +442,16 @@ About the new airlock wires panel:
 	var/wireIndex = airlockWireColorToIndex[wireColor]
 	wires &= ~wireFlag
 	switch(wireIndex)
-		if(AIRLOCK_WIRE_MAIN_POWER1 || AIRLOCK_WIRE_MAIN_POWER2)
+		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 			//Cutting either one disables the main door power, but unless backup power is also cut, the backup power re-powers the door in 10 seconds. While unpowered, the door may be crowbarred open, but bolts-raising will not work. Cutting these wires may electocute the user.
 			src.loseMainPower()
 			src.shock(usr, 50)
 			src.updateUsrDialog()
 		if(AIRLOCK_WIRE_DOOR_BOLTS)
 			//Cutting this wire also drops the door bolts, and mending it does not raise them. (This is what happens now, except there are a lot more wires going to door bolts at present)
-			if(src.locked!=1)
-				src.locked = 1
-			update_icon()
+			src.lock()
 			src.updateUsrDialog()
-		if(AIRLOCK_WIRE_BACKUP_POWER1 || AIRLOCK_WIRE_BACKUP_POWER2)
+		if(AIRLOCK_WIRE_BACKUP_POWER1, AIRLOCK_WIRE_BACKUP_POWER2)
 			//Cutting either one disables the backup door power (allowing it to be crowbarred open, but disabling bolts-raising), but may electocute the user.
 			src.loseBackupPower()
 			src.shock(usr, 50)
@@ -487,12 +487,12 @@ About the new airlock wires panel:
 	var/wireIndex = airlockWireColorToIndex[wireColor] //not used in this function
 	wires |= wireFlag
 	switch(wireIndex)
-		if(AIRLOCK_WIRE_MAIN_POWER1 || AIRLOCK_WIRE_MAIN_POWER2)
+		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 			if((!src.isWireCut(AIRLOCK_WIRE_MAIN_POWER1)) && (!src.isWireCut(AIRLOCK_WIRE_MAIN_POWER2)))
 				src.regainMainPower()
 				src.shock(usr, 50)
 				src.updateUsrDialog()
-		if(AIRLOCK_WIRE_BACKUP_POWER1 || AIRLOCK_WIRE_BACKUP_POWER2)
+		if(AIRLOCK_WIRE_BACKUP_POWER1, AIRLOCK_WIRE_BACKUP_POWER2)
 			if((!src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER1)) && (!src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER2)))
 				src.regainBackupPower()
 				src.shock(usr, 50)
@@ -538,23 +538,26 @@ About the new airlock wires panel:
 	return ((src.wires & wireFlag) == 0)
 
 /obj/machinery/door/airlock/proc/canAIControl()
-	return ((src.aiControlDisabled!=1) && (!src.isAllPowerCut()));
+	return ((src.aiControlDisabled!=1) && (!src.isAllPowerLoss()));
 
 /obj/machinery/door/airlock/proc/canAIHack()
-	return ((src.aiControlDisabled==1) && (!hackProof) && (!src.isAllPowerCut()));
+	return ((src.aiControlDisabled==1) && (!hackProof) && (!src.isAllPowerLoss()));
 
 /obj/machinery/door/airlock/proc/arePowerSystemsOn()
+	if (stat & NOPOWER)
+		return 0
 	return (src.secondsMainPowerLost==0 || src.secondsBackupPowerLost==0)
 
 /obj/machinery/door/airlock/requiresID()
 	return !(src.isWireCut(AIRLOCK_WIRE_IDSCAN) || aiDisabledIdScanner)
 
-/obj/machinery/door/airlock/proc/isAllPowerCut()
-	var/retval=0
+/obj/machinery/door/airlock/proc/isAllPowerLoss()
+	if(stat & NOPOWER)
+		return 1
 	if(src.isWireCut(AIRLOCK_WIRE_MAIN_POWER1) || src.isWireCut(AIRLOCK_WIRE_MAIN_POWER2))
 		if(src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER1) || src.isWireCut(AIRLOCK_WIRE_BACKUP_POWER2))
-			retval=1
-	return retval
+			return 1
+	return 0
 
 /obj/machinery/door/airlock/proc/regainMainPower()
 	if(src.secondsMainPowerLost > 0)
@@ -597,17 +600,12 @@ About the new airlock wires panel:
 // shock user with probability prb (if all connections & power are working)
 // returns 1 if shocked, 0 otherwise
 // The preceding comment was borrowed from the grille's shock script
-/obj/machinery/door/airlock/proc/shock(mob/user, prb)
-	if((stat & (NOPOWER)) || !src.arePowerSystemsOn())		// unpowered, no shock
+/obj/machinery/door/airlock/shock(mob/user, prb)
+	if(!arePowerSystemsOn())
 		return 0
 	if(hasShocked)
 		return 0	//Already shocked someone recently?
-	if(!prob(prb))
-		return 0 //you lucked out, no shock for you
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start() //sparks always.
-	if(electrocute_mob(user, get_area(src), src))
+	if(..())
 		hasShocked = 1
 		sleep(10)
 		hasShocked = 0
@@ -650,9 +648,11 @@ About the new airlock wires panel:
 			else
 				flick("door_closing", src)
 		if("spark")
-			flick("door_spark", src)
+			if(density)
+				flick("door_spark", src)
 		if("deny")
-			flick("door_deny", src)
+			if(density)
+				flick("door_deny", src)
 	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
@@ -707,7 +707,7 @@ About the new airlock wires panel:
 		t1 += text("Backup Power Output wire is cut.<br>\n")
 
 	if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
-		t1 += text("Door bolt drop wire is cut.<br>\n")
+		t1 += text("Door bolt control wire is cut.<br>\n")
 	else if(!src.locked)
 		t1 += text("Door bolts are up. <A href='?src=\ref[];aiDisable=4'>Drop them?</a><br>\n", src)
 	else
@@ -818,7 +818,7 @@ About the new airlock wires panel:
 	if (src.isElectrified())
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
-			if (i.m_amt)
+			if (i.matter["metal"])
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 				s.set_up(5, 1, src)
 				s.start()
@@ -883,7 +883,7 @@ About the new airlock wires panel:
 					t1 += "<a href='?src=\ref[src];signaler=[wires[wiredesc]]'>Attach signaler</a>"
 			t1 += "<br>"
 
-		t1 += text("<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]", (src.locked ? "The door bolts have fallen!" : "The door bolts look up."), (src.lights ? "The door bolt lights are on." : "The door bolt lights are off!"), ((src.arePowerSystemsOn() && !(stat & NOPOWER)) ? "The test light is on." : "The test light is off!"), (src.aiControlDisabled==0 ? "The 'AI control allowed' light is on." : "The 'AI control allowed' light is off."),  (src.safe==0 ? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."), (src.normalspeed==0 ? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."))
+		t1 += text("<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]", (src.locked ? "The door bolts have fallen!" : "The door bolts look up."), (src.lights ? "The door bolt lights are on." : "The door bolt lights are off!"), ((src.arePowerSystemsOn()) ? "The test light is on." : "The test light is off!"), (src.aiControlDisabled==0 ? "The 'AI control allowed' light is on." : "The 'AI control allowed' light is off."),  (src.safe==0 ? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."), (src.normalspeed==0 ? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."))
 
 		t1 += text("<p><a href='?src=\ref[];close=1'>Close</a></p>\n", src)
 
@@ -986,10 +986,9 @@ About the new airlock wires panel:
 				if(4)
 					//drop door bolts
 					if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
-						usr << "You can't drop the door bolts - The door bolt dropping wire has been cut."
-					else if(src.locked!=1)
-						src.locked = 1
-						update_icon()
+						usr << "You can't drop the door bolts - The door bolt control wire has been cut."
+					else
+						src.lock()
 				if(5)
 					//un-electrify door
 					if(src.isWireCut(AIRLOCK_WIRE_ELECTRIFY))
@@ -1055,15 +1054,11 @@ About the new airlock wires panel:
 				if(4)
 					//raise door bolts
 					if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
-						usr << text("The door bolt drop wire is cut - you can't raise the door bolts.<br>\n")
+						usr << text("The door bolt control wire is cut - you can't raise the door bolts.<br>\n")
 					else if(!src.locked)
 						usr << text("The door bolts are already up.<br>\n")
 					else
-						if(src.arePowerSystemsOn())
-							src.locked = 0
-							update_icon()
-						else
-							usr << text("Cannot raise door bolts due to power failure.<br>\n")
+						src.unlock()
 
 				if(5)
 					//electrify door for 30 seconds
@@ -1183,14 +1178,17 @@ About the new airlock wires panel:
 			beingcrowbarred = 1 //derp, Agouri
 		else
 			beingcrowbarred = 0
-		if( beingcrowbarred && (operating == -1 || density && welded && operating != 1 && src.p_open && (!src.arePowerSystemsOn() || stat & NOPOWER) && !src.locked) )
+		if( beingcrowbarred && src.p_open && (operating == -1 || (density && welded && operating != 1 && !src.arePowerSystemsOn() && !src.locked)) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
 			if(do_after(user,40))
 				user << "\blue You removed the airlock electronics!"
 
 				var/obj/structure/door_assembly/da = new assembly_type(src.loc)
-				da.anchored = 1
+				if (istype(da, /obj/structure/door_assembly/multi_tile))
+					da.dir = src.dir
+
+ 				da.anchored = 1
 				if(mineral)
 					da.glass = mineral
 				//else if(glass)
@@ -1220,7 +1218,7 @@ About the new airlock wires panel:
 
 				del(src)
 				return
-		else if(arePowerSystemsOn() && !(stat & NOPOWER))
+		else if(arePowerSystemsOn())
 			user << "\blue The airlock's motors resist your efforts to force it."
 		else if(locked)
 			user << "\blue The airlock's bolts prevent it from being forced."
@@ -1244,11 +1242,13 @@ About the new airlock wires panel:
 				else
 					spawn(0)	close(1)
 
+	else if(istype(C, /obj/item/weapon/airlock_painter))
+		change_paintjob(C, user)
 	else
 		..()
 	return
 
-/obj/machinery/door/airlock/plasma/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
 		ignite(is_hot(C))
 	..()
@@ -1257,13 +1257,11 @@ About the new airlock wires panel:
 	if( operating || welded || locked )
 		return 0
 	if(!forced)
-		if( !arePowerSystemsOn() || (stat & NOPOWER) || isWireCut(AIRLOCK_WIRE_OPEN_DOOR) )
+		if( !arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR) )
 			return 0
 	use_power(50)
 	if(istype(src, /obj/machinery/door/airlock/glass))
 		playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	if(istype(src, /obj/machinery/door/airlock/clown))
-		playsound(src.loc, 'sound/items/bikehorn.ogg', 30, 1)
 	else
 		playsound(src.loc, 'sound/machines/airlock.ogg', 30, 1)
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
@@ -1274,7 +1272,7 @@ About the new airlock wires panel:
 	if(operating || welded || locked)
 		return
 	if(!forced)
-		if( !arePowerSystemsOn() || (stat & NOPOWER) || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS) )
+		if( !arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS) )
 			return
 	if(safe)
 		for(var/turf/turf in locs)
@@ -1306,8 +1304,6 @@ About the new airlock wires panel:
 	use_power(50)
 	if(istype(src, /obj/machinery/door/airlock/glass))
 		playsound(src.loc, 'sound/machines/windowdoor.ogg', 30, 1)
-	if(istype(src, /obj/machinery/door/airlock/clown))
-		playsound(src.loc, 'sound/items/bikehorn.ogg', 30, 1)
 	else
 		playsound(src.loc, 'sound/machines/airlock.ogg', 30, 1)
 	for(var/turf/turf in locs)
@@ -1317,8 +1313,35 @@ About the new airlock wires panel:
 	..()
 	return
 
+/obj/machinery/door/airlock/proc/lock(var/forced=0)
+	if (operating || src.locked) return
+
+	src.locked = 1
+	for(var/mob/M in range(1,src))
+		M.show_message("You hear a click from the bottom of the door.", 2)
+	update_icon()
+
+/obj/machinery/door/airlock/proc/unlock(var/forced=0)
+	if (operating || !src.locked) return
+
+	if (forced || (src.arePowerSystemsOn())) //only can raise bolts if power's on
+		src.locked = 0
+		for(var/mob/M in range(1,src))
+			M.show_message("You hear a click from the bottom of the door.", 2)
+		update_icon()
+
 /obj/machinery/door/airlock/New()
 	..()
+
+	//wires
+	if (!secured_wires)
+		airlockWireColorToFlag = globalAirlockWireColorToFlag
+		airlockIndexToFlag = globalAirlockIndexToFlag
+		airlockIndexToWireColor = globalAirlockIndexToWireColor
+		airlockWireColorToIndex = globalAirlockWireColorToIndex
+	else
+		randomize_wires()
+
 	if(src.closeOtherId != null)
 		spawn (5)
 			for (var/obj/machinery/door/airlock/A in world)
@@ -1326,9 +1349,98 @@ About the new airlock wires panel:
 					src.closeOther = A
 					break
 
+/obj/machinery/door/airlock/proc/randomize_wires()
+	var/wire_assignments = CreateRandomAirlockWires()
+	airlockWireColorToFlag = wire_assignments[1]
+	airlockIndexToFlag = wire_assignments[2]
+	airlockIndexToWireColor = wire_assignments[3]
+	airlockWireColorToIndex = wire_assignments[4]
 
 /obj/machinery/door/airlock/proc/prison_open()
-	src.locked = 0
+	src.unlock()
 	src.open()
-	src.locked = 1
+	src.lock()
 	return
+
+//CopyPasta'd from /tg/ by TGameCo
+/obj/machinery/door/airlock/proc/change_paintjob(obj/item/C as obj, mob/user as mob)
+	var/obj/item/weapon/airlock_painter/W
+	if(istype(C, /obj/item/weapon/airlock_painter))
+		W = C
+	else
+		user << "If you see this, it means airlock/change_paintjob() was called with something other than an airlock painter. Check your code!"
+		return
+
+	if(!W.can_use(user))
+		return
+
+	if(glass == 1)
+		//These airlocks have a glass version.
+		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining")
+		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
+		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
+		switch(paintjob)
+			if("Default")
+				icon = 'icons/obj/doors/Doorglass.dmi'
+				heat_proof = 0
+			if("Engineering")
+				icon = 'icons/obj/doors/Doorengglass.dmi'
+				heat_proof = 0
+			if("Atmospherics")
+				icon = 'icons/obj/doors/Dooratmoglass.dmi'
+				heat_proof = 0
+			if("Security")
+				icon = 'icons/obj/doors/Doorsecglass.dmi'
+				heat_proof = 0
+			if("Command")
+				icon = 'icons/obj/doors/Doorcomglass.dmi'
+				heat_proof = 0
+			if("Medical")
+				icon = 'icons/obj/doors/Doormedglass.dmi'
+				heat_proof = 0
+			if("Research")
+				icon = 'icons/obj/doors/Doorresearchglass.dmi'
+				heat_proof = 1
+			if("Mining")
+				icon = 'icons/obj/doors/Doorminingglass.dmi'
+				heat_proof = 0
+	else
+		//These airlocks have a regular version.
+		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining", "Maintenance", "External", "High Security")
+		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
+		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
+		switch(paintjob)
+			if("Default")
+				icon = 'icons/obj/doors/Doorint.dmi'
+				heat_proof = 0
+			if("Engineering")
+				icon = 'icons/obj/doors/Dooreng.dmi'
+				heat_proof = 0
+			if("Atmospherics")
+				icon = 'icons/obj/doors/Dooratmo.dmi'
+				heat_proof = 0
+			if("Security")
+				icon = 'icons/obj/doors/Doorsec.dmi'
+				heat_proof = 0
+			if("Command")
+				icon = 'icons/obj/doors/Doorcom.dmi'
+				heat_proof = 0
+			if("Medical")
+				icon = 'icons/obj/doors/Doormed.dmi'
+				heat_proof = 0
+			if("Research")
+				icon = 'icons/obj/doors/Doorresearch.dmi'
+				heat_proof = 0
+			if("Mining")
+				icon = 'icons/obj/doors/Doormining.dmi'
+				heat_proof = 0
+			if("Maintenance")
+				icon = 'icons/obj/doors/Doormaint.dmi'
+				heat_proof = 0
+			if("External")
+				icon = 'icons/obj/doors/Doorext.dmi'
+				heat_proof = 0
+			if("High Security")
+				icon = 'icons/obj/doors/hightechsecurity.dmi'
+				heat_proof = 0
+	update_icon()

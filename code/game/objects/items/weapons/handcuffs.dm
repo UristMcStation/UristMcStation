@@ -10,7 +10,7 @@
 	w_class = 2.0
 	throw_speed = 2
 	throw_range = 5
-	m_amt = 500
+	matter = list("metal" = 500)
 	origin_tech = "materials=1"
 	var/dispenser = 0
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
@@ -112,7 +112,7 @@ var/last_chew = 0
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
 	log_attack("[s] ([H.ckey])")
 
-	if(O.take_damage(3,0,1,"teeth marks"))
+	if(O.take_damage(3,0,1,1,"teeth marks"))
 		H:UpdateDamageIcon()
 
 	last_chew = world.time
@@ -146,6 +146,19 @@ var/last_chew = 0
 
 /obj/item/weapon/handcuffs/cable/white
 	color = "#FFFFFF"
+
+/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = I
+		var/obj/item/weapon/wirerod/W = new /obj/item/weapon/wirerod
+		R.use(1)
+
+		user.put_in_hands(W)
+		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
+		del(src)
+		update_icon(user)
+
 
 /obj/item/weapon/handcuffs/cyborg
 	dispenser = 1

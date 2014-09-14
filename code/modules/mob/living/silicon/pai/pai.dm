@@ -52,6 +52,8 @@
 
 	var/obj/item/radio/integrated/signal/sradio // AI's signaller
 
+	var/translator_on = 0 // keeps track of the translator module
+
 
 /mob/living/silicon/pai/New(var/obj/item/device/paicard)
 	canmove = 0
@@ -62,6 +64,11 @@
 		if(!card.radio)
 			card.radio = new /obj/item/device/radio(src.card)
 		radio = card.radio
+
+	//Default languages without universal translator software
+	add_language("Sol Common", 1)
+	add_language("Tradeband", 1)
+	add_language("Gutter", 1)
 
 	//PDA
 	pda = new(src)
@@ -76,20 +83,20 @@
 	..()
 	usr << browse_rsc('html/paigrid.png')			// Go ahead and cache the interface resources as early as possible
 
-	
+
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()
 	if(src.silence_time)
 		var/timeleft = round((silence_time - world.timeofday)/10 ,1)
 		stat(null, "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
-		
-		
+
+
 /mob/living/silicon/pai/Stat()
 	..()
 	statpanel("Status")
 	if (src.client.statpanel == "Status")
 		show_silenced()
-		
+
 	if (proc_holder_list.len)//Generic list for proc_holder objects.
 		for(var/obj/effect/proc_holder/P in proc_holder_list)
 			statpanel("[P.panel]","",P)
@@ -252,7 +259,7 @@
 		if(!C.status)
 			continue
 		else
-			if(C.network != "CREED" && C.network != "thunder" && C.network != "RD" && C.network != "toxins" && C.network != "Prison") COMPILE ERROR! This will have to be updated as camera.network is no longer a string, but a list instead
+			if(C.network != "CREED" && C.network != "thunder" && C.network != "RD" && C.network != "phoron" && C.network != "Prison") COMPILE ERROR! This will have to be updated as camera.network is no longer a string, but a list instead
 				cameralist[C.network] = C.network
 
 	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist

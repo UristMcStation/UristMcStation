@@ -16,9 +16,11 @@
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
 /atom/Click(location,control,params)
-	usr.ClickOn(src, params)
+	if(src)
+		usr.ClickOn(src, params)
 /atom/DblClick(location,control,params)
-	usr.DblClickOn(src,params)
+	if(src)
+		usr.DblClickOn(src,params)
 
 /*
 	Standard mob ClickOn()
@@ -92,8 +94,9 @@
 
 		return
 
-	// operate two levels deep here (item in backpack in src; NOT item in box in backpack in src)
-	if(A == loc || (A in loc) || (A in contents) || (A.loc in contents))
+	// operate two STORAGE levels deep here (item in backpack in src; NOT item in box in backpack in src)
+	var/sdepth = A.storage_depth(src)
+	if(A == loc || (A in loc) || (sdepth != -1 && sdepth <= 1))
 
 		// faster access to objects already on you
 		if(A in contents)
@@ -117,7 +120,8 @@
 		return
 
 	// Allows you to click on a box's contents, if that box is on the ground, but no deeper than that
-	if(isturf(A) || isturf(A.loc) || (A.loc && isturf(A.loc.loc)))
+	sdepth = A.storage_depth_turf()
+	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		next_move = world.time + 10
 
 		if(A.Adjacent(src)) // see adjacent.dm
@@ -245,7 +249,7 @@
 
 /atom/proc/AltClick(var/mob/user)
 	var/turf/T = get_turf(src)
-	if(T && T.Adjacent(user))
+	if(T && T.AdjacentQuick(user))
 		if(user.listed_turf == T)
 			user.listed_turf = null
 		else
@@ -291,14 +295,19 @@
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)
-	if( stat || buckled || !A || !x || !y || !A.x || !A.y ) return
+	if( stat || (buckled && !buckled.movable) || !A || !x || !y || !A.x || !A.y ) return
 	var/dx = A.x - x
 	var/dy = A.y - y
 	if(!dx && !dy) return
 
+	var/direction
 	if(abs(dx) < abs(dy))
-		if(dy > 0)	usr.dir = NORTH
-		else		usr.dir = SOUTH
+		if(dy > 0)	direction = NORTH
+		else		direction = SOUTH
 	else
-		if(dx > 0)	usr.dir = EAST
-		else		usr.dir = WEST
+		if(dx > 0)	direction = EAST
+		else		direction = WEST
+	usr.dir = direction
+	if(buckled && buckled.movable)
+		buckled.dir = direction
+		buckled.handle_rotation()

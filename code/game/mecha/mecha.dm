@@ -469,6 +469,7 @@
 	return
 
 /obj/mecha/hitby(atom/movable/A as mob|obj) //wrapper
+	..()
 	src.log_message("Hit by [A].",1)
 	call((proc_res["dynhitby"]||src), "dynhitby")(A)
 	return
@@ -618,7 +619,7 @@
 	check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
 	return
 
-/obj/mecha/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/mecha/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature>src.max_temperature)
 		src.log_message("Exposed to dangerous temperature.",1)
 		src.take_damage(5,"fire")
@@ -777,7 +778,8 @@
 
 		src.name = P.new_name
 		src.desc = P.new_desc
-		src.initial_icon = P.new_icon
+		src.icon = P.new_icon
+		src.initial_icon = P.new_icon_state
 		src.reset_icon()
 
 		user.drop_item()

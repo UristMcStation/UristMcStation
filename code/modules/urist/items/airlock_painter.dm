@@ -9,8 +9,6 @@
 
 	w_class = 2.0
 
-	m_amt = 50
-	g_amt = 50
 	origin_tech = "engineering=1"
 
 	flags = CONDUCT

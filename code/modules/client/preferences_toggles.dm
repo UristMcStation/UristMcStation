@@ -25,7 +25,7 @@
 	src << "As a ghost, you will now [(prefs.toggles & CHAT_GHOSTRADIO) ? "hear all radio chat in the world" : "only hear from nearby speakers"]."
 	prefs.save_preferences()
 	feedback_add_details("admin_verb","TGR")
-	
+
 /client/proc/toggle_hear_radio()
 	set name = "Show/Hide RadioChatter"
 	set category = "Preferences"
@@ -172,10 +172,9 @@
 	icons.Add(usr.zone_sel)
 
 	for(var/obj/screen/I in icons)
-		if(I.color && I.alpha)
-			I.icon = ui_style2icon(UI_style_new)
-			I.color = UI_style_color_new
-			I.alpha = UI_style_alpha_new
+		I.icon = ui_style2icon(UI_style_new)
+		I.color = UI_style_color_new
+		I.alpha = UI_style_alpha_new
 
 
 

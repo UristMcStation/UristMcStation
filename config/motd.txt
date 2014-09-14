@@ -3,13 +3,13 @@
 <i>This server is running a BayStation13 Git build with a custom map and features.</i>
 <i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i>
 <h2>Server Rules:</h2>
-<b>Click the "Rules" tab at the top of this window and read them!
-If you aren't aware of our rules, you could be warned by
-an admin or jobbanned! Poor conduct as a member of the
-security force/a head/a silicon will not be tolerated. These roles will be treated more harshly should rules be broken.</b>
-<p>Keep IC in IC chat and OOC in OOC chat.  Please don't discuss ongoing rounds in OOC or you will be muted.</p>
-<p>No killing, except in self defense, or as an antagonist (and show restraint even then).  Sitting around watching isn't fun.</p>
+<p>Click the "Rules" tab at the top of this window and read them!
+If you aren't aware of our rules, you could be warned by an admin or jobbanned! Poor conduct as a member of the security force/a head/a silicon will not be tolerated. These roles will be treated more harshly should rules be broken.</p>
+<p>Keep IC in IC chat and OOC in OOC chat.  Please don't discuss ongoing rounds in OOC or you will be muted.
+No killing, except in self defense, or as an antagonist (and show restraint even then).  Sitting around watching isn't fun.</p>
 <p>For a good idea of antagonist knowledge and how to react in-character, see <a href="http://baystation12.net/wiki/index.php?title=Identifying_Antagonists">BS12's "Identifying Antagonists" page.</a></p>
 <p>If you have a problem or a question, <b>adminhelp it!</b>
-We exist for a reason, and would like to keep the server fun. We can't predict everything, and questions are likely to crop up during play, especially with regard to antagonists. Asking won't hurt anyone.</p>
-<p>Golden Rule: Do unto others as you would have done unto you.  Try to keep things enjoyable for everyone.</p>
+We exist for a reason, and would like to keep the server fun. We can't predict everything, and questions are likely to crop up during play, especially with regard to antagonists. Asking won't hurt anyone.
+<b>We recently updated our ruleset, click the rules tab at the top of your screen to read through them. In the case of an incident, it will be assumed that you have already read them.</b></p>
+<p><b>Golden Rule:</b> Do unto others as you would have done unto you.  Try to keep things enjoyable for everyone.</p>
+<p>We are now accepting donations to maintain the Urist McStation server. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FP35B3S54PLEQ">Click here to support UMcS!</a></p>

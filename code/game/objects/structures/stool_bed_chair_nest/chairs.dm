@@ -3,6 +3,8 @@
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair"
 
+	var/propelled = 0 // Check for fire-extinguisher-driven chairs
+
 /obj/structure/stool/MouseDrop(atom/over_object)
 	return
 
@@ -37,7 +39,7 @@
 		rotate()
 	return
 
-/obj/structure/stool/bed/chair/proc/handle_rotation()	//making this into a seperate proc so office chairs can call it on Move()
+/obj/structure/stool/bed/chair/handle_rotation()	//making this into a seperate proc so office chairs can call it on Move()
 	if(src.dir == NORTH)
 		src.layer = FLY_LAYER
 	else
@@ -93,34 +95,76 @@
 /obj/structure/stool/bed/chair/comfy
 	name = "comfy chair"
 	desc = "It looks comfy."
+	icon_state = "comfychair"
+	color = rgb(255,255,255)
+	var/image/armrest = null
+
+/obj/structure/stool/bed/chair/comfy/New()
+	armrest = image("icons/obj/objects.dmi", "comfychair_armrest")
+	armrest.layer = MOB_LAYER + 0.1
+
+	return ..()
+
+/obj/structure/stool/bed/chair/comfy/afterbuckle()
+	if(buckled_mob)
+		overlays += armrest
+	else
+		overlays -= armrest
 
 /obj/structure/stool/bed/chair/comfy/brown
-	icon_state = "comfychair_brown"
+	color = rgb(255,113,0)
 
 /obj/structure/stool/bed/chair/comfy/beige
-	icon_state = "comfychair_beige"
+	color = rgb(255,253,195)
 
 /obj/structure/stool/bed/chair/comfy/teal
-	icon_state = "comfychair_teal"
+	color = rgb(0,255,255)
 
 /obj/structure/stool/bed/chair/office
 	anchored = 0
+	movable = 1
 
 /obj/structure/stool/bed/chair/comfy/black
-	icon_state = "comfychair_black"
+	color = rgb(167,164,153)
 
 /obj/structure/stool/bed/chair/comfy/lime
-	icon_state = "comfychair_lime"
+	color = rgb(255,251,0)
 
 /obj/structure/stool/bed/chair/office/Move()
 	..()
 	if(buckled_mob)
-		buckled_mob.buckled = null //Temporary, so Move() succeeds.
-		var/moved = buckled_mob.Move(src.loc)
-		buckled_mob.buckled = src
-		if(!moved)
-			unbuckle()
+		var/mob/living/occupant = buckled_mob
+		occupant.buckled = null
+		occupant.Move(src.loc)
+		occupant.buckled = src
+		if (occupant && (src.loc != occupant.loc))
+			if (propelled)
+				for (var/mob/O in src.loc)
+					if (O != occupant)
+						Bump(O)
+			else
+				unbuckle()
 	handle_rotation()
+
+/obj/structure/stool/bed/chair/office/Bump(atom/A)
+	..()
+	if(!buckled_mob)	return
+
+	if(propelled)
+		var/mob/living/occupant = buckled_mob
+		unbuckle()
+		occupant.throw_at(A, 3, propelled)
+		occupant.apply_effect(6, STUN, 0)
+		occupant.apply_effect(6, WEAKEN, 0)
+		occupant.apply_effect(6, STUTTER, 0)
+		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		if(istype(A, /mob/living))
+			var/mob/living/victim = A
+			victim.apply_effect(6, STUN, 0)
+			victim.apply_effect(6, WEAKEN, 0)
+			victim.apply_effect(6, STUTTER, 0)
+			victim.take_organ_damage(10)
+		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
 
 /obj/structure/stool/bed/chair/office/light
 	icon_state = "officechair_white"

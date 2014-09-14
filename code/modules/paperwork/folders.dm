@@ -29,7 +29,7 @@
 	return
 
 /obj/item/weapon/folder/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/weapon/photo))
+	if(istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/weapon/photo) || istype(W, /obj/item/weapon/paper_bundle))
 		user.drop_item()
 		W.loc = src
 		user << "<span class='notice'>You put the [W] into \the [src].</span>"
@@ -47,6 +47,8 @@
 		dat += "<A href='?src=\ref[src];remove=\ref[P]'>Remove</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
 	for(var/obj/item/weapon/photo/Ph in src)
 		dat += "<A href='?src=\ref[src];remove=\ref[Ph]'>Remove</A> - <A href='?src=\ref[src];look=\ref[Ph]'>[Ph.name]</A><BR>"
+	for(var/obj/item/weapon/paper_bundle/Pb in src)
+		dat += "<A href='?src=\ref[src];remove=\ref[Pb]'>Remove</A> - <A href='?src=\ref[src];browse=\ref[Pb]'>[Pb.name]</A><BR>"
 	user << browse(dat, "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)
@@ -57,27 +59,32 @@
 	if((usr.stat || usr.restrained()))
 		return
 
-	if(usr.contents.Find(src))
+	if(src.loc == usr)
 
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
-			if(P && P.loc == src)
+			if(P && (P.loc == src) && istype(P))
 				P.loc = usr.loc
 				usr.put_in_hands(P)
 
-		if(href_list["read"])
+		else if(href_list["read"])
 			var/obj/item/weapon/paper/P = locate(href_list["read"])
-			if(P)
+			if(P && (P.loc == src) && istype(P))
 				if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/dead/observer) || istype(usr, /mob/living/silicon)))
 					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
 					onclose(usr, "[P.name]")
 				else
 					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>", "window=[P.name]")
 					onclose(usr, "[P.name]")
-		if(href_list["look"])
+		else if(href_list["look"])
 			var/obj/item/weapon/photo/P = locate(href_list["look"])
-			if(P)
+			if(P && (P.loc == src) && istype(P))
 				P.show(usr)
+		else if(href_list["browse"])
+			var/obj/item/weapon/paper_bundle/P = locate(href_list["browse"])
+			if(P && (P.loc == src) && istype(P))
+				P.attack_self(usr)
+				onclose(usr, "[P.name]")
 
 		//Update everything
 		attack_self(usr)

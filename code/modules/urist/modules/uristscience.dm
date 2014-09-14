@@ -6,8 +6,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //Plasma pistol
 
 datum/design/plasmapistol
-	name = "Plasma Pistol"
-	desc = "Weaponized plasma... Scary."
+	name = "Phoron Pistol"
+	desc = "Weaponized phoron... Scary."
 	id = "plasmapistol"
 	req_tech = list("combat" = 4, "materials" = 4, "plasmatech" = 3, "magnets" = 2)
 	build_type = PROTOLATHE

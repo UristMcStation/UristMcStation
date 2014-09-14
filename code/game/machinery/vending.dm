@@ -1,9 +1,14 @@
+#define CAT_NORMAL 0
+#define CAT_HIDDEN 1
+#define CAT_COIN   2
+
 /datum/data/vending_product
 	var/product_name = "generic"
 	var/product_path = null
 	var/amount = 0
 	var/price = 0
 	var/display_color = "blue"
+	var/category = CAT_NORMAL
 
 
 
@@ -53,6 +58,8 @@
 	var/const/WIRE_SHOOTINV = 4
 
 	var/check_accounts = 0		// 1 = requires PIN and checks accounts.  0 = You slide an ID, it vends, SPACE COMMUNISM!
+	var/obj/item/weapon/spacecash/ewallet/ewallet
+
 
 /obj/machinery/vending/New()
 	..()
@@ -116,10 +123,13 @@
 		R.display_color = pick("red","blue","green")
 
 		if(hidden)
+			R.category=CAT_HIDDEN
 			hidden_records += R
 		else if(req_coin)
+			R.category=CAT_COIN
 			coin_records += R
 		else
+			R.category=CAT_NORMAL
 			product_records += R
 //		world << "Added: [R.product_name]] - [R.amount] - [R.product_path]"
 	return
@@ -150,6 +160,25 @@
 	else if(istype(W, /obj/item/weapon/card) && currently_vending)
 		var/obj/item/weapon/card/I = W
 		scan_card(I)
+	else if (istype(W, /obj/item/weapon/spacecash/ewallet))
+		user.drop_item()
+		W.loc = src
+		ewallet = W
+		user << "\blue You insert the [W] into the [src]"
+
+	else if(istype(W, /obj/item/weapon/wrench))
+
+		if(do_after(user, 20))
+			if(!src) return
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			switch (anchored)
+				if (0)
+					anchored = 1
+					user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+				if (1)
+					user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+					anchored = 0
+		return
 
 	else if(src.panel_open)
 
@@ -166,59 +195,94 @@
 	if (istype(I, /obj/item/weapon/card/id))
 		var/obj/item/weapon/card/id/C = I
 		visible_message("<span class='info'>[usr] swipes a card through [src].</span>")
-		if(check_accounts)
-			if(vendor_account)
-				var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-				var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
-				if(D)
-					var/transaction_amount = currently_vending.price
-					if(transaction_amount <= D.money)
-
-						//transfer the money
-						D.money -= transaction_amount
-						vendor_account.money += transaction_amount
-
-						//create entries in the two account transaction logs
-						var/datum/transaction/T = new()
-						T.target_name = "[vendor_account.owner_name] (via [src.name])"
-						T.purpose = "Purchase of [currently_vending.product_name]"
-						if(transaction_amount > 0)
-							T.amount = "([transaction_amount])"
-						else
-							T.amount = "[transaction_amount]"
-						T.source_terminal = src.name
-						T.date = current_date_string
-						T.time = worldtime2text()
-						D.transaction_log.Add(T)
-						//
-						T = new()
-						T.target_name = D.owner_name
-						T.purpose = "Purchase of [currently_vending.product_name]"
-						T.amount = "[transaction_amount]"
-						T.source_terminal = src.name
-						T.date = current_date_string
-						T.time = worldtime2text()
-						vendor_account.transaction_log.Add(T)
-
-						// Vend the item
-						src.vend(src.currently_vending, usr)
-						currently_vending = null
+		var/datum/money_account/CH = get_account(C.associated_account_number)
+		if (CH) // Only proceed if card contains proper account number.
+			if(!CH.suspended)
+				if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
+					if(vendor_account)
+						var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
+						var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
+						transfer_and_vend(D)
+					else
+						usr << "\icon[src]<span class='warning'>Unable to access account. Check security settings and try again.</span>"
 				else
-					usr << "\icon[src]<span class='warning'>You don't have that much money!</span>"
+					//Just Vend it.
+					transfer_and_vend(CH)
 			else
-				usr << "\icon[src]<span class='warning'>Unable to access account. Check security settings and try again.</span>"
+				usr << "\icon[src]<span class='warning'>Connected account has been suspended.</span>"
 		else
-			//Just Vend it.
+			usr << "\icon[src]<span class='warning'>Error: Unable to access your account. Please contact technical support if problem persists.</span>"
+
+/obj/machinery/vending/proc/transfer_and_vend(var/datum/money_account/acc)
+	if(acc)
+		var/transaction_amount = currently_vending.price
+		if(transaction_amount <= acc.money)
+
+			//transfer the money
+			acc.money -= transaction_amount
+			vendor_account.money += transaction_amount
+
+			//create entries in the two account transaction logs
+			var/datum/transaction/T = new()
+			T.target_name = "[vendor_account.owner_name] (via [src.name])"
+			T.purpose = "Purchase of [currently_vending.product_name]"
+			if(transaction_amount > 0)
+				T.amount = "([transaction_amount])"
+			else
+				T.amount = "[transaction_amount]"
+			T.source_terminal = src.name
+			T.date = current_date_string
+			T.time = worldtime2text()
+			acc.transaction_log.Add(T)
+							//
+			T = new()
+			T.target_name = acc.owner_name
+			T.purpose = "Purchase of [currently_vending.product_name]"
+			T.amount = "[transaction_amount]"
+			T.source_terminal = src.name
+			T.date = current_date_string
+			T.time = worldtime2text()
+			vendor_account.transaction_log.Add(T)
+
+			// Vend the item
 			src.vend(src.currently_vending, usr)
 			currently_vending = null
+		else
+			usr << "\icon[src]<span class='warning'>You don't have that much money!</span>"
 	else
-		usr << "\icon[src]<span class='warning'>Unable to access vendor account. Please record the machine ID and call CentComm Support.</span>"
+		usr << "\icon[src]<span class='warning'>Error: Unable to access your account. Please contact technical support if problem persists.</span>"
+
 
 /obj/machinery/vending/attack_paw(mob/user as mob)
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_ai(mob/user as mob)
 	return attack_hand(user)
+
+/obj/machinery/vending/proc/GetProductIndex(var/datum/data/vending_product/P)
+	var/list/plist
+	switch(P.category)
+		if(CAT_NORMAL)
+			plist=product_records
+		if(CAT_HIDDEN)
+			plist=hidden_records
+		if(CAT_COIN)
+			plist=coin_records
+		else
+			warning("UNKNOWN CATEGORY [P.category] IN TYPE [P.product_path] INSIDE [type]!")
+	return plist.Find(P)
+
+/obj/machinery/vending/proc/GetProductByID(var/pid, var/category)
+	switch(category)
+		if(CAT_NORMAL)
+			return product_records[pid]
+		if(CAT_HIDDEN)
+			return hidden_records[pid]
+		if(CAT_COIN)
+			return coin_records[pid]
+		else
+			warning("UNKNOWN PRODUCT: PID: [pid], CAT: [category] INSIDE [type]!")
+			return null
 
 /obj/machinery/vending/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
@@ -243,18 +307,20 @@
 	dat += "<b>Select an item: </b><br><br>" //the rest is just general spacing and bolding
 
 	if (premium.len > 0)
-		dat += "<b>Coin slot:</b> [coin ? coin : "No coin inserted"] (<a href='byond://?src=\ref[src];remove_coin=1'>Remove</A>)<br><br>"
+		dat += "<b>Coin slot:</b> [coin ? coin : "No coin inserted"] (<a href='byond://?src=\ref[src];remove_coin=1'>Remove</A>)<br>"
+
+	if (ewallet)
+		dat += "<b>Charge card's credits:</b> [ewallet ? ewallet.worth : "No charge card inserted"] (<a href='byond://?src=\ref[src];remove_ewallet=1'>Remove</A>)<br><br>"
 
 	if (src.product_records.len == 0)
 		dat += "<font color = 'red'>No product loaded!</font>"
 	else
 		var/list/display_records = src.product_records
+
 		if(src.extended_inventory)
-			display_records = src.product_records + src.hidden_records
+			display_records += src.hidden_records
 		if(src.coin)
-			display_records = src.product_records + src.coin_records
-		if(src.coin && src.extended_inventory)
-			display_records = src.product_records + src.hidden_records + src.coin_records
+			display_records += src.coin_records
 
 		for (var/datum/data/vending_product/R in display_records)
 			dat += "<FONT color = '[R.display_color]'><B>[R.product_name]</B>:"
@@ -262,7 +328,8 @@
 			if(R.price)
 				dat += " <b>(Price: [R.price])</b>"
 			if (R.amount > 0)
-				dat += " <a href='byond://?src=\ref[src];vend=\ref[R]'>(Vend)</A>"
+				var/idx=GetProductIndex(R)
+				dat += " <a href='byond://?src=\ref[src];vend=[idx];cat=[R.category]'>(Vend)</A>"
 			else
 				dat += " <font color = 'red'>SOLD OUT</font>"
 			dat += "<br>"
@@ -317,6 +384,15 @@
 		usr << "\blue You remove the [coin] from the [src]"
 		coin = null
 
+	if(href_list["remove_ewallet"] && !istype(usr,/mob/living/silicon))
+		if (!ewallet)
+			usr << "There is no charge card in this machine."
+			return
+		ewallet.loc = src.loc
+		if(!usr.get_active_hand())
+			usr.put_in_hands(ewallet)
+		usr << "\blue You remove the [ewallet] from the [src]"
+		ewallet = null
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
 		usr.set_machine(src)
@@ -337,16 +413,27 @@
 				flick(src.icon_deny,src)
 				return
 
-			var/datum/data/vending_product/R = locate(href_list["vend"])
+			var/idx=text2num(href_list["vend"])
+			var/cat=text2num(href_list["cat"])
+
+			var/datum/data/vending_product/R = GetProductByID(idx,cat)
 			if (!R || !istype(R) || !R.product_path || R.amount <= 0)
 				return
 
 			if(R.price == null)
 				src.vend(R, usr)
 			else
-				src.currently_vending = R
-				src.updateUsrDialog()
-
+				if (ewallet)
+					if (R.price <= ewallet.worth)
+						ewallet.worth -= R.price
+						src.vend(R, usr)
+					else
+						usr << "\red The ewallet doesn't have enough money to pay for that."
+						src.currently_vending = R
+						src.updateUsrDialog()
+				else
+					src.currently_vending = R
+					src.updateUsrDialog()
 			return
 
 		else if (href_list["cancel_buying"])
@@ -511,7 +598,7 @@
 	if (!throw_item)
 		return 0
 	spawn(0)
-		throw_item.throw_at(target, 16, 3)
+		throw_item.throw_at(target, 16, 3, src)
 	src.visible_message("\red <b>[src] launches [throw_item.name] at [target.name]!</b>")
 	return 1
 
@@ -560,19 +647,6 @@
 			src.shoot_inventory = !src.shoot_inventory
 
 
-/obj/machinery/vending/proc/shock(mob/user, prb)
-	if(stat & (BROKEN|NOPOWER))		// unpowered, no shock
-		return 0
-	if(!prob(prb))
-		return 0
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
-	if (electrocute_mob(user, get_area(src), src, 0.7))
-		return 1
-	else
-		return 0
-
 /*
  * Vending machine types
  */
@@ -597,7 +671,7 @@
 	desc = "A vendor with a wide variety of masks and gas tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
-	product_paths = "/obj/item/weapon/tank/oxygen;/obj/item/weapon/tank/plasma;/obj/item/weapon/tank/emergency_oxygen;/obj/item/weapon/tank/emergency_oxygen/engi;/obj/item/clothing/mask/breath"
+	product_paths = "/obj/item/weapon/tank/oxygen;/obj/item/weapon/tank/phoron;/obj/item/weapon/tank/emergency_oxygen;/obj/item/weapon/tank/emergency_oxygen/engi;/obj/item/clothing/mask/breath"
 	product_amounts = "10;10;10;5;25"
 	vend_delay = 0
 */
@@ -686,7 +760,7 @@
 	icon_state = "cart"
 	icon_deny = "cart-deny"
 	products = list(/obj/item/weapon/cartridge/medical = 10,/obj/item/weapon/cartridge/engineering = 10,/obj/item/weapon/cartridge/security = 10,
-					/obj/item/weapon/cartridge/janitor = 10,/obj/item/weapon/cartridge/signal/toxins = 10,/obj/item/device/pda/heads = 10,
+					/obj/item/weapon/cartridge/janitor = 10,/obj/item/weapon/cartridge/signal/science = 10,/obj/item/device/pda/heads = 10,
 					/obj/item/weapon/cartridge/captain = 3,/obj/item/weapon/cartridge/quartermaster = 10)
 
 
@@ -719,7 +793,7 @@
 
 
 //This one's from bay12
-/obj/machinery/vending/plasmaresearch
+/obj/machinery/vending/phoronresearch
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
 	products = list(/obj/item/clothing/under/rank/scientist = 6,/obj/item/clothing/suit/bio_suit = 6,/obj/item/clothing/head/bio_hood = 6,
@@ -779,7 +853,7 @@
 	products = list(/obj/item/seeds/bananaseed = 3,/obj/item/seeds/berryseed = 3,/obj/item/seeds/carrotseed = 3,/obj/item/seeds/chantermycelium = 3,/obj/item/seeds/chiliseed = 3,
 					/obj/item/seeds/cornseed = 3, /obj/item/seeds/eggplantseed = 3, /obj/item/seeds/potatoseed = 3, /obj/item/seeds/replicapod = 3,/obj/item/seeds/soyaseed = 3,
 					/obj/item/seeds/sunflowerseed = 3,/obj/item/seeds/tomatoseed = 3,/obj/item/seeds/towermycelium = 3,/obj/item/seeds/wheatseed = 3,/obj/item/seeds/appleseed = 3,
-					/obj/item/seeds/poppyseed = 3,/obj/item/seeds/sugarcaneseed = 3,/obj/item/seeds/ambrosiavulgarisseed = 3,/obj/item/seeds/whitebeetseed = 3,/obj/item/seeds/watermelonseed = 3,/obj/item/seeds/limeseed = 3,
+					/obj/item/seeds/poppyseed = 3,/obj/item/seeds/sugarcaneseed = 3,/obj/item/seeds/ambrosiavulgarisseed = 3,/obj/item/seeds/peanutseed = 3,/obj/item/seeds/whitebeetseed = 3,/obj/item/seeds/watermelonseed = 3,/obj/item/seeds/limeseed = 3,
 					/obj/item/seeds/lemonseed = 3,/obj/item/seeds/orangeseed = 3,/obj/item/seeds/grassseed = 3,/obj/item/seeds/cocoapodseed = 3,/obj/item/seeds/plumpmycelium = 2,
 					/obj/item/seeds/cabbageseed = 3,/obj/item/seeds/grapeseed = 3,/obj/item/seeds/pumpkinseed = 3,/obj/item/seeds/cherryseed = 3,/obj/item/seeds/plastiseed = 3,/obj/item/seeds/riceseed = 3)
 	contraband = list(/obj/item/seeds/amanitamycelium = 2,/obj/item/seeds/glowshroom = 2,/obj/item/seeds/libertymycelium = 2,/obj/item/seeds/mtearseed = 2,
@@ -803,7 +877,7 @@
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
 	icon_state = "dinnerware"
-	products = list(/obj/item/weapon/tray = 8,/obj/item/weapon/kitchen/utensil/fork = 6,/obj/item/weapon/kitchenknife = 3,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,/obj/item/clothing/suit/chef/classic = 2)
+	products = list(/obj/item/weapon/tray = 8,/obj/item/weapon/kitchen/utensil/fork = 6,/obj/item/weapon/kitchenknife = 3,/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,/obj/item/clothing/suit/chef/classic = 2,/obj/item/trash/bowl = 8)
 	contraband = list(/obj/item/weapon/kitchen/utensil/spoon = 2,/obj/item/weapon/kitchen/utensil/knife = 2,/obj/item/weapon/kitchen/rollingpin = 2, /obj/item/weapon/butch = 2)
 
 /obj/machinery/vending/sovietsoda

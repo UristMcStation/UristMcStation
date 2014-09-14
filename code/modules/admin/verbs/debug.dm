@@ -144,7 +144,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/t = ""
 	t+= "Nitrogen : [env.nitrogen]\n"
 	t+= "Oxygen : [env.oxygen]\n"
-	t+= "Plasma : [env.toxins]\n"
+	t+= "Phoron : [env.phoron]\n"
 	t+= "CO2: [env.carbon_dioxide]\n"
 
 	usr.show_message(t, 1)
@@ -310,7 +310,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
 				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground."
-				new /obj/item/weapon/tome(M.loc)
+				new /obj/item/weapon/book/tome(M.loc)
 			else
 				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie."
 			var/glimpse=pick("1","2","3","4","5","6","7","8")
@@ -533,6 +533,8 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	//log_admin("[key_name(src)] has alienized [M.key].")
 	var/list/dresspacks = list(
 		"strip",
+		"as job...",
+		"assistant grey",
 		"standard space gear",
 		"tournament standard red",
 		"tournament standard green",
@@ -559,6 +561,12 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
 		return
+
+	var/datum/job/jobdatum //gotta love dem datums
+	if (dresscode == "as job...")
+		var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
+		jobdatum = job_master.GetJob(jobname)
+
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	for (var/obj/item/I in M)
 		if (istype(I, /obj/item/weapon/implant))
@@ -567,6 +575,39 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	switch(dresscode)
 		if ("strip")
 			//do nothing
+
+		if ("as job...") //you're welcome admins
+			if(jobdatum)
+				dresscode = "[jobdatum.title]"
+				jobdatum.equip(M)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "id"
+			W.item_state = "id_inv"
+			W.access = get_all_accesses()
+			W.assignment = "[jobdatum.title]"
+			W.registered_name = M.real_name
+			M.equip_if_possible(W, slot_wear_id)
+
+		if ("assistant grey")
+			var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack(M)
+			new /obj/item/weapon/storage/box/survival(BPK)
+			M.equip_to_slot_or_del(BPK, slot_back,1)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card (Assistant)"
+			W.assignment = "Assistant"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+			var/obj/item/device/pda/P = new(M)
+			P.owner = M.real_name
+			P.ownjob = "Assistant"
+			P.name = "PDA-[M.real_name] (Assistant)"
+			M.equip_to_slot_or_del(P, slot_belt)
+
 		if ("standard space gear")
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
 
@@ -578,6 +619,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			J.toggle()
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(M), slot_wear_mask)
 			J.Topic(null, list("stat" = 1))
+
 		if ("tournament standard red","tournament standard green") //we think stunning weapon is too overpowered to use it on tournaments. --rastaf0
 			if (dresscode=="tournament standard red")
 				M.equip_to_slot_or_del(new /obj/item/clothing/under/color/red(M), slot_w_uniform)
@@ -955,11 +997,11 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	for(var/obj/machinery/power/rad_collector/Rad in world)
 		if(Rad.anchored)
 			if(!Rad.P)
-				var/obj/item/weapon/tank/plasma/Plasma = new/obj/item/weapon/tank/plasma(Rad)
-				Plasma.air_contents.toxins = 70
+				var/obj/item/weapon/tank/phoron/Phoron = new/obj/item/weapon/tank/phoron(Rad)
+				Phoron.air_contents.phoron = 70
 				Rad.drainratio = 0
-				Rad.P = Plasma
-				Plasma.loc = Rad
+				Rad.P = Phoron
+				Phoron.loc = Rad
 
 			if(!Rad.active)
 				Rad.toggle_power()
@@ -997,12 +1039,12 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				Rad.anchored = 1
 				Rad.connect_to_network()
 
-				var/obj/item/weapon/tank/plasma/Plasma = new/obj/item/weapon/tank/plasma(Rad)
+				var/obj/item/weapon/tank/phoron/Phoron = new/obj/item/weapon/tank/phoron(Rad)
 
-				Plasma.air_contents.toxins = 29.1154	//This is a full tank if you filled it from a canister
-				Rad.P = Plasma
+				Phoron.air_contents.phoron = 29.1154	//This is a full tank if you filled it from a canister
+				Rad.P = Phoron
 
-				Plasma.loc = Rad
+				Phoron.loc = Rad
 
 				if(!Rad.active)
 					Rad.toggle_power()
@@ -1043,13 +1085,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		T.zone.air.nitrogen += 450
 		T.zone.air.temperature = 50
 		T.zone.air.update_values()
-				
-				
+
+
 	log_admin("[key_name(usr)] setup the supermatter engine [response == "Setup except coolant" ? "without coolant" : ""]")
 	message_admins("\blue [key_name_admin(usr)] setup the supermatter engine  [response == "Setup except coolant" ? "without coolant": ""]", 1)
 	return
-			
-	
+
+
 
 /client/proc/cmd_debug_mob_lists()
 	set category = "Debug"

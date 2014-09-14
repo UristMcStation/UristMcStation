@@ -403,19 +403,9 @@
 	if(!throw_item)
 		return 0
 	spawn(0)
-		throw_item.throw_at(target,16,3)
+		throw_item.throw_at(target,16,3,src)
 	src.visible_message("\red <b>[src] launches [throw_item.name] at [target.name]!</b>")
 	return 1
-
-/obj/machinery/smartfridge/proc/shock(mob/user, prb)
-	if(!ispowered) return 0
-	if(!prob(prb)) return 0
-
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
-
-	return electrocute_mob(user, get_area(src), src, 0.7)
 
 /************************
 *   Secure SmartFridges

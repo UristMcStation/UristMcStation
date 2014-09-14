@@ -119,7 +119,7 @@
 		L.fields["b_dna"]		= H.dna.unique_enzymes
 		L.fields["enzymes"]		= H.dna.SE // Used in respawning
 		L.fields["identity"]	= H.dna.UI // "
-		L.fields["image"]		= getFlatIcon(H,0)	//This is god-awful
+		L.fields["image"]		= getFlatIcon(H)	//This is god-awful
 		locked += L
 	return
 
@@ -147,12 +147,22 @@ proc/get_id_photo(var/mob/living/carbon/human/H)
 			temp.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
 		preview_icon.Blend(temp, ICON_OVERLAY)
 
+	//Tail
+	if(H.species.tail && H.species.flags & HAS_TAIL)
+		temp = new/icon("icon" = 'icons/effects/species.dmi', "icon_state" = "[H.species.tail]_s")
+		preview_icon.Blend(temp, ICON_OVERLAY)
+
 	// Skin tone
 	if(H.species.flags & HAS_SKIN_TONE)
 		if (H.s_tone >= 0)
 			preview_icon.Blend(rgb(H.s_tone, H.s_tone, H.s_tone), ICON_ADD)
 		else
 			preview_icon.Blend(rgb(-H.s_tone,  -H.s_tone,  -H.s_tone), ICON_SUBTRACT)
+
+	// Skin color
+	if(H.species.flags & HAS_SKIN_TONE)
+		if(!H.species || H.species.flags & HAS_SKIN_COLOR)
+			preview_icon.Blend(rgb(H.r_skin, H.g_skin, H.b_skin), ICON_ADD)
 
 	var/icon/eyes_s = new/icon("icon" = 'icons/mob/human_face.dmi', "icon_state" = H.species ? H.species.eyes : "eyes_s")
 
@@ -178,7 +188,7 @@ proc/get_id_photo(var/mob/living/carbon/human/H)
 		if("Bartender")
 			clothes_s = new /icon('icons/mob/uniform.dmi', "ba_suit_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "black"), ICON_UNDERLAY)
-		if("Botanist")
+		if("Gardener")
 			clothes_s = new /icon('icons/mob/uniform.dmi', "hydroponics_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "black"), ICON_UNDERLAY)
 		if("Chef")
@@ -210,7 +220,7 @@ proc/get_id_photo(var/mob/living/carbon/human/H)
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "brown"), ICON_UNDERLAY)
 			clothes_s.Blend(new /icon('icons/mob/suit.dmi', "labcoat_open"), ICON_OVERLAY)
 		if("Scientist")
-			clothes_s = new /icon('icons/mob/uniform.dmi', "toxinswhite_s")
+			clothes_s = new /icon('icons/mob/uniform.dmi', "sciencewhite_s")
 			clothes_s.Blend(new /icon('icons/mob/feet.dmi', "white"), ICON_UNDERLAY)
 			clothes_s.Blend(new /icon('icons/mob/suit.dmi', "labcoat_tox_open"), ICON_OVERLAY)
 		if("Chemist")

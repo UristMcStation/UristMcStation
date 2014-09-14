@@ -22,13 +22,18 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/game/machinery/kitchen/processor.dm -- process ma slimes
 
- code/game/jobs/jobs.dm -- clowns and mimes and xenobiologist
+ code/game/jobs/jobs.dm -- clowns and mimes and xenobiologist and blueshield
 
  code/game/jobs/civilian.dm -- ^
 
  code/game/jobs/access.dm -- ^
 
  maps/RandomZLevels -- almost everything here because BS12 doesn't care for awaymaps.
+
+  icon/mon/human_races --Added two new files
+ 
+ code/modules/mob/new_player/sprite_accessories.dm -- Hair http://i.imgur.com/UHBRezI.png
+
 
 //Poll stuff
 
@@ -40,4 +45,14 @@ AFFECTED BS12 FILES // Let's do this right this time.
 
  code/setup.dm 
 
+//nations shit
 
+ code/modules/mob/new_player/new_player.dm
+
+ code/modules/mob/dead/observer/observer.dm
+
+ code/datums/mind.dm
+
+ code/game/gamemodes/gameticker.dm 
+
+ code/game/jobs/job_controller.dm 

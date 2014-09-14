@@ -79,7 +79,7 @@
 
 
 /mob/dead/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/tome))
+	if(istype(W,/obj/item/weapon/book/tome))
 		var/mob/dead/M = src
 		if(src.invisibility != 0)
 			M.invisibility = 0
@@ -170,6 +170,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another 30 minutes! You can't change your mind so choose wisely!)","Are you sure you want to ghost?","Ghost","Stay in body")
 		if(response != "Ghost")	return	//didn't want to ghost after-all
 		resting = 1
+		var/turf/location = get_turf(src)
+		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/dead/observer/ghost = ghostize(0)						//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
 	return
@@ -216,10 +219,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 					if(ticker.mode:malf_mode_declared)
 						stat(null, "Time left: [max(ticker.mode:AI_win_timeleft/(ticker.mode:apcs/3), 0)]")
 		if(emergency_shuttle)
-			if(emergency_shuttle.online && emergency_shuttle.location < 2)
-				var/timeleft = emergency_shuttle.timeleft()
-				if (timeleft)
-					stat(null, "ETA-[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
+			var/eta_status = emergency_shuttle.get_status_panel_eta()
+			if(eta_status)
+				stat(null, eta_status)
 
 /mob/dead/observer/verb/reenter_corpse()
 	set category = "Ghost"
@@ -257,20 +259,22 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	set name = "Toggle AntagHUD"
 	set desc = "Toggles AntagHUD allowing you to see who is the antagonist"
-	if(!config.antag_hud_allowed && !client.holder)
-		src << "\red Admins have disabled this for this round."
-		return
+
 	if(!client)
+		return
+	var/mentor = is_mentor(usr.client)
+	if(!config.antag_hud_allowed && (!client.holder || mentor))
+		src << "\red Admins have disabled this for this round."
 		return
 	var/mob/dead/observer/M = src
 	if(jobban_isbanned(M, "AntagHUD"))
 		src << "\red <B>You have been banned from using this feature</B>"
 		return
-	if(config.antag_hud_restricted && !M.has_enabled_antagHUD &&!client.holder)
+	if(config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || mentor))
 		var/response = alert(src, "If you turn this on, you will not be able to take any part in the round.","Are you sure you want to turn this feature on?","Yes","No")
 		if(response == "No") return
 		M.can_reenter_corpse = 0
-	if(!M.has_enabled_antagHUD && !client.holder)
+	if(!M.has_enabled_antagHUD && (!client.holder || mentor))
 		M.has_enabled_antagHUD = 1
 	if(M.antagHUD)
 		M.antagHUD = 0
@@ -386,9 +390,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/verb/analyze_air()
 	set name = "Analyze Air"
 	set category = "Ghost"
-	
+
 	if(!istype(usr, /mob/dead/observer)) return
-	
+
 	// Shamelessly copied from the Gas Analyzers
 	if (!( istype(usr.loc, /turf) ))
 		return
@@ -407,9 +411,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/o2_concentration = environment.oxygen/total_moles
 		var/n2_concentration = environment.nitrogen/total_moles
 		var/co2_concentration = environment.carbon_dioxide/total_moles
-		var/plasma_concentration = environment.toxins/total_moles
+		var/phoron_concentration = environment.phoron/total_moles
 
-		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+plasma_concentration)
+		var/unknown_concentration =  1-(o2_concentration+n2_concentration+co2_concentration+phoron_concentration)
 		if(abs(n2_concentration - N2STANDARD) < 20)
 			src << "\blue Nitrogen: [round(n2_concentration*100)]% ([round(environment.nitrogen,0.01)] moles)"
 		else
@@ -425,8 +429,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		else
 			src << "\blue CO2: [round(co2_concentration*100)]% ([round(environment.carbon_dioxide,0.01)] moles)"
 
-		if(plasma_concentration > 0.01)
-			src << "\red Plasma: [round(plasma_concentration*100)]% ([round(environment.toxins,0.01)] moles)"
+		if(phoron_concentration > 0.01)
+			src << "\red Phoron: [round(phoron_concentration*100)]% ([round(environment.phoron,0.01)] moles)"
 
 		if(unknown_concentration > 0.01)
 			src << "\red Unknown: [round(unknown_concentration*100)]% ([round(unknown_concentration*total_moles,0.01)] moles)"
