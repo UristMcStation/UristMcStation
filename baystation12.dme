@@ -1345,6 +1345,7 @@
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
 #include "code\modules\urist\items\uristpapers.dm"
+#include "code\modules\urist\items\uristpens.dm"
 #include "code\modules\urist\items\uristpills.dm"
 #include "code\modules\urist\items\uristvanity.dm"
 #include "code\modules\urist\items\uristweapons.dm"
