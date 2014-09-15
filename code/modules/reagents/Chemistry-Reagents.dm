@@ -273,7 +273,42 @@ datum
 						ticker.mode.remove_cultist(M.mind)
 						for(var/mob/O in viewers(M, null))
 							O.show_message(text("\blue []'s eyes blink and become clearer.", M), 1) // So observers know it worked.
+				// Vamps react to this like acid
+					if(((M.mind in ticker.mode.vampires) || M.mind.vampire) && prob(10))
+						if(!(VAMP_FULL in M.mind.vampire.powers))
+							if(!M) M = holder.my_atom
+							M.adjustToxLoss(1*REM)
+							M.take_organ_damage(0, 1*REM)
 				holder.remove_reagent(src.id, 10 * REAGENTS_METABOLISM) //high metabolism to prevent extended uncult rolls.
+
+			reaction_mob(var/mob/living/M, var/method=TOUCH, var/volume)//Splashing people with water can help put them out!
+				// Vamps react to this like acid
+				if(ishuman(M))
+					if((M.mind in ticker.mode.vampires))
+						if(!(VAMP_FULL in M.mind.vampire.powers))
+							var/mob/living/carbon/human/H=M
+							if(method == TOUCH)
+								if(H.wear_mask)
+									H << "\red Your mask protects you from the holy water!"
+									return
+
+								if(H.head)
+									H << "\red Your helmet protects you from the holy water!"
+									return
+								if(!M.unacidable)
+									if(prob(15) && volume >= 30)
+										var/datum/organ/external/affecting = H.get_organ("head")
+										if(affecting)
+											if(affecting.take_damage(25, 0))
+												H.UpdateDamageIcon()
+											H.status_flags |= DISFIGURED
+											H.emote("scream")
+									else
+										M.take_organ_damage(min(15, volume * 2)) // uses min() and volume to make sure they aren't being sprayed in trace amounts (1 unit != insta rape) -- Doohl
+						else
+							if(!M.unacidable)
+								M.take_organ_damage(min(15, volume * 2))
+
 				return
 
 		lube
@@ -2064,7 +2099,7 @@ datum
 			description = "This is what makes chilis hot."
 			reagent_state = LIQUID
 			color = "#B31008" // rgb: 179, 16, 8
-			
+
 			on_mob_life(var/mob/living/M as mob)
 				if(!M)
 					M = holder.my_atom
@@ -2078,7 +2113,7 @@ datum
 								H << "\red <b>Your insides feel uncomfortably hot !</b>"
 							if(2 to 20)
 								if(prob(5))
-									H << "\red <b>Your insides feel uncomfortably hot !</b>"									
+									H << "\red <b>Your insides feel uncomfortably hot !</b>"
 							if(20 to INFINITY)
 								H.apply_effect(2,AGONY,0)
 								if(prob(5))
@@ -2186,10 +2221,10 @@ datum
 
 			on_mob_life(var/mob/living/M as mob)
 				if(!M)
-					M = holder.my_atom				
-				M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)				
+					M = holder.my_atom
+				M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 				if(prob(1))
-					M.emote("shiver")				
+					M.emote("shiver")
 				if(istype(M, /mob/living/carbon/slime))
 					M.bodytemperature = max(M.bodytemperature - rand(10,20), 0)
 				holder.remove_reagent("capsaicin", 5)

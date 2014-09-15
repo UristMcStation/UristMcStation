@@ -1178,6 +1178,12 @@
 				if( prob(2) && health && !hal_crit )
 					spawn(0)
 						emote("snore")
+				if(mind)
+					if(mind.vampire)
+						if(istype(loc, /obj/structure/closet/coffin))
+							adjustBruteLoss(-1)
+							adjustFireLoss(-1)
+							adjustToxLoss(-1)
 			else if(resting)
 				if(halloss > 0)
 					adjustHalLoss(-3)
@@ -1357,6 +1363,13 @@
 					if("shadow")
 						see_in_dark = 8
 						see_invisible = SEE_INVISIBLE_LEVEL_ONE
+			if(mind && mind.vampire)
+				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_MOBS
+				if((VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+					see_in_dark = 8
+					if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
@@ -1860,6 +1873,8 @@
 					holder.icon_state = "hudmutineer"
 				if("mutineer")
 					holder.icon_state = "hudmutineer"
+				if("Vampire") // TODO: Check this
+					holder.icon_state = "hudvampire"
 
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0

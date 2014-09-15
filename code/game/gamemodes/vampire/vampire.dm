@@ -81,7 +81,7 @@
 		vampire.special_role = "Vampire"
 		forge_vampire_objectives(vampire)
 		greet_vampire(vampire)
-	if(!mixed)
+//	if(1 == 1) was a mixed mode check, let's try to hack my way around it. Disabling for now, maybe it will work~~
 		spawn (rand(waittime_l, waittime_h))
 			send_intercept()
 	..()
@@ -202,7 +202,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	if (vampire.current.mind)
 		if (vampire.current.mind.assigned_role == "Clown")
 			vampire.current << "Your lust for blood has allowed you to overcome your clumsy nature allowing you to wield weapons without harming yourself."
-			vampire.current.mutations.Remove(M_CLUMSY)
+			vampire.current.mutations.Remove(CLUMSY)
 
 	var/obj_count = 1
 	for(var/datum/objective/objective in vampire.objectives)

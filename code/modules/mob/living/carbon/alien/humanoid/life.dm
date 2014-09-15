@@ -62,10 +62,6 @@
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
 
-	if(mind && mind.vampire)
-		handle_vampire()
-
-
 	if(client)
 		handle_regular_hud_updates()
 

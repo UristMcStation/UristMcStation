@@ -33,7 +33,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	environment_smash = 1
+	break_stuff_probability = 2
 
 	faction = "scarybat"
 	var/mob/living/owner
