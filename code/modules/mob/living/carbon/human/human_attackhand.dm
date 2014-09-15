@@ -111,6 +111,22 @@
 			return 1
 
 		if("hurt")
+			//Vampire code //hope I didn't fuck up the copypasta - scr
+			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
+				if(M.mind && M.mind.vampire && (M.mind in ticker.mode.vampires) && !M.mind.vampire.draining)
+					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
+						M << "\red Remove their mask!"
+						return 0
+					if((M.head && (M.head.flags & HEADCOVERSMOUTH)) || (M.wear_mask && (M.wear_mask.flags & MASKCOVERSMOUTH)))
+						M << "\red Remove your mask!"
+						return 0
+					if(mind && mind.vampire && (mind in ticker.mode.vampires))
+						M << "\red Your fangs fail to pierce [src.name]'s cold flesh"
+						return 0
+					//we're good to suck the blood, blaah
+					M.handle_bloodsucking(src)
+					return
+			//end vampire codes
 			var/datum/unarmed_attack/attack = M.species.unarmed
 
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>[pick(attack.attack_verb)]ed [src.name] ([src.ckey])</font>")

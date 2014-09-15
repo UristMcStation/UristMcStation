@@ -7,7 +7,7 @@
 /datum/game_mode/vampire
 	name = "vampire"
 	config_tag = "vampire"
-	restricted_jobs = list("AI", "Cyborg", "Mobile MMI", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain") //Consistent screening has filtered all infiltration attempts on high value jobs
+	restricted_jobs = list("AI", "Cyborg", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain") //Consistent screening has filtered all infiltration attempts on high value jobs
 	protected_jobs = list()
 	required_players = 1
 	required_players_secret = 15
@@ -46,11 +46,11 @@
 
 /datum/game_mode/vampire/pre_setup()
 	// mixed mode scaling
-	if(istype(ticker.mode, /datum/game_mode/mixed))
+/*	if(istype(ticker.mode, /datum/game_mode/mixed)) //no mixed mode here - scrdest
 		mixed = 1
 	if(mixed)
 		recommended_enemies = 2
-		required_enemies = 1
+		required_enemies = 1 */
 	if(config.protect_roles_from_antagonist)
 		restricted_jobs += protected_jobs
 
