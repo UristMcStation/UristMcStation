@@ -3,9 +3,8 @@ var/global/normal_aooc_colour = "#FF0000"
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
 	set category = "OOC"
-	set hidden = 1
 
-	if(!is_special_character(usr.client.mob) && !check_rights(R_ADMIN))
+	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client)))
 		usr << "\red You are not an Antagonist."
 		return
 
@@ -43,20 +42,27 @@ var/global/normal_aooc_colour = "#FF0000"
 			message_admins("[key_name_admin(src)] has attempted to advertise in AntagOOC: [msg]")
 			return
 
-	log_ooc("[mob.name]/[key]/A : [msg]")
+	log_ooc("[mob.name]/[key]/AOOC : [msg]")
 
+/*
 	var/display_colour = normal_ooc_colour
 	if(holder && !holder.fakekey)
 		display_colour = "#FF3333"	//light red
+		usr << "LIGHT RED"
 		if(holder.rights & R_MOD && !(holder.rights & R_ADMIN))
 			display_colour = "#990000"	//dark red
+			usr << "DARK RED"
 		if(holder.rights & R_DEBUG && !(holder.rights & R_ADMIN))
 			display_colour = "#FF8080"	//pank
+			usr << "PANK"
 		else if(holder.rights & R_ADMIN)
 			if(config.allow_admin_ooccolor)
 				display_colour = src.prefs.ooccolor
 			else
 				display_colour = "#FF9900"	//orange
+				usr << "ORANG"
+*/
+
 
 	for(var/client/C in clients)
 		if(C.prefs.toggles & CHAT_OOC)
@@ -67,5 +73,5 @@ var/global/normal_aooc_colour = "#FF0000"
 						display_name = "[holder.fakekey]/([src.key])"
 					else
 						display_name = holder.fakekey
-			if(is_special_character(C.mob))
-				C << "<font color='[display_colour]'><span class='ooc'><span class='prefix'>AntagOOC:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
+			if(is_special_character(C.mob) || (C && C.holder && !is_mentor(C))) //Allows both admuns and antags to hear AOOC
+				C << "<font color='#FF3333'><span class='ooc'><span class='prefix'>AOOC:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
