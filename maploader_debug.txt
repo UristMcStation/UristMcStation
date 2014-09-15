@@ -1,0 +1,53 @@
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/gibspawner/xeno @ (7, 25, 7)  fields:
+	Failure /obj/effect/alien/weeds/node @ (6, 24, 7)  fields:
+	Failure /obj/effect/alien/weeds @ (7, 24, 7)  fields: icon_state = weeds1;
+	Failure /obj/item/alien_embryo @ (7, 23, 7)  fields:
+	Failure /obj/effect/gibspawner/human @ (48, 16, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/alien/weeds/node @ (28, 37, 7)  fields:
+	Failure /obj/effect/landmark/sc_bible_spawner @ (48, 21, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/alien/weeds/node @ (28, 37, 7)  fields:
+	Failure /obj/effect/landmark/sc_bible_spawner @ (48, 21, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/gibspawner/xeno @ (7, 25, 7)  fields:
+	Failure /obj/effect/alien/weeds/node @ (6, 24, 7)  fields:
+	Failure /obj/effect/alien/weeds @ (7, 24, 7)  fields: icon_state = weeds1;
+	Failure /obj/item/alien_embryo @ (7, 23, 7)  fields:
+	Failure /obj/effect/gibspawner/human @ (48, 16, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/gibspawner/generic @ (74, 74, 7)  fields:
+	Failure /obj/effect/gibspawner/human @ (86, 63, 7)  fields:
+	Failure /obj/effect/gibspawner/xeno @ (62, 60, 7)  fields:
+	Failure /obj/effect/gibspawner/robot @ (59, 53, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/gibspawner/xeno @ (7, 25, 7)  fields:
+	Failure /obj/effect/alien/weeds/node @ (6, 24, 7)  fields:
+	Failure /obj/effect/alien/weeds @ (7, 24, 7)  fields: icon_state = weeds1;
+	Failure /obj/item/alien_embryo @ (7, 23, 7)  fields:
+	Failure /obj/effect/gibspawner/human @ (48, 16, 7)  fields:
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+Starting Map Load @ (0, 0, 7), 200 tiles per second.
+	Building turf array.
+	Failure /obj/effect/gibspawner/generic @ (74, 74, 7)  fields:
+	Failure /obj/effect/gibspawner/human @ (86, 63, 7)  fields:
+	Failure /obj/effect/gibspawner/xeno @ (62, 60, 7)  fields:
+	Failure /obj/effect/gibspawner/robot @ (59, 53, 7)  fields:
