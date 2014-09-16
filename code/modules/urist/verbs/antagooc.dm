@@ -5,11 +5,11 @@ var/global/normal_aooc_colour = "#FF0000"
 	set category = "OOC"
 
 	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client)))
-		usr << "\red You are not an Antagonist."
+		usr << "<span clas='warning'>You are not an Antagonist.</span>"
 		return
 
 	if(say_disabled)
-		usr << "\red Speech is currently admin-disabled."
+		usr << "<span clas='warning'>Speech is currently admin-disabled.</span>"
 		return
 
 	if(!mob)	return
@@ -21,18 +21,18 @@ var/global/normal_aooc_colour = "#FF0000"
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		src << "\red You have OOC muted."
+		src << "<span clas='warning'>You have OOC muted.</span>"
 		return
 
 	if(!holder)
 		if(!ooc_allowed)
-			src << "\red OOC is globally muted"
+			src << "<span clas='warning'>OOC is globally muted</span>"
 			return
 		if(!dooc_allowed && (mob.stat == DEAD))
-			usr << "\red OOC for dead mobs has been turned off."
+			usr << "<span clas='warning'>OOC for dead mobs has been turned off.</span>"
 			return
 		if(prefs.muted & MUTE_OOC)
-			src << "\red You cannot use OOC (muted)."
+			src << "<span clas='warning'>You cannot use OOC (muted).</span>"
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
