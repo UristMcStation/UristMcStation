@@ -95,7 +95,7 @@
 /client/proc/vampire_hypnotise()
 	set category = "Vampire"
 	set name = "Hypnotise (20)"
-	set desc= "A piercing stare that incapacitates your victim for a good length of time."
+	set desc= "A piercing stare that incapacitates your victim and renders them unable to remember what happened for a good length of time. Ahelp if your victim does not comply." //added the amnesia to clamp down on sucking dry. Ain't no fun for anybody. -scrdest
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
@@ -113,7 +113,7 @@
 			return
 		else
 			M.current << "\red Your piercing gaze knocks out [C.name]."
-			C << "\red You find yourself unable to move and barely able to speak"
+			C << "\red You find yourself unable to move and barely able to speak. Your memory becomes hazy, and you find yourself unable to remember what's happening to you."
 			C.Weaken(20)
 			C.Stun(20)
 			C.stuttering = 20
@@ -221,8 +221,8 @@
 			C.stuttering = 20
 			C.Stun(8)
 			C.make_jittery(150)
-//		for(var/obj/structure/window/W in view(4)) //off until we get the proc from vg ported or something, restore the full line commentd out above if you get it working -scrdest
-//			W.destroy()
+		for(var/obj/structure/window/W in view(4)) //off until we get the proc from vg ported or something, restore the full line commentd out above if you get it working -scrdest
+			W.Del()
 		playsound(M.current.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
@@ -277,7 +277,7 @@
 		alpha = 255
 		return 0
 	if(T.lighting_lumcount <= 2)
-		alpha = round((255 * 0.15))
+		alpha = 0
 		return 1
 	else
 		alpha = round((255 * 0.80))
