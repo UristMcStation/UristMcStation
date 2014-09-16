@@ -24,6 +24,8 @@
 		del(W)
 	return null
 
+/mob/living/carbon/human/proc/is_on_ears(var/typepath)
+	return max(istype(r_ear,typepath),istype(r_ear,typepath))
 
 /mob/living/carbon/human/proc/has_organ(name)
 	var/datum/organ/external/O = organs_by_name[name]
