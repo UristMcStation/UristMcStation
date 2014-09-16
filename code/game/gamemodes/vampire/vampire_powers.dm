@@ -206,7 +206,7 @@
 /client/proc/vampire_screech()
 	set category = "Vampire"
 	set name = "Chiroptean Screech (30)"
-	set desc = "An extremely loud shriek that stuns nearby humans." //and breaks windows as well." - original, full line, restore with the code marked below
+	set desc = "An extremely loud shriek that stuns nearby humans and breaks windows as well."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	if(M.current.vampire_power(30, 0))
@@ -221,7 +221,9 @@
 			C.stuttering = 20
 			C.Stun(8)
 			C.make_jittery(150)
-		for(var/obj/structure/window/W in view(4)) //off until we get the proc from vg ported or something, restore the full line commentd out above if you get it working -scrdest
+		for(var/obj/structure/window/W in view(4))
+			new /obj/item/weapon/shard(W.loc)
+			if(W.reinf) new /obj/item/stack/rods(W.loc)
 			W.Del()
 		playsound(M.current.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)

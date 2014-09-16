@@ -331,15 +331,6 @@
 				if( prob(10) && health )
 					spawn(0)
 						emote("hiss")
-				if(mind)
-					if(mind.vampire)
-						if(istype(loc, /obj/structure/closet/coffin))
-							adjustBruteLoss(-1)
-							adjustFireLoss(-1)
-							adjustToxLoss(-1)
-			else if(resting)
-				if(halloss > 0)
-					adjustHalLoss(-3)
 			//CONSCIOUS
 			else
 				stat = CONSCIOUS

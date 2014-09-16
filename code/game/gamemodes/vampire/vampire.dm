@@ -269,28 +269,19 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 /*	for(var/handler in typesof(/client/proc)) //vg removal method
 		if(findtext("[handler]","vampire_"))
 			verbs -= handler */
+	for(var/i = 1; i <= 12; i++) // CHANGE TO 3 RATHER THAN 12 AFTER TESTING IS DONE //see my comment below -scrdest
+		if(!(i in mind.vampire.powers))
+			mind.vampire.powers.Remove(i)
+
 	for(var/n in mind.vampire.powers) //hacky copypasta that basically reverts the above. Oh well, it might work~~ -scrdest
-		switch(n)
-			if(!VAMP_SHAPE)
-				verbs -= /client/proc/vampire_shapeshift
-			if(!VAMP_VISION)
-				continue
-			if(!VAMP_DISEASE)
-				verbs -= /client/proc/vampire_disease
-			if(!VAMP_CLOAK)
-				verbs -= /client/proc/vampire_cloak
-			if(!VAMP_BATS)
-				verbs -= /client/proc/vampire_bats
-			if(!VAMP_SCREAM)
-				verbs -= /client/proc/vampire_screech
-			if(!VAMP_JAUNT)
-				verbs -= /client/proc/vampire_jaunt
-			if(!VAMP_BLINK)
-				verbs -= /client/proc/vampire_shadowstep
-			if(!VAMP_SLAVE)
-				verbs -= /client/proc/vampire_enthrall
-			if(!VAMP_FULL)
-				continue
+		verbs -= /client/proc/vampire_shapeshift
+		verbs -= /client/proc/vampire_disease
+		verbs -= /client/proc/vampire_cloak
+		verbs -= /client/proc/vampire_bats
+		verbs -= /client/proc/vampire_screech
+		verbs -= /client/proc/vampire_jaunt
+		verbs -= /client/proc/vampire_shadowstep
+		verbs -= /client/proc/vampire_enthrall
 
 
 /mob/proc/handle_bloodsucking(mob/living/carbon/human/H)
@@ -527,13 +518,13 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	//adjustFireLoss(3)
 
 /mob/living/carbon/human/proc/handle_vampire()
-	if(hud_used)
+/*	if(hud_used)
 		if(!hud_used.vampire_blood_display)
 			hud_used.vampire_hud()
 			//hud_used.human_hud(hud_used.ui_style)
 		hud_used.vampire_blood_display.maptext_width = 64
 		hud_used.vampire_blood_display.maptext_height = 26
-		hud_used.vampire_blood_display.maptext = "<div align='left' valign='top' style='position:relative; top:0px; left:6px'> U:<font color='#33FF33' size='1'>[mind.vampire.bloodusable]</font><br> T:<font color='#FFFF00' size='1'>[mind.vampire.bloodtotal]</font></div>"
+		hud_used.vampire_blood_display.maptext = "<div align='left' valign='top' style='position:relative; top:0px; left:6px'> U:<font color='#33FF33' size='1'>[mind.vampire.bloodusable]</font><br> T:<font color='#FFFF00' size='1'>[mind.vampire.bloodtotal]</font></div>"*/
 	handle_vampire_cloak()
 	if(istype(loc, /turf/space))
 		check_sun()
