@@ -79,11 +79,12 @@
 	for(var/datum/mind/vampire in vampires)
 		grant_vampire_powers(vampire.current)
 		vampire.special_role = "Vampire"
-		forge_vampire_objectives(vampire)
+		if(!config.objectives_disabled)
+			forge_vampire_objectives(vampire)
 		greet_vampire(vampire)
 //	if(1 == 1) was a mixed mode check, let's try to hack my way around it. Disabling for now, maybe it will work~~
-		spawn (rand(waittime_l, waittime_h))
-			send_intercept()
+	spawn (rand(waittime_l, waittime_h))
+		send_intercept()
 	..()
 	return
 
@@ -156,6 +157,9 @@
 
 /datum/game_mode/proc/forge_vampire_objectives(var/datum/mind/vampire)
 	//Objectives are traitor objectives plus blood objectives
+
+	if (config.objectives_disabled)
+		return
 
 	var/datum/objective/blood/blood_objective = new
 	blood_objective.owner = vampire
@@ -262,9 +266,32 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			if(VAMP_FULL)
 				continue
 /mob/proc/remove_vampire_powers()
-	for(var/handler in typesof(/client/proc))
+/*	for(var/handler in typesof(/client/proc)) //vg removal method
 		if(findtext("[handler]","vampire_"))
-			verbs -= handler
+			verbs -= handler */
+	for(var/n in mind.vampire.powers) //hacky copypasta that basically reverts the above. Oh well, it might work~~ -scrdest
+		switch(n)
+			if(!VAMP_SHAPE)
+				verbs -= /client/proc/vampire_shapeshift
+			if(!VAMP_VISION)
+				continue
+			if(!VAMP_DISEASE)
+				verbs -= /client/proc/vampire_disease
+			if(!VAMP_CLOAK)
+				verbs -= /client/proc/vampire_cloak
+			if(!VAMP_BATS)
+				verbs -= /client/proc/vampire_bats
+			if(!VAMP_SCREAM)
+				verbs -= /client/proc/vampire_screech
+			if(!VAMP_JAUNT)
+				verbs -= /client/proc/vampire_jaunt
+			if(!VAMP_BLINK)
+				verbs -= /client/proc/vampire_shadowstep
+			if(!VAMP_SLAVE)
+				verbs -= /client/proc/vampire_enthrall
+			if(!VAMP_FULL)
+				continue
+
 
 /mob/proc/handle_bloodsucking(mob/living/carbon/human/H)
 	src.mind.vampire.draining = H
@@ -462,6 +489,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 
 	var/ax = x
 	var/ay = y
+	var/mob/living/carbon/M = src
 
 	for(var/i = 1 to 20)
 		ax += sun.dx
@@ -481,19 +509,22 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			if(60 to 80)
 				src << "<span class='warning'>Your skin sizzles!</span>"
 			if((-INFINITY) to 60)
-				if(!on_fire)
-					src << "<b>\red Your skin catches fire!</b>"
-				else
-					src << "<b>\red You continue to burn!</b>"
-				fire_stacks += 5
-				IgniteMob()
+				//if(!on_fire)	//restore once mobs on fire are ported
+				src << "<b>\red Your skin burns!</b>"
+				M.take_organ_damage(0,5)
+				//else
+				//	src << "<b>\red You continue to burn!</b>"
+				//fire_stacks += 5 //mobs on fire-dependent
+				//IgniteMob() //mobs on fire
+
 		emote("scream")
 	else
 		switch(health)
 			if((-INFINITY) to 60)
-				fire_stacks++
-				IgniteMob()
-	adjustFireLoss(3)
+				//fire_stacks++
+				//IgniteMob()
+				M.take_organ_damage(0,5)
+	//adjustFireLoss(3)
 
 /mob/living/carbon/human/proc/handle_vampire()
 	if(hud_used)

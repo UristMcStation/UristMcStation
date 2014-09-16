@@ -196,7 +196,7 @@
 	if(!M) return
 	if(M.current.vampire_power(50, 0))
 		M.current.visible_message("<span class='warning'>[M.current.name] transforms!</span>")
-		M.current.client.prefs.real_name = M.current.generate_name() //random_name(M.current.gender)
+		M.current.client.prefs.real_name = random_name(M.current.gender)
 		M.current.client.prefs.randomize_appearance_for(M.current)
 		M.current.regenerate_icons()
 		M.current.remove_vampire_blood(50)
@@ -206,7 +206,7 @@
 /client/proc/vampire_screech()
 	set category = "Vampire"
 	set name = "Chiroptean Screech (30)"
-	set desc = "An extremely loud shriek that stuns nearby humans and breaks windows as well."
+	set desc = "An extremely loud shriek that stuns nearby humans." //and breaks windows as well." - original, full line, restore with the code marked below
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	if(M.current.vampire_power(30, 0))
@@ -221,8 +221,8 @@
 			C.stuttering = 20
 			C.Stun(8)
 			C.make_jittery(150)
-		for(var/obj/structure/window/W in view(4))
-			W.destroy()
+//		for(var/obj/structure/window/W in view(4)) //off until we get the proc from vg ported or something, restore the full line commentd out above if you get it working -scrdest
+//			W.destroy()
 		playsound(M.current.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
@@ -288,10 +288,10 @@
 		if(L && L.implanted)
 			enthrall_safe = 1
 			break
-	for(var/obj/item/weapon/implant/traitor/T in C)
+/*	for(var/obj/item/weapon/implant/traitor/T in C) //No tater implants in Urist... yet?
 		if(T && T.implanted)
 			enthrall_safe = 1
-			break
+			break */
 	if(!C)
 		world.log << "something bad happened on enthralling a mob src is [src] [src.key] \ref[src]"
 		return 0
@@ -376,7 +376,7 @@
 			animation.icon_state = "liquify"
 			animation.layer = 5
 			animation.master = holder
-			M.current.ExtinguishMob()
+			//M.current.ExtinguishMob() //mobs on fire-dependent
 			if(M.current.buckled)
 				M.current.buckled.unbuckle()
 			flick("liquify",animation)
@@ -447,7 +447,7 @@
 
 			if(!picked || !isturf(picked))
 				return
-			M.current.ExtinguishMob()
+			//M.current.ExtinguishMob() //mobs on fire-dependent
 			if(M.current.buckled)
 				M.current.buckled.unbuckle()
 			var/atom/movable/overlay/animation = new /atom/movable/overlay( get_turf(usr) )
