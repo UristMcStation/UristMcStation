@@ -113,14 +113,14 @@
 		if("hurt")
 			//Vampire code //hope I didn't fuck up the copypasta - scr
 			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
-				if(M.mind && M.mind.vampire && (M.mind in ticker.mode.vampires) && !M.mind.vampire.draining)
+				if(M.mind && M.mind.vampire && !M.mind.vampire.draining)
 					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove their mask!</span>"
 						return 0
 					if((M.head && (M.head.flags & HEADCOVERSMOUTH)) || (M.wear_mask && (M.wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove your mask!</span>"
 						return 0
-					if(mind && mind.vampire && (mind in ticker.mode.vampires))
+					if(mind && mind.vampire)
 						M << "<span class='warning'> Your fangs fail to pierce [src.name]'s cold flesh</span>"
 						return 0
 					//we're good to suck the blood, blaah
