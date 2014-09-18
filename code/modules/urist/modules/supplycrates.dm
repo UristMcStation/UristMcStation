@@ -35,3 +35,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containertype = /obj/structure/closet/crate/secure
 	containername = "APLU \"Ripley\" Customization Crate"
 	group = "Engineering"
+
+//Mail supply crate - 2 rolls of packing wrap and a destination tagger - Octobomb
+
+/datum/supply_packs/mail_supplies
+	name = "Mail Supplies"
+	cost = 15
+	containertype = /obj/structure/closet/crate
+	containername = "Mail supplies crate"
+	group = "Operations"
+	contains = list(/obj/item/device/destTagger,
+					/obj/item/weapon/packageWrap,
+					/obj/item/weapon/packageWrap)

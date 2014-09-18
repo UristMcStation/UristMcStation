@@ -178,25 +178,25 @@
 					var/turf/T = get_turf(M)
 					if(istype(T, /turf/unsimulated/jungle/water))
 						M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something take a chunk out of your leg!")
-						M.apply_damage(rand(0,1), BRUTE, sharp=1)
+						M.apply_damage(rand(1,3), BRUTE, sharp=1)
 			if(prob(50))
 				spawn(rand(25,50))
 					var/turf/T = get_turf(M)
 					if(istype(T, /turf/unsimulated/jungle/water))
 						M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something take a chunk out of your leg!")
-						M.apply_damage(rand(0,1), BRUTE, sharp=1)
+						M.apply_damage(rand(1,3), BRUTE, sharp=1)
 			if(prob(50))
 				spawn(rand(25,50))
 					var/turf/T = get_turf(M)
 					if(istype(T, /turf/unsimulated/jungle/water))
 						M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something take a chunk out of your leg!")
-						M.apply_damage(rand(0,1), BRUTE, sharp=1)
+						M.apply_damage(rand(1,3), BRUTE, sharp=1)
 			if(prob(50))
 				spawn(rand(25,50))
 					var/turf/T = get_turf(M)
 					if(istype(T, /turf/unsimulated/jungle/water))
 						M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something take a chunk out of your leg!")
-						M.apply_damage(rand(0,1), BRUTE, sharp=1)
+						M.apply_damage(rand(1,3), BRUTE, sharp=1)
 
 /turf/unsimulated/jungle/water/deep
 	plants_spawn = 0
@@ -213,3 +213,16 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "phoron0"
 	var/mineral = "phoron"
+
+/turf/unsimulated/jungle/water/deep/edge
+	icon_state = "test"
+
+/turf/unsimulated/floor/temple
+	name = "temple floor"
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "templefloor"
+
+/turf/unsimulated/wall/temple
+	name = "temple wall"
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "templewall"
