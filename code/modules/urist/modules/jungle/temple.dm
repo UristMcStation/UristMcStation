@@ -12,6 +12,8 @@
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "templewall"
 
+//false wall
+
 /obj/structure/temple_falsewall
 	name = "temple wall"
 	anchored = 1
@@ -32,10 +34,6 @@
 		density = 0
 		opacity = 0
 		icon_state = "templewall_open"
-
-//false wall
-
-/obj/structure/temple_falsewall
 
 //******//
 // Loot //
