@@ -217,12 +217,5 @@
 /turf/unsimulated/jungle/water/deep/edge
 	icon_state = "test"
 
-/turf/unsimulated/floor/temple
-	name = "temple floor"
-	icon = 'icons/urist/jungle/turfs.dmi'
-	icon_state = "templefloor"
 
-/turf/unsimulated/wall/temple
-	name = "temple wall"
-	icon = 'icons/urist/jungle/turfs.dmi'
-	icon_state = "templewall"
+
