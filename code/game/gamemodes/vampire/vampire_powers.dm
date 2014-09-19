@@ -225,7 +225,7 @@
 			new /obj/item/weapon/shard(W.loc)
 			if(W.reinf) new /obj/item/stack/rods(W.loc)
 			W.Del()
-		playsound(M.current.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
+		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
 		spawn(1800) M.current.verbs += /client/proc/vampire_screech
