@@ -265,31 +265,18 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 //		if(findtext("[handler]","vampire_"))
 //			verbs -= handler
 
-	for(var/i = 1; i <= 12; i++) // How about a nice plate of copypasta with inverted logic checks? -scrdest
-		if(i in mind.vampire.powers)
-			mind.vampire.powers.Remove(i)
-	for(var/n in mind.vampire.powers)
-		switch(n)
-			if(!VAMP_SHAPE)
-				verbs -= /client/proc/vampire_shapeshift
-			if(!VAMP_VISION)
-				continue
-			if(!VAMP_DISEASE)
-				verbs -= /client/proc/vampire_disease
-			if(!VAMP_CLOAK)
-				verbs -= /client/proc/vampire_cloak
-			if(!VAMP_BATS)
-				verbs -= /client/proc/vampire_bats
-			if(!VAMP_SCREAM)
-				verbs -= /client/proc/vampire_screech
-			if(!VAMP_JAUNT)
-				verbs -= /client/proc/vampire_jaunt
-			if(!VAMP_BLINK)
-				verbs -= /client/proc/vampire_shadowstep
-			if(!VAMP_SLAVE)
-				verbs -= /client/proc/vampire_enthrall
-			if(!VAMP_FULL)
-				continue
+
+	verbs -= /client/proc/vampire_rejuvinate
+	verbs -= /client/proc/vampire_hypnotise
+	verbs -= /client/proc/vampire_glare
+	verbs -= /client/proc/vampire_shapeshift
+	verbs -= /client/proc/vampire_disease
+	verbs -= /client/proc/vampire_cloak
+	verbs -= /client/proc/vampire_bats
+	verbs -= /client/proc/vampire_screech
+	verbs -= /client/proc/vampire_jaunt
+	verbs -= /client/proc/vampire_shadowstep
+	verbs -= /client/proc/vampire_enthrall
 
 
 /mob/proc/handle_bloodsucking(mob/living/carbon/human/H)
