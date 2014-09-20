@@ -35,10 +35,12 @@
 		..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent("holywater", 5)
-		B1.reagents.add_reagent("fluorosurfactant", 45)
-		B2.reagents.add_reagent("holywater", 5)
-		B2.reagents.add_reagent("water", 45)
+		B1.reagents.add_reagent("holywater", 1)
+		B1.reagents.add_reagent("potassium", 32)
+		B1.reagents.add_reagent("sugar", 17)
+		B2.reagents.add_reagent("holywater", 3)
+		B2.reagents.add_reagent("sugar", 15)
+		B2.reagents.add_reagent("phosphorus", 32)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
