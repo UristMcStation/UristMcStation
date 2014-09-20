@@ -3,8 +3,10 @@
 	desc = "The Holy Hand Grenade of Antioch."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "hhg"
+	item_state = "hhg"
 	path = 1
 	stage = 2
+	urist_only = 1
 
 /obj/item/weapon/grenade/chem_grenade/hhg/attack_self()
 	usr.client.mob.say("O LORD, bless this Thy hand grenade that with it Thou mayest blow Thine enemies to tiny bits, in Thy mercy")
