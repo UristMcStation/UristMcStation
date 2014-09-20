@@ -52,13 +52,17 @@
 				if("homosexuality")
 					B.name = "Guys Gone Wild"
 				if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks", "beiberism", "beleiberism", "glloydism")
-					B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight")
+					B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight", "BestRP: The Chat Log", "Honey Boo Boo's Diary")
 					H.setBrainLoss(50) // Toned down the dumb, so they can play
 					B.stupidreligion = 1 // This should make future reference easier
 				if("science")
 					B.name = pick("Principle of Relativity", "Quantum Enigma: Physics Encounters Consciousness", "Programming the Universe", "Quantum Physics and Theology", "String Theory for Dummies", "How To: Build Your Own Warp Drive", "The Mysteries of Bluespace", "Playing God: Collector's Edition")
 				else
 					B.name = "The Holy Book of [new_religion]"
+			if(B.stupidreligion == 1)
+				new/obj/item/weapon/grenade/chem_grenade/hhg/dumb(B)
+			else
+				new/obj/item/weapon/grenade/chem_grenade/hhg/good(B)
 			feedback_set_details("religion_name","[new_religion]")
 
 		spawn(1)
