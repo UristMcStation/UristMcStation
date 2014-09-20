@@ -14,20 +14,13 @@
 #define RANDOM_LOWER_X 18
 #define RANDOM_LOWER_Y 18
 
-/area/jungle
-	name = "jungle"
-	icon = 'code/workinprogress/cael_aislinn/jungle/jungle.dmi'
-	icon_state = "area"
-	lighting_use_dynamic = 0
-	luminosity = 1
-
 //randomly spawns, will create paths around the map
 /obj/effect/landmark/path_waypoint
 	name = "path waypoint"
 	icon_state = "x2"
 	var/connected = 0
 
-/obj/effect/landmark/temple
+/*/obj/effect/landmark/temple
 	name = "temple entrance"
 	icon_state = "x2"
 	var/obj/structure/ladder/my_ladder
@@ -101,7 +94,7 @@
 			T.icon_state = "dark"
 			var/spawn_type = text2path("/obj/machinery/door/airlock/[door_mineral]")
 			new spawn_type(T)
-			del(D)*/
+			del(D)*/*/
 
 //a shuttle has crashed somewhere on the map, it should have a power cell to let the adventurers get home
 /area/jungle/crash_ship_source
