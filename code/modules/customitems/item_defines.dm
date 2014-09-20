@@ -476,7 +476,8 @@
 
 	new_name = "APLU \"Titan's Fist\""
 	new_desc = "This ordinary mining Ripley has been customized to look like a unit of the Titans Fist."
-	new_icon = "titan"
+	new_icon = 'icons/mecha/mecha.dmi'
+	new_icon_state = "titan"
 	allowed_types = list("ripley","firefighter")
 
 ////// Ripley customisation kit - Sven Fjeltson - Mordeth221
@@ -489,7 +490,8 @@
 
 	new_name = "APLU \"Strike the Earth!\""
 	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
-	new_icon = "earth"
+	new_icon = 'icons/mecha/mecha.dmi'
+	new_icon_state = "earth"
 	allowed_types = list("ripley","firefighter")
 
 // Root hardsuit kit defines.

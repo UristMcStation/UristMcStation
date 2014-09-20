@@ -172,6 +172,10 @@ macro "macro"
 		command = "Invisimin"
 		is-disabled = false
 	elem 
+		name = "F9"
+		command = "aooc"
+		is-disabled = false
+	elem 
 		name = "F12"
 		command = "F12"
 		is-disabled = false
@@ -424,6 +428,10 @@ macro "hotkeymode"
 	elem 
 		name = "F8"
 		command = "Invisimin"
+		is-disabled = false
+	elem 
+		name = "F9"
+		command = "aooc"
 		is-disabled = false
 	elem 
 		name = "F12"
@@ -1699,7 +1707,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #A3E0FF
+		background-color = #a3e0ff
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
