@@ -229,11 +229,8 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_hypnotise
 	verbs += /client/proc/vampire_glare
-	//testing purposes REMOVE BEFORE PUSH TO MASTER
-	/*for(var/handler in typesof(/client/proc))
-		if(findtext("[handler]","vampire_"))
-			verbs += handler*/
-	for(var/i = 1; i <= 3; i++) // CHANGE TO 3 RATHER THAN 12 AFTER TESTING IS DONE
+
+	for(var/i = 1; i <= 3; i++)
 		if(!(i in mind.vampire.powers))
 			mind.vampire.powers.Add(i)
 
@@ -261,10 +258,6 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			if(VAMP_FULL)
 				continue
 /mob/proc/remove_vampire_powers()
-//	for(var/handler in typesof(/client/proc)) //vg removal method, it doesn't work because we have Add Verb in admin panel
-//		if(findtext("[handler]","vampire_"))
-//			verbs -= handler
-
 
 	verbs -= /client/proc/vampire_rejuvinate
 	verbs -= /client/proc/vampire_hypnotise
@@ -507,13 +500,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	//adjustFireLoss(3)
 
 /mob/living/carbon/human/proc/handle_vampire()
-/*	if(hud_used)
-		if(!hud_used.vampire_blood_display)
-			hud_used.vampire_hud()
-			//hud_used.human_hud(hud_used.ui_style)
-		hud_used.vampire_blood_display.maptext_width = 64
-		hud_used.vampire_blood_display.maptext_height = 26
-		hud_used.vampire_blood_display.maptext = "<div align='left' valign='top' style='position:relative; top:0px; left:6px'> U:<font color='#33FF33' size='1'>[mind.vampire.bloodusable]</font><br> T:<font color='#FFFF00' size='1'>[mind.vampire.bloodtotal]</font></div>"*/
+//removed blood HUD code here, because of it causing Bad Things clientside, moved it to Status tab.
 	handle_vampire_cloak()
 	if(istype(loc, /turf/space))
 		check_sun()
