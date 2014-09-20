@@ -210,8 +210,8 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	return
 
 /datum/vampire
-	var/bloodtotal = 0 // CHANGE TO ZERO WHEN PLAYTESTING HAPPENS
-	var/bloodusable = 0 // CHANGE TO ZERO WHEN PLAYTESTING HAPPENS
+	var/bloodtotal = 0
+	var/bloodusable = 0
 	var/mob/living/owner = null
 	var/gender = FEMALE
 	var/iscloaking = 0 // handles the vampire cloak toggle
@@ -446,7 +446,6 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 					del(I)
 
 /datum/game_mode/proc/remove_vampire_mind(datum/mind/vampire_mind, datum/mind/head)
-	//var/list/removal
 	if(!istype(head))
 		head = vampire_mind //workaround for removing a thrall's control over the enthralled
 	var/ref = "\ref[head]"

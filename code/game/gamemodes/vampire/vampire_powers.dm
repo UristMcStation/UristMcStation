@@ -48,7 +48,7 @@
 /mob/proc/vampire_can_reach(mob/M as mob, active_range = 1)
 	if(M.loc == src.loc) return 1 //target and source are in the same thing
 	if(!isturf(src.loc) || !isturf(M.loc)) return 0 //One is inside, the other is outside something.
-	if(Adjacent(M))//if(AStar(src.loc, M.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance, active_range)) //If a path exists, good!
+	if(Adjacent(M))//If a path exists, good!
 		return 1
 	return 0
 
@@ -78,7 +78,6 @@
 		M.current.weakened = 0
 		M.current.stunned = 0
 		M.current.paralysis = 0
-		//M.vampire.bloodusable -= 10
 		M.current << "<span class='notice'> You flush your system with clean blood and remove any incapacitating effects.</span>"
 		spawn(1)
 			if(M.vampire.bloodtotal >= 200)
@@ -135,13 +134,7 @@
 		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</span>"
 		return
 	M.current << "<span class='warning'> You stealthily infect [C.name] with your diseased touch.</span>"
-	/*var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
-	M.current.visible_message("\blue [M] shakes [src] trying to wake [t_him] up!" )
-	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)*/
+
 	C.help_shake_act(M.current) // i use da colon
 	if(!C.vampire_affected(M))
 		M.current << "<span class='warning'> They seem to be unaffected.</span>"
@@ -173,7 +166,6 @@
 	if(!M) return
 	if(M.current.vampire_power(0, 1))
 		M.current.visible_message("<span class='warning'> <b>[M.current.name]'s eyes emit a blinding flash!</span>")
-		//M.vampire.bloodusable -= 10
 		M.current.verbs -= /client/proc/vampire_glare
 		spawn(300)
 			M.current.verbs += /client/proc/vampire_glare
@@ -290,7 +282,7 @@
 		if(L && L.implanted)
 			enthrall_safe = 1
 			break
-/*	for(var/obj/item/weapon/implant/traitor/T in C) //No tater implants in Urist... yet?
+/*	for(var/obj/item/weapon/implant/traitor/T in C) //No tater implants in Urist... yet? Saving it for now in case we get it.
 		if(T && T.implanted)
 			enthrall_safe = 1
 			break */
