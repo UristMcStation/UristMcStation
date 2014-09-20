@@ -224,7 +224,7 @@
 				if (prob(3))
 					switch(pick(1,2,3))
 						if(1)
-							say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge", "grehem")] [pick("mellens", "melons", "mwrlins", "lleyd")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse", "neuk", "diabeetus")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#"))
+							say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge", "grehem")] [pick("mellens", "melons", "mwrlins", "lleyd")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse", "neuk", "diabeetus")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#", "TGC iz a mad lunatik"))
 						if(2)
 							say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!", "VICTOR, RESTART TEH SERVAH","GLLERD FIX PLOS", "Eian, you be luukin faine tewnight"))
 						if(3)
