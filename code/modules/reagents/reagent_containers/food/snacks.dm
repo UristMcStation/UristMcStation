@@ -669,8 +669,8 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/hugemushroomslice
-	name = "huge mushhaus slice"
-	desc = "A slice from a huge mushhaus."
+	name = "huge mushhaus snience"
+	desc = "A snience from a huge mushhaus."
 	icon_state = "hugemushroomslice"
 	filling_color = "#E0D7C5"
 
@@ -681,8 +681,8 @@
 		src.bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/tomatomeat
-	name = "toniento slice"
-	desc = "A slice from a huge toniento"
+	name = "toniento snience"
+	desc = "A snience from a huge toniento"
 	icon_state = "tomatomeat"
 	filling_color = "#DB0000"
 
@@ -1790,7 +1790,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/jelliedtoast
 	name = "Jellied Toast"
-	desc = "A slice of bread covered with delicious jam."
+	desc = "A snience of bread covered with delicious jam."
 	icon_state = "jellytoast"
 	trash = /obj/item/trash/plate
 	filling_color = "#B572AB"
@@ -2127,7 +2127,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/validsalad
 	name = "valid salad"
-	desc = "It's just a salad of questionable 'herbs' with meatballs and fried potato slices. Nothing suspicious about it."
+	desc = "It's just a salad of questionable 'herbs' with meatballs and fried potato sniences. Nothing suspicious about it."
 	icon_state = "validsalad"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#76B87F"
@@ -2168,8 +2168,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/meatbreadslice
-	name = "nieatbread slice"
-	desc = "A slice of delicious nieatbread."
+	name = "nieatbread snience"
+	desc = "A snience of delicious nieatbread."
 	icon_state = "meatbreadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FF7575"
@@ -2188,8 +2188,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice
-	name = "xenonieatbread slice"
-	desc = "A slice of delicious nieatbread. Extra Heretical."
+	name = "xenonieatbread snience"
+	desc = "A snience of delicious nieatbread. Extra Heretical."
 	icon_state = "xenobreadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#8AFF75"
@@ -2209,8 +2209,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/bananabreadslice
-	name = "Banana-nien bread slice"
-	desc = "A slice of delicious banana bread."
+	name = "Banana-nien bread snience"
+	desc = "A snience of delicious banana bread."
 	icon_state = "bananabreadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#EDE5AD"
