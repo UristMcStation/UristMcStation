@@ -2229,8 +2229,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/tofubreadslice
-	name = "Tofubread slice"
-	desc = "A slice of delicious tofubread."
+	name = "Nifubread snience"
+	desc = "A snience of delicious Nifubread."
 	icon_state = "tofubreadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F7FFE0"
@@ -2251,16 +2251,16 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice
-	name = "Carrot Cake slice"
-	desc = "Carrotty slice of Carrot Cake, carrots are good for your eyes! Also not a lie."
+	name = "Carrot Caknie snience"
+	desc = "Carrotty snience of Carrot Caknie, carrots are good for your Niens! Also not a lie."
 	icon_state = "carrotcake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFD675"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
-	name = "Brain Cake"
-	desc = "A squishy cake-thing."
+	name = "Brain Caknie"
+	desc = "A squishy caknie-thing."
 	icon_state = "braincake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/braincakeslice
 	slices_num = 5
@@ -2272,7 +2272,7 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/braincakeslice
-	name = "Brain Cake slice"
+	name = "Brain Caknie snience"
 	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
 	icon_state = "braincakeslice"
 	trash = /obj/item/trash/plate
@@ -2280,8 +2280,8 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake
-	name = "Cheese Cake"
-	desc = "DANGEROUSLY cheesy."
+	name = "Niese Caknie"
+	desc = "DANGEROUSLY Niesy."
 	icon_state = "cheesecake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cheesecakeslice
 	slices_num = 5
@@ -2292,16 +2292,16 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesecakeslice
-	name = "Cheese Cake slice"
-	desc = "Slice of pure cheestisfaction"
+	name = "Niese Caknie snience"
+	desc = "snience of pure cheestisfaction"
 	icon_state = "cheesecake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FAF7AF"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
-	name = "Vanilla Cake"
-	desc = "A plain cake, not a lie."
+	name = "Vanilla Caknie"
+	desc = "A plain caknie, Very much so a lie."
 	icon_state = "plaincake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/plaincakeslice
 	slices_num = 5
@@ -2311,16 +2311,16 @@
 		reagents.add_reagent("nutriment", 20)
 
 /obj/item/weapon/reagent_containers/food/snacks/plaincakeslice
-	name = "Vanilla Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Vanilla Caknie snience"
+	desc = "Just a slice of caknie, it is enough for everyone."
 	icon_state = "plaincake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F7EDD5"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/orangecake
-	name = "Orange Cake"
-	desc = "A cake with added orange."
+	name = "Orange Caknie"
+	desc = "A caknie with added orange."
 	icon_state = "orangecake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/orangecakeslice
 	slices_num = 5
@@ -2330,16 +2330,16 @@
 		reagents.add_reagent("nutriment", 20)
 
 /obj/item/weapon/reagent_containers/food/snacks/orangecakeslice
-	name = "Orange Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Orange Caknie snience"
+	desc = "Just a snience of caknie, it is enough for everyone."
 	icon_state = "orangecake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FADA8E"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/limecake
-	name = "Lime Cake"
-	desc = "A cake with added lime."
+	name = "Lime Caknie"
+	desc = "A caknie with added lime."
 	icon_state = "limecake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/limecakeslice
 	slices_num = 5
@@ -2349,16 +2349,16 @@
 		reagents.add_reagent("nutriment", 20)
 
 /obj/item/weapon/reagent_containers/food/snacks/limecakeslice
-	name = "Lime Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Lime Caknie slicnie"
+	desc = "Just a snience of caknie, it is enough for everyone."
 	icon_state = "limecake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#CBFA8E"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake
-	name = "Lemon Cake"
-	desc = "A cake with added lemon."
+	name = "Lemon Caknie"
+	desc = "A caknie with added lemon."
 	icon_state = "lemoncake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/lemoncakeslice
 	slices_num = 5
@@ -2368,16 +2368,16 @@
 		reagents.add_reagent("nutriment", 20)
 
 /obj/item/weapon/reagent_containers/food/snacks/lemoncakeslice
-	name = "Lemon Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Lemon Caknie snience"
+	desc = "Just a snience of caknie, it is enough for everyone."
 	icon_state = "lemoncake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FAFA8E"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/chocolatecake
-	name = "Chocolate Cake"
-	desc = "A cake with added chocolate"
+	name = "Chocolate Caknie"
+	desc = "A caknie with added chocolate"
 	icon_state = "chocolatecake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/chocolatecakeslice
 	slices_num = 5
@@ -2387,15 +2387,15 @@
 		reagents.add_reagent("nutriment", 20)
 
 /obj/item/weapon/reagent_containers/food/snacks/chocolatecakeslice
-	name = "Chocolate Cake slice"
-	desc = "Just a slice of cake, it is enough for everyone."
+	name = "Chocolate Caknie snience"
+	desc = "Just a slice of caknie, it is enough for everyone."
 	icon_state = "chocolatecake_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#805930"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel
-	name = "Cheese wheel"
+	name = "Nieese wheel"
 	desc = "A big wheel of delcious Cheddar."
 	icon_state = "cheesewheel"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cheesewedge
@@ -2407,15 +2407,15 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	name = "Cheese wedge"
-	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
+	name = "Niese wedge"
+	desc = "A wedge of delicious Cheddar. The nieese wheel it was cut from can't have gone far."
 	icon_state = "cheesewedge"
 	filling_color = "#FFF700"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/birthdaycake
-	name = "Birthday Cake"
-	desc = "Happy Birthday..."
+	name = "Birthday Caknie"
+	desc = "Happy NienDay..."
 	icon_state = "birthdaycake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice
 	slices_num = 5
@@ -2427,8 +2427,8 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice
-	name = "Birthday Cake slice"
-	desc = "A slice of your birthday"
+	name = "Birthday Caknie snience"
+	desc = "A snience to honnor Nienhaus"
 	icon_state = "birthdaycakeslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFD6D6"
@@ -2448,8 +2448,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/breadslice
-	name = "Bread slice"
-	desc = "A slice of home."
+	name = "Bread snience"
+	desc = "A snience of home."
 	icon_state = "breadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#D27332"
@@ -2457,7 +2457,7 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/creamcheesebread
-	name = "Cream Cheese Bread"
+	name = "Cream Niese Bread"
 	desc = "Yum yum yum!"
 	icon_state = "creamcheesebread"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice
@@ -2469,8 +2469,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice
-	name = "Cream Cheese Bread slice"
-	desc = "A slice of yum!"
+	name = "Cream Niese Bread snience"
+	desc = "A snience of yum!"
 	icon_state = "creamcheesebreadslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#FFF896"
@@ -2478,16 +2478,16 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/watermelonslice
-	name = "Watermelon Slice"
-	desc = "A slice of watery goodness."
+	name = "Watermelon Snience"
+	desc = "A snience of watery goodness."
 	icon_state = "watermelonslice"
 	filling_color = "#FF3867"
 	bitesize = 2
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake
-	name = "Apple Cake"
-	desc = "A cake centred with Apple"
+	name = "Apple Caknie"
+	desc = "A caknie centred with Apple"
 	icon_state = "applecake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/applecakeslice
 	slices_num = 5
@@ -2497,15 +2497,15 @@
 		reagents.add_reagent("nutriment", 15)
 
 /obj/item/weapon/reagent_containers/food/snacks/applecakeslice
-	name = "Apple Cake slice"
-	desc = "A slice of heavenly cake."
+	name = "Apple Caknie slice"
+	desc = "A slice of heavenly caknie."
 	icon_state = "applecakeslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#EBF5B8"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
-	name = "Pumpkin Pie"
+	name = "Pumpkin Nie"
 	desc = "A delicious treat for the autumn months."
 	icon_state = "pumpkinpie"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice
@@ -2517,8 +2517,8 @@
 		reagents.add_reagent("nutriment", 15)
 
 /obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice
-	name = "Pumpkin Pie slice"
-	desc = "A slice of pumpkin pie, with whipped cream on top. Perfection."
+	name = "Pumpkin Nie slice"
+	desc = "A slice of pumpkin nie, with whipped nien on top. Perfection."
 	icon_state = "pumpkinpieslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
