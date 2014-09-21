@@ -2544,7 +2544,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/margherita
 	name = "Margherita"
-	desc = "The golden standard of pizzas."
+	desc = "The golden standard of niezzas."
 	icon_state = "pizzamargherita"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/margheritaslice
 	slices_num = 6
@@ -2556,14 +2556,14 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/margheritaslice
 	name = "Margherita slice"
-	desc = "A slice of the classic pizza."
+	desc = "A slice of the classic niezza."
 	icon_state = "pizzamargheritaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza
-	name = "Meatpizza"
-	desc = "A pizza with meat topping."
+	name = "Nieatniezza"
+	desc = "A niezza with nieat topping."
 	icon_state = "meatpizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice
 	slices_num = 6
@@ -2574,15 +2574,15 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice
-	name = "Meatpizza slice"
-	desc = "A slice of a meaty pizza."
+	name = "nieatniezza slice"
+	desc = "A slice of a nieaty niezza."
 	icon_state = "meatpizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
-	name = "Mushroompizza"
-	desc = "Very special pizza"
+	name = "mushhausniezza"
+	desc = "Very special niezza"
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice
 	slices_num = 6
@@ -2592,15 +2592,15 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice
-	name = "Mushroompizza slice"
-	desc = "Maybe it is the last slice of pizza in your life."
+	name = "mushhausniezza slice"
+	desc = "Hehe, funny colors man."
 	icon_state = "mushroompizzaslice"
 	filling_color = "#BAA14C"
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
-	name = "Vegetable pizza"
-	desc = "No one of Tomato Sapiens were harmed during making this pizza"
+	name = "Vegetable niezza"
+	desc = "No one of Toniento Sapiens were harmed during making this niezza"
 	icon_state = "vegetablepizza"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice
 	slices_num = 6
@@ -2619,8 +2619,8 @@
 	bitesize = 2
 
 /obj/item/pizzabox
-	name = "pizza box"
-	desc = "A box suited for pizzas."
+	name = "niezza box"
+	desc = "A box suited for niezzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
 
