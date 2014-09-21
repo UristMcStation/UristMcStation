@@ -52,7 +52,7 @@
 				if("homosexuality")
 					B.name = "Guys Gone Wild"
 				if("lol", "wtf", "gay", "penis", "ass", "poo", "badmin", "shitmin", "deadmin", "cock", "cocks", "beiberism", "beleiberism", "glloydism")
-					B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight", "BestRP: The Chat Log", "Honey Boo Boo's Diary")
+					B.name = pick("Woodys Got Wood: The Aftermath", "War of the Cocks", "Sweet Bro and Hella Jef: Expanded Edition", "Twilight", "Honey Boo Boo's Diary")
 					H.setBrainLoss(50) // Toned down the dumb, so they can play
 					B.stupidreligion = 1 // This should make future reference easier
 				if("science")
