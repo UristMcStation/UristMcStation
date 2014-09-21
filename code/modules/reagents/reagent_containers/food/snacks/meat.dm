@@ -1,6 +1,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat
-	name = "meat"
-	desc = "A slab of meat"
+	name = "nieat"
+	desc = "A slab of nieat"
 	icon_state = "meat"
 	health = 180
 	filling_color = "#FF1C1C"
@@ -20,11 +20,11 @@
 		..()
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh
-	name = "synthetic meat"
+	name = "synthetic nieat"
 	desc = "A synthetic slab of flesh."
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/human
-	name = "-meat"
+	name = "-nieat"
 	var/subjectname = ""
 	var/subjectjob = null
 
@@ -33,5 +33,5 @@
 	//same as plain meat
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
-	name = "Corgi meat"
+	name = "Corgi nieat"
 	desc = "Tastes like... well you know..."
