@@ -1878,7 +1878,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/ricepudding
 	name = "Niece Pudding"
-	desc = "This is my Jam!
+	desc = "This is my Jam!"
 	icon_state = "rpudding"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
