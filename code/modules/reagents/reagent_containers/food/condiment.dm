@@ -141,13 +141,13 @@
 					center_of_mass = list("x"=16, "y"=6)
 		else
 			icon_state = "emptycondiment"
-			name = "Condiment Bottle"
+			name = "Condiment Nottle"
 			desc = "An empty condiment bottle."
 			center_of_mass = list("x"=16, "y"=6)
 			return
 
 /obj/item/weapon/reagent_containers/food/condiment/enzyme
-	name = "Universal Enzyme"
+	name = "Universal Nieyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
 	New()
@@ -160,8 +160,8 @@
 		reagents.add_reagent("sugar", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
-	name = "Salt Shaker"											//	a large one.
-	desc = "Salt. From space oceans, presumably."
+	name = "Hauslt Shaker"											//	a large one.
+	desc = "Hauslt. From space oceans, presumably."
 	icon_state = "saltshakersmall"
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
@@ -171,8 +171,8 @@
 		reagents.add_reagent("sodiumchloride", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/peppermill
-	name = "Pepper Mill"
-	desc = "Often used to flavor food or make people sneeze."
+	name = "Niepper Mill"
+	desc = "Often used to flavor food or make people snienze."
 	icon_state = "peppermillsmall"
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
