@@ -144,8 +144,8 @@
 //DRINKS
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/cola
-	name = "Space Cola"
-	desc = "Cola. in space."
+	name = "Nien Juice"
+	desc = "Just don't think about the salty taste."
 	icon_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
 	New()
@@ -153,8 +153,8 @@
 		reagents.add_reagent("cola", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle
-	name = "Bottled Water"
-	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
+	name = "Nottled Hauster"
+	desc = "Introduced to the vending machines by Skrellian request, this hauster comes straight from the Hausian poles."
 	icon_state = "waterbottle"
 	center_of_mass = list("x"=15, "y"=8)
 	New()
@@ -162,8 +162,8 @@
 		reagents.add_reagent("water", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/beer
-	name = "Space Beer"
-	desc = "Contains only water, malt and hops."
+	name = "Jonson Beer"
+	desc = "Contains only hauster, malt and hops."
 	icon_state = "beer"
 	center_of_mass = list("x"=16, "y"=12)
 	New()
@@ -171,7 +171,7 @@
 		reagents.add_reagent("beer", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/ale
-	name = "Magm-Ale"
+	name = "Kert-Ale"
 	desc = "A true dorf's drink of choice."
 	icon_state = "alebottle"
 	item_state = "beer"
@@ -182,8 +182,8 @@
 
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind
-	name = "Space Mountain Wind"
-	desc = "Blows right through you like a space wind."
+	name = "Code Red MNT Dew"
+	desc = "The drink of Nienhaus"
 	icon_state = "space_mountain_wind"
 	center_of_mass = list("x"=16, "y"=10)
 	New()
@@ -191,8 +191,8 @@
 		reagents.add_reagent("spacemountainwind", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko
-	name = "Thirteen Loko"
-	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
+	name = "Nienteen Loko"
+	desc = "The CMO has advised crew members that consumption of Nienteen Loko may result in being awesome and an admin."
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=8)
 	New()
@@ -200,8 +200,8 @@
 		reagents.add_reagent("thirteenloko", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb
-	name = "Dr. Gibb"
-	desc = "A delicious mixture of 42 different flavors."
+	name = "Dr. Petridis"
+	desc = "The flavor of a man who poses for sexy newscasters."
 	icon_state = "dr_gibb"
 	center_of_mass = list("x"=16, "y"=10)
 	New()
@@ -209,7 +209,7 @@
 		reagents.add_reagent("dr_gibb", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/starkist
-	name = "Star-kist"
+	name = "Star-haus"
 	desc = "The taste of a star in liquid form. And, a bit of tuna...?"
 	icon_state = "starkist"
 	center_of_mass = list("x"=16, "y"=10)
@@ -237,7 +237,7 @@
 		reagents.add_reagent("lemon_lime", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea
-	name = "Vrisk Serket Iced Tea"
+	name = "Vrisk Serket Iced  NOT Tea"
 	desc = "That sweet, refreshing southern earthy flavor. That's where it's from, right? South Earth?"
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
@@ -246,7 +246,7 @@
 		reagents.add_reagent("icetea", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice
-	name = "Grapel Juice"
+	name = "Nienapel Juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
 	icon_state = "purple_can"
 	center_of_mass = list("x"=16, "y"=10)
@@ -255,7 +255,7 @@
 		reagents.add_reagent("grapejuice", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/tonic
-	name = "T-Borg's Tonic Water"
+	name = "Kert's Tonic Water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
 	icon_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)
@@ -264,8 +264,8 @@
 		reagents.add_reagent("tonic", 50)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/sodawater
-	name = "Soda Water"
-	desc = "A can of soda water. Still water's more refreshing cousin."
+	name = "Soda Hauster"
+	desc = "A can of soda hauster. Still hauster's more refreshing cousin."
 	icon_state = "sodawater"
 	center_of_mass = list("x"=16, "y"=10)
 	New()
