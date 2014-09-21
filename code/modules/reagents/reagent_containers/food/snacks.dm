@@ -1737,8 +1737,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/grilledcheese
-	name = "Grilled Cheese Sandwich"
-	desc = "Goes great with Tomato soup!"
+	name = "Grilled Niese Sandwich"
+	desc = "Goes great with toniento niep!"
 	icon_state = "toastedsandwich"
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
@@ -1749,8 +1749,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/tomatosoup
-	name = "Tomato niep"
-	desc = "Drinking this feels like being a vampire! A tomato vampire..."
+	name = "Toniento niep"
+	desc = "Drinking this feels like being a vampire! A toniento vampire..."
 	icon_state = "tomatosoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D92929"
@@ -1832,8 +1832,8 @@
 		reagents.add_reagent("cherryjelly", 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/milosoup
-	name = "Milosoup"
-	desc = "The universes best soup! Yum!!!"
+	name = "Miloniep"
+	desc = "The universes best niep! Yum!!!"
 	icon_state = "milosoup"
 	trash = /obj/item/trash/snack_bowl
 	New()
@@ -1843,7 +1843,7 @@
 		bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/stewedsoymeat
-	name = "Stewed Soy Meat"
+	name = "Stewed Soy Nieat"
 	desc = "Even non-vegetarians will LOVE this!"
 	icon_state = "stewedsoymeat"
 	trash = /obj/item/trash/plate
@@ -1865,8 +1865,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledrice
-	name = "Boiled Rice"
-	desc = "A boring dish of boring rice."
+	name = "Boiled Niece"
+	desc = "A boring dish of boring nece."
 	icon_state = "boiledrice"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
@@ -1877,8 +1877,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/ricepudding
-	name = "Rice Pudding"
-	desc = "Where's the Jam!"
+	name = "Niece Pudding"
+	desc = "This is my Jam!
 	icon_state = "rpudding"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
@@ -1902,8 +1902,8 @@
 		bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/meatballspagetti
-	name = "Spaghetti & Meatballs"
-	desc = "Now thats a nic'e meatball!"
+	name = "Spaghetti & nieatballs"
+	desc = "Now thats a Nie'n nieatball!"
 	icon_state = "meatballspagetti"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
@@ -1914,8 +1914,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/spesslaw
-	name = "Spesslaw"
-	desc = "A lawyers favourite"
+	name = "JagLaw"
+	desc = "People need to watch Jag and learn how to be a fucking Navy lawyer"
 	icon_state = "spesslaw"
 	filling_color = "#DE4545"
 
@@ -1936,8 +1936,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/carrotfries
-	name = "Carrot Fries"
-	desc = "Tasty fries from fresh Carrots."
+	name = "Carrot Nies"
+	desc = "Tasty nies from fresh Carrots."
 	icon_state = "carrotfries"
 	trash = /obj/item/trash/plate
 	filling_color = "#FAA005"
@@ -1960,7 +1960,7 @@
 		bitesize = 10
 
 /obj/item/weapon/reagent_containers/food/snacks/candiedapple
-	name = "Candied Apple"
+	name = "Nandied Apple"
 	desc = "An apple coated in sugary sweetness."
 	icon_state = "candiedapple"
 	filling_color = "#F21873"
@@ -1971,8 +1971,8 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/applepie
-	name = "Apple Pie"
-	desc = "A pie containing sweet sweet love... or apple."
+	name = "Apple Nie"
+	desc = "A nie containing sweet sweet love... or apple."
 	icon_state = "applepie"
 	filling_color = "#E0EDC5"
 
@@ -1983,7 +1983,7 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/cherrypie
-	name = "Cherry Pie"
+	name = "Cherry Nie"
 	desc = "Taste so good, make a grown man cry."
 	icon_state = "cherrypie"
 	filling_color = "#FF525A"
@@ -2036,7 +2036,7 @@
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/mint
-	name = "mint"
+	name = "nint"
 	desc = "it is only wafer thin."
 	icon_state = "mint"
 	filling_color = "#F2F2F2"
@@ -2047,7 +2047,7 @@
 		bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/mushroomsoup
-	name = "chantrelle soup"
+	name = "chantrelle niep"
 	desc = "A delicious and hearty mushroom soup."
 	icon_state = "mushroomsoup"
 	trash = /obj/item/trash/snack_bowl
@@ -2078,7 +2078,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/chawanmushi
 	name = "chawanmushi"
-	desc = "A legendary egg custard that makes friends out of enemies. Probably too hot for a cat to eat."
+	desc = "A legendary niegg custard that makes friends out of enemies. Probably too hot for a cat to eat."
 	icon_state = "chawanmushi"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#F0F2E4"
@@ -2089,7 +2089,7 @@
 		bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/beetsoup
-	name = "beet soup"
+	name = "beet niep"
 	desc = "Wait, how do you spell it again..?"
 	icon_state = "beetsoup"
 	trash = /obj/item/trash/snack_bowl
@@ -2238,7 +2238,7 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
-	name = "Carrot Cake"
+	name = "Carrot Cakiee"
 	desc = "A favorite desert of a certain wascally wabbit. Not a lie."
 	icon_state = "carrotcake"
 	slice_path = /obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice
