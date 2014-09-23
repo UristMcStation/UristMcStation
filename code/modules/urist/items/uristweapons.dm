@@ -247,3 +247,6 @@ the sprite and make my own projectile -Glloyd*/
 			user.before_take_item(src)
 			del(W)
 			del(src)
+
+
+
