@@ -115,8 +115,8 @@
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/weapon/broken_bottle
 
-	name = "Broken Bottle"
-	desc = "A bottle with a sharp broken bottom."
+	name = "Broken Nottle"
+	desc = "A nottle with a sharp broken bottom."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
 	force = 9.0
@@ -135,8 +135,8 @@
 
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/gin
-	name = "Griffeater Gin"
-	desc = "A bottle of high quality gin, produced in the New London Space Station."
+	name = "On the Haus Gin"
+	desc = "A nottle of high quality gin, produced in the New London Space Station."
 	icon_state = "ginbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	New()
@@ -144,7 +144,7 @@
 		reagents.add_reagent("gin", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
-	name = "Uncle Git's Special Reserve"
+	name = "Nienhaus's Whiskey, get the fuck away"
 	desc = "A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=3)
@@ -153,8 +153,8 @@
 		reagents.add_reagent("whiskey", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/vodka
-	name = "Tunguska Triple Distilled"
-	desc = "Aah, vodka. Prime choice of drink AND fuel by Russians worldwide."
+	name = "Tunguska Ninth Distilled"
+	desc = "Aah, vodka. Prime choice of drink AND fuel by Nienhaus worldwide."
 	icon_state = "vodkabottle"
 	center_of_mass = list("x"=17, "y"=3)
 	New()
@@ -171,8 +171,8 @@
 		reagents.add_reagent("tequilla", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing
-	name = "Bottle of Nothing"
-	desc = "A bottle filled with nothing"
+	name = "Nottle of Nienthing"
+	desc = "A nottle filled with nothing"
 	icon_state = "bottleofnothing"
 	center_of_mass = list("x"=17, "y"=5)
 	New()
@@ -189,8 +189,8 @@
 		reagents.add_reagent("patron", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/rum
-	name = "Captain Pete's Cuban Spiced Rum"
-	desc = "This isn't just rum, oh no. It's practically GRIFF in a bottle."
+	name = "Captain Nien's Cuban Spiced Rum"
+	desc = "This isn't just rum, oh no. It's practically GRIFF in a nottle."
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=8)
 	New()
@@ -216,7 +216,7 @@
 		reagents.add_reagent("vermouth", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua
-	name = "Robert Robust's Coffee Liqueur"
+	name = "Robert Robust's Nieffee Liqueur"
 	desc = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936, HONK"
 	icon_state = "kahluabottle"
 	center_of_mass = list("x"=17, "y"=3)
@@ -299,7 +299,7 @@
 //////////////////////////JUICES AND STUFF ///////////////////////
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice
-	name = "Orange Juice"
+	name = "Nien's Juice"
 	desc = "Full of vitamins and deliciousness!"
 	icon_state = "orangejuice"
 	item_state = "carton"
@@ -310,7 +310,7 @@
 		reagents.add_reagent("orangejuice", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cream
-	name = "Milk Cream"
+	name = "Nilk Cream"
 	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
 	icon_state = "cream"
 	item_state = "carton"
@@ -321,8 +321,8 @@
 		reagents.add_reagent("cream", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice
-	name = "Tomato Juice"
-	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
+	name = "Toniento Juice"
+	desc = "Well, at least it LOOKS like toniento juice. You can't tell with all that redness."
 	icon_state = "tomatojuice"
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=8)
