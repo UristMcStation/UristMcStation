@@ -52,6 +52,7 @@ datum/mind
 
 	var/datum/faction/faction 			//associated faction
 	var/datum/changeling/changeling		//changeling holder
+	var/datum/vampire/vampire			//vampire holder
 
 	var/rev_cooldown = 0
 
@@ -71,6 +72,8 @@ datum/mind
 			if(changeling)
 				current.remove_changeling_powers()
 				current.verbs -= /datum/changeling/proc/EvolutionMenu
+			if(vampire)
+				current.remove_vampire_powers()
 			current.mind = null
 		if(new_character.mind)		//remove any mind currently in our new body's mind variable
 			new_character.mind.current = null
@@ -82,6 +85,9 @@ datum/mind
 
 		if(changeling)
 			new_character.make_changeling()
+
+		if(vampire)
+			new_character.make_vampire()
 
 		if(active)
 			new_character.key = key		//now transfer the key to link the client to our new body
@@ -119,6 +125,7 @@ datum/mind
 			"cult",
 			"wizard",
 			"changeling",
+			"vampire",
 			"nuclear",
 			"traitor", // "traitorchan",
 			"monkey",
@@ -215,6 +222,25 @@ datum/mind
 //			if (istype(changeling) && changeling.changelingdeath)
 //				text += "<br>All the changelings are dead! Restart in [round((changeling.TIME_TO_GET_REVIVED-(world.time-changeling.changelingdeathtime))/10)] seconds."
 			sections["changeling"] = text
+
+			/** VAMPIRE ***/
+			text = "vampire"
+			if (ticker.mode.config_tag=="vampire")
+				text = uppertext(text)
+			text = "<i><b>[text]</b></i>: "
+			if (src in ticker.mode.vampires)
+				text += "<b>YES</b>|<a href='?src=\ref[src];vampire=clear'>no</a>"
+				if (objectives.len==0)
+					text += "<br>Objectives are empty! <a href='?src=\ref[src];vampire=autoobjectives'>Randomize!</a>"
+			else
+				text += "<a href='?src=\ref[src];vampire=vampire'>yes</a>|<b>NO</b>"
+			/** Enthralled ***/
+			text += "<br><b>enthralled</b>"
+			if(src in ticker.mode.enthralled)
+				text += " <b><font color='#FF0000'>YES</font></b> | no"
+			else
+				text += " yes | <font color='#00FF00'>NO</font></b>"
+			sections["vampire"] = text
 
 			/** NUCLEAR ***/
 			text = "nuclear"
@@ -751,6 +777,27 @@ datum/mind
 						current.real_name = current.dna.real_name
 						current.UpdateAppearance()
 						domutcheck(current, null)
+
+		else if (href_list["vampire"])
+			switch(href_list["vampire"])
+				if("clear")
+					if(src in ticker.mode.vampires)
+						ticker.mode.vampires -= src
+						special_role = null
+						current.remove_vampire_powers()
+						if(vampire)	del(vampire)
+						current << "<FONT color='red' size = 3><B>You grow weak and lose your powers! You are no longer a vampire and are stuck in your current form!</B></FONT>"
+						log_admin("[key_name_admin(usr)] has de-vampired [current].")
+				if("vampire")
+					if(!(src in ticker.mode.vampires))
+						ticker.mode.vampires += src
+						ticker.mode.grant_vampire_powers(current)
+						special_role = "Vampire"
+						current << "<B><font color='red'>Your powers are awoken. Your lust for blood grows... You are a Vampire!</font></B>"
+						log_admin("[key_name_admin(usr)] has vampired [current].")
+				if("autoobjectives")
+					ticker.mode.forge_vampire_objectives(src)
+					usr << "\blue The objectives for vampire [key] have been generated. You can edit them and announce manually."
 
 		else if (href_list["nuclear"])
 			var/mob/living/carbon/human/H = current
