@@ -24,8 +24,7 @@
 		del(W)
 	return null
 
-/mob/living/carbon/human/proc/is_on_ears(var/typepath)
-	return max(istype(l_ear,typepath),istype(r_ear,typepath))
+//is_on_ear check is defined in vampire.dm of all things, not my call :3
 
 /mob/living/carbon/human/proc/has_organ(name)
 	var/datum/organ/external/O = organs_by_name[name]
