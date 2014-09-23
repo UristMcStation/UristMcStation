@@ -48,7 +48,13 @@
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
-
+	if(M.mind)
+		if(M.mind.vampire)
+			if(ishuman(M))
+				if(!(VAMP_FULL in M.mind.vampire.powers))
+					M << "<span class='warning'>The nullrod's power interferes with your own!</span>"
+					M.mind.vampire.nullified = max(5, M.mind.vampire.nullified + 2)
+	..()
 	if (M.stat !=2)
 		if((M.mind in ticker.mode.cult) && prob(33))
 			M << "\red The power of [src] clears your mind of the cult's influence!"
