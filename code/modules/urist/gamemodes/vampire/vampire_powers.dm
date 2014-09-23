@@ -304,7 +304,7 @@
 
 /mob/proc/handle_enthrall(mob/living/carbon/human/H as mob)
 	if(!istype(H))
-		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT POMF OR NEXIS</span></b>"
+		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 	var/ref = "\ref[src.mind]"
 	if(!(ref in ticker.mode.thralls))
