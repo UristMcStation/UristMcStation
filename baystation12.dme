@@ -1338,6 +1338,7 @@
 #include "code\modules\urist\area&turf\turfs.dm"
 #include "code\modules\urist\items\airlock_painter.dm"
 #include "code\modules\urist\items\cards.dm"
+#include "code\modules\urist\items\grenades.dm"
 #include "code\modules\urist\items\paint.dm"
 #include "code\modules\urist\items\papercrafts.dm"
 #include "code\modules\urist\items\razor.dm"
