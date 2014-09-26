@@ -45,6 +45,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/effect/decal/warning_stripes/urist/arrow
 	name = "guide arrow"
+	icon_state = "arrow"
 
 // -----------------------------
 //           Book bag
