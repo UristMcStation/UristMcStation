@@ -5,6 +5,7 @@
 	return 1
 
 /proc/Get_BNews()
+	if(!BNews)	return
 
 	BNews = null
 
@@ -45,8 +46,8 @@
 
 		if(9) //September
 			switch(DD)
-				if(19)							BNews = "Today in the news, i test BNews. More at 11."
-				if(20)							BNews = "Today in the news, i test BNews. More at 11."
+				if(1)							BNews = "Blarg"
+				if(25)							BNews = "Testing!"
 
 		if(10) //October
 			switch(DD)
@@ -60,13 +61,13 @@
 			switch(DD)
 				if(1)							BNews = "Blarg"
 
-/client/proc/Set_BNews(T as text|null)
+/client/proc/Set_BNews(B as text|null)
 	set name = ".Set BNews"
 	set category = "Fun"
 	set desc = "Force-set the BNews variable to make the game think it's a certain day."
 	if(!check_rights(R_SERVER))	return
 
-	BNews = T
+	BNews = B
 	//get a new station name
 	station_name = null
 	station_name()

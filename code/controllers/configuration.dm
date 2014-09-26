@@ -410,6 +410,9 @@
 				if("allow_holidays")
 					Holiday = 1
 
+				if("allow_bnews")
+					BNews = 1
+
 				if("use_irc_bot")
 					use_irc_bot = 1
 
