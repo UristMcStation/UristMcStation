@@ -43,6 +43,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	name = "warning decal"
 	icon = 'icons/urist/items/uristdecals.dmi'
 
+/obj/effect/decal/warning_stripes/urist/arrow
+	name = "guide arrow"
+
 // -----------------------------
 //           Book bag
 // -----------------------------
