@@ -284,6 +284,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/stool/bed/chair/urist/bench/bench1/right
 	icon_state = "benchright"
 
+/obj/structure/stool/bed/chair/urist/bench/bench1/mid
+	icon_state = "benchmid"
+
+/obj/structure/stool/bed/chair/urist/bench/bench2
+	desc = "A blue bench found on the Central Command transit system. You'd think it would be padded, but your ass says otherwise."
+
 /obj/structure/stool/bed/chair/urist/bench/bench2/top
 	icon_state = "bench2top"
 
@@ -292,15 +298,3 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/stool/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
-
-/obj/structure/stool/bed/chair/urist/bench/bench3
-	desc = "A blue bench found on the Central Command transit system. You'd think it would be padded, but your ass says otherwise."
-
-/obj/structure/stool/bed/chair/urist/bench/bench3/top
-	icon_state = "bench3top"
-
-/obj/structure/stool/bed/chair/urist/bench/bench3/mid
-	icon_state = "bench3mid"
-
-/obj/structure/stool/bed/chair/urist/bench/bench3/bot
-	icon_state = "bench3bot"
