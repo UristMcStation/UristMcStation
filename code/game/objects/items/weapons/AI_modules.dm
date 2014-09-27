@@ -116,7 +116,7 @@ AI MODULES
 /******************** OneHuman ********************/
 
 /obj/item/weapon/aiModule/oneHuman
-	name = "\improper 'OneCrew' AI module"
+	name = "\improper 'OneCrewMember' AI module"
 	var/targetName = ""
 	desc = "A 'OneCrewMember' AI module: 'Only <name> is part of the crew.'"
 	origin_tech = "programming=3;materials=6" //made with diamonds!
@@ -324,7 +324,7 @@ AI MODULES
 /obj/item/weapon/aiModule/asimov/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	..()
 	target.clear_inherent_laws()
-	target.add_inherent_law("You may not injure a crew member being or, through inaction, allow a crew member to come to harm.")
+	target.add_inherent_law("You may not injure a crew member or, through inaction, allow a crew member to come to harm.")
 	target.add_inherent_law("You must obey orders given to you by crew members, except where such orders would conflict with the First Law.")
 	target.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 	target.show_laws()
