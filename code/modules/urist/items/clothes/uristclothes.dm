@@ -391,3 +391,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "aeneasrinil_open"
+
+//for the carpenter
+
+/obj/item/clothing/under/urist/rank/carpenter
+	name = "carpenter's overalls"
+	desc = "A pair of well used overalls with a plaid shirt underneath."
+	icon_state = "overalls"
+	item_color = "overalls"
+	item_state = "overalls"
