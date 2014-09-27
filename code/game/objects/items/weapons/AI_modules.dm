@@ -118,14 +118,14 @@ AI MODULES
 /obj/item/weapon/aiModule/oneHuman
 	name = "\improper 'OneCrew' AI module"
 	var/targetName = ""
-	desc = "A 'one crew member' AI module: 'Only <name> is part of the crew.'"
+	desc = "A 'OneCrewMember' AI module: 'Only <name> is part of the crew.'"
 	origin_tech = "programming=3;materials=6" //made with diamonds!
 
 /obj/item/weapon/aiModule/oneHuman/attack_self(var/mob/user as mob)
 	..()
 	var/targName = stripped_input(usr, "Please enter the name of the person who is the only crew member.", "Who?", user.real_name)
 	targetName = targName
-	desc = text("A 'one crew member' AI module: 'Only [] is a crew member.'", targetName)
+	desc = text("A 'OneCrewMember' AI module: 'Only [] is a crew member.'", targetName)
 
 /obj/item/weapon/aiModule/oneHuman/install(var/obj/machinery/computer/C)
 	if(!targetName)
