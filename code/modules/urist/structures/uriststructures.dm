@@ -257,7 +257,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/stool/bed/chair/urist/shuttle
 	name = "shuttle chair"
 	desc = "A specially padded chair made for shuttles."
-	icon_state = "comfychair"
+	icon_state = "shuttlechair"
 	var/image/armrest = null
 
 /obj/structure/stool/bed/chair/urist/shuttle/New()

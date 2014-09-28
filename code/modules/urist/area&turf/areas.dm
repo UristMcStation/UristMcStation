@@ -120,3 +120,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Navy Ship"
 	icon_state = "shuttle"
 
+//centcahm
+
+/area/centcom/transit
+	name = "\improper Centcom Transit Area"
