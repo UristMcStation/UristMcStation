@@ -17,7 +17,7 @@
 			switch(DD)
 				if(1)							BNews = "The universe did not end last night, Unathi extremists not available for comment."
 				if(20)							BNews = "Skrell passenger vessel, The Janarus, collided with a space station today while attempting to dock. All passengers aboard are believed to have been killed."
-				if(30)							BNews = "The captain of the Janarus has been posthumously found guilty of gross misconduct and has been faulted with the desctruction of the vessel and the death of all 154 passengers."
+				if(30)							BNews = "The captain of the Janarus has been posthumously found guilty of gross misconduct and has been faulted with the destruction of the vessel and the death of all 154 passengers."
 
 		if(2) //February
 			switch(DD)
@@ -36,10 +36,10 @@
 
 		if(5) //May
 			switch(DD)
-				if(1)							BNews = "Labor protests erupt accross dozens of Nanotrasen colonies."
-				if(2)							BNews = "Labor protests enter the second day."
+				if(1)							BNews = "Labour protests erupt accross dozens of Nanotrasen colonies."
+				if(2)							BNews = "Labour protests enter the second day."
 				if(5)							BNews = "After a response by Nanotrasen that protesters are calling heavy-handed and Nanotrasen is calling just, the majority of labour protests have ended."
-				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end. Speculation is abound over whethter they were influenced by rival corporations."
+				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end. Speculation is abound over wethter they were influenced by rival corporations."
 
 		if(6) //June
 			switch(DD)
@@ -59,18 +59,18 @@
 
 		if(9) //September
 			switch(DD)
-				if(1)							BNews = "Attention loyal viewers. Due to recent budged cuts, Nanotrasen News Network will be off the air for the month of September."
+				if(1)							BNews = "Attention loyal viewers. Due to recent budget cuts, Nanotrasen News Network will be off the air for the month of September."
 
 		if(10) //October
 			switch(DD)
-				if(10)							BNews = "Hello citizens of Nanotrasen! I'm Chet Jonaheus! I'm the nightly news anchors for the newly founded Nanotrasen News Network! Turn in every night for the latest in breaking news and events!"
+				if(10)							BNews = "Hello citizens of Nanotrasen! I'm Chet Jonaheus! I'm the nightly news anchor for the newly founded Nanotrasen News Network! Turn in every night for the latest in breaking news and events!"
 				if(14)							BNews = "The Skrellian Federation becomes the first galatic civilization to legalize inter-species marriage. Mass protests break out outside various Skrell embassies on many worlds!"
 				if(15)							BNews = "The Skrellian Embassy on Earth has been bombed today by terrorists protesting the recent legalization of inter-species marriage! The captain of the Lotus Tree was not available for comment."
-				if(30)							BNews = "Local police forces on Mars have released information today about a group of narcotic trafficers who were attempting to smuggle drugs past customs disguised as halloween candy."
+				if(30)							BNews = "Local police forces on Mars have released information today about a group of narcotic traffickers who were attempting to smuggle drugs past customs disguised as halloween candy."
 
 		if(11) //November
 			switch(DD)
-				if(10)							BNews = "The Terran election season has begun! Voters all over the Terran Confederacy are flocking to the nearest voting station to cast their vote! The two biggest canidates are President Garret Harris running for his second term, and newcomer Tam Wycker."
+				if(10)							BNews = "The Terran election season has begun! Voters all over the Terran Confederacy are flocking to the nearest voting station to cast their vote! The two biggest candidates are President Garret Harris running for his second term, and newcomer Tam Wycker."
 				if(17)							BNews = "The polls are closed and the results are in! President Garret Harris has beaten Tam Wycker in the polls and will now be beginning his second term in office!"
 				if(29)							BNews = "A new law has been passed that disallows non-humans from practicing medicine in the Terran Confederacy."
 
