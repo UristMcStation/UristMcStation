@@ -59,10 +59,11 @@
 
 		if(9) //September
 			switch(DD)
-				if(1)							BNews = "Warning! The Breaking News cycle will now reset! Please update me before the end of September!"
+				if(1)							BNews = "Attention loyal viewers. Due to recent budged cuts, Nanotrasen News Network will be off the air for the month of September."
 
 		if(10) //October
 			switch(DD)
+				if(10)							BNews = "Hello citizens of Nanotrasen! I'm Chet Jonaheus! I'm the nightly news anchors for the newly founded Nanotrasen News Network! Turn in every night for the latest in breaking news and events!"
 				if(14)							BNews = "The Skrellian Federation becomes the first galatic civilization to legalize inter-species marriage. Mass protests break out outside various Skrell embassies on many worlds!"
 				if(15)							BNews = "The Skrellian Embassy on Earth has been bombed today by terrorists protesting the recent legalization of inter-species marriage! The captain of the Lotus Tree was not available for comment."
 				if(30)							BNews = "Local police forces on Mars have released information today about a group of narcotic trafficers who were attempting to smuggle drugs past customs disguised as halloween candy."
@@ -99,7 +100,7 @@
 /proc/BNews_Game_Start()
 	if(BNews)
 		world << "<font color='blue'>and...</font>"
-		world << "<h4>Breaking News! [BNews]</h4>"
+		world << "<h4>Breaking News from NNN! [BNews]</h4>"
 
 	return
 
