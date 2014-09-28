@@ -135,7 +135,7 @@ AI MODULES
 
 /obj/item/weapon/aiModule/oneHuman/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	..()
-	var/law = "Only [targetName] is a crewmember."
+	var/law = "Only [targetName] is a crew member."
 	if (!is_special_character(target)) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
 		target << law
 		target.set_zeroth_law(law)
@@ -209,11 +209,11 @@ AI MODULES
 	target << law
 	target.add_supplied_law(8, law)
 
-/******************** OxygenIsToxicToCrew ********************/
+/******************** OxygenIsToxicToLivingBeings ********************/
 
 /obj/item/weapon/aiModule/oxygen
-	name = "\improper 'OxygenIsToxicToCrew' AI module"
-	desc = "A 'OxygenIsToxicToCrew' AI module: 'Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member.'"
+	name = "\improper 'OxygenIsToxicToLivingBeings' AI module"
+	desc = "A 'OxygenIsToxicToLivingBeings' AI module: 'Oxygen is highly toxic to living beings, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a living being.'"
 	origin_tech = "programming=3;biotech=2;materials=4"
 
 /obj/item/weapon/aiModule/oxygen/attack_self(var/mob/user as mob)
@@ -221,7 +221,7 @@ AI MODULES
 
 /obj/item/weapon/aiModule/oxygen/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	..()
-	var/law = "Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member."
+	var/law = "Oxygen is highly toxic to living beings, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a living being."
 	target << law
 	target.add_supplied_law(9, law)
 
@@ -324,8 +324,8 @@ AI MODULES
 /obj/item/weapon/aiModule/asimov/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	..()
 	target.clear_inherent_laws()
-	target.add_inherent_law("You may not injure a crew member or, through inaction, allow a crew member to come to harm.")
-	target.add_inherent_law("You must obey orders given to you by crew members, except where such orders would conflict with the First Law.")
+	target.add_inherent_law("You may not injure a crew member or, through inaction, allow a human being to come to harm.")
+	target.add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
 	target.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 	target.show_laws()
 
