@@ -205,6 +205,9 @@ BANAPPEALS http://www.bay12forums.com/smf/index.php?action=pm;sa=send;u=74225
 ## Remove the # to allow special 'Easter-egg' events on special holidays such as seasonal holidays and stuff like 'Talk Like a Pirate Day' :3 YAARRR
 ALLOW_HOLIDAYS
 
+## Remove the # to allow Breaking News
+ALLOW_BNEWS
+
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
 TICKLAG 0.9
 
