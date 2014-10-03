@@ -47,3 +47,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contains = list(/obj/item/device/destTagger,
 					/obj/item/weapon/packageWrap,
 					/obj/item/weapon/packageWrap)
+					
+//Xenobio supplies crate - for when the slimes all die. One extinguisher, one monkeycube box, two grey extracts - Octobomb
+/datum/supply_packs/xenobio_supplies
+	name = "Xenobiology Supplies"
+	contains = list(/obj/item/weapon/extinguisher,
+					/obj/item/weapon/storage/box/monkeycubes,
+					/obj/item/slime_extract/grey,
+					/obj/item/slime_extract/grey)
+	cost = 20
+	containertype = "/obj/structure/closet/crate/secure"
+	containername = "Xenobiology supplies crate"
+	access = access_rd
+	group = "Medical / Science"
