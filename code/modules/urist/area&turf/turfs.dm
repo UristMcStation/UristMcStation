@@ -14,6 +14,20 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 	icon_state = "yellowdiag02"
 	floor_tile = new/obj/item/stack/tile/plasteel
 
+//unsimulated version
+
+/turf/unsimulated/floor/uristturf
+	name = "floor"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "yellowdiag02"
+
+//rails
+
+/turf/unsimulated/floor/uristturf/rail
+	name = "rail"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "rail1"
+
 //Holy fuck. Anyways, this is pool turf, so we don't fuck up /tg/ .dmi's. ALSO, if there ARE turfs to add, add them above this.
 
 /turf/simulated/floor/beach/pool
