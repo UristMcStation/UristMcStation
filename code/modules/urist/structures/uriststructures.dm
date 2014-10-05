@@ -96,6 +96,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sign leading to Escape."
 	icon_state = "esc"
 
+//nt4lyfe
+
+/obj/structure/sign/urist/nt
+	name = "Nanotrasen Sign"
+	desc = "A large sign proudly displaying the logo of Nanotrasen."
+	icon_state = "ntsign"
+
 //ads
 
 /obj/structure/sign/urist/ad/sign1
@@ -116,6 +123,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Space Beer advertisement"
 	desc = "An advertisement for Space Beer. The text reads 'Best beer this side of Tau Ceti!'"
 	icon_state = "sign4"
+
+/obj/structure/sign/urist/ad/sign5
+	name = "Cheesy Honkers advertisement"
+	desc = "An advertisement for Cheesy Honkers. The text reads 'Cheesy Honkers! Guaranteed not to give you a miscarriage!'"
+	icon_state = "sign5"
 
 //transitmap
 
@@ -298,3 +310,32 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/stool/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
+
+//stools
+
+/obj/structure/stool/bar
+	name = "bar stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "barstool"
+	style = 1 //0 is regular, 1 is bar, 2 is wood
+
+/obj/structure/stool/wood
+	name = "wood stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodstool"
+	style = 2 //0 is regular, 1 is bar, 2 is wood
+
+/obj/item/weapon/stool/bar
+	name = "bar stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "barstool"
+	item_state = "stool"
+	style = 1 //0 is regular, 1 is bar, 2 is wood
+
+/obj/item/weapon/stool/wood
+	urist_only = 1
+	name = "wood stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodstool"
+	item_state = "stool"
+	style = 2 //0 is regular, 1 is bar, 2 is wood
