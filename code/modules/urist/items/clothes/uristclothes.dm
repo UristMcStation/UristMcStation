@@ -421,7 +421,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "blackcoat_open"
 
 /obj/item/clothing/suit/urist/blackcoat/suit
-	name = "black coat"
+	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "blackcoat_suit"
