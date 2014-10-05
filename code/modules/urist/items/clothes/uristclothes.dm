@@ -400,3 +400,73 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "overalls"
 	item_color = "overalls"
 	item_state = "overalls"
+
+//T-shirts, act as accessories
+
+/obj/item/clothing/tie/shirt
+	icon = 'icons/urist/items/clothes/ties.dmi'
+	icon_override = 'icons/uristmob/ties.dmi'
+	urist_only = 1
+
+/obj/item/clothing/tie/shirt/white
+	name = "white t-shirt"
+	desc = "A white t-shirt"
+	icon_state = "wshirt"
+	item_color = "wshirt"
+	item_state = "wshirt"
+
+/obj/item/clothing/tie/shirt/black
+	name = "black t-shirt"
+	desc = "A black t-shirt"
+	icon_state = "bshirt"
+	item_state = "bshirt"
+	item_color = "bshirt"
+
+/obj/item/clothing/tie/shirt/grey
+	name = "grey t-shirt"
+	desc = "A grey t-shirt"
+	icon_state = "gshirt"
+	item_state = "gshirt"
+	item_color = "gshirt"
+
+/obj/item/clothing/tie/shirt/red
+	name = "red t-shirt"
+	desc = "A red t-shirt"
+	icon_state = "rshirt"
+	item_state = "rshirt"
+	item_color = "rshirt"
+
+/obj/item/clothing/tie/shirt/blue
+	name = "blue t-shirt"
+	desc = "A blue t-shirt"
+	icon_state = "bshirt2"
+	item_state = "bshirt2"
+	item_color = "bshirt2"
+
+/obj/item/clothing/tie/shirt/green
+	name = "green t-shirt"
+	desc = "A green t-shirt"
+	icon_state = "gshirt2"
+	item_state = "gshirt2"
+	item_color = "gshirt2"
+
+/obj/item/clothing/tie/shirt/yellow
+	name = "yellow t-shirt"
+	desc = "A yellow t-shirt"
+	icon_state = "yshirt"
+	item_state = "yshirt"
+	item_color = "yshirt"
+
+/obj/item/clothing/tie/shirt/orange
+	name = "orange t-shirt"
+	desc = "A orange t-shirt"
+	icon_state = "oshirt"
+	item_state = "oshirt"
+	item_color = "oshirt"
+
+/obj/item/clothing/tie/shirt/purple
+	name = "purple t-shirt"
+	desc = "A purple t-shirt"
+	icon_state = "pshirt"
+	item_state = "pshirt"
+	item_color = "pshirt"
