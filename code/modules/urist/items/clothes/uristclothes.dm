@@ -442,4 +442,4 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "browncoat_open"
+	icon_state = "browncoat_closed"
