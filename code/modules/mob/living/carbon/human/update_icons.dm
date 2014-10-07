@@ -274,7 +274,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 		//No icon stored, so we need to start with a basic one.
 		var/datum/organ/external/chest = get_organ("chest")
 		base_icon = chest.get_icon(g)
-		
+
 		if(chest.status & ORGAN_DEAD)
 			base_icon.ColorTone(necrosis_color_mod)
 			base_icon.SetIntensity(0.7)
@@ -565,7 +565,11 @@ proc/get_damage_icon_part(damage_state, body_part)
 		if(w_uniform:hastie)	//WE CHECKED THE TYPE ABOVE. THIS REALLY SHOULD BE FINE.
 			var/tie_color = w_uniform:hastie.item_color
 			if(!tie_color) tie_color = w_uniform:hastie.icon_state
-			standing.overlays	+= image("icon" = 'icons/mob/ties.dmi', "icon_state" = "[tie_color]")
+
+			if(w_uniform:hastie.urist_only)
+				standing.overlays	+= image("icon" = 'icons/uristmob/ties.dmi', "icon_state" = "[tie_color]")
+			else
+				standing.overlays	+= image("icon" = 'icons/mob/ties.dmi', "icon_state" = "[tie_color]")
 
 		overlays_standing[UNIFORM_LAYER]	= standing
 	else

@@ -78,6 +78,12 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Hunter's Workshop"
 	icon_state = "dark160"
 
+/area/shuttle/arrival/centcom
+	icon_state = "shuttle"
+
+/area/shuttle/arrival/transit
+	icon_state = "shuttle"
+
 //awaymap shit
 
 /area/awaymission/snowventure
