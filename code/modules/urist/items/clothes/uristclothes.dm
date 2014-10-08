@@ -411,52 +411,39 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/urist/charcoat
 	name = "charcoal coat"
 	desc = "A warm wool coat in dark grey. Perfect for looking nice in Space Winter."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "charcoat_open"
 
 /obj/item/clothing/suit/urist/blackcoat
 	name = "black coat"
 	desc = "A warm wool coat in black. Perfect for looking nice in Space Winter."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "blackcoat_open"
 
 /obj/item/clothing/suit/urist/blackcoat/suit
 	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "blackcoat_suit"
 
 /obj/item/clothing/suit/urist/burgcoat
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "burgcoat_open"
 
 /obj/item/clothing/suit/urist/tajcoat
 	name = "tajaran fur coat"
 	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "tajcoat_open"
 
 /obj/item/clothing/suit/urist/journocoat
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "browncoat_closed"
 
-/obj/item/clothing/suit/wizrobe/dresden
+/obj/item/clothing/suit/wizrobe/urist/dresden
 	name = "urban wizard's coat"
 	desc = "A black duster that seems to radiate power. It billows slightly in a nonexistent wind. Very urban fantasy."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "dresdencoat_open"
 
-/obj/item/clothing/suit/wizrobe/dresden
-	name = "urban wizard's coat"
-	desc = "A black duster that seems to radiate power. It billows slightly in a nonexistent wind. Very urban fantasy."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "dresdencoat_open"
-
-/obj/item/clothing/head/wizard/dresden
+/obj/item/clothing/head/wizard/urist/dresdendora
 	name = "urban wizard's hat"
 	desc = "A black, wide-brimmed fedora, radiating with an unearthly power of not looking dumb on your ugly mug. Very urban fantasy."
 	icon = 'icons/urist/items/clothes/head.dmi'
