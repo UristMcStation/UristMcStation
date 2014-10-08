@@ -399,4 +399,4 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A pair of well used overalls with a plaid shirt underneath."
 	icon_state = "overalls"
 	item_color = "overalls"
-	item_state = "overalls"	
+	item_state = "overalls"
