@@ -316,7 +316,6 @@
 		if(!H)	return 0
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
  		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
- 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform) //For both journalist and 
 		if (H.mind.role_alt_title)
 			switch(H.mind.role_alt_title)
