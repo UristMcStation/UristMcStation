@@ -400,14 +400,3 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "overalls"
 	item_color = "overalls"
 	item_state = "overalls"
-
-//Journalism - uses dark red suit, so can be changed to a specialist underlayer, should one happen, with minimum fuss.
-/*
-/obj/item/clothing/under/journalist
-	name = "journalist's outfit"
-	desc = "Like all good journalism, it was stolen from someone else"
-	icon_state = "darkred"
-	item_state = "darkred"
-	item_color = "darkred"
-	flags = FPRINT | TABLEPASS
-*/
