@@ -401,12 +401,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "overalls"
 	item_state = "overalls"
 
-//Journalism - uses robotics labcoat and dark red suit. Will change.
-/obj/item/clothing/suit/storage/labcoat/journalist
-	name = "Journalism Trenchcoat"
-	desc = "A trenchcoat worn by investigative journalists. Once belonged to the robotics department."
-	icon_state = "aeneasrinil_open"
-
+//Journalism - uses dark red suit, so can be changed to a specialist underlayer, should one happen, with minimum fuss.
+/*
 /obj/item/clothing/under/journalist
 	name = "journalist's outfit"
 	desc = "Like all good journalism, it was stolen from someone else"
@@ -414,3 +410,4 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "darkred"
 	item_color = "darkred"
 	flags = FPRINT | TABLEPASS
+*/
