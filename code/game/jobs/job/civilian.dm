@@ -329,7 +329,6 @@
 					H.equip_to_slot_or_del(new /obj/item/weapon/pen(H), slot_r_store)
 					H.equip_to_slot_or_del(new /obj/item/device/camera_film(H.back), slot_in_backpack)
 					H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H.back), slot_in_backpack)
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
