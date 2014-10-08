@@ -316,22 +316,19 @@
 		if(!H)	return 0
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		if (H.mind.role_alt_title)
 			switch(H.mind.role_alt_title)
 				if("Librarian")
 					H.equip_to_slot_or_del(new /obj/item/weapon/barcodescanner(H), slot_l_hand)
-					H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 				if("Journalist")
-					H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform) //Remove this
-					//H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/journalist(H), slot_wear_suit) //Uncomment this
-					//H.equip_to_slot_or_del(new /obj/item/clothing/under/journalist(H), slot_w_uniform) //to add the stolen suit
+					H.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/burgcoat(H), slot_wear_suit)
+					//H.equip_to_slot_or_del(new /obj/item/clothing/under/journalist(H), slot_w_uniform) //A red suit. Currently commented out to use librarian default.
 					H.equip_to_slot_or_del(new /obj/item/device/camera(H), slot_l_hand)
 					H.equip_to_slot_or_del(new /obj/item/device/taperecorder(H), slot_l_store)
 					H.equip_to_slot_or_del(new /obj/item/weapon/pen(H), slot_r_store)
 					H.equip_to_slot_or_del(new /obj/item/device/camera_film(H.back), slot_in_backpack)
 					H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H.back), slot_in_backpack)	
-					H.equip_to_slot_or_del(new /obj/item/weapon/paper(H.back), slot_in_backpack)			
 		
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
