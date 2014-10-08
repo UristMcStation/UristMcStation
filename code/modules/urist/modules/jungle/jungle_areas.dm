@@ -26,3 +26,7 @@
 	lighting_use_dynamic = 1
 	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
 	icon_state = "temple1"
+
+/area/jungleoutpost
+	name = "\improper Jungle Outpost"
+	icon_state = "away"

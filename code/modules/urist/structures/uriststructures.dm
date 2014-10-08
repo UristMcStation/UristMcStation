@@ -66,31 +66,75 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
 
-//Department signs, icons based off the ones from Para station
+//signnnnnnnnnssssssssssss
 
-/obj/structure/sign/deptsigns
-	name = "departmental sign"
+/obj/structure/sign/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/structure/sign/deptsigns/sec
+//Department signs, icons based off the ones from Para station
+
+/obj/structure/sign/urist/deptsigns
+	name = "departmental sign"
+
+/obj/structure/sign/urist/deptsigns/sec
 	desc = "A sign leading to Security."
 	icon_state = "sec"
 
-/obj/structure/sign/deptsigns/sci
+/obj/structure/sign/urist/deptsigns/sci
 	desc = "A sign leading to Research."
 	icon_state = "sci"
 
-/obj/structure/sign/deptsigns/eng
+/obj/structure/sign/urist/deptsigns/eng
 	desc = "A sign leading to Engineering."
 	icon_state = "eng"
 
-/obj/structure/sign/deptsigns/med
+/obj/structure/sign/urist/deptsigns/med
 	desc = "A sign leading to Medbay."
 	icon_state = "med"
 
-/obj/structure/sign/deptsigns/esc
+/obj/structure/sign/urist/deptsigns/esc
 	desc = "A sign leading to Escape."
 	icon_state = "esc"
+
+//nt4lyfe
+
+/obj/structure/sign/urist/nt
+	name = "Nanotrasen Sign"
+	desc = "A large sign proudly displaying the logo of Nanotrasen."
+	icon_state = "ntsign"
+
+//ads
+
+/obj/structure/sign/urist/ad/sign1
+	icon_state = "sign1"
+	name = "Cosmetic Surgery advertisement"
+	desc = "An advertisment for Nanotrasen Cosmetic Surgery. Their catchy jingle is still stuck in your head: 'Hate yourself? So do we! Don't choose a bullet, choose Nanotrasen surgery!'"
+/obj/structure/sign/urist/ad/sign2
+	icon_state = "sign2"
+	name = "Luna advertisement"
+	desc = "An advertisement for Nanotrasen's offices on Luna. The picture shows an image of Luna before it was terraformed."
+
+/obj/structure/sign/urist/ad/sign3
+	icon_state = "sign3"
+	name = "5555 Lotto advertisement"
+	desc = "An advertisement for the Nanotrasen run 5555 Lotto. You suddenly feel an impulse to buy a ticket next time you're back here."
+
+/obj/structure/sign/urist/ad/sign4
+	name = "Space Beer advertisement"
+	desc = "An advertisement for Space Beer. The text reads 'Best beer this side of Tau Ceti!'"
+	icon_state = "sign4"
+
+/obj/structure/sign/urist/ad/sign5
+	name = "Cheesy Honkers advertisement"
+	desc = "An advertisement for Cheesy Honkers. The text reads 'Cheesy Honkers! Guaranteed not to give you a miscarriage!'"
+	icon_state = "sign5"
+
+//transitmap
+
+/obj/structure/sign/urist/transitmap
+	name = "transit map"
+	desc = "A handy map giving directions through Central Command's extensive transit network."
+	icon_state = "transitmap"
 
 //hacky, but I don't give a fuck. nicer beds
 
@@ -216,3 +260,82 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/handcuffs(src)
 		return
+
+//shuttle chairs
+
+/obj/structure/stool/bed/chair/urist
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+
+/obj/structure/stool/bed/chair/urist/shuttle
+	name = "shuttle chair"
+	desc = "A specially padded chair made for shuttles."
+	icon_state = "shuttlechair"
+	var/image/armrest = null
+
+/obj/structure/stool/bed/chair/urist/shuttle/New()
+	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
+	armrest.layer = MOB_LAYER + 0.1
+
+	return ..()
+
+/obj/structure/stool/bed/chair/urist/shuttle/afterbuckle()
+	if(buckled_mob)
+		overlays += armrest
+	else
+		overlays -= armrest
+
+//random benches
+
+/obj/structure/stool/bed/chair/urist/bench
+	name = "bench"
+	desc = "A grey bench. No matter how hard you try, you can't seem to get comfortable on it."
+
+/obj/structure/stool/bed/chair/urist/bench/bench1/left
+	icon_state = "benchleft"
+
+/obj/structure/stool/bed/chair/urist/bench/bench1/right
+	icon_state = "benchright"
+
+/obj/structure/stool/bed/chair/urist/bench/bench1/mid
+	icon_state = "benchmid"
+
+/obj/structure/stool/bed/chair/urist/bench/bench2
+	desc = "A blue bench found on the Central Command transit system. You'd think it would be padded, but your ass says otherwise."
+
+/obj/structure/stool/bed/chair/urist/bench/bench2/top
+	icon_state = "bench2top"
+
+/obj/structure/stool/bed/chair/urist/bench/bench2/mid
+	icon_state = "bench2mid"
+
+/obj/structure/stool/bed/chair/urist/bench/bench2/bot
+	icon_state = "bench2bot"
+
+//stools
+
+/obj/structure/stool/bar
+	name = "bar stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "barstool"
+	style = 1 //0 is regular, 1 is bar, 2 is wood
+
+/obj/structure/stool/wood
+	name = "wood stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodstool"
+	style = 2 //0 is regular, 1 is bar, 2 is wood
+
+/obj/item/weapon/stool/bar
+	name = "bar stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "barstool"
+	item_state = "stool"
+	style = 1 //0 is regular, 1 is bar, 2 is wood
+
+/obj/item/weapon/stool/wood
+	urist_only = 1
+	name = "wood stool"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodstool"
+	item_state = "stool"
+	style = 2 //0 is regular, 1 is bar, 2 is wood

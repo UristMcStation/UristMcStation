@@ -196,6 +196,9 @@
 			if (H.mind in ticker.mode.cult)
 				ticker.mode.add_cultist(src.occupant.mind)
 				ticker.mode.update_all_cult_icons() //So the icon actually appears
+		if("vampire")
+			if (H.mind in ticker.mode.vampires)
+				ticker.mode.update_vampire_icons_added(H.mind)
 
 	// -- End mode specific stuff
 

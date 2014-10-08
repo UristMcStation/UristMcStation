@@ -128,6 +128,9 @@
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
 
+	if(mind && mind.vampire)
+		handle_vampire()
+
 
 //Much like get_heat_protection(), this returns a 0 - 1 value, which corresponds to the percentage of protection based on what you're wearing and what you're exposed to.
 /mob/living/carbon/human/proc/get_pressure_protection()
@@ -226,7 +229,7 @@
 						if(1)
 							say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge", "grehem")] [pick("mellens", "melons", "mwrlins", "lleyd")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse", "neuk", "diabeetus")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#"))
 						if(2)
-							say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!", "VICTOR, RESTART TEH SERVAH","GLLERD FIX PLOS", "Eian, you be luukin faine tewnight"))
+							say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!", "VICTOR, RESTART TEH SERVAH","GLLERD FIX PLOS", "Eian, you be luukin faine tewnight", "MUH PANK AOC"))
 						if(3)
 							emote("drool")
 			if (getBrainLoss() >= 60)
@@ -1178,6 +1181,12 @@
 				if( prob(2) && health && !hal_crit )
 					spawn(0)
 						emote("snore")
+				if(mind)
+					if(mind.vampire)
+						if(istype(loc, /obj/structure/closet/coffin))
+							adjustBruteLoss(-1)
+							adjustFireLoss(-1)
+							adjustToxLoss(-1)
 			else if(resting)
 				if(halloss > 0)
 					adjustHalLoss(-3)
@@ -1357,6 +1366,13 @@
 					if("shadow")
 						see_in_dark = 8
 						see_invisible = SEE_INVISIBLE_LEVEL_ONE
+			if(mind && mind.vampire)
+				if((VAMP_VISION in mind.vampire.powers) && !(VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_MOBS
+				if((VAMP_FULL in mind.vampire.powers))
+					sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+					see_in_dark = 8
+					if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 
 			if(XRAY in mutations)
 				sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
@@ -1860,6 +1876,8 @@
 					holder.icon_state = "hudmutineer"
 				if("mutineer")
 					holder.icon_state = "hudmutineer"
+				if("Vampire") // TODO: Check this
+					holder.icon_state = "hudvampire"
 
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0

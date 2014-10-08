@@ -24,6 +24,7 @@
 		del(W)
 	return null
 
+//is_on_ear check is defined in vampire.dm of all things, not my call :3
 
 /mob/living/carbon/human/proc/has_organ(name)
 	var/datum/organ/external/O = organs_by_name[name]
