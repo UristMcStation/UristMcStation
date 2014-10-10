@@ -176,6 +176,46 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Research"] = shuttle
 	process_shuttles += shuttle
 
+// Begin Urist shuttles
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/naval1/centcom)
+	shuttle.area_station = locate(/area/shuttle/naval1/station)
+//	shuttle.docking_controller_tag = "naval_shuttle"
+//	shuttle.dock_target_station = "naval_shuttle_dock_airlock"
+//	shuttle.dock_target_offsite = "naval_shuttle_bay"
+	shuttles["Naval"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/outpost/jungle)
+	shuttle.area_station = locate(/area/shuttle/outpost/station)
+//	shuttle.docking_controller_tag = "outpost_shuttle"
+//	shuttle.dock_target_station = "outpost_shuttle_dock_airlock"
+//	shuttle.dock_target_offsite = "outpost_shuttle_bay"
+	shuttles["Outpost"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/arrival()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/arrivals/centcom)
+	shuttle.area_station = locate(/area/shuttle/arrivals/station)
+	shuttle.area_transition = locate(/area/shuttle/arrivals/transit)
+	shuttle.move_time = 20
+	shuttle.docking_controller_tag = "arrival_shuttle"
+	shuttle.dock_target_station = "arrival_dock"
+	shuttle.dock_target_offsite = "transit_dock"
+	shuttle.transit_direction = WEST
+	shuttles["Arrival"] = shuttle
+	process_shuttles += shuttle
+
+//End Urist shuttles
+
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
 	ERT.location = 0
@@ -232,46 +272,6 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	MS.warmup_time = 0
 	shuttles["Syndicate"] = MS
-
-// Begin Urist shuttles
-
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/naval1/centcom)
-	shuttle.area_station = locate(/area/shuttle/naval1/station)
-//	shuttle.docking_controller_tag = "naval_shuttle"
-//	shuttle.dock_target_station = "naval_shuttle_dock_airlock"
-//	shuttle.dock_target_offsite = "naval_shuttle_bay"
-	shuttles["Naval"] = shuttle
-	process_shuttles += shuttle
-
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/outpost/jungle)
-	shuttle.area_station = locate(/area/shuttle/outpost/station)
-//	shuttle.docking_controller_tag = "outpost_shuttle"
-//	shuttle.dock_target_station = "outpost_shuttle_dock_airlock"
-//	shuttle.dock_target_offsite = "outpost_shuttle_bay"
-	shuttles["Outpost"] = shuttle
-	process_shuttles += shuttle
-
-	shuttle = new/datum/shuttle/ferry/arrival()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
-	shuttle.area_station = locate(/area/shuttle/arrival/station)
-	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
-	shuttle.move_time = 20
-	shuttle.docking_controller_tag = "arrival_shuttle"
-	shuttle.dock_target_station = "arrival_dock"
-	shuttle.dock_target_offsite = "transit_dock"
-	shuttle.transit_direction = WEST
-	shuttles["Arrival"] = shuttle
-	process_shuttles += shuttle
-
-//End Urist shuttles
 
 //This is called by gameticker after all the machines and radio frequencies have been properly initialized
 /datum/shuttle_controller/proc/setup_shuttle_docks()
