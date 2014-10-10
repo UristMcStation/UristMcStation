@@ -72,8 +72,11 @@
 	var/style = 0 //0 is regular, 1 is bar, 2 is wood
 //	var/obj/structure/stool/origin = null
 
-/obj/item/weapon/stool/attack_self(mob/user as mob)
-	..()
+/obj/item/weapon/stool/proc/deploy(var/mob/user)
+
+//	if(!origin)
+//		del src
+
 	if(style == 0)
 		var/obj/structure/stool/S = new/obj/structure/stool()
 		S.loc = get_turf(src)
@@ -83,9 +86,21 @@
 	if(style == 2)
 		var/obj/structure/stool/S = new/obj/structure/stool/wood()
 		S.loc = get_turf(src)
-	user.u_equip(src)
-	user.visible_message("\blue [user] puts [src] down.", "\blue You put [src] down.")
+
+	if(user)
+		user.u_equip(src)
+		user.visible_message("\blue [user] puts [src] down.", "\blue You put [src] down.")
+
 	del(src)
+
+/obj/item/weapon/stool/dropped(mob/user as mob)
+	..()
+	if(istype(loc,/turf/))
+		deploy(user)
+
+/obj/item/weapon/stool/attack_self(mob/user as mob)
+	..()
+	deploy(user)
 
 /obj/item/weapon/stool/attack(mob/M as mob, mob/user as mob)
 	if (prob(5) && istype(M,/mob/living))

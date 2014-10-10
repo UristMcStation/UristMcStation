@@ -1242,12 +1242,12 @@ proc/is_hot(obj/item/W as obj)
 				return 3800
 			else
 				return 0
-		if(/obj/item/weapon/lighter)
+		if(/obj/item/weapon/flame/lighter)
 			if(W:lit)
 				return 1500
 			else
 				return 0
-		if(/obj/item/weapon/match)
+		if(/obj/item/weapon/flame/match)
 			if(W:lit)
 				return 1000
 			else
@@ -1288,8 +1288,8 @@ proc/is_hot(obj/item/W as obj)
 		istype(W, /obj/item/weapon/screwdriver)                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
 		istype(W, /obj/item/weapon/weldingtool)					  || \
-		istype(W, /obj/item/weapon/lighter/zippo)				  || \
-		istype(W, /obj/item/weapon/match)            		      || \
+		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
+		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/cigarette) 		      || \
 		istype(W, /obj/item/weapon/shovel) \
 	)
@@ -1306,11 +1306,10 @@ proc/is_hot(obj/item/W as obj)
 
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M)
-	return (locate(/obj/machinery/optable, M.loc) && M.resting) || \
-	(locate(/obj/structure/stool/bed/roller, M.loc) && 	\
-	(M.buckled || M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat)) && prob(75) || 	\
-	(locate(/obj/structure/table/, M.loc) && 	\
-	(M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(66))
+	return (M.lying && \
+	locate(/obj/machinery/optable, M.loc) || \
+	(locate(/obj/structure/stool/bed/roller, M.loc) && prob(75)) || \
+	(locate(/obj/structure/table/, M.loc) && prob(66)))
 
 /proc/reverse_direction(var/dir)
 	switch(dir)

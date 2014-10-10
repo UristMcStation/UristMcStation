@@ -51,11 +51,12 @@
 					sleep(50)
 					close()
 		return
+	var/mob/M = AM // we've returned by here if M is not a mob
 	if (!( ticker ))
 		return
 	if (src.operating)
 		return
-	if (src.density && src.allowed(AM))
+	if (src.density && !M.small && src.allowed(AM))
 		open()
 		if(src.check_access(null))
 			sleep(50)
@@ -173,7 +174,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/door/window/attack_paw(mob/user as mob)
-	if(istype(user, /mob/living/carbon/alien/humanoid) || istype(user, /mob/living/carbon/slime/adult))
+	if(istype(user, /mob/living/carbon/alien/humanoid))
 		if(src.operating)
 			return
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)

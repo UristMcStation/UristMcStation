@@ -47,10 +47,15 @@
 		if(ai.client)
 			ai.client.eye = src
 		//Holopad
-		if(istype(ai.current, /obj/machinery/hologram/holopad))
-			var/obj/machinery/hologram/holopad/H = ai.current
-			H.move_hologram()
+		if(ai.holo)
+			ai.holo.move_hologram()
 
+/mob/aiEye/proc/getLoc()
+
+	if(ai)
+		if(!isturf(ai.loc) || !ai.client)
+			return
+		return ai.eyeobj.loc
 
 // AI MOVEMENT
 
@@ -61,7 +66,7 @@
 	var/sprint = 10
 	var/cooldown = 0
 	var/acceleration = 1
-
+	var/obj/machinery/hologram/holopad/holo = null
 
 // Intiliaze the eye by assigning it's "ai" variable to us. Then set it's loc to us.
 /mob/living/silicon/ai/New()
@@ -113,7 +118,7 @@
 
 // Return to the Core.
 
-/mob/living/silicon/ai/verb/core()
+/mob/living/silicon/ai/proc/core()
 	set category = "AI Commands"
 	set name = "AI Core"
 
@@ -121,8 +126,7 @@
 
 
 /mob/living/silicon/ai/proc/view_core()
-
-	current = null
+	camera = null
 	cameraFollow = null
 	unset_machine()
 
@@ -139,7 +143,7 @@
 	for(var/datum/camerachunk/c in eyeobj.visibleCameraChunks)
 		c.remove(eyeobj)
 
-/mob/living/silicon/ai/verb/toggle_acceleration()
+/mob/living/silicon/ai/proc/toggle_acceleration()
 	set category = "AI Commands"
 	set name = "Toggle Camera Acceleration"
 
