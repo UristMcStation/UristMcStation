@@ -392,3 +392,11 @@
 			if(prob(10))
 				new /obj/effect/glowshroom(src.loc)
 			del(src)
+
+//structures
+
+/obj/structure/fountain
+	name = "fountain"
+	desc = "A fountain that appears to be spewing red water. Wait... Is that blood?"
+	icon = 'icons/urist/jungle/64x64.dmi'
+	icon_state = "fountain"

@@ -1,4 +1,3 @@
-
 var/global/datum/shuttle_controller/shuttle_controller
 
 
@@ -18,7 +17,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	process_shuttles = list()
 
 	var/datum/shuttle/ferry/shuttle
-	
+
 	// Escape shuttle and pods
 	shuttle = new/datum/shuttle/ferry/emergency()
 	shuttle.location = 1
@@ -35,7 +34,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
 	process_shuttles += shuttle
-	
+
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
@@ -63,7 +62,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
 	shuttles["Escape Pod 2"] = shuttle
-	
+
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
@@ -77,9 +76,9 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
 	shuttles["Escape Pod 3"] = shuttle
-	
+
 	//There is no pod 4, apparently.
-	
+
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
@@ -93,7 +92,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
 	process_shuttles += shuttle
 	shuttles["Escape Pod 5"] = shuttle
-	
+
 	//give the emergency shuttle controller it's shuttles
 	emergency_shuttle.shuttle = shuttles["Escape"]
 	emergency_shuttle.escape_pods = list(
@@ -102,7 +101,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		shuttles["Escape Pod 3"],
 		shuttles["Escape Pod 5"],
 	)
-	
+
 	// Supply shuttle
 	shuttle = new/datum/shuttle/ferry/supply()
 	shuttle.location = 1
@@ -113,7 +112,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_station = "cargo_bay"
 	shuttles["Supply"] = shuttle
 	process_shuttles += shuttle
-	
+
 	supply_controller.shuttle = shuttle
 
 	// Admin shuttles.
@@ -177,6 +176,46 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Research"] = shuttle
 	process_shuttles += shuttle
 
+// Begin Urist shuttles
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/naval1/centcom)
+	shuttle.area_station = locate(/area/shuttle/naval1/station)
+//	shuttle.docking_controller_tag = "naval_shuttle"
+//	shuttle.dock_target_station = "naval_shuttle_dock_airlock"
+//	shuttle.dock_target_offsite = "naval_shuttle_bay"
+	shuttles["Naval"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/outpost/jungle)
+	shuttle.area_station = locate(/area/shuttle/outpost/station)
+//	shuttle.docking_controller_tag = "outpost_shuttle"
+//	shuttle.dock_target_station = "outpost_shuttle_dock_airlock"
+//	shuttle.dock_target_offsite = "outpost_shuttle_bay"
+	shuttles["Outpost"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/arrival()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/arrivals/centcom)
+	shuttle.area_station = locate(/area/shuttle/arrivals/station)
+	shuttle.area_transition = locate(/area/shuttle/arrivals/transit)
+	shuttle.move_time = 20
+	shuttle.docking_controller_tag = "arrival_shuttle"
+	shuttle.dock_target_station = "arrival_dock"
+	shuttle.dock_target_offsite = "transit_dock"
+	shuttle.transit_direction = WEST
+	shuttles["Arrival"] = shuttle
+	process_shuttles += shuttle
+
+//End Urist shuttles
+
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
 	ERT.location = 0
@@ -234,13 +273,12 @@ var/global/datum/shuttle_controller/shuttle_controller
 	MS.warmup_time = 0
 	shuttles["Syndicate"] = MS
 
-
 //This is called by gameticker after all the machines and radio frequencies have been properly initialized
 /datum/shuttle_controller/proc/setup_shuttle_docks()
 	var/datum/shuttle/shuttle
 	var/datum/shuttle/ferry/multidock/multidock
 	var/list/dock_controller_map = list()	//so we only have to iterate once through each list
-	
+
 	//multidock shuttles
 	var/list/dock_controller_map_station = list()
 	var/list/dock_controller_map_offsite = list()
@@ -253,7 +291,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 			multidock = shuttle
 			dock_controller_map_station[multidock.docking_controller_tag_station] = multidock
 			dock_controller_map_offsite[multidock.docking_controller_tag_offsite] = multidock
-	
+
 	//escape pod arming controllers
 	var/datum/shuttle/ferry/escape_pod/pod
 	var/list/pod_controller_map = list()
@@ -269,12 +307,12 @@ var/global/datum/shuttle_controller/shuttle_controller
 					shuttle = dock_controller_map[C.id_tag]
 					shuttle.docking_controller = C.program
 					dock_controller_map -= C.id_tag
-					
+
 					//escape pods
 					if(istype(C, /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod) && istype(shuttle, /datum/shuttle/ferry/escape_pod))
 						var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/EPC = C
 						EPC.pod = shuttle
-					
+
 				if (C.id_tag in dock_controller_map_station)
 					multidock = dock_controller_map_station[C.id_tag]
 					if (istype(multidock))
@@ -285,20 +323,20 @@ var/global/datum/shuttle_controller/shuttle_controller
 					if (istype(multidock))
 						multidock.docking_controller_offsite = C.program
 						dock_controller_map_offsite -= C.id_tag
-				
+
 				//escape pods
 				if (C.id_tag in pod_controller_map)
 					pod = pod_controller_map[C.id_tag]
 					if (istype(C.program, /datum/computer/file/embedded_program/docking/simple/escape_pod/))
 						pod.arming_controller = C.program
-	
+
 	//sanity check
 	if (dock_controller_map.len || dock_controller_map_station.len || dock_controller_map_offsite.len)
 		var/dat = ""
 		for (var/dock_tag in dock_controller_map + dock_controller_map_station + dock_controller_map_offsite)
 			dat += "\"[dock_tag]\", "
 		world << "\red \b warning: shuttles with docking tags [dat] could not find their controllers!"
-	
+
 	//makes all shuttles docked to something at round start go into the docked state
 	for (var/shuttle_tag in shuttles)
 		shuttle = shuttles[shuttle_tag]
