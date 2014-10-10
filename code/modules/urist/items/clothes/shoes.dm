@@ -47,3 +47,13 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	name = "kneesocks"
 	icon_state = "kneesock"
 	item_state = "kneesock"
+
+//wizard costume shoes
+
+/obj/item/clothing/shoes/sandal/dresdenboots
+	desc = "A pair of black leather shoes. They seem to radiate power of some sort."
+	name = "urban wizard's boots"
+	icon_override = 'icons/uristmob/shoes.dmi'
+	icon = 'icons/urist/items/clothes/shoes.dmi'
+	icon_state = "dresdenboots"
+	item_state = "dresdenboots"

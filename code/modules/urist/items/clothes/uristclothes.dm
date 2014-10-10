@@ -222,11 +222,11 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "dresdencoat"
 	item_state = "dresdencoat"
 
-/obj/item/clothing/under/urist/dresden
+/*/obj/item/clothing/under/urist/dresden //I am sick of this not working as a mob icon. We didn't need it anyway, just add jeans and/or a tacticool turtleneck to the locker.
 	name = "black pullover"
 	desc = "A black pullover and a pair of jeans, basic and inconspicuous."
 	icon_state = "dresdenunder"
-	item_color = "dresdenunder"
+	item_color = "dresdenunder"*/
 
 //NT Outfits
 
