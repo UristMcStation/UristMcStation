@@ -222,11 +222,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "dresdencoat"
 	item_state = "dresdencoat"
 
-/*/obj/item/clothing/under/urist/dresden //I am sick of this not working as a mob icon. We didn't need it anyway, just add jeans and/or a tacticool turtleneck to the locker.
+/obj/item/clothing/under/urist/dresden //I am sick of this not working as a mob icon. We didn't need it anyway, just add jeans and/or a tacticool turtleneck to the locker.
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "black pullover"
 	desc = "A black pullover and a pair of jeans, basic and inconspicuous."
 	icon_state = "dresdenunder"
-	item_color = "dresdenunder"*/
+	item_state = "dresdenunder"
+	item_color = "dresdenunder"
 
 //NT Outfits
 
@@ -252,6 +255,17 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "NTWsuit"
 
 //SO MANY FUCKING DRESSES
+
+/obj/item/clothing/under/urist/dress
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "dress"
+	desc = "dress."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "tealdress"
+	item_state = "tealdress"
+	item_color = "tealdress"
+
 
 /obj/item/clothing/under/urist/dress/teal
 	name = "teal dress"
