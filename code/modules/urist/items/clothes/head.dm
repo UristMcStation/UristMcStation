@@ -98,6 +98,13 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "necrohood"
 	item_state = "necrohood"
 
+//Dresden wizard's hat
+/obj/item/clothing/head/wizard/urist/dresdendora
+	name = "urban wizard's hat"
+	desc = "A black, wide-brimmed fedora, radiating with an unearthly power of not looking dumb on your ugly mug. Very urban fantasy."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "dresdendora"
+
 //matching NT hats
 
 /obj/item/clothing/head/soft/nanotrasen/blue

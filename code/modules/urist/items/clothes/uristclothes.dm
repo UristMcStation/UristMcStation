@@ -216,6 +216,21 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "necro"
 	item_state = "necro"
 
+/obj/item/clothing/suit/wizrobe/urist/dresden
+	name = "urban wizard's coat"
+	desc = "A black duster that seems to radiate power. It billows slightly in a nonexistent wind. Very urban fantasy."
+	icon_state = "dresdencoat"
+	item_state = "dresdencoat"
+
+/obj/item/clothing/under/urist/dresden //I am sick of this not working as a mob icon. We didn't need it anyway, just add jeans and/or a tacticool turtleneck to the locker.
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "black pullover"
+	desc = "A black pullover and a pair of jeans, basic and inconspicuous."
+	icon_state = "dresdenunder"
+	item_state = "dresdenunder"
+	item_color = "dresdenunder"
+
 //NT Outfits
 
 /obj/item/clothing/under/urist/nanotrasen/blue
@@ -240,6 +255,17 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "NTWsuit"
 
 //SO MANY FUCKING DRESSES
+
+/obj/item/clothing/under/urist/dress
+	urist_only = 1
+	icon_override = 'icons/uristmob/clothes.dmi'
+	name = "dress"
+	desc = "dress."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "tealdress"
+	item_state = "tealdress"
+	item_color = "tealdress"
+
 
 /obj/item/clothing/under/urist/dress/teal
 	name = "teal dress"
@@ -437,20 +463,3 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
 	icon_state = "browncoat_closed"
-
-/obj/item/clothing/suit/wizrobe/urist/dresden
-	name = "urban wizard's coat"
-	desc = "A black duster that seems to radiate power. It billows slightly in a nonexistent wind. Very urban fantasy."
-	icon_state = "dresdencoat_open"
-
-/obj/item/clothing/head/wizard/urist/dresdendora
-	name = "urban wizard's hat"
-	desc = "A black, wide-brimmed fedora, radiating with an unearthly power of not looking dumb on your ugly mug. Very urban fantasy."
-	icon = 'icons/urist/items/clothes/head.dmi'
-	icon_state = "dresdendora"
-
-/obj/item/clothing/under/urist/dresden
-	name = "black pullover"
-	desc = "A black jumper and a pair of jeans, basic and inconspicuous."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "dresdenunder"
