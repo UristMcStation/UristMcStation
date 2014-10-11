@@ -54,29 +54,7 @@
 	var/num_mentors_online = 0
 	if(holder)
 		for(var/client/C in admins)
-			if(R_ADMIN & C.holder.rights || (!(R_MOD & C.holder.rights) && !(R_MENTOR & C.holder.rights)))	//Used to determine who shows up in admin rows
-
-				if(C.holder.fakekey && (!(R_ADMIN & holder.rights) && !(R_MOD & holder.rights())		//Mentors can't see stealthmins
-					continue
-
-				msg += "\t[C] is a [C.holder.rank]"
-
-				if(C.holder.fakekey)
-					msg += " <i>(as [C.holder.fakekey])</i>"
-
-				if(isobserver(C.mob))
-					msg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
-					msg += " - Lobby"
-				else
-					msg += " - Playing"
-
-				if(C.is_afk())
-					msg += " (AFK)"
-				msg += "\n"
-
-				num_admins_online++
-			else if(R_MOD & C.holder.rights)				//Who shows up in mod rows.
+			if(R_MOD & C.holder.rights)				//Who shows up in mod rows.
 				modmsg += "\t[C] is a [C.holder.rank]"
 
 				if(isobserver(C.mob))
@@ -103,19 +81,37 @@
 					menmsg += " (AFK)"
 				menmsg += "\n"
 				num_mentors_online++
+			else if(R_ADMIN & C.holder.rights)	//Used to determine who shows up in admin rows
+				if(C.holder.fakekey && (!(R_ADMIN & holder.rights) && !(R_MOD & holder.rights)))		//Mentors can't see stealthmins
+					continue
+				msg += "\t[C] is a [C.holder.rank]"
+				if(C.holder.fakekey)
+					msg += " <i>(as [C.holder.fakekey])</i>"
+				if(isobserver(C.mob))
+					msg += " - Observing"
+				else if(istype(C.mob,/mob/new_player))
+					msg += " - Lobby"
+				else
+					msg += " - Playing"
+
+				if(C.is_afk())
+					msg += " (AFK)"
+				msg += "\n"
+
+				num_admins_online++
 
 	else
 		for(var/client/C in admins)
-			if(R_ADMIN & C.holder.rights || (!(R_MOD & C.holder.rights) && !(R_MENTOR & C.holder.rights)))
-				if(!C.holder.fakekey)
-					msg += "\t[C] is a [C.holder.rank]\n"
-					num_admins_online++
-			else if (R_MOD & C.holder.rights)
+			 if (R_MOD & C.holder.rights)
 				modmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mods_online++
 			else if (R_MENTOR & C.holder.rights)
 				menmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mentors_online++
+			else if(R_ADMIN & C.holder.rights)
+				if(!C.holder.fakekey)
+					msg += "\t[C] is a [C.holder.rank]\n"
+					num_admins_online++
 
 	msg = "<b>Current Admins ([num_admins_online]):</b>\n" + msg + "\n<b>Current Moderators([num_mods_online]):</b>\n" + modmsg + "\n<b>Current Mentors([num_mentors_online]):</b>\n" + menmsg
 	src << msg
