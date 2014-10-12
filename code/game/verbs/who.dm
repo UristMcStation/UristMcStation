@@ -81,7 +81,7 @@
 					menmsg += " (AFK)"
 				menmsg += "\n"
 				num_mentors_online++
-			else if(R_ADMIN & C.holder.rights)						//Used to determine who shows up in admin rows. This excludes moderators who would have been classified as a mod a dozen lines earlier.
+			else						//Used to determine who shows up in admin rows. This excludes moderators who would have been classified as a mod a dozen lines earlier.
 				if(C.holder.fakekey && (!(R_ADMIN & holder.rights) && !(R_MOD & holder.rights)))		//Mentors can't see stealthmins
 					continue
 				msg += "\t[C] is a [C.holder.rank]"
@@ -106,7 +106,7 @@
 			else if(R_MENTOR & C.holder.rights)
 				menmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mentors_online++
-			else  if((R_ADMIN & C.holder.rights))
+			else
 				if(!C.holder.fakekey)
 					msg += "\t[C] is a [C.holder.rank]\n"
 					num_admins_online++
