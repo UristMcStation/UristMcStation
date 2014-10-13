@@ -63,9 +63,9 @@
 
 		if(10) //October
 			switch(DD)
-				if(10)							BNews = "Hello citizens of Nanotrasen! I'm Chet Jonaheus! I'm the nightly news anchor for the newly founded Nanotrasen News Network! Turn in every night for the latest in breaking news and events!"
-				if(14)							BNews = "The Skrellian Federation becomes the first galatic civilization to legalize inter-species marriage. Mass protests break out outside various Skrell embassies on many worlds!"
-				if(15)							BNews = "The Skrellian Embassy on Earth has been bombed today by terrorists protesting the recent legalization of inter-species marriage! The captain of the Lotus Tree was not available for comment."
+				if(17)							BNews = "Hello citizens of Nanotrasen! I'm Chet Jonaheus! I'm the nightly news anchor for the newly founded Nanotrasen News Network! Turn in every night for the latest in breaking news and events!"
+				if(18)							BNews = "The Skrellian Federation becomes the first galatic civilization to legalize inter-species marriage. Mass protests break out outside various Skrell embassies on many worlds!"
+				if(19)							BNews = "The Skrellian Embassy on Earth has been bombed today by terrorists protesting the recent legalization of inter-species marriage! The captain of the Lotus Tree was not available for comment."
 				if(30)							BNews = "Local police forces on Mars have released information today about a group of narcotic traffickers who were attempting to smuggle drugs past customs disguised as halloween candy."
 
 		if(11) //November
