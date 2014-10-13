@@ -28,13 +28,13 @@
 		if (C == user)
 			place_handcuffs(user, user)
 			return
-		
-		//check for an aggressive grab
+
+/*		//check for an aggressive grab //who thought this was a good idea in a game of lag and yakkity saxx?
 		for (var/obj/item/weapon/grab/G in C.grabbed_by)
 			if (G.loc == user && G.state >= GRAB_AGGRESSIVE)
 				place_handcuffs(C, user)
 				return
-		user << "\red You need to have a firm grip on [C] before you can put \the [src] on!"
+		user << "\red You need to have a firm grip on [C] before you can put \the [src] on!"*/
 
 /obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
@@ -57,7 +57,7 @@
 			feedback_add_details("handcuffs","H")
 			O.process()
 		return
-	
+
 	if (ismonkey(target))
 		var/mob/living/carbon/monkey/M = target
 		var/obj/effect/equip_e/monkey/O = new /obj/effect/equip_e/monkey(  )
