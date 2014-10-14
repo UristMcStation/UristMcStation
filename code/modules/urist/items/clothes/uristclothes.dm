@@ -448,3 +448,18 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A black jumper and a pair of jeans, basic and inconspicuous."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "dresdenunder"
+	item_color = "dresdenunder"
+//alt janitor shit
+
+/obj/item/clothing/under/urist/rank/janialt
+	name = "work clothes"
+	desc = "A grubby shirt and work pants worn by a janitor."
+	icon_state = "jani"
+	item_color = "jani"
+	item_state = "jani"
+
+/obj/item/clothing/suit/urist/janicoat
+	name = "work shirt"
+	desc = "A grubby work shirt worn by a janitor."
+	icon_state = "janicoat"
+	item_state = "janicoat"

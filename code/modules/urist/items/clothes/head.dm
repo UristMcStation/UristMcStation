@@ -216,3 +216,11 @@ obj/item/clothing/head/princessbow
 	desc = "A Paper Flower. To put in your hair."
 	icon_state = "paperFlower_H"
 	item_state = "paperFlower_H"
+
+//alt jani
+
+/obj/item/clothing/head/urist/janihat
+	name = "grubby hat"
+	desc = "A grubby red hat worn by a janitor."
+	icon_state = "janihat"
+	item_state = "janihat"
