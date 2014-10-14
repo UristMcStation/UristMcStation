@@ -205,7 +205,7 @@
 "dW" = (/obj/effect/gibspawner/human,/turf/simulated/floor/engine/cult,/area/awaymission)
 "dX" = (/obj/item/toy/sword,/turf/simulated/floor/carpet,/area/awaymission)
 "dY" = (/obj/machinery/vending/cola,/turf/simulated/floor/carpet,/area/awaymission)
-"dZ" = (/obj/item/candle,/turf/simulated/floor/engine/cult,/area/awaymission)
+"dZ" = (/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/awaymission)
 "ea" = (/obj/effect/rune,/turf/simulated/floor/engine/cult,/area/awaymission)
 "eb" = (/obj/item/weapon/book/tome,/turf/simulated/floor/engine/cult,/area/awaymission)
 "ec" = (/obj/structure/stool/bed/chair/comfy,/obj/item/device/soulstone,/obj/effect/decal/remains/human,/turf/simulated/floor/engine/cult,/area/awaymission)
