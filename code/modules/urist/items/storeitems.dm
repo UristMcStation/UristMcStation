@@ -66,31 +66,31 @@
 /datum/storeitem/zippoblue
 	name="Blue Zippo"
 	desc="A fancy blue zippo lighter made just for you!"
-	typepath=/obj/item/weapon/lighter/zippo/vanity/blue
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/blue
 	cost = 650
 
 /datum/storeitem/zippogold
 	name="Gold Zippo"
 	desc="An engraved gold zippo lighter made just for you!"
-	typepath=/obj/item/weapon/lighter/zippo/vanity/gold
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/gold
 	cost = 650
 
 /datum/storeitem/zippoblack
 	name="Black Zippo"
 	desc="A slick black zippo lighter made just for you!"
-	typepath=/obj/item/weapon/lighter/zippo/vanity/black
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/black
 	cost = 650
 
 /datum/storeitem/zippored
 	name="Red and Black Zippo"
 	desc="A black zippo lighter with a red decal made just for you!"
-	typepath=/obj/item/weapon/lighter/zippo/vanity/red
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/red
 	cost = 650
 
 /datum/storeitem/zippofancy
 	name="Engraved Zippo"
 	desc="A silver zippo lighter with intricate engravings made just for you!"
-	typepath=/obj/item/weapon/lighter/zippo/vanity/engraved
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/engraved
 	cost = 650
 
 /////////////////////////////////////////////////////////

@@ -4,7 +4,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //vanity lighters, stolen from the custom items.
 
-/obj/item/weapon/lighter/zippo/vanity/blue
+/obj/item/weapon/flame/lighter/zippo/vanity/blue
 	name = "blue zippo"
 	desc = "A zippo lighter made of some blue metal."
 	icon = 'icons/obj/custom_items.dmi'
@@ -12,7 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_on = "bluezippoon"
 	icon_off = "bluezippo"
 
-/obj/item/weapon/lighter/zippo/vanity/gold
+/obj/item/weapon/flame/lighter/zippo/vanity/gold
 	name = "gold zippo"
 	desc = "A golden lighter, engraved with some ornaments."
 	icon = 'icons/obj/custom_items.dmi'
@@ -20,7 +20,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_on = "guessipon"
 	icon_off = "guessip"
 
-/obj/item/weapon/lighter/zippo/vanity/black
+/obj/item/weapon/flame/lighter/zippo/vanity/black
 	name = "black zippo"
 	desc = "A black zippo lighter."
 	icon = 'icons/obj/custom_items.dmi'
@@ -28,7 +28,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_on = "blackzippoon"
 	icon_off = "blackzippo"
 
-/obj/item/weapon/lighter/zippo/vanity/red
+/obj/item/weapon/flame/lighter/zippo/vanity/red
 	name = "black and red zippo"
 	desc = "A black and red zippo lighter."
 	icon = 'icons/obj/custom_items.dmi'
@@ -36,7 +36,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_on = "gonzozippoon"
 	icon_off = "gonzozippo"
 
-/obj/item/weapon/lighter/zippo/vanity/engraved
+/obj/item/weapon/flame/lighter/zippo/vanity/engraved
 	name = "engraved zippo"
 	desc = "A intricately engraved zippo lighter."
 	icon = 'icons/obj/custom_items.dmi'

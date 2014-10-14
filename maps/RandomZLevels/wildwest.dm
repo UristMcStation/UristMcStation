@@ -113,8 +113,8 @@
 /obj/effect/meatgrinder/New()
 	icon_state = "blob"
 
-/obj/effect/meatgrinder/HasEntered(AM as mob|obj)
-	Bumped(AM)
+///obj/effect/meatgrinder/HasEntered(AM as mob|obj)
+//	Bumped(AM)
 
 /obj/effect/meatgrinder/Bumped(mob/M as mob|obj)
 

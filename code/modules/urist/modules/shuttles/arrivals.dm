@@ -9,7 +9,7 @@
 /datum/shuttle/ferry/proc/AnnounceArrival()
 	if (ticker.current_state == GAME_STATE_PLAYING)
 		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)// BS12 EDIT Arrivals Announcement Computer, rather than the AI.
-		a.autosay("The Arrivals Shuttle has Docked with the Station", "Arrivals Announcement Computer")
+		a.autosay("The Arrivals Shuttle has docked with the Station", "Arrivals Announcement Computer")
 		del(a)
 
 

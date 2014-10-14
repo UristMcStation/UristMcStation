@@ -71,7 +71,7 @@
 	allowed_tools = list(
 	/obj/item/weapon/cautery = 100,			\
 	/obj/item/clothing/mask/cigarette = 75,	\
-	/obj/item/weapon/lighter = 50,			\
+	/obj/item/weapon/flame/lighter = 50,			\
 	/obj/item/weapon/weldingtool = 25
 	)
 
@@ -128,7 +128,7 @@
 		"\blue You put \the [tool] inside [target]'s [get_cavity(affected)] cavity." )
 		if (tool.w_class > get_max_wclass(affected)/2 && prob(50))
 			user << "\red You tear some blood vessels trying to fit such a big object in this cavity."
-			var/datum/wound/internal_bleeding/I = new (15)
+			var/datum/wound/internal_bleeding/I = new (10)
 			affected.wounds += I
 			affected.owner.custom_pain("You feel something rip in your [affected.display_name]!", 1)
 		user.drop_item()
