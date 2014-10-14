@@ -189,7 +189,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Naval"] = shuttle
 	process_shuttles += shuttle
 
-	shuttle = new()
+/*	shuttle = new() //commented out for now.
 	shuttle.location = 1
 	shuttle.warmup_time = 10
 	shuttle.area_offsite = locate(/area/shuttle/outpost/jungle)
@@ -198,7 +198,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 //	shuttle.dock_target_station = "outpost_shuttle_dock_airlock"
 //	shuttle.dock_target_offsite = "outpost_shuttle_bay"
 	shuttles["Outpost"] = shuttle
-	process_shuttles += shuttle
+	process_shuttles += shuttle*/
 
 	shuttle = new/datum/shuttle/ferry/arrival()
 	shuttle.location = 1
