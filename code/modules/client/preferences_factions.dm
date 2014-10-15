@@ -14,7 +14,7 @@ var/global/list/seen_religions = list()
 
 var/global/list/citizenship_choices = list(
 	"Luna",
-	"New Earth"
+	"New Earth",
 	"Mars",
 	"Venus",
 	"Moghes",
