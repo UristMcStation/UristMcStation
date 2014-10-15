@@ -348,7 +348,7 @@
 			var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)// BS12 EDIT Arrivals Announcement Computer, rather than the AI.
 			if(character.mind.role_alt_title)
 				rank = character.mind.role_alt_title
-			a.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "is in transit to the station"].", "CentComm Transit Computer")
+			a.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
 			del(a)
 
 	proc/LateChoices()
