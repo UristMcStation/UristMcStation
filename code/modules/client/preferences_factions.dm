@@ -29,7 +29,9 @@ var/global/list/home_system_choices = list(
 	"Nyx",
 	"Tau Ceti",
 	"Epsilon Ursae Majoris",
-	"Ryclies"
+	"Ryclies",
+	"Outer Rim",
+	"Antioch"
 	)
 
 var/global/list/faction_choices = list(
