@@ -13,11 +13,15 @@ var/global/list/seen_religions = list()
 	return
 
 var/global/list/citizenship_choices = list(
-	"Earth",
+	"Luna",
+	"New Earth"
 	"Mars",
+	"Venus",
 	"Moghes",
-	"Ahdomai",
-	"Qerrbalak"
+	"Ryclies I",
+	"Qerrbalak",
+	"Antioch V",
+	"Reade III"
 	)
 
 var/global/list/home_system_choices = list(
@@ -25,20 +29,23 @@ var/global/list/home_system_choices = list(
 	"Nyx",
 	"Tau Ceti",
 	"Epsilon Ursae Majoris",
-	"S'randarr"
+	"Ryclies"
 	)
 
 var/global/list/faction_choices = list(
-	"Sol Central",
+	"Terran Confederacy",
+	"New Green Cross",
 	"Vey Med",
 	"Einstein Engines",
 	"Free Trade Union",
 	"NanoTrasen",
 	"Ward-Takahashi GMB",
 	"Gilthari Exports",
+	"Outer Rim Miners Alliance",
 	"Grayson Manufactories Ltd.",
 	"Aether Atmospherics",
 	"Zeng-Hu Pharmaceuticals",
+	"Antioch Bankers Guild",
 	"Hesphaistos Industries"
 	)
 
