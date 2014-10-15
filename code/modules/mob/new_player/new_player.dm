@@ -319,7 +319,7 @@
 			join_message = S.msg
 		else
 			character.loc = pick(latejoin)
-			join_message = "has arrived on the station"
+			join_message = "is in transit to the station"
 
 		character.lastarea = get_area(loc)
 		// Moving wheelchair if they have one
