@@ -100,7 +100,7 @@
 /proc/BNews_Game_Start()
 	if(BNews)
 		world << "<font color='blue'>and...</font>"
-		world << "<h4>Breaking News from NNN! [BNews]</h4>"
+		world << "<h4>Breaking News! I'm Chet Jonaheus here with today's top story! [BNews] And now, Annie with the weather, and later Todd with Sports News!</h4>"
 
 	return
 
