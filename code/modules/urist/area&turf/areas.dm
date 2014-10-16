@@ -78,11 +78,21 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Hunter's Workshop"
 	icon_state = "dark160"
 
-/area/shuttle/arrival/centcom
+/area/shuttle/arrivals/station
+	icon_state = "shuttle"
+	name = "\improper Arrival Shuttle Station"
+
+/area/shuttle/arrivals/centcom
+	name = "\improper Arrival Shuttle CentComm"
 	icon_state = "shuttle"
 
-/area/shuttle/arrival/transit
+/area/shuttle/arrivals/transit
+	name = "\improper Arrival Shuttle Transit"
 	icon_state = "shuttle"
+
+//Maintenance soundsssss  //todo, PR to Baystation with a better ambience system, holy shit.
+///area/maintenance
+//	ambientsounds = list('sound/urist/ambience/ambimaint1.ogg', 'sound/urist/ambience/ambimaint2.ogg', 'sound/urist/ambience/ambimaint3.ogg', 'sound/urist/ambience/ambimaint4.ogg', 'sound/urist/ambience/ambimaint5.ogg')
 
 //awaymap shit
 

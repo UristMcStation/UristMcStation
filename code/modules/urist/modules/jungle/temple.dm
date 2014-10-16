@@ -228,7 +228,7 @@
 				var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
 				var/num = rand(2,6)
 				for(var/i=0,i<num,i++)
-					var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/candle/, /obj/item/weapon/storage/box/matches)
+					var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/weapon/flame/candle/, /obj/item/weapon/storage/box/matches)
 					new spawn_type(C)
 			if("engineering")
 				var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
@@ -392,3 +392,11 @@
 			if(prob(10))
 				new /obj/effect/glowshroom(src.loc)
 			del(src)
+
+//structures
+
+/obj/structure/fountain
+	name = "fountain"
+	desc = "A fountain that appears to be spewing red water. Wait... Is that blood?"
+	icon = 'icons/urist/jungle/64x64.dmi'
+	icon_state = "fountain"

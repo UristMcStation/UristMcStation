@@ -93,7 +93,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/botanist(H), slot_belt)
 		switch(H.backbag)
 			if(1) H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
+			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/hydroponics(H), slot_back)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_hyd(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
@@ -171,7 +171,7 @@
 	selection_color = "#dddddd"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mint, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mint, access_mining_station, access_mailsorting)
-
+	alt_titles = list("Drill Technician","Prospector")
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -310,14 +310,25 @@
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Journalist")
-
+	
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/librarian(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/weapon/barcodescanner(H), slot_l_hand)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform) //For both journalist and 
+		if (H.mind.role_alt_title)
+			switch(H.mind.role_alt_title)
+				if("Librarian")
+					H.equip_to_slot_or_del(new /obj/item/weapon/barcodescanner(H), slot_l_hand)
+				if("Journalist")
+					H.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/journocoat(H), slot_wear_suit)
+					H.equip_to_slot_or_del(new /obj/item/device/camera(H), slot_l_hand)
+					H.equip_to_slot_or_del(new /obj/item/device/taperecorder(H), slot_l_store)
+					H.equip_to_slot_or_del(new /obj/item/weapon/pen(H), slot_r_store)
+					H.equip_to_slot_or_del(new /obj/item/device/camera_film(H.back), slot_in_backpack)
+					H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H.back), slot_in_backpack)
+		
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 		else
@@ -357,10 +368,8 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
-		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
-		L.imp_in = H
-		L.implanted = 1
-		var/datum/organ/external/affected = H.organs_by_name["head"]
-		affected.implants += L
-		L.part = affected
+
+		H.implant_loyalty(H)
+
+
 		return 1

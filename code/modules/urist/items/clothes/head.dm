@@ -98,6 +98,12 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "necrohood"
 	item_state = "necrohood"
 
+/obj/item/clothing/head/wizard/urist/dresdendora
+	name = "urban wizard's hat"
+	desc = "A black, wide-brimmed fedora, radiating with an unearthly power of not looking dumb on your ugly mug. Very urban fantasy."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "dresdendora"
+
 //matching NT hats
 
 /obj/item/clothing/head/soft/nanotrasen/blue
@@ -210,3 +216,11 @@ obj/item/clothing/head/princessbow
 	desc = "A Paper Flower. To put in your hair."
 	icon_state = "paperFlower_H"
 	item_state = "paperFlower_H"
+
+//alt jani
+
+/obj/item/clothing/head/urist/janihat
+	name = "grubby hat"
+	desc = "A grubby red hat worn by a janitor."
+	icon_state = "janihat"
+	item_state = "janihat"
