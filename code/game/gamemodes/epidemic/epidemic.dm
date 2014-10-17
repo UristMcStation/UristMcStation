@@ -22,8 +22,8 @@
 /*
 /datum/game_mode/epidemic/announce()
 	world << "<B>The current game mode is - Epidemic!</B>"
-*/	world << "<B>A deadly epidemic is spreading on the station. Find a cure as fast as possible, and keep your distance to anyone who speaks in a hoarse voice!</B>"
-
+	world << "<B>A deadly epidemic is spreading on the station. Find a cure as fast as possible, and keep your distance to anyone who speaks in a hoarse voice!</B>"
+*/
 
 ///////////////////////////////////////////////////////////////////////////////
 //Gets the round setup, cancelling if there's not enough players at the start//
