@@ -11,11 +11,11 @@
 	uplink_welcome = "EVIL METEOR Uplink Console:"
 	uplink_uses = 10
 
-
+/*
 /datum/game_mode/meteor/announce()
 	world << "<B>The current game mode is - Meteor!</B>"
 	world << "<B>The space station has been stuck in a major meteor shower. You must escape from the station or at least live.</B>"
-
+*/
 
 /datum/game_mode/meteor/post_setup()
 	defer_powernet_rebuild = 2//Might help with the lag
