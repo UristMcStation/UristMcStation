@@ -38,11 +38,11 @@ var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon"
 	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/changeling_amount = 4
-
+/*
 /datum/game_mode/changeling/announce()
 	world << "<B>The current game mode is - Changeling!</B>"
 	world << "<B>There are alien changelings on the station. Do not let the changelings succeed!</B>"
-
+*/
 /datum/game_mode/changeling/pre_setup()
 
 	if(config.protect_roles_from_antagonist)
