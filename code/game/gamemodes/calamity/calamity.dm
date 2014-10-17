@@ -28,11 +28,11 @@
 
 	var/const/waittime_l = 600
 	var/const/waittime_h = 1800
-
+/*
 /datum/game_mode/calamity/announce()
 	world << "<B>The current game mode is - Calamity!</B>"
 	world << "<B>This must be a Thursday. You never could get the hang of Thursdays...</B>"
-
+*/
 /datum/game_mode/calamity/can_start()
 
 	if(!..())
