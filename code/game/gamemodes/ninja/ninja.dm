@@ -10,10 +10,10 @@
 	var/const/waittime_l = 600 //lower bound on time before intercept arrives (in tenths of seconds)
 	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
 	var/finished = 0
-
+/*
 /datum/game_mode/ninja/announce()
 	world << "<B>The current game mode is Ninja!</B>"
-
+*/
 /datum/game_mode/ninja/can_start()
 	if(!..())
 		return 0
