@@ -21,11 +21,11 @@
 	var/traitors_possible = 4 //hard limit on traitors if scaling is turned off
 	var/const/traitor_scaling_coeff = 5.0 //how much does the amount of players get divided by to determine traitors
 
-
+/*
 /datum/game_mode/traitor/announce()
 	world << "<B>The current game mode is - Traitor!</B>"
 	world << "<B>There is a syndicate traitor on the station. Do not let the traitor succeed!</B>"
-
+*/
 
 /datum/game_mode/traitor/pre_setup()
 
