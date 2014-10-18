@@ -1153,6 +1153,9 @@
 							adjustBruteLoss(-1)
 							adjustFireLoss(-1)
 							adjustToxLoss(-1)
+							spawn(60)
+								for(var/datum/organ/internal/I in internal_organs)
+									I.damage = 0
 			else if(resting)
 				if(halloss > 0)
 					adjustHalLoss(-3)
