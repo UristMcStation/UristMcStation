@@ -18,3 +18,13 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	icon = 'icons/urist/items/clothes/back.dmi'
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "backpack-robo"
+
+//The stereotypical opera cape. Intended for vamps, but I guess you could use it to play ZE ANZHEL OF MUZIK or cause some toil and trouble or something.
+//Acts as a backpack, so the antag doesn't have to sacrifice storage for  - scrdest
+
+/obj/item/weapon/storage/backpack/cape
+	name = "opera cape"
+	desc = "A large piece of velvet, originally designed to keep rain out and warmth in. A number of pockets in the lining  allow for storage."
+	icon = 'icons/urist/items/clothes/back.dmi'
+	icon_override = 'icons/uristmob/back.dmi'
+	icon_state = "vcape"
