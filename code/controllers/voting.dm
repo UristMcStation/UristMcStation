@@ -211,6 +211,9 @@ datum/controller/vote
 				if("gamemode")
 					if(ticker.current_state >= 2)
 						return 0
+					if(ticker.current_state == 1)
+						world << "<b>Voting disabled during pregame.</b>"
+						return 0
 					choices.Add(config.votable_modes)
 					var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 					for (var/F in choices)
