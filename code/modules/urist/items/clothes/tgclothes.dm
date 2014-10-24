@@ -151,6 +151,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon_state = "black_tango"
 	item_state = "black_tango"
 	item_color = "black_tango"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/suit/urist/blackjacket
 	urist_only = 1
