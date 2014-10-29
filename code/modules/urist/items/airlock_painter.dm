@@ -4,8 +4,8 @@
 	name = "airlock painter"
 	desc = "An advanced autopainter preprogrammed with several paintjobs for airlocks. Use it on an airlock during or after construction to change the paintjob."
 	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "paint sprayer"
-	item_state = "paint sprayer"
+	icon_state = "paint_sprayer"
+	item_state = "paint_sprayer"
 
 	w_class = 2.0
 
