@@ -128,17 +128,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-
-//Space drugs pill. LET'S PARTY!
-
-/obj/item/weapon/reagent_containers/pill/spacedrugs
-	name = "happy pill"
-	desc = "Ready to party?"
-	icon_state = "pill20"
-	New()
-		..()
-		reagents.add_reagent("space_drugs", 50)
-
 /*plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
 --Okay, they implemented this on BS12, and I dislike how they did it. The top is green, and shoots a green pulse. It also has different values then the one I coded.
 The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
@@ -247,41 +236,3 @@ the sprite and make my own projectile -Glloyd*/
 			user.before_take_item(src)
 			del(W)
 			del(src)
-
-//Anti-rad autoinjectors for the engineers: for when you're above hoarding vodka bottles.
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/rad
-	name = "anti-radiation autoinjector"
-	desc = "An autoinjector with a small concotion of drugs designed to treat radiation poisoning. A label says: <b>Warning!</b> this product contains arithrazine."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "radinjector"
-	item_state = "autoinjector"
-
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/rad/New()
-	..()
-	reagents.remove_reagent("inaprovaline", 5)
-	reagents.add_reagent("arithrazine", 3)
-	reagents.add_reagent("anti_toxin", 2)
-	update_icon()
-	return
-
-/obj/item/weapon/storage/firstaid/rad
-	name = "radiation first aid kit"
-	desc = "A first aid kit loaded with medicine for radiation treatment."
-	icon_state = "radfirstaid3"
-	item_state = "firstaid-advanced"
-
-	New()
-		..()
-		if (empty) return
-
-		icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
-
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
-		new /obj/item/device/healthanalyzer( src )
-		return
