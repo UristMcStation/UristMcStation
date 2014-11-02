@@ -58,13 +58,12 @@
 /datum/game_mode/revolution/rp_revolution/post_setup()
 	heads = get_living_heads()
 	for(var/datum/mind/rev_mind in head_revolutionaries)
-		if(!config.objectives_disabled)
-			for(var/datum/mind/head_mind in heads)
-				var/datum/objective/mutiny/rp/rev_obj = new
-				rev_obj.owner = rev_mind
-				rev_obj.target = head_mind
-				rev_obj.explanation_text = "Assassinate, convert or capture [head_mind.name], the [head_mind.assigned_role]."
-				rev_mind.objectives += rev_obj
+		for(var/datum/mind/head_mind in heads)
+			var/datum/objective/mutiny/rp/rev_obj = new
+			rev_obj.owner = rev_mind
+			rev_obj.target = head_mind
+			rev_obj.explanation_text = "Assassinate, convert or capture [head_mind.name], the [head_mind.assigned_role]."
+			rev_mind.objectives += rev_obj
 
 		update_rev_icons_added(rev_mind)
 
@@ -139,15 +138,14 @@
 //Announces the end of the game with all relavent information stated//
 //////////////////////////////////////////////////////////////////////
 /datum/game_mode/revolution/rp_revolution/declare_completion()
-	if(!config.objectives_disabled)
-		if(finished == 1)
-			feedback_set_details("round_end_result","win - heads overthrown")
-			world << "\red <FONT size = 3><B> The heads of staff were overthrown! The revolutionaries win!</B></FONT>"
-		else if(finished == 2)
-			feedback_set_details("round_end_result","loss - revolution stopped")
-			world << "\red <FONT size = 3><B> The heads of staff managed to stop the revolution!</B></FONT>"
-		..()
-	return 1
+	if(finished == 1)
+		feedback_set_details("round_end_result","win - heads overthrown")
+		world << "\red <FONT size = 3><B> The heads of staff were overthrown! The revolutionaries win!</B></FONT>"
+	else if(finished == 2)
+		feedback_set_details("round_end_result","loss - revolution stopped")
+		world << "\red <FONT size = 3><B> The heads of staff managed to stop the revolution!</B></FONT>"
+	..()
+return 1
 
 /datum/game_mode/revolution/proc/is_convertible(mob/M)
 	for(var/obj/item/weapon/implant/loyalty/L in M)//Checking that there is a loyalty implant in the contents
