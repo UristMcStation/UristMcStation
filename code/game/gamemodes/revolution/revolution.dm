@@ -351,7 +351,7 @@
 		feedback_set_details("round_end_result","loss - rev heads killed")
 		world << "\red <FONT size = 3><B> The heads of staff managed to stop the revolution!</B></FONT>"
 	..()
-return 1
+	return 1
 
 /datum/game_mode/proc/auto_declare_completion_revolution()
 	var/list/targets = list()
