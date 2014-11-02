@@ -7,14 +7,14 @@
 /datum/game_mode
 	var/list/datum/mind/vampires = list()
 	var/list/datum/mind/enthralled = list() //those controlled by a vampire
-	var/list/thralls = list() //vammpires controlling somebody
+	var/list/thralls = list() //vampires controlling somebody
 /datum/game_mode/vampire
 	name = "vampire"
 	config_tag = "vampire"
 	restricted_jobs = list("AI", "Cyborg", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain") //Consistent screening has filtered all infiltration attempts on high value jobs
 	protected_jobs = list()
 	required_players = 1
-	required_players_secret = 10
+	required_players_secret = 7
 	required_enemies = 1
 	recommended_enemies = 4
 
@@ -62,7 +62,7 @@
 			if(player.assigned_role == job)
 				possible_vampires -= player
 
-	vampire_amount = min(recommended_enemies, max(required_enemies,round(num_players() / 10))) //1 + round(num_players() / 10)
+	vampire_amount = min(recommended_enemies, max(required_enemies,(1 + round(num_players() / 10))))
 
 	if(possible_vampires.len>0)
 		for(var/i = 0, i < vampire_amount, i++)
@@ -83,7 +83,6 @@
 		if(!config.objectives_disabled)
 			forge_vampire_objectives(vampire)
 		greet_vampire(vampire)
-//	if(1 == 1) was a mixed mode check, let's try to hack my way around it. Disabling for now, maybe it will work~~
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
 	..()
@@ -299,7 +298,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 		bloodtotal = src.mind.vampire.bloodtotal
 		bloodusable = src.mind.vampire.bloodusable
 		if(!H.vessel.get_reagent_amount("blood"))
-			src << "<span class='warning' They've got no blood left to give.</span>"
+			src << "<span class='warning'> They've got no blood left to give.</span>"
 			break
 		if(H.stat < 2) //alive
 			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
