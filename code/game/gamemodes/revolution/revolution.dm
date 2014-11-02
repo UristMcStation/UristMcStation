@@ -107,14 +107,13 @@
 
 
 /datum/game_mode/proc/forge_revolutionary_objectives(var/datum/mind/rev_mind)
-	if(!config.objectives_disabled)
-		var/list/heads = get_living_heads()
-		for(var/datum/mind/head_mind in heads)
-			var/datum/objective/mutiny/rev_obj = new
-			rev_obj.owner = rev_mind
-			rev_obj.target = head_mind
-			rev_obj.explanation_text = "Assassinate [head_mind.name], the [head_mind.assigned_role]."
-			rev_mind.objectives += rev_obj
+	var/list/heads = get_living_heads()
+	for(var/datum/mind/head_mind in heads)
+		var/datum/objective/mutiny/rev_obj = new
+		rev_obj.owner = rev_mind
+		rev_obj.target = head_mind
+		rev_obj.explanation_text = "Assassinate [head_mind.name], the [head_mind.assigned_role]."
+		rev_mind.objectives += rev_obj
 
 /datum/game_mode/proc/greet_revolutionary(var/datum/mind/rev_mind, var/you_are=1)
 
