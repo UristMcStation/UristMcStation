@@ -128,17 +128,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-
-//Space drugs pill. LET'S PARTY!
-
-/obj/item/weapon/reagent_containers/pill/spacedrugs
-	name = "happy pill"
-	desc = "Ready to party?"
-	icon_state = "pill20"
-	New()
-		..()
-		reagents.add_reagent("space_drugs", 50)
-
 /*plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
 --Okay, they implemented this on BS12, and I dislike how they did it. The top is green, and shoots a green pulse. It also has different values then the one I coded.
 The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
@@ -247,6 +236,3 @@ the sprite and make my own projectile -Glloyd*/
 			user.before_take_item(src)
 			del(W)
 			del(src)
-
-
-

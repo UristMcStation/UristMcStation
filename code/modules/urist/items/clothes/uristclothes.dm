@@ -252,6 +252,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "tealdress"
 	item_color = "tealdress"
 	item_state = "tealdress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/yellow
 	name = "floral yellow dress"
@@ -259,6 +260,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "yellowdress"
 	item_color = "yellowdress"
 	item_state = "yellowdress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/white1
 	name = "short white dress"
@@ -266,6 +268,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "wd1"
 	item_color = "wd1"
 	item_state = "wd1"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/urist/dress/white2
 	name = "long white dress"
@@ -273,6 +276,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "wd2"
 	item_color = "wd2"
 	item_state = "wd2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/princess
 	name = "princess dress"
@@ -280,6 +284,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "princess"
 	item_color = "princess"
 	item_state = "princess"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/red
 	name = "red cocktail dress"
@@ -287,6 +292,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "reddress"
 	item_color = "reddress"
 	item_state = "reddress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //nurse joy
 
@@ -296,6 +302,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "nursejoy"
 	item_color = "nursejoy"
 	item_state = "nursejoy"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //alt alt RD
 
@@ -315,6 +322,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
 	item_color = "sakura_hokkaido_kimono"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 //Super hero/villain stuff
 
@@ -388,6 +396,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "captainfemaleformal"
 	item_color = "captainfemaleformal"
 	item_state = "captainfemaleformal"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 //hooonk bs12
 
