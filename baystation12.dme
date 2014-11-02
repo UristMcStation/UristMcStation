@@ -1417,6 +1417,7 @@
 #include "code\modules\urist\structures\hoverseg.dm"
 #include "code\modules\urist\structures\uriststructures.dm"
 #include "code\modules\urist\verbs\antagooc.dm"
+#include "code\modules\urist\verbs\copy-paste.dm"
 #include "code\modules\vehicles\cargo_train.dm"
 #include "code\modules\vehicles\train.dm"
 #include "code\modules\vehicles\vehicle.dm"
