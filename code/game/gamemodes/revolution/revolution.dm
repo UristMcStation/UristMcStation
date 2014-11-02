@@ -75,13 +75,12 @@
 /datum/game_mode/revolution/post_setup()
 	var/list/heads = get_living_heads()
 	for(var/datum/mind/rev_mind in head_revolutionaries)
-		if(!config.objectives_disabled)
-			for(var/datum/mind/head_mind in heads)
-				var/datum/objective/mutiny/rev_obj = new
-				rev_obj.owner = rev_mind
-				rev_obj.target = head_mind
-				rev_obj.explanation_text = "Assassinate [head_mind.name], the [head_mind.assigned_role]."
-				rev_mind.objectives += rev_obj
+		for(var/datum/mind/head_mind in heads)
+			var/datum/objective/mutiny/rev_obj = new
+			rev_obj.owner = rev_mind
+			rev_obj.target = head_mind
+			rev_obj.explanation_text = "Assassinate [head_mind.name], the [head_mind.assigned_role]."
+			rev_mind.objectives += rev_obj
 
 	//	equip_traitor(rev_mind.current, 1) //changing how revs get assigned their uplink so they can get PDA uplinks. --NEO
 	//	Removing revolutionary uplinks.	-Pete
@@ -346,15 +345,14 @@
 //Announces the end of the game with all relavent information stated//
 //////////////////////////////////////////////////////////////////////
 /datum/game_mode/revolution/declare_completion()
-	if(!config.objectives_disabled)
-		if(finished == 1)
-			feedback_set_details("round_end_result","win - heads killed")
-			world << "\red <FONT size = 3><B> The heads of staff were killed or abandoned the station! The revolutionaries win!</B></FONT>"
-		else if(finished == 2)
-			feedback_set_details("round_end_result","loss - rev heads killed")
-			world << "\red <FONT size = 3><B> The heads of staff managed to stop the revolution!</B></FONT>"
-		..()
-	return 1
+	if(finished == 1)
+		feedback_set_details("round_end_result","win - heads killed")
+		world << "\red <FONT size = 3><B> The heads of staff were killed or abandoned the station! The revolutionaries win!</B></FONT>"
+	else if(finished == 2)
+		feedback_set_details("round_end_result","loss - rev heads killed")
+		world << "\red <FONT size = 3><B> The heads of staff managed to stop the revolution!</B></FONT>"
+	..()
+return 1
 
 /datum/game_mode/proc/auto_declare_completion_revolution()
 	var/list/targets = list()
