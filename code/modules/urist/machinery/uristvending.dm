@@ -60,9 +60,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_delay = 15
 	vend_reply = "Glory to Nanotrasen!"
 	icon_state = "clothing2"
-	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4,/obj/item/weapon/storage/fancy/cigarettes/lights = 10)
+	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4)
 	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
-	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/head/soft/nanotrasen/blue = 50,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/clothing/head/soft/nanotrasen/white = 50,/obj/item/weapon/storage/toolbox/nanotrasen = 200,/obj/item/weapon/storage/fancy/cigarettes/lights = 15)
+	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/head/soft/nanotrasen/blue = 50,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/clothing/head/soft/nanotrasen/white = 50,/obj/item/weapon/storage/toolbox/nanotrasen = 200)
 
 //dresses!
 

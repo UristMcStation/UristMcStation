@@ -211,3 +211,66 @@ Please only put items here that don't have a huge definition - Glloyd											
 		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
 		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
 		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
+
+//TG cigarettes
+/obj/item/weapon/storage/fancy/cigarettes/urist
+	name = "urist packet"
+	desc = "The most dwarven of all cigarettes"
+	icon = 'icons/urist/items/tgitems.dmi'
+	w_class = 1
+	throwforce = 2
+	flags = TABLEPASS
+	slot_flags = SLOT_BELT
+	storage_slots = 6
+	can_hold = list("/obj/item/clothing/mask/cigarette")
+	icon_type = "cigarette"
+
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/uplift
+	name = "uplift smooth packet"
+	desc = "Your favorite brand, now menthol flavored."
+	icon_state = "upliftpacket"
+	item_state = "upliftpacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/devil
+	name = "devil's premium packet"
+	desc = "Smoked only by the baddest of the bad."
+	icon_state = "devilpacket"
+	item_state = "devilpacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/carp
+	name = "carp classic packet"
+	desc = "Seems a little fishy."
+	icon_state = "carppacket"
+	item_state = "carppacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate
+	name = "cigarette packet"
+	desc = "An obscure brand of cigarettes."
+	icon_state = "syndiepacket"
+	item_state = "syndiepacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate/New()
+	..()
+	for(var/i = 1 to storage_slots)
+		reagents.add_reagent("doctorsdelight",15)
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/midori
+	name = "midori tabako packet"
+	desc = "Does this packet smell funny to you?"
+	icon_state = "midoripacket"
+	item_state = "midoripacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim
+	name = "shady jim packet"
+	desc = "Shady Jim's super slim packets! Watch the fat burn away, guaranteed!"
+	icon_state = "shadyjimpacket"
+	item_state = "shadyjimpacket"
+
+/obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim/New()
+	..()
+	for(var/i = 1 to storage_slots)
+		reagents.add_reagent("lipozine",4)
+		reagents.add_reagent("ammonia",2)
+		reagents.add_reagent("plantbgone",1)
+		reagents.add_reagent("toxin",1.5)
