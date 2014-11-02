@@ -70,7 +70,8 @@ Implants;
 /obj/item/weapon/storage/box/syndie_kit/imp_explosive:6:Explosive Implant (DANGER!);
 /obj/item/weapon/storage/box/syndie_kit/imp_compress:4:Compressed Matter Implant;Whitespace:Seperator;
 (Pointless) Badassery;
-/obj/item/toy/syndicateballoon:10:For showing that You Are The BOSS (Useless Balloon);"}
+/obj/item/toy/syndicateballoon:10:For showing that You Are The BOSS (Useless Balloon);
+/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate:2:Syndicate Cigarettes;"}
 
 // Items removed from above:
 /*
