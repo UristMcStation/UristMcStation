@@ -15,6 +15,11 @@
 
 /datum/shuttle/ferry/arrival/arrived()
 	AnnounceArrival()
+
+	if(location == 0)
+		sleep(200) //20 seconds give or take some lag.
+		launch()
+
 	return
 
 /*/datum/shuttle/ferry/arrival/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
