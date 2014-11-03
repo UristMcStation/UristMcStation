@@ -160,6 +160,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		randomItems.Add("/obj/item/weapon/storage/box/syndie_kit/imp_freedom") //Freedom Implant
 		randomItems.Add("/obj/item/clothing/glasses/thermal/syndi") //Thermal Imaging Goggles
 		randomItems.Add("/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate") //Syndicate Cigarettes
+		randomItems.Add("/obj/item/weapon/storage/box/sonics") //Sonic Grenades
 
 	if(uses > 1)
 /*
