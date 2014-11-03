@@ -224,3 +224,18 @@ obj/item/clothing/head/princessbow
 	desc = "A grubby red hat worn by a janitor."
 	icon_state = "janihat"
 	item_state = "janihat"
+
+//Earplugs. Earmuffs, but more discrete. Sorry Glloyd, but these need to be children. I'll change the sprites
+//When Nien up
+/obj/item/clothing/ears/earmuffs/earplugs
+	name = "earplugs"
+	desc = "Protects your hearing from loud noises, but a little bit more discretely."
+	//icon = '-.dmi'
+	icon_state = "earmuffs"
+	item_state = "earmuffs"
+	
+/obj/item/clothing/ears/earmuffs/earplugs/syndiplugs
+	name = "red earplugs"
+	desc = "Discrete sound absorbtion, now in red."
+	icon_state = "earmuffs"
+	item_state = "earmuffs"
