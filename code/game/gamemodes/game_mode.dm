@@ -57,6 +57,7 @@ Devices and Tools;
 /obj/item/weapon/storage/toolbox/syndicate:1:Fully Loaded Toolbox;
 /obj/item/weapon/storage/box/syndie_kit/space:3:Space Suit;
 /obj/item/clothing/glasses/thermal/syndi:3:Thermal Imaging Glasses;
+/obj/item/weapon/storage/box/sonics:3:Sonic Grenade Box;
 /obj/item/device/encryptionkey/binary:3:Binary Translator Key;
 /obj/item/weapon/aiModule/syndicate:7:Hacked AI Upload Module;
 /obj/item/weapon/plastique:2:C-4 (Destroys walls);
