@@ -232,6 +232,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_hypnotise
 	verbs += /client/proc/vampire_glare
+	faction = "vampire"
 
 	for(var/i = 1; i <= 3; i++)
 		if(!(i in mind.vampire.powers))
