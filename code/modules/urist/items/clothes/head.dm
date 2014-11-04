@@ -229,7 +229,7 @@ obj/item/clothing/head/princessbow
 /obj/item/clothing/ears/earmuffs/earplugs
 	name = "earplugs"
 	desc = "Protects your hearing from loud noises, but a little bit more discretely."
-	icon = 'icons/urist/items/clothes/ears.dmi.dmi'
+	icon = 'icons/urist/items/clothes/ears.dmi'
 	icon_state = "earplugs"
 	item_state = "earplugs"
 
