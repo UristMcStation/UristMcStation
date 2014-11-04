@@ -14,6 +14,7 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 	new/datum/stack_recipe("stool", /obj/structure/stool, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("chair", /obj/structure/stool/bed/chair, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("bed", /obj/structure/stool/bed/nice, 2, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wheelchair", /obj/structure/stool/bed/chair/wheelchair, 10, one_per_turf = 1, on_floor = 1), \
 	null, \
 	new/datum/stack_recipe_list("office chairs",list( \
 		new/datum/stack_recipe("dark office chair", /obj/structure/stool/bed/chair/office/dark, 5, one_per_turf = 1, on_floor = 1), \
