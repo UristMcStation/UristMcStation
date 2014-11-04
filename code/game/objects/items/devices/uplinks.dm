@@ -179,6 +179,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(uses > 0)
 		randomItems.Add("/obj/item/weapon/soap/syndie") //Syndicate Soap
 		randomItems.Add("/obj/item/weapon/storage/toolbox/syndicate") //Syndicate Toolbox
+		randomItems.Add("/obj/item/clothing/ears/earmuffs/earplugs") //Earplugs
 
 	if(!randomItems.len)
 		del(randomItems)
