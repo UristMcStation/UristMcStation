@@ -80,43 +80,26 @@
 		if(ishuman(M))
 			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs))
 				safety = 2
-			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs/earplugs/))
-				syndi_safety = 1			
-		
-		if(syndi_safety == 1)
-			if(distance <= 2) //Right next to it
-				M.Stun(3)
-				M.Weaken(2)
-				M.ear_deaf = (20)
-				M.stuttering = (20)
-				M.make_jittery(100)
-			else
-				M.Stun(1)
-				M.Weaken(1)
-				M.ear_deaf = (5)
-				M.stuttering = (5)
-				M.make_jittery(50)
-		
-		else //No syndicate plugs
-			if(distance <= 4) //Middle section				
-				M.Weaken(4/safety)
-				M.Stun(6/safety)
-				M.ear_deaf = (20/safety)
-				M.stuttering = (20)
-				M.make_jittery(100)
-			else if(distance <= 1) //Right next to it
-				M.Stun(8/safety)
-				M.Weaken(6/safety)
-				M.ear_deaf = (30/safety)
-				M.stuttering = (30)
-				M.make_jittery(150)
-			else //Far away		
-				M.Stun(4/safety)	
-				M.Weaken(2/safety)
-				M.ear_deaf = (10/safety)
-				M.stuttering = (10)
-				M.make_jittery(50)	//No ear damage because I don't want spam
-				//To lead to deafness.
+
+		if(distance <= 4) //Middle section				
+			M.Weaken(4/safety)
+			M.Stun(6/safety)
+			M.ear_deaf = (20/safety)
+			M.stuttering = (20)
+			M.make_jittery(100)
+		else if(distance <= 1) //Right next to it
+			M.Stun(8/safety)
+			M.Weaken(6/safety)
+			M.ear_deaf = (30/safety)
+			M.stuttering = (30)
+			M.make_jittery(150)
+		else //Far away		
+			M.Stun(4/safety)	
+			M.Weaken(2/safety)
+			M.ear_deaf = (10/safety)
+			M.stuttering = (10)
+			M.make_jittery(50)	//No ear damage because I don't want spam
+			//To lead to deafness.
 
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 	del(src)
