@@ -240,11 +240,11 @@ datum/preferences
 
 		var/icon/underwear_s = null
 		if(underwear > 0 && underwear < 11 && current_species.flags & HAS_UNDERWEAR)
-			underwear_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = "underwear[underwear]_[g]_s")
+			underwear_s = new/icon("icon" = 'icons/uristmob/human.dmi', "icon_state" = "underwear[underwear]_[g]_s")
 
 		var/icon/undershirt_s = null
 		if(undershirt > 0 && undershirt < 6 && current_species.flags & HAS_UNDERWEAR)
-			undershirt_s = new/icon("icon" = 'icons/mob/human.dmi', "icon_state" = "undershirt[undershirt]_s")
+			undershirt_s = new/icon("icon" = 'icons/uristmob/human.dmi', "icon_state" = "undershirt[undershirt]_s")
 
 		var/icon/clothes_s = null
 		if(job_civilian_low & ASSISTANT)//This gives the preview icon clothes depending on which job(if any) is set to 'high'
