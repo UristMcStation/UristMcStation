@@ -159,7 +159,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		randomItems.Add("/obj/item/device/encryptionkey/binary") //Binary Translator Key
 		randomItems.Add("/obj/item/weapon/storage/box/syndie_kit/imp_freedom") //Freedom Implant
 		randomItems.Add("/obj/item/clothing/glasses/thermal/syndi") //Thermal Imaging Goggles
-		randomItems.Add("/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate") //Syndicate Cigarettes
 		randomItems.Add("/obj/item/weapon/storage/box/sonics") //Sonic Grenades
 
 	if(uses > 1)
@@ -175,6 +174,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		randomItems.Add("/obj/item/ammo_magazine/a357") //Revolver ammo
 		randomItems.Add("/obj/item/clothing/shoes/syndigaloshes") //No-Slip Syndicate Shoes
 		randomItems.Add("/obj/item/weapon/plastique") //C4
+		randomItems.Add("/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate") //Syndicate Cigarettes
 
 	if(uses > 0)
 		randomItems.Add("/obj/item/weapon/soap/syndie") //Syndicate Soap
@@ -202,11 +202,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				uses -= 4
 			if("/obj/item/weapon/storage/box/emps" , "/obj/item/weapon/pen/paralysis" , "/obj/item/weapon/cartridge/syndicate" , "/obj/item/clothing/under/chameleon" , \
 			"/obj/item/weapon/card/emag" , "/obj/item/weapon/storage/box/syndie_kit/space" , "/obj/item/device/encryptionkey/binary" , \
-			"/obj/item/weapon/storage/box/syndie_kit/imp_freedom" , "/obj/item/clothing/glasses/thermal/syndi")
+			"/obj/item/weapon/storage/box/syndie_kit/imp_freedom" , "/obj/item/clothing/glasses/thermal/syndi" , "/obj/item/weapon/storage/box/sonics")
 				uses -= 3
-			if("/obj/item/ammo_magazine/a357" , "/obj/item/clothing/shoes/syndigaloshes" , "/obj/item/weapon/plastique", "/obj/item/weapon/card/id/syndicate")
+			if("/obj/item/ammo_magazine/a357" , "/obj/item/clothing/shoes/syndigaloshes" , "/obj/item/weapon/plastique", "/obj/item/weapon/card/id/syndicate", "/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate")
 				uses -= 2
-			if("/obj/item/weapon/soap/syndie" , "/obj/item/weapon/storage/toolbox/syndicate")
+			if("/obj/item/weapon/soap/syndie" , "/obj/item/weapon/storage/toolbox/syndicate" , "/obj/item/weapon/soap/syndie")
 				uses -= 1
 		del(randomItems)
 		return buyItem
