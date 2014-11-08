@@ -7706,7 +7706,7 @@
 "cSj" = (/obj/structure/table,/obj/item/weapon/extinguisher,/obj/item/weapon/extinguisher{pixel_x = 2; pixel_y = 3},/turf/simulated/floor,/area/engine/engineering)
 "cSk" = (/obj/item/weapon/wrench,/turf/simulated/floor,/area/engine/engineering)
 "cSl" = (/obj/item/weapon/weldpack{pixel_y = -12},/obj/structure/table,/obj/item/weapon/weldpack,/obj/structure/disposalpipe/segment,/turf/simulated/floor,/area/engine/engineering)
-"cSm" = (/obj/structure/table,/obj/item/device/flashlight{pixel_y = 5},/obj/item/clothing/ears/earmuffs{pixel_x = -5; pixel_y = 6},/turf/simulated/floor,/area/engine/engineering)
+"cSm" = (/obj/structure/table,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/electrical,/obj/item/clothing/ears/earmuffs{pixel_x = -5; pixel_y = 6},/turf/simulated/floor,/area/engine/engineering)
 "cSn" = (/obj/structure/table,/obj/item/weapon/paper_bin{pixel_x = -3; pixel_y = 7},/obj/item/weapon/pen,/turf/simulated/floor,/area/engine/engineering)
 "cSo" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor,/area/engine/engineering)
 "cSp" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{req_access_txt = 1},/turf/simulated/floor{dir = 4; icon_state = "yellow"},/area/engine/engineering)
