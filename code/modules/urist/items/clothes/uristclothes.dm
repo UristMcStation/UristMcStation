@@ -472,3 +472,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A grubby work shirt worn by a janitor."
 	icon_state = "janicoat"
 	item_state = "janicoat"
+
+//Barber
+
+/obj/item/clothing/under/urist/barber
+	name = "barber outfit"
+	desc = "A white, red and blue striped shirt with black pants and bowtie."
+	icon_state = "barber"
+	item_color = "barber"
+	item_state = "barber"

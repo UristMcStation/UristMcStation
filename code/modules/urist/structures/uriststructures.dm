@@ -339,3 +339,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodstool"
 	item_state = "stool"
 	style = 2 //0 is regular, 1 is bar, 2 is wood
+
+//Barber
+
+/obj/structure/stool/bed/chair/urist/barber
+	name = "barber chair"
+	desc = "A soft rasied char for barbers to cut hair."
+	icon_state = "barber_chair"
+	var/image/armrest = null
+
+/obj/structure/sign/urist/barber
+	name = "barber pole"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "barber_pole"
+	desc = "A spinning barber pole."
