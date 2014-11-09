@@ -75,7 +75,6 @@
 	for(var/mob/living/carbon/M in hearers(7, src.loc))
 		var/distance = get_dist(M, src.loc)		
 		var/safety = 1
-		var/syndi_safety = 0
 		M << "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>"
 		if(ishuman(M))
 			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs))
