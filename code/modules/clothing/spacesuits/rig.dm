@@ -77,7 +77,7 @@
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) hardsuits.
-	breach_threshold = 18
+	breach_threshold = 27 //x1.5 from 18 - scrdest
 	can_breach = 1
 
 	//Component/device holders.
@@ -393,6 +393,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
 	siemens_coefficient = 0.6
 	species_restricted = list("exclude","Unathi","Tajaran","Skrell","Vox")
+	can_breach = 0
 
 
 //Wizard Rig
@@ -420,6 +421,7 @@
 	siemens_coefficient = 0.7
 	sprite_sheets_refit = null
 	sprite_sheets_obj = null
+	can_breach = 0
 
 //Medical Rig
 /obj/item/clothing/head/helmet/space/rig/medical
@@ -456,6 +458,7 @@
 	armor = list(melee = 60, bullet = 10, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
 	siemens_coefficient = 0.7
+	breach_threshold = 36
 
 
 //Atmospherics Rig (BS12)
