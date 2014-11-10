@@ -4,7 +4,7 @@
 //////////////////////////////////////////
 
 //Scissor was moved to
-//cod/moudules/urist/items/scissors
+//code/modules/urist/items/scissors
 
 
 //Papercrafts definition

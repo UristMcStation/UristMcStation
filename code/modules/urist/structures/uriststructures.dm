@@ -344,9 +344,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/stool/bed/chair/urist/barber
 	name = "barber chair"
-	desc = "A soft rasied char for barbers to cut hair."
+	desc = "A soft raised chair that makes it easier for barbers to cut hair."
 	icon_state = "barber_chair"
-	var/image/armrest = null
 
 /obj/structure/sign/urist/barber
 	name = "barber pole"

@@ -51,20 +51,18 @@
 		del(src)
 	..()
 
-//Makes scissors cut hair
+//Makes scissors cut hair, special thanks to Miauw and Xerux -Nien
 /obj/item/weapon/scissors/attack(mob/living/carbon/M as mob, mob/user as mob)
-
+	if(user.a_intent != "help")
+		..()
+		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
-		var/userloc = H.loc
-
 		//see code/modules/mob/new_player/preferences.dm at approx line 545 for comments!
 		//this is largely copypasted from there.
-
 		//handle facial hair (if necessary)
+		var/list/species_facial_hair = list()
 		if(H.gender == MALE)
-			var/list/species_facial_hair = list()
 			if(H.species)
 				for(var/i in facial_hair_styles_list)
 					var/datum/sprite_accessory/facial_hair/tmp_facial = facial_hair_styles_list[i]
@@ -72,12 +70,7 @@
 						species_facial_hair += i
 			else
 				species_facial_hair = facial_hair_styles_list
-
-			var/new_style = input(user, "Select a facial hair style", "Grooming")  as null|anything in species_facial_hair
-			if(userloc != H.loc) return	//no tele-grooming
-			if(new_style)
-				H.f_style = new_style
-
+		var/f_new_style = input(user, "Select a facial hair style", "Grooming")  as null|anything in species_facial_hair
 		//handle normal hair
 		var/list/species_hair = list()
 		if(H.species)
@@ -87,11 +80,13 @@
 					species_hair += i
 		else
 			species_hair = hair_styles_list
-
-		var/new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
-		if(userloc != H.loc) return	//no tele-grooming
-		if(new_style)
-			H.h_style = new_style
+		var/h_new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
+		user.visible_message("[user] start's cutting [M]'s hair!", "You start cutting [M]'s hair!", "You hear the sound of scissors.") //arguments for this are: 1. what others see 2. what the user sees 3. what blind people hear.
+		if(do_after(user, 10)) //this is the part that adds a delay. delay is in deciseconds.
+			if(f_new_style)
+				H.f_style = f_new_style
+			if(h_new_style)
+				H.h_style = h_new_style
 
 		H.update_hair()
-
+		user.visible_message("[user] finishes cutting [M]'s hair!")
