@@ -473,11 +473,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "janicoat"
 	item_state = "janicoat"
 
-//Barber
+//Kawaii as fuck maid outfit
 
-/obj/item/clothing/under/urist/barber
-	name = "barber outfit"
-	desc = "A white, red and blue striped shirt with black pants and bowtie."
-	icon_state = "barber"
-	item_color = "barber"
-	item_state = "barber"
+/obj/item/clothing/suit/urist/maid
+	name = "maid uniform"
+	desc = "A tidy maid unform for cleaning."
+	icon_state = "janimaid"
+	item_state = "janimaid"
