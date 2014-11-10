@@ -224,3 +224,11 @@ obj/item/clothing/head/princessbow
 	desc = "A grubby red hat worn by a janitor."
 	icon_state = "janihat"
 	item_state = "janihat"
+
+//Barber
+
+/obj/item/clothing/head/urist/barber
+	name = "boater"
+	desc = "A flat-topped hardened straw hat with a red and blue brim."
+	icon_state = "boater"
+	item_state = "boater"
