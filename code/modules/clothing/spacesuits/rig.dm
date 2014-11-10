@@ -393,6 +393,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
 	siemens_coefficient = 0.6
 	species_restricted = list("exclude","Unathi","Tajaran","Skrell","Vox")
+	can_breach = 0
 
 
 //Wizard Rig
