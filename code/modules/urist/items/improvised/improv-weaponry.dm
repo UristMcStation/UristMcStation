@@ -235,7 +235,7 @@
 /obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/improvised/scissorknife))
-		var/obj/item/weapon/scissors/assembly/N = new /obj/item/weapon/scissors/assembly
+		var/obj/item/weapon/improvised/scissorsassembly/N = new /obj/item/weapon/improvised/scissorsassembly
 
 		user.before_take_item(I)
 		user.before_take_item(src)

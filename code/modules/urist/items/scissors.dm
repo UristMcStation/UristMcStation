@@ -33,12 +33,12 @@
 		del(src)
 	..()
 
-/obj/item/weapon/scissors/assembly //So you can put it together!
+/obj/item/weapon/improvised/scissorsassembly //So you can put it together!
 	name = "Scissor Assembly"
 	desc = "Two parts of a scissor loosely combined"
 	force = 3
 
-/obj/item/weapon/scissors/assembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
+/obj/item/weapon/improvised/scissorsassembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
 	if(istype(I, /obj/item/weapon/screwdriver))
 
 		var/obj/item/weapon/scissors/N = new /obj/item/weapon/scissors
