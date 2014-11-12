@@ -119,6 +119,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
 	slowdown = 1
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
+	can_breach = 0
 
 //Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
@@ -416,33 +417,85 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "overalls"
 
 //scrdest's coats
-/obj/item/clothing/suit/urist/navycoat
+/obj/item/clothing/suit/urist/coat
+	name = "coat"
+	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
+	icon_state = "blackcoat_open"
+	item_state = "blackcoat_open"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+	verb/toggle()
+		set name = "Toggle Coat Buttons" //courtesy of labcoat.dm
+		set category = "Object"
+		set src in usr
+
+		if(!usr.canmove || usr.stat || usr.restrained())
+			return 0
+
+		switch(icon_state)
+			if("blackcoat_open")
+				src.icon_state = "blackcoat_closed"
+				usr << "You button up the coat."
+			if("blackcoat_closed")
+				src.icon_state = "blackcoat_open"
+				usr << "You unbutton the coat."
+			if("charcoat_open")
+				src.icon_state = "charcoat_closed"
+				usr << "You button up the coat."
+			if("charcoat_closed")
+				src.icon_state = "charcoat_open"
+				usr << "You unbutton the coat."
+			if("navycoat_open")
+				src.icon_state = "navycoat_closed"
+				usr << "You button up the coat."
+			if("navycoat_closed")
+				src.icon_state = "navycoat_open"
+				usr << "You unbutton the coat."
+			if("blackcoat_suit")
+				src.icon_state = "blackcoat_suitclosed"
+				usr << "You button up the coat."
+			if("blackcoat_suitclosed")
+				src.icon_state = "blackcoat_suit"
+				usr << "You unbutton the coat."
+			if("burgcoat_open")
+				src.icon_state = "burgcoat_closed"
+				usr << "You button up the coat."
+			if("burgcoat_closed")
+				src.icon_state = "burgcoat_open"
+				usr << "You unbutton the coat."
+			else
+				usr << "You cannot button that!"
+				return
+		usr.update_inv_wear_suit()
+
+/obj/item/clothing/suit/urist/coat/navycoat
 	name = "navy coat"
 	desc = "A warm wool coat in navy blue. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navycoat_open"
 
-/obj/item/clothing/suit/urist/charcoat
+/obj/item/clothing/suit/urist/coat/charcoat
 	name = "charcoal coat"
 	desc = "A warm wool coat in dark grey. Perfect for looking nice in Space Winter."
 	icon_state = "charcoat_open"
 
-/obj/item/clothing/suit/urist/blackcoat
+/obj/item/clothing/suit/urist/coat/blackcoat
 	name = "black coat"
 	desc = "A warm wool coat in black. Perfect for looking nice in Space Winter."
 	icon_state = "blackcoat_open"
 
-/obj/item/clothing/suit/urist/blackcoat/suit
+/obj/item/clothing/suit/urist/coat/blackcoat/suit
 	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
 	icon_state = "blackcoat_suit"
 
-/obj/item/clothing/suit/urist/burgcoat
+/obj/item/clothing/suit/urist/coat/burgcoat
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
 	icon_state = "burgcoat_open"
 
-/obj/item/clothing/suit/urist/tajcoat
+/obj/item/clothing/suit/urist/coat/tajcoat
 	name = "tajaran fur coat"
 	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
 	icon_state = "tajcoat_open"
