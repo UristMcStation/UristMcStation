@@ -1365,6 +1365,7 @@
 #include "code\modules\urist\items\paint.dm"
 #include "code\modules\urist\items\papercrafts.dm"
 #include "code\modules\urist\items\razor.dm"
+#include "code\modules\urist\items\scissors.dm"
 #include "code\modules\urist\items\storeitems.dm"
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
