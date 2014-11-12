@@ -18,6 +18,7 @@
 	slowdown = 1
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.8
+	can_breach = 0
 
 
 //Green syndicate space suit
