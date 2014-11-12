@@ -119,7 +119,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
 	slowdown = 1
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
-	can_breach = 0
 
 //Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
