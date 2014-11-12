@@ -216,6 +216,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	switch(boughtItem)
 		if("/obj/item/weapon/circuitboard/teleporter")
 			feedback_add_details("traitor_uplink_items_bought","TP")
+
 		if("/obj/item/toy/syndicateballoon")
 			feedback_add_details("traitor_uplink_items_bought","BS")
 		if("/obj/item/weapon/storage/box/syndie_kit/imp_uplink")
@@ -288,7 +289,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 			//if(usr:mind && ticker.mode.traitors[usr:mind])
 				//var/datum/traitorinfo/info = ticker.mode.traitors[usr:mind]
 				//info.spawnlist += href_list["buy_item"]
-
+			var/itemraw = text2path(href_list["buy_item"])
+			var/obj/itemraw2 = new itemraw
+			var/itemname = itemraw2.name
+			del(itemraw2)
+			usr.mind.spawned_traitor_items.Add("[itemname]")
+			usr.mind.spawned_traitor_items_cost.Add("[href_list["cost"]]")
 			uses -= text2num(href_list["cost"])
 			handleStatTracking(href_list["buy_item"]) //Note: chooseRandomItem handles it's own stat tracking. This proc is not meant for 'random'.
 		return 1

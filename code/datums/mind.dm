@@ -40,6 +40,8 @@ datum/mind
 
 	var/assigned_role
 	var/special_role
+	var/list/spawned_traitor_items = list()
+	var/list/spawned_traitor_items_cost = list()
 
 	var/role_alt_title
 

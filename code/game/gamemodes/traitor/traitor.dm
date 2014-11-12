@@ -224,6 +224,12 @@
 					text += "<br><font color='red'><B>The [special_role_text] has failed!</B></font>"
 					feedback_add_details("traitor_success","FAIL")
 
+			if(traitor.spawned_traitor_items)
+				text += "<br><b>They spawned in:</b><br><ul>"
+				for(var/i=1, i<traitor.spawned_traitor_items.len, i++)
+					text += "<li>\A [traitor.spawned_traitor_items[i]] costing [traitor.spawned_traitor_items_cost[i]] telecrystal(s)</li>"
+				text += "</ul>"
+
 		world << text
 	return 1
 
