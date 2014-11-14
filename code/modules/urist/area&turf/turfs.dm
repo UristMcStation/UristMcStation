@@ -190,3 +190,17 @@ turf/simulated/floor/beach/pool/New()
 	name = "plating"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_plating"
+
+
+
+//unsimulated walls
+
+/turf/unsimulated/wall/wood
+	name = "wood wall"
+	icon = 'icons/urist/turf/walls.dmi'
+	icon_state = "wood0"
+
+/turf/unsimulated/wall/stone
+	name = "stone wall"
+	icon = 'icons/urist/turf/walls.dmi'
+	icon_state = "stone0"
