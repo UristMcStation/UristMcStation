@@ -555,7 +555,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/under/urist/dress/pink
 	name = "pink dress"
-	desc = "A white dress."
+	desc = "A pink dress."
 	icon_state = "pinkdress"
 	item_state = "pinkdress"
 	item_color = "pinkdress"
