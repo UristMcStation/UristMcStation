@@ -12,8 +12,8 @@
 	var/list/donors = list()
 	var/last_checked_stage = 0
 
-	universal_understand = 0 // Dionaea do not need to speak to people
-	universal_speak = 0      // before becoming an adult. Use *chirp.
+	universal_understand = 1 // Dionaea do not need to speak to people
+	universal_speak = 1      // before becoming an adult. Use *chirp.
 	holder_type = /obj/item/weapon/holder/diona
 
 /mob/living/carbon/alien/diona/New()
