@@ -160,8 +160,7 @@
 	idle_power_usage = 0
 
 /obj/machinery/shieldgen/Del()
-	for(var/obj/machinery/shield/shield_tile in deployed_shields)
-		del(shield_tile)
+	collapse_shields()
 	..()
 
 
@@ -184,8 +183,7 @@
 	src.active = 0
 	update_icon()
 
-	for(var/obj/machinery/shield/shield_tile in deployed_shields)
-		del(shield_tile)
+	collapse_shields()
 	
 	update_use_power(0)
 
@@ -197,8 +195,21 @@
 				deployed_shields += S
 				use_power(S.shield_generate_power)
 
+/obj/machinery/shieldgen/proc/collapse_shields()
+	for(var/obj/machinery/shield/shield_tile in deployed_shields)
+		del(shield_tile)
+
+/obj/machinery/shieldgen/power_change()
+	..()
+	if(!active) return
+	if (stat & NOPOWER)
+		collapse_shields()
+	else
+		create_shields()
+	update_icon()
+
 /obj/machinery/shieldgen/process()
-	if (!active)
+	if (!active || (stat & NOPOWER))
 		return
 	
 	if(malfunction)
@@ -224,6 +235,8 @@
 	if(health <= 30)
 		src.malfunction = 1
 	if(health <= 0)
+		spawn(0)
+			explosion(get_turf(src.loc), 0, 0, 1, 0, 0, 0)
 		del(src)
 	update_icon()
 	return
@@ -299,17 +312,16 @@
 			user << "\blue You open the panel and expose the wiring."
 			is_open = 1
 
-	else if(istype(W, /obj/item/weapon/cable_coil) && malfunction && is_open)
-		var/obj/item/weapon/cable_coil/coil = W
-		user << "\blue You begin to replace the wires."
+	else if(istype(W, /obj/item/stack/cable_coil) && malfunction && is_open)
+		var/obj/item/stack/cable_coil/coil = W
+		user << "<span class='notice'>You begin to replace the wires.</span>"
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
 		if(do_after(user, 30))
-			if(!src || !coil) return
-			coil.use(1)
-			health = max_health
-			malfunction = 0
-			user << "\blue You repair the [src]!"
-			update_icon()
+			if (coil.use(1))
+				health = max_health
+				malfunction = 0
+				user << "<span class='notice'>You repair the [src]!</span>"
+				update_icon()
 
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(locked)
@@ -341,7 +353,7 @@
 
 
 /obj/machinery/shieldgen/update_icon()
-	if(active)
+	if(active && !(stat & NOPOWER))
 		src.icon_state = malfunction ? "shieldonbr":"shieldon"
 	else
 		src.icon_state = malfunction ? "shieldoffbr":"shieldoff"

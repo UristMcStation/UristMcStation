@@ -46,8 +46,8 @@
 
 /obj/item/improv/hazardvest/step1/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/cable_coil))
-		var/obj/item/weapon/cable_coil/R = I
+	if(istype(I, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/R = I
 		var/obj/item/improv/hazardvest/step2/H = new /obj/item/improv/hazardvest/step2
 		R.use(2)
 
@@ -74,8 +74,8 @@
 
 /obj/item/improv/hazardvest/step3/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/cable_coil))
-		var/obj/item/weapon/cable_coil/R = I
+	if(istype(I, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/R = I
 		var/obj/item/clothing/suit/storage/hazardvest/armor/H = new /obj/item/clothing/suit/storage/hazardvest/armor
 		R.use(1)
 

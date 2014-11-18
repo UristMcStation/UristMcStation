@@ -11,6 +11,7 @@
 	density = 1
 	anchored = 1
 	use_power = 0
+	directwired = 0
 	var/output = 50000		//Amount of power it tries to output
 	var/lastout = 0			//Amount of power it actually outputs to the powernet
 	var/loaddemand = 0		//For use in restore()
@@ -19,7 +20,7 @@
 	var/charging = 0		//1 if it's actually charging, 0 if not
 	var/chargemode = 0		//1 if it's trying to charge, 0 if not.
 	//var/chargecount = 0
-	var/chargelevel = 50000	//Amount of power it tries to charge from powernet
+	var/chargelevel = 0		//Amount of power it tries to charge from powernet
 	var/online = 1			//1 if it's outputting power, 0 if not.
 	var/name_tag = null
 	var/obj/machinery/power/terminal/terminal = null
@@ -29,15 +30,15 @@
 	var/last_online = 0
 	var/open_hatch = 0
 	var/building_terminal = 0 //Suggestions about how to avoid clickspam building several terminals accepted!
-	var/input_level_max = SMESMAXCHARGELEVEL
-	var/output_level_max = SMESMAXOUTPUT
+	var/input_level_max = 200000
+	var/output_level_max = 200000
 
 /obj/machinery/power/smes/New()
 	..()
 	spawn(5)
 		if(!powernet)
 			connect_to_network()
-		
+
 		dir_loop:
 			for(var/d in cardinal)
 				var/turf/T = get_step(src, d)
@@ -54,14 +55,15 @@
 		updateicon()
 	return
 
-
 /obj/machinery/power/smes/proc/updateicon()
 	overlays.Cut()
 	if(stat & BROKEN)	return
 
 	overlays += image('icons/obj/power.dmi', "smes-op[online]")
 
-	if(charging)
+	if(charging == 2)
+		overlays += image('icons/obj/power.dmi', "smes-oc2")
+	else if (charging == 1)
 		overlays += image('icons/obj/power.dmi', "smes-oc1")
 	else
 		if(chargemode)
@@ -96,9 +98,11 @@
 			var/actual_load = add_load(target_load)		// add the load to the terminal side network
 			charge += actual_load * SMESRATE	// increase the charge
 
-			if (actual_load >= target_load) // did the powernet have enough power available for us?
+			if (actual_load >= target_load) // Did we charge at full rate?
+				charging = 2
+			else if (actual_load) // If not, did we charge at least partially?
 				charging = 1
-			else
+			else // Or not at all?
 				charging = 0
 
 	if(online)		// if outputting
@@ -196,51 +200,59 @@
 		if(!open_hatch)
 			open_hatch = 1
 			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"
+			return 0
 		else
 			open_hatch = 0
 			user << "<span class='notice'>You close the maintenance hatch of [src].</span>"
-	if (open_hatch)
-		if(istype(W, /obj/item/weapon/cable_coil) && !terminal && !building_terminal)
-			building_terminal = 1
-			var/obj/item/weapon/cable_coil/CC = W
-			if (CC.amount < 10)
-				user << "<span class='warning'>You need more cables.</span>"
-				building_terminal = 0
-				return
-			if (make_terminal(user))
-				building_terminal = 0
-				return
-			building_terminal = 0
-			CC.use(10)
-			user.visible_message(\
-					"<span class='notice'>[user.name] has added cables to the [src].</span>",\
-					"<span class='notice'>You added cables to the [src].</span>")
-			terminal.connect_to_network()
-			stat = 0
+			return 0
 
-		else if(istype(W, /obj/item/weapon/wirecutters) && terminal && !building_terminal)
-			building_terminal = 1
-			var/turf/tempTDir = terminal.loc
-			if (istype(tempTDir))
-				if(tempTDir.intact)
-					user << "<span class='warning'>You must remove the floor plating first.</span>"
-				else
-					user << "<span class='notice'>You begin to cut the cables...</span>"
-					playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-					if(do_after(user, 50))
-						if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-							var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-							s.set_up(5, 1, src)
-							s.start()
-							building_terminal = 0
-							return
-						new /obj/item/weapon/cable_coil(loc,10)
-						user.visible_message(\
-							"<span class='notice'>[user.name] cut the cables and dismantled the power terminal.</span>",\
-							"<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
-						del(terminal)
-			building_terminal = 0
+	if (!open_hatch)
+		user << "<span class='warning'>You need to open access hatch on [src] first!</spann>"
+		return 0
 
+	if(istype(W, /obj/item/stack/cable_coil) && !terminal && !building_terminal)
+		building_terminal = 1
+		var/obj/item/stack/cable_coil/CC = W
+		if (CC.get_amount() <= 10)
+			user << "<span class='warning'>You need more cables.</span>"
+			building_terminal = 0
+			return 0
+		if (make_terminal(user))
+			building_terminal = 0
+			return 0
+		building_terminal = 0
+		CC.use(10)
+		user.visible_message(\
+				"<span class='notice'>[user.name] has added cables to the [src].</span>",\
+				"<span class='notice'>You added cables to the [src].</span>")
+		terminal.connect_to_network()
+		stat = 0
+		return 0
+
+	else if(istype(W, /obj/item/weapon/wirecutters) && terminal && !building_terminal)
+		building_terminal = 1
+		var/turf/tempTDir = terminal.loc
+		if (istype(tempTDir))
+			if(tempTDir.intact)
+				user << "<span class='warning'>You must remove the floor plating first.</span>"
+			else
+				user << "<span class='notice'>You begin to cut the cables...</span>"
+				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
+				if(do_after(user, 50))
+					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
+						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+						s.set_up(5, 1, src)
+						s.start()
+						building_terminal = 0
+						return 0
+					new /obj/item/stack/cable_coil(loc,10)
+					user.visible_message(\
+						"<span class='notice'>[user.name] cut the cables and dismantled the power terminal.</span>",\
+						"<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
+					del(terminal)
+		building_terminal = 0
+		return 0
+	return 1
 
 /obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
@@ -373,11 +385,11 @@
 /obj/machinery/power/smes/magical
 	name = "magical power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Magically produces power."
-	output = SMESMAXOUTPUT
+	capacity = 9000000
+	output = 250000
 
 /obj/machinery/power/smes/magical/process()
-	capacity = INFINITY
-	charge = INFINITY
+	charge = 5000000
 	..()
 
 /proc/rate_control(var/S, var/V, var/C, var/Min=1, var/Max=5, var/Limit=null)
