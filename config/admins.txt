@@ -22,6 +22,7 @@ CoraiUnki - Game Master
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
+SkyeAuroline - Trial Admin
 
 TGameCo - Coder
 
@@ -35,4 +36,3 @@ Magnetite - Mentor
 Knoxon - Mentor
 Iceblaster98 - Mentor
 Vakothu - Mentor
-SkyeAuroline - Mentor
