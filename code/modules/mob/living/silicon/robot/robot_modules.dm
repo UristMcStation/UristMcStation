@@ -22,7 +22,7 @@
 
 
 	New()
-		src.modules += new /obj/item/device/flashlight(src)
+//		src.modules += new /obj/item/device/flashlight(src) // Replaced by verb and integrated light which uses power.
 		src.modules += new /obj/item/device/flash(src)
 		src.emag = new /obj/item/toy/sword(src)
 		src.emag.name = "Placeholder Emag Item"
@@ -167,7 +167,7 @@
 	stacktypes = list(
 		/obj/item/stack/sheet/metal = 50,
 		/obj/item/stack/sheet/plasteel = 10,
-		/obj/item/stack/sheet/rglass = 50,
+		/obj/item/stack/sheet/glass/reinforced = 50,
 		/obj/item/stack/rods = 50
 		)
 
@@ -188,8 +188,8 @@
 	stacktypes = list(
 		/obj/item/stack/sheet/metal = 50,
 		/obj/item/stack/sheet/glass = 50,
-		/obj/item/stack/sheet/rglass = 50,
-		/obj/item/weapon/cable_coil = 50,
+		/obj/item/stack/sheet/glass/reinforced = 50,
+		/obj/item/stack/cable_coil = 50,
 		/obj/item/stack/rods = 15,
 		/obj/item/stack/tile/plasteel = 15
 		)
@@ -217,7 +217,7 @@
 		M.amount = 50
 		src.modules += M
 
-		var/obj/item/stack/sheet/rglass/cyborg/R = new /obj/item/stack/sheet/rglass/cyborg(src)
+		var/obj/item/stack/sheet/glass/reinforced/cyborg/R = new (src)
 		R.amount = 50
 		src.modules += R
 
@@ -225,7 +225,7 @@
 		G.amount = 50
 		src.modules += G
 
-		var/obj/item/weapon/cable_coil/W = new /obj/item/weapon/cable_coil(src)
+		var/obj/item/stack/cable_coil/W = new /obj/item/stack/cable_coil(src)
 		W.amount = 50
 		src.modules += W
 
@@ -400,13 +400,13 @@
 	stacktypes = list(
 		/obj/item/stack/sheet/wood = 1,
 		/obj/item/stack/sheet/mineral/plastic = 1,
-		/obj/item/stack/sheet/rglass = 5,
+		/obj/item/stack/sheet/glass/reinforced = 5,
 		/obj/item/stack/tile/wood = 5,
 		/obj/item/stack/rods = 15,
 		/obj/item/stack/tile/plasteel = 15,
 		/obj/item/stack/sheet/metal = 20,
 		/obj/item/stack/sheet/glass = 20,
-		/obj/item/weapon/cable_coil = 30
+		/obj/item/stack/cable_coil = 30
 		)
 
 	New()

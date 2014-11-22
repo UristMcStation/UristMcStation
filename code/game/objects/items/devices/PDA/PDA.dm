@@ -3,7 +3,6 @@
 
 var/global/list/obj/item/device/pda/PDAs = list()
 
-
 /obj/item/device/pda
 	name = "PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
@@ -53,6 +52,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/ownjob = null //related to above
 
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
+
+/obj/item/device/pda/examine()
+	..()
+	if(get_dist(usr, src) <= 1)
+		usr << "The time [worldtime2text()] is displayed in the corner of the screen."
 
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
@@ -221,7 +225,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if (!c) // if the user hasn't selected a PDA file we can't send a message
 			return
 		var/selected = plist[c]
-		create_message(usr, selected)
+		create_message(usr, selected, 0)
 
 
 /obj/item/device/pda/ai/verb/cmd_toggle_pda_receiver()
@@ -256,9 +260,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/HTML = "<html><head><title>AI PDA Message Log</title></head><body>"
 	for(var/index in tnote)
 		if(index["sent"])
-			HTML += addtext("<i><b>&rarr; To <a href='byond://?src=\ref[src];choice=Message;target=",index["src"],"'>", index["owner"],"</a>:</b></i><br>", index["message"], "<br>")
+			HTML += addtext("<i><b>&rarr; To <a href='byond://?src=\ref[src];choice=Message;notap=1;target=",index["src"],"'>", index["owner"],"</a>:</b></i><br>", index["message"], "<br>")
 		else
-			HTML += addtext("<i><b>&larr; From <a href='byond://?src=\ref[src];choice=Message;target=",index["target"],"'>", index["owner"],"</a>:</b></i><br>", index["message"], "<br>")
+			HTML += addtext("<i><b>&larr; From <a href='byond://?src=\ref[src];choice=Message;notap=1;target=",index["target"],"'>", index["owner"],"</a>:</b></i><br>", index["message"], "<br>")
 	HTML +="</body></html>"
 	usr << browse(HTML, "window=log;size=400x444;border=1;can_resize=1;can_close=1;can_minimize=0")
 
@@ -363,13 +367,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	data["cart_loaded"] = cartridge ? 1:0
 	if(cartridge)
 		var/cartdata[0]
-
-		if(mode in cartmodes)
-			data["records"] = cartridge.create_NanoUI_values()
-
-		if(mode == 0)
-			cartdata["name"] = cartridge.name
-			cartdata["access"] = list(\
+		cartdata["access"] = list(\
 					"access_security" = cartridge.access_security,\
 					"access_engine" = cartridge.access_engine,\
 					"access_atmos" = cartridge.access_atmos,\
@@ -381,8 +379,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					"access_hydroponics" = cartridge.access_hydroponics,\
 					"access_reagent_scanner" = cartridge.access_reagent_scanner,\
 					"access_remote_door" = cartridge.access_remote_door,\
-					"access_status_display" = cartridge.access_status_display\
+					"access_status_display" = cartridge.access_status_display,\
+					"access_detonate_pda" = cartridge.access_detonate_pda\
 			)
+
+		if(mode in cartmodes)
+			data["records"] = cartridge.create_NanoUI_values()
+
+		if(mode == 0)
+			cartdata["name"] = cartridge.name
 			if(isnull(cartridge.radio))
 				cartdata["radio"] = 0
 			else
@@ -394,7 +399,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					cartdata["radio"] = 3
 
 		if(mode == 2)
-			cartdata["type"] = cartridge.type
 			cartdata["charges"] = cartridge.charges ? cartridge.charges : 0
 		data["cartridge"] = cartdata
 
@@ -652,7 +656,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if("Message")
 
 			var/obj/item/device/pda/P = locate(href_list["target"])
-			src.create_message(U, P)
+			src.create_message(U, P, !href_list["notap"])
 			if(mode == 2)
 				if(href_list["target"] in conversations)            // Need to make sure the message went through, if not welp.
 					active_conversation = href_list["target"]
@@ -875,8 +879,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			id.loc = get_turf(src)
 		id = null
 
-/obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P)
-
+/obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
+	if(tap)
+		U.visible_message("<span class='notice'>[U] taps on \his PDA's screen.</span>")
+	U.last_target_click = world.time
 	var/t = input(U, "Please enter message", name, null) as text
 	t = copytext(sanitize(t), 1, MAX_MESSAGE_LEN)
 	if (!t || !istype(P))
@@ -964,7 +970,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 
 		if(L)
-			L << "\icon[P] <b>Message from [src.owner] ([ownjob]), </b>\"[t]\" (<a href='byond://?src=\ref[P];choice=Message;skiprefresh=1;target=\ref[src]'>Reply</a>)"
+			L << "\icon[P] <b>Message from [src.owner] ([ownjob]), </b>\"[t]\" (<a href='byond://?src=\ref[P];choice=Message;notap=[istype(L, /mob/living/silicon)];skiprefresh=1;target=\ref[src]'>Reply</a>)"
 			nanomanager.update_user_uis(L, P) // Update the receiving user's PDA UI so that they can see the new message
 
 		nanomanager.update_user_uis(U, P) // Update the sending user's PDA UI so that they can see the new message

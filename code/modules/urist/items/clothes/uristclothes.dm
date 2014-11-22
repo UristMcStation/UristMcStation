@@ -542,3 +542,53 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "barber"
 	item_color = "barber"
 	item_state = "barber"
+
+//More Dresses!
+
+/obj/item/clothing/under/urist/dress/white3
+	name = "frilly white dress"
+	desc = "A white dress."
+	icon_state = "whitedress"
+	item_state = "whitedress"
+	item_color = "whitedress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/urist/dress/pink
+	name = "pink dress"
+	desc = "A pink dress."
+	icon_state = "pinkdress"
+	item_state = "pinkdress"
+	item_color = "pinkdress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/urist/dress/gold
+	name = "gold dress"
+	desc = "A gold dress."
+	icon_state = "golddress"
+	item_state = "golddress"
+	item_color = "golddress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/urist/dress/green
+	name = "green dress"
+	desc = "A green dress."
+	icon_state = "greendress"
+	item_state = "greendress"
+	item_color = "greendress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/urist/dress/purple
+	name = "purple dress"
+	desc = "A purple dress."
+	icon_state = "purpledress"
+	item_state = "purpledress"
+	item_color = "purpledress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/urist/dress/black
+	name = "black dress"
+	desc = "A black dress."
+	icon_state = "blackdress"
+	item_state = "blackdress"
+	item_color = "blackdress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS

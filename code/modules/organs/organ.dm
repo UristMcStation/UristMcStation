@@ -1,6 +1,8 @@
 /datum/organ
 	var/name = "organ"
 	var/mob/living/carbon/human/owner = null
+	var/status = 0
+	var/vital //Lose a vital limb, die immediately.
 
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/trace_chemicals = list() // traces of chemicals in the organ,
@@ -56,6 +58,7 @@
 
 // Takes care of organ related updates, such as broken and missing limbs
 /mob/living/carbon/human/proc/handle_organs()
+
 	number_wounds = 0
 	var/leg_tally = 2
 	var/force_process = 0
@@ -104,7 +107,7 @@
 
 	// standing is poor
 	if(leg_tally <= 0 && !paralysis && !(lying || resting) && prob(5))
-		if(species && species.flags & NO_PAIN)
+		if(!(species && (species.flags & NO_PAIN)))
 			emote("scream")
 		emote("collapse")
 		paralysis = 10
