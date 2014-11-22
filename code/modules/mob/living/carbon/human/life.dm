@@ -1170,7 +1170,7 @@
 					spawn(0)
 						emote("snore")
 				if(mind)
-					if(mind.vampire) //VAMP COFFIN REGEN CODE BEGIN
+					if(mind.vampire) //VAMP COFFIN REGEN CODE BEGINS
 						if(istype(loc, /obj/structure/closet/coffin))
 							var/mob/living/carbon/human/H = mind.current
 							H.adjustBruteLoss(-2)
