@@ -526,7 +526,7 @@
 				for(var/mob/O in viewers(L))
 					O.show_message("\red <B>[usr] attempts to unbuckle themself!</B>", 1)
 				spawn(0)
-					if(do_after(usr, 1200))
+					if(do_after(usr, rand(1100,1300)))
 						if(!C.buckled)
 							return
 						for(var/mob/O in viewers(C))
@@ -538,7 +538,7 @@
 
 	//Breaking out of a locker?
 	else if( src.loc && (istype(src.loc, /obj/structure/closet)) )
-		var/breakout_time = 2 //2 minutes by default
+		var/breakout_time = 1200 //2 minutes by default
 
 		var/obj/structure/closet/C = L.loc
 		if(C.opened)
@@ -562,7 +562,7 @@
 
 
 		spawn(0)
-			if(do_after(usr,(breakout_time*60*10))) //minutes * 60seconds * 10deciseconds
+			if(do_after(usr,breakout_time)) //minutes * 60seconds * 10deciseconds //why would you ever do that? WHY? Changed it to deciseconds, like everything else uses -scrdest
 				if(!C || !L || L.stat != CONSCIOUS || L.loc != C || C.opened) //closet/user destroyed OR user dead/unconcious OR user no longer in closet OR closet opened
 					return
 
@@ -640,8 +640,8 @@
 				var/breakouttime = 1200 //A default in case you are somehow handcuffed with something that isn't an obj/item/weapon/handcuffs type
 				var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 				if(istype(HC)) //If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
-					breakouttime = HC.breakouttime
-					displaytime = breakouttime / 600 //Minutes
+					breakouttime = rand(max((HC.breakouttime - 100),0),HC.breakouttime + 100) //+/- 10 seconds of variance, with a sanity check for negative values - scrdest
+					displaytime = max(round((breakouttime / 600),1),1) //Minutes
 				CM << "\red You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"
 				for(var/mob/O in viewers(CM))
 					O.show_message( "\red <B>[usr] attempts to remove \the [HC]!</B>", 1)
@@ -686,8 +686,8 @@
 				var/breakouttime = 1200 //A default in case you are somehow legcuffed with something that isn't an obj/item/weapon/legcuffs type
 				var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 				if(istype(HC)) //If you are legcuffed with actual legcuffs... Well what do I know, maybe someone will want to legcuff you with toilet paper in the future...
-					breakouttime = HC.breakouttime
-					displaytime = breakouttime / 600 //Minutes
+					breakouttime = rand(max((HC.breakouttime - 100),0),HC.breakouttime + 100) //+/- 10 seconds of variance, with a sanity check for negative values - scrdest
+					displaytime = max(round((breakouttime / 600),1),1) //Minutes
 				CM << "\red You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"
 				for(var/mob/O in viewers(CM))
 					O.show_message( "\red <B>[usr] attempts to remove \the [HC]!</B>", 1)

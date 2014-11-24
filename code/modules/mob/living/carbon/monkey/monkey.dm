@@ -87,7 +87,7 @@
 
 /mob/living/carbon/monkey/skrell/New()
 
-	
+
 	dna.mutantrace = "skrell"
 	greaterform = "Skrell"
 	..()
