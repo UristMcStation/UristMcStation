@@ -641,7 +641,7 @@
 				var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 				if(istype(HC)) //If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 					breakouttime = rand(max((HC.breakouttime - 100),0),HC.breakouttime + 100) //+/- 10 seconds of variance, with a sanity check for negative values - scrdest
-					displaytime = max(round((breakouttime / 600),1),1) //Minutes
+					displaytime = max(round((breakouttime / 600),0.5),0.5) //Minutes
 				CM << "\red You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"
 				for(var/mob/O in viewers(CM))
 					O.show_message( "\red <B>[usr] attempts to remove \the [HC]!</B>", 1)
@@ -687,7 +687,7 @@
 				var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 				if(istype(HC)) //If you are legcuffed with actual legcuffs... Well what do I know, maybe someone will want to legcuff you with toilet paper in the future...
 					breakouttime = rand(max((HC.breakouttime - 100),0),HC.breakouttime + 100) //+/- 10 seconds of variance, with a sanity check for negative values - scrdest
-					displaytime = max(round((breakouttime / 600),1),1) //Minutes
+					displaytime = max(round((breakouttime / 600),0.5),0.5) //Minutes
 				CM << "\red You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"
 				for(var/mob/O in viewers(CM))
 					O.show_message( "\red <B>[usr] attempts to remove \the [HC]!</B>", 1)
