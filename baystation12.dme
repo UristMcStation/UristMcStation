@@ -1373,6 +1373,7 @@
 #include "code\modules\telesci\telesci_computer.dm"
 #include "code\modules\urist\area&turf\areas.dm"
 #include "code\modules\urist\area&turf\turfs.dm"
+#include "code\modules\urist\gamemodes\vampire\traitorpire.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire_powers.dm"
 #include "code\modules\urist\items\airlock_painter.dm"
