@@ -538,7 +538,7 @@
 
 	//Breaking out of a locker?
 	else if( src.loc && (istype(src.loc, /obj/structure/closet)) )
-		var/breakout_time = 1200 //2 minutes by default
+		var/breakout_time = 2 //2 minutes by default
 
 		var/obj/structure/closet/C = L.loc
 		if(C.opened)
@@ -562,7 +562,7 @@
 
 
 		spawn(0)
-			if(do_after(usr,breakout_time)) //minutes * 60seconds * 10deciseconds //why would you ever do that? WHY? Changed it to deciseconds, like everything else uses -scrdest
+			if(do_after(usr,(breakout_time*60*10))) //minutes * 60seconds * 10deciseconds
 				if(!C || !L || L.stat != CONSCIOUS || L.loc != C || C.opened) //closet/user destroyed OR user dead/unconcious OR user no longer in closet OR closet opened
 					return
 
