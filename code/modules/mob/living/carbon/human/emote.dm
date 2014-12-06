@@ -1,5 +1,7 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
+	var/emote_sound = null
+	var/list/emote_sound_params = list(100, 1, 1) //volume, random, fade
 
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
@@ -207,7 +209,7 @@
 					m_type = 2
 
 		if ("deathgasp")
-			message = "<B>[src]</B> seizes up and falls limp, \his eyes dead and lifeless..."
+			message = "<B>[src]</B> [species.death_message]"
 			m_type = 1
 
 		if ("giggle")
@@ -540,9 +542,35 @@
 				else
 					message = "<B>[src]</B> makes a very loud noise."
 					m_type = 2
+		if ("snap")
+			message = "<b>[src]</b> snaps \his fingers."
+			m_type = 2
+			emote_sound = "sound/urist/snap1.ogg"
+			emote_sound_params = list(80, 13, 1)
+			var/mob/living/carbon/human/H = src
+			var/datum/organ/external/L = H.get_organ("l_hand")
+			var/datum/organ/external/R = H.get_organ("r_hand")
+			var/left_hand_good = 0
+			var/right_hand_good = 0
+			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_SPLINTED)) && (!(L.status & ORGAN_BROKEN)))
+				left_hand_good = 1
+			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_SPLINTED)) && (!(R.status & ORGAN_BROKEN)))
+				right_hand_good = 1
+			
+			if (!left_hand_good && !right_hand_good)
+				usr << "You need at least one hand in good working order to snap your fingers."
+				return
+			
+			if (((!left_hand_good) && src.r_hand) || ((!right_hand_good) && src.l_hand))
+				usr << "Your good hand is full."
+				return
+			
+			if (src.r_hand && src.l_hand)
+				src << "Your hands are full."
+				return
 
 		if ("help")
-			src << "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,\ncry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,\ngrin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,\nsigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,\nwink, yawn"
+			src << "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,\ncry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,\ngrin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,\nsigh, signal-#1-10, smile, snap, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,\nwink, yawn"
 
 		else
 			src << "\blue Unusable emote '[act]'. Say *help for a list."
@@ -553,7 +581,10 @@
 
 	if (message)
 		log_emote("[name]/[key] : [message]")
-
+		
+		if (emote_sound)
+			playsound(src.loc, emote_sound, emote_sound_params[1], emote_sound_params[2], emote_sound_params[3])
+		
  //Hearing gasp and such every five seconds is not good emotes were not global for a reason.
  // Maybe some people are okay with that.
 

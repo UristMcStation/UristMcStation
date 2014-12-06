@@ -1,8 +1,9 @@
 /mob/living/carbon/human/movement_delay()
+
 	var/tally = 0
 
-	if(species && species.flags & IS_SLOW)
-		tally = 7
+	if(species.slowdown)
+		tally = species.slowdown
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
@@ -16,7 +17,8 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if(halloss >= 10) tally += (halloss / 10)
+	if (!(species && (species.flags & NO_PAIN)))
+		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
 	var/hungry = (500 - nutrition)/5 // So overeat would be 100 and default level would be 80
 	if (hungry >= 70) tally += hungry/50
@@ -79,6 +81,10 @@
 
 /mob/living/carbon/human/Process_Spaceslipping(var/prob_slip = 5)
 	//If knocked out we might just hit it and stop.  This makes it possible to get dead bodies and such.
+
+	if(species.flags & NO_SLIP)
+		return
+
 	if(stat)
 		prob_slip = 0 // Changing this to zero to make it line up with the comment, and also, make more sense.
 

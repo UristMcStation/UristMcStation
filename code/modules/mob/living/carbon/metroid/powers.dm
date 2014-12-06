@@ -61,13 +61,15 @@
 			loc = M.loc
 
 			if(prob(15) && M.client && istype(M, /mob/living/carbon))
-				M << "<span class='danger'>[pick("You can feel your body becoming weak!", \
-				"You feel like you're about to die!", \
-				"You feel every part of your body screaming in agony!", \
-				"A low, rolling pain passes through your body!", \
-				"Your body feels as if it's falling apart!", \
-				"You feel extremely weak!", \
-				"A sharp, deep pain bathes every inch of your body!")]</span>"
+				var/mob/living/carbon/C = M
+				if (!(C.species && (C.species.flags & NO_PAIN)))
+					M << "<span class='danger'>[pick("You can feel your body becoming weak!", \
+					"You feel like you're about to die!", \
+					"You feel every part of your body screaming in agony!", \
+					"A low, rolling pain passes through your body!", \
+					"Your body feels as if it's falling apart!", \
+					"You feel extremely weak!", \
+					"A sharp, deep pain bathes every inch of your body!")]</span>"
 
 			if(istype(M, /mob/living/carbon))
 				Victim.adjustCloneLoss(rand(5,6))
@@ -104,7 +106,7 @@
 				adjustBruteLoss(-10)
 				adjustFireLoss(-10)
 				adjustCloneLoss(-10)
-				
+
 				updatehealth()
 				if(Victim)
 					Victim.updatehealth()
@@ -226,10 +228,3 @@
 			src << "<i>I am not ready to reproduce yet...</i>"
 	else
 		src << "<i>I am not old enough to reproduce yet...</i>"
-
-/mob/living/carbon/slime/verb/ventcrawl()
-	set name = "Crawl through Vent"
-	set desc = "Enter an air vent and crawl through the pipe system."
-	set category = "Slime"
-	if(Victim)	return
-	handle_ventcrawl()
