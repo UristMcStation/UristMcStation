@@ -77,12 +77,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "umbrellagun"
 	item_state = "umbrellagun"
 	w_class = 2
-	max_shells = 2
-	caliber = "9mm"
-	silenced = 1
+	suppressed = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = "/obj/item/ammo_casing/c9mm"
-	load_method = 2
+	mag_type = /obj/item/ammo_casing/c9mm
+	fire_sound = 'sound/weapons/Gunshot_silenced.ogg'
 
 //BANG BANG BANG, BANG BANG
 

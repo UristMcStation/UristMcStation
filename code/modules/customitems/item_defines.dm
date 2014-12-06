@@ -1349,7 +1349,7 @@
 /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas/update_icon()
 
 	..()
-	if(loaded.len)
+	if(chambered)
 		icon_state = "leamas-loaded"
 	else
 		icon_state = "leamas-empty"

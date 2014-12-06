@@ -53,11 +53,11 @@
 	return
 
 /obj/item/weapon/gun/launcher/spikethrower/load_into_chamber()
-	if(in_chamber) return 1
+	if(chambered) return 1
 	if(spikes < 1) return 0
 
 	spikes--
-	in_chamber = new /obj/item/weapon/spike(src)
+	chambered = new /obj/item/weapon/spike(src)
 	return 1
 
 /obj/item/weapon/gun/launcher/spikethrower/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
@@ -97,7 +97,7 @@
 		return
 
 /obj/item/weapon/gun/energy/noisecannon/load_into_chamber() //Does not have ammo.
-	in_chamber = new projectile_type(src)
+	chambered = new projectile_type(src)
 	return 1
 
 /obj/item/weapon/gun/energy/noisecannon/update_icon()

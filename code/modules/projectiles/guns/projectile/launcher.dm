@@ -12,7 +12,7 @@
 
 //Check if we're drawing and if the bow is loaded.
 /obj/item/weapon/gun/launcher/load_into_chamber()
-	return (!isnull(in_chamber))
+	return (!isnull(chambered))
 
 //This should not fit in a combat belt or holster.
 /obj/item/weapon/gun/launcher/isHandgun()
@@ -61,7 +61,7 @@
 	if(!load_into_chamber()) //CHECK
 		return click_empty(user)
 
-	if(!in_chamber)
+	if(!chambered)
 		return 0
 
 	update_release_force()
@@ -71,12 +71,12 @@
 	"<span class='warning'>You fire [src][reflex ? "by reflex":""]!</span>", \
 	"You hear [fire_sound_text]!")
 
-	in_chamber.loc = get_turf(user)
-	in_chamber.throw_at(target,10,release_force)
+	chambered.loc = get_turf(user)
+	chambered.throw_at(target,10,release_force)
 
 	sleep(1)
 
-	in_chamber = null
+	chambered = null
 
 	update_icon()
 

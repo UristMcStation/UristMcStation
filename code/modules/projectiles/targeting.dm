@@ -34,7 +34,7 @@
 			user.client.remove_gun_icons()
 	return ..()
 
-//Removes lock fro mall targets
+//Removes lock from all targets
 /obj/item/weapon/gun/proc/stop_aim()
 	if(target)
 		for(var/mob/living/M in target)

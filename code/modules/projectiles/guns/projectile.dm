@@ -17,7 +17,7 @@
 	return
 
 /obj/item/weapon/gun/projectile/process_chamber(var/eject_casing = 1, var/empty_chamber = 1)
-//	if(in_chamber)
+//	if(chambered)
 //		return 1
 	var/obj/item/ammo_casing/AC = chambered //Find chambered round
 	if(isnull(AC) || !istype(AC))

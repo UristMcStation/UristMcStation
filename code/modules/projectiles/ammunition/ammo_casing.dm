@@ -22,7 +22,7 @@
 /obj/item/ammo_casing/a12mm
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"
-	projectile_type = "/obj/item/projectile/bullet/midbullet2"
+	projectile_type = /obj/item/projectile/bullet/midbullet2
 
 
 /obj/item/ammo_casing/c38
@@ -52,6 +52,12 @@
 	desc = "A .45 rubber bullet casing."
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/weakbullet
+
+/obj/item/ammo_casing/chameleon
+	desc = "A set of bullets for the Chameleon Gun."
+	caliber = ".45"
+	projectile_type = /obj/item/projectile/bullet/chameleon
+
 
 
 /obj/item/ammo_casing/shotgun

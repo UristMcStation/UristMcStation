@@ -257,7 +257,7 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
-		
+
 		//so our overlays update.
 		if (ismob(src.loc))
 			var/mob/M = src.loc
@@ -415,21 +415,19 @@
 //*****************
 //**Chameleon Gun**
 //*****************
-/obj/item/weapon/gun/projectile/chameleon
+/obj/item/weapon/gun/projectile/automatic/chameleon
 	name = "desert eagle"
 	desc = "A fake Desert Eagle with a dial on the side to change the gun's disguise."
 	icon_state = "deagle"
 	w_class = 3.0
-	max_shells = 7
-	caliber = ".45"
 	origin_tech = "combat=2;materials=2;syndicate=8"
-	ammo_type = "/obj/item/ammo_casing/chameleon"
+	mag_type = /obj/item/ammo_box/chameleon
 	matter = list()
 	var/list/gun_choices = list()
 
 	New()
 		..()
-		var/blocked = list(/obj/item/weapon/gun/projectile/chameleon)
+		var/blocked = list(/obj/item/weapon/gun/projectile/automatic/chameleon)
 		for(var/U in typesof(/obj/item/weapon/gun/)-blocked)
 			var/obj/item/weapon/gun/V = new U
 			src.gun_choices[V.name] = U
@@ -464,7 +462,7 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		flags_inv = A.flags_inv
-		
+
 		//so our overlays update.
 		if (ismob(src.loc))
 			var/mob/M = src.loc
