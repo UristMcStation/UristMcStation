@@ -120,7 +120,7 @@
 
 	uplink_contents = {"Highly Visible and Dangerous Weapons;
 /obj/item/weapon/gun/projectile:6:Revolver;
-/obj/item/ammo_magazine/a357:2:Ammo-357;
+/obj/item/ammo_box/a357:2:Ammo-357;
 /obj/item/weapon/gun/energy/crossbow:5:Energy Crossbow;
 /obj/item/weapon/melee/energy/sword:4:Energy Sword;
 /obj/item/weapon/storage/box/syndicate:10:Syndicate Bundle;

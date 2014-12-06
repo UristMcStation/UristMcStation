@@ -1356,7 +1356,7 @@
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 
-	if(istype(A, /obj/item/ammo_magazine))
+	if(istype(A, /obj/item/ammo_box))
 		flick("leamas-reloading",src)
 	..()
 

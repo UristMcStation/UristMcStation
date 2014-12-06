@@ -26,7 +26,7 @@
 
 			if("guns")
 				new /obj/item/weapon/gun/projectile(src)
-				new /obj/item/ammo_magazine/a357(src)
+				new /obj/item/ammo_box/a357(src)
 				new /obj/item/weapon/card/emag(src)
 				new /obj/item/weapon/plastique(src)
 				return
@@ -134,4 +134,4 @@
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/clothing/glasses/chameleon(src)
 	new /obj/item/weapon/gun/projectile/chameleon(src)
-	new /obj/item/ammo_magazine/chameleon(src)
+	new /obj/item/ammo_box/chameleon(src)
