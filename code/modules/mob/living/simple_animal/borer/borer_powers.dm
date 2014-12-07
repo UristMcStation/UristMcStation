@@ -208,7 +208,7 @@
 		src << "You cannot secrete chemicals in your current state."
 
 	if(docile)
-		src << "<span class = 'cation'> You are feeling far too docile to do that.</span>"
+		src << "<span class = 'warning'> You are feeling far too docile to do that.</span>"
 		return
 
 	if(chemicals < 50)
@@ -219,7 +219,7 @@
 	if(chemicals < 50 || !host || controlling || !src || stat) //Sanity check.
 		return
 
-	src << "<span class = 'cation'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
+	src << "<span class = 'notice'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
 	host.reagents.add_reagent(chem, 10)
 	chemicals -= 50
 
@@ -236,7 +236,7 @@
 		src << "You cannot secrete chemicals in your current state."
 
 	if(docile)
-		src << "<span class = 'cation'> You are feeling far too docile to do that.</span>"
+		src << "<span class = 'warning'> You are feeling far too docile to do that.</span>"
 		return
 
 	if(chemicals < 100)
@@ -247,7 +247,7 @@
 	if(chemicals < 100 || !host || controlling || !src || stat) //Sanity check.
 		return
 
-	src << "<span class = 'cation'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
+	src << "<span class = 'notice'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
 	host.reagents.add_reagent(chem, 5)
 	chemicals -= 100
 
