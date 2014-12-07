@@ -240,8 +240,6 @@ update_flag
 
 	nanomanager.update_uis(src) // Update all NanoUIs attached to src
 
-
-
 /obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
@@ -305,6 +303,7 @@ update_flag
 				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
 			else
 				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+				log_open()
 		valve_open = !valve_open
 
 	if (href_list["remove_tank"])

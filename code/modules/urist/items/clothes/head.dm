@@ -224,3 +224,19 @@ obj/item/clothing/head/princessbow
 	desc = "A grubby red hat worn by a janitor."
 	icon_state = "janihat"
 	item_state = "janihat"
+
+//Barber
+
+/obj/item/clothing/head/urist/barber
+	name = "boater"
+	desc = "A flat-topped hardened straw hat with a red and blue brim."
+	icon_state = "boater"
+	item_state = "boater"
+
+//Earplugs. Earmuffs, but more discrete, for the discerning traitor.
+/obj/item/clothing/ears/earmuffs/earplugs
+	name = "earplugs"
+	desc = "Protects your hearing from loud noises, but a little bit more discretely."
+	icon = 'icons/urist/items/clothes/ears.dmi'
+	icon_state = "earplugs"
+	item_state = "earplugs"

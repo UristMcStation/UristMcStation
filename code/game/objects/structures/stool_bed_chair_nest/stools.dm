@@ -48,15 +48,20 @@
 		if (H==usr && !H.restrained() && !H.stat && in_range(src, over_object))
 			if(style == 0)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool(src.loc)
+				S.origin = src
+				src.loc = S
 				H.put_in_hands(S)
 			if(style == 1)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/bar(src.loc)
+				S.origin = src
+				src.loc = S
 				H.put_in_hands(S)
 			if(style == 2)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/wood(src.loc)
+				S.origin = src
+				src.loc = S
 				H.put_in_hands(S)
-//			S.origin = src
-//			src.loc = S
+
 //			H.put_in_hands(S)
 			H.visible_message("\red [H] grabs [src] from the floor!", "\red You grab [src] from the floor!")
 			del(src)
@@ -70,12 +75,12 @@
 	throwforce = 10
 	w_class = 5.0
 	var/style = 0 //0 is regular, 1 is bar, 2 is wood
-//	var/obj/structure/stool/origin = null
+	var/obj/structure/stool/origin = null
 
 /obj/item/weapon/stool/proc/deploy(var/mob/user)
 
-//	if(!origin)
-//		del src
+	if(!origin)
+		del src
 
 	if(style == 0)
 		var/obj/structure/stool/S = new/obj/structure/stool()
@@ -104,7 +109,7 @@
 
 /obj/item/weapon/stool/attack(mob/M as mob, mob/user as mob)
 	if (prob(5) && istype(M,/mob/living))
-		user.visible_message("\red [user] breaks [src] over [M]'s back!.")
+		user.visible_message("\red [user] breaks [src] over [M]'s back!")
 		user.u_equip(src)
 		if(style == 2)
 			var/obj/item/stack/sheet/wood/m = new/obj/item/stack/sheet/wood

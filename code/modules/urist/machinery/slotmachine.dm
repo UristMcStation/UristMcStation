@@ -59,7 +59,7 @@
 					if (roll == 1)
 						for(var/mob/O in hearers(src, null))
 							O.show_message(text("<b>[]</b> says, 'JACKPOT! You win [src.money]!'", src), 1)
-						command_alert("Congratulations [usr.name] on winning the Jackpot!", "Jackpot Winner")
+						command_announcement.Announce("Congratulations [usr.name] on winning the Jackpot!", "Jackpot Winner")
 						usr.mind.initial_account.money += src.money
 						src.money = 0
 					else if (roll > 1 && roll <= 10)

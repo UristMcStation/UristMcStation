@@ -153,8 +153,8 @@ turf/simulated/floor/beach/pool/New()
 			playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 			return
 
-		if(istype(C, /obj/item/weapon/cable_coil))
-			var/obj/item/weapon/cable_coil/coil = C
+		if(istype(C, /obj/item/stack/cable_coil))
+			var/obj/item/stack/cable_coil/coil = C
 			coil.turf_place(src, user)
 
 	is_catwalk()
@@ -190,3 +190,17 @@ turf/simulated/floor/beach/pool/New()
 	name = "plating"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_plating"
+
+
+
+//unsimulated walls
+
+/turf/unsimulated/wall/wood
+	name = "wood wall"
+	icon = 'icons/urist/turf/walls.dmi'
+	icon_state = "wood0"
+
+/turf/unsimulated/wall/stone
+	name = "stone wall"
+	icon = 'icons/urist/turf/walls.dmi'
+	icon_state = "stone0"

@@ -228,9 +228,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
 
-	var/i, ch, len = length(key)
+	var/i = 7, ch, len = length(key)
 
-	for (i = 7, i <= len, ++i)
+	if(copytext(key, 7, 8) == "W") //webclient
+		i++
+
+	for (, i <= len, ++i)
 		ch = text2ascii(key, i)
 		if (ch < 48 || ch > 57)
 			return 0
@@ -330,13 +333,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 				//world << "<b>[newname] is the AI!</b>"
 				//world << sound('sound/AI/newAI.ogg')
 				// Set eyeobj name
-				if(A.eyeobj)
-					A.eyeobj.name = "[newname] (AI Eye)"
-
-				// Set ai pda name
-				if(A.aiPDA)
-					A.aiPDA.owner = newname
-					A.aiPDA.name = newname + " (" + A.aiPDA.ownjob + ")"
+				A.SetName(newname)
 
 
 		fully_replace_character_name(oldname,newname)
@@ -1181,7 +1178,7 @@ proc/get_mob_with_client_list()
 
 //Quick type checks for some tools
 var/global/list/common_tools = list(
-/obj/item/weapon/cable_coil,
+/obj/item/stack/cable_coil,
 /obj/item/weapon/wrench,
 /obj/item/weapon/weldingtool,
 /obj/item/weapon/screwdriver,
@@ -1205,7 +1202,7 @@ var/global/list/common_tools = list(
 	return 0
 
 /proc/iscoil(O)
-	if(istype(O, /obj/item/weapon/cable_coil))
+	if(istype(O, /obj/item/stack/cable_coil))
 		return 1
 	return 0
 
@@ -1230,7 +1227,7 @@ var/global/list/common_tools = list(
 	return 0
 
 /proc/iswire(O)
-	if(istype(O, /obj/item/weapon/cable_coil))
+	if(istype(O, /obj/item/stack/cable_coil))
 		return 1
 	return 0
 

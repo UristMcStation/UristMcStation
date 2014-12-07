@@ -35,13 +35,13 @@
 
 	break_stuff_probability = 2
 
-	faction = "scarybat"
-	var/mob/living/owner
+	faction = "vampire"
+//	var/mob/living/owner
 
-/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
+/*/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
 	..()
-	if(istype(L))
-		owner = L
+	if(istype(L)) //The fuck is that, vg?
+		owner = L*/
 
 /mob/living/simple_animal/hostile/scarybat/Process_Spacemove(var/check_drift = 0)
 	return ..()	//No drifting in space for space carp!	//original comments do not steal
@@ -51,10 +51,10 @@
 	if(.)
 		emote("flutters towards [.]")
 
-/mob/living/simple_animal/hostile/scarybat/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
+/*/mob/living/simple_animal/hostile/scarybat/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
 	if(istype(A) && A == owner)
 		return 0
-	return ..()
+	return ..()*/
 
 /mob/living/simple_animal/hostile/scarybat/AttackingTarget()
 	. =..()

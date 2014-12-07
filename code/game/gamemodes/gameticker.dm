@@ -276,7 +276,7 @@ var/global/datum/controller/gameticker/ticker
 
 	proc/create_characters()
 		for(var/mob/new_player/player in player_list)
-			if(player.ready && player.mind)
+			if(player && player.ready && player.mind)
 				if(player.mind.assigned_role=="AI")
 					player.close_spawn_windows()
 					player.AIize()
@@ -378,10 +378,34 @@ var/global/datum/controller/gameticker/ticker
 
 
 /datum/controller/gameticker/proc/declare_completion()
+	world << "<br><br><br><font size=3><b>The round has ended.</b></font>"
+	for(var/mob/Player in player_list)
+		if(Player.mind && !isnewplayer(Player))
+			if(Player.stat != DEAD)
+				var/turf/playerTurf = get_turf(Player)
+				if(emergency_shuttle.departed && emergency_shuttle.evac)
+					if(playerTurf.z != 2)
+						Player << "<font color='blue'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></font>"
+					else
+						Player << "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></font>"
+				else if(playerTurf.z == 2)
+					Player << "<font color='green'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></font>"
+				else if(issilicon(Player))
+					Player << "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>"
+				else
+					Player << "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>"
+			else
+				if(istype(Player,/mob/dead/observer))
+					var/mob/dead/observer/O = Player
+					if(!O.started_as_observer)
+						Player << "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>"
+				else
+					Player << "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>"
+	world << "<br>"
 
 	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
 		if (aiPlayer.stat != 2)
-			world << "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the game were:</b>"
+			world << "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the round were:</b>"
 		else
 			world << "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws when it was deactivated were:</b>"
 		aiPlayer.show_laws(1)
@@ -410,7 +434,7 @@ var/global/datum/controller/gameticker/ticker
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		world << "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] this round."
+		world << "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round."
 
 	mode.declare_completion()//To declare normal completion.
 

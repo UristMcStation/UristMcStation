@@ -31,47 +31,54 @@
 	var/ert_disabled = 0
 	var/uplink_welcome = "Syndicate Uplink Console:"
 	var/uplink_uses = 10
-	var/uplink_items = {"Highly Visible and Dangerous Weapons;
-/obj/item/weapon/gun/projectile:6:Revolver;
-/obj/item/ammo_magazine/a357:2:Ammo-357;
-/obj/item/weapon/gun/energy/crossbow:5:Energy Crossbow;
-/obj/item/weapon/melee/energy/sword:4:Energy Sword;
-/obj/item/weapon/storage/box/syndicate:10:Syndicate Bundle;
-/obj/item/weapon/storage/box/emps:3:5 EMP Grenades;
-/obj/item/weapon/grenade/syndieminibomb:6:Syndicate Minibomb;
-Whitespace:Seperator;
-Stealthy and Inconspicuous Weapons;
-/obj/item/weapon/pen/paralysis:3:Paralysis Pen;
-/obj/item/weapon/soap/syndie:1:Syndicate Soap;
-/obj/item/weapon/cartridge/syndicate:3:Detomatix PDA Cartridge;
-Whitespace:Seperator;
-Stealth and Camouflage Items;
-/obj/item/weapon/storage/box/syndie_kit/chameleon:3:Chameleon Kit;
-/obj/item/clothing/shoes/syndigaloshes:2:No-Slip Syndicate Shoes;
-/obj/item/weapon/card/id/syndicate:2:Agent ID card;
-/obj/item/clothing/mask/gas/voice:4:Voice Changer;
-/obj/item/device/chameleon:4:Chameleon-Projector;
-Whitespace:Seperator;
-Devices and Tools;
-/obj/item/weapon/card/emag:3:Cryptographic Sequencer;
-/obj/item/weapon/storage/toolbox/syndicate:1:Fully Loaded Toolbox;
-/obj/item/weapon/storage/box/syndie_kit/space:3:Space Suit;
-/obj/item/clothing/glasses/thermal/syndi:3:Thermal Imaging Glasses;
-/obj/item/device/encryptionkey/binary:3:Binary Translator Key;
-/obj/item/weapon/aiModule/syndicate:7:Hacked AI Upload Module;
-/obj/item/weapon/plastique:2:C-4 (Destroys walls);
-/obj/item/device/powersink:5:Powersink (DANGER!);
-/obj/item/device/radio/beacon/syndicate:7:Singularity Beacon (DANGER!);
-/obj/item/weapon/circuitboard/teleporter:20:Teleporter Circuit Board;
-Whitespace:Seperator;
-Implants;
-/obj/item/weapon/storage/box/syndie_kit/imp_freedom:3:Freedom Implant;
-/obj/item/weapon/storage/box/syndie_kit/imp_uplink:10:Uplink Implant (Contains 5 Telecrystals);
-/obj/item/weapon/storage/box/syndie_kit/imp_explosive:6:Explosive Implant (DANGER!);
-/obj/item/weapon/storage/box/syndie_kit/imp_compress:4:Compressed Matter Implant;Whitespace:Seperator;
-(Pointless) Badassery;
-/obj/item/toy/syndicateballoon:10:For showing that You Are The BOSS (Useless Balloon);
-/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate:2:Syndicate Cigarettes;"}
+	var/list/datum/uplink_item/uplink_items = list(
+		"Highly Visible and Dangerous Weapons" = list(
+			 new/datum/uplink_item(/obj/item/weapon/gun/projectile, 6, "Revolver", "RE"),
+			 new/datum/uplink_item(/obj/item/ammo_magazine/a357, 2, "Ammo-357", "RA"),
+			 new/datum/uplink_item(/obj/item/weapon/gun/energy/crossbow, 5, "Energy Crossbow", "XB"),
+			 new/datum/uplink_item(/obj/item/weapon/melee/energy/sword, 4, "Energy Sword", "ES"),
+			 new/datum/uplink_item(/obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser, 6, "Exosuit Rigged Laser", "RL"),
+			 new/datum/uplink_item(/obj/item/weapon/storage/box/syndicate, 10, "Syndicate Bundle", "BU"),
+			 new/datum/uplink_item(/obj/item/weapon/storage/box/emps, 3, "5 EMP Grenades", "EM"),
+			 new/datum/uplink_item(/obj/item/weapon/grenade/syndieminibomb, 6, "Syndicate Minibomb", "SM")
+			),
+		"Stealthy and Inconspicuous Weapons" = list(
+			new/datum/uplink_item(/obj/item/weapon/pen/paralysis, 3, "Paralysis Pen", "PP"),
+			new/datum/uplink_item(/obj/item/weapon/soap/syndie, 1, "Syndicate Soap", "SP"),
+			new/datum/uplink_item(/obj/item/weapon/cartridge/syndicate, 3, "Detomatix PDA Cartridge", "DC")
+			),
+		"Stealth and Camouflage Items" = list(
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/chameleon, 3, "Chameleon Kit", "CB"),
+			new/datum/uplink_item(/obj/item/clothing/shoes/syndigaloshes, 2, "No-Slip Syndicate Shoes", "SH"),
+			new/datum/uplink_item(/obj/item/weapon/card/id/syndicate, 2, "Agent ID card", "AC"),
+			new/datum/uplink_item(/obj/item/clothing/mask/gas/voice, 4, "Voice Changer", "VC"),
+			new/datum/uplink_item(/obj/item/device/chameleon, 4, "Chameleon-Projector", "CP")
+			),
+		"Devices and Tools" = list(
+			new/datum/uplink_item(/obj/item/weapon/card/emag, 3, "Cryptographic Sequencer", "EC"),
+			new/datum/uplink_item(/obj/item/weapon/storage/toolbox/syndicate, 1, "Fully Loaded Toolbox", "ST"),
+			new/datum/uplink_item(/obj/item/weapon/stamp/chameleon, 3, "Morphic Chameleon Stmap", "CS"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/space, 3, "Space Suit", "SS"),
+			new/datum/uplink_item(/obj/item/clothing/glasses/thermal/syndi, 3, "Thermal Imaging Glasses", "TM"),
+			new/datum/uplink_item(/obj/item/device/encryptionkey/binary, 3, "Binary Translator Key", "BT"),
+			new/datum/uplink_item(/obj/item/weapon/aiModule/syndicate, 7, "Hacked AI Upload Module", "AI"),
+			new/datum/uplink_item(/obj/item/weapon/plastique, 2, "C-4 (Destroys walls)", "C4"),
+			new/datum/uplink_item(/obj/item/device/powersink, 5, "Powersink (DANGER!)", "PS",),
+			new/datum/uplink_item(/obj/item/device/radio/beacon/syndicate, 7, "Singularity Beacon (DANGER!)", "SB"),
+			new/datum/uplink_item(/obj/item/weapon/circuitboard/teleporter, 20, "Teleporter Circuit Board", "TP"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/sonics, 4, "4 Sonic Grenades", "SG")
+			),
+		"Implants" = list(
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/imp_freedom, 3, "Freedom Implant", "FI"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/imp_uplink, 10, "Uplink Implant (Contains 5 Telecrystals)", "UI"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/imp_explosive, 6, "Explosive Implant (DANGER!)", "EI"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/imp_compress, 4, "Compressed Matter Implant", "CI")
+			),
+		"(Pointless) Badassery" = list(
+			new/datum/uplink_item(/obj/item/toy/syndicateballoon, 10, "For showing that You Are The BOSS (Useless Balloon)", "BS"),
+			new/datum/uplink_item(/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate, 2, "Syndicate Cigarettes", "SC")
+			)
+		)
 
 // Items removed from above:
 /*
@@ -209,14 +216,14 @@ Implants;
 
 /datum/game_mode/proc/send_intercept()
 	var/intercepttext = "<FONT size = 3><B>Cent. Com. Update</B> Requested status information:</FONT><HR>"
-	intercepttext += "<B> In case you have misplaced your copy, attached is a list of personnel whom reliable sources&trade; suspect may be affiliated with the Syndicate:</B><br>"
+	intercepttext += "<B> In case you have misplaced your copy, attached is a list of personnel whom reliable sources&trade; suspect may be affiliated with subversive elements:</B><br>"
 
 
 	var/list/suspects = list()
 	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.mind)
 		// NT relation option
 		var/special_role = man.mind.special_role
-		if (special_role == "Wizard" || special_role == "Ninja" || special_role == "Syndicate" || special_role == "Vox Raider")
+		if (special_role == "Wizard" || special_role == "Ninja" || special_role == "Syndicate" || special_role == "Syndicate Commando" || special_role == "Vox Raider")
 			continue	//NT intelligence ruled out possiblity that those are too classy to pretend to be a crew.
 		if(man.client.prefs.nanotrasen_relation == "Opposed" && prob(50) || \
 		   man.client.prefs.nanotrasen_relation == "Skeptical" && prob(20))
@@ -508,3 +515,19 @@ proc/get_nt_opposed()
 	for(var/datum/objective/objective in player.objectives)
 		player.current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 		obj_count++
+
+/datum/game_mode/proc/printplayer(var/datum/mind/ply)
+	var/role = "\improper[ply.assigned_role]"
+	var/text = "<br><b>[ply.name]</b>(<b>[ply.key]</b>) as \a <b>[role]</b> ("
+	if(ply.current)
+		if(ply.current.stat == DEAD)
+			text += "died"
+		else
+			text += "survived"
+		if(ply.current.real_name != ply.name)
+			text += " as <b>[ply.current.real_name]</b>"
+	else
+		text += "body destroyed"
+	text += ")"
+
+	return text

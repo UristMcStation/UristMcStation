@@ -5,7 +5,7 @@
 "ae" = (/obj/machinery/power/apc{step_y = 0},/obj/structure/cable{icon_state = "0-2"; d2 = 2},/turf/unsimulated/wall,/area/awaymission)
 "af" = (/obj/machinery/power/terminal,/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/awaymission)
 "ag" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/awaymission)
-"ah" = (/obj/item/weapon/cable_coil/random,/obj/effect/decal/remains/human,/turf/simulated/floor/plating,/area/awaymission)
+"ah" = (/obj/item/stack/cable_coil/random,/obj/effect/decal/remains/human,/turf/simulated/floor/plating,/area/awaymission)
 "ai" = (/turf/simulated/floor/plating,/area/awaymission)
 "aj" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/awaymission)
 "ak" = (/obj/machinery/power/smes/magical,/turf/simulated/shuttle/plating,/area/awaymission)

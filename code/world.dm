@@ -1,3 +1,15 @@
+var/global/datum/global_init/init = new ()
+
+/*
+	Pre-map initialization stuff should go here.
+*/
+/datum/global_init/New()
+
+	makeDatumRefLists()
+
+	del(src)
+
+
 /world
 	mob = /mob/new_player
 	turf = /turf/space
@@ -40,6 +52,11 @@
 	. = ..()
 
 	sleep_offline = 1
+
+	// Set up roundstart seed list. This is here because vendors were
+	// bugging out and not populating with the correct packet names
+	// due to this list not being instantiated.
+	populate_seed_list()
 
 	master_controller = new /datum/controller/game_controller()
 	spawn(1)

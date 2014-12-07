@@ -40,6 +40,8 @@
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/sheet/wood/S = new /obj/item/stack/sheet/wood(src.loc)
 		S.amount = 4
+		for(var/obj/item/weapon/book/b in contents)
+			b.loc = (get_turf(src))
 		del(src)
 	else
 		..()

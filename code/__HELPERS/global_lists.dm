@@ -38,10 +38,10 @@ var/global/list/facial_hair_styles_male_list = list()
 var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 	//Underwear
-var/global/list/underwear_m = list("White", "Grey", "Green", "Blue", "Black", "Mankini", "None") //Curse whoever made male/female underwear diffrent colours
-var/global/list/underwear_f = list("Red", "White", "Yellow", "Blue", "Black", "Thong", "None")
+var/global/list/underwear_m = list("White", "Grey", "Green", "Blue", "Black", "Mankini", "Heart Boxers", "Black Boxers", "White Boxers", "Striped Boxers", "None") //Curse whoever made male/female underwear diffrent colours
+var/global/list/underwear_f = list("Red", "White", "Yellow", "Blue", "Black", "Thong", "Black Alt", "White Alt", "Green", "Pink", "None")
 	//undershirt
-var/global/list/undershirt_t = list("Black Tank top", "White Tank top", "Black shirt", "White shirt", "None")
+var/global/list/undershirt_t = list("Black Tank top", "White Tank top", "Black shirt", "White shirt", "Female Tank Top", "None")
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt")
 
@@ -49,7 +49,7 @@ var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Al
 /////Initial Building/////
 //////////////////////////
 
-/hook/startup/proc/makeDatumRefLists()
+/proc/makeDatumRefLists()
 	var/list/paths
 
 	//Hair - Initialise all /datum/sprite_accessory/hair into an list indexed by hair-style name
@@ -100,7 +100,7 @@ var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Al
 	for(var/T in paths)
 		var/datum/language/L = new T
 		all_languages[L.name] = L
-	
+
 	for (var/language_name in all_languages)
 		var/datum/language/L = all_languages[language_name]
 		language_keys[":[lowertext(L.key)]"] = L

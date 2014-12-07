@@ -62,7 +62,7 @@
 
 /obj/item/clothing/suit/greatcoat
 	name = "great coat"
-	desc = "A Nazi great coat"
+	desc = "A heavy great coat"
 	icon_state = "nazi"
 	item_state = "nazi"
 	flags = FPRINT | TABLEPASS
@@ -219,7 +219,7 @@
 	else
 		usr << "You button-up some imaginary buttons on your [src]."
 		return
-	usr.update_inv_wear_suit()
+	update_clothing_icon()
 
 //pyjamas
 //originally intended to be pinstripes >.>
@@ -347,3 +347,32 @@
 	icon_state = "swim_red"
 	item_color = "swim_red"
 	siemens_coefficient = 1
+
+/obj/item/clothing/suit/poncho
+	name = "poncho"
+	desc = "A simple, comfortable poncho."
+	icon_state = "classicponcho"
+	item_state = "classicponcho"
+
+/obj/item/clothing/suit/poncho/green
+	name = "green poncho"
+	desc = "Your classic, non-racist poncho. This one is green."
+	icon_state = "greenponcho"
+	item_state = "greenponcho"
+
+/obj/item/clothing/suit/poncho/red
+	name = "red poncho"
+	desc = "Your classic, non-racist poncho. This one is red."
+	icon_state = "redponcho"
+	item_state = "redponcho"
+
+/obj/item/clothing/suit/bomber
+	name = "bomber jacket"
+	desc = "A well-worn WW2 leather bomber jacket."
+	icon_state = "bomber"
+	item_state = "bomber"
+	flags = FPRINT | TABLEPASS
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C
+	siemens_coefficient = 0.7

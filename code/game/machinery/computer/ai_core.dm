@@ -62,15 +62,19 @@
 				user << "\blue You unfasten the circuit board."
 				state = 1
 				icon_state = "1"
-			if(istype(P, /obj/item/weapon/cable_coil))
-				if(P:amount >= 5)
-					playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					if(do_after(user, 20))
-						P:amount -= 5
-						if(!P:amount) del(P)
-						user << "\blue You add cables to the frame."
+			if(istype(P, /obj/item/stack/cable_coil))
+				var/obj/item/stack/cable_coil/C = P
+				if (C.get_amount() < 5)
+					user << "<span class='warning'>You need five coils of wire to add them to the frame.</span>"
+					return
+				user << "<span class='notice'>You start to add cables to the frame.</span>"
+				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				if (do_after(user, 20) && state == 2)
+					if (C.use(5))
 						state = 3
 						icon_state = "3"
+						user << "<span class='notice'>You add cables to the frame.</span>"
+				return
 		if(3)
 			if(istype(P, /obj/item/weapon/wirecutters))
 				if (brain)
@@ -80,19 +84,21 @@
 					user << "\blue You remove the cables."
 					state = 2
 					icon_state = "2"
-					var/obj/item/weapon/cable_coil/A = new /obj/item/weapon/cable_coil( loc )
+					var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( loc )
 					A.amount = 5
 
-			if(istype(P, /obj/item/stack/sheet/rglass))
-				if(P:amount >= 2)
-					playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					if(do_after(user, 20))
-						if (P)
-							P:amount -= 2
-							if(!P:amount) del(P)
-							user << "\blue You put in the glass panel."
-							state = 4
-							icon_state = "4"
+			if(istype(P, /obj/item/stack/sheet/glass/reinforced))
+				var/obj/item/stack/sheet/glass/reinforced/RG = P
+				if (RG.get_amount() < 2)
+					user << "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>"
+					return
+				user << "<span class='notice'>You start to put in the glass panel.</span>"
+				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				if (do_after(user, 20) && state == 3)
+					if(RG.use(2))
+						user << "<span class='notice'>You put in the glass panel.</span>"
+						state = 4
+						icon_state = "4"
 
 			if(istype(P, /obj/item/weapon/aiModule/asimov))
 				laws.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
@@ -155,7 +161,7 @@
 					icon_state = "3b"
 				else
 					icon_state = "3"
-				new /obj/item/stack/sheet/rglass( loc, 2 )
+				new /obj/item/stack/sheet/glass/reinforced( loc, 2 )
 				return
 
 			if(istype(P, /obj/item/weapon/screwdriver))

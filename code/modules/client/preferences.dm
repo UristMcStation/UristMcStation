@@ -119,6 +119,7 @@ datum/preferences
 	var/med_record = ""
 	var/sec_record = ""
 	var/gen_record = ""
+	var/exploit_record = ""
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
@@ -597,6 +598,13 @@ datum/preferences
 	HTML += "<br>"
 	HTML +="Uplink Type : <b><a href='?src=\ref[user];preference=antagoptions;antagtask=uplinktype;active=1'>[uplinklocation]</a></b>"
 	HTML +="<br>"
+	HTML +="Exploitable information about you : "
+	HTML += "<br>"
+	if(jobban_isbanned(user, "Records"))
+		HTML += "<b>You are banned from using character records.</b><br>"
+	else
+		HTML +="<b><a href=\"byond://?src=\ref[user];preference=records;task=exploitable_record\">[TextPreview(exploit_record,40)]</a></b>"
+	HTML +="<br>"
 	HTML +="<hr />"
 	HTML +="<a href='?src=\ref[user];preference=antagoptions;antagtask=done;active=1'>\[Done\]</a>"
 
@@ -950,6 +958,16 @@ datum/preferences
 				gen_record = genmsg
 				SetRecords(user)
 
+		if(href_list["task"] == "exploitable_record")
+			var/exploitmsg = input(usr,"Set exploitable information about you here.","Exploitable Information",html_decode(exploit_record)) as message
+
+			if(exploitmsg != null)
+				exploitmsg = copytext(exploitmsg, 1, MAX_PAPER_MESSAGE_LEN)
+				exploitmsg = html_encode(exploitmsg)
+
+				exploit_record = exploitmsg
+				SetAntagoptions(user)
+
 	else if (href_list["preference"] == "antagoptions")
 		if(text2num(href_list["active"]) == 0)
 			SetAntagoptions(user)
@@ -1170,7 +1188,7 @@ datum/preferences
 						b_type = new_b_type
 
 				if("hair")
-					if(species == "Human" || species == "Unathi" || species == "Tajaran" || species == "Skrell")
+					if(species == "Human" || species == "Unathi" || species == "Tajara" || species == "Skrell")
 						var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference") as color|null
 						if(new_hair)
 							r_hair = hex2num(copytext(new_hair, 2, 4))
@@ -1250,7 +1268,7 @@ datum/preferences
 						s_tone = 35 - max(min( round(new_s_tone), 220),1)
 
 				if("skin")
-					if(species == "Unathi" || species == "Tajaran" || species == "Skrell")
+					if(species == "Unathi" || species == "Tajara" || species == "Skrell")
 						var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference") as color|null
 						if(new_skin)
 							r_skin = hex2num(copytext(new_skin, 2, 4))
@@ -1521,6 +1539,7 @@ datum/preferences
 	character.med_record = med_record
 	character.sec_record = sec_record
 	character.gen_record = gen_record
+	character.exploit_record = exploit_record
 
 	character.gender = gender
 	character.age = age
@@ -1547,6 +1566,10 @@ datum/preferences
 	character.h_style = h_style
 	character.f_style = f_style
 
+	character.home_system = home_system
+	character.citizenship = citizenship
+	character.personal_faction = faction
+	character.religion = religion
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
@@ -1554,22 +1577,23 @@ datum/preferences
 	// Destroy/cyborgize organs
 
 	for(var/name in organ_data)
-		var/datum/organ/external/O = character.organs_by_name[name]
-		var/datum/organ/internal/I = character.internal_organs_by_name[name]
-		var/status = organ_data[name]
 
-		if(status == "amputated")
-			O.amputated = 1
-			O.status |= ORGAN_DESTROYED
-			O.destspawn = 1
-		if(status == "cyborg")
-			O.status |= ORGAN_ROBOT
-		if(status == "assisted")
-			I.mechassist()
-		else if(status == "mechanical")
-			I.mechanize()
-
-		else continue
+		var/status = organ_data[name]		
+		var/datum/organ/external/O = character.organs_by_name[name]		
+		if(O)
+			if(status == "amputated")
+				O.amputated = 1
+				O.status |= ORGAN_DESTROYED
+				O.destspawn = 1
+			else if(status == "cyborg")
+				O.status |= ORGAN_ROBOT
+		else			
+			var/datum/organ/internal/I = character.internal_organs_by_name[name]
+			if(I)
+				if(status == "assisted")
+					I.mechassist()
+				else if(status == "mechanical")
+					I.mechanize()
 
 	if(underwear > underwear_m.len || underwear < 1)
 		underwear = 0 //I'm sure this is 100% unnecessary, but I'm paranoid... sue me. //HAH NOW NO MORE MAGIC CLONING UNDIES
