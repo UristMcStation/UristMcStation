@@ -186,7 +186,7 @@
 
 /datum/autolathe/recipe/shotgun_blanks
 	name = "ammunition (shotgun, blanks)"
-	path = /obj/item/ammo_casing/shotgun/blank
+	path = /obj/item/ammo_casing/shotgun
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/shotgun_beanbag
@@ -196,7 +196,7 @@
 
 /datum/autolathe/recipe/magazine_rubber
 	name = "ammunition (rubber)"
-	path = /obj/item/ammo_magazine/c45r
+	path = /obj/item/ammo_box/c45r
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/consolescreen
@@ -257,13 +257,13 @@
 
 /datum/autolathe/recipe/magazine_revolver_1
 	name = "ammunition (.357)"
-	path = /obj/item/ammo_magazine/a357
+	path = /obj/item/ammo_box/a357
 	hidden = 1
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_revolver_2
 	name = "ammunition (.45)"
-	path = /obj/item/ammo_magazine/c45m
+	path = /obj/item/ammo_box/c45
 	hidden = 1
 	category = "Arms and Ammunition"
 

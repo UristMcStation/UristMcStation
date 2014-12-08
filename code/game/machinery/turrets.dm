@@ -254,9 +254,9 @@
 			if(4)
 				A = new /obj/item/projectile/change( loc )
 			if(5)
-				A = new /obj/item/projectile/beam/lastertag/blue( loc )
+				A = new /obj/item/projectile/lasertag/bluetag( loc )
 			if(6)
-				A = new /obj/item/projectile/beam/lastertag/red( loc )
+				A = new /obj/item/projectile/lasertag/redtag( loc )
 		A.original = target
 		use_power(500)
 	else

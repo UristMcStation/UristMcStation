@@ -30,19 +30,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/gun/small
+/obj/item/weapon/gun/energy/gun/pistol
 	urist_only = 1
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "senergystun100"
-	item_state = "gun"
-	fire_sound = 'sound/weapons/Taser.ogg'
+	icon_state = "senergy"
+	item_state = null
 	w_class = 1
-	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/electrode"
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
 	origin_tech = "combat=2;magnets=2"
-	modifystate = "senergystun"
+	modifystate = 2
 
 	mode = 0 //0 = stun, 1 = kill
 
@@ -79,12 +77,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "umbrellagun"
 	item_state = "umbrellagun"
 	w_class = 2
-	max_shells = 2
-	caliber = "9mm"
-	silenced = 1
+	suppressed = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = "/obj/item/ammo_casing/c9mm"
-	load_method = 2
+	mag_type = /obj/item/ammo_casing/c9mm
+	fire_sound = 'sound/weapons/Gunshot_silenced.ogg'
 
 //BANG BANG BANG, BANG BANG
 

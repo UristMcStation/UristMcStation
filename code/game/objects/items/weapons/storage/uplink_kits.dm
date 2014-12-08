@@ -26,7 +26,7 @@
 
 			if("guns")
 				new /obj/item/weapon/gun/projectile(src)
-				new /obj/item/ammo_magazine/a357(src)
+				new /obj/item/ammo_box/a357(src)
 				new /obj/item/weapon/card/emag(src)
 				new /obj/item/weapon/plastique(src)
 				return
@@ -59,8 +59,8 @@
 				return
 
 			if("smoothoperator")
-				new /obj/item/weapon/gun/projectile/pistol(src)
-				new /obj/item/weapon/silencer(src)
+				new /obj/item/weapon/gun/projectile/automatic/pistol(src)
+				new /obj/item/weapon/suppressor(src)
 				new /obj/item/weapon/soap/syndie(src)
 				new /obj/item/weapon/storage/bag/trash(src)
 				new /obj/item/bodybag(src)
@@ -133,5 +133,5 @@
 	new /obj/item/clothing/gloves/chameleon(src)
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/clothing/glasses/chameleon(src)
-	new /obj/item/weapon/gun/projectile/chameleon(src)
-	new /obj/item/ammo_magazine/chameleon(src)
+	new /obj/item/weapon/gun/projectile/automatic/chameleon(src)
+	new /obj/item/ammo_box/chameleon(src)

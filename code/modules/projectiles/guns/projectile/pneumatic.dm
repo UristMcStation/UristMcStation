@@ -81,8 +81,8 @@
 
 	if(contents.len > 0)
 		var/obj/item/removing = contents[contents.len]
-		if(removing == in_chamber)
-			in_chamber = null
+		if(removing == chambered)
+			chambered = null
 
 		removing.loc = get_turf(src)
 		user.put_in_hands(removing)
@@ -95,8 +95,8 @@
 	if(!contents.len)
 		return 0
 
-	in_chamber = contents[1]
-	return !isnull(in_chamber)
+	chambered = contents[1]
+	return !isnull(chambered)
 
 /obj/item/weapon/gun/launcher/pneumatic/examine()
 	set src in view()
@@ -122,8 +122,8 @@
 	return 1
 
 /obj/item/weapon/gun/launcher/pneumatic/update_release_force()
-	if(!in_chamber) return
-	release_force = ((fire_pressure*tank.volume)/in_chamber.w_class)/force_divisor //projectile speed.
+	if(!chambered) return
+	release_force = ((fire_pressure*tank.volume)/chambered.w_class)/force_divisor //projectile speed.
 	if(release_force >80) release_force = 80 //damage cap.
 
 /obj/item/weapon/gun/launcher/pneumatic/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)

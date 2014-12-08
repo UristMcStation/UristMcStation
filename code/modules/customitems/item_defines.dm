@@ -1349,14 +1349,14 @@
 /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas/update_icon()
 
 	..()
-	if(loaded.len)
+	if(chambered)
 		icon_state = "leamas-loaded"
 	else
 		icon_state = "leamas-empty"
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 
-	if(istype(A, /obj/item/ammo_magazine))
+	if(istype(A, /obj/item/ammo_box))
 		flick("leamas-reloading",src)
 	..()
 

@@ -88,11 +88,11 @@
 
 /obj/item/weapon/gun/launcher/crossbow/attack_self(mob/living/user as mob)
 	if(tension)
-		if(in_chamber && in_chamber.loc == src) //Just in case they click it the tick after firing.
-			user.visible_message("[user] relaxes the tension on [src]'s string and removes [in_chamber].","You relax the tension on [src]'s string and remove [in_chamber].")
-			in_chamber.loc = get_turf(src)
-			var/obj/item/weapon/arrow/A = in_chamber
-			in_chamber = null
+		if(chambered && chambered.loc == src) //Just in case they click it the tick after firing.
+			user.visible_message("[user] relaxes the tension on [src]'s string and removes [chambered].","You relax the tension on [src]'s string and remove [chambered].")
+			chambered.loc = get_turf(src)
+			var/obj/item/weapon/arrow/A = chambered
+			chambered = null
 			A.removed(user)
 		else
 			user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
@@ -103,7 +103,7 @@
 
 /obj/item/weapon/gun/launcher/crossbow/proc/draw(var/mob/user as mob)
 
-	if(!in_chamber)
+	if(!chambered)
 		user << "You don't have anything nocked to [src]."
 		return
 
@@ -117,7 +117,7 @@
 
 /obj/item/weapon/gun/launcher/crossbow/proc/increase_tension(var/mob/user as mob)
 
-	if(!in_chamber || !tension || current_user != user) //Arrow has been fired, bow has been relaxed or user has changed.
+	if(!chambered || !tension || current_user != user) //Arrow has been fired, bow has been relaxed or user has changed.
 		return
 
 	tension++
@@ -131,22 +131,22 @@
 		spawn(25) increase_tension(user)
 
 /obj/item/weapon/gun/launcher/crossbow/attackby(obj/item/W as obj, mob/user as mob)
-	if(!in_chamber)
+	if(!chambered)
 		if (istype(W,/obj/item/weapon/arrow))
 			user.drop_item()
-			in_chamber = W
-			in_chamber.loc = src
-			user.visible_message("[user] slides [in_chamber] into [src].","You slide [in_chamber] into [src].")
+			chambered = W
+			chambered.loc = src
+			user.visible_message("[user] slides [chambered] into [src].","You slide [chambered] into [src].")
 			icon_state = "crossbow-nocked"
 			return
 		else if(istype(W,/obj/item/stack/rods))
 			var/obj/item/stack/rods/R = W
 			if (R.use(1))
-				in_chamber = new /obj/item/weapon/arrow/rod(src)
-				in_chamber.fingerprintslast = src.fingerprintslast
-				in_chamber.loc = src
+				chambered = new /obj/item/weapon/arrow/rod(src)
+				chambered.fingerprintslast = src.fingerprintslast
+				chambered.loc = src
 				icon_state = "crossbow-nocked"
-				user.visible_message("[user] jams [in_chamber] into [src].","You jam [in_chamber] into [src].")
+				user.visible_message("[user] jams [chambered] into [src].","You jam [chambered] into [src].")
 				superheat_rod(user)
 			return
 
@@ -174,14 +174,14 @@
 
 /obj/item/weapon/gun/launcher/crossbow/proc/superheat_rod(var/mob/user)
 
-	if(!user || !cell || !in_chamber) return
+	if(!user || !cell || !chambered) return
 	if(cell.charge < 500) return
-	if(in_chamber.throwforce >= 15) return
-	if(!istype(in_chamber,/obj/item/weapon/arrow/rod)) return
+	if(chambered.throwforce >= 15) return
+	if(!istype(chambered,/obj/item/weapon/arrow/rod)) return
 
-	user << "<span class='notice'>[in_chamber] plinks and crackles as it begins to glow red-hot.</span>"
-	in_chamber.throwforce = 15
-	in_chamber.icon_state = "metal-rod-superheated"
+	user << "<span class='notice'>[chambered] plinks and crackles as it begins to glow red-hot.</span>"
+	chambered.throwforce = 15
+	chambered.icon_state = "metal-rod-superheated"
 	cell.use(500)
 
 

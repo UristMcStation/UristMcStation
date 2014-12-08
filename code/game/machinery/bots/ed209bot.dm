@@ -182,7 +182,7 @@
 
 /obj/machinery/bot/secbot/ed209/bullet_act(var/obj/item/projectile/Proj)
 	if((src.lasercolor == "b") && (src.disabled == 0))
-		if(istype(Proj, /obj/item/projectile/beam/lastertag/red))
+		if(istype(Proj, /obj/item/projectile/lasertag/redtag))
 			src.disabled = 1
 			del (Proj)
 			sleep(100)
@@ -190,7 +190,7 @@
 		else
 			..()
 	else if((src.lasercolor == "r") && (src.disabled == 0))
-		if(istype(Proj, /obj/item/projectile/beam/lastertag/blue))
+		if(istype(Proj, /obj/item/projectile/lasertag/bluetag))
 			src.disabled = 1
 			del (Proj)
 			sleep(100)

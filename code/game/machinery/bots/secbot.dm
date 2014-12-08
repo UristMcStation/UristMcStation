@@ -874,17 +874,17 @@ Auto Patrol: []"},
 			if(src.emagged == 2)
 				projectile = /obj/item/projectile/beam
 			else
-				projectile = /obj/item/projectile/beam/stun
+				projectile = /obj/item/projectile/energy/electrode
 		else if(lasercolor == "b")
 			if(src.emagged == 2)
-				projectile = /obj/item/projectile/beam/lastertag/omni
+				projectile = /obj/item/projectile/lasertag
 			else
-				projectile = /obj/item/projectile/beam/lastertag/blue
+				projectile = /obj/item/projectile/lasertag/bluetag
 		else if(lasercolor == "r")
 			if(src.emagged == 2)
-				projectile = /obj/item/projectile/beam/lastertag/omni
+				projectile = /obj/item/projectile/lasertag
 			else
-				projectile = /obj/item/projectile/beam/lastertag/red
+				projectile = /obj/item/projectile/lasertag/redtag
 
 	if(!( istype(U, /turf) ))
 		return
