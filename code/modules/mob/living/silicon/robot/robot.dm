@@ -1025,15 +1025,13 @@ var/list/robot_verbs_default = list(
 			overlays += "ov-openpanel -c"
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "[icon_state]-shield"
+		overlays += "droid-combat-shield"
 
 	if(modtype == "Combat")
-		var/base_icon = ""
-		base_icon = icon_state
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
-			icon_state = "[icon_state]-roll"
+			icon_state = "droid-combat-roll"
 		else
-			icon_state = base_icon
+			icon_state = "droid-combat"
 		return
 
 //Call when target overlay should be added/removed
