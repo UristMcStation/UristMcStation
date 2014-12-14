@@ -56,6 +56,9 @@
 	if(user.a_intent != "help")
 		..()
 		return
+	if(!(M in view(1))) //Adjacency test
+		..()
+		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		//see code/modules/mob/new_player/preferences.dm at approx line 545 for comments!
@@ -81,8 +84,11 @@
 		else
 			species_hair = hair_styles_list
 		var/h_new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
-		user.visible_message("[user] start's cutting [M]'s hair!", "You start cutting [M]'s hair!", "You hear the sound of scissors.") //arguments for this are: 1. what others see 2. what the user sees 3. what blind people hear.
-		if(do_after(user, 10)) //this is the part that adds a delay. delay is in deciseconds.
+		user.visible_message("[user] starts cutting [M]'s hair!", "You start cutting [M]'s hair!", "You hear the sound of scissors.") //arguments for this are: 1. what others see 2. what the user sees 3. what blind people hear. --Fixed grammar, (TGameCo)
+		if(do_after(user, 50)) //this is the part that adds a delay. delay is in deciseconds. --Made it 5 seconds, because hair isn't cut in one second in real life, and I want at least a little bit longer time, (TGameCo)
+			if(!(M in view(1))) //Adjacency test
+				user.visible_message("[user] stops cutting [M]'s hair.", "You stop cutting [M]'s hair.", "The sounds of scissors stop")
+				return
 			if(f_new_style)
 				H.f_style = f_new_style
 			if(h_new_style)
