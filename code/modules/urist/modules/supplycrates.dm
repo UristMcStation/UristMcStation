@@ -27,14 +27,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Ripley Paint Crate - TGC
 
-/datum/supply_packs/paintkits/ripley
+/datum/supply_packs/randomised/ripleypaintkits
 	name = "Customization Crate (APLU \"Ripley\")"
-	contains = list(/obj/item/weapon/paintkit/fluff/clownply)//Put Ripley Customization stuff here
+	contains = list(/obj/item/weapon/paintkit/fluff/clownply,
+					/obj/item/weapon/paintkit/fluff/sven_fjeltson_1,
+					/obj/item/weapon/paintkit/fluff/butcher_royce_1)//Put Ripley Customization stuff here
 	cost = 100
 	access = access_robotics
 	containertype = /obj/structure/closet/crate/secure
 	containername = "APLU \"Ripley\" Customization Crate"
 	group = "Engineering"
+	num_contained = 1 //only one paintkit for you
 
 //Mail supply crate - 2 rolls of packing wrap and a destination tagger - Octobomb
 
@@ -47,7 +50,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contains = list(/obj/item/device/destTagger,
 					/obj/item/weapon/packageWrap,
 					/obj/item/weapon/packageWrap)
-					
+
 //Xenobio supplies crate - for when the slimes all die. One extinguisher, one monkeycube box, two grey extracts - Octobomb
 /datum/supply_packs/xenobio_supplies
 	name = "Xenobiology Supplies"
