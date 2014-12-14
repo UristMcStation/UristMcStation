@@ -52,7 +52,7 @@
 	..()
 
 //Makes scissors cut hair, special thanks to Miauw and Xerux -Nien
-/obj/item/weapon/scissors/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/weapon/scissors/bscissors/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(user.a_intent != "help")
 		..()
 		return
@@ -96,3 +96,11 @@
 
 		H.update_hair()
 		user.visible_message("[user] finishes cutting [M]'s hair!")
+
+//Subests of the scissors
+/obj/item/weapon/scissors/bscissors
+	name = "Barber's Scissors"
+	desc = "A pair of scissors made used by the barber."
+	icon_state = "bscissor"
+	item_state = "bscissor"
+	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
