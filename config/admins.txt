@@ -22,7 +22,7 @@ CoraiUnki - Game Master
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
-Knoxon - Trial Admin
+Knoxon - Game Master
 
 TGameCo - Coder
 
