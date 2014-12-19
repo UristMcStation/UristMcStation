@@ -36,7 +36,20 @@
 /obj/item/weapon/improvised/scissorsassembly //So you can put it together!
 	name = "Scissor Assembly"
 	desc = "Two parts of a scissor loosely combined"
+	icon = 'icons/urist/uristicons.dmi'
+	icon_state = "scissor"
+	item_state = "scissor"
+	matter = list("metal" = 35)
 	force = 3
+	edge = 1
+	w_class = 2
+	urist_only = 1
+	attack_verb = list("slices", "cuts", "stabs", "jabs")
+
+/obj/item/weapon/improvised/scissorsassembly/barber
+	icon_state = "bscissor"
+	item_state = "bscissor"
+	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
 
 /obj/item/weapon/improvised/scissorsassembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
 	if(istype(I, /obj/item/weapon/screwdriver))

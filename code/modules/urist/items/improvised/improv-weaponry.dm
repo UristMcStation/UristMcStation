@@ -226,6 +226,7 @@
 	edge = 1
 	w_class = 2
 	urist_only = 1
+	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
 	suicide_act(mob/user)
 		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
@@ -234,11 +235,13 @@
 
 /obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/improvised/scissorknife))
-		var/obj/item/weapon/improvised/scissorsassembly/N = new /obj/item/weapon/improvised/scissorsassembly
+	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, /obj/item/weapon/improvised/scissorknife)) || (istype(I, /obj/item/weapon/improvised/scissorknife/barber) && istype(src, /obj/item/weapon/improvised/scissorknife/barber)))
+		var/obj/item/weapon/improvised/scissorsassembly/N = new src.parentassembly
 
 		user.before_take_item(I)
 		user.before_take_item(src)
+		user.drop_from_inventory(I)
+
 
 		user.put_in_hands(N)
 		user << "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>"
@@ -246,5 +249,10 @@
 		del(I)
 		del(src)
 
+/obj/item/weapon/improvised/scissorknife/barber
+	desc = "The seperated part of a scissor. Where's the other half? This one is from barber's scissors"
+	icon_state = "scissor-knife-barber"
+	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
+	parentassembly = /obj/item/weapon/improvised/scissorsassembly/barber
 //end Urist stuff
 
