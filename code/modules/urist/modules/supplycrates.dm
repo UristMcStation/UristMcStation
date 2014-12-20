@@ -31,7 +31,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Customization Crate (APLU \"Ripley\")"
 	contains = list(/obj/item/weapon/paintkit/fluff/clownply,
 					/obj/item/weapon/paintkit/fluff/sven_fjeltson_1,
-					/obj/item/weapon/paintkit/fluff/butcher_royce_1)//Put Ripley Customization stuff here
+					/obj/item/weapon/paintkit/fluff/butcher_royce_1,
+					/obj/item/weapon/paintkit/fluff/dreadnought)//Put Ripley Customization stuff here
 	cost = 100
 	access = access_robotics
 	containertype = /obj/structure/closet/crate/secure
