@@ -1,5 +1,5 @@
 //All of the scissor stuff <-- TGameCo
-/obj/item/weapon/scissors
+/obj/item/weapon/scissors //DON'T USE THIS FOR THE GAME! THIS IS FOR ORGINIZATIONAL THINGS ONLY!!
 	name = "Scissors"
 	desc = "Those are scissors. Don't run with them!"
 	icon = 'icons/urist/uristicons.dmi'
@@ -12,6 +12,7 @@
 	w_class = 2
 	urist_only = 1
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
+	var/childpart = /obj/item/weapon/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
 	suicide_act(mob/user)
 		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
@@ -21,10 +22,11 @@
 /obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/weapon/screwdriver))
 
-		var/obj/item/weapon/improvised/scissorknife/N = new /obj/item/weapon/improvised/scissorknife
-		var/obj/item/weapon/improvised/scissorknife/N2 = new /obj/item/weapon/improvised/scissorknife
+		var/obj/item/weapon/improvised/scissorknife/N = new childpart
+		var/obj/item/weapon/improvised/scissorknife/N2 = new childpart
 
 		user.before_take_item(src)
+		user.drop_from_inventory(src)
 
 		user.put_in_hands(N)
 		user.put_in_hands(N2)
@@ -45,16 +47,18 @@
 	w_class = 2
 	urist_only = 1
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
+	var/parentscissor = /obj/item/weapon/scissors
 
 /obj/item/weapon/improvised/scissorsassembly/barber
 	icon_state = "bscissor"
 	item_state = "bscissor"
 	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
+	parentscissor = /obj/item/weapon/scissors/bscissors
 
 /obj/item/weapon/improvised/scissorsassembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
 	if(istype(I, /obj/item/weapon/screwdriver))
 
-		var/obj/item/weapon/scissors/N = new /obj/item/weapon/scissors
+		var/obj/item/weapon/scissors/N = new parentscissor
 
 		user.before_take_item(src)
 
@@ -111,9 +115,13 @@
 		user.visible_message("[user] finishes cutting [M]'s hair!")
 
 //Subests of the scissors
-/obj/item/weapon/scissors/bscissors
+/obj/item/weapon/scissors/bscissors //Scissors used for barbering
 	name = "Barber's Scissors"
-	desc = "A pair of scissors made used by the barber."
+	desc = "A pair of scissors used by the barber."
 	icon_state = "bscissor"
 	item_state = "bscissor"
 	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
+	childpart = /obj/item/weapon/improvised/scissorknife/barber
+
+/obj/item/weapon/scissors/pscissors //Scissors used for papercrafts
+	desc = "A pair of scissors used for arts and crafts"

@@ -235,12 +235,13 @@
 
 /obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, /obj/item/weapon/improvised/scissorknife)) || (istype(I, /obj/item/weapon/improvised/scissorknife/barber) && istype(src, /obj/item/weapon/improvised/scissorknife/barber)))
+	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
 		var/obj/item/weapon/improvised/scissorsassembly/N = new src.parentassembly
 
 		user.before_take_item(I)
 		user.before_take_item(src)
 		user.drop_from_inventory(I)
+		user.drop_from_inventory(src)
 
 
 		user.put_in_hands(N)
