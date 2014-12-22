@@ -22,7 +22,7 @@ CoraiUnki - Game Master
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
-Knoxon - Trial Admin
+Knoxon - Game Master
 
 TGameCo - Coder
 
@@ -35,3 +35,4 @@ Donuts223 - Moderator
 Magnetite - Mentor
 Iceblaster98 - Mentor
 Vakothu - Mentor
+Acemuto10 - Mentor

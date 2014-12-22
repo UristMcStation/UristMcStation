@@ -44,6 +44,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_on = "engravedzippoon"
 	icon_off = "engravedzippo"
 
+/obj/item/weapon/flame/lighter/zippo/vanity/redwhitered
+	name = "red striped zippo"
+	desc = "A red and white striped zippo lighter."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "redzippo"
+	icon_on = "redzippoon"
+	icon_off = "redzippo"
+
+/obj/item/weapon/flame/lighter/zippo/vanity/butterfly
+	name = "butterfly lighter"
+	desc = "A custom-made zippo lighter, looks rather expensive. On one of its sides, a butterfly is engraved in gold and silver."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "che_zippo"
+	icon_on = "che_zippoon"
+	icon_off = "che_zippo"
+
 //nanotrasen shiiiiit for the nt vending machine
 
 /obj/item/weapon/crowbar/nanotrasen //nt crowbar

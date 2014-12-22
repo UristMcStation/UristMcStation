@@ -12,6 +12,7 @@
 
 /obj/item/seeds/New()
 	update_seed()
+	name = "packet of seeds - [seed_type]"
 	..()
 
 //Grabs the appropriate seed datum from the global list.
