@@ -504,7 +504,7 @@
 ////// Ripley customisation kit - Butchery Royce - MayeDay
 
 /obj/item/weapon/paintkit/fluff/butcher_royce_1
-	name = "Ripley customisation kit"
+	name = "Ripley customisation kit - Titan"
 	desc = "A kit containing all the needed tools and parts to turn an APLU Ripley into a Titan's Fist worker mech."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "royce_kit"
@@ -518,7 +518,7 @@
 ////// Ripley customisation kit - Sven Fjeltson - Mordeth221
 
 /obj/item/weapon/paintkit/fluff/sven_fjeltson_1
-	name = "Mercenary APLU kit"
+	name = "Ripley customisation kit - Mercenary"
 	desc = "A kit containing all the needed tools and parts to turn an APLU Ripley into an old Mercenaries APLU."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "sven_kit"
