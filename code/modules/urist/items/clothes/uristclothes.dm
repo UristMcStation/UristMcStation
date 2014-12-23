@@ -601,3 +601,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "pinstripe"
 	item_state = "pinstripe"
 	item_color = "pinstripe"
+
+//IAA Dress
+
+/obj/item/clothing/under/urist/rank/iaadress
+	name = "Internal Affairs dress"
+	desc = "The plain, professional dress of an Internal Affairs Agent"
+	icon_state = "dress_IAA"
+	item_state = "dress_IAA"
+	item_color = "dress_IAA"
