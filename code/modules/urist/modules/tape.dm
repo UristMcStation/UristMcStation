@@ -73,6 +73,16 @@
 		return
 	icon_state = newstate
 
+//Examine Verb
+/obj/item/weapon/tape/uses/examine()
+	set src in view(1)
+	..()
+	if(src.uses == 1)
+		usr << "There is [src.uses] use\s left in \the [src.name]."
+	else
+		usr << "There are [src.uses] use\s left in \the [src.name]."
+	return
+
 //Using verbs
 /obj/item/weapon/tape/uses/tape_dispenser/verb/use()
 	set name = "Use Dispenser"
