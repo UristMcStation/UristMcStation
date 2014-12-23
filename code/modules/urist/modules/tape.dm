@@ -149,10 +149,12 @@
 	desc = "This dispenser is used everywhere"
 
 /obj/item/weapon/tape/uses/tape_dispenser/office
+	icon_state = "OfficeDispenser"
 	subset = "office"
 	desc = "This dispenser is used in offices"
 
 /obj/item/weapon/tape/uses/tape_dispenser/shipping
+	icon_state = "ShippingDispenser"
 	subset = "shipping"
 	desc = "This dispenser is used in shipping"
 
@@ -162,10 +164,12 @@
 	desc = "This cartridge is used in generic tape dispensers"
 
 /obj/item/weapon/tape/uses/tape_cartridge/office
+	icon_state = "OfficeCartridge"
 	subset = "office"
 	desc = "This cartridge is used in office tape dispensers"
 
 /obj/item/weapon/tape/uses/tape_cartridge/shipping
+	icon_state = "ShippingCartridge"
 	subset = "shipping"
 	desc = "This cartridge is used in shipping tape dispensers"
 
@@ -175,9 +179,11 @@
 	desc = "This piece is from a generic dispenser"
 
 /obj/item/weapon/tape/tape_piece/office
+	icon_state = "OfficePiece"
 	subset = "office"
 	desc = "This piece is from an office dispenser"
 
 /obj/item/weapon/tape/tape_piece/shipping
+	icon_state = "ShippingPiece"
 	subset = "shipping"
 	desc = "This piece is from a shipping dispenser"
