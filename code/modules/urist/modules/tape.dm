@@ -24,7 +24,7 @@
 	//Variables
 	name = "Tape Dispenser"
 	icon_state = "GenericDispenser"
-	item_state = "Dispenser"
+	item_state = "GenericDispenser"
 	force = 1
 	objtype = "td"
 
@@ -35,7 +35,7 @@
 /obj/item/weapon/tape/uses/tape_cartridge
 	name = "Tape Cartridge"
 	icon_state = "GenericCartridge"
-	item_state = "Cartridge"
+	item_state = "GenericCartridge"
 	force = 1
 	objtype = "tc"
 
@@ -44,7 +44,7 @@
 /obj/item/weapon/tape/tape_piece
 	name = "Tape Piece"
 	icon_state = "GenericPiece"
-	item_state = "Piece"
+	item_state = "GenericPiece"
 	force = 1
 	objtype = "tp"
 
