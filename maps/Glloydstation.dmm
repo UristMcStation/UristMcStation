@@ -2646,7 +2646,7 @@
 "aYT" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/landmark/start{name = "Security Officer"},/turf/simulated/floor,/area/security/main)
 "aYU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/turf/simulated/floor,/area/security/main)
 "aYV" = (/obj/structure/closet/secure_closet/security,/obj/structure/window/reinforced{dir = 4},/obj/item/device/flashlight/flare,/obj/item/device/flashlight/seclite,/obj/item/weapon/storage/backpack/duffel/duffel_sec,/turf/simulated/floor{icon_state = "red"; dir = 4},/area/security/main)
-"aYW" = (/obj/structure/table,/obj/item/weapon/crowbar,/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
+"aYW" = (/obj/structure/table,/obj/item/weapon/crowbar,/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22},/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
 "aYX" = (/obj/structure/table,/obj/machinery/flasher_button{id = "PCell 3"},/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
 "aYY" = (/obj/structure/table,/obj/item/weapon/folder/red,/obj/item/weapon/book/manual/security_space_law/tg{pixel_x = -3; pixel_y = 5},/obj/item/device/radio/intercom{broadcasting = 0; freerange = 0; frequency = 1475; listening = 1; name = "Station Intercom (Security)"; pixel_x = 0; pixel_y = -30},/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
 "aYZ" = (/obj/structure/table,/obj/item/weapon/paper_bin{pixel_x = -3; pixel_y = 7},/obj/item/weapon/pen,/turf/simulated/floor{icon_state = "showroomfloor"},/area/security/warden)
