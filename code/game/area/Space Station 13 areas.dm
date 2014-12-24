@@ -624,45 +624,60 @@ var/list/ghostteleportlocs = list()
 
 //Maintenance
 
-/area/maintenance/aft
-	name = "Aft Maintenance"
-	icon_state = "amaint"
-
 /area/maintenance/fore
 	name = "Fore Maintenance"
 	icon_state = "fmaint"
 
-/area/maintenance/starboard
-	name = "Starboard Maintenance"
-	icon_state = "smaint"
+/area/maintenance/fpmaint
+	name = "Fore Port Maintenance"
+	icon_state = "fpmaint"
 
 /area/maintenance/port
 	name = "Port Maintenance"
 	icon_state = "pmaint"
 
-/area/maintenance/atmos_control
-	name = "Atmospherics Maintenance"
-	icon_state = "fpmaint"
+/area/maintenance/apmaint
+	name = "Aft Port Maintenance"
+	icon_state = "apmaint"
 
-/area/maintenance/fpmaint
-	name = "Fore Port Maintenance - 1"
-	icon_state = "fpmaint"
+/area/maintenance/aft
+	name = "Aft Maintenance"
+	icon_state = "amaint"
 
+/area/maintenance/asmaint
+	name = "Aft Starboard Maintenance"
+	icon_state = "asmaint"
+
+/area/maintenance/starboard
+	name = "Starboard Maintenance"
+	icon_state = "smaint"
+
+/area/maintenance/fsmaint
+	name = "Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+/*
 /area/maintenance/fpmaint2
 	name = "Fore Port Maintenance - 2"
 	icon_state = "fpmaint"
-
-/area/maintenance/fsmaint
-	name = "Fore Starboard Maintenance - 1"
-	icon_state = "fsmaint"
 
 /area/maintenance/fsmaint2
 	name = "Fore Starboard Maintenance - 2"
 	icon_state = "fsmaint"
 
-/area/maintenance/asmaint
-	name = "Aft Starboard Maintenance"
+/area/maintenance/apmaint2
+	name = "Aft Port Maintenance - 2"
+	icon_state = "apmaint"
+
+/area/maintenance/asmaint2
+	name = "Aft Starboard Maintenance - 2"
 	icon_state = "asmaint"
+*/
+/area/maintenance/escape
+	name = "Escape Shuttle Hallway Maintenance"
+	icon_state = "maint_escape"
+/area/maintenance/atmos_control
+	name = "Atmospherics Maintenance"
+	icon_state = "fpmaint"
 
 /area/maintenance/engi_shuttle
 	name = "Engineering Shuttle Access"
@@ -671,14 +686,6 @@ var/list/ghostteleportlocs = list()
 /area/maintenance/engi_engine
 	name = "Engine Maintenance"
 	icon_state = "maint_engine"
-
-/area/maintenance/asmaint2
-	name = "Science Maintenance"
-	icon_state = "asmaint"
-
-/area/maintenance/apmaint
-	name = "Cargo Maintenance"
-	icon_state = "apmaint"
 
 /area/maintenance/maintcentral
 	name = "Bridge Maintenance"
@@ -874,6 +881,10 @@ var/list/ghostteleportlocs = list()
 /area/crew_quarters
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
+
+/area/maintenance/crew_quarters
+	name = "\improper Dormitories"
+	icon_state = "maint_sleep"
 
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
@@ -1344,7 +1355,7 @@ var/list/ghostteleportlocs = list()
 
 /area/security/armoury
 	name = "\improper Armory"
-	icon_state = "Warden"
+	icon_state = "armory"
 
 /area/security/detectives_office
 	name = "\improper Detective's Office"
