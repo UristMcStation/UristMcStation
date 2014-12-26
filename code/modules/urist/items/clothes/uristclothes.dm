@@ -610,3 +610,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "dress_IAA"
 	item_state = "dress_IAA"
 	item_color = "dress_IAA"
+
+//polka dot dress
+
+/obj/item/clothing/under/urist/dress/polkadot
+	name = "polka dot dress"
+	desc = "A cute little dress in a polka dot pattern."
+	icon_state = "polkaskirt"
+	item_state = "polkaskirt"
+	item_color = "polkaskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
