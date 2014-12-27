@@ -1,6 +1,9 @@
 /mob/living/carbon/monkey/emote(var/act,var/m_type=1,var/message = null)
 
 	var/param = null
+	var/emote_sound = null
+	var/list/emote_sound_params = list(100, 1, 1) //volume, random, fade
+
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		param = copytext(act, t1 + 1, length(act) + 1)
@@ -113,14 +116,27 @@
 		if("deathgasp")
 			message = "<b>The [src.name]</b> lets out a faint chimper as it collapses and stops moving..."
 			m_type = 1
+		if("snap")
+			message = "<b>The [src.name]</b> snaps his fingers."
+			m_type = 2
+			emote_sound = "sound/urist/snap1.ogg"
+			emote_sound_params = list(80, 13, 1)
+			if (src.r_hand && src.l_hand)
+				src << "Your hands are full."
+				return
+
 		if("help")
-			text += "choke, collapse, dance, deathgasp, drool, gasp, shiver, gnarl, jump, paw, moan, nod, roar, roll, scratch,\nscretch, shake, sign-#, sit, sulk, sway, tail, twitch, whimper"
+			text += "choke, collapse, dance, deathgasp, drool, gasp, shiver, gnarl, jump, paw, moan, nod, roar, roll, scratch,\nscretch, shake, sign-#, sit, snap, sulk, sway, tail, twitch, whimper"
 			src << text
 		else
 			src << text("Invalid Emote: []", act)
 	if ((message && src.stat == 0))
 		if(src.client)
 			log_emote("[name]/[key] : [message]")
+		
+		if (emote_sound)
+			playsound(src.loc, emote_sound, emote_sound_params[1], emote_sound_params[2], emote_sound_params[3])
+		
 		if (m_type & 1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(message, m_type)

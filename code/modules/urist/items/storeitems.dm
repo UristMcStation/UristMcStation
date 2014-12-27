@@ -1,6 +1,7 @@
 /////////////////////////////
 // Store Item
 /////////////////////////////
+
 /datum/storeitem
 	var/name="Thing"
 	var/desc="It's a thing."
@@ -40,6 +41,7 @@
 /////////////////////////////
 // General
 /////////////////////////////
+
 /datum/storeitem/snap_pops
 	name = "Snap-Pops"
 	desc = "Ten-thousand-year-old chinese fireworks: IN SPACE"
@@ -61,13 +63,6 @@
 /////////////////////////////////////////////////////////
 // Vanity lighters. Fuck you and your custom items Bay.//
 /////////////////////////////////////////////////////////
-
-
-/datum/storeitem/zippoblue
-	name="Blue Zippo"
-	desc="A fancy blue zippo lighter made just for you!"
-	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/blue
-	cost = 650
 
 /datum/storeitem/zippogold
 	name="Gold Zippo"
@@ -92,6 +87,18 @@
 	desc="A silver zippo lighter with intricate engravings made just for you!"
 	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/engraved
 	cost = 650
+
+/datum/storeitem/zipporedwhitered
+	name="Red and White Striped Zippo"
+	desc="A red and white striped zippo lighter made just for you!"
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/redwhitered
+	cost = 650
+
+/datum/storeitem/zippobutterfly
+	name="Engraved Zippo"
+	desc="A blue zippo lighter with a silver and gold butterfly engraved on the side made just for you!"
+	typepath=/obj/item/weapon/flame/lighter/zippo/vanity/butterfly
+	cost = 700
 
 /////////////////////////////////////////////////////////
 //                      A COMB.                        //
