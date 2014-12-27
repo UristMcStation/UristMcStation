@@ -755,8 +755,8 @@
 		else
 			if( !(COLD_RESISTANCE in mutations))
 				take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-				//if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-					//adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+				if(getOxyLoss() < 50)
+					adjustOxyLoss(2)
 				pressure_alert = -2
 			else
 				pressure_alert = -1
