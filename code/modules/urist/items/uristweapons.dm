@@ -250,14 +250,14 @@ the sprite and make my own projectile -Glloyd*/
 	slot_flags = SLOT_BELT
 	load_method = 2
 
-	New()
+/obj/item/weapon/gun/projectile/silenced/knight/New()
 		..()
 		empty_mag = new /obj/item/ammo_casing/c45(src)
 		update_icon()
 		return
 
 
-	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
+/obj/item/weapon/gun/projectile/silenced/knight/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
 		if(!loaded.len && empty_mag)
 			empty_mag.loc = get_turf(src.loc)
@@ -265,7 +265,7 @@ the sprite and make my own projectile -Glloyd*/
 			update_icon()
 		return
 
-	update_icon()
+/obj/item/weapon/gun/projectile/silenced/knight/update_icon()
 		..()
 		if(empty_mag)
 			icon_state = "knight45"
