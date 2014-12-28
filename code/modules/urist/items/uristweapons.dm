@@ -251,24 +251,24 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = 2
 
 /obj/item/weapon/gun/projectile/silenced/knight/New()
-		..()
-		empty_mag = new /obj/item/ammo_casing/c45(src)
-		update_icon()
-		return
+	..()
+	empty_mag = new /obj/item/ammo_casing/c45(src)
+	update_icon()
+	return
 
 
 /obj/item/weapon/gun/projectile/silenced/knight/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
-		..()
-		if(!loaded.len && empty_mag)
-			empty_mag.loc = get_turf(src.loc)
-			empty_mag = null
-			update_icon()
-		return
+	..()
+	if(!loaded.len && empty_mag)
+		empty_mag.loc = get_turf(src.loc)
+		empty_mag = null
+		update_icon()
+	return
 
 /obj/item/weapon/gun/projectile/silenced/knight/update_icon()
-		..()
-		if(empty_mag)
-			icon_state = "knight45"
-		else
-			icon_state = "knight45-empty"
-		return
+	..()
+	if(empty_mag)
+		icon_state = "knight45"
+	else
+		icon_state = "knight45-empty"
+	return
