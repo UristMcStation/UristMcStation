@@ -620,3 +620,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "polkaskirt"
 	item_color = "polkaskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+//dress blouse
+
+/obj/item/clothing/under/urist/dress/dress_blouse
+	name = "blue formal dress"
+	desc = "A crisp blue dress with a matching blouse."
+	icon_state = "dress_blouse"
+	item_state = "dress_blouse"
+	item_color = "dress_blouse"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
