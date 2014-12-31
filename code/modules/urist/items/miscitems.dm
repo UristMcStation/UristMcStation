@@ -1,6 +1,6 @@
 //misc items that need a home
 
-/obj/item/weapon/staff/gentcane
+/obj/item/weapon/staff/necrostaff
 	urist_only = 1
 	name = "necromancer's staff"
 	desc = "A staff that emits a threatening aura of death."
