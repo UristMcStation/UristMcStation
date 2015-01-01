@@ -1384,7 +1384,6 @@
 #include "code\modules\urist\items\razor.dm"
 #include "code\modules\urist\items\scissors.dm"
 #include "code\modules\urist\items\storeitems.dm"
-#include "code\modules\urist\items\tape-assembly.dm"
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
 #include "code\modules\urist\items\uristmed.dm"
