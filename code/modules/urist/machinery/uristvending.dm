@@ -79,12 +79,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					/obj/item/clothing/under/sundress = 5,/obj/item/clothing/under/wedding/bride_white = 5,/obj/item/clothing/under/urist/formal/blacktango = 5,
 					/obj/item/clothing/under/urist/dress/white3 = 5,/obj/item/clothing/under/urist/dress/pink = 5,/obj/item/clothing/under/urist/dress/gold = 5,
 					/obj/item/clothing/under/urist/dress/purple = 5,/obj/item/clothing/under/urist/dress/green = 5,/obj/item/clothing/under/urist/dress/black = 5,
-					/obj/item/clothing/under/urist/dress/polkadot = 5,/obj/item/clothing/under/sakura_hokkaido_kimono = 1,/obj/item/clothing/under/urist/dress/princess = 2,/obj/item/clothing/head/princessbow = 2)
+					/obj/item/clothing/under/urist/dress/polkadot = 5,/obj/item/clothing/under/urist/dress/dress_blouse = 5,/obj/item/clothing/under/sakura_hokkaido_kimono = 1,/obj/item/clothing/under/urist/dress/princess = 2,/obj/item/clothing/head/princessbow = 2)
 	prices = list(/obj/item/clothing/under/urist/dress/teal = 250,/obj/item/clothing/under/urist/dress/yellow = 250,/obj/item/clothing/under/urist/dress/white1 = 250,/obj/item/clothing/under/urist/dress/white2 = 250,/obj/item/clothing/under/dress/dress_fire = 250,/obj/item/clothing/under/dress/dress_green = 250,/obj/item/clothing/under/dress/dress_orange = 250,/obj/item/clothing/under/dress/dress_pink = 250,
 					/obj/item/clothing/under/dress/dress_saloon = 250,/obj/item/clothing/under/dress/plaid_blue = 250,/obj/item/clothing/under/dress/plaid_purple = 250,/obj/item/clothing/under/dress/plaid_red = 250,/obj/item/clothing/under/urist/dress/red = 250,
 					/obj/item/clothing/under/urist/dress/white3 = 250, /obj/item/clothing/under/urist/dress/pink = 250, /obj/item/clothing/under/urist/dress/gold = 250, /obj/item/clothing/under/urist/dress/purple = 250, /obj/item/clothing/under/urist/dress/green = 250, /obj/item/clothing/under/urist/dress/black = 250,
 					/obj/item/clothing/under/sundress = 250,/obj/item/clothing/under/wedding/bride_white = 250,/obj/item/clothing/under/urist/formal/blacktango = 250,
-					/obj/item/clothing/under/sakura_hokkaido_kimono = 600,/obj/item/clothing/under/urist/dress/princess = 500,/obj/item/clothing/head/princessbow = 100)
+					/obj/item/clothing/under/urist/dress/polkadot = 250,/obj/item/clothing/under/urist/dress/dress_blouse = 250,/obj/item/clothing/under/sakura_hokkaido_kimono = 600,/obj/item/clothing/under/urist/dress/princess = 500,/obj/item/clothing/head/princessbow = 100)
 	contraband = list(/obj/item/clothing/under/stripper/mankini = 2)
 
 //Hats!
