@@ -94,6 +94,8 @@
 	throw_speed = 1 //Makes a nice slow movement
 	throw_range = 15 //Airplanes go a decent distance
 
+	var/taped = 0 //This is for taping things
+
 //Paper Shuriken
 /obj/item/weapon/papercrafts/oragami/shuriken
 	name = "paper shuriken"
@@ -109,6 +111,7 @@
 /obj/item/weapon/storage/box/papercrafts
 	name = "paper box"
 	desc = "A paper box. Store stuff in it!"
+	icon = 'icons/urist/items/papercrafts.dmi'
 	icon_state = "box"
 	foldable = /obj/item/weapon/papercrafts/square //Turns into a square paper when unfolded
 
