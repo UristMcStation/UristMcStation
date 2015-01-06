@@ -236,3 +236,39 @@ the sprite and make my own projectile -Glloyd*/
 			user.before_take_item(src)
 			del(W)
 			del(src)
+
+//Knight .45 - suppressed PDW
+
+/obj/item/weapon/gun/projectile/silenced/knight
+	name = "Knight .45"
+	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "knight45"
+	fire_sound = 'sound/urist/suppshot.ogg'
+	w_class = 3
+	max_shells = 7
+	slot_flags = SLOT_BELT
+	load_method = 2
+
+/obj/item/weapon/gun/projectile/silenced/knight/New()
+	..()
+	empty_mag = new /obj/item/ammo_casing/c45(src)
+	update_icon()
+	return
+
+
+/obj/item/weapon/gun/projectile/silenced/knight/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
+	..()
+	if(!loaded.len && empty_mag)
+		empty_mag.loc = get_turf(src.loc)
+		empty_mag = null
+		update_icon()
+	return
+
+/obj/item/weapon/gun/projectile/silenced/knight/update_icon()
+	..()
+	if(empty_mag)
+		icon_state = "knight45"
+	else
+		icon_state = "knight45-empty"
+	return
