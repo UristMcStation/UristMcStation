@@ -25,8 +25,7 @@
 	supporting_limbs = list()
 
 	// Hardsuit breaching data
-	breach_threshold = 30 //A suit breach is a major issue for ninjas. This should maybe help.
-	can_breach = 1
+	can_breach = 0
 
 	//Important parts of the suit.
 	var/mob/living/carbon/affecting = null//The wearer.
