@@ -42,8 +42,26 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 
 //kneesocks, for the shoevend
 
-/obj/item/clothing/shoes/urist/kneesock
+/obj/item/clothing/shoes/urist/kneesock/white
 	desc = "A pair of cute white kneesocks."
 	name = "kneesocks"
 	icon_state = "kneesock"
 	item_state = "kneesock"
+
+/obj/item/clothing/shoes/urist/kneesock/purplestriped
+	desc = "A pair of cute purple and black striped kneesocks."
+	name = "kneesocks"
+	icon_state = "bgkneesock"
+	item_state = "bgkneesock"
+
+/obj/item/clothing/shoes/urist/kneesock/striped
+	desc = "A pair of cute white and black striped kneesocks."
+	name = "kneesocks"
+	icon_state = "stripedkneesock"
+	item_state = "stripedkneesock"
+
+/obj/item/clothing/shoes/urist/kneesock/black
+	desc = "A pair of cute black kneesocks."
+	name = "kneesocks"
+	icon_state = "blackkneesock"
+	item_state = "blackkneesock"

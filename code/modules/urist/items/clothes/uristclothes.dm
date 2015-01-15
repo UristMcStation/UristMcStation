@@ -601,3 +601,33 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "pinstripe"
 	item_state = "pinstripe"
 	item_color = "pinstripe"
+
+//IAA Dress
+
+/obj/item/clothing/under/urist/rank/iaadress
+	name = "Internal Affairs dress"
+	desc = "The plain, professional dress of an Internal Affairs Agent"
+	icon_state = "dress_IAA"
+	item_state = "dress_IAA"
+	item_color = "dress_IAA"
+
+//polka dot dress
+
+/obj/item/clothing/under/urist/dress/polkadot
+	name = "polka dot dress"
+	desc = "A cute little dress in a polka dot pattern."
+	icon_state = "polkaskirt"
+	item_state = "polkaskirt"
+	item_color = "polkaskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+//dress blouse
+
+/obj/item/clothing/under/urist/dress/dress_blouse
+	name = "blue formal dress"
+	desc = "A crisp blue dress with a matching blouse."
+	icon_state = "dress_blouse"
+	item_state = "dress_blouse"
+	item_color = "dress_blouse"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
