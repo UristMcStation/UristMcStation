@@ -59,7 +59,7 @@ ping 127.0.0.1 -n %rate% -w 1000>nul
 rem ECHO (%time%) Checking server...
 
 rem # Attempt to shut down the server if it is hanging
-taskkill /FI "status eq not responding" /PID %pid% /F /T>nul
+rem # taskkill /FI "status eq not responding" /PID %pid% /F /T>nul - commenting out for now. I'll find a workaround for hanging that doesn't restart every time someone blows something up. For now, this.
 
 rem # Check if the server is still running
 tasklist /FI "PID eq %pid%" 2>nul | find /I /N "%pid%">nul
