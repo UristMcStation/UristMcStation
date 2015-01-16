@@ -9,11 +9,11 @@
 
 /obj/structure/stool/bed/chair/couch/New()
 	if(couchpart == 1)
-		armrest = image("'icons/urist/structures&machinery/Nienplants&Couch.dmi'", "armrest_left")
+		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
+		armrest.layer = MOB_LAYER + 0.1
 	else if(couchpart == 2)
-		armrest = image("'icons/urist/structures&machinery/Nienplants&Couch.dmi'", "armrest_right")
-
-	armrest.layer = MOB_LAYER + 0.1
+		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
+		armrest.layer = MOB_LAYER + 0.1
 
 	return ..()
 
