@@ -12,7 +12,7 @@
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/health = 100
 	var/lastbang
-	var/storage_capacity = 30 //This is so that someone can't pack hundreds of items in a locker/crate
+	var/storage_capacity = 40 //This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
 	var/open_sound = 'sound/machines/click.ogg'
 	var/close_sound = 'sound/machines/click.ogg'
@@ -21,7 +21,7 @@
 	var/store_items = 1
 	var/store_mobs = 1
 
-	var/const/mob_size = 15
+	var/const/mob_size = 5
 
 /obj/structure/closet/New()
 	..()
