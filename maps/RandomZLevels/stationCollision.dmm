@@ -220,7 +220,7 @@
 "el" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/airless{icon_state = "damaged3"},/area/awaymission/northblock)
 "em" = (/obj/structure/window/reinforced,/obj/machinery/computer/aiupload,/turf/simulated/floor{icon_state = "showroomfloor"},/area/awaymission/research)
 "en" = (/obj/structure/window/reinforced,/obj/machinery/door/window/brigdoor/eastleft,/turf/simulated/floor{icon_state = "showroomfloor"},/area/awaymission/research)
-"eo" = (/obj/machinery/atmospherics/unary/freezer{current_temperature = 80},/turf/simulated/floor{icon_state = "showroomfloor"},/area/awaymission/research)
+"eo" = (/obj/machinery/atmospherics/unary/freezer,/turf/simulated/floor{icon_state = "showroomfloor"},/area/awaymission/research)
 "ep" = (/obj/machinery/atmospherics/unary/vent_pump,/turf/simulated/floor{icon_state = "showroomfloor"},/area/awaymission/research)
 "eq" = (/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor{icon_state = "dark"},/area/awaymission/research)
 "er" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/turf/simulated/floor/plating,/area/awaymission/northblock)
