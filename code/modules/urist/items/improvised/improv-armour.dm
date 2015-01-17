@@ -35,11 +35,12 @@
 /obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/wirecutters))
+		for(var/obj/item/O in contents)
+			O.loc = (get_turf(src))
+
 		var/obj/item/improv/hazardvest/step1/H = new /obj/item/improv/hazardvest/step1
 
 		user.before_take_item(src)
-		for(var/obj/item/O in contents)
-			O.loc = (get_turf(src))
 		user.put_in_hands(H)
 		user << "<span class='notice'>You cut some holes in the hazard vest.</span>"
 

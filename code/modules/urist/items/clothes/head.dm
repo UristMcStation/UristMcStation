@@ -273,11 +273,11 @@ obj/item/clothing/head/princessbow
 		return 0
 
 	var/mob/living/carbon/human/user = usr
+	for(var/obj/item/O in contents)
+		O.loc = (get_turf(src))
 	var/obj/item/clothing/head/hazardbandana/H = new /obj/item/clothing/head/hazardbandana
 
 	user.before_take_item(src)
-	for(var/obj/item/I in contents)
-		I.loc = (get_turf(src))
 	user.put_in_hands(H)
 	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
 	del(src)
