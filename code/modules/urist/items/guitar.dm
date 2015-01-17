@@ -6,6 +6,7 @@
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "guitar"
 	item_state = "guitar"
+	urist_only = 1
 	force = 10
 	attack_verb = list("played metal", "made concert", "crashed", "smashed")
 	var/datum/song/song
