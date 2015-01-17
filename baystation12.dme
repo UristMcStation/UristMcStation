@@ -1378,6 +1378,7 @@
 #include "code\modules\urist\gamemodes\vampire\vampire_powers.dm"
 #include "code\modules\urist\items\airlock_painter.dm"
 #include "code\modules\urist\items\cards.dm"
+#include "code\modules\urist\items\chairpainter.dm"
 #include "code\modules\urist\items\grenades.dm"
 #include "code\modules\urist\items\miscitems.dm"
 #include "code\modules\urist\items\paint.dm"
@@ -1579,6 +1580,7 @@
 #include "maps\Glloydstation.dmm"
 #include "maps\RandomZLevels\Academy.dm"
 #include "maps\RandomZLevels\challenge.dm"
+#include "maps\RandomZLevels\maze1.dm"
 #include "maps\RandomZLevels\stationCollision.dm"
 #include "maps\RandomZLevels\wildwest.dm"
 // END_INCLUDE
