@@ -8,7 +8,7 @@
 	item_state = "guitar"
 	urist_only = 1
 	force = 10
-	attack_verb = list("played metal", "made concert", "crashed", "smashed")
+	attack_verb = list("played metal on", "serenaded", "crashed", "smashed")
 	var/datum/song/song
 	var/playing = 0
 	var/help = 0
