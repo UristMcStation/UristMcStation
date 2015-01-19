@@ -13,6 +13,6 @@ maps/RandomZLevels/maze1.dmm
 maps/RandomZLevels/spacebattle.dmm
 maps/RandomZLevels/spacehotel.dmm
 maps/RandomZLevels/stationCollision.dmm
-maps/RandomZLevels/jungle.dmm - appears to be broken at the moment
+
 
 
