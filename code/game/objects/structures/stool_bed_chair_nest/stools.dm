@@ -48,17 +48,17 @@
 		if (H==usr && !H.restrained() && !H.stat && in_range(src, over_object))
 			if(style == 0)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool(src.loc)
-				S.origin = src
+//				S.origin = src
 				src.loc = S
 				H.put_in_hands(S)
 			if(style == 1)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/bar(src.loc)
-				S.origin = src
+//				S.origin = src
 				src.loc = S
 				H.put_in_hands(S)
 			if(style == 2)
 				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/wood(src.loc)
-				S.origin = src
+//				S.origin = src
 				src.loc = S
 				H.put_in_hands(S)
 
@@ -75,22 +75,25 @@
 	throwforce = 10
 	w_class = 5.0
 	var/style = 0 //0 is regular, 1 is bar, 2 is wood
-	var/obj/structure/stool/origin = null
+//	var/obj/structure/stool/origin = null
 
 /obj/item/weapon/stool/proc/deploy(var/mob/user)
 
-	if(!origin)
-		del src
+//	if(!origin)
+//		del src
 
 	if(style == 0)
-		var/obj/structure/stool/S = new/obj/structure/stool()
-		S.loc = get_turf(src)
+//		var/obj/structure/stool/S = new/obj/structure/stool()
+//		S.loc = get_turf(src)
+		new/obj/structure/stool(src.loc)
 	if(style == 1)
-		var/obj/structure/stool/S = new/obj/structure/stool/bar()
-		S.loc = get_turf(src)
+//		var/obj/structure/stool/bar/S = new/obj/structure/stool/bar()
+//		S.loc = get_turf(src)
+		new/obj/structure/stool/bar(src.loc)
 	if(style == 2)
-		var/obj/structure/stool/S = new/obj/structure/stool/wood()
-		S.loc = get_turf(src)
+//		var/obj/structure/stool/wood/S = new/obj/structure/stool/wood()
+//		S.loc = get_turf(src)
+		new/obj/structure/stool/wood(src.loc)
 
 	if(user)
 		user.u_equip(src)
@@ -102,6 +105,7 @@
 	..()
 	if(istype(loc,/turf/))
 		deploy(user)
+		del(src) //muh sanity
 
 /obj/item/weapon/stool/attack_self(mob/user as mob)
 	..()
