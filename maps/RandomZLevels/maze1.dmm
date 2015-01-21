@@ -5,18 +5,18 @@
 "ae" = (/turf/space{density = 1; icon_state = "black"},/area/space)
 "af" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "ag" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/space)
-"ah" = (/obj/machinery/gateway{dir = 9},/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/space)
-"ai" = (/obj/machinery/gateway{dir = 1},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
-"aj" = (/obj/machinery/gateway{dir = 5},/turf/simulated/floor{icon_state = "vault"; dir = 4},/area/space)
+"ah" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTHWEST)"; icon_state = "on"; dir = 9},/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/space)
+"ai" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTH)"; icon_state = "on"; dir = 1},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
+"aj" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTHEAST)"; icon_state = "on"; dir = 5},/turf/simulated/floor{icon_state = "vault"; dir = 4},/area/space)
 "ak" = (/obj/machinery/light{dir = 4},/turf/simulated/floor{icon_state = "dark"},/area/space)
 "al" = (/turf/simulated/floor{icon_state = "dark"},/area/space)
-"am" = (/obj/machinery/gateway{dir = 8},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
-"an" = (/obj/machinery/gateway{dir = 8; icon_state = "offcenter"},/turf/simulated/floor{icon_state = "dark"},/area/space)
-"ao" = (/obj/machinery/gateway{dir = 4},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
+"am" = (/obj/structure/maze/fakegateway{tag = "icon-on (WEST)"; icon_state = "on"; dir = 8},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
+"an" = (/obj/structure/maze/fakegateway{tag = "icon-oncenter"; icon_state = "oncenter"},/turf/simulated/floor{icon_state = "dark"},/area/space)
+"ao" = (/obj/structure/maze/fakegateway{tag = "icon-on (EAST)"; icon_state = "on"; dir = 4},/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
 "ap" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
-"aq" = (/obj/machinery/gateway{dir = 10},/turf/simulated/floor{icon_state = "vault"; dir = 4},/area/space)
-"ar" = (/obj/machinery/gateway,/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
-"as" = (/obj/machinery/gateway{dir = 6},/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/space)
+"aq" = (/obj/structure/maze/fakegateway{tag = "icon-off (SOUTHWEST)"; icon_state = "off"; dir = 10},/turf/simulated/floor{icon_state = "vault"; dir = 4},/area/space)
+"ar" = (/obj/structure/maze/fakegateway,/turf/simulated/floor{icon_state = "vault"; dir = 8},/area/space)
+"as" = (/obj/structure/maze/fakegateway{tag = "icon-off (SOUTHEAST)"; icon_state = "off"; dir = 6},/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/space)
 "at" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 41; teleport_y = 97; teleport_z = 7},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "au" = (/obj/structure/window/reinforced,/turf/simulated/floor{icon_state = "dark"},/area/space)
 "av" = (/obj/machinery/door/window{name = "Gateway Chamber"; icon_state = "right"; dir = 2; req_access_txt = "62"},/turf/simulated/floor{icon_state = "dark"},/area/space)
@@ -30,7 +30,7 @@
 "aD" = (/obj/structure/stool,/turf/simulated/floor,/area/space)
 "aE" = (/obj/structure/closet/emcloset,/turf/simulated/floor,/area/space)
 "aF" = (/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/obj/structure/closet/l3closet/scientist,/turf/simulated/floor{dir = 9; icon_state = "warning"},/area/space)
-"aG" = (/obj/item/weapon/paper/crumpled{info = "[small]A heart filled with anger is good for noone. I found myself wandering down dark corriders to relieve myself. Of course, it did not work. For you my friend, it may. Riches may yet lie in these halls for you. Just remember that curiosity killed the cat. [/small]"},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
+"aG" = (/obj/item/weapon/paper/crumpled{info = "\[small]A heart filled with anger is good for noone. I found myself wandering down dark corriders to relieve myself. Of course, it did not work. For you my friend, it may. Riches may yet lie in these halls for you. Just remember that curiosity killed the cat. \[/small]"},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aH" = (/obj/structure/closet/secure_closet/exile,/obj/machinery/light_switch{pixel_x = -28; pixel_y = 0},/turf/simulated/floor,/area/space)
 "aI" = (/obj/machinery/light{dir = 4},/obj/structure/closet/l3closet/scientist,/obj/machinery/door_control{id = "letsgo"; name = "shutter control"; pixel_x = 26},/turf/simulated/floor{dir = 10; icon_state = "warning"},/area/space)
 "aJ" = (/obj/effect/step_trigger/teleporter{teleport_x = 59; teleport_y = 97; teleport_z = 7},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
@@ -39,123 +39,124 @@
 "aM" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aN" = (/obj/structure/sign/securearea,/turf/simulated/wall/r_wall,/area/space)
 "aO" = (/obj/machinery/door/airlock/command{icon_state = "door_closed"; lockdownbyai = 0; locked = 0; name = "Gateway Access"; req_access_txt = "62"},/turf/simulated/floor,/area/space)
-"aP" = (/obj/machinery/door/poddoor/shutters{id = "letsgo"; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
-"aQ" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"aR" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
-"aS" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"aT" = (/obj/item/weapon/paper/crumpled{info = "[small]I apologize for lying to you, it was worth it for the look on your face. This time, I am telling the truth. Take a leap of faith, you can do it. Believe in me.[/small]"},/turf/space,/area/space)
-"aU" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"aV" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 10; teleport_y = 72; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"aW" = (/obj/item/weapon/paper/crumpled{info = "[small]After the envy had left my heart, it was rage that consumed me. All I could feel anymore was rage. Anger at myself and those around me. It tore me apart...[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
-"aX" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 10; teleport_y = 72; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"aY" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"aZ" = (/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"ba" = (/obj/item/weapon/paper/crumpled,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
-"bb" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 88; teleport_z = 7},/turf/unsimulated/floor,/area/space)
-"bc" = (/turf/unsimulated/floor,/area/space)
-"bd" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 2; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
-"be" = (/obj/machinery/power/emitter,/turf/unsimulated/floor,/area/space)
-"bf" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
-"bg" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bh" = (/obj/effect/step_trigger/teleporter{teleport_x = 74; teleport_y = 18; teleport_z = 7},/turf/space,/area/space)
-"bi" = (/turf/simulated/floor/plating/airless,/area/space)
-"bj" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
-"bk" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bl" = (/obj/item/weapon/paper/crumpled{info = "GO! Lest the carp getcha. South is the way, and be quick about it."},/turf/space,/area/space)
-"bm" = (/obj/machinery/gateway{dir = 9; icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bn" = (/obj/machinery/gateway{dir = 1; icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bo" = (/obj/machinery/gateway{dir = 5; icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bp" = (/obj/machinery/gateway{dir = 8; icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bq" = (/obj/machinery/gateway{dir = 8; icon_state = "oncenter"},/obj/effect/step_trigger/teleporter{teleport_x = 83; teleport_y = 98; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"br" = (/obj/machinery/gateway{dir = 4; icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bs" = (/obj/machinery/gateway{dir = 8; icon_state = "oncenter"},/obj/effect/step_trigger/teleporter{teleport_x = 76; teleport_y = 79; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bt" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bu" = (/obj/machinery/gateway{icon_state = "on"},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bv" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bw" = (/obj/machinery/power/emitter{anchored = 1; dir = 4; state = 2},/turf/unsimulated/floor,/area/space)
-"bx" = (/obj/effect/step_trigger/trap,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"by" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 1; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
-"bz" = (/obj/item/weapon/paper/crumpled{info = "One of these doors leads home, one... Well, not so much. 50/50 friend, flip a coin. I left one here for you."},/obj/item/weapon/coin/iron,/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bA" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 80; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bB" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bC" = (/obj/item/weapon/paper/crumpled/bloody{info = "it's going dark... fuck you director! [br][i]Writing continues further down, clearly written in a different hand.[/i] [br][br][small]Ah, he did not listen. You see, sometimes the answer is in front of you.[/small]"},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bD" = (/mob/living/simple_animal/hostile/carp,/turf/space,/area/space)
-"bE" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bF" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 48; teleport_y = 38; teleport_z = 7},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
-"bG" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
-"bH" = (/obj/structure/window/basic,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
-"bI" = (/obj/structure/window/basic,/turf/space,/area/space)
-"bJ" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bK" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 96; teleport_y = 63; teleport_z = 7},/turf/space,/area/space)
-"bL" = (/obj/effect/decal/cleanable/cobweb,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bM" = (/obj/effect/decal/cleanable/cobweb2,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bN" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 18; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bO" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/cobweb2,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bP" = (/obj/structure/ladder{id = "maze"},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"bQ" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 2; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"bR" = (/obj/item/weapon/paper/crumpled{info = "[small]Stuck here at a crossroads waiting to die... It's times like this that I think of that Robert Frost poem... 'Two paths diverged in a forest. I took the road less travelled, and it has made all the difference...'[/small]"},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
-"bS" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 18; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"bT" = (/obj/item/weapon/paper/crumpled{info = "[small] I knew I could count on you to make it this far. Yet even with the anger gone, darkness still persisted in my heart. Now, have you heard of the Monty Hall problem? That may help you here. Three doors are in front of you. But if you think closely, it may only be two. And, if you think even harder (I believe in you) it may only be one... Think back upon your travels. The answer may be right in front of you.[br][br] - The Director [/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
-"bU" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 96; teleport_y = 63; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bV" = (/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 12; teleport_z = 7},/obj/effect/gateway{density = 0},/turf/unsimulated/floor,/area/space)
-"bW" = (/obj/effect/step_trigger/trap,/turf/unsimulated/floor,/area/space)
-"bX" = (/obj/effect/step_trigger/trap,/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/blood,/turf/unsimulated/floor,/area/space)
-"bY" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/wall,/area/space)
+"aP" = (/obj/machinery/door/poddoor/shutters{id = null; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
+"aQ" = (/obj/machinery/door/poddoor/shutters{id = null; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
+"aR" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"aS" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"aT" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"aU" = (/obj/item/weapon/paper/crumpled{info = "\[small]I apologize for lying to you, it was worth it for the look on your face. This time, I am telling the truth. Take a leap of faith, you can do it. Believe in me.\[/small]"},/turf/space,/area/space)
+"aV" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"aW" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 10; teleport_y = 72; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"aX" = (/obj/item/weapon/paper/crumpled{info = "\[small]After the envy had left my heart, it was rage that consumed me. All I could feel anymore was rage. Anger at myself and those around me. It tore me apart...\[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"aY" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 10; teleport_y = 72; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"aZ" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"ba" = (/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bb" = (/obj/item/weapon/paper/crumpled,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
+"bc" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 88; teleport_z = 7},/turf/unsimulated/floor,/area/space)
+"bd" = (/turf/unsimulated/floor,/area/space)
+"be" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 2; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
+"bf" = (/obj/machinery/power/emitter,/turf/unsimulated/floor,/area/space)
+"bg" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
+"bh" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bi" = (/obj/effect/step_trigger/teleporter{teleport_x = 74; teleport_y = 18; teleport_z = 7},/turf/space,/area/space)
+"bj" = (/turf/simulated/floor/plating/airless,/area/space)
+"bk" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
+"bl" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bm" = (/obj/item/weapon/paper/crumpled{info = "GO! Lest the carp getcha. South is the way, and be quick about it."},/turf/space,/area/space)
+"bn" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTHWEST)"; icon_state = "on"; dir = 9},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bo" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTH)"; icon_state = "on"; dir = 1},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bp" = (/obj/structure/maze/fakegateway{tag = "icon-on (NORTHEAST)"; icon_state = "on"; dir = 5},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bq" = (/obj/structure/maze/fakegateway{tag = "icon-on (WEST)"; icon_state = "on"; dir = 8},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"br" = (/obj/structure/maze/fakegateway{tag = "icon-oncenter"; icon_state = "oncenter"},/obj/effect/step_trigger/teleporter{teleport_x = 83; teleport_y = 98; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bs" = (/obj/structure/maze/fakegateway{tag = "icon-on (EAST)"; icon_state = "on"; dir = 4},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bt" = (/obj/structure/maze/fakegateway{tag = "icon-oncenter"; icon_state = "oncenter"},/obj/effect/step_trigger/teleporter{teleport_x = 76; teleport_y = 79; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bu" = (/obj/structure/maze/fakegateway{tag = "icon-off (SOUTHWEST)"; icon_state = "off"; dir = 10},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bv" = (/obj/structure/maze/fakegateway,/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bw" = (/obj/structure/maze/fakegateway{tag = "icon-off (SOUTHEAST)"; icon_state = "off"; dir = 6},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bx" = (/obj/machinery/power/emitter{anchored = 1; dir = 4; state = 2},/turf/unsimulated/floor,/area/space)
+"by" = (/obj/effect/step_trigger/trap,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bz" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 1; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor,/area/space)
+"bA" = (/obj/item/weapon/paper/crumpled{info = "One of these doors leads home, one... Well, not so much. 50/50 friend, flip a coin. I left one here for you."},/obj/item/weapon/coin/iron,/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bB" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 80; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bC" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bD" = (/obj/item/weapon/paper/crumpled/bloody{info = "it's going dark... fuck you director! \[br]\[i]Writing continues further down, clearly written in a different hand.\[/i] \[br]\[br]\[small]Ah, he did not listen. You see, sometimes the answer is in front of you.\[/small]"},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bE" = (/mob/living/simple_animal/hostile/carp,/turf/space,/area/space)
+"bF" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bG" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 48; teleport_y = 38; teleport_z = 7},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
+"bH" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
+"bI" = (/obj/structure/window/basic,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
+"bJ" = (/obj/structure/window/basic,/turf/space,/area/space)
+"bK" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bL" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 96; teleport_y = 63; teleport_z = 7},/turf/space,/area/space)
+"bM" = (/obj/effect/decal/cleanable/cobweb,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bN" = (/obj/effect/decal/cleanable/cobweb2,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bO" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 16; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bP" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/cobweb2,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bQ" = (/obj/structure/ladder{id = "maze"},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"bR" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 2; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"bS" = (/obj/item/weapon/paper/crumpled{info = "\[small]Stuck here at a crossroads waiting to die... It's times like this that I think of that Robert Frost poem... 'Two paths diverged in a forest. I took the road less travelled, and it has made all the difference...'\[/small]"},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/space)
+"bT" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 16; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"bU" = (/obj/item/weapon/paper/crumpled{info = "\[small] I knew I could count on you to make it this far. Yet even with the anger gone, darkness still persisted in my heart. Now, have you heard of the Monty Hall problem? That may help you here. Three doors are in front of you. But if you think closely, it may only be two. And, if you think even harder (I believe in you) it may only be one... Think back upon your travels. The answer may be right in front of you.\[br]\[br] - The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"bV" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 96; teleport_y = 63; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
+"bW" = (/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 12; teleport_z = 7},/obj/effect/gateway{density = 0},/turf/unsimulated/floor,/area/space)
+"bX" = (/obj/effect/step_trigger/trap,/turf/unsimulated/floor,/area/space)
+"bY" = (/obj/effect/step_trigger/trap,/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/blood,/turf/unsimulated/floor,/area/space)
 "bZ" = (/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
 "ca" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 48; teleport_y = 38; teleport_z = 7},/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"cb" = (/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/ash,/turf/unsimulated/floor,/area/space)
-"cc" = (/obj/structure/window/basic,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"cd" = (/mob/living/simple_animal/hostile/bear,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"ce" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"cf" = (/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/blood,/turf/unsimulated/floor,/area/space)
-"cg" = (/mob/living/simple_animal/hostile/retaliate/goat,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"ch" = (/obj/structure/maze/diamond{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"ci" = (/obj/effect/step_trigger/trap,/obj/effect/decal/remains/human,/turf/unsimulated/floor,/area/space)
-"cj" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"ck" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"cb" = (/obj/structure/window/basic,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
+"cc" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"cd" = (/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/ash,/turf/unsimulated/floor,/area/space)
+"ce" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
+"cf" = (/obj/structure/maze/maze_falsewall,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
+"cg" = (/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/blood,/turf/unsimulated/floor,/area/space)
+"ch" = (/mob/living/simple_animal/hostile/retaliate/goat,/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
+"ci" = (/obj/structure/maze/diamond{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"cj" = (/obj/effect/step_trigger/trap,/obj/effect/decal/remains/human,/turf/unsimulated/floor,/area/space)
+"ck" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "cl" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "cm" = (/turf/unsimulated/wall,/area/awaymission/maze)
 "cn" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "co" = (/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
-"cp" = (/obj/item/weapon/paper/crumpled{info = "[small]Congratulation. I didn't think you would make it this far. Through this door is your reward. Grab the diamond, you will be teleported to your way home. There will be gifts waiting for you for making it this far. I hope you enjoyed your time in my maze. Be warned though, staying too long in the diamond room will end in your death, so hurry and grab the diamond![br][br]- The Director [/small]"},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"cq" = (/obj/item/weapon/paper/crumpled{info = "RUN!"},/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"cr" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
-"cs" = (/obj/effect/step_trigger/teleporter{teleport_x = 5; teleport_y = 32; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
+"cp" = (/obj/item/weapon/paper/crumpled{info = "\[small]Congratulation. I didn't think you would make it this far. Through this door is your reward. Grab the diamond, you will be teleported to your way home. There will be gifts waiting for you for making it this far. I hope you enjoyed your time in my maze. Be warned though, staying too long in the diamond room will end in your death, so hurry and grab the diamond!\[br]\[br]- The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
+"cq" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
+"cr" = (/obj/effect/step_trigger/teleporter{teleport_x = 5; teleport_y = 32; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
+"cs" = (/obj/item/weapon/paper/crumpled{info = "RUN!"},/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
 "ct" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
 "cu" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
 "cv" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
 "cw" = (/obj/effect/landmark{name = "awaystart"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
 "cx" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 18; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
 "cy" = (/obj/item/weapon/crowbar,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cz" = (/obj/item/weapon/paper/crumpled{info = "[small]Ah, welcome my friend. Welcome to the maze. Listen to what I say, and you will survive. Of course, you will have to use that brain of yours as well. I'm so envious of you you see. In fact, I was always wracked with envy. It tore me apart inside for years. It was envy that was in my heart when shaping this maze. Good luck my friend. Remember to read close, and be careful with doors. [br][br]-The Director [/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cz" = (/obj/item/weapon/paper/crumpled{info = "\[small]Ah, welcome my friend. Welcome to the maze. Listen to what I say, and you will survive. Of course, you will have to use that brain of yours as well. I'm so envious of you you see. In fact, I was always wracked with envy. It tore me apart inside for years. It was envy that was in my heart when shaping this maze. Good luck my friend. Remember to read close, and be careful with doors. \[br]\[br]-The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
 "cA" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 17; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
-"cB" = (/obj/machinery/gateway{dir = 9},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cC" = (/obj/machinery/gateway{dir = 1},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cD" = (/obj/machinery/gateway{dir = 5},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cE" = (/obj/machinery/gateway{dir = 8},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cF" = (/obj/machinery/gateway/centeraway{calibrated = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cG" = (/obj/machinery/gateway{dir = 4},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cH" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
-"cI" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cJ" = (/obj/machinery/gateway,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cK" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cL" = (/obj/structure/closet/crate,/obj/item/weapon/spacecash/c500,/obj/item/weapon/spacecash/c500,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cM" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
-"cN" = (/obj/structure/closet/crate,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cO" = (/mob/living/simple_animal/turtle{desc = "Is that honestly the Director? No fucking way."; name = "The Director"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cP" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/uranium,/obj/item/stack/sheet/mineral/uranium,/obj/item/stack/sheet/mineral/uranium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cQ" = (/obj/structure/ladder{height = -1; id = "maze"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cR" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cS" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cT" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/iron,/obj/item/stack/sheet/mineral/iron,/obj/item/stack/sheet/mineral/iron,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cU" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cV" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/osmium,/obj/item/stack/sheet/mineral/osmium,/obj/item/stack/sheet/mineral/osmium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cW" = (/obj/item/weapon/paper/crumpled{info = "You've made it. Free me, let me loose. This is no maze, it's a labrynth. It's a cage. A cage for me. Free me, take my armour as your prize. Thank you. You have proven yourself worthy. Your perserverence and lack of greed shows your true spirit."},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cX" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cY" = (/obj/structure/maze/director,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cZ" = (/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"da" = (/obj/item/weapon/paintkit/fluff/dreadnought,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"db" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cB" = (/turf/space,/area/awaymission/maze)
+"cC" = (/obj/machinery/gateway{dir = 9},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cD" = (/obj/machinery/gateway{dir = 1},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cE" = (/obj/machinery/gateway{dir = 5},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cF" = (/obj/machinery/gateway{dir = 8},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cG" = (/obj/machinery/gateway/centeraway{calibrated = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cH" = (/obj/machinery/gateway{dir = 4},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cI" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cJ" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cK" = (/obj/machinery/gateway,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cL" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cM" = (/obj/structure/closet/crate,/obj/item/weapon/spacecash/c500,/obj/item/weapon/spacecash/c500,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cN" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cO" = (/obj/structure/closet/crate,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cP" = (/mob/living/simple_animal/turtle{desc = "Is that honestly the Director? No fucking way."; name = "The Director"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cQ" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/uranium,/obj/item/stack/sheet/mineral/uranium,/obj/item/stack/sheet/mineral/uranium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cR" = (/obj/structure/ladder{height = -1; id = "maze"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cS" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cT" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/obj/item/stack/sheet/mineral/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cU" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/iron,/obj/item/stack/sheet/mineral/iron,/obj/item/stack/sheet/mineral/iron,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cV" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/obj/item/stack/sheet/mineral/silver,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cW" = (/obj/structure/closet/crate,/obj/item/stack/sheet/mineral/osmium,/obj/item/stack/sheet/mineral/osmium,/obj/item/stack/sheet/mineral/osmium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cX" = (/obj/item/weapon/paper/crumpled{info = "You've made it. Free me, let me loose. This is no maze, it's a labrynth. It's a cage. A cage for me. Free me, take my armour as your prize. Thank you. You have proven yourself worthy. Your perserverence and lack of greed shows your true spirit."},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cY" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
+"cZ" = (/obj/structure/maze/director,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"da" = (/obj/item/stack/sheet/mineral/diamond,/obj/item/stack/sheet/mineral/diamond,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"db" = (/obj/item/weapon/paintkit/fluff/dreadnought,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"dc" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacadadadadadadadaeaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -167,95 +168,95 @@ aaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafaf
 aaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeadaCaDayayayadaeaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeadaEayayayaFadaeaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababaGabababababababababababababababababafabababababababababaaaaaaaaaaaaaaaaaaaaaeadaHayayayaIadaeaaaaaaaaaaaaaaaaaaaaaaaaaa
-abababababababaaabababafabababaaabababababababaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafaKafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaeaeaeaeadaNaOaPaPaNadaeaeaeaeaeaaaaaaaaaaaaaaaaaa
-abaQaQaQaQaQabaaabaRaRaRaRaRabaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaTaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abaQaQaQaQaQabababaRaRaRaRaRabababaSaSaSaSaSabaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abaQaQaUaQaQaVaQaQaRaRaWaRaRaSaSaXaSaSaYaSaSabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abaQaQaQaQaQabababaRaRaRaRaRabababaSaSaSaSaSabaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abaQaQaQaQaQabababaRaRaRaRaRabaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abababababababababababaZabababaaabababababababaaaaaaaaaaaaaaaaabafafafafafbaafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abbbbcbdbcbdbcbeabababaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
-abbfbcbcbcbcbcbcabababbgabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaebhbhbhbhbhbhbhbhbhbhbhbhbhbhbhaeaaaaaaaaaaaaaaaaaa
-abbcbcbibfbcbcbcabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaaaaaaaaaaaaaaaaaa
-abbfbcbcbcbcbcbcabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abbcbcbcbcbjbcbcabaZaZbkaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaeaeaeaeaeaeaaaaaaaaaaaaababababababababaaaaaaaaaaaaaa
-abbfbcbcbcbcbcbcabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaablaaaaaaaeaaaaaaaaaaaaabbmbnbobmbnboabaaaaaaaaaaaaaa
-abbcbcbcbcbcbcbcabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabbpbqbrbpbsbrabaaaaaaaaaaaaaa
-abbfbcbcbcbcbcbcabababbgabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabbtbubvbtbubvabaaaaaaaaaaaaaa
-abbcbcbcbcbwbcbcbcbcabaZababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaSaSaSaSaSaSabaaaaaaaaaaaaaa
-abbfbcbcbcbcbcbcbcbcabaZaZabbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafaKafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaSaSaSaSaSaSabaaaaaaaaaaaaaa
-abbcbcbcbybcbcbcbcbcabaZababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaSaSbzaSaSaSabaaaaaaaaaaaaaa
-abababababababbcbcbcababababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaSaSaSaSaSaSabaaaaaaaaaaaaaa
-abaZaZaZaZaZabbcbcbcabbxababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaSaSaSaSaSaSabaaaaaaaaaaaaaa
-abaZaZaZaZaZabababababbxababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafapafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabababaSaSabababaaaaaaaaaaaaaa
-abaZaZbAaZaZabbxbxbxbxbxababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaaaaaaaaaaaaaaaaa
-abaZaZaZaZaZabaZababababababbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaaaaaaaaaaaaaaaaa
-abaZaZaZaZaZabaZaZaZaZaZaZabbxabababaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaaaaaaaaaaaaaaaaa
-abababbgababababababaZabaZabbxabbxabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaaaaaaaaaaaaaaaaa
-aaaaabbBababababababbxabababbxabbxababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaabababababababaa
-aaaaabbCaZaZaZaZabaZaZaZababbxabbxbxbxbxbxaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSabaaabaSaSaSaSaSabaa
-aaaaabaZabababaZabaZabaZababaZababababababaZabaaaaaaaaababababababaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaabDaeaaaaaaaaaaaaaaaaabaSaSabababaSaSaSaSaSabaa
-aaaaabaZabababaZaZaZabaZaZbxaZababababababaZababababababaZaZaZaZabaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaSaSaSaSbEaSaSaYaSaSabaa
-aaaaabaZaZaZababababababababaZababbxbxaZaZaZaZaZaZabaZaZaZababaZabaaaaaaaaabafafbFafafabaaaaaaaaaaaaaaaaaaaaaaabbGafbGafbGabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaababababababaSaSaSaSaSabaa
-abababababaZabaaabbxaZaZaZabaZababbxbxaZbxbxbxbxaZabaZabababaZaZabaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabbHbHbHbHbHabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaa
-abaZaZaZabaZabaaababababaZabaZababbxbxaZaZaZbxaZaZabaZabaZaZaZabababababaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafatafafabaaaaaaaaaaaaaaaaaaaaaebDaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaa
-abaZabaZaZaZabaaaaaaaaabaZabaZababbxbxbxbxaZbxaZbxaZaZabaZabababaZaZaZabaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abaZabababababaaaaabababaZabaZaZaZaZaZaZaZaZbxaZaZabaZabaZaZaZaZaZabaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaebIbIbIbIbIaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abbJaZbJabaaaaaaaaabaZaZaZabaZababbxbxbxbxbxbxbxaZabaZabababababababaZabaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaebKbKbKbKbKaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abababaZababababababaZabaZabaZababbxbxbxbxaZaZaZaZabaZababaZaZaZaZaZaZabaaaaaaaaaaaaaaaaabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaeaeaeaeaeaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abbLbJaZaZaZaZaZaZaZaZabaZabaZababababababaZababababaZaZaZaZababababababaaaaaaaaaaaaaaaaabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abbJababababababababababaZabbxbxbxbxbxbxabaZabababababababaZabaZaZaZabaaaaaaaaaaaaaaaaaaabaZaZbkaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abaZaZbMabaaaaaaaaaaaaabaZababababababababaZabaZaZaZaZaZaZaZabaZabaZabaaaaaaaaaaaaaaaaaaabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abababaZabaaaaaaaaaaaaabaZaZaZaZaZaZaZaZaZaZabaZabababababababaZabaZabaaaaaaaaaaaaaaaaaaabaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abaZbJaZabaaaaababababababababababababaZabababaZaZaZaZababababaZabaZabaaaaaaaaaaaaaaaaaaabababbNabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abbJababababababbxbxbxbxaZaZaZaZbxababaZababababababaZaZaZaZaZaZabaZabaaaaaaaaaaaaaaaaaaaaaaabaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abaZaZbOabaZaZaZaZaZbxbxaZbxbxaZaZaZaZaZaZaZaZaZaZaZaZababababababaZabaaabababababababaaabababaZabababaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abababaZabaZababbxaZaZaZaZbxbxbxbxababababababababababababababababaZabaaabaQaQaQaQaQabaaabaRaRaRaRaRabaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaabbPaQbQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabaZaZaZabababababababababaZababaZaZaZaZabaZaZaZaZaZaZaZaZaZaZaZabaaabaQaQaQaQaQabababaRaRaRaRaRabababaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabaZbRaZabaaaaaaaaaaaaaaabaZaZaZaZababaZabaZabababababababababababaaabaQaQaUaQaQbSaQaQaRaRbTaRaRaSaSbEaSaSbUaSaSabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaababaZababaaaaaaaaaaaaaaabababababababaZabaZabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabababaRaRaRaRaRabababaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaaaaaaaabaZaZaZabaZaZaZabaZabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaabaRaRaRaRaRabaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaaaaaaaabaZabaZaZaZabababaZabaaaaaaaaaaaaaaaaaaaaaaabababababababaaabababafabababaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababaQabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaaaaaaaabaZabababababababaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaaaaaaaabaZaZaZaZaZaZaZaZaZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaaaaaaaabababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabababaZabababaaaaaaaaaaaaaaabbVbVabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaZaZaZaZaZabaaaaaaabababababbcbcabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaZaZaZaZaZabaaaaaaabbWbWbWbWbcbWbWbWbWbWabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaZaZaZaZaZabaaaaaaabbWbXbWbWbcbcbcbcbWbWabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaZaZaZaZaZabaaaaaaabbWbWbWbWbWbWbWbcbWbWabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaZaZaZaZaZabaaaaaaabbcbcbcbcbcbcbWbcbWbWabaaaaaaaaaaaaaaaaaaaaaaababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababbYabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabababbgabababaaaaaaabbcbWbWbWbWbcbWbcbWbWabaaaaaaaaaaaaaaaaaaaaaaabbZcacabZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabaZabaaaaaaaaaaabbcbWcbbWbWbcbcbcbWbWabaaaaaaaaaaaaaaaaaaaaaaabccccccccabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabababaZabababaaaaaaabbcbWbWbWbWbWbWbWbWbWabaaaaaaaaaaaaaaaaaaaaaaabcdbZbZcdabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaRaRaRaRaRabaaaaaaabbcbWbWbcbcbcbcbcbcbcabaaaaaaaaaaaaaaaaaaaaaaababceceababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-ababaRaRaRaRaRababaaaaabbcbWbcbcbWbWcfbWbWbcabaaaaaaaaaaaaaaaaaaaaaaabcgcgcgcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-abaQaRaRaRaRaRaSabaaaaabbcbcbcbWbWbcbcbcbWbcabaaaaaaaaaaaaaaaaaaaaaaabcgcgcgcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQaQaQaQaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-ababaRaRaRaRaRababaaaaabbWbWbWbWbcbcbWbcbWbcabaaaaaaaaaaaaaaaaaaaaaaabcgbZbZcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaQchaQababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaabaRaRaRaRaRabaaaaaaabbWbWbWcibcbccibcbcbcabaaaaaaaaaaaaaaaaaaaaaaabcgbZbZcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababababaQaQaQaQaQababababababababababababaaaaaaaaaaaaaaaaaaaaaaaa
-aaabababafabababaaaaaaabababababbcbcabababababaaaaaaaaaaaaaaaaaaaaaaabcgcgcgcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcjaQaQaQaQaQaQaQaQaQckaQaQaQaQaQckaQaQaQaQaQaQaQaQaQclabaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaabababaaaaaaaaaaaaaaaaaaabbcbcabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcgcgcgcgabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababababaQaQaQaQaQababababababababababababaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcmcmcmcmcmcmababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcnabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcpabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZcqbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcmcmcrcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacmcscmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cmcmcmcmcmcmcmaacmcmcmcocmcmcmaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abababababababaaabababafabababaaabababababababaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafaKafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaeaeaeaeadaNaOaPaQaNadaeaeaeaeaeaaaaaaaaaaaaaaaaaa
+abaRaRaRaRaRabaaabaSaSaSaSaSabaaabaTaTaTaTaTabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaUaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abaRaRaRaRaRabababaSaSaSaSaSabababaTaTaTaTaTabaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abaRaRaVaRaRaWaRaRaSaSaXaSaSaTaTaYaTaTaZaTaTabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abaRaRaRaRaRabababaSaSaSaSaSabababaTaTaTaTaTabaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abaRaRaRaRaRabababaSaSaSaSaSabaaabaTaTaTaTaTabaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abababababababababababbaabababaaabababababababaaaaaaaaaaaaaaaaabafafafafafbbafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abbcbdbebdbebdbfabababbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaa
+abbgbdbdbdbdbdbdabababbhabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaebibibibibibibibibibibibibibibiaeaaaaaaaaaaaaaaaaaa
+abbdbdbjbgbdbdbdabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaaaaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaaaaaaaaaaaaaaaaaa
+abbgbdbdbdbdbdbdabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbdbdbdbdbkbdbdabbabablbabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaeaeaeaeaeaeaaaaaaaaaaaaababababababababaaaaaaaaaaaaaa
+abbgbdbdbdbdbdbdabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaabmaaaaaaaeaaaaaaaaaaaaabbnbobpbnbobpabaaaaaaaaaaaaaa
+abbdbdbdbdbdbdbdabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabbqbrbsbqbtbsabaaaaaaaaaaaaaa
+abbgbdbdbdbdbdbdabababbhabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabbubvbwbubvbwabaaaaaaaaaaaaaa
+abbdbdbdbdbxbdbdbdbdabbaababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaTaTaTaTaTaTabaaaaaaaaaaaaaa
+abbgbdbdbdbdbdbdbdbdabbabaabbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafaKafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaTaTaTaTaTaTabaaaaaaaaaaaaaa
+abbdbdbdbzbdbdbdbdbdabbaababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaTaTbAaTaTaTabaaaaaaaaaaaaaa
+abababababababbdbdbdababababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaTaTaTaTaTaTabaaaaaaaaaaaaaa
+abbababababaabbdbdbdabbyababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabaTaTaTaTaTaTabaaaaaaaaaaaaaa
+abbababababaabababababbyababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafapafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaabababaTaTabababaaaaaaaaaaaaaa
+abbababBbabaabbybybybybyababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaaaaaaaaaaaaaaaaa
+abbababababaabbaababababababbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafafafaJafaJafafafafafafafabaLafafafafafafafafafafafafafafafaMabaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaaaaaaaaaaaaaaaaa
+abbababababaabbabababababaabbyabababaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababafabababababababababababababababababafabababababababababaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaaaaaaaaaaaaaaaaa
+abababbhababababababbaabbaabbyabbyabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaaaaaaaaaaaaaaaaa
+aaaaabbCababababababbyabababbyabbyababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaabababababababaa
+aaaaabbDbabababaabbababaababbyabbybybybybybaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTabaaabaTaTaTaTaTabaa
+aaaaabbaabababbaabbaabbaababbaababababababbaabaaaaaaaaababababababaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaabEaeaaaaaaaaaaaaaaaaabaTaTabababaTaTaTaTaTabaa
+aaaaabbaabababbababaabbababybaababababababbaababababababbabababaabaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaabaTaTaTaTbFaTaTaZaTaTabaa
+aaaaabbababaababababababababbaababbybybabababababaabbababaababbaabaaaaaaaaabafafbGafafabaaaaaaaaaaaaaaaaaaaaaaabbHafbHafbHabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaababababababaTaTaTaTaTabaa
+abababababbaabaaabbybababaabbaababbybybabybybybybaabbaabababbabaabaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabbIbIbIbIbIabaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaabaTaTaTaTaTabaa
+abbababaabbaabaaababababbaabbaababbybybabababybabaabbaabbababaabababababaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaabafafatafafabaaaaaaaaaaaaaaaaaaaaaebEaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaa
+abbaabbababaabaaaaaaaaabbaabbaababbybybybybabybabybabaabbaabababbababaabaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbaabababababaaaaabababbaabbababababababababybabaabbaabbababababaabbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaebJbJbJbJbJaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbKbabKabaaaaaaaaabbababaabbaababbybybybybybybybaabbaabababababababbaabaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaebLbLbLbLbLaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abababbaababababababbaabbaabbaababbybybybybabababaabbaababbabababababaabaaaaaaaaaaaaaaaaabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaeaeaeaeaeaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbMbKbabababababababaabbaabbaababababababbaababababbabababaababababababaaaaaaaaaaaaaaaaabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbKababababababababababbaabbybybybybybyabbaabababababababbaabbababaabaaaaaaaaaaaaaaaaaaabbabablbabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbababNabaaaaaaaaaaaaabbaababababababababbaabbababababababaabbaabbaabaaaaaaaaaaaaaaaaaaabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abababbaabaaaaaaaaaaaaabbabababababababababaabbaabababababababbaabbaabaaaaaaaaaaaaaaaaaaabbababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbabKbaabaaaaababababababababababababbaabababbabababaababababbaabbaabaaaaaaaaaaaaaaaaaaabababbOabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbKababababababbybybybybababababyababbaababababababbabababababaabbaabaaaaaaaaaaaaaaaaaaaaaaabbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbababPabbabababababybybabybybabababababababababababaababababababbaabaaabababababababaaabababbaabababaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abababbaabbaababbybababababybybybyababababababababababababababababbaabaaabaRaRaRaRaRabaaabaSaSaSaSaSabaaabaTaTaTaTaTabaaaaaaaaaaaaaaaaaaaaaaabbQaRbRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabbababaabababababababababbaababbabababaabbababababababababababaabaaabaRaRaRaRaRabababaSaSaSaSaSabababaTaTaTaTaTabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabbabSbaabaaaaaaaaaaaaaaabbabababaababbaabbaabababababababababababaaabaRaRaVaRaRbTaRaRaSaSbUaSaSaTaTbFaTaTbVaTaTabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaababbaababaaaaaaaaaaaaaaabababababababbaabbaabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabababaSaSaSaSaSabababaTaTaTaTaTabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaaaaaaaabbababaabbababaabbaabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaabaSaSaSaSaSabaaabaTaTaTaTaTabaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaaaaaaaabbaabbababaabababbaabaaaaaaaaaaaaaaaaaaaaaaabababababababaaabababafabababaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababaRabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaaaaaaaabbaabababababababbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaaaaaaaabbababababababababaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababaBabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaaaaaaaabababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabababbaabababaaaaaaaaaaaaaaabbWbWabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbababababaabaaaaaaabababababbdbdabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbababababaabaaaaaaabbXbXbXbXbdbXbXbXbXbXabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbababababaabaaaaaaabbXbYbXbXbdbdbdbdbXbXabaaaaaaaaaaaaaaaaaaaaaaababababababaaaaaaaaabafafafafafabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbababababaabaaaaaaabbXbXbXbXbXbXbXbdbXbXabaaaaaaaaaaaaaaaaaaaaaaabbZcacabZabaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabbababababaabaaaaaaabbdbdbdbdbdbdbXbdbXbXabaaaaaaaaaaaaaaaaaaaaaaabcbcbcbcbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababccabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabababbhabababaaaaaaabbdbXbXbXbXbdbXbdbXbXabaaaaaaaaaaaaaaaaaaaaaaabbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabbaabaaaaaaaaaaabbdbXcdbXbXbdbdbdbXbXabaaaaaaaaaaaaaaaaaaaaaaabcebZbZceabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabababbaabababaaaaaaabbdbXbXbXbXbXbXbXbXbXabaaaaaaaaaaaaaaaaaaaaaaabcebZbZceabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabaSaSaSaSaSabaaaaaaabbdbXbXbdbdbdbdbdbdbdabaaaaaaaaaaaaaaaaaaaaabababcfcfabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ababaSaSaSaSaSababaaaaabbdbXbdbdbXbXcgbXbXbdabaaaaaaaaaaaaaaaaaaaaabbZchchchchbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abaRaSaSaSaSaSaTabaaaaabbdbdbdbXbXbdbdbdbXbdabaaaaaaaaaaaaaaaaaaaaabbZchchchchbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ababaSaSaSaSaSababaaaaabbXbXbXbXbdbdbXbdbXbdabaaaaaaaaaaaaaaaaaaaaabbZchbZbZchbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaRciaRababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabaSaSaSaSaSabaaaaaaabbXbXbXcjbdbdcjbdbdbdabaaaaaaaaaaaaaaaaaaaaabbZchbZbZchbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababababaRaRaRaRaRababababababababababababaaaaaaaaaaaaaaaaaaaaaaaa
+aaabababafabababaaaaaaabababababbdbdabababababaaababababababababababbZchbZbZchbZababababababababababaaaaaaaaaaaaaaaaaaabckaRaRaRaRaRaRaRaRaRccaRaRaRaRaRccaRaRaRaRaRaRaRaRaRclabaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaabababaaaaaaaaaaaaaaaaaaabbdbdabaaaaaaaaaaabbZbZbZbZbZbZcebZabbZchbZbZchbZabbZcebZbZbZbZbZbZabaaaaaaaaaaaaaaaaaaababababababababababababaRaRaRaRaRababababababababababababaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcmcmcmcmcmcmababababaaaaaaaaaacfbZbZbZbZbZcecebZabbZchchchchbZcfbZcecebZbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcnabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaabbZbZbZbZbZbZcebZabbZchchchchbZabbZcebZbZbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaababababababababababbZbZbZbZbZbZababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcpabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaabbZbZbZbZbZbZcebZabbZbZbZbZbZbZabbZcebZbZbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaacfbZbZbZbZbZcecebZabbZbZbZbZbZbZcfbZcecebZbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcocococococmaaaaaaaaaaaaaaaaaaabbZbZbZbZbZbZcebZabbZbZbZbZbZbZabbZcebZbZbZbZbZbZabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcmcmcqcmcmcmaaaaaaaaaaaaaaaaaaababababababababababbZbZbZbZbZbZababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacmcrcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababbZcsbZbZababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaSaSaSaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cmcmcmcmcmcmcmaacmcmcmcocmcmcmaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaaaaababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cmctctctctctcmaacmcucucucucucmaacmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cmctctctctctcmcmcmcucwcwcwcucmcmcmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cmctctctctctcxctctcycwczcwcycvcvcAcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacmcmcmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cmctctctctctcmcmcmcucwcwcwcucmcmcmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacmcucucBcCcDcucucmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cmctctctctctcmaacmcucucucucucmaacmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacmcucucEcFcGcucucmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cmcmcmcmcmcmcmaacmcmcmcHcmcmcmaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaacmcucucIcJcKcucucmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacmcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcLcucucucucucLcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcmcmcMcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcNcucucOcucucPcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcQcucucucRcmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcHcHcHcHcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcScucucucucucTcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucucucucmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcHcHcHcHcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcUcucucucucucVcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucWcucucmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcHcHcHcHcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcucXcucmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucucucucmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcHcHcHcHcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcYcucZcudacmaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaacmcHcHdbcHcHcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaa
+cmctctctctctcxctctcycwczcwcycvcvcAcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cmctctctctctcmcmcmcucwcwcwcucmcmcmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabaSaScCcDcEaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cmctctctctctcmaacmcucucucucucmaacmcvcvcvcvcvcmaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabaSaScFcGcHaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cmcmcmcmcmcmcmaacmcmcmcIcmcmcmaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabaSaScJcKcLaSaSabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacmcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabcMaSaSaSaSaScMabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcmcmcNcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabcOaSaScPaSaScQabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcRcucucucScmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcIcIcIcIcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabcTaSaSaSaSaScUabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucucucucmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcIcIcIcIcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabcVaSaSaSaSaScWabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucXcucucmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcIcIcIcIcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBcBcBcBcBaaaaaaaaaaabababaScYaSabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcucucucucucmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcIcIcIcIcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacBcBcBcBcBaaaaaaaaaaaaaaaaaaabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcZcudacudbcmaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacmcIcIdccIcIcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaacmcmcmcmcmcmcmaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

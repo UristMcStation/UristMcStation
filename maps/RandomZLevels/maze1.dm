@@ -83,6 +83,7 @@
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "director"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100) //same as an ert rig
+	can_breach = 0
 
 /obj/structure/maze/director
 	name = "The Director"
@@ -98,3 +99,11 @@
 	new /obj/item/clothing/suit/space/director(src.loc)
 	new /obj/item/clothing/head/urist/director(src.loc)
 	del(src)
+
+/obj/structure/maze/fakegateway
+	name = "gateway"
+	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
+	icon = 'icons/obj/machines/gateway.dmi'
+	icon_state = "off"
+	density = 1
+	anchored = 1
