@@ -313,26 +313,30 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //stools
 
-/obj/structure/stool/bar
+/obj/structure/stool/urist
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "stool"
+
+/obj/structure/stool/urist/bar
 	name = "bar stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	style = 1 //0 is regular, 1 is bar, 2 is wood
 
-/obj/structure/stool/wood
+/obj/structure/stool/urist/wood
 	name = "wood stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodstool"
 	style = 2 //0 is regular, 1 is bar, 2 is wood
 
-/obj/item/weapon/stool/bar
+/obj/item/weapon/stool/urist/bar
 	name = "bar stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	item_state = "stool"
 	style = 1 //0 is regular, 1 is bar, 2 is wood
 
-/obj/item/weapon/stool/wood
+/obj/item/weapon/stool/urist/wood
 	urist_only = 1
 	name = "wood stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
