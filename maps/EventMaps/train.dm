@@ -10,6 +10,12 @@ var/list/trainwarp = list()
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "gcircuit"
 
+/turf/unsimulated/wall/blank
+	name = ""
+	desc = ""
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "blank"
+
 /obj/item/weapon/train/ticket
 	name = "train ticket"
 	desc = "All aboard!"
@@ -174,3 +180,4 @@ proc/LoadEventMap()
 	else
 		world << "\red \b Event Map found."
 		return
+
