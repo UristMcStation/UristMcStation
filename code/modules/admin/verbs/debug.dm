@@ -536,6 +536,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"pirate",
 		"space pirate",
 		"soviet admiral",
+		"soviet soldier",
 		"tunnel clown",
 		"masked killer",
 		"assassin",
@@ -548,7 +549,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"emergency response team",
 		"nanotrasen representative",
 		"nanotrasen officer",
-		"nanotrasen captain"
+		"nanotrasen captain",
+		"conductor",
+		"naval commando"
 		)
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
@@ -694,6 +697,14 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/soviet(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/ushanka(M), slot_head)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "Soldier"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
 
 		if("tunnel clown")//Tunnel clowns rule!
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/clown(M), slot_w_uniform)
@@ -926,6 +937,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(new /obj/item/weapon/staff(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)
+
 		if("soviet admiral")
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/hgpiratecap(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(M), slot_shoes)
@@ -942,6 +954,60 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			W.access = get_all_accesses()
 			W.access += get_all_centcom_access()
 			W.assignment = "Admiral"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("naval commando")
+			var/obj/item/device/radio/R = new /obj/item/device/radio/headset(M)
+			R.set_frequency(DTH_FREQ)
+			M.equip_to_slot_or_del(R, slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/rig/commando(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/rig/commando(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(M), slot_glasses)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)
+
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a357(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/flashbangs(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/plastique(M), slot_in_backpack)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/flashbang(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen(M), slot_s_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/mateba(M), slot_belt)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle(M), slot_r_hand)
+
+			M.implant_loyalty(M)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()//They get full station access.
+			W.access += list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)//Let's add their alloted CentCom access.
+			W.assignment = "Naval Commando"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+		if("conductor")
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/urist/conductor(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/conductor(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(M), slot_w_uniform)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "Conductor"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 

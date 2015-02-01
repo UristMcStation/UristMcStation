@@ -114,6 +114,12 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	requires_power = 0
 	lighting_use_dynamic = 0
 
+/area/awaymission/train
+	name = "\improper Train Station"
+	icon_state = "away"
+	requires_power = 0
+	lighting_use_dynamic = 0
+
 //fixing tcomms
 
 /area/tcommsat/chamber/abandoned
@@ -141,6 +147,19 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/shuttle/naval1/station
 	name = "\improper Navy Ship"
 	icon_state = "shuttle"
+
+//don't hate me because I'm beautiful
+
+/area/shuttle/train/stop
+	icon_state = "shuttle"
+
+//this is where it all comes crashing down
+
+/area/shuttle/train/go
+	icon_state = "shuttle"
+	requires_power = 1
+	luminosity = 0
+	lighting_use_dynamic = 1
 
 //centcahm
 

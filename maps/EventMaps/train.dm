@@ -15,11 +15,73 @@ var/list/trainwarp = list()
 	desc = "All aboard!"
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "ticket"
+	w_class = 2
+
+/obj/item/weapon/train/ticket/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/stamp))
+		user.visible_message("[user] stamps the ticket with the stamp. All aboard!", "You stamp the ticket with the stamp.", "You hear the sound of something being stamped.")
+		src.desc = "A train ticket. It's been stamped."
+
+/obj/item/weapon/train/ore
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "ore"
+	name = "coal ore"
+	desc = "Ore used to feed the train's engine."
+
+/*/obj/structure/train/orebox
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "orebox0"
+	name = "ore box"
+	desc = "A heavy box used for storing ore."
+	anchored = 1
+	density = 1*/
+
+/obj/structure/train/engine
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "intake"
+	name = "engine"
+	desc = "The engine for the train."
+	anchored = 1
+	density = 1
+
+/obj/structure/train/engine/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/train/ore))
+		user.visible_message("[user] tosses the coal into the engine!", "You toss the coal ore into the engine.", "You hear the sound of flames roaring.")
+		del(W)
 
 /obj/item/weapon/card/id/passport
 	name = "passport"
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "passport"
+
+/obj/item/weapon/claymore/officer
+	icon = 'icons/urist/events/train.dmi'
+	name = "ceremonial sword"
+	desc = "A ceremonial sword, as would be worn by an officer. Still damn sharp though."
+	force = 30
+
+/obj/item/device/flashlight/trainlantern
+	name = "lantern"
+	desc = "An ornate red lantern."
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "wolfflight"
+
+/obj/item/clothing/suit/urist/conductor
+	name = "conductor's uniform"
+	desc = "An outfit worn by a train conductor"
+	icon = 'icons/urist/events/train.dmi'
+	icon_override = 'icons/urist/events/train.dmi'
+	icon_state = "trainman"
+
+/obj/item/clothing/head/urist/conductor
+	name = "conductor's hat"
+	desc = "A hat worn by a train conductor"
+	icon = 'icons/urist/events/train.dmi'
+	icon_override = 'icons/urist/events/train.dmi'
+	icon_state = "trainman2"
+
 
 //hurt me good
 proc/TrainTime()
