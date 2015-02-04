@@ -99,7 +99,7 @@
 "bU" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/suit_jacket/tan,/obj/item/clothing/under/suit_jacket/checkered,/obj/item/clothing/under/suit_jacket/charcoal,/obj/item/clothing/under/urist/suit_jacket/black,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "bV" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/det,/obj/item/clothing/under/det/black,/obj/item/clothing/under/suit_jacket,/obj/item/clothing/under/suit_jacket/burgundy,/obj/item/clothing/under/suit_jacket/really_black,/obj/item/clothing/under/suit_jacket/red,/obj/item/clothing/under/urist/pinstripesuit,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "bW" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/urist/blackjacket,/obj/item/clothing/suit/storage/det_suit,/obj/item/clothing/suit/storage/det_suit/black,/obj/item/clothing/suit/storage/lawyer/bluejacket,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"bX" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/psychologist,/obj/item/clothing/suit/wcoat,/obj/item/clothing/suit/storage/lawyer/purpjacket,/obj/item/clothing/suit/urist/coat/charcoat,/obj/item/clothing/suit/urist/coat/navycoat,/obj/item/clothing/suit/urist/coat/burgcoat,/obj/item/clothing/suit/urist/coat/blackcoat,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"bX" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/psychologist,/obj/item/clothing/suit/wcoat,/obj/item/clothing/suit/storage/lawyer/purpjacket,/obj/item/clothing/suit/urist/coat/charcoat,/obj/item/clothing/suit/urist/coat/navycoat,/obj/item/clothing/suit/urist/coat/burgcoat,/obj/item/clothing/suit/urist/coat/blackcoat,/obj/item/clothing/under/urist/suit_jacket/black,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "bY" = (/obj/machinery/light/small{brightness = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "bZ" = (/obj/structure/stool/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (NORTH)"; icon_state = "benchleft"; dir = 1},/obj/effect/landmark{name = "trainwarp"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "ca" = (/obj/structure/stool/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/effect/landmark{name = "trainwarp"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
@@ -108,8 +108,8 @@
 "cd" = (/obj/structure/curtain,/obj/structure/toilet{pixel_y = 10},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "ce" = (/turf/unsimulated/wall/wood{tag = "icon-wood3"; icon_state = "wood3"},/area/shuttle/train/stop)
 "cf" = (/obj/machinery/door/airlock/sandstone{icon = 'icons/urist/events/train.dmi'; name = "Bathroom"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
-"cg" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/obj/machinery/light/small{brightness = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
-"ch" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
+"cg" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/obj/machinery/light/small{brightness = 8; dir = 4},/obj/structure/mirror{pixel_x = 30},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
+"ch" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/obj/structure/mirror{pixel_x = 30},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "ci" = (/obj/machinery/light/small{brightness = 8},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "cj" = (/obj/structure/curtain,/obj/structure/toilet{tag = "icon-toilet00 (NORTH)"; icon_state = "toilet00"; dir = 1},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "ck" = (/obj/structure/window/basic,/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
@@ -250,7 +250,7 @@ aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbubKaZaZbLaZaYaZ
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebOaZbYbibPbQbPbRacacbdbcbcbcbcbcbcbcbcbcbcbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbuaZaZaZbCaNaNaNaOacacbdbZcacacbbcbcbZcacacbbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebOaZaZbLaZaYaZbMacacbdbcbcbcbcbcbcbcbcbcbcbdaaaaaaaaaa
-aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbubKaZbYbibPbQbPbRacacbdbZcacacbbcbZcacacacbbdaaaaaaaaaa
+aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbubKaZbYbibPbQbPbRacacbdbZcacacbbcbcbZcacacbbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebOaZaZbCaNaNaNaOacacbNaTaTaTaTaTaTaTaTaTaTbAaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbuaZaZaZbLaZaYaZbMacacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebOaZaZbibPbQbPbRacacacacacacacacacacacacacacaaaaaaaaaa
@@ -277,7 +277,7 @@ aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacaVaWaZaZcpcmaZcA
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebgaZaZcpcBaZcCbeacacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbibkaZaZcpcmaZcDbiacacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacaVaWaZaZcpbgaZcEaVacacacacacacacacacacacacacacaaaaaaaaaa
-aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebgaZaZcpcmaZcFbeacacacacacacacacacacacacacacaaaaaaaaaa
+aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbebraZaZcpcmaZcFbeacacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadaaaaaaaaaaaaaaaaabacacacacacacacbibBaZaZcpcucicGbiacacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaawadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacaxbCaOaPaPaQaNaNaNbDaxacacacacacacacacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaawadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacaxaDckamamamamamckaGaxacacacacacacacacacacacacacaaaaaaaaaa
