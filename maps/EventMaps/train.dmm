@@ -69,7 +69,7 @@
 "bq" = (/obj/structure/curtain,/obj/structure/toilet{pixel_y = 10},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "br" = (/obj/structure/table/woodentable,/obj/item/ashtray/bronze,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "bs" = (/obj/machinery/door/airlock/sandstone{icon = 'icons/urist/events/train.dmi'; name = "wooden door"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"bt" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"bt" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 16; tag = "icon-sink (EAST)"},/obj/structure/mirror{pixel_x = 30},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "bu" = (/turf/unsimulated/wall/wood,/area/shuttle/train/stop)
 "bv" = (/obj/structure/stool/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (WEST)"; icon_state = "benchright"; dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "bw" = (/turf/unsimulated/wall/stone{tag = "icon-stone2"; icon_state = "stone2"},/area/awaymission/train)
@@ -223,7 +223,7 @@ aaaaaaaaaaaaawadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacaxaMaNaNaOaPaQaNaN
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaWaXaYaZaYaXbaaVbbbcbcbcbcbcbbbdacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbebfbgaZaZaZbgbfbebcbcbhbcbhbcbhbdacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibjbkaZaZaZbkblbibcbcbmbcbmbcbmbnaTboaTaTaTaUaaaaaaaaaa
-aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaXaXaZaZaZaXaXaVbcbcbmbcbmbcbmbdbcbpbqbqbqbdaaaaaaaaaa
+aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaXaXaZaZaZaXaXaVbcbcbmbcbmbcbmbdbbbpbqbqbqbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbebfbgaZaZaZbrbfbebcbcbmbcbmbcbmbdbcbsbcbcbtbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibjbkaZaZaZbkblbubcbcbvbcbvbcbvbdbcbsbcbcbtbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaXaXaZaZaZaZaZaPbcbcbcbcbcbcbcbpbcbwbxbxbxbdaaaaaaaaaa
@@ -231,7 +231,7 @@ aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbebfbgaZaZaZaZaZ
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibjbkaZaZaZaZaZaPbcbcbcbcbcbcbcbwbcbpbqbqbybdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaXaXaZaZaZaXbabubcbcbcbcbcbcbcbdbcbsbcbcbtbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbebfbraZaZaZbgbfbebcbhbcbcbhbcbhbdbcbsbcbcbtbdaaaaaaaaaa
-aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibjbkaZaZaZbkblbibcbmbcbcbmbcbmbdbcbwbxbxbxbdaaaaaaaaaa
+aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibjbkaZaZaZbkblbibcbmbcbcbmbcbmbdbbbwbxbxbxbdaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacaVaXaXaZaZaZaXaXaVbcbmbcbcbmbcbmbnaTbzaTaTaTbAaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbebfbgaZaZaZbgbfbebcbvbcbcbvbcbvbdacacacacacacaaaaaaaaaa
 aaaaaaaaaaaaaaadadadadadadadadadawaaaaaaaaaaaaaaabacacacacacacacbibkbBaZaZaZbBbkbibbbcbcbcbcbcbbbdacacacacacacaaaaaaaaaa
