@@ -69,6 +69,12 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 		new/datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, 4, time = 50, one_per_turf = 1, on_floor = 1), \
 		), 4), \
 	null, \
+	new/datum/stack_recipe_list("filing cabinets", list(\
+		new/datum/stack_recipe("filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("chest drawer", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("tall filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		), 3), \
+	null, \
 	new/datum/stack_recipe("grenade casing", /obj/item/weapon/grenade/chem_grenade), \
 	new/datum/stack_recipe("light fixture frame", /obj/item/light_fixture_frame, 2), \
 	new/datum/stack_recipe("small light fixture frame", /obj/item/light_fixture_frame/small, 1), \
