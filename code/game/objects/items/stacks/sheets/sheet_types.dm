@@ -153,7 +153,8 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 40, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 5, time = 25, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 3, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 15, one_per_turf = 1, on_floor = 1) \
+	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1) \
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	)
 
