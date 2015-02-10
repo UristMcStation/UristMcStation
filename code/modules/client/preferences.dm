@@ -448,9 +448,12 @@ datum/preferences
 	dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
 	dat += "</center></body></html>"
 
-	user << browse(dat, "window=preferences;size=560x736")
+	//user << browse(dat, "window=preferences;size=560x736")
+	var/datum/browser/popup = new(user, "preferences", "<div align='center'>Character Setup</div>", 580, 736)
+	popup.set_content(dat)
+	popup.open(1)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 16, list/splitJobs = list("Chief Medical Officer"), width = 550, height = 660)
+/datum/preferences/proc/SetChoices(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Research Director"), width = 550, height = 660)
 	if(!job_master)
 		return
 
@@ -542,6 +545,10 @@ datum/preferences
 
 	user << browse(null, "window=preferences")
 	user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
+//	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, height) //gonna have to fuck with the colours to get this to work. For now, we'll keep this
+//	popup.set_window_options("can_close=0")
+//	popup.set_content(HTML)
+//	popup.open(0)
 	return
 
 /datum/preferences/proc/SetDisabilities(mob/user)
@@ -1578,8 +1585,8 @@ datum/preferences
 
 	for(var/name in organ_data)
 
-		var/status = organ_data[name]		
-		var/datum/organ/external/O = character.organs_by_name[name]		
+		var/status = organ_data[name]
+		var/datum/organ/external/O = character.organs_by_name[name]
 		if(O)
 			if(status == "amputated")
 				O.amputated = 1
@@ -1587,7 +1594,7 @@ datum/preferences
 				O.destspawn = 1
 			else if(status == "cyborg")
 				O.status |= ORGAN_ROBOT
-		else			
+		else
 			var/datum/organ/internal/I = character.internal_organs_by_name[name]
 			if(I)
 				if(status == "assisted")

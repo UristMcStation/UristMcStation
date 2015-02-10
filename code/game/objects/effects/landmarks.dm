@@ -89,6 +89,10 @@
 			synd_spawn += loc
 			del(src)
 
+		if("trainwarp")
+			trainwarp += loc
+			del(src)
+
 	landmarks_list += src
 	return 1
 

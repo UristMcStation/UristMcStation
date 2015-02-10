@@ -85,3 +85,29 @@
 	desc = "A simple orange belt."
 	icon_state = "orangebelt"
 	item_state = "orangebelt"
+
+//use this from now on
+
+/obj/item/weapon/storage/belt/urist
+	icon = 'icons/urist/items/clothes/belt.dmi'
+	icon_override = 'icons/uristmob/belt_mirror.dmi'
+
+//bandoliers
+
+/obj/item/weapon/storage/belt/urist/bandolier
+	name = "bandolier"
+	desc = "A bandolier for holding shotgun ammunition."
+	icon_state = "bandolier"
+	item_state = "bandolier"
+	storage_slots = 6
+	can_hold = list(
+			/obj/item/ammo_casing/shotgun
+			)
+
+//military belt
+
+/obj/item/weapon/storage/belt/urist/military
+	name = "military belt"
+	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
+	icon_state = "militarybelt"
+	item_state = "military"

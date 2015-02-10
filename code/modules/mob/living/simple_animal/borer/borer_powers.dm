@@ -208,20 +208,48 @@
 		src << "You cannot secrete chemicals in your current state."
 
 	if(docile)
-		src << "\blue You are feeling far too docile to do that."
+		src << "<span class = 'warning'> You are feeling far too docile to do that.</span>"
 		return
 
 	if(chemicals < 50)
 		src << "You don't have enough chemicals!"
 
-	var/chem = input("Select a chemical to secrete.", "Chemicals") in list("bicaridine","tramadol","hyperzine","alkysine")
+	var/chem = input("Select a chemical to secrete.", "Chemicals") in list("anti_toxin","bicaridine","kelotane","hyperzine","tramadol")
 
 	if(chemicals < 50 || !host || controlling || !src || stat) //Sanity check.
 		return
 
-	src << "\red <B>You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</B>"
+	src << "<span class = 'notice'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
 	host.reagents.add_reagent(chem, 10)
 	chemicals -= 50
+
+/mob/living/simple_animal/borer/verb/secrete_advanced_chemicals()
+	set category = "Abilities"
+	set name = "Secrete Advanced Chemicals"
+	set desc = "Push some chemicals into your host's bloodstream."
+
+	if(!host)
+		src << "You are not inside a host body."
+		return
+
+	if(stat)
+		src << "You cannot secrete chemicals in your current state."
+
+	if(docile)
+		src << "<span class = 'warning'> You are feeling far too docile to do that.</span>"
+		return
+
+	if(chemicals < 100)
+		src << "You don't have enough chemicals!"
+
+	var/chem = input("Select a chemical to secrete.", "Chemicals") in list("alkysine","imidazoline","oxycodone","peridaxon","ryetalyn")
+
+	if(chemicals < 100 || !host || controlling || !src || stat) //Sanity check.
+		return
+
+	src << "<span class = 'notice'> You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream.</span>"
+	host.reagents.add_reagent(chem, 5)
+	chemicals -= 100
 
 /mob/living/simple_animal/borer/verb/dominate_victim()
 	set category = "Abilities"

@@ -121,7 +121,7 @@
 			size = "huge"
 		else
 	//if ((CLUMSY in usr.mutations) && prob(50)) t = "funny-looking"
-	usr << "This is a [src.blood_DNA ? "bloody " : ""]\icon[src][src.name]. It is a [size] item."
+	usr << "This is a [blood_DNA ? blood_color != "#030303" ? "bloody " : "oil-stained " : ""]\icon[src][src.name]. It is a [size] item."
 	if(src.desc)
 		usr << src.desc
 	return
@@ -333,9 +333,7 @@
 			if(slot_l_ear)
 				if(H.l_ear)
 					return 0
-				if( w_class < 2	)
-					return 1
-				if( !(slot_flags & SLOT_EARS) )
+				if( (w_class > 1) && !(slot_flags & SLOT_EARS) )
 					return 0
 				if( (slot_flags & SLOT_TWOEARS) && H.r_ear )
 					return 0
@@ -343,9 +341,7 @@
 			if(slot_r_ear)
 				if(H.r_ear)
 					return 0
-				if( w_class < 2 )
-					return 1
-				if( !(slot_flags & SLOT_EARS) )
+				if( (w_class > 1) && !(slot_flags & SLOT_EARS) )
 					return 0
 				if( (slot_flags & SLOT_TWOEARS) && H.l_ear )
 					return 0

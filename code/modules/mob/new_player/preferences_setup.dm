@@ -677,7 +677,7 @@ datum/preferences
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel"), ICON_OVERLAY)
 
 				if(BLUESHIELD)
-					clothes_s = new /icon('icons/mob/uniform.dmi', "officer")
+					clothes_s = new /icon('icons/mob/uniform.dmi', "officer_s")
 					clothes_s.Blend(new /icon('icons/mob/feet.dmi', "jackboots"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "black"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/belt.dmi', "pda-hop"), ICON_OVERLAY)

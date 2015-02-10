@@ -156,6 +156,12 @@ var/list/admin_verbs_debug = list(
 	/client/proc/SDQL_query,
 	/client/proc/SDQL2_query,
 	)
+
+var/list/admin_verbs_paranoid_debug = list(
+	/client/proc/callproc,
+	/client/proc/debug_controller
+	)
+
 var/list/admin_verbs_possess = list(
 	/proc/possess,
 	/proc/release
@@ -281,7 +287,10 @@ var/list/admin_verbs_mentor = list(
 		if(holder.rights & R_BAN)			verbs += admin_verbs_ban
 		if(holder.rights & R_FUN)			verbs += admin_verbs_fun
 		if(holder.rights & R_SERVER)		verbs += admin_verbs_server
-		if(holder.rights & R_DEBUG)			verbs += admin_verbs_debug
+		if(holder.rights & R_DEBUG)
+			verbs += admin_verbs_debug
+			if(config.debugparanoid && !check_rights(R_ADMIN))
+				verbs.Remove(admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
 		if(holder.rights & R_POSSESS)		verbs += admin_verbs_possess
 		if(holder.rights & R_PERMISSIONS)	verbs += admin_verbs_permissions
 		if(holder.rights & R_STEALTH)		verbs += /client/proc/stealth
@@ -308,24 +317,7 @@ var/list/admin_verbs_mentor = list(
 		admin_verbs_sounds,
 		admin_verbs_spawn,
 		admin_verbs_poll,
-		/*Debug verbs added by "show debug verbs"*/
-		/client/proc/Cell,
-		/client/proc/do_not_use_these,
-		/client/proc/camera_view,
-		/client/proc/sec_camera_report,
-		/client/proc/intercom_view,
-		/client/proc/atmosscan,
-		/client/proc/powerdebug,
-		/client/proc/count_objects_on_z_level,
-		/client/proc/count_objects_all,
-		/client/proc/cmd_assume_direct_control,
-		/client/proc/jump_to_dead_group,
-		/client/proc/startSinglo,
-		/client/proc/ticklag,
-		/client/proc/cmd_admin_grantfullaccess,
-		/client/proc/kaboom,
-		/client/proc/splash,
-		/client/proc/cmd_admin_areatest
+		debug_verbs
 		)
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs

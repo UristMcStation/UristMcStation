@@ -27,10 +27,15 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 		new/datum/stack_recipe("lime comfy chair", /obj/structure/stool/bed/chair/comfy/lime, 2, one_per_turf = 1, on_floor = 1), \
 		new/datum/stack_recipe("teal comfy chair", /obj/structure/stool/bed/chair/comfy/teal, 2, one_per_turf = 1, on_floor = 1), \
 		), 2), \
+	new/datum/stack_recipe_list("couches", list( \
+		new/datum/stack_recipe("left couch part", /obj/structure/stool/bed/chair/couch/left/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("middle couch part", /obj/structure/stool/bed/chair/couch/middle/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("right couch part", /obj/structure/stool/bed/chair/couch/right/black, 2, one_per_turf = 1, on_floor = 1), \
+		), 2), \
 	null, \
 	new/datum/stack_recipe("table parts", /obj/item/weapon/table_parts, 2), \
 	new/datum/stack_recipe("rack parts", /obj/item/weapon/rack_parts), \
-	new/datum/stack_recipe("metal baseball bat", /obj/item/weapon/baseballbat/metal, 10, time = 20, one_per_turf = 0, on_floor = 1), \
+	new/datum/stack_recipe("metal baseball bat", /obj/item/weapon/baseballbat/metal, 10, time = 20, one_per_turf = 0, on_floor = 0), \
 	new/datum/stack_recipe("closet", /obj/structure/closet, 2, time = 15, one_per_turf = 1, on_floor = 1), \
 	null, \
 	new/datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1), \
@@ -142,7 +147,7 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 40, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 6, time = 25, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 4, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden stool", /obj/structure/stool/wood, 1, time = 15, one_per_turf = 1, on_floor = 1) \
+	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 15, one_per_turf = 1, on_floor = 1) \
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	)
 

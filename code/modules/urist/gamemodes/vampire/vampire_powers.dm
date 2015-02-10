@@ -357,7 +357,10 @@
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
-	if(M.current.vampire_power(30, 0))
+	if(usr.z == 2)
+		return 0
+
+	else if(M.current.vampire_power(30, 0))
 		if(M.current.buckled) M.current.buckled.unbuckle()
 		spawn(0)
 			var/mobloc = get_turf(M.current.loc)

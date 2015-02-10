@@ -114,7 +114,7 @@
 
 //What happens on paper
 /obj/item/weapon/paper/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/scissors))
+	if(istype(I, /obj/item/weapon/scissors/pscissors))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")
 		switch(want)
 			if("Cancel")
