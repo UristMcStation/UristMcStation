@@ -1,4 +1,11 @@
-proc/LoadEventMap()
+/client/proc/load_event_map()
+
+	set name = "Load Event Map"
+	set category = "Fun"
+	set desc = "Loads the map for the event."
+	if(!check_rights(R_SERVER))
+		src <<"\red \b You do not have the required admin rights."
+		return
 
 	var/list/potentialEventMap = list()
 	world << "\red \b Searching for Event Map..."
@@ -16,12 +23,10 @@ proc/LoadEventMap()
 
 		var/pos = findtext(t, " ")
 		var/name = null
-	//	var/value = null
 
 		if (pos)
             // No, don't do lowertext here, that breaks paths on linux
 			name = copytext(t, 1, pos)
-		//	value = copytext(t, pos + 1)
 		else
             // No, don't do lowertext here, that breaks paths on linux
 			name = t
@@ -35,22 +40,20 @@ proc/LoadEventMap()
 	if(potentialEventMap.len)
 		world << "\red \b Loading EventMap..."
 
-		var/map = pick(potentialEventMap)
-		var/file = file(map)
+		var/eventmap = input(src,"Which event map to load?") as null|anything in potentialEventMap
+		var/file = file(eventmap)
+//		var/file = file(mappath) //leaving it in as the basis to a future port to a .dm file-based map loading, instead of the other way round
 		if(isfile(file))
 			maploader.load_map(file)
 
-		world << "\red \b Event Map loaded."
+			world << "\red \b Event Map loaded."
+
+		else
+			if (eventmap == null)
+				world << "\red \b Event Map loading aborted"
+			else
+				src << "\red Event Map couldn't be loaded properly. Yell at the coders."
 
 	else
 		world << "\red \b Event Map found."
 		return
-
-/client/proc/load_event_map()
-
-	set name = "Load Event Map"
-	set category = "Fun"
-	set desc = "Loads the map for the event."
-	if(!check_rights(R_SERVER))	return
-
-	LoadEventMap()

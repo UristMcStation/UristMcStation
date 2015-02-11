@@ -1,3 +1,4 @@
+//var/mappath = "maps/EventMaps/train.dmm"
 var/list/trainwarp = list()
 
 /turf/unsimulated/floor/uristturf/train/grass
@@ -98,9 +99,15 @@ var/list/trainwarp = list()
 	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman2"
 
-
 //hurt me good
-proc/TrainTime()
+/proc/TrainTime()
+	set name = "Train Time!"
+	set category = "Fun"
+	set desc = "All aboard!"
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
 	for(var/mob/living/carbon/human/M in player_list)
 
 		for (var/obj/item/I in M)
@@ -142,5 +149,3 @@ proc/TrainTime()
 		M.loc = pick(trainwarp)
 
 	message_admins("[key_name_admin(usr)] began the train event. God help us all.")
-
-
