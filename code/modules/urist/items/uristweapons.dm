@@ -245,7 +245,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "knight45"
 	fire_sound = 'sound/urist/suppshot.ogg'
-	w_class = 3
+	w_class = 2
 	max_shells = 7
 	slot_flags = SLOT_BELT
 	load_method = 2
