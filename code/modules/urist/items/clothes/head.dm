@@ -240,3 +240,44 @@ obj/item/clothing/head/princessbow
 	icon = 'icons/urist/items/clothes/ears.dmi'
 	icon_state = "earplugs"
 	item_state = "earplugs"
+
+//hazardvest bandanda
+
+/obj/item/clothing/head/hazardbandana
+	name = "orange bandana"
+	desc = "Hey, I think we're missing a hazard vest..."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "taryn_kifer_1"
+
+/obj/item/clothing/head/hazardbandana/verb/toggle_bandana()
+	set name = "Unfold Bandana"
+	set category = "Object"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+
+	var/mob/living/carbon/human/user = usr
+	var/obj/item/clothing/suit/storage/hazardvest/H = new /obj/item/clothing/suit/storage/hazardvest
+
+	user.before_take_item(src)
+
+	user.put_in_hands(H)
+	user << "<span class='notice'>You unfold the bandana into a hazardvest.</span>"
+	del(src)
+
+/obj/item/clothing/suit/storage/hazardvest/verb/toggle_bandana()
+	set name = "Fold Bandana"
+	set category = "Object"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+
+	var/mob/living/carbon/human/user = usr
+	for(var/obj/item/O in contents)
+		O.loc = (get_turf(src))
+	var/obj/item/clothing/head/hazardbandana/H = new /obj/item/clothing/head/hazardbandana
+
+	user.before_take_item(src)
+	user.put_in_hands(H)
+	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
+	del(src)
