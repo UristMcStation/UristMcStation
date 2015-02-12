@@ -99,8 +99,29 @@ var/list/trainwarp = list()
 	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman2"
 
+/obj/vehicle/train/cargo/engine/motorcycle
+	name = "motorcycle"
+	desc = "A fast and highly manouverable vehicle."
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "motorcycle"
+	emagged = 1
+	mob_offset_y = 6
+	load_offset_x = 0
+	health = 250
+	charge_use = 0
+
+/obj/vehicle/train/cargo/engine/motorcycle/New()
+	..()
+	overlays = null
+	var/image/I = new(icon = 'icons/urist/events/train.dmi', icon_state = "motorcycle_overlay", layer = src.layer + 0.2) //over mobs
+	overlays += I
+
+/obj/vehicle/train/cargo/engine/motorcycle/Move()
+	..()
+	load.dir = NORTH //the bikes used on the trains just speed up and slow down, so they always face north - so should the mob.
+
 //hurt me good
-/proc/TrainTime()
+proc/TrainTime()
 	set name = "Train Time!"
 	set category = "Fun"
 	set desc = "All aboard!"
