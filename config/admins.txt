@@ -9,7 +9,6 @@ kg333 - Host
 vactor - Host 
 electronics111 - Game Master
 #Electronics
-bdthemag - Game Master
 androidsfv - Game Master
 glloyd - Head Admin
 Nienhaus2 - Game Master
@@ -29,7 +28,6 @@ greatorder - Moderator
 andreathesecond - Moderator
 Ozarck - Moderator
 Donuts223 - Moderator
-
 
 Magnetite - Mentor
 Iceblaster98 - Mentor
