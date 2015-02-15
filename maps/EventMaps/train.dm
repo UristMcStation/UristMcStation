@@ -10,6 +10,16 @@ var/list/trainwarp = list()
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "gcircuit"
 
+/turf/unsimulated/floor/uristturf/train/snow
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "s"
+
+/turf/unsimulated/floor/uristturf/train/snowmoving
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "scircuit"
+
 /turf/unsimulated/wall/blank
 	name = ""
 	desc = ""
