@@ -101,7 +101,7 @@
 	item_state = "bandolier"
 	storage_slots = 6
 	can_hold = list(
-			/obj/item/ammo_casing/shotgun
+			"/obj/item/ammo_casing/shotgun"
 			)
 
 //military belt
