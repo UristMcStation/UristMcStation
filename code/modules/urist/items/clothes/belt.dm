@@ -17,7 +17,7 @@
  	"/obj/item/weapon/wrench",
  	"/obj/item/device/multitool",
  	"/obj/item/device/flashlight",
- 	"/obj/item/weapon/cable_coil",
+ 	"/obj/item/stack/cable_coil",
  	"/obj/item/device/analyzer",
  	"/obj/item/device/mmi")
 
