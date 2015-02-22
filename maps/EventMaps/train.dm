@@ -1,3 +1,4 @@
+//var/mappath = "maps/EventMaps/train.dmm"
 var/list/trainwarp = list()
 
 /turf/unsimulated/floor/uristturf/train/grass
@@ -9,6 +10,26 @@ var/list/trainwarp = list()
 	name = "grass"
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "gcircuit"
+
+/turf/unsimulated/floor/uristturf/train/snow
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "s"
+
+/turf/unsimulated/floor/uristturf/train/snowmoving
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "scircuit"
+
+/turf/unsimulated/floor/uristturf/train/grass_night
+	name = "grass"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "g_night"
+
+/turf/unsimulated/floor/uristturf/train/grassmoving_night
+	name = "grass"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "gcircuit_night"
 
 /turf/unsimulated/wall/blank
 	name = ""
@@ -88,9 +109,15 @@ var/list/trainwarp = list()
 	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman2"
 
-
 //hurt me good
-proc/TrainTime()
+/proc/TrainTime()
+	set name = "Train Time!"
+	set category = "Fun"
+	set desc = "All aboard!"
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
 	for(var/mob/living/carbon/human/M in player_list)
 
 		for (var/obj/item/I in M)
@@ -132,52 +159,3 @@ proc/TrainTime()
 		M.loc = pick(trainwarp)
 
 	message_admins("[key_name_admin(usr)] began the train event. God help us all.")
-
-proc/LoadEventMap()
-
-	var/list/potentialEventMap = list()
-	world << "\red \b Searching for Event Map..."
-	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
-	if(!Lines.len)	return
-	for (var/t in Lines)
-		if (!t)
-			continue
-
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
-
-		var/pos = findtext(t, " ")
-		var/name = null
-	//	var/value = null
-
-		if (pos)
-            // No, don't do lowertext here, that breaks paths on linux
-			name = copytext(t, 1, pos)
-		//	value = copytext(t, pos + 1)
-		else
-            // No, don't do lowertext here, that breaks paths on linux
-			name = t
-
-		if (!name)
-			continue
-
-		potentialEventMap.Add(name)
-
-
-	if(potentialEventMap.len)
-		world << "\red \b Loading EventMap..."
-
-		var/map = pick(potentialEventMap)
-		var/file = file(map)
-		if(isfile(file))
-			maploader.load_map(file)
-
-		world << "\red \b Event Map loaded."
-
-	else
-		world << "\red \b Event Map found."
-		return
-

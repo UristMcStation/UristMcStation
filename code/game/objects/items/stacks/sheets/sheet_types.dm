@@ -70,6 +70,12 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 		new/datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, 4, time = 50, one_per_turf = 1, on_floor = 1), \
 		), 4), \
 	null, \
+	new/datum/stack_recipe_list("filing cabinets", list(\
+		new/datum/stack_recipe("filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("chest drawer", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("tall filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		), 3), \
+	null, \
 	new/datum/stack_recipe("grenade casing", /obj/item/weapon/grenade/chem_grenade), \
 	new/datum/stack_recipe("light fixture frame", /obj/item/light_fixture_frame, 2), \
 	new/datum/stack_recipe("small light fixture frame", /obj/item/light_fixture_frame/small, 1), \
@@ -145,11 +151,12 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("baseball bat", /obj/item/weapon/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1), \
-	new/datum/stack_recipe("bookcase", /obj/structure/bookcase, 8, time = 30, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("bookcase", /obj/structure/bookcase, 7, time = 30, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 40, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 6, time = 25, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 4, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 15, one_per_turf = 1, on_floor = 1) \
+	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 5, time = 25, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 3, time = 15, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1) \
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	)
 

@@ -17,7 +17,7 @@
  	"/obj/item/weapon/wrench",
  	"/obj/item/device/multitool",
  	"/obj/item/device/flashlight",
- 	"/obj/item/weapon/cable_coil",
+ 	"/obj/item/stack/cable_coil",
  	"/obj/item/device/analyzer",
  	"/obj/item/device/mmi")
 
@@ -101,7 +101,7 @@
 	item_state = "bandolier"
 	storage_slots = 6
 	can_hold = list(
-			/obj/item/ammo_casing/shotgun
+			"/obj/item/ammo_casing/shotgun"
 			)
 
 //military belt
