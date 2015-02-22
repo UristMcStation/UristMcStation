@@ -76,7 +76,6 @@
 	force = 12
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 12
 	force_wielded = 20 // Was 13, Buffed - RR
 	throwforce = 15
 	flags = NOSHIELD
@@ -121,7 +120,6 @@
 	force = 8
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 8
 	force_wielded = 14
 	throwforce = 8
 	flags = NOSHIELD
