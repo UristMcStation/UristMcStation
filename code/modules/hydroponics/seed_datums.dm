@@ -217,8 +217,8 @@ proc/populate_seed_list()
 			"water",
 			"potassium",
 			"plasticide",
-			"slimetoxin",
-			"aslimetoxin",
+			"mutationtoxin",
+			"amutationtoxin",
 			"inaprovaline",
 			"space_drugs",
 			"paroxetine",
@@ -255,7 +255,7 @@ proc/populate_seed_list()
 
 	if(prob(90))
 		requires_nutrients = 1
-		nutrient_consumption = rand(100)*0.1
+		nutrient_consumption = rand(25)/100
 	else
 		requires_nutrients = 0
 

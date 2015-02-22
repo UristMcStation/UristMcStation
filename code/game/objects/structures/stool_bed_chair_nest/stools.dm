@@ -4,7 +4,6 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "stool"
 	anchored = 1.0
-	flags = FPRINT
 	pressure_resistance = 15
 	var/style = 0 //0 is regular, 1 is bar, 2 is wood
 
