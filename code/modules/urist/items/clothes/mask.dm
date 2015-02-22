@@ -7,7 +7,6 @@
 	item_state = "the_jester"
 	icon_state = "the_jester"
 	body_parts_covered = HEAD
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/penguin
@@ -17,7 +16,6 @@
 	item_state = "penguincig"
 	icon_state = "penguincig"
 	body_parts_covered = HEAD
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 //Paper flower, fits in the mouth, like tango
@@ -29,7 +27,6 @@
 	desc = "A Paper flower."
 	item_state = "paperflower"
 	icon_state = "paperflower"
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/flower/attackby(var/obj/item/I, mob/user as mob)
@@ -44,11 +41,11 @@
 
 //It's payday, guys.
 
-/obj/item/clothing/mask/payday
+/obj/item/clothing/mask/gas/payday
     name = "clown mask"
     icon = 'icons/urist/items/clothes/masks.dmi'
     icon_override = 'icons/uristmob/mask.dmi'
-    flags = FPRINT | TABLEPASS | MASKCOVERSMOUTH | MASKCOVERSEYES | BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
+    flags = MASKCOVERSMOUTH | MASKCOVERSEYES | BLOCK_GAS_SMOKE_EFFECT
     flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
     w_class = 3.0
     gas_transfer_coefficient = 0.01

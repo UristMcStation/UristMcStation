@@ -141,21 +141,18 @@ obj/item/clothing/head/princessbow
 	icon_state = "beaver_hat"
 	item_state = "beaver_hat"
 	desc = "Like a top hat, but made of beavers."
-	flags = FPRINT|TABLEPASS
 
 /obj/item/clothing/head/urist/boaterhat
 	name = "boater hat"
 	icon_state = "boater_hat"
 	item_state = "boater_hat"
 	desc = "Goes well with celery."
-	flags = FPRINT|TABLEPASS
 
 /obj/item/clothing/head/urist/fedora
 	name = "\improper fedora"
 	icon_state = "fedora"
 	item_state = "fedora"
 	desc = "A great hat ruined by being within fifty yards of you."
-	flags = FPRINT|TABLEPASS
 
 //TIPS FEDORA
 /obj/item/clothing/head/urist/fedora/verb/tip_fedora()
@@ -171,7 +168,6 @@ obj/item/clothing/head/princessbow
 	icon_state = "fez"
 	item_state = "fez"
 	desc = "Put it on your monkey, make lots of cash money."
-	flags = FPRINT|TABLEPASS
 
 //Villian and hero stuff
 

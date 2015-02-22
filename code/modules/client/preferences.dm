@@ -18,8 +18,8 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 	"vox raider" = IS_MODE_COMPILED("heist"),            // 11
 	"diona" = 1,                                         // 12
 	"mutineer" = IS_MODE_COMPILED("mutiny"),             // 13
-	"vampire" = IS_MODE_COMPILED("vampire")              // 14
-	"pAI candidate" = 1, // -- TLE                       // 15
+	"vampire" = IS_MODE_COMPILED("vampire"),             // 14
+	"pAI candidate" = 1 // -- TLE                       // 15
 )
 
 //used for alternate_option

@@ -20,8 +20,6 @@
 
 	..()
 	species = all_species["Diona"]
-	verbs += /mob/living/carbon/proc/eat_weeds
-	verbs += /mob/living/carbon/proc/fertilize_plant
 	verbs += /mob/living/carbon/alien/diona/proc/steal_blood
 	verbs += /mob/living/carbon/alien/diona/proc/merge
 

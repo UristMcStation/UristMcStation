@@ -1591,7 +1591,6 @@
 #include "code\modules\urist\structures\crates.dm"
 #include "code\modules\urist\structures\dresser.dm"
 #include "code\modules\urist\structures\engicart.dm"
-#include "code\modules\urist\structures\hoverseg.dm"
 #include "code\modules\urist\structures\uriststructures.dm"
 #include "code\modules\urist\vehicles\motorcycle.dm"
 #include "code\modules\urist\verbs\antagooc.dm"

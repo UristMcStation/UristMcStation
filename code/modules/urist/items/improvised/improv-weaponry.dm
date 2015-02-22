@@ -9,7 +9,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = FPRINT | TABLEPASS | CONDUCT
+	flags = CONDUCT
 	force = 9
 	throwforce = 10
 	w_class = 3

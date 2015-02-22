@@ -617,8 +617,8 @@ var/list/be_special_flags = list(
 	"Raider" = BE_RAIDER,
 	"Diona" = BE_PLANT,
 	"Mutineer" = BE_MUTINEER,
-	"pAI" = BE_PAI
-	"Vampire" = BE_VAMPIRE,
+	"pAI" = BE_PAI,
+	"Vampire" = BE_VAMPIRE
 	)
 
 #define AGE_MIN 17			//youngest a character can be

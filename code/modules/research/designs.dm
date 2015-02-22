@@ -451,7 +451,7 @@ datum/design/circuit/tcom/server
 	name = "server mainframe"
 	id = "tcom-server"
 	build_path = /obj/item/weapon/circuitboard/telecomms/server
-	
+
 datum/design/circuit/tcom/processor
 	name = "processor unit"
 	id = "tcom-processor"
@@ -1416,7 +1416,7 @@ datum/design/bluespace_crystal
 	build_type = PROTOLATHE
 	materials = list("$gold" = 1500, "$diamond" = 3000, "$phoron" = 1500)
 	reliability_base = 100
-	build_path = /obj/item/bluespace_crystal/artificial"
+	build_path = /obj/item/bluespace_crystal/artificial
 
 /////////////////////////////////////////
 /////////////////HUDs////////////////////
@@ -1545,7 +1545,7 @@ datum/design/item/mesons
 	req_tech = list("magnets" = 2, "engineering" = 2)
 	materials = list("$metal" = 50, "$glass" = 50)
 	build_path = /obj/item/clothing/glasses/meson
-	
+
 datum/design/item/binaryencrypt
 	name = "Binary encryption key"
 	desc = "Allows for deciphering the binary channel on-the-fly."
