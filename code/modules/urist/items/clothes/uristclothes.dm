@@ -24,7 +24,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
 
-/obj/item/clothing/suit/space/rig/science
+/obj/item/clothing/suit/space/void/science
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -107,7 +107,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Naval Commando Suit
 
-/obj/item/clothing/suit/space/rig/commando
+/obj/item/clothing/suit/space/void/commando
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "naval commando suit"
