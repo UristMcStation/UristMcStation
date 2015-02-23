@@ -134,3 +134,41 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 					return
 			else
 				user << "<span class='notice'>The [affecting.display_name] is cut open, you'll need more than a [src]!</span>"
+
+
+/obj/item/clothing/suit/verb/rip(mob/user as mob)
+	set name = "Rip Apart Suit"
+	set category = "Object"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+	if(istype(src, /obj/item/clothing/suit/space) || istype(src, /obj/item/clothing/suit/armor) || istype(src, /obj/item/clothing/suit/wizrobe)) //add other protected instances as needed
+		return 0
+	else
+		user.visible_message( 	"<span class='notice'> [user] starts ripping [src] apart into rags!</span>", \
+											"<span class='notice'> You start ripping [src] apart into rags!</span>" )
+		spawn(100)
+			user << "<span class='notice'>You have ripped [src] into pieces, yielding two rags.</span>"
+
+			new /obj/item/weapon/clothesrag(get_turf(src))
+			new /obj/item/weapon/clothesrag(get_turf(src))
+
+			del(src)
+
+/obj/item/clothing/under/verb/rip(mob/user as mob)
+	set name = "Rip Apart Jumpsuit"
+	set category = "Object"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return 0
+/*	if(istype(src, /obj/item/clothing/under/BADSTUFFGOESHERE //I couldn't think of any item types here that shouldn't work, but leaving it here in case it's needed later
+		return 0*/
+	else
+		user.visible_message( 	"<span class='notice'> [user] starts ripping [src] apart into a rag!</span>", \
+											"<span class='notice'> You start ripping [src] apart into a rag!</span>" )
+		spawn(100)
+			user << "<span class='notice'>You have ripped [src] into pieces, yielding a rag.</span>"
+
+			new /obj/item/weapon/clothesrag(get_turf(src))
+
+			del(src)
