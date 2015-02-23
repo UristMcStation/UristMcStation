@@ -55,13 +55,14 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 /obj/item/weapon/clothesrag/proc/checkvolume()
 	if(src.bloodvolume >= src.bloodcapacity)
 		src.soaked = 1
+	else
+		src.soaked = 0
 	if(soaked)
 		usr << "The rag has reached its capacity!"
 		src.name = "bloody rag"
 		src.desc = "The sad remains of a piece of clothing. It has soaked up too much blood to be useful for stopping bleeding, better wash it!"
 		icon_state = "rag"
 	else
-		src.soaked = 0
 		src.name = "rag"
 		src.desc = "The sad remains of a piece of clothing. Could be used to press wounds to stop them from bleeding, but it might take some time and is of dubious cleanliness."
 		icon_state = "rag"
