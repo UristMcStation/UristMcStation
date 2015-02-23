@@ -303,9 +303,9 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			break
 		if(H.stat < 2) //alive
 			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
-			src.mind.vampire.bloodtotal += (blood/2)
-			src.mind.vampire.bloodusable += (blood*2)
-			H.traumatic_shock += 30 // vampire bites suck
+			src.mind.vampire.bloodtotal += (blood)
+			src.mind.vampire.bloodusable += (blood*1.2)
+			H.traumatic_shock += 15 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
@@ -360,7 +360,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			vamp.powers.Add(VAMP_SLAVE)
 
 	// TIER 5
-	if(vamp.bloodtotal >= 500)
+	if(vamp.bloodtotal >= 600)
 		if(!(VAMP_FULL in vamp.powers))
 			vamp.powers.Add(VAMP_FULL)
 
