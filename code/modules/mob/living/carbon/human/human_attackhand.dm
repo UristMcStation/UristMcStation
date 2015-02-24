@@ -99,7 +99,7 @@
 					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove their mask!</span>"
 						return 0
-					if((M.head && (M.head.flags & HEADCOVERSMOUTH)) || (M.wear_mask && (M.wear_mask.flags & MASKCOVERSMOUTH)))
+					if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove your mask!</span>"
 						return 0
 					if(mind && mind.vampire)
