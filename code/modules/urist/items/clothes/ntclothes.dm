@@ -100,7 +100,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 //Syndicate Stealth Rig
-/obj/item/clothing/head/helmet/space/rig/syndistealth
+/obj/item/clothing/head/helmet/space/void/syndistealth
 	name = "night-black hardsuit helmet"
 	desc = "A sleek, armored space helmet designed for work in covert operations. Property of MI13."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -110,7 +110,7 @@
 	item_color = "stealth"
 	armor = list(melee = 65, bullet = 45, laser = 30,energy = 20, bomb = 30, bio = 100, rad = 50)
 
-/obj/item/clothing/suit/space/rig/syndistealth
+/obj/item/clothing/suit/space/void/syndistealth
 	icon_state = "stealth"
 	name = "night-black hardsuit"
 	desc = "A sleek, armored space suit that protects the wearer against injuries during covert operations. Unique syndicate technology allows it to be carried in a backpack when not in use. Property of MI13."
@@ -126,7 +126,7 @@
 // COLD RIGZ
 
 	//Security
-/obj/item/clothing/head/helmet/space/rig/security/cold
+/obj/item/clothing/head/helmet/space/void/security/cold
 	name = "security cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has an additional layer of armor."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -135,7 +135,7 @@
 	item_state = "sec_cold"
 	item_color = "seccold"
 
-/obj/item/clothing/suit/space/rig/security/cold
+/obj/item/clothing/suit/space/void/security/cold
 	icon_state = "cryo-security"
 	name = "security cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has an additional layer of armor."
@@ -144,7 +144,7 @@
 	item_state = "sec_coldsuit"
 
 //Engineering
-/obj/item/clothing/head/helmet/space/rig/engineering/cold
+/obj/item/clothing/head/helmet/space/void/engineering/cold
 	name = "engineering cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -153,7 +153,7 @@
 	item_state = "eng_cold"
 	item_color = "engicold"
 
-/obj/item/clothing/suit/space/rig/engineering/cold
+/obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -162,7 +162,7 @@
 	item_state = "eng_coldsuit"
 
 //Atmospherics
-/obj/item/clothing/head/helmet/space/rig/atmos/cold
+/obj/item/clothing/head/helmet/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -171,7 +171,7 @@
 	item_state = "atmo_cold"
 	item_color = "atmocold"
 
-/obj/item/clothing/suit/space/rig/atmos/cold
+/obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -180,7 +180,7 @@
 	item_state = "atmo_coldsuit"
 
 //Mining
-/obj/item/clothing/head/helmet/space/rig/mining/cold
+/obj/item/clothing/head/helmet/space/void/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
@@ -189,7 +189,7 @@
 	item_state = "mining_cold"
 	item_color = "minecold"
 
-/obj/item/clothing/suit/space/rig/mining/cold
+/obj/item/clothing/suit/space/void/mining/cold
 	icon_state = "cryo-mining"
 	name = "mining cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has reinforced plating."

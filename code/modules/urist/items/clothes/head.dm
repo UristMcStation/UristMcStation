@@ -13,7 +13,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //sci rig helmet
 
-/obj/item/clothing/head/helmet/space/rig/science
+/obj/item/clothing/head/helmet/space/void/science
 	name = "science hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Built with lightweight materials for extra comfort."
 	icon_state = "rig0-medical"
@@ -62,7 +62,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //naval commando helmet
 
-/obj/item/clothing/head/helmet/space/rig/commando
+/obj/item/clothing/head/helmet/space/void/commando
 	urist_only = 1
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval commando helmet"
