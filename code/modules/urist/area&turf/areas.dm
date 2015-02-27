@@ -67,6 +67,14 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Medbay Dormitories"
 	icon_state = "Sleep"
 
+/area/crew_quarters/sleep/engi
+	name = "\improper Engineering Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/sec
+	name = "\improper Security Dormitories"
+	icon_state = "Sleep"
+
 /area/bridge/blueshield
 	name = "\improper Blueshield's Office"
 
