@@ -243,23 +243,23 @@ datum/mind
 			sections["vampire"] = text
 
 			/** NUCLEAR ***/
-			text = "mercenary"
-			if (ticker.mode.config_tag=="mercenary")
+			text = "nuclear"
+			if (ticker.mode.config_tag=="nuclear")
 				text = uppertext(text)
 			text = "<i><b>[text]</b></i>: "
 			if (src in ticker.mode.syndicates)
-				text += "<b>OPERATIVE</b>|<a href='?src=\ref[src];mercenary=clear'>nanotrasen</a>"
-				text += "<br><a href='?src=\ref[src];mercenary=lair'>To shuttle</a>, <a href='?src=\ref[src];common=undress'>undress</a>, <a href='?src=\ref[src];mercenary=dressup'>dress up</a>."
+				text += "<b>OPERATIVE</b>|<a href='?src=\ref[src];nuclear=clear'>nanotrasen</a>"
+				text += "<br><a href='?src=\ref[src];nuclear=lair'>To shuttle</a>, <a href='?src=\ref[src];common=undress'>undress</a>, <a href='?src=\ref[src];nuclear=dressup'>dress up</a>."
 				var/code
 				for (var/obj/machinery/nuclearbomb/bombue in machines)
 					if (length(bombue.r_code) <= 5 && bombue.r_code != "LOLNO" && bombue.r_code != "ADMIN")
 						code = bombue.r_code
 						break
 				if (code)
-					text += " Code is [code]. <a href='?src=\ref[src];mercenary=tellcode'>tell the code.</a>"
+					text += " Code is [code]. <a href='?src=\ref[src];nuclear=tellcode'>tell the code.</a>"
 			else
-				text += "<a href='?src=\ref[src];mercenary=mercenary'>operative</a>|<b>NANOTRASEN</b>"
-			sections["mercenary"] = text
+				text += "<a href='?src=\ref[src];nuclear=nuclear'>operative</a>|<b>NANOTRASEN</b>"
+			sections["nuclear"] = text
 
 		/** TRAITOR ***/
 		text = "traitor"
@@ -408,7 +408,7 @@ datum/mind
 				if(!def_value)//If it's a custom objective, it will be an empty string.
 					def_value = "custom"
 
-			var/new_obj_type = input("Select objective type:", "Objective type", def_value) as null|anything in list("assassinate", "debrain", "protect", "prevent", "harm", "brig", "hijack", "escape", "survive", "steal", "download", "mercenary", "capture", "absorb", "custom")
+			var/new_obj_type = input("Select objective type:", "Objective type", def_value) as null|anything in list("assassinate", "debrain", "protect", "prevent", "harm", "brig", "hijack", "escape", "survive", "steal", "download", "nuclear", "capture", "absorb", "custom")
 			if (!new_obj_type) return
 
 			var/datum/objective/new_objective = null
@@ -462,7 +462,7 @@ datum/mind
 					new_objective = new /datum/objective/survive
 					new_objective.owner = src
 
-				if ("mercenary")
+				if ("nuclear")
 					new_objective = new /datum/objective/nuclear
 					new_objective.owner = src
 
@@ -795,12 +795,12 @@ datum/mind
 					ticker.mode.forge_vampire_objectives(src)
 					usr << "\blue The objectives for vampire [key] have been generated. You can edit them and announce manually."
 
-		else if (href_list["mercenary"])
+		else if (href_list["nuclear"])
 			var/mob/living/carbon/human/H = current
 
 			current.hud_updateflag |= (1 << SPECIALROLE_HUD)
 
-			switch(href_list["mercenary"])
+			switch(href_list["nuclear"])
 				if("clear")
 					if(src in ticker.mode.syndicates)
 						ticker.mode.syndicates -= src
@@ -810,7 +810,7 @@ datum/mind
 							objectives-=O
 						current << "\red <FONT size = 3><B>You have been brainwashed! You are no longer an operative!</B></FONT>"
 						log_admin("[key_name_admin(usr)] has de-merc'd [current].")
-				if("mercenary")
+				if("nuclear")
 					if(!(src in ticker.mode.syndicates))
 						ticker.mode.syndicates += src
 						ticker.mode.update_synd_icons_added(src)
