@@ -127,7 +127,7 @@ var/list/trainwarp = list()
 
 		if(M.gender == "male")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/suit_jacket/black(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/coat/blackcoat/suit(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
