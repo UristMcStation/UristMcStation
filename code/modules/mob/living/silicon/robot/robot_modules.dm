@@ -353,7 +353,7 @@
 	return
 
 /obj/item/weapon/robot_module/syndicate
-	name = "illegal robot module"
+	name = "syndicate robot module"
 
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()

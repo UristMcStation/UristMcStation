@@ -188,7 +188,7 @@
 		if("revolution")
 			if((H.mind in ticker.mode:revolutionaries) || (H.mind in ticker.mode:head_revolutionaries))
 				ticker.mode.update_all_rev_icons() //So the icon actually appears
-		if("mercenary")
+		if("nuclear emergency")
 			if(H.mind in ticker.mode.syndicates)
 				ticker.mode.update_all_synd_icons()
 		if("cult")

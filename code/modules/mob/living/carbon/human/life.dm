@@ -1766,7 +1766,7 @@
 		if(mind)
 
 			switch(mind.special_role)
-				if("traitor","Mercenary")
+				if("traitor","Syndicate")
 					holder.icon_state = "hudsyndicate"
 				if("Revolutionary")
 					holder.icon_state = "hudrevolutionary"

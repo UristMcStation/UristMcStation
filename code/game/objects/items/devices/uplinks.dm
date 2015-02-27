@@ -180,7 +180,7 @@ datum/nano_item_lists
 	NANO UI FOR UPLINK WOOP WOOP
 */
 /obj/item/device/uplink/hidden/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "Remote Uplink"
+	var/title = "Syndicate Uplink"
 	var/data[0]
 
 	data["welcome"] = welcome
