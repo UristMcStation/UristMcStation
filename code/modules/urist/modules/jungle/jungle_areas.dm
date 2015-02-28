@@ -14,7 +14,7 @@
 
 /area/jungle
 	name = "jungle"
-	icon = 'code/workinprogress/cael_aislinn/jungle/jungle.dmi'
+	icon = 'icons/jungle.dmi'
 	icon_state = "area"
 	lighting_use_dynamic = 0
 	luminosity = 1
@@ -24,7 +24,7 @@
 /area/jungle/temple_one
 	name = "temple"
 	lighting_use_dynamic = 1
-	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
+	icon = 'icons/jungle.dmi'
 	icon_state = "temple1"
 
 /area/jungleoutpost
