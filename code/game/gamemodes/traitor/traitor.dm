@@ -180,7 +180,7 @@
 		var/text = "<FONT size = 2><B>The traitors were:</B></FONT>"
 		for(var/datum/mind/traitor in traitors)
 			var/traitorwin = 1
-			text += printplayer(traitor)
+			text += print_player_full(traitor)
 
 			if(traitor.objectives.len)//If the traitor had no objectives, don't need to process this.
 				var/count = 1
@@ -273,6 +273,7 @@
 			freq = freqlist[rand(1, freqlist.len)]
 
 			var/obj/item/device/uplink/hidden/T = new(R)
+			T.uplink_owner = traitor_mob.mind
 			target_radio.hidden_uplink = T
 			target_radio.traitor_frequency = freq
 			traitor_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
@@ -282,6 +283,7 @@
 			var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
 
 			var/obj/item/device/uplink/hidden/T = new(R)
+			T.uplink_owner = traitor_mob.mind
 			R.hidden_uplink = T
 			var/obj/item/device/pda/P = R
 			P.lock_code = pda_pass

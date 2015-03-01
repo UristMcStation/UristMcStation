@@ -388,7 +388,7 @@ datum/mind
 			assigned_role = new_role
 
 		else if (href_list["memory_edit"])
-			var/new_memo = copytext(sanitize(input("Write new memory", "Memory", memory) as null|message),1,MAX_MESSAGE_LEN)
+			var/new_memo = sanitize(copytext(input("Write new memory", "Memory", memory) as null|message,1,MAX_MESSAGE_LEN))
 			if (isnull(new_memo)) return
 			memory = new_memo
 
@@ -499,7 +499,7 @@ datum/mind
 					new_objective.target_amount = target_number
 
 				if ("custom")
-					var/expl = copytext(sanitize(input("Custom objective:", "Objective", objective ? objective.explanation_text : "") as text|null),1,MAX_MESSAGE_LEN)
+					var/expl = sanitize(copytext(input("Custom objective:", "Objective", objective ? objective.explanation_text : "") as text|null,1,MAX_MESSAGE_LEN))
 					if (!expl) return
 					new_objective = new /datum/objective
 					new_objective.owner = src
@@ -824,7 +824,7 @@ datum/mind
 						ticker.mode.greet_syndicate(src)
 						log_admin("[key_name_admin(usr)] has nuke op'ed [current].")
 				if("lair")
-					current.loc = get_turf(locate("landmark*Syndicate-Spawn"))
+					current.loc = pick(synd_spawn)
 				if("dressup")
 					del(H.belt)
 					del(H.back)
@@ -1112,7 +1112,7 @@ datum/mind
 			ticker.mode.forge_syndicate_objectives(src)
 			ticker.mode.greet_syndicate(src)
 
-			current.loc = get_turf(locate("landmark*Syndicate-Spawn"))
+			current.loc = pick(synd_spawn)
 
 			var/mob/living/carbon/human/H = current
 			del(H.belt)
@@ -1251,7 +1251,15 @@ datum/mind
 		return (duration <= world.time - brigged_since)
 
 
-
+//Antagonist role check
+/mob/living/proc/check_special_role(role)
+	if(mind)
+		if(!role)
+			return mind.special_role
+		else
+			return (mind.special_role == role) ? 1 : 0
+	else
+		return 0
 
 //Initialisation procs
 /mob/living/proc/mind_initialize()

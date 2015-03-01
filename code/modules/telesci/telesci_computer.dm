@@ -59,9 +59,6 @@
 			icon_state = initial(icon_state)
 			stat &= ~NOPOWER
 
-/obj/machinery/computer/telescience/attack_paw(mob/user)
-	user << "You are too primitive to use this computer."
-	return
 
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/bluespace_crystal))

@@ -23,7 +23,6 @@ var/bomb_set
 	var/timing_wire
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open,
 	                      // 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
-	flags = FPRINT
 	use_power = 0
 
 	var/previous_level = ""
@@ -164,9 +163,6 @@ var/bomb_set
 						removal_stage = 5
 				return
 	..()
-
-/obj/machinery/nuclearbomb/attack_paw(mob/user as mob)
-	return src.attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
 	if (src.extended)
@@ -396,11 +392,9 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 		ticker.mode.explosion_in_progress = 1
 	sleep(100)
 
-	enter_allowed = 0
-
 	var/off_station = 0
 	var/turf/bomb_location = get_turf(src)
-	if( bomb_location && (bomb_location.z == 1) )
+	if(bomb_location && (bomb_location.z in config.station_levels))
 		if( (bomb_location.x < (128-NUKERANGE)) || (bomb_location.x > (128+NUKERANGE)) || (bomb_location.y < (128-NUKERANGE)) || (bomb_location.y > (128+NUKERANGE)) )
 			off_station = 1
 	else

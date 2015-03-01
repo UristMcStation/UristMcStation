@@ -20,7 +20,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Thank you for using AutoDrobe!"
 	products = list(/obj/item/clothing/suit/chickensuit = 1,/obj/item/clothing/head/chicken = 1,/obj/item/clothing/under/gladiator = 1,
 					/obj/item/clothing/head/helmet/gladiator = 1,/obj/item/clothing/under/gimmick/rank/captain/suit = 1,/obj/item/clothing/head/flatcap = 1,
-					/obj/item/clothing/suit/storage/labcoat/mad = 1,/obj/item/clothing/glasses/gglasses = 1,/obj/item/clothing/shoes/jackboots = 1,
+					/obj/item/clothing/suit/storage/toggle/labcoat/mad = 1,/obj/item/clothing/glasses/gglasses = 1,/obj/item/clothing/shoes/jackboots = 1,
 					/obj/item/clothing/under/schoolgirl = 1,/obj/item/clothing/head/kitty = 1,/obj/item/clothing/under/blackskirt = 1,/obj/item/clothing/head/beret = 1,
 					/obj/item/clothing/suit/wcoat = 1,/obj/item/clothing/under/suit_jacket = 1,/obj/item/clothing/head/that =1,/obj/item/clothing/head/cueball = 1,
 					/obj/item/clothing/under/scratch = 1,/obj/item/clothing/under/kilt = 1,/obj/item/clothing/head/beret = 1,/obj/item/clothing/suit/wcoat = 1,
@@ -156,9 +156,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Stay classy!"
 	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you.."
 	product_slogans = "Cover yourself!;Dress to impress!;Lumberjack approved!;Warning, leather jackets are not vegan.;Can't afford shoes, pants, suits or dresses? Well fuck off, we didn't want your money anyways."
-	products = list(/obj/item/clothing/suit/coat/jacket/leather = 5,/obj/item/clothing/suit/coat/jacket = 10,/obj/item/clothing/suit/coat = 10,/obj/item/clothing/suit/storage/lawyer/bluejacket = 10,/obj/item/clothing/suit/storage/lawyer/purpjacket = 10,/obj/item/clothing/suit/urist/blackjacket = 10, /obj/item/clothing/suit/urist/coat/navycoat = 5, /obj/item/clothing/suit/urist/coat/charcoat = 5, /obj/item/clothing/suit/urist/coat/blackcoat = 5, /obj/item/clothing/suit/urist/coat/blackcoat/suit = 5, /obj/item/clothing/suit/urist/coat/burgcoat = 5)
-	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300, /obj/item/clothing/suit/urist/coat/navycoat = 600, /obj/item/clothing/suit/urist/coat/charcoat = 600, /obj/item/clothing/suit/urist/coat/blackcoat = 600, /obj/item/clothing/suit/urist/coat/blackcoat/suit = 900, /obj/item/clothing/suit/urist/coat/burgcoat = 600)
-	contraband = list(/obj/item/clothing/suit/urist/coat/tajcoat = 1)
+	products = list(/obj/item/clothing/suit/coat/jacket/leather = 5,/obj/item/clothing/suit/coat/jacket = 10,/obj/item/clothing/suit/coat = 10,/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket = 10,/obj/item/clothing/suit/storage/lawyer/purpjacket = 10,/obj/item/clothing/suit/urist/blackjacket = 10, /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat = 5)
+	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300, /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit = 900, /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat = 600)
+	contraband = list(/obj/item/clothing/suit/storage/urist/coat/tajcoat = 1)
 //	premium = list(/obj/item/clothing/shoes/rainbow = 1)
 
 //Belts!

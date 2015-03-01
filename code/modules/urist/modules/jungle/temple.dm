@@ -276,8 +276,8 @@
 
 /obj/effect/step_trigger/trap
 	name = "trap"
-	icon = 'code/workinprogress/cael_aislinn/jungle/jungle.dmi'
-	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
+	icon = 'icons/jungle.dmi'
+	icon = 'icons/jungle.dmi'
 	icon_state = "trap"
 	var/trap_type
 
@@ -302,7 +302,7 @@
 			M.apply_damage(rand(5,10), BRUTE, sharp=1, edge=1)
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi',"sawblade")
+			var/image/flicker = image('icons/jungle.dmi',"sawblade")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -313,7 +313,7 @@
 			M.apply_damage(rand(5,10), TOX)
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi',"dart[rand(1,3)]")
+			var/image/flicker = image('icons/jungle.dmi',"dart[rand(1,3)]")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -324,7 +324,7 @@
 			M.apply_damage(rand(5,10), BURN)
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi',"flameburst")
+			var/image/flicker = image('icons/jungle.dmi',"flameburst")
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
@@ -340,7 +340,7 @@
 			M.visible_message("\red <b>The floor under [M] suddenly tips upward!</b>","\red <b>The floor tips upward under you!</b>")
 
 			var/atom/myloc = src.loc
-			var/image/flicker = image('code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi',"throw[throw_dir]")
+			var/image/flicker = image('icons/jungle.dmi',"throw[throw_dir]")
 			myloc.overlays += flicker
 			var/turf/my_turf = get_turf(loc)
 			if(!my_turf.density)
