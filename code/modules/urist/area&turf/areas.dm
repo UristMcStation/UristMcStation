@@ -4,6 +4,10 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 //UMcS unique Areas
 
+/area/hallway/secondary/entry
+	name = "\improper Arrival Shuttle Hallway"
+	icon_state = "entry_1"
+
 /area/tcommsat/pirate
 	name = "\improper Pirate Server Room"
 	icon_state = "tcomsatcham"
