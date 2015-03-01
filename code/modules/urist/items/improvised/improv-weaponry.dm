@@ -281,7 +281,7 @@
 		user.before_take_item(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You form [src] around [W], creating a more lethal Millwall brick.</span>"
+		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
 		W.loc = S
 
 		del(src)
@@ -298,7 +298,7 @@
 	w_class = 2
 
 /obj/item/weapon/improvised/mbrick/sharp/attack_self(mob/user as mob)
-	..()
+
 	for(var/obj/item/w in contents)
 		w.loc = (get_turf(src))
 	var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
