@@ -53,22 +53,22 @@
     siemens_coefficient = 0.9
     armor = list(melee = 30, bullet = 40, laser = 10, energy = 5, bomb = 20, bio = 10, rad = 5)
 
-/obj/item/clothing/mask/payday/dallas
+/obj/item/clothing/mask/gas/payday/dallas
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like some old Terran nation's flag. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pddallas"
 	item_state = "pddallas"
 
-/obj/item/clothing/mask/payday/hoxton
+/obj/item/clothing/mask/gas/payday/hoxton
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a thin-lipped clown. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdhoxton"
 	item_state = "pdhoxton"
 
-/obj/item/clothing/mask/payday/wolf
+/obj/item/clothing/mask/gas/payday/wolf
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a half-skinned husk. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdwolf"
 	item_state = "pdwolf"
 
-/obj/item/clothing/mask/payday/chains
+/obj/item/clothing/mask/gas/payday/chains
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a thick-lipped mash of a clown and mime. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdchains"
 	item_state = "pdchains"
