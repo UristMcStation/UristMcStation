@@ -273,6 +273,7 @@
 
 			var/obj/machinery/door/new_airlock = new path(src.loc, src)
 			new_airlock.dir = src.dir
+			new_airlock.built = 1
 			del(src)
 	else
 		..()
