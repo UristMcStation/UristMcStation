@@ -33,7 +33,6 @@
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	var/obj/item/stack/sheet/metal/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/built = 0
 
 	//Multi-tile doors
 	dir = EAST

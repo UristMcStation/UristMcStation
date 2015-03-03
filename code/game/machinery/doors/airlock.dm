@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 	if(operating || welded || locked)
 		return
 	if(!forced)
-		//despite the name, this wire is for general door control.
+		//despite the name, this wire is for general door control. 
 		//Bolts are already covered by the check for locked, above
 		if( !arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR) )
 			return
@@ -1081,12 +1081,8 @@ About the new airlock wires panel:
 	if (assembly)
 		assembly_type = assembly.type
 
-		if (!built)
-			return
-
-		else
-			electronics = assembly.electronics
-			electronics.loc = src
+		electronics = assembly.electronics
+		electronics.loc = src
 
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
