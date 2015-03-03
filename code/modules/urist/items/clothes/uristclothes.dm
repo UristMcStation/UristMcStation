@@ -436,21 +436,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'	
 	icon_state = "blackcoat_open"
 	icon_open = "blackcoat_open"
 	icon_closed = "blackcoat_closed"
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter. It seems to be missing its buttons."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "blackcoat_open"
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat
 	name = "navy coat"
