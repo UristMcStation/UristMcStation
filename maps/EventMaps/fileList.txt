@@ -4,7 +4,7 @@
 #SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
 
 maps/EventMaps/train.dmm
-
+maps/EventMaps/snow.dmm
 
 
 
