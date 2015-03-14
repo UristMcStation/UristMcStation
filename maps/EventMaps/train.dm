@@ -172,7 +172,6 @@ proc/snowtraintime()
 				M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
 				M.equip_to_slot_or_del(new /obj/item/clothing/head/fedora(M), slot_head)
 				M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_belt)
-				M.equip_to_slot_or_del(new /obj/item/weapon/train/ticket(M), slot_l_store)
 				M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
 
 				var/obj/item/weapon/card/id/W = new(M)
@@ -188,7 +187,7 @@ proc/snowtraintime()
 				M.equip_to_slot_or_del(new /obj/item/clothing/under/dress/dress_orange(M), slot_w_uniform)
 				M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 				M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
-				M.equip_to_slot_or_del(new /obj/item/weapon/train/ticket(M), slot_l_store)
+				M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_l_store)
 				M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
 
 				var/obj/item/weapon/card/id/W = new(M)
@@ -207,7 +206,7 @@ proc/snowtraintime()
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/fedora(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/detective(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_l_store)
 			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
@@ -282,7 +281,7 @@ proc/snowtraintime()
 					if(!M.buckled)
 						M.Weaken(3)
 
-			world << "\red \b The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars."
+			world << "\red \b The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world."
 
 /turf/unsimulated/floor/uristturf/train/snow
 	name = "snow"
