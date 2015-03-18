@@ -53,7 +53,6 @@
 	caliber = "12mm"
 	projectile_type = "/obj/item/projectile/bullet/midbullet2"
 
-
 /obj/item/ammo_casing/shotgun
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."

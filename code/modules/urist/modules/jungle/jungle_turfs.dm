@@ -65,6 +65,11 @@
 	icon_state = "grass_clear"
 	icon_spawn_state = "grass3"
 
+/turf/unsimulated/jungle/clear/dark
+	icon_state = "grass_clear"
+	icon_spawn_state = "grass1"
+	luminosity = 0
+
 /turf/unsimulated/jungle/path
 	bushes_spawn = 0
 	small_trees = 0

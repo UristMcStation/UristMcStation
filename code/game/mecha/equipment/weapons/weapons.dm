@@ -29,6 +29,8 @@
 	occupant_message("<span class='warning'>You fire [src]!</span>")
 	log_message("Fired from [src], targeting [target].")
 	for(var/i = 1 to min(projectiles, projectiles_per_shot))
+		if(chassis.bound_width >= 33) //bigger than 32x32?
+			chassis.density = 0
 		var/turf/aimloc = targloc
 		if(deviation)
 			aimloc = locate(targloc.x+GaussRandRound(deviation,1),targloc.y+GaussRandRound(deviation,1),targloc.z)
@@ -42,6 +44,8 @@
 			sleep(fire_cooldown)
 	if(auto_rearm)
 		projectiles = projectiles_per_shot
+	if(chassis.bound_width >= 33) //bigger than 32x32?
+		chassis.density = 1
 	set_ready_state(0)
 	do_after_cooldown()
 	return

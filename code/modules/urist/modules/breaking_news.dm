@@ -31,15 +31,29 @@
 
 		if(4) //April
 			switch(DD)
+				if(4)							BNews = "ALERT: NNN interrupts our normal breaking news section to bring you an unprecedented alert. As you likely know, two weeks ago, a number of mining outposts in the Outer Rim went silent. Today, we have recieved confirmation of our worst fears from a representative of the Nanotrasen Navy: the outposts fell to a hostile force. We can't confirm any more details at this time, but rest assured that we will keep you updated. This is Chet Jonaheus signing off."
+				if(5)							BNews = "ALERT: Following up on yesterday's special broadcast, we bring you more important information about the recent attacks. Indeed, attacks may be too week a word, for we have recieved confirmation that this is an unknown threat, something that we have never seen before. Early reports that the attacks were from the Unathi Empire have proved to be unfounded, but the origin of the force itself are unknown. As always, we will do our best to keep you updated. This is Chet Jonaheus, signing off."
 				if(6)							BNews = "Unidentified hackers have gained access to several million bank accounts and have stolen well over 5 billion credits."
+				if(8)							BNews = "ALERT: The attacks in the Outer Rim are quickly becoming a galactic crisis, as similar incursions have been reported in the Tau Ceti, Alderamin and Capella Systems. Nanotrasen citizens in those systems are to remain on high alert, and listen to local authorities for relevant information."
+				if(9)							BNews = "ALERT: Attacks have been reported in the Zosma and Pegasi systems. Nanotrasen Naval forces in nearby systems are placed on high alert."
+				if(11)							BNews = "A Nanotrasen trading vessel has been shot down in the Tau Ceti system today, casualties are currently unconfirmed, but it is assumed that there are no survivors."
+				if(14)							BNews = "ALERT: Reade III, the capital of the Outer Rim Miners Alliance, has been confirmed to have fallen to the recent alien threat. Vigils are being held across the galaxy to mourn the loss of so many innocents."
+				if(15)							BNews = "ALERT: Nanotrasen Naval officials are confirming that the recent threat has not eased in its intensity over the last two weeks, and are encouraging Nanotrasen citizens to enlist in the Nanotrasen Navy in support oof their fellow citizens."
+				if(17)							BNews = "A civilian space station in the Denebola system has gone silent. It is not confirmed that this was due to the recent alien threat, but Nanotrasen citizens in that system are to remain vigilent."
+				if(19)							BNews = "ALERT: Alien ships have been confirmed to be operating in the Denebola system. Nanotrasen colonies in the system have been placed under martial law, and citizens are urged to report any unusual sightings."
 				if(20)							BNews = "Earlier today, salvage teams found an escape pod. The escape pod's occuptant appears to have gone mad, claiming to be a space wizard among other things. The survivors has been committed to Saint Mary's Mental Ward on Mars."
-
+				if(22)							BNews = "ALERT: The Alderamin system has been confirmed to have fallen to the recent alien threat. Vigils are being held across the galaxy, and talks have begun between the Terran Confederacy and Nanotrasen about a joint effort to defend against the recent threat."
+				if(23)							BNews = "A number of refugees from affected systems have fled to Sol. Martian authorities are struggling to deal with the massive influx of new arrivals."
+				if(25)							BNews = "The number of refugees across the galaxy continues to rise, and today we have recieved reports that authorities in Ryclies I have diverted over 30,000 refugees to a temporary holding camp on Ryclies II. This is in addition to the 25,000 that arrived last week. Questions are being raised about how these refugees will be cared for, and who will care for them."
+				if(27)							BNews = "ALERT: Colonies in the Pegasi and Zosma systems are no longer responding to attempts to communicate them, and Nanotrasen Naval authorities are confirming that they have pulled out of those systems. Those in neighbouring systems are encouraged to keep an eye on scanners in search of refugees. Full lists of missing and dead will be published soon."
+				if(28)							BNews = "Citizens of Tau Ceti. I speak with you today, not as a newscaster, not as a representative of Nanotrasen, but as a fellow sapient. It can no longer be said that these attacks over the last Earth month have been isolated, and I cannot in good conscience say that the attacks will be over soon. What began as a series of isolated attacks in the Outer Rim has become a galactic crisis. We've lost contact with a number of important systems, and not solely Nanotrasen ones. All citizens of the Milky Way galaxy have been affected by this crisis. In times like this, we need to put petty differences aside, and band together to halt this crisis. This is Chet Jonaheus, NNN, signing off."
 		if(5) //May
 			switch(DD)
-				if(1)							BNews = "Labour protests erupt accross dozens of Nanotrasen colonies."
-				if(2)							BNews = "Labour protests enter the second day."
+				if(1)							BNews = "Labour protests erupt accross dozens of Nanotrasen colonies as concerns about losing jobs to refugees from the current galactic crisis rises."
+				if(2)							BNews = "Labour protests enter the second day, and between refugees and protestors has been reported."
+				if(4)							BNews = "As what is now being called the Galactic Crisis enters its second month, questions are abound as to how the refugees from affected systems will be dealt with. As the recent labour protests show, the current lassaiz faire attitudes need to change."
 				if(5)							BNews = "After a response by Nanotrasen that protesters are calling heavy-handed and Nanotrasen is calling just, the majority of labour protests have ended."
-				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end. Speculation is abound over wethter they were influenced by rival corporations."
+				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end after a series of conflicts between Nanotrasen forces and protestors. This, coupled with the Galactic Crisis has led some to speculate that we are entering a Second Age of Discord."
 
 		if(6) //June
 			switch(DD)
@@ -57,7 +71,7 @@
 				if(9)							BNews = "Beer company Blue Moon has been shut down by Terran health officals after finding traces of mercury in their drinks."
 				if(16)							BNews = "The infamous pirate captain Black-Eyed John has been killed by Terran Navy ships today after 15 years of terrorizing Terran Space."
 
-		if(9) //September
+		if(9) //September //remind Knox to update this
 			switch(DD)
 				if(1)							BNews = "Attention loyal viewers. Due to recent budget cuts, Nanotrasen News Network will be off the air for the month of September."
 

@@ -356,6 +356,9 @@
 		else
 			AnnounceCyborg(character, rank, join_message)
 
+		if(master_mode=="scom")
+			ScomLateJoin(character)
+
 		del(src)
 
 	proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)

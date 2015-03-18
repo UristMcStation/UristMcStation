@@ -39,3 +39,45 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
 		new /obj/item/device/healthanalyzer( src )
 		return
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/adv
+	name = "advanced autoinjector"
+	desc = "An advanced autoinjector, containing a number of helpful chemicals."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "radinjector"
+	item_state = "autoinjector"
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/adv/New()
+	..()
+	reagents.add_reagent("tricordrazine", 5)
+	reagents.add_reagent("tramadol", 5)
+	update_icon()
+	return
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/admin
+	name = "advanced autoinjector"
+	desc = "An advanced autoinjector, containing a number of helpful chemicals."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "radinjector"
+	item_state = "autoinjector"
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/admin/New()
+	..()
+	reagents.add_reagent("adminordrazine", 5)
+	reagents.add_reagent("tramadol", 5)
+	update_icon()
+	return
+
+/obj/item/weapon/storage/box/autoinjectorscom
+	name = "box of advanced autoinjectors"
+	desc = "A box containing a number of advanced autoinjectors and a cryobag just in case."
+
+	New()
+		..()
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
+		new /obj/item/bodybag/cryobag(src)
+
