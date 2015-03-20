@@ -318,5 +318,5 @@ proc/snowtraintime()
 
 		var/mob/living/M = O
 		if(prob(85))
-			M.apply_damage(rand(3,5), BRUTE)
+			M.apply_damage(rand(3,5), BURN)
 			M << ("\red The cold wind tears at your skin!")
