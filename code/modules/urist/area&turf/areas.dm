@@ -173,6 +173,15 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	luminosity = 0
 	lighting_use_dynamic = 1
 
+//snow train. the hackyness is off the charts
+
+/area/awaymission/train/snow
+	name = "\improper Train"
+	icon_state = "away1"
+	requires_power = 1
+	lighting_use_dynamic = 1
+	luminosity = 0
+
 //centcahm
 
 /area/centcom/transit
