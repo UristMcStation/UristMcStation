@@ -70,7 +70,7 @@
 
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
-	set name = "Rejuvinate "
+	set name = "Rejuvenate "
 	set desc= "Flush your system with spare blood to remove any incapacitating effects. Heals more powerful vampires."
 	var/datum/mind/M = usr.mind
 	if(!M) return
@@ -93,12 +93,12 @@
 
 /client/proc/vampire_hypnotise()
 	set category = "Vampire"
-	set name = "Hypnotise (20)"
+	set name = "Hypnotise"
 	set desc= "A piercing stare that incapacitates and memory-wipes your victim for a good length of time. Ahelp if your victim does not comply." //added the amnesia to clamp down on sucking dry. Ain't no fun for anybody. -scrdest
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
-	var/mob/living/carbon/C = M.current.vampire_active(20, 0, 1)
+	var/mob/living/carbon/C = M.current.vampire_active(0, 0, 1)
 
 	if(!C) return
 	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as he stares into [C.name]'s eyes</span>")
@@ -116,19 +116,19 @@
 			C.Weaken(20)
 			C.Stun(20)
 			C.stuttering = 20
-		M.current.remove_vampire_blood(20)
+		M.current.remove_vampire_blood(0)
 	else
 		M.current << "<span class='warning'> You broke your gaze.</span>"
 		return
 
 /client/proc/vampire_disease()
 	set category = "Vampire"
-	set name = "Diseased Touch (100)"
+	set name = "Diseased Touch (50)" //too useless to cost that much
 	set desc = "Touches your victim with infected blood giving them the Shutdown Syndrome which quickly shutsdown their major organs resulting in a quick painful death."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
-	var/mob/living/carbon/C = M.current.vampire_active(100, 0, 1)
+	var/mob/living/carbon/C = M.current.vampire_active(50, 0, 1)
 	if(!C) return
 	if(!M.current.vampire_can_reach(C, 1))
 		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</span>"
@@ -154,7 +154,7 @@
 	shutdown.stage = 2
 	shutdown.clicks = 185
 	infect_virus2(C,shutdown,0)
-	M.current.remove_vampire_blood(100)
+	M.current.remove_vampire_blood(50)
 	M.current.verbs -= /client/proc/vampire_disease
 	spawn(1800) M.current.verbs += /client/proc/vampire_disease
 
@@ -182,16 +182,16 @@
 
 /client/proc/vampire_shapeshift()
 	set category = "Vampire"
-	set name = "Shapeshift (50)"
-	set desc = "Changes your name and appearance at the cost of 50 blood and has a cooldown of 3 minutes."
+	set name = "Shapeshift"
+	set desc = "Changes your name and appearance, has a cooldown of 3 minutes."
 	var/datum/mind/M = usr.mind
 	if(!M) return
-	if(M.current.vampire_power(50, 0))
+	if(M.current.vampire_power(0, 0))
 		M.current.visible_message("<span class='warning'>[M.current.name] transforms!</span>")
 		M.current.client.prefs.real_name = random_name(M.current.gender)
 		M.current.client.prefs.randomize_appearance_for(M.current)
 		M.current.regenerate_icons()
-		M.current.remove_vampire_blood(50)
+		M.current.remove_vampire_blood(0)
 		M.current.verbs -= /client/proc/vampire_shapeshift
 		spawn(1800) M.current.verbs += /client/proc/vampire_shapeshift
 
@@ -351,7 +351,7 @@
 /client/proc/vampire_jaunt()
 	//AHOY COPY PASTE INCOMING
 	set category = "Vampire"
-	set name = "Mist Form (30)"
+	set name = "Mist Form (15)" //leaving it with a cost to make shadowstep less useless
 	set desc = "You take on the form of mist for a short period of time."
 	var/jaunt_duration = 50 //in deciseconds
 	var/datum/mind/M = usr.mind
@@ -360,7 +360,7 @@
 	if(usr.z == 2)
 		return 0
 
-	else if(M.current.vampire_power(30, 0))
+	else if(M.current.vampire_power(15, 0))
 		if(M.current.buckled) M.current.buckled.unbuckle()
 		spawn(0)
 			var/mobloc = get_turf(M.current.loc)
@@ -401,7 +401,7 @@
 			M.current.client.eye = M.current
 			del(animation)
 			del(holder)
-		M.current.remove_vampire_blood(30)
+		M.current.remove_vampire_blood(15)
 		M.current.verbs -= /client/proc/vampire_jaunt
 		spawn(600) M.current.verbs += /client/proc/vampire_jaunt
 
@@ -409,7 +409,7 @@
 // Less smoke spam.
 /client/proc/vampire_shadowstep()
 	set category = "Vampire"
-	set name = "Shadowstep (30)"
+	set name = "Shadowstep"
 	set desc = "Vanish into the shadows."
 	var/datum/mind/M = usr.mind
 	if(!M) return
@@ -421,7 +421,7 @@
 	// Maximum lighting_lumcount.
 	var/max_lum = 1
 
-	if(M.current.vampire_power(30, 0))
+	if(M.current.vampire_power(0, 0))
 		if(M.current.buckled) M.current.buckled.unbuckle()
 		spawn(0)
 			var/list/turfs = new/list()
@@ -458,7 +458,7 @@
 			usr.loc = picked
 			spawn(10)
 				del(animation)
-		M.current.remove_vampire_blood(30)
+		M.current.remove_vampire_blood(0)
 		M.current.verbs -= /client/proc/vampire_shadowstep
 		spawn(20)
 			M.current.verbs += /client/proc/vampire_shadowstep

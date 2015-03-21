@@ -11,7 +11,7 @@
 /datum/game_mode/vampire
 	name = "vampire"
 	config_tag = "vampire"
-	restricted_jobs = list("AI", "Cyborg", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain") //Consistent screening has filtered all infiltration attempts on high value jobs
+	restricted_jobs = list("AI", "Cyborg", "Chaplain") //fuck job protection just cause, leaving Chaplin in because while hilarious, it kills counterplay "Security Officer", "Warden", "Detective", "Head of Security", "Captain") //Consistent screening has filtered all infiltration attempts on high value jobs
 	protected_jobs = list()
 	required_players = 1
 	required_players_secret = 7
@@ -47,7 +47,7 @@
 
 /datum/game_mode/vampire/pre_setup()
 	// mixed mode scaling
-/*	if(istype(ticker.mode, /datum/game_mode/mixed)) //no mixed mode here - scrdest
+/*	if(istype(ticker.mode, /datum/game_mode/mixed)) //no mixed mode here yet - scrdest
 		mixed = 1
 	if(mixed)
 		recommended_enemies = 2
@@ -62,7 +62,7 @@
 			if(player.assigned_role == job)
 				possible_vampires -= player
 
-	vampire_amount = min(recommended_enemies, max(required_enemies,(1 + round(num_players() / 10))))
+	vampire_amount = min(recommended_enemies, max(required_enemies,(1 + round(num_players() / 7.5))))
 
 	if(possible_vampires.len>0)
 		for(var/i = 0, i < vampire_amount, i++)
@@ -303,14 +303,14 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			break
 		if(H.stat < 2) //alive
 			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
-			src.mind.vampire.bloodtotal += blood
-			src.mind.vampire.bloodusable += blood
-			H.adjustCloneLoss(10) // beep boop 10 damage
+			src.mind.vampire.bloodtotal += (blood)
+			src.mind.vampire.bloodusable += (blood*1.2)
+			H.traumatic_shock += 15 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
 		if(bloodtotal != src.mind.vampire.bloodtotal)
-			src << "<span class='notice'> <b>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] left to use</span>" : "."]"
+			src << "<span class='notice'> <b>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] usable blood</span>" : "."]"
 		check_vampire_upgrade(mind)
 		H.vessel.remove_reagent("blood",25)
 
@@ -360,7 +360,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			vamp.powers.Add(VAMP_SLAVE)
 
 	// TIER 5
-	if(vamp.bloodtotal >= 500)
+	if(vamp.bloodtotal >= 600)
 		if(!(VAMP_FULL in vamp.powers))
 			vamp.powers.Add(VAMP_FULL)
 
