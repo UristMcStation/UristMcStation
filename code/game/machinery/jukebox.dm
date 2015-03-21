@@ -30,25 +30,6 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
-		new/datum/track("Piano Man", 'sound/music/piano_man.mid'),
-		new/datum/track("Uptown Girl", 'sound/music/uptown_girl.mid'),
-		new/datum/track("Space Oddity", 'sound/music/Space_Oddity.mid'),
-		new/datum/track("TnT", 'sound/music/TNT.mid'),
-		new/datum/track("Scatman", 'sound/music/Scatman.mid'),
-		new/datum/track("Rocket Man", 'sound/music/rocketman.mid'),
-		new/datum/track("We Are the Champions", 'sound/music/champions.mid'),
-		new/datum/track("Under Pressure", 'sound/music/under_pressure.mid'),
-		new/datum/track("Bohemian Rhapsody", 'sound/music/bohemian_rhapsody.mid'),
-		new/datum/track("Jazz1", 'sound/music/someband.mid'),
-		new/datum/track("Jazz2", 'sound/music/onlylove.mid'),
-		new/datum/track("Jazz3", 'sound/music/jazzy.mid'),
-		new/datum/track("Jazz4", 'sound/music/jazz07.mid'),
-		new/datum/track("Ice Ice Baby", 'sound/music/Ice_Ice_Baby.mid'),
-		new/datum/track("Eye of The Tiger",'sound/music/tiger.mid'),
-		new/datum/track("Gz Hustlerz",'sound/music/Gz_Hustlerz.mid'),
-		new/datum/track("Mr Roboto", 'sound/music/mr_roboto.mid'),
-		new/datum/track("A Thousand Miles", 'sound/music/A-thousand-miles.mid'),
-
 	)
 
 /obj/machinery/media/jukebox/Del()
