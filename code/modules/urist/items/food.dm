@@ -60,7 +60,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/cram
 	name = "cram"
-	desc = "Carm! You know, food, we think."
+	desc = "Cram! You know, food, we think."
 	icon_state = "cram"
 	trash = /obj/item/trash/urist/cram
 	filling_color = "#ffbec7"
