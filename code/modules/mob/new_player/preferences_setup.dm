@@ -224,7 +224,8 @@ datum/preferences
 				preview_icon.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
 
 		var/icon/eyes_s = new/icon("icon" = 'icons/mob/human_face.dmi', "icon_state" = current_species ? current_species.eyes : "eyes_s")
-		eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
+		if ((current_species && (current_species.flags & HAS_EYE_COLOR)))
+			eyes_s.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 
 		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 		if(hair_style)
@@ -677,7 +678,7 @@ datum/preferences
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel"), ICON_OVERLAY)
 
 				if(BLUESHIELD)
-					clothes_s = new /icon('icons/mob/uniform.dmi', "officer")
+					clothes_s = new /icon('icons/mob/uniform.dmi', "officer_s")
 					clothes_s.Blend(new /icon('icons/mob/feet.dmi', "jackboots"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "black"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/belt.dmi', "pda-hop"), ICON_OVERLAY)

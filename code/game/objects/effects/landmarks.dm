@@ -48,6 +48,10 @@
 			latejoin_cryo += loc
 			del(src)
 
+		if("JoinLateCyborg")
+			latejoin_cyborg += loc
+			del(src)
+
 		//prisoners
 		if("prisonwarp")
 			prisonwarp += loc
@@ -88,7 +92,19 @@
 		if("Syndicate-Spawn")
 			synd_spawn += loc
 			del(src)
+//urist stuff
+		if("eventwarp1")
+			eventwarp1 += loc
+			del(src)
 
+		if("eventwarp2")
+			eventwarp2 += loc
+			del(src)
+
+		if("eventwarp3")
+			eventwarp3 += loc
+			del(src)
+//end urist stuff
 	landmarks_list += src
 	return 1
 
@@ -133,7 +149,7 @@
 /obj/effect/landmark/costume/madscientist/New()
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
-	new /obj/item/clothing/suit/storage/labcoat/mad(src.loc)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/mad(src.loc)
 	new /obj/item/clothing/glasses/gglasses(src.loc)
 	del(src)
 

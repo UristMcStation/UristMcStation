@@ -4,9 +4,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "stool"
 	anchored = 1.0
-	var/style = 0 //0 is regular, 1 is bar, 2 is wood
-	flags = FPRINT
 	pressure_resistance = 15
+	var/style = 0 //0 is regular, 1 is bar, 2 is wood
 
 /obj/structure/stool/ex_act(severity)
 	switch(severity)
@@ -25,20 +24,13 @@
 
 /obj/structure/stool/blob_act()
 	if(prob(75))
-		if(style == 2)
-			new /obj/item/stack/sheet/wood(src.loc)
-		else
-			new /obj/item/stack/sheet/metal(src.loc)
+		new /obj/item/stack/sheet/metal(src.loc)
 		del(src)
-
 
 /obj/structure/stool/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		if(style == 2)
-			new /obj/item/stack/sheet/wood(src.loc)
-		else
-			new /obj/item/stack/sheet/metal(src.loc)
+		new /obj/item/stack/sheet/metal(src.loc)
 		del(src)
 	return
 
@@ -52,19 +44,16 @@
 				src.loc = S
 				H.put_in_hands(S)
 			if(style == 1)
-				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/bar(src.loc)
+				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/urist/bar(src.loc)
 				S.origin = src
 				src.loc = S
 				H.put_in_hands(S)
 			if(style == 2)
-				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/wood(src.loc)
+				var/obj/item/weapon/stool/S = new/obj/item/weapon/stool/urist/wood(src.loc)
 				S.origin = src
 				src.loc = S
 				H.put_in_hands(S)
-
-//			H.put_in_hands(S)
 			H.visible_message("\red [H] grabs [src] from the floor!", "\red You grab [src] from the floor!")
-			del(src)
 
 /obj/item/weapon/stool
 	name = "stool"
@@ -74,29 +63,21 @@
 	force = 10
 	throwforce = 10
 	w_class = 5.0
+	var/obj/structure/stool/urist/origin = null
 	var/style = 0 //0 is regular, 1 is bar, 2 is wood
-	var/obj/structure/stool/origin = null
 
 /obj/item/weapon/stool/proc/deploy(var/mob/user)
 
 	if(!origin)
 		del src
 
-	if(style == 0)
-		var/obj/structure/stool/S = new/obj/structure/stool()
-		S.loc = get_turf(src)
-	if(style == 1)
-		var/obj/structure/stool/S = new/obj/structure/stool/bar()
-		S.loc = get_turf(src)
-	if(style == 2)
-		var/obj/structure/stool/S = new/obj/structure/stool/wood()
-		S.loc = get_turf(src)
+	origin.loc = get_turf(src)
 
 	if(user)
 		user.u_equip(src)
 		user.visible_message("\blue [user] puts [src] down.", "\blue You put [src] down.")
 
-	del(src)
+	del src
 
 /obj/item/weapon/stool/dropped(mob/user as mob)
 	..()
@@ -123,3 +104,4 @@
 		T.apply_damage(20)
 		return
 	..()
+

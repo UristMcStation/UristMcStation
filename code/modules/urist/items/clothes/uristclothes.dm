@@ -24,7 +24,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
 
-/obj/item/clothing/suit/space/rig/science
+/obj/item/clothing/suit/space/void/science
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -107,7 +107,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Naval Commando Suit
 
-/obj/item/clothing/suit/space/rig/commando
+/obj/item/clothing/suit/space/void/commando
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "naval commando suit"
@@ -383,11 +383,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "cmo"
 	item_state = "cmo"
 
-/obj/item/clothing/suit/storage/labcoat/cmo/alt
+/obj/item/clothing/suit/storage/toggle/labcoat/cmo/alt
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "A slightly fancier labcoat sometimes worn by the CMO."
 	icon_state = "cmo_lab_open"
+	icon_open = "cmo_lab_open"
+	icon_closed = "cmo_lab"
 
 //sexy captain's outfit by imblyings from /tg/
 
@@ -399,9 +401,22 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "captainfemaleformal"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
+//'legacy' labcoat for non-togglable labcoats
+
+/obj/item/clothing/suit/storage/labcoat
+	name = "labcoat"
+	desc = "A suit that protects against minor chemical spills."
+	icon_state = "labcoat_open"
+	item_state = "labcoat" //Is this even used for anything?
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
+	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+
 //hooonk bs12
 
-/obj/item/clothing/suit/storage/labcoat/robotics
+/obj/item/clothing/suit/storage/labcoat/robotics //I believe this one is non-buttonable by design
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
 	icon = 'icons/obj/custom_items.dmi'
@@ -417,93 +432,73 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "overalls"
 
 //scrdest's coats
-/obj/item/clothing/suit/urist/coat
+/obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "blackcoat_open"
+	icon_open = "blackcoat_open"
+	icon_closed = "blackcoat_closed"
+	item_state = "blackcoat_open"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/urist/coat
+	name = "nontogglecoat"
+	desc = "A long, warm garment. Perfect for looking nice in Space Winter. It seems to be missing its buttons."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "blackcoat_open"
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-	verb/toggle()
-		set name = "Toggle Coat Buttons" //courtesy of labcoat.dm
-		set category = "Object"
-		set src in usr
-
-		if(!usr.canmove || usr.stat || usr.restrained())
-			return 0
-
-		switch(icon_state)
-			if("blackcoat_open")
-				src.icon_state = "blackcoat_closed"
-				usr << "You button up the coat."
-			if("blackcoat_closed")
-				src.icon_state = "blackcoat_open"
-				usr << "You unbutton the coat."
-			if("charcoat_open")
-				src.icon_state = "charcoat_closed"
-				usr << "You button up the coat."
-			if("charcoat_closed")
-				src.icon_state = "charcoat_open"
-				usr << "You unbutton the coat."
-			if("navycoat_open")
-				src.icon_state = "navycoat_closed"
-				usr << "You button up the coat."
-			if("navycoat_closed")
-				src.icon_state = "navycoat_open"
-				usr << "You unbutton the coat."
-			if("blackcoat_suit")
-				src.icon_state = "blackcoat_suitclosed"
-				usr << "You button up the coat."
-			if("blackcoat_suitclosed")
-				src.icon_state = "blackcoat_suit"
-				usr << "You unbutton the coat."
-			if("burgcoat_open")
-				src.icon_state = "burgcoat_closed"
-				usr << "You button up the coat."
-			if("burgcoat_closed")
-				src.icon_state = "burgcoat_open"
-				usr << "You unbutton the coat."
-			else
-				usr << "You cannot button that!"
-				return
-		usr.update_inv_wear_suit()
-
-/obj/item/clothing/suit/urist/coat/navycoat
+/obj/item/clothing/suit/storage/toggle/urist/coat/navycoat
 	name = "navy coat"
 	desc = "A warm wool coat in navy blue. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navycoat_open"
+	icon_open = "navycoat_open"
+	icon_closed = "navycoat_closed"
 
-/obj/item/clothing/suit/urist/coat/charcoat
+/obj/item/clothing/suit/storage/toggle/urist/coat/charcoat
 	name = "charcoal coat"
 	desc = "A warm wool coat in dark grey. Perfect for looking nice in Space Winter."
 	icon_state = "charcoat_open"
+	icon_open = "charcoat_open"
+	icon_closed = "charcoat_closed"
 
-/obj/item/clothing/suit/urist/coat/blackcoat
+/obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat
 	name = "black coat"
 	desc = "A warm wool coat in black. Perfect for looking nice in Space Winter."
 	icon_state = "blackcoat_open"
+	icon_open = "blackcoat_open"
+	icon_closed = "blackcoat_closed"
 
-/obj/item/clothing/suit/urist/coat/blackcoat/suit
+/obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit
 	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
 	icon_state = "blackcoat_suit"
+	icon_open = "blackcoat_suit"
+	icon_closed = "blackcoat_closed"
 
-/obj/item/clothing/suit/urist/coat/burgcoat
+/obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
 	icon_state = "burgcoat_open"
+	icon_open = "burgcoat_open"
+	icon_closed = "burgcoat_closed"
 
-/obj/item/clothing/suit/urist/coat/tajcoat
+/obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
 	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
 	icon_state = "tajcoat_open"
 
-/obj/item/clothing/suit/urist/journocoat
+/obj/item/clothing/suit/storage/urist/journocoat
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
-	icon_state = "browncoat_closed"
+	icon_state = "browncoat_closed" //non-togglable
 
 /obj/item/clothing/under/urist/dresden
 	name = "black pullover"
@@ -631,3 +626,34 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "dress_blouse"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
+//Fallout event clothing
+
+/obj/item/clothing/under/urist/springm
+	name = "pre-War male spring outfit"
+	desc = "It's a long-sleeve beige shirt with a red sweater-vest and brown trousers."
+	icon_state = "springm"
+	item_state = "springm"
+	item_color = "springm"
+
+/obj/item/clothing/under/urist/relaxedwearm
+	name = "pre-War male relaxedwear"
+	desc = "It's along-sleeve blue shirt with a greenish brown sweater-vest and slacks."
+	icon_state = "relaxedwearm"
+	item_state = "relaxedwearm"
+	item_color = "relaxedwearm"
+
+/obj/item/clothing/under/urist/enclaveo
+	name = "Enclave officer uniform"
+	desc = "It's a standard Enclave officer uniform.<br>The outer layer is made of a sturdy material designed to withstand the harsh conditions of the wasteland."
+	icon_state = "enclaveo"
+	item_state = "enclaveo"
+	item_color = "enclaveo"
+
+/obj/item/clothing/suit/urist/autumn //Based of Colonel Autumn's uniform.
+	name = "tan trenchcoat"
+	desc = "A resistant, tan trenchcoat, typically worn by pre-War generals."
+	icon_state = "autumn"
+	item_state = "autumn"
+	blood_overlay_type = "armor"
+	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
+	allowed = list(/obj/item/weapon/kitchenknife, /obj/item/weapon/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)

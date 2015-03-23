@@ -11,7 +11,7 @@ var/global/list/turf/synd_spawn = list()
 
 /datum/game_mode/nuclear
 	name = "nuclear emergency"
-	config_tag = "nuclear"
+	config_tag = "mercenary"
 	required_players = 15
 	required_players_secret = 15 // 25 players - 5 players to be the nuke ops = 20 players remaining
 	required_enemies = 1
@@ -127,7 +127,7 @@ var/global/list/turf/synd_spawn = list()
 	var/obj/effect/landmark/nuke_spawn = locate("landmark*Nuclear-Bomb")
 
 	var/nuke_code = "[rand(10000, 99999)]"
-	var/leader_selected = 0
+	var/datum/mind/leader = null
 	var/spawnpos = 1
 
 	for(var/datum/mind/synd_mind in syndicates)
@@ -143,9 +143,9 @@ var/global/list/turf/synd_spawn = list()
 		greet_syndicate(synd_mind)
 		equip_syndicate(synd_mind.current)
 
-		if(!leader_selected)
+		if(!leader)
 			prepare_syndicate_leader(synd_mind, nuke_code)
-			leader_selected = 1
+			leader = synd_mind
 
 		spawnpos++
 		update_synd_icons_added(synd_mind)
@@ -154,6 +154,8 @@ var/global/list/turf/synd_spawn = list()
 
 	if(uplinkdevice)
 		var/obj/item/device/radio/uplink/U = new(uplinkdevice.loc)
+		if(leader)
+			U.hidden_uplink.uplink_owner = leader
 		U.hidden_uplink.uses = 40
 	if(nuke_spawn && synd_spawn.len > 0)
 		var/obj/machinery/nuclearbomb/the_bomb = new /obj/machinery/nuclearbomb(nuke_spawn.loc)
@@ -221,28 +223,6 @@ var/global/list/turf/synd_spawn = list()
 	synd_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(synd_mob.back), slot_in_backpack)
 	synd_mob.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/pill/cyanide(synd_mob), slot_in_backpack)
 
-/*	Commented; nukes now have a suit cycler for changing rig-suits, they don't need to spawn with them
-	var/obj/item/clothing/suit/space/rig/syndi/new_suit = new(synd_mob)
-	var/obj/item/clothing/head/helmet/space/rig/syndi/new_helmet = new(synd_mob)
-
-	if(synd_mob.species)
-
-		var/race = synd_mob.species.name
-
-		switch(race)
-			if("Unathi")
-				new_suit.species_restricted = list("Unathi")
-			if("Tajara")
-				new_suit.species_restricted = list("Tajara")
-			if("Skrell")
-				new_suit.species_restricted = list("Skrell")
-
-	synd_mob.equip_to_slot_or_del(new_suit, slot_in_backpack)
-	synd_mob.equip_to_slot_or_del(new_helmet, slot_in_backpack)*/
-
-//	var/obj/item/weapon/implant/explosive/E = new/obj/item/weapon/implant/explosive(synd_mob)
-//	E.imp_in = synd_mob
-//	E.implanted = 1
 	synd_mob.update_icons()
 	return 1
 
@@ -334,18 +314,7 @@ var/global/list/turf/synd_spawn = list()
 		var/text = "<FONT size = 2><B>The syndicate operatives were:</B></FONT>"
 
 		for(var/datum/mind/syndicate in syndicates)
-
-			text += "<br>[syndicate.key] was [syndicate.name] ("
-			if(syndicate.current)
-				if(syndicate.current.stat == DEAD)
-					text += "died"
-				else
-					text += "survived"
-				if(syndicate.current.real_name != syndicate.name)
-					text += " as [syndicate.current.real_name]"
-			else
-				text += "body destroyed"
-			text += ")"
+			text += print_player_full(syndicate)
 
 		world << text
 	return 1

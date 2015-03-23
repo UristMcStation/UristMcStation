@@ -13,7 +13,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "machete"
 	item_state = "machete"
 	sharp = 1
-	flags = FPRINT | TABLEPASS | CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 20
 	throwforce = 10
@@ -245,7 +245,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "knight45"
 	fire_sound = 'sound/urist/suppshot.ogg'
-	w_class = 3
+	w_class = 2
 	max_shells = 7
 	slot_flags = SLOT_BELT
 	load_method = 2

@@ -203,7 +203,7 @@ var/global/datum/controller/gameticker/ticker
 				switch(M.z)
 					if(0)	//inside a crate or something
 						var/turf/T = get_turf(M)
-						if(T && T.z==1)				//we don't use M.death(0) because it calls a for(/mob) loop and
+						if(T && T.z in config.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
 							M.health = 0
 							M.stat = DEAD
 					if(1)	//on a z-level 1 turf.
@@ -263,7 +263,7 @@ var/global/datum/controller/gameticker/ticker
 						world << sound('sound/effects/explosionfar.ogg')
 						cinematic.icon_state = "summary_selfdes"
 				for(var/mob/living/M in living_mob_list)
-					if(M.loc.z == 1)
+					if(M.loc.z in config.station_levels)
 						M.death()//No mercy
 		//If its actually the end of the round, wait for it to end.
 		//Otherwise if its a verb it will continue on afterwards.
@@ -378,17 +378,17 @@ var/global/datum/controller/gameticker/ticker
 
 
 /datum/controller/gameticker/proc/declare_completion()
-	world << "<br><br><br><font size=3><b>The round has ended.</b></font>"
+	world << "<br><br><br><H1>A round of [mode.name] has ended!</H1>"
 	for(var/mob/Player in player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				if(emergency_shuttle.departed && emergency_shuttle.evac)
-					if(playerTurf.z != 2)
+					if(isNotAdminLevel(playerTurf.z))
 						Player << "<font color='blue'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></font>"
 					else
 						Player << "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></font>"
-				else if(playerTurf.z == 2)
+				else if(isAdminLevel(playerTurf.z))
 					Player << "<font color='green'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></font>"
 				else if(issilicon(Player))
 					Player << "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>"
@@ -442,6 +442,9 @@ var/global/datum/controller/gameticker/ticker
 	for(var/handler in typesof(/datum/game_mode/proc))
 		if (findtext("[handler]","auto_declare_completion_"))
 			call(mode, handler)()
+
+	//Ask the event manager to print round end information
+	event_manager.RoundEnd()
 
 	//Print a list of antagonists to the server log
 	var/list/total_antagonists = list()

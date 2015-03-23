@@ -9,7 +9,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = FPRINT | TABLEPASS | CONDUCT
+	flags = CONDUCT
 	force = 9
 	throwforce = 10
 	w_class = 3
@@ -76,7 +76,6 @@
 	force = 12
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 12
 	force_wielded = 20 // Was 13, Buffed - RR
 	throwforce = 15
 	flags = NOSHIELD
@@ -121,7 +120,6 @@
 	force = 8
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 8
 	force_wielded = 14
 	throwforce = 8
 	flags = NOSHIELD
@@ -145,10 +143,10 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "shiv"
 	item_state = "shard-glass"
-	force = 11
+	force = 12
 	throwforce = 5
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	attack_verb = list("stabbed", "slashed", "sliced", "cut", "shanked")
 	w_class = 2.0
 	sharp = 1
 	edge = 1
@@ -217,11 +215,11 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "scissor-knife"
 	item_state = "scissor"
-	force = 10
+	force = 11
 	throwforce = 10.0
 	throw_speed = 4
 	throw_range = 10
-	attack_verb = list("slices", "cuts", "stabs", "jabs")
+	attack_verb = list("sliced", "cut", "stabbed", "jabbed")
 	sharp = 1
 	edge = 1
 	w_class = 2
@@ -255,5 +253,60 @@
 	icon_state = "scissor-knife-barber"
 	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
 	parentassembly = /obj/item/weapon/improvised/scissorsassembly/barber
+
+/obj/item/weapon/improvised/mbrick
+	name = "Millwall brick"
+	desc = "two newspapers folded and rolled together to create an improvised blunt weapon."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "mbrick"
+	force = 8
+	throwforce = 4
+	attack_verb = list("bashed", "bludgeoned", "hit", "smacked")
+	w_class = 2
+
+/obj/item/weapon/improvised/mbrick/attack_self(mob/user as mob)
+	..()
+
+	new /obj/item/weapon/newspaper(get_turf(src))
+	new /obj/item/weapon/newspaper(get_turf(src))
+
+	del(src)
+
+/obj/item/weapon/improvised/mbrick/attackby(var/obj/item/weapon/W, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/shard) || istype(W, /obj/item/weapon/improvised/scissorknife))
+		var/obj/item/weapon/improvised/mbrick/sharp/S = new /obj/item/weapon/improvised/mbrick/sharp
+
+		user.before_take_item(W)
+		user.before_take_item(src)
+
+		user.put_in_hands(S)
+		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
+		W.loc = S
+
+		del(src)
+
+/obj/item/weapon/improvised/mbrick/sharp
+	name = "sharp Millwall brick"
+	desc = "two newspapers folded and rolled together around a sharp object to create an improvised weapon."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "mbricks"
+	force = 12
+	throwforce = 6
+	sharp = 1
+	attack_verb = list("bashed", "stabbed", "hit", "smacked")
+	w_class = 2
+
+/obj/item/weapon/improvised/mbrick/sharp/attack_self(mob/user as mob)
+
+	for(var/obj/item/w in contents)
+		w.loc = (get_turf(src))
+	var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
+	user.put_in_hands(S)
+	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
+	del(src)
+
+
+
 //end Urist stuff
 

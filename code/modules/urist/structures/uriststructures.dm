@@ -313,26 +313,30 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //stools
 
-/obj/structure/stool/bar
+/obj/structure/stool/urist
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "stool"
+
+/obj/structure/stool/urist/bar
 	name = "bar stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	style = 1 //0 is regular, 1 is bar, 2 is wood
 
-/obj/structure/stool/wood
+/obj/structure/stool/urist/wood
 	name = "wood stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodstool"
 	style = 2 //0 is regular, 1 is bar, 2 is wood
 
-/obj/item/weapon/stool/bar
+/obj/item/weapon/stool/urist/bar
 	name = "bar stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	item_state = "stool"
 	style = 1 //0 is regular, 1 is bar, 2 is wood
 
-/obj/item/weapon/stool/wood
+/obj/item/weapon/stool/urist/wood
 	urist_only = 1
 	name = "wood stool"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
@@ -352,3 +356,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barber_pole"
 	desc = "A spinning barber pole."
+
+//more wood stuff
+
+/obj/structure/filingcabinet/wood
+	name = "filing cabinet"
+	desc = "A large wood cabinet with drawers."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "tallcabinet"
+
+/obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
+	if(istype(P, /obj/item/weapon/screwdriver))
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		user << "<span class='notice'>You disassemble \the [src].</span>"
+		var/obj/item/stack/sheet/wood/S =  new /obj/item/stack/sheet/wood(src.loc)
+		S.amount = 2
+		for(var/obj/item/b in contents)
+			b.loc = (get_turf(src))
+		del(src)
+	..()

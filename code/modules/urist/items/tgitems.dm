@@ -219,7 +219,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon = 'icons/urist/items/tgitems.dmi'
 	w_class = 1
 	throwforce = 2
-	flags = TABLEPASS
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/cigarette")
@@ -274,3 +273,32 @@ Please only put items here that don't have a huge definition - Glloyd											
 		reagents.add_reagent("ammonia",2)
 		reagents.add_reagent("plantbgone",1)
 		reagents.add_reagent("toxin",1.5)
+
+// Smuggler's satchel from /tg/.
+
+/obj/item/weapon/storage/backpack/satchel_flat
+	name = "smuggler's satchel"
+	desc = "A very slim satchel that can easily fit into tight spaces."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_override = 'icons/uristmob/back.dmi'
+	icon_state = "satchel-flat"
+	w_class = 3 //Can fit in backpacks itself.
+	storage_slots = 5
+	max_combined_w_class = 15
+	level = 1
+	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
+
+/obj/item/weapon/storage/backpack/satchel_flat/hide(var/intact)
+	if(intact)
+		invisibility = 101
+		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.
+		icon_state = "[initial(icon_state)]2"
+	else
+		invisibility = initial(invisibility)
+		anchored = 0
+		icon_state = initial(icon_state)
+
+/obj/item/weapon/storage/backpack/satchel_flat/New()
+	..()
+	new /obj/item/stack/tile/plasteel(src)
+	new /obj/item/weapon/crowbar(src)
