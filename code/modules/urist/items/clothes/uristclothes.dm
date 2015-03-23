@@ -436,7 +436,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'	
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "blackcoat_open"
 	icon_open = "blackcoat_open"
 	icon_closed = "blackcoat_closed"
@@ -626,3 +626,34 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_color = "dress_blouse"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
+//Fallout event clothing
+
+/obj/item/clothing/under/urist/springm
+	name = "pre-War male spring outfit"
+	desc = "It's a long-sleeve beige shirt with a red sweater-vest and brown trousers."
+	icon_state = "springm"
+	item_state = "springm"
+	item_color = "springm"
+
+/obj/item/clothing/under/urist/relaxedwearm
+	name = "pre-War male relaxedwear"
+	desc = "It's along-sleeve blue shirt with a greenish brown sweater-vest and slacks."
+	icon_state = "relaxedwearm"
+	item_state = "relaxedwearm"
+	item_color = "relaxedwearm"
+
+/obj/item/clothing/under/urist/enclaveo
+	name = "Enclave officer uniform"
+	desc = "It's a standard Enclave officer uniform.<br>The outer layer is made of a sturdy material designed to withstand the harsh conditions of the wasteland."
+	icon_state = "enclaveo"
+	item_state = "enclaveo"
+	item_color = "enclaveo"
+
+/obj/item/clothing/suit/urist/autumn //Based of Colonel Autumn's uniform.
+	name = "tan trenchcoat"
+	desc = "A resistant, tan trenchcoat, typically worn by pre-War generals."
+	icon_state = "autumn"
+	item_state = "autumn"
+	blood_overlay_type = "armor"
+	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
+	allowed = list(/obj/item/weapon/kitchenknife, /obj/item/weapon/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)

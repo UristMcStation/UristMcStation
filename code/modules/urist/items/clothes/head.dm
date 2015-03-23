@@ -277,3 +277,13 @@ obj/item/clothing/head/princessbow
 	user.put_in_hands(H)
 	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
 	del(src)
+
+//Fallout hats
+
+/obj/item/clothing/head/urist/enclave
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "enclave officer cap"
+	desc = "An Enclave Officer cap, has a silver E on the front"
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "enclavesoft"
+	item_color = "enclavesoft"
