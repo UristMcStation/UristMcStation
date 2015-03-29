@@ -1,4 +1,4 @@
-var/global/normal_aooc_colour = "#FF0000"
+var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR is correct. Like math. MATH is correct. MATHS is stoopid
 
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
@@ -74,4 +74,4 @@ var/global/normal_aooc_colour = "#FF0000"
 					else
 						display_name = holder.fakekey
 			if(is_special_character(C.mob) || (C && C.holder && !is_mentor(C))) //Allows both admuns and antags to hear AOOC
-				C << "<font color='#FF3333'><span class='ooc'><span class='prefix'>AOOC:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
+				C << "<font color='[normal_aooc_color]'><span class='ooc'>" + create_text_tag("aooc", "AOOC:", C) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
