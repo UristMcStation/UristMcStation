@@ -17,6 +17,7 @@ var/list/scomspawn3 = list()
 	config_tag = "scom"
 	required_players = 0
 	required_players_secret = 18
+	votable = 0
 
 /datum/game_mode/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"

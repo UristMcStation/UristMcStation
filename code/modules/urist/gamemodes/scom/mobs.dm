@@ -48,7 +48,7 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
-	var/weapon1
+
 
 /mob/living/simple_animal/hostile/scom/lactera
 	will_help = 1
@@ -56,7 +56,7 @@
 	melee_damage_upper = 15
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
-
+	var/weapon1 = /obj/item/scom/aliengun/a1
 
 
 /mob/living/simple_animal/hostile/scom/lactera/light
@@ -77,6 +77,7 @@
 	projectiletype = /obj/item/projectile/beam/scom/alien2
 	icon_living = "liz2"
 	icon_dead = "liz2_dead"
+	weapon1 = /obj/item/scom/aliengun/a2
 
 /mob/living/simple_animal/hostile/scom/lactera/heavy
 	icon_state = "liz3"
@@ -87,6 +88,7 @@
 	health = 120
 	icon_living = "liz3"
 	icon_dead = "liz3_dead"
+	weapon1 = /obj/item/scom/aliengun/a3
 
 /mob/living/simple_animal/hostile/scom/lactera/leader
 	icon_state = "liz4"
@@ -96,6 +98,7 @@
 	health = 160
 	icon_living = "liz4"
 	icon_dead = "liz4_dead"
+	weapon1 = /obj/item/scom/aliengun/a4
 
 /mob/living/simple_animal/hostile/scom/lactera/medic
 	can_heal = 1
@@ -142,7 +145,7 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	weaken = 5
 	stutter = 5
 
-/mob/living/simple_animal/hostile/scom/death()
+/mob/living/simple_animal/hostile/scom/lactera/death()
 	..()
 	if(weapon1)
 		new weapon1 (src.loc)

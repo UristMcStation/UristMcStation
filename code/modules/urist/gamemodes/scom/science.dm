@@ -43,3 +43,26 @@
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
 				M << ("\red The explosion tears you apart!")
 			sploded = 1
+
+/obj/item/scom/aliengun
+	icon = 'icons/urist/items/uristweapons.dmi'
+
+/obj/item/scom/aliengun/a1
+	icon_state = "alienpistol"
+	scomtechlvl = 1
+	scommoney = 100
+
+/obj/item/scom/aliengun/a2
+	icon_state = "lightalienrifle"
+	scomtechlvl = 2
+	scommoney = 250
+
+/obj/item/scom/aliengun/a3
+	scomtechlvl = 6
+	scommoney = 600
+	icon_state = "alienrifle"
+
+/obj/item/scom/aliengun/a4
+	scomtechlvl = 7
+	scommoney = 1000
+	icon_state = "alienrifle" //temp
