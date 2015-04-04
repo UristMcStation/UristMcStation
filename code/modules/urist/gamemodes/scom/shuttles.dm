@@ -11,9 +11,11 @@
 	else
 		for(var/mob/living/simple_animal/hostile/M in /area/scom/mission)
 			if(!M.stat)
+				user << "<span class='notice'>There are still aliens left alive!</span>"
 				return
 		for(var/mob/living/carbon/human/H in /area/scom/mission)
 			if(H.stat)
+				user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
 				return
 
 		..()

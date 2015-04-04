@@ -44,7 +44,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 	faction = "alien" //luv u corai. scom 5eva	//rip in peace corai
-
+	var/weapon1
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
@@ -56,7 +56,7 @@
 	melee_damage_upper = 15
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
-	var/weapon1 = /obj/item/scom/aliengun/a1
+	weapon1 = /obj/item/scom/aliengun/a1
 
 
 /mob/living/simple_animal/hostile/scom/lactera/light

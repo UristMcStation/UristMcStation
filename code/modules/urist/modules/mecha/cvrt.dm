@@ -5,10 +5,11 @@
 	icon_state = "cvrt"
 	initial_icon = "cvrt"
 	health = 300
-	bound_width = 64
-	bound_height = 64
+	bound_width = 32 //temp
+	bound_height = 32 //temp
 	step_in = 0
 	deflect_chance = 15
+	max_equip = 6
 	damage_absorption = list("brute"=0.75,"fire"=1,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=1) //we start off the same as a gygax
 	wreckage = /obj/effect/decal/mecha_wreckage/cvrt
 

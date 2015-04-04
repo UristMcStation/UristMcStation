@@ -125,7 +125,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/sniperarmort2
 	name = "sniper rig"
-	path = /obj/item/weapon/storage/box/sniperammo
+	path = /obj/item/weapon/rig/light/scomsniper
 	category = "Sniper"
 	scomtechlvl = 5
 	hidden = 1
@@ -259,7 +259,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/sniperarmort3
 	name = "futuristic sniper rig"
-	path = /obj/item/weapon/storage/box/sniperammo
+	path = /obj/item/weapon/rig/scomsniper
 	category = "Sniper"
 	scomtechlvl = 9
 	hidden = 1

@@ -36,13 +36,13 @@
 /turf/unsimulated/floor/uristturf/other/scom
 	icon = 'icons/urist/turf/scomturfs.dmi'
 
-/turf/simulated/shuttle/wall/urist
+/turf/unsimulated/wall/urist/shuttle
 	icon = 'icons/urist/turf/marine.dmi'
 
-/turf/simulated/shuttle/wall/urist/see
+/turf/unsimulated/wall/urist/shuttle/see
 	opacity = 0
 
-/turf/simulated/shuttle/floor/urist
+/turf/unsimulated/floor/uristturf/shuttle
 	icon = 'icons/urist/turf/marine.dmi'
 
 //shuttle areas

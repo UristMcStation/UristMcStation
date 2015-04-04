@@ -37,7 +37,7 @@ var/list/scomspawn3 = list()
 		if((player.client)&&(player.ready))
 			playerC++
 
-	if(playerC >= 1)
+	if(playerC >= 10)
 
 		if(playerC >= 18)
 			missiondiff = 2

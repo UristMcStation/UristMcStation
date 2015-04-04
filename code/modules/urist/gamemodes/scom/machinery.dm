@@ -2,15 +2,19 @@
 	name = "Airlock"
 	icon = 'icons/urist/structures&machinery/Door2x1marine.dmi'
 	assembly_type = /obj/structure/door_assembly/multi_tile
+	bound_height = 64
+	bound_width = 64 //changed in New(), meant to stop geometry from breaking
 
 //blatent copypasta of autolathe. soooooorry, but autolathe is very not object oriented, and I don't feel like rewriting it to be.
 
 /obj/machinery/scom/scomscience //i'll come back to clean up this later, promise
-	name = "\improper autolathe"
-	desc = "It produces items using metal and glass."
-	icon_state = "autolathe"
+	name = "\improper S.C.I.E.N.C.E"
+	desc = "Science!"
+	icon = 'icons/urist/structures&machinery/scomscience.dmi'
+	icon_state = "science"
 	density = 1
 	anchored = 1
+	bound_width = 96
 	var/list/machine_recipes
 
 	var/scomtechlvl = 0
@@ -135,14 +139,18 @@
 		return
 
 	if(O.scomtechlvl <= scomtechlvl)
-	//	user << "<span class='notice'>You can't get any more knowledge from this. Try selling it.</span>"
+//		user << "<span class='notice'>You can't get any more knowledge from this. Try selling it.</span>"
 		scommoney = (scommoney + O.scommoney)
 		return
 
-	if(O.scomtechlvl >= scomtechlvl)
+	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
-	flick("autolathe_o",src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+	for(var/obj/machinery/scom/scomscience/S in /area/centcom/scom)
+		if(S.scomtechlvl < scomtechlvl)
+			S.scomtechlvl = scomtechlvl
+
+	flick("science_o",src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
 
 	user.drop_item(O)
 	del(O)
@@ -216,7 +224,7 @@
 //				stored_material[material] = max(0,stored_material[material]-(making.resources[material]*multiplier))
 
 		//Fancy autolathe animation.
-		flick("autolathe_n",src)
+		flick("science_o",src)
 
 		sleep(50)
 

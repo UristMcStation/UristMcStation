@@ -139,3 +139,13 @@
 		beakers += B2
 
 		icon_state = "grenade"
+
+/obj/item/weapon/storage/box/cleangrenades
+	name = "box of cleaner grenades"
+	desc = "A box of cleaner grenades"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)

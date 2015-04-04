@@ -10,7 +10,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 
 		if(M.job == "Captain")
 
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_captain(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/captunic(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_r_ear)
@@ -73,7 +73,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 
 		else
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
@@ -110,7 +110,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 
 		if(L.job == "Captain")
 
-			L.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_captain(L), slot_w_uniform)
+			L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(L), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/suit/captunic(L), slot_wear_suit)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/weapon/pen(L), slot_r_ear)
@@ -173,7 +173,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 
 		else
 			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
-			L.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom(L), slot_w_uniform)
+			L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(L), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(L), slot_gloves)
 			L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)

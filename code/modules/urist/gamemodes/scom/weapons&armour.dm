@@ -203,3 +203,48 @@
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/egun,
 		)
+
+/obj/item/clothing/suit/urist/armor
+	name = "armor"
+	desc = "An armored vest that protects against some damage."
+	flags = ONESIZEFITSALL
+	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/urist/armor/heavy
+	icon_state = "heavy"
+
+/obj/item/clothing/suit/urist/armor/medic
+	icon_state = "ltvest"
+
+/obj/item/weapon/rig/scomsniper
+	name = "cybersuit control module"
+	suit_type = "cyber"
+	desc = "An advanced powered armour suit with many cyberwarfare enhancements."
+	icon_state = "hacker_rig"
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/mask
+	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	initial_modules = list(
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/stealth_field,
+		/obj/item/rig_module/mounted/energy_blade,
+		/obj/item/rig_module/mounted/egun
+		)
+
+/obj/item/weapon/rig/light/scomsniper
+	name = "stealth suit control module"
+	suit_type = "stealth"
+	desc = "A highly advanced and expensive suit designed for covert operations."
+	icon_state = "ninja_rig"
+
+	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	initial_modules = list(
+		/obj/item/rig_module/mounted/energy_blade,
+		/obj/item/rig_module/stealth_field
+		)
+
+/obj/item/clothing/under/urist/scom
+	name = "S-COM operative's outfit."
+	desc = "The outfit of an S-COM Operative."
+	icon_state = "scom"
+	item_color = "scom"
