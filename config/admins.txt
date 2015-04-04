@@ -17,6 +17,7 @@ Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
 Knoxon - Game Master
+Rabidgam3r - Game Master
 
 TGameCo - Coder
 
@@ -30,6 +31,7 @@ Vakothu - Mentor
 Acemuto10 - Mentor
 Grant4455 - Mentor
 Ozarck - Mentor
+AseaHeru - Mentor
 
 androidsfv - Inactive Admin
 USEC_OFFICER - Inactive Admin

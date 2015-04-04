@@ -111,3 +111,11 @@
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
 	icon_state = "militarybelt"
 	item_state = "military"
+
+/obj/item/weapon/storage/belt/urist/military/scom
+	storage_slots = 7
+	max_w_class = 3
+	max_combined_w_class = 24
+	can_hold = list(
+		"/obj/item"
+		)

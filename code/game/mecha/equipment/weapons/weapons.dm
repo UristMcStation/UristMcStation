@@ -24,6 +24,8 @@
 	var/turf/targloc = get_turf(target)
 	if(!curloc || !targloc)
 		return
+	if(chassis.bound_width == 64) //bigger than 32x32?
+		chassis.density = 0
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='warning'>[chassis] fires [src]!</span>")
 	occupant_message("<span class='warning'>You fire [src]!</span>")
@@ -43,6 +45,8 @@
 	if(auto_rearm)
 		projectiles = projectiles_per_shot
 	set_ready_state(0)
+	if(chassis.bound_width == 64) //bigger than 32x32?
+		chassis.density = 1
 	do_after_cooldown()
 	return
 
