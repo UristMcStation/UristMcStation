@@ -39,6 +39,9 @@
 /turf/simulated/shuttle/wall/urist
 	icon = 'icons/urist/turf/marine.dmi'
 
+/turf/simulated/shuttle/wall/urist/see
+	opacity = 0
+
 /turf/simulated/shuttle/floor/urist
 	icon = 'icons/urist/turf/marine.dmi'
 

@@ -1,5 +1,5 @@
 proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
-	world<<("\red \b Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die. The fate of humanity rests in your hands. Good luck!")
+	world<<("\red \b Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die. Your first task is to secure a pair of Nanotrasen communication satellites in the Nyx system. The fate of humanity rests in your hands. Good luck!")
 
 	for(var/mob/living/carbon/human/M in player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 
@@ -47,7 +47,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			M.loc = pick(scomspawn2)
 			M << ("\red You are the Researcher. It is your job to bother the operatives to bring back whatever they can recover from their missions. You will use this, along with the provided facilities to advance the cause of science. It is your job to provide the soldiers with new equipment to match the rising alien threat. It is also your duty to heal any returning injured soldiers. You report to the Commander, good luck.")
 
-		else if(M.job in list("Clown", "Mime"))
+/*		else if(M.job in list("Clown", "Mime"))
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/psysuit(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(M), slot_shoes)
@@ -69,7 +69,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.registered_name = M.real_name
 			M.loc = pick(scomspawn3)
 			M << ("\red You are the psionic operative. Handpicked from members of the Wizards Federation, you will use your advanced psionic powers to aid your fellow soldiers, and to fight the enemy. However, the Wizards Federation has a poor sense of humour, and there are many clowns among your ranks. Either way, try not using guns, it won't end well for you. You report to the commander.")
-
+*/
 
 		else
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
@@ -77,6 +77,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(M), slot_head)
 
 			for (var/obj/item/weapon/card/id/W in M)
 				W.name = "[M.real_name]'s ID Card"
@@ -146,7 +147,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			L.loc = pick(scomspawn2)
 			L << ("\red You are the Researcher. It is your job to bother the operatives to bring back whatever they can recover from their missions. You will use this, along with the provided facilities to advance the cause of science. It is your job to provide the soldiers with new equipment to match the rising alien threat. It is also your duty to heal any returning injured soldiers. You report to the Commander, good luck.")
 
-		else if(L.job in list("Clown", "Mime"))
+/*		else if(L.job in list("Clown", "Mime"))
 			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
 			L.equip_to_slot_or_del(new /obj/item/clothing/under/psysuit(L), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(L), slot_shoes)
@@ -168,7 +169,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.registered_name = L.real_name
 			L.loc = pick(scomspawn3)
 			L << ("\red You are the psionic operative. Handpicked from members of the Wizards Federation, you will use your advanced psionic powers to aid your fellow soldiers, and to fight the enemy. However, the Wizards Federation has a poor sense of humour, and there are many clowns among your ranks. Either way, try not using guns, it won't end well for you. You report to the commander.")
-
+*/
 
 		else
 			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
@@ -176,7 +177,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(L), slot_gloves)
 			L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)
-
+			L.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(L), slot_head)
 			for (var/obj/item/weapon/card/id/W in L)
 				W.name = "[L.real_name]'s ID Card"
 				W.assignment = "S-COM Operative"

@@ -6,7 +6,7 @@
 var/missiondiff = 1
 var/scommapsloaded = 0
 
-var/global/sploded = 0
+var/sploded = 0
 
 var/list/scomspawn1 = list()
 var/list/scomspawn2 = list()

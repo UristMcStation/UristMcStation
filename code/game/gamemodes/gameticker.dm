@@ -68,7 +68,7 @@ var/global/datum/controller/gameticker/ticker
 							vote.process()
 			if(pregame_timeleft == 90 && master_mode=="scom")
 //				LoadScom()
-				world << "\red \b Welcome to the first version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, clown/mime become psionic troopers and everyone else becomes soldiers to choose their class ingame. <BR><BR> As this is the first version, expect balance to be a little wonky, and expect bugs. I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread. <BR><BR> Coming in the next update: More missions, more enemies, bugfixes, more stuff for science to science (and expanded science in general), expanded failure states, expanded funding and the return of friendly NPCs (disabled for the first version because of runtimes)"
+				world << "\red \b Welcome to the first version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, and everyone else becomes soldiers to choose their class ingame. <BR><BR> As this is the first version, expect balance to be a little wonky, and expect bugs. I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread. <BR><BR> Coming in the next update: More missions, more enemies, bugfixes, more stuff for science to science (and expanded science in general), expanded failure states, expanded funding and the return of friendly NPCs (disabled for the first version because of runtimes)"
 			if(pregame_timeleft <= 0)
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())

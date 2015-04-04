@@ -66,3 +66,110 @@
 	icon_state = "x"
 	difflevel = 4
 
+/obj/effect/landmark/scom/enemyspawn/easy/m1
+	mission = 1
+
+/obj/effect/landmark/scom/enemyspawn/easy/m2
+	mission = 2
+
+/obj/effect/landmark/scom/enemyspawn/easy/m3
+	mission = 3
+
+/obj/effect/landmark/scom/enemyspawn/easy/m4
+	mission = 4
+
+/obj/effect/landmark/scom/enemyspawn/easy/m5
+	mission = 5
+
+/obj/effect/landmark/scom/enemyspawn/easy/m6
+	mission = 6
+
+/obj/effect/landmark/scom/enemyspawn/easy/m7
+	mission = 7
+
+/obj/effect/landmark/scom/enemyspawn/easy/m8
+	mission = 8
+
+/obj/effect/landmark/scom/enemyspawn/easy/m10
+	mission = 10
+
+/obj/effect/landmark/scom/enemyspawn/norm/m1
+	mission = 1
+
+/obj/effect/landmark/scom/enemyspawn/norm/m2
+	mission = 2
+
+/obj/effect/landmark/scom/enemyspawn/norm/m3
+	mission = 3
+
+/obj/effect/landmark/scom/enemyspawn/norm/m4
+	mission = 4
+
+/obj/effect/landmark/scom/enemyspawn/norm/m5
+	mission = 5
+
+/obj/effect/landmark/scom/enemyspawn/norm/m6
+	mission = 6
+
+/obj/effect/landmark/scom/enemyspawn/norm/m7
+	mission = 7
+
+/obj/effect/landmark/scom/enemyspawn/norm/m8
+	mission = 8
+
+/obj/effect/landmark/scom/enemyspawn/norm/m10
+	mission = 10
+
+/obj/effect/landmark/scom/enemyspawn/hard/m1
+	mission = 1
+
+/obj/effect/landmark/scom/enemyspawn/hard/m2
+	mission = 2
+
+/obj/effect/landmark/scom/enemyspawn/hard/m3
+	mission = 3
+
+/obj/effect/landmark/scom/enemyspawn/hard/m4
+	mission = 4
+
+/obj/effect/landmark/scom/enemyspawn/hard/m5
+	mission = 5
+
+/obj/effect/landmark/scom/enemyspawn/hard/m6
+	mission = 6
+
+/obj/effect/landmark/scom/enemyspawn/hard/m7
+	mission = 7
+
+/obj/effect/landmark/scom/enemyspawn/hard/m8
+	mission = 8
+
+/obj/effect/landmark/scom/enemyspawn/hard/m10
+	mission = 10
+
+/obj/effect/landmark/scom/enemyspawn/harder/m1
+	mission = 1
+
+/obj/effect/landmark/scom/enemyspawn/harder/m2
+	mission = 2
+
+/obj/effect/landmark/scom/enemyspawn/harder/m3
+	mission = 3
+
+/obj/effect/landmark/scom/enemyspawn/harder/m4
+	mission = 4
+
+/obj/effect/landmark/scom/enemyspawn/harder/m5
+	mission = 5
+
+/obj/effect/landmark/scom/enemyspawn/harder/m6
+	mission = 6
+
+/obj/effect/landmark/scom/enemyspawn/harder/m7
+	mission = 7
+
+/obj/effect/landmark/scom/enemyspawn/harder/m8
+	mission = 8
+
+/obj/effect/landmark/scom/enemyspawn/harder/m10
+	mission = 10
