@@ -136,7 +136,7 @@
 //ammo
 
 /obj/item/weapon/storage/box/c20ammo
-	name = "box of c20r"
+	name = "box of c20r ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
 	New()
@@ -211,7 +211,7 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/urist/armor/heavy
-	icon_state = "heavy"
+	icon_state = "heavyscom"
 
 /obj/item/clothing/suit/urist/armor/medic
 	icon_state = "ltvest"
