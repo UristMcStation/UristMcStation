@@ -4,9 +4,9 @@
 	var/difflevel = 0
 //	invisibility = 101
 
-/obj/effect/landmark/scom/enemyspawn/New()
+///obj/effect/landmark/scom/enemyspawn/New()
 //	invisibility = 101
-	return
+//	return
 
 /obj/effect/landmark/scom/enemyspawn/proc/spawnmobs() //we call this when the shuttle does the thing with the stuff
 	if(difflevel == missiondiff)
@@ -50,7 +50,7 @@
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
 		//else if(spawntype == 100) //civs temporarily removed
-	world << "SPAWNED"
+//	world << "SPAWNED"
 	del(src)
 
 

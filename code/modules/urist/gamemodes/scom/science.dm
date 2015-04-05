@@ -38,10 +38,11 @@
 		if("Cancel")
 			return
 		if("Yes")
-			spawn(1800)
-			for(var/mob/living/M in /area/scom/mission)
+			world << "/red \b Mothership self-destruct sequence activated. Three minutes until detonation."
+			sleep(1800)
+			for(var/mob/living/M in /area/scom/mission/nolighting || /area/scom/mission/lighting)
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-				M << ("\red The explosion tears you apart!")
+				M << ("\redThe explosion tears you apart!")
 			sploded = 1
 
 /obj/item/scom/aliengun

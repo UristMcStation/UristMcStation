@@ -18,6 +18,7 @@ var/list/scomspawn3 = list()
 	required_players = 0
 	required_players_secret = 18
 	votable = 0
+	var/declared = 0
 
 /datum/game_mode/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
@@ -57,14 +58,18 @@ var/list/scomspawn3 = list()
 	ScomTime()
 
 /datum/game_mode/scom/process()
-	if(sploded == 1)
+	if(sploded == 1 && !declared)
 		declare_completion()
 
 datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 1)
+		declared = 1
 		world << "<FONT size = 3><B>S-COM has won!</B></FONT>"
 		world << "<B>The alien presence in Nyx has been eradicated!</B>"
 
 		world << "\blue Rebooting in 30s"
-	..()
+		..()
+
+		sleep(300)
+		world.Reboot()
 
