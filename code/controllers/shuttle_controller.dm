@@ -309,7 +309,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	MS.interim = locate(/area/syndicate_station/transit)
 
 	MS.warmup_time = 0
-	shuttles["Syndicate"] = MS
+	shuttles["Mercenary"] = MS
 
 //This is called by gameticker after all the machines and radio frequencies have been properly initialized
 /datum/shuttle_controller/proc/setup_shuttle_docks()
