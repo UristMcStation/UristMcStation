@@ -42,7 +42,8 @@
 			sleep(1800)
 			for(var/mob/living/M in /area/scom/mission/nolighting || /area/scom/mission/lighting)
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-				M << ("\redThe explosion tears you apart!")
+				M << ("\red The explosion tears you apart!")
+//			sleep(2000)
 			sploded = 1
 
 /obj/item/scom/aliengun
