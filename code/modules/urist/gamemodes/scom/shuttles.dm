@@ -71,7 +71,6 @@
 			if(mission == S.mission)
 				S.spawnmobs()
 //				world << "MOBS SPAWNED"
-				del(S)
 		for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
 			if(C.location == 0)
 				C.launch()

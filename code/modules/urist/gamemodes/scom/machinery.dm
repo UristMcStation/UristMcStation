@@ -14,7 +14,7 @@
 	icon_state = "science"
 	density = 1
 	anchored = 1
-	bound_width = 96
+	bound_width = 64
 	var/list/machine_recipes
 
 	var/scomtechlvl = 0
@@ -23,9 +23,6 @@
 	var/show_category = "All"
 
 	var/panel_open = 0
-//	var/hacked = 0
-//	var/disabled = 0
-//	var/shocked = 0
 	var/busy = 0
 
 /obj/machinery/scom/scomscience/proc/update_recipe_list()
@@ -39,13 +36,6 @@
 	var/dat = "<center><h1>Autolathe Control Panel</h1><hr/>"
 
 	dat += "<table width = '100%'>"
-//	var/material_top = "<tr>"
-//	var/material_bottom = "<tr>"
-
-//	for(var/material in stored_material)
-//		material_top += "<td width = '25%' align = center><b>[material]</b></td>"
-//		material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
-
 	dat += "Money - [scommoney]</tr> Tech Level - [scomtechlvl]</tr></table><hr>"
 	dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
 
@@ -84,62 +74,12 @@
 	user << browse(dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/*		dat += "<table width = '100%'>"
-		var/material_top = "<tr>"
-		var/material_bottom = "<tr>"
-
-		for(var/material in stored_material)
-			material_top += "<td width = '25%' align = center><b>[material]</b></td>"
-			material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
-
-		dat += "[material_top]</tr>[material_bottom]</tr></table><hr>"
-		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
-
-		var/index = 0
-		for(var/datum/autolathe/recipe/R in machine_recipes)
-			index++
-			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
-				continue
-			var/can_make = 1
-			var/material_string = ""
-			var/multiplier_string = ""
-			var/max_sheets
-			var/comma
-			if(!R.resources || !R.resources.len)
-				material_string = "No resources required.</td>"
-			else
-				//Make sure it's buildable and list requires resources.
-				for(var/material in R.resources)
-					var/sheets = round(stored_material[material]/R.resources[material])
-					if(isnull(max_sheets) || max_sheets > sheets)
-						max_sheets = sheets
-					if(!isnull(stored_material[material]) && stored_material[material] < R.resources[material])
-						can_make = 0
-					if(!comma)
-						comma = 1
-					else
-						material_string += ", "
-					material_string += "[R.resources[material]] [material]"
-				material_string += ".<br></td>"
-				//Build list of multipliers for sheets.
-				if(R.is_stack)
-					if(max_sheets && max_sheets > 0)
-						multiplier_string  += "<br>"
-						for(var/i = 5;i<max_sheets;i*=2) //5,10,20,40...
-							multiplier_string  += "<a href='?src=\ref[src];make=[index];multiplier=[i]'>\[x[i]\]</a>"
-						multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[max_sheets]'>\[x[max_sheets]\]</a>"
-
-			dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
-
-		dat += "</table><hr>"*/
-
 /obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (busy)
 		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
 		return
 
 	if(O.scomtechlvl <= scomtechlvl)
-//		user << "<span class='notice'>You can't get any more knowledge from this. Try selling it.</span>"
 		scommoney = (scommoney + O.scommoney)
 		return
 
@@ -150,7 +90,7 @@
 		if(S.scomtechlvl < scomtechlvl)
 			S.scomtechlvl = scomtechlvl
 
-	flick("science_o",src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+	flick("science_o",src)
 
 	user.drop_item(O)
 	del(O)
@@ -168,7 +108,6 @@
 		return
 
 	usr.set_machine(src)
-//	add_fingerprint(usr)
 
 	if(busy)
 		usr << "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>"
@@ -198,11 +137,6 @@
 
 		busy = 1
 
-		//Check if we still have the materials.
-//		for(var/material in making.resources)
-//			if(!isnull(stored_material[material]))
-//				if(stored_material[material] < (making.resources[material]*multiplier))
-//					return
 
 		if(making.scomtechlvl > scomtechlvl)
 			usr << "<span class='notice'>You don't have the tech level for that!</span>"
@@ -218,12 +152,6 @@
 			scommoney = scommoney - making.resources
 
 
-		//Consume materials.
-//		for(var/material in making.resources)
-//			if(!isnull(stored_material[material]))
-//				stored_material[material] = max(0,stored_material[material]-(making.resources[material]*multiplier))
-
-		//Fancy autolathe animation.
 		flick("science_o",src)
 
 		sleep(50)

@@ -5,9 +5,9 @@
 	icon_state = "cvrt"
 	initial_icon = "cvrt"
 	health = 300
-	bound_width = 32 //temp
-	bound_height = 32 //temp
-	step_in = 0
+	bound_width = 64
+	bound_height = 64
+	step_in = 5
 	deflect_chance = 15
 	max_equip = 6
 	damage_absorption = list("brute"=0.75,"fire"=1,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=1) //we start off the same as a gygax
@@ -70,11 +70,12 @@
 
 /obj/mecha/working/cvrt/upgraded/New() //only two passengers, because lasers take up more space or something like that
 	..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
+	var/obj/item/mecha_parts/mecha_equipment/ME = /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME = new/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
+	ME.attach(src)
 
 /obj/effect/decal/mecha_wreckage/cvrt
 	name = "CVR wreckage"

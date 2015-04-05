@@ -48,6 +48,34 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
+//	will_help = 0
+//	can_heal = 0
+//	will_flee = 0
+
+/*/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
+	target = new_target
+	if(target != null)
+		if(isliving(target))
+			Aggro()
+			stance = HOSTILE_STANCE_ATTACK
+
+			if(health <= 10 && will_flee)
+				visible_message("<span class='danger'>The [src.name] tries to flee from [target.name]!</span>")
+				retreat_distance = 10
+				minimum_distance = 10
+			if(health > 11 && will_flee)
+				retreat_distance = initial.retreat_distance
+				minimum_distance = initial.minimum_distance
+			if(will_help)
+				for(var/mob/living/simple_animal/hostile/M in oview(5, src))
+					if(M.faction == faction && M.health <= 10)
+						if(can_heal)
+							step_to(M)
+							if(get_dist(M) = 1)
+								M.health + 20
+								return
+						M.target = target
+			return*/
 
 
 /mob/living/simple_animal/hostile/scom/lactera
@@ -125,7 +153,7 @@
 /obj/item/projectile/beam/scom/alien1
 	name = "alien beam"
 	icon_state = "alienprojectile"
-	damage = 10
+	damage = 15
 
 /obj/item/projectile/beam/scom/alien2
 	name = "alien beam"

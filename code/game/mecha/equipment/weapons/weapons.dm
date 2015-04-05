@@ -45,9 +45,9 @@
 	if(auto_rearm)
 		projectiles = projectiles_per_shot
 	set_ready_state(0)
+	do_after_cooldown()
 	if(chassis.bound_width == 64) //bigger than 32x32?
 		chassis.density = 1
-	do_after_cooldown()
 	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(atom/A, atom/target, turf/aimloc)

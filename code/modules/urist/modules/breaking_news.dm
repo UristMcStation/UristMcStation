@@ -31,9 +31,9 @@
 
 		if(4) //April
 			switch(DD)
-				if(4)							BNews = "ALERT: NNN interrupts our normal breaking news section to bring you an unprecedented alert. As you likely know, two weeks ago, a number of mining outposts in the Outer Rim went silent. Today, we have recieved confirmation of our worst fears from a representative of the Nanotrasen Navy: the outposts fell to a hostile force. We can't confirm any more details at this time, but rest assured that we will keep you updated. This is Chet Jonaheus signing off."
-				if(5)							BNews = "ALERT: Following up on yesterday's special broadcast, we bring you more important information about the recent attacks. Indeed, attacks may be too week a word, for we have recieved confirmation that this is an unknown threat, something that we have never seen before. Early reports that the attacks were from the Unathi Empire have proved to be unfounded, but the origin of the force itself are unknown. As always, we will do our best to keep you updated. This is Chet Jonaheus, signing off."
-				if(6)							BNews = "Unidentified hackers have gained access to several million bank accounts and have stolen well over 5 billion credits."
+				if(5)							BNews = "ALERT: NNN interrupts our normal breaking news section to bring you an unprecedented alert. As you likely know, two weeks ago, a number of mining outposts in the Outer Rim went silent. Today, we have recieved confirmation of our worst fears from a representative of the Nanotrasen Navy: the outposts fell to a hostile force. We can't confirm any more details at this time, but rest assured that we will keep you updated. This is Chet Jonaheus signing off."
+				if(6)							BNews = "ALERT: Following up on yesterday's special broadcast, we bring you more important information about the recent attacks. Indeed, attacks may be too week a word, for we have recieved confirmation that this is an unknown threat, something that we have never seen before. Early reports that the attacks were from the Unathi Empire have proved to be unfounded, but the origin of the force itself are unknown. As always, we will do our best to keep you updated. This is Chet Jonaheus, signing off."
+				if(7)							BNews = "Unidentified hackers have gained access to several million bank accounts and have stolen well over 5 billion credits. The source of this incident is unknown. "
 				if(8)							BNews = "ALERT: The attacks in the Outer Rim are quickly becoming a galactic crisis, as similar incursions have been reported in the Tau Ceti, Alderamin and Capella Systems. Nanotrasen citizens in those systems are to remain on high alert, and listen to local authorities for relevant information."
 				if(9)							BNews = "ALERT: Attacks have been reported in the Zosma and Pegasi systems. Nanotrasen Naval forces in nearby systems are placed on high alert."
 				if(11)							BNews = "A Nanotrasen trading vessel has been shot down in the Tau Ceti system today, casualties are currently unconfirmed, but it is assumed that there are no survivors."
@@ -50,7 +50,7 @@
 		if(5) //May
 			switch(DD)
 				if(1)							BNews = "Labour protests erupt accross dozens of Nanotrasen colonies as concerns about losing jobs to refugees from the current galactic crisis rises."
-				if(2)							BNews = "Labour protests enter the second day, and between refugees and protestors has been reported."
+				if(2)							BNews = "Labour protests enter the second day, and conflict between refugees and protestors has been reported."
 				if(4)							BNews = "As what is now being called the Galactic Crisis enters its second month, questions are abound as to how the refugees from affected systems will be dealt with. As the recent labour protests show, the current lassaiz faire attitudes need to change."
 				if(5)							BNews = "After a response by Nanotrasen that protesters are calling heavy-handed and Nanotrasen is calling just, the majority of labour protests have ended."
 				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end after a series of conflicts between Nanotrasen forces and protestors. This, coupled with the Galactic Crisis has led some to speculate that we are entering a Second Age of Discord."
