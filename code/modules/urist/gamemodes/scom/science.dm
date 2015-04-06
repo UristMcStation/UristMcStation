@@ -1,6 +1,7 @@
 /obj/item/scom/science //a generic holder for science shit
 	name = "alien technology"
 	icon = 'icons/obj/stock_parts.dmi'
+	w_class = 2
 
 /obj/item/scom/science/New()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")

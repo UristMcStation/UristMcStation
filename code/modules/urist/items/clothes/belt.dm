@@ -113,6 +113,7 @@
 	item_state = "military"
 
 /obj/item/weapon/storage/belt/urist/military/scom
+	w_class = 4
 	storage_slots = 7
 	max_w_class = 3
 	max_combined_w_class = 24
