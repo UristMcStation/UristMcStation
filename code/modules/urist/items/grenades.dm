@@ -57,23 +57,23 @@
 	origin_tech = "combat=2;illegal=1"
 	desc = "A grenade which blows out windows and stuns people. Probably illegal."
 	icon_state = "emp"
-	item_state = "emp"	
+	item_state = "emp"
 /obj/item/weapon/grenade/sonic/prime()
 	..()
 
 	for(var/obj/structure/window/W in view(6, src.loc)) //Shatters windows
-		W.hit(20,1)			
+		W.hit(20,1)
 		if(get_dist(W, src.loc) <= 3) //Reinf windows
 			W.hit(60,0)
-		if(get_dist(W, src.loc) <= 1)			
-			W.hit(40,0)	
+		if(get_dist(W, src.loc) <= 1)
+			W.hit(40,0)
 	for(var/obj/machinery/door/window/D in view(4, src.loc)) //Busting windoors
 		D.take_damage(150)
 		if(get_dist(D, src.loc) <= 2)
-			D.take_damage(150)			
-				 
+			D.take_damage(150)
+
 	for(var/mob/living/carbon/M in hearers(6, src.loc))
-		var/distance = get_dist(M, src.loc)		
+		var/distance = get_dist(M, src.loc)
 		var/safety = 1
 		M << "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>"
 		if(ishuman(M))
@@ -92,8 +92,8 @@
 			M.ear_deaf = (30/safety)
 			M.stuttering = (30)
 			M.make_jittery(90)
-		else //Far away		
-			M.Stun(2/safety)	
+		else //Far away
+			M.Stun(2/safety)
 			M.Weaken(2/safety)
 			M.ear_deaf = (10/safety)
 			M.stuttering = (10)
@@ -110,9 +110,42 @@
 	desc = "A box with 4 sonic grenades. WARNING: Wear ear protection!"
 	icon_state = "flashbang"
 
-	New()
+/obj/item/weapon/storage/box/sonics/New()
 		..()
 		new /obj/item/weapon/grenade/sonic(src)
 		new /obj/item/weapon/grenade/sonic(src)
 		new /obj/item/weapon/grenade/sonic(src)
 		new /obj/item/weapon/grenade/sonic(src)
+
+/obj/item/weapon/grenade/chem_grenade/heal
+	name = "healing grenade"
+	path = 1
+	stage = 2
+
+/obj/item/weapon/grenade/chem_grenade/heal/New()
+		..()
+		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+		B1.reagents.add_reagent("tricordrazine", 10)
+		B1.reagents.add_reagent("potassium", 32)
+		B1.reagents.add_reagent("sugar", 17)
+		B2.reagents.add_reagent("tramadol", 6)
+		B2.reagents.add_reagent("sugar", 15)
+		B2.reagents.add_reagent("phosphorus", 32)
+
+		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+		beakers += B1
+		beakers += B2
+
+		icon_state = "grenade"
+
+/obj/item/weapon/storage/box/cleangrenades
+	name = "box of cleaner grenades"
+	desc = "A box of cleaner grenades"
+
+	New()
+		..()
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)

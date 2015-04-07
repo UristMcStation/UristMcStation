@@ -50,7 +50,10 @@
 	var/list/sprite_sheets = null
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
 
-	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands
+	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands and betls
+
+	//scom shit
+	var/scomtechlvl = null
 
 	/* Species-specific sprite sheets for inventory sprites
 	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.

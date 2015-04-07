@@ -1,7 +1,7 @@
 //var/mappath = "maps/EventMaps/train.dmm"
-var/list/trainwarp = list()
-var/list/snowtrainwarp = list()
-var/list/snowguardwarp = list()
+var/list/eventwarp1 = list()
+var/list/eventwarp2 = list()
+var/list/eventwarp3 = list()
 
 /turf/unsimulated/floor/uristturf/train/grass
 	name = "grass"
@@ -148,7 +148,7 @@ proc/traintime()
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
 		M.regenerate_icons()
-		M.loc = pick(trainwarp)
+		M.loc = pick(eventwarp1)
 
 	message_admins("[key_name_admin(usr)] began the train event. God help us all.")
 
@@ -181,7 +181,7 @@ proc/snowtraintime()
 				W.assignment = ""
 				W.registered_name = M.real_name
 				M.equip_to_slot_or_del(W, slot_wear_id)
-				M.loc = pick(snowtrainwarp)
+				M.loc = pick(eventwarp2)
 				M << ("\red You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.")
 			else if(M.gender == "female")
 				M.equip_to_slot_or_del(new /obj/item/clothing/under/dress/dress_orange(M), slot_w_uniform)
@@ -197,7 +197,7 @@ proc/snowtraintime()
 				W.assignment = "Elite Passenger"
 				W.registered_name = M.real_name
 				M.equip_to_slot_or_del(W, slot_wear_id)
-				M.loc = pick(snowtrainwarp)
+				M.loc = pick(eventwarp2)
 				M << ("\red You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.")
 
 		else if(M.job in list("Security Officer", "Warden"))
@@ -219,7 +219,7 @@ proc/snowtraintime()
 			W.assignment = "Guard"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
-			M.loc = pick(snowguardwarp)
+			M.loc = pick(eventwarp3)
 			M << ("\red You are the guards of the train. Your goal is to keep the lower cars out of the upper cars, and protect the elite. However, while it pains you, you know that the secret of the engine requires the members of the lower cars in order to work. Thus, you must keep them alive unless there is no other option.")
 
 		else
@@ -235,7 +235,7 @@ proc/snowtraintime()
 			W.assignment = "Lower Class Passenger"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
-			M.loc = pick(trainwarp)
+			M.loc = pick(eventwarp1)
 			M << ("\red You are a member of the lower classes. The few (un)lucky souls to make it onboard the train before it left on its final, neverending journey. While you've managed to scrape out a living on the train, it is not a good life. Indeed, every few weeks it seems that some of your closest friends from the lower cars just disappear. On top of that, food stores are running low. However, you know that you can't beat the guards without working together with every single member of the lower cars. So, will you fight and die, or will you keep on surviving with the hope that you won't be taken away? It's your choice.")
 		M.regenerate_icons()
 
@@ -318,5 +318,5 @@ proc/snowtraintime()
 
 		var/mob/living/M = O
 		if(prob(85))
-			M.apply_damage(rand(3,5), BRUTE)
+			M.apply_damage(rand(3,5), BURN)
 			M << ("\red The cold wind tears at your skin!")

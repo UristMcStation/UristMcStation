@@ -92,18 +92,33 @@
 		if("Syndicate-Spawn")
 			synd_spawn += loc
 			del(src)
+
 //urist stuff
-		if("trainwarp")
-			trainwarp += loc
+
+		if("eventwarp1")
+			eventwarp1 += loc
 			del(src)
 
-		if("snowtrainwarp")
-			snowtrainwarp += loc
+		if("eventwarp2")
+			eventwarp2 += loc
 			del(src)
 
-		if("snowguardwarp")
-			snowguardwarp += loc
+		if("eventwarp3")
+			eventwarp3 += loc
 			del(src)
+
+		if("scomspawn1")
+			scomspawn1 += loc
+			del(src)
+
+		if("scomspawn2")
+			scomspawn2 += loc
+			del(src)
+
+		if("scomspawn3")
+			scomspawn3 += loc
+			del(src)
+
 //end urist stuff
 	landmarks_list += src
 	return 1
