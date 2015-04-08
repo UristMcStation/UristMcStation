@@ -4,7 +4,6 @@
 /obj/item/var/scommoney = null //only used for science now.
 
 var/global/missiondiff = 1
-var/global/scommapsloaded = 0
 
 var/global/sploded = 0
 
@@ -19,6 +18,7 @@ var/list/scomspawn3 = list()
 	required_players_secret = 18
 	votable = 0
 	var/declared = 0
+	var/scommapsloaded = 0
 
 /datum/game_mode/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
