@@ -14,7 +14,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/captunic(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_r_ear)
-			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/formalcaptain(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_belt)
@@ -24,13 +24,14 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.name = "[M.real_name]'s ID Card"
 				W.icon_state = "centcom"
 				W.access = get_all_accesses()
+				W.access += get_all_centcom_access()
 				W.assignment = "Commander"
 				W.registered_name = M.real_name
 			M.loc = pick(scomspawn1)
 			M << ("\red You are the Commander of the S-COM forces. You are expected to control all local aspects of your S-COM base, research, medical, supply and tactical. You should not attend combat missions yourself, unless you have no other option. Your goal is to ensure the project runs smoothly. You report only to the Council and its members. Good luck, the fate of the galaxy rests on your frail shoulders.")
 
 		else if(M.job in list("Research Director", "Scientist"))
-			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/device/pda/science(M), slot_belt)
@@ -42,6 +43,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.name = "[M.real_name]'s ID Card"
 				W.icon_state = "centcom"
 				W.access = get_all_accesses()
+				W.access += get_all_centcom_access()
 				W.assignment = "Researcher"
 				W.registered_name = M.real_name
 			M.loc = pick(scomspawn2)
@@ -72,8 +74,8 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 */
 
 		else
-			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
@@ -114,7 +116,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 			L.equip_to_slot_or_del(new /obj/item/clothing/suit/captunic(L), slot_wear_suit)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/weapon/pen(L), slot_r_ear)
-			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
+			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(L), slot_l_ear)
 			L.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(L), slot_wear_mask)
 			L.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/formalcaptain(L), slot_head)
 			L.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(L), slot_belt)
@@ -124,13 +126,14 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.name = "[L.real_name]'s ID Card"
 				W.icon_state = "centcom"
 				W.access = get_all_accesses()
+				W.access += get_all_centcom_access()
 				W.assignment = "Commander"
 				W.registered_name = L.real_name
 			L.loc = pick(scomspawn1)
 			L << ("\red You are the Commander of the S-COM forces. You are expected to control all local aspects of your S-COM base, research, medical, supply and tactical. You should not attend combat missions yourself, unless you have no other option. Your goal is to ensure the project runs smoothly. You report only to the Council and its members. Good luck, the fate of the galaxy rests on your frail shoulders.")
 
 		else if(L.job in list("Research Director", "Scientist"))
-			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
+			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(L), slot_l_ear)
 			L.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(L), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/device/pda/science(L), slot_belt)
@@ -142,6 +145,7 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 				W.name = "[L.real_name]'s ID Card"
 				W.icon_state = "centcom"
 				W.access = get_all_accesses()
+				W.access += get_all_centcom_access()
 				W.assignment = "Researcher"
 				W.registered_name = L.real_name
 			L.loc = pick(scomspawn2)
@@ -172,8 +176,8 @@ proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dre
 */
 
 		else
-			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(L), slot_l_ear)
-			L.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom(L), slot_w_uniform)
+			L.equip_to_slot_or_del(new /obj/item/device/radio/headset(L), slot_l_ear)
+			L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(L), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(L), slot_shoes)
 			L.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(L), slot_gloves)
 			L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)
