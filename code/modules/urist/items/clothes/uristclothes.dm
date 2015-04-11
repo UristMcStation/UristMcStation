@@ -495,7 +495,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
 	icon_state = "tajcoat_open"
 
-/obj/item/clothing/suit/storage/urist/journocoat
+/obj/item/clothing/suit/storage/urist/coat/journocoat
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
 	icon_state = "browncoat_closed" //non-togglable
