@@ -113,6 +113,12 @@
 	hidden = 1
 	resources = 800
 
+/datum/scomscience/recipe/sportscar
+	name = "Sports car"
+	path = /obj/vehicle/train/cargo/engine/sportscar
+	category = "Vehicles"
+	resources = 2000
+
 //tier 2 - lets have everything here by five missions in.
 
 datum/scomscience/recipe/lsniper

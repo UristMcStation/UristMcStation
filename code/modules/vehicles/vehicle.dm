@@ -35,6 +35,8 @@
 	var/load_offset_x = 0		//pixel_x offset for item overlay
 	var/load_offset_y = 0		//pixel_y offset for item overlay
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
+	var/mob_offset_x = 0		//pixel_x offset for mob overlay
+
 
 //-------------------------------------------
 // Standard procs
@@ -296,6 +298,9 @@
 		else
 			C.pixel_y += load_offset_y
 		C.layer = layer + 0.1		//so it sits above the vehicle
+
+	if(mob_offset_x)
+		C.pixel_x += mob_offset_x
 
 	if(ismob(C))
 		var/mob/M = C
