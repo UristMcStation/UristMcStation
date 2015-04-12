@@ -10,13 +10,11 @@ vactor - Host
 glloyd - Head Admin
 Nienhaus2 - Game Master
 hanspanda - Game Master
-jacob_lee - Game Master
 CoraiUnki - Game Master
 #Aedel
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
-Knoxon - Game Master
 Rabidgam3r - Game Master
 
 TGameCo - Coder
