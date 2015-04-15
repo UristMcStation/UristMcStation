@@ -41,13 +41,14 @@
 		if("Yes")
 			world << "/red \b Mothership self-destruct sequence activated. Three minutes until detonation."
 			sleep(1800)
-			for(var/mob/living/M in /area/scom/mission/nolighting || /area/scom/mission/lighting)
+			for(var/mob/living/M in /area/scom/mission/nolighting)
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
 				M << ("\red The explosion tears you apart!")
 //			sleep(2000)
 			sploded = 1
 
 /obj/item/scom/aliengun
+	name = "alien weapon"
 	icon = 'icons/urist/items/uristweapons.dmi'
 
 /obj/item/scom/aliengun/a1
@@ -61,11 +62,11 @@
 	scommoney = 250
 
 /obj/item/scom/aliengun/a3
-	scomtechlvl = 6
+	scomtechlvl = 4
 	scommoney = 600
 	icon_state = "alienrifle"
 
 /obj/item/scom/aliengun/a4
-	scomtechlvl = 7
+	scomtechlvl = 6
 	scommoney = 1000
 	icon_state = "alienrifle" //temp

@@ -15,6 +15,7 @@
 	density = 1
 	anchored = 1
 	bound_width = 64
+	var/animation_state = "science_o"
 	var/list/machine_recipes
 
 	var/scomtechlvl = 0
@@ -24,6 +25,9 @@
 
 	var/panel_open = 0
 	var/busy = 0
+
+	var/novehicles = 0
+	var/science_capable = 1
 
 /obj/machinery/scom/scomscience/proc/update_recipe_list()
 	if(!machine_recipes)
@@ -63,6 +67,10 @@
 				if(R.scomtechlvl <= scomtechlvl)
 					R.hidden = 0
 					can_make = 0
+
+				if(novehicles && R.category == "Vehicles")
+					R.hidden = 0
+					can_make = 0
 				else
 					material_string += ", "
 				material_string += "[R.resources] dollars CUNT"
@@ -79,6 +87,10 @@
 		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
 		return
 
+	if(!science_capable)
+		user << "<span class='notice'>\The [src] is not designed for deconstruction!.</span>"
+		return
+
 	if(O.scomtechlvl <= scomtechlvl)
 		scommoney = (scommoney + O.scommoney)
 		return
@@ -86,11 +98,20 @@
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
-	for(var/obj/machinery/scom/scomscience/S in /area/centcom/scom)
+	for(var/obj/machinery/scom/scomscience/S in machines)
 		if(S.scomtechlvl < scomtechlvl)
 			S.scomtechlvl = scomtechlvl
 
-	flick("science_o",src)
+		else if(scomtechlvl < S.scomtechlvl)
+			scomtechlvl = S.scomtechlvl
+
+		if(S.scommoney < scommoney)
+			S.scommoney = scommoney
+
+		else if(scommoney < S.scommoney)
+			scommoney = S.scommoney
+
+	flick("[animation_state]",src)
 
 	user.drop_item(O)
 	del(O)
@@ -152,7 +173,7 @@
 			scommoney = scommoney - making.resources
 
 
-		flick("science_o",src)
+		flick("[animation_state]",src)
 
 		sleep(50)
 
@@ -165,3 +186,20 @@
 		new making.path(get_step(loc, get_dir(src,usr)))
 
 	updateUsrDialog()
+
+/obj/machinery/scom/scomscience/vehicles
+	name = "vehicle fabricator"
+	show_category = "Vehicles"
+	science_capable = 0
+	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon_state = "drone_fab_idle"
+	animation_state = "h_lathe_leave"
+
+/obj/machinery/scom/scomscience/squad
+	name = "squad fabricator"
+	bound_width = 32
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	animation_state = "science_o"
+	novehicles = 1
+	science_capable = 0
+
