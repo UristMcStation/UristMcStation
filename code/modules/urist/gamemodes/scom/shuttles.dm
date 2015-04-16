@@ -27,7 +27,7 @@
 	shuttle_tag = "SCOM2"
 
 /datum/shuttle/ferry/scom
-	var/missiontime = 2400 //3000 //5 minutes. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
+	var/missiontime = 4400 //3000 //(5) //7 minutes. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
 	var/missionannounce = "shit's fucked yo"

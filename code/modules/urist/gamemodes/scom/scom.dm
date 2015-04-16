@@ -67,9 +67,9 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		world << "<FONT size = 3><B>S-COM has won!</B></FONT>"
 		world << "<B>The alien presence in Nyx has been eradicated!</B>"
 
-		world << "\blue Rebooting in 30s"
+//		world << "\blue Rebooting in 30s"
 		..()
 
-		sleep(300)
-		world.Reboot()
+//		sleep(300)
+//		world.Reboot()
 
