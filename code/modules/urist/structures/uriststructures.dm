@@ -46,6 +46,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sign leading to Escape."
 	icon_state = "esc"
 
+/obj/structure/sign/urist/deptsigns/arm
+	desc = "A sign leading to the Armory."
+	icon_state = "arm"
+
+/obj/structure/sign/urist/deptsigns/shut
+	desc = "A sign leading to the shuttles."
+	icon_state = "shut"
+
+/obj/structure/sign/urist/deptsigns/squads
+	desc = "A sign showing the squad number."
+	icon_state = "squads"
+
 //nt4lyfe
 
 /obj/structure/sign/urist/nt

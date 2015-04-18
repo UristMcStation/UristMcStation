@@ -149,3 +149,26 @@
 		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
 		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
 		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+
+/obj/item/weapon/grenade/chem_grenade/heal2
+	name = "light healing grenade"
+	path = 1
+	stage = 2
+
+/obj/item/weapon/grenade/chem_grenade/heal2/New()
+		..()
+		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+		B1.reagents.add_reagent("inaprovaline", 10)
+		B1.reagents.add_reagent("potassium", 32)
+		B1.reagents.add_reagent("sugar", 17)
+		B2.reagents.add_reagent("paracetemol", 6)
+		B2.reagents.add_reagent("sugar", 15)
+		B2.reagents.add_reagent("phosphorus", 32)
+
+		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+		beakers += B1
+		beakers += B2
+
+		icon_state = "grenade"
