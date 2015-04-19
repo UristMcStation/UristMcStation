@@ -70,7 +70,7 @@
 
 /obj/mecha/working/cvrt/upgraded/New() //only two passengers, because lasers take up more space or something like that
 	..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
