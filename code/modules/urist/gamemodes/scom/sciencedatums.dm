@@ -252,12 +252,13 @@ datum/scomscience/recipe/lsniper
 
 //vehicles
 
-/*/datum/scomscience/recipe/fourwheel
+/datum/scomscience/recipe/fourwheel
 	name = "Four wheeler"
 	path = /obj/vehicle/train/cargo/engine/fourwheeler
 	category = "Vehicles"
+	scomtechlvl = 1
 	hidden = 1
-	resources = 800*/
+	resources = 1000
 
 /datum/scomscience/recipe/cvrt2
 	name = "CVR"

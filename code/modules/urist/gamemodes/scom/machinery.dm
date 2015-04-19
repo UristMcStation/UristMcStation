@@ -28,6 +28,7 @@
 
 	var/novehicles = 0
 	var/science_capable = 1
+	var/vehiclesonly = 0
 
 /obj/machinery/scom/scomscience/proc/update_recipe_list()
 	if(!machine_recipes)
@@ -66,14 +67,18 @@
 
 				if(R.scomtechlvl <= scomtechlvl)
 					R.hidden = 0
-					can_make = 0
+					//can_make = 0
 
 				if(novehicles && R.category == "Vehicles")
-					R.hidden = 0
+					R.hidden = 1
+					can_make = 0
+
+				if(vehiclesonly && R.category != "Vehicles")
+					R.hidden = 1
 					can_make = 0
 				else
 					material_string += ", "
-				material_string += "[R.resources] dollars CUNT"
+				material_string += "[R.resources] dollars"
 		multiplier_string = "<a href='?src=\ref[src];make=[index]'>\</a>"
 		dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
 
@@ -93,12 +98,11 @@
 
 	if(O.scomtechlvl <= scomtechlvl)
 		scommoney = (scommoney + O.scommoney)
-		return
 
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
-	for(var/obj/machinery/scom/scomscience/S in machines)
+	for(var/obj/machinery/scom/scomscience/S in world)
 		if(S.scomtechlvl < scomtechlvl)
 			S.scomtechlvl = scomtechlvl
 
@@ -170,7 +174,8 @@
 			return
 
 		if(scommoney >= making.resources)
-			scommoney = scommoney - making.resources
+			for(var/obj/machinery/scom/scomscience/S in world)
+				S.scommoney = scommoney - making.resources
 
 
 		flick("[animation_state]",src)
@@ -194,6 +199,7 @@
 	icon = 'icons/obj/machines/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 	animation_state = "h_lathe_leave"
+	vehiclesonly = 1
 
 /obj/machinery/scom/scomscience/squad
 	name = "squad fabricator"
@@ -203,3 +209,81 @@
 	novehicles = 1
 	science_capable = 0
 
+/obj/machinery/scom/classchanger
+	name = "Class-O-Matic 9000"
+	desc = "This allows you to choose your class as an S-COM operative"
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "squad"
+	anchored = 1
+	density = 1
+
+/obj/machinery/scom/classchanger/attack_hand(mob/living/carbon/user)
+	for (var/obj/item/weapon/card/id/W in user)
+		if(W.assignment == "S-COM Operative")
+			var/want = input("Which class would you like to be?", "Your Choice", "Cancel") in list ("Cancel", "Heavy", "Assault", "Medic", "Sniper")
+			switch(want)
+				if("Cancel")
+					return
+
+				if("Heavy")
+					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
+					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/ammo_magazine/c45(src.loc)
+					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
+					new /obj/item/weapon/storage/box/lmgammo(src.loc)
+					W.assignment = "S-COM Heavy Operative"
+
+				if("Assault")
+					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
+					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/ammo_magazine/c45(src.loc)
+					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
+					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
+					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
+					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
+					W.assignment = "S-COM Assault Operative"
+
+				if("Medic")
+					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/medic(user), slot_wear_suit)
+					user.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(user), slot_glasses)
+					new /obj/item/bodybag/cryobag(src.loc)
+					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
+					new /obj/item/weapon/storage/box/c20ammo(src.loc)
+					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
+					new /obj/item/ammo_magazine/c45(src.loc)
+					new /obj/item/weapon/storage/firstaid/adv(src.loc)
+					W.assignment = "S-COM Combat Medic"
+
+				if("Sniper")
+					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/jacket(user), slot_wear_suit)
+					new /obj/item/ammo_magazine/a50(src.loc)
+					new /obj/item/ammo_magazine/a50(src.loc)
+					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/storage/box/sniperammo(src.loc)
+					W.assignment = "S-COM Sniper"
+
+			user.regenerate_icons()
+
+		else
+			return
+
+/obj/machinery/scom/teleporter1
+	icon_state = "tele1"
+	name = "teleporter"
+	anchored = 1
+	density = 1
+
+/obj/machinery/scom/teleporter1/attack_hand(var/atom/movable/A)
+	for(var/obj/machinery/scom/teleporter2/T in world)
+		A.x = T.x
+		A.y = T.y
+		A.z = T.z
+
+/obj/machinery/scom/teleporter2
+	icon_state = "tele1"
+	name = "teleporter"
+	anchored = 1

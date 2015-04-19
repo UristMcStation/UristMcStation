@@ -68,6 +68,7 @@
 	max_shells = 10
 	caliber = "7.62mm"
 	ammo_type ="/obj/item/ammo_casing/a762mm"
+	slot_flags = SLOT_BACK
 	load_method = 2
 	zoomdevicename = "scope"
 	scommoney = 100

@@ -20,7 +20,7 @@ var/list/scomspawn3 = list()
 	var/declared = 0
 	var/scommapsloaded = 0
 
-/datum/game_mode/announce() //guys, are my comments informative yet?
+/datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
 	world << "<B>In response to the current galactic crisis, the major powers have banded together to form a group opposed to the alien menace. As a member of that elite force, it is your job to save the galaxy. No pressure.</B>"
 
