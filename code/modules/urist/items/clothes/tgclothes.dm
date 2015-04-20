@@ -40,7 +40,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/shoes/roman
 	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_override = 'icons/uristmob/shoes.dmi'
 	name = "roman sandals"
 	icon = 'icons/urist/items/tgitems.dmi'
 	desc = "Sandals with buckled leather straps on it."
