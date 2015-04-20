@@ -45,14 +45,20 @@
 		return
 
 	var/list/modifiers = params2list(params)
-	if(modifiers["middle"])
-		MiddleClickOn(A)
+	if(("ctrl" in modifiers) && ("middle" in modifiers))
+		MiddleCtrlClickOn(A)
 		return
 	if(modifiers["shift"])
 		ShiftClickOn(A)
 		return
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
 		AltClickOn(A)
+		return
+/*	if(modifiers["ctrl", "middle"])
+		MiddleCtrlClickOn(A)
+		return*/
+	if(modifiers["middle"])
+		MiddleClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
@@ -344,3 +350,18 @@
 		else		direction = WEST
 	if(direction != dir)
 		facedir(direction)
+
+//middlectrlclick point
+
+/mob/proc/MiddleCtrlClickOn(var/atom/A)
+	A.MiddleCtrlClick(src)
+	return
+
+/atom/proc/MiddleCtrlClick(var/mob/user) //we need to have a cooldown so we don't have people spamming point
+	user.pointed(src)
+	return
+
+
+
+
+

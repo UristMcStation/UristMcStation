@@ -248,6 +248,8 @@ var/list/slot_equipment_priority = list( \
 
 	var/obj/P = new /obj/effect/decal/point(tile)
 	P.invisibility = invisibility
+	P.pixel_x = A.pixel_x
+	P.pixel_y = A.pixel_y
 	spawn (20)
 		if(P)
 			del(P)	// qdel
