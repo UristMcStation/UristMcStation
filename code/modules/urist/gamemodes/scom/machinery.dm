@@ -38,10 +38,10 @@
 
 	update_recipe_list()
 
-	var/dat = "<center><h1>Autolathe Control Panel</h1><hr/>"
+	var/dat = "<center><h1>Control Panel</h1><hr/>"
 
 	dat += "<table width = '100%'>"
-	dat += "Money - [scommoney]</tr> Tech Level - [scomtechlvl]</tr></table><hr>"
+	dat += "Money - $[scommoney]</tr> Tech Level - [scomtechlvl]</tr></table><hr>"
 	dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
 
 	var/index = 0
@@ -49,38 +49,20 @@
 		index++
 		if(R.hidden && R.scomtechlvl > scomtechlvl || (show_category != "All" && show_category != R.category))
 			continue
-//		if(scomtechlvl == R.scomtechlvl)
+		if(novehicles && R.category == "Vehicles" || vehiclesonly && R.category != "Vehicles")
+			continue
 		var/can_make = 1
-		var/material_string = ""
-		var/multiplier_string = ""
-//		var/max_sheets
-		var/comma
-		if(!R.resources)
-			material_string = "No resources required.</td>"
-		else
-			//Make sure it's buildable and list required resources.
-			for(var/scommoney in R.resources)
-				if(!isnull(scommoney) && scommoney < R.resources[scommoney])
-					can_make = 0
-				if(!comma)
-					comma = 1
+		var/material_string = "$[R.resources]"
 
-				if(R.scomtechlvl <= scomtechlvl)
-					R.hidden = 0
-					//can_make = 0
+		//Make sure it's buildable and list required resources.
+		for(var/scommoney in R.resources)
+			if(!isnull(scommoney) && scommoney < R.resources[scommoney])
+				can_make = 0
 
-				if(novehicles && R.category == "Vehicles")
-					R.hidden = 1
-					can_make = 0
+			if(R.scomtechlvl <= scomtechlvl)
+				R.hidden = 0
 
-				if(vehiclesonly && R.category != "Vehicles")
-					R.hidden = 1
-					can_make = 0
-				else
-					material_string += ", "
-				material_string += "[R.resources] dollars"
-		multiplier_string = "<a href='?src=\ref[src];make=[index]'>\</a>"
-		dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
+		dat += "<tr><td width = 180><b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b></td><td align = right>[material_string]</tr>"
 
 	dat += "</table><hr>"
 
@@ -229,7 +211,7 @@
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
 					new /obj/item/clothing/tie/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45(src.loc)
-					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
 					new /obj/item/weapon/storage/box/lmgammo(src.loc)
 					W.assignment = "S-COM Heavy Operative"
@@ -239,7 +221,7 @@
 					new /obj/item/clothing/tie/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45(src.loc)
 					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
-					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
@@ -262,8 +244,9 @@
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/clothing/tie/storage/black_vest(src.loc)
-					new/obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/sniperammo(src.loc)
+					new /obj/item/weapon/gun/projectile/sniper(src.loc)
 					W.assignment = "S-COM Sniper"
 
 			user.regenerate_icons()
@@ -277,7 +260,7 @@
 	anchored = 1
 	density = 1
 
-/obj/machinery/scom/teleporter1/attack_hand(var/atom/movable/A)
+/obj/machinery/scom/teleporter1/attack_hand(var/mob/living/carbon/A)
 	for(var/obj/machinery/scom/teleporter2/T in world)
 		A.x = T.x
 		A.y = T.y
