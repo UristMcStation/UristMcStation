@@ -292,15 +292,13 @@
 	load = C
 
 	if(load_item_visible)
-		C.pixel_x += load_offset_x
-		if(ismob(C))
+		if(ismob(C) && mob_offset_x != 0 && mob_offset_y != 0) //if the offset is not set, use load offset
+			C.pixel_x += mob_offset_x
 			C.pixel_y += mob_offset_y
 		else
+			C.pixel_x += load_offset_x
 			C.pixel_y += load_offset_y
 		C.layer = layer + 0.1		//so it sits above the vehicle
-
-	if(mob_offset_x)
-		C.pixel_x += mob_offset_x
 
 	if(ismob(C))
 		var/mob/M = C
