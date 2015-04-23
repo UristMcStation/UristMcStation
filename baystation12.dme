@@ -1607,6 +1607,7 @@
 #include "code\modules\urist\structures\uriststructures.dm"
 #include "code\modules\urist\vehicles\fourwheel.dm"
 #include "code\modules\urist\vehicles\motorcycle.dm"
+#include "code\modules\urist\vehicles\sportscar.dm"
 #include "code\modules\urist\verbs\antagooc.dm"
 #include "code\modules\vehicles\cargo_train.dm"
 #include "code\modules\vehicles\train.dm"
