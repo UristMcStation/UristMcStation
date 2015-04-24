@@ -20,7 +20,7 @@
 	var/path
 	var/resources = 0
 	var/scomtechlvl = 0
-	var/category
+	var/category = "All"
 	var/power_use = 0
 	var/hidden
 
@@ -109,7 +109,6 @@
 	name = "Motorcycle"
 	path = /obj/vehicle/train/cargo/engine/motorcycle_4dir
 	category = "Vehicles"
-	hidden = 1
 	resources = 800
 
 //tier 2 - lets have everything here by 3 missions in.
