@@ -112,7 +112,7 @@
 	name = "Lactera Heavy Trooper"
 	rapid = 1
 	projectiletype = /obj/item/projectile/beam/scom/alien2
-	maxHealth = 120
+	maxHealth = 150
 	health = 120
 	icon_living = "liz3"
 	icon_dead = "liz3_dead"
@@ -122,8 +122,8 @@
 	icon_state = "liz4"
 	name = "Lactera Officer"
 	projectiletype = /obj/item/projectile/beam/scom/alien3
-	maxHealth = 160
-	health = 160
+	maxHealth = 200
+	health = 200
 	icon_living = "liz4"
 	icon_dead = "liz4_dead"
 	weapon1 = /obj/item/scom/aliengun/a4
@@ -177,5 +177,4 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	..()
 	if(weapon1)
 		new weapon1 (src.loc)
-	del src
 	return
