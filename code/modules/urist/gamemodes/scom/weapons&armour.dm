@@ -4,9 +4,9 @@
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "gun" //temp
+	icon_state = "psniper"
+	item_state = "psniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = "combat=6;materials=5;powerstorage=4"
 	projectile_type = /obj/item/projectile/beam/sniper/pulse
 	slot_flags = SLOT_BACK
 	charge_cost = 250
@@ -17,8 +17,8 @@
 	name = "pulse rifle"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "pulsepist"
-	item_state = "gun"	//temp
+	icon_state = "pulse_pistol"
+	item_state = "pulse_pistol"
 	force = 7
 	fire_sound = 'sound/weapons/pulse.ogg'
 	charge_cost = 150
@@ -30,8 +30,8 @@
 	name = "pulse rifle"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "pulsecannon"
-	item_state = "gun"	//temp
+	icon_state = "pulse_cannon"
+	item_state = "pulse_cannon"
 	force = 12
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
@@ -43,8 +43,8 @@
 	name = "laser carbine"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "laser"
-	item_state = "gun" //temp
+	icon_state = "lpistol"
+	item_state = "lpistol"
 	w_class = 2.0
 	projectile_type = /obj/item/projectile/beam/light
 
@@ -53,7 +53,7 @@
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "lrifle"
-	item_state = "laser" //temp
+	item_state = "lrifle"
 	w_class = 3.0
 	projectile_type = /obj/item/projectile/beam //maybe change this
 
@@ -245,7 +245,31 @@
 		)
 
 /obj/item/clothing/under/urist/scom
-	name = "S-COM operative's outfit."
+	name = "S-COM operative's outfit"
 	desc = "The outfit of an S-COM Operative."
 	icon_state = "scom"
 	item_color = "scom"
+
+/obj/item/clothing/under/urist/scom/s1
+	name = "S-COM Squad 1 outfit"
+	desc = "The outfit of an S-COM Operative from Squad 1."
+	icon_state = "scom1"
+	item_color = "scom1"
+
+/obj/item/clothing/under/urist/scom/s2
+	name = "S-COM Squad 2 outfit"
+	desc = "The outfit of an S-COM Operative from Squad 2."
+	icon_state = "scom2"
+	item_color = "scom2"
+
+/obj/item/clothing/under/urist/scom/s3
+	name = "S-COM Squad 3 outfit"
+	desc = "The outfit of an S-COM Operative from Squad 3."
+	icon_state = "scom3"
+	item_color = "scom3"
+
+/obj/item/clothing/under/urist/scom/s4
+	name = "S-COM Squad 4 outfit"
+	desc = "The outfit of an S-COM Operative from Squad 4."
+	icon_state = "scom4"
+	item_color = "scom4"
