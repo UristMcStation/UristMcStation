@@ -177,4 +177,6 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	..()
 	if(weapon1)
 		new weapon1 (src.loc)
+	flick("fire", src)
+	del(src)
 	return
