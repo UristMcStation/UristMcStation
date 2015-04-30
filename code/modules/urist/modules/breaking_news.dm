@@ -50,9 +50,11 @@
 		if(5) //May
 			switch(DD)
 				if(1)							BNews = "Labour protests erupt accross dozens of Nanotrasen colonies as concerns about losing jobs to refugees from the current galactic crisis rises."
-				if(2)							BNews = "Labour protests enter the second day, and conflict between refugees and protestors has been reported."
+				if(2)							BNews = "Citizens of Tau Ceti. I speak with you today, not as a newscaster, not as a representative of Nanotrasen, but as a fellow sapient. It can no longer be said that these attacks over the last Earth month have been isolated, and I cannot in good conscience say that the attacks will be over soon. What began as a series of isolated attacks in the Outer Rim has become a galactic crisis. We've lost contact with a number of important systems, and not solely Nanotrasen ones. All citizens of the Milky Way galaxy have been affected by this crisis. In times like this, we need to put petty differences aside, and band together to halt this crisis. This is Chet Jonaheus, NNN, signing off."
+				if(3)							BNews = "Labour protests enter the second day, and conflict between refugees and protestors has been reported."
 				if(4)							BNews = "As what is now being called the Galactic Crisis enters its second month, questions are abound as to how the refugees from affected systems will be dealt with. As the recent labour protests show, the current lassaiz faire attitudes need to change."
 				if(5)							BNews = "After a response by Nanotrasen that protesters are calling heavy-handed and Nanotrasen is calling just, the majority of labour protests have ended."
+				if(7)							BNews = "Sporadic fighting has been reported in the Ryclies system. It appears that a small alien contingent has attacked Terran Confederacy forces operating in the area. Death tolls are as yet unknown."
 				if(11)							BNews = "All labour protests across Nanotrasen controlled areas have come to an end after a series of conflicts between Nanotrasen forces and protestors. This, coupled with the Galactic Crisis has led some to speculate that we are entering a Second Age of Discord."
 
 		if(6) //June
