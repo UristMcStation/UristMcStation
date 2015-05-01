@@ -4,12 +4,12 @@
 	var/difflevel = 0
 //	invisibility = 101
 
-///obj/effect/landmark/scom/enemyspawn/New()
-//	invisibility = 101
-//	return
+/obj/effect/landmark/scom/enemyspawn/New()
+	invisibility = 101
+	return
 
 /obj/effect/landmark/scom/enemyspawn/proc/spawnmobs() //we call this when the shuttle does the thing with the stuff
-	if(difflevel == missiondiff)
+	if(difflevel <= missiondiff)
 		if(spawntype == 0)
 			new /mob/living/simple_animal/hostile/alien/drone(src.loc)
 			new /mob/living/simple_animal/hostile/alien/drone(src.loc)
@@ -50,8 +50,8 @@
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
 		//else if(spawntype == 100) //civs temporarily removed
-//	world << "SPAWNED"
-	del(src)
+//		world << "SPAWNED"
+		del(src)
 
 
 /obj/effect/landmark/scom/enemyspawn/easy
@@ -93,9 +93,6 @@
 /obj/effect/landmark/scom/enemyspawn/easy/m8
 	mission = 8
 
-/obj/effect/landmark/scom/enemyspawn/easy/m10
-	mission = 10
-
 /obj/effect/landmark/scom/enemyspawn/norm/m1
 	mission = 1
 
@@ -119,9 +116,6 @@
 
 /obj/effect/landmark/scom/enemyspawn/norm/m8
 	mission = 8
-
-/obj/effect/landmark/scom/enemyspawn/norm/m10
-	mission = 10
 
 /obj/effect/landmark/scom/enemyspawn/hard/m1
 	mission = 1
@@ -147,9 +141,6 @@
 /obj/effect/landmark/scom/enemyspawn/hard/m8
 	mission = 8
 
-/obj/effect/landmark/scom/enemyspawn/hard/m10
-	mission = 10
-
 /obj/effect/landmark/scom/enemyspawn/harder/m1
 	mission = 1
 
@@ -173,6 +164,3 @@
 
 /obj/effect/landmark/scom/enemyspawn/harder/m8
 	mission = 8
-
-/obj/effect/landmark/scom/enemyspawn/harder/m10
-	mission = 10

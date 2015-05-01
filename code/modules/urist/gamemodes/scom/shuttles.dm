@@ -1,8 +1,6 @@
-//TODO - make the other shuttle launch() if the other one hasn't, make mission announce go only once
-
 /obj/machinery/computer/shuttle_control/scom
 	name = "S-COM shuttle console"
-//	shuttle_tag = "SCOM"
+	shuttle_tag = "SCOM1"
 	var/fuckoff = 1
 
 /obj/machinery/computer/shuttle_control/scom/attack_hand(mob/user as mob)
@@ -10,7 +8,7 @@
 		user << "<span class='notice'>You're not on a mission yet!!</span>"
 		return
 	else
-		for(var/mob/living/simple_animal/hostile/M in /area/scom/mission)
+		for(var/mob/living/simple_animal/hostile/M in world)
 			if(!M.stat)
 				user << "<span class='notice'>There are still aliens left alive!</span>"
 				return
@@ -21,31 +19,23 @@
 
 		..()
 
-/obj/machinery/computer/shuttle_control/scom/s1
-	shuttle_tag = "SCOM1"
-
-/obj/machinery/computer/shuttle_control/scom/s2
-	shuttle_tag = "SCOM2"
-
 /datum/shuttle/ferry/scom
 	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch). I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
 	var/missionannounce = "shit's fucked yo"
-//	var/scomshuttle = 0
+//	var/missionarea = /area/scom/mission/nolighting //temp
 
 /datum/shuttle/ferry/scom/s1
 	missionloc = /area/shuttle/scom/s1/mission0
-//	scomshuttle = 1
 
 /datum/shuttle/ferry/scom/s2
 	missionloc = /area/shuttle/scom/s2/mission0
-//	scomshuttle = 2
 
-/datum/shuttle/ferry/scom/s1/arrived() //well, datum based missions are here to stay, no more of that horrible tree of else ifs. now i just need to condense these into 1
+/datum/shuttle/ferry/scom/s1/arrived()
 	if(location == 0)
 
-		for(var/obj/machinery/computer/shuttle_control/scom/s1/SC in area_station)
+		for(var/obj/machinery/computer/shuttle_control/scom/SC in world)
 			SC.fuckoff = 1
 
 		for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
@@ -68,13 +58,12 @@
 		launch()
 
 	else if(location == 1)
-		for(var/obj/machinery/computer/shuttle_control/scom/s1/SC in area_offsite)
+		for(var/obj/machinery/computer/shuttle_control/scom/SC in world)
 			SC.fuckoff = 0
 
-		for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
-			var/obj/effect/landmark/scom/enemyspawn/S = new R
-			if(mission == S.mission)
-				S.spawnmobs()
+		for(var/obj/effect/landmark/scom/enemyspawn/R in world)
+			if(mission == R.mission)
+				R.spawnmobs()
 
 		for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
 			if(C.location == 0)
@@ -82,7 +71,7 @@
 				command_announcement.Announce("Shuttle 2 has been launched automatically.", "S-COM Shuttle Control")
 	return
 
-/datum/shuttle/ferry/scom/s2/arrived() //well, datum based missions are here to stay, no more of that horrible tree of else ifs. now i just need to condense these into 1
+/datum/shuttle/ferry/scom/s2/arrived()
 	if(location == 0)
 		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 			if(C.location == 1)
@@ -94,27 +83,17 @@
 			var/datum/scommissions/S = new R
 			if(mission == S.mission)
 				missionloc = S.missionloc2
-		for(var/obj/machinery/computer/shuttle_control/scom/s2/SC in area_station)
-			SC.fuckoff = 1
-
-		spawn(missiontime)
-
-		for(var/obj/machinery/computer/shuttle_control/scom/s2/SC in area_station)
-			SC.fuckoff = 0
-
-
 
 	else if(location == 1)
 		for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
 			var/obj/effect/landmark/scom/enemyspawn/S = new R
 			if(mission == S.mission)
 				S.spawnmobs()
-
 				del(S)
+
 		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 			if(C.location == 0)
 				C.launch()
 				command_announcement.Announce("Shuttle 1 has been launched automatically.", "S-COM Shuttle Control")
-
 
 	return
