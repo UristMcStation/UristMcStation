@@ -56,6 +56,7 @@ var/list/scomspawn3 = list()
 	populate_scomscience_recipes()
 
 	ScomTime()
+	ScomRobotTime()
 
 /datum/game_mode/scom/process()
 	if(sploded == 1 && !declared)
