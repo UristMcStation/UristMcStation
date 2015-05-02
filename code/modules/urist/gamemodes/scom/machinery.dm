@@ -266,6 +266,12 @@
 		A.y = T.y
 		A.z = T.z
 
+/obj/machinery/scom/teleporter1/Bumped(var/mob/living/carbon/A)
+	for(var/obj/machinery/scom/teleporter2/T in world)
+		A.x = T.x
+		A.y = T.y
+		A.z = T.z
+
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"
 	name = "teleporter"

@@ -68,13 +68,17 @@
 	deflect_chance = 20
 	damage_absorption = list("brute"=0.5,"fire"=1.1,"bullet"=0.65,"laser"=0.85,"energy"=0.9,"bomb"=0.8) //and move up to a durand
 
-/obj/mecha/working/cvrt/upgraded/New() //only two passengers, because lasers take up more space or something like that
+/obj/mecha/working/cvrt/upgraded/New()
 	..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
-	ME = new/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
 	ME.attach(src)
 
 /obj/effect/decal/mecha_wreckage/cvrt

@@ -44,6 +44,7 @@
 			for(var/mob/living/M in /area/scom/mission/nolighting)
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
 				M << ("\red The explosion tears you apart!")
+				M.gib()
 //			sleep(2000)
 			sploded = 1
 
