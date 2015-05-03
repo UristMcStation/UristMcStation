@@ -185,6 +185,8 @@
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 
+	req_access = null
+
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -197,6 +199,8 @@
 	desc = "A suit worn by the security division of a NanoTrasen Emergency Response Team. Has red highlights. Armoured and space ready."
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
+
+	req_access = null
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

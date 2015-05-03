@@ -52,9 +52,15 @@
 
 		spawn(missiontime)
 		command_announcement.Announce("[missionannounce]", "S-COM Mission Command")
-		spawn(50)
+
+		spawn(missiontime + 50)
 		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleportes in the hanger bay.", "S-COM Shuttle Control")
-		spawn(1200)//2 mins
+
+		spawn(missiontime + 1250)
+
+		command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
+
+		spawn(missiontime + 1300)
 		launch()
 
 	else if(location == 1)

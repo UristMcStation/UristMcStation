@@ -48,9 +48,9 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
-//	will_help = 0
-//	can_heal = 0
-//	will_flee = 0
+	will_help = 0
+	can_heal = 0
+	will_flee = 0
 
 /*/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
@@ -76,7 +76,6 @@
 								return
 						M.target = target
 			return*/
-
 
 /mob/living/simple_animal/hostile/scom/lactera
 	will_help = 1
@@ -178,5 +177,6 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	if(weapon1)
 		new weapon1 (src.loc)
 	flick("fire", src)
+	sleep(5)
 	del(src)
 	return

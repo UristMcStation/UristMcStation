@@ -50,6 +50,8 @@
 /area/shuttle/scom
 	name = "\improper S-COM shuttle"
 	icon_state = "shuttle"
+	requires_power = 0
+	unlimited_power = 1
 
 /area/shuttle/scom/s1/base //todo, maybe make a mission var here to reduce this path spam
 
@@ -71,12 +73,6 @@
 
 /area/shuttle/scom/s1/mission7
 
-/area/shuttle/scom/s1/mission8
-
-/area/shuttle/scom/s1/mission9
-
-/area/shuttle/scom/s1/mission10
-
 /area/shuttle/scom/s2/base
 
 /area/shuttle/scom/s2/mission
@@ -96,9 +92,3 @@
 /area/shuttle/scom/s2/mission6
 
 /area/shuttle/scom/s2/mission7
-
-/area/shuttle/scom/s2/mission8
-
-/area/shuttle/scom/s2/mission9
-
-/area/shuttle/scom/s2/mission10
