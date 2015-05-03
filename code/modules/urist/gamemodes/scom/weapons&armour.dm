@@ -1,6 +1,7 @@
 //we're using pre-existing stuff for the most part, but here's some stuff to complete the three tiers
 
 /obj/item/weapon/gun/energy/sniperrifle/pulse
+	urist_only = 1
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -14,6 +15,7 @@
 	w_class = 3.0
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
+	urist_only = 1
 	name = "pulse rifle"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -27,6 +29,7 @@
 	w_class = 2.0
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon
+	urist_only = 1
 	name = "pulse rifle"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -40,6 +43,7 @@
 	w_class = 4.0
 
 /obj/item/weapon/gun/energy/laser/pistol
+	urist_only = 1
 	name = "laser carbine"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -49,6 +53,7 @@
 	projectile_type = /obj/item/projectile/beam/light
 
 /obj/item/weapon/gun/energy/laser/rifle
+	urist_only = 1
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -88,6 +93,13 @@
 			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
 			update_icon()
 		return
+
+/obj/item/weapon/gun/projectile/sniper/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	zoom()
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()
