@@ -1,12 +1,12 @@
 /obj/vehicle/train/cargo/engine/fourwheeler //make this hold passengers
-	name = "fourwheeler"
+	name = "four-wheeler"
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
-	icon_state = "fourwheel"
+	icon_state = "4wheeler"
 	emagged = 0
 	mob_offset_y = 6
 	load_offset_x = 0
-	health = 200
+	health = 300
 	charge_use = 0
 
 	proc/update_dir_fourwheel_overlays()

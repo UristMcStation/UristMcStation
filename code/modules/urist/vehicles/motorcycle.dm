@@ -6,7 +6,7 @@
 	emagged = 0
 	mob_offset_y = 6
 	load_offset_x = 0
-	health = 100
+	health = 150
 	charge_use = 0
 
 	proc/update_dir_motorcycle_overlays()
