@@ -1,7 +1,7 @@
 //TODO: move mobs to a human damage system, add "crazy" mob, add "caller" mob.
 //see civilian_mobs.dm for friendly NPCs //removed temporarily because runtimes
 
-/mob/living/simple_animal/hostile/proc/HealBitches()
+/*/mob/living/simple_animal/hostile/proc/HealBitches()
 	stop_automated_movement = 1
 //	world << "IM BEING CALLED"
 	if(!target_mob)
@@ -27,7 +27,7 @@
 
 	spawn(20)
 
-	stance = HOSTILE_STANCE_IDLE
+	stance = HOSTILE_STANCE_IDLE*/
 
 /mob/living/simple_animal/hostile/scom
 	response_help = "pokes"
@@ -48,34 +48,37 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
-	will_help = 0
-	can_heal = 0
-	will_flee = 0
+	var/will_help = 0
+	var/can_heal = 0
+	var/will_flee = 0
 
-/*/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
+/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
 		if(isliving(target))
 			Aggro()
 			stance = HOSTILE_STANCE_ATTACK
 
-			if(health <= 10 && will_flee)
+			if(health <= 15 && will_flee)
 				visible_message("<span class='danger'>The [src.name] tries to flee from [target.name]!</span>")
 				retreat_distance = 10
 				minimum_distance = 10
-			if(health > 11 && will_flee)
-				retreat_distance = initial.retreat_distance
-				minimum_distance = initial.minimum_distance
+			if(health > 16 && will_flee)
+				retreat_distance = null
+				if(ranged)
+					minimum_distance = 5
+				else
+					minimum_distance = 1
 			if(will_help)
 				for(var/mob/living/simple_animal/hostile/M in oview(5, src))
-					if(M.faction == faction && M.health <= 10)
+					if(M.faction == faction && M.health <= 15)
 						if(can_heal)
-							step_to(M)
-							if(get_dist(M) = 1)
-								M.health + 20
+							walk_to(src, M, 1)
+							if(get_dist(src, M) == 1)
+								M.health = M.health + 30
 								return
 						M.target = target
-			return*/
+			return
 
 /mob/living/simple_animal/hostile/scom/lactera
 	will_help = 1
@@ -84,7 +87,7 @@
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
 	weapon1 = /obj/item/scom/aliengun/a1
-
+	minimum_distance = 5
 
 /mob/living/simple_animal/hostile/scom/lactera/light
 	will_flee = 1
@@ -112,7 +115,7 @@
 	rapid = 1
 	projectiletype = /obj/item/projectile/beam/scom/alien2
 	maxHealth = 150
-	health = 120
+	health = 150
 	icon_living = "liz3"
 	icon_dead = "liz3_dead"
 	weapon1 = /obj/item/scom/aliengun/a3
@@ -142,9 +145,22 @@
 	name = "Allophylus"
 	ranged = 1
 	projectiletype = /obj/item/projectile/beam/scom/alien4
-	maxHealth = 500
-	health = 500
+	maxHealth = 600
+	health = 600
 	icon_living = "allophylus"
+
+/mob/living/simple_animal/hostile/scom/harvester
+	name = "Harvester"
+	desc = "What the fuck is that thing?"
+	response_help = "pokes"
+	response_disarm = "shoves"
+	response_harm = "hits"
+	attacktext = "sucked the life out of"
+	maxHealth = 100
+	health = 100
+	harm_intent_damage = 0
+	melee_damage_lower = 35 //stay away
+	melee_damage_upper = 35
 
 /obj/item/projectile/beam/scom
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -180,3 +196,11 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	sleep(5)
 	del(src)
 	return
+
+/mob/living/simple_animal/hostile/scom/allophylus/death()
+	..()
+	flick("emfield_s1", src)
+	sleep(6)
+	del(src)
+	return
+
