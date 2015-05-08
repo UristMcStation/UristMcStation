@@ -82,25 +82,25 @@
 				if(M.job == "Head of Personnel")
 					W.assignment = "S-COM Squad 1 Leader"
 					M << ("<FONT size = 3>\b You are in squad 1")
-					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1(M), slot_w_uniform)
+					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_general
 				if(M.job == "Head of Security")
 					W.assignment = "S-COM Squad 2 Leader"
 					M << ("<FONT size = 3>\b You are in squad 2")
-					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2(M), slot_w_uniform)
+					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_thunder
 				if(M.job == "Chief Engineer")
 					W.assignment = "S-COM Squad 3 Leader"
 					M << ("<FONT size = 3>\b You are in squad 3")
-					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3(M), slot_w_uniform)
+					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_specops
 				if(M.job == "Chief Medical Officer")
 					W.assignment = "S-COM Squad 4 Leader"
 					M << ("<FONT size = 3>\b You are in squad 4")
-					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4(M), slot_w_uniform)
+					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_medical
 				W.registered_name = M.real_name
@@ -243,25 +243,25 @@
 			if(L.job == "Head of Personnel")
 				W.assignment = "S-COM Squad 1 Leader"
 				L << ("<FONT size = 3>\b You are in squad 1")
-				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1(L), slot_w_uniform)
+				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_general
 			if(L.job == "Head of Security")
 				W.assignment = "S-COM Squad 2 Leader"
 				L << ("<FONT size = 3>\b You are in squad 2")
-				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2(L), slot_w_uniform)
+				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_thunder
 			if(L.job == "Chief Engineer")
 				W.assignment = "S-COM Squad 3 Leader"
 				L << ("<FONT size = 3>\b You are in squad 3")
-				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3(L), slot_w_uniform)
+				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_specops
 			if(L.job == "Chief Medical Officer")
 				W.assignment = "S-COM Squad 4 Leader"
 				L << ("<FONT size = 3>\b You are in squad 4")
-				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4(L), slot_w_uniform)
+				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_medical
 			W.registered_name = L.real_name

@@ -58,6 +58,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sign showing the squad number."
 	icon_state = "squads"
 
+/obj/structure/sign/urist/deptsigns/lead
+	desc = "A sign leading to the squad leaders area."
+	icon_state = "lead"
+
 //nt4lyfe
 
 /obj/structure/sign/urist/nt

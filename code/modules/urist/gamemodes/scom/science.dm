@@ -6,12 +6,17 @@
 /obj/item/scom/science/New()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
 
+/obj/structure/scom
+	anchored = 1
+	density = 1
+
 /obj/structure/scom/science //a generic holder for science shit
 	name = "alien technology"
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	var/scomtechlvl = 0
 	var/beenharvested = 0
 	var/scommoney = 0
+
 
 /obj/structure/scom/science/attack_hand(mob/user as mob)
 	if(beenharvested == 0)
@@ -39,7 +44,7 @@
 		if("Cancel")
 			return
 		if("Yes")
-			world << "/red \b Mothership self-destruct sequence activated. Three minutes until detonation."
+			world << "\red \b Mothership self-destruct sequence activated. Three minutes until detonation."
 			sleep(1800)
 			for(var/mob/living/M in /area/scom/mission/nolighting)
 				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL

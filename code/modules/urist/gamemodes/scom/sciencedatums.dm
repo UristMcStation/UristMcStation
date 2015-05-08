@@ -101,7 +101,9 @@
 	name = "Knight ammo"
 	path = /obj/item/weapon/storage/box/knightammo
 	category = "General"
-	resources = 80
+	resources = 50
+
+//leader //add more shit here later
 
 //vehicles
 
@@ -222,6 +224,23 @@ datum/scomscience/recipe/lsniper
 	scomtechlvl = 2
 	hidden = 1
 	resources = 80
+
+//leader
+
+/datum/scomscience/recipe/leaderhelmett2
+	name = "advanced squad leader helmet"
+	path = /obj/item/clothing/head/helmet/ert/command
+	category = "Squad Leader"
+	scomtechlvl = 3
+	hidden = 1
+	resources = 200
+
+/datum/scomscience/recipe/leaderarmort2
+	name = "advanced squad leader armour"
+	path = /obj/item/clothing/suit/armor/vest/ert/command
+	scomtechlvl = 3
+	hidden = 1
+	resources = 300
 
 //general
 
@@ -347,7 +366,17 @@ datum/scomscience/recipe/lsniper
 	category = "Medic"
 	scomtechlvl = 6
 	hidden = 1
-	resources = 400
+	resources = 300
+
+//leader
+
+/datum/scomscience/recipe/leaderarmort3
+	name = "futuristic squad leader rig"
+	path = /obj/item/weapon/rig/ert/scomlead
+	category = "Squad Leader"
+	scomtechlvl = 7
+	hidden = 1
+	resources = 900
 
 //general
 

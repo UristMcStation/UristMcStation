@@ -20,7 +20,7 @@
 		..()
 
 /datum/shuttle/ferry/scom
-	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch). I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
+	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch), 8 minutes in total. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
 	var/missionannounce = "shit's fucked yo"
@@ -50,11 +50,14 @@
 				missionloc = S.missionloc1
 				missionannounce = S.missionannounce //only announce it once
 
+		spawn(missiontime - 300)
+		command_announcement.Announce("Incoming transmission, please stand by for orders...", "S-COM Mission Command")
+
 		spawn(missiontime)
 		command_announcement.Announce("[missionannounce]", "S-COM Mission Command")
 
 		spawn(missiontime + 50)
-		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleportes in the hanger bay.", "S-COM Shuttle Control")
+		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleporters in the hanger bay.", "S-COM Shuttle Control")
 
 		spawn(missiontime + 1250)
 
@@ -91,11 +94,11 @@
 				missionloc = S.missionloc2
 
 	else if(location == 1)
-		for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
+		/*for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
 			var/obj/effect/landmark/scom/enemyspawn/S = new R
 			if(mission == S.mission)
 				S.spawnmobs()
-				del(S)
+				del(S)*/
 
 		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 			if(C.location == 0)
