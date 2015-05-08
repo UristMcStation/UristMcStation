@@ -28,7 +28,9 @@
 
 	var/novehicles = 0
 	var/science_capable = 1
-	var/vehiclesonly = 0
+	var/restricted_category = "All"
+
+	var/squad = 0
 
 /obj/machinery/scom/scomscience/proc/update_recipe_list()
 	if(!machine_recipes)
@@ -49,7 +51,9 @@
 		index++
 		if(R.hidden && R.scomtechlvl > scomtechlvl || (show_category != "All" && show_category != R.category))
 			continue
-		if(novehicles && R.category == "Vehicles" || vehiclesonly && R.category != "Vehicles")
+		if(novehicles && R.category == "Vehicles")
+			continue
+		if(restricted_category != "All" && restricted_category != R.category)
 			continue
 		var/can_make = 1
 		var/material_string = "$[R.resources]"
@@ -157,7 +161,11 @@
 
 		if(scommoney >= making.resources)
 			for(var/obj/machinery/scom/scomscience/S in world)
-				S.scommoney = scommoney - making.resources
+//				if(S.squad == 0) //test this
+//					scommoney = scommoney - making.resources
+
+				if(S.squad == squad)
+					S.scommoney = scommoney - making.resources
 
 
 		flick("[animation_state]",src)
@@ -177,11 +185,27 @@
 /obj/machinery/scom/scomscience/vehicles
 	name = "vehicle fabricator"
 	show_category = "Vehicles"
+	restricted_category = "Vehicles"
 	science_capable = 0
 	icon = 'icons/obj/machines/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 	animation_state = "h_lathe_leave"
-	vehiclesonly = 1
+
+/obj/machinery/scom/scomscience/squadlead
+	name = "Squad Leader fabricator"
+	show_category = "Squad Leader"
+	restricted_category = "Squad Leader"
+	science_capable = 0
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "lead"
+	animation_state = "lead_o"
+	bound_width = 32
+
+/obj/machinery/scom/scomscience/squadlead/interact(mob/user as mob)
+	if(user.job in list("Head of Personnel", "Head of Security", "Chief Engineer", "Chief Medical Officer"))
+		..()
+	else
+		return
 
 /obj/machinery/scom/scomscience/squad
 	name = "squad fabricator"
@@ -251,6 +275,7 @@
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/sniperammo(src.loc)
 					new /obj/item/weapon/gun/projectile/sniper(src.loc)
+					new /obj/item/weapon/gun/projectile/deagle(src.loc)
 					W.assignment = "S-COM Sniper"
 
 			user.regenerate_icons()
