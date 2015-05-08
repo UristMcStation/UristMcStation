@@ -16,7 +16,7 @@
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
 	urist_only = 1
-	name = "pulse rifle"
+	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "pulse_pistol"
@@ -30,7 +30,7 @@
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon
 	urist_only = 1
-	name = "pulse rifle"
+	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "pulse_cannon"
@@ -44,7 +44,7 @@
 
 /obj/item/weapon/gun/energy/laser/pistol
 	urist_only = 1
-	name = "laser carbine"
+	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "lpistol"
@@ -221,6 +221,16 @@
 		/obj/item/rig_module/mounted/egun,
 		)
 
+/obj/item/weapon/rig/ert/scomlead
+	req_access = null
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/device/healthscanner,
+		/obj/item/rig_module/mounted/energy_blade
+		)
+
 /obj/item/clothing/suit/urist/armor
 	name = "armor"
 	desc = "An armored vest that protects against some damage."
@@ -248,6 +258,12 @@
 		/obj/item/rig_module/mounted/egun
 		)
 
+	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
+	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
+	/obj/item/device/radio, /obj/item/device/analyzer, /obj/item/weapon/gun/energy/laser, /obj/item/weapon/gun/energy/pulse_rifle, \
+	/obj/item/weapon/gun/energy/taser, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, /obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller)
+
+
 /obj/item/weapon/rig/light/scomsniper
 	name = "stealth suit control module"
 	suit_type = "stealth"
@@ -265,6 +281,7 @@
 	desc = "The outfit of an S-COM Operative."
 	icon_state = "scom"
 	item_color = "scom"
+	canremove = 1
 
 /obj/item/clothing/under/urist/scom/s1
 	name = "S-COM Squad 1 outfit"
@@ -289,3 +306,27 @@
 	desc = "The outfit of an S-COM Operative from Squad 4."
 	icon_state = "scom4"
 	item_color = "scom4"
+
+/obj/item/clothing/under/urist/scom/s1l
+	name = "S-COM Squad 1 Leader outfit"
+	desc = "The outfit of an S-COM Squad 1 Leader."
+	icon_state = "scom1l"
+	item_color = "scom1l"
+
+/obj/item/clothing/under/urist/scom/s2l
+	name = "S-COM Squad 2 Leader outfit"
+	desc = "The outfit of an S-COM Squad 2 Leader."
+	icon_state = "scom2l"
+	item_color = "scom2l"
+
+/obj/item/clothing/under/urist/scom/s3l
+	name = "S-COM Squad 3 Leader outfit"
+	desc = "The outfit of an S-COM Squad 3 Leader."
+	icon_state = "scom3l"
+	item_color = "scom3l"
+
+/obj/item/clothing/under/urist/scom/s4l
+	name = "S-COM Squad 4 Leader outfit"
+	desc = "The outfit of an S-COM Squad 4 Leader."
+	icon_state = "scom4l"
+	item_color = "scom4l"
