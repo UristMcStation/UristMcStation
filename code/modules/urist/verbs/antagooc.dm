@@ -3,9 +3,9 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
 	set category = "OOC"
-	//set hidden = 1
+	set hidden = 1
 
-	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client)))
+	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client))) //Preventing non-antags from using it
 		usr << "<span clas='warning'>You are not an Antagonist.</span>"
 		return
 
@@ -13,12 +13,12 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 		usr << "<span clas='warning'>Speech is currently admin-disabled.</span>"
 		return
 
-	if(!mob)	return
+	if(!mob)	return //No turf can talk
 	if(IsGuestKey(key))
 		src << "Guests may not use AOOC."
 		return
 
-	msg = trim(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN))
+	msg = trim(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)) //No in-chat HTML for you user!
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
