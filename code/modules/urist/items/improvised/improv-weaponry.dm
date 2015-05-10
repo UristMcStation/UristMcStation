@@ -9,7 +9,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = FPRINT | TABLEPASS | CONDUCT
+	flags = CONDUCT
 	force = 9
 	throwforce = 10
 	w_class = 3
@@ -76,7 +76,6 @@
 	force = 12
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 12
 	force_wielded = 20 // Was 13, Buffed - RR
 	throwforce = 15
 	flags = NOSHIELD
@@ -121,7 +120,6 @@
 	force = 8
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 8
 	force_wielded = 14
 	throwforce = 8
 	flags = NOSHIELD
@@ -283,7 +281,7 @@
 		user.before_take_item(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You form [src] around [W], creating a more lethal Millwall brick.</span>"
+		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
 		W.loc = S
 
 		del(src)
@@ -300,7 +298,7 @@
 	w_class = 2
 
 /obj/item/weapon/improvised/mbrick/sharp/attack_self(mob/user as mob)
-	..()
+
 	for(var/obj/item/w in contents)
 		w.loc = (get_turf(src))
 	var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick

@@ -219,7 +219,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon = 'icons/urist/items/tgitems.dmi'
 	w_class = 1
 	throwforce = 2
-	flags = TABLEPASS
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/cigarette")

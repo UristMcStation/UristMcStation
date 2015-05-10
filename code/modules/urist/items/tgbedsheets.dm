@@ -196,11 +196,6 @@ LINEN BINS
 		user << "<span class='notice'>You hide [I] among the sheets.</span>"
 
 
-
-/obj/structure/bedsheetbin/attack_paw(mob/user as mob)
-	return attack_hand(user)
-
-
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)
 		amount--

@@ -7,7 +7,6 @@
 	item_state = "the_jester"
 	icon_state = "the_jester"
 	body_parts_covered = HEAD
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/penguin
@@ -17,7 +16,6 @@
 	item_state = "penguincig"
 	icon_state = "penguincig"
 	body_parts_covered = HEAD
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 //Paper flower, fits in the mouth, like tango
@@ -29,7 +27,6 @@
 	desc = "A Paper flower."
 	item_state = "paperflower"
 	icon_state = "paperflower"
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/flower/attackby(var/obj/item/I, mob/user as mob)
@@ -44,11 +41,11 @@
 
 //It's payday, guys.
 
-/obj/item/clothing/mask/payday
+/obj/item/clothing/mask/gas/payday
     name = "clown mask"
     icon = 'icons/urist/items/clothes/masks.dmi'
     icon_override = 'icons/uristmob/mask.dmi'
-    flags = FPRINT | TABLEPASS | MASKCOVERSMOUTH | MASKCOVERSEYES | BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
+    flags = MASKCOVERSMOUTH | MASKCOVERSEYES | BLOCK_GAS_SMOKE_EFFECT
     flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
     w_class = 3.0
     gas_transfer_coefficient = 0.01
@@ -56,22 +53,22 @@
     siemens_coefficient = 0.9
     armor = list(melee = 30, bullet = 40, laser = 10, energy = 5, bomb = 20, bio = 10, rad = 5)
 
-/obj/item/clothing/mask/payday/dallas
+/obj/item/clothing/mask/gas/payday/dallas
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like some old Terran nation's flag. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pddallas"
 	item_state = "pddallas"
 
-/obj/item/clothing/mask/payday/hoxton
+/obj/item/clothing/mask/gas/payday/hoxton
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a thin-lipped clown. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdhoxton"
 	item_state = "pdhoxton"
 
-/obj/item/clothing/mask/payday/wolf
+/obj/item/clothing/mask/gas/payday/wolf
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a half-skinned husk. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdwolf"
 	item_state = "pdwolf"
 
-/obj/item/clothing/mask/payday/chains
+/obj/item/clothing/mask/gas/payday/chains
 	desc = "A ballistic mask modified to look like that of a clown's, painted to look like a thick-lipped mash of a clown and mime. It is airtight and has a valve slot for oxygen tanks."
 	icon_state = "pdchains"
 	item_state = "pdchains"

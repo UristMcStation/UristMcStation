@@ -4,6 +4,10 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 //UMcS unique Areas
 
+/area/hallway/secondary/entry
+	name = "\improper Arrival Shuttle Hallway"
+	icon_state = "entry_1"
+
 /area/tcommsat/pirate
 	name = "\improper Pirate Server Room"
 	icon_state = "tcomsatcham"
@@ -65,6 +69,14 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/crew_quarters/sleep/med
 	name = "\improper Medbay Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/engi
+	name = "\improper Engineering Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/sec
+	name = "\improper Security Dormitories"
 	icon_state = "Sleep"
 
 /area/bridge/blueshield
@@ -160,6 +172,15 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	requires_power = 1
 	luminosity = 0
 	lighting_use_dynamic = 1
+
+//snow train. the hackyness is off the charts
+
+/area/awaymission/train/snow
+	name = "\improper Train"
+	icon_state = "away1"
+	requires_power = 1
+	lighting_use_dynamic = 1
+	luminosity = 0
 
 //centcahm
 

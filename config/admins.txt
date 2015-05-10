@@ -7,26 +7,20 @@
 
 kg333 - Host
 vactor - Host 
-electronics111 - Game Master
-#Electronics
-androidsfv - Game Master
 glloyd - Head Admin
 Nienhaus2 - Game Master
 hanspanda - Game Master
-jacob_lee - Game Master
-USEC_OFFICER - Game Master
 CoraiUnki - Game Master
 #Aedel
 Kydrasz - Game Master
 MisterTeeth - Game Master
 Stefender - Game Master
-Knoxon - Game Master
+Rabidgam3r - Game Master
 
 TGameCo - Coder
 
 greatorder - Moderator
 andreathesecond - Moderator
-Ozarck - Moderator
 Donuts223 - Moderator
 
 Magnetite - Mentor
@@ -34,4 +28,12 @@ Iceblaster98 - Mentor
 Vakothu - Mentor
 Acemuto10 - Mentor
 Grant4455 - Mentor
+Ozarck - Mentor
+AseaHeru - Mentor
+Werty892 - Mentor
 
+androidsfv - Inactive Admin
+USEC_OFFICER - Inactive Admin
+bdthemag - Inactive Admin
+electronics111 - Inactive Admin
+#Electronics

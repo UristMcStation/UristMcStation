@@ -14,8 +14,7 @@
 
 	New()
 		..()
-		var/blocked = list(/obj/item/clothing/under/chameleon, /obj/item/clothing/under/cloud,
-			/obj/item/clothing/under/golem, /obj/item/clothing/under/gimmick)//Prevent infinite loops and bad jumpsuits.
+		var/blocked = list(/obj/item/clothing/under/chameleon, /obj/item/clothing/under/cloud, /obj/item/clothing/under/gimmick)//Prevent infinite loops and bad jumpsuits.
 		for(var/U in typesof(/obj/item/clothing/under)-blocked)
 			var/obj/item/clothing/under/V = new U
 			src.clothing_choices[V.name] = U
@@ -46,6 +45,9 @@
 		desc = A.desc
 		name = A.name
 		icon_state = A.icon_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		item_state = A.item_state
 		item_color = A.item_color
 		body_parts_covered = A.body_parts_covered
@@ -67,8 +69,7 @@
 
 	New()
 		..()
-		var/blocked = list(/obj/item/clothing/head/chameleon,
-			/obj/item/clothing/head/space/golem, /obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
+		var/blocked = list(/obj/item/clothing/head/chameleon,/obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
 		for(var/U in typesof(/obj/item/clothing/head)-blocked)
 			var/obj/item/clothing/head/V = new U
 			src.clothing_choices[V.name] = U
@@ -101,6 +102,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -119,8 +123,7 @@
 
 	New()
 		..()
-		var/blocked = list(/obj/item/clothing/suit/chameleon, /obj/item/clothing/suit/space/space_ninja,
-			/obj/item/clothing/suit/golem, /obj/item/clothing/suit/suit, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/justice,
+		var/blocked = list(/obj/item/clothing/suit/chameleon, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/justice,
 			/obj/item/clothing/suit/greatcoat)//Prevent infinite loops and bad suits.
 		for(var/U in typesof(/obj/item/clothing/suit)-blocked)
 			var/obj/item/clothing/suit/V = new U
@@ -154,6 +157,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -172,8 +178,7 @@
 
 	New()
 		..()
-		var/blocked = list(/obj/item/clothing/shoes/chameleon,
-			/obj/item/clothing/shoes/golem, /obj/item/clothing/shoes/syndigaloshes, /obj/item/clothing/shoes/cyborg)//prevent infinite loops and bad shoes.
+		var/blocked = list(/obj/item/clothing/shoes/chameleon, /obj/item/clothing/shoes/syndigaloshes, /obj/item/clothing/shoes/cyborg)//prevent infinite loops and bad shoes.
 		for(var/U in typesof(/obj/item/clothing/shoes)-blocked)
 			var/obj/item/clothing/shoes/V = new U
 			src.clothing_choices[V.name] = U
@@ -207,6 +212,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		update_clothing_icon()	//so our overlays update.
 
 //**********************
@@ -257,7 +265,10 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
-		
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
+
 		//so our overlays update.
 		if (ismob(src.loc))
 			var/mob/M = src.loc
@@ -311,6 +322,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		update_clothing_icon()	//so our overlays update.
 
@@ -360,6 +374,9 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -409,6 +426,9 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		update_clothing_icon()	//so our overlays update.
 
@@ -463,8 +483,10 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
-		
+
 		//so our overlays update.
 		if (ismob(src.loc))
 			var/mob/M = src.loc
