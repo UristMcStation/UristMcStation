@@ -52,20 +52,6 @@
 
 		del(src)
 
-	else if(istype(I, /obj/item/weapon/shiv))
-
-		var/obj/item/weapon/improvised/tomahawk/T = new /obj/item/weapon/improvised/tomahawk
-
-		user.before_take_item(I)
-		user.before_take_item(src)
-
-		user.put_in_hands(T)
-		user << "<span class='notice'>You strap the shiv to the rod creating an improvised tomahawk.</span>"
-
-		del(I)
-		del(src)
-
-
 /obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
@@ -123,9 +109,6 @@
 
 //begin Urist stuff
 
-/obj/item/weapon/improvised
-	urist_only = 1
-	icon = 'icons/urist/items/improvised.dmi'
 //quarterstaff
 
 /obj/item/weapon/twohanded/quarterstaff
@@ -162,7 +145,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "shiv"
 	item_state = "shard-glass"
-	force = 11
+	force = 12
 	throwforce = 5
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("stabbed", "slashed", "sliced", "cut", "shanked")
@@ -231,6 +214,7 @@
 /obj/item/weapon/improvised/scissorknife
 	name = "Knife"
 	desc = "The seperated part of a scissor. Where's the other half?"
+	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "scissor-knife"
 	item_state = "scissor"
 	force = 11
@@ -241,6 +225,7 @@
 	sharp = 1
 	edge = 1
 	w_class = 2
+	urist_only = 1
 	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
 	suicide_act(mob/user)
@@ -274,8 +259,8 @@
 /obj/item/weapon/improvised/mbrick
 	name = "Millwall brick"
 	desc = "two newspapers folded and rolled together to create an improvised blunt weapon."
+	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "mbrick"
-	item_state = "mbrick"
 	force = 8
 	throwforce = 4
 	attack_verb = list("bashed", "bludgeoned", "hit", "smacked")
@@ -306,11 +291,13 @@
 /obj/item/weapon/improvised/mbrick/sharp
 	name = "sharp Millwall brick"
 	desc = "two newspapers folded and rolled together around a sharp object to create an improvised weapon."
+	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "mbricks"
-	force = 11 // same as the shiv, similar materials
+	force = 12
 	throwforce = 6
 	sharp = 1
 	attack_verb = list("bashed", "stabbed", "hit", "smacked")
+	w_class = 2
 
 /obj/item/weapon/improvised/mbrick/sharp/attack_self(mob/user as mob)
 	..()
@@ -321,18 +308,7 @@
 	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
 	del(src)
 
-/obj/item/weapon/improvised/tomahawk
-	name = "improvised tomahawk"
-	desc = "A crude tomahawk, made out of glass, cloth, wire and a metal rod. Looks useful for throwing."
-	icon_state = "tomahawk"
-	item_state = "tomahawk"
-	force = 12 // 1 more than the shiv, added weight behind the swing
-	w_class = 3
-	throwforce = 14.0 //1 less than an actual hatchet
-	throw_speed = 4
-	throw_range = 4
-	sharp = 1
-	edge = 1
-	attack_verb = list("chopped", "torn", "cut")
+
 
 //end Urist stuff
+
