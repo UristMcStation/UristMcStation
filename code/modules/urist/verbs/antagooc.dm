@@ -3,7 +3,7 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
 	set category = "OOC"
-	set hidden = 1
+	//set hidden = 1
 
 	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client))) //Preventing non-antags from using it
 		usr << "<span clas='warning'>You are not an Antagonist.</span>"
