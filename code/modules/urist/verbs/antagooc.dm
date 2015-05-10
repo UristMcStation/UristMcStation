@@ -3,6 +3,7 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
 	set category = "OOC"
+	//set hidden = 1
 
 	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client)))
 		usr << "<span clas='warning'>You are not an Antagonist.</span>"
@@ -43,26 +44,6 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 			return
 
 	log_ooc("[mob.name]/[key]/AOOC : [msg]")
-
-/*
-	var/display_colour = normal_ooc_colour
-	if(holder && !holder.fakekey)
-		display_colour = "#FF3333"	//light red
-		usr << "LIGHT RED"
-		if(holder.rights & R_MOD && !(holder.rights & R_ADMIN))
-			display_colour = "#990000"	//dark red
-			usr << "DARK RED"
-		if(holder.rights & R_DEBUG && !(holder.rights & R_ADMIN))
-			display_colour = "#FF8080"	//pank
-			usr << "PANK"
-		else if(holder.rights & R_ADMIN)
-			if(config.allow_admin_ooccolor)
-				display_colour = src.prefs.ooccolor
-			else
-				display_colour = "#FF9900"	//orange
-				usr << "ORANG"
-*/
-
 
 	for(var/client/C in clients)
 		if(C.prefs.toggles & CHAT_OOC)
