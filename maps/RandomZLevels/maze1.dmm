@@ -39,7 +39,7 @@
 "aM" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access_txt = "100"; state = 2; use_power = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aN" = (/obj/structure/sign/securearea,/turf/simulated/wall/r_wall,/area/space)
 "aO" = (/obj/machinery/door/airlock/command{icon_state = "door_closed"; lockdownbyai = 0; locked = 0; name = "Gateway Access"; req_access_txt = "62"},/turf/simulated/floor,/area/space)
-"aP" = (/obj/machinery/door/poddoor/shutters{id = null; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
+"aP" = (/obj/machinery/door/blast/shutters{id = null; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
 "aQ" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "aR" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
 "aS" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)

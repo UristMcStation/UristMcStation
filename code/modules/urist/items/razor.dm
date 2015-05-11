@@ -68,7 +68,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "razor"
-	flags = FPRINT | TABLEPASS| CONDUCT
+	flags = CONDUCT
 	w_class = 1.0
 
 /obj/item/weapon/razor/attack(mob/living/carbon/M as mob, mob/user as mob)

@@ -13,7 +13,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //sci rig helmet
 
-/obj/item/clothing/head/helmet/space/rig/science
+/obj/item/clothing/head/helmet/space/void/science
 	name = "science hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Built with lightweight materials for extra comfort."
 	icon_state = "rig0-medical"
@@ -62,7 +62,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //naval commando helmet
 
-/obj/item/clothing/head/helmet/space/rig/commando
+/obj/item/clothing/head/helmet/space/void/commando
 	urist_only = 1
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval commando helmet"
@@ -141,21 +141,18 @@ obj/item/clothing/head/princessbow
 	icon_state = "beaver_hat"
 	item_state = "beaver_hat"
 	desc = "Like a top hat, but made of beavers."
-	flags = FPRINT|TABLEPASS
 
 /obj/item/clothing/head/urist/boaterhat
 	name = "boater hat"
 	icon_state = "boater_hat"
 	item_state = "boater_hat"
 	desc = "Goes well with celery."
-	flags = FPRINT|TABLEPASS
 
 /obj/item/clothing/head/urist/fedora
 	name = "\improper fedora"
 	icon_state = "fedora"
 	item_state = "fedora"
 	desc = "A great hat ruined by being within fifty yards of you."
-	flags = FPRINT|TABLEPASS
 
 //TIPS FEDORA
 /obj/item/clothing/head/urist/fedora/verb/tip_fedora()
@@ -171,7 +168,6 @@ obj/item/clothing/head/princessbow
 	icon_state = "fez"
 	item_state = "fez"
 	desc = "Put it on your monkey, make lots of cash money."
-	flags = FPRINT|TABLEPASS
 
 //Villian and hero stuff
 
@@ -281,3 +277,13 @@ obj/item/clothing/head/princessbow
 	user.put_in_hands(H)
 	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
 	del(src)
+
+//Fallout hats
+
+/obj/item/clothing/head/urist/enclave
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "enclave officer cap"
+	desc = "An Enclave Officer cap, has a silver E on the front"
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "enclavesoft"
+	item_color = "enclavesoft"

@@ -58,7 +58,7 @@
 		"Devices and Tools" = list(
 			new/datum/uplink_item(/obj/item/weapon/card/emag, 3, "Cryptographic Sequencer", "EC"),
 			new/datum/uplink_item(/obj/item/weapon/storage/toolbox/syndicate, 1, "Fully Loaded Toolbox", "ST"),
-			new/datum/uplink_item(/obj/item/weapon/stamp/chameleon, 3, "Morphic Chameleon Stmap", "CS"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/clerical, 3, "Morphic Clerical Kit", "CK"),
 			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/space, 3, "Space Suit", "SS"),
 			new/datum/uplink_item(/obj/item/clothing/glasses/thermal/syndi, 3, "Thermal Imaging Glasses", "TM"),
 			new/datum/uplink_item(/obj/item/device/encryptionkey/binary, 3, "Binary Translator Key", "BT"),
@@ -159,11 +159,11 @@
 		if(M.client)
 			clients++
 			if(ishuman(M))
-				if(!M.stat)
+				if(M.stat != DEAD)
 					surviving_humans++
 					if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)
 						escaped_humans++
-			if(!M.stat)
+			if(M.stat != DEAD)
 				surviving_total++
 				if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)
 					escaped_total++
@@ -182,6 +182,14 @@
 
 			if(isobserver(M))
 				ghosts++
+
+	var/text = ""
+	if(surviving_total > 0)
+		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]</b>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.</b><br>"
+	else
+		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>).</b>"
+	world << text
 
 	if(clients > 0)
 		feedback_set("round_end_clients",clients)
@@ -224,7 +232,7 @@
 	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.mind)
 		// NT relation option
 		var/special_role = man.mind.special_role
-		if (special_role == "Wizard" || special_role == "Ninja" || special_role == "Syndicate" || special_role == "Syndicate Commando" || special_role == "Vox Raider")
+		if (special_role == "Wizard" || special_role == "Ninja" || special_role == "Syndicate" || special_role == "Vox Raider")
 			continue	//NT intelligence ruled out possiblity that those are too classy to pretend to be a crew.
 		if(man.client.prefs.nanotrasen_relation == "Opposed" && prob(50) || \
 		   man.client.prefs.nanotrasen_relation == "Skeptical" && prob(20))
@@ -517,9 +525,9 @@ proc/get_nt_opposed()
 		player.current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 		obj_count++
 
-/datum/game_mode/proc/printplayer(var/datum/mind/ply)
-	var/role = "\improper[ply.assigned_role]"
-	var/text = "<br><b>[ply.name]</b>(<b>[ply.key]</b>) as \a <b>[role]</b> ("
+/datum/game_mode/proc/print_player_lite(var/datum/mind/ply)
+	var/role = ply.assigned_role == "MODE" ? "\improper[ply.special_role]" : "\improper[ply.assigned_role]"
+	var/text = "<br><b>[ply.name]</b> (<b>[ply.key]</b>) as \a <b>[role]</b> ("
 	if(ply.current)
 		if(ply.current.stat == DEAD)
 			text += "died"
@@ -530,5 +538,28 @@ proc/get_nt_opposed()
 	else
 		text += "body destroyed"
 	text += ")"
+
+	return text
+
+/datum/game_mode/proc/print_player_full(var/datum/mind/ply)
+	var/text = print_player_lite(ply)
+
+	var/TC_uses = 0
+	var/uplink_true = 0
+	var/purchases = ""
+	for(var/obj/item/device/uplink/H in world_uplinks)
+		if(H && H.uplink_owner && H.uplink_owner == ply)
+			TC_uses += H.used_TC
+			uplink_true = 1
+			var/list/refined_log = new()
+			for(var/datum/uplink_item/UI in H.purchase_log)
+				var/obj/I = new UI.path
+				refined_log.Add("[H.purchase_log[UI]]x\icon[I][UI.name]")
+				del(I)
+			purchases = english_list(refined_log, nothing_text = "")
+	if(uplink_true)
+		text += " (used [TC_uses] TC)"
+		if(purchases)
+			text += "<br>[purchases]"
 
 	return text

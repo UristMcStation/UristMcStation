@@ -13,6 +13,9 @@
 	var/break_stuff_probability = 10
 	stop_automated_movement_when_pulled = 0
 	var/destroy_surroundings = 1
+	var/can_heal = 0
+	var/will_help = 0
+	var/will_flee = 0
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
 
@@ -30,8 +33,12 @@
 
 		if(isliving(A))
 			var/mob/living/L = A
-			if(L.faction == src.faction && !attack_same)
-				continue
+			if(L.faction == src.faction)
+				if(can_heal && L.health <= 30)
+					stance = HOSTILE_STANCE_HEAL
+					break
+				else if (!attack_same)
+					continue
 			else if(L in friends)
 				continue
 			else
@@ -91,15 +98,15 @@
 		return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_animal(src)
+		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return L
 	if(istype(target_mob,/obj/mecha))
 		var/obj/mecha/M = target_mob
-		M.attack_animal(src)
+		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return M
 	if(istype(target_mob,/obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
-		B.attack_animal(src)
+		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
@@ -113,7 +120,11 @@
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
 	var/list/L = hearers(src, dist)
-	L += mechas_list
+
+	for (var/obj/mecha/M in mechas_list)
+		if (get_dist(src, M) <= dist)
+			L += M
+
 	return L
 
 /mob/living/simple_animal/hostile/death()
@@ -130,11 +141,17 @@
 		return 0
 
 	if(!stat)
+
 		switch(stance)
 			if(HOSTILE_STANCE_IDLE)
 				target_mob = FindTarget()
 
+			if(HOSTILE_STANCE_HEAL)
+				HealBitches()
+
 			if(HOSTILE_STANCE_ATTACK)
+				if(will_flee && health <=15) //half the requirement to get healed
+					GetTheFuckOut()
 				if(destroy_surroundings)
 					DestroySurroundings()
 				MoveToTarget()
@@ -195,8 +212,8 @@
 		for(var/dir in cardinal) // North, South, East, West
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
-					obstacle.attack_animal(src)
+					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 					return
 			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
 			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_animal(src)
+				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

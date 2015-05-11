@@ -47,3 +47,5 @@ Mentor			+MENTOR
 Developer		+DEBUG +VAREDIT +SERVER +SPAWN +REJUV +POSSESS +BUILDMODE
 
 Dev Mod			+@ +MOD
+
+Inactive Admin		+MOD +ADMIN
