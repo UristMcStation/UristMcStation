@@ -388,6 +388,14 @@ datum/scomscience/recipe/lsniper
 	hidden = 1
 	resources = 600
 
+/datum/scomscience/recipe/eaxe
+	name = "energy axe"
+	path = /obj/item/weapon/melee/energy/axe
+	category = "General"
+	scomtechlvl = 6
+	hidden = 1
+	resources = 850
+
 //vehicles
 
 /datum/scomscience/recipe/cvrt3
