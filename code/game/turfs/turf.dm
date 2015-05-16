@@ -26,6 +26,12 @@
 	var/has_resources
 	var/list/resources
 
+	// Flick animation
+	var/atom/movable/overlay/c_animation = null
+
+	// holy water
+	var/holy = 0
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)
@@ -53,18 +59,6 @@
 	else
 		step(user.pulling, get_dir(user.pulling.loc, src))
 	return 1
-
-/turf/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam/pulse))
-		src.ex_act(2)
-	..()
-	return 0
-
-/turf/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/bullet/gyro))
-		explosion(src, -1, 0, 2)
-	..()
-	return 0
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -206,7 +200,7 @@
 		del L
 
 //Creates a new turf
-/turf/proc/ChangeTurf(var/turf/N)
+/turf/proc/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
 	if (!N)
 		return
 
@@ -250,9 +244,9 @@
 		//W.Assimilate_Air()
 
 		W.lighting_lumcount += old_lumcount
-
-		if(W.lighting_lumcount)
-			W.UpdateAffectingLights()
+		if((old_lumcount != W.lighting_lumcount) || (loc.name != "Space" && force_lighting_update))
+			W.lighting_changed = 1
+			lighting_controller.changed_turfs += W
 
 		if(old_fire)
 			fire = old_fire
@@ -260,8 +254,14 @@
 		if (istype(W,/turf/simulated/floor))
 			W.RemoveLattice()
 
+		if(tell_universe)
+			universe.OnTurfChange(W)
+
 		if(air_master)
 			air_master.mark_for_update(src)
+
+		for(var/turf/space/S in range(W,1))
+			S.update_starlight()
 
 		W.levelupdate()
 		return W
@@ -274,15 +274,21 @@
 
 		var/turf/W = new N( locate(src.x, src.y, src.z) )
 		W.lighting_lumcount += old_lumcount
-		if(old_lumcount != W.lighting_lumcount)
+		if((old_lumcount != W.lighting_lumcount) || (loc.name != "Space" && force_lighting_update))
 			W.lighting_changed = 1
 			lighting_controller.changed_turfs += W
 
 		if(old_fire)
 			old_fire.RemoveFire()
 
+		if(tell_universe)
+			universe.OnTurfChange(W)
+
 		if(air_master)
 			air_master.mark_for_update(src)
+
+		for(var/turf/space/S in range(W,1))
+			S.update_starlight()
 
 		W.levelupdate()
 		return W

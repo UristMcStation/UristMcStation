@@ -48,7 +48,13 @@ var/global/list/underwear_f = list("Red", "White", "Yellow", "Blue", "Black", "T
 var/global/list/undershirt_t = list("Black Tank top", "White Tank top", "Black shirt", "White shirt", "Female Tank Top", "None")
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt")
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
+// Runes
+var/global/list/rune_list = new()
+var/global/list/escape_list = list()
+var/global/list/endgame_exits = list()
+var/global/list/endgame_safespawns = list()
 //////////////////////////
 /////Initial Building/////
 //////////////////////////

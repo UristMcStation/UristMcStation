@@ -28,6 +28,8 @@
 	faction = "cult"
 	status_flags = CANPUSH
 
+/mob/living/simple_animal/shade/cultify()
+	return
 
 	Life()
 		..()

@@ -22,6 +22,11 @@
 /obj/structure/grille/meteorhit(var/obj/M)
 	del(src)
 
+/obj/structure/grille/update_icon()
+	if(destroyed)
+		icon_state = "[initial(icon_state)]-b"
+	else
+		icon_state = initial(icon_state)
 
 /obj/structure/grille/Bumped(atom/user)
 	if(ismob(user)) shock(user, 70)
@@ -59,11 +64,10 @@
 			return !density
 
 /obj/structure/grille/bullet_act(var/obj/item/projectile/Proj)
-
 	if(!Proj)	return
 
 	//Tasers and the like should not damage grilles.
-	if(Proj.damage_type == HALLOSS)
+	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
 		return
 
 	src.health -= Proj.damage*0.2
@@ -115,7 +119,7 @@
 				if(WINDOW.dir == dir_to_set)//checking this for a 2nd time to check if a window was made while we were waiting.
 					user << "<span class='notice'>There is already a window facing this way there.</span>"
 					return
-			
+
 			var/wtype = ST.created_window
 			if (ST.use(1))
 				var/obj/structure/window/WD = new wtype(loc, dir_to_set, 1)
@@ -141,9 +145,9 @@
 /obj/structure/grille/proc/healthcheck()
 	if(health <= 0)
 		if(!destroyed)
-			icon_state = "brokengrille"
 			density = 0
 			destroyed = 1
+			update_icon()
 			new /obj/item/stack/rods(loc)
 
 		else
@@ -173,7 +177,7 @@
 			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 			s.set_up(3, 1, src)
 			s.start()
-			return 1
+				return 1
 		else
 			return 0
 	return 0
@@ -190,3 +194,14 @@
 	health -= damage
 	spawn(1) healthcheck()
 	return 1
+
+/obj/structure/grille/cult
+	name = "cult grille"
+	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it"
+	icon_state = "grillecult"
+	health = 40 //Make it strong enough to avoid people breaking in too easily
+
+/obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
+	if(air_group)
+		return 0 //Make sure air doesn't drain
+	..()
