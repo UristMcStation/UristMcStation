@@ -16,6 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	var/secure = 0
 
 
 /obj/structure/filingcabinet/chestdrawer
@@ -46,6 +47,18 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"
+	else if(istype(P, /obj/item/weapon/screwdriver))
+		if(secure)
+			user << "<span class='warning'>You can't see anywhere to unscrew that!</span>"
+			return
+		else
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			user << "<span class='notice'>You disassemble \the [src].</span>"
+			var/obj/item/stack/sheet/metal/S =  new /obj/item/stack/sheet/metal(src.loc)
+			S.amount = 2
+			for(var/obj/item/b in contents)
+				b.loc = (get_turf(src))
+			del(src)
 	else
 		user << "<span class='notice'>You can't put [P] in [src]!</span>"
 
@@ -101,6 +114,7 @@
  */
 /obj/structure/filingcabinet/security
 	var/virgin = 1
+	secure = 1
 
 
 /obj/structure/filingcabinet/security/proc/populate()
@@ -138,6 +152,7 @@
  */
 /obj/structure/filingcabinet/medical
 	var/virgin = 1
+	secure = 1
 
 /obj/structure/filingcabinet/medical/proc/populate()
 	if(virgin)

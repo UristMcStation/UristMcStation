@@ -51,7 +51,7 @@ datum/game_mode/mutiny
 						"leaks into a negative reality",
 						"antiparticle clouds",
 						"residual bluespace energy",
-						"suspected criminal operatives",
+						"suspected syndicate operatives",
 						"malfunctioning von Neumann probe swarms",
 						"shadowy interlopers",
 						"a stranded Vox arkship",

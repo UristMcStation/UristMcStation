@@ -1,6 +1,7 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
 	name = "red space helmet"
+	desc = "Top secret Spess Helmet."
 	icon_state = "syndicate"
 	item_state = "space_helmet_syndicate"
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."

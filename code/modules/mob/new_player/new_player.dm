@@ -61,7 +61,11 @@
 
 		output += "</div>"
 
-		src << browse(output,"window=playersetup;size=210x280;can_close=0")
+		//src << browse(output,"window=playersetup;size=210x240;can_close=0")
+		var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 230, 280)
+		popup.set_window_options("can_close=0")
+		popup.set_content(output)
+		popup.open(1)
 		return
 
 	Stat()
@@ -322,15 +326,15 @@
 
 		if(S && istype(S))
 			if(S.check_job_spawning(rank))
-			character.loc = pick(S.turfs)
-			join_message = S.msg
+				character.loc = pick(S.turfs)
+				join_message = S.msg
+			else
+				character << "Your chosen spawnpoint ([S.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
+				character.loc = pick(latejoin)
+				join_message = "has arrived on the station"
 		else
-				character << "Your chosen spawnpoint ([S.display_name]) is unavailable for your chosen job. Spawning you at the Transit shuttle instead."
 			character.loc = pick(latejoin)
 			join_message = "is in transit to the station"
-		else
-			character.loc = pick(latejoin)
-			join_message = "has arrived on the station"
 
 		character.lastarea = get_area(loc)
 		// Moving wheelchair if they have one
@@ -352,6 +356,9 @@
 		else
 			AnnounceCyborg(character, rank, join_message)
 
+		if(master_mode=="scom")
+			ScomLateJoin(character)
+			ScomRobotLateJoin(character)
 		del(src)
 
 	proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)

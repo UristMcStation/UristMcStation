@@ -442,7 +442,7 @@ About the new airlock wires panel:
 			if(overlays) overlays.Cut()
 			if(p_open)
 				spawn(2)
-				flick("o_door_closing", src)
+					flick("o_door_closing", src)
 					update_icon()
 			else
 				flick("door_closing", src)
@@ -647,7 +647,7 @@ About the new airlock wires panel:
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
-			else
+	else
 		..(user)
 	return
 
@@ -718,7 +718,7 @@ About the new airlock wires panel:
 						usr << "The door bolts are already dropped."
 					else
 						if(src.lock())
-						usr << "The door bolts have been dropped."
+							usr << "The door bolts have been dropped."
 				if(5)
 					//un-electrify door
 					if(src.isWireCut(AIRLOCK_WIRE_ELECTRIFY))
@@ -946,16 +946,16 @@ About the new airlock wires panel:
 			user << "\blue The airlock's bolts prevent it from being forced."
 		else if( !welded && !operating )
 			if(density)
-					var/obj/item/weapon/twohanded/fireaxe/F = C
+				var/obj/item/weapon/twohanded/fireaxe/F = C
 				if(F.wielded)
-						spawn(0)	open(1)
-					else
-					user << "\red You need to be wielding \the [C] to do that."
+					spawn(0)	open(1)
 				else
-					var/obj/item/weapon/twohanded/fireaxe/F = C
+					user << "\red You need to be wielding \the [C] to do that."
+			else
+				var/obj/item/weapon/twohanded/fireaxe/F = C
 				if(F.wielded)
-						spawn(0)	close(1)
-					else
+					spawn(0)	close(1)
+				else
 					user << "\red You need to be wielding \the [C] to do that."
 
 	else if(istype(C, /obj/item/weapon/airlock_painter))
@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 	if(operating || welded || locked)
 		return
 	if(!forced)
-		//despite the name, this wire is for general door control. 
+		//despite the name, this wire is for general door control.
 		//Bolts are already covered by the check for locked, above
 		if( !arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR) )
 			return
@@ -1078,7 +1078,7 @@ About the new airlock wires panel:
 		emitter_resistance *= 3
 
 	//if assembly is given, create the new door from the assembly
-	if (assembly)
+	if (assembly && istype(assembly))
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics

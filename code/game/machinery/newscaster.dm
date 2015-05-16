@@ -954,6 +954,16 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			src.scribble = s
 			src.attack_self(user)
 		return
+	if(istype(W, /obj/item/weapon/newspaper))
+		var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
+		user.before_take_item(W)
+		user.before_take_item(src)
+
+		user.put_in_hands(S)
+		user << "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>"
+		del(W)
+		del(src)
+		return
 
 
 ////////////////////////////////////helper procs

@@ -9,7 +9,7 @@ em						{font-style: normal;font-weight: bold;}
 .motd h1, .motd h2, .motd h3, .motd h4, .motd h5, .motd h6
 						{color: #638500;text-decoration: underline;}
 .motd a, .motd a:link, .motd a:visited, .motd a:active, .motd a:hover
-	{color: #638500;}
+						{color: #638500;}
 
 .prefix					{font-weight: bold;}
 .log_message			{color: #386AFF;	font-weight: bold;}

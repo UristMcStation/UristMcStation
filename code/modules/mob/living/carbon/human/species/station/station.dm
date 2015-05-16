@@ -45,7 +45,7 @@
 	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 
-/datum/species/tajaran
+/*/datum/species/tajaran
 	name = "Tajara"
 	name_plural = "Tajaran"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
@@ -73,7 +73,7 @@
 	flags = CAN_JOIN | IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
-	base_color = "#333333"
+	base_color = "#333333"*/
 
 /datum/species/skrell
 	name = "Skrell"
@@ -173,7 +173,7 @@
 
 	H.visible_message("\red[H] splits apart with a wet slithering noise!")
 
-/datum/species/machine
+/*/datum/species/machine
 	name = "Machine"
 	name_plural = "machines"
 
@@ -212,4 +212,4 @@
 	if(flags & IS_SYNTHETIC)
 		H.h_style = ""
 		spawn(100)
-			if(H) H.update_hair()
+			if(H) H.update_hair()*/

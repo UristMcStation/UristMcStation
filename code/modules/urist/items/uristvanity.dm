@@ -103,7 +103,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "Lpacket"
 	w_class = 1
 	throwforce = 2
-	flags = TABLEPASS
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/cigarette")

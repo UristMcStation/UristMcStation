@@ -74,13 +74,14 @@
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = 4
-	slot_flags = 0
+//	slot_flags = 0
 	max_shells = 50
 	caliber = "a762"
 	origin_tech = "combat=5;materials=1;syndicate=2"
 	ammo_type = "/obj/item/ammo_casing/a762"
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	load_method = 2
+	slot_flags = SLOT_BACK
 	var/cover_open = 0
 	var/mag_inserted = 1
 
@@ -144,4 +145,3 @@
    around simulating a removable magazine by adding the casings into the loaded list and spawning an empty magazine
    when the gun is out of rounds. Which means you can't eject magazines with rounds in them. The below is a very
    rough and poor attempt at making that happen. -Ausops */
-  

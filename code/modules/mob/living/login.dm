@@ -16,7 +16,7 @@
 			if("cult")
 				if(mind in ticker.mode:cult)
 					ticker.mode.update_cult_icons_added(src.mind)
-			if("mercenary")
+			if("nuclear emergency")
 				if(mind in ticker.mode:syndicates)
 					ticker.mode.update_all_synd_icons()
 			if("vampires")

@@ -8,7 +8,7 @@
 	var/reeds_spawn = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
-	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
+	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	var/icon_spawn_state = "grass1"
 	luminosity = 3
@@ -20,7 +20,7 @@
 			if(prob(90))
 				var/image/I
 				if(prob(35))
-					I = image('code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi',"plant[rand(1,7)]")
+					I = image('icons/jungle.dmi',"plant[rand(1,7)]")
 				else
 					if(prob(30))
 						I = image('icons/obj/flora/ausflora.dmi',"reedbush_[rand(1,4)]")
@@ -65,12 +65,17 @@
 	icon_state = "grass_clear"
 	icon_spawn_state = "grass3"
 
+/turf/unsimulated/jungle/clear/dark
+	icon_state = "grass_clear"
+	icon_spawn_state = "grass1"
+	luminosity = 0
+
 /turf/unsimulated/jungle/path
 	bushes_spawn = 0
 	small_trees = 0
 	name = "wet grass"
 	desc = "thick, long wet grass"
-	icon = 'code/WorkInProgress/Cael_Aislinn/Jungle/jungle.dmi'
+	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path"
 	icon_spawn_state = "grass2"
 

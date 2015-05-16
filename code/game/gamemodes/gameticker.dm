@@ -66,6 +66,9 @@ var/global/datum/controller/gameticker/ticker
 						for(var/i=0, i<10, i++)
 							sleep(1)
 							vote.process()
+			if(pregame_timeleft == 90 && master_mode=="scom")
+//				LoadScom()
+				world << "\red \b Welcome to the first version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> As this is the first version, expect balance to be a little wonky, weird AI behaviour (I just pushed a big AI update, report issues) and expect bugs. I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of friendly NPCs (bumped to the release because of weirdness). The plan is to make it a regular votable gamemode on Saturday May 16th."
 			if(pregame_timeleft <= 0)
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())
@@ -94,6 +97,7 @@ var/global/datum/controller/gameticker/ticker
 			src.mode = new mtype
 	else
 		src.mode = config.pick_mode(master_mode)
+
 	if (!src.mode.can_start())
 		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		del(mode)
@@ -216,7 +220,7 @@ var/global/datum/controller/gameticker/ticker
 				if( mode && !override )
 					override = mode.name
 				switch( override )
-					if("mercenary") //Nuke wasn't on station when it blew up
+					if("nuclear emergency") //Nuke wasn't on station when it blew up
 						flick("intro_nuke",cinematic)
 						sleep(35)
 						world << sound('sound/effects/explosionfar.ogg')
@@ -238,7 +242,7 @@ var/global/datum/controller/gameticker/ticker
 				if( mode && !override )
 					override = mode.name
 				switch( override )
-					if("mercenary") //Nuke Ops successfully bombed the station
+					if("nuclear emergency") //Nuke Ops successfully bombed the station
 						flick("intro_nuke",cinematic)
 						sleep(35)
 						flick("station_explode_fade_red",cinematic)

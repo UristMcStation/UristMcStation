@@ -296,7 +296,7 @@ obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 		del(I)
 		del(src)
 		update_icon(user)
-	update_icon(user)
+	update_icon(user)*/
 
 /obj/item/weapon/star
 	name = "shuriken"

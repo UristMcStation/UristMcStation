@@ -963,9 +963,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(R, slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/rig/commando(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/void/commando(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/rig/commando(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/void/commando(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(M), slot_wear_mask)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(M), slot_glasses)
 

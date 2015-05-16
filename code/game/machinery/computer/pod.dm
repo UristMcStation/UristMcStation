@@ -201,7 +201,7 @@
 
 /obj/machinery/computer/pod/old/syndicate
 	name = "ProComp Executive IIc"
-	desc = "Criminals often operate on a tight budget. Operates external airlocks."
+	desc = "The Syndicate operate on a tight budget. Operates external airlocks."
 	title = "External Airlock Controls"
 	req_access = list(access_syndicate)
 

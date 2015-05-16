@@ -24,6 +24,8 @@
 	var/turf/targloc = get_turf(target)
 	if(!curloc || !targloc)
 		return
+	if(chassis.bound_width == 64) //bigger than 32x32?
+		chassis.density = 0
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='warning'>[chassis] fires [src]!</span>")
 	occupant_message("<span class='warning'>You fire [src]!</span>")
@@ -44,6 +46,8 @@
 		projectiles = projectiles_per_shot
 	set_ready_state(0)
 	do_after_cooldown()
+	if(chassis.bound_width == 64) //bigger than 32x32?
+		chassis.density = 1
 	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(atom/A, atom/target, turf/aimloc)

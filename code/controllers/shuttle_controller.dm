@@ -4,6 +4,8 @@ var/global/datum/shuttle_controller/shuttle_controller
 /datum/shuttle_controller
 	var/list/shuttles	//maps shuttle tags to shuttle datums, so that they can be looked up.
 	var/list/process_shuttles	//simple list of shuttles, for processing
+	var/missionloc1 = /area/shuttle/scom/s1
+	var/missionloc2 = /area/shuttle/scom/s2
 
 /datum/shuttle_controller/proc/process()
 	//process ferry shuttles
@@ -11,6 +13,15 @@ var/global/datum/shuttle_controller/shuttle_controller
 		if (shuttle.process_state)
 			shuttle.process()
 
+	for (var/datum/shuttle/ferry/scom/s1/SO in process_shuttles)
+		missionloc1 = SO.missionloc
+		SO.area_offsite = locate(missionloc1)
+		SO.process()
+
+	for (var/datum/shuttle/ferry/scom/s2/ST in process_shuttles)
+		missionloc2 = ST.missionloc
+		ST.area_offsite = locate(missionloc2)
+		ST.process()
 
 /datum/shuttle_controller/New()
 	shuttles = list()
@@ -220,6 +231,24 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_offsite = "transit_dock"
 	shuttle.transit_direction = WEST
 	shuttles["Arrival"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/scom/s1()
+	shuttle.location = 0
+	shuttle.warmup_time = 15
+	shuttle.area_offsite = locate(missionloc1)
+	shuttle.area_station = locate(/area/shuttle/scom/s1/base)
+	shuttle.transit_direction = EAST
+	shuttles["SCOM1"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/scom/s2()
+	shuttle.location = 0
+	shuttle.warmup_time = 15
+	shuttle.area_offsite = locate(missionloc2)
+	shuttle.area_station = locate(/area/shuttle/scom/s2/base)
+	shuttle.transit_direction = EAST
+	shuttles["SCOM2"] = shuttle
 	process_shuttles += shuttle
 
 //End Urist shuttles

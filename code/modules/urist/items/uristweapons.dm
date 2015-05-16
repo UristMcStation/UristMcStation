@@ -13,7 +13,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "machete"
 	item_state = "machete"
 	sharp = 1
-	flags = FPRINT | TABLEPASS | CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 20
 	throwforce = 10
@@ -160,52 +160,6 @@ the sprite and make my own projectile -Glloyd*/
 	damage_type = TOX
 	irradiate = 20
 
-//Sniper rifle, from BS12. Those guys used spaces instead of tabs. What the actual fuck.
-
-/*/obj/item/weapon/gun/energy/sniperrifle
-	urist_only = 1
-	name = "L.W.A.P. Sniper Rifle"
-	desc = "A rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
-	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "sniper"
-	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = "combat=6;materials=5;powerstorage=4"
-	projectile_type = "/obj/item/projectile/beam/sniper"
-	slot_flags = SLOT_BACK
-	charge_cost = 250
-	w_class = 4.0
-
-	var/zoom = 0
-
-/obj/item/weapon/gun/energy/sniperrifle/dropped(mob/user)
-	user.client.view = world.view
-	zoom = 0
-
-/obj/item/weapon/gun/energy/sniperrifle/verb/zoom()
-	set category = "Special Verbs"
-	set name = "Zoom"
-	set popup_menu = 0
-	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
-		usr << "No."
-	return
-
-	src.zoom = !src.zoom
-	usr << ("<font color='[src.zoom?"blue":"red"]'>Zoom mode [zoom?"en":"dis"]abled.</font>")
-	if(zoom)
-		usr.client.view = 12
-		usr << sound('sound/mecha/imag_enh.ogg',volume=50)
-	else
-		usr.client.view = world.view//world.view - default mob view size
-	return
-
-/obj/item/projectile/beam/sniper
-	name = "sniper beam"
-	icon_state = "xray"
-	damage = 60
-	stun = 5
-	weaken = 5
-	stutter = 5*/
-
 //Syndie mini-bomb from /tg/
 
 /obj/item/weapon/grenade/syndieminibomb
@@ -245,7 +199,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "knight45"
 	fire_sound = 'sound/urist/suppshot.ogg'
-	w_class = 3
+	w_class = 2
 	max_shells = 7
 	slot_flags = SLOT_BELT
 	load_method = 2

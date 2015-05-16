@@ -22,10 +22,10 @@ proc/toggle_move_stars(zlevel, direction)
 
 	if (moving_levels["zlevel"] != gen_dir)
 		moving_levels["zlevel"] = gen_dir
-		for(var/turf/space/S in world)
-			if(S.z == zlevel)
-				spawn(0)
-					var/turf/T = S
+		for(var/x = 1 to world.maxx)
+			for(var/y = 1 to world.maxy)
+				var/turf/space/T = locate(x,y,zlevel)
+				if (istype(T))
 					if(!gen_dir)
 						T.icon_state = "[((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25]"
 					else

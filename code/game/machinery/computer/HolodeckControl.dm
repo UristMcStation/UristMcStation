@@ -654,13 +654,13 @@ var/global/list/holodeck_programs = list(
 		melee_damage_lower = 0
 		melee_damage_upper = 0
 		wall_smash = 0
-		destroy_surroundings = 0
+		environment_smash = 0
 	else
 		faction = "carp"
 		melee_damage_lower = initial(melee_damage_lower)
 		melee_damage_upper = initial(melee_damage_upper)
 		wall_smash = initial(wall_smash)
-		destroy_surroundings = initial(destroy_surroundings)
+		environment_smash = initial(environment_smash)
 
 /mob/living/simple_animal/hostile/carp/holodeck/gib()
 	derez() //holograms can't gib

@@ -95,7 +95,7 @@
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
-		return 1
+		return 1*/
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -118,7 +118,9 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/roboticist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/robotics/full(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_l_store)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/robotics(H), slot_wear_suit)
+//		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 //		H.equip_to_slot_or_del(new /obj/item/weapon/storage/toolbox/mechanical(H), slot_l_hand) Don't need this anymore, with the auto-equipped toolbelt
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)

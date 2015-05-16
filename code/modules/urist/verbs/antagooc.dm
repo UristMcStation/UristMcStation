@@ -25,10 +25,10 @@ var/global/normal_aooc_colour = "#FF0000"
 		return
 
 	if(!holder)
-		if(!ooc_allowed)
+		if(!config.ooc_allowed)
 			src << "<span clas='warning'>OOC is globally muted</span>"
 			return
-		if(!dooc_allowed && (mob.stat == DEAD))
+		if(!config.dooc_allowed && (mob.stat == DEAD))
 			usr << "<span clas='warning'>OOC for dead mobs has been turned off.</span>"
 			return
 		if(prefs.muted & MUTE_OOC)

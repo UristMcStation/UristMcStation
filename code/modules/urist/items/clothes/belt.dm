@@ -17,7 +17,7 @@
  	"/obj/item/weapon/wrench",
  	"/obj/item/device/multitool",
  	"/obj/item/device/flashlight",
- 	"/obj/item/weapon/cable_coil",
+ 	"/obj/item/stack/cable_coil",
  	"/obj/item/device/analyzer",
  	"/obj/item/device/mmi")
 
@@ -101,7 +101,7 @@
 	item_state = "bandolier"
 	storage_slots = 6
 	can_hold = list(
-			/obj/item/ammo_casing/shotgun
+			"/obj/item/ammo_casing/shotgun"
 			)
 
 //military belt
@@ -111,3 +111,12 @@
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
 	icon_state = "militarybelt"
 	item_state = "military"
+
+/obj/item/weapon/storage/belt/urist/military/scom
+	w_class = 4
+	storage_slots = 7
+	max_w_class = 3
+	max_combined_w_class = 24
+	can_hold = list(
+		"/obj/item"
+		)

@@ -25,6 +25,10 @@
 	explosion_resistance = 25
 	emitter_resistance = 50 // Lots of emitter blasts, it's *blast* door after all.
 
+	//Most blast doors are infrequently toggled and sometimes used with regular doors anyways,
+	//turning this off prevents awkward zone geometry in places like medbay lobby, for example.
+	block_air_zones = 0
+
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
@@ -157,6 +161,9 @@
 		stat &= ~BROKEN
 
 
+/obj/machinery/door/blast/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group) return 1
+	return ..()
 
 
 
@@ -173,6 +180,7 @@ obj/machinery/door/blast/regular
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
 /obj/machinery/door/blast/shutters
+	name = "shutters"
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"

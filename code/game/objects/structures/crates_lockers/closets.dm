@@ -20,13 +20,13 @@
 	var/store_items = 1
 	var/store_mobs = 1
 
-	var/const/default_mob_size = 15
+	var/const/default_mob_size = 5
 
 /obj/structure/closet/initialize()
-		if(!opened)		// if closed, any item at the crate's loc is put in the contents
-			for(var/obj/item/I in src.loc)
-				if(I.density || I.anchored || I == src) continue
-				I.loc = src
+	if(!opened)		// if closed, any item at the crate's loc is put in the contents
+		for(var/obj/item/I in src.loc)
+			if(I.density || I.anchored || I == src) continue
+			I.loc = src
 
 /obj/structure/closet/alter_health()
 	return get_turf(src)
@@ -136,7 +136,7 @@
 /obj/structure/closet/proc/toggle(mob/user as mob)
 	if(!(src.opened ? src.close() : src.open()))
 		user << "<span class='notice'>It won't budge!</span>"
-	return
+		return
 	update_icon()
 
 // this should probably use dump_contents()

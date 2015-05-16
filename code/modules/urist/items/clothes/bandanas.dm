@@ -8,7 +8,6 @@
 	icon_override = 'icons/uristmob/mask.dmi'
 	item_state = "greenbandana"
 	body_parts_covered = HEAD
-	flags = FPRINT|TABLEPASS
 	slot_flags = SLOT_MASK
 	var/can_flip = 0
 	var/is_flipped = 1

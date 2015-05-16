@@ -40,7 +40,7 @@
 	icon_state = "riot"
 	item_state = "helmet"
 	flags = HEADCOVERSEYES
-	armor = list(melee = 82, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 0)
+	armor = list(melee = 82, bullet = 20, laser = 35,energy = 10, bomb = 25, bio = 2, rad = 0)
 	flags_inv = HIDEEARS
 	siemens_coefficient = 0.7
 

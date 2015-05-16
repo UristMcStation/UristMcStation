@@ -1,4 +1,7 @@
-var/list/trainwarp = list()
+//var/mappath = "maps/EventMaps/train.dmm"
+var/list/eventwarp1 = list()
+var/list/eventwarp2 = list()
+var/list/eventwarp3 = list()
 
 /turf/unsimulated/floor/uristturf/train/grass
 	name = "grass"
@@ -9,6 +12,16 @@ var/list/trainwarp = list()
 	name = "grass"
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "gcircuit"
+
+/turf/unsimulated/floor/uristturf/train/grass_night
+	name = "grass"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "g_night"
+
+/turf/unsimulated/floor/uristturf/train/grassmoving_night
+	name = "grass"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "gcircuit_night"
 
 /turf/unsimulated/wall/blank
 	name = ""
@@ -88,9 +101,15 @@ var/list/trainwarp = list()
 	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman2"
 
-
 //hurt me good
-proc/TrainTime()
+proc/traintime()
+	set name = "Train Time!"
+	set category = "Fun"
+	set desc = "All aboard!"
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
 	for(var/mob/living/carbon/human/M in player_list)
 
 		for (var/obj/item/I in M)
@@ -100,7 +119,7 @@ proc/TrainTime()
 
 		if(M.gender == "male")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/suit_jacket/black(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/coat/blackcoat/suit(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
@@ -129,55 +148,175 @@ proc/TrainTime()
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
 		M.regenerate_icons()
-		M.loc = pick(trainwarp)
+		M.loc = pick(eventwarp1)
 
 	message_admins("[key_name_admin(usr)] began the train event. God help us all.")
 
-proc/LoadEventMap()
+//snow train stuff
 
-	var/list/potentialEventMap = list()
-	world << "\red \b Searching for Event Map..."
-	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
-	if(!Lines.len)	return
-	for (var/t in Lines)
-		if (!t)
-			continue
+proc/snowtraintime()
+	for(var/mob/living/carbon/human/M in player_list)
 
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
+		for (var/obj/item/I in M)
+			if (istype(I, /obj/item/weapon/implant))
+				continue
+			del(I)
 
-		var/pos = findtext(t, " ")
-		var/name = null
-	//	var/value = null
+		if(M.job in list("Captain", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Scientist", "Head of Security"))
 
-		if (pos)
-            // No, don't do lowertext here, that breaks paths on linux
-			name = copytext(t, 1, pos)
-		//	value = copytext(t, pos + 1)
+			if(M.gender == "male")
+				M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/suit_jacket/black(M), slot_w_uniform)
+				M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit(M), slot_wear_suit)
+				M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+				M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
+				M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
+				M.equip_to_slot_or_del(new /obj/item/clothing/head/fedora(M), slot_head)
+				M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_belt)
+				M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
+
+				var/obj/item/weapon/card/id/W = new(M)
+				W.name = "[M.real_name]'s ID Card"
+				W.icon_state = "centcom"
+				W.access = get_all_accesses()
+				W.assignment = ""
+				W.registered_name = M.real_name
+				M.equip_to_slot_or_del(W, slot_wear_id)
+				M.loc = pick(eventwarp2)
+				M << ("\red You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.")
+			else if(M.gender == "female")
+				M.equip_to_slot_or_del(new /obj/item/clothing/under/dress/dress_orange(M), slot_w_uniform)
+				M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+				M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
+				M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_l_store)
+				M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
+
+				var/obj/item/weapon/card/id/W = new(M)
+				W.name = "[M.real_name]'s ID Card"
+				W.icon_state = "centcom"
+				W.access = get_all_accesses()
+				W.assignment = "Elite Passenger"
+				W.registered_name = M.real_name
+				M.equip_to_slot_or_del(W, slot_wear_id)
+				M.loc = pick(eventwarp2)
+				M << ("\red You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.")
+
+		else if(M.job in list("Security Officer", "Warden"))
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/det/slob(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/jacket(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/detective(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "Guard"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+			M.loc = pick(eventwarp3)
+			M << ("\red You are the guards of the train. Your goal is to keep the lower cars out of the upper cars, and protect the elite. However, while it pains you, you know that the secret of the engine requires the members of the lower cars in order to work. Thus, you must keep them alive unless there is no other option.")
+
 		else
-            // No, don't do lowertext here, that breaks paths on linux
-			name = t
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/dresden(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/coat(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/urist/winter(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/random(M), slot_r_store)
 
-		if (!name)
-			continue
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.assignment = "Lower Class Passenger"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+			M.loc = pick(eventwarp1)
+			M << ("\red You are a member of the lower classes. The few (un)lucky souls to make it onboard the train before it left on its final, neverending journey. While you've managed to scrape out a living on the train, it is not a good life. Indeed, every few weeks it seems that some of your closest friends from the lower cars just disappear. On top of that, food stores are running low. However, you know that you can't beat the guards without working together with every single member of the lower cars. So, will you fight and die, or will you keep on surviving with the hope that you won't be taken away? It's your choice.")
+		M.regenerate_icons()
 
-		potentialEventMap.Add(name)
 
+	message_admins("[key_name_admin(usr)] began the snow train event. God help us all.")
 
-	if(potentialEventMap.len)
-		world << "\red \b Loading EventMap..."
+/obj/structure/train/engine/snow
+	name = "engine"
+	icon = 'icons/obj/power.dmi'
+	icon_state = "teg"
+	density = 1
+	anchored = 1
 
-		var/map = pick(potentialEventMap)
-		var/file = file(map)
-		if(isfile(file))
-			maploader.load_map(file)
+/obj/structure/train/engine/snow2
+	name = "engine"
+	icon = 'icons/obj/pipes.dmi'
+	icon_state = "turbine"
+	density = 1
+	anchored = 1
 
-		world << "\red \b Event Map loaded."
+/obj/structure/train/engine/snow/attack_hand(mob/user)
+	var/want = input("Stop the train? ((This will end the round)", "Your Choice", "Cancel") in list ("Cancel", "Yes")
+	switch(want)
+		if("Cancel")
+			return
+		if("Yes")
+			for(var/turf/unsimulated/floor/uristturf/train/snowmoving/F in world)
+				F.icon_state = "s"
 
-	else
-		world << "\red \b Event Map found."
-		return
+			for(var/turf/unsimulated/floor/uristturf/train/snowmoving2/F in world)
+				F.icon_state = "s2"
 
+			for(var/mob/living/carbon/human/M in player_list)
+				if(M.client)
+					spawn(0)
+						if(M.buckled)
+							M << "\red Sudden deceleration presses you into your chair!"
+							shake_camera(M, 3, 1)
+						else
+							M << "\red The floor lurches beneath you as the train comes to a sudden stop!"
+							shake_camera(M, 10, 1)
+				if(istype(M, /mob/living/carbon))
+					if(!M.buckled)
+						M.Weaken(3)
+
+			world << "\red \b The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world."
+
+/turf/unsimulated/floor/uristturf/train/snow
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "s"
+
+/turf/unsimulated/floor/uristturf/train/snowmoving
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "scircuit"
+
+/turf/unsimulated/floor/uristturf/train/snow2
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "s2"
+
+/turf/unsimulated/floor/uristturf/train/snowmoving2
+	name = "snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "scircuit_2"
+
+/turf/unsimulated/wall/other/transparent
+	opacity = 0
+
+/obj/effect/blowingsnow
+	name = "blowing snow"
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "bsnow"
+	layer = 5
+
+/obj/effect/blowingsnow/Crossed(O as mob)
+	..()
+	if(istype(O, /mob/living/))
+
+		var/mob/living/M = O
+		if(prob(85))
+			M.apply_damage(rand(3,5), BURN)
+			M << ("\red The cold wind tears at your skin!")

@@ -5,9 +5,9 @@
 		var/datum/organ/external/temp = H.organs_by_name["r_hand"]
 		if(H.hand)
 			temp = H.organs_by_name["l_hand"]
-	if(temp && !temp.is_usable())
+		if(temp && !temp.is_usable())
 			H << "\red You can't use your [temp.display_name]."
-		return
+			return
 
 	..()
 
@@ -15,7 +15,7 @@
 	if(istype(H))
 		if((H != src) && check_shields(0, H.name))
 			visible_message("\red <B>[H] attempted to touch [src]!</B>")
-		return 0
+			return 0
 
 		if(istype(H.gloves, /obj/item/clothing/gloves/boxing/hologlove))
 
@@ -41,8 +41,8 @@
 
 			return
 
-		if(istype(M,/mob/living/carbon))
-			M.spread_disease_to(src, "Contact")
+	if(istype(M,/mob/living/carbon))
+		M.spread_disease_to(src, "Contact")
 
 	switch(M.a_intent)
 		if("help")
@@ -51,20 +51,20 @@
 
 				if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
 					H << "\blue <B>Remove your mask!</B>"
-				return 0
-			if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
+					return 0
+				if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
 					H << "\blue <B>Remove [src]'s mask!</B>"
-				return 0
+					return 0
 
-			var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human()
-			O.source = M
-			O.target = src
-			O.s_loc = M.loc
-			O.t_loc = loc
-			O.place = "CPR"
-			requests += O
-			spawn(0)
-				O.process()
+				var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human()
+				O.source = M
+				O.target = src
+				O.s_loc = M.loc
+				O.t_loc = loc
+				O.place = "CPR"
+				requests += O
+				spawn(0)
+					O.process()
 			else
 				help_shake_act(M)
 			return 1
@@ -89,13 +89,17 @@
 			return 1
 
 		if("hurt")
+
+			if(!istype(H))
+				attack_generic(H,rand(1,3),"punched")
+				return
 			//Vampire code //hope I didn't fuck up the copypasta - scr
 			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
 				if(M.mind && M.mind.vampire && !M.mind.vampire.draining)
 					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove their mask!</span>"
 						return 0
-					if((M.head && (M.head.flags & HEADCOVERSMOUTH)) || (M.wear_mask && (M.wear_mask.flags & MASKCOVERSMOUTH)))
+					if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
 						M << "<span class='warning'> Remove your mask!</span>"
 						return 0
 					if(mind && mind.vampire)
@@ -105,15 +109,7 @@
 					M.handle_bloodsucking(src)
 					return
 			//end vampire codes
-			var/datum/unarmed_attack/attack = M.species.unarmed
-			if(!attack.is_usable(M))
-				attack = M.species.secondary_unarmed
-			if(!attack.is_usable(M))
-				return 0
 
-			if(!istype(H))
-				attack_generic(H,rand(1,3),"punched")
-				return
 
 			var/rand_damage = rand(1, 5)
 			var/block = 0
@@ -137,6 +133,7 @@
 
 			if(src.grabbed_by.len || src.buckled || !src.canmove || src==H)
 				accurate = 1 // certain circumstances make it impossible for us to evade punches
+				rand_damage = 5
 
 			// Process evasion and blocking
 			var/miss_type = 0

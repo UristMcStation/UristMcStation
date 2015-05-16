@@ -43,6 +43,7 @@
 
 	if(!istype(C,/client))
 		if(holder)	src << "<font color='red'>Error: Private-Message: Client not found.</font>"
+		else		adminhelp(msg)	//admin we are replying to left. adminhelp instead
 		return
 
 	//get message text, limit it's length.and clean/escape html
@@ -52,6 +53,7 @@
 		if(!msg)	return
 		if(!C)
 			if(holder)	src << "<font color='red'>Error: Admin-PM: Client not found.</font>"
+			else		adminhelp(msg)	//admin we are replying to has vanished, adminhelp instead
 			return
 
 	if (src.handle_spam_prevention(msg,MUTE_ADMINHELP))
@@ -67,6 +69,7 @@
 		//mod PMs are maroon
 		//PMs sent from admins and mods display their rank
 		if(holder)
+			if(!C.holder && holder && holder.fakekey) 
 				recieve_pm_type = "Admin"
 			else
 				recieve_pm_type = holder.rank

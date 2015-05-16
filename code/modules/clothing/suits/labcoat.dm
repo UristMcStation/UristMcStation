@@ -12,7 +12,6 @@
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
 /obj/item/clothing/suit/storage/toggle/labcoat/red
-/obj/item/clothing/suit/storage/labcoat/red
 	name = "red labcoat"
 	desc = "A suit that protects against minor chemical spills. This one is red."
 	icon_state = "red_labcoat_open"

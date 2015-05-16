@@ -8,7 +8,7 @@
 maps/RandomZLevels/beach.dmm
 maps/RandomZLevels/blackmarketpackers.dmm
 maps/RandomZLevels/challenge.dmm
-maps/RandomZLevels/listeningpost.dmm
+#maps/RandomZLevels/listeningpost.dmm
 maps/RandomZLevels/maze1.dmm
 maps/RandomZLevels/spacebattle.dmm
 maps/RandomZLevels/spacehotel.dmm

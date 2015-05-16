@@ -45,6 +45,9 @@
 		desc = A.desc
 		name = A.name
 		icon_state = A.icon_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		item_state = A.item_state
 		item_color = A.item_color
 		body_parts_covered = A.body_parts_covered
@@ -99,6 +102,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -151,6 +157,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -203,6 +212,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		update_clothing_icon()	//so our overlays update.
 
 //**********************
@@ -253,6 +265,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 
 		//so our overlays update.
 		if (ismob(src.loc))
@@ -307,6 +322,9 @@
 		icon_state = A.icon_state
 		item_state = A.item_state
 		item_color = A.item_color
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		update_clothing_icon()	//so our overlays update.
 
@@ -356,6 +374,9 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		body_parts_covered = A.body_parts_covered
 		update_clothing_icon()	//so our overlays update.
@@ -405,6 +426,9 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		icon_override = A.icon_override
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 		update_clothing_icon()	//so our overlays update.
 
@@ -459,6 +483,8 @@
 		name = A.name
 		icon_state = A.icon_state
 		item_state = A.item_state
+		icon = A.icon
+		urist_only = A.urist_only
 		flags_inv = A.flags_inv
 
 		//so our overlays update.

@@ -93,10 +93,33 @@
 			synd_spawn += loc
 			del(src)
 
-		if("trainwarp")
-			trainwarp += loc
+//urist stuff
+
+		if("eventwarp1")
+			eventwarp1 += loc
 			del(src)
 
+		if("eventwarp2")
+			eventwarp2 += loc
+			del(src)
+
+		if("eventwarp3")
+			eventwarp3 += loc
+			del(src)
+
+		if("scomspawn1")
+			scomspawn1 += loc
+			del(src)
+
+		if("scomspawn2")
+			scomspawn2 += loc
+			del(src)
+
+		if("scomspawn3")
+			scomspawn3 += loc
+			del(src)
+
+//end urist stuff
 	landmarks_list += src
 	return 1
 
