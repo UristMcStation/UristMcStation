@@ -32,27 +32,6 @@
 		user << "<span class='notice'>You've already salvaged this alien technology!</span>"
 		return
 
-/obj/structure/scom/fuckitall
-	name = "mothership central computer"
-	icon = 'icons/urist/turf/scomturfs.dmi'
-	icon_state = "9,8"
-	var/fuckitall = 0
-
-/obj/structure/scom/fuckitall/attack_hand(mob/user as mob)
-	var/want = input("Start the self destruct countdown? You will have 3 minutes to escape.", "Your Choice", "Cancel") in list ("Cancel", "Yes")
-	switch(want)
-		if("Cancel")
-			return
-		if("Yes")
-			world << "\red \b Mothership self-destruct sequence activated. Three minutes until detonation."
-			sleep(1800)
-			for(var/mob/living/M in /area/scom/mission/nolighting)
-				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-				M << ("\red The explosion tears you apart!")
-				M.gib()
-//			sleep(2000)
-			sploded = 1
-
 /obj/item/scom/aliengun
 	name = "alien weapon"
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -76,3 +55,16 @@
 	scomtechlvl = 6
 	scommoney = 1000
 	icon_state = "alienrifle" //temp
+
+/obj/item/scom/borgmodkit
+	name = "cyborg mod kit - Combat"
+	desc = "A mod kit to convert a cyborg into a Combat Borg"
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "royce_kit"
+
+/obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)
+//	R/var/module_sprites[0]
+	R.module = new /obj/item/weapon/robot_module/combat(src)
+	R.modtype = "Combat"
+//	R.module_sprites["Combat Android"] = "droid-combat"
+	R.updateicon()

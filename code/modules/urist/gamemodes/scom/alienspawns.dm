@@ -26,8 +26,8 @@
 			new /mob/living/simple_animal/hostile/alien/queen(src.loc)
 			new /mob/living/simple_animal/hostile/alien/queen/large(src.loc)
 		else if(spawntype == 5)
-			new	/mob/living/simple_animal/hostile/necromorph(src.loc)
-			new	/mob/living/simple_animal/hostile/necromorph(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/husk(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/husk(src.loc)
 		else if(spawntype == 6)
 			new	/mob/living/simple_animal/hostile/scom/lactera/light(src.loc)
 			new	/mob/living/simple_animal/hostile/scom/lactera/light(src.loc)
@@ -42,14 +42,28 @@
 			new	/mob/living/simple_animal/hostile/scom/lactera/medic(src.loc)
 		else if(spawntype == 10)
 			new	/mob/living/simple_animal/hostile/scom/lactera/medic(src.loc)
-			new	/mob/living/simple_animal/hostile/scom/lactera/light(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/lactera/medic(src.loc) //don't ask
 		else if(spawntype == 11)
 			new	/mob/living/simple_animal/hostile/scom/lactera/medic(src.loc)
-			new	/mob/living/simple_animal/hostile/scom/lactera/medic(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/lactera/light(src.loc)
 		else if(spawntype == 12)
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
 			new	/mob/living/simple_animal/hostile/faithless(src.loc)
-		//else if(spawntype == 100) //civs temporarily removed
+		else if(spawntype == 13)
+			new	/mob/living/simple_animal/hostile/scom/forgotten(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/forgotten(src.loc)
+		else if(spawntype == 14)
+			new	/mob/living/simple_animal/hostile/scom/harvester(src.loc)
+			new	/mob/living/simple_animal/hostile/scom/harvester(src.loc)
+		else if(spawntype == 15)
+			new /mob/living/simple_animal/hostile/scom/allophylus
+			new /mob/living/simple_animal/hostile/alien/queen/large
+			new /mob/living/simple_animal/hostile/alien/queen/large
+		else if(spawntype == 16)
+			new /mob/living/simple_animal/hostile/alien/ravager(src.loc)
+			new /mob/living/simple_animal/hostile/alien/drone(src.loc)
+		else if(spawntype == 100) //civs temporarily removed
+			new /mob/living/simple_animal/hostile/scom/civ/civvie(src.loc)
 //		world << "SPAWNED"
 		del(src)
 

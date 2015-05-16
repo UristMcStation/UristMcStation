@@ -58,19 +58,71 @@ var/list/scomspawn3 = list()
 	ScomTime()
 	ScomRobotTime()
 
+	spawn(600)
+		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion.<BR><BR> Your first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders. <b>Shuttles will be launching in 3 minutes. </b>", "S-COM Mission Command")
+	spawn(2400)
+		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+			C.launch()
+
 /datum/game_mode/scom/process()
-	if(sploded == 1 && !declared)
+	if(sploded == 2 && !declared)
 		declare_completion()
+	else if(sploded == 1)
+		for(var/obj/effect/landmark/scom/bomb/B in world)
+			B.incomprehensibleprocname()
+			sploded = 0
+			spawn(600) //we do this 3 times, all bomb delays should be lower or equal to this
+				sploded = 0
 
 datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
-	if(sploded == 1)
+	if(sploded == 2)
 		declared = 1
-		world << "<FONT size = 3><B>S-COM has won!</B></FONT>"
+		world << "<FONT size = 3><B>Major S-COM victory!</B></FONT>"
 		world << "<B>The alien presence in Nyx has been eradicated!</B>"
 
-//		world << "\blue Rebooting in 30s"
+		world << "\blue Rebooting in one minute."
 		..()
 
-//		sleep(300)
-//		world.Reboot()
+		sleep(600)
+		if(!ticker.delay_end)
+			world.Reboot()
+		else
+			world << "\blue <B>An admin has delayed the round end</B>"
 
+/obj/structure/scom/fuckitall
+	name = "mothership central computer"
+	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon_state = "9,8"
+	var/fuckitall = 0
+
+/obj/structure/scom/fuckitall/attack_hand(mob/user as mob)
+	var/want = input("Start the self destruct countdown? You will have 3 minutes to escape.", "Your Choice", "Cancel") in list ("Cancel", "Yes")
+	switch(want)
+		if("Cancel")
+			return
+		if("Yes")
+			world << "<FONT size = 3>\red \b Mothership self-destruct sequence activated. Three minutes until detonation.</FONT>"
+			sploded = 1
+			command_announcement.Announce("We're launching the shuttles in two minutes and fourty five seconds. I don't think we need to say it twice, get the fuck out of there.", "S-COM Mission Command")
+			spawn(1650)
+				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+					C.launch()
+			spawn(1850) //long enough to luanch both shuttles
+			for(var/mob/living/M in mob_list)
+				if(M.z != 2)
+					explosion(M.loc, 2, 4, 6, 6)
+//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
+//				M << ("\red The explosion tears you apart!")
+//				M.gib()
+//			sleep(2000)
+			world << "\red \b The mothership has been destroyed!"
+			sleep(50)
+			sploded = 2
+
+/obj/effect/landmark/scom/bomb
+	invisibility = 101
+	var/bombdelay = 0
+
+/obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
+	spawn(bombdelay)
+		explosion(src.loc, 1, 2, 3, 4)
