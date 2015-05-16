@@ -295,7 +295,7 @@
 		if(id)
 			return id.assignment ? id.assignment : if_no_job
 		else
-			return if_no_id
+		return if_no_id
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
@@ -311,7 +311,7 @@
 		if(id)
 			return id.registered_name
 		else
-			return if_no_id
+		return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
 /mob/living/carbon/human/proc/get_visible_name()
@@ -952,11 +952,11 @@
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for (var/obj/item/organ/brain/H in world)
-			if(H.brainmob)
-				if(H.brainmob.real_name == src.real_name)
-					if(H.brainmob.mind)
-						H.brainmob.mind.transfer_to(src)
-						del(H)
+		if(H.brainmob)
+			if(H.brainmob.real_name == src.real_name)
+				if(H.brainmob.mind)
+					H.brainmob.mind.transfer_to(src)
+					del(H)
 
 	for(var/datum/organ/internal/I in internal_organs)
 		I.damage = 0
@@ -1021,7 +1021,7 @@
 	//if this blood isn't already in the list, add it
 	if(istype(M))
 		if(!blood_DNA[M.dna.unique_enzymes])
-			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
+	blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 	hand_blood_color = blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle

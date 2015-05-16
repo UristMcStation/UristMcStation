@@ -92,7 +92,7 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-	return
+		return
 
 ///////////OFFHAND///////////////
 /obj/item/weapon/twohanded/offhand

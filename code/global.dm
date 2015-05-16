@@ -1,5 +1,8 @@
 //#define TESTING
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
+#if DM_VERSION < 506
+#warn This compiler is out of date. You may experience issues with projectile animations.
+#endif
 
 //items that ask to be called every cycle
 var/global/obj/effect/datacore/data_core = null
@@ -16,6 +19,8 @@ var/list/restricted_camera_networks = list("thunder","ERT","NUKE")
 var/global/list/global_mutations = list() // list of hidden mutation things
 
 var/global/defer_powernet_rebuild = 0		// true if net rebuild will be called manually after an event
+
+var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 	//list/global_map = list(list(1,5),list(4,3))//an array of map Z levels.
@@ -125,7 +130,7 @@ var/list/latejoin_cyborg = list()
 
 var/list/prisonwarp = list()	//prisoners go to these
 var/list/holdingfacility = list()	//captured people go here
-var/list/xeno_spawn = list()//Aliens spawn at ahahthese.
+var/list/xeno_spawn = list()//Aliens spawn at these.
 //	list/mazewarp = list()
 var/list/tdome1 = list()
 var/list/tdome2 = list()

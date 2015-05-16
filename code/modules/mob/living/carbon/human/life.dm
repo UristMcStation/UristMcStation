@@ -414,9 +414,9 @@
 
 			//spread some viruses while we are at it
 			if (virus2.len > 0 && prob(10))
-//				log_debug("[src] : Exhaling some viruses")
-				for(var/mob/living/carbon/M in view(1,src))
-					src.spread_disease_to(M)
+//					log_debug("[src] : Exhaling some viruses")
+					for(var/mob/living/carbon/M in view(1,src))
+						src.spread_disease_to(M)
 
 
 	proc/get_breath_from_internal(volume_needed)
@@ -1320,7 +1320,7 @@
 			if(istype(rig) && rig.visor)
 				if(!rig.helmet || (head && rig.helmet == head))
 					if(rig.visor && rig.visor.vision && rig.visor.active && rig.visor.vision.glasses)
-						glasses_processed = 1
+				glasses_processed = 1
 						process_glasses(rig.visor.vision.glasses)
 
 			if(glasses && !glasses_processed)
@@ -1435,7 +1435,7 @@
 					if(!O.up)
 						found_welder = 1
 				else if(istype(head, /obj/item/clothing/head/welding))
-					var/obj/item/clothing/head/welding/O = head
+				var/obj/item/clothing/head/welding/O = head
 					if(!O.up)
 						found_welder = 1
 				else if(istype(back, /obj/item/weapon/rig))
@@ -1785,7 +1785,7 @@
 					holder.icon_state = "hudmutineer"
 				if("mutineer")
 					holder.icon_state = "hudmutineer"
-				if("Vampire") // TODO: Check this
+				if("Vampire")
 					holder.icon_state = "hudvampire"
 
 			hud_list[SPECIALROLE_HUD] = holder

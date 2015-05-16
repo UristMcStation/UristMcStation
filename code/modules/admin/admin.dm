@@ -169,7 +169,7 @@ var/global/floorIsLava = 0
 				<A href='?src=\ref[src];simplemake=shade;mob=\ref[M]'>Shade</A>
 				<br>
 			"}
-	body += {"<br><br>
+		body += {"<br><br>
 			<b>Other actions:</b>
 			<br>
 			<A href='?src=\ref[src];forcespeech=\ref[M]'>Forcesay</A>
@@ -669,6 +669,16 @@ var/global/floorIsLava = 0
 
 	if(check_rights(R_SERVER,0))
 		dat += "<A href='?src=\ref[src];secretsfun=togglebombcap'>Toggle bomb cap</A><BR>"
+
+	if(check_rights(R_SERVER|R_FUN,0))
+		dat += {"
+			<BR>
+			<B>Final Solutions</B><BR>
+			<I>(Warning, these will end the round!)</I><BR>
+			<BR>
+			<A href='?src=\ref[src];secretsfun=hellonearth'>Summon Nar-Sie</A><BR>
+			<A href='?src=\ref[src];secretsfun=supermattercascade'>Start a Supermatter Cascade</A><BR>
+			"}
 
 	dat += "<BR>"
 

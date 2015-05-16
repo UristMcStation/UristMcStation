@@ -371,11 +371,11 @@ var/list/robot_verbs_default = list(
 		modtype = prefix
 
 	if(istype(mmi, /obj/item/device/mmi/digital/posibrain))
-		braintype = "Android"
+			braintype = "Android"
 	else if(istype(mmi, /obj/item/device/mmi/digital/robot))
 		braintype = "Robot"
-	else
-		braintype = "Cyborg"
+		else
+			braintype = "Cyborg"
 
 
 	var/changed_name = ""
@@ -911,7 +911,7 @@ var/list/robot_verbs_default = list(
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			attack_generic(H, rand(30,50), "slashed")
-			return
+		return
 
 	if(opened && !wiresexposed && (!istype(user, /mob/living/silicon)))
 		var/datum/robot_component/cell_component = components["power cell"]
@@ -994,10 +994,12 @@ var/list/robot_verbs_default = list(
 		overlays += "droid-combat-shield"
 
 	if(modtype == "Combat")
+		var/base_icon = ""
+		base_icon = icon_state
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
-			icon_state = "droid-combat-roll"
+			icon_state = "[icon_state]-roll"
 		else
-			icon_state = "droid-combat"
+			icon_state = base_icon
 		return
 
 //Call when target overlay should be added/removed
