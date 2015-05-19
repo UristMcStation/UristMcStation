@@ -104,7 +104,9 @@ var/list/admin_verbs_fun = list(
 	/client/proc/make_sound,
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
-	/client/proc/load_event_map
+	/client/proc/load_event_map,
+	/client/proc/warpallplayers,
+	/client/proc/delaymissions
 	)
 var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_atom,		/*allows us to spawn instances*/

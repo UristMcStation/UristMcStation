@@ -7,6 +7,8 @@ var/global/missiondiff = 1
 
 var/global/sploded = 0
 
+var/global/onmission = 0
+
 var/list/scomspawn1 = list()
 var/list/scomspawn2 = list()
 var/list/scomspawn3 = list()
@@ -19,12 +21,16 @@ var/list/scomspawn3 = list()
 	votable = 0
 	var/declared = 0
 	var/scommapsloaded = 0
+	var/aliencount = 0
+	var/playercount = 0
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
 	world << "<B>In response to the current galactic crisis, the major powers have banded together to form a group opposed to the alien menace. As a member of that elite force, it is your job to save the galaxy. No pressure.</B>"
 
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
+	world << "\red \b Setting up S-COM, please be patient. This may take a minute or two."
+
 	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		del(L)
 
@@ -37,7 +43,7 @@ var/list/scomspawn3 = list()
 	for(var/mob/new_player/player in player_list)
 		if((player.client)&&(player.ready))
 			playerC++
-
+		world << "\red \b [playerC] players counted."
 	if(playerC >= 15)
 
 		if(playerC >= 22)
@@ -48,52 +54,94 @@ var/list/scomspawn3 = list()
 
 				if(playerC >= 38)
 					missiondiff = 4 //k
-		else
-			missiondiff = 1
+	else
+		missiondiff = 1
 	return 1 //ever get that feeling you're talking to yourself?
 
 /datum/game_mode/scom/post_setup()
+	world << "\red \b Setting up science..."
 	populate_scomscience_recipes()
-
+	world << "\red \b Spawning players..."
 	ScomTime()
 	ScomRobotTime()
 
 	spawn(600)
-		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion.<BR><BR> Your first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders. <b>Shuttles will be launching in 3 minutes. </b>", "S-COM Mission Command")
+		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion.<BR><BR> Your first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders.", "S-COM Mission Command")
+		spawn(50)
+			command_announcement.Announce("<b>Shuttles will be launching in 3 minutes. </b>", "S-COM Shuttle Control")
 	spawn(2400)
-		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
-			C.launch()
+		command_announcement.Announce("Launching shuttles in one minute.", "S-COM Shuttle Control")
+		spawn(600)
+			for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				C.launch()
 
 /datum/game_mode/scom/process()
-	if(sploded == 2 && !declared)
+	playercount = 0
+	for(var/mob/living/carbon/human/H in player_list)
+		if(H.client && H.stat != DEAD)
+			playercount += 1
+	if(playercount == 0 && declared == 0)
+		sploded = 3
+		declare_completion()
+
+	if(sploded == 2 && declared == 0)
 		declare_completion()
 	else if(sploded == 1)
 		for(var/obj/effect/landmark/scom/bomb/B in world)
 			B.incomprehensibleprocname()
 			sploded = 0
 			spawn(600) //we do this 3 times, all bomb delays should be lower or equal to this
-				sploded = 0
+				sploded = 1
+
+	if(onmission == 1)
+//		world << "\red onmission"
+		aliencount = 0
+		for(var/mob/living/simple_animal/hostile/M in mob_list)
+			if(M.health > 0 && M.faction != "neutral")
+				aliencount += 1
+//				world << "\red aliens: [aliencount]"
+		if (aliencount == 0 && declared == 0)
+//			world << "\red count 0"
+			command_announcement.Announce("Good job soldiers. We'll be launching the shuttles in two minutes, make sure to grab as much alien technology as you can. Any soldiers left behind will be bluespaced back to the base.", "S-COM Mission Command")
+			declared = 2
+			spawn(1200)
+				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+					C.launch()
+					spawn(300)
+						declared = 0
+
 
 datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
 		declared = 1
 		world << "<FONT size = 3><B>Major S-COM victory!</B></FONT>"
 		world << "<B>The alien presence in Nyx has been eradicated!</B>"
+	if(sploded == 3)
+		declared = 1
+		world << "<FONT size = 3><B>Major Alien victory!</B></FONT>"
+		world << "<B>The S-COM presence in Nyx has been eradicated!</B>"
 
-		world << "\blue Rebooting in one minute."
-		..()
+	world << "\blue Rebooting in one minute."
+	..()
 
-		sleep(600)
-		if(!ticker.delay_end)
-			world.Reboot()
-		else
-			world << "\blue <B>An admin has delayed the round end</B>"
+	sleep(600)
+	if(!ticker.delay_end)
+		world.Reboot()
+	else
+		world << "\blue <B>An admin has delayed the round end</B>"
+
+
 
 /obj/structure/scom/fuckitall
 	name = "mothership central computer"
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "9,8"
 	var/fuckitall = 0
+	anchored = 1
+	density = 1
+
+/obj/structure/scom/fuckitall/ex_act()
+	return
 
 /obj/structure/scom/fuckitall/attack_hand(mob/user as mob)
 	var/want = input("Start the self destruct countdown? You will have 3 minutes to escape.", "Your Choice", "Cancel") in list ("Cancel", "Yes")
@@ -107,22 +155,58 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			spawn(1650)
 				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
-			spawn(1850) //long enough to luanch both shuttles
-			for(var/mob/living/M in mob_list)
-				if(M.z != 2)
-					explosion(M.loc, 2, 4, 6, 6)
-//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-//				M << ("\red The explosion tears you apart!")
-//				M.gib()
-//			sleep(2000)
-			world << "\red \b The mothership has been destroyed!"
-			sleep(50)
-			sploded = 2
+				spawn(250) //long enough to luanch both shuttles
+					for(var/mob/living/M in mob_list)
+						if(M.z != 2)
+							explosion(M.loc, 2, 4, 6, 6)
+		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
+		//				M << ("\red The explosion tears you apart!")
+		//				M.gib()
+		//			sleep(2000)
+					world << "\red \b The mothership has been destroyed!"
+					sleep(50)
+					sploded = 2
 
 /obj/effect/landmark/scom/bomb
+	icon_state = "grabbed1"
 	invisibility = 101
 	var/bombdelay = 0
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
 		explosion(src.loc, 1, 2, 3, 4)
+
+/client/proc/delaymissions()
+
+	set name = "Delay SCOM Missions"
+	set category = "Fun"
+	set desc = "Delay the S-COM Missions for some fun."
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
+	for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+		if(!C.missiondelayed)
+			C.missiondelayed = 1
+			message_admins("[key_name(usr)] has delayed the mission timer.")
+			log_admin("[key_name(src)] has delayed the mission timer.")
+		else
+			message_admins("[key_name(usr)] has undelayed the mission timer.")
+			log_admin("[key_name(src)] has undelayed the mission timer.")
+			command_announcement.Announce("Shuttles will be launched in one minute.", "S-COM Shuttle Command")
+			spawn(600)
+				C.launch()
+
+/client/proc/warpallplayers()
+
+	set name = "Warp All Players"
+	set category = "Fun"
+	set desc = "Warp all players to you."
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
+	for(var/mob/living/M in player_list)
+		M.loc = get_turf(usr)
+		message_admins("[key_name(usr)] has warped all players to their location.")
+		log_admin("[key_name(src)] has warped all players to their location.")

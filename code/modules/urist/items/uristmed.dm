@@ -69,12 +69,12 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	update_icon()
 	return
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/quickclot/New()
-	..()
-	reagents.add_reagent("tramadol", 5)
-	reagents.add_reagent("quickclot", 5)
-	update_icon()
-	return
+///obj/item/weapon/reagent_containers/hypospray/autoinjector/quickclot/New()
+//	..()
+//	reagents.add_reagent("tramadol", 5)
+//	reagents.add_reagent("quickclot", 5)
+//	update_icon()
+//	return
 
 ///obj/item/weapon/reagent_containers/hypospray/autoinjector/quickclot
 //	name = "Quick Clot"

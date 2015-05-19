@@ -183,6 +183,9 @@
 	response_disarm = "tries to shove"
 	response_harm = "tries to hit"
 	attacktext = "sucked the life out of"
+	icon_state = "forgotten"
+	icon_living = "forgotten"
+	icon_dead = ""
 	maxHealth = 250
 	health = 250
 	ranged = 1 //ranged, but we rush like the old mobs.

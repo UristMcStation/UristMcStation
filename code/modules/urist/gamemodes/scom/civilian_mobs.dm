@@ -13,6 +13,12 @@
 	icon_living = "civ1"
 	icon_dead = "civ1_d"
 
+/mob/living/simple_animal/hostile/scom/civ/civvie/New()
+	..()
+	icon_state = "civ[rand(1,10)]"
+	icon_living = icon_state
+	icon_dead = "[icon_state]_d"
+
 /mob/living/simple_animal/hostile/scom/civ/civvie/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)

@@ -162,7 +162,7 @@
 			var/atom/A = target.loc
 			Goto(A,move_to_delay,minimum_distance)
 			if(A.Adjacent(src))
-				A.attack_generic(src)
+				A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			return
 		else
 			LostTarget()
@@ -200,7 +200,7 @@
 		return 1
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
-	target.attack_generic(src)
+	target.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range

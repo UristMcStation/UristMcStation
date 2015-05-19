@@ -73,6 +73,19 @@
 
 /area/shuttle/scom/s1/mission7
 
+
+/area/shuttle/scom/s1/mission11
+
+/area/shuttle/scom/s1/mission12
+
+/area/shuttle/scom/s1/mission13
+
+/area/shuttle/scom/s1/mission14
+
+/area/shuttle/scom/s1/mission15
+
+//ftfg
+
 /area/shuttle/scom/s2/base
 
 /area/shuttle/scom/s2/mission
@@ -92,3 +105,15 @@
 /area/shuttle/scom/s2/mission6
 
 /area/shuttle/scom/s2/mission7
+
+
+/area/shuttle/scom/s2/mission11
+
+/area/shuttle/scom/s2/mission12
+
+/area/shuttle/scom/s2/mission13
+
+/area/shuttle/scom/s2/mission14
+
+/area/shuttle/scom/s2/mission15
+

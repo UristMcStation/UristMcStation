@@ -396,6 +396,14 @@ datum/scomscience/recipe/lsniper
 	hidden = 1
 	resources = 850
 
+/datum/scomscience/recipe/borgkit
+	name = "Cyborg Modification Kit"
+	path = /obj/item/scom/borgmodkit
+	category = "General"
+	scomtechlvl = 6
+	hidden = 1
+	resources = 800
+
 //vehicles
 
 /datum/scomscience/recipe/cvrt3

@@ -40,7 +40,7 @@
 			else if(C.location == 1)
 
 				for(var/mob/living/simple_animal/hostile/M in mob_list)
-					if(!M.stat)
+					if(!M.stat && M.faction != "neutral")
 						user << "<span class='notice'>There are still aliens left alive!</span>"
 						return
 					else
@@ -52,6 +52,7 @@
 						return
 					else
 						C.launch()
+						fuckoff = 1
 
 
 
@@ -61,6 +62,8 @@
 	var/missionloc = /area/shuttle/scom //shuttle
 	var/missionannounce = "shit's fucked yo"
 //	var/missionarea = /area/scom/mission/nolighting //temp
+	var/basemission = 0
+	var/missiondelayed = 0
 
 /datum/shuttle/ferry/scom/s1
 	missionloc = /area/shuttle/scom/s1/mission0
@@ -79,17 +82,21 @@
 
 /datum/shuttle/ferry/scom/s1/arrived()
 	if(location == 0)
+		onmission = 0
+//		for(var/obj/machinery/scom/shuttle_control/SC in world)
+//			SC.fuckoff = 1
 
-		for(var/obj/machinery/scom/shuttle_control/SC in world)
-			SC.fuckoff = 1
+//		for(var/datum/game_mode/scom/D in world)
+//			D.declared = 0
 
-		mission = (mission + 1)
+		basemission = (basemission + 1)
 
 		for(var/R in typesof(/datum/scommissions))
 			var/datum/scommissions/S = new R
-			if(mission == S.mission)
+			if(basemission == S.basemission)
 				missionloc = S.missionloc1
 				missionannounce = S.missionannounce //only announce it once
+				mission = S.mission
 
 		spawn(missiontime - 300)
 		command_announcement.Announce("Incoming transmission, please stand by for orders...", "S-COM Mission Command")
@@ -105,9 +112,14 @@
 //		command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
 
 		spawn(missiontime + 1300)
-		launch()
+		if(missiondelayed)
+			return
+
+		else
+			launch()
 
 	else if(location == 1)
+		onmission = 1
 		for(var/obj/machinery/scom/shuttle_control/SC in world)
 			SC.fuckoff = 0
 
@@ -123,11 +135,19 @@
 //			if(C.location == 1)
 //				C.launch()
 //				command_announcement.Announce("Shuttle 1 has been launched automatically.", "S-COM Shuttle Control")
-		mission = (mission + 1)
+
+		for(var/mob/living/carbon/C in mob_list)
+			if(C.z != 2)
+				for(var/obj/machinery/scom/teleporter2/T in world)
+					C.x = T.x
+					C.y = T.y
+					C.z = T.z
+
+		basemission = (basemission + 1)
 
 		for(var/R in typesof(/datum/scommissions))
 			var/datum/scommissions/S = new R
-			if(mission == S.mission)
+			if(basemission == S.basemission)
 				missionloc = S.missionloc2
 
 //	else if(location == 1)
