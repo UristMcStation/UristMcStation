@@ -16,7 +16,7 @@ var/list/scomspawn3 = list()
 /datum/game_mode/scom //the joke is that 90% of this stuff is handled by other procs
 	name = "scom"
 	config_tag = "scom"
-	required_players = 0
+	required_players = 16
 	required_players_secret = 18
 	votable = 1
 	var/declared = 0
