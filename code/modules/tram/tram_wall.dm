@@ -1,7 +1,7 @@
 /obj/tram/wall
 	name = "reinforced tram wall"
 	desc = "A huge chunk of reinforced metal used to shield a tram system."
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "tramwall"
 	var/obj/tram/tram_controller/controller
 	anchored = 1

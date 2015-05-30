@@ -1,7 +1,7 @@
 /obj/tram/floor
 	name = "tram platform"
 	desc = "A holding space for a tram system."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "tramfloor"
 	var/obj/tram/tram_controller/controller
 	anchored = 1
