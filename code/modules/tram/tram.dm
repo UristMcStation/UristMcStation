@@ -1,29 +1,3 @@
-/obj/tram/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			del(src)
-			return
-		if(2.0)
-			if(prob(50))
-				del(src)
-			return
-		if(3.0)
-			if(prob(25))
-				del(src)
-			return
-
-/obj/tram/blob_act()
-	if(prob(50))
-		del(src)
-
-/obj/tram/meteorhit()
-	del(src)
-
-/obj/tram/bullet_act(var/obj/item/projectile/proj)
-	if(prob(proj.damage))
-		del(src)
-	..()
-
 /obj/tram/tram_controller
 	name = ""
 	desc = "tram controller"
@@ -41,6 +15,11 @@
 	var/last_played_rail
 
 	var/automode = 0
+	var/fast_mode = 0
+
+	var/activated = 0
+	var/looptick = 0
+
 	var/list/blacklist = list(/obj/tram/rail)
 	var/list/ancwhitelist = list(/obj/tram, /obj/vehicle, /obj/structure/stool/bed/chair, /obj/structure/grille, /obj/structure/window)
 
@@ -52,7 +31,6 @@
 			init_tram() //Combine walls and floors and anything inside the tram
 			init_controllers() //Find control pads
 			gen_collision() //Generate collision system
-			processing_objects.Add(src) //Add to processing objects manually
 
 /obj/tram/tram_controller/Del()
 	for(var/obj/tram/floor/F in tram_floors)
@@ -61,16 +39,32 @@
 		remove_wall(TW)
 	for(var/obj/tram/controlpad/CP in controllers)
 		remove_controller(CP)
+	killLoop()
 	..()
 
 /obj/tram/tram_controller/emp_act(severity)
 	if(automode)	automode = 0
 	..()
 
+/obj/tram/tram_controller/proc/startLoop()
+	if(activated)	return
+	activated = 1
+	spawn(0)
+		while(activated)
+			process()
+			looptick++
+			sleep(1)
+
+/obj/tram/tram_controller/proc/killLoop()
+	activated = 0
+	looptick = 0
+
 /obj/tram/tram_controller/process()
 	update_tram() //Update combine to account for new mobs and/or objects
 	if(automode)
 		tram_rail_follow()
+		if(fast_mode)
+			tram_rail_follow()
 
 /obj/tram/tram_controller/proc/update_tram()
 	tram.Cut()
@@ -225,3 +219,30 @@
 		A.forceMove(T) //Move everything inside the tram and the tram itself manually
 	gen_collision() //Generate collision again
 	return 1
+
+//////////////////////DAMAGE PROCS
+/obj/tram/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			del(src)
+			return
+		if(2.0)
+			if(prob(50))
+				del(src)
+			return
+		if(3.0)
+			if(prob(25))
+				del(src)
+			return
+
+/obj/tram/blob_act()
+	if(prob(50))
+		del(src)
+
+/obj/tram/meteorhit()
+	del(src)
+
+/obj/tram/bullet_act(var/obj/item/projectile/proj)
+	if(prob(proj.damage))
+		del(src)
+	..()
