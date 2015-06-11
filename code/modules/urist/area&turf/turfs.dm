@@ -86,10 +86,16 @@ turf/simulated/floor/beach/pool/New()
 
 //snow trail for the snow awaymap I'm making
 
-/turf/simulated/floor/plating/snow/trail
+/turf/simulated/snow/trail
 	name = "snow covered trail"
-	icon = 'icons/urist/turf/uristturf.dmi'
+	icon = 'icons/urist/turf/snow.dmi'
 	icon_state = "snowpath"
+
+//snow
+/turf/simulated/snow/rand/New()
+	name = "snow"
+	icon = 'icons/urist/turf/snow.dmi'
+	icon_state = pick("0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19")
 
 // VOX SHUTTLE SHIT
 /turf/simulated/shuttle/floor/vox
