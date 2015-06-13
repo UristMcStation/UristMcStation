@@ -86,7 +86,7 @@ var/list/scomspawn3 = list()
 
 	if(sploded == 2 && declared == 0)
 		declare_completion()
-	else if(sploded == 1)
+	else if(sploded == 1 && declared == 0)
 		for(var/obj/effect/landmark/scom/bomb/B in world)
 			B.incomprehensibleprocname()
 			sploded = 0
