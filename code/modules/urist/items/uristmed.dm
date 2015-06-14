@@ -51,6 +51,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	..()
 	reagents.add_reagent("tricordrazine", 5)
 	reagents.add_reagent("tramadol", 5)
+	reagents.add_reagent("dexalinp", 5)
 	update_icon()
 	return
 
@@ -67,6 +68,19 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	reagents.add_reagent("tramadol", 5)
 	update_icon()
 	return
+
+///obj/item/weapon/reagent_containers/hypospray/autoinjector/quickclot/New()
+//	..()
+//	reagents.add_reagent("tramadol", 5)
+//	reagents.add_reagent("quickclot", 5)
+//	update_icon()
+//	return
+
+///obj/item/weapon/reagent_containers/hypospray/autoinjector/quickclot
+//	name = "Quick Clot"
+//	desc = "An Auto-injector loaded with Quick-clot, a chemical designed to stop internal bleeding instantly."
+//	icon_state = "autoinjector"
+//	item_state = "autoinjector"
 
 /obj/item/weapon/storage/box/autoinjectorscom
 	name = "box of advanced autoinjectors"

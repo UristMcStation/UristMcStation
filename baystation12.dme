@@ -1520,6 +1520,7 @@
 #include "code\modules\urist\items\airlock_painter.dm"
 #include "code\modules\urist\items\cards.dm"
 #include "code\modules\urist\items\chairpainter.dm"
+#include "code\modules\urist\items\food.dm"
 #include "code\modules\urist\items\grenades.dm"
 #include "code\modules\urist\items\guitar.dm"
 #include "code\modules\urist\items\miscitems.dm"

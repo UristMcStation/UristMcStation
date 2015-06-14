@@ -1,5 +1,5 @@
-//TODO: move mobs to a human damage system, add "crazy" mob, add "caller" mob.
-//see civilian_mobs.dm for friendly NPCs //removed temporarily because runtimes
+//TODO: move mobs to a human damage system, add "crazy" mob, add "caller" mob. //one day
+//see civilian_mobs.dm for friendly NPCs
 
 /*/mob/living/simple_animal/hostile/proc/HealBitches()
 	stop_automated_movement = 1
@@ -52,6 +52,15 @@
 	var/can_heal = 0
 	var/will_flee = 0
 
+/mob/living/simple_animal/hostile/scom/husk
+	name = "Husk"
+	desc = "What's left of a human after a harvester has its way with them."
+	maxHealth = 75
+	health = 75
+	harm_intent_damage = 5
+	melee_damage_lower = 20 //stay away
+	melee_damage_upper = 20
+
 /mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
@@ -65,10 +74,7 @@
 				minimum_distance = 10
 			if(health > 16 && will_flee)
 				retreat_distance = null
-				if(ranged)
-					minimum_distance = 5
-				else
-					minimum_distance = 1
+				minimum_distance = initial(minimum_distance)
 			if(will_help)
 				for(var/mob/living/simple_animal/hostile/M in oview(5, src))
 					if(M.faction == faction && M.health <= 15)
@@ -156,11 +162,58 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	attacktext = "sucked the life out of"
-	maxHealth = 100
-	health = 100
+	icon_state = "harvester"
+	icon_living = "harvester"
+	icon_dead = ""
+	maxHealth = 150
+	health = 150
 	harm_intent_damage = 0
 	melee_damage_lower = 35 //stay away
 	melee_damage_upper = 35
+
+/mob/living/simple_animal/hostile/scom/harvester/death()
+	..()
+	del(src)
+	return
+
+/mob/living/simple_animal/hostile/scom/forgotten
+	name = "Forgotten"
+	desc = "The souls of those who have been left to die by the alien menace, corrupted and twisted into a form that serves their masters."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "sucked the life out of"
+	icon_state = "forgotten"
+	icon_living = "forgotten"
+	icon_dead = ""
+	maxHealth = 250
+	health = 250
+	ranged = 1 //ranged, but we rush like the old mobs.
+	harm_intent_damage = 0
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	projectiletype = /obj/item/projectile/beam/scom/alien1
+
+/mob/living/simple_animal/hostile/scom/forgotten/death()
+	..()
+	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
+	flick("forgotten_die", src)
+	sleep(4)
+	del(src)
+	return
+
+/mob/living/simple_animal/hostile/alien/ravager
+	name = "alien ravager"
+	desc = "This one's not like the others..."
+	icon = 'icons/uristmob/scommobs.dmi'
+	icon_state = "ravager"
+	icon_living = "ravager"
+	icon_dead = "ravager_dead"
+	maxHealth = 70
+	health = 70
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 
 /obj/item/projectile/beam/scom
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -188,6 +241,14 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	weaken = 5
 	stutter = 5
 
+obj/item/projectile/beam/scom/alien5
+	name = "dark energy"
+	icon_state = "dblast"
+	damage = 15
+	stun = 5
+	weaken = 5
+	stutter = 5
+
 /mob/living/simple_animal/hostile/scom/lactera/death()
 	..()
 	if(weapon1)
@@ -199,6 +260,7 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 
 /mob/living/simple_animal/hostile/scom/allophylus/death()
 	..()
+	visible_message("<span class='danger'>The [src.name] bursts into a ball of psionic energy!</span>")
 	flick("emfield_s1", src)
 	sleep(6)
 	del(src)
