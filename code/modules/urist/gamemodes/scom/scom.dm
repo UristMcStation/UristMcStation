@@ -157,7 +157,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 					C.launch()
 				spawn(250) //long enough to luanch both shuttles
 					for(var/mob/living/M in mob_list)
-						if(M.z != 2)
+						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
 		//				M << ("\red The explosion tears you apart!")
