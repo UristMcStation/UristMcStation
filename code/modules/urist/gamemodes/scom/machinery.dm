@@ -94,8 +94,8 @@
 
 //		if(S.scommoney < scommoney)
 //			S.scommoney = scommoney
-			if(O.scomtechlvl <= S.scomtechlvl)
-				S.scommoney = (S.scommoney + O.scommoney)
+		if(O.scomtechlvl <= S.scomtechlvl)
+			S.scommoney = (S.scommoney + O.scommoney)
 
 //		else if(scommoney < S.scommoney)
 //			scommoney = S.scommoney
