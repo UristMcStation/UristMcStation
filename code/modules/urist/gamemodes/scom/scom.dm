@@ -119,7 +119,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 //			world << "\red count 0"
 			command_announcement.Announce("Good job soldiers. We'll be launching the shuttles in two minutes, make sure to grab as much alien technology as you can. Any soldiers left behind will be bluespaced back to the base.", "S-COM Mission Command")
 			declared = 2
-			update_dyndifficulty()
+			if(config.SCOM_dynamic_difficulty)
+				update_dyndifficulty()
 			spawn(1200)
 				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
