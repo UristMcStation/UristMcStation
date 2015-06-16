@@ -335,3 +335,6 @@ ALIENS_ALLOWED
 
 ## Uncomment to disable respawning by default.
 #DISABLE_RESPAWN
+
+## Uncomment to use a static mission difficulty setting for SCOM.
+SCOM_DYNAMIC_DIFFICULTY

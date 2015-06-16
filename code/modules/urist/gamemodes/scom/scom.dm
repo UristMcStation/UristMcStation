@@ -9,20 +9,25 @@ var/global/sploded = 0
 
 var/global/onmission = 0
 
+var/global/scom_lowpop_scale = 0
+
 var/list/scomspawn1 = list()
 var/list/scomspawn2 = list()
 var/list/scomspawn3 = list()
 
+var/global/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
+var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of different gamemodes. Honestly, this should be a helper var.
+
+
 /datum/game_mode/scom //the joke is that 90% of this stuff is handled by other procs
 	name = "scom"
 	config_tag = "scom"
-	required_players = 16
+	required_players = 1 //lowpop mode ahoy
 	required_players_secret = 18
 	votable = 1
 	var/declared = 0
 	var/scommapsloaded = 0
 	var/aliencount = 0
-	var/playercount = 0
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
@@ -39,23 +44,33 @@ var/list/scomspawn3 = list()
 
 	config.allow_random_events = 0 //nooooope
 
-	var/playerC = 0
 	for(var/mob/new_player/player in player_list)
 		if((player.client)&&(player.ready))
-			playerC++
-		world << "\red \b [playerC] players counted."
-	if(playerC >= 15)
+			SCOMplayerC++
+	world << "\red \b [SCOMplayerC] players counted."
 
-		if(playerC >= 22)
+	update_dyndifficulty()
+
+/datum/game_mode/scom/proc/update_dyndifficulty()
+
+	scom_lowpop_scale = 0 //whether to use a prob-based spawning
+
+	if(config.SCOM_dynamic_difficulty)
+		SCOMplayerC = SCOMplayercount
+	if(SCOMplayerC >= SCOM_EASY)
+		missiondiff = 1
+
+		if(SCOMplayerC >= SCOM_NORM )
 			missiondiff = 2
 
-			if(playerC >= 30) //with numbers the way they are now, I feel like I'll have to make a fourth...
+			if(SCOMplayerC >= SCOM_HARD ) //with numbers the way they are now, I feel like I'll have to make a fourth...
 				missiondiff = 3
 
-				if(playerC >= 38)
+				if(SCOMplayerC >= SCOM_HRDR )
 					missiondiff = 4 //k
 	else
 		missiondiff = 1
+		scom_lowpop_scale = 1
 	return 1 //ever get that feeling you're talking to yourself?
 
 /datum/game_mode/scom/post_setup()
@@ -76,11 +91,11 @@ var/list/scomspawn3 = list()
 				C.launch()
 
 /datum/game_mode/scom/process()
-	playercount = 0
+	SCOMplayercount = 0
 	for(var/mob/living/carbon/human/H in player_list)
 		if(H.client && H.stat != DEAD)
-			playercount += 1
-	if(playercount == 0 && declared == 0)
+			SCOMplayercount += 1
+	if(SCOMplayercount == 0 && declared == 0)
 		sploded = 3
 		declare_completion()
 
@@ -104,6 +119,7 @@ var/list/scomspawn3 = list()
 //			world << "\red count 0"
 			command_announcement.Announce("Good job soldiers. We'll be launching the shuttles in two minutes, make sure to grab as much alien technology as you can. Any soldiers left behind will be bluespaced back to the base.", "S-COM Mission Command")
 			declared = 2
+			update_dyndifficulty()
 			spawn(1200)
 				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
@@ -210,3 +226,19 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		M.loc = get_turf(usr)
 		message_admins("[key_name(usr)] has warped all players to their location.")
 		log_admin("[key_name(src)] has warped all players to their location.")
+
+/client/proc/toggle_dyndiff()
+
+	set name = "Toggle Dynamic Difficulty"
+	set category = "Fun"
+	set desc = "Make SCOM use DynDifficulty again or disable it."
+	if(!check_rights(R_FUN))
+		src <<"\red \b You do not have the required admin rights."
+		return
+
+	if(config.SCOM_dynamic_difficulty == 1)
+		config.SCOM_dynamic_difficulty = 0
+		src <<"\red \b Dynamic Difficulty disabled."
+	else
+		config.SCOM_dynamic_difficulty = 1
+		src <<"\red \b Dynamic Difficulty enabled."
