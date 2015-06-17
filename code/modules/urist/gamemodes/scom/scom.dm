@@ -21,7 +21,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom //the joke is that 90% of this stuff is handled by other procs
 	name = "scom"
 	config_tag = "scom"
-	required_players = 1 //lowpop mode ahoy
+	required_players = 2 //lowpop mode ahoy
 	required_players_secret = 18
 	votable = 1
 	var/declared = 0
