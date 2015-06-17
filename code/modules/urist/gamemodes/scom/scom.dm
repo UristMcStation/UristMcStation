@@ -15,7 +15,6 @@ var/list/scomspawn1 = list()
 var/list/scomspawn2 = list()
 var/list/scomspawn3 = list()
 
-var/global/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
 var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of different gamemodes. Honestly, this should be a helper var.
 
 
@@ -28,6 +27,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	var/declared = 0
 	var/scommapsloaded = 0
 	var/aliencount = 0
+	var/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
@@ -47,7 +47,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	for(var/mob/new_player/player in player_list)
 		if((player.client)&&(player.ready))
 			SCOMplayerC++
-	world << "\red \b [SCOMplayerC] players counted."
+	//world << "\red \b [SCOMplayerC] players counted."
 
 	update_dyndifficulty()
 
