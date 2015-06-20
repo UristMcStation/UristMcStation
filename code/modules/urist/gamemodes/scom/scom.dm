@@ -50,6 +50,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	//world << "\red \b [SCOMplayerC] players counted."
 
 	update_dyndifficulty()
+	return 1 //ever get that feeling you're talking to yourself?
+
 
 /datum/game_mode/scom/proc/update_dyndifficulty()
 
@@ -71,7 +73,6 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	else
 		missiondiff = 1
 		scom_lowpop_scale = 1
-	return 1 //ever get that feeling you're talking to yourself?
 
 /datum/game_mode/scom/post_setup()
 	world << "\red \b Setting up science..."
