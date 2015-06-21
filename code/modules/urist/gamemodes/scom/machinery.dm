@@ -164,7 +164,7 @@
 //					scommoney = scommoney - making.resources
 
 				if(S.squad == squad)
-					S.scommoney = scommoney - making.resources
+					S.scommoney = S.scommoney - making.resources
 
 
 		flick("[animation_state]",src)
