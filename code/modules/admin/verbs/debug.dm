@@ -1015,12 +1015,11 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		if("ANTAG operative")
 			var/obj/item/device/radio/R = new /obj/item/device/radio/headset/syndicate(M)
 			R.set_frequency(SYND_FREQ) //Same frequency as the syndicate team in Nuke mode.
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/suit_jacket/black(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/det/black(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/combat(M), slot_gloves)
 			M.equip_to_slot_or_del(R, slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/wcoat(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(M), slot_l_store)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/bandana/bedsheet/red(M), slot_wear_mask)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
