@@ -1039,6 +1039,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.mutations.Add(COLD_RESISTANCE)
 			for(var/i=3, i>0, i--)
 				randmutg(M) //3 random good mutations on top (hopefully) of cold resistance
+			M.update_mutations() //otherwise weirdness occurs
 
 			var/obj/item/device/pda/heads/pda = new(M)
 			pda.owner = M.real_name
