@@ -68,7 +68,7 @@ var/global/datum/controller/gameticker/ticker
 							vote.process()
 			if(pregame_timeleft == 90 && master_mode=="scom")
 //				LoadScom()
-				world << "\red \b Welcome to the first version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> As this is the first version, expect balance to be a little wonky, weird AI behaviour (I just pushed a big AI update, report issues) and expect bugs. I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of friendly NPCs (bumped to the release because of weirdness). The plan is to make it a regular votable gamemode on Saturday May 16th."
+				world << "\red \b Welcome to the Beta version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of the psionic trooper. There are also three major updates planned for the future, which I will outline on the steam group later this week."
 			if(pregame_timeleft <= 0)
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())
