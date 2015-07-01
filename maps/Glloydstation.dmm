@@ -2021,7 +2021,7 @@
 "aMS" = (/obj/machinery/newscaster{pixel_y = 32},/turf/simulated/floor/wood,/area/library)
 "aMT" = (/obj/structure/table/woodentable,/obj/machinery/librarycomp,/obj/structure/disposalpipe/segment,/turf/simulated/floor/wood,/area/library)
 "aMU" = (/obj/structure/bookcase{name = "Forbidden Knowledge"},/turf/simulated/floor{icon_state = "dark"},/area/library)
-"aMV" = (/obj/structure/table/rack,/obj/item/clothing/suit/storage/urist/journocoat,/obj/item/clothing/under/suit_jacket/red,/turf/simulated/floor{icon_state = "dark"},/area/library)
+"aMV" = (/obj/structure/table/rack,/obj/item/clothing/suit/storage/urist/coat/journocoat,/obj/item/clothing/under/suit_jacket/red,/turf/simulated/floor{icon_state = "dark"},/area/library)
 "aMW" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/maintenance/fsmaint2{name = "Chapel Maintenance"})
 "aMX" = (/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor{icon_state = "dark"},/area/chapel/main)
 "aMY" = (/turf/simulated/floor{icon_state = "dark"},/area/chapel/main)
