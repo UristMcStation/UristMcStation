@@ -19,7 +19,7 @@
 
 /datum/scommissions/New()
 //	if(basemission < 6 && mission > 1) //this is how it will be
-	if(basemission < 5 && mission > 1) //this is how it will be
+	if(basemission < 5 && mission > 1)
 		mission = (basemission + pick(0, 10))
 	if(mission > 10)
 		missionloc1 = missionloc11
