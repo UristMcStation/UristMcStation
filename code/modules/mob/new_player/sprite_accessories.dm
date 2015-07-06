@@ -510,6 +510,10 @@
 		name = "Van Dyke Mustache"
 		icon_state = "facial_vandyke"
 
+	altdyke
+		name = "Van Dyke Moustache Alt"
+		icon_state = "facial_altdyke"
+
 	chaplin
 		name = "Square Mustache"
 		icon_state = "facial_chaplin"
@@ -563,6 +567,9 @@
 		name = "Dwarf Beard"
 		icon_state = "facial_dwarf"
 
+	fumanchu //old alleged Van Dyke
+		name = "Fu Manchu"
+		icon_state = "facial_fumanchu"
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
