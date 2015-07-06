@@ -326,7 +326,7 @@
 				if("Librarian")
 					H.equip_to_slot_or_del(new /obj/item/weapon/barcodescanner(H), slot_l_hand)
 				if("Journalist")
-					H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/urist/journocoat(H), slot_wear_suit)
+					H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/urist/coat/journocoat(H), slot_wear_suit)
 					H.equip_to_slot_or_del(new /obj/item/device/camera(H), slot_l_hand)
 					H.equip_to_slot_or_del(new /obj/item/device/taperecorder(H), slot_l_store)
 					H.equip_to_slot_or_del(new /obj/item/weapon/pen(H), slot_r_store)

@@ -94,8 +94,8 @@
 
 //		if(S.scommoney < scommoney)
 //			S.scommoney = scommoney
-			if(O.scomtechlvl <= S.scomtechlvl)
-				S.scommoney = (S.scommoney + O.scommoney)
+		if(O.scomtechlvl <= S.scomtechlvl)
+			S.scommoney = (S.scommoney + O.scommoney)
 
 //		else if(scommoney < S.scommoney)
 //			scommoney = S.scommoney
@@ -164,7 +164,7 @@
 //					scommoney = scommoney - making.resources
 
 				if(S.squad == squad)
-					S.scommoney = scommoney - making.resources
+					S.scommoney = S.scommoney - making.resources
 
 
 		flick("[animation_state]",src)
