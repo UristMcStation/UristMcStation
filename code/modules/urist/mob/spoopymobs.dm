@@ -22,7 +22,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	idle_vision_range = 3
+	idle_vision_range = 2
 	aggro_vision_range = 15 //fairly easy to evade a single one, but DO NOT PISS THEM OFF
 	move_to_delay = 6
 	stat_attack = 2
@@ -31,7 +31,7 @@
 	desc = "This zombie SIMPLY. WON'T. STAY. DEAD. Run!"
 	health = 40
 	maxHealth = 40
-	idle_vision_range = 9
+	idle_vision_range = 2
 
 /mob/living/simple_animal/hostile/zombie/regen/death()
 	..()
