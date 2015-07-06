@@ -182,6 +182,8 @@
 	var/dooc_allowed = 1
 	var/dsay_allowed = 1
 
+	var/SCOM_dynamic_difficulty = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -605,6 +607,9 @@
 					config.event_delay_upper[EVENT_LEVEL_MUNDANE] = MinutesToTicks(values[1])
 					config.event_delay_upper[EVENT_LEVEL_MODERATE] = MinutesToTicks(values[2])
 					config.event_delay_upper[EVENT_LEVEL_MAJOR] = MinutesToTicks(values[3])
+
+				if("SCOM_dynamic_difficulty")
+					config.SCOM_dynamic_difficulty = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

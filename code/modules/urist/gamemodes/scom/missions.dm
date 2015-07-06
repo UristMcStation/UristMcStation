@@ -19,7 +19,7 @@
 
 /datum/scommissions/New()
 //	if(basemission < 6 && mission > 1) //this is how it will be
-	if(basemission == 1 || basemission == 2|| basemission == 4)
+	if(basemission < 5 && mission > 1)
 		mission = (basemission + pick(0, 10))
 	if(mission > 10)
 		missionloc1 = missionloc11
@@ -51,6 +51,8 @@
 	missionannounce = "We're in luck soldiers. We've managed to shoot down two alien craft over a jungle planet located in the Nyx system. We need to salvage what we can from their ships, so we're sending you out. Good luck."
 	missionloc1 = /area/shuttle/scom/s1/mission3
 	missionloc2 = /area/shuttle/scom/s2/mission3
+	missionloc11 = /area/shuttle/scom/s1/mission13
+	missionloc12 = /area/shuttle/scom/s2/mission13
 
 /datum/scommissions/m4
 	mission = 4

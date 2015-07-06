@@ -97,6 +97,8 @@
 				missionloc = S.missionloc1
 				missionannounce = S.missionannounce //only announce it once
 				mission = S.mission
+				for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
+					C.missionloc = S.missionloc2
 
 		spawn(missiontime - 300)
 		command_announcement.Announce("Incoming transmission, please stand by for orders...", "S-COM Mission Command")
@@ -136,19 +138,21 @@
 //				C.launch()
 //				command_announcement.Announce("Shuttle 1 has been launched automatically.", "S-COM Shuttle Control")
 
+//		basemission = (basemission + 1)
+
+
+//		for(var/R in typesof(/datum/scommissions))
+//			var/datum/scommissions/S = new R
+//			if(basemission == S.basemission)
+//				missionloc = S.missionloc2
+//				mission = S.mission
+
 		for(var/mob/living/carbon/C in mob_list)
 			if(C.z != 2)
 				for(var/obj/machinery/scom/teleporter2/T in world)
 					C.x = T.x
 					C.y = T.y
 					C.z = T.z
-
-		basemission = (basemission + 1)
-
-		for(var/R in typesof(/datum/scommissions))
-			var/datum/scommissions/S = new R
-			if(basemission == S.basemission)
-				missionloc = S.missionloc2
 
 //	else if(location == 1)
 		/*for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
