@@ -2,14 +2,14 @@
 	name = "zombie"
 	desc = "Dead man walking - and hungry for your flesh."
 	speak_emote = list("groans")
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "zombie_s"
 	icon_living = "zombie_s"
 	icon_dead = "zombie_d"
 	health = 20
 	maxHealth = 20
 	melee_damage_lower = 4
-	melee_damage_upper = 8
+	melee_damage_upper = 7
 	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "alien"
@@ -31,7 +31,7 @@
 	desc = "This zombie SIMPLY. WON'T. STAY. DEAD. Run!"
 	health = 40
 	maxHealth = 40
-	idle_vision_range = 9
+	idle_vision_range = 3
 
 /mob/living/simple_animal/hostile/zombie/regen/death()
 	..()
@@ -42,7 +42,7 @@
 /mob/living/simple_animal/hostile/vampire
 	name = "vampire"
 	desc = "A bloodthirsty undead abomination."
-	icon = 'icons/urist/uristicons.dmi'
+	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "vampire_m_s"
 	icon_living = "vampire_m_s"
 	icon_dead = "vampire_m_d"
