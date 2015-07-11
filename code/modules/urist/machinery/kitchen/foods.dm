@@ -51,10 +51,11 @@
 	var/top = 1	//Do we have a top?
 	var/add_overlays = 1	//Do we stack?
 //	var/offsetstuff = 1 //Do we offset the overlays?
-	var/sandwich_limit = 10
+	var/ingredient_limit = 10
 	var/fullycustom = 0
 	trash = /obj/item/trash/plate
 	bitesize = 2
+	var/currentcolor = "#FFFFFF"
 
 	var/list/ingredients = list()
 
@@ -171,11 +172,11 @@
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummybear
-	name = "flavored giant gummy bear"
+	name = "flavored gummy bear"
 	desc = "Cover it in chocolate and a miracle or two,"
 	icon_state = "gummybearcustom"
 	baseicon = "gummybearcustom"
-	basename = "flavored giant gummy bear"
+	basename = "flavored gummy bear"
 	add_overlays = 0
 	top = 0
 
@@ -189,11 +190,11 @@
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jellybean
-	name = "flavored giant jelly bean"
+	name = "flavored jelly bean"
 	desc = "And makes the world taste good."
 	icon_state = "jellybeancustom"
 	baseicon = "jellybeancustom"
-	basename = "flavored giant jelly bean"
+	basename = "flavored jelly bean"
 	add_overlays = 0
 	top = 0
 
@@ -277,7 +278,7 @@
 	basename = "on a plate"
 	add_overlays = 0
 	top = 0
-	sandwich_limit = 20
+	ingredient_limit = 20
 	fullycustom = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/soup
@@ -298,7 +299,7 @@
 	basename = "burger"
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > sandwich_limit)
+	if(src.contents.len > ingredient_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
@@ -329,17 +330,22 @@
 			fullname += ", [O.name]"
 
 		if(!fullycustom)
-			var/image/I = new(src.icon, "[baseicon]_filling")
-			if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))
-				var/obj/item/weapon/reagent_containers/food/snacks/food = O
-				if(!food.filling_color == "#FFFFFF")
-					I.color = food.filling_color
-				else
-					I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
 			if(add_overlays)
+				var/image/I = new(src.icon, "[baseicon]_filling")
+				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
-			overlays += I
+				overlays += I
+			else
+				var/icon/I = new(src.icon, "[baseicon]_filling")
+				I.Blend(O.filling_color, ICON_MULTIPLY)
+				var/colorchecker = I.GetPixel(16, 16) //kinda hacky, but I'm not going to change every single filling_color to
+				                                      //separate R, G and B values to operate on them here just now.
+				if(colorchecker)
+					src.filling_color = colorchecker
+				else
+					src.filling_color = O.filling_color //prevents customs made with customs being always white. Woo, color inheritance!
+				overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
@@ -383,7 +389,7 @@
 
         update_icon()
                 overlays.Cut()
-                var/image/filling = image('icons/obj/kitchen.dmi', src, "icecream_color")
+                var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
                 filling.icon += mix_color_from_reagents(reagents.reagent_list)
                 overlays += filling
 
@@ -450,8 +456,9 @@
 	var/top = 1	//Do we have a top?
 	var/add_overlays = 1	//Do we stack?
 //	var/offsetstuff = 1 //Do we offset the overlays?
-	var/sandwich_limit = 1
+	var/ingredient_limit = 1
 	var/fullycustom = 0
+	var/currentcolor = "#FFFFFF"
 	volume = 100
 	gulp_size = 2
 
@@ -518,7 +525,7 @@
 		..()
 		reagents.add_reagent("wine", 50)
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > sandwich_limit)
+	if(src.contents.len > ingredient_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
@@ -549,16 +556,8 @@
 			fullname += ", [O.name]"
 
 		if(!fullycustom)
-			var/image/I = new(src.icon, "[baseicon]_filling")
-			if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))
-				var/obj/item/weapon/reagent_containers/food/snacks/food = O
-				if(!food.filling_color == "#FFFFFF")
-					I.color = food.filling_color
-				else
-					I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
-			if(add_overlays)
-				I.pixel_x = pick(list(-1,0,1))
-				I.pixel_y = (i*2)+1
+			var/icon/I = new(src.icon, "[baseicon]_filling")
+			I.Blend(O.filling_color, ICON_MULTIPLY)
 			overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
@@ -566,12 +565,6 @@
 			F.pixel_y = pick(list(-1,0,1))
 			overlays += F
 			overlays += O.overlays
-
-	if(top)
-		var/image/T = new(src.icon, "[baseicon]_top")
-		T.pixel_x = pick(list(-1,0,1))
-		T.pixel_y = (ingredients.len * 2)+1
-		overlays += T
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "incomprehensible mixture [basename]"
@@ -586,4 +579,4 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
+	usr << "<span class='notice'> You think you can see bits of \a fermented [whatsinside] in there.</span>"
