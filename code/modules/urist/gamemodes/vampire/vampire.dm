@@ -1,9 +1,6 @@
 //This is the gamemode file for the ported goon gamemode vampires.
 //They get a traitor objective and a blood sucking objective
 
-/mob/living/carbon/human/proc/is_on_ears(var/typepath) //ugh, this doesn't look good, but Glloyd's orders.
-	return max(istype(l_ear,typepath),istype(r_ear,typepath))
-
 /datum/game_mode
 	var/list/datum/mind/vampires = list()
 	var/list/datum/mind/enthralled = list() //those controlled by a vampire
