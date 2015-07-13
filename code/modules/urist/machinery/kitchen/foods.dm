@@ -55,7 +55,7 @@
 	var/fullycustom = 0
 	trash = /obj/item/trash/plate
 	bitesize = 2
-	var/currentcolor = "#FFFFFF"
+	filling_color = null
 
 	var/list/ingredients = list()
 
@@ -330,22 +330,30 @@
 			fullname += ", [O.name]"
 
 		if(!fullycustom)
+			var/image/I = new(src.icon, "[baseicon]_filling")
 			if(add_overlays)
-				var/image/I = new(src.icon, "[baseicon]_filling")
 				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
 				overlays += I
 			else
-				var/icon/I = new(src.icon, "[baseicon]_filling")
-				I.Blend(O.filling_color, ICON_MULTIPLY)
-				var/colorchecker = I.GetPixel(16, 16) //kinda hacky, but I'm not going to change every single filling_color to
-				                                      //separate R, G and B values to operate on them here just now.
-				if(colorchecker)
-					src.filling_color = colorchecker
+				var/list/internalcolors //holds a rgb value of the current overlay
+				if(src.filling_color)
+					internalcolors = hex2rgblist(src.filling_color)
+				var/list/externalcolors //same, added overlay
+				if(O.filling_color)
+					externalcolors = hex2rgblist(O.filling_color)
+				if((!internalcolors) && (!externalcolors))
+					src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+				else if((!internalcolors) && (externalcolors))
+					src.filling_color = O.filling_color
+				else if((internalcolors) && (!externalcolors))
+					src.filling_color = src.filling_color //hacky, but I need to placate the great compiler gods and do SOMETHING here
 				else
-					src.filling_color = O.filling_color //prevents customs made with customs being always white. Woo, color inheritance!
-				overlays += I
+					internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
+					src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
+				I.color = src.filling_color
+			overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
@@ -450,15 +458,14 @@
 	name = "Customizable Drink"
 	desc = "If you can see this, tell a coder."
 	icon = 'icons/urist/kitchen.dmi'
-	icon_state = "winecustom"
-	var/baseicon = "winecustom"
-	var/basename = "wine"
-	var/top = 1	//Do we have a top?
-	var/add_overlays = 1	//Do we stack?
-//	var/offsetstuff = 1 //Do we offset the overlays?
+	icon_state = "vodkacustom"
+	var/baseicon = "vodkacustom"
+	var/basename = "hooch"
+	var/top = 0	//Do we have a top? //why was this ever set to one
+	var/add_overlays = 0	//Do we stack? //see above
 	var/ingredient_limit = 1
 	var/fullycustom = 0
-	var/currentcolor = "#FFFFFF"
+	var/boozetype = "hooch"
 	volume = 100
 	gulp_size = 2
 
@@ -466,7 +473,8 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 1)
+		src.reagents.add_reagent(boozetype, 20)
+		ferment(boozetype)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/wine
@@ -477,9 +485,8 @@
 	basename = "wine bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("wine", 50)
+	boozetype = "wine"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/whiskey
 	name = "whiskey bottle"
 	desc = "Tasty."
@@ -488,9 +495,8 @@
 	basename = "whiskey bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("whiskey", 50)
+	boozetype = "whiskey"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vermouth
 	name = "vermouth bottle"
 	desc = "Tasty."
@@ -499,9 +505,8 @@
 	basename = "vermouth bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("vermouth", 50)
+	boozetype = "vermouth"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vodka
 	name = "vodka"
 	desc = "Tasty."
@@ -510,9 +515,8 @@
 	basename = "vodka"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("vodka", 50)
+	boozetype = "vodka"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/ale
 	name = "ale"
 	desc = "Strike the asteroid!"
@@ -521,9 +525,8 @@
 	basename = "ale"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("wine", 50)
+	boozetype = "ale"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
@@ -556,8 +559,23 @@
 			fullname += ", [O.name]"
 
 		if(!fullycustom)
-			var/icon/I = new(src.icon, "[baseicon]_filling")
-			I.Blend(O.filling_color, ICON_MULTIPLY)
+			var/image/I = new(src.icon, "[baseicon]_filling")
+			var/list/internalcolors //holds a rgb value of the current overlay
+			if(src.filling_color)
+				internalcolors = hex2rgblist(src.filling_color)
+			var/list/externalcolors //same, added overlay
+			if(O.filling_color)
+				externalcolors = hex2rgblist(O.filling_color)
+			if((!internalcolors) && (!externalcolors))
+				src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+			else if((!internalcolors) && (externalcolors))
+				src.filling_color = O.filling_color
+			else if((internalcolors) && (!externalcolors))
+				src.filling_color = src.filling_color //hacky, but I need to placate the great compiler gods and do SOMETHING here
+			else
+				internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
+				src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
+			I.color = src.filling_color
 			overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
@@ -568,7 +586,9 @@
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "incomprehensible mixture [basename]"
-	w_class = n_ceil(Clamp((ingredients.len/2),1,3))
+	w_class = 2
+	if(src.reagents)
+		ferment(src.boozetype)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Del()
 	for(var/obj/item/O in ingredients)
@@ -579,4 +599,15 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see bits of \a fermented [whatsinside] in there.</span>"
+	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
+	if(!(istext(boozetype)))
+		boozetype = "hooch"
+	var/datum/reagents/R = src.reagents
+	var/nutrition = R.get_reagent_amount("nutriment")
+	var/sweetness = R.get_reagent_amount("sugar")
+	var/boozeamt = max(((nutrition * 10) + (sweetness * 20)), 10)
+	R.remove_reagent("nutriment", nutrition)
+	R.remove_reagent("sugar", sweetness)
+	R.add_reagent(boozetype, boozeamt)
