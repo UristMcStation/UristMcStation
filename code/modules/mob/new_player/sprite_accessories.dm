@@ -508,7 +508,13 @@
 
 	vandyke
 		name = "Van Dyke Mustache"
-		icon_state = "facial_vandyke"
+		icon = 'icons/uristmob/hair.dmi'
+		icon_state = "facial_vandykeproper"
+
+	altdyke
+		name = "Van Dyke Moustache Alt"
+		icon = 'icons/uristmob/hair.dmi'
+		icon_state = "facial_altdyke"
 
 	chaplin
 		name = "Square Mustache"
@@ -563,6 +569,9 @@
 		name = "Dwarf Beard"
 		icon_state = "facial_dwarf"
 
+	fumanchu //old alleged Van Dyke
+		name = "Fu Manchu"
+		icon_state = "facial_vandyke"
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
