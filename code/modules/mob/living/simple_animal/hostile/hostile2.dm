@@ -201,6 +201,8 @@
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	target.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+	playsound(src, attack_sound, 100, 1) //what the shit, how come nobody noticed no melee attack sounds were playing in not one
+                                         //but two separate versions of hostile mob code?!
 
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range
