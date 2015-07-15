@@ -2216,7 +2216,7 @@
 "aQF" = (/turf/simulated/floor{icon_state = "redcorner"; dir = 4},/area/hallway/primary/port)
 "aQG" = (/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = -28},/obj/structure/filingcabinet/chestdrawer,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/wood,/area/lawoffice)
 "aQH" = (/obj/machinery/hologram/holopad,/turf/simulated/floor/wood,/area/lawoffice)
-"aQI" = (/obj/structure/table/woodentable,/obj/item/weapon/folder/blue,/obj/item/weapon/folder/blue,/obj/item/weapon/folder/blue,/obj/item/weapon/folder/blue,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/wood,/area/lawoffice)
+"aQI" = (/obj/structure/table/woodentable,/obj/item/weapon/folder/blue{pixel_x = -6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/item/weapon/folder/red{pixel_x = -3},/obj/item/weapon/folder/yellow,/obj/item/weapon/folder/white{pixel_x = 3},/turf/simulated/floor/wood,/area/lawoffice)
 "aQJ" = (/obj/effect/landmark/start{name = "Internal Affairs Agent"},/obj/structure/stool/bed/chair/office/dark{dir = 8},/turf/simulated/floor/wood,/area/lawoffice)
 "aQK" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/blast/regular{icon_state = "pdoor0"; density = 0; opacity = 0; id = "lawyer_blast"; name = "privacy door"},/turf/simulated/floor/plating,/area/lawoffice)
 "aQL" = (/turf/simulated/floor{tag = "icon-neutralcorner"; icon_state = "neutralcorner"; dir = 2},/area/hallway/primary/port)
