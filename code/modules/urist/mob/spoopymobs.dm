@@ -36,11 +36,11 @@
 	health = 40
 	maxHealth = 40
 	idle_vision_range = 3
-	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of hardwiring a death icon
+	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
 /mob/living/simple_animal/hostile/zombie/regen/New()
 	..()
-	src.health = -1 //starts masqueraded as a unknown corpse //scrdest cannot into turn(icon), will restore once I figure it out
+	src.health = -1 //starts masqueraded as a unknown corpse
 
 /mob/living/simple_animal/hostile/zombie/regen/death()
 	..()
@@ -53,7 +53,7 @@
 	src.transform = M
 
 	src << "You begin to regenerate. This will take about 1.5 minutes."
-	spawn(90)
+	spawn(900)
 		var/matrix/N = matrix()
 		src.transform = N
 		health = maxHealth
