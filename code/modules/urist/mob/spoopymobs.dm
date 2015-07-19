@@ -45,7 +45,9 @@
 /mob/living/simple_animal/hostile/zombie/regen/death()
 	..()
 	var/tempnameholder = src.name
+	var/tempdescholder = src.desc
 	src.name = "corpse"
+	src.desc = "It's a corpse. Very dead."
 
 	var/matrix/M = matrix() //shamelessly stolen from human update_icons
 	M.Turn(90)
@@ -58,6 +60,7 @@
 		src.transform = N
 		health = maxHealth
 		src.name = tempnameholder
+		src.desc = tempdescholder
 
 
 /mob/living/simple_animal/hostile/zombie/regen/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
