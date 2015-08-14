@@ -51,10 +51,11 @@
 	var/top = 1	//Do we have a top?
 	var/add_overlays = 1	//Do we stack?
 //	var/offsetstuff = 1 //Do we offset the overlays?
-	var/sandwich_limit = 10
+	var/ingredient_limit = 10
 	var/fullycustom = 0
 	trash = /obj/item/trash/plate
 	bitesize = 2
+	filling_color = null
 
 	var/list/ingredients = list()
 
@@ -171,11 +172,11 @@
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummybear
-	name = "flavored giant gummy bear"
+	name = "flavored gummy bear"
 	desc = "Cover it in chocolate and a miracle or two,"
 	icon_state = "gummybearcustom"
 	baseicon = "gummybearcustom"
-	basename = "flavored giant gummy bear"
+	basename = "flavored gummy bear"
 	add_overlays = 0
 	top = 0
 
@@ -189,11 +190,11 @@
 	top = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jellybean
-	name = "flavored giant jelly bean"
+	name = "flavored jelly bean"
 	desc = "And makes the world taste good."
 	icon_state = "jellybeancustom"
 	baseicon = "jellybeancustom"
-	basename = "flavored giant jelly bean"
+	basename = "flavored jelly bean"
 	add_overlays = 0
 	top = 0
 
@@ -277,7 +278,7 @@
 	basename = "on a plate"
 	add_overlays = 0
 	top = 0
-	sandwich_limit = 20
+	ingredient_limit = 20
 	fullycustom = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/soup
@@ -298,7 +299,7 @@
 	basename = "burger"
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > sandwich_limit)
+	if(src.contents.len > ingredient_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
@@ -330,15 +331,28 @@
 
 		if(!fullycustom)
 			var/image/I = new(src.icon, "[baseicon]_filling")
-			if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))
-				var/obj/item/weapon/reagent_containers/food/snacks/food = O
-				if(!food.filling_color == "#FFFFFF")
-					I.color = food.filling_color
-				else
-					I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
 			if(add_overlays)
+				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
+				overlays += I
+			else
+				var/list/internalcolors //holds a rgb value of the current overlay
+				if(src.filling_color)
+					internalcolors = hex2rgblist(src.filling_color)
+				var/list/externalcolors //same, added overlay
+				if(O.filling_color)
+					externalcolors = hex2rgblist(O.filling_color)
+				if((!internalcolors) && (!externalcolors))
+					src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+				else if((!internalcolors) && (externalcolors))
+					src.filling_color = O.filling_color
+				else if((internalcolors) && (!externalcolors))
+					src.filling_color = src.filling_color //hacky, but I need to placate the great compiler gods and do SOMETHING here
+				else
+					internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
+					src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
+				I.color = src.filling_color
 			overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
@@ -383,7 +397,7 @@
 
         update_icon()
                 overlays.Cut()
-                var/image/filling = image('icons/obj/kitchen.dmi', src, "icecream_color")
+                var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
                 filling.icon += mix_color_from_reagents(reagents.reagent_list)
                 overlays += filling
 
@@ -444,14 +458,14 @@
 	name = "Customizable Drink"
 	desc = "If you can see this, tell a coder."
 	icon = 'icons/urist/kitchen.dmi'
-	icon_state = "winecustom"
-	var/baseicon = "winecustom"
-	var/basename = "wine"
-	var/top = 1	//Do we have a top?
-	var/add_overlays = 1	//Do we stack?
-//	var/offsetstuff = 1 //Do we offset the overlays?
-	var/sandwich_limit = 1
+	icon_state = "vodkacustom"
+	var/baseicon = "vodkacustom"
+	var/basename = "hooch"
+	var/top = 0	//Do we have a top? //why was this ever set to one
+	var/add_overlays = 0	//Do we stack? //see above
+	var/ingredient_limit = 1
 	var/fullycustom = 0
+	var/boozetype = "hooch"
 	volume = 100
 	gulp_size = 2
 
@@ -459,7 +473,8 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 1)
+		src.reagents.add_reagent(boozetype, 20)
+		ferment(boozetype)
 
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/wine
@@ -470,9 +485,8 @@
 	basename = "wine bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("wine", 50)
+	boozetype = "wine"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/whiskey
 	name = "whiskey bottle"
 	desc = "Tasty."
@@ -481,9 +495,8 @@
 	basename = "whiskey bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("whiskey", 50)
+	boozetype = "whiskey"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vermouth
 	name = "vermouth bottle"
 	desc = "Tasty."
@@ -492,9 +505,8 @@
 	basename = "vermouth bottle"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("vermouth", 50)
+	boozetype = "vermouth"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vodka
 	name = "vodka"
 	desc = "Tasty."
@@ -503,9 +515,8 @@
 	basename = "vodka"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("vodka", 50)
+	boozetype = "vodka"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/ale
 	name = "ale"
 	desc = "Strike the asteroid!"
@@ -514,11 +525,10 @@
 	basename = "ale"
 	add_overlays = 0
 	top = 0
-	New()
-		..()
-		reagents.add_reagent("wine", 50)
+	boozetype = "ale"
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > sandwich_limit)
+	if(src.contents.len > ingredient_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
@@ -550,15 +560,22 @@
 
 		if(!fullycustom)
 			var/image/I = new(src.icon, "[baseicon]_filling")
-			if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))
-				var/obj/item/weapon/reagent_containers/food/snacks/food = O
-				if(!food.filling_color == "#FFFFFF")
-					I.color = food.filling_color
-				else
-					I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
-			if(add_overlays)
-				I.pixel_x = pick(list(-1,0,1))
-				I.pixel_y = (i*2)+1
+			var/list/internalcolors //holds a rgb value of the current overlay
+			if(src.filling_color)
+				internalcolors = hex2rgblist(src.filling_color)
+			var/list/externalcolors //same, added overlay
+			if(O.filling_color)
+				externalcolors = hex2rgblist(O.filling_color)
+			if((!internalcolors) && (!externalcolors))
+				src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+			else if((!internalcolors) && (externalcolors))
+				src.filling_color = O.filling_color
+			else if((internalcolors) && (!externalcolors))
+				src.filling_color = src.filling_color //hacky, but I need to placate the great compiler gods and do SOMETHING here
+			else
+				internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
+				src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
+			I.color = src.filling_color
 			overlays += I
 		else
 			var/image/F = new(O.icon, O.icon_state)
@@ -567,15 +584,11 @@
 			overlays += F
 			overlays += O.overlays
 
-	if(top)
-		var/image/T = new(src.icon, "[baseicon]_top")
-		T.pixel_x = pick(list(-1,0,1))
-		T.pixel_y = (ingredients.len * 2)+1
-		overlays += T
-
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "incomprehensible mixture [basename]"
-	w_class = n_ceil(Clamp((ingredients.len/2),1,3))
+	w_class = 2
+	if(src.reagents)
+		ferment(src.boozetype)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Del()
 	for(var/obj/item/O in ingredients)
@@ -586,4 +599,15 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
+	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
+	if(!(istext(boozetype)))
+		boozetype = "hooch"
+	var/datum/reagents/R = src.reagents
+	var/nutrition = R.get_reagent_amount("nutriment")
+	var/sweetness = R.get_reagent_amount("sugar")
+	var/boozeamt = max(((nutrition * 10) + (sweetness * 20)), 10)
+	R.remove_reagent("nutriment", nutrition)
+	R.remove_reagent("sugar", sweetness)
+	R.add_reagent(boozetype, boozeamt)
