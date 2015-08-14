@@ -81,6 +81,7 @@
 		new /obj/item/clothing/under/rank/centcom_officer(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/handcuffs(src)
+		new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
 		return
 
 //Emergency suits locker
