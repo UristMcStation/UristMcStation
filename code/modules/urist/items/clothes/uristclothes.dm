@@ -660,7 +660,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Blueshield
 /obj/item/clothing/suit/storage/urist/coat/blueshield //no toggle yet
-	name = "blueshied coat"
+	name = "blueshield coat"
 	desc = "NT deluxe ripoff. You finally have your own coat."
 	icon_state = "blueshieldcoat"
 	item_state = "det_suit"
