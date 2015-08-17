@@ -81,7 +81,7 @@
 		/obj/item/device/taperecorder,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
-		/obj/item/clothing/tie/holobadge,
+		/obj/item/clothing/accessory/holobadge,
 		/obj/structure/closet/crate/secure,
 		/obj/structure/closet/secure_closet,
 		/obj/machinery/librarycomp,
@@ -294,3 +294,11 @@
 	New()
 		access = get_all_centcom_access()
 		..()
+
+/obj/item/weapon/card/id/centcom/ERT
+	name = "\improper Emergency Response Team ID"
+	assignment = "Emergency Response Team"
+		
+/obj/item/weapon/card/id/centcom/ERT/New()
+	..()
+	access += get_all_accesses()

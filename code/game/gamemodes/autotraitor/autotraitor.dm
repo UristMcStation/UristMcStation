@@ -134,7 +134,7 @@
 				newtraitor << "\red <B>ATTENTION:</B> \black It is time to pay your debt to the Syndicate..."
 				newtraitor << "<B>You are now a traitor.</B>"
 				newtraitor.mind.special_role = "traitor"
-				newtraitor.hud_updateflag |= 1 << SPECIALROLE_HUD
+				BITSET(newtraitor.hud_updateflag, SPECIALROLE_HUD)
 				newtraitor << "<i>You have been selected this round as an antagonist!</i>"
 				show_objectives(newtraitor.mind)
 

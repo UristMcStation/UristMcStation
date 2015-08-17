@@ -9,7 +9,7 @@
 	recommended_enemies = 3
 
 	uplink_welcome = "AntagCorp Uplink Console:"
-	uplink_uses = 5
+	uplink_uses = 7
 
 	newscaster_announcements = /datum/news_announcement/revolution_inciting_event
 
@@ -108,7 +108,7 @@
 	rev_mind.special_role = "Revolutionary"
 	show_objectives(rev_mind)
 	update_rev_icons_added(rev_mind)
-	H.hud_updateflag |= 1 << SPECIALROLE_HUD
+	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 	return 1
 
 /////////////////////////////

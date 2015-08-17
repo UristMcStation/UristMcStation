@@ -38,9 +38,11 @@ var/can_call_ert
 	log_admin("[key_name(usr)] used Dispatch Response Team.")
 	trigger_armed_response_team(1)
 
-
 client/verb/JoinResponseTeam()
 	set category = "IC"
+
+	if(!MayRespawn(1))
+		return
 
 	if(istype(usr,/mob/dead/observer) || istype(usr,/mob/new_player))
 		if(!send_emergency_team)
@@ -313,13 +315,10 @@ proc/trigger_armed_response_team(var/force = 0)
 	equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(src), slot_in_backpack)
 	equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(src), slot_in_backpack)
 */
-	var/obj/item/weapon/card/id/W = new(src)
+	var/obj/item/weapon/card/id/centcom/ERT/W = new(src)
 	W.assignment = "Emergency Response Team[leader_selected ? " Leader" : ""]"
 	W.registered_name = real_name
 	W.name = "[real_name]'s ID Card ([W.assignment])"
-	W.icon_state = "centcom"
-	W.access = get_all_accesses()
-	W.access += get_all_centcom_access()
 	equip_to_slot_or_del(W, slot_wear_id)
 
 	return 1

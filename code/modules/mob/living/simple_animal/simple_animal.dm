@@ -81,6 +81,7 @@
 
 	if(health < 1)
 		death()
+		return
 
 	if(health > maxHealth)
 		health = maxHealth
@@ -265,7 +266,7 @@
 				adjustBruteLoss(-medical_pack.heal_brute)
 				visible_message("<span class='warning'>\The [user] applies the [medical_pack] to \the [src].</span>")
 		else
-			user << "<span class='warning'>\The [src] cannot benefit from medical items in its current state.</span>"
+			user << "<span class='warning'>\The [src] cannot benefit from medical items in \his current state.</span>"
 		return
 
 	else if(istype(O, /obj/item/weapon/kitchenknife) || istype(O, /obj/item/weapon/butch))
@@ -308,9 +309,8 @@
 
 /mob/living/simple_animal/death()
 	icon_state = icon_dead
-	stat = DEAD
 	density = 0
-	return ..()
+	return ..(deathmessage = "no message")
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)

@@ -26,7 +26,7 @@
 
 /mob/dead/observer/New(mob/body)
 	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
-	see_invisible = SEE_INVISIBLE_OBSERVER
+	see_invisible = SEE_INVISIBLE_OBSERVER_AI_EYE
 	see_in_dark = 100
 	verbs += /mob/dead/observer/proc/dead_tele
 
@@ -404,14 +404,20 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "\blue Heat Capacity: [round(environment.heat_capacity(),0.1)]"
 
 
-/mob/dead/observer/verb/toggle_darkness()
-	set name = "Toggle Darkness"
+/mob/dead/observer/verb/toggle_sight()
+	set name = "Toggle Sight"
 	set category = "Ghost"
 
-	if (see_invisible == SEE_INVISIBLE_OBSERVER_NOLIGHTING)
-		see_invisible = SEE_INVISIBLE_OBSERVER
-	else
-		see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+	switch(see_invisible)
+		if(SEE_INVISIBLE_OBSERVER_AI_EYE)
+			see_invisible = SEE_INVISIBLE_OBSERVER_NOOBSERVERS
+			usr << "<span class='notice'>You no longer see other observers or the AI eye.</span>"
+		if(SEE_INVISIBLE_OBSERVER_NOOBSERVERS)
+			see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
+			usr << "<span class='notice'>You no longer see darkness.</span>"
+		else
+			see_invisible = SEE_INVISIBLE_OBSERVER_AI_EYE
+			usr << "<span class='notice'>You again see everything.</span>"
 
 /mob/dead/observer/verb/become_mouse()
 	set name = "Become mouse"
@@ -421,9 +427,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "<span class='warning'>Spawning as a mouse is currently disabled.</span>"
 		return
 
-	var/mob/dead/observer/M = usr
-	if(config.antag_hud_restricted && M.has_enabled_antagHUD == 1)
-		src << "<span class='warning'>antagHUD restrictions prevent you from spawning in as a mouse.</span>"
+	if(!MayRespawn(1))
 		return
 
 	var/timedifference = world.time - client.time_died_as_mouse
@@ -453,9 +457,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(host)
 		if(config.uneducated_mice)
 			host.universal_understand = 0
+		announce_ghost_joinleave(src, 0, "They are now a mouse.")
 		host.ckey = src.ckey
 		host << "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>"
-		announce_ghost_joinleave(host, 0, "They are now a mouse.")
 
 /mob/dead/observer/verb/view_manfiest()
 	set name = "View Crew Manifest"
@@ -613,4 +617,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		src << "<span class='info'>Your key will be publicly visible again.</span>"
 
 /mob/dead/observer/canface()
+	return 1
+
+mob/dead/observer/MayRespawn(var/feedback = 0)
+	if(config.antag_hud_restricted && has_enabled_antagHUD == 1)
+		if(feedback)
+			src << "<span class='warning'>antagHUD restrictions prevent you from respawning.</span>"
+		return 0
 	return 1

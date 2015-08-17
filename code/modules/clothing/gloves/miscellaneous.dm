@@ -54,6 +54,7 @@
 	item_color="white"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)
 
+	germ_level = 0
 	cmo
 		item_color = "medical"		//Exists for washing machines. Is not different from latex gloves in any way.
 

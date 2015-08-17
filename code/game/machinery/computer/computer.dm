@@ -60,6 +60,9 @@
 	return
 
 /obj/machinery/computer/bullet_act(var/obj/item/projectile/Proj)
+	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+		return
+
 	if(prob(Proj.damage))
 		set_broken()
 	..()
@@ -100,6 +103,14 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
+
+/obj/machinery/computer/attack_ghost(user as mob)
+	return src.attack_hand(user)
+
+/obj/machinery/computer/attack_hand(user as mob)
+	/* Observers can view computers, but not actually use them via Topic*/
+	if(istype(user, /mob/dead/observer)) return 0
+	return ..()
 
 /obj/machinery/computer/attackby(I as obj, user as mob)
 	if(istype(I, /obj/item/weapon/screwdriver) && circuit)

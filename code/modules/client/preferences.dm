@@ -55,8 +55,8 @@ datum/preferences
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
-	var/underwear = 1					//underwear type
-	var/undershirt = 1					//undershirt type
+	var/underwear						//underwear type
+	var/undershirt						//undershirt type
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
 	var/r_hair = 0						//Hair color
@@ -172,16 +172,16 @@ datum/preferences
 					used_skillpoints += 6 * multiplier
 
 /datum/preferences/proc/GetSkillClass(points)
+	return CalculateSkillClass(points, age)
+
+/proc/CalculateSkillClass(points, age)
+	if(points <= 0) return "Unconfigured"
 	// skill classes describe how your character compares in total points
-	var/original_points = points
 	points -= min(round((age - 20) / 2.5), 4) // every 2.5 years after 20, one extra skillpoint
 	if(age > 30)
 		points -= round((age - 30) / 5) // every 5 years after 30, one extra skillpoint
-	if(original_points > 0 && points <= 0) points = 1
 	switch(points)
-		if(0)
-			return "Unconfigured"
-		if(1 to 3)
+		if(-1000 to 3)
 			return "Terrifying"
 		if(4 to 6)
 			return "Below Average"
@@ -374,12 +374,11 @@ datum/preferences
 	else
 		dat += "<br><br>"
 
-	if(gender == MALE)
-		dat += "Underwear: <a href ='?_src_=prefs;preference=underwear;task=input'><b>[underwear_m[underwear]]</b></a><br>"
-	else
-		dat += "Underwear: <a href ='?_src_=prefs;preference=underwear;task=input'><b>[underwear_f[underwear]]</b></a><br>"
+	var/list/undies = gender == MALE ? underwear_m : underwear_f
 
-	dat += "Undershirt: <a href='?_src_=prefs;preference=undershirt;task=input'><b>[undershirt_t[undershirt]]</b></a><br>"
+	dat += "Underwear: <a href ='?_src_=prefs;preference=underwear;task=input'><b>[get_key_by_value(undies,underwear)]</b></a><br>"
+
+	dat += "Undershirt: <a href='?_src_=prefs;preference=undershirt;task=input'><b>[get_key_by_value(undershirt_t,undershirt)]</b></a><br>"
 
 	dat += "Backpack Type:<br><a href ='?_src_=prefs;preference=bag;task=input'><b>[backbaglist[backbag]]</b></a><br>"
 
@@ -396,7 +395,7 @@ datum/preferences
 
 	dat += "<b><a href=\"byond://?src=\ref[user];preference=antagoptions;active=0\">Set Antag Options</b></a><br>"
 
-	dat += "\t<a href=\"byond://?src=\ref[user];preference=skills\"><b>Set Skills</b> (<i>[GetSkillClass(used_skillpoints)][used_skillpoints > 0 ? " [used_skillpoints]" : "0"])</i></a><br>"
+	dat += "\t<a href=\"byond://?src=\ref[user];preference=skills\"><b>Set Skills</b> (<i>[GetSkillClass(used_skillpoints)] [used_skillpoints > 0 ? "[used_skillpoints]" : "0"]</i>)</a><br>"
 
 	dat += "<a href='byond://?src=\ref[user];preference=flavor_text;task=open'><b>Set Flavor Text</b></a><br>"
 	dat += "<a href='byond://?src=\ref[user];preference=flavour_text_robot;task=open'><b>Set Robot Flavour Text</b></a><br>"
@@ -1186,10 +1185,12 @@ datum/preferences
 				if("f_style")
 					f_style = random_facial_hair_style(gender, species)
 				if("underwear")
-					underwear = rand(1,underwear_m.len)
+					var/r = pick(underwear_m)
+					underwear = underwear_m[r]
 					ShowChoices(user)
 				if("undershirt")
-					undershirt = rand(1,undershirt_t.len)
+					var/r = pick(undershirt_t)
+					undershirt = undershirt_t[r]
 					ShowChoices(user)
 				if("eyes")
 					r_eyes = rand(0,255)
@@ -1359,7 +1360,7 @@ datum/preferences
 
 					var/new_underwear = input(user, "Choose your character's underwear:", "Character Preference")  as null|anything in underwear_options
 					if(new_underwear)
-						underwear = underwear_options.Find(new_underwear)
+						underwear = underwear_options[new_underwear]
 					ShowChoices(user)
 
 				if("undershirt")
@@ -1368,7 +1369,7 @@ datum/preferences
 
 					var/new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in undershirt_options
 					if (new_undershirt)
-						undershirt = undershirt_options.Find(new_undershirt)
+						undershirt = undershirt_options[new_undershirt]
 					ShowChoices(user)
 
 				if("eyes")
@@ -1713,12 +1714,8 @@ datum/preferences
 				else if(status == "mechanical")
 					I.mechanize()
 
-	if(underwear > underwear_m.len || underwear < 1)
-		underwear = 0 //I'm sure this is 100% unnecessary, but I'm paranoid... sue me. //HAH NOW NO MORE MAGIC CLONING UNDIES
 	character.underwear = underwear
 
-	if(undershirt > undershirt_t.len || undershirt < 1)
-		undershirt = 0
 	character.undershirt = undershirt
 
 	if(backbag > 4 || backbag < 1)
