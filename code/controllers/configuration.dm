@@ -184,6 +184,8 @@
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
 
+	var/SCOM_dynamic_difficulty = 0
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -610,6 +612,9 @@
 
 				if("starlight")
 					config.starlight = 1
+
+				if("SCOM_dynamic_difficulty")
+					config.SCOM_dynamic_difficulty = 1
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

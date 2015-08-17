@@ -1,10 +1,11 @@
-var/global/normal_aooc_colour = "#FF0000"
+var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR is correct. Like math. MATH is correct. MATHS is stoopid
 
 /client/verb/aooc(msg as text)
 	set name = "AOOC"
 	set category = "OOC"
+	//set hidden = 1
 
-	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client)))
+	if(!is_special_character(usr.client.mob) && !(usr.client && usr.client.holder && !is_mentor(usr.client))) //Preventing non-antags from using it
 		usr << "<span clas='warning'>You are not an Antagonist.</span>"
 		return
 
@@ -12,12 +13,12 @@ var/global/normal_aooc_colour = "#FF0000"
 		usr << "<span clas='warning'>Speech is currently admin-disabled.</span>"
 		return
 
-	if(!mob)	return
+	if(!mob)	return //No turf can talk
 	if(IsGuestKey(key))
 		src << "Guests may not use AOOC."
 		return
 
-	msg = trim(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN))
+	msg = trim(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)) //No in-chat HTML for you user!
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
@@ -44,26 +45,6 @@ var/global/normal_aooc_colour = "#FF0000"
 
 	log_ooc("[mob.name]/[key]/AOOC : [msg]")
 
-/*
-	var/display_colour = normal_ooc_colour
-	if(holder && !holder.fakekey)
-		display_colour = "#FF3333"	//light red
-		usr << "LIGHT RED"
-		if(holder.rights & R_MOD && !(holder.rights & R_ADMIN))
-			display_colour = "#990000"	//dark red
-			usr << "DARK RED"
-		if(holder.rights & R_DEBUG && !(holder.rights & R_ADMIN))
-			display_colour = "#FF8080"	//pank
-			usr << "PANK"
-		else if(holder.rights & R_ADMIN)
-			if(config.allow_admin_ooccolor)
-				display_colour = src.prefs.ooccolor
-			else
-				display_colour = "#FF9900"	//orange
-				usr << "ORANG"
-*/
-
-
 	for(var/client/C in clients)
 		if(C.prefs.toggles & CHAT_OOC)
 			var/display_name = src.key
@@ -74,4 +55,4 @@ var/global/normal_aooc_colour = "#FF0000"
 					else
 						display_name = holder.fakekey
 			if(is_special_character(C.mob) || (C && C.holder && !is_mentor(C))) //Allows both admuns and antags to hear AOOC
-				C << "<font color='#FF3333'><span class='ooc'><span class='prefix'>AOOC:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
+				C << "<font color='[normal_aooc_color]'><span class='ooc'>" + create_text_tag("aooc", "AOOC:", C) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"

@@ -1,7 +1,7 @@
 //BYOND fucking hates this file
 
 /datum/game_mode/scom/proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
-	world<<("\red \b Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die. Your first task is to secure a pair of Nanotrasen communication satellites in the Nyx system. The fate of humanity rests in your hands. Good luck!")
+	world<<("\red \b Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die. Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!")
 
 	for(var/mob/living/carbon/human/M in player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 
@@ -9,6 +9,11 @@
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id)) //we're going to actually let them keep their IDs because their account is tied to it
 				continue
 			del(I)
+		if(M.disabilities)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(M), slot_glasses)
+
+		if(M.species == "Unathi")
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(M), slot_shoes)
 
 		if(M.job == "Captain")
 
@@ -156,21 +161,38 @@
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			S.loc = pick(scomspawn3)
+			for(var/obj/item/weapon/cell/cell in S)
+				cell.charge = INFINITY
+				cell.maxcharge = INFINITY
+
 		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/robot/R = new /mob/living/silicon/robot(S.loc)
 			R.ckey = S.ckey
 			R.loc = pick(scomspawn3)
+			for(var/obj/item/weapon/cell/cell in R)
+				cell.charge = INFINITY
+				cell.maxcharge = INFINITY
 			del(S)
 
 /mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
+		for(var/obj/item/weapon/cell/cell in L)
+			cell.charge = INFINITY
+			cell.maxcharge = INFINITY
+
 
 /mob/new_player/proc/ScomLateJoin(var/mob/living/carbon/L)
 	for (var/obj/item/I in L)
 		if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id))
 			continue
 		del(I)
+
+	if(L.disabilities)
+		L.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(L), slot_glasses)
+
+	if(L.species == "Unathi")
+		L.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(L), slot_shoes)
 
 	if(L.job == "Captain")
 
@@ -319,7 +341,7 @@
 	if(!scommapsloaded)
 		world << "\red \b Loading S-COM Maps..."
 
-		var/file = file("maps/ScomMaps/missions1.dmm")
+		var/file = file("maps/ScomMaps/missions2.dmm")
 		if(isfile(file))
 			maploader.load_map(file)
 			world.log << "S-COM Maps loaded."

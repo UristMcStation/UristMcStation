@@ -315,8 +315,10 @@ proc/snowtraintime()
 /obj/effect/blowingsnow/Crossed(O as mob)
 	..()
 	if(istype(O, /mob/living/))
-
 		var/mob/living/M = O
-		if(prob(85))
-			M.apply_damage(rand(3,5), BURN)
-			M << ("\red The cold wind tears at your skin!")
+		if(COLD_RESISTANCE in M.mutations)
+			M << ("<span class='warning'> The cold wind feels surprisingly pleasant to you.</span>")	
+		else	
+			if(prob(85))
+				M.apply_damage(rand(3,5), BURN)
+				M << ("<span class='warning'> The cold wind tears at your skin!</span>")

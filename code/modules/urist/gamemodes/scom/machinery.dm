@@ -82,9 +82,6 @@
 		user << "<span class='notice'>\The [src] is not designed for deconstruction!.</span>"
 		return
 
-	if(O.scomtechlvl <= scomtechlvl)
-		scommoney = (scommoney + O.scommoney)
-
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
@@ -95,11 +92,13 @@
 		else if(scomtechlvl < S.scomtechlvl)
 			scomtechlvl = S.scomtechlvl
 
-		if(S.scommoney < scommoney)
-			S.scommoney = scommoney
+//		if(S.scommoney < scommoney)
+//			S.scommoney = scommoney
+		if(O.scomtechlvl <= S.scomtechlvl)
+			S.scommoney = (S.scommoney + O.scommoney)
 
-		else if(scommoney < S.scommoney)
-			scommoney = S.scommoney
+//		else if(scommoney < S.scommoney)
+//			scommoney = S.scommoney
 
 	flick("[animation_state]",src)
 
@@ -165,7 +164,7 @@
 //					scommoney = scommoney - making.resources
 
 				if(S.squad == squad)
-					S.scommoney = scommoney - making.resources
+					S.scommoney = S.scommoney - making.resources
 
 
 		flick("[animation_state]",src)
@@ -258,6 +257,7 @@
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/fire(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/bodybag/cryobag(user.back), slot_in_backpack)
 					new /obj/item/bodybag/cryobag(src.loc)
 					new /obj/item/clothing/tie/storage/black_vest(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
@@ -305,3 +305,23 @@
 	icon_state = "tele1"
 	name = "teleporter"
 	anchored = 1
+
+/obj/machinery/telecomms/relay/preset/scom1
+	id = "Centcom1 Relay"
+	hide = 1
+	toggled = 1
+	//anchored = 1
+	//use_power = 0
+	//idle_power_usage = 0
+	produces_heat = 0
+	autolinkers = list("s1_relay")
+
+/obj/machinery/telecomms/relay/preset/scom2
+	id = "Centcom2 Relay"
+	hide = 1
+	toggled = 1
+	//anchored = 1
+	//use_power = 0
+	//idle_power_usage = 0
+	produces_heat = 0
+	autolinkers = list("s2_relay")
