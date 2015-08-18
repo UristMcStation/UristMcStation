@@ -70,7 +70,7 @@
 			new/datum/uplink_item(/obj/item/clothing/shoes/syndigaloshes, 2, "No-Slip Syndicate Shoes", "SH"),
 
 			new/datum/uplink_item(/obj/item/clothing/mask/gas/voice, 4, "Voice Changer", "VC"),
-			new/datum/uplink_item(/obj/item/weapon/disk/file/cameras/syndicate, 6, "Camera Network Access - Floppy", "SF")
+			new/datum/uplink_item(/obj/item/weapon/disk/file/cameras/syndicate, 6, "Camera Network Access - Floppy", "SF"),
 			new/datum/uplink_item(/obj/item/device/chameleon, 4, "Chameleon-Projector", "CP"),
 			new/datum/uplink_item(/obj/item/weapon/storage/backpack/satchel_flat, 1, "Smuggler's Satchel", "SU")
 			),
@@ -112,7 +112,7 @@
 		),
 		"(Pointless) Badassery" = list(
 			new/datum/uplink_item(/obj/item/toy/syndicateballoon, 10, "For showing that You Are The BOSS (Useless Balloon)", "BS"),
-			new/datum/uplink_item(/obj/item/toy/nanotrasenballoon, 10, "For showing that you love NT SOO much (Useless Balloon)", "NT")
+			new/datum/uplink_item(/obj/item/toy/nanotrasenballoon, 10, "For showing that you love NT SOO much (Useless Balloon)", "NT"),
 			new/datum/uplink_item(/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate, 2, "Syndicate Cigarettes", "SC")
 			)
 		)

@@ -104,7 +104,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //hacky, but I don't give a fuck. nicer beds
 
-/obj/structure/stool/bed/nice
+/obj/structure/bed/nice
 	name = "bed"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
@@ -144,22 +144,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //shuttle chairs
 
-/obj/structure/stool/bed/chair/urist
+/obj/structure/bed/chair/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/structure/stool/bed/chair/urist/shuttle
+/obj/structure/bed/chair/urist/shuttle
 	name = "shuttle chair"
 	desc = "A specially padded chair made for shuttles."
 	icon_state = "shuttlechair"
 	var/image/armrest = null
 
-/obj/structure/stool/bed/chair/urist/shuttle/New()
+/obj/structure/bed/chair/urist/shuttle/New()
 	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
 	armrest.layer = MOB_LAYER + 0.1
 
 	return ..()
 
-/obj/structure/stool/bed/chair/urist/shuttle/afterbuckle()
+/obj/structure/bed/chair/urist/shuttle/afterbuckle()
 	if(buckled_mob)
 		overlays += armrest
 	else
@@ -167,67 +167,49 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //random benches
 
-/obj/structure/stool/bed/chair/urist/bench
+/obj/structure/bed/chair/urist/bench
 	name = "bench"
 	desc = "A grey bench. No matter how hard you try, you can't seem to get comfortable on it."
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/left
+/obj/structure/bed/chair/urist/bench/bench1/left
 	icon_state = "benchleft"
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/right
+/obj/structure/bed/chair/urist/bench/bench1/right
 	icon_state = "benchright"
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/mid
+/obj/structure/bed/chair/urist/bench/bench1/mid
 	icon_state = "benchmid"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2
+/obj/structure/bed/chair/urist/bench/bench2
 	desc = "A blue bench found on the Central Command transit system. You'd think it would be padded, but your ass says otherwise."
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/top
+/obj/structure/bed/chair/urist/bench/bench2/top
 	icon_state = "bench2top"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/mid
+/obj/structure/bed/chair/urist/bench/bench2/mid
 	icon_state = "bench2mid"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/bot
+/obj/structure/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
 
 //stools
 
-/obj/structure/stool/urist
+/obj/item/weapon/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "stool"
 
-/obj/structure/stool/urist/bar
+/obj/item/weapon/urist/bar
 	name = "bar stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "barstool"
-	style = 1 //0 is regular, 1 is bar, 2 is wood
-
-/obj/structure/stool/urist/wood
-	name = "wood stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "woodstool"
-	style = 2 //0 is regular, 1 is bar, 2 is wood
-
-/obj/item/weapon/stool/urist/bar
-	name = "bar stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	item_state = "stool"
-	style = 1 //0 is regular, 1 is bar, 2 is wood
-
-/obj/item/weapon/stool/urist/wood
+/obj/item/weapon/urist/wood
 	urist_only = 1
 	name = "wood stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodstool"
 	item_state = "stool"
-	style = 2 //0 is regular, 1 is bar, 2 is wood
 
 //Barber
 
-/obj/structure/stool/bed/chair/urist/barber
+/obj/structure/bed/chair/urist/barber
 	name = "barber chair"
 	desc = "A soft raised chair that makes it easier for barbers to cut hair."
 	icon_state = "barber_chair"
