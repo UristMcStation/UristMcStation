@@ -117,13 +117,13 @@
 /datum/storeitem/pocketwatch
 	name="Brass Pocket Watch"
 	desc="A brass pocket watch, for keeping track of time in the cold dark void!"
-	typepath=/obj/item/clothing/tie/watch/pocket
+	typepath=/obj/item/clothing/accessory/watch/pocket
 	cost = 300
 
 /datum/storeitem/wristwatch
 	name="Black Wrist Watch"
 	desc="A black plastic wrist watch, for keeping track of time in the cold dark void!"
-	typepath=/obj/item/clothing/tie/watch/wrist
+	typepath=/obj/item/clothing/accessory/watch/wrist
 	cost = 300
 
 /////////////////////////////////////////////////////////

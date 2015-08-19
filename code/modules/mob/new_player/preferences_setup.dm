@@ -534,7 +534,7 @@ datum/preferences
 					clothes_s.Blend(new /icon('icons/mob/hands.dmi', "bgloves"), ICON_UNDERLAY)
 					clothes_s.Blend(new /icon('icons/mob/suit.dmi', "aeneasrinil_open"), ICON_OVERLAY)
 					if(prob(1))
-						clothes_s.Blend(new /icon('icons/mob/items_righthand.dmi', "toolbox_blue"), ICON_OVERLAY) // No need for this
+						clothes_s.Blend(new /icon('icons/mob/items/righthand.dmi', "toolbox_blue"), ICON_OVERLAY) // No need for this
 					switch(backbag)
 						if(2)
 							clothes_s.Blend(new /icon('icons/uristmob/back.dmi', "backpack-robo"), ICON_OVERLAY)

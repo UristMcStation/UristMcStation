@@ -2,7 +2,7 @@
 
 /datum/gear/wristwatch
 	display_name = "wrist watch"
-	path = /obj/item/clothing/tie/watch/wrist
+	path = /obj/item/clothing/accessory/watch/wrist
 	cost = 1
 
 /datum/gear/black_suit

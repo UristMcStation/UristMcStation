@@ -110,24 +110,24 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //watches
 
-/obj/item/clothing/tie/watch
+/obj/item/clothing/accessory/watch
 	urist_only = 1
 	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_override = 'icons/uristmob/ties.dmi'
 
-/obj/item/clothing/tie/watch/wrist
+/obj/item/clothing/accessory/watch/wrist
 	name = "wrist watch"
 	desc = "A black plastic analog wristwatch."
 	icon_state = "w_watch"
 	item_color = "w_watch"
 
-/obj/item/clothing/tie/watch/pocket
+/obj/item/clothing/accessory/watch/pocket
 	name = "pocket watch"
 	desc = "A fancy brass analog pocketwatch."
 	icon_state = "p_watch"
 	item_color = "p_watch"
 
-/obj/item/clothing/tie/watch/examine()
+/obj/item/clothing/accessory/watch/examine()
 	usr << "[desc] The time reads [worldtime2text()]."
 
 //comb

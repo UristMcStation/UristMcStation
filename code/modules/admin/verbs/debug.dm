@@ -1027,7 +1027,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			for(var/obj/item/briefcase_item in sec_briefcase)
 				del(briefcase_item)
 
-			sec_briefcase.contents += new /obj/item/clothing/tie/storage/webbing
+			sec_briefcase.contents += new /obj/item/clothing/accessory/storage/webbing
 			sec_briefcase.contents += new /obj/item/weapon/gun/projectile/pistol
 			sec_briefcase.contents += new /obj/item/ammo_magazine/mc9mm
 			sec_briefcase.contents += new /obj/item/ammo_magazine/mc9mm

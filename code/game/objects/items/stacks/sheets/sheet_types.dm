@@ -32,9 +32,9 @@ var/global/list/datum/stack_recipe/metal_recipes = list ( \
 		new/datum/stack_recipe("green comfy chair", /obj/structure/bed/chair/comfy/green, 2, one_per_turf = 1, on_floor = 1), \
 		), 2), \
 	new/datum/stack_recipe_list("couches", list( \
-		new/datum/stack_recipe("left couch part", /obj/structure/stool/bed/chair/couch/left/black, 2, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("middle couch part", /obj/structure/stool/bed/chair/couch/middle/black, 2, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("right couch part", /obj/structure/stool/bed/chair/couch/right/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("left couch part", /obj/structure/bed/chair/couch/left/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("middle couch part", /obj/structure/bed/chair/couch/middle/black, 2, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("right couch part", /obj/structure/bed/chair/couch/right/black, 2, one_per_turf = 1, on_floor = 1), \
 		), 2), \
 	null, \
 	new/datum/stack_recipe("table parts", /obj/item/weapon/table_parts, 2), \
@@ -169,7 +169,7 @@ var/global/list/datum/stack_recipe/wood_recipes = list ( \
 	new/datum/stack_recipe("dresser", /obj/structure/dresser, 10, time = 40, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 5, time = 25, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 3, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("wooden stool", /obj/structure/stool/urist/wood, 1, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("wooden stool", /obj/item/weapon/stool/urist/wood, 1, time = 10, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("easel", /obj/structure/easel, 3, one_per_turf = 1, on_floor = 1) \
 //	new/datum/stack_recipe("apiary", /obj/item/apiary, 10, time = 25, one_per_turf = 0, on_floor = 0)

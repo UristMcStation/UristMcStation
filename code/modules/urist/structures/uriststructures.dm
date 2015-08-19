@@ -194,14 +194,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //stools
 
-/obj/item/weapon/urist
+/obj/item/weapon/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/item/weapon/urist/bar
+/obj/item/weapon/stool/urist/bar
 	name = "bar stool"
 	icon_state = "barstool"
 	item_state = "stool"
-/obj/item/weapon/urist/wood
+
+/obj/item/weapon/stool/urist/wood
 	urist_only = 1
 	name = "wood stool"
 	icon_state = "woodstool"

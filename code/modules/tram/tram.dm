@@ -21,7 +21,7 @@
 	var/looptick = 0
 
 	var/list/blacklist = list(/obj/tram/rail)
-	var/list/ancwhitelist = list(/obj/tram, /obj/vehicle, /obj/structure/stool/bed/chair, /obj/structure/grille, /obj/structure/window)
+	var/list/ancwhitelist = list(/obj/tram, /obj/vehicle, /obj/structure/bed/chair, /obj/structure/grille, /obj/structure/window)
 
 /obj/tram/tram_controller/New()
 	spawn(1)
