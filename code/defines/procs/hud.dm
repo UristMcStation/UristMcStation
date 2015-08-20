@@ -12,12 +12,15 @@ proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 		if(P.Mob.see_invisible < patient.invisibility)
 			continue
 
-		if(!(local_scanner || hassensorlevel(patient, SUIT_SENSOR_VITAL)))
-			continue
-
-		P.Client.images += patient.hud_list[HEALTH_HUD]
 		if(local_scanner)
+			P.Client.images += patient.hud_list[HEALTH_HUD]
 			P.Client.images += patient.hud_list[STATUS_HUD]
+		else
+			var/sensor_level = getsensorlevel(patient)
+			if(sensor_level >= SUIT_SENSOR_VITAL)
+				P.Client.images += patient.hud_list[HEALTH_HUD]
+			if(sensor_level >= SUIT_SENSOR_BINARY)
+				P.Client.images += patient.hud_list[LIFE_HUD]
 
 //Security HUDs. Pass a value for the second argument to enable implant viewing or other special features.
 proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
@@ -69,7 +72,7 @@ mob/proc/regular_hud_updates() //Used in the life.dm of mobs that can use HUDs.
 mob/proc/in_view(var/turf/T)
 	return view(T)
 
-/mob/aiEye/in_view(var/turf/T)
+/mob/eye/in_view(var/turf/T)
 	var/list/viewed = new
 	for(var/mob/living/carbon/human/H in mob_list)
 		if(get_dist(H, T) <= 7)

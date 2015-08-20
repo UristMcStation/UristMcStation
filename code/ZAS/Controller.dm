@@ -98,7 +98,7 @@ Class Procs:
 	set background = 1
 	#endif
 
-	world << "<span class='danger'>Processing Geometry...</span>"
+	admin_notice("<span class='danger'>Processing Geometry...</span>", R_DEBUG)
 	sleep(-1)
 
 	var/start_time = world.timeofday
@@ -109,14 +109,14 @@ Class Procs:
 		simulated_turf_count++
 		S.update_air_properties()
 
-	world << {"<span class='danger'>Geometry initialized in [round(0.1*(world.timeofday-start_time),0.1)] seconds.</b></span>
+	admin_notice({"<span class='danger'>Geometry initialized in [round(0.1*(world.timeofday-start_time),0.1)] seconds.</b></span>
 <span class='info'>
 Total Simulated Turfs: [simulated_turf_count]
 Total Zones: [zones.len]
 Total Edges: [edges.len]
 Total Active Edges: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "None"]
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]</font>
-</span>"}
+</span>"}, R_DEBUG)
 
 
 //	spawn Start()
@@ -282,7 +282,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	var/space = !istype(B)
 
 	if(direct && !space)
-		if(equivalent_pressure(A.zone,B.zone) || current_cycle == 0)
+		if(min(A.zone.contents.len, B.zone.contents.len) <= 10 || equivalent_pressure(A.zone,B.zone) || current_cycle == 0)
 			merge(A.zone,B.zone)
 			return
 

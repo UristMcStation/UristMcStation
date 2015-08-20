@@ -10,7 +10,7 @@
 	using.name = "act_intent"
 	using.set_dir(SOUTHWEST)
 	using.icon = ui_style
-	using.icon_state = (mymob.a_intent == "hurt" ? "harm" : mymob.a_intent)
+	using.icon_state = mymob.a_intent
 	using.screen_loc = ui_acti
 	using.layer = 20
 	src.adding += using
@@ -23,7 +23,7 @@
 	ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 	ico.DrawBox(rgb(255,255,255,1),1,ico.Height()/2,ico.Width()/2,ico.Height())
 	using = new /obj/screen( src )
-	using.name = "help"
+	using.name = I_HELP
 	using.icon = ico
 	using.screen_loc = ui_acti
 	using.layer = 21
@@ -34,7 +34,7 @@
 	ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 	ico.DrawBox(rgb(255,255,255,1),ico.Width()/2,ico.Height()/2,ico.Width(),ico.Height())
 	using = new /obj/screen( src )
-	using.name = "disarm"
+	using.name = I_DISARM
 	using.icon = ico
 	using.screen_loc = ui_acti
 	using.layer = 21
@@ -45,7 +45,7 @@
 	ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 	ico.DrawBox(rgb(255,255,255,1),ico.Width()/2,1,ico.Width(),ico.Height()/2)
 	using = new /obj/screen( src )
-	using.name = "grab"
+	using.name = I_GRAB
 	using.icon = ico
 	using.screen_loc = ui_acti
 	using.layer = 21
@@ -56,7 +56,7 @@
 	ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 	ico.DrawBox(rgb(255,255,255,1),1,1,ico.Width()/2,ico.Height()/2)
 	using = new /obj/screen( src )
-	using.name = "harm"
+	using.name = I_HURT
 	using.icon = ico
 	using.screen_loc = ui_acti
 	using.layer = 21
@@ -231,6 +231,10 @@
 			if (mymob.client.target_can_click)
 				mymob.item_use_icon.set_dir(1)
 			src.adding += mymob.item_use_icon
+			mymob.radio_use_icon = new /obj/screen/gun/radio(null)
+			if (mymob.client.target_can_radio)
+				mymob.radio_use_icon.set_dir(1)
+			src.adding += mymob.radio_use_icon
 			mymob.gun_move_icon = new /obj/screen/gun/move(null)
 			if (mymob.client.target_can_move)
 				mymob.gun_move_icon.set_dir(1)

@@ -105,18 +105,18 @@
 	switch(severity)
 		if(1.0)
 			for(var/obj/O in src.contents)
-				del(O)
-			del(src)
+				qdel(O)
+			qdel(src)
 			return
 		if(2.0)
 			for(var/obj/O in src.contents)
 				if(prob(50))
-					del(O)
-			del(src)
+					qdel(O)
+			qdel(src)
 			return
 		if(3.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 			return
 		else
 	return
@@ -154,14 +154,19 @@
 		user << "<span class='warning'>The crate appears to be broken.</span>"
 		return
 	if(src.allowed(user))
-		src.locked = !src.locked
-		for(var/mob/O in viewers(user, 3))
-			if((O.client && !( O.blinded )))
-				O << "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>"
-		overlays.Cut()
-		overlays += locked ? redlight : greenlight
+		set_locked(!locked, user)
 	else
 		user << "<span class='notice'>Access Denied</span>"
+
+/obj/structure/closet/crate/secure/proc/set_locked(var/newlocked, mob/user = null)
+	if(locked == newlocked) return
+	
+	locked = newlocked
+	if(user)
+		for(var/mob/O in viewers(user, 3))
+			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
+	overlays.Cut()
+	overlays += locked ? redlight : greenlight
 
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -486,7 +491,7 @@
 		..()
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/minihoe(src)
+		new /obj/item/weapon/material/minihoe(src)
 //		new /obj/item/weapon/weedspray(src)
 //		new /obj/item/weapon/weedspray(src)
 //		new /obj/item/weapon/pestspray(src)

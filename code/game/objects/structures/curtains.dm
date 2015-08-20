@@ -1,5 +1,5 @@
-#define SHOWER_OPEN_LAYER MOB_LAYER + 0.1
-#define SHOWER_CLOSED_LAYER OBJ_LAYER + 0.4
+#define SHOWER_OPEN_LAYER OBJ_LAYER + 0.4
+#define SHOWER_CLOSED_LAYER MOB_LAYER + 0.1
 
 /obj/structure/curtain
 	name = "curtain"
@@ -17,7 +17,7 @@
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
 	if(!P.nodamage)
 		visible_message("<span class='warning'>[P] tears [src] down!</span>")
-		del(src)
+		qdel(src)
 	else
 		..(P, def_zone)
 

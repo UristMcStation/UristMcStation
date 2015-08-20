@@ -69,8 +69,17 @@
 		last_tick = world.time
 		update_neighbors()
 
+	if(sampled)
+		//Should be between 2-7 for given the default range of values for TRAIT_PRODUCTION
+		var/chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
+		if(prob(chance))
+			sampled = 0
+
 	if(is_mature() && neighbors.len && prob(spread_chance))
-		for(var/i=1,i<=seed.get_trait(TRAIT_YIELD),i++)
+		//spread to 1-3 adjacent turfs depending on yield trait.
+		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
+		
+		for(var/i in 1 to max_spread)
 			if(prob(spread_chance))
 				sleep(rand(3,5))
 				if(!neighbors.len)
@@ -99,6 +108,6 @@
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
 			plant_controller.add_plant(neighbor)
-	spawn(1) if(src) del(src)
+	spawn(1) if(src) qdel(src)
 
 #undef NEIGHBOR_REFRESH_TIME

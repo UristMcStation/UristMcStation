@@ -82,6 +82,7 @@
 /obj/mecha/New()
 	..()
 	events = new
+
 	icon_state += "-open"
 	add_radio()
 	add_cabin()
@@ -98,11 +99,59 @@
 	mechas_list += src //global mech list
 	return
 
-/obj/mecha/Del()
+/obj/mecha/Destroy()
 	src.go_out()
+	for(var/mob/M in src) //Let's just be ultra sure
+		M.Move(loc)
+
+	if(loc)
+		loc.Exited(src)
+
+	if(prob(30))
+		explosion(get_turf(loc), 0, 0, 1, 3)
+
+	if(wreckage)
+		var/obj/effect/decal/mecha_wreckage/WR = new wreckage(loc)
+		for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
+			if(E.salvageable && prob(30))
+				WR.crowbar_salvage += E
+				E.forceMove(WR)
+				E.equip_ready = 1
+				E.reliability = round(rand(E.reliability/3,E.reliability))
+			else
+				E.forceMove(loc)
+				E.destroy()
+		if(cell)
+			WR.crowbar_salvage += cell
+			cell.forceMove(WR)
+			cell.charge = rand(0, cell.charge)
+		if(internal_tank)
+			WR.crowbar_salvage += internal_tank
+			internal_tank.forceMove(WR)
+	else
+		for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
+			E.detach(loc)
+			E.destroy()
+		if(cell)
+			qdel(cell)
+		if(internal_tank)
+			qdel(internal_tank)
+	equipment.Cut()
+	cell = null
+	internal_tank = null
+
+	qdel(pr_int_temp_processor)
+	qdel(pr_inertial_movement)
+	qdel(pr_give_air)
+	qdel(pr_internal_damage)
+	qdel(spark_system)
+	pr_int_temp_processor = null
+	pr_give_air = null
+	pr_internal_damage = null
+	spark_system = null
+
 	mechas_list -= src //global mech list
 	..()
-	return
 
 ////////////////////////
 ////// Helpers /////////
@@ -284,7 +333,7 @@
 			src.log_message("Interfaced with [src_object].")
 			return STATUS_INTERACTIVE
 		if(src_object in view(2, src))
-			return STATUS_UPDATE //if they're close enough, allow the occupant to see the screen through the viewport or whatever. 
+			return STATUS_UPDATE //if they're close enough, allow the occupant to see the screen through the viewport or whatever.
 
 /obj/mecha/proc/melee_action(atom/target)
 	return
@@ -410,6 +459,8 @@
 
 
 /obj/mecha/proc/setInternalDamage(int_dam_flag)
+	if(!pr_internal_damage) return
+
 	internal_damage |= int_dam_flag
 	pr_internal_damage.start()
 	log_append_to_last("Internal damage of type [int_dam_flag].",1)
@@ -447,12 +498,17 @@
 /obj/mecha/proc/dynabsorbdamage(damage,damage_type)
 	return damage*(listgetindex(damage_absorption,damage_type) || 1)
 
+/obj/mecha/airlock_crush(var/crush_damage)
+	..()
+	take_damage(crush_damage)
+	check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
+	return 1
 
 /obj/mecha/proc/update_health()
 	if(src.health > 0)
 		src.spark_system.start()
 	else
-		src.destroy()
+		qdel(src)
 	return
 
 /obj/mecha/attack_hand(mob/user as mob)
@@ -555,52 +611,6 @@
 	Proj.on_hit(src)
 	return
 
-/obj/mecha/proc/destroy()
-	spawn()
-		go_out()
-		var/turf/T = get_turf(src)
-		tag = "\ref[src]" //better safe then sorry
-		if(loc)
-			loc.Exited(src)
-		loc = null
-		if(T)
-			if(istype(src, /obj/mecha/working/ripley/))
-				var/obj/mecha/working/ripley/R = src
-				if(R.cargo)
-					for(var/obj/O in R.cargo) //Dump contents of stored cargo
-						O.loc = T
-						R.cargo -= O
-						T.Entered(O)
-
-			if(prob(30))
-				explosion(T, 0, 0, 1, 3)
-			spawn(0)
-				if(wreckage)
-					var/obj/effect/decal/mecha_wreckage/WR = new wreckage(T)
-					for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
-						if(E.salvageable && prob(30))
-							WR.crowbar_salvage += E
-							E.forceMove(WR)
-							E.equip_ready = 1
-							E.reliability = round(rand(E.reliability/3,E.reliability))
-						else
-							E.forceMove(T)
-							E.destroy()
-					if(cell)
-						WR.crowbar_salvage += cell
-						cell.forceMove(WR)
-						cell.charge = rand(0, cell.charge)
-					if(internal_tank)
-						WR.crowbar_salvage += internal_tank
-						internal_tank.forceMove(WR)
-				else
-					for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
-						E.forceMove(T)
-						E.destroy()
-		spawn(0)
-			del(src)
-	return
-
 /obj/mecha/ex_act(severity)
 	src.log_message("Affected by explosion of severity: [severity].",1)
 	if(prob(src.deflect_chance))
@@ -608,16 +618,16 @@
 		src.log_append_to_last("Armor saved, changing severity to [severity].")
 	switch(severity)
 		if(1.0)
-			src.destroy()
+			qdel(src)
 		if(2.0)
 			if (prob(30))
-				src.destroy()
+				qdel(src)
 			else
 				src.take_damage(initial(src.health)/2)
 				src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
 		if(3.0)
 			if (prob(5))
-				src.destroy()
+				qdel(src)
 			else
 				src.take_damage(initial(src.health)/5)
 				src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
@@ -686,14 +696,6 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
-
-
-	if(istype(W, /obj/item/device/mmi))
-		if(mmi_move_inside(W,user))
-			user << "[src]-MMI interface initialized successfuly"
-		else
-			user << "[src]-MMI interface initialization failed."
-		return
 
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
@@ -784,7 +786,7 @@
 				user << "There's already a powercell installed."
 		return
 
-	else if(istype(W, /obj/item/weapon/weldingtool) && user.a_intent != "hurt")
+	else if(istype(W, /obj/item/weapon/weldingtool) && user.a_intent != I_HURT)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if (hasInternalDamage(MECHA_INT_TANK_BREACH))
@@ -804,35 +806,6 @@
 		W.forceMove(src)
 		user.visible_message("[user] attaches [W] to [src].", "You attach [W] to [src]")
 		return
-
-	else if(istype(W, /obj/item/weapon/paintkit))
-
-		if(occupant)
-			user << "You can't customize a mech while someone is piloting it - that would be unsafe!"
-			return
-
-		var/obj/item/weapon/paintkit/P = W
-		var/found = null
-
-		for(var/type in P.allowed_types)
-			if(type==src.initial_icon)
-				found = 1
-				break
-
-		if(!found)
-			user << "That kit isn't meant for use on this class of exosuit."
-			return
-
-		user.visible_message("[user] opens [P] and spends some quality time customising [src].")
-
-		src.name = P.new_name
-		src.desc = P.new_desc
-		src.icon = P.new_icon
-		src.initial_icon = P.new_icon_state
-		src.reset_icon()
-
-		user.drop_item()
-		del(P)
 
 	else
 		call((proc_res["dynattackby"]||src), "dynattackby")(W,user)
@@ -996,8 +969,8 @@
 	set popup_menu = 0
 	if(usr!=occupant)	return
 	lights = !lights
-	if(lights)	SetLuminosity(luminosity + lights_power)
-	else		SetLuminosity(luminosity - lights_power)
+	if(lights)	set_light(light_range + lights_power)
+	else		set_light(light_range - lights_power)
 	src.occupant_message("Toggled lights [lights?"on":"off"].")
 	log_message("Toggled lights [lights?"on":"off"].")
 	return
@@ -1081,65 +1054,6 @@
 		src.icon_state = src.reset_icon()
 		set_dir(dir_in)
 		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-		if(!hasInternalDamage())
-			src.occupant << sound('sound/mecha/nominal.ogg',volume=50)
-		return 1
-	else
-		return 0
-
-/obj/mecha/proc/mmi_move_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
-	if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
-		user << "Consciousness matrix not detected."
-		return 0
-	else if(mmi_as_oc.brainmob.stat)
-		user << "Beta-rhythm below acceptable level."
-		return 0
-	else if(occupant)
-		user << "Occupant detected."
-		return 0
-	else if(dna && dna!=mmi_as_oc.brainmob.dna.unique_enzymes)
-		user << "Stop it!"
-		return 0
-	//Added a message here since people assume their first click failed or something./N
-//	user << "Installing MMI, please stand by."
-
-	visible_message("\blue [usr] starts to insert an MMI into [src.name]")
-
-	if(enter_after(40,user))
-		if(!occupant)
-			return mmi_moved_inside(mmi_as_oc,user)
-		else
-			user << "Occupant detected."
-	else
-		user << "You stop inserting the MMI."
-	return 0
-
-/obj/mecha/proc/mmi_moved_inside(var/obj/item/device/mmi/mmi_as_oc as obj,mob/user as mob)
-	if(mmi_as_oc && user in range(1))
-		if(!mmi_as_oc.brainmob || !mmi_as_oc.brainmob.client)
-			user << "Consciousness matrix not detected."
-			return 0
-		else if(mmi_as_oc.brainmob.stat)
-			user << "Beta-rhythm below acceptable level."
-			return 0
-		user.drop_from_inventory(mmi_as_oc)
-		var/mob/brainmob = mmi_as_oc.brainmob
-		brainmob.reset_view(src)
-	/*
-		brainmob.client.eye = src
-		brainmob.client.perspective = EYE_PERSPECTIVE
-	*/
-		occupant = brainmob
-		brainmob.loc = src //should allow relaymove
-		brainmob.canmove = 1
-		mmi_as_oc.loc = src
-		mmi_as_oc.mecha = src
-		src.verbs -= /obj/mecha/verb/eject
-		src.Entered(mmi_as_oc)
-		src.Move(src.loc)
-		src.icon_state = src.reset_icon()
-		set_dir(dir_in)
-		src.log_message("[mmi_as_oc] moved in as pilot.")
 		if(!hasInternalDamage())
 			src.occupant << sound('sound/mecha/nominal.ogg',volume=50)
 		return 1
@@ -1570,8 +1484,8 @@
 		return
 	if (href_list["change_name"])
 		if(usr != src.occupant)	return
-		var/newname = strip_html_simple(input(occupant,"Choose new exosuit name","Rename exosuit",initial(name)) as text, MAX_NAME_LEN)
-		if(newname && trim(newname))
+		var/newname = sanitizeSafe(input(occupant,"Choose new exosuit name","Rename exosuit",initial(name)) as text, MAX_NAME_LEN)
+		if(newname)
 			name = newname
 		else
 			alert(occupant, "nope.avi")
@@ -1733,7 +1647,7 @@
 			AI.bruteloss = O.getBruteLoss()
 			AI.toxloss = O.toxloss
 			AI.updatehealth()
-			del(O)
+			qdel(O)
 			if (!AI.stat)
 				AI.icon_state = "ai"
 			else
@@ -1783,8 +1697,9 @@
 	if(!damage)
 		return 0
 
-	src.log_message("Attack by an animal. Attacker - [user].",1)
+	src.log_message("Attacked. Attacker - [user].",1)
 
+	user.do_attack_animation(src)
 	if(!prob(src.deflect_chance))
 		src.take_damage(damage)
 		src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
@@ -1841,7 +1756,7 @@
 					if(t_air)
 						t_air.merge(removed)
 					else //just delete the cabin gas, we're in space or some shit
-						del(removed)
+						qdel(removed)
 		else
 			return stop()
 		return
@@ -1884,7 +1799,7 @@
 				if(mecha.loc && hascall(mecha.loc,"assume_air"))
 					mecha.loc.assume_air(leaked_gas)
 				else
-					del(leaked_gas)
+					qdel(leaked_gas)
 		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			if(mecha.get_charge())
 				mecha.spark_system.start()

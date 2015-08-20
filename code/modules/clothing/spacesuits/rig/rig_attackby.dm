@@ -3,13 +3,11 @@
 	if(!istype(user,/mob/living)) return 0
 
 	if(electrified != 0)
-		if(cell && cell.charge >= 100)
-			cell.use(100)
-		if(shock(user, 100))
+		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
 			return
 
 	// Pass repair items on to the chestpiece.
-	if(chest && (istype(W,/obj/item/stack/sheet/mineral/plastic) || istype(W,/obj/item/stack/sheet/metal) || istype(W, /obj/item/weapon/weldingtool)))
+	if(chest && (istype(W,/obj/item/stack/material) || istype(W, /obj/item/weapon/weldingtool)))
 		return chest.attackby(W,user)
 
 	// Lock or unlock the access panel.
@@ -20,9 +18,8 @@
 			user << "<span class='danger'>It looks like the locking system has been shorted out.</span>"
 			return
 		else if(istype(W, /obj/item/weapon/card/emag))
-			locked_dna = null
-			req_access = null
-			req_one_access = null
+			req_access.Cut()
+			req_one_access.Cut()
 			locked = 0
 			subverted = 1
 			user << "<span class='danger'>You short out the access protocol for the suit.</span>"
@@ -193,8 +190,6 @@
 /obj/item/weapon/rig/attack_hand(var/mob/user)
 
 	if(electrified != 0)
-		if(cell && cell.charge >= 100)
-			cell.use(100)
-		if(shock(user, 100))
+		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
 			return
 	..()
