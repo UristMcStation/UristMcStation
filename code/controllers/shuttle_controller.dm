@@ -219,6 +219,22 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Train"] = shuttle
 	process_shuttles += shuttle
 
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/event1/l1)
+	shuttle.area_station = locate(/area/shuttle/event1/l2)
+	shuttles["Event1"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/event2/l1)
+	shuttle.area_station = locate(/area/shuttle/event2/l2)
+	shuttles["Event2"] = shuttle
+	process_shuttles += shuttle
+
 	shuttle = new/datum/shuttle/ferry/arrival()
 	shuttle.location = 1
 	shuttle.warmup_time = 10
