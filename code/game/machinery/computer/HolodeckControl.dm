@@ -10,7 +10,6 @@ var/global/list/holodeck_programs = list(
 	"snowfield" =	/area/holodeck/source_snowfield,	\
 	"theatre" =	/area/holodeck/source_theatre,	\
 	"meetinghall" =	/area/holodeck/source_meetinghall,	\
-	"burntest" = 	/area/holodeck/source_burntest,	\
 	"wildlifecarp" = 	/area/holodeck/source_wildlife,	\
 	"turnoff" = 	/area/holodeck/source_plating	\
 	)
@@ -46,8 +45,7 @@ var/global/list/holodeck_programs = list(
 	"Theatre" = "theatre",	\
 	"Meeting Hall" = "meetinghall"	\
 	)
-	var/list/restricted_programs = list("Atmospheric Burn Simulation" = "burntest", "Wildlife Simulation" = "wildlifecarp")
-
+	var/list/restricted_programs = list("Wildlife Simulation" = "wildlifecarp")
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
@@ -256,16 +254,6 @@ var/global/list/holodeck_programs = list(
 		holographic_items = targetsource.copy_contents_to(linkedholodeck)
 
 		spawn(30)
-			for(var/obj/effect/landmark/L in linkedholodeck)
-				if(L.name=="Atmospheric Test Start")
-					spawn(20)
-						var/turf/T = get_turf(L)
-						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-						s.set_up(2, 1, T)
-						s.start()
-						if(T)
-							T.temperature = 5000
-							T.hotspot_expose(50000,50000,1)
 
 		active = 1
 		use_power = 2
@@ -306,15 +294,7 @@ var/global/list/holodeck_programs = list(
 
 	spawn(30)
 		for(var/obj/effect/landmark/L in linkedholodeck)
-			if(L.name=="Atmospheric Test Start")
-				spawn(20)
-					var/turf/T = get_turf(L)
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
-					if(T)
-						T.temperature = 5000
-						T.hotspot_expose(50000,50000,1)
+
 			if(L.name=="Holocarp Spawn")
 				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
 

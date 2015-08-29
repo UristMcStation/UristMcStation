@@ -36,9 +36,6 @@
 		dat += "<span class='notice'>Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.</span><BR>"
 
 		if(emagged)
-			dat += "<A href='?src=\ref[src];burntest'>(<font color=red>Begin Atmospheric Burn Simulation</font>)</A><BR>"
-			dat += "Ensure the holodeck is empty before testing.<BR>"
-			dat += "<BR>"
 			dat += "<A href='?src=\ref[src];wildlifecarp'>(<font color=red>Begin Wildlife Simulation</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
@@ -87,12 +84,6 @@
 
 		else if("turnoff" in href_list)
 			target = locate(/area/holodeck/source_plating)
-			if(target)
-				loadProgram(target)
-
-		else if("burntest" in href_list)
-			if(!emagged)	return
-			target = locate(/area/holodeck/source_burntest)
 			if(target)
 				loadProgram(target)
 
@@ -176,16 +167,6 @@
 			holographic_items = targetsource.copy_contents_to(linkedholodeck)
 
 			spawn(30)
-				for(var/obj/effect/landmark/L in linkedholodeck)
-					if(L.name=="Atmospheric Test Start")
-						spawn(20)
-							var/turf/T = get_turf(L)
-							var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-							s.set_up(2, 1, T)
-							s.start()
-							if(T)
-								T.temperature = 5000
-								T.hotspot_expose(50000,50000,1)
 
 			active = 1
 		else
@@ -226,15 +207,6 @@
 
 		spawn(30)
 			for(var/obj/effect/landmark/L in linkedholodeck)
-				if(L.name=="Atmospheric Test Start")
-					spawn(20)
-						var/turf/T = get_turf(L)
-						var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-						s.set_up(2, 1, T)
-						s.start()
-						if(T)
-							T.temperature = 5000
-							T.hotspot_expose(50000,50000,1)
 				if(L.name=="Holocarp Spawn")
 					new /mob/living/simple_animal/hostile/carp(L.loc)
 
