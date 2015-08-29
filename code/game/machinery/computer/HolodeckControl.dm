@@ -10,7 +10,7 @@ var/global/list/holodeck_programs = list(
 	"snowfield" =	/area/holodeck/source_snowfield,	\
 	"theatre" =	/area/holodeck/source_theatre,	\
 	"meetinghall" =	/area/holodeck/source_meetinghall,	\
-	"burntest" = 	/area/holodeck/source_burntest,	\
+//	"burntest" = 	/area/holodeck/source_burntest,	\
 	"wildlifecarp" = 	/area/holodeck/source_wildlife,	\
 	"turnoff" = 	/area/holodeck/source_plating	\
 	)
@@ -46,8 +46,8 @@ var/global/list/holodeck_programs = list(
 	"Theatre" = "theatre",	\
 	"Meeting Hall" = "meetinghall"	\
 	)
-	var/list/restricted_programs = list("Atmospheric Burn Simulation" = "burntest", "Wildlife Simulation" = "wildlifecarp")
-
+	var/list/restricted_programs = list("Wildlife Simulation" = "wildlifecarp")
+//"Atmospheric Burn Simulation" = "burntest", 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
 
