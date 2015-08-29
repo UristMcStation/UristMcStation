@@ -1,7 +1,7 @@
 /obj/mecha/working/hoverpod/fighter
 	health = 300
-	bound_width = 64
-	bound_height = 64
+//	bound_width = 64
+//	bound_height = 64
 	step_in = 3
 	deflect_chance = 15
 	max_equip = 6
@@ -26,6 +26,7 @@
 	health = 320
 
 /obj/mecha/working/hoverpod/fighter/small/alien/New()
+	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid/alien
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/repair_droid
@@ -75,6 +76,7 @@
 	icon_state = "bigfighter-broken"
 
 /obj/mecha/working/hoverpod/fighter/large/human/New()
+	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive/heavy
@@ -87,6 +89,7 @@
 	ME.attach(src)
 
 /obj/mecha/working/hoverpod/fighter/small/human/New()
+	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/repair_droid
@@ -156,6 +159,7 @@
 	deflect_chance = 20
 
 /obj/mecha/working/hoverpod/fighter/large/alien/New()
+	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/rapid/alien
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive/heavy
