@@ -74,7 +74,7 @@
 /obj/structure/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		new /obj/item/stack/sheet/metal(src.loc)
+		new /obj/item/stack/material/steel(src.loc)
 		del(src)
 	if(istype(W, /obj/item/weapon/chair_painter))
 		var/obj/item/weapon/chair_painter/C = W

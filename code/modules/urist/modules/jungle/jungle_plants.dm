@@ -52,7 +52,7 @@
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
 					user << "\blue You clear away [src]."
-//					var/obj/item/stack/sheet/wood/W = new(src.loc) //was fun for testing, but no longer.
+//					var/obj/item/stack/material/wood/W = new(src.loc) //was fun for testing, but no longer.
 //					W.amount = rand(3,15)
 					if(prob(50))
 //						icon_state = "stump[rand(1,2)]" //time to resprite stumps.

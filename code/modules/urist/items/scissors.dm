@@ -25,7 +25,7 @@
 		var/obj/item/weapon/improvised/scissorknife/N = new childpart
 		var/obj/item/weapon/improvised/scissorknife/N2 = new childpart
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 		user.drop_from_inventory(src)
 
 		user.put_in_hands(N)
@@ -60,7 +60,7 @@
 
 		var/obj/item/weapon/scissors/N = new parentscissor
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(N)
 		user << "<span class='notice'>You tighten the screw on the screwdriver assembley</span>"

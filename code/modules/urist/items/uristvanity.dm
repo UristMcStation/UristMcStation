@@ -2,13 +2,14 @@
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd*/
 
-//vanity lighters, stolen from the custom items.
+//vanity lighters, stolen from the custom items.//WHY. WHYYYYY -scrdest
 
-/obj/item/weapon/flame/lighter/zippo/vanity/blue
+/*/obj/item/weapon/flame/lighter/zippo/vanity/blue
 	name = "blue zippo"
 	desc = "A zippo lighter made of some blue metal."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "bluezippo"
+	base_state = icon_state
 	icon_on = "bluezippoon"
 	icon_off = "bluezippo"
 
@@ -58,7 +59,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "che_zippo"
 	icon_on = "che_zippoon"
-	icon_off = "che_zippo"
+	icon_off = "che_zippo"*/
 
 //nanotrasen shiiiiit for the nt vending machine
 
@@ -105,7 +106,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/cigarette")
+	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	icon_type = "cigarette"
 
 //watches
@@ -119,13 +120,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "wrist watch"
 	desc = "A black plastic analog wristwatch."
 	icon_state = "w_watch"
-	item_color = "w_watch"
+	//item_color = "w_watch"
 
 /obj/item/clothing/accessory/watch/pocket
 	name = "pocket watch"
 	desc = "A fancy brass analog pocketwatch."
 	icon_state = "p_watch"
-	item_color = "p_watch"
+	//item_color = "p_watch"
 
 /obj/item/clothing/accessory/watch/examine()
 	usr << "[desc] The time reads [worldtime2text()]."

@@ -8,9 +8,9 @@
 	flags = OPENCONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/stack/sheet/glass/myglass = null
-	var/obj/item/stack/sheet/metal/mymetal = null
-	var/obj/item/stack/sheet/plasteel/myplasteel = null
+	var/obj/item/stack/material/glass/myglass = null
+	var/obj/item/stack/material/steel/mymetal = null
+	var/obj/item/stack/material/plasteel/myplasteel = null
 	var/obj/item/device/flashlight/myflashlight = null
 	var/obj/item/weapon/storage/toolbox/mechanical/mybluetoolbox = null
 	var/obj/item/weapon/storage/toolbox/electrical/myyellowtoolbox = null
@@ -27,7 +27,7 @@
 
 /obj/structure/engineeringcart/attackby(obj/item/I, mob/user)
 	var/fail_msg = "<span class='notice'>There is already one of those in [src].</span>"
-	if(istype(I, /obj/item/stack/sheet/glass))
+	if(istype(I, /obj/item/stack/material/glass))
 		if(!myglass)
 			put_in_cart(I, user)
 			myglass=I
@@ -35,7 +35,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/stack/sheet/metal))
+	else if(istype(I, /obj/item/stack/material/steel))
 		if(!mymetal)
 			put_in_cart(I, user)
 			mymetal=I
@@ -43,7 +43,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/stack/sheet/plasteel))
+	else if(istype(I, /obj/item/stack/material/plasteel))
 		if(!myplasteel)
 			put_in_cart(I, user)
 			myplasteel=I

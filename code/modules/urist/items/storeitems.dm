@@ -197,5 +197,5 @@ datum/storeitem/dollunathibrown
 datum/storeitem/dollfarwa
 	name="Farwa Doll"
 	desc="A plush little farwa doll to keep you company in the lonely depths of space."
-	typepath=/obj/item/weapon/fluff/farwadoll
+	typepath=/obj/item/toy/plushie/farwa
 	cost = 300
