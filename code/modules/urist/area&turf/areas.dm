@@ -160,6 +160,19 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Navy Ship"
 	icon_state = "shuttle"
 
+/area/shuttle/naval1/event1
+	name = "\improper Navy Ship1"
+	icon_state = "shuttle"
+
+/area/shuttle/naval1/event2
+	name = "\improper Navy Ship2"
+	icon_state = "shuttle"
+
+/area/shuttle/naval1/event3
+	name = "\improper Navy Ship3"
+	icon_state = "shuttle"
+
+
 //don't hate me because I'm beautiful
 
 /area/shuttle/train/stop
@@ -186,3 +199,29 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/centcom/transit
 	name = "\improper Centcom Transit Area"
+
+//event shuttles
+
+/area/shuttle/event1
+	icon_state = "shuttle"
+
+/area/shuttle/event1/l1
+	name = "\improper Event 1 - 1 "
+
+/area/shuttle/event1/l2
+	name = "\improper Event 1 - 2 "
+
+/area/shuttle/event1/l3
+	name = "\improper Event 1 - 3 "
+
+/area/shuttle/event2
+	icon_state = "shuttle"
+
+/area/shuttle/event2/l1
+	name = "\improper Event 2 - 1 "
+
+/area/shuttle/event2/l2
+	name = "\improper Event 2 - 2 "
+
+/area/shuttle/event2/l3
+	name = "\improper Event 2 - 3 "
