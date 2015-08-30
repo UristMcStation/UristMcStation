@@ -221,7 +221,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/cigarette")
+	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	icon_type = "cigarette"
 
 

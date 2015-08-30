@@ -91,19 +91,19 @@
 					var/amount = rand(2,6)
 					var/quantity = rand(10,50)
 					var/list/possible_spawns = list()
-					for(var/bar_type in typesof(/obj/item/stack/sheet/mineral) - /obj/item/stack/sheet/mineral - /obj/item/stack/sheet/mineral/enruranium)
+					for(var/bar_type in typesof(/obj/item/stack/material) - /obj/item/stack/material)
 						possible_spawns += bar_type
 
 					var/bar_type = pick(possible_spawns)
 					for(var/i=0,i<amount,i++)
-						var/obj/item/stack/sheet/mineral/M = new bar_type(C)
+						var/obj/item/stack/material/mineral/M = new bar_type(C)
 						M.amount = quantity
 				else
 					//credits
 
 					var/amount = rand(2,6)
 					var/list/possible_spawns = list()
-					for(var/cash_type in typesof(/obj/item/stack/sheet/mineral))
+					for(var/cash_type in typesof(/obj/item/stack/material))
 						possible_spawns += cash_type
 
 					var/cash_type = pick(possible_spawns)
@@ -153,10 +153,10 @@
 			if("weapons")
 				var/obj/structure/closet/crate/secure/weapon/C = new(src.loc)
 				var/new_type = pick(
-				200; /obj/item/weapon/hatchet, \
+				200; /obj/item/weapon/material/hatchet, \
 				/obj/item/weapon/gun/projectile/pistol, \
 				/obj/item/weapon/gun/projectile/deagle, \
-				/obj/item/weapon/gun/projectile/russian, \
+				// /obj/item/weapon/gun/projectile/revolver/russian, \ //got commented out in revolver.dm
 				)
 				new new_type(C)
 			if("spacesuit")

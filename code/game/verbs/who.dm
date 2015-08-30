@@ -63,9 +63,12 @@
 	var/msg = ""
 	var/modmsg = ""
 	var/mentmsg = ""
+	var/devmsg = ""
 	var/num_mods_online = 0
 	var/num_admins_online = 0
 	var/num_mentors_online = 0
+	var/num_devs_online = 0
+
 	if(holder)
 		for(var/client/C in admins)
 			if((R_DEBUG & C.holder.rights) && !(R_SOUNDS & C.holder.rights))		//Who shows up in mod rows. Excludes Game Masters and others with all rights.
@@ -116,15 +119,15 @@
 			else if(R_MENTOR & C.holder.rights) 			//Who shows up in mentor rows.
 				mentmsg += "\t[C] is a [C.holder.rank]"
 				if(isobserver(C.mob))
-					menmsg += " - Observing"
+					mentmsg += " - Observing"
 				else if(istype(C.mob,/mob/new_player))
-					menmsg += " - Lobby"
+					mentmsg += " - Lobby"
 				else
-					menmsg += " - Playing"
+					mentmsg += " - Playing"
 
 				if(C.is_afk())
-					menmsg += " (AFK)"
-				menmsg += "\n"
+					mentmsg += " (AFK)"
+				mentmsg += "\n"
 				num_mentors_online++
 	else
 		for(var/client/C in admins)			//Same as above, but with less detail for non-staff viewers.

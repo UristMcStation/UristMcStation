@@ -40,7 +40,7 @@
 
 		var/obj/item/improv/hazardvest/step1/H = new /obj/item/improv/hazardvest/step1
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 		user.put_in_hands(H)
 		user << "<span class='notice'>You cut some holes in the hazard vest.</span>"
 
@@ -53,7 +53,7 @@
 		var/obj/item/improv/hazardvest/step2/H = new /obj/item/improv/hazardvest/step2
 		R.use(2)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
 		user << "<span class='notice'>You wrap the cables through the holes in the hazard vest.</span>"
@@ -62,12 +62,12 @@
 
 /obj/item/improv/hazardvest/step2/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/stack/sheet/metal))
-		var/obj/item/stack/sheet/metal/R = I
+	if(istype(I, /obj/item/stack/material/steel))
+		var/obj/item/stack/material/steel/R = I
 		var/obj/item/improv/hazardvest/step3/H = new /obj/item/improv/hazardvest/step3
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
 		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
@@ -81,7 +81,7 @@
 		var/obj/item/clothing/suit/storage/hazardvest/armor/H = new /obj/item/clothing/suit/storage/hazardvest/armor
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
 		user << "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>"

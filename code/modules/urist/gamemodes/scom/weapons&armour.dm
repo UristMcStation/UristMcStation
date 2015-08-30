@@ -65,34 +65,21 @@
 /obj/item/weapon/gun/projectile/sniper
 	urist_only = 1
 	name = "semi automatic sniper"
-	desc = "A power semi automatic sniper, perfect for long-range warfare."
+	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"
 	item_state = "SVD"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	force = 14
 	max_shells = 10
 	caliber = "7.62mm"
-	ammo_type ="/obj/item/ammo_casing/a762mm"
+	ammo_type = /obj/item/ammo_casing/a762mm
+	magazine_type = /obj/item/ammo_magazine/a762mm
 	slot_flags = SLOT_BACK
-	load_method = 2
+	load_method = MAGAZINE
 	zoomdevicename = "scope"
 	scommoney = 100
-
-	New()
-		..()
-		empty_mag = new /obj/item/ammo_magazine/a50/empty(src)
-		update_icon()
-		return
-
-
-	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
-		..()
-		if(!loaded.len && empty_mag)
-			empty_mag.loc = get_turf(src.loc)
-			empty_mag = null
-			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
-			update_icon()
-		return
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"
@@ -103,11 +90,10 @@
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()
-	if(empty_mag)
+	if(ammo_magazine)
 		icon_state = "SVD"
 	else
 		icon_state = "SVD-empty"
-	return
 
 /obj/item/ammo_magazine/a762mm
 	name = "magazine (7.62mm)"
@@ -280,53 +266,53 @@
 	name = "S-COM operative's outfit"
 	desc = "The outfit of an S-COM Operative."
 	icon_state = "scom"
-	item_color = "scom"
+	//item_color = "scom"
 	canremove = 1
 
 /obj/item/clothing/under/urist/scom/s1
 	name = "S-COM Squad 1 outfit"
 	desc = "The outfit of an S-COM Operative from Squad 1."
 	icon_state = "scom1"
-	item_color = "scom1"
+	//item_color = "scom1"
 
 /obj/item/clothing/under/urist/scom/s2
 	name = "S-COM Squad 2 outfit"
 	desc = "The outfit of an S-COM Operative from Squad 2."
 	icon_state = "scom2"
-	item_color = "scom2"
+	//item_color = "scom2"
 
 /obj/item/clothing/under/urist/scom/s3
 	name = "S-COM Squad 3 outfit"
 	desc = "The outfit of an S-COM Operative from Squad 3."
 	icon_state = "scom3"
-	item_color = "scom3"
+	//item_color = "scom3"
 
 /obj/item/clothing/under/urist/scom/s4
 	name = "S-COM Squad 4 outfit"
 	desc = "The outfit of an S-COM Operative from Squad 4."
 	icon_state = "scom4"
-	item_color = "scom4"
+	//item_color = "scom4"
 
 /obj/item/clothing/under/urist/scom/s1l
 	name = "S-COM Squad 1 Leader outfit"
 	desc = "The outfit of an S-COM Squad 1 Leader."
 	icon_state = "scom1l"
-	item_color = "scom1l"
+	//item_color = "scom1l"
 
 /obj/item/clothing/under/urist/scom/s2l
 	name = "S-COM Squad 2 Leader outfit"
 	desc = "The outfit of an S-COM Squad 2 Leader."
 	icon_state = "scom2l"
-	item_color = "scom2l"
+	//item_color = "scom2l"
 
 /obj/item/clothing/under/urist/scom/s3l
 	name = "S-COM Squad 3 Leader outfit"
 	desc = "The outfit of an S-COM Squad 3 Leader."
 	icon_state = "scom3l"
-	item_color = "scom3l"
+	//item_color = "scom3l"
 
 /obj/item/clothing/under/urist/scom/s4l
 	name = "S-COM Squad 4 Leader outfit"
 	desc = "The outfit of an S-COM Squad 4 Leader."
 	icon_state = "scom4l"
-	item_color = "scom4l"
+	//item_color = "scom4l"

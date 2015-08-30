@@ -948,8 +948,8 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 		return
 	if(istype(W, /obj/item/weapon/newspaper))
 		var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
-		user.before_take_item(W)
-		user.before_take_item(src)
+		user.remove_from_mob(W)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>"

@@ -2,7 +2,7 @@
 	faction = "hostile"
 	mouse_opacity = 2 //This makes it easier to hit hostile mobs, you only need to click on their tile, and is set back to 1 when they die
 	stop_automated_movement_when_pulled = 0
-	var/environment_smash = 1 //Set to 1 to break closets,tables,racks, etc; 2 for walls; 3 for rwalls
+	environment_smash = 1 //Set to 1 to break closets,tables,racks, etc; 2 for walls; 3 for rwalls
 
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/atom/target // /vg/ edit:  Removed type specification so spiders can target doors.

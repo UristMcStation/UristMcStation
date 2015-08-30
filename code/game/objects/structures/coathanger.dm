@@ -26,7 +26,7 @@
 
 	else if(istype(W, /obj/item/weapon/wrench) && !coat)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		var/obj/item/stack/sheet/wood/S = new /obj/item/stack/sheet/wood(src.loc)
+		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		del(src)
 	else

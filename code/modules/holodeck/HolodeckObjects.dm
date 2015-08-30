@@ -177,15 +177,15 @@
 	w_class = 2.0
 	flags = NOSHIELD | NOBLOODY
 	var/active = 0
-	var/item_color
+	var/blade_color
 
 /obj/item/weapon/holo/esword/green
 	New()
-		item_color = "green"
+		blade_color = "green"
 
 /obj/item/weapon/holo/esword/red
 	New()
-		item_color = "red"
+		blade_color = "red"
 
 /obj/item/weapon/holo/esword/IsShield()
 	if(active)
@@ -196,13 +196,13 @@
 	..()
 
 /obj/item/weapon/holo/esword/New()
-	item_color = pick("red","blue","green","purple")
+	blade_color = pick("red","blue","green","purple")
 
 /obj/item/weapon/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
 		force = 30
-		icon_state = "sword[item_color]"
+		icon_state = "sword[blade_color]"
 		w_class = 4
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		user << "<span class='notice'>[src] is now active.</span>"

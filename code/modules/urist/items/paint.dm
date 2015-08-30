@@ -1,5 +1,6 @@
 // /tg/ port
 
+//do we even need this anymore now that Bay made their own? -scrdest
 /obj/item/weapon/paint
 	gender= PLURAL
 	name = "paint"

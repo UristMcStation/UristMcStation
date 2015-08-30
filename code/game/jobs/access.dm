@@ -50,6 +50,8 @@
 /var/const/access_mining = 48
 /var/const/access_mining_office = 49 //not in use
 /var/const/access_mailsorting = 50
+/var/const/access_mint = 51
+/var/const/access_mint_vault = 52
 /var/const/access_heads_vault = 53
 /var/const/access_mining_station = 54
 /var/const/access_xenobiology = 55
