@@ -134,7 +134,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
 		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
@@ -233,7 +233,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(istype(P, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "<span class='notice'>You disassemble \the [src].</span>"
-		var/obj/item/stack/sheet/wood/S =  new /obj/item/stack/sheet/wood(src.loc)
+		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		for(var/obj/item/b in contents)
 			b.loc = (get_turf(src))

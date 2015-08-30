@@ -20,8 +20,8 @@
 	if(istype(I, /obj/item/weapon/shard))
 		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear
 
-		user.before_take_item(I)
-		user.before_take_item(src)
+		user.remove_from_mob(I)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>"
@@ -31,8 +31,8 @@
 	else if(istype(I, /obj/item/weapon/wirecutters))
 		var/obj/item/weapon/melee/baton/cattleprod/P = new /obj/item/weapon/melee/baton/cattleprod
 
-		user.before_take_item(I)
-		user.before_take_item(src)
+		user.remove_from_mob(I)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(P)
 		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
@@ -45,7 +45,7 @@
 		var/obj/item/weapon/twohanded/quarterstaff/S = new /obj/item/weapon/twohanded/quarterstaff
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
@@ -59,7 +59,7 @@
 		var/obj/item/weapon/wirerod/W = new /obj/item/weapon/wirerod
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(W)
 		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
@@ -160,8 +160,8 @@
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
 		var/obj/item/weapon/shiv/S = new /obj/item/weapon/shiv
-		user.before_take_item(I)
-		user.before_take_item(src)
+		user.remove_from_mob(I)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>"
@@ -199,8 +199,8 @@
 		var/obj/item/weapon/baseballbat/nailed/S = new /obj/item/weapon/baseballbat/nailed
 		R.use(3)
 
-		user.before_take_item(I)
-		user.before_take_item(src)
+		user.remove_from_mob(I)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
@@ -236,8 +236,8 @@
 	if((istype(I, /obj/item/weapon/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
 		var/obj/item/weapon/improvised/scissorsassembly/N = new src.parentassembly
 
-		user.before_take_item(I)
-		user.before_take_item(src)
+		user.remove_from_mob(I)
+		user.remove_from_mob(src)
 		user.drop_from_inventory(I)
 		user.drop_from_inventory(src)
 
@@ -277,8 +277,8 @@
 	if(istype(W, /obj/item/weapon/shard) || istype(W, /obj/item/weapon/improvised/scissorknife))
 		var/obj/item/weapon/improvised/mbrick/sharp/S = new /obj/item/weapon/improvised/mbrick/sharp
 
-		user.before_take_item(W)
-		user.before_take_item(src)
+		user.remove_from_mob(W)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"

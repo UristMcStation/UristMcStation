@@ -861,6 +861,7 @@ var/list/be_special_flags = list(
 #define MODE_REVOLUTIONARY "revolutionary"
 #define MODE_MALFUNCTION "malf"
 #define MODE_TRAITOR "traitor"
+#define MODE_VAMPIRE "vampire"
 
 #define MIN_SUPPLIED_LAW_NUMBER 15
 #define MAX_SUPPLIED_LAW_NUMBER 50

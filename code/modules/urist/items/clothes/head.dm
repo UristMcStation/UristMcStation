@@ -18,7 +18,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Built with lightweight materials for extra comfort."
 	icon_state = "rig0-medical"
 	item_state = "medical_helm"
-	item_color = "medical"
+	//item_color = "medical"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 60, bio = 100, rad = 30)
 
 //emergency suit hood
@@ -69,7 +69,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-commando"
-	item_color = "commando"
+	//item_color = "commando"
 	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
 
 //TC trader hat
@@ -112,7 +112,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a white N on the front."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "ntbluesoft"
-	item_color = "ntblue"
+	//item_color = "ntblue"
 
 /obj/item/clothing/head/soft/nanotrasen/white
 	icon_override = 'icons/uristmob/head.dmi'
@@ -120,7 +120,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "It's a baseball hat in the glorious colours of Nanotrasen. There is a blue N on the front."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "ntwhitesoft"
-	item_color = "ntwhite"
+	//item_color = "ntwhite"
 
 //princess bow
 
@@ -131,7 +131,7 @@ obj/item/clothing/head/princessbow
 	name = "princess bow"
 	desc = "A cute bow fit for a princess."
 	icon_state = "princess_bow"
-	item_color = "princess_bow"
+	//item_color = "princess_bow"
 	item_state = "princess_bow"
 
 //fixing hats
@@ -255,7 +255,7 @@ obj/item/clothing/head/princessbow
 	var/mob/living/carbon/human/user = usr
 	var/obj/item/clothing/suit/storage/hazardvest/H = new /obj/item/clothing/suit/storage/hazardvest
 
-	user.before_take_item(src)
+	user.remove_from_mob(src)
 
 	user.put_in_hands(H)
 	user << "<span class='notice'>You unfold the bandana into a hazardvest.</span>"
@@ -273,7 +273,7 @@ obj/item/clothing/head/princessbow
 		O.loc = (get_turf(src))
 	var/obj/item/clothing/head/hazardbandana/H = new /obj/item/clothing/head/hazardbandana
 
-	user.before_take_item(src)
+	user.remove_from_mob(src)
 	user.put_in_hands(H)
 	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
 	del(src)
@@ -286,4 +286,4 @@ obj/item/clothing/head/princessbow
 	desc = "An Enclave Officer cap, has a silver E on the front"
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "enclavesoft"
-	item_color = "enclavesoft"
+	//item_color = "enclavesoft"

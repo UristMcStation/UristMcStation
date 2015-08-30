@@ -44,26 +44,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	origin_tech = "combat=2;magnets=2"
 	modifystate = "senergystun"
 
-	mode = 0 //0 = stun, 1 = kill
-
-
-	attack_self(mob/living/user as mob)
-		switch(mode)
-			if(0)
-				mode = 1
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Laser.ogg'
-				user << "\red [src.name] is now set to kill."
-				projectile_type = "/obj/item/projectile/beam"
-				modifystate = "senergykill"
-			if(1)
-				mode = 0
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Taser.ogg'
-				user << "\red [src.name] is now set to stun."
-				projectile_type = "/obj/item/projectile/energy/electrode"
-				modifystate = "senergystun"
-		update_icon()
+	firemodes = list(
+		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg'),
+		)
 
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
@@ -186,8 +170,8 @@ the sprite and make my own projectile -Glloyd*/
 		else
 			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
 			new /obj/item/weapon/twohanded/dualsaber(user.loc)
-			user.before_take_item(W)
-			user.before_take_item(src)
+			user.remove_from_mob(W)
+			user.remove_from_mob(src)
 			del(W)
 			del(src)
 
@@ -202,27 +186,15 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 2
 	max_shells = 7
 	slot_flags = SLOT_BELT
-	load_method = 2
-
-/obj/item/weapon/gun/projectile/silenced/knight/New()
-	..()
-	empty_mag = new /obj/item/ammo_casing/c45(src)
-	update_icon()
-	return
-
-
-/obj/item/weapon/gun/projectile/silenced/knight/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
-	..()
-	if(!loaded.len && empty_mag)
-		empty_mag.loc = get_turf(src.loc)
-		empty_mag = null
-		update_icon()
-	return
+	load_method = MAGAZINE
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45m
+	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/silenced/knight/update_icon()
 	..()
-	if(empty_mag)
+	if(ammo_magazine)
 		icon_state = "knight45"
 	else
 		icon_state = "knight45-empty"
-	return

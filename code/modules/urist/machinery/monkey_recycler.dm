@@ -19,7 +19,7 @@
 	if (istype(O, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = O
 		var/grabbed = G.affecting
-		if(istype(grabbed, /mob/living/carbon/monkey))
+		if(istype(grabbed, /mob/living/carbon/human/monkey))
 			var/mob/living/carbon/monkey/target = grabbed
 			if(target.stat == 0)
 				user << "\red The monkey is struggling far too much to put it in the recycler."

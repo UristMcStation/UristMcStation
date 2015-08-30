@@ -145,8 +145,8 @@
 	holder.effect += O
 	holder.chance = 10
 	shutdown.infectionchance = 100
-	shutdown.antigen |= text2num(pick(ANTIGENS))
-	shutdown.antigen |= text2num(pick(ANTIGENS))
+	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
+	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
 	shutdown.spreadtype = "None"
 	shutdown.uniqueID = rand(0,10000)
 	shutdown.effects += holder
@@ -217,7 +217,7 @@
 			new /obj/item/weapon/shard(W.loc)
 			if(W.reinf) new /obj/item/stack/rods(W.loc)
 			W.Del()
-		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
+//		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
 		spawn(1800) M.current.verbs += /client/proc/vampire_screech
@@ -262,15 +262,23 @@
 	if(!mind || !mind.vampire || !ishuman(src))
 		alpha = 255
 		return
-	var/turf/simulated/T = get_turf(src)
 
-	if(!istype(T))
-		return 0
+	var/light_amount = 0
+	if(isturf(src.loc))
+		var/turf/T = src.loc
+		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+		if(L)
+			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
+		else
+			light_amount =  10
+
+//	if(!istype(T))
+//		return 0
 
 	if(!mind.vampire.iscloaking)
 		alpha = 255
 		return 0
-	if(T.lighting_lumcount <= 2)
+	if(light_amount <= 2)
 		alpha = 0
 		return 1
 	else
@@ -282,17 +290,13 @@
 		if(L && L.implanted)
 			enthrall_safe = 1
 			break
-/*	for(var/obj/item/weapon/implant/traitor/T in C) //No tater implants in Urist... yet? Saving it for now in case we get it.
-		if(T && T.implanted)
-			enthrall_safe = 1
-			break */
 	if(!C)
 		world.log << "something bad happened on enthralling a mob src is [src] [src.key] \ref[src]"
 		return 0
 	if(!C.mind)
 		src << "<span class='warning'> [C.name]'s mind is not there for you to enthrall.</span>"
 		return 0
-	if(enthrall_safe || ( C.mind in ticker.mode.vampires )||( C.mind.vampire )||( C.mind in ticker.mode.enthralled ))
+	if(enthrall_safe || ( C.mind in vampires )||( C.mind.vampire )||( C.mind in enthralled ))
 		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
@@ -306,19 +310,12 @@
 	if(!istype(H))
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
-	var/ref = "\ref[src.mind]"
-	if(!(ref in ticker.mode.thralls))
-		ticker.mode.thralls[ref] = list(H.mind)
-	else
-		ticker.mode.thralls[ref] += H.mind
-	ticker.mode.enthralled.Add(H.mind)
-	ticker.mode.enthralled[H.mind] = src.mind
-	H.mind.special_role = "VampThrall"
+
+	thralls.add_antagonist(H.mind)
 	H << "<b><span class='warning'> You have been Enthralled by [name]. Follow their every command.</span></b>"
 	src << "<span class='warning'> You have successfully Enthralled [H.name]. <i>If they refuse to do as you say just adminhelp.</i></span>"
-	ticker.mode.update_vampire_icons_added(H.mind)
-	ticker.mode.update_vampire_icons_added(src.mind)
-	log_admin("[ckey(src.key)] has mind-slaved [ckey(H.key)].")
+//	update_icons_added(src.mind)
+	log_admin("[ckey(src.key)] has enthralled [ckey(H.key)].")
 
 /client/proc/vampire_bats()
 	set category = "Vampire"
@@ -361,7 +358,7 @@
 		return 0
 
 	else if(M.current.vampire_power(15, 0))
-		if(M.current.buckled) M.current.buckled.unbuckle()
+		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/mobloc = get_turf(M.current.loc)
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
@@ -373,9 +370,9 @@
 			animation.icon_state = "liquify"
 			animation.layer = 5
 			animation.master = holder
-			//M.current.ExtinguishMob() //mobs on fire-dependent
+			M.current.ExtinguishMob()
 			if(M.current.buckled)
-				M.current.buckled.unbuckle()
+				M.current.buckled.unbuckle_mob()
 			flick("liquify",animation)
 			M.current.loc = holder
 			M.current.client.eye = holder
@@ -418,11 +415,11 @@
 	var/inner_tele_radius = 0
 	var/outer_tele_radius = 6
 
-	// Maximum lighting_lumcount.
+	// Maximum light_amount
 	var/max_lum = 1
 
 	if(M.current.vampire_power(0, 0))
-		if(M.current.buckled) M.current.buckled.unbuckle()
+		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/list/turfs = new/list()
 			for(var/turf/T in range(usr,outer_tele_radius))
@@ -433,7 +430,15 @@
 				if(T.y>world.maxy-outer_tele_radius || T.y<outer_tele_radius)	continue
 
 				// LIGHTING CHECK
-				if(T.lighting_lumcount > max_lum) continue
+				var/light_amount = 0
+				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+
+				if(L)
+					light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
+				else
+					light_amount =  10
+
+				if(light_amount > max_lum) continue
 				turfs += T
 
 			if(!turfs.len)
@@ -444,9 +449,9 @@
 
 			if(!picked || !isturf(picked))
 				return
-			//M.current.ExtinguishMob() //mobs on fire-dependent
+			M.current.ExtinguishMob()
 			if(M.current.buckled)
-				M.current.buckled.unbuckle()
+				M.current.buckled.unbuckle_mob()
 			var/atom/movable/overlay/animation = new /atom/movable/overlay( get_turf(usr) )
 			animation.name = usr.name
 			animation.density = 0

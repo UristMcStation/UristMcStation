@@ -1,159 +1,72 @@
 //This is the gamemode file for the ported goon gamemode vampires.
 //They get a traitor objective and a blood sucking objective
 
-/datum/game_mode
-	var/list/datum/mind/vampires = list()
-	var/list/datum/mind/enthralled = list() //those controlled by a vampire
-	var/list/thralls = list() //vampires controlling somebody
+var/global/list/datum/mind/vampires_list = list()
+var/global/list/datum/mind/enthralled_list = list() //those controlled by a vampire
+var/global/list/thrallslist = list() //vampires controlling somebody
+
 /datum/game_mode/vampire
-	name = "vampire"
+//	id = MODE_VAMPIRE
+	role_type = BE_VAMPIRE
+	role_text = "Vampire"
+	role_text_plural = "Vampires"
+	round_description = "There are Vampires from Space Transylvania on the station, keep your blood close and neck safe!"
+	extended_round_description = "WIP."
 	config_tag = "vampire"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain") //fuck job protection just cause, leaving Chaplin in because while hilarious, it kills counterplay "Security Officer", "Warden", "Detective", "Head of Security", "Captain") //Consistent screening has filtered all infiltration attempts on high value jobs
-	protected_jobs = list()
 	required_players = 1
 	required_players_secret = 7
 	required_enemies = 1
-	recommended_enemies = 4
+	end_on_antag_death = 1
+	antag_scaling_coeff = 7.5
 
-	var/const/prob_int_murder_target = 50 // intercept names the assassination target half the time
-	var/const/prob_right_murder_target_l = 25 // lower bound on probability of naming right assassination target
-	var/const/prob_right_murder_target_h = 50 // upper bound on probability of naimg the right assassination target
+var/datum/antagonist/vampire/vampires
+var/datum/antagonist/thrall/thralls
 
-	var/const/prob_int_item = 50 // intercept names the theft target half the time
-	var/const/prob_right_item_l = 25 // lower bound on probability of naming right theft target
-	var/const/prob_right_item_h = 50 // upper bound on probability of naming the right theft target
+/datum/antagonist/thrall
+	id = "thrall"
+	role_text = "Thrall"
+	role_text_plural = "Thralls"
+	restricted_jobs = list("AI", "Cyborg", "Chaplain")
+	protected_jobs = list() //not applicable
+	welcome_text = "You have become a vampire's thrall. Follow their every command."
+	flags = 0
+	antag_indicator = "vampthrall"
+	uristantag = 1
 
-	var/const/prob_int_sab_target = 50 // intercept names the sabotage target half the time
-	var/const/prob_right_sab_target_l = 25 // lower bound on probability of naming right sabotage target
-	var/const/prob_right_sab_target_h = 50 // upper bound on probability of naming right sabotage target
-
-	var/const/prob_right_killer_l = 25 //lower bound on probability of naming the right operative
-	var/const/prob_right_killer_h = 50 //upper bound on probability of naming the right operative
-	var/const/prob_right_objective_l = 25 //lower bound on probability of determining the objective correctly
-	var/const/prob_right_objective_h = 50 //upper bound on probability of determining the objective correctly
-
-	var/const/waittime_l = 600 //lower bound on time before intercept arrives (in tenths of seconds)
-	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
-
-	var/vampire_amount = 4
-
-
-/datum/game_mode/vampire/announce()
-	world << "<B>The current game mode is - Vampires!</B>"
-	world << "<B>There are Vampires from Space Transylvania on the station, keep your blood close and neck safe!</B>"
-
-/datum/game_mode/vampire/pre_setup()
-	// mixed mode scaling
-/*	if(istype(ticker.mode, /datum/game_mode/mixed)) //no mixed mode here yet - scrdest
-		mixed = 1
-	if(mixed)
-		recommended_enemies = 2
-		required_enemies = 1 */
-	if(config.protect_roles_from_antagonist)
-		restricted_jobs += protected_jobs
-
-	var/list/datum/mind/possible_vampires = get_players_for_role(BE_VAMPIRE)
-
-	for(var/datum/mind/player in possible_vampires)
-		for(var/job in restricted_jobs)//Removing robots from the list
-			if(player.assigned_role == job)
-				possible_vampires -= player
-
-	vampire_amount = min(recommended_enemies, max(required_enemies,(1 + round(num_players() / 7.5))))
-
-	if(possible_vampires.len>0)
-		for(var/i = 0, i < vampire_amount, i++)
-			if(!possible_vampires.len) break
-			var/datum/mind/vampire = pick(possible_vampires)
-			possible_vampires -= vampire
-			if(vampire.special_role) continue
-			vampires += vampire
-			modePlayer += vampires
-		return 1
-	else
-		return 0
-
-/datum/game_mode/vampire/post_setup()
-	for(var/datum/mind/vampire in vampires)
-		grant_vampire_powers(vampire.current)
-		vampire.special_role = "Vampire"
-		if(!config.objectives_disabled)
-			forge_vampire_objectives(vampire)
-		greet_vampire(vampire)
-	spawn (rand(waittime_l, waittime_h))
-		send_intercept()
+/datum/antagonist/thrall/New()
 	..()
-	return
+	thralls = src
 
-/datum/game_mode/proc/auto_declare_completion_vampire()
-	if(vampires.len)
-		var/text = "<FONT size = 2><B>The vampires were:</B></FONT>"
-		for(var/datum/mind/vampire in vampires)
-			var/traitorwin = 1
+/datum/antagonist/thrall/add_antagonist(var/datum/mind/player)
+	if(!can_become_antag(player))
+		return 0
+	current_antagonists |= player
+	player.special_role = "Thrall"
+	update_icons_added(player)
 
-			text += "<br>[vampire.key] was [vampire.name] ("
-			if(vampire.current)
-				if(vampire.current.stat == DEAD)
-					text += "died"
-				else
-					text += "survived"
-				if(vampire.current.real_name != vampire.name)
-					text += " as [vampire.current.real_name]"
-			else
-				text += "body destroyed"
-			text += ")"
+/*/datum/antagonist/vampire
+	id = MODE_VAMPIRE
+	role_type = BE_VAMPIRE
+	role_text = "Vampire"
+	role_text_plural = "Vampires"
+	bantype = "vampire"
+	feedback_tag = "vampire_objective"
+	restricted_jobs = list("AI", "Cyborg", "Chaplain")
+	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	welcome_text = "To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers. <br>You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and, especially, Holy Water."
+	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	antag_indicator = "vampire"
+	uristantag = 1*/
 
-			if(vampire.objectives.len)//If the traitor had no objectives, don't need to process this.
-				var/count = 1
-				for(var/datum/objective/objective in vampire.objectives)
-					if(objective.check_completion())
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text] <font color='green'><B>Success!</B></font>"
-						feedback_add_details("traitor_objective","[objective.type]|SUCCESS")
-					else
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text] <font color='red'>Fail.</font>"
-						feedback_add_details("traitor_objective","[objective.type]|FAIL")
-						traitorwin = 0
-					count++
+/datum/antagonist/vampire/New()
+	..()
+	vampires = src
 
-			var/special_role_text
-			if(vampire.special_role)
-				special_role_text = lowertext(vampire.special_role)
-			else
-				special_role_text = "antagonist"
+///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
+//	return //"<br><b>Real Name:</b> [player.real_name].
 
-			if(traitorwin)
-				text += "<br><font color='green'><B>The [special_role_text] was successful!</B></font>"
-				feedback_add_details("traitor_success","SUCCESS")
-			else
-				text += "<br><font color='red'><B>The [special_role_text] has failed!</B></font>"
-				feedback_add_details("traitor_success","FAIL")
-		world << text
-	else
-		testing("VAMP HAS NO LENGTH")
-	return 1
-
-/datum/game_mode/proc/auto_declare_completion_enthralled()
-	if(enthralled.len)
-		var/text = "<FONT size = 2><B>The Enthralled were:</B></FONT>"
-		for(var/datum/mind/Mind in enthralled)
-			text += "<br>[Mind.key] was [Mind.name] ("
-			if(Mind.current)
-				if(Mind.current.stat == DEAD)
-					text += "died"
-				else
-					text += "survived"
-				if(Mind.current.real_name != Mind.name)
-					text += " as [Mind.current.real_name]"
-			else
-				text += "body destroyed"
-			text += ")"
-		world << text
-	return 1
-
-/datum/game_mode/proc/forge_vampire_objectives(var/datum/mind/vampire)
-	//Objectives are traitor objectives plus blood objectives
-
-	if (config.objectives_disabled)
+/datum/antagonist/vampire/create_objectives(var/datum/mind/vampire)
+	if(!..())
 		return
 
 	var/datum/objective/blood/blood_objective = new
@@ -171,7 +84,6 @@
 	steal_objective.find_target()
 	vampire.objectives += steal_objective
 
-
 	switch(rand(1,100))
 		if(1 to 80)
 			if (!(locate(/datum/objective/escape) in vampire.objectives))
@@ -185,29 +97,30 @@
 				vampire.objectives += survive_objective
 	return
 
+
+/*/datum/game_mode/proc/auto_declare_completion_enthralled()
+	if(enthralled.len)
+		var/text = "<FONT size = 2><B>The Enthralled were:</B></FONT>"
+		for(var/datum/mind/Mind in enthralled)
+			text += "<br>[Mind.key] was [Mind.name] ("
+			if(Mind.current)
+				if(Mind.current.stat == DEAD)
+					text += "died"
+				else
+					text += "survived"
+				if(Mind.current.real_name != Mind.name)
+					text += " as [Mind.current.real_name]"
+			else
+				text += "body destroyed"
+			text += ")"
+		world << text
+	return 1*/
+
+
+
 /datum/game_mode/proc/grant_vampire_powers(mob/living/carbon/vampire_mob)
 	if(!istype(vampire_mob))	return
 	vampire_mob.make_vampire()
-
-/datum/game_mode/proc/greet_vampire(var/datum/mind/vampire, var/you_are=1)
-	var/dat
-	if (you_are)
-		dat = "<B><span class='warning'> You are a Vampire! </span>\black</br></B>"
-	dat += {"To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers.
-You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and especially Holy Water."}
-	vampire.current << dat
-	vampire.current << "<B>You must complete the following tasks:</B>"
-
-	if (vampire.current.mind)
-		if (vampire.current.mind.assigned_role == "Clown")
-			vampire.current << "Your lust for blood has allowed you to overcome your clumsy nature allowing you to wield weapons without harming yourself."
-			vampire.current.mutations.Remove(CLUMSY)
-
-	var/obj_count = 1
-	for(var/datum/objective/objective in vampire.objectives)
-		vampire.current << "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
-		obj_count++
-	return
 
 /datum/vampire
 	var/bloodtotal = 0
@@ -287,7 +200,7 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 	else
 		H.LAssailant = src
 	while(do_mob(src, H, 50))
-		if(!mind.vampire || !(mind in ticker.mode.vampires))
+		if((!mind.vampire) || !(mind in vampires))
 			src << "<span class='warning'> Your fangs have disappeared!</span>"
 			return 0
 		if(H.flags & NO_BLOOD)
@@ -301,8 +214,8 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 		if(H.stat < 2) //alive
 			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
 			src.mind.vampire.bloodtotal += (blood)
-			src.mind.vampire.bloodusable += (blood*1.2)
-			H.traumatic_shock += 15 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
+			src.mind.vampire.bloodusable += (blood)
+			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
@@ -397,30 +310,6 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 				if(VAMP_FULL)
 					src << "<span class='notice'> You have reached your full potential and are no longer weak to the effects of anything holy and your vision has been improved greatly.</span>"
 					//no verb
-//prepare for copypaste
-/datum/game_mode/proc/update_vampire_icons_added(datum/mind/vampire_mind)
-	var/ref = "\ref[vampire_mind]"
-	if(ref in thralls)
-		if(vampire_mind.current)
-			if(vampire_mind.current.client)
-				var/I = image('icons/urist/uristicons.dmi', loc = vampire_mind.current, icon_state = "vampire")
-				vampire_mind.current.client.images += I
-	for(var/headref in thralls)
-		for(var/datum/mind/t_mind in thralls[headref])
-			var/datum/mind/head = locate(headref)
-			if(head)
-				if(head.current)
-					if(head.current.client)
-						var/I = image('icons/urist/uristicons.dmi', loc = t_mind.current, icon_state = "vampthrall")
-						head.current.client.images += I
-				if(t_mind.current)
-					if(t_mind.current.client)
-						var/I = image('icons/urist/uristicons.dmi', loc = head.current, icon_state = "vampire")
-						t_mind.current.client.images += I
-				if(t_mind.current)
-					if(t_mind.current.client)
-						var/I = image('icons/urist/uristicons.dmi', loc = t_mind.current, icon_state = "vampthrall")
-						t_mind.current.client.images += I
 
 /datum/game_mode/proc/update_vampire_icons_removed(datum/mind/vampire_mind)
 	for(var/headref in thralls)
@@ -482,22 +371,19 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			if(60 to 80)
 				src << "<span class='warning'>Your skin sizzles!</span>"
 			if((-INFINITY) to 60)
-				//if(!on_fire)	//restore once mobs on fire are ported
-				src << "<b><span class='warning'> Your skin burns!</span></b>"
-				M.take_organ_damage(0,5)
-				//else
-				//	src << "<b>\red You continue to burn!</b>"
-				//fire_stacks += 5 //mobs on fire-dependent
-				//IgniteMob() //mobs on fire
+				if(!on_fire)
+					src << "<b><span class='warning'> Your skin burns!</span></b>"
+				else
+					src << "<b>\red You continue to burn!</b>"
+				fire_stacks += 5
+				IgniteMob() //mobs on fire, woo!
 
 		emote("scream")
 	else
 		switch(health)
 			if((-INFINITY) to 60)
-				//fire_stacks++
-				//IgniteMob()
-				M.take_organ_damage(0,5)
-	//adjustFireLoss(3)
+				fire_stacks++ //it's back!
+				IgniteMob()
 
 /mob/living/carbon/human/proc/handle_vampire()
 //removed blood HUD code here, because of it causing Bad Things clientside, moved it to Status tab.
