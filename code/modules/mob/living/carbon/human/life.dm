@@ -376,6 +376,7 @@
 		if(status_flags & GODMODE)
 			return
 
+
 		if(!breath || (breath.total_moles == 0) || suiciding)
 			failed_last_breath = 1
 			if(suiciding)
@@ -1016,34 +1017,6 @@
 				if( prob(2) && health && !hal_crit )
 					spawn(0)
 						emote("snore")
-
-				if(mind)
-					if(mind.vampire) //VAMP COFFIN REGEN CODE BEGINS
-						if(istype(loc, /obj/structure/closet/coffin))
-							var/mob/living/carbon/human/H = mind.current
-							H.adjustBruteLoss(-2)
-							H.adjustFireLoss(-2)
-							H.adjustToxLoss(-2)
-							H.adjustOxyLoss(-2)
-							H.shock_stage -= 5
-							if(prob(15))
-								H << "<span class='notice'>You can feel the bones and organs in your body shift, mend and regrow!"
-								for(var/datum/organ/internal/I in H.internal_organs)
-									I.damage = 0
-								for (var/datum/organ/external/E in H.organs)
-									if(E.status & ORGAN_ROBOT)
-										if(E.status & ~ORGAN_DESTROYED)	//Robotic organs stay robotic, but only if they are still there. Otherwise, regrow a normal limb.
-											E.status = ORGAN_ROBOT
-										else
-											E.status = 0
-									else
-										E.status = 0
-									E.perma_injury = 0
-									E.brute_dam -= 35 //this line and the next were added to prevent autorebreaks due to excessive damage
-									E.burn_dam -= 35 //comment out or lower if it proves too powerful
-									E.number_wounds = 0
-									E.germ_level = 0
-								H.update_body(1)
 
 			else if(resting)
 				if(halloss > 0)

@@ -32,7 +32,10 @@
 					qdel(I)
 			for(var/datum/mind/other_antag in current_antagonists)
 				if(other_antag.current)
-					antag.current.client.images |= image('icons/mob/mob.dmi', loc = other_antag.current, icon_state = antag_indicator)
+					if(uristantag)
+						antag.current.client.images |= image('icons/urist/uristicons.dmi', loc = other_antag.current, icon_state = antag_indicator)
+					else
+						antag.current.client.images |= image('icons/mob/mob.dmi', loc = other_antag.current, icon_state = antag_indicator)
 
 /datum/antagonist/proc/update_icons_added(var/datum/mind/player)
 	if(!antag_indicator || !player.current)
@@ -41,10 +44,16 @@
 		for(var/datum/mind/antag in current_antagonists)
 			if(!antag.current)
 				continue
-			if(antag.current.client)
-				antag.current.client.images |= image('icons/mob/mob.dmi', loc = player.current, icon_state = antag_indicator)
-			if(player.current.client)
-				player.current.client.images |= image('icons/mob/mob.dmi', loc = antag.current, icon_state = antag_indicator)
+			if(uristantag)
+				if(antag.current.client)
+					antag.current.client.images |= image('icons/urist/uristicons.dmi', loc = player.current, icon_state = antag_indicator)
+				if(player.current.client)
+					player.current.client.images |= image('icons/urist/uristicons.dmi', loc = antag.current, icon_state = antag_indicator)
+			else
+				if(antag.current.client)
+					antag.current.client.images |= image('icons/mob/mob.dmi', loc = player.current, icon_state = antag_indicator)
+				if(player.current.client)
+					player.current.client.images |= image('icons/mob/mob.dmi', loc = antag.current, icon_state = antag_indicator)
 
 /datum/antagonist/proc/update_icons_removed(var/datum/mind/player)
 	if(!antag_indicator || !player.current)

@@ -6,10 +6,8 @@ var/global/list/datum/mind/enthralled_list = list() //those controlled by a vamp
 var/global/list/thrallslist = list() //vampires controlling somebody
 
 /datum/game_mode/vampire
-//	id = MODE_VAMPIRE
-	role_type = BE_VAMPIRE
-	role_text = "Vampire"
-	role_text_plural = "Vampires"
+	antag_tag = MODE_VAMPIRE
+	name = "Vampire"
 	round_description = "There are Vampires from Space Transylvania on the station, keep your blood close and neck safe!"
 	extended_round_description = "WIP."
 	config_tag = "vampire"
@@ -17,110 +15,7 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 	required_players_secret = 7
 	required_enemies = 1
 	end_on_antag_death = 1
-	antag_scaling_coeff = 7.5
-
-var/datum/antagonist/vampire/vampires
-var/datum/antagonist/thrall/thralls
-
-/datum/antagonist/thrall
-	id = "thrall"
-	role_text = "Thrall"
-	role_text_plural = "Thralls"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain")
-	protected_jobs = list() //not applicable
-	welcome_text = "You have become a vampire's thrall. Follow their every command."
-	flags = 0
-	antag_indicator = "vampthrall"
-	uristantag = 1
-
-/datum/antagonist/thrall/New()
-	..()
-	thralls = src
-
-/datum/antagonist/thrall/add_antagonist(var/datum/mind/player)
-	if(!can_become_antag(player))
-		return 0
-	current_antagonists |= player
-	player.special_role = "Thrall"
-	update_icons_added(player)
-
-/*/datum/antagonist/vampire
-	id = MODE_VAMPIRE
-	role_type = BE_VAMPIRE
-	role_text = "Vampire"
-	role_text_plural = "Vampires"
-	bantype = "vampire"
-	feedback_tag = "vampire_objective"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain")
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
-	welcome_text = "To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers. <br>You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and, especially, Holy Water."
-	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
-	antag_indicator = "vampire"
-	uristantag = 1*/
-
-/datum/antagonist/vampire/New()
-	..()
-	vampires = src
-
-///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
-//	return //"<br><b>Real Name:</b> [player.real_name].
-
-/datum/antagonist/vampire/create_objectives(var/datum/mind/vampire)
-	if(!..())
-		return
-
-	var/datum/objective/blood/blood_objective = new
-	blood_objective.owner = vampire
-	blood_objective.gen_amount_goal(150, 400)
-	vampire.objectives += blood_objective
-
-	var/datum/objective/assassinate/kill_objective = new
-	kill_objective.owner = vampire
-	kill_objective.find_target()
-	vampire.objectives += kill_objective
-
-	var/datum/objective/steal/steal_objective = new
-	steal_objective.owner = vampire
-	steal_objective.find_target()
-	vampire.objectives += steal_objective
-
-	switch(rand(1,100))
-		if(1 to 80)
-			if (!(locate(/datum/objective/escape) in vampire.objectives))
-				var/datum/objective/escape/escape_objective = new
-				escape_objective.owner = vampire
-				vampire.objectives += escape_objective
-		else
-			if (!(locate(/datum/objective/survive) in vampire.objectives))
-				var/datum/objective/survive/survive_objective = new
-				survive_objective.owner = vampire
-				vampire.objectives += survive_objective
-	return
-
-
-/*/datum/game_mode/proc/auto_declare_completion_enthralled()
-	if(enthralled.len)
-		var/text = "<FONT size = 2><B>The Enthralled were:</B></FONT>"
-		for(var/datum/mind/Mind in enthralled)
-			text += "<br>[Mind.key] was [Mind.name] ("
-			if(Mind.current)
-				if(Mind.current.stat == DEAD)
-					text += "died"
-				else
-					text += "survived"
-				if(Mind.current.real_name != Mind.name)
-					text += " as [Mind.current.real_name]"
-			else
-				text += "body destroyed"
-			text += ")"
-		world << text
-	return 1*/
-
-
-
-/datum/game_mode/proc/grant_vampire_powers(mob/living/carbon/vampire_mob)
-	if(!istype(vampire_mob))	return
-	vampire_mob.make_vampire()
+	antag_scaling_coeff = 7
 
 /datum/vampire
 	var/bloodtotal = 0
@@ -140,6 +35,7 @@ var/datum/antagonist/thrall/thralls
 		mind.vampire = new /datum/vampire(gender)
 		mind.vampire.owner = src
 	verbs += /client/proc/vampire_rejuvinate
+	verbs += /client/proc/vampire_coffinsleep
 	verbs += /client/proc/vampire_hypnotise
 	verbs += /client/proc/vampire_glare
 	faction = "vampire"
@@ -200,7 +96,7 @@ var/datum/antagonist/thrall/thralls
 	else
 		H.LAssailant = src
 	while(do_mob(src, H, 50))
-		if((!mind.vampire) || !(mind in vampires))
+		if((!mind.vampire) || !(mind in get_antags("vampire")))
 			src << "<span class='warning'> Your fangs have disappeared!</span>"
 			return 0
 		if(H.flags & NO_BLOOD)
@@ -311,8 +207,9 @@ var/datum/antagonist/thrall/thralls
 					src << "<span class='notice'> You have reached your full potential and are no longer weak to the effects of anything holy and your vision has been improved greatly.</span>"
 					//no verb
 
-/datum/game_mode/proc/update_vampire_icons_removed(datum/mind/vampire_mind)
-	for(var/headref in thralls)
+/datum/game_mode/proc/update_vampire_icons_removed(datum/mind/vampire_mind) //vampporttodo
+	src << "TODO!!!"
+/*	for(var/headref in thralls)
 		var/datum/mind/head = locate(headref)
 		for(var/datum/mind/t_mind in thralls[headref])
 			if(t_mind.current)
@@ -333,18 +230,20 @@ var/datum/antagonist/thrall/thralls
 		if(vampire_mind.current.client)
 			for(var/image/I in vampire_mind.current.client.images)
 				if(I.icon_state == "vampthrall" || I.icon_state == "vampire")
-					del(I)
+					del(I)*/
 
-/datum/game_mode/proc/remove_vampire_mind(datum/mind/vampire_mind, datum/mind/head)
+/datum/game_mode/proc/remove_vampire_mind(datum/mind/vampire_mind, datum/mind/head) //vampporttodo
+	/*
 	if(!istype(head))
 		head = vampire_mind //workaround for removing a thrall's control over the enthralled
 	var/ref = "\ref[head]"
-	if(ref in thralls)
+	if(ref in get_antags("thrall")
 		thralls[ref] -= vampire_mind
-	enthralled -= vampire_mind
+	enthralled_list -= vampire_mind
 	vampire_mind.special_role = null
 	update_vampire_icons_removed(vampire_mind)
 	//world << "Removed [vampire_mind.current.name] from vampire shit"
+	*/
 	vampire_mind.current << "<span class='warning'> <FONT size = 3><B>The fog clouding your mind clears. You remember nothing from the moment you were enthralled until now.</B></FONT></span>"
 
 /mob/living/carbon/human/proc/check_sun()
