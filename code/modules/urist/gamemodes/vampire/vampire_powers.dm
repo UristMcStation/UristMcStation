@@ -68,6 +68,60 @@
 	if(!vampire_power(required_blood, max_stat)) return
 	return T
 
+/client/proc/vampire_coffinsleep() //because I don't like keeping hooks in life.dm for little reason.
+	set category = "Vampire"
+	set name = "Vampiric Torpor (Toggle)"
+	set desc= "Enter a corpselike state that allows you to regenerate in coffins."
+	var/on = 0
+	var/datum/mind/M = usr.mind
+	if(!M) return
+	var/mob/living/carbon/human/H = M.current
+
+	if(!on)
+		on = 1
+		H << "<span class='notice'>You are now entering torpor. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
+		H.status_flags |= FAKEDEATH		//play dead
+
+		if(istype(H.loc, /obj/structure/closet/coffin))
+			//blatant edited copypasta from xenomorph in alien_species.dm
+			var/heal_rate = 3
+			var/mend_prob = 10
+
+			//first heal damages
+			if (H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
+				H.adjustBruteLoss(-heal_rate)
+				H.adjustFireLoss(-heal_rate)
+				H.adjustOxyLoss(-heal_rate)
+				H.adjustToxLoss(-heal_rate)
+				if (prob(5))
+					H << "<span class='sinister'>You feel a soothing sensation come over you...</span>"
+				return 1
+
+			//next internal organs
+			for(var/obj/item/organ/I in H.internal_organs)
+				if(I.damage > 0)
+					I.damage = max(I.damage - heal_rate, 0)
+					if (prob(5))
+						H << "<span class='sinister'>You feel a soothing sensation within your [I.parent_organ]...</span>"
+					return 1
+
+			//next mend broken bones, approx 10 ticks each
+			for(var/obj/item/organ/external/E in H.bad_external_organs)
+				if (E.status & ORGAN_BROKEN)
+					if (prob(mend_prob))
+						if (E.mend_fracture())
+							H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
+					return 1
+
+		return 0
+
+	else if(on)
+		on = 0
+		H << "<span class='notice'>You are now waking up from your sleep.</span>"
+		H.status_flags &= ~(FAKEDEATH)
+		H.update_canmove()
+		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
+
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
 	set name = "Rejuvenate "
@@ -296,7 +350,7 @@
 	if(!C.mind)
 		src << "<span class='warning'> [C.name]'s mind is not there for you to enthrall.</span>"
 		return 0
-	if(enthrall_safe || ( C.mind in vampires )||( C.mind.vampire )||( C.mind in enthralled ))
+	if(enthrall_safe || ( C.mind in get_antags("vampire") )||( C.mind.vampire )||( C.mind in enthralled_list ))
 		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
@@ -311,7 +365,7 @@
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	thralls.add_antagonist(H.mind)
+	//thralls.add_antagonist(H.mind) //vampporttodo
 	H << "<b><span class='warning'> You have been Enthralled by [name]. Follow their every command.</span></b>"
 	src << "<span class='warning'> You have successfully Enthralled [H.name]. <i>If they refuse to do as you say just adminhelp.</i></span>"
 //	update_icons_added(src.mind)

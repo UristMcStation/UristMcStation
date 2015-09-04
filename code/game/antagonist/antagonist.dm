@@ -44,6 +44,7 @@
 	var/default_access = list()
 	var/id_type = /obj/item/weapon/card/id
 	var/announced
+	var/uristantag = 0 //used for overriding the indicator icon path to our own dmi
 
 /datum/antagonist/New()
 	..()
@@ -59,7 +60,7 @@
 
 /datum/antagonist/proc/get_candidates(var/ghosts_only)
 	candidates = list() // Clear.
-	
+
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in ticker.mode.get_players_for_role(role_type, id))
@@ -126,14 +127,14 @@
 		return 0
 
 	pending_antagonists |= player
-	
+
 	//Ensure that antags with ANTAG_OVERRIDE_JOB do not occupy job slots.
 	if(flags & ANTAG_OVERRIDE_JOB)
 		player.assigned_role = role_text
-	
+
 	//Ensure that a player cannot be drafted for multiple antag roles, taking up slots for antag roles that they will not fill.
 	player.special_role = role_text
-	
+
 	return 1
 
 //Spawns all pending_antagonists. This is done separately from attempt_spawn in case the game mode setup fails.

@@ -1,19 +1,41 @@
+/datum/antagonist/thrall
+	id = "thrall"
+	role_text = "Thrall"
+	role_text_plural = "Thralls"
+	restricted_jobs = list("AI", "Cyborg", "Chaplain")
+	protected_jobs = list() //not applicable
+	welcome_text = "You have become a vampire's thrall. Follow their every command."
+	flags = 0
+	antag_indicator = null
+	uristantag = 1
+	var/datum/mind/master = null
+
+
+/datum/antagonist/thrall/add_antagonist(var/datum/mind/player, var/datum/mind/master)
+	if(!can_become_antag(player))
+		return 0
+	current_antagonists |= player
+	player.special_role = "Thrall"
+	update_icons_added(player)
+
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
 	role_type = BE_VAMPIRE
-	role_text = "vampire"
-	role_text_plural = "vampires"
+	role_text = "Vampire"
+	role_text_plural = "Vampires"
 	bantype = "vampire"
 	feedback_tag = "vampire_objective"
 	restricted_jobs = list("AI", "Cyborg", "Chaplain")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
-	welcome_text = "You are a Vampire! To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers. You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and especially Holy Water."
+	welcome_text = "To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers. <br>You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and, especially, Holy Water."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	antag_indicator = "vampire"
+	uristantag = 1
 
-/datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
-	return "<br><b>vampire ID:</b> [player.vampire.vampireID].<br><b>Blood Consumed:</b> [player.vampire.bloodtotal]"
+///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
+//	return //"<br><b>Real Name:</b> [player.real_name].
 
-/datum/antagonist/vampire/apply(var/datum/mind/player)
+/datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 	..()
 	player.current.make_vampire()
 
@@ -21,7 +43,7 @@
 	if(!..())
 		return
 
-	var/datum/objective/absorb/blood_objective = new
+	var/datum/objective/blood/blood_objective = new
 	blood_objective.owner = vampire
 	blood_objective.gen_amount_goal(150, 400)
 	vampire.objectives += blood_objective
@@ -48,3 +70,22 @@
 				survive_objective.owner = vampire
 				vampire.objectives += survive_objective
 	return
+
+
+/*/datum/game_mode/proc/auto_declare_completion_enthralled()
+	if(enthralled.len)
+		var/text = "<FONT size = 2><B>The Enthralled were:</B></FONT>"
+		for(var/datum/mind/Mind in enthralled)
+			text += "<br>[Mind.key] was [Mind.name] ("
+			if(Mind.current)
+				if(Mind.current.stat == DEAD)
+					text += "died"
+				else
+					text += "survived"
+				if(Mind.current.real_name != Mind.name)
+					text += " as [Mind.current.real_name]"
+			else
+				text += "body destroyed"
+			text += ")"
+		world << text
+	return 1*/
