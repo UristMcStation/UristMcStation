@@ -1,22 +1,4 @@
-/datum/antagonist/thrall
-	id = "thrall"
-	role_text = "Thrall"
-	role_text_plural = "Thralls"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain")
-	protected_jobs = list() //not applicable
-	welcome_text = "You have become a vampire's thrall. Follow their every command."
-	flags = 0
-	antag_indicator = null
-	uristantag = 1
-	var/datum/mind/master = null
-
-
-/datum/antagonist/thrall/add_antagonist(var/datum/mind/player, var/datum/mind/master)
-	if(!can_become_antag(player))
-		return 0
-	current_antagonists |= player
-	player.special_role = "Thrall"
-	update_icons_added(player)
+var/datum/antagonist/vampire/vamps
 
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
@@ -70,22 +52,3 @@
 				survive_objective.owner = vampire
 				vampire.objectives += survive_objective
 	return
-
-
-/*/datum/game_mode/proc/auto_declare_completion_enthralled()
-	if(enthralled.len)
-		var/text = "<FONT size = 2><B>The Enthralled were:</B></FONT>"
-		for(var/datum/mind/Mind in enthralled)
-			text += "<br>[Mind.key] was [Mind.name] ("
-			if(Mind.current)
-				if(Mind.current.stat == DEAD)
-					text += "died"
-				else
-					text += "survived"
-				if(Mind.current.real_name != Mind.name)
-					text += " as [Mind.current.real_name]"
-			else
-				text += "body destroyed"
-			text += ")"
-		world << text
-	return 1*/
