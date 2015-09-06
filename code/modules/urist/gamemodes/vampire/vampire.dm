@@ -1,10 +1,6 @@
 //This is the gamemode file for the ported goon gamemode vampires.
 //They get a traitor objective and a blood sucking objective
 
-var/global/list/datum/mind/vampires_list = list()
-var/global/list/datum/mind/enthralled_list = list() //those controlled by a vampire
-var/global/list/thrallslist = list() //vampires controlling somebody
-
 /datum/game_mode/vampire
 	antag_tag = MODE_VAMPIRE
 	name = "Vampire"
@@ -26,8 +22,14 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 	var/list/powers = list() // list of available powers and passives, see defines in setup.dm
 	var/mob/living/carbon/human/draining // who the vampire is draining of blood
 	var/nullified = 0 //Nullrod makes them useless for a short while.
+	var/thralls = list()
+
 /datum/vampire/New(gend = FEMALE)
 	gender = gend
+
+/datum/antagonist/vampire/apply(var/datum/mind/player)
+	..()
+	player.current.make_vampire()
 
 /mob/proc/make_vampire()
 	if(!mind)				return
@@ -64,14 +66,16 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 			if(VAMP_BLINK)
 				verbs += /client/proc/vampire_shadowstep
 			if(VAMP_SLAVE)
-				verbs += /client/proc/vampire_enthrall
+				verbs += /client/proc/vampire_turn
 			if(VAMP_FULL)
 				continue
+
 /mob/proc/remove_vampire_powers()
 
 	verbs -= /client/proc/vampire_rejuvinate
 	verbs -= /client/proc/vampire_hypnotise
 	verbs -= /client/proc/vampire_glare
+	verbs -= /client/proc/vampire_coffinsleep
 	verbs -= /client/proc/vampire_shapeshift
 	verbs -= /client/proc/vampire_disease
 	verbs -= /client/proc/vampire_cloak
@@ -79,7 +83,7 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 	verbs -= /client/proc/vampire_screech
 	verbs -= /client/proc/vampire_jaunt
 	verbs -= /client/proc/vampire_shadowstep
-	verbs -= /client/proc/vampire_enthrall
+	verbs -= /client/proc/vampire_turn
 
 
 /mob/proc/handle_bloodsucking(mob/living/carbon/human/H)
@@ -166,7 +170,7 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 			vamp.powers.Add(VAMP_SLAVE)
 
 	// TIER 5
-	if(vamp.bloodtotal >= 600)
+	if(vamp.bloodtotal >= 900)
 		if(!(VAMP_FULL in vamp.powers))
 			vamp.powers.Add(VAMP_FULL)
 
@@ -198,8 +202,8 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 					src << "<span class='notice'> You have gained the Mist Form ability which allows you to take on the form of mist for a short period and pass over any obstacle in your path.</span>"
 					verbs += /client/proc/vampire_jaunt
 				if(VAMP_SLAVE)
-					src << "<span class='notice'> You have gained the Enthrall ability which at a heavy blood cost allows you to enslave a human that is not loyal to any other for a random period of time.</span>"
-					verbs += /client/proc/vampire_enthrall
+					src << "<span class='notice'> You have gained the Turn ability which, at a heavy blood cost, allows you to infect a human with vampirism. He will NOT have to be loyal to you.</span>"
+					verbs += /client/proc/vampire_turn
 				if(VAMP_BLINK)
 					src << "<span class='notice'> You have gained the ability to shadowstep, which makes you disappear into nearby shadows at the cost of blood.</span>"
 					verbs += /client/proc/vampire_shadowstep
@@ -207,44 +211,9 @@ var/global/list/thrallslist = list() //vampires controlling somebody
 					src << "<span class='notice'> You have reached your full potential and are no longer weak to the effects of anything holy and your vision has been improved greatly.</span>"
 					//no verb
 
-/datum/game_mode/proc/update_vampire_icons_removed(datum/mind/vampire_mind) //vampporttodo
-	src << "TODO!!!"
-/*	for(var/headref in thralls)
-		var/datum/mind/head = locate(headref)
-		for(var/datum/mind/t_mind in thralls[headref])
-			if(t_mind.current)
-				if(t_mind.current.client)
-					for(var/image/I in t_mind.current.client.images)
-						if((I.icon_state == "vampthrall" || I.icon_state == "vampire") && I.loc == vampire_mind.current)
-							//world.log << "deleting [vampire_mind] overlay"
-							del(I)
-		if(head)
-			//world.log << "found [head.name]"
-			if(head.current)
-				if(head.current.client)
-					for(var/image/I in head.current.client.images)
-						if((I.icon_state == "vampthrall" || I.icon_state == "vampire") && I.loc == vampire_mind.current)
-							//world.log << "deleting [vampire_mind] overlay"
-							del(I)
-	if(vampire_mind.current)
-		if(vampire_mind.current.client)
-			for(var/image/I in vampire_mind.current.client.images)
-				if(I.icon_state == "vampthrall" || I.icon_state == "vampire")
-					del(I)*/
-
-/datum/game_mode/proc/remove_vampire_mind(datum/mind/vampire_mind, datum/mind/head) //vampporttodo
-	/*
-	if(!istype(head))
-		head = vampire_mind //workaround for removing a thrall's control over the enthralled
-	var/ref = "\ref[head]"
-	if(ref in get_antags("thrall")
-		thralls[ref] -= vampire_mind
-	enthralled_list -= vampire_mind
-	vampire_mind.special_role = null
-	update_vampire_icons_removed(vampire_mind)
-	//world << "Removed [vampire_mind.current.name] from vampire shit"
-	*/
-	vampire_mind.current << "<span class='warning'> <FONT size = 3><B>The fog clouding your mind clears. You remember nothing from the moment you were enthralled until now.</B></FONT></span>"
+/datum/antagonist/vampire/proc/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+	player.current.remove_vampire_powers()
+	..()
 
 /mob/living/carbon/human/proc/check_sun()
 

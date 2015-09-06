@@ -276,26 +276,26 @@
 		M.current.verbs -= /client/proc/vampire_screech
 		spawn(1800) M.current.verbs += /client/proc/vampire_screech
 
-/client/proc/vampire_enthrall()
+/client/proc/vampire_turn()
 	set category = "Vampire"
-	set name = "Enthrall (300)"
-	set desc = "You use a large portion of your power to sway those loyal to none to be loyal to you only."
+	set name = "Turn (500)"
+	set desc = "You use a massive portion of your power to infect you victim with vampirism."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	var/mob/living/carbon/C = M.current.vampire_active(300, 0, 1)
 	if(!C) return
 	M.current.visible_message("<span class='warning'> [M.current.name] bites [C.name]'s neck!</span>", "<span class='warning'> You bite [C.name]'s neck and begin the flow of power.</span>")
-	C << "<span class='warning'>You feel the tendrils of evil invade your mind.</span>"
+	C << "<span class='sinister'>You feel the tendrils of evil invade your body.</span>"
 	if(!ishuman(C))
-		M.current << "<span class='warning'> You can only enthrall humans!</span>"
+		M.current << "<span class='warning'> You can only turn humanoids!</span>"
 		return
 
 	if(do_mob(M.current, C, 50))
-		if(M.current.can_enthrall(C) && M.current.vampire_power(300, 0)) // recheck
-			M.current.handle_enthrall(C)
-			M.current.remove_vampire_blood(300)
-			M.current.verbs -= /client/proc/vampire_enthrall
-			spawn(1800) M.current.verbs += /client/proc/vampire_enthrall
+		if(M.current.can_vampirize(C) && M.current.vampire_power(500, 0)) // recheck
+			M.current.handle_vampirize(C)
+			M.current.remove_vampire_blood(500)
+			M.current.verbs -= /client/proc/vampire_turn
+			spawn(1800) M.current.verbs += /client/proc/vampire_turn
 		else
 			M.current << "<span class='warning'> You or your target either moved or you dont have enough usable blood.</span>"
 			return
@@ -338,38 +338,34 @@
 	else
 		alpha = round((255 * 0.80))
 
-/mob/proc/can_enthrall(mob/living/carbon/C)
-	var/enthrall_safe = 0
-	for(var/obj/item/weapon/implant/loyalty/L in C)
-		if(L && L.implanted)
-			enthrall_safe = 1
-			break
+/mob/proc/can_vampirize(mob/living/carbon/C)
+	var/vampirize_safe = 0
+
 	if(!C)
-		world.log << "something bad happened on enthralling a mob src is [src] [src.key] \ref[src]"
+		world.log << "something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]"
 		return 0
-	if(!C.mind)
-		src << "<span class='warning'> [C.name]'s mind is not there for you to enthrall.</span>"
-		return 0
-	if(enthrall_safe || ( C.mind in get_antags("vampire") )||( C.mind.vampire )||( C.mind in enthralled_list ))
-		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
+/*	if(!C.mind)
+		src << "<span class='warning'> [C.name]'s mind is not there for you to vampirize.</span>"
+		return 0*/
+	if(vampirize_safe || ( C.mind in get_antags("vampire") )||( C.mind.vampire ))
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
-		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
 	if(!ishuman(C))
-		src << "<span class='warning'> You can only enthrall humans!</span>"
+		src << "<span class='warning'> You can only turn humans!</span>"
 		return 0
 	return 1
 
-/mob/proc/handle_enthrall(mob/living/carbon/human/H as mob)
+/mob/proc/handle_vampirize(mob/living/carbon/human/H as mob)
 	if(!istype(H))
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	//thralls.add_antagonist(H.mind) //vampporttodo
-	H << "<b><span class='warning'> You have been Enthralled by [name]. Follow their every command.</span></b>"
-	src << "<span class='warning'> You have successfully Enthralled [H.name]. <i>If they refuse to do as you say just adminhelp.</i></span>"
-//	update_icons_added(src.mind)
-	log_admin("[ckey(src.key)] has enthralled [ckey(H.key)].")
+	vamps.add_antagonist(H.mind)
+	H << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!.</span>"
+	src << "<span class='warning'> You have successfully vampirized [H.name].</span>"
+	log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
 
 /client/proc/vampire_bats()
 	set category = "Vampire"
