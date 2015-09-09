@@ -11,7 +11,7 @@
 	var/busy = 0
 
 /obj/machinery/planer/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/r_wood))
+	if(istype(I, /obj/item/stack/material/wood/r_wood))
 
 		if(busy)
 			user << "<span class='notice'>The [src] is busy, you can't put in wood yet!.</span>"

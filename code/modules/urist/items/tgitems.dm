@@ -58,7 +58,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "bookbag"
 	display_contents_with_number = 0 //This would look really stupid otherwise
 	storage_slots = 7
-	max_combined_w_class = 21
+	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
 	can_hold = list("/obj/item/weapon/book", "/obj/item/weapon/spellbook") //No bibles, consistent with bookcase
@@ -284,7 +284,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "satchel-flat"
 	w_class = 3 //Can fit in backpacks itself.
 	storage_slots = 5
-	max_combined_w_class = 15
+	max_storage_space = 15 //check values!
 	level = 1
 	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
 

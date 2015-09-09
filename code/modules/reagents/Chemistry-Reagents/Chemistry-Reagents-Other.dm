@@ -212,6 +212,12 @@
 		if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
 
+/datum/reagent/water/holywater/touch_mob(var/mob/living/L, var/amount)
+	..()
+	if(ishuman(L))
+		if(L.mind && vampires.is_antagonist(L.mind))
+			L.adjust_fire_stacks(amount / 4) //because it's a way more fun effect
+
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1

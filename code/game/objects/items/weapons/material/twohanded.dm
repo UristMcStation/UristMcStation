@@ -171,7 +171,7 @@
 /*
 /*
  * Double-Bladed Energy Swords - Cheridan
- */
+ */*/
  // Not sure what to do with this one, it won't work nicely with the material system,
  // but I don't want to copypaste all the twohanded procs..
 /obj/item/weapon/material/twohanded/dualsaber
@@ -211,7 +211,7 @@
 		return 1
 	else
 		return 0
-*/
+
 
 //spears, bay edition
 /obj/item/weapon/material/twohanded/spear

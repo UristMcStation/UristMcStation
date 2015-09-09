@@ -27,10 +27,6 @@
 /datum/vampire/New(gend = FEMALE)
 	gender = gend
 
-/datum/antagonist/vampire/apply(var/datum/mind/player)
-	..()
-	player.current.make_vampire()
-
 /mob/proc/make_vampire()
 	if(!mind)				return
 	if(!mind.vampire)
@@ -211,7 +207,7 @@
 					src << "<span class='notice'> You have reached your full potential and are no longer weak to the effects of anything holy and your vision has been improved greatly.</span>"
 					//no verb
 
-/datum/antagonist/vampire/proc/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+/datum/antagonist/vampire/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	player.current.remove_vampire_powers()
 	..()
 
@@ -219,7 +215,7 @@
 
 	var/ax = x
 	var/ay = y
-	var/mob/living/carbon/M = src
+//	var/mob/living/carbon/M = src
 
 	for(var/i = 1 to 20)
 		ax += sun.dx

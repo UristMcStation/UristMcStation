@@ -398,7 +398,7 @@
         update_icon()
                 overlays.Cut()
                 var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
-                filling.icon += mix_color_from_reagents(reagents.reagent_list)
+                filling.icon += reagents.get_color()
                 overlays += filling
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone
@@ -467,7 +467,7 @@
 	var/fullycustom = 0
 	var/boozetype = "hooch"
 	volume = 100
-	gulp_size = 2
+	amount_per_transfer_from_this = 2
 
 	var/list/ingredients = list()
 

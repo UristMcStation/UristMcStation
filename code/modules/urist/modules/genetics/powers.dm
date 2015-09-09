@@ -79,7 +79,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/dna/gene/basic/grant_spell
-	var/obj/effect/proc_holder/spell/spelltype
+	var/spell/spelltype
 
 	activate(var/mob/M, var/connected, var/flags)
 		..()
@@ -88,7 +88,7 @@
 
 	deactivate(var/mob/M, var/connected, var/flags)
 		..()
-		for(var/obj/effect/proc_holder/spell/S in M.spell_list)
+		for(var/spell/S in M.spell_list)
 			if(istype(S,spelltype))
 				M.spell_list.Remove(S)
 		return 1
@@ -112,13 +112,13 @@
 	activation_messages = list("You notice a strange cold tingle in your fingertips.")
 	deactivation_messages = list("Your fingers feel warmer.")
 
-	spelltype = /obj/effect/proc_holder/spell/targeted/cryokinesis
+	spelltype = /spell/targeted/cryokinesis
 
 	New()
 		..()
 		block = CRYOBLOCK
 
-/obj/effect/proc_holder/spell/targeted/cryokinesis
+/spell/targeted/cryokinesis
 	name = "Cryokinesis"
 	desc = "Drops the bodytemperature of another person."
 	panel = "Mutant Powers"
@@ -126,16 +126,14 @@
 	charge_type = "recharge"
 	charge_max = 600
 
-	clothes_req = 0
-	stat_allowed = 0
 	invocation_type = "none"
 	range = 7
 	selection_type = "range"
-	include_user = 1
-	centcomm_cancast = 0
-	var/list/compatible_mobs = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 
-/obj/effect/proc_holder/spell/targeted/cryokinesis/cast(list/targets)
+	spell_flags = Z2NOCAST|INCLUDEUSER
+	compatible_mobs = list(/mob/living/carbon/human)
+
+/spell/targeted/cryokinesis/cast(list/targets)
 	if(!targets.len)
 		usr << "<span class='notice'>No target found in range.</span>"
 		return
@@ -152,7 +150,7 @@
 
 	C.bodytemperature = 0
 	C.adjustFireLoss(20)
-//	C.ExtinguishMob() //need to add mobs on fire
+	C.ExtinguishMob()
 
 	C.visible_message("\red A cloud of fine ice crystals engulfs [C]!")
 
@@ -186,13 +184,13 @@
 	activation_messages = list("You feel hungry.")
 	deactivation_messages = list("You don't feel quite so hungry anymore.")
 
-	spelltype=/obj/effect/proc_holder/spell/targeted/eat
+	spelltype=/spell/targeted/eat
 
 	New()
 		..()
 		block = EATBLOCK
 
-/obj/effect/proc_holder/spell/targeted/eat
+/spell/targeted/eat
 	name = "Eat"
 	desc = "Eat just about anything!"
 	panel = "Mutant Powers"
@@ -200,15 +198,13 @@
 	charge_type = "recharge"
 	charge_max = 300
 
-	clothes_req = 0
-	stat_allowed = 0
 	invocation_type = "none"
 	range = 1
 	selection_type = "view"
 
-	var/list/types_allowed=list(/obj/item,/mob/living/simple_animal, /mob/living/carbon/monkey, /mob/living/carbon/human)
+	var/list/types_allowed=list(/obj/item,/mob/living/simple_animal, /mob/living/carbon/human)
 
-/obj/effect/proc_holder/spell/targeted/eat/choose_targets(mob/user = usr)
+/spell/targeted/eat/choose_targets(mob/user = usr)
 	var/list/targets = list()
 	var/list/possible_targets = list()
 
@@ -224,21 +220,21 @@
 
 	perform(targets)
 
-/obj/effect/proc_holder/spell/targeted/eat/proc/doHeal(var/mob/user)
+/spell/targeted/eat/proc/doHeal(var/mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H=user
 		for(var/name in H.organs_by_name)
-			var/datum/organ/external/affecting = null
+			var/obj/item/organ/external/affecting = null
 			if(!H.organs[name])
 				continue
 			affecting = H.organs[name]
-			if(!istype(affecting, /datum/organ/external))
+			if(!istype(affecting, /obj/item/organ/external))
 				continue
 			affecting.heal_damage(4, 0)
 		H.UpdateDamageIcon()
 		H.updatehealth()
 
-/obj/effect/proc_holder/spell/targeted/eat/cast(list/targets)
+/spell/targeted/eat/cast(list/targets)
 	if(!targets.len)
 		usr << "<span class='notice'>No target found in range.</span>"
 		return
@@ -254,17 +250,17 @@
 		if(the_item.gender==FEMALE)
 			t_his="her"
 		var/mob/living/carbon/human/H = the_item
-		var/datum/organ/external/limb = H.get_organ(usr.zone_sel.selecting)
+		var/obj/item/organ/external/limb = H.get_organ(usr.zone_sel.selecting)
 		if(!istype(limb))
 			usr << "\red You can't eat this part of them!"
 			revert_cast()
 			return 0
-		if(istype(limb,/datum/organ/external/head))
+		if(istype(limb,/obj/item/organ/external/head))
 			// Bullshit, but prevents being unable to clone someone.
 			usr << "\red You try to put \the [limb] in your mouth, but [t_his] ears tickle your throat!"
 			revert_cast()
 			return 0
-		if(istype(limb,/datum/organ/external/chest))
+		if(istype(limb,/obj/item/organ/external/chest))
 			// Bullshit, but prevents being able to instagib someone.
 			usr << "\red You try to put their [limb] in your mouth, but it's too big to fit!"
 			revert_cast()
@@ -283,7 +279,7 @@
 			playsound(usr.loc, 'sound/items/eatfood.ogg', 50, 0)
 			var/obj/limb_obj=limb.droplimb(1,1)
 			if(limb_obj)
-				var/datum/organ/external/chest=usr:get_organ("chest")
+				var/obj/item/organ/external/chest=usr:get_organ("chest")
 				chest.implants += limb_obj
 				limb_obj.loc=usr
 			doHeal(usr)
@@ -305,27 +301,25 @@
 	activation_messages = list("Your leg muscles feel taut and strong.")
 	deactivation_messages = list("Your leg muscles shrink back to normal.")
 
-	spelltype =/obj/effect/proc_holder/spell/targeted/leap
+	spelltype =/spell/targeted/leap
 
 	New()
 		..()
 		block = JUMPBLOCK
 
-/obj/effect/proc_holder/spell/targeted/leap
+/spell/targeted/leap
 	name = "Jump"
 	desc = "Leap great distances!"
 	panel = "Mutant Powers"
 	range = -1
-	include_user = 1
 
 	charge_type = "recharge"
 	charge_max = 30
 
-	clothes_req = 0
-	stat_allowed = 0
 	invocation_type = "none"
+	spell_flags = INCLUDEUSER
 
-/obj/effect/proc_holder/spell/targeted/leap/cast(list/targets)
+/spell/targeted/leap/cast(list/targets)
 	if (istype(usr.loc,/mob/))
 		usr << "\red You can't jump right now!"
 		return
@@ -377,7 +371,7 @@
 	name = "Polymorphism"
 	desc = "Enables the subject to reconfigure their appearance to mimic that of others."
 
-	spelltype =/obj/effect/proc_holder/spell/targeted/polymorph
+	spelltype =/spell/targeted/polymorph
 	//cooldown = 1800
 	activation_messages = list("You don't feel entirely like yourself somehow.")
 	deactivation_messages = list("You feel secure in your identity.")
@@ -386,7 +380,7 @@
 		..()
 		block = POLYMORPHBLOCK
 
-/obj/effect/proc_holder/spell/targeted/polymorph
+/spell/targeted/polymorph
 	name = "Polymorph"
 	desc = "Mimic the appearance of others!"
 	panel = "Mutant Powers"
@@ -398,7 +392,7 @@
 	range = 1
 	selection_type = "range"
 
-/obj/effect/proc_holder/spell/targeted/polymorph/cast(list/targets)
+/spell/targeted/polymorph/cast(list/targets)
 	var/mob/living/M=targets[1]
 	if(!ishuman(M))
 		usr << "\red You can only change your appearance to that of another human."
