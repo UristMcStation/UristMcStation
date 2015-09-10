@@ -121,7 +121,7 @@
 	allow_quick_empty = 0
 	allow_quick_gather = 0
 	w_class = 2 //Pocket size
-	max_combined_w_class = 104 //Could be higher i guess
+	max_storage_space = 104 //Could be higher i guess
 	use_to_pickup = 1
 
 	New()

@@ -169,7 +169,7 @@ the sprite and make my own projectile -Glloyd*/
 				user.adjustBrainLoss(10)
 		else
 			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
-			new /obj/item/weapon/twohanded/dualsaber(user.loc)
+			new /obj/item/weapon/material/twohanded/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)
 			del(W)
