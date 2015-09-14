@@ -59,9 +59,8 @@
 			//		M.music = 1
 			var/area/A = src.loc.loc
 
-			for(var/area/RA in A.related)
-				for(var/obj/machinery/party/lasermachine/L in RA)
-					L.turnon()
+			for(var/obj/machinery/party/lasermachine/L in A)
+				L.turnon()
 			playing = 1
 			while(playing == 1)
 				for(var/mob/M in world)

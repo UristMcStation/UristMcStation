@@ -21,7 +21,7 @@
 /obj/item/weapon/paintkit/fluff/dreadnought
 	name = "Ripley customization kit - Dreadnought"
 	desc = "A kit containing all the needed tools and parts to turn an APLU Ripley into a Dreadnought-style Ripley."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
 	new_name = "APLU \"Dreadnought\""

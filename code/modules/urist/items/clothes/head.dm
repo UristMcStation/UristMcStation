@@ -32,7 +32,7 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
-	flags = STOPSPRESSUREDMAGE
+	flags = STOPPRESSUREDAMAGE
 	cold_protection = HEAD
 	species_restricted = list("exclude","Vox")
 
@@ -242,7 +242,7 @@ obj/item/clothing/head/princessbow
 /obj/item/clothing/head/hazardbandana
 	name = "orange bandana"
 	desc = "Hey, I think we're missing a hazard vest..."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "taryn_kifer_1"
 
 /obj/item/clothing/head/hazardbandana/verb/toggle_bandana()

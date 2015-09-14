@@ -548,23 +548,23 @@
 			emote_sound = "sound/urist/snap1.ogg"
 			emote_sound_params = list(80, 13, 1)
 			var/mob/living/carbon/human/H = src
-			var/datum/organ/external/L = H.get_organ("l_hand")
-			var/datum/organ/external/R = H.get_organ("r_hand")
+			var/obj/item/organ/external/L = H.get_organ("l_hand")
+			var/obj/item/organ/external/R = H.get_organ("r_hand")
 			var/left_hand_good = 0
 			var/right_hand_good = 0
 			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_SPLINTED)) && (!(L.status & ORGAN_BROKEN)))
 				left_hand_good = 1
 			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_SPLINTED)) && (!(R.status & ORGAN_BROKEN)))
 				right_hand_good = 1
-			
+
 			if (!left_hand_good && !right_hand_good)
 				usr << "You need at least one hand in good working order to snap your fingers."
 				return
-			
+
 			if (((!left_hand_good) && src.r_hand) || ((!right_hand_good) && src.l_hand))
 				usr << "Your good hand is full."
 				return
-			
+
 			if (src.r_hand && src.l_hand)
 				src << "Your hands are full."
 				return
@@ -597,10 +597,10 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag"}
 
 	if (message)
 		log_emote("[name]/[key] : [message]")
-		
+
 		if (emote_sound)
 			playsound(src.loc, emote_sound, emote_sound_params[1], emote_sound_params[2], emote_sound_params[3])
-		
+
  //Hearing gasp and such every five seconds is not good emotes were not global for a reason.
  // Maybe some people are okay with that.
 

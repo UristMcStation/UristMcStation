@@ -1,4 +1,3 @@
-
 /client/verb/who()
 	set name = "Who"
 	set category = "OOC"
@@ -56,36 +55,41 @@
 	msg += "<b>Total Players: [length(Lines)]</b>"
 	src << msg
 
-/client/verb/staffwho()   //Chucks all staff in the right category, and then lists them accordingly.
+/client/verb/staffwho()
 	set category = "Admin"
 	set name = "Staffwho"
 
 	var/msg = ""
 	var/modmsg = ""
 	var/mentmsg = ""
-	var/devmsg = ""
 	var/num_mods_online = 0
 	var/num_admins_online = 0
 	var/num_mentors_online = 0
-	var/num_devs_online = 0
-
 	if(holder)
 		for(var/client/C in admins)
-			if((R_DEBUG & C.holder.rights) && !(R_SOUNDS & C.holder.rights))		//Who shows up in mod rows. Excludes Game Masters and others with all rights.
-				devmsg += "\t[C] is a [C.holder.rank]"
+			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights && !R_MENTOR & C.holder.rights))	//Used to determine who shows up in admin rows
+
+				if(C.holder.fakekey && (!R_ADMIN & holder.rights && !R_MOD & holder.rights))		//Mentors can't see stealthmins
+					continue
+
+				msg += "\t[C] is a [C.holder.rank]"
+
+				if(C.holder.fakekey)
+					msg += " <i>(as [C.holder.fakekey])</i>"
 
 				if(isobserver(C.mob))
-					devmsg += " - Observing"
+					msg += " - Observing"
 				else if(istype(C.mob,/mob/new_player))
-					devmsg += " - Lobby"
+					msg += " - Lobby"
 				else
-					devmsg += " - Playing"
+					msg += " - Playing"
 
 				if(C.is_afk())
-					devmsg += " (AFK)"
-				devmsg += "\n"
-				num_devs_online++
-			else if((R_MOD & C.holder.rights) && (R_HOST ^ C.holder.rights))		//Who shows up in mod rows. Excludes Game Masters and others with all rights.
+					msg += " (AFK)"
+				msg += "\n"
+
+				num_admins_online++
+			else if(R_MOD & C.holder.rights)				//Who shows up in mod/mentor rows.
 				modmsg += "\t[C] is a [C.holder.rank]"
 
 				if(isobserver(C.mob))
@@ -98,41 +102,6 @@
 				if(C.is_afk())
 					modmsg += " (AFK)"
 				modmsg += "\n"
-				num_mods_online++
-			else if(R_ADMIN & C.holder.rights)														//Used to determine who shows up in admin rows. This excludes moderators who would have been classified as a mod a dozen lines earlier.
-				if(C.holder.fakekey && (!(R_ADMIN & holder.rights) && !(R_MOD & holder.rights)))		//Mentors can't see stealthmins
-					continue
-				msg += "\t[C] is a [C.holder.rank]"
-				if(C.holder.fakekey)
-					msg += " <i>(as [C.holder.fakekey])</i>"
-				if(isobserver(C.mob))
-					msg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
-					msg += " - Lobby"
-				else
-					msg += " - Playing"
-
-				if(C.is_afk())
-					msg += " (AFK)"
-				msg += "\n"
-				num_admins_online++
-			else if(R_MENTOR & C.holder.rights) 			//Who shows up in mentor rows.
-				mentmsg += "\t[C] is a [C.holder.rank]"
-				if(isobserver(C.mob))
-					mentmsg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
-					mentmsg += " - Lobby"
-				else
-					mentmsg += " - Playing"
-
-				if(C.is_afk())
-					mentmsg += " (AFK)"
-				mentmsg += "\n"
-				num_mentors_online++
-	else
-		for(var/client/C in admins)			//Same as above, but with less detail for non-staff viewers.
-			if((R_DEBUG & C.holder.rights) && !(R_SOUNDS & C.holder.rights))
-				modmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mods_online++
 
 			else if(R_MENTOR & C.holder.rights)

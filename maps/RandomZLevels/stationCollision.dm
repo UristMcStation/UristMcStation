@@ -174,32 +174,3 @@ var/sc_safecode5 = "[rand(0,9)]"
 //Override this to prevent no adminlog runtimes and admin warnings about a singularity without containment
 /obj/singularity/narsie/sc_Narsie/admin_investigate_setup()
 	return
-
-/obj/singularity/narsie/sc_Narsie/process()
-	eat()
-	if(prob(25))
-		mezzer()
-
-/obj/singularity/narsie/sc_Narsie/consume(var/atom/A)
-	if(is_type_in_list(A, uneatable))
-		return 0
-	if (istype(A,/mob/living))
-		var/mob/living/L = A
-		L.gib()
-	else if(istype(A,/obj/))
-		var/obj/O = A
-		O.ex_act(1.0)
-		if(O) del(O)
-	else if(isturf(A))
-		var/turf/T = A
-		if(T.intact)
-			for(var/obj/O in T.contents)
-				if(O.level != 1)
-					continue
-				if(O.invisibility == 101)
-					src.consume(O)
-		T.ChangeTurf(/turf/space)
-	return
-
-/obj/singularity/narsie/sc_Narsie/ex_act()
-	return

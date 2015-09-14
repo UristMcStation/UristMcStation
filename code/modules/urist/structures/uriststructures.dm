@@ -159,7 +159,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 	return ..()
 
-/obj/structure/bed/chair/urist/shuttle/afterbuckle()
+/obj/structure/bed/chair/urist/shuttle/post_buckle_mob()
 	if(buckled_mob)
 		overlays += armrest
 	else
