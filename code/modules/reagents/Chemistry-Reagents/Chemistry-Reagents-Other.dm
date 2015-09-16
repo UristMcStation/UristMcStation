@@ -215,7 +215,7 @@
 /datum/reagent/water/holywater/touch_mob(var/mob/living/L, var/amount)
 	..()
 	if(ishuman(L))
-		if(L.mind && vampires.is_antagonist(L.mind))
+		if(L.mind && vamps.is_antagonist(L.mind))
 			L.adjust_fire_stacks(amount / 4) //because it's a way more fun effect
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)

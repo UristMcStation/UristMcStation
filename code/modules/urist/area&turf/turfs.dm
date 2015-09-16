@@ -119,7 +119,7 @@ turf/simulated/floor/beach/pool/New()
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 
-	lighting_lumcount = 4		//starlight
+	//lighting_lumcount = 4		//starlight
 	layer = 2
 
 	intact = 0

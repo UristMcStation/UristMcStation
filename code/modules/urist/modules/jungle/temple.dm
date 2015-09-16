@@ -96,7 +96,7 @@
 
 					var/bar_type = pick(possible_spawns)
 					for(var/i=0,i<amount,i++)
-						var/obj/item/stack/material/mineral/M = new bar_type(C)
+						var/obj/item/stack/material/M = new bar_type(C)
 						M.amount = quantity
 				else
 					//credits

@@ -52,10 +52,17 @@
 		block=SHADOWBLOCK
 
 	OnMobLife(var/mob/M)
-		var/turf/simulated/T = get_turf(M)
-		if(!istype(T))
-			return
-		if(T.lighting_lumcount <= 2)
+
+		var/light_amount = 0
+		if(isturf(M.loc))
+			var/turf/T = M.loc
+			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+			if(L)
+				light_amount = L.lum_r + L.lum_g + L.lum_b //I am so gonna regret copying this code instead of proccing it next dev cycle --scrdest
+			else
+				light_amount =  10
+
+		if(light_amount <= 2)
 			M.alpha = 0
 		else
 			M.alpha = round(255 * 0.80)
@@ -265,7 +272,7 @@
 			usr << "\red You try to put their [limb] in your mouth, but it's too big to fit!"
 			revert_cast()
 			return 0
-		usr.visible_message("\red <b>[usr] begins stuffing [the_item]'s [limb.display_name] into [m_his] gaping maw!</b>")
+		usr.visible_message("\red <b>[usr] begins stuffing [the_item]'s [limb.name] into [m_his] gaping maw!</b>")
 		var/oldloc = H.loc
 		if(!do_mob(usr,H,EAT_MOB_DELAY))
 			usr << "\red You were interrupted before you could eat [the_item]!"

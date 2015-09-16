@@ -17,7 +17,7 @@
 
 	return ..()
 
-/obj/structure/bed/chair/couch/afterbuckle()
+/obj/structure/bed/chair/couch/post_buckle_mob()
 	if(buckled_mob)
 		overlays += armrest
 	else

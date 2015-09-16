@@ -55,7 +55,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	slowdown = 1.5
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	flags = STOPSPRESSUREDMAGE
+	flags = STOPPRESSUREDAMAGE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	species_restricted = list("exclude","Vox")
@@ -319,7 +319,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/sakura_hokkaido_kimono
 	name = "Kimono"
 	desc = "A pale-pink, nearly white, kimono with a red and gold obi. There is a embroidered design of cherry blossom flowers covering the kimono."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
 	//item_color = "sakura_hokkaido_kimono"
@@ -419,7 +419,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/labcoat/robotics //I believe this one is non-buttonable by design
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "aeneasrinil_open"
 
 //for the carpenter
