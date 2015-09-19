@@ -65,6 +65,44 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 //moo000ooo000ooo
 
+/obj/item/weapon/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
+	name = "veil render"
+	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "render"
+	item_state = "render"
+	force = 15
+	throwforce = 10
+	w_class = 3
+	var/charged = 1
+
+
+/obj/effect/rend
+	name = "Tear in the fabric of reality"
+	desc = "You should run now"
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "rift"
+	density = 1
+	unacidable = 1
+	anchored = 1.0
+
+
+/obj/effect/rend/New()
+	spawn(50)
+		new /obj/singularity/narsie/wizard(get_turf(src))
+		del(src)
+		return
+	return
+
+
+/obj/item/weapon/veilrender/attack_self(mob/user as mob)
+	if(charged == 1)
+		new /obj/effect/rend(get_turf(usr))
+		charged = 0
+		visible_message("\red <B>[src] hums with power as [usr] deals a blow to reality itself!</B>")
+	else
+		user << "\red The unearthly energies that powered the blade are now dormant"
+
 /obj/item/weapon/veilrender/vealrender
 	name = "veal render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."

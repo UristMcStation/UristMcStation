@@ -222,7 +222,6 @@
 	targets += input("Choose the target of your hunger.", "Targeting") as anything in possible_targets
 
 	if(!targets.len) //doesn't waste the spell
-		revert_cast(user)
 		return
 
 	perform(targets)

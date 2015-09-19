@@ -115,7 +115,7 @@
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/fluff/deus_blueshield(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/c20r(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/c20ammo(M), slot_r_hand)
 
@@ -293,7 +293,7 @@
 		L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)
 		L.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(L), slot_head)
 		L.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(L), slot_r_store)
-		L.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/fluff/deus_blueshield(L), slot_wear_suit)
+		L.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy(L), slot_wear_suit)
 		L.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/c20r(L), slot_l_hand)
 		L.equip_to_slot_or_del(new /obj/item/weapon/storage/box/c20ammo(L), slot_r_hand)
 
