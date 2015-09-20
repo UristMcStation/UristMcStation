@@ -44,7 +44,7 @@
 	invisibility = 101
 	New()
 		if(prob(10))
-			new /obj/effect/glowshroom(src.loc)
+			new /obj/effect/plant(src.loc)
 		del(src)
 
 /obj/effect/landmark/loot_spawn
@@ -116,7 +116,7 @@
 					new /obj/effect/decal/remains/xeno(src.loc)
 			if("plants")
 				if(prob(25))
-					new /obj/effect/glowshroom(src.loc)
+					new /obj/effect/plant(src.loc)
 				else if(prob(33))
 					new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap(src.loc)
 				else if(prob(50))
@@ -284,7 +284,7 @@
 	New()
 		trap_type = pick(50;"thrower","sawburst","poison_dart","flame_burst",10;"phoron_gas",5;"n2_gas")
 		if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
-			new /obj/effect/glowshroom(src.loc)
+			new /obj/effect/plant(src.loc)
 
 		//hint that this tile is dangerous
 		if(prob(90))
@@ -373,7 +373,7 @@
 
 	New()
 		if(prob(10))
-			new /obj/effect/glowshroom(src.loc)
+			new /obj/effect/plant(src.loc)
 		if(prob(90))
 			var/turf/T = get_turf(src)
 			T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
@@ -390,7 +390,7 @@
 			..()
 		else
 			if(prob(10))
-				new /obj/effect/glowshroom(src.loc)
+				new /obj/effect/plant(src.loc)
 			del(src)
 
 //structures

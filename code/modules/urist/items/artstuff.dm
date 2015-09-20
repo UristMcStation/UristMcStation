@@ -116,7 +116,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 
 	//Drawing one pixel with a crayon
 	if(istype(I, /obj/item/weapon/pen/crayon))
-		var/obj/item/toy/crayon/C = I
+		var/obj/item/weapon/pen/crayon/C = I
 		if(masterpiece.GetPixel(pixX, pixY)) // if the located pixel isn't blank (null))
 			DrawPixelOn(C.colour, pixX, pixY)
 		return
