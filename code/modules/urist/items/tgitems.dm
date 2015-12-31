@@ -338,5 +338,4 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/item/weapon/storage/backpack/satchel_flat/New()
 	..()
-	new /obj/item/stack/tile/plasteel(src)
 	new /obj/item/weapon/crowbar(src)

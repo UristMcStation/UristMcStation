@@ -12,7 +12,7 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 	name = "floor"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "yellowdiag02"
-	floor_type = new/obj/item/stack/tile/plasteel
+	floor_type = new/obj/item/stack/tile/steel
 
 //unsimulated version
 
@@ -184,7 +184,7 @@ turf/simulated/floor/beach/pool/New()
 	name = "floor"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_floor"
-	floor_type = new/obj/item/stack/tile/plasteel
+	floor_type = new/obj/item/stack/tile/steel
 
 /turf/simulated/floor/plating/airless/uristturf
 	name = "plating"
