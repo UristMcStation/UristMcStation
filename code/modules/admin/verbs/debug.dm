@@ -579,11 +579,6 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if (isnull(dresscode))
 		return
 
-	var/datum/job/jobdatum //gotta love dem datums
-	if (dresscode == "as job...")
-		var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
-		jobdatum = job_master.GetJob(jobname)
-
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	for (var/obj/item/I in M)
 		if (istype(I, /obj/item/weapon/implant))
