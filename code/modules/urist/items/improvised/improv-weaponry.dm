@@ -18,7 +18,7 @@
 /obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/shard))
-		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear
+		var/obj/item/weapon/material/twohanded/spear/S = new /obj/item/weapon/material/twohanded/spear
 
 		user.remove_from_mob(I)
 		user.remove_from_mob(src)
@@ -42,7 +42,7 @@
 	else if(istype(I, /obj/item/stack/rods))
 
 		var/obj/item/stack/rods/R = I
-		var/obj/item/weapon/twohanded/quarterstaff/S = new /obj/item/weapon/twohanded/quarterstaff
+		var/obj/item/weapon/material/twohanded/quarterstaff/S = new /obj/item/weapon/material/twohanded/quarterstaff
 		R.use(1)
 
 		user.remove_from_mob(src)
@@ -67,7 +67,7 @@
 		del(src)
 
 //spears
-/obj/item/weapon/twohanded/spear
+/obj/item/weapon/material/twohanded/spear
 	urist_only = 1
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "spearglass0"
@@ -81,10 +81,8 @@
 	flags = NOSHIELD
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
-
-/obj/item/weapon/twohanded/spear/update_icon()
-	icon_state = "spearglass[wielded]"
-	return
+	edge = 1
+	sharp = 1
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod
@@ -110,7 +108,7 @@
 
 //quarterstaff
 
-/obj/item/weapon/twohanded/quarterstaff
+/obj/item/weapon/material/twohanded/quarterstaff
 	urist_only = 1
 	icon = 'icons/urist/items/improvised.dmi'
 	item_state = "qstaff0"
@@ -125,7 +123,7 @@
 	flags = NOSHIELD
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
 
-/obj/item/weapon/twohanded/quarterstaff/update_icon()
+/obj/item/weapon/material/twohanded/quarterstaff/update_icon()
 	urist_only = 1
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "qstaff[wielded]"
@@ -293,6 +291,7 @@
 	icon_state = "mbricks"
 	force = 12
 	throwforce = 6
+	edge = 1
 	sharp = 1
 	attack_verb = list("bashed", "stabbed", "hit", "smacked")
 	w_class = 2

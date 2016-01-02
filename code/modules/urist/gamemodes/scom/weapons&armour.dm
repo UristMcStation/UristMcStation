@@ -235,7 +235,7 @@
 	desc = "An advanced powered armour suit with many cyberwarfare enhancements."
 	icon_state = "hacker_rig"
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/mask
+	helm_type = /obj/item/clothing/head/lightrig
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	initial_modules = list(
 		/obj/item/rig_module/grenade_launcher,

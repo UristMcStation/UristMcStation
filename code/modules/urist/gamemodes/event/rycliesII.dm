@@ -220,14 +220,12 @@
 	name = "Ryclies Defence Force outfit"
 	desc = "A set of fatigues colored in the Ryclian Splinter camouflage pattern and insulated for warmth worn by members of the Ryclies Defence Force. The name tape is missing."
 	icon_state = "rycliesuni"
-	item_color = "rycliesuni"
 	item_state = "rycliesuni"
 
 /obj/item/clothing/head/urist/ryclies/helmet
 	name = "Ryclies Defence Force helmet"
 	desc = "An armored helmet worn by members of the Ryclies Defence Force, complete with a HUD panel and a boom microphone. They don't seem to be working properly, though. At least the plating is still in one piece."
 	icon_state = "ryclieshelm"
-	item_color = "ryclieshelm"
 	item_state = "ryclieshelm"
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
