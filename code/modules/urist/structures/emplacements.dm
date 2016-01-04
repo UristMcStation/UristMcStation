@@ -19,7 +19,7 @@
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
-	var/ammo_type = /obj/item/projectile/bullet/a762
+	var/ammo_type = /obj/item/ammo_casing/a762
 	var/ammo = 500
 	var/ammomax = 500
 	var/list/row1 = list()

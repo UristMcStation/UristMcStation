@@ -71,7 +71,7 @@
 		..()
 		sleep(2)
 		new	/obj/item/weapon/storage/firstaid/adv(src)
-		new /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas(src)
+		new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/melee/baton(src)

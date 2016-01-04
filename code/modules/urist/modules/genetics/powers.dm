@@ -259,17 +259,17 @@
 		var/obj/item/organ/external/limb = H.get_organ(usr.zone_sel.selecting)
 		if(!istype(limb))
 			usr << "\red You can't eat this part of them!"
-			revert_cast()
+//			revert_cast()
 			return 0
 		if(istype(limb,/obj/item/organ/external/head))
 			// Bullshit, but prevents being unable to clone someone.
 			usr << "\red You try to put \the [limb] in your mouth, but [t_his] ears tickle your throat!"
-			revert_cast()
+//			revert_cast()
 			return 0
 		if(istype(limb,/obj/item/organ/external/chest))
 			// Bullshit, but prevents being able to instagib someone.
 			usr << "\red You try to put their [limb] in your mouth, but it's too big to fit!"
-			revert_cast()
+//			revert_cast()
 			return 0
 		usr.visible_message("\red <b>[usr] begins stuffing [the_item]'s [limb.name] into [m_his] gaping maw!</b>")
 		var/oldloc = H.loc

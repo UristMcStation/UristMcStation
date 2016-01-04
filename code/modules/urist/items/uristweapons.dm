@@ -198,3 +198,22 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "knight45"
 	else
 		icon_state = "knight45-empty"
+
+///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
+/obj/item/weapon/gun/projectile/revolver/detective/deckard
+	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
+	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon_state = "leamas-empty"
+
+/obj/item/weapon/gun/projectile/revolver/detective/deckard/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "leamas-loaded"
+	else
+		icon_state = "leamas-empty"
+
+/obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
+	if(istype(A, /obj/item/ammo_magazine))
+		flick("leamas-reloading",src)
+	..()

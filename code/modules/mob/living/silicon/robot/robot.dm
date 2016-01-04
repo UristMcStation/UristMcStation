@@ -264,7 +264,7 @@
 
 	var/module_type = robot_modules[modtype]
 	new module_type(src)
-		module_sprites["Ravensdale"] = "ravensdale-Standard"
+//		module_sprites["Ravensdale"] = "ravensdale-Standard"
 
 	hands.icon_state = lowertext(modtype)
 	feedback_inc("cyborg_[lowertext(modtype)]",1)
