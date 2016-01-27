@@ -165,7 +165,6 @@
 
 	on_reagent_change()
 		update_icon()
-
 	pickup(mob/user)
 		..()
 		update_icon()

@@ -11,6 +11,7 @@ datum
 		var/total_volume = 0
 		var/maximum_volume = 100
 		var/atom/my_atom = null
+		var/chem_temp = 150
 
 		New(maximum=100)
 			maximum_volume = maximum
@@ -79,9 +80,9 @@ datum
 					if(A.volume > the_volume)
 						the_volume = A.volume
 						the_reagent = A
-				
+
 				return the_reagent
-			
+
 			get_master_reagent_name()
 				var/the_name = null
 				var/the_volume = 0
@@ -102,6 +103,7 @@ datum
 
 				return the_id
 
+			//I literally just copy/pasted this from /tg/code. If something doesn't work, that's probably why.
 			trans_to(var/obj/target, var/amount=1, var/multiplier=1, var/preserve_data=1)//if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
 				if (!target )
 					return
@@ -122,7 +124,7 @@ datum
 					if(preserve_data)
 						trans_data = copy_data(current_reagent)
 
-					R.add_reagent(current_reagent.id, (current_reagent_transfer * multiplier), trans_data, safety = 1)	//safety checks on these so all chemicals are transferred
+					R.add_reagent(current_reagent.id, (current_reagent_transfer * multiplier), trans_data, src.chem_temp, safety = 1)	//safety checks on these so all chemicals are transferred
 					src.remove_reagent(current_reagent.id, current_reagent_transfer, safety = 1)							// to the target container before handling reactions
 
 				src.update_total()
@@ -304,10 +306,15 @@ datum
 							var/total_matching_reagents = 0
 							var/total_required_catalysts = C.required_catalysts.len
 							var/total_matching_catalysts= 0
+							var/required_temp = C.required_temp
 							var/matching_container = 0
 							var/matching_other = 0
+							var/matching_temp = 0
 							var/list/multipliers = new/list()
 
+							//Temperatures are averaged as they're added to a beaker; only need to test one because of that.
+							if(required_temp <= R.holder.chem_temp)
+								matching_temp = 1
 							for(var/B in C.required_reagents)
 								if(!has_reagent(B, C.required_reagents[B]))	break
 								total_matching_reagents++
@@ -315,6 +322,7 @@ datum
 							for(var/B in C.required_catalysts)
 								if(!has_reagent(B, C.required_catalysts[B]))	break
 								total_matching_catalysts++
+
 
 							if(!C.required_container)
 								matching_container = 1
@@ -341,7 +349,7 @@ datum
 
 
 
-							if(total_matching_reagents == total_required_reagents && total_matching_catalysts == total_required_catalysts && matching_container && matching_other)
+							if(total_matching_reagents == total_required_reagents && total_matching_catalysts == total_required_catalysts && matching_container && matching_other && matching_temp)
 								var/multiplier = min(multipliers)
 								var/preserved_data = null
 								for(var/B in C.required_reagents)

@@ -26,6 +26,7 @@ datum
 		var/glass_name = null
 		var/glass_desc = null
 		var/glass_center_of_mass = null
+		var/chem_temp = 150
 		//var/list/viruses = list()
 		var/color = "#000000" // rgb: 0, 0, 0 (does not support alpha channels - yet!)
 
@@ -317,6 +318,36 @@ datum
 								M.take_organ_damage(min(15, volume * 2))
 
 				return
+
+		//Experimental Goofchem stuff starts here
+		/*
+		oil
+			name = "Oil"
+			id = "oil"
+			description = "Burns in a small, smoky fire."
+			reagent_state = LIQUID
+			color = "#C8A5DC"
+
+		ash
+			name = "Ash"
+			id = "ash"
+			description = "Basic ingredient."
+			reagent_state = SOLID
+
+		/drug
+			color = "#C8A5DC"
+			name = "Drug"
+			id = "drug"
+			custom_metabolism = 0.5
+
+		drug/space_drugs
+			name = "Space Drugs"
+			id = "space_drugs"
+			description = "An illegal chemical compound used as a drug."
+			color = "#60A584"
+			overdose_threshold = 30
+		*/
+		//Experimentl Goofchem stuff ends here
 
 		lube
 			name = "Space Lube"
@@ -1571,7 +1602,6 @@ datum
 				M.reagents.remove_all_type(/datum/reagent/ethanol, 1*REM, 0, 1)
 				..()
 				return
-
 //////////////////////////Poison stuff///////////////////////
 
 		toxin
@@ -1670,6 +1700,18 @@ datum
 				if(prob(20)) M.emote("gasp")
 				..()
 				return
+
+		toxin/explodium
+			name = "Explodium"
+			id = "explodium"
+			description = "It's a really bad idea to drink this."
+			reagent_state = LIQUID
+			color = "#cc0000" // rgb: 204, 0, 0
+			toxpwr = 0
+			overdose = REAGENTS_OVERDOSE
+			on_mob_life(var/mob/living/M as mob)
+				M.adjustBruteLoss(1000)
+				..()
 
 		toxin/slimejelly
 			name = "Slime Jelly"

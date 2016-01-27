@@ -6,6 +6,7 @@ datum
 		var/result = null
 		var/list/required_reagents = new/list()
 		var/list/required_catalysts = new/list()
+		var/required_temp = 0
 
 		// Both of these variables are mostly going to be used with slime cores - but if you want to, you can use them for other things
 		var/atom/required_container = null // the container required for the reaction to happen
@@ -21,6 +22,26 @@ datum
 				return
 
 		//I recommend you set the result amount to the total volume of all components.
+
+
+		//Experimental Goofchem stuff starts here
+		/*
+		ash
+			name = "Ash"
+			id = "ash"
+			result = "ash"
+			required_reagents = list("oil" = 1)
+			result_amount = 1
+			required_temp = 480
+
+		oil
+			name = "Oil"
+			id = "oil"
+			result = "oil"
+			required_reagents = list("fuel" = 1, "carbon" = 1, "hydrogen" = 1)
+			result_amount = 3
+		*/
+		//Experimental Goofcem stuff ends here
 
 		explosion_potassium
 			name = "Explosion"
@@ -147,6 +168,14 @@ datum
 			result = "lexorin"
 			required_reagents = list("phoron" = 1, "hydrogen" = 1, "nitrogen" = 1)
 			result_amount = 3
+
+		explodium
+			name = "Explodium"
+			id = "explodium"
+			result = "explodium"
+			required_reagents = list("nitrogen" = 1, "lithium" = 1)
+			required_temp = 500
+			result_amount = 2
 
 		space_drugs
 			name = "Space Drugs"
