@@ -358,3 +358,15 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris
 	plantname = "ambrosia"
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/amanita
+	plantname = "amanita"
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi
+	plantname = "reishi"
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/poppy
+	plantname = "poppy"
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/harebell
+	plantname = "harebell"

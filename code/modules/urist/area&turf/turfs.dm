@@ -204,3 +204,11 @@ turf/simulated/floor/beach/pool/New()
 	name = "stone wall"
 	icon = 'icons/urist/turf/walls.dmi'
 	icon_state = "stone0"
+
+//for mappers
+
+/turf/simulated/wall/false
+	can_open = 1
+
+/turf/simulated/wall/r_wall/false
+	can_open = 1

@@ -110,7 +110,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
 
-//poker tables
+//poker tables GLLOYDTODO: Come back to this
 
 /obj/structure/table/poker //No specialties, Just a mapping object.
 	name = "gambling table"
@@ -192,7 +192,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
 
-//stools
+//stools //GLLOYDTODO: come back to this, wood stool is pointless now
 
 /obj/item/weapon/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
@@ -221,7 +221,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "barber_pole"
 	desc = "A spinning barber pole."
 
-//more wood stuff
+//more wood stuff GLLOYDTODO: put this to the new system
 
 /obj/structure/filingcabinet/wood
 	name = "filing cabinet"
@@ -239,3 +239,29 @@ Please keep it tidy, by which I mean put comments describing the item before the
 			b.loc = (get_turf(src))
 		del(src)
 	..()
+
+//legacy reasons, all this does is create a new table frame somewhere. //GLLOYDTODO: COME BACK TO THIS
+
+/obj/item/weapon/table_parts
+	name = "table frame parts"
+	desc = "Parts of a table. Poor table."
+	gender = PLURAL
+	icon = 'icons/obj/items.dmi'
+	icon_state = "table_parts"
+	matter = list("metal" = 3750)
+	flags = CONDUCT
+	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
+
+/obj/item/weapon/table_parts/attack_self(mob/user as mob)
+	if(locate(/obj/structure/table) in user.loc)
+		user << "<span class='warning'>There is already a table here.</span>"
+		return
+
+	new /obj/structure/table( user.loc )
+	user.drop_item()
+	del(src)
+	return
+
+/obj/item/weapon/table_parts/reinforced
+
+/obj/item/weapon/table_parts/rack
