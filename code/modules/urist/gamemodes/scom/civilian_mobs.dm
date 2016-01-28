@@ -3,7 +3,7 @@
 	faction = "neutral"
 
 /mob/living/simple_animal/hostile/scom/civ/civvie
-	name = "Civilian"
+	name = "civilian"
 	desc = "A defenseless civilian. Better protect them!"
 	response_help = "pokes"
 	response_disarm = "shoves"
@@ -31,14 +31,15 @@
 			return
 
 /mob/living/simple_animal/hostile/scom/civ/police
-	name = "Police Officer"
+	name = "police officer"
 	desc = "An officer from a local police force."
-	icon_state = "necro_s"
-	icon_living = "necro_s"
-	icon_dead = "necro_d"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "gunman"
+	icon_living = "gunman"
+	icon_dead = "gunman_dead"
 
 /mob/living/simple_animal/hostile/scom/civ/mil
-	name = "Soldier"
+	name = "soldier"
 	desc = "A soldier from a local military force."
 	icon_state = "necro_s"
 	icon_living = "necro_s"
