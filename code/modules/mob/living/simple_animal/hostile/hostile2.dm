@@ -280,12 +280,12 @@
 		for(var/dir in cardinal)
 			var/turf/T = get_step(src, dir)
 			if(istype(T, /turf/simulated/wall) && T.Adjacent(src))
-				T.attack_generic(src)
+				T.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			for(var/atom/A in T)
 				if(!A.Adjacent(src))
 					continue
 				if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
-					A.attack_generic(src)
+					A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 	return
 
 /mob/living/simple_animal/hostile/proc/EscapeConfinement()

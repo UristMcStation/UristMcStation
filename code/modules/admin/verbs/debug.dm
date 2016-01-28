@@ -552,7 +552,10 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"nanotrasen captain",
 		"conductor",
 		"naval commando",
-		"ANTAG operative"
+		"ANTAG operative",
+		"ANFOR Marine",
+		"S-COM Operative",
+		"RDF Soldier"
 		)
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
@@ -1054,6 +1057,87 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			W.assignment = "ANTAG Operative"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("ANFOR Marine")
+			var/obj/item/device/radio/R = new /obj/item/device/radio/headset(M)
+			R.set_frequency(DTH_FREQ)
+			M.equip_to_slot_or_del(R, slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/void/commando(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/void/commando(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(M), slot_glasses)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)
+
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a357(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/flashbangs(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/plastique(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_in_backpack)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/flashbang(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen(M), slot_s_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/mateba(M), slot_belt)
+
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/laser(M), slot_r_hand)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+//			W.access += get_all_centcom_access()
+			W.assignment = "ANFOR Marine"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("SCOM Operative")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_l_store)
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "S-COM Operative"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+
+		if("RDF Soldier")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/ryclies/uniform(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/ryclies(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/urist/ryclies/helmet(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/kh50ammo(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/plastique(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/kh50(M), slot_in_backpack)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.icon_state = "centcom"
+			W.access = get_all_accesses()
+			W.access += get_all_centcom_access()
+			W.assignment = "RDF Soldier"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
 
 	M.regenerate_icons()
 

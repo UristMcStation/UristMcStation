@@ -160,6 +160,7 @@
 	if(old_name)
 		if(!(old_name == "unknown"))
 			new_mob.name = "zombified [old_name]"
+			new_mob.real_name = new_mob.name
 
 	spawn()
 		del(src)

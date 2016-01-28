@@ -30,7 +30,13 @@
 			minimum_distance = 10
 			return
 
-/mob/living/simple_animal/hostile/scom/civ/police
+/mob/living/simple_animal/hostile/scom/civ/combat/death()
+	..()
+	if(weapon1)
+		new weapon1 (src.loc)
+	return
+
+/mob/living/simple_animal/hostile/scom/civ/combat/police
 	name = "police officer"
 	desc = "An officer from a local police force."
 	icon = 'icons/uristmob/simpleanimals.dmi'
@@ -38,9 +44,35 @@
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
 
-/mob/living/simple_animal/hostile/scom/civ/mil
+/mob/living/simple_animal/hostile/scom/civ/combat/mil
 	name = "soldier"
 	desc = "A soldier from a local military force."
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
+
+/mob/living/simple_animal/hostile/scom/civ/combat/ryclies
+	name = "\improper RDF Soldier"
+	desc = "A soldier from the Ryclies Defence Force."
+	icon_state = "RDF"
+	icon_living = "RDF"
+	icon_dead = "RDF-d"
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	ranged = 1
+	projectilesound = 'sound/weapons/laser.ogg'
+	weapon1 = /obj/item/weapon/gun/projectile/kh50
+	minimum_distance = 5
+
+/mob/living/simple_animal/hostile/scom/civ/combat/anfor
+	name = "\improper ANFOR Marine"
+	desc = "A marine from the Allied Naval Forces"
+	icon_state = "ANFOR"
+	icon_living = "ANFOR"
+	icon_dead = "ANFOR-d"
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	ranged = 1
+	projectilesound = 'sound/weapons/Gunshot.ogg'
+	weapon1 = /obj/item/weapon/gun/energy/laser
+	minimum_distance = 5
