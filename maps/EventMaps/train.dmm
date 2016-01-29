@@ -164,7 +164,7 @@
 "dh" = (/obj/structure/closet/crate,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/storage/fancy/cigarettes,/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "di" = (/obj/item/weapon/stool/padded,/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
 "dj" = (/obj/structure/closet/cabinet,/obj/item/weapon/mop,/obj/item/weapon/caution/cone,/obj/item/weapon/caution/cone,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/shuttle/train/stop)
-"dk" = (/obj/machinery/door/airlock/sandstone{icon = 'icons/urist/events/train.dmi'; name = "Guardroom"; req_access = list(0)},/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
+"dk" = (/obj/machinery/door/airlock/sandstone{icon = 'icons/urist/events/train.dmi'; name = "Guardroom"},/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
 "dl" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
 "dm" = (/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
 "dn" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/material/ashtray/bronze,/turf/unsimulated/floor{icon_state = "dark"},/area/shuttle/train/stop)
