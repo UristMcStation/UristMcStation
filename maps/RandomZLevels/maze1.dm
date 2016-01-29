@@ -114,6 +114,6 @@
 	if(!teleport_z)
 		teleport_z = src.z
 	if(!teleport_y)
-		teleport_z = src.z
+		teleport_y = src.y
 	if(!teleport_x)
-		teleport_z = src.z
+		teleport_x = src.x
