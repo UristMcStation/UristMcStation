@@ -1789,6 +1789,7 @@
 #include "code\modules\urist\vehicles\motorcycle.dm"
 #include "code\modules\urist\vehicles\sportscar.dm"
 #include "code\modules\urist\verbs\antagooc.dm"
+#include "code\modules\urist\verbs\miscclient.dm"
 #include "code\modules\vehicles\cargo_train.dm"
 #include "code\modules\vehicles\train.dm"
 #include "code\modules\vehicles\vehicle.dm"

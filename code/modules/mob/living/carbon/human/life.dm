@@ -1549,25 +1549,27 @@
 		return temp
 
 	proc/handle_heartbeat()
-		if(pulse == PULSE_NONE || !species.has_organ["heart"])
-			return
+		var/client/C = src.client
+		if(C && C.prefs.toggles & SOUND_HEARTBEAT) //disable heartbeat by pref
+			if(pulse == PULSE_NONE || !species.has_organ["heart"])
+				return
 
-		var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+			var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
 
-		if(!H || H.robotic >=2 )
-			return
+			if(!H || H.robotic >=2 )
+				return
 
-		if(pulse >= PULSE_2FAST || shock_stage >= 10 || istype(get_turf(src), /turf/space))
-			//PULSE_THREADY - maximum value for pulse, currently it 5.
-			//High pulse value corresponds to a fast rate of heartbeat.
-			//Divided by 2, otherwise it is too slow.
-			var/rate = (PULSE_THREADY - pulse)/2
+			if(pulse >= PULSE_2FAST || shock_stage >= 10 || istype(get_turf(src), /turf/space))
+				//PULSE_THREADY - maximum value for pulse, currently it 5.
+				//High pulse value corresponds to a fast rate of heartbeat.
+				//Divided by 2, otherwise it is too slow.
+				var/rate = (PULSE_THREADY - pulse)/2
 
-			if(heartbeat >= rate)
-				heartbeat = 0
-				src << sound('sound/effects/singlebeat.ogg',0,0,0,50)
-			else
-				heartbeat++
+				if(heartbeat >= rate)
+					heartbeat = 0
+					src << sound('sound/effects/singlebeat.ogg',0,0,0,50)
+				else
+					heartbeat++
 
 /*
 	Called by life(), instead of having the individual hud items update icons each tick and check for status changes
