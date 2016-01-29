@@ -312,6 +312,10 @@
 			return "Mining Office"
 		if(access_mailsorting)
 			return "Cargo Office"
+		if(access_mint)
+			return "Mint"
+		if(access_mint_vault)
+			return "Mint Vault"
 		if(access_heads_vault)
 			return "Main Vault"
 		if(access_mining_station)
