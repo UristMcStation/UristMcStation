@@ -28,6 +28,13 @@
 	cell_type = "/obj/item/weapon/cell/super"
 	w_class = 2.0
 
+	firemodes = list(
+		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam/light, fire_sound='sound/weapons/Laser.ogg'),
+		list(name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse/light, fire_sound='sound/weapons/pulse.ogg', fire_delay=25, charge_cost=400),
+		)
+
+
 /obj/item/weapon/gun/energy/pulse_rifle/cannon
 	urist_only = 1
 	name = "pulse cannon"
@@ -41,6 +48,9 @@
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
 	cell_type = "/obj/item/weapon/cell/super"
 	w_class = 4.0
+
+/obj/item/weapon/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
+	user << "<span class='warning'>[src.name] only has one setting.</span>"
 
 /obj/item/weapon/gun/energy/laser/pistol
 	urist_only = 1
@@ -80,13 +90,15 @@
 	scommoney = 100
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	accuracy = -3 //shooting at the hip
+	scoped_accuracy = 0
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
-	zoom()
+	toggle_scope(2.0)
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()

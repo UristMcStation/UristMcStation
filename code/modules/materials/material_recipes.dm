@@ -78,11 +78,19 @@
 	recipes += new/datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2)
 	recipes += new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
 
+	recipes += 	new/datum/stack_recipe_list("filing cabinets", list(\
+		new/datum/stack_recipe("filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("chest drawer", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("tall filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		))
+
+
 /material/plasteel/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("AI core", /obj/structure/AIcore, 4, time = 50, one_per_turf = 1)
 	recipes += new/datum/stack_recipe("Metal crate", /obj/structure/closet/crate, 10, time = 50, one_per_turf = 1)
 	recipes += new/datum/stack_recipe("knife grip", /obj/item/weapon/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+	recipes += new/datum/stack_recipe("Scrap metal shield", /obj/item/weapon/shield/riot/scrapper, 10, time = 50, one_per_turf = 0)
 
 /material/sandstone/generate_recipes()
 	..()
