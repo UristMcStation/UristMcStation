@@ -443,7 +443,7 @@ macro "macro"
 		is-disabled = false
 	elem 
 		name = "F5"
-		command = "asay"
+		command = "aghost"
 		is-disabled = false
 	elem 
 		name = "F6"
@@ -919,7 +919,7 @@ macro "borgmacro"
 		is-disabled = false
 	elem 
 		name = "F5"
-		command = "asay"
+		command = "aghost"
 		is-disabled = false
 	elem 
 		name = "F6"

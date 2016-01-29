@@ -275,8 +275,7 @@
 /obj/item/ammo_casing/a127x54mm
 	desc = "A 12.7x54mm bullet casing."
 	caliber = "12.7x54mm"
-	projectile_type = "/obj/item/projectile/bullet/a127"
-	caliber = "12.7x54mm"
+	projectile_type = "/obj/item/projectile/bullet/rifle/a127"
 
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this

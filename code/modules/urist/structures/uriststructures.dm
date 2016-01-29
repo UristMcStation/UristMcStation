@@ -109,6 +109,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
+	base_icon = "bed"
+
+/obj/structure/bed/nice/New(var/newloc)
+	..(newloc,"plastic","cotton")
 
 //poker tables GLLOYDTODO: Come back to this
 
@@ -146,6 +150,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/chair/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
+
+/obj/structure/bed/chair/urist/update_icon()
+	return
 
 /obj/structure/bed/chair/urist/shuttle
 	name = "shuttle chair"
@@ -192,21 +199,24 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
 
-//stools //GLLOYDTODO: come back to this, wood stool is pointless now
+//stools
 
 /obj/item/weapon/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
+
+/obj/item/weapon/stool/urist/update_icon()
+	return
 
 /obj/item/weapon/stool/urist/bar
 	name = "bar stool"
 	icon_state = "barstool"
 	item_state = "stool"
 
-/obj/item/weapon/stool/urist/wood
+/*/obj/item/weapon/stool/urist/wood
 	urist_only = 1
 	name = "wood stool"
 	icon_state = "woodstool"
-	item_state = "stool"
+	item_state = "stool"*/
 
 //Barber
 

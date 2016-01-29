@@ -20,11 +20,11 @@
 "at" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 41; teleport_y = 97; teleport_z = 7},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "au" = (/obj/structure/window/reinforced,/turf/simulated/floor{icon_state = "dark"},/area/space)
 "av" = (/obj/machinery/door/window{name = "Gateway Chamber"; icon_state = "right"; dir = 2; req_access = list(62)},/turf/simulated/floor{icon_state = "dark"},/area/space)
-"aw" = (/obj/structure/table,/obj/structure/sign/biohazard{pixel_x = -32},/obj/item/weapon/storage/firstaid/regular,/turf/simulated/floor,/area/space)
-"ax" = (/obj/structure/table,/obj/item/weapon/paper/pamphlet,/turf/simulated/floor,/area/space)
+"aw" = (/obj/structure/table/standard,/obj/structure/sign/biohazard{pixel_x = -32},/obj/item/weapon/storage/firstaid/regular,/turf/simulated/floor,/area/space)
+"ax" = (/obj/structure/table/standard,/obj/item/weapon/paper/pamphlet,/turf/simulated/floor,/area/space)
 "ay" = (/turf/simulated/floor,/area/space)
-"az" = (/obj/structure/table,/obj/item/device/radio/off{pixel_y = 6},/obj/item/device/radio/off{pixel_x = 6; pixel_y = 4},/obj/item/device/radio/off{pixel_x = -6; pixel_y = 4},/obj/item/device/radio/off,/turf/simulated/floor,/area/space)
-"aA" = (/obj/structure/table,/obj/structure/sign/biohazard{pixel_x = 32},/turf/simulated/floor,/area/space)
+"az" = (/obj/structure/table/standard,/obj/item/device/radio/off{pixel_y = 6},/obj/item/device/radio/off{pixel_x = 6; pixel_y = 4},/obj/item/device/radio/off{pixel_x = -6; pixel_y = 4},/obj/item/device/radio/off,/turf/simulated/floor,/area/space)
+"aA" = (/obj/structure/table/standard,/obj/structure/sign/biohazard{pixel_x = 32},/turf/simulated/floor,/area/space)
 "aB" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aC" = (/obj/item/device/radio/intercom{freerange = 0; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -30},/turf/simulated/floor,/area/space)
 "aD" = (/obj/structure/stool,/turf/simulated/floor,/area/space)
@@ -97,7 +97,7 @@
 "bS" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 16; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "bT" = (/obj/item/weapon/paper/crumpled{info = "\[small] I knew I could count on you to make it this far. Yet even with the anger gone, darkness still persisted in my heart. Now, have you heard of the Monty Hall problem? That may help you here. Three doors are in front of you. But if you think closely, it may only be two. And, if you think even harder (I believe in you) it may only be one... Think back upon your travels. The answer may be right in front of you.\[br]\[br] - The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/space)
 "bU" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 96; teleport_y = 63; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/space)
-"bV" = (/obj/effect/step_trigger/teleporter{teleport_x = 12; teleport_y = 12; teleport_z = 7},/obj/effect/gateway{density = 0},/turf/unsimulated/floor,/area/space)
+"bV" = (/obj/effect/step_trigger/telepo2; teleport_z = 7},/obj/effect/gateway{density = 0},/turf/unsimulated/floor,/area/space)
 "bW" = (/obj/effect/step_trigger/trap,/turf/unsimulated/floor,/area/space)
 "bX" = (/obj/effect/step_trigger/trap,/obj/effect/step_trigger/trap,/obj/effect/decal/cleanable/blood,/turf/unsimulated/floor,/area/space)
 "bY" = (/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
@@ -117,44 +117,45 @@
 "cm" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
 "cn" = (/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
 "co" = (/obj/item/weapon/paper/crumpled{info = "\[small]Congratulation. I didn't think you would make it this far. Through this door is your reward. Grab the diamond, you will be teleported to your way home. There will be gifts waiting for you for making it this far. I hope you enjoyed your time in my maze. Be warned though, staying too long in the diamond room will end in your death, so hurry and grab the diamond!\[br]\[br]- The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/space)
-"cp" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
-"cq" = (/obj/effect/step_trigger/teleporter{teleport_x = 5; teleport_y = 32; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
-"cr" = (/obj/item/weapon/paper/crumpled{info = "RUN!"},/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
-"cs" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
-"ct" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cu" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
-"cv" = (/obj/effect/landmark{name = "awaystart"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cw" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 18; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
-"cx" = (/obj/item/weapon/crowbar,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cy" = (/obj/item/weapon/paper/crumpled{info = "\[small]Ah, welcome my friend. Welcome to the maze. Listen to what I say, and you will survive. Of course, you will have to use that brain of yours as well. I'm so envious of you you see. In fact, I was always wracked with envy. It tore me apart inside for years. It was envy that was in my heart when shaping this maze. Good luck my friend. Remember to read close, and be careful with doors. \[br]\[br]-The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cz" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 17; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
-"cA" = (/obj/machinery/gateway{dir = 9},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cB" = (/obj/machinery/gateway{dir = 1},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cC" = (/obj/machinery/gateway{dir = 5},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cD" = (/obj/machinery/gateway{dir = 8},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cE" = (/obj/machinery/gateway/centeraway{calibrated = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cF" = (/obj/machinery/gateway{dir = 4},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cG" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
-"cH" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cI" = (/obj/machinery/gateway,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cJ" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cK" = (/obj/structure/closet/crate,/obj/item/weapon/spacecash/c500,/obj/item/weapon/spacecash/c500,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cL" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
-"cM" = (/obj/structure/closet/crate,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cN" = (/mob/living/simple_animal/turtle{desc = "Is that honestly the Director? No fucking way."; name = "The Director"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cO" = (/obj/structure/closet/crate,/obj/item/stack/material/uranium,/obj/item/stack/material/uranium,/obj/item/stack/material/uranium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cP" = (/obj/structure/ladder{height = -1; id = "maze"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cQ" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cR" = (/obj/structure/closet/crate,/obj/item/stack/material/gold,/obj/item/stack/material/gold,/obj/item/stack/material/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cS" = (/obj/structure/closet/crate,/obj/item/stack/material/iron,/obj/item/stack/material/iron,/obj/item/stack/material/iron,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cT" = (/obj/structure/closet/crate,/obj/item/stack/material/silver,/obj/item/stack/material/silver,/obj/item/stack/material/silver,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cU" = (/obj/structure/closet/crate,/obj/item/stack/material/osmium,/obj/item/stack/material/osmium,/obj/item/stack/material/osmium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cV" = (/obj/item/weapon/paper/crumpled{info = "You've made it. Free me, let me loose. This is no maze, it's a labrynth. It's a cage. A cage for me. Free me, take my armour as your prize. Thank you. You have proven yourself worthy. Your perserverence and lack of greed shows your true spirit."},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cW" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cX" = (/obj/structure/maze/director,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cY" = (/obj/item/stack/material/diamond,/obj/item/stack/material/diamond,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"cZ" = (/obj/item/device/kit/paint/dreadnought,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
-"da" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cp" = (/obj/effect/step_trigger/teleporter,/turf/unsimulated/wall,/area/awaymission/maze)
+"cq" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
+"cr" = (/obj/effect/step_trigger/teleporter{teleport_x = 5; teleport_y = 32; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-gcircuit"; icon_state = "gcircuit"},/area/awaymission/maze)
+"cs" = (/obj/item/weapon/paper/crumpled{info = "RUN!"},/turf/unsimulated/floor{icon_state = "grass1"; name = "grass"},/area/space)
+"ct" = (/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
+"cu" = (/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cv" = (/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
+"cw" = (/obj/effect/landmark{name = "awaystart"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cx" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 18; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuit"; icon_state = "bcircuit"},/area/awaymission/maze)
+"cy" = (/obj/item/weapon/crowbar,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cz" = (/obj/item/weapon/paper/crumpled{info = "\[small]Ah, welcome my friend. Welcome to the maze. Listen to what I say, and you will survive. Of course, you will have to use that brain of yours as well. I'm so envious of you you see. In fact, I was always wracked with envy. It tore me apart inside for years. It was envy that was in my heart when shaping this maze. Good luck my friend. Remember to read close, and be careful with doors. \[br]\[br]-The Director \[/small]"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cA" = (/obj/machinery/door/airlock/hatch,/obj/effect/step_trigger/teleporter{teleport_x = 17; teleport_y = 24; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-bcircuitoff"; icon_state = "bcircuitoff"},/area/awaymission/maze)
+"cB" = (/obj/machinery/gateway{dir = 9},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cC" = (/obj/machinery/gateway{dir = 1},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cD" = (/obj/machinery/gateway{dir = 5},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cE" = (/obj/machinery/gateway{dir = 8},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cF" = (/obj/machinery/gateway/centeraway{calibrated = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cG" = (/obj/machinery/gateway{dir = 4},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cH" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cI" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cJ" = (/obj/machinery/gateway,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cK" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cL" = (/obj/structure/closet/crate,/obj/item/weapon/spacecash/c500,/obj/item/weapon/spacecash/c500,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cM" = (/obj/machinery/door/airlock/hatch,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
+"cN" = (/obj/structure/closet/crate,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/obj/item/weapon/coin/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cO" = (/mob/living/simple_animal/turtle{desc = "Is that honestly the Director? No fucking way."; name = "The Director"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cP" = (/obj/structure/closet/crate,/obj/item/stack/material/uranium,/obj/item/stack/material/uranium,/obj/item/stack/material/uranium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cQ" = (/obj/structure/ladder{height = -1; id = "maze"},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cR" = (/obj/effect/gateway{density = 0},/obj/effect/step_trigger/teleporter{teleport_x = 38; teleport_y = 4; teleport_z = 7},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cS" = (/obj/structure/closet/crate,/obj/item/stack/material/gold,/obj/item/stack/material/gold,/obj/item/stack/material/gold,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cT" = (/obj/structure/closet/crate,/obj/item/stack/material/iron,/obj/item/stack/material/iron,/obj/item/stack/material/iron,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cU" = (/obj/structure/closet/crate,/obj/item/stack/material/silver,/obj/item/stack/material/silver,/obj/item/stack/material/silver,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cV" = (/obj/structure/closet/crate,/obj/item/stack/material/osmium,/obj/item/stack/material/osmium,/obj/item/stack/material/osmium,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cW" = (/obj/item/weapon/paper/crumpled{info = "You've made it. Free me, let me loose. This is no maze, it's a labrynth. It's a cage. A cage for me. Free me, take my armour as your prize. Thank you. You have proven yourself worthy. Your perserverence and lack of greed shows your true spirit."},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cX" = (/obj/effect/gateway{density = 0},/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cY" = (/obj/structure/maze/director,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"cZ" = (/obj/item/stack/material/diamond,/obj/item/stack/material/diamond,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"da" = (/obj/item/device/kit/paint/dreadnought,/turf/unsimulated/floor{tag = "icon-elevatorshaft"; icon_state = "elevatorshaft"},/area/awaymission/maze)
+"db" = (/mob/living/simple_animal/hostile/faithless,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/awaymission/maze)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacadadadadadadadaeaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -239,22 +240,22 @@ aaaaaaaaaaaaaaaaclcncncncncnclaaaaaaaaaaaaaaaaaaabbYbYbYbYbYbYcdbYabbYcgcgcgcgbY
 aaaaaaaaaaaaaaaaclcncncncncnclaaaaaaaaaaaaaaaaaaababababababababababbYbYbYbYbYbYababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababcoabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaclcncncncncnclaaaaaaaaaaaaaaaaaaabbYbYbYbYbYbYcdbYabbYbYbYbYbYbYabbYcdbYbYbYbYbYbYabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaclcncncncncnclaaaaaaaaaaaaaaaaaacebYbYbYbYbYcdcdbYabbYbYbYbYbYbYcebYcdcdbYbYbYbYbYabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcncncncncnclaaaaaaaaaaaaaaaaaaabbYbYbYbYbYbYcdbYabbYbYbYbYbYbYabbYcdbYbYbYbYbYbYabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclclclcpclclclaaaaaaaaaaaaaaaaaaababababababababababbYbYbYbYbYbYababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaclcqclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababbYcrbYbYababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaacpcncncncncnclaaaaaaaaaaaaaaaaaaabbYbYbYbYbYbYcdbYabbYbYbYbYbYbYabbYcdbYbYbYbYbYbYabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclclclcqclclclaaaaaaaaaaaaaaaaaaababababababababababbYbYbYbYbYbYababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaclcrclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababbYcsbYbYababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaRaRaRaRaRabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 clclclclclclclaaclclclcnclclclaaclclclclclclclaaaaaaaaaaaaaaaaaaaaaaababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clcscscscscsclaaclctctctctctclaaclcucucucucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clcscscscscsclclclctcvcvcvctclclclcucucucucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clcscscscscscwcscscxcvcycvcxcucuczcucucucucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clcscscscscsclclclctcvcvcvctclclclcucucucucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctcAcBcCctctclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clcscscscscsclaaclctctctctctclaaclcucucucucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctcDcEcFctctclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-clclclclclclclaaclclclcGclclclaaclclclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctcHcIcJctctclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaclcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcKctctctctctcKclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclclclcLclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcMctctcNctctcOclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcPctctctcQclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcGcGcGcGcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcRctctctctctcSclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctctctctclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcGcGcGcGcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcTctctctctctcUclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctcVctctclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcGcGcGcGcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclctcWctclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclctctctctctclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcGcGcGcGcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcXctcYctcZclaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaclcGcGdacGcGclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclaaaaaaaaaaaaaaaa
+clctctctctctclaaclcucucucucuclaaclcvcvcvcvcvclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+clctctctctctclclclcucwcwcwcuclclclcvcvcvcvcvclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+clctctctctctcxctctcycwczcwcycvcvcAcvcvcvcvcvclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+clctctctctctclclclcucwcwcwcuclclclcvcvcvcvcvclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucBcCcDcucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+clctctctctctclaaclcucucucucuclaaclcvcvcvcvcvclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucEcFcGcucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+clclclclclclclaaclclclcHclclclaaclclclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucIcJcKcucuclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaclcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcLcucucucucucLclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclclclcMclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcNcucucOcucucPclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcQcucucucRclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclcHcHcHcHcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcScucucucucucTclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucucucuclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclcHcHcHcHcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcUcucucucucucVclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucWcucuclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclcHcHcHcHcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclcucXcuclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcucucucucuclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclcHcHcHcHcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclcYcucZcudaclaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaclcHcHdbcHcHclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaclclclclclclclaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaclclclclclclclaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

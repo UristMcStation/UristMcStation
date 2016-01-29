@@ -671,3 +671,11 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags = ONESIZEFITSALL
+
+/obj/item/clothing/suit/armor/vest/deus_blueshield
+	name = "blue shield security armor"
+	desc = "An armored vest with the badge of a Blue Shield Security lieutenant."
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon_state = "deus_blueshield"
+	item_state = "deus_blueshield"
+

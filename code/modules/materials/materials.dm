@@ -640,7 +640,7 @@ var/list/name_to_material
 //TODO PLACEHOLDERS:
 /material/leather
 	name = "leather"
-	icon_colour = "#5C4831"
+	icon_colour = "#ff7100" //"#5C4831"
 	stack_origin_tech = "materials=2"
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+300

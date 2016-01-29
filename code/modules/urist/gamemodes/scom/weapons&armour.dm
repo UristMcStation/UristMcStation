@@ -115,8 +115,9 @@
 	ammo_type = "/obj/item/ammo_casing/a762mm"
 	max_ammo = 10
 	multiple_sprites = 1
+	caliber = "7.62mm"
 
-/obj/item/ammo_magazine/a12mm/empty
+/obj/item/ammo_magazine/a762mm/empty
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -134,6 +135,9 @@
 /obj/item/projectile/beam/sniper/pulse
 	icon_state = "u_laser"
 	damage = 70
+	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
+	tracer_type = /obj/effect/projectile/laser_pulse/tracer
+	impact_type = /obj/effect/projectile/laser_pulse/impact
 
 /obj/item/projectile/beam/pulse/heavy/h2
 	damage = 70

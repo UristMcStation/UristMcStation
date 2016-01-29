@@ -7,7 +7,12 @@
 	var/image/armrest = null
 	var/couchpart = 0 //0 = middle, 1 = left, 2 = right
 
-/obj/structure/bed/chair/couch/New()
+/obj/structure/bed/chair/couch/update_icon()
+	return
+
+/obj/structure/bed/chair/couch/New(var/newloc,var/newmaterial)
+	..(newloc,"steel","black")
+
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
 		armrest.layer = MOB_LAYER + 0.1
@@ -26,13 +31,16 @@
 /obj/structure/bed/chair/couch/left
 	couchpart = 1
 	icon_state = "couch_left"
+	base_icon = "couch_left"
 
 /obj/structure/bed/chair/couch/right
 	couchpart = 2
 	icon_state = "couch_right"
+	base_icon = "couch_right"
 
 /obj/structure/bed/chair/couch/middle
 	icon_state = "couch_middle"
+	base_icon = "couch_middle"
 
 /obj/structure/bed/chair/couch/left/black
 	color = rgb(167,164,153)

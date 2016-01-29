@@ -82,27 +82,33 @@
 
 		if("eventwarp1")
 			eventwarp1 += loc
-			del(src)
+			qdel(src)
+			return
 
 		if("eventwarp2")
 			eventwarp2 += loc
-			del(src)
+			qdel(src)
+			return
 
 		if("eventwarp3")
 			eventwarp3 += loc
-			del(src)
+			qdel(src)
+			return
 
 		if("scomspawn1")
 			scomspawn1 += loc
-			del(src)
+			qdel(src)
+			return
 
 		if("scomspawn2")
 			scomspawn2 += loc
-			del(src)
+			qdel(src)
+			return
 
 		if("scomspawn3")
 			scomspawn3 += loc
-			del(src)
+			qdel(src)
+			return
 
 //end urist stuff
 	landmarks_list += src
