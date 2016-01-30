@@ -139,7 +139,7 @@
 	maxHealth = 250
 	health = 250
 
-/mob/living/simple_animal/hostile/scomfighter/death()
+/mob/living/simple_animal/hostile/scom/fighter/death()
 	..()
 	visible_message("<span class='danger'>The [src.name] explodes!</span>")
 	explosion(src.loc, 0, 0, 2)

@@ -80,48 +80,76 @@
 		M.vampire.torpor = 1
 		H << "<span class='notice'>You are now entering torpor. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
 		H.status_flags |= FAKEDEATH		//play dead
-		H.vampire_coffinregen()
 	else
 		M.vampire.torpor = 0
 		H << "<span class='notice'>You are now waking up from your sleep.</span>"
 		H.status_flags &= ~(FAKEDEATH)
 		H.update_canmove()
 		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
+		H.paralysis += 2 //as above
 
-/mob/living/carbon/human/proc/vampire_coffinregen(var/datum/mind/V)
-	var/mob/living/carbon/human/H = src //redundant, but I don't want to go through each and every H and src it
-	if(istype(H.loc, /obj/structure/closet/coffin))
-		while(V.vampire.torpor)
-			//blatant edited copypasta from xenomorph in alien_species.dm
-			var/heal_rate = 3
-			var/mend_prob = 10
+	do
+		vampire_coffinregen(M)
+		sleep(10)
+	while(vampire_canregen(M))
 
-			//first heal damages
-			if (H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
-				H.adjustBruteLoss(-heal_rate)
-				H.adjustFireLoss(-heal_rate)
-				H.adjustOxyLoss(-heal_rate)
-				H.adjustToxLoss(-heal_rate)
+
+/proc/vampire_canregen(var/datum/mind/V)
+	var/mob/living/carbon/human/H = V.current
+	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
+			return 1
+		for(var/obj/item/organ/I in H.internal_organs)
+			if(I.damage > 0)
+				return 1
+		for(var/obj/item/organ/external/E in H.bad_external_organs)
+			if (E.status & (ORGAN_DESTROYED || ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY || ORGAN_BROKEN))
+				return 1
+	else
+		return 0
+
+/proc/vampire_coffinregen(var/datum/mind/V)
+
+	var/mob/living/carbon/human/H = V.current
+
+	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+		//blatant edited copypasta from xenomorph in alien_species.dm
+		var/heal_rate = 3
+		var/mend_prob = 20
+
+		//first heal damages
+		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
+			H.adjustBruteLoss(-heal_rate)
+			H.adjustFireLoss(-heal_rate)
+			H.adjustOxyLoss(-heal_rate)
+			H.adjustToxLoss(-heal_rate)
+			if (prob(5))
+				H << "<span class='sinister'>You feel a soothing sensation come over you...</span>"
+			return 0
+
+
+		//next internal organs
+		for(var/obj/item/organ/I in H.internal_organs)
+			if(I.damage > 0)
+				I.damage = max(I.damage - heal_rate, 0)
 				if (prob(5))
-					H << "<span class='sinister'>You feel a soothing sensation come over you...</span>"
-				sleep(10)
+					H << "<span class='sinister'>You feel a soothing sensation within your [I.parent_organ]...</span>"
+				return 0
 
-			//next internal organs
-			for(var/obj/item/organ/I in H.internal_organs)
-				if(I.damage > 0)
-					I.damage = max(I.damage - heal_rate, 0)
-					if (prob(5))
-						H << "<span class='sinister'>You feel a soothing sensation within your [I.parent_organ]...</span>"
-					sleep(10)
 
-			//next mend broken bones, approx 10 ticks each
-			for(var/obj/item/organ/external/E in H.bad_external_organs)
-				if (E.status & ORGAN_BROKEN)
-					if (prob(mend_prob))
-						if (E.mend_fracture())
-							H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
-						sleep(10)
-
+		//next mend broken bones, approx 10 ticks each
+		for(var/obj/item/organ/external/E in H.bad_external_organs)
+			if (E.status & ORGAN_BROKEN)
+				if (prob(mend_prob))
+					if (E.mend_fracture())
+						H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
+					return 0
+			if (E.status & (ORGAN_DESTROYED || ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY))
+				if (prob(round(mend_prob,1)))
+					E.status = 0
+					H << "<span class='sinister'>You feel your [E.name] regrow, completely intact.</span>"
+	else
+		return 1
 	return
 
 

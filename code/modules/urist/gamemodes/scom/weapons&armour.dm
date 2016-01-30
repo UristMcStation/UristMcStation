@@ -114,6 +114,7 @@
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a762mm"
 	max_ammo = 10
+	mag_type = MAGAZINE
 	multiple_sprites = 1
 	caliber = "7.62mm"
 
@@ -122,6 +123,7 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	ammo_type = "/obj/item/ammo_casing/a762mm"
+	mag_type = MAGAZINE
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a762mm

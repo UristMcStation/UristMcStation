@@ -268,7 +268,6 @@
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm-empty"
 	icon = 'icons/urist/items/uristweapons.dmi'
-	ammo_type = /obj/item/ammo_casing/a127x54mm
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
