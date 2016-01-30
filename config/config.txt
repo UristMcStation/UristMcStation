@@ -334,7 +334,9 @@ ALIENS_ALLOWED
 #DISABLE_RESPAWN
 
 ## Uncomment to use a dynamic mission difficulty system for SCOM.
-SCOM_DYNAMIC_DIFFICULTY## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lightning systems.
+SCOM_DYNAMIC_DIFFICULTY
+
+## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lightning systems.
 STARLIGHT 2
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
