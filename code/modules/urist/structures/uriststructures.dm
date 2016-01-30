@@ -143,8 +143,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user.put_in_hands(H)
 		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
 
-		del(src)
-		del(I)
+		qdel(src)
+		qdel(I)
 
 //shuttle chairs
 
@@ -247,7 +247,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		S.amount = 2
 		for(var/obj/item/b in contents)
 			b.loc = (get_turf(src))
-		del(src)
+		qdel(src)
 	..()
 
 //legacy reasons, all this does is create a new table frame somewhere. //GLLOYDTODO: COME BACK TO THIS
@@ -269,7 +269,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 	new /obj/structure/table( user.loc )
 	user.drop_item()
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/table_parts/reinforced

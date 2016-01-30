@@ -142,7 +142,7 @@
 	invisibility = 101
 
 	for(var/t in organs)
-		del(t)
+		qdel(t)
 
 	var/mob/living/simple_animal/hostile/zombie/new_mob = new mobpath(src.loc)
 
@@ -163,7 +163,7 @@
 			new_mob.real_name = new_mob.name
 
 	spawn()
-		del(src)
+		qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/scom/civ/proc/SAZombify(var/mobpath)//contrary to the name, does not involve undead Goons
@@ -180,7 +180,7 @@
 	new_mob.a_intent = "hurt"
 
 	spawn()
-		del(src)
+		qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/vampire

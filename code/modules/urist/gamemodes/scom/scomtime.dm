@@ -8,7 +8,7 @@
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id)) //we're going to actually let them keep their IDs because their account is tied to it
 				continue
-			del(I)
+			qdel(I)
 		if(M.disabilities)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(M), slot_glasses)
 
@@ -172,7 +172,7 @@
 			for(var/obj/item/weapon/cell/cell in R)
 				cell.charge = INFINITY
 				cell.maxcharge = INFINITY
-			del(S)
+			qdel(S)
 
 /mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
@@ -186,7 +186,7 @@
 	for (var/obj/item/I in L)
 		if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id))
 			continue
-		del(I)
+		qdel(I)
 
 	if(L.disabilities)
 		L.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(L), slot_glasses)

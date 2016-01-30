@@ -68,7 +68,7 @@ var/list/eventwarp3 = list()
 	..()
 	if(istype(W, /obj/item/weapon/train/ore))
 		user.visible_message("[user] tosses the coal into the engine!", "You toss the coal ore into the engine.", "You hear the sound of flames roaring.")
-		del(W)
+		qdel(W)
 
 /obj/item/weapon/card/id/passport
 	name = "passport"
@@ -115,7 +115,7 @@ proc/traintime()
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant))
 				continue
-			del(I)
+			qdel(I)
 
 		if(M.gender == "male")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/suit_jacket/black(M), slot_w_uniform)
@@ -160,7 +160,7 @@ proc/snowtraintime()
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant))
 				continue
-			del(I)
+			qdel(I)
 
 		if(M.job in list("Captain", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Scientist", "Head of Security"))
 

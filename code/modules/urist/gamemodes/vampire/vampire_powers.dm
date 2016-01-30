@@ -72,17 +72,26 @@
 	set category = "Vampire"
 	set name = "Vampiric Torpor (Toggle)"
 	set desc= "Enter a corpselike state that allows you to regenerate in coffins."
-	var/on = 0
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	var/mob/living/carbon/human/H = M.current
 
-	if(!on)
-		on = 1
+	if(!M.vampire.torpor)
+		M.vampire.torpor = 1
 		H << "<span class='notice'>You are now entering torpor. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
 		H.status_flags |= FAKEDEATH		//play dead
+		H.vampire_coffinregen()
+	else
+		M.vampire.torpor = 0
+		H << "<span class='notice'>You are now waking up from your sleep.</span>"
+		H.status_flags &= ~(FAKEDEATH)
+		H.update_canmove()
+		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
 
-		if(istype(H.loc, /obj/structure/closet/coffin))
+/mob/living/carbon/human/proc/vampire_coffinregen(var/datum/mind/V)
+	var/mob/living/carbon/human/H = src //redundant, but I don't want to go through each and every H and src it
+	if(istype(H.loc, /obj/structure/closet/coffin))
+		while(V.vampire.torpor)
 			//blatant edited copypasta from xenomorph in alien_species.dm
 			var/heal_rate = 3
 			var/mend_prob = 10
@@ -95,7 +104,7 @@
 				H.adjustToxLoss(-heal_rate)
 				if (prob(5))
 					H << "<span class='sinister'>You feel a soothing sensation come over you...</span>"
-				return 1
+				sleep(10)
 
 			//next internal organs
 			for(var/obj/item/organ/I in H.internal_organs)
@@ -103,7 +112,7 @@
 					I.damage = max(I.damage - heal_rate, 0)
 					if (prob(5))
 						H << "<span class='sinister'>You feel a soothing sensation within your [I.parent_organ]...</span>"
-					return 1
+					sleep(10)
 
 			//next mend broken bones, approx 10 ticks each
 			for(var/obj/item/organ/external/E in H.bad_external_organs)
@@ -111,16 +120,11 @@
 					if (prob(mend_prob))
 						if (E.mend_fracture())
 							H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
-					return 1
+						sleep(10)
 
-		return 0
+	return
 
-	else if(on)
-		on = 0
-		H << "<span class='notice'>You are now waking up from your sleep.</span>"
-		H.status_flags &= ~(FAKEDEATH)
-		H.update_canmove()
-		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
+
 
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
@@ -155,6 +159,10 @@
 	var/mob/living/carbon/C = M.current.vampire_active(0, 0, 1)
 
 	if(!C) return
+	if(C == M.current)
+		M.current << "<span class='warning'>You try to stare into your own eyes. Oddly, it doesn't work.</span>"
+		return
+
 	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as he stares into [C.name]'s eyes</span>")
 	M.current.verbs -= /client/proc/vampire_hypnotise
 	spawn(1800)
@@ -184,6 +192,9 @@
 
 	var/mob/living/carbon/C = M.current.vampire_active(50, 0, 1)
 	if(!C) return
+	if(C == M.current)
+		M.current << "<span class='warning'>You decide against infecting yourself with a deadly disease.</span>"
+		return
 	if(!M.current.vampire_can_reach(C, 1))
 		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</span>"
 		return
@@ -229,6 +240,7 @@
 		for(var/mob/living/carbon/C in view(1))
 			if(!C.vampire_affected(M)) continue
 			if(!M.current.vampire_can_reach(C, 1)) continue
+			if(!C.eyecheck()) continue
 			C.Stun(8)
 			C.Weaken(8)
 			C.stuttering = 20
@@ -267,11 +279,19 @@
 			C.stuttering = 20
 			C.Stun(8)
 			C.make_jittery(150)
-		for(var/obj/structure/window/W in view(4))
-			new /obj/item/weapon/shard(W.loc)
-			if(W.reinf) new /obj/item/stack/rods(W.loc)
-			W.Del()
-//		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
+		//sonic grenade code copypasta, more elegant than my method
+		for(var/obj/structure/window/W in view(4, M.current.loc)) //Shatters windows
+			W.hit(20,1)
+			if(get_dist(W, M.current.loc) <= 3) //Reinf windows
+				W.hit(60,0)
+			if(get_dist(W, M.current.loc) <= 1)
+				W.hit(40,0)
+		for(var/obj/machinery/door/window/D in view(4, M.current.loc)) //Busting windoors
+			D.take_damage(150)
+			if(get_dist(D, M.current.loc) <= 2)
+				D.take_damage(150)
+
+		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
 		spawn(1800) M.current.verbs += /client/proc/vampire_screech
@@ -279,11 +299,15 @@
 /client/proc/vampire_turn()
 	set category = "Vampire"
 	set name = "Turn (500)"
-	set desc = "You use a massive portion of your power to infect you victim with vampirism."
+	set desc = "Use a massive portion of your power to infect your victim with vampirism."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	var/mob/living/carbon/C = M.current.vampire_active(300, 0, 1)
 	if(!C) return
+	if(C == M.current)
+		M.current << ("<span class='warning'> Try as you might, you cannot figure out how to bite your own neck.</span>")
+		return
+
 	M.current.visible_message("<span class='warning'> [M.current.name] bites [C.name]'s neck!</span>", "<span class='warning'> You bite [C.name]'s neck and begin the flow of power.</span>")
 	C << "<span class='sinister'>You feel the tendrils of evil invade your body.</span>"
 	if(!ishuman(C))
@@ -291,13 +315,17 @@
 		return
 
 	if(do_mob(M.current, C, 50))
-		if(M.current.can_vampirize(C) && M.current.vampire_power(500, 0)) // recheck
-			M.current.handle_vampirize(C)
-			M.current.remove_vampire_blood(500)
-			M.current.verbs -= /client/proc/vampire_turn
-			spawn(1800) M.current.verbs += /client/proc/vampire_turn
+		if(M.current.can_vampirize(C))
+			if(M.current.vampire_power(500, 0)) // recheck
+				M.current.handle_vampirize(C)
+				M.current.remove_vampire_blood(500)
+				M.current.verbs -= /client/proc/vampire_turn
+				spawn(1800) M.current.verbs += /client/proc/vampire_turn
+			else
+				M.current << "<span class='warning'> You don't have enough usable blood.</span>"
+				return
 		else
-			M.current << "<span class='warning'> You or your target either moved or you dont have enough usable blood.</span>"
+			M.current << "<span class='warning'> Target is unavailable.</span>"
 			return
 
 
@@ -333,7 +361,7 @@
 		alpha = 255
 		return 0
 	if(light_amount <= 2)
-		alpha = 0
+		alpha = 10
 		return 1
 	else
 		alpha = round((255 * 0.80))
@@ -344,16 +372,19 @@
 	if(!C)
 		world.log << "something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]"
 		return 0
-/*	if(!C.mind)
+	if(!C.mind)
 		src << "<span class='warning'> [C.name]'s mind is not there for you to vampirize.</span>"
-		return 0*/
-	if(vampirize_safe || ( C.mind in get_antags("vampire") )||( C.mind.vampire ))
+		return 0
+	if(vampirize_safe)
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a strange sensation in your skull that quickly dissipates.</span>")
+		return 0
+	if((C.mind in get_antags("vampire") )||( C.mind.vampire ))
 		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
 		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
-	if(!ishuman(C))
-		src << "<span class='warning'> You can only turn humans!</span>"
+	if(!ishumanoid(C))
+		C.visible_message("<span class='warning'> [C] seems unaffected by the infection!</span>","<span class='notice'> Your simple mind briefly registers an undescribable sensation, but it quickly dissipates among your usual concerns.")
 		return 0
 	return 1
 
@@ -446,8 +477,8 @@
 							break
 			M.current.canmove = 1
 			M.current.client.eye = M.current
-			del(animation)
-			del(holder)
+			qdel(animation)
+			qdel(holder)
 		M.current.remove_vampire_blood(15)
 		M.current.verbs -= /client/proc/vampire_jaunt
 		spawn(600) M.current.verbs += /client/proc/vampire_jaunt
@@ -512,7 +543,7 @@
 			//animation.master = src
 			usr.loc = picked
 			spawn(10)
-				del(animation)
+				qdel(animation)
 		M.current.remove_vampire_blood(0)
 		M.current.verbs -= /client/proc/vampire_shadowstep
 		spawn(20)

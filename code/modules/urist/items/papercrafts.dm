@@ -17,7 +17,7 @@
 	user.remove_from_mob(src)
 	user.put_in_hands(N)
 	user << foldText
-	del(src)
+	qdel(src)
 	return
 
 /obj/item/weapon/papercrafts/square
@@ -124,13 +124,13 @@
 				user.remove_from_mob(src)
 				user.put_in_hands(S)
 				user << "<span class='notice'>You trim the paper into a square</span>"
-				del(src)
+				qdel(src)
 			if("Paper Hat")
 				var/obj/item/clothing/head/urist/papercrown/C = new /obj/item/clothing/head/urist/papercrown
 				user.remove_from_mob(src)
 				user.put_in_hands(C)
 				user << "<span class='notice'>You make a paper crown</span>"
-				del(src)
+				qdel(src)
 			else
 				return
 	..()

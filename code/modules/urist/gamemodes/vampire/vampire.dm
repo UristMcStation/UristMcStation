@@ -4,8 +4,8 @@
 /datum/game_mode/vampire
 	antag_tag = MODE_VAMPIRE
 	name = "Vampire"
-	round_description = "There are Vampires from Space Transylvania on the station, keep your blood close and neck safe!"
-	extended_round_description = "WIP."
+	round_description = "There are Vampires from Space Transylvania on the station!"
+	extended_round_description = "Posing as ordinary crewmembers, unholy creatures have infiltrated the station! Keep your blood close and neck safe!"
 	config_tag = "vampire"
 	required_players = 1
 	required_players_secret = 7
@@ -22,7 +22,8 @@
 	var/list/powers = list() // list of available powers and passives, see defines in setup.dm
 	var/mob/living/carbon/human/draining // who the vampire is draining of blood
 	var/nullified = 0 //Nullrod makes them useless for a short while.
-	var/thralls = list()
+	//var/thralls = list()
+	var/torpor = 0 // handles coffinsleep
 
 /datum/vampire/New(gend = FEMALE)
 	gender = gend
@@ -111,10 +112,18 @@
 			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
 			src.mind.vampire.bloodtotal += (blood)
 			src.mind.vampire.bloodusable += (blood)
+			if(istype(src.mind.current, /mob/living/carbon/human))
+				var/mob/living/carbon/human/V = src.mind.current
+				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
+			if(H.analgesic << 1) //but the pain won't set in until after they stop being drained
+				H.analgesic = 1
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
+			if(istype(src.mind.current, /mob/living/carbon/human))
+				var/mob/living/carbon/human/V = src.mind.current
+				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 		if(bloodtotal != src.mind.vampire.bloodtotal)
 			src << "<span class='notice'> <b>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] usable blood</span>" : "."]"
 		check_vampire_upgrade(mind)

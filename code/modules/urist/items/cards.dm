@@ -105,7 +105,7 @@
 			card = contents[1]
 			card.loc = M
 			M.put_in_hands(card)
-			del(src)
+			qdel(src)
 		return
 
 

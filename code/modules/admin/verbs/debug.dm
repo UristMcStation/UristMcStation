@@ -1124,7 +1124,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/weapon/plastique(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/kh50(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/kh50(M), slot_in_backpack)
 
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"

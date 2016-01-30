@@ -119,7 +119,7 @@
 	throw_impact(atom/hit_atom)
 		if(primed)
 			explosion(hit_atom, 1, 2, 4, 4)
-			del(src)
+			qdel(src)
 		else
 			..()
 		return
@@ -144,7 +144,7 @@
 	visible_message("<span class='danger'>The [src.name] explodes!</span>")
 	explosion(src.loc, 0, 0, 2)
 	new /obj/effect/decal/mecha_wreckage/smallfighter(src.loc)
-	del(src)
+	qdel(src)
 	return
 
 /obj/mecha/working/hoverpod/fighter/large/alien

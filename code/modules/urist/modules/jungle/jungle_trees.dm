@@ -69,7 +69,7 @@
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
-			del(src)
+			qdel(src)
 
 		else if(chops == 3 && !small)
 			chops = 4
@@ -92,7 +92,7 @@
 
 			L.pixel_y = 32
 
-			del(src)
+			qdel(src)
 
 	return
 
@@ -113,6 +113,6 @@
 			W.pixel_y = src.pixel_y
 			W.amount = 2 //going to mess with this value for a while, we'll see
 
-			del(src)
+			qdel(src)
 
 	return

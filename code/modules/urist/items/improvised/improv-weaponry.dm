@@ -25,8 +25,8 @@
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>"
-		del(I)
-		del(src)
+		qdel(I)
+		qdel(src)
 
 	else if(istype(I, /obj/item/weapon/wirecutters))
 		var/obj/item/weapon/melee/baton/cattleprod/P = new /obj/item/weapon/melee/baton/cattleprod
@@ -36,8 +36,8 @@
 
 		user.put_in_hands(P)
 		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
-		del(I)
-		del(src)
+		qdel(I)
+		qdel(src)
 
 	else if(istype(I, /obj/item/stack/rods))
 
@@ -50,7 +50,7 @@
 		user.put_in_hands(S)
 		user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
 
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -64,7 +64,7 @@
 		user.put_in_hands(W)
 		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
 
-		del(src)
+		qdel(src)
 
 //spears
 /obj/item/weapon/material/twohanded/spear
@@ -163,8 +163,8 @@
 
 		user.put_in_hands(S)
 		user << "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>"
-		del(I)
-		del(src)
+		qdel(I)
+		qdel(src)
 
 //scrapper
 
@@ -203,7 +203,7 @@
 		user.put_in_hands(S)
 		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
 
-		del(src)
+		qdel(src)
 
 //Half of a scissor... Ow
 
@@ -243,8 +243,8 @@
 		user.put_in_hands(N)
 		user << "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>"
 
-		del(I)
-		del(src)
+		qdel(I)
+		qdel(src)
 
 /obj/item/weapon/improvised/scissorknife/barber
 	desc = "The seperated part of a scissor. Where's the other half? This one is from barber's scissors"
@@ -268,7 +268,7 @@
 	new /obj/item/weapon/newspaper(get_turf(src))
 	new /obj/item/weapon/newspaper(get_turf(src))
 
-	del(src)
+	qdel(src)
 
 /obj/item/weapon/improvised/mbrick/attackby(var/obj/item/weapon/W, mob/user as mob)
 	..()
@@ -282,7 +282,7 @@
 		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
 		W.loc = S
 
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/improvised/mbrick/sharp
 	name = "sharp Millwall brick"
@@ -303,7 +303,7 @@
 	var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
 	user.put_in_hands(S)
 	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
-	del(src)
+	qdel(src)
 
 
 

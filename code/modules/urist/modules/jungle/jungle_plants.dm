@@ -74,7 +74,7 @@
 						else
 							icon_state = "newstump1"
 					else
-						del(src)
+						qdel(src)
 	else
 		return ..()
 

@@ -10,7 +10,7 @@
 	if (ticker.current_state == GAME_STATE_PLAYING)
 		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
 		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
-		del(a)
+		qdel(a)
 
 
 /datum/shuttle/ferry/arrival/arrived()

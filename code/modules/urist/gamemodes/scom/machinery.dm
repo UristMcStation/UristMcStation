@@ -103,7 +103,7 @@
 	flick("[animation_state]",src)
 
 	user.drop_item(O)
-	del(O)
+	qdel(O)
 
 	updateUsrDialog()
 	return

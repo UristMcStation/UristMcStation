@@ -229,7 +229,7 @@
 	item_state = "ryclieshelm"
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
-/obj/item/weapon/gun/projectile/kh50
+/obj/item/weapon/gun/projectile/automatic/kh50
 	urist_only = 1
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
@@ -237,7 +237,6 @@
 	item_state = "gun"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	force = 12
-	max_shells = 31
 	caliber = "12.7x54mm"
 	magazine_type = /obj/item/ammo_magazine/a127x54mm
 	load_method = MAGAZINE
@@ -245,7 +244,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 
-/obj/item/weapon/gun/projectile/kh50/update_icon()
+/obj/item/weapon/gun/projectile/automatic/kh50/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "KH50"
@@ -259,9 +258,9 @@
 	desc = "A magazine for the KH-50 rifle. Holds up to twenty 12.7x54mm Caseless rounds. This magazine is loaded with regular ball ammo."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a127x54mm"
+	ammo_type = /obj/item/ammo_casing/a127x54mm
 	max_ammo = 31
-	multiple_sprites = 1
+	multiple_sprites = 0
 	mag_type = MAGAZINE
 	caliber = "12.7x54mm"
 
@@ -269,13 +268,13 @@
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm-empty"
 	icon = 'icons/urist/items/uristweapons.dmi'
-	ammo_type = "/obj/item/ammo_casing/a127x54mm"
+	ammo_type = /obj/item/ammo_casing/a127x54mm
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
 	desc = "A 12.7x54mm bullet casing."
 	caliber = "12.7x54mm"
-	projectile_type = "/obj/item/projectile/bullet/rifle/a127"
+	projectile_type = /obj/item/projectile/bullet/rifle/a127
 
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
@@ -300,15 +299,15 @@
 	switch(severity)
 		if(1.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 		if(3.0)
 			if(prob(75))
 				explosion(src.loc, 1, 2, 4)
-				del(src)
+				qdel(src)
 
 
 

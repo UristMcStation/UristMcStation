@@ -79,10 +79,9 @@
 	icon_state = "SVD"
 	item_state = "SVD"
 	icon = 'icons/urist/items/uristweapons.dmi'
-	force = 14
-	max_shells = 10
+	force = 10
 	caliber = "7.62mm"
-	ammo_type = /obj/item/ammo_casing/a762mm
+	ammo_type = "/obj/item/ammo_casing/a762mm"
 	magazine_type = /obj/item/ammo_magazine/a762mm
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -92,6 +91,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 0
+	handle_casings = EJECT_CASINGS
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"
@@ -122,14 +122,14 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	ammo_type = "/obj/item/ammo_casing/a762mm"
-	max_ammo = 0
+	initial_ammo = 0
 
 /obj/item/ammo_casing/a762mm
 	desc = "A 7.62mm bullet casing."
 	caliber = "7.62mm"
-	projectile_type = "/obj/item/projectile/bullet/sniper"
+	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 
-/obj/item/projectile/bullet/sniper
+/obj/item/projectile/bullet/rifle/sniper
 	damage = 35
 
 /obj/item/projectile/beam/sniper/pulse

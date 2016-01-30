@@ -32,7 +32,7 @@
 		user.put_in_hands(N2)
 		user << "<span class='notice'>You seperate the parts of the [src]</span>"
 
-		del(src)
+		qdel(src)
 	..()
 
 /obj/item/weapon/improvised/scissorsassembly //So you can put it together!
@@ -65,7 +65,7 @@
 		user.put_in_hands(N)
 		user << "<span class='notice'>You tighten the screw on the screwdriver assembley</span>"
 
-		del(src)
+		qdel(src)
 	..()
 
 //Makes scissors cut hair, special thanks to Miauw and Xerux -Nien

@@ -40,7 +40,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
 	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/electrode"
+	projectile_type = /obj/item/projectile/energy/electrode
 	origin_tech = "combat=2;magnets=2"
 	modifystate = "senergystun"
 
@@ -127,7 +127,7 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
 	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/plasma2"
+	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
 	cell_type = "/obj/item/weapon/cell/crap"
@@ -156,7 +156,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/grenade/syndieminibomb/prime()
 	explosion(src.loc, 1, 2, 4, 4)
-	del(src)
+	qdel(src)
 
 //dual saber proc
 
@@ -172,8 +172,8 @@ the sprite and make my own projectile -Glloyd*/
 			new /obj/item/weapon/material/twohanded/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)
-			del(W)
-			del(src)
+			qdel(W)
+			qdel(src)
 
 //Knight .45 - suppressed PDW
 
@@ -203,17 +203,17 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/revolver/detective/deckard
 	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
 	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
-	icon = 'icons/urist/items/old_bay_custom_items.dmi'
-	icon_state = "leamas-empty"
+	//what do you know, it was restored-ish in revolver.dm
+	icon_state = "deckard-empty"
 
 /obj/item/weapon/gun/projectile/revolver/detective/deckard/update_icon()
 	..()
 	if(loaded.len)
-		icon_state = "leamas-loaded"
+		icon_state = "deckard-loaded"
 	else
-		icon_state = "leamas-empty"
+		icon_state = "deckard-empty"
 
 /obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
-		flick("leamas-reloading",src)
+		flick("deckard-reloading",src)
 	..()

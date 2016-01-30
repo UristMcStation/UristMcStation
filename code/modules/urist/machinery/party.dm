@@ -137,7 +137,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -152,7 +152,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -167,7 +167,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -184,7 +184,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -199,7 +199,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -214,7 +214,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -226,4 +226,4 @@
 /obj/machinery/party/lasermachine/proc/turnoff()
 	var/area/A = src.loc.loc
 	for(var/obj/effects/laser/F in A)
-		del(F)
+		qdel(F)

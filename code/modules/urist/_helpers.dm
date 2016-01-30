@@ -292,7 +292,7 @@ B --><-- A
 			var/icon/AMicon = icon(AM.icon, AM.icon_state)
 			i_width = AMicon.Width()
 			i_height = AMicon.Height()
-			del(AMicon) //qdel
+			qdel(AMicon) //qdel
 
 		//Find a value to divide pixel_ by
 		var/n_width = (world.icon_size - (i_width/2))
@@ -344,4 +344,10 @@ B --><-- A
 	if(J) //Only set the icon if it succeeded, the icon without the pixel is 1000x better than a black square.
 		icon = J
 		return J
+	return 0
+
+//Monkeys et al being a human type mess with the purpose of regular ishuman; ishumanoid is intended to check strictly 'sentient' races
+/proc/ishumanoid(A)
+	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa)) && !(istype (A, /mob/living/carbon/human/neara)))
+		return 1 //whoever thought subtyping all these under /human/monkey or whatever was a bad idea is literally Hitler
 	return 0
