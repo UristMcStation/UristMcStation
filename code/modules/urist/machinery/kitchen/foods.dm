@@ -4,14 +4,14 @@
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
 		S.attackby(W,user)
-		del(src)
+		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
 		S.attackby(W,user)
-		del(src)
+		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
@@ -19,13 +19,13 @@
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
 		S.attackby(W,user)
-		del(src)
+		qdel(src)
 
 /obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
 		S.attackby(W,user)
-		del(src)
+		qdel(src)
 
 /obj/item/trash/bowl
 	name = "bowl"
@@ -38,7 +38,7 @@
 	if(istype(W,/obj/item/weapon/shard) || istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
 		S.attackby(W,user)
-		del(src)
+		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable //leaving BS12's sandwich in it's own thing, but leaving this here because meh. lazy.
@@ -371,9 +371,9 @@
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous","massive","oversized","cardiac-arresting","pipe-clogging","edible but sickening","sickening","gargantuan","mega","belly-burster","chest-burster"))] [basename]"
 	w_class = n_ceil(Clamp((ingredients.len/2),1,3))
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/Del()
+/obj/item/weapon/reagent_containers/food/snacks/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
-		del(O)
+		qdel(O)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/examine()
@@ -590,9 +590,9 @@
 	if(src.reagents)
 		ferment(src.boozetype)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Del()
+/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
-		del(O)
+		qdel(O)
 	..()
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/examine()

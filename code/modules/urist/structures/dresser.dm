@@ -62,6 +62,6 @@
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 5
-		del(src)
+		qdel(src)
 	else
 		..()

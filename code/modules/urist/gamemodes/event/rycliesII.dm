@@ -275,7 +275,7 @@
 /obj/item/ammo_casing/a127x54mm
 	desc = "A 12.7x54mm bullet casing."
 	caliber = "12.7x54mm"
-	projectile_type = "/obj/item/projectile/bullet/rifle/a127"
+	projectile_type = /obj/item/projectile/bullet/rifle/a127
 
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
@@ -300,19 +300,16 @@
 	switch(severity)
 		if(1.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 		if(3.0)
 			if(prob(75))
 				explosion(src.loc, 1, 2, 4)
-				del(src)
+				qdel(src)
 
-
-
-		else
 	return
 
 /obj/structure/scom/shieldwall/shieldwall1

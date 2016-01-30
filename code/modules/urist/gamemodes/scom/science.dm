@@ -68,4 +68,5 @@
 	R.modtype = "Combat"
 //	R.module_sprites["Combat Android"] = "droid-combat"
 	R.updateicon()
-	del(src)
+	qdel(src)
+	return

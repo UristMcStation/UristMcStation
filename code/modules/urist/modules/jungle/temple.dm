@@ -45,7 +45,7 @@
 	New()
 		if(prob(10))
 			new /obj/effect/plant(src.loc)
-		del(src)
+		qdel(src)
 
 /obj/effect/landmark/loot_spawn
 	name = "loot spawner"
@@ -263,7 +263,7 @@
 				for(var/i=0,i<num,i++)
 					new /mob/living/simple_animal/hostile/viscerator(C)
 
-		del(src)
+		qdel(src)
 
 /obj/effect/landmark/loot_spawn/low
 	name = "low prob loot spawner"
@@ -306,7 +306,7 @@
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
 			M << "\red <b>You feel something small and sharp strike you!</b>"
@@ -317,7 +317,7 @@
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
 			M << "\red <b>A jet of fire comes out of nowhere!</b>"
@@ -349,7 +349,7 @@
 					my_turf.density = 0
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 
 			var/dist = rand(1,5)
 			var/curtiles = 0
@@ -377,7 +377,7 @@
 		if(prob(90))
 			var/turf/T = get_turf(src)
 			T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
-		del(src)
+		qdel(src)
 
 //50% chance of being a trap
 /obj/effect/step_trigger/trap/fifty
@@ -391,7 +391,7 @@
 		else
 			if(prob(10))
 				new /obj/effect/plant(src.loc)
-			del(src)
+			qdel(src)
 
 //structures
 

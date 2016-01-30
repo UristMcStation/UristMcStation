@@ -90,7 +90,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/effect/rend/New()
 	spawn(50)
 		new /obj/singularity/narsie/wizard(get_turf(src))
-		del(src)
+		qdel(src)
 		return
 	return
 
@@ -187,7 +187,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		var/obj/effect/overlay/holograph/H = locate() in T
 		if(H)
 			user << "<span class='notice'>You use [src] to destroy [H].</span>"
-			del(H)
+			qdel(H)
 		else
 			if(signs.len < max_signs)
 				H = new(get_turf(target))
@@ -203,7 +203,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(signs.len)
 		var/list/L = signs.Copy()
 		for(var/sign in L)
-			del(sign)
+			qdel(sign)
 			signs -= sign
 		user << "<span class='notice'>You clear all active holograms.</span>"
 

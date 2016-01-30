@@ -174,7 +174,7 @@
 
 /mob/living/simple_animal/hostile/scom/harvester/death()
 	..()
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/scom/forgotten
@@ -201,7 +201,7 @@
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 	flick("forgotten_die", src)
 	sleep(4)
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/alien/ravager
@@ -261,7 +261,7 @@
 		new weapon1 (src.loc)
 	flick("fire", src)
 	sleep(5)
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/scom/allophylus/death()
@@ -269,6 +269,6 @@
 	visible_message("<span class='danger'>The [src.name] bursts into a ball of psionic energy!</span>")
 	flick("emfield_s1", src)
 	sleep(6)
-	del(src)
+	qdel(src)
 	return
 

@@ -42,7 +42,7 @@
 		S.amount = 4
 		for(var/obj/item/weapon/book/b in contents)
 			b.loc = (get_turf(src))
-		del(src)
+		qdel(src)
 	else
 		..()
 

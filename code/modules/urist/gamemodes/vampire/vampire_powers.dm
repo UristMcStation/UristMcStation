@@ -270,7 +270,7 @@
 		for(var/obj/structure/window/W in view(4))
 			new /obj/item/weapon/shard(W.loc)
 			if(W.reinf) new /obj/item/stack/rods(W.loc)
-			W.Del()
+			qdel()
 //		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
@@ -446,8 +446,8 @@
 							break
 			M.current.canmove = 1
 			M.current.client.eye = M.current
-			del(animation)
-			del(holder)
+			qdel(animation)
+			qdel(holder)
 		M.current.remove_vampire_blood(15)
 		M.current.verbs -= /client/proc/vampire_jaunt
 		spawn(600) M.current.verbs += /client/proc/vampire_jaunt
@@ -512,7 +512,7 @@
 			//animation.master = src
 			usr.loc = picked
 			spawn(10)
-				del(animation)
+				qdel(animation)
 		M.current.remove_vampire_blood(0)
 		M.current.verbs -= /client/proc/vampire_shadowstep
 		spawn(20)

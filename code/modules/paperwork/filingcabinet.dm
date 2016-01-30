@@ -58,7 +58,7 @@
 			S.amount = 2
 			for(var/obj/item/b in contents)
 				b.loc = (get_turf(src))
-			del(src)
+			qdel(src)
 	else
 		user << "<span class='notice'>You can't put [P] in [src]!</span>"
 

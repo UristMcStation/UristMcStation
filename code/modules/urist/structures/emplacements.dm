@@ -193,7 +193,7 @@
 				Ammo.desc = "Machine gun ammo. It has [Ammo.count] rounds remaining"
 			else
 				amt = Ammo.count
-				del(Ammo)
+				qdel(Ammo)
 			ammo = ammo + amt
 
 	else
@@ -256,7 +256,7 @@
 				return 0
 			else
 				visible_message("<span class='warning'>[src] breaks down!</span>")
-				del(src)
+				qdel(src)
 				return 1
 	return 1
 

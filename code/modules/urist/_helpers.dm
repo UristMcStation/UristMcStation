@@ -292,7 +292,7 @@ B --><-- A
 			var/icon/AMicon = icon(AM.icon, AM.icon_state)
 			i_width = AMicon.Width()
 			i_height = AMicon.Height()
-			del(AMicon) //qdel
+			qdel(AMicon)
 
 		//Find a value to divide pixel_ by
 		var/n_width = (world.icon_size - (i_width/2))

@@ -8,7 +8,8 @@
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id)) //we're going to actually let them keep their IDs because their account is tied to it
 				continue
-			del(I)
+			qdel(I)
+			
 		if(M.disabilities)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(M), slot_glasses)
 
@@ -156,7 +157,7 @@
 			M.loc = pick(scomspawn3)
 			M << ("\red You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to your squad leaders and then to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.")
 		M.regenerate_icons()
-
+	
 /datum/game_mode/scom/proc/ScomRobotTime() //have to break up the proc because BYOND
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
@@ -172,7 +173,7 @@
 			for(var/obj/item/weapon/cell/cell in R)
 				cell.charge = INFINITY
 				cell.maxcharge = INFINITY
-			del(S)
+			qdel(S)
 
 /mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
@@ -186,7 +187,7 @@
 	for (var/obj/item/I in L)
 		if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id))
 			continue
-		del(I)
+		qdel(I)
 
 	if(L.disabilities)
 		L.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(L), slot_glasses)
@@ -335,7 +336,7 @@
 		L.loc = pick(scomspawn3)
 		L << ("\red You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.")
 	L.regenerate_icons()
-
+	
 /datum/game_mode/scom/proc/LoadScom()
 
 	if(!scommapsloaded)

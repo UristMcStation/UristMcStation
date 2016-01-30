@@ -11,7 +11,7 @@
 	return
 
 /obj/structure/bed/chair/couch/New(var/newloc,var/newmaterial)
-	..(newloc,"steel","black")
+//	..(newloc,"steel","black")
 
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
@@ -20,7 +20,10 @@
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
 		armrest.layer = MOB_LAYER + 0.1
 
-	return ..()
+	..()
+
+	src.color = initial(color)
+
 
 /obj/structure/bed/chair/couch/post_buckle_mob()
 	if(buckled_mob)
@@ -83,7 +86,7 @@
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
-		del(src)
+		qdel(src)
 	if(istype(W, /obj/item/weapon/chair_painter))
 		var/obj/item/weapon/chair_painter/C = W
 		color = rgb(C.red,C.green,C.blue)

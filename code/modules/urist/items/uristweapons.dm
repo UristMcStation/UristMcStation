@@ -156,7 +156,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/grenade/syndieminibomb/prime()
 	explosion(src.loc, 1, 2, 4, 4)
-	del(src)
+	qdel(src)
 
 //dual saber proc
 
@@ -172,8 +172,8 @@ the sprite and make my own projectile -Glloyd*/
 			new /obj/item/weapon/material/twohanded/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)
-			del(W)
-			del(src)
+			qdel(W)
+			qdel(src)
 
 //Knight .45 - suppressed PDW
 

@@ -127,7 +127,7 @@
 /obj/item/ammo_casing/a762mm
 	desc = "A 7.62mm bullet casing."
 	caliber = "7.62mm"
-	projectile_type = "/obj/item/projectile/bullet/sniper"
+	projectile_type = /obj/item/projectile/bullet/sniper
 
 /obj/item/projectile/bullet/sniper
 	damage = 35

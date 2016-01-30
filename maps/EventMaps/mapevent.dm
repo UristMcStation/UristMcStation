@@ -49,8 +49,9 @@
 			world << "\red \b Event Map loaded."
 
 		else
-			if (eventmap == null)
+			if (eventmap == null || file == null)
 				world << "\red \b Event Map loading aborted"
+				return
 			else
 				src << "\red Event Map couldn't be loaded properly. Yell at the coders."
 
