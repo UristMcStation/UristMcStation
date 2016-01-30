@@ -217,7 +217,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)*/
+		qdel(src)*/
 
 //I fixed the bugs. I'll clean this up too when I get a chance.
 
@@ -233,7 +233,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/blue/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -247,7 +247,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/orange/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -261,7 +261,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/red/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -275,7 +275,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/purple/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -289,7 +289,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/green/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -303,7 +303,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/yellow/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -317,7 +317,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rainbow/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -331,7 +331,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/brown/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -345,7 +345,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/captain/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -359,7 +359,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hop/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -373,7 +373,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/ce/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -387,7 +387,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hos/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -401,7 +401,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 
 /obj/item/clothing/mask/bandana/bedsheet/medical/verb/toggle_bandana()
@@ -416,7 +416,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cmo/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -430,7 +430,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rd/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -444,7 +444,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/qm/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -458,7 +458,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/centcom/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -472,7 +472,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/syndie/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -486,7 +486,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cult/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -500,7 +500,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/wiz/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -514,7 +514,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/clown/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -528,7 +528,7 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/mime/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -542,5 +542,5 @@
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 

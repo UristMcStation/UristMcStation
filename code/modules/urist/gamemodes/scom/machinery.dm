@@ -106,7 +106,6 @@
 	qdel(O)
 
 	updateUsrDialog()
-	return
 
 /obj/machinery/scom/scomscience/attack_hand(mob/user as mob)
 	user.set_machine(src)

@@ -309,9 +309,6 @@
 				explosion(src.loc, 1, 2, 4)
 				qdel(src)
 
-
-
-		else
 	return
 
 /obj/structure/scom/shieldwall/shieldwall1

@@ -111,10 +111,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "bed"
 	base_icon = "bed"
 
-/obj/structure/bed/nice/New(var/newloc)
-	..(newloc,"plastic","cotton")
+/obj/structure/bed/nice/update_icon() //GLLOYDTODO: comeback to this
+	return
 
-//poker tables GLLOYDTODO: Come back to this
+///obj/structure/bed/nice/New(var/newloc)
+//	..(newloc,"plastic","cotton")
+
+//poker tables GLLOYDTODO: Come back to this, maybe trmove this
 
 /obj/structure/table/poker //No specialties, Just a mapping object.
 	name = "gambling table"
@@ -141,7 +144,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
+		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>" //wut
 
 		qdel(src)
 		qdel(I)

@@ -259,7 +259,7 @@ obj/item/clothing/head/princessbow
 
 	user.put_in_hands(H)
 	user << "<span class='notice'>You unfold the bandana into a hazardvest.</span>"
-	del(src)
+	qdel(src)
 
 /obj/item/clothing/suit/storage/hazardvest/verb/toggle_bandana()
 	set name = "Fold Bandana"
@@ -276,7 +276,7 @@ obj/item/clothing/head/princessbow
 	user.remove_from_mob(src)
 	user.put_in_hands(H)
 	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
-	del(src)
+	qdel(src)
 
 //Fallout hats
 

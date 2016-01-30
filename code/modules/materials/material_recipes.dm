@@ -80,8 +80,8 @@
 
 	recipes += 	new/datum/stack_recipe_list("filing cabinets", list(\
 		new/datum/stack_recipe("filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("chest drawer", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("tall filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("chest drawer", /obj/structure/filingcabinet/chestdrawer, 3, time = 20, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("tall filing cabinet", /obj/structure/filingcabinet/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1), \
 		))
 
 

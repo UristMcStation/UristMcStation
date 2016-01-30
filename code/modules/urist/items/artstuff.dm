@@ -105,13 +105,13 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 		var/thePix = masterpiece.GetPixel(pixX,pixY)
 		var/icon/Ico = getGlobalBackup()
 		if(!Ico)
-			qdel(masterpiece)//qdel
+			qdel(masterpiece)
 			return
 
 		var/theOriginalPix = Ico.GetPixel(pixX,pixY)
 		if(thePix != theOriginalPix) //colour changed
 			DrawPixelOn(theOriginalPix,pixX,pixY)
-		qdel(masterpiece)//qdel
+		qdel(masterpiece)
 		return
 
 	//Drawing one pixel with a crayon

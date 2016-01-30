@@ -35,8 +35,11 @@
 /obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/wirecutters))
-		for(var/obj/item/O in contents)
-			O.loc = (get_turf(src))
+		for(var/obj/item/weapon/storage/internal/O in contents)
+			var/turf/T = get_turf(src)
+			for(var/obj/item/Z in O.contents)
+				O.remove_from_storage(Z, T)
+			qdel(O)
 
 		var/obj/item/improv/hazardvest/step1/H = new /obj/item/improv/hazardvest/step1
 

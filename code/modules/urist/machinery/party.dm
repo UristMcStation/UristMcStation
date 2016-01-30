@@ -10,7 +10,7 @@
 	desc = "A turntable used for parties and shit."
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "turntable"
-	var/playing = 0
+//	var/playing = 0
 	anchored = 1
 	var/track = null
 
@@ -55,47 +55,47 @@
 		playmusic()
 
 	if( href_list["off"] )
-		if(src.playing == 1)
-			track = null
-			var/sound/S = sound(null)
-			S.channel = 10
-			S.wait = 1
-			playing = 0
-			var/area/A = src.loc.loc
-			for(var/obj/machinery/party/lasermachine/L in A)
-				L.turnoff()
-			var/area/main_area = get_area(src)
-			for(var/mob/living/M in mobs_in_area(main_area))
-				M << sound(null, channel = 1)
+//		if(src.playing == 1)
+		track = null
+		var/sound/S = sound(null)
+		S.channel = 10
+		S.wait = 1
+//		playing = 0
+		var/area/A = src.loc.loc
+		for(var/obj/machinery/party/lasermachine/L in A)
+			L.turnoff()
+		var/area/main_area = get_area(src)
+		for(var/mob/living/M in mobs_in_area(main_area))
+			M << sound(null, channel = 1)
 
-				main_area.forced_ambience = null
+			main_area.forced_ambience = null
 
 /obj/machinery/party/turntable/proc/playmusic()
-	if(src.playing == 0)
+//	if(src.playing == 0)
 
-		var/sound/S = sound(track)
-		S.repeat = 1
-		S.channel = 10
-		S.falloff = 2
-		S.wait = 1
-		S.environment = 0
-		//for(var/mob/M in world)
-		//	if(M.loc.loc == src.loc.loc && M.music == 0)
-		//		world << "Found the song..."
-		//		M << S
-		//		M.music = 1
-		var/area/A = src.loc.loc
+	var/sound/S = sound(track)
+	S.repeat = 1
+	S.channel = 10
+	S.falloff = 2
+	S.wait = 1
+	S.environment = 0
+	//for(var/mob/M in world)
+	//	if(M.loc.loc == src.loc.loc && M.music == 0)
+	//		world << "Found the song..."
+	//		M << S
+	//		M.music = 1
+	var/area/A = src.loc.loc
 
-		for(var/obj/machinery/party/lasermachine/L in A)
-			L.turnon()
-		playing = 1
-		var/area/main_area = get_area(src)
-		main_area.forced_ambience = list(track)
-		for(var/mob/living/M in mobs_in_area(main_area))
-			if(M.mind)
-				main_area.play_ambience(M)
-				spawn(10)
-				return
+	for(var/obj/machinery/party/lasermachine/L in A)
+		L.turnon()
+//	playing = 1
+	var/area/main_area = get_area(src)
+	main_area.forced_ambience = list(track)
+	for(var/mob/living/M in mobs_in_area(main_area))
+		if(M.mind)
+			main_area.play_ambience(M)
+			spawn(10)
+			return
 
 
 
