@@ -7,5 +7,5 @@
 	required_enemies = 1
 	uplink_welcome = "Syndicate Portable Teleportation Relay:"
 	end_on_antag_death = 0
-	antag_scaling_coeff = 10
+	antag_scaling_coeff = 5
 	antag_tag = MODE_TRAITOR
