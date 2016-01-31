@@ -73,8 +73,7 @@
 //	CHAVBLOCK      = getAssignedBlock("CHAV",       numsToAssign)
 //	SWEDEBLOCK     = getAssignedBlock("SWEDE",      numsToAssign)
 //	SCRAMBLEBLOCK  = getAssignedBlock("SCRAMBLE",   numsToAssign)
-	STRONGBLOCK    = getAssignedBlock("STRONG",     numsToAssign, good=1)
-	//HORNSBLOCK     = getAssignedBlock("HORNS",      numsToAssign)
+	HORNSBLOCK     = getAssignedBlock("HORNS",      numsToAssign)
 
 	// Powers
 	SOBERBLOCK     = getAssignedBlock("SOBER",      numsToAssign, good=1)

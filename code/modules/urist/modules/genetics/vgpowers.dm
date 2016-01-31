@@ -18,7 +18,7 @@ Obviously, requires DNA2.
 	deactivation_messages = list("Your muscles quit tensing.")
 //	flags = GENE_UNNATURAL // Do NOT spawn on roundstart.
 
-	spelltype = /spell/targeted/hulk
+	spelltype = new/spell/targeted/hulk
 
 	New()
 		..()
@@ -62,6 +62,7 @@ Obviously, requires DNA2.
 	charge_max = HULK_COOLDOWN
 
 	invocation_type = "none"
+	hud_state = "gen_hulk"
 
 /spell/targeted/hulk/New()
 	desc = "Get mad!  For [HULK_DURATION/10] seconds, anyway."

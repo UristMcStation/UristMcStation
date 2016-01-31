@@ -86,18 +86,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/dna/gene/basic/grant_spell
-	var/spell/spelltype
+	var/spell/spelltype //TODO: might need to convert it to a list later
 
 	activate(var/mob/M, var/connected, var/flags)
 		..()
-		M.spell_list += new spelltype(M)
+		M.add_spell(src.spelltype, "genetic_spell_ready", /obj/screen/movable/spell_master/genetic)
 		return 1
+
 
 	deactivate(var/mob/M, var/connected, var/flags)
 		..()
-		for(var/spell/S in M.spell_list)
-			if(istype(S,spelltype))
-				M.spell_list.Remove(S)
+		M.remove_spell(src.spelltype)
 		return 1
 
 /datum/dna/gene/basic/grant_verb
@@ -119,7 +118,7 @@
 	activation_messages = list("You notice a strange cold tingle in your fingertips.")
 	deactivation_messages = list("Your fingers feel warmer.")
 
-	spelltype = /spell/targeted/cryokinesis
+	spelltype = new/spell/targeted/cryokinesis
 
 	New()
 		..()
@@ -136,6 +135,7 @@
 	invocation_type = "none"
 	range = 7
 	selection_type = "range"
+	hud_state = "gen_ice"
 
 	spell_flags = Z2NOCAST|INCLUDEUSER
 	compatible_mobs = list(/mob/living/carbon/human)
@@ -191,7 +191,7 @@
 	activation_messages = list("You feel hungry.")
 	deactivation_messages = list("You don't feel quite so hungry anymore.")
 
-	spelltype=/spell/targeted/eat
+	spelltype = new/spell/targeted/eat
 
 	New()
 		..()
@@ -208,6 +208,8 @@
 	invocation_type = "none"
 	range = 1
 	selection_type = "view"
+	hud_state = "gen_eat"
+	spell_flags = INCLUDEUSER //TODO: axe the old proc's choose_targets, make it SELECTABLE properly
 
 	var/list/types_allowed=list(/obj/item,/mob/living/simple_animal, /mob/living/carbon/human)
 
@@ -307,7 +309,7 @@
 	activation_messages = list("Your leg muscles feel taut and strong.")
 	deactivation_messages = list("Your leg muscles shrink back to normal.")
 
-	spelltype =/spell/targeted/leap
+	spelltype = new/spell/targeted/leap
 
 	New()
 		..()
@@ -321,6 +323,7 @@
 
 	charge_type = "recharge"
 	charge_max = 30
+	hud_state = "gen_leap"
 
 	invocation_type = "none"
 	spell_flags = INCLUDEUSER
@@ -377,7 +380,7 @@
 	name = "Polymorphism"
 	desc = "Enables the subject to reconfigure their appearance to mimic that of others."
 
-	spelltype =/spell/targeted/polymorph
+	spelltype = new/spell/targeted/polymorph
 	//cooldown = 1800
 	activation_messages = list("You don't feel entirely like yourself somehow.")
 	deactivation_messages = list("You feel secure in your identity.")

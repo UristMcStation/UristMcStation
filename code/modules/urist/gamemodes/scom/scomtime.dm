@@ -9,7 +9,7 @@
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id)) //we're going to actually let them keep their IDs because their account is tied to it
 				continue
 			qdel(I)
-			
+
 		if(M.disabilities)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(M), slot_glasses)
 
@@ -116,7 +116,7 @@
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/deus_blueshield(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/c20r(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/c20ammo(M), slot_r_hand)
 
@@ -157,7 +157,7 @@
 			M.loc = pick(scomspawn3)
 			M << ("\red You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to your squad leaders and then to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.")
 		M.regenerate_icons()
-	
+
 /datum/game_mode/scom/proc/ScomRobotTime() //have to break up the proc because BYOND
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
@@ -294,7 +294,7 @@
 		L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)
 		L.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(L), slot_head)
 		L.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(L), slot_r_store)
-		L.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy(L), slot_wear_suit)
+		L.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/deus_blueshield(L), slot_wear_suit)
 		L.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/c20r(L), slot_l_hand)
 		L.equip_to_slot_or_del(new /obj/item/weapon/storage/box/c20ammo(L), slot_r_hand)
 
@@ -336,7 +336,7 @@
 		L.loc = pick(scomspawn3)
 		L << ("\red You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.")
 	L.regenerate_icons()
-	
+
 /datum/game_mode/scom/proc/LoadScom()
 
 	if(!scommapsloaded)

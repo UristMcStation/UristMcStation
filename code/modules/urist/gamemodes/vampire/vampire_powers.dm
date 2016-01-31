@@ -83,10 +83,10 @@
 	else
 		M.vampire.torpor = 0
 		H << "<span class='notice'>You are now waking up from your sleep.</span>"
+		H.paralysis += 2 //as above
 		H.status_flags &= ~(FAKEDEATH)
 		H.update_canmove()
 		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
-		H.paralysis += 2 //as above
 
 	do
 		vampire_coffinregen(M)
@@ -345,7 +345,7 @@
 	if(do_mob(M.current, C, 50))
 		if(M.current.can_vampirize(C))
 			if(M.current.vampire_power(500, 0)) // recheck
-				M.current.handle_vampirize(C)
+				M.current.handle_vampirize(C.mind)
 				M.current.remove_vampire_blood(500)
 				M.current.verbs -= /client/proc/vampire_turn
 				spawn(1800) M.current.verbs += /client/proc/vampire_turn
@@ -416,14 +416,14 @@
 		return 0
 	return 1
 
-/mob/proc/handle_vampirize(mob/living/carbon/human/H as mob)
+/mob/proc/handle_vampirize(var/datum/mind/H)
 	if(!istype(H))
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	vamps.add_antagonist(H.mind)
-	H << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!.</span>"
-	src << "<span class='warning'> You have successfully vampirized [H.name].</span>"
+	vamps.add_antagonist(H)
+	H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
+	src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
 	log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
 
 /client/proc/vampire_bats()
