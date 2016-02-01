@@ -847,10 +847,10 @@ var/global/list/damage_icon_parts = list()
 
 		//determine icon to use
 		var/icon/t_icon
-		if(r_hand.item_icons && (slot_r_hand_str in r_hand.item_icons))
+		if(r_hand.urist_only)
+			t_icon = 'icons/uristmob/items_righthand.dmi'
+		else if(r_hand.item_icons && (slot_r_hand_str in r_hand.item_icons))
 			t_icon = r_hand.item_icons[slot_r_hand_str]
-		else if(r_hand.urist_only)
-			t_icon = 'icons/uristmob/items_lefthand.dmi'
 		else if(r_hand.icon_override)
 			t_state += "_r"
 			t_icon = r_hand.icon_override
@@ -881,10 +881,10 @@ var/global/list/damage_icon_parts = list()
 
 		//determine icon to use
 		var/icon/t_icon
-		if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
-			t_icon = l_hand.item_icons[slot_l_hand_str]
-		else if(l_hand.urist_only)
+		if(l_hand.urist_only)
 			t_icon = 'icons/uristmob/items_lefthand.dmi'
+		else if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
+			t_icon = l_hand.item_icons[slot_l_hand_str]
 		else if(l_hand.icon_override)
 			t_state += "_l"
 			t_icon = l_hand.icon_override
