@@ -59,7 +59,7 @@
 /obj/item/scom/borgmodkit
 	name = "cyborg mod kit - Combat"
 	desc = "A mod kit to convert a cyborg into a Combat Borg"
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
 /obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)
@@ -68,4 +68,5 @@
 	R.modtype = "Combat"
 //	R.module_sprites["Combat Android"] = "droid-combat"
 	R.updateicon()
-	del(src)
+	qdel(src)
+	return

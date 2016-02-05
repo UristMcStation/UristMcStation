@@ -77,7 +77,7 @@
 		ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 		ico.DrawBox(rgb(255,255,255,1),1,ico.Height()/2,ico.Width()/2,ico.Height())
 		using = new /obj/screen( src )
-		using.name = "help"
+		using.name = I_HELP
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
@@ -89,7 +89,7 @@
 		ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 		ico.DrawBox(rgb(255,255,255,1),ico.Width()/2,ico.Height()/2,ico.Width(),ico.Height())
 		using = new /obj/screen( src )
-		using.name = "disarm"
+		using.name = I_DISARM
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
@@ -101,7 +101,7 @@
 		ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 		ico.DrawBox(rgb(255,255,255,1),ico.Width()/2,1,ico.Width(),ico.Height()/2)
 		using = new /obj/screen( src )
-		using.name = "grab"
+		using.name = I_GRAB
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
@@ -113,7 +113,7 @@
 		ico.MapColors(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, -1,-1,-1,-1)
 		ico.DrawBox(rgb(255,255,255,1),1,1,ico.Width()/2,ico.Height()/2)
 		using = new /obj/screen( src )
-		using.name = "harm"
+		using.name = I_HURT
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
@@ -356,6 +356,9 @@
 	//mymob.gun_run_icon.color = ui_color
 	mymob.gun_run_icon.alpha = ui_alpha
 
+	mymob.radio_use_icon = new /obj/screen/gun/radio(null)
+	mymob.radio_use_icon.alpha = ui_alpha
+
 	if (mymob.client)
 		if (mymob.client.gun_mode) // If in aim mode, correct the sprite
 			mymob.gun_setting_icon.set_dir(2)
@@ -433,9 +436,6 @@
 	f_style = "Shaved"
 	if(dna.species == "Human") //no more xenos losing ears/tentacles
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	undershirt = undershirt_t.Find("None")
-	if(gender == MALE)
-		underwear = underwear_m.Find("None")
-	else
-		underwear = underwear_f.Find("None")
+	undershirt = null
+	underwear = null
 	regenerate_icons()

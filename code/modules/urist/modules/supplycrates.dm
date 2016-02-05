@@ -29,16 +29,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /datum/supply_packs/randomised/ripleypaintkits
 	name = "Customization Crate (APLU \"Ripley\")"
-	contains = list(/obj/item/weapon/paintkit/fluff/clownply,
-					/obj/item/weapon/paintkit/fluff/sven_fjeltson_1,
-					/obj/item/weapon/paintkit/fluff/butcher_royce_1,
-					/obj/item/weapon/paintkit/fluff/dreadnought)//Put Ripley Customization stuff here
+	num_contained = 1 //only one paintkit for you //needs a port to the paintkit refactor, TGCode
+	contains = list(/obj/item/device/kit/paint/clownply,
+					/obj/item/device/kit/paint/titan,
+					/obj/item/device/kit/paint/mercenary,
+					/obj/item/device/kit/paint/dreadnought)//Put Ripley Customization stuff here
 	cost = 100
 	access = access_robotics
 	containertype = /obj/structure/closet/crate/secure
 	containername = "APLU \"Ripley\" Customization Crate"
 	group = "Engineering"
-	num_contained = 1 //only one paintkit for you
 
 //Mail supply crate - 2 rolls of packing wrap and a destination tagger - Octobomb
 

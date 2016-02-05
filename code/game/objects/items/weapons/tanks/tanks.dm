@@ -31,9 +31,9 @@
 	processing_objects.Add(src)
 	return
 
-/obj/item/weapon/tank/Del()
+/obj/item/weapon/tank/Destroy()
 	if(air_contents)
-		del(air_contents)
+		qdel(air_contents)
 
 	processing_objects.Remove(src)
 
@@ -71,12 +71,12 @@
 	if(prob(50))
 		var/turf/location = src.loc
 		if (!( istype(location, /turf) ))
-			del(src)
+			qdel(src)
 
 		if(src.air_contents)
 			location.assume_air(air_contents)
 
-		del(src)
+		qdel(src)
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -246,7 +246,7 @@
 
 /obj/item/weapon/tank/process()
 	//Allow for reactions
-	air_contents.react()
+	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
 	check_status()
 
 
@@ -261,20 +261,23 @@
 		if(!istype(src.loc,/obj/item/device/transfer_valve))
 			message_admins("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 			log_game("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
-		//world << "\blue[x],[y] tank is exploding: [pressure] kPa"
+
 		//Give the gas a chance to build up more pressure through reacting
 		air_contents.react()
 		air_contents.react()
 		air_contents.react()
+
 		pressure = air_contents.return_pressure()
 		var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
-		range = min(range, max_explosion_range)		// was 8 - - - Changed to a configurable define -- TLE
-		var/turf/epicenter = get_turf(loc)
 
-		//world << "\blue Exploding Pressure: [pressure] kPa, intensity: [range]"
-
-		explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5))
-		del(src)
+		explosion(
+			get_turf(loc), 
+			round(min(BOMBCAP_DVSTN_RADIUS, range*0.25)), 
+			round(min(BOMBCAP_HEAVY_RADIUS, range*0.50)), 
+			round(min(BOMBCAP_LIGHT_RADIUS, range*1.00)), 
+			round(min(BOMBCAP_FLASH_RADIUS, range*1.50)), 
+			)
+		qdel(src)
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
 		//world << "\blue[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]"
@@ -284,7 +287,7 @@
 				return
 			T.assume_air(air_contents)
 			playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-			del(src)
+			qdel(src)
 		else
 			integrity--
 

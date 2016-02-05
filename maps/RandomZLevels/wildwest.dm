@@ -75,11 +75,7 @@
 			if("To Kill")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your wickedness, claiming your soul and warping your body to match the darkness in your heart."
-				ticker.mode.traitors += user.mind
-				user.mind.special_role = "traitor"
-				var/datum/objective/hijack/hijack = new
-				hijack.owner = user.mind
-				user.mind.objectives += hijack
+				traitors.add_antagonist(user, 1, 1, 0, 1, 1)
 				user << "<B>Your inhibitions are swept away, the bonds of loyalty broken, you are free to murder as you please!</B>"
 				var/obj_count = 1
 				for(var/datum/objective/OBJ in user.mind.objectives)
@@ -120,7 +116,7 @@
 
 	if(triggered) return
 
-	if(istype(M, /mob/living/carbon/human) || istype(M, /mob/living/carbon/monkey))
+	if(istype(M, /mob/living/carbon/human))
 		for(var/mob/O in viewers(world.view, src.loc))
 			O << "<font color='red'>[M] triggered the \icon[src] [src]</font>"
 		triggered = 1

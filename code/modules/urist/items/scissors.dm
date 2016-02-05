@@ -25,14 +25,14 @@
 		var/obj/item/weapon/improvised/scissorknife/N = new childpart
 		var/obj/item/weapon/improvised/scissorknife/N2 = new childpart
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 		user.drop_from_inventory(src)
 
 		user.put_in_hands(N)
 		user.put_in_hands(N2)
 		user << "<span class='notice'>You seperate the parts of the [src]</span>"
 
-		del(src)
+		qdel(src)
 	..()
 
 /obj/item/weapon/improvised/scissorsassembly //So you can put it together!
@@ -60,12 +60,12 @@
 
 		var/obj/item/weapon/scissors/N = new parentscissor
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(N)
 		user << "<span class='notice'>You tighten the screw on the screwdriver assembley</span>"
 
-		del(src)
+		qdel(src)
 	..()
 
 //Makes scissors cut hair, special thanks to Miauw and Xerux -Nien

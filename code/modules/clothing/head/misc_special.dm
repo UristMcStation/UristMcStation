@@ -17,7 +17,7 @@
 	icon_state = "welding"
 	flags = HEADCOVERSEYES | HEADCOVERSMOUTH
 	item_state = "welding"
-	matter = list("metal" = 3000, "glass" = 1000)
+	matter = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000)
 	var/up = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
@@ -25,8 +25,11 @@
 	icon_action_button = "action_welding"
 	siemens_coefficient = 0.9
 	w_class = 3
+	var/base_state
 
 /obj/item/clothing/head/welding/attack_self()
+	if(!base_state)
+		base_state = icon_state
 	toggle()
 
 
@@ -40,13 +43,13 @@
 			src.up = !src.up
 			src.flags |= (HEADCOVERSEYES | HEADCOVERSMOUTH)
 			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			icon_state = initial(icon_state)
+			icon_state = base_state
 			usr << "You flip the [src] down to protect your eyes."
 		else
 			src.up = !src.up
 			src.flags &= ~(HEADCOVERSEYES | HEADCOVERSMOUTH)
 			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			icon_state = "[initial(icon_state)]up"
+			icon_state = "[base_state]up"
 			usr << "You push the [src] up out of your face."
 		update_clothing_icon()	//so our mob-overlays update
 
@@ -122,7 +125,6 @@
 	desc = "A jack o' lantern! Believed to ward off evil spirits."
 	icon_state = "hardhat0_pumpkin"//Could stand to be renamed
 	item_state = "hardhat0_pumpkin"
-	item_color = "pumpkin"
 	flags = HEADCOVERSEYES | HEADCOVERSMOUTH | BLOCKHAIR
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|EYES
@@ -138,18 +140,22 @@
 	desc = "A pair of kitty ears. Meow!"
 	icon_state = "kitty"
 	body_parts_covered = 0
-	var/icon/mob
-	var/icon/mob2
 	siemens_coefficient = 1.5
+	item_icons = list()
 
 	update_icon(var/mob/living/carbon/human/user)
 		if(!istype(user)) return
-		mob = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kitty")
-		mob2 = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kitty2")
-		mob.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
-		mob2.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
+		var/icon/ears = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kitty")
+		ears.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
 
 		var/icon/earbit = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kittyinner")
-		var/icon/earbit2 = new/icon("icon" = 'icons/mob/head.dmi', "icon_state" = "kittyinner2")
-		mob.Blend(earbit, ICON_OVERLAY)
-		mob2.Blend(earbit2, ICON_OVERLAY)
+		ears.Blend(earbit, ICON_OVERLAY)
+		
+		item_icons[icon_head] = ears
+
+/obj/item/clothing/head/richard
+	name = "chicken mask"
+	desc = "You can hear the distant sounds of rhythmic electronica."
+	icon_state = "richard"
+	body_parts_covered = HEAD|FACE
+	flags = HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR

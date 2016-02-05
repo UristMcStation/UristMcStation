@@ -21,14 +21,14 @@
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4
-	del(src)
+	qdel(src)
 
 /obj/effect/decal/cleanable/greenglow
 
 	New()
 		..()
 		spawn(1200)// 2 minutes
-			del(src)
+			qdel(src)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
@@ -58,7 +58,7 @@
 	density = 0
 	anchored = 1
 	layer = 2
-	luminosity = 1
+	light_range = 1
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
 
@@ -102,7 +102,7 @@
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
 	var/list/viruses = list()
 
-	Del()
+	Destroy()
 		for(var/datum/disease/D in viruses)
 			D.cure(0)
 		..()
@@ -133,3 +133,13 @@
 	layer = 2
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_pie")
+
+/obj/effect/decal/cleanable/fruit_smudge
+	name = "smudge"
+	desc = "Some kind of fruit smear."
+	density = 0
+	anchored = 1
+	layer = 2
+	icon = 'icons/effects/blood.dmi'
+	icon_state = "mfloor1"
+	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")

@@ -105,7 +105,15 @@
 
 	proc/handle_chemicals_in_body()
 
-		if(reagents) reagents.metabolize(src)
+		chem_effects.Cut()
+		analgesic = 0
+
+		if(touching) touching.metabolize()
+		if(ingested) ingested.metabolize()
+		if(bloodstr) bloodstr.metabolize()
+
+		if(CE_PAINKILLER in chem_effects)
+			analgesic = chem_effects[CE_PAINKILLER]
 
 		confused = max(0, confused - 1)
 		// decrement dizziness counter, clamped to 0
@@ -245,7 +253,7 @@
 
 		if (stat != 2)
 			if (machine)
-				if (!( machine.check_eye(src) ))
+				if (machine.check_eye(src) < 0)
 					reset_view(null)
 			else
 				if(client && !client.adminobs)

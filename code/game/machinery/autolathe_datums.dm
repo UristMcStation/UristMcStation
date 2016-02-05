@@ -15,8 +15,8 @@
 		if(I.matter && !recipe.resources) //This can be overidden in the datums.
 			recipe.resources = list()
 			for(var/material in I.matter)
-				recipe.resources[material] = round(I.matter[material]*1.25) // More expensive to produce than they are to recycle.
-			del(I)
+				recipe.resources[material] = I.matter[material]*1.25 // More expensive to produce than they are to recycle.
+			qdel(I)
 
 /datum/autolathe/recipe
 	var/name = "object"
@@ -40,6 +40,11 @@
 /datum/autolathe/recipe/extinguisher
 	name = "extinguisher"
 	path = /obj/item/weapon/extinguisher
+	category = "General"
+
+/datum/autolathe/recipe/jar
+	name = "jar"
+	path = /obj/item/glass_jar
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
@@ -77,6 +82,16 @@
 	path = /obj/item/weapon/wrench
 	category = "Tools"
 
+/datum/autolathe/recipe/hatchet
+	name = "hatchet"
+	path = /obj/item/weapon/material/hatchet
+	category = "Tools"
+
+/datum/autolathe/recipe/minihoe
+	name = "mini hoe"
+	path = /obj/item/weapon/material/minihoe
+	category = "Tools"
+
 /datum/autolathe/recipe/radio_headset
 	name = "radio headset"
 	path = /obj/item/device/radio/headset
@@ -94,19 +109,19 @@
 
 /datum/autolathe/recipe/metal
 	name = "steel sheets"
-	path = /obj/item/stack/sheet/metal
+	path = /obj/item/stack/material/steel
 	category = "General"
 	is_stack = 1
 
 /datum/autolathe/recipe/glass
 	name = "glass sheets"
-	path = /obj/item/stack/sheet/glass
+	path = /obj/item/stack/material/glass
 	category = "General"
 	is_stack = 1
 
 /datum/autolathe/recipe/rglass
 	name = "reinforced glass sheets"
-	path = /obj/item/stack/sheet/glass/reinforced
+	path = /obj/item/stack/material/glass/reinforced
 	category = "General"
 	is_stack = 1
 
@@ -118,7 +133,7 @@
 
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
-	path = /obj/item/weapon/kitchenknife
+	path = /obj/item/weapon/material/knife
 	category = "General"
 
 /datum/autolathe/recipe/taperecorder
@@ -201,8 +216,13 @@
 	path = /obj/item/weapon/reagent_containers/syringe
 	category = "Medical"
 
+/datum/autolathe/recipe/syringegun_ammo
+	name = "syringe gun cartridge"
+	path = /obj/item/weapon/syringe_cartridge
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/shotgun_blanks
-	name = "ammunition (shotgun, blanks)"
+	name = "ammunition (shotgun, blank)"
 	path = /obj/item/ammo_casing/shotgun/blank
 	category = "Arms and Ammunition"
 
@@ -211,9 +231,24 @@
 	path = /obj/item/ammo_casing/shotgun/beanbag
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/shotgun_flash
+	name = "ammunition (shotgun, flash)"
+	path = /obj/item/ammo_casing/shotgun/flash
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_rubber
-	name = "ammunition (rubber)"
-	path = /obj/item/ammo_magazine/c45r
+	name = "ammunition (.45, rubber)"
+	path = /obj/item/ammo_magazine/c45m/rubber
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_flash
+	name = "ammunition (.45, flash)"
+	path = /obj/item/ammo_magazine/c45m/flash
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smg_rubber
+	name = "ammunition (9mm rubber top mounted)"
+	path = /obj/item/ammo_magazine/mc9mmt/rubber
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/consolescreen
@@ -258,7 +293,7 @@
 
 /datum/autolathe/recipe/ashtray_glass
 	name = "glass ashtray"
-	path = /obj/item/ashtray/glass
+	path = /obj/item/weapon/material/ashtray/glass
 	category = "General"
 
 /datum/autolathe/recipe/camera_assembly
@@ -284,15 +319,63 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_stetchkin
+	name = "ammunition (9mm)"
+	path = /obj/item/ammo_magazine/mc9mm
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_stetchkin_flash
+	name = "ammunition (9mm, flash)"
+	path = /obj/item/ammo_magazine/mc9mm/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_c20r
+	name = "ammunition (12mm)"
+	path = /obj/item/ammo_magazine/a12mm
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_arifle
+	name = "ammunition (7.62mm)"
+	path = /obj/item/ammo_magazine/c762
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smg
+	name = "ammunition (9mm top mounted)"
+	path = /obj/item/ammo_magazine/mc9mmt
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_carbine
+	name = "ammunition (5.56mm)"
+	path = /obj/item/ammo_magazine/a556
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/shotgun
-	name = "ammunition (shell, shotgun)"
+	name = "ammunition (slug, shotgun)"
 	path = /obj/item/ammo_casing/shotgun
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/shotgun_dart
-	name = "ammunition (dart, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/dart
+/datum/autolathe/recipe/shotgun_pellet
+	name = "ammunition (shell, shotgun)"
+	path = /obj/item/ammo_casing/shotgun/pellet
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/tacknife
+	name = "tactical knife"
+	path = /obj/item/weapon/material/hatchet/tacknife
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/stunshell
+	name = "ammunition (stun cartridge, shotgun)"
+	path = /obj/item/ammo_casing/shotgun/stunshell
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -319,3 +402,5 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
+
+

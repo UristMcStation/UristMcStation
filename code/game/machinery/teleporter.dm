@@ -9,6 +9,10 @@
 	var/one_time_use = 0 //Used for one-time-use teleport cards (such as clown planet coordinates.)
 						 //Setting this to 1 will set src.locked to null after a player enters the portal and will not allow hand-teles to open portals to that location.
 
+/* Ghosts can't use this */
+/obj/machinery/computer/teleporter/attack_ghost(user as mob)
+	return 1
+
 /obj/machinery/computer/teleporter/New()
 	src.id = "[rand(1000, 9999)]"
 	..()
@@ -53,7 +57,7 @@
 			usr << "You insert the coordinates into the machine."
 			usr << "A message flashes across the screen reminding the traveller that the nuclear authentication disk is to remain on the station at all times."
 			user.drop_item()
-			del(I)
+			qdel(I)
 
 			if(C.data == "Clown Land")
 				//whoops
@@ -80,9 +84,11 @@
 /obj/machinery/teleport/station/attack_ai()
 	src.attack_hand()
 
-/obj/machinery/computer/teleporter/attack_hand()
-	if(stat & (NOPOWER|BROKEN))
-		return
+/obj/machinery/computer/teleporter/attack_hand(user as mob)
+	if(..()) return
+
+	/* Ghosts can't use this one because it's a direct selection */
+	if(istype(user, /mob/dead/observer)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
@@ -91,7 +97,7 @@
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(T.z == 2 || T.z > 7)
+		if(!(T.z in config.player_levels))
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])
@@ -169,6 +175,7 @@
 	active_power_usage = 2000
 	var/obj/machinery/computer/teleporter/com
 
+
 /obj/machinery/teleport/hub/New()
 	..()
 	underlays.Cut()
@@ -209,7 +216,7 @@
 /*
 /proc/do_teleport(atom/movable/M as mob|obj, atom/destination, precision)
 	if(istype(M, /obj/effect))
-		del(M)
+		qdel(M)
 		return
 	if (istype(M, /obj/item/weapon/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
 		for(var/mob/O in viewers(M, null))
@@ -329,6 +336,8 @@
 	if (com)
 		com.icon_state = "tele1"
 		use_power(5000)
+		update_use_power(2)
+		com.update_use_power(2)
 		for(var/mob/O in hearers(src, null))
 			O.show_message("\blue Teleporter engaged!", 2)
 	src.add_fingerprint(usr)
@@ -342,6 +351,8 @@
 	if (com)
 		com.icon_state = "tele0"
 		com.accurate = 0
+		com.update_use_power(1)
+		update_use_power(1)
 		for(var/mob/O in hearers(src, null))
 			O.show_message("\blue Teleporter disengaged!", 2)
 	src.add_fingerprint(usr)

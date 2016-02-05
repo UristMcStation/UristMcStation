@@ -213,11 +213,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/white/B = new /obj/item/weapon/bedsheet/white
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)*/
+		qdel(src)*/
 
 //I fixed the bugs. I'll clean this up too when I get a chance.
 
@@ -229,11 +229,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/white/B = new /obj/item/weapon/bedsheet/white
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/blue/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -243,11 +243,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/blue/B = new /obj/item/weapon/bedsheet/blue
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/orange/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -257,11 +257,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/orange/B = new /obj/item/weapon/bedsheet/orange
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/red/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -271,11 +271,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/red/B = new /obj/item/weapon/bedsheet/red
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/purple/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -285,11 +285,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/purple/B = new /obj/item/weapon/bedsheet/purple
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/green/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -299,11 +299,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/green/B = new /obj/item/weapon/bedsheet/green
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/yellow/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -313,11 +313,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/yellow/B = new /obj/item/weapon/bedsheet/yellow
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rainbow/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -327,11 +327,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/rainbow/B = new /obj/item/weapon/bedsheet/rainbow
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/brown/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -341,11 +341,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/brown/B = new /obj/item/weapon/bedsheet/brown
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/captain/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -355,11 +355,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/captain/B = new /obj/item/weapon/bedsheet/captain
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hop/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -369,11 +369,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/hop/B = new /obj/item/weapon/bedsheet/hop
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/ce/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -383,11 +383,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/ce/B = new /obj/item/weapon/bedsheet/ce
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hos/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -397,11 +397,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/hos/B = new /obj/item/weapon/bedsheet/hos
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 
 /obj/item/clothing/mask/bandana/bedsheet/medical/verb/toggle_bandana()
@@ -412,11 +412,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/medical/B = new /obj/item/weapon/bedsheet/medical
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cmo/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -426,11 +426,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/cmo/B = new /obj/item/weapon/bedsheet/cmo
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rd/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -440,11 +440,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/rd/B = new /obj/item/weapon/bedsheet/rd
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/qm/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -454,11 +454,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/qm/B = new /obj/item/weapon/bedsheet/qm
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/centcom/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -468,11 +468,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/centcom/B = new /obj/item/weapon/bedsheet/centcom
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/syndie/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -482,11 +482,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/syndie/B = new /obj/item/weapon/bedsheet/syndie
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cult/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -496,11 +496,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/cult/B = new /obj/item/weapon/bedsheet/cult
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/wiz/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -510,11 +510,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/wiz/B = new /obj/item/weapon/bedsheet/wiz
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/clown/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -524,11 +524,11 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/clown/B = new /obj/item/weapon/bedsheet/clown
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/mime/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
@@ -538,9 +538,9 @@
 	if(on)
 		var/obj/item/weapon/bedsheet/mime/B = new /obj/item/weapon/bedsheet/mime
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
-		del(src)
+		qdel(src)
 

@@ -43,8 +43,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			card.setPersonality(pai)
 			card.looking_for_personality = 0
 
-			ticker.mode.update_cult_icons_removed(card.pai.mind)
-			ticker.mode.update_rev_icons_removed(card.pai.mind)
+			if(pai.mind) update_antag_icons(pai.mind)
 
 			pai_candidates -= candidate
 			usr << browse(null, "window=findPai")
@@ -56,34 +55,34 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 
 		switch(option)
 			if("name")
-				t = input("Enter a name for your pAI", "pAI Name", candidate.name) as text
+				t = sanitizeSafe(input("Enter a name for your pAI", "pAI Name", candidate.name) as text, MAX_NAME_LEN)
 				if(t)
-					candidate.name = sanitize(copytext(t,1,MAX_NAME_LEN))
+					candidate.name = t
 			if("desc")
 				t = input("Enter a description for your pAI", "pAI Description", candidate.description) as message
 				if(t)
-					candidate.description = sanitize(copytext(t,1,MAX_MESSAGE_LEN))
+					candidate.description = sanitize(t)
 			if("role")
 				t = input("Enter a role for your pAI", "pAI Role", candidate.role) as text
 				if(t)
-					candidate.role = sanitize(copytext(t,1,MAX_MESSAGE_LEN))
+					candidate.role = sanitize(t)
 			if("ooc")
 				t = input("Enter any OOC comments", "pAI OOC Comments", candidate.comments) as message
 				if(t)
-					candidate.comments = sanitize(copytext(t,1,MAX_MESSAGE_LEN))
+					candidate.comments = sanitize(t)
 			if("save")
 				candidate.savefile_save(usr)
 			if("load")
 				candidate.savefile_load(usr)
 				//In case people have saved unsanitized stuff.
 				if(candidate.name)
-					candidate.name = sanitize(copytext(candidate.name,1,MAX_NAME_LEN))
+					candidate.name = sanitizeSafe(candidate.name, MAX_NAME_LEN)
 				if(candidate.description)
-					candidate.description = sanitize(copytext(candidate.description,1,MAX_MESSAGE_LEN))
+					candidate.description = sanitize(candidate.description)
 				if(candidate.role)
-					candidate.role = sanitize(copytext(candidate.role,1,MAX_MESSAGE_LEN))
+					candidate.role = sanitize(candidate.role)
 				if(candidate.comments)
-					candidate.comments = sanitize(copytext(candidate.comments,1,MAX_MESSAGE_LEN))
+					candidate.comments = sanitize(candidate.comments)
 
 			if("submit")
 				if(candidate)
@@ -235,7 +234,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		if(c.ready)
 			var/found = 0
 			for(var/mob/dead/observer/o in player_list)
-				if(o.key == c.key)
+				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
 				available.Add(c)
@@ -348,7 +347,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 /datum/paiController/proc/requestRecruits(var/mob/user)
 	inquirer = user
 	for(var/mob/dead/observer/O in player_list)
-		if(O.has_enabled_antagHUD == 1 && config.antag_hud_restricted)
+		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))
 			continue

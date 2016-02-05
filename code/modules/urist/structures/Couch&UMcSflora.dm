@@ -1,4 +1,4 @@
-/obj/structure/stool/bed/chair/couch
+/obj/structure/bed/chair/couch
 	name = "couch"
 	desc = "A couch. Looks pretty comfortable."
 	icon = 'icons/urist/structures&machinery/Nienplants&Couch.dmi'
@@ -7,7 +7,12 @@
 	var/image/armrest = null
 	var/couchpart = 0 //0 = middle, 1 = left, 2 = right
 
-/obj/structure/stool/bed/chair/couch/New()
+/obj/structure/bed/chair/couch/update_icon()
+	return
+
+/obj/structure/bed/chair/couch/New(var/newloc,var/newmaterial)
+//	..(newloc,"steel","black")
+
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
 		armrest.layer = MOB_LAYER + 0.1
@@ -15,67 +20,73 @@
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
 		armrest.layer = MOB_LAYER + 0.1
 
-	return ..()
+	..()
 
-/obj/structure/stool/bed/chair/couch/afterbuckle()
+	src.color = initial(color)
+
+
+/obj/structure/bed/chair/couch/post_buckle_mob()
 	if(buckled_mob)
 		overlays += armrest
 	else
 		overlays -= armrest
 
-/obj/structure/stool/bed/chair/couch/left
+/obj/structure/bed/chair/couch/left
 	couchpart = 1
 	icon_state = "couch_left"
+	base_icon = "couch_left"
 
-/obj/structure/stool/bed/chair/couch/right
+/obj/structure/bed/chair/couch/right
 	couchpart = 2
 	icon_state = "couch_right"
+	base_icon = "couch_right"
 
-/obj/structure/stool/bed/chair/couch/middle
+/obj/structure/bed/chair/couch/middle
 	icon_state = "couch_middle"
+	base_icon = "couch_middle"
 
-/obj/structure/stool/bed/chair/couch/left/black
+/obj/structure/bed/chair/couch/left/black
 	color = rgb(167,164,153)
 
-/obj/structure/stool/bed/chair/couch/right/black
+/obj/structure/bed/chair/couch/right/black
 	color = rgb(167,164,153)
 
-/obj/structure/stool/bed/chair/couch/middle/black
+/obj/structure/bed/chair/couch/middle/black
 	color = rgb(167,164,153)
 
-/obj/structure/stool/bed/chair/couch/left/teal
+/obj/structure/bed/chair/couch/left/teal
 	color = rgb(0,255,255)
 
-/obj/structure/stool/bed/chair/couch/right/teal
+/obj/structure/bed/chair/couch/right/teal
 	color = rgb(0,255,255)
 
-/obj/structure/stool/bed/chair/couch/middle/teal
+/obj/structure/bed/chair/couch/middle/teal
 	color = rgb(0,255,255)
 
-/obj/structure/stool/bed/chair/couch/left/beige
+/obj/structure/bed/chair/couch/left/beige
 	color = rgb(255,253,195)
 
-/obj/structure/stool/bed/chair/couch/right/beige
+/obj/structure/bed/chair/couch/right/beige
 	color = rgb(255,253,195)
 
-/obj/structure/stool/bed/chair/couch/middle/beige
+/obj/structure/bed/chair/couch/middle/beige
 	color = rgb(255,253,195)
 
-/obj/structure/stool/bed/chair/couch/left/brown
+/obj/structure/bed/chair/couch/left/brown
 	color = rgb(255,113,0)
 
-/obj/structure/stool/bed/chair/couch/right/brown
+/obj/structure/bed/chair/couch/right/brown
 	color = rgb(255,113,0)
 
-/obj/structure/stool/bed/chair/couch/middle/brown
+/obj/structure/bed/chair/couch/middle/brown
 	color = rgb(255,113,0)
 
 
-/obj/structure/stool/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		new /obj/item/stack/sheet/metal(src.loc)
-		del(src)
+		new /obj/item/stack/material/steel(src.loc)
+		qdel(src)
 	if(istype(W, /obj/item/weapon/chair_painter))
 		var/obj/item/weapon/chair_painter/C = W
 		color = rgb(C.red,C.green,C.blue)

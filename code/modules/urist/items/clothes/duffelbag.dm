@@ -4,6 +4,8 @@
 	urist_only = 1
 	icon_override = 'icons/uristmob/back.dmi'
 	icon = 'icons/urist/items/clothes/back.dmi'
+	item_icons = null
+	item_state_slots = null
 
 /obj/item/weapon/storage/backpack/duffel/duffel_norm
 	name = "duffel bag"

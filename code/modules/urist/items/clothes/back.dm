@@ -11,6 +11,9 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	icon = 'icons/urist/items/clothes/back.dmi'
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "satchel-robo"
+	item_icons = null
+	item_state_slots = null
+
 
 /obj/item/weapon/storage/backpack/robo
 	name = "Robotics Backpack"
@@ -18,6 +21,9 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	icon = 'icons/urist/items/clothes/back.dmi'
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "backpack-robo"
+	item_icons = null
+	item_state_slots = null
+
 
 //The stereotypical opera cape. Intended for vamps, but I guess you could use it to play ZE ANZHEL OF MUZIK or cause some toil and trouble or something.
 //Acts as a backpack, so the antag doesn't have to sacrifice storage for  - scrdest
@@ -28,3 +34,5 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	icon = 'icons/urist/items/clothes/back.dmi'
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "vcape"
+	item_icons = null
+	item_state_slots = null

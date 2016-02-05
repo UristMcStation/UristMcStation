@@ -308,10 +308,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		var/newname
 
 		for(var/i=1,i<=3,i++)	//we get 3 attempts to pick a suitable name.
-			newname = input(src,"You are a [role]. Would you like to change your name to something else?", "Name change",oldname) as text
-			if((world.time-time_passed)>300)
+			newname = input(src,"You are \a [role]. Would you like to change your name to something else?", "Name change",oldname) as text
+			if((world.time-time_passed)>3000)
 				return	//took too long
-			newname = reject_bad_name(newname,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
+			newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
 
 			for(var/mob/living/M in player_list)
 				if(M == src)
@@ -374,7 +374,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/mob/living/silicon/ai/selected
 	var/list/active = active_ais()
 	for(var/mob/living/silicon/ai/A in active)
-		if(!selected || (selected.connected_robots > A.connected_robots))
+		if(!selected || (selected.connected_robots.len > A.connected_robots.len))
 			selected = A
 
 	return selected
@@ -444,6 +444,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(mob_list)
+	for(var/mob/eye/M in sortmob)
+		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/pai/M in sortmob)
@@ -459,8 +461,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	for(var/mob/dead/observer/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/new_player/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/carbon/monkey/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/carbon/slime/M in sortmob)
 		moblist.Add(M)
@@ -488,64 +488,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		return M
 	if(M < 0)
 		return -M
-
-
-/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special_characters = 1)
-	var/mob/M
-	var/client/C
-	var/key
-
-	if(!whom)	return "*null*"
-	if(istype(whom, /client))
-		C = whom
-		M = C.mob
-		key = C.key
-	else if(ismob(whom))
-		M = whom
-		C = M.client
-		key = M.key
-	else if(istype(whom, /datum))
-		var/datum/D = whom
-		return "*invalid:[D.type]*"
-	else
-		return "*invalid*"
-
-	. = ""
-
-	if(key)
-		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C]'>"
-
-		if(C && C.holder && C.holder.fakekey && !include_name)
-			. += "Administrator"
-		else
-			. += key
-
-		if(include_link)
-			if(C)	. += "</a>"
-			else	. += " (DC)"
-	else
-		. += "*no key*"
-
-	if(include_name && M)
-		var/name
-
-		if(M.real_name)
-			name = M.real_name
-		else if(M.name)
-			name = M.name
-
-
-		if(include_link && is_special_character(M) && highlight_special_characters)
-			. += "/(<font color='#FFA500'>[name]</font>)" //Orange
-		else
-			. += "/([name])"
-
-	return .
-
-/proc/key_name_admin(var/whom, var/include_name = 1)
-	return key_name(whom, 1, include_name)
-
 
 // returns the turf located at the map edge in the specified direction relative to A
 // used for mass driver
@@ -618,23 +560,6 @@ proc/GaussRand(var/sigma)
 proc/GaussRandRound(var/sigma,var/roundto)
 	return round(GaussRand(sigma),roundto)
 
-proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,flick_anim as text,sleeptime = 0,direction as num)
-//This proc throws up either an icon or an animation for a specified amount of time.
-//The variables should be apparent enough.
-	var/atom/movable/overlay/animation = new(location)
-	if(direction)
-		animation.set_dir(direction)
-	animation.icon = a_icon
-	animation.layer = target:layer+1
-	if(a_icon_state)
-		animation.icon_state = a_icon_state
-	else
-		animation.icon_state = "blank"
-		animation.master = target
-		flick(flick_anim, animation)
-	sleep(max(sleeptime, 15))
-	del(animation)
-
 //Will return the contents of an atom recursivly to a depth of 'searchDepth'
 /atom/proc/GetAllContents(searchDepth = 5)
 	var/list/toReturn = list()
@@ -698,17 +623,26 @@ proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,fl
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(var/mob/user , var/mob/target, var/time = 30) //This is quite an ugly solution but i refuse to use the old request system.
-	if(!user || !target) return 0
-	var/user_loc = user.loc
-	var/target_loc = target.loc
+/proc/do_mob(var/mob/user, var/mob/target, var/delay, var/numticks = 5, var/needhand = 1) //This is quite an ugly solution but i refuse to use the old request system.
+	if(!user || !target)	return 0
+	if(numticks == 0)		return 0
+
+	var/delayfraction = round(delay/numticks)
+	var/original_user_loc = user.loc
+	var/original_target_loc = target.loc
 	var/holding = user.get_active_hand()
-	sleep(time)
-	if(!user || !target) return 0
-	if ( user.loc == user_loc && target.loc == target_loc && user.get_active_hand() == holding && !( user.stat ) && ( !user.stunned && !user.weakened && !user.paralysis && !user.lying ) )
-		return 1
-	else
-		return 0
+
+	for(var/i = 0, i<numticks, i++)
+		sleep(delayfraction)
+
+		if(!user || user.stat || user.weakened || user.stunned || user.loc != original_user_loc)
+			return 0
+		if(!target || target.loc != original_target_loc)
+			return 0
+		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
+			return 0
+
+	return 1
 
 /proc/do_after(var/mob/user as mob, delay as num, var/numticks = 5, var/needhand = 1)
 	if(!user || isnull(user))
@@ -718,14 +652,12 @@ proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,fl
 
 	var/delayfraction = round(delay/numticks)
 	var/original_loc = user.loc
-	var/original_turf = get_turf(user)
 	var/holding = user.get_active_hand()
 
 	for(var/i = 0, i<numticks, i++)
 		sleep(delayfraction)
 
-
-		if(!user || user.stat || user.weakened || user.stunned || user.loc != original_loc || get_turf(user) != original_turf)
+		if(!user || user.stat || user.weakened || user.stunned || user.loc != original_loc)
 			return 0
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
 			return 0
@@ -897,12 +829,12 @@ proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,fl
 							X.icon = 'icons/turf/shuttle.dmi'
 							X.icon_state = replacetext(O.icon_state, "_f", "_s") // revert the turf to the old icon_state
 							X.name = "wall"
-							del(O) // prevents multiple shuttle corners from stacking
+							qdel(O) // prevents multiple shuttle corners from stacking
 							continue
 						if(!istype(O,/obj)) continue
 						O.loc = X
 					for(var/mob/M in T)
-						if(!istype(M,/mob) || istype(M, /mob/aiEye)) continue // If we need to check for more mobs, I'll add a variable
+						if(!istype(M,/mob) || istype(M, /mob/eye)) continue // If we need to check for more mobs, I'll add a variable
 						M.loc = X
 
 //					var/area/AR = X.loc
@@ -921,30 +853,6 @@ proc/anim(turf/location as turf,target as mob|obj,a_icon,a_icon_state as text,fl
 					refined_src -= T
 					refined_trg -= B
 					continue moving
-
-	var/list/doors = new/list()
-
-	if(toupdate.len)
-		for(var/turf/simulated/T1 in toupdate)
-			for(var/obj/machinery/door/D2 in T1)
-				doors += D2
-			/*if(T1.parent)
-				air_master.groups_to_rebuild += T1.parent
-			else
-				air_master.tiles_to_update += T1*/
-
-	if(fromupdate.len)
-		for(var/turf/simulated/T2 in fromupdate)
-			for(var/obj/machinery/door/D2 in T2)
-				doors += D2
-			/*if(T2.parent)
-				air_master.groups_to_rebuild += T2.parent
-			else
-				air_master.tiles_to_update += T2*/
-
-	for(var/obj/O in doors)
-		O:update_nearby_tiles(1)
-
 
 
 proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
@@ -972,6 +880,8 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	//Notes: Attempts to move the contents of one area to another area.
 	//       Movement based on lower left corner. Tiles that do not fit
 	//		 into the new area will not be moved.
+
+	// Does *not* affect gases etc; copied turfs will be changed via ChangeTurf, and the dir, icon, and icon_state copied. All other vars will remain default.
 
 	if(!A || !src) return 0
 
@@ -1026,7 +936,8 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 						if(istype(B, /turf/space))
 							continue moving
 
-					var/turf/X = new T.type(B)
+					var/turf/X = B
+					X.ChangeTurf(T.type)
 					X.set_dir(old_dir1)
 					X.icon_state = old_icon_state1
 					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
@@ -1054,7 +965,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 					for(var/mob/M in T)
 
-						if(!istype(M,/mob) || istype(M, /mob/aiEye)) continue // If we need to check for more mobs, I'll add a variable
+						if(!istype(M,/mob) || istype(M, /mob/eye)) continue // If we need to check for more mobs, I'll add a variable
 						mobs += M
 
 					for(var/mob/M in mobs)
@@ -1065,12 +976,6 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 					copiedobjs += newobjs
 					copiedobjs += newmobs
-
-
-
-					for(var/V in T.vars)
-						if(!(V in list("type","loc","locs","vars", "parent", "parent_type","verbs","ckey","key","x","y","z","contents", "luminosity")))
-							X.vars[V] = T.vars[V]
 
 //					var/area/AR = X.loc
 
@@ -1087,22 +992,9 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 
 
-	var/list/doors = new/list()
-
 	if(toupdate.len)
 		for(var/turf/simulated/T1 in toupdate)
-			for(var/obj/machinery/door/D2 in T1)
-				doors += D2
-			/*if(T1.parent)
-				air_master.groups_to_rebuild += T1.parent
-			else
-				air_master.tiles_to_update += T1*/
-
-	for(var/obj/O in doors)
-		O:update_nearby_tiles(1)
-
-
-
+			air_master.mark_for_update(T1)
 
 	return copiedobjs
 
@@ -1249,7 +1141,7 @@ proc/is_hot(obj/item/W as obj)
 				return 1000
 			else
 				return 0
-		if(/obj/item/clothing/mask/cigarette)
+		if(/obj/item/clothing/mask/smokable/cigarette)
 			if(W:lit)
 				return 1000
 			else
@@ -1287,7 +1179,7 @@ proc/is_hot(obj/item/W as obj)
 		istype(W, /obj/item/weapon/weldingtool)					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
-		istype(W, /obj/item/clothing/mask/cigarette) 		      || \
+		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
 		istype(W, /obj/item/weapon/shovel) \
 	)
 
@@ -1305,7 +1197,7 @@ proc/is_hot(obj/item/W as obj)
 /proc/can_operate(mob/living/carbon/M)
 	return (M.lying && \
 	locate(/obj/machinery/optable, M.loc) || \
-	(locate(/obj/structure/stool/bed/roller, M.loc) && prob(75)) || \
+	(locate(/obj/structure/bed/roller, M.loc) && prob(75)) || \
 	(locate(/obj/structure/table/, M.loc) && prob(66)))
 
 /proc/reverse_direction(var/dir)
@@ -1378,3 +1270,42 @@ var/list/WALLITEMS = list(
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
 	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+
+/proc/get_random_colour(var/simple, var/lower, var/upper)
+	var/colour
+	if(simple)
+		colour = pick(list("FF0000","FF7F00","FFFF00","00FF00","0000FF","4B0082","8F00FF"))
+	else
+		for(var/i=1;i<=3;i++)
+			var/temp_col = "[num2hex(rand(lower,upper))]"
+			if(length(temp_col )<2)
+				temp_col  = "0[temp_col]"
+			colour += temp_col
+	return colour
+
+var/mob/dview/dview_mob = new
+
+//Version of view() which ignores darkness, because BYOND doesn't have it.
+/proc/dview(var/range = world.view, var/center, var/invis_flags = 0)
+	if(!center)
+		return
+
+	dview_mob.loc = center
+
+	dview_mob.see_invisible = invis_flags
+
+	. = view(range, dview_mob)
+	dview_mob.loc = null
+
+/mob/dview
+	invisibility = 101
+	density = 0
+
+	anchored = 1
+	simulated = 0
+
+	see_in_dark = 1e6
+
+/mob/dview/New()
+	// do nothing. we don't want to be in any mob lists; we're a dummy not a mob.
+

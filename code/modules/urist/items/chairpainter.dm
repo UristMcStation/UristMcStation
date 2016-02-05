@@ -25,7 +25,7 @@
 		green = hex2num(copytext(new_color, 4, 6))
 		blue = hex2num(copytext(new_color, 6, 8))
 
-/obj/structure/stool/bed/chair/comfy/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/comfy/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/weapon/chair_painter))
 		var/obj/item/weapon/chair_painter/C = W

@@ -31,7 +31,7 @@
 			spawn_area_type = /area/crew_quarters/kitchen
 			locstring = "the kitchen"
 		if(LOC_ATMOS)
-			spawn_area_type = /area/atmos
+			spawn_area_type = /area/engineering/atmos
 			locstring = "atmospherics"
 		if(LOC_INCIN)
 			spawn_area_type = /area/maintenance/incinerator
@@ -58,16 +58,11 @@
 			spawn_area_type = /area/security/tactical
 			locstring = "tactical equipment storage"
 
-	//world << "looking for [spawn_area_type]"
 	for(var/areapath in typesof(spawn_area_type))
-		//world << "	checking [areapath]"
 		var/area/A = locate(areapath)
-		//world << "	A: [A], contents.len: [A.contents.len]"
-		for(var/area/B in A.related)
-			//world << "	B: [B], contents.len: [B.contents.len]"
-			for(var/turf/simulated/floor/F in B.contents)
-				if(!F.contents.len)
-					turfs += F
+		for(var/turf/simulated/floor/F in A.contents)
+			if(turf_clear(F))
+				turfs += F
 
 	var/list/spawn_types = list()
 	var/max_number

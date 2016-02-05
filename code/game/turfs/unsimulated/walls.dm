@@ -17,4 +17,5 @@ turf/unsimulated/wall/splashscreen
 	layer = FLY_LAYER
 
 /turf/unsimulated/wall/other
+	icon = 'icons/urist/turf/oldwalls.dmi'
 	icon_state = "r_wall"

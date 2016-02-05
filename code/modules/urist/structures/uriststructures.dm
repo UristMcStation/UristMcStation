@@ -104,13 +104,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //hacky, but I don't give a fuck. nicer beds
 
-/obj/structure/stool/bed/nice
+/obj/structure/bed/nice
 	name = "bed"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	desc = "This is used to lie in, sleep in or strap on. Looks comfortable."
 	icon_state = "bed"
+	base_icon = "bed"
 
-//poker tables
+/obj/structure/bed/nice/update_icon() //GLLOYDTODO: comeback to this
+	return
+
+///obj/structure/bed/nice/New(var/newloc)
+//	..(newloc,"plastic","cotton")
+
+//poker tables GLLOYDTODO: Come back to this, maybe trmove this
 
 /obj/structure/table/poker //No specialties, Just a mapping object.
 	name = "gambling table"
@@ -134,32 +141,35 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
 		R.use(1)
 
-		user.before_take_item(src)
+		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
+		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>" //wut
 
-		del(src)
-		del(I)
+		qdel(src)
+		qdel(I)
 
 //shuttle chairs
 
-/obj/structure/stool/bed/chair/urist
+/obj/structure/bed/chair/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/structure/stool/bed/chair/urist/shuttle
+/obj/structure/bed/chair/urist/update_icon()
+	return
+
+/obj/structure/bed/chair/urist/shuttle
 	name = "shuttle chair"
 	desc = "A specially padded chair made for shuttles."
 	icon_state = "shuttlechair"
 	var/image/armrest = null
 
-/obj/structure/stool/bed/chair/urist/shuttle/New()
+/obj/structure/bed/chair/urist/shuttle/New()
 	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
 	armrest.layer = MOB_LAYER + 0.1
 
 	return ..()
 
-/obj/structure/stool/bed/chair/urist/shuttle/afterbuckle()
+/obj/structure/bed/chair/urist/shuttle/post_buckle_mob()
 	if(buckled_mob)
 		overlays += armrest
 	else
@@ -167,67 +177,53 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //random benches
 
-/obj/structure/stool/bed/chair/urist/bench
+/obj/structure/bed/chair/urist/bench
 	name = "bench"
 	desc = "A grey bench. No matter how hard you try, you can't seem to get comfortable on it."
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/left
+/obj/structure/bed/chair/urist/bench/bench1/left
 	icon_state = "benchleft"
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/right
+/obj/structure/bed/chair/urist/bench/bench1/right
 	icon_state = "benchright"
 
-/obj/structure/stool/bed/chair/urist/bench/bench1/mid
+/obj/structure/bed/chair/urist/bench/bench1/mid
 	icon_state = "benchmid"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2
+/obj/structure/bed/chair/urist/bench/bench2
 	desc = "A blue bench found on the Central Command transit system. You'd think it would be padded, but your ass says otherwise."
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/top
+/obj/structure/bed/chair/urist/bench/bench2/top
 	icon_state = "bench2top"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/mid
+/obj/structure/bed/chair/urist/bench/bench2/mid
 	icon_state = "bench2mid"
 
-/obj/structure/stool/bed/chair/urist/bench/bench2/bot
+/obj/structure/bed/chair/urist/bench/bench2/bot
 	icon_state = "bench2bot"
 
 //stools
 
-/obj/structure/stool/urist
+/obj/item/weapon/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "stool"
 
-/obj/structure/stool/urist/bar
-	name = "bar stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "barstool"
-	style = 1 //0 is regular, 1 is bar, 2 is wood
-
-/obj/structure/stool/urist/wood
-	name = "wood stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "woodstool"
-	style = 2 //0 is regular, 1 is bar, 2 is wood
+/obj/item/weapon/stool/urist/update_icon()
+	return
 
 /obj/item/weapon/stool/urist/bar
 	name = "bar stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "barstool"
 	item_state = "stool"
-	style = 1 //0 is regular, 1 is bar, 2 is wood
 
-/obj/item/weapon/stool/urist/wood
+/*/obj/item/weapon/stool/urist/wood
 	urist_only = 1
 	name = "wood stool"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodstool"
-	item_state = "stool"
-	style = 2 //0 is regular, 1 is bar, 2 is wood
+	item_state = "stool"*/
 
 //Barber
 
-/obj/structure/stool/bed/chair/urist/barber
+/obj/structure/bed/chair/urist/barber
 	name = "barber chair"
 	desc = "A soft raised chair that makes it easier for barbers to cut hair."
 	icon_state = "barber_chair"
@@ -238,7 +234,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "barber_pole"
 	desc = "A spinning barber pole."
 
-//more wood stuff
+//more wood stuff GLLOYDTODO: put this to the new system
 
 /obj/structure/filingcabinet/wood
 	name = "filing cabinet"
@@ -250,9 +246,40 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(istype(P, /obj/item/weapon/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "<span class='notice'>You disassemble \the [src].</span>"
-		var/obj/item/stack/sheet/wood/S =  new /obj/item/stack/sheet/wood(src.loc)
+		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		for(var/obj/item/b in contents)
 			b.loc = (get_turf(src))
-		del(src)
+		qdel(src)
 	..()
+
+//legacy reasons, all this does is create a new table frame somewhere. //i'm okay with this for now
+
+/obj/item/weapon/table_parts
+	name = "table frame parts"
+	desc = "Parts of a table. Poor table."
+	gender = PLURAL
+	icon = 'icons/obj/items.dmi'
+	icon_state = "table_parts"
+	matter = list("metal" = 3750)
+	flags = CONDUCT
+	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
+	var/tabletype = /obj/structure/table/standard
+
+/obj/item/weapon/table_parts/attack_self(mob/user as mob)
+	if(locate(/obj/structure/table) in user.loc)
+		user << "<span class='warning'>There is already a table here.</span>"
+		return
+
+	else
+
+		new tabletype( user.loc )
+		user.drop_item()
+		qdel(src)
+		return
+
+/obj/item/weapon/table_parts/reinforced
+	tabletype = /obj/structure/table/reinforced
+
+/obj/item/weapon/table_parts/rack
+	tabletype = /obj/structure/table/rack

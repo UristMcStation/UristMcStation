@@ -102,6 +102,10 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Arrival Shuttle Transit"
 	icon_state = "shuttle"
 
+/area/engineering/singulo
+	name = "\improper Engineering Singularity"
+	icon_state = "engineering_workshop"
+
 //Maintenance soundsssss
 /area/maintenance
 	ambience = list('sound/urist/ambience/ambimaint1.ogg', 'sound/urist/ambience/ambimaint2.ogg', 'sound/urist/ambience/ambimaint3.ogg', 'sound/urist/ambience/ambimaint4.ogg', 'sound/urist/ambience/ambimaint5.ogg')
@@ -172,6 +176,8 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Navy Ship3"
 	icon_state = "shuttle"
 
+/area/shuttle/naval1
+	lighting_use_dynamic = 0
 
 //don't hate me because I'm beautiful
 
@@ -204,6 +210,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event1
 	icon_state = "shuttle"
+	lighting_use_dynamic = 0
 
 /area/shuttle/event1/l1
 	name = "\improper Event 1 - 1 "
@@ -216,6 +223,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event2
 	icon_state = "shuttle"
+	lighting_use_dynamic = 0
 
 /area/shuttle/event2/l1
 	name = "\improper Event 2 - 1 "

@@ -35,18 +35,12 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/combat(H), slot_gloves)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom(H), slot_w_uniform)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/fluff/deus_blueshield(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/deus_blueshield(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/hop(H), slot_belt)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/deathimp(H), slot_r_hand)
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/deathimp(H.back), slot_in_backpack)
-		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
-		L.imp_in = H
-		L.implanted = 1
-		var/datum/organ/external/affected = H.organs_by_name["head"]
-		affected.implants += L
-		L.part = affected
 		return 1
 
 //for the blueshield

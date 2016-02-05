@@ -5,7 +5,7 @@
 	speak_emote = list("chirrups")
 	icon_state = "nymph"
 	language = "Rootspeak"
-
+	death_msg = "expires with a pitiful chirrup..."
 	amount_grown = 0
 	max_grown = 5 // Target number of donors.
 

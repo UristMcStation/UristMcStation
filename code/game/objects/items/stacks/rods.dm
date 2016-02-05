@@ -9,21 +9,30 @@
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
-	matter = list("metal" = 1875)
+	matter = list(DEFAULT_WALL_MATERIAL = 1875)
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
+
+/obj/item/stack/rods/cyborg
+	name = "metal rod synthesizer"
+	desc = "A device that makes metal rods."
+	gender = NEUTER
+	matter = null
+	uses_charge = 1
+	charge_costs = list(500)
+	stacktype = /obj/item/stack/rods
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 
-		if(amount < 2)
+		if(get_amount() < 2)
 			user << "\red You need at least two rods to do this."
 			return
 
 		if(WT.remove_fuel(0,user))
-			var/obj/item/stack/sheet/metal/new_item = new(usr.loc)
+			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
 				M.show_message("\red [src] is shaped into metal by [user.name] with the weldingtool.", 3, "\red You hear welding.", 2)
@@ -54,7 +63,7 @@
 				return 1
 
 	else if(!in_use)
-		if(amount < 2)
+		if(get_amount() < 2)
 			user << "\blue You need at least two rods to do this."
 			return
 		usr << "\blue Assembling grille..."

@@ -1,6 +1,8 @@
 /datum/job/rd
 	title = "Research Director"
 	flag = RD
+	head_position = 1
+	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
@@ -11,11 +13,11 @@
 	req_admin_notify = 1
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload,
+			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload,
+			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch)
 	minimal_player_age = 3
 
@@ -27,11 +29,9 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/rd(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H), slot_l_hand)
 		switch(H.backbag)
-			if(1) H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		return 1
 
@@ -40,6 +40,7 @@
 /datum/job/scientist
 	title = "Scientist"
 	flag = SCIENTIST
+	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 7
@@ -48,7 +49,7 @@
 	selection_color = "#ffeeff"
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher", "Xenobiologist")
+	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher", "Xenobiologist", "Xenobotanist")
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -58,27 +59,25 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
 		switch(H.backbag)
-			if(1) H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
 		return 1
-
-
 
 /*/datum/job/xenobiologist
 	title = "Xenobiologist"
 	flag = XENOBIOLOGIST
+	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_research, access_xenobiology)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
+	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
+	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
 
@@ -89,17 +88,16 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
 		switch(H.backbag)
-			if(1) H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
 			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
 		return 1*/
 
 /datum/job/roboticist
 	title = "Roboticist"
 	flag = ROBOTICIST
+	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
@@ -122,9 +120,5 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/robotics(H), slot_wear_suit)
 //		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 //		H.equip_to_slot_or_del(new /obj/item/weapon/storage/toolbox/mechanical(H), slot_l_hand) Don't need this anymore, with the auto-equipped toolbelt
-		if(H.backbag == 1)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
-		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		return 1

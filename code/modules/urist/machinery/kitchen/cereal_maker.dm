@@ -39,5 +39,5 @@
 		S.name = "box of [I] cereal"
 		playsound(loc, 'sound/machines/ding.ogg', 50, 1)
 		on = FALSE
-		del(I)
+		qdel(I)
 

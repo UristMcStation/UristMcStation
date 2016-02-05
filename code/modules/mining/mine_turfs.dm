@@ -11,7 +11,7 @@
 	density = 1
 	blocks_air = 1
 	temperature = T0C
-	var/mineral/mineral
+	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
 	var/emitter_blasts_taken = 0 // EMITTER MINING! Muhehe.
@@ -29,7 +29,8 @@
 
 /turf/simulated/mineral/New()
 
-	MineralSpread()
+	spawn(0)
+		MineralSpread()
 
 	spawn(2)
 		var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
@@ -86,7 +87,7 @@
 	if(mineral && mineral.spread)
 		for(var/trydir in cardinal)
 			if(prob(mineral.spread_chance))
-				var/turf/simulated/mineral/random/target_turf = get_step(src, trydir)
+				var/turf/simulated/mineral/target_turf = get_step(src, trydir)
 				if(istype(target_turf) && !target_turf.mineral)
 					target_turf.mineral = mineral
 					target_turf.UpdateMineral()
@@ -94,13 +95,13 @@
 
 
 /turf/simulated/mineral/proc/UpdateMineral()
+	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
 		icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
-	overlays.Cut()
-	overlays += "rock_[mineral.name]"
+	new /obj/effect/mineral(src, mineral)
 
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -233,10 +234,15 @@
 	else
 		return attack_hand(user)
 
+/turf/simulated/mineral/proc/clear_ore_effects()
+	for(var/obj/effect/mineral/M in contents)
+		qdel(M)
+
 /turf/simulated/mineral/proc/DropMineral()
 	if(!mineral)
 		return
 
+	clear_ore_effects()
 	var/obj/item/weapon/ore/O = new mineral.ore (src)
 	if(istype(O))
 		geologic_data.UpdateNearbyArtifactInfo(src)
@@ -273,6 +279,7 @@
 	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
+
 	var/turf/simulated/floor/plating/airless/asteroid/N = ChangeTurf(/turf/simulated/floor/plating/airless/asteroid)
 	N.overlay_detail = "asteroid[rand(0,9)]"
 
@@ -318,7 +325,7 @@
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
 				visible_message("\red<b>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</b>")
-				del(X)
+				qdel(X)
 
 	finds.Remove(F)
 
@@ -335,51 +342,48 @@
 				R.amount = rand(5,25)
 
 			if(2)
-				var/obj/item/stack/tile/R = new(src)
-				R.amount = rand(1,5)
+				var/obj/item/stack/material/plasteel/R = new(src)
+				R.amount = rand(5,25)
 
 			if(3)
-				var/obj/item/stack/sheet/metal/R = new(src)
+				var/obj/item/stack/material/steel/R = new(src)
 				R.amount = rand(5,25)
 
 			if(4)
-				var/obj/item/stack/sheet/plasteel/R = new(src)
+				var/obj/item/stack/material/plasteel/R = new(src)
 				R.amount = rand(5,25)
 
 			if(5)
 				var/quantity = rand(1,3)
 				for(var/i=0, i<quantity, i++)
-					new /obj/item/weapon/shard(src)
+					new /obj/item/weapon/material/shard(src)
 
 			if(6)
 				var/quantity = rand(1,3)
 				for(var/i=0, i<quantity, i++)
-					new /obj/item/weapon/shard/phoron(src)
+					new /obj/item/weapon/material/shard/phoron(src)
 
 			if(7)
-				var/obj/item/stack/sheet/mineral/uranium/R = new(src)
+				var/obj/item/stack/material/uranium/R = new(src)
 				R.amount = rand(5,25)
 
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
 	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Iron" = 35, "Coal" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Phoron" = 10)
-	var/mineralChance = 10  //means 10% chance of this plot changing to a mineral deposit
+	var/mineralChance = 100 //10 //means 10% chance of this plot changing to a mineral deposit
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
 		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
-
-		if(!name_to_mineral)
-			SetupMinerals()
-
-		if (mineral_name && mineral_name in name_to_mineral)
-			mineral = name_to_mineral[mineral_name]
+		mineral_name = lowertext(mineral_name)
+		if (mineral_name && (mineral_name in ore_data))
+			mineral = ore_data[mineral_name]
 			UpdateMineral()
 
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
-	mineralChance = 25
+	mineralChance = 100 //25
 	mineralSpawnChanceList = list("Uranium" = 10, "Platinum" = 10, "Iron" = 20, "Coal" = 20, "Diamond" = 2, "Gold" = 10, "Silver" = 10, "Phoron" = 20)
 
 
@@ -506,7 +510,7 @@
 	..()
 	if(istype(M,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
-		if(istype(R.module, /obj/item/weapon/robot_module/miner))
+		if(R.module)
 			if(istype(R.module_state_1,/obj/item/weapon/storage/bag/ore))
 				attackby(R.module_state_1,R)
 			else if(istype(R.module_state_2,/obj/item/weapon/storage/bag/ore))

@@ -8,7 +8,7 @@ var/global/datum/global_init/init = new ()
 	makeDatumRefLists()
 	load_configuration()
 
-	del(src)
+	qdel(src)
 
 
 /world
@@ -52,38 +52,36 @@ var/global/datum/global_init/init = new ()
 
 	sleep_offline = 1
 
-	// Set up roundstart seed list. This is here because vendors were
-	// bugging out and not populating with the correct packet names
-	// due to this list not being instantiated.
-	populate_seed_list()
+	// Set up roundstart seed list.
+	plant_controller = new()
+
+	// This is kinda important. Set up details of what the hell things are made of.
+	populate_material_list()
+
+	//Create the asteroid Z-level.
+	if(config.generate_asteroid)
+		new /datum/random_map(null,13,32,5,217,223)
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
 
+	// Create robolimbs for chargen.
+	populate_robolimb_list()
+
+	processScheduler = new
 	master_controller = new /datum/controller/game_controller()
 	spawn(1)
+		processScheduler.deferSetupFor(/datum/controller/process/ticker)
+		processScheduler.setup()
 		master_controller.setup()
 
 	spawn(3000)		//so we aren't adding to the round-start lag
 		if(config.ToRban)
 			ToRban_autoupdate()
-		if(config.kick_inactive)
-			KickInactiveClients()
 
 #undef RECOMMENDED_VERSION
 
 	return
-
-//world/Topic(href, href_list[])
-//		world << "Received a Topic() call!"
-//		world << "[href]"
-//		for(var/a in href_list)
-//			world << "[a]"
-//		if(href_list["hello"])
-//			world << "Hello world!"
-//			return "Hello world!"
-//		world << "End of Topic() call."
-//		..()
 
 var/world_topic_spam_protect_ip = "0.0.0.0"
 var/world_topic_spam_protect_time = world.timeofday
@@ -104,7 +102,8 @@ var/world_topic_spam_protect_time = world.timeofday
 				n++
 		return n
 
-	else if (T == "status")
+	else if (copytext(T,1,7) == "status")
+		var/input[] = params2list(T)
 		var/list/s = list()
 		s["version"] = game_version
 		s["mode"] = master_mode
@@ -113,21 +112,40 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["vote"] = config.allow_vote_mode
 		s["ai"] = config.allow_ai
 		s["host"] = host ? host : null
-		s["players"] = list()
+
+		// This is dumb, but spacestation13.com's banners break if player count isn't the 8th field of the reply, so... this has to go here.
+		s["players"] = 0
 		s["stationtime"] = worldtime2text()
-		var/n = 0
-		var/admins = 0
 
-		for(var/client/C in clients)
-			if(C.holder)
-				if(C.holder.fakekey)
-					continue	//so stealthmins aren't revealed by the hub
-				admins++
-			s["player[n]"] = C.key
-			n++
-		s["players"] = n
+		if(input["status"] == "2")
+			var/list/players = list()
+			var/list/admins = list()
 
-		s["admins"] = admins
+			for(var/client/C in clients)
+				if(C.holder)
+					if(C.holder.fakekey)
+						continue
+					admins[C.key] = C.holder.rank
+				players += C.key
+
+			s["players"] = players.len
+			s["playerlist"] = list2params(players)
+			s["admins"] = admins.len
+			s["adminlist"] = list2params(admins)
+		else
+			var/n = 0
+			var/admins = 0
+
+			for(var/client/C in clients)
+				if(C.holder)
+					if(C.holder.fakekey)
+						continue	//so stealthmins aren't revealed by the hub
+					admins++
+				s["player[n]"] = C.key
+				n++
+
+			s["players"] = n
+			s["admins"] = admins
 
 		return list2params(s)
 
@@ -156,16 +174,21 @@ var/world_topic_spam_protect_time = world.timeofday
 			return "Bad Key"
 
 		var/client/C
+		var/req_ckey = ckey(input["adminmsg"])
 
 		for(var/client/K in clients)
-			if(K.ckey == input["adminmsg"])
+			if(K.ckey == req_ckey)
 				C = K
 				break
 		if(!C)
 			return "No client with that name on server"
 
-		var/message =	"<font color='red'>IRC-Admin PM from <b><a href='?irc_msg=1'>[C.holder ? "IRC-" + input["sender"] : "Administrator"]</a></b>: [input["msg"]]</font>"
-		var/amessage =  "<font color='blue'>IRC-Admin PM from <a href='?irc_msg=1'>IRC-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
+		var/rank = input["rank"]
+		if(!rank)
+			rank = "Admin"
+
+		var/message =	"<font color='red'>IRC-[rank] PM from <b><a href='?irc_msg=[input["sender"]]'>IRC-[input["sender"]]</a></b>: [input["msg"]]</font>"
+		var/amessage =  "<font color='blue'>IRC-[rank] PM from <a href='?irc_msg=[input["sender"]]'>IRC-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
 
 		C.received_irc_pm = world.time
 		C.irc_admin = input["sender"]
@@ -199,37 +222,42 @@ var/world_topic_spam_protect_time = world.timeofday
 			world_topic_spam_protect_ip = addr
 			return "Bad Key"
 
-		return show_player_info_irc(input["notes"])
+		return show_player_info_irc(ckey(input["notes"]))
 
+	else if(copytext(T,1,4) == "age")
+		var/input[] = params2list(T)
+		if(input["key"] != config.comms_password)
+			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+				spawn(50)
+					world_topic_spam_protect_time = world.time
+					return "Bad Key (Throttled)"
 
+			world_topic_spam_protect_time = world.time
+			world_topic_spam_protect_ip = addr
+			return "Bad Key"
 
+		var/age = get_player_age(input["age"])
+		if(isnum(age))
+			if(age >= 0)
+				return "[age]"
+			else
+				return "Ckey not found"
+		else
+			return "Database connection failed or not set up"
 
 
 /world/Reboot(var/reason)
 	/*spawn(0)
 		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
 		*/
+
+	processScheduler.stop()
+
 	for(var/client/C in clients)
 		if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[config.server]")
 
 	..(reason)
-
-
-#define INACTIVITY_KICK	6000	//10 minutes in ticks (approx.)
-/world/proc/KickInactiveClients()
-	spawn(-1)
-		set background = 1
-		while(1)
-			sleep(INACTIVITY_KICK)
-			for(var/client/C in clients)
-				if(C.is_afk(INACTIVITY_KICK))
-					if(!istype(C.mob, /mob/dead))
-						log_access("AFK: [key_name(C)]")
-						C << "\red You have been inactive for more than 10 minutes and have been disconnected."
-						del(C)
-#undef INACTIVITY_KICK
-
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
@@ -265,6 +293,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /hook/startup/proc/loadMods()
 	world.load_mods()
+	world.load_mentors() // no need to write another hook.
 	return 1
 
 /world/proc/load_mods()
@@ -282,7 +311,26 @@ var/world_topic_spam_protect_time = world.timeofday
 					continue
 
 				var/title = "Moderator"
-				if(config.mods_are_mentors) title = "Mentor"
+				var/rights = admin_ranks[title]
+
+				var/ckey = copytext(line, 1, length(line)+1)
+				var/datum/admins/D = new /datum/admins(title, rights, ckey)
+				D.associate(directory[ckey])
+
+/world/proc/load_mentors()
+	if(config.admin_legacy_system)
+		var/text = file2text("config/mentors.txt")
+		if (!text)
+			error("Failed to load config/mentors.txt")
+		else
+			var/list/lines = text2list(text, "\n")
+			for(var/line in lines)
+				if (!line)
+					continue
+				if (copytext(line, 1, 2) == ";")
+					continue
+
+				var/title = "Mentor"
 				var/rights = admin_ranks[title]
 
 				var/ckey = copytext(line, 1, length(line)+1)

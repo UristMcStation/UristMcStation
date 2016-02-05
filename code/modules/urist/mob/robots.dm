@@ -1,4 +1,4 @@
-/obj/machinery/bot/secbot/urist/eyebot
+/mob/living/bot/secbot/urist/eyebot
 	name = "eyebot"
 	desc = "A mostly peaceful eyebot"
 	icon = 'icons/urist/events/fallout.dmi'

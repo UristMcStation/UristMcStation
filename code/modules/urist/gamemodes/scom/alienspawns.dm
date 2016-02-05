@@ -81,7 +81,7 @@
 		if(spawntype == 100) //civs temporarily removed
 			new /mob/living/simple_animal/hostile/scom/civ/civvie(src.loc)
 //		world << "SPAWNED"
-		del(src)
+		qdel(src)
 
 
 /obj/effect/landmark/scom/enemyspawn/easy

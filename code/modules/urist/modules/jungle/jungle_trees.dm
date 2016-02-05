@@ -69,7 +69,7 @@
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
-			del(src)
+			qdel(src)
 
 		else if(chops == 3 && !small)
 			chops = 4
@@ -92,7 +92,7 @@
 
 			L.pixel_y = 32
 
-			del(src)
+			qdel(src)
 
 	return
 
@@ -108,11 +108,11 @@
 
 		if(do_after(user, 20))
 
-			var/obj/item/stack/sheet/r_wood/W = new /obj/item/stack/sheet/r_wood(src.loc)
+			var/obj/item/stack/material/wood/r_wood/W = new /obj/item/stack/material/wood/r_wood(src.loc)
 
 			W.pixel_y = src.pixel_y
 			W.amount = 2 //going to mess with this value for a while, we'll see
 
-			del(src)
+			qdel(src)
 
 	return

@@ -27,7 +27,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/heal_amt = 10
-		for(var/datum/organ/external/affecting in H.organs)
+		for(var/obj/item/organ/external/affecting in H.organs)
 			if(affecting.heal_damage(heal_amt, heal_amt))
 				H.UpdateDamageIcon()
 	return
@@ -95,10 +95,6 @@
 
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity) return
-/*	if (istype(A, /turf/simulated/floor))
-		user << "\blue You hit the floor with the bible."
-		if(user.mind && (user.mind.assigned_role == "Chaplain"))
-			call(/obj/effect/rune/proc/revealrunes)(src)*/
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent("water")) //blesses all the water in the holder
 			user << "\blue You bless [A]."

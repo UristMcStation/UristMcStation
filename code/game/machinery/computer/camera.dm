@@ -1,31 +1,40 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
+/var/camera_cache_id = 1
+
 /proc/invalidateCameraCache()
-	for(var/obj/machinery/computer/security/s in world)
-		s.camera_cache = null
+	camera_cache_id = (++camera_cache_id % 999999)
 
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
 	icon_state = "cameras"
+	light_color = "#a91515"
 	var/obj/machinery/camera/current = null
 	var/last_pic = 1.0
-	var/list/network = list("SS13")
+	var/list/network
 	var/mapping = 0//For the overview file, interesting bit of code.
+	var/cache_id = 0
 	circuit = /obj/item/weapon/circuitboard/security
 	var/camera_cache = null
 
+	New()
+		if(!network)
+			network = station_networks
+		..()
 
 	attack_ai(var/mob/user as mob)
 		return attack_hand(user)
 
 	check_eye(var/mob/user as mob)
 		if (user.stat || ((get_dist(user, src) > 1 || !( user.canmove ) || user.blinded) && !istype(user, /mob/living/silicon))) //user can't see - not sure why canmove is here.
-			return null
-		if ( !current || !current.can_use() ) //camera doesn't work
-			current = null
-		user.reset_view(current)
-		return 1
+			return -1
+		if(!current)
+			return 0
+		var/viewflag = current.check_eye(user)
+		if ( viewflag < 0 ) //camera doesn't work
+			reset_current()
+		return viewflag
 
 	ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 		if(src.z > 6) return
@@ -36,7 +45,8 @@
 
 		data["current"] = null
 
-		if(isnull(camera_cache))
+		if(camera_cache_id != cache_id)
+			cache_id = camera_cache_id
 			cameranet.process_sort()
 
 			var/cameras[0]
@@ -44,37 +54,14 @@
 				if(!can_access_camera(C))
 					continue
 
-				var/cam[0]
-				cam["name"] = sanitize(C.c_tag)
-				cam["deact"] = !C.can_use()
-				cam["camera"] = "\ref[C]"
-				cam["x"] = C.x
-				cam["y"] = C.y
-				cam["z"] = C.z
-
+				var/cam = C.nano_structure()
 				cameras[++cameras.len] = cam
 
-				if(C == current)
-					data["current"] = cam
+			camera_cache=list2json(cameras)
 
-				var/list/camera_list = list("cameras" = cameras)
-				camera_cache=list2json(camera_list)
-
-		else
-			if(current)
-				var/cam[0]
-				cam["name"] = current.c_tag
-				cam["deact"] = !current.can_use()
-				cam["camera"] = "\ref[current]"
-				cam["x"] = current.x
-				cam["y"] = current.y
-				cam["z"] = current.z
-
-				data["current"] = cam
-
-
-		if(ui)
-			ui.load_cached_data(camera_cache)
+		if(current)
+			data["current"] = current.nano_structure()
+		data["cameras"] = list("__json_cache" = camera_cache)
 
 		ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 		if (!ui)
@@ -84,8 +71,7 @@
 			ui.add_template("mapContent", "sec_camera_map_content.tmpl")
 			// adding a template with the key "mapHeader" replaces the map header content
 			ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
-
-			ui.load_cached_data(camera_cache)
+			
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
@@ -102,8 +88,8 @@
 		else if(href_list["reset"])
 			if(src.z>6 || stat&(NOPOWER|BROKEN)) return
 			if(usr.stat || ((get_dist(usr, src) > 1 || !( usr.canmove ) || usr.blinded) && !istype(usr, /mob/living/silicon))) return
-			current = null
-			usr.check_eye(current)
+			reset_current()
+			usr.reset_view(current)
 			return 1
 		else
 			. = ..()
@@ -128,15 +114,19 @@
 		//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 		if(isAI(user))
 			var/mob/living/silicon/ai/A = user
+			// Only allow non-carded AIs to view because the interaction with the eye gets all wonky otherwise.
+			if(!A.is_in_chassis())
+				return 0
+
 			A.eyeobj.setLoc(get_turf(C))
 			A.client.eye = A.eyeobj
 			return 1
 
 		if (!C.can_use() || user.stat || (get_dist(user, src) > 1 || user.machine != src || user.blinded || !( user.canmove ) && !istype(user, /mob/living/silicon)))
 			return 0
-		src.current = C
+		set_current(C)
+		user.reset_view(current)
 		check_eye(user)
-		use_power(50)
 		return 1
 
 //Camera control: moving.
@@ -168,6 +158,29 @@
 			return
 		if(can_access_camera(jump_to))
 			switch_to_camera(user,jump_to)
+
+/obj/machinery/computer/security/proc/set_current(var/obj/machinery/camera/C)
+	if(current == C)
+		return
+
+	if(current)
+		reset_current()
+
+	src.current = C
+	if(current)
+		use_power = 2
+		var/mob/living/L = current.loc
+		if(istype(L))
+			L.tracking_initiated()
+
+/obj/machinery/computer/security/proc/reset_current()
+	if(current)
+		var/mob/living/L = current.loc
+		if(istype(L))
+			L.tracking_cancelled()
+	current = null
+	use_power = 1
+
 //Camera control: mouse.
 /atom/DblClick()
 	..()
@@ -205,6 +218,8 @@
 	desc = "Damn, why do they never have anything interesting on these things?"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "entertainment"
+	light_color = "#FFEEDB"
+	light_range_on = 2
 	circuit = null
 
 /obj/machinery/computer/security/wooden_tv
@@ -212,7 +227,8 @@
 	desc = "An old TV hooked into the stations camera network."
 	icon_state = "security_det"
 	circuit = null
-
+	light_color = "#3848B3"
+	light_power_on = 0.5
 
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
@@ -220,13 +236,19 @@
 	icon_state = "miningcameras"
 	network = list("MINE")
 	circuit = /obj/item/weapon/circuitboard/security/mining
+	light_color = "#F9BBFC"
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
 	icon_state = "engineeringcameras"
-	network = list("Engineering","Power Alarms","Atmosphere Alarms","Fire Alarms")
 	circuit = /obj/item/weapon/circuitboard/security/engineering
+	light_color = "#FAC54B"
+
+/obj/machinery/computer/security/engineering/New()
+	if(!network)
+		network = engineering_networks
+	..()
 
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
