@@ -29,7 +29,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
 		shuttle.init_docking_controllers()
 		shuttle.dock() //makes all shuttles docked to something at round start go into the docked state
-	
+
 	for(var/obj/machinery/embedded_controller/C in machines)
 		if(istype(C.program, /datum/computer/file/embedded_program/docking))
 			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
@@ -325,16 +325,16 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"Southwest of the station" = locate(/area/syndicate_station/southwest),
 		"South of the station" = locate(/area/syndicate_station/south),
 		"Southeast of the station" = locate(/area/syndicate_station/southeast),
-		"Telecomms Satellite" = locate(/area/syndicate_station/commssat),
+		"Abandoned Satellite" = locate(/area/syndicate_station/commssat),
 		"Mining Asteroid" = locate(/area/syndicate_station/mining),
-		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock),
+//		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock),
 		)
-	
-	MS.docking_controller_tag = "merc_shuttle"
-	MS.destination_dock_targets = list(
-		"Mercenary Base" = "merc_base",
-		"Arrivals dock" = "nuke_shuttle_dock_airlock",
-		)
+
+//	MS.docking_controller_tag = "merc_shuttle"
+//	MS.destination_dock_targets = list(
+//		"Mercenary Base" = "merc_base",
+//		"Arrivals dock" = "nuke_shuttle_dock_airlock",
+//		)
 
 	MS.announcer = "NDV Icarus"
 	MS.arrival_message = "Attention, Exodus, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
