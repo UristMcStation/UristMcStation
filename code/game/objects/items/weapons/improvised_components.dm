@@ -61,6 +61,11 @@
 	else if(istype(I, /obj/item/weapon/wirecutters))
 		finished = new /obj/item/weapon/melee/baton/cattleprod(get_turf(user))
 		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
+	else if(istype(I, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = I
+		if (R.use(1))
+			finished = new /obj/item/weapon/material/twohanded/quarterstaff(get_turf(user))
+			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
 	if(finished)
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(I)

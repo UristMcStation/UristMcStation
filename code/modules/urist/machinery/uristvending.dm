@@ -142,10 +142,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Pants: Wear them."
 	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
 	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
-	products = list(/obj/item/clothing/under/pants/jeans = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10)
-	prices = list(/obj/item/clothing/under/pants/jeans = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100)
+	products = list(/obj/item/clothing/under/pants/bluepants = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10,/obj/item/clothing/under/pants/jeans_m = 10,/obj/item/clothing/under/pants/jeans_d = 10,/obj/item/clothing/under/pants/jeans_d = 10,/obj/item/clothing/under/pants/redpants = 10,/obj/item/clothing/under/pants/whitepants = 10,/obj/item/clothing/under/pants/jeans_b = 10)
+	prices = list(/obj/item/clothing/under/pants/bluepants = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100,/obj/item/clothing/under/pants/jeans_m = 100,/obj/item/clothing/under/pants/jeans_d = 100,/obj/item/clothing/under/pants/jeans_d = 100,/obj/item/clothing/under/pants/redpants = 100,/obj/item/clothing/under/pants/whitepants = 100,/obj/item/clothing/under/pants/jeans_b = 100)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
-//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+	premium = list(/obj/item/clothing/under/pants/militarypants = 1)
 
 //coats!
 

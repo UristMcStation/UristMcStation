@@ -679,3 +679,47 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "deus_blueshield"
 	item_state = "deus_blueshield"
 
+//more pants
+
+/obj/item/clothing/under/pants/jeans
+	name = "jeans"
+	desc = "A pair of tough blue jeans."
+	icon_state = "jeans"
+	item_state = "jeans"
+
+/obj/item/clothing/under/pants/jeans_b
+	name = "black jeans"
+	desc = "A pair of tough blue jeans."
+	icon_state = "jeans_b"
+	item_state = "jeans_b"
+
+/obj/item/clothing/under/pants/jeans_m
+	name = "mustang jeans"
+	desc = "A pair of washed out jeans."
+	icon_state = "jeans_m"
+	item_state = "jeans_m"
+
+/obj/item/clothing/under/pants/jeans_d
+	name = "distressed jeans"
+	desc = "A pair of distressed blue jeans. You cool cat."
+	icon_state = "jeans_d"
+	item_state = "jeans_d"
+
+/obj/item/clothing/under/pants/whitepants
+	name = "white pants"
+	desc = "A pair of crisp white pants. They're clean, for now."
+	icon_state = "whitepants"
+	item_state = "whitepants"
+
+/obj/item/clothing/under/pants/redpants
+	name = "red pants"
+	desc = "A pair of crisp red pants. Good for hiding your blood."
+	icon_state = "redpants"
+	item_state = "redpants"
+
+/obj/item/clothing/under/pants/militarypants
+	name = "military pants"
+	desc = "A pair of military style pants. Why are you wearing these again?"
+	icon_state = "militarypants"
+	item_state = "militarypants"
+

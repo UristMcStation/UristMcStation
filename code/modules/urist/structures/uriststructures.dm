@@ -253,7 +253,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		qdel(src)
 	..()
 
-//legacy reasons, all this does is create a new table frame somewhere. //GLLOYDTODO: COME BACK TO THIS
+//legacy reasons, all this does is create a new table frame somewhere. //i'm okay with this for now
 
 /obj/item/weapon/table_parts
 	name = "table frame parts"
@@ -264,17 +264,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	matter = list("metal" = 3750)
 	flags = CONDUCT
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
+	var/tabletype = /obj/structure/table/standard
 
 /obj/item/weapon/table_parts/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc)
 		user << "<span class='warning'>There is already a table here.</span>"
 		return
 
-	new /obj/structure/table( user.loc )
-	user.drop_item()
-	qdel(src)
-	return
+	else
+
+		new tabletype( user.loc )
+		user.drop_item()
+		qdel(src)
+		return
 
 /obj/item/weapon/table_parts/reinforced
+	tabletype = /obj/structure/table/reinforced
 
 /obj/item/weapon/table_parts/rack
+	tabletype = /obj/structure/table/rack

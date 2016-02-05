@@ -2,7 +2,7 @@
 
 //begin /tg/ weapons
 
-/obj/item/weapon/wirerod
+/*/obj/item/weapon/wirerod
 	urist_only = 1
 	name = "Wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
@@ -64,7 +64,7 @@
 		user.put_in_hands(W)
 		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
 
-		qdel(src)
+		qdel(src)*/
 
 //spears
 /obj/item/weapon/material/twohanded/spear

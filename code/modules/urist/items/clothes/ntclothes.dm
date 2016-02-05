@@ -205,11 +205,11 @@
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS
 
-/obj/item/clothing/under/pants/jeans
-	name = "jeans"
-	desc = "A pair of tough blue jeans."
-	icon_state = "jeans"
-	item_state = "jeans"
+/obj/item/clothing/under/pants/bluepants
+	name = "blue pants"
+	desc = "A pair of blue pants."
+	icon_state = "bluepants"
+	item_state = "bluepants"
 	//item_color = "jeans"
 
 /obj/item/clothing/under/pants/trackpants
