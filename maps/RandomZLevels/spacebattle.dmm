@@ -483,7 +483,7 @@
 "jo" = (/turf/simulated/floor/plating/airless/asteroid,/area)
 "jp" = (/turf/simulated/wall/phoron,/area/awaymission/spacebattle/secret)
 "jq" = (/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
-"jr" = (/obj/machinery/door/airlock/phoron,/turf/simulated/wall/phoron,/area/awaymission/spacebattle/secret)
+"jr" = (/obj/machinery/door/airlock/phoron,/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
 "js" = (/obj/item/clothing/suit/space/void/wizard,/obj/item/clothing/head/helmet/space/void/wizard,/turf/simulated/floor{tag = "icon-alienvault"; icon_state = "alienvault"},/area/awaymission/spacebattle/secret)
 
 (1,1,1) = {"

@@ -19,7 +19,7 @@
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
-	var/ammo_type = /obj/item/ammo_casing/a762
+	var/ammo_type = /obj/item/projectile/bullet/rifle/a762
 	var/ammo = 500
 	var/ammomax = 500
 	var/list/row1 = list()
@@ -119,21 +119,21 @@
 				if (!istype(targloc) || !istype(curloc))
 					return
 				playsound(src, fire_sound, 50, 1)
-				var/obj/item/projectile/bullet = new ammo_type(shootfrom)
-				bullet.firer = User
-				bullet.def_zone = User.zone_sel.selecting
-				bullet.original = T
-				bullet.loc = get_turf(shootfrom)
-				bullet.starting = get_turf(shootfrom)
-				bullet.shot_from = src
-				bullet.silenced = 0
-				bullet.current = curloc
-				bullet.yo = targloc.y - curloc.y
-				bullet.xo = targloc.x - curloc.x
+				var/obj/item/projectile/B = new ammo_type(shootfrom)
+				B.firer = User
+				B.def_zone = User.zone_sel.selecting
+				B.original = T
+				B.loc = get_turf(shootfrom)
+				B.starting = get_turf(shootfrom)
+				B.shot_from = src
+				B.silenced = 0
+				B.current = curloc
+				B.yo = targloc.y - curloc.y
+				B.xo = targloc.x - curloc.x
 				ammo = ammo - 1
 				spawn()
-					if(bullet)
-						bullet.process()
+					if(B)
+						B.process()
 				nextshot = world.time + FIRETIME
 
 

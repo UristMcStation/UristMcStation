@@ -1727,6 +1727,7 @@
 #include "code\modules\urist\items\improvised\improv-armour.dm"
 #include "code\modules\urist\items\improvised\improv-weaponry.dm"
 #include "code\modules\urist\machinery\atmos.dm"
+#include "code\modules\urist\machinery\misc.dm"
 #include "code\modules\urist\machinery\monkey_recycler.dm"
 #include "code\modules\urist\machinery\party.dm"
 #include "code\modules\urist\machinery\PDA_painter.dm"

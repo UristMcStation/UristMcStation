@@ -117,3 +117,5 @@
 		teleport_y = src.y
 	if(!teleport_x)
 		teleport_x = src.x
+
+	..()

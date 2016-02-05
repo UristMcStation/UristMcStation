@@ -788,6 +788,8 @@ var/global/list/damage_icon_parts = list()
 		var/overlay_state
 		if(back.item_state_slots && back.item_state_slots[slot_back_str])
 			overlay_state = back.item_state_slots[slot_back_str]
+		else if(back.urist_only)
+			overlay_state = back.icon_state
 		else if(back.item_state)
 			overlay_state = back.item_state
 		else

@@ -239,13 +239,13 @@ obj/item/clothing/head/princessbow
 
 //hazardvest bandanda
 
-/obj/item/clothing/head/hazardbandana
+/obj/item/clothing/head/urist/hazardbandana
 	name = "orange bandana"
 	desc = "Hey, I think we're missing a hazard vest..."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "taryn_kifer_1"
 
-/obj/item/clothing/head/hazardbandana/verb/toggle_bandana()
+/obj/item/clothing/head/urist/hazardbandana/verb/toggle_bandana()
 	set name = "Unfold Bandana"
 	set category = "Object"
 
@@ -271,7 +271,7 @@ obj/item/clothing/head/princessbow
 	var/mob/living/carbon/human/user = usr
 	for(var/obj/item/O in contents)
 		O.loc = (get_turf(src))
-	var/obj/item/clothing/head/hazardbandana/H = new /obj/item/clothing/head/hazardbandana
+	var/obj/item/clothing/head/urist/hazardbandana/H = new /obj/item/clothing/head/urist/hazardbandana
 
 	user.remove_from_mob(src)
 	user.put_in_hands(H)
