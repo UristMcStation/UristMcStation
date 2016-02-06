@@ -15,7 +15,7 @@
 	world << "\red \b Setting up the event, please be patient. This may take a minute or two."
 
 //	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
-//		del(L)
+//		qdel(L)
 
 //	LoadEventMap()
 

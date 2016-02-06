@@ -43,17 +43,18 @@
 		var/eventmap = input(src,"Which event map to load?") as null|anything in potentialEventMap
 		var/file = file(eventmap)
 //		var/file = file(mappath) //leaving it in as the basis to a future port to a .dm file-based map loading, instead of the other way round
+
+		if(eventmap == null)
+			world << "\red \b Event Map loading aborted"
+			return
+
 		if(isfile(file))
 			maploader.load_map(file)
-
 			world << "\red \b Event Map loaded."
 
 		else
-			if (eventmap == null)
-				world << "\red \b Event Map loading aborted"
-			else
-				src << "\red Event Map couldn't be loaded properly. Yell at the coders."
+			src << "\red Event Map couldn't be loaded properly. Yell at the coders."
 
 	else
-		world << "\red \b Event Map found."
+		world << "\red \b Event Map not found."
 		return

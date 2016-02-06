@@ -18,6 +18,7 @@
 		use_power()
 		process_killswitch()
 		process_locks()
+		process_queued_alarms()
 	update_canmove()
 
 /mob/living/silicon/robot/proc/clamp_values()
@@ -57,15 +58,15 @@
 		src.has_power = 0
 		if(lights_on) // Light is on but there is no power!
 			lights_on = 0
-			SetLuminosity(0)
+			set_light(0)
 
 /mob/living/silicon/robot/proc/handle_regular_status_updates()
 
 	if(src.camera && !scrambledcodes)
 		if(src.stat == 2 || wires.IsIndexCut(BORG_WIRE_CAMERA))
-			src.camera.status = 0
+			src.camera.set_status(0)
 		else
-			src.camera.status = 1
+			src.camera.set_status(1)
 
 	updatehealth()
 
@@ -129,10 +130,11 @@
 	if (src.stat != 0)
 		uneq_all()
 
-	if(!is_component_functioning("radio"))
-		radio.on = 0
-	else
-		radio.on = 1
+	if(radio)
+		if(!is_component_functioning("radio"))
+			radio.on = 0
+		else
+			radio.on = 1
 
 	if(is_component_functioning("camera"))
 		src.blinded = 0
@@ -220,18 +222,17 @@
 			src.healths.icon_state = "health7"
 
 	if (src.syndicate && src.client)
-		if(ticker.mode.name == "traitor")
-			for(var/datum/mind/tra in ticker.mode.traitors)
-				if(tra.current)
-					var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
-					src.client.images += I
-		if(src.connected_ai)
-			src.connected_ai.connected_robots -= src
-			src.connected_ai = null
+		for(var/datum/mind/tra in traitors.current_antagonists)
+			if(tra.current)
+				// TODO: Update to new antagonist system.
+				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
+				src.client.images += I
+		src.disconnect_from_ai()
 		if(src.mind)
+			// TODO: Update to new antagonist system.
 			if(!src.mind.special_role)
 				src.mind.special_role = "traitor"
-				ticker.mode.traitors += src.mind
+				traitors.current_antagonists |= src.mind
 
 	if (src.cells)
 		if (src.cell)
@@ -285,7 +286,7 @@
 
 	if (src.stat != 2)
 		if (src.machine)
-			if (!( src.machine.check_eye(src) ))
+			if (src.machine.check_eye(src) < 0)
 				src.reset_view(null)
 		else
 			if(client && !client.adminobs)

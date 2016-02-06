@@ -23,7 +23,7 @@
 
 	var/show_category = "All"
 
-	var/panel_open = 0
+	panel_open = 0
 	var/busy = 0
 
 	var/novehicles = 0
@@ -103,10 +103,9 @@
 	flick("[animation_state]",src)
 
 	user.drop_item(O)
-	del(O)
+	qdel(O)
 
 	updateUsrDialog()
-	return
 
 /obj/machinery/scom/scomscience/attack_hand(mob/user as mob)
 	user.set_machine(src)
@@ -232,7 +231,7 @@
 
 				if("Heavy")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
-					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
@@ -241,7 +240,7 @@
 
 				if("Assault")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
-					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45(src.loc)
 					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
@@ -259,7 +258,7 @@
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/bodybag/cryobag(user.back), slot_in_backpack)
 					new /obj/item/bodybag/cryobag(src.loc)
-					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
 					new /obj/item/weapon/storage/box/c20ammo(src.loc)
 					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
@@ -271,7 +270,7 @@
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/jacket(user), slot_wear_suit)
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/ammo_magazine/a50(src.loc)
-					new /obj/item/clothing/tie/storage/black_vest(src.loc)
+					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/sniperammo(src.loc)
 					new /obj/item/weapon/gun/projectile/sniper(src.loc)

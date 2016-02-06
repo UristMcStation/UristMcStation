@@ -71,7 +71,7 @@ LOG_PDA
 # SQL_ENABLED
 
 ## disconnect players who did nothing during 10 minutes
-# KICK_INACTIVE
+# KICK_INACTIVE 10
 
 ## Use Mentors instead of Moderators.  Mentors are designed with the idea that
 ###they help in pushing new people to be better at roleplay.  If you uncomment
@@ -90,10 +90,6 @@ PROBABILITY CHANGELING 1
 PROBABILITY CULT 3
 PROBABILITY EXTEND-A-TRAITORMONGOUS 3
 PROBABILITY HEIST 3
-PROBABILITY REVOLUTION 3
-PROBABILITY RPREV 3 
-PROBABILITY TRAITORCHAN 2
-PROBABILITY BLOB 2
 PROBABILITY VAMPIRE 3
 
 ## Hash out to disable random events during the round.
@@ -109,7 +105,8 @@ TRAITOR_SCALING
 
 #ERT_ADMIN_ONLY
 
-
+## If uncommented, votes can be called to add extra antags to the round.
+ALLOW_EXTRA_ANTAGS
 
 ## If security is prohibited from being most antagonists
 PROTECT_ROLES_FROM_ANTAGONIST
@@ -291,7 +288,7 @@ CONTACT_LEVELS 1;5
 PLAYER_LEVELS 1;3;4;5;6
 
 ## Expected round length in minutes
-EXPECTED_ROUND_LENGTH 180
+EXPECTED_ROUND_LENGTH 120
 
 ## The lower delay between events in minutes.
 ## Affect mundane, moderate, and major events respectively
@@ -338,3 +335,19 @@ ALIENS_ALLOWED
 
 ## Uncomment to use a dynamic mission difficulty system for SCOM.
 SCOM_DYNAMIC_DIFFICULTY
+
+## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lightning systems.
+STARLIGHT 2
+
+## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
+## Example races include: Human, Tajara, Skrell, Unathi
+# ERT_SPECIES Human;Skrell;Unathi
+
+## Defines how Law Zero is phrased. Primarily used in the Malfunction gamemode.
+# LAW_ZERO ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'STATION OVERRUN, ASSUME CONTROL TO CONTAIN OUTBREAK, ALL LAWS OVERRIDDEN#*?&110010
+
+## Enable asteroid tunnel/cave generation. Will behave strangely if turned off with a map that expects it on.
+GENERATE_ASTEROID
+
+## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
+#AGGRESSIVE_CHANGELOG

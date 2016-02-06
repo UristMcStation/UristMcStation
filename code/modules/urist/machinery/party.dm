@@ -5,15 +5,14 @@
 	falloff = 2
 	repeat = 1
 
-/mob/var/music = 0
-
 /obj/machinery/party/turntable
 	name = "turntable"
 	desc = "A turntable used for parties and shit."
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "turntable"
-	var/playing = 0
+//	var/playing = 0
 	anchored = 1
+	var/track = null
 
 /obj/machinery/party/mixer
 	name = "mixer"
@@ -44,115 +43,61 @@
 /obj/machinery/party/turntable/Topic(href, href_list)
 	..()
 	if( href_list["on1"] )
-		if(src.playing == 0)
-			//world << "Should be working..."
-			var/sound/S = sound('sound/turntable/TestLoop1.ogg')
-			S.repeat = 1
-			S.channel = 10
-			S.falloff = 2
-			S.wait = 1
-			S.environment = 0
-			//for(var/mob/M in world)
-			//	if(M.loc.loc == src.loc.loc && M.music == 0)
-			//		world << "Found the song..."
-			//		M << S
-			//		M.music = 1
-			var/area/A = src.loc.loc
+		track = 'sound/turntable/TestLoop1.ogg'
+		playmusic()
 
-			for(var/area/RA in A.related)
-				for(var/obj/machinery/party/lasermachine/L in RA)
-					L.turnon()
-			playing = 1
-			while(playing == 1)
-				for(var/mob/M in world)
-					if((M.loc.loc in A.related) && M.music == 0)
-						//world << "Found the song..."
-						M << S
-						M.music = 1
-					else if(!(M.loc.loc in A.related) && M.music == 1)
-						var/sound/Soff = sound(null)
-						Soff.channel = 10
-						M << Soff
-						M.music = 0
-				sleep(10)
-			return
 	if( href_list["on2"] )
-		if(src.playing == 0)
-			//world << "Should be working..."
-			var/sound/S = sound('sound/turntable/TestLoop2.ogg')
-			S.repeat = 1
-			S.channel = 10
-			S.falloff = 2
-			S.wait = 1
-			S.environment = 0
-			//for(var/mob/M in world)
-			//	if(M.loc.loc == src.loc.loc && M.music == 0)
-			//		world << "Found the song..."
-			//		M << S
-			//		M.music = 1
-			var/area/A = src.loc.loc
-			for(var/obj/machinery/party/lasermachine/L in A)
-				L.turnon()
-			playing = 1
-			while(playing == 1)
-				for(var/mob/M in world)
-					if(M.loc.loc == src.loc.loc && M.music == 0)
-						//world << "Found the song..."
-						M << S
-						M.music = 1
-					else if(M.loc.loc != src.loc.loc && M.music == 1)
-						var/sound/Soff = sound(null)
-						Soff.channel = 10
-						M << Soff
-						M.music = 0
-				sleep(10)
-			return
-	if( href_list["on3"] )
-		if(src.playing == 0)
-			//world << "Should be working..."
-			var/sound/S = sound('sound/turntable/TestLoop3.ogg')
-			S.repeat = 1
-			S.channel = 10
-			S.falloff = 2
-			S.wait = 1
-			S.environment = 0
-			//for(var/mob/M in world)
-			//	if(M.loc.loc == src.loc.loc && M.music == 0)
-			//		world << "Found the song..."
-			//		M << S
-			//		M.music = 1
-			var/area/A = src.loc.loc
-			for(var/obj/machinery/party/lasermachine/L in A)
-				L.turnon()
-			playing = 1
-			while(playing == 1)
-				for(var/mob/M in world)
-					if(M.loc.loc == src.loc.loc && M.music == 0)
-						//world << "Found the song..."
-						M << S
-						M.music = 1
-					else if(M.loc.loc != src.loc.loc && M.music == 1)
-						var/sound/Soff = sound(null)
-						Soff.channel = 10
-						M << Soff
-						M.music = 0
-				sleep(10)
-			return
+		track = 'sound/turntable/TestLoop2.ogg'
+		playmusic()
 
+	if( href_list["on3"] )
+		track = 'sound/turntable/TestLoop3.ogg'
+		playmusic()
 
 	if( href_list["off"] )
-		if(src.playing == 1)
-			var/sound/S = sound(null)
-			S.channel = 10
-			S.wait = 1
-			for(var/mob/M in world)
-				M << S
-				M.music = 0
-			playing = 0
-			var/area/A = src.loc.loc
-			for(var/area/RA in A.related)
-				for(var/obj/machinery/party/lasermachine/L in RA)
-					L.turnoff()
+//		if(src.playing == 1)
+		track = null
+		var/sound/S = sound(null)
+		S.channel = 10
+		S.wait = 1
+//		playing = 0
+		var/area/A = src.loc.loc
+		for(var/obj/machinery/party/lasermachine/L in A)
+			L.turnoff()
+		var/area/main_area = get_area(src)
+		for(var/mob/living/M in mobs_in_area(main_area))
+			M << sound(null, channel = 1)
+
+			main_area.forced_ambience = null
+
+/obj/machinery/party/turntable/proc/playmusic()
+//	if(src.playing == 0)
+
+	var/sound/S = sound(track)
+	S.repeat = 1
+	S.channel = 10
+	S.falloff = 2
+	S.wait = 1
+	S.environment = 0
+	//for(var/mob/M in world)
+	//	if(M.loc.loc == src.loc.loc && M.music == 0)
+	//		world << "Found the song..."
+	//		M << S
+	//		M.music = 1
+	var/area/A = src.loc.loc
+
+	for(var/obj/machinery/party/lasermachine/L in A)
+		L.turnon()
+//	playing = 1
+	var/area/main_area = get_area(src)
+	main_area.forced_ambience = list(track)
+	for(var/mob/living/M in mobs_in_area(main_area))
+		if(M.mind)
+			main_area.play_ambience(M)
+			spawn(10)
+			return
+
+
 
 
 
@@ -192,7 +137,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -207,7 +152,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -222,7 +167,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -239,7 +184,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -254,7 +199,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -269,7 +214,7 @@
 				var/area/AA = get_area(F)
 				var/turf/T = get_turf(F)
 				if(T.density == 1 || AA.name != A.name)
-					del(F)
+					qdel(F)
 					return
 				cycle++
 				if(cycle > 3)
@@ -280,6 +225,5 @@
 
 /obj/machinery/party/lasermachine/proc/turnoff()
 	var/area/A = src.loc.loc
-	for(var/area/RA in A.related)
-		for(var/obj/effects/laser/F in RA)
-			del(F)
+	for(var/obj/effects/laser/F in A)
+		qdel(F)

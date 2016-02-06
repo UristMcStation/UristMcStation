@@ -7,7 +7,6 @@
 	desc = "Made by Space Amish using traditional space techniques, this heater is guaranteed not to set the station on fire."
 	var/obj/item/weapon/cell/cell
 	var/on = 0
-	var/open = 0
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 40000
 
@@ -20,18 +19,23 @@
 /obj/machinery/space_heater/update_icon()
 	overlays.Cut()
 	icon_state = "sheater[on]"
-	if(open)
+	if(panel_open)
 		overlays  += "sheater-open"
 
 /obj/machinery/space_heater/examine(mob/user)
 	..(user)
 
-	user << "The heater is [on ? "on" : "off"] and the hatch is [open ? "open" : "closed"]."
-	if(open)
+	user << "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
+	if(panel_open)
 		user << "The power cell is [cell ? "installed" : "missing"]."
 	else
 		user << "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
 	return
+
+/obj/machinery/space_heater/powered()
+	if(cell && cell.charge)
+		return 1
+	return 0
 
 /obj/machinery/space_heater/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -43,7 +47,7 @@
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/cell))
-		if(open)
+		if(panel_open)
 			if(cell)
 				user << "There is already a power cell inside."
 				return
@@ -57,14 +61,15 @@
 					C.add_fingerprint(usr)
 
 					user.visible_message("\blue [user] inserts a power cell into [src].", "\blue You insert the power cell into [src].")
+					power_change()
 		else
 			user << "The hatch must be open to insert a power cell."
 			return
 	else if(istype(I, /obj/item/weapon/screwdriver))
-		open = !open
-		user.visible_message("\blue [user] [open ? "opens" : "closes"] the hatch on the [src].", "\blue You [open ? "open" : "close"] the hatch on the [src].")
+		panel_open = !panel_open
+		user.visible_message("\blue [user] [panel_open ? "opens" : "closes"] the hatch on the [src].", "\blue You [panel_open ? "open" : "close"] the hatch on the [src].")
 		update_icon()
-		if(!open && user.machine == src)
+		if(!panel_open && user.machine == src)
 			user << browse(null, "window=spaceheater")
 			user.unset_machine()
 	else
@@ -77,7 +82,7 @@
 
 /obj/machinery/space_heater/interact(mob/user as mob)
 
-	if(open)
+	if(panel_open)
 
 		var/dat
 		dat = "Power cell: "
@@ -120,23 +125,24 @@
 				set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
 
 			if("cellremove")
-				if(open && cell && !usr.get_active_hand())
+				if(panel_open && cell && !usr.get_active_hand())
 					usr.visible_message("\blue [usr] removes \the [cell] from \the [src].", "\blue You remove \the [cell] from \the [src].")
-					cell.updateicon()
+					cell.update_icon()
 					usr.put_in_hands(cell)
 					cell.add_fingerprint(usr)
 					cell = null
+					power_change()
 
 
 			if("cellinstall")
-				if(open && !cell)
+				if(panel_open && !cell)
 					var/obj/item/weapon/cell/C = usr.get_active_hand()
 					if(istype(C))
 						usr.drop_item()
 						cell = C
 						C.loc = src
 						C.add_fingerprint(usr)
-
+						power_change()
 						usr.visible_message("\blue [usr] inserts \the [C] into \the [src].", "\blue You insert \the [C] into \the [src].")
 
 		updateDialog()
@@ -177,4 +183,5 @@
 				env.merge(removed)
 		else
 			on = 0
+			power_change()
 			update_icon()

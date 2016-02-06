@@ -28,11 +28,15 @@
 			new /obj/item/weapon/tank/emergency_oxygen(src)
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/clothing/mask/breath(src)
+			new /obj/item/clothing/suit/space/emergency(src)
+			new /obj/item/clothing/head/helmet/space/emergency(src)
 		if ("aid")
 			new /obj/item/weapon/tank/emergency_oxygen(src)
 			new /obj/item/weapon/storage/toolbox/emergency(src)
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/weapon/storage/firstaid/o2(src)
+			new /obj/item/clothing/suit/space/emergency(src)
+			new /obj/item/clothing/head/helmet/space/emergency(src)
 		if ("tank")
 			new /obj/item/weapon/tank/emergency_oxygen/engi(src)
 			new /obj/item/clothing/mask/breath(src)
@@ -43,17 +47,21 @@
 			new /obj/item/weapon/tank/emergency_oxygen/engi(src)
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/weapon/storage/firstaid/o2(src)
+			new /obj/item/clothing/suit/space/emergency(src)
+			new /obj/item/clothing/suit/space/emergency(src)
+			new /obj/item/clothing/head/helmet/space/emergency(src)
+			new /obj/item/clothing/head/helmet/space/emergency(src)
 		if ("nothing")
 			// doot
 
 		// teehee - Ah, tg coders...
 		if ("delete")
-			del(src)
+			qdel(src)
 
 		//If you want to re-add fire, just add "fire" = 15 to the pick list.
 		/*if ("fire")
 			new /obj/structure/closet/firecloset(src.loc)
-			del(src)*/
+			qdel(src)*/
 
 /obj/structure/closet/emcloset/legacy/New()
 	..()

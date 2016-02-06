@@ -58,12 +58,50 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "bookbag"
 	display_contents_with_number = 0 //This would look really stupid otherwise
 	storage_slots = 7
-	max_combined_w_class = 21
+	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
 	can_hold = list("/obj/item/weapon/book", "/obj/item/weapon/spellbook") //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
+
+/obj/item/weapon/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
+	name = "veil render"
+	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "render"
+	item_state = "render"
+	force = 15
+	throwforce = 10
+	w_class = 3
+	var/charged = 1
+
+
+/obj/effect/rend
+	name = "Tear in the fabric of reality"
+	desc = "You should run now"
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "rift"
+	density = 1
+	unacidable = 1
+	anchored = 1.0
+
+
+/obj/effect/rend/New()
+	spawn(50)
+		new /obj/singularity/narsie/wizard(get_turf(src))
+		qdel(src)
+		return
+	return
+
+
+/obj/item/weapon/veilrender/attack_self(mob/user as mob)
+	if(charged == 1)
+		new /obj/effect/rend(get_turf(usr))
+		charged = 0
+		visible_message("\red <B>[src] hums with power as [usr] deals a blow to reality itself!</B>")
+	else
+		user << "\red The unearthly energies that powered the blade are now dormant"
 
 /obj/item/weapon/veilrender/vealrender
 	name = "veal render"
@@ -90,13 +128,13 @@ Please only put items here that don't have a huge definition - Glloyd											
 	new /mob/living/simple_animal/cow(loc)
 	cowsleft--
 	if(cowsleft <= 0)
-		del src
+		qdel(src)
 
 /obj/effect/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/nullrod))
 		visible_message("\red <b>[I] strikes a blow against \the [src], banishing it!</b>")
 		spawn(1)
-			del src
+			qdel(src)
 		return
 	..()
 
@@ -118,13 +156,13 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	New()
 		..()
-		new /obj/item/clothing/tie/medal/silver/valor(src)
-		new /obj/item/clothing/tie/medal/silver/security(src)
-		new /obj/item/clothing/tie/medal/bronze_heart(src)
-		new /obj/item/clothing/tie/medal/conduct(src)
-		new /obj/item/clothing/tie/medal/conduct(src)
-		new /obj/item/clothing/tie/medal/conduct(src)
-		new /obj/item/clothing/tie/medal/gold/captain(src)
+		new /obj/item/clothing/accessory/medal/silver/valor(src)
+		new /obj/item/clothing/accessory/medal/silver/security(src)
+		new /obj/item/clothing/accessory/medal/bronze_heart(src)
+		new /obj/item/clothing/accessory/medal/conduct(src)
+		new /obj/item/clothing/accessory/medal/conduct(src)
+		new /obj/item/clothing/accessory/medal/conduct(src)
+		new /obj/item/clothing/accessory/medal/gold/captain(src)
 
 //holojanisign
 
@@ -149,7 +187,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		var/obj/effect/overlay/holograph/H = locate() in T
 		if(H)
 			user << "<span class='notice'>You use [src] to destroy [H].</span>"
-			del(H)
+			qdel(H)
 		else
 			if(signs.len < max_signs)
 				H = new(get_turf(target))
@@ -165,7 +203,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(signs.len)
 		var/list/L = signs.Copy()
 		for(var/sign in L)
-			del(sign)
+			qdel(sign)
 			signs -= sign
 		user << "<span class='notice'>You clear all active holograms.</span>"
 
@@ -221,7 +259,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/cigarette")
+	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	icon_type = "cigarette"
 
 
@@ -284,7 +322,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "satchel-flat"
 	w_class = 3 //Can fit in backpacks itself.
 	storage_slots = 5
-	max_combined_w_class = 15
+	max_storage_space = 15 //check values!
 	level = 1
 	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
 
@@ -300,5 +338,4 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/item/weapon/storage/backpack/satchel_flat/New()
 	..()
-	new /obj/item/stack/tile/plasteel(src)
 	new /obj/item/weapon/crowbar(src)

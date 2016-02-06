@@ -2,6 +2,7 @@
 	name = "supply control console"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "supply"
+	light_color = "#b88b2e"
 	req_access = list(access_cargo)
 	circuit = "/obj/item/weapon/circuitboard/supplycomp"
 	var/temp = null
@@ -49,7 +50,7 @@
 
 /obj/machinery/computer/ordercomp/Topic(href, href_list)
 	if(..())
-		return
+		return 1
 
 	if( isturf(loc) && (in_range(src, usr) || istype(usr, /mob/living/silicon)) )
 		usr.set_machine(src)
@@ -85,7 +86,7 @@
 		if(!istype(P))	return
 
 		var/timeout = world.time + 600
-		var/reason = sanitize(copytext(input(usr,"Reason:","Why do you require this item?","") as null|text,1,MAX_MESSAGE_LEN))
+		var/reason = sanitize(input(usr,"Reason:","Why do you require this item?","") as null|text)
 		if(world.time > timeout)	return
 		if(!reason)	return
 
@@ -224,7 +225,7 @@
 		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."
 		return
 	if(..())
-		return
+		return 1
 
 	if(isturf(loc) && ( in_range(src, usr) || istype(usr, /mob/living/silicon) ) )
 		usr.set_machine(src)
@@ -289,7 +290,7 @@
 		if(!istype(P))	return
 
 		var/timeout = world.time + 600
-		var/reason = sanitize(copytext(input(usr,"Reason:","Why do you require this item?","") as null|text,1,MAX_MESSAGE_LEN))
+		var/reason = sanitize(input(usr,"Reason:","Why do you require this item?","") as null|text)
 		if(world.time > timeout)	return
 		if(!reason)	return
 

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
 	var/uses = 4.0
-	w_class = 2.0
+	w_class = 1
 	item_state = "paper"
 	throw_speed = 4
 	throw_range = 20
@@ -69,7 +69,7 @@
 		return
 
 	if(user && user.buckled)
-		user.buckled.unbuckle()
+		user.buckled.unbuckle_mob()
 
 	var/list/tempL = L
 	var/attempt = null

@@ -37,13 +37,13 @@
 	if (istype(M, /mob/living/simple_animal))
 		var/mob/living/simple_animal/A = M
 		A.loc = get_turf(src)
-	else if (istype(M, /mob/living/carbon/monkey))
-		var/mob/living/carbon/monkey/A = M
+	else if (istype(M, /mob/living/carbon/human/monkey))
+		var/mob/living/carbon/human/monkey/A = M
 		A.loc = get_turf(src)
 
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/hatchet) && !stump)
+	if(istype(I, /obj/item/weapon/material/hatchet) && !stump)
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
 			user << "\red You flail away at the undergrowth, but it's too thick here."
@@ -52,7 +52,7 @@
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
 					user << "\blue You clear away [src]."
-//					var/obj/item/stack/sheet/wood/W = new(src.loc) //was fun for testing, but no longer.
+//					var/obj/item/stack/material/wood/W = new(src.loc) //was fun for testing, but no longer.
 //					W.amount = rand(3,15)
 					if(prob(50))
 //						icon_state = "stump[rand(1,2)]" //time to resprite stumps.
@@ -74,7 +74,7 @@
 						else
 							icon_state = "newstump1"
 					else
-						del(src)
+						qdel(src)
 	else
 		return ..()
 

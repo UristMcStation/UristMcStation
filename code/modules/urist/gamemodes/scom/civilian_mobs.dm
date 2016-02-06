@@ -61,7 +61,7 @@
 	melee_damage_upper = 15
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
-	weapon1 = /obj/item/weapon/gun/projectile/kh50
+	weapon1 = /obj/item/weapon/gun/projectile/automatic/kh50
 	minimum_distance = 5
 
 /mob/living/simple_animal/hostile/scom/civ/combat/anfor

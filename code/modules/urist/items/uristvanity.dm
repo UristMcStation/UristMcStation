@@ -2,63 +2,56 @@
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd*/
 
-//vanity lighters, stolen from the custom items.
+//vanity lighters, stolen from the custom items.//WHY. WHYYYYY -scrdest
 
 /obj/item/weapon/flame/lighter/zippo/vanity/blue
 	name = "blue zippo"
 	desc = "A zippo lighter made of some blue metal."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "bluezippo"
-	icon_on = "bluezippoon"
-	icon_off = "bluezippo"
+	base_state = "bluezippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/gold
 	name = "gold zippo"
 	desc = "A golden lighter, engraved with some ornaments."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "guessip"
-	icon_on = "guessipon"
-	icon_off = "guessip"
+	base_state = "guessip"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/black
 	name = "black zippo"
 	desc = "A black zippo lighter."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "blackzippo"
-	icon_on = "blackzippoon"
-	icon_off = "blackzippo"
+	base_state = "blackzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/red
 	name = "black and red zippo"
 	desc = "A black and red zippo lighter."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "gonzozippo"
-	icon_on = "gonzozippoon"
-	icon_off = "gonzozippo"
+	base_state = "gonzozippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/engraved
 	name = "engraved zippo"
 	desc = "A intricately engraved zippo lighter."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "engravedzippo"
-	icon_on = "engravedzippoon"
-	icon_off = "engravedzippo"
+	base_state = "engravedzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/redwhitered
 	name = "red striped zippo"
 	desc = "A red and white striped zippo lighter."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "redzippo"
-	icon_on = "redzippoon"
-	icon_off = "redzippo"
+	base_state = "redzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/butterfly
 	name = "butterfly lighter"
 	desc = "A custom-made zippo lighter, looks rather expensive. On one of its sides, a butterfly is engraved in gold and silver."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "che_zippo"
-	icon_on = "che_zippoon"
-	icon_off = "che_zippo"
+	base_state = "che_zippo"
 
 //nanotrasen shiiiiit for the nt vending machine
 
@@ -105,29 +98,29 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/cigarette")
+	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	icon_type = "cigarette"
 
 //watches
 
-/obj/item/clothing/tie/watch
+/obj/item/clothing/accessory/watch
 	urist_only = 1
 	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_override = 'icons/uristmob/ties.dmi'
 
-/obj/item/clothing/tie/watch/wrist
+/obj/item/clothing/accessory/watch/wrist
 	name = "wrist watch"
 	desc = "A black plastic analog wristwatch."
 	icon_state = "w_watch"
-	item_color = "w_watch"
+	//item_color = "w_watch"
 
-/obj/item/clothing/tie/watch/pocket
+/obj/item/clothing/accessory/watch/pocket
 	name = "pocket watch"
 	desc = "A fancy brass analog pocketwatch."
 	icon_state = "p_watch"
-	item_color = "p_watch"
+	//item_color = "p_watch"
 
-/obj/item/clothing/tie/watch/examine()
+/obj/item/clothing/accessory/watch/examine()
 	usr << "[desc] The time reads [worldtime2text()]."
 
 //comb
@@ -136,7 +129,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "purple comb"
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 2.0
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "purplecomb"
 	item_state = "purplecomb"
 

@@ -26,7 +26,7 @@
 	throw_range = 9
 	w_class = 2
 
-	matter = list("glass" = 25,"metal" = 75)
+	matter = list("glass" = 25,DEFAULT_WALL_MATERIAL = 75)
 	var/const/FREQ_LISTENING = 1
 
 
@@ -42,8 +42,15 @@
 /obj/item/device/radio/New()
 	..()
 	wires = new(src)
+
+/obj/item/device/radio/Destroy()
+	qdel(wires)
+	wires = null
 	if(radio_controller)
-		initialize()
+		radio_controller.remove_object(src, frequency)
+		for (var/ch_name in channels)
+			radio_controller.remove_object(src, radiochannels[ch_name])
+	..()
 
 
 /obj/item/device/radio/initialize()
@@ -115,13 +122,10 @@
 	listening = !listening && !(wires.IsIndexCut(WIRE_RECEIVE) || wires.IsIndexCut(WIRE_SIGNAL))
 
 /obj/item/device/radio/Topic(href, href_list)
-	//..()
-	if (usr.stat || !on)
-		return
-
-	if (!(issilicon(usr) || (usr.contents.Find(src) || ( in_range(src, usr) && istype(loc, /turf) ))))
+	if(..() || !on)
 		usr << browse(null, "window=radio")
 		return
+
 	usr.set_machine(src)
 	if (href_list["track"])
 		var/mob/target = locate(href_list["track"])
@@ -152,17 +156,10 @@
 			else
 				channels[chan_name] |= FREQ_LISTENING
 
-	if (!( master ))
-		if (istype(loc, /mob))
-			interact(loc)
-		else
-			updateDialog()
-	else
-		if (istype(master.loc, /mob))
-			interact(master.loc)
-		else
-			updateDialog()
-	add_fingerprint(usr)
+	if(href_list["nowindow"]) // here for pAIs, maybe others will want it, idk
+		return
+
+	interact(usr)
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
@@ -180,11 +177,12 @@
 		return
 
 	var/mob/living/silicon/ai/A = new /mob/living/silicon/ai(src, null, null, 1)
+	A.SetName(from)
 	Broadcast_Message(connection, A,
 						0, "*garbled automated announcement*", src,
 						message, from, "Automated Announcement", from, "synthesized voice",
-						4, 0, list(1), PUB_FREQ)
-	del(A)
+						4, 0, list(0), connection.frequency, "states")
+	qdel(A)
 	return
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
@@ -214,7 +212,10 @@
 	if(wires.IsIndexCut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
 		return 0
 
-	M.last_target_click = world.time
+	M.last_target_radio = world.time // For the projectile targeting system
+
+	if(!radio_connection)
+		set_frequency(frequency)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally
@@ -577,7 +578,6 @@
 		if(keyslot.syndie)
 			src.syndie = 1
 
-
 	for (var/ch_name in src.channels)
 		if(!radio_controller)
 			sleep(30) // Waiting for the radio_controller to be created.
@@ -636,7 +636,6 @@
 	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return
-
 
 /obj/item/device/radio/proc/config(op)
 	if(radio_controller)

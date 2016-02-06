@@ -117,7 +117,7 @@
 		A.bullet_act(src, def_zone)
 		src.life -= 10
 		if(life <= 0)
-			del(src)
+			qdel(src)
 		return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
@@ -203,7 +203,7 @@
 	name = "\improper LBX AC 10 \"Scattershot\""
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
-	projectile = /obj/item/projectile/bullet/midbullet
+	projectile = /obj/item/projectile/bullet/pistol/medium
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	fire_volume = 80
 	projectiles = 40
@@ -215,7 +215,7 @@
 	name = "\improper Ultra AC 2"
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
-	projectile = /obj/item/projectile/bullet/weakbullet
+	projectile = /obj/item/projectile/bullet/pistol/medium
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	projectiles = 300
 	projectiles_per_shot = 3
@@ -252,8 +252,8 @@
 
 	throw_impact(atom/hit_atom)
 		if(primed)
-			explosion(hit_atom, 0, 0, 2, 4)
-			del(src)
+			explosion(hit_atom, 0, 1, 2, 4)
+			qdel(src)
 		else
 			..()
 		return
@@ -278,7 +278,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
 	name = "\improper SOP-6 grenade launcher"
 	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
-	construction_cost = list("metal"=20000,"gold"=6000,"uranium"=6000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=20000,"gold"=6000,"uranium"=6000)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/get_equip_info()//Limited version of the clusterbang launcher that can't reload
 	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[chassis.selected==src?"<b>":"<a href='?src=\ref[chassis];select_equip=\ref[src]'>"][src.name][chassis.selected==src?"</b>":"</a>"]\[[src.projectiles]\]"

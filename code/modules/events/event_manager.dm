@@ -89,6 +89,7 @@
 		html += "<h2>Available [severity_to_string[selected_event_container.severity]] Events (queued & running events will not be displayed)</h2>"
 		html += "<table[table_options]>"
 		html += "<tr><td[row_options2]>Name </td><td>Weight </td><td>MinWeight </td><td>MaxWeight </td><td>OneShot </td><td>Enabled </td><td><span class='alert'>CurrWeight </span></td><td>Remove</td></tr>"
+		var/list/active_with_role = number_active_with_role()
 		for(var/datum/event_meta/EM in selected_event_container.available_events)
 			html += "<tr>"
 			html += "<td>[EM.name]</td>"
@@ -97,7 +98,7 @@
 			html += "<td>[EM.max_weight]</td>"
 			html += "<td><A align='right' href='?src=\ref[src];toggle_oneshot=\ref[EM]'>[EM.one_shot]</A></td>"
 			html += "<td><A align='right' href='?src=\ref[src];toggle_enabled=\ref[EM]'>[EM.enabled]</A></td>"
-			html += "<td><span class='alert'>[EM.get_weight(number_active_with_role())]</span></td>"
+			html += "<td><span class='alert'>[selected_event_container.get_weight(EM, active_with_role)]</span></td>"
 			html += "<td><A align='right' href='?src=\ref[src];remove=\ref[EM];EC=\ref[selected_event_container]'>Remove</A></td>"
 			html += "</tr>"
 		html += "</table>"
@@ -164,14 +165,14 @@
 
 		html += "<div class='block'>"
 		html += "<h2>Running Events</h2>"
-		html += "Estimated times, affected by master controller delays."
+		html += "Estimated times, affected by process scheduler delays."
 		html += "<table[table_options]>"
 		html += "<tr><td[row_options1]>Severity</td><td[row_options2]>Name</td><td[row_options1]>Ends At</td><td[row_options1]>Ends In</td><td[row_options3]>Stop</td></tr>"
 		for(var/datum/event/E in active_events)
 			if(!E.event_meta)
 				continue
 			var/datum/event_meta/EM = E.event_meta
-			var/ends_at = E.startedAt + (E.lastProcessAt() * master_controller.minimum_ticks)	// A best estimate
+			var/ends_at = E.startedAt + (E.lastProcessAt() * 20)	// A best estimate, based on how often the alarm manager processes
 			var/ends_in = max(0, round((ends_at - world.time) / 600, 0.1))
 			html += "<tr>"
 			html += "<td>[severity_to_string[EM.severity]]</td>"
@@ -195,12 +196,12 @@
 		admin_log_and_message_admins("has [report_at_round_end ? "enabled" : "disabled"] the round end event report.")
 	else if(href_list["dec_timer"])
 		var/datum/event_container/EC = locate(href_list["event"])
-		var/decrease = (60 * 10 ** text2num(href_list["dec_timer"]))
+		var/decrease = 60 * (10 ** text2num(href_list["dec_timer"]))
 		EC.next_event_time -= decrease
 		admin_log_and_message_admins("decreased timer for [severity_to_string[EC.severity]] events by [decrease/600] minute(s).")
 	else if(href_list["inc_timer"])
 		var/datum/event_container/EC = locate(href_list["event"])
-		var/increase = (60 * 10 ** text2num(href_list["inc_timer"]))
+		var/increase = 60 * (10 ** text2num(href_list["inc_timer"]))
 		EC.next_event_time += increase
 		admin_log_and_message_admins("increased timer for [severity_to_string[EC.severity]] events by [increase/600] minute(s).")
 	else if(href_list["select_event"])
@@ -233,7 +234,7 @@
 	else if(href_list["back"])
 		selected_event_container = null
 	else if(href_list["set_name"])
-		var/name = input("Enter event name.", "Set Name") as text|null
+		var/name = sanitize(input("Enter event name.", "Set Name") as text|null)
 		if(name)
 			var/datum/event_meta/EM = locate(href_list["set_name"])
 			EM.name = name

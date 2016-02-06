@@ -220,18 +220,16 @@
 	name = "Ryclies Defence Force outfit"
 	desc = "A set of fatigues colored in the Ryclian Splinter camouflage pattern and insulated for warmth worn by members of the Ryclies Defence Force. The name tape is missing."
 	icon_state = "rycliesuni"
-	item_color = "rycliesuni"
 	item_state = "rycliesuni"
 
 /obj/item/clothing/head/urist/ryclies/helmet
 	name = "Ryclies Defence Force helmet"
 	desc = "An armored helmet worn by members of the Ryclies Defence Force, complete with a HUD panel and a boom microphone. They don't seem to be working properly, though. At least the plating is still in one piece."
 	icon_state = "ryclieshelm"
-	item_color = "ryclieshelm"
 	item_state = "ryclieshelm"
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
-/obj/item/weapon/gun/projectile/kh50
+/obj/item/weapon/gun/projectile/automatic/kh50
 	urist_only = 1
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
@@ -239,30 +237,16 @@
 	item_state = "gun"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	force = 12
-	max_shells = 31
 	caliber = "12.7x54mm"
-	ammo_type ="/obj/item/ammo_casing/a127x54mm"
-	load_method = 2
-
-	New()
-		..()
-		empty_mag = new /obj/item/ammo_magazine/a127x54mm/empty(src)
-		update_icon()
-		return
+	magazine_type = /obj/item/ammo_magazine/a127x54mm
+	load_method = MAGAZINE
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 
-	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
-		..()
-		if(!loaded.len && empty_mag)
-			empty_mag.loc = get_turf(src.loc)
-			empty_mag = null
-			playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
-			update_icon()
-		return
-
-/obj/item/weapon/gun/projectile/kh50/update_icon()
+/obj/item/weapon/gun/projectile/automatic/kh50/update_icon()
 	..()
-	if(empty_mag)
+	if(ammo_magazine)
 		icon_state = "KH50"
 	else
 		icon_state = "KH50-empty"
@@ -274,21 +258,25 @@
 	desc = "A magazine for the KH-50 rifle. Holds up to twenty 12.7x54mm Caseless rounds. This magazine is loaded with regular ball ammo."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a127x54mm"
+	ammo_type = /obj/item/ammo_casing/a127x54mm
 	max_ammo = 31
-	multiple_sprites = 1
+	multiple_sprites = 0
+	mag_type = MAGAZINE
+	caliber = "12.7x54mm"
 
-/obj/item/ammo_magazine/a127x54mm/empty
+/obj/item/ammo_magazine/a127x54mm/empty //not sure if this is even necessary anymore
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm-empty"
 	icon = 'icons/urist/items/uristweapons.dmi'
-	ammo_type = "/obj/item/ammo_casing/a127x54mm"
-	max_ammo = 0
+	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
 	desc = "A 12.7x54mm bullet casing."
 	caliber = "12.7x54mm"
-	projectile_type = "/obj/item/projectile/bullet/midbullet2"
+	projectile_type = /obj/item/projectile/bullet/rifle/a127
+
+/obj/item/projectile/bullet/rifle/a127
+	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
 
 /obj/item/weapon/storage/box/kh50ammo
 	name = "box of KH-50 ammo"
@@ -310,19 +298,16 @@
 	switch(severity)
 		if(1.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			explosion(src.loc, 1, 2, 4)
-			del(src)
+			qdel(src)
 		if(3.0)
 			if(prob(75))
 				explosion(src.loc, 1, 2, 4)
-				del(src)
+				qdel(src)
 
-
-
-		else
 	return
 
 /obj/structure/scom/shieldwall/shieldwall1

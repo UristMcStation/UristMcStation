@@ -24,7 +24,7 @@
 	for(var/datum/omni_port/P in ports)
 		P.air.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
-/obj/machinery/atmospherics/omni/filter/Del()
+/obj/machinery/atmospherics/omni/filter/Destroy()
 	input = null
 	output = null
 	filters.Cut()
@@ -68,7 +68,7 @@
 	var/transfer_moles = (set_flow_rate/input_air.volume)*input_air.total_moles
 
 	var/power_draw = -1
-	if (transfer_moles > MINUMUM_MOLES_TO_FILTER)
+	if (transfer_moles > MINIMUM_MOLES_TO_FILTER)
 		power_draw = filter_gas_multi(src, filtering_outputs, input_air, output_air, transfer_moles, power_rating)
 
 	if (power_draw >= 0)
@@ -155,7 +155,7 @@
 			return null
 
 /obj/machinery/atmospherics/omni/filter/Topic(href, href_list)
-	if(..()) return
+	if(..()) return 1
 	switch(href_list["command"])
 		if("power")
 			if(!configuring)

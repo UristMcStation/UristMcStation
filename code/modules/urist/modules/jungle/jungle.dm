@@ -42,8 +42,8 @@
 		dest_temple.my_ladder.up = my_ladder
 
 		//delete the landmarks now that we're finished
-		del(dest_temple)
-		del(src)
+		qdel(dest_temple)
+		qdel(src)
 
 /obj/effect/landmark/temple/destination/New()
 	//nothing
@@ -67,7 +67,7 @@
 			fwall.mineral = mineral
 			if(mineral == "iron")
 				fwall.is_metal = 1
-			del(F)
+			qdel(F)
 
 		for(var/obj/effect/landmark/door_spawner/D in T.contents)
 			var/spawn_type
@@ -76,7 +76,7 @@
 			else
 				spawn_type = text2path("/obj/machinery/door/airlock/[mineral]")
 			new spawn_type(D.loc)
-			del(D)
+			qdel(D)
 
 	for(var/turf/unsimulated/wall/T in temple_turfs)
 		if(mineral != "phoron")
@@ -86,7 +86,7 @@
 			//world << "falsewall_spawner found in wall"
 			var/obj/structure/temple_falsewall/fwall = new(F.loc)
 			fwall.mineral = mineral
-			del(F)
+			qdel(F)
 
 		for(var/obj/effect/landmark/door_spawner/D in T.contents)
 			//world << "door_spawner found in wall"
@@ -94,7 +94,7 @@
 			T.icon_state = "dark"
 			var/spawn_type = text2path("/obj/machinery/door/airlock/[door_mineral]")
 			new spawn_type(T)
-			del(D)*/*/
+			qdel(D)*/*/
 
 //a shuttle has crashed somewhere on the map, it should have a power cell to let the adventurers get home
 /area/jungle/crash_ship_source
@@ -323,7 +323,7 @@
 		animal_spawners.Add(new /obj/effect/landmark/animal_spawner/parrot(J))
 		num_spawned++
 
-	del(src)
+	qdel(src)
 
 #undef PATH_SPREAD_CHANCE_START
 #undef PATH_SPREAD_CHANCE_LOSS_UPPER

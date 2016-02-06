@@ -170,6 +170,7 @@
 	S["skills"]				>> skills
 	S["skill_specialization"] >> skill_specialization
 	S["organ_data"]			>> organ_data
+	S["rlimb_data"]			>> rlimb_data
 	S["gear"]				>> gear
 	S["home_system"] 		>> home_system
 	S["citizenship"] 		>> citizenship
@@ -187,10 +188,17 @@
 
 	//Sanitize
 	metadata		= sanitize_text(metadata, initial(metadata))
-	real_name		= reject_bad_name(real_name)
+	real_name		= sanitizeName(real_name)
 
 	if(isnull(species) || !(species in playable_species))
 		species = "Human"
+
+	if(isnum(underwear))
+		var/list/undies = gender == MALE ? underwear_m : underwear_f
+		underwear = undies[undies[underwear]]
+
+	if(isnum(undershirt))
+		undershirt = undershirt_t[undershirt_t[undershirt]]
 
 	if(isnull(language)) language = "None"
 	if(isnull(spawnpoint)) spawnpoint = "Arrivals Shuttle"
@@ -214,8 +222,6 @@
 	r_eyes			= sanitize_integer(r_eyes, 0, 255, initial(r_eyes))
 	g_eyes			= sanitize_integer(g_eyes, 0, 255, initial(g_eyes))
 	b_eyes			= sanitize_integer(b_eyes, 0, 255, initial(b_eyes))
-	underwear		= sanitize_integer(underwear, 1, underwear_m.len, initial(underwear))
-	undershirt		= sanitize_integer(undershirt, 1, undershirt_t.len, initial(undershirt))
 	backbag			= sanitize_integer(backbag, 1, backbaglist.len, initial(backbag))
 	b_type			= sanitize_text(b_type, initial(b_type))
 
@@ -235,6 +241,7 @@
 	if(isnull(disabilities)) disabilities = 0
 	if(!player_alt_titles) player_alt_titles = new()
 	if(!organ_data) src.organ_data = list()
+	if(!rlimb_data) src.rlimb_data = list()
 	if(!gear) src.gear = list()
 	//if(!skin_style) skin_style = "Default"
 
@@ -319,6 +326,7 @@
 	S["skills"]				<< skills
 	S["skill_specialization"] << skill_specialization
 	S["organ_data"]			<< organ_data
+	S["rlimb_data"]			<< rlimb_data
 	S["gear"]				<< gear
 	S["home_system"] 		<< home_system
 	S["citizenship"] 		<< citizenship

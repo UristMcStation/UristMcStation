@@ -37,5 +37,5 @@
 	icon_dead = "b_necro_l"
 	health = 20
 	maxHealth = 20
-	projectilesound = 'sound/weapons/Gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/weakbullet
+	//projectilesound = 'sound/weapons/Gunshot_light.ogg' //if this was supposed to be ranged, it wasn't anyway
+	//projectiletype = /obj/item/projectile/bullet/weakbullet

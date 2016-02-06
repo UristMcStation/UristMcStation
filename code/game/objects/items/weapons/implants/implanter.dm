@@ -32,9 +32,7 @@
 				for (var/mob/O in viewers(M, null))
 					O.show_message("\red [M] has been implanted by [user].", 1)
 
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src.name] ([src.imp.name])  by [user.name] ([user.ckey])</font>")
-				user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] ([src.imp.name]) to implant [M.name] ([M.ckey])</font>")
-				msg_admin_attack("[user.name] ([user.ckey]) implanted [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
 				user.show_message("\red You implanted the implant into [M].")
 				if(src.imp.implanted(M))
@@ -43,11 +41,11 @@
 					src.imp.implanted = 1
 					if (ishuman(M))
 						var/mob/living/carbon/human/H = M
-						var/datum/organ/external/affected = H.get_organ(user.zone_sel.selecting)
+						var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
 						affected.implants += src.imp
 						imp.part = affected
 
-						H.hud_updateflag |= 1 << IMPLOYAL_HUD
+						BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 
 				src.imp = null
 				update()
@@ -123,7 +121,7 @@
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = A.loc
-			H.u_equip(A)
+			H.remove_from_mob(A)
 		else if(istype(A.loc,/obj/item/weapon/storage))
 			var/obj/item/weapon/storage/S = A.loc
 			S.remove_from_storage(A)

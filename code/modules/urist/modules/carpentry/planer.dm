@@ -11,14 +11,14 @@
 	var/busy = 0
 
 /obj/machinery/planer/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/sheet/r_wood))
+	if(istype(I, /obj/item/stack/material/wood/r_wood))
 
 		if(busy)
 			user << "<span class='notice'>The [src] is busy, you can't put in wood yet!.</span>"
 			return
 
 		else if(!busy)
-			var/obj/item/stack/sheet/r_wood/R = I
+			var/obj/item/stack/material/wood/r_wood/R = I
 			busy = 1
 			sheets = R.amount
 			R.use(R.amount)
@@ -29,7 +29,7 @@
 
 			sleep(15)
 
-			var/obj/item/stack/sheet/wood/W = new /obj/item/stack/sheet/wood(src.loc)
+			var/obj/item/stack/material/wood/W = new /obj/item/stack/material/wood(src.loc)
 
 			W.amount = sheets
 
@@ -40,9 +40,9 @@
 		return
 
 
-/obj/item/stack/sheet/r_wood
+/obj/item/stack/material/wood/r_wood
 	name = "unprocessed wooden planks"
-	desc = "A bunch of unprocessed wood planks."
+//	desc = "A bunch of unprocessed wood planks."
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "planks"
 	singular_name = "unprocessed wood plank"

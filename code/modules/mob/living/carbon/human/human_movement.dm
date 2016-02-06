@@ -10,9 +10,8 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	if(reagents.has_reagent("hyperzine")) return -1
-
-	if(reagents.has_reagent("nuka_cola")) return -1
+	if(CE_SPEEDBOOST in chem_effects)
+		return -1
 
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -26,9 +25,9 @@
 	if(wear_suit)
 		tally += wear_suit.slowdown
 
-	if(istype(buckled, /obj/structure/stool/bed/chair/wheelchair))
+	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
-			var/datum/organ/external/E = get_organ(organ_name)
+			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || (E.status & ORGAN_DESTROYED))
 				tally += 4
 			if(E.status & ORGAN_SPLINTED)
@@ -40,14 +39,14 @@
 			tally += shoes.slowdown
 
 		for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
-			var/datum/organ/external/E = get_organ(organ_name)
+			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || (E.status & ORGAN_DESTROYED))
 				tally += 4
 			if(E.status & ORGAN_SPLINTED)
 				tally += 0.5
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
-	
+
 	if(shock_stage >= 10) tally += 3
 
 	if(FAT in src.mutations)

@@ -45,31 +45,31 @@
 			if(udder && prob(5))
 				udder.add_reagent("milk", rand(5, 10))
 
-		if(locate(/obj/effect/plantsegment) in loc)
-			var/obj/effect/plantsegment/SV = locate(/obj/effect/plantsegment) in loc
-			del(SV)
-			if(prob(10))
-				say("Nom")
+		if(locate(/obj/effect/plant) in loc)
+			var/obj/effect/plant/SV = locate() in loc
+			SV.die_off(1)
+
+		if(locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible) in loc)
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
+			qdel(SP)
 
 		if(!pulledby)
-			for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
-				var/step = get_step(src, direction)
-				if(step)
-					if(locate(/obj/effect/plantsegment) in step)
-						Move(step)
+			var/obj/effect/plant/food
+			food = locate(/obj/effect/plant) in oview(5,loc)	
+			if(food)
+				var/step = get_step_to(src, food, 0) 	
+				Move(step)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	src.visible_message("\red [src] gets an evil-looking gleam in their eye.")
+	if(stat == CONSCIOUS)
+		visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	..()
 	if(!stat)
-		if(locate(/obj/effect/plantsegment) in loc)
-			var/obj/effect/plantsegment/SV = locate(/obj/effect/plantsegment) in loc
-			del(SV)
-			if(prob(10))
-				say("Nom")
+		for(var/obj/effect/plant/SV in loc)
+			SV.die_off(1)
 
 /mob/living/simple_animal/hostile/retaliate/goat/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
@@ -130,7 +130,7 @@
 			udder.add_reagent("milk", rand(5, 10))
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
-	if(!stat && M.a_intent == "disarm" && icon_state != icon_dead)
+	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
 		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
 		Weaken(30)
 		icon_state = icon_dead
@@ -182,7 +182,7 @@
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			new /mob/living/simple_animal/chicken(src.loc)
-			del(src)
+			qdel(src)
 
 var/const/MAX_CHICKENS = 50
 var/global/chicken_count = 0
@@ -227,15 +227,18 @@ var/global/chicken_count = 0
 	chicken_count -= 1
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/wheat)) //feedin' dem chickens
-		if(!stat && eggsleft < 8)
-			user.visible_message("\blue [user] feeds [O] to [name]! It clucks happily.","\blue You feed [O] to [name]! It clucks happily.")
-			user.drop_item()
-			del(O)
-			eggsleft += rand(1, 4)
-			//world << eggsleft
+	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
+		if(G.seed && G.seed.kitchen_tag == "wheat")
+			if(!stat && eggsleft < 8)
+				user.visible_message("\blue [user] feeds [O] to [name]! It clucks happily.","\blue You feed [O] to [name]! It clucks happily.")
+				user.drop_item()
+				qdel(O)
+				eggsleft += rand(1, 4)
+			else
+				user << "\blue [name] doesn't seem hungry!"
 		else
-			user << "\blue [name] doesn't seem hungry!"
+			user << "[name] doesn't seem interested in that."
 	else
 		..()
 
@@ -260,6 +263,6 @@ var/global/chicken_count = 0
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			processing_objects.Remove(src)
-			del(src)
+			qdel(src)
 	else
 		processing_objects.Remove(src)

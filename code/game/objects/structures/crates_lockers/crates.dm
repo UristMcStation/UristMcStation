@@ -30,7 +30,8 @@
 				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 				s.set_up(5, 1, src)
 				s.start()
-				return 2
+				if(usr.stunned)
+					return 2
 
 	playsound(src.loc, 'sound/machines/click.ogg', 15, 1, -3)
 	for(var/obj/O in src)
@@ -55,8 +56,8 @@
 			break
 		if(O.density || O.anchored || istype(O,/obj/structure/closet))
 			continue
-		if(istype(O, /obj/structure/stool/bed)) //This is only necessary because of rollerbeds and swivel chairs.
-			var/obj/structure/stool/bed/B = O
+		if(istype(O, /obj/structure/bed)) //This is only necessary because of rollerbeds and swivel chairs.
+			var/obj/structure/bed/B = O
 			if(B.buckled_mob)
 				continue
 		O.loc = src
@@ -104,18 +105,18 @@
 	switch(severity)
 		if(1.0)
 			for(var/obj/O in src.contents)
-				del(O)
-			del(src)
+				qdel(O)
+			qdel(src)
 			return
 		if(2.0)
 			for(var/obj/O in src.contents)
 				if(prob(50))
-					del(O)
-			del(src)
+					qdel(O)
+			qdel(src)
 			return
 		if(3.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 			return
 		else
 	return
@@ -153,14 +154,19 @@
 		user << "<span class='warning'>The crate appears to be broken.</span>"
 		return
 	if(src.allowed(user))
-		src.locked = !src.locked
-		for(var/mob/O in viewers(user, 3))
-			if((O.client && !( O.blinded )))
-				O << "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>"
-		overlays.Cut()
-		overlays += locked ? redlight : greenlight
+		set_locked(!locked, user)
 	else
 		user << "<span class='notice'>Access Denied</span>"
+
+/obj/structure/closet/crate/secure/proc/set_locked(var/newlocked, mob/user = null)
+	if(locked == newlocked) return
+	
+	locked = newlocked
+	if(user)
+		for(var/mob/O in viewers(user, 3))
+			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
+	overlays.Cut()
+	overlays += locked ? redlight : greenlight
 
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -341,8 +347,10 @@
 
 /obj/structure/closet/crate/freezer/rations/New()
 	..()
-	new /obj/item/weapon/storage/box/donkpockets(src)
-	new /obj/item/weapon/storage/box/donkpockets(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -483,7 +491,7 @@
 		..()
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
 		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/minihoe(src)
+		new /obj/item/weapon/material/minihoe(src)
 //		new /obj/item/weapon/weedspray(src)
 //		new /obj/item/weapon/weedspray(src)
 //		new /obj/item/weapon/pestspray(src)

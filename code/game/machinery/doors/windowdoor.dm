@@ -7,7 +7,7 @@
 	min_force = 4
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
-	health
+	health = 150
 	visible = 0.0
 	use_power = 0
 	flags = ON_BORDER
@@ -24,15 +24,41 @@
 		src.base_state = src.icon_state
 	return
 
-/obj/machinery/door/window/Del()
-	density = 0
+/obj/machinery/door/window/proc/shatter(var/display_message = 1)
+	new /obj/item/weapon/material/shard(src.loc)
+	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(src.loc)
+	CC.amount = 2
+	var/obj/item/weapon/airlock_electronics/ae
+	if(!electronics)
+		ae = new/obj/item/weapon/airlock_electronics( src.loc )
+		if(!src.req_access)
+			src.check_access()
+		if(src.req_access.len)
+			ae.conf_access = src.req_access
+		else if (src.req_one_access.len)
+			ae.conf_access = src.req_one_access
+			ae.one_access = 1
+	else
+		ae = electronics
+		electronics = null
+		ae.loc = src.loc
+	if(operating == -1)
+		ae.icon_state = "door_electronics_smoked"
+		operating = 0
+	src.density = 0
 	playsound(src, "shatter", 70, 1)
+	if(display_message)
+		visible_message("[src] shatters!")
+	qdel(src)
+
+/obj/machinery/door/window/Destroy()
+	density = 0
 	update_nearby_tiles()
 	..()
 
 /obj/machinery/door/window/Bumped(atom/movable/AM as mob|obj)
 	if (!( ismob(AM) ))
-		var/obj/machinery/bot/bot = AM
+		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))
 				open()
@@ -120,28 +146,7 @@
 /obj/machinery/door/window/take_damage(var/damage)
 	src.health = max(0, src.health - damage)
 	if (src.health <= 0)
-		new /obj/item/weapon/shard(src.loc)
-		var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(src.loc)
-		CC.amount = 2
-		var/obj/item/weapon/airlock_electronics/ae
-		if(!electronics)
-			ae = new/obj/item/weapon/airlock_electronics( src.loc )
-			if(!src.req_access)
-				src.check_access()
-			if(src.req_access.len)
-				ae.conf_access = src.req_access
-			else if (src.req_one_access.len)
-				ae.conf_access = src.req_one_access
-				ae.one_access = 1
-		else
-			ae = electronics
-			electronics = null
-			ae.loc = src.loc
-		if(operating == -1)
-			ae.icon_state = "door_electronics_smoked"
-			operating = 0
-		src.density = 0
-		del(src)
+		shatter()
 		return
 
 /obj/machinery/door/window/attack_ai(mob/user as mob)
@@ -215,7 +220,7 @@
 			ae.icon_state = "door_electronics_smoked"
 
 			operating = 0
-			del(src)
+			shatter(src)
 			return
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
@@ -229,9 +234,6 @@
 
 
 	src.add_fingerprint(user)
-	if (!src.requiresID())
-		//don't care who they are or what they have, act as if they're NOTHING
-		user = null
 
 	if (src.allowed(user))
 		if (src.density)
@@ -247,13 +249,14 @@
 
 
 /obj/machinery/door/window/brigdoor
-	name = "Secure Door"
+	name = "secure door"
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	req_access = list(access_security)
 	var/id = null
-	health = 300.0 //Stronger doors for prison (regular window door health is 200)
+	maxhealth = 300
+	health = 300.0 //Stronger doors for prison (regular window door health is 150)
 
 
 /obj/machinery/door/window/northleft

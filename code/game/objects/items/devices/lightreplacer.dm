@@ -55,7 +55,7 @@
 	var/uses = 0
 	var/emagged = 0
 	var/failmsg = ""
-	var/charge = 1
+	var/charge = 0
 
 /obj/item/device/lightreplacer/New()
 	uses = max_uses / 2
@@ -71,8 +71,8 @@
 		Emag()
 		return
 
-	if(istype(W, /obj/item/stack/sheet/glass))
-		var/obj/item/stack/sheet/glass/G = W
+	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
+		var/obj/item/stack/G = W
 		if(uses >= max_uses)
 			user << "<span class='warning'>[src.name] is full."
 			return
@@ -90,7 +90,7 @@
 				AddUses(1)
 				user << "You insert the [L.name] into the [src.name]. You have [uses] lights remaining."
 				user.drop_item()
-				del(L)
+				qdel(L)
 				return
 		else
 			user << "You need a working light."
@@ -122,11 +122,11 @@
 /obj/item/device/lightreplacer/proc/AddUses(var/amount = 1)
 	uses = min(max(uses + amount, 0), max_uses)
 
-/obj/item/device/lightreplacer/proc/Charge(var/mob/user)
-	charge += 1
-	if(charge > 7)
+/obj/item/device/lightreplacer/proc/Charge(var/mob/user, var/amount = 1)
+	charge += amount
+	if(charge > 6)
 		AddUses(1)
-		charge = 1
+		charge = 0
 
 /obj/item/device/lightreplacer/proc/ReplaceLight(var/obj/machinery/light/target, var/mob/living/U)
 
@@ -140,7 +140,9 @@
 				var/obj/item/weapon/light/L1 = new target.light_type(target.loc)
 				L1.status = target.status
 				L1.rigged = target.rigged
-				L1.brightness = target.brightness
+				L1.brightness_range = target.brightness_range
+				L1.brightness_power = target.brightness_power
+				L1.brightness_color = target.brightness_color
 				L1.switchcount = target.switchcount
 				target.switchcount = 0
 				L1.update()
@@ -153,10 +155,12 @@
 			target.status = L2.status
 			target.switchcount = L2.switchcount
 			target.rigged = emagged
-			target.brightness = L2.brightness
+			target.brightness_range = L2.brightness_range
+			target.brightness_power = L2.brightness_power
+			target.brightness_color = L2.brightness_color
 			target.on = target.has_power()
 			target.update()
-			del(L2)
+			qdel(L2)
 
 			if(target.on && target.rigged)
 				target.explode()

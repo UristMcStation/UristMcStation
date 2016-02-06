@@ -48,6 +48,8 @@ Buildable meters
 #define PIPE_SCRUBBERS_DOWN			40
 #define PIPE_SUPPLY_CAP				41
 #define PIPE_SCRUBBERS_CAP			42
+///// Mirrored T-valve ~ because I couldn't be bothered re-sorting all of the defines
+#define PIPE_MTVALVEM				43
 
 /obj/item/pipe
 	name = "pipe"
@@ -76,8 +78,10 @@ Buildable meters
 			is_bent = 1
 		if     (istype(make_from, /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction))
 			src.pipe_type = PIPE_JUNCTION
+			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_HE
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/heat_exchanging))
 			src.pipe_type = PIPE_HE_STRAIGHT + is_bent
+			connect_types = CONNECT_TYPE_HE
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/insulated))
 			src.pipe_type = PIPE_INSULATED_STRAIGHT + is_bent
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/visible/supply) || istype(make_from, /obj/machinery/atmospherics/pipe/simple/hidden/supply))
@@ -129,6 +133,8 @@ Buildable meters
 			src.pipe_type = PIPE_PASSIVE_GATE
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/heat_exchanger))
 			src.pipe_type = PIPE_HEAT_EXCHANGE
+		else if(istype(make_from, /obj/machinery/atmospherics/tvalve/mirrored))
+			src.pipe_type = PIPE_MTVALVEM
 		else if(istype(make_from, /obj/machinery/atmospherics/tvalve))
 			src.pipe_type = PIPE_MTVALVE
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/manifold4w/visible/supply) || istype(make_from, /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply))
@@ -186,6 +192,10 @@ Buildable meters
 		else if (pipe_type == 31 || pipe_type == 32 || pipe_type == 34 || pipe_type == 36 || pipe_type == 38 || pipe_type == 40 || pipe_type == 42)
 			connect_types = CONNECT_TYPE_SCRUBBER
 			src.color = PIPE_COLOR_RED
+		else if (pipe_type == 2 || pipe_type == 3)
+			connect_types = CONNECT_TYPE_HE
+		else if (pipe_type == 6)
+			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_HE
 		else if (pipe_type == 28)
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	//src.pipe_dir = get_pipe_dir()
@@ -243,6 +253,7 @@ Buildable meters
 		"scrubbers pipe down", \
 		"supply pipe cap", \
 		"scrubbers pipe cap", \
+		"t-valve m", \
 	)
 	name = nlist[pipe_type+1] + " fitting"
 	var/list/islist = list( \
@@ -292,6 +303,7 @@ Buildable meters
 		"cap", \
 		"cap", \
 		"cap", \
+		"mtvalvem", \
 	)
 	icon_state = islist[pipe_type + 1]
 
@@ -368,9 +380,9 @@ Buildable meters
 			return dir|flip|cw|acw
 		if(PIPE_MANIFOLD, PIPE_SUPPLY_MANIFOLD, PIPE_SCRUBBERS_MANIFOLD)
 			return flip|cw|acw
-		if(PIPE_GAS_FILTER, PIPE_GAS_MIXER,PIPE_MTVALVE)
+		if(PIPE_GAS_FILTER, PIPE_GAS_MIXER, PIPE_MTVALVE)
 			return dir|flip|cw
-		if(PIPE_GAS_FILTER_M, PIPE_GAS_MIXER_M)
+		if(PIPE_GAS_FILTER_M, PIPE_GAS_MIXER_M, PIPE_MTVALVEM)
 			return dir|flip|acw
 		if(PIPE_GAS_MIXER_T)
 			return dir|cw|acw
@@ -451,7 +463,7 @@ Buildable meters
 			var/turf/T = P.loc
 			P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -470,7 +482,7 @@ Buildable meters
 			var/turf/T = P.loc
 			P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -489,7 +501,7 @@ Buildable meters
 			var/turf/T = P.loc
 			P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -508,7 +520,7 @@ Buildable meters
 			var/turf/T = P.loc
 			P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -527,7 +539,7 @@ Buildable meters
 			//var/turf/T = P.loc
 			//P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -562,7 +574,7 @@ Buildable meters
 			var/turf/T = M.loc
 			M.level = T.intact ? 2 : 1
 			M.initialize()
-			if (!M)
+			if (deleted(M))
 				usr << pipefailtext
 				return 1
 			M.build_network()
@@ -631,7 +643,7 @@ Buildable meters
 			var/turf/T = M.loc
 			M.level = T.intact ? 2 : 1
 			M.initialize()
-			if (!M)
+			if (deleted(M))
 				usr << pipefailtext
 				return 1
 			M.build_network()
@@ -710,7 +722,7 @@ Buildable meters
 			//var/turf/T = P.loc
 			//P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext //"There's nothing to connect this pipe to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
 				return 1
 			P.build_network()
@@ -893,7 +905,7 @@ Buildable meters
 			var/turf/T = P.loc
 			P.level = T.intact ? 2 : 1
 			P.initialize()
-			if (!P)
+			if (deleted(P))
 				usr << pipefailtext
 				return 1
 			P.build_network()
@@ -906,6 +918,26 @@ Buildable meters
 
 		if(PIPE_MTVALVE)		//manual t-valve
 			var/obj/machinery/atmospherics/tvalve/V = new(src.loc)
+			V.set_dir(dir)
+			V.initialize_directions = pipe_dir
+			if (pipename)
+				V.name = pipename
+			var/turf/T = V.loc
+			V.level = T.intact ? 2 : 1
+			V.initialize()
+			V.build_network()
+			if (V.node1)
+				V.node1.initialize()
+				V.node1.build_network()
+			if (V.node2)
+				V.node2.initialize()
+				V.node2.build_network()
+			if (V.node3)
+				V.node3.initialize()
+				V.node3.build_network()
+
+		if(PIPE_MTVALVEM)		//manual t-valve
+			var/obj/machinery/atmospherics/tvalve/mirrored/V = new(src.loc)
 			V.set_dir(dir)
 			V.initialize_directions = pipe_dir
 			if (pipename)
@@ -1117,7 +1149,7 @@ Buildable meters
 		"[user] fastens the [src].", \
 		"\blue You have fastened the [src].", \
 		"You hear ratchet.")
-	del(src)	// remove the pipe item
+	qdel(src)	// remove the pipe item
 
 	return
 	 //TODO: DEFERRED
@@ -1145,7 +1177,7 @@ Buildable meters
 	new/obj/machinery/meter( src.loc )
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user << "\blue You have fastened the meter to the pipe"
-	del(src)
+	qdel(src)
 //not sure why these are necessary
 #undef PIPE_SIMPLE_STRAIGHT
 #undef PIPE_SIMPLE_BENT
@@ -1166,6 +1198,7 @@ Buildable meters
 #undef PIPE_VOLUME_PUMP
 #undef PIPE_OUTLET_INJECT
 #undef PIPE_MTVALVE
+#undef PIPE_MTVALVEM
 #undef PIPE_GAS_FILTER_M
 #undef PIPE_GAS_MIXER_T
 #undef PIPE_GAS_MIXER_M

@@ -1,5 +1,5 @@
 /obj/machinery/disease2/incubator/
-	name = "Pathogenic incubator"
+	name = "pathogenic incubator"
 	density = 1
 	anchored = 1
 	icon = 'icons/obj/virology.dmi'
@@ -108,6 +108,7 @@
 				dish.virus2.majormutate()
 				if(dish.info)
 					dish.info = "OUTDATED : [dish.info]"
+					dish.basic_info = "OUTDATED: [dish.basic_info]"
 					dish.analysed = 0
 				ping("\The [src] pings, \"Mutant viral strain detected.\"")
 			else if(prob(5))
@@ -133,12 +134,12 @@
 
 		if (locate(/datum/reagent/toxin) in beaker.reagents.reagent_list)
 			for(var/datum/reagent/toxin/T in beaker.reagents.reagent_list)
-				toxins += max(T.toxpwr,1)
+				toxins += max(T.strength,1)
 				beaker.reagents.remove_reagent(T.id,1)
 			nanomanager.update_uis(src)
 
 /obj/machinery/disease2/incubator/Topic(href, href_list)
-	if (..()) return 0
+	if (..()) return 1
 
 	var/mob/user = usr
 	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")

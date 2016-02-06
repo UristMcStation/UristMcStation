@@ -19,13 +19,13 @@
 	if (istype(O, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = O
 		var/grabbed = G.affecting
-		if(istype(grabbed, /mob/living/carbon/monkey))
-			var/mob/living/carbon/monkey/target = grabbed
+		if(istype(grabbed, /mob/living/carbon/human/monkey))
+			var/mob/living/carbon/human/monkey/target = grabbed
 			if(target.stat == 0)
 				user << "\red The monkey is struggling far too much to put it in the recycler."
 			else
 				user.drop_item()
-				del(target)
+				qdel(target)
 				user << "\blue You stuff the monkey in the machine."
 				playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 				use_power(500)

@@ -235,9 +235,9 @@
 // USELESS SHIT //
 //////////////////
 
-// WAS: /datum/bioEffect/strong
+/*// WAS: /datum/bioEffect/strong
 /datum/dna/gene/disability/strong
-	// pretty sure this doesn't do jack shit, putting it here until it does
+	// pretty sure this doesn't do jack shit, putting it here until it does //axed by vg
 	name = "Strong"
 	desc = "Enhances the subject's ability to build and retain heavy muscles."
 	activation_message = "You feel buff!"
@@ -247,10 +247,10 @@
 
 	New()
 		..()
-		block=STRONGBLOCK
+		block=STRONGBLOCK */
 
-/*// WAS: /datum/bioEffect/horns
-/datum/dna/gene/disability/horns // Need to get the icons -- Glloyd
+// WAS: /datum/bioEffect/horns
+/datum/dna/gene/disability/horns // Need to get the icons -- Glloyd //got you -- Scrdest
 	name = "Horns"
 	desc = "Enables the growth of a compacted keratin formation on the subject's head."
 	activation_message = "A pair of horns erupt from your head."
@@ -261,7 +261,7 @@
 		block=HORNSBLOCK
 
 	OnDrawUnderlays(var/mob/M,var/g,var/fat)
-		return "horns_s"*/
+		return "horns_s"
 
 /* Stupid
 /datum/bioEffect/stinky

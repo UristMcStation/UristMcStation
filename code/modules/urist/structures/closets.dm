@@ -71,12 +71,12 @@
 		..()
 		sleep(2)
 		new	/obj/item/weapon/storage/firstaid/adv(src)
-		new /obj/item/weapon/gun/projectile/detective/fluff/callum_leamas(src)
+		new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/weapon/grenade/flashbang(src)
 		new /obj/item/weapon/melee/baton(src)
 		new /obj/item/weapon/gun/energy/taser(src)
-		new /obj/item/clothing/tie/storage/black_vest(src)
+		new /obj/item/clothing/accessory/storage/black_vest(src)
 		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/clothing/under/rank/centcom_officer(src)
 		new /obj/item/device/flash(src)
@@ -140,7 +140,7 @@
 
 /obj/structure/closet/scom/sniper/New()
 	..()
-	new /obj/item/clothing/tie/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
@@ -154,7 +154,7 @@
 
 /obj/structure/closet/scom/assault/New()
 	..()
-	new /obj/item/clothing/tie/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
@@ -168,14 +168,14 @@
 
 /obj/structure/closet/scom/heavy/New()
 	..()
-	new /obj/item/clothing/tie/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 
 /obj/structure/closet/scom/medic
 	name = "S-COM Medic"
 
 /obj/structure/closet/scom/medic/New()
 	..()
-	new /obj/item/clothing/tie/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 
 /obj/structure/closet/scom/sidearms
 	name = "S-COM Sidearms"
