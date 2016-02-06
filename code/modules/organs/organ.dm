@@ -56,7 +56,7 @@ var/list/organ_cache = list()
 		var/mob/living/carbon/human/H = holder
 		if(istype(H))
 			if(internal)
-				var/obj/item/organ/external/E = H.organs_by_name[src.parent_organ]
+				var/obj/item/organ/external/E = H.get_organ(parent_organ)
 				if(E)
 					if(E.internal_organs == null)
 						E.internal_organs = list()
@@ -193,17 +193,21 @@ var/list/organ_cache = list()
 	W.damage += damage
 	W.time_inflicted = world.time
 
+//Note: external organs have their own version of this proc
 /obj/item/organ/proc/take_damage(amount, var/silent=0)
 	if(src.status & ORGAN_ROBOT)
-		src.damage += (amount * 0.8)
+		src.damage = between(0, src.damage + (amount * 0.8), max_damage)
 	else
-		src.damage += amount
+		src.damage = between(0, src.damage + amount, max_damage)
 
 		//only show this if the organ is not robotic
-		if(owner && parent_organ)
+		if(owner && parent_organ && amount > 0)
 			var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 			if(parent && !silent)
 				owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
+
+/obj/item/organ/proc/bruise()
+	damage = max(damage, min_bruised_damage)
 
 /obj/item/organ/proc/robotize() //Being used to make robutt hearts, etc
 	robotic = 2
@@ -211,8 +215,6 @@ var/list/organ_cache = list()
 	src.status &= ~ORGAN_BLEEDING
 	src.status &= ~ORGAN_SPLINTED
 	src.status &= ~ORGAN_CUT_AWAY
-	src.status &= ~ORGAN_ATTACHABLE
-	src.status &= ~ORGAN_DESTROYED
 	src.status |= ORGAN_ROBOT
 	src.status |= ORGAN_ASSISTED
 
@@ -325,6 +327,7 @@ var/list/organ_cache = list()
 	user.drop_from_inventory(src)
 	var/obj/item/weapon/reagent_containers/food/snacks/organ/O = new(get_turf(src))
 	O.name = name
+	O.icon = icon
 	O.icon_state = icon_state
 
 	// Pass over the blood.

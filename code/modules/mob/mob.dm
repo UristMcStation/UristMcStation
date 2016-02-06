@@ -637,7 +637,7 @@
 
 /mob/Stat()
 	..()
-	. = (client && client.inactivity < 1200)
+	. = (is_client_active(10 MINUTES))
 
 	if(.)
 		if(statpanel("Status") && ticker && ticker.current_state != GAME_STATE_PREGAME)
@@ -660,17 +660,17 @@
 			if(!TurfAdjacent(listed_turf))
 				listed_turf = null
 			else
-				statpanel(listed_turf.name, null, listed_turf)
-				for(var/atom/A in listed_turf)
-					if(!A.mouse_opacity)
-						continue
-					if(A.invisibility > see_invisible)
-						continue
-					if(is_type_in_list(A, shouldnt_see))
-						continue
-					statpanel(listed_turf.name, null, A)
+				if(statpanel("Turf"))
+					stat("\icon[listed_turf]", listed_turf.name)
+					for(var/atom/A in listed_turf)
+						if(!A.mouse_opacity)
+							continue
+						if(A.invisibility > see_invisible)
+							continue
+						if(is_type_in_list(A, shouldnt_see))
+							continue
+						stat(A)
 
-	sleep(4) //Prevent updating the stat panel for the next .4 seconds, prevents clientside latency from updates
 
 // facing verbs
 /mob/proc/canface()
@@ -942,7 +942,7 @@ mob/proc/yank_out_object()
 			var/mob/living/carbon/human/human_user = U
 			human_user.bloody_hands(H)
 
-	selection.loc = get_turf(src)
+	selection.forceMove(get_turf(src))
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
 

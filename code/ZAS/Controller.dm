@@ -154,18 +154,18 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		#ifdef ZASDBG
 		var/updated = 0
 		#endif
-		
+
 		//defer updating of self-zone-blocked turfs until after all other turfs have been updated.
 		//this hopefully ensures that non-self-zone-blocked turfs adjacent to self-zone-blocked ones
 		//have valid zones when the self-zone-blocked turfs update.
 		var/list/deferred = list()
-		
+
 		for(var/turf/T in updating)
 			//check if the turf is self-zone-blocked
 			if(T.c_airblock(T) & ZONE_BLOCKED)
 				deferred += T
 				continue
-			
+
 			T.update_air_properties()
 			T.post_update_air_properties()
 			T.needs_air_update = 0
@@ -234,6 +234,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 /datum/controller/air_system/proc/remove_zone(zone/z)
 	zones.Remove(z)
+	zones_to_update.Remove(z)
 
 /datum/controller/air_system/proc/air_blocked(turf/A, turf/B)
 	#ifdef ZASDBG
@@ -281,8 +282,8 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	var/direct = !(block & ZONE_BLOCKED)
 	var/space = !istype(B)
 
-	if(direct && !space)
-		if(min(A.zone.contents.len, B.zone.contents.len) <= 10 || equivalent_pressure(A.zone,B.zone) || current_cycle == 0)
+	if(!space)
+		if(min(A.zone.contents.len, B.zone.contents.len) < ZONE_MIN_SIZE || (direct && (equivalent_pressure(A.zone,B.zone) || current_cycle == 0)))
 			merge(A.zone,B.zone)
 			return
 

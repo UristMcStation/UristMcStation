@@ -2,13 +2,12 @@
 //They get a traitor objective and a blood sucking objective
 
 /datum/game_mode/vampire
-	antag_tag = MODE_VAMPIRE
+	antag_tags = list(MODE_VAMPIRE)
 	name = "Vampire"
 	round_description = "There are Vampires from Space Transylvania on the station!"
 	extended_round_description = "Posing as ordinary crewmembers, unholy creatures have infiltrated the station! Keep your blood close and neck safe!"
 	config_tag = "vampire"
 	required_players = 1
-	required_players_secret = 7
 	required_enemies = 1
 	end_on_antag_death = 1
 	antag_scaling_coeff = 7

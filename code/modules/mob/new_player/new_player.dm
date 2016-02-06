@@ -293,7 +293,7 @@
 
 
 	proc/AttemptLateSpawn(rank,var/spawning_at)
-		if (src != usr)
+		if(src != usr)
 			return 0
 		if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
 			usr << "\red The round is either not ready, or has already finished..."
@@ -327,7 +327,7 @@
 			character.loc = C.loc
 
 			AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
-			ticker.mode.latespawn(character)
+			ticker.mode.handle_latejoin(character)
 
 			qdel(C)
 			qdel(src)
@@ -358,7 +358,7 @@
 			character.buckled.loc = character.loc
 			character.buckled.set_dir(character.dir)
 
-		ticker.mode.latespawn(character)
+		ticker.mode.handle_latejoin(character)
 
 		if(character.mind.assigned_role != "Cyborg")
 			data_core.manifest_inject(character)
@@ -423,13 +423,16 @@
 
 		var/mob/living/carbon/human/new_character
 
+		var/use_species_name
 		var/datum/species/chosen_species
 		if(client.prefs.species)
 			chosen_species = all_species[client.prefs.species]
-		if(chosen_species)
+			use_species_name = chosen_species.get_station_variant() //Only used by pariahs atm.
+
+		if(chosen_species && use_species_name)
 			// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 			if(is_species_whitelisted(chosen_species) || has_admin_rights())
-				new_character = new(loc, client.prefs.species)
+				new_character = new(loc, use_species_name)
 
 		if(!new_character)
 			new_character = new(loc)

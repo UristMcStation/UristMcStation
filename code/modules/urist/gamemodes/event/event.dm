@@ -1,10 +1,9 @@
 //this is the franework for a refactor of the event system
 
-/datum/game_mode/event //TODO: move the event files out of the map folder once the merge is done to reduce conflicts
+/datum/game_mode/event
 	name = "event"
 	config_tag = "event"
 	required_players = 0
-	required_players_secret = 0
 	votable = 0
 
 /datum/game_mode/event/announce() //guys, are my comments informative yet?
@@ -29,3 +28,5 @@
 //	EventTime()
 
 //datum/game_mode/event/process()
+
+

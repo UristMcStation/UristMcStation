@@ -348,6 +348,6 @@ B --><-- A
 
 //Monkeys et al being a human type mess with the purpose of regular ishuman; ishumanoid is intended to check strictly 'sentient' races
 /proc/ishumanoid(A)
-	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa)) && !(istype (A, /mob/living/carbon/human/neara)))
+	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa))) // && !(istype (A, /mob/living/carbon/human/neara)))
 		return 1 //whoever thought subtyping all these under /human/monkey or whatever was a bad idea is literally Hitler
 	return 0

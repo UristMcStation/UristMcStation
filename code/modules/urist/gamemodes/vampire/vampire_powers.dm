@@ -103,7 +103,7 @@
 			if(I.damage > 0)
 				return 1
 		for(var/obj/item/organ/external/E in H.bad_external_organs)
-			if (E.status & (ORGAN_DESTROYED || ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY || ORGAN_BROKEN))
+			if ((E.status & (ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY || ORGAN_BROKEN))||(E.is_stump()))
 				return 1
 	else
 		return 0
@@ -144,7 +144,7 @@
 					if (E.mend_fracture())
 						H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
 					return 0
-			if (E.status & (ORGAN_DESTROYED || ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY))
+			if ((E.status & (ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY))||(E.is_stump()))
 				if (prob(round(mend_prob,1)))
 					E.status = 0
 					H << "<span class='sinister'>You feel your [E.name] regrow, completely intact.</span>"

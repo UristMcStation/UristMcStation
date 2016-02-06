@@ -16,18 +16,14 @@
 
 /obj/item/device/flashlight/initialize()
 	..()
-	if(on)
-		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on)
-	else
-		icon_state = initial(icon_state)
-		set_light(0)
+	update_icon()
 
-/obj/item/device/flashlight/proc/update_brightness(var/mob/user = null)
+/obj/item/device/flashlight/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 		set_light(brightness_on)
 	else
+		icon_state = "[initial(icon_state)]"
 		set_light(0)
 
 /obj/item/device/flashlight/attack_self(mob/user)
@@ -35,7 +31,7 @@
 		user << "You cannot turn the light on while in this [user.loc]." //To prevent some lighting anomalities.
 		return 0
 	on = !on
-	update_brightness(user)
+	update_icon()
 	return 1
 
 
@@ -136,7 +132,8 @@
 	name = "flare"
 	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
 	w_class = 2.0
-	brightness_on = 7 // Pretty bright.
+	brightness_on = 8 // Pretty bright.
+	light_power = 3
 	light_color = "#e58775"
 	icon_state = "flare"
 	item_state = "flare"
@@ -164,11 +161,7 @@
 	on = 0
 	src.force = initial(src.force)
 	src.damtype = initial(src.damtype)
-	if(ismob(loc))
-		var/mob/U = loc
-		update_brightness(U)
-	else
-		update_brightness(null)
+	update_icon()
 
 /obj/item/device/flashlight/flare/attack_self(mob/user)
 
@@ -199,10 +192,11 @@
 	on = 1 //Bio-luminesence has one setting, on.
 
 /obj/item/device/flashlight/slime/New()
+	..()
 	set_light(brightness_on)
-	spawn(1) //Might be sloppy, but seems to be necessary to prevent further runtimes and make these work as intended... don't judge me!
-		update_brightness()
-		icon_state = initial(icon_state)
+
+/obj/item/device/flashlight/slime/update_icon()
+	return
 
 /obj/item/device/flashlight/slime/attack_self(mob/user)
 	return //Bio-luminescence does not toggle.

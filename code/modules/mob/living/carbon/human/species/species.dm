@@ -60,6 +60,7 @@
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
+	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
 	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
 	var/poison_type = "phoron"                        // Poisonous air.
 	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
@@ -104,7 +105,8 @@
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
-	var/gluttonous                // Can eat some mobs. 1 for monkeys, 2 for people.
+	var/holder_type
+	var/gluttonous                // Can eat some mobs. 1 for mice, 2 for monkeys, 3 for people.
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
@@ -145,6 +147,12 @@
 	unarmed_attacks = list()
 	for(var/u_type in unarmed_types)
 		unarmed_attacks += new u_type()
+
+/datum/species/proc/get_station_variant()
+	return name
+
+/datum/species/proc/get_bodytype()
+	return name
 
 /datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
 
@@ -205,19 +213,17 @@
 		var/obj/item/organ/O = new limb_path(H)
 		organ_data["descriptor"] = O.name
 
-	for(var/organ in has_organ)
-		var/organ_type = has_organ[organ]
-		H.internal_organs_by_name[organ] = new organ_type(H,1)
-
-	for(var/name in H.organs_by_name)
-		H.organs |= H.organs_by_name[name]
-
-	for(var/obj/item/organ/external/O in H.organs)
-		O.owner = H
+	for(var/organ_tag in has_organ)
+		var/organ_type = has_organ[organ_tag]
+		var/obj/item/organ/O = new organ_type(H,1)
+		if(organ_tag != O.organ_tag)
+			warning("[O.type] has a default organ tag \"[O.organ_tag]\" that differs from the species' organ tag \"[organ_tag]\". Updating organ_tag to match.")
+			O.organ_tag = organ_tag
+		H.internal_organs_by_name[organ_tag] = O
 
 	if(flags & IS_SYNTHETIC)
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_CUT_AWAY || E.status & ORGAN_DESTROYED) continue
+			if(E.status & ORGAN_CUT_AWAY || E.is_stump()) continue
 			E.robotize()
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.robotize()
@@ -248,6 +254,9 @@
 
 /datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
 	add_inherent_verbs(H)
+	H.mob_bump_flag = bump_flag
+	H.mob_swap_flags = swap_flags
+	H.mob_push_flags = push_flags
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return

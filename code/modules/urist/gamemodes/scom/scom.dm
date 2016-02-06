@@ -22,7 +22,6 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	name = "scom"
 	config_tag = "scom"
 	required_players = 2 //lowpop mode ahoy
-	required_players_secret = 18
 	votable = 1
 	var/declared = 0
 	var/scommapsloaded = 0

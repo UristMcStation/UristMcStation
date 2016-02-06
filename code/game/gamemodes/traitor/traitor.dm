@@ -7,5 +7,10 @@
 	required_enemies = 1
 	uplink_welcome = "Syndicate Portable Teleportation Relay:"
 	end_on_antag_death = 0
+	antag_tags = list(MODE_TRAITOR)
 	antag_scaling_coeff = 5
-	antag_tag = MODE_TRAITOR
+
+/datum/game_mode/traitor/auto
+	name = "autotraitor"
+	config_tag = "autotraitor"
+	round_autoantag = 1
