@@ -552,9 +552,9 @@
 			var/obj/item/organ/external/R = H.get_organ("r_hand")
 			var/left_hand_good = 0
 			var/right_hand_good = 0
-			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_SPLINTED)) && (!(L.status & ORGAN_BROKEN)))
+			if(L && (!L.is_stump()) && (!(L.status & ORGAN_SPLINTED)) && (!(L.status & ORGAN_BROKEN)))
 				left_hand_good = 1
-			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_SPLINTED)) && (!(R.status & ORGAN_BROKEN)))
+			if(R && (!R.is_stump()) && (!(R.status & ORGAN_SPLINTED)) && (!(R.status & ORGAN_BROKEN)))
 				right_hand_good = 1
 
 			if (!left_hand_good && !right_hand_good)
