@@ -304,7 +304,7 @@
 			if(istype(piece.loc, /mob/living))
 				M = piece.loc
 				M.drop_from_inventory(piece)
-			piece.loc = src
+			piece.forceMove(src)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
@@ -383,8 +383,7 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-
+/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = inventory_state)
 	if(!user)
 		return
 
@@ -454,7 +453,7 @@
 
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, data["ai"] ? contained_state : inventory_state)
+		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, state = nano_state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -467,8 +466,8 @@
 		var/species_icon = 'icons/mob/rig_back.dmi'
 		// Since setting mob_icon will override the species checks in
 		// update_inv_wear_suit(), handle species checks here.
-		if(wearer && sprite_sheets && sprite_sheets[wearer.species.name])
-			species_icon =  sprite_sheets[wearer.species.name]
+		if(wearer && sprite_sheets && sprite_sheets[wearer.species.get_bodytype()])
+			species_icon =  sprite_sheets[wearer.species.get_bodytype()]
 		mob_icon = image("icon" = species_icon, "icon_state" = "[icon_state]")
 
 	if(installed_modules.len)
@@ -559,7 +558,7 @@
 			if(M && M.back == src)
 				M.back = null
 				M.drop_from_inventory(src)
-			src.loc = get_turf(src)
+			src.forceMove(get_turf(src))
 			return
 
 	if(istype(M) && M.back == src)
@@ -615,10 +614,10 @@
 						H << "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>"
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj)
-						use_obj.loc = get_turf(src)
+						use_obj.forceMove(get_turf(src))
 						use_obj.dropped()
 						use_obj.canremove = 0
-						use_obj.loc = src
+						use_obj.forceMove(src)
 
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot)
@@ -626,9 +625,9 @@
 					H << "<span class='danger'>You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way.</span>"
 				return
 			else
-				use_obj.loc = H
+				use_obj.forceMove(H)
 				if(!H.equip_to_slot_if_possible(use_obj, equip_to, 0))
-					use_obj.loc = src
+					use_obj.forceMove(src)
 				else
 					H << "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</b></span>"
 
@@ -766,6 +765,7 @@
 		return 0
 	wearer.Move(null,dir)*/
 
+// This returns the rig if you are contained inside one, but not if you are wearing it
 /atom/proc/get_rig()
 	if(loc)
 		return loc.get_rig()
