@@ -117,7 +117,7 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/robotics/full(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_l_store)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/robotics(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/robotics(H), slot_wear_suit)
 //		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 //		H.equip_to_slot_or_del(new /obj/item/weapon/storage/toolbox/mechanical(H), slot_l_hand) Don't need this anymore, with the auto-equipped toolbelt
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)

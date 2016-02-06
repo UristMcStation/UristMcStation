@@ -416,11 +416,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //hooonk bs12
 
-/obj/item/clothing/suit/storage/labcoat/robotics //I believe this one is non-buttonable by design
+/obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "aeneasrinil_open"
+	icon_open = "aeneasrinil_open"
+	icon_closed = "aeneasrinil"
 
 //for the carpenter
 
@@ -506,6 +509,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "dresdenunder"
 	//item_color = "dresdenunder"
+
 //alt janitor shit
 
 /obj/item/clothing/under/urist/rank/janialt
