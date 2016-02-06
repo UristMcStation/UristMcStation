@@ -13,6 +13,9 @@ var/datum/antagonist/vampire/vamps
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antag_indicator = "vampire"
 	uristantag = 1
+	initial_spawn_req = 1
+	hard_cap = 999	//should be able to multiply freely, if costs are met
+	hard_cap_round = 5
 
 ///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
 //	return //"<br><b>Real Name:</b> [player.real_name].

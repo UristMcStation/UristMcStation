@@ -67,6 +67,8 @@
 	// ID card stuff.
 	var/default_access = list()
 	var/id_type = /obj/item/weapon/card/id
+
+	//UristMcStation stuff
 	var/uristantag = 0 //used for overriding the indicator icon path to our own dmi
 
 
@@ -199,10 +201,10 @@
 	for(var/datum/mind/player in pending_antagonists)
 		pending_antagonists -= player
 		add_antagonist(player,0,0,1)
-	
+
 	reset_antag_selection()
 
-//Resets the antag selection, clearing all pending_antagonists and their special_role 
+//Resets the antag selection, clearing all pending_antagonists and their special_role
 //(and assigned_role if ANTAG_OVERRIDE_JOB is set) as well as clearing the candidate list.
 //Existing antagonists are left untouched.
 /datum/antagonist/proc/reset_antag_selection()
