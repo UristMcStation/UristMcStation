@@ -4,7 +4,6 @@
 	name = "event"
 	config_tag = "event"
 	required_players = 0
-	required_players_secret = 0
 	votable = 0
 
 /datum/game_mode/event/announce() //guys, are my comments informative yet?
