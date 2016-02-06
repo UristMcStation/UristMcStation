@@ -21,7 +21,6 @@
 	attacktext = "punched"
 	a_intent = "harm"
 	ranged = 1
-	var/weapon1 = /obj/item/weapon/kitchenknife
 	min_oxy = 5
 	max_oxy = 0
 	min_tox = 0
@@ -39,19 +38,35 @@
 	casingtype = /obj/item/ammo_casing/c9mm
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
 	retreat_distance = 2
 	faction = "syndicate"
 
+/mob/living/simple_animal/hostile/urist/commando //literally a clone of syndies with my speed tweaks and NT faction, adminfuckery purposes
+	faction = "NTIS"
+	name = "\improper NTIS Commando"
+	desc = "A henchman of the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 1
+	icon_state = "syndicateranged"
+	icon_living = "syndicateranged"
+	casingtype = /obj/item/ammo_casing/a12mm
+	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	maxHealth = 100
+	health = 100
+
 /mob/living/simple_animal/hostile/urist/agent
 	icon_state = "agent"
 	icon_living = "agent"
 	icon_dead = "agent_dead"
 	name = "\improper NTIS Agent"
-	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>know too much</I>."
-	faction = "NT"
+	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
+	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
 	rapid = 1
 	ranged_cooldown_cap = 5
 	maxHealth = 150
@@ -73,7 +88,8 @@
 	minimum_distance = 4
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
-	projectilesound = 'sound/weapons/Gunshot_smg.ogg'
+	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
@@ -87,7 +103,8 @@
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
-	projectilesound = 'sound/weapons/Gunshot_smg.ogg'
+	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 /mob/living/simple_animal/hostile/urist/riotcop
 	icon_state = "riotcop"
@@ -102,7 +119,7 @@
 	maxHealth = 200 //but it offers some serious protection
 	health = 200
 	minimum_distance = 1
-	faction = "NT"
+	faction = "NTIS"
 	attack_sound = 'sound/weapons/genhit3.ogg'
 	melee_damage_lower = 10
 	melee_damage_upper = 15
