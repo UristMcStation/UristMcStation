@@ -5,7 +5,7 @@
 	block=MONKEYBLOCK
 
 /datum/dna/gene/monkey/can_activate(var/mob/M,var/flags)
-	return istype(M, /mob/living/carbon/human) || istype(M,/mob/living/carbon/monkey)
+	return istype(M, /mob/living/carbon/human) || istype(M,/mob/living/carbon/human/monkey)
 
 /datum/dna/gene/monkey/activate(var/mob/living/M, var/connected, var/flags)
 	if(!istype(M,/mob/living/carbon/human))
@@ -36,7 +36,7 @@
 		qdel(animation)
 
 
-	var/mob/living/carbon/monkey/O = null
+	var/mob/living/carbon/human/monkey/O = null
 	if(H.species.primitive)
 		O = new H.species.primitive(src)
 	else
@@ -86,10 +86,10 @@
 	return
 
 /datum/dna/gene/monkey/deactivate(var/mob/living/M, var/connected, var/flags)
-	if(!istype(M,/mob/living/carbon/monkey))
+	if(!istype(M,/mob/living/carbon/human/monkey))
 		//testing("Cannot humanize [M], type is [M.type].")
 		return
-	var/mob/living/carbon/monkey/Mo = M
+	var/mob/living/carbon/human/monkey/Mo = M
 	Mo.monkeyizing = 1
 	var/list/implants = list() //Still preserving implants
 	for(var/obj/item/weapon/implant/W in Mo)

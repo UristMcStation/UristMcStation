@@ -154,7 +154,7 @@
 							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
 		return (BRUTELOSS)
 
-/obj/item/weapon/shard/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/weapon/material/shard/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/weapon/bedsheet))
 		var/obj/item/weapon/shiv/S = new /obj/item/weapon/shiv
@@ -272,7 +272,7 @@
 
 /obj/item/weapon/improvised/mbrick/attackby(var/obj/item/weapon/W, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/weapon/shard) || istype(W, /obj/item/weapon/improvised/scissorknife))
+	if(istype(W, /obj/item/weapon/material/shard) || istype(W, /obj/item/weapon/improvised/scissorknife))
 		var/obj/item/weapon/improvised/mbrick/sharp/S = new /obj/item/weapon/improvised/mbrick/sharp
 
 		user.remove_from_mob(W)

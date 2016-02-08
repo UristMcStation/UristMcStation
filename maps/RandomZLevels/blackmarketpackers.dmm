@@ -232,7 +232,7 @@
 "ex" = (/turf/simulated/floor/engine,/area/awaymission/BMPship1)
 "ey" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/grille,/turf/simulated/floor/plating,/area/awaymission/BMPship3)
 "ez" = (/obj/structure/computerframe{anchored = 1},/turf/simulated/floor{tag = "icon-carpetside (NORTHWEST)"; icon_state = "carpetside"; dir = 9},/area/awaymission/BMPship3)
-"eA" = (/obj/item/weapon/shard,/turf/simulated/floor{tag = "icon-carpetside (NORTHEAST)"; icon_state = "carpetside"; dir = 5},/area/awaymission/BMPship3)
+"eA" = (/obj/item/weapon/material/shard,/turf/simulated/floor{tag = "icon-carpetside (NORTHEAST)"; icon_state = "carpetside"; dir = 5},/area/awaymission/BMPship3)
 "eB" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"; tag = ""},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/turf/simulated/floor{tag = "icon-carpet"; icon_state = "carpet"},/area/awaymission/BMPship3)
 "eC" = (/obj/machinery/door/airlock/silver,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0; tag = ""},/turf/simulated/floor{tag = "icon-carpetside (EAST)"; icon_state = "carpetside"; dir = 4},/area/awaymission/BMPship2)
 "eD" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; tag = ""},/turf/simulated/floor{icon_state = "bar"},/area/awaymission/BMPship2)
@@ -257,7 +257,7 @@
 "eW" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/turf/simulated/floor/plating,/area/awaymission/BMPship3)
 "eX" = (/obj/structure/table/standard,/turf/simulated/floor{tag = "icon-carpet7-3 (EAST)"; icon_state = "carpet7-3"; dir = 4},/area/awaymission/BMPship3)
 "eY" = (/obj/structure/bed/chair/office{dir = 8},/turf/simulated/floor{tag = "icon-carpet11-12 (EAST)"; icon_state = "carpet11-12"; dir = 4},/area/awaymission/BMPship3)
-"eZ" = (/obj/item/weapon/shard{icon_state = "medium"},/turf/simulated/floor{tag = "icon-carpet15-14 (EAST)"; icon_state = "carpet15-14"; dir = 4},/area/awaymission/BMPship3)
+"eZ" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor{tag = "icon-carpet15-14 (EAST)"; icon_state = "carpet15-14"; dir = 4},/area/awaymission/BMPship3)
 "fa" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = ""},/turf/simulated/floor{tag = "icon-carpet15-15 (EAST)"; icon_state = "carpet15-15"; dir = 4},/area/awaymission/BMPship3)
 "fb" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/awaymission/BMPship2)
 "fc" = (/obj/effect/decal/cleanable/dirt,/obj/effect/gibspawner/generic,/turf/simulated/floor/plating,/area/awaymission/BMPship2)
@@ -338,7 +338,7 @@
 "gz" = (/obj/structure/lattice,/turf/space,/area/awaymission/BMPship3)
 "gA" = (/turf/simulated/floor/plating/airless{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/awaymission/BMPship3)
 "gB" = (/obj/item/stack/cable_coil{amount = 5},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/turf/simulated/floor/plating/airless,/area/awaymission/BMPship3)
-"gC" = (/obj/item/weapon/shard{icon_state = "small"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating/airless,/area/awaymission/BMPship3)
+"gC" = (/obj/item/weapon/material/shard{icon_state = "small"},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating/airless,/area/awaymission/BMPship3)
 "gD" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating/airless{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/BMPship3)
 "gE" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/turf/simulated/floor/plating/airless{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/awaymission/BMPship3)
 "gF" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; tag = ""},/obj/item/weapon/material/knife,/turf/simulated/floor{icon_state = "bar"},/area/awaymission/BMPship2)
@@ -350,7 +350,7 @@
 "gL" = (/obj/item/slime_extract/oil,/turf/simulated/floor{icon_state = "hydrofloor"},/area/awaymission/BMPship1)
 "gM" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor{dir = 4; icon_state = "warning"},/area/awaymission/BMPship1)
 "gN" = (/turf/simulated/floor/plating/airless{tag = "icon-platingdmg2"; icon_state = "platingdmg2"},/area/awaymission/BMPship3)
-"gO" = (/obj/item/weapon/shard,/turf/simulated/floor/plating/airless{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/awaymission/BMPship3)
+"gO" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/airless{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/awaymission/BMPship3)
 "gP" = (/obj/structure/stool,/turf/simulated/floor/plating/airless{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/awaymission/BMPship3)
 "gQ" = (/turf/simulated/floor/plating/airless,/area/awaymission/BMPship3)
 "gR" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/turf/simulated/floor/plating/airless,/area/awaymission/BMPship3)
@@ -408,7 +408,7 @@
 "hR" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; tag = ""},/turf/simulated/floor,/area/awaymission/BMPship1)
 "hS" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/turf/simulated/floor,/area/awaymission/BMPship1)
 "hT" = (/obj/effect/decal/remains/human,/obj/item/clothing/head/helmet/space/syndicate/green/dark,/obj/effect/gibspawner/generic,/turf/simulated/floor/plating/airless/asteroid,/area/awaymission)
-"hU" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/item/weapon/shard{icon_state = "small"},/turf/simulated/floor/engine,/area/awaymission/BMPship3)
+"hU" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/floor/engine,/area/awaymission/BMPship3)
 "hV" = (/obj/machinery/door/unpowered/shuttle,/turf/simulated,/area/awaymission/BMPship3)
 "hW" = (/obj/effect/gibspawner/robot,/turf/simulated,/area/awaymission/BMPship3)
 "hX" = (/turf/simulated/floor/plating/airless{tag = "icon-platingdmg2"; icon_state = "platingdmg2"},/area/awaymission)
@@ -427,7 +427,7 @@
 "ik" = (/obj/machinery/door/unpowered/shuttle,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating,/area/awaymission/BMPship1)
 "il" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor,/area/awaymission/BMPship1)
 "im" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; tag = ""},/turf/simulated/floor,/area/awaymission/BMPship1)
-"in" = (/obj/item/weapon/shard{icon_state = "medium"},/turf/space,/area)
+"in" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/space,/area)
 "io" = (/turf/simulated/shuttle/wall{tag = "icon-swall13"; icon_state = "swall13"},/area/awaymission/BMPship3)
 "ip" = (/turf/simulated/shuttle/wall,/area/awaymission/BMPship3)
 "iq" = (/turf/simulated/floor/plating/airless{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission)
@@ -451,7 +451,6 @@
 "iI" = (/obj/item/weapon/reagent_containers/food/drinks/cans/beer,/turf/simulated/floor/plating,/area/awaymission/BMPship3)
 "iJ" = (/turf/simulated/floor/plating,/turf/simulated/shuttle/wall{tag = "icon-swall_f6"; icon_state = "swall_f6"; dir = 2},/area/awaymission/BMPship3)
 "iK" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/grille,/turf/simulated/floor/engine,/area/awaymission/BMPship3)
-"iL" = (/turf/simulated/mineral/ore/clown,/area/awaymission)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -539,10 +538,10 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacachihihihihihihihihihihihihihihihihihihihihihihihiacacaaaaaaaaaaiKajakbSamiJiHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaachihiacachihihihihihihihihihihihihihihihihihihihihihihihiacacaaaaaaaaaaaeafafioafiHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihiacacachihihihihihihihihihihihihihihihihihihihihihihiacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacachihihihihihihiiLhihihihiiLhihihihihihihihihiacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacachihihihihihihihihihihihihihihihihihihihihihiacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacacachihihihihihihihihihihihihihihihihihihihihiacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacacachihihihihihihihihihihihihihihihihihihihiacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacacachihihihihihihihiiLhihihihihihihihihiacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacacachihihihihihihihihihihihihihihihihihiacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihihiacacachihihihihihihihihihihihihihihihiacacacachihiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihihihiacacacachihihihihihihihihihihihihihihiacachihihihihiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahihiacacacacacachihihihihihihihihihihihiacacacachihihihihiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

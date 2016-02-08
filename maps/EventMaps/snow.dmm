@@ -171,7 +171,7 @@
 "do" = (/obj/effect/decal/cleanable/dirt,/obj/item/weapon/broken_bottle,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dp" = (/obj/structure/closet/crate,/obj/item/stack/material/wood{amount = 10},/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dq" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor,/area/awaymission/train/snow)
-"dr" = (/obj/item/weapon/shard,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
+"dr" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
 "ds" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dt" = (/obj/structure/stool,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
 "du" = (/obj/item/trash/sosjerky,/turf/unsimulated/floor,/area/awaymission/train/snow)
@@ -184,7 +184,7 @@
 "dB" = (/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dC" = (/obj/structure/closet/emcloset,/obj/item/weapon/lipstick,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dD" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor,/area/awaymission/train/snow)
-"dE" = (/obj/item/weapon/shard,/turf/unsimulated/floor,/area/awaymission/train/snow)
+"dE" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "dF" = (/obj/structure/extinguisher_cabinet,/turf/unsimulated/wall/other{tag = "icon-metal3"; icon_state = "metal3"},/area/awaymission/train/snow)
 "dG" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
 "dH" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash/raisins,/turf/unsimulated/floor,/area/awaymission/train/snow)
@@ -242,7 +242,7 @@
 "eH" = (/obj/structure/closet/crate,/obj/item/weapon/crowbar,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/stack/cable_coil,/obj/item/stack/cable_coil,/obj/structure/curtain,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "eI" = (/obj/structure/closet/crate,/obj/item/weapon/reagent_containers/food/snacks/cereal,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/obj/structure/curtain,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "eJ" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
-"eK" = (/obj/structure/closet/crate,/obj/item/weapon/material/hatchet,/obj/item/weapon/shard,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/steel{amount = 10},/obj/structure/curtain,/turf/unsimulated/floor,/area/awaymission/train/snow)
+"eK" = (/obj/structure/closet/crate,/obj/item/weapon/material/hatchet,/obj/item/weapon/material/shard,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/steel{amount = 10},/obj/structure/curtain,/turf/unsimulated/floor,/area/awaymission/train/snow)
 "eL" = (/obj/vehicle/train/cargo/engine,/obj/structure/curtain,/obj/item/stack/cable_coil,/turf/unsimulated/floor{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/awaymission/train/snow)
 
 (1,1,1) = {"

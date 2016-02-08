@@ -283,8 +283,8 @@
 
 	New()
 		trap_type = pick(50;"thrower","sawburst","poison_dart","flame_burst",10;"phoron_gas",5;"n2_gas")
-		if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
-			new /obj/effect/plant(src.loc)
+//		if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
+//			new /obj/effect/plant(src.loc)
 
 		//hint that this tile is dangerous
 		if(prob(90))

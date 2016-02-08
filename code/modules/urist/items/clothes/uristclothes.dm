@@ -320,6 +320,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Kimono"
 	desc = "A pale-pink, nearly white, kimono with a red and gold obi. There is a embroidered design of cherry blossom flowers covering the kimono."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
 	//item_color = "sakura_hokkaido_kimono"

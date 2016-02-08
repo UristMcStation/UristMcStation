@@ -78,7 +78,7 @@
 		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/clothing/accessory/storage/black_vest(src)
 		new /obj/item/clothing/glasses/sunglasses(src)
-		new /obj/item/clothing/under/rank/centcom_officer(src)
+		new /obj/item/clothing/under/rank/centcom(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/handcuffs(src)
 		new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
