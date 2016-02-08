@@ -107,7 +107,7 @@
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-stealth"
 	item_state = "stealth_helm"
-	item_color = "stealth"
+	//item_color = "stealth"
 	armor = list(melee = 65, bullet = 45, laser = 30,energy = 20, bomb = 30, bio = 100, rad = 50)
 
 /obj/item/clothing/suit/space/void/syndistealth
@@ -133,7 +133,7 @@
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-seccold"
 	item_state = "sec_cold"
-	item_color = "seccold"
+	//item_color = "seccold"
 
 /obj/item/clothing/suit/space/void/security/cold
 	icon_state = "cryo-security"
@@ -151,7 +151,7 @@
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-engicold"
 	item_state = "eng_cold"
-	item_color = "engicold"
+	//item_color = "engicold"
 
 /obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
@@ -169,7 +169,7 @@
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-atmocold"
 	item_state = "atmo_cold"
-	item_color = "atmocold"
+	//item_color = "atmocold"
 
 /obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
@@ -187,7 +187,7 @@
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-minecold"
 	item_state = "mining_cold"
-	item_color = "minecold"
+	//item_color = "minecold"
 
 /obj/item/clothing/suit/space/void/mining/cold
 	icon_state = "cryo-mining"
@@ -205,33 +205,33 @@
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS
 
-/obj/item/clothing/under/pants/jeans
-	name = "jeans"
-	desc = "A pair of tough blue jeans."
-	icon_state = "jeans"
-	item_state = "jeans"
-	item_color = "jeans"
+/obj/item/clothing/under/pants/bluepants
+	name = "blue pants"
+	desc = "A pair of blue pants."
+	icon_state = "bluepants"
+	item_state = "bluepants"
+	//item_color = "jeans"
 
 /obj/item/clothing/under/pants/trackpants
 	name = "track pants"
 	desc = "A pair of track pants, for the athletic."
 	icon_state = "trackpants"
 	item_state = "trackpants"
-	item_color = "trackpants"
+	//item_color = "trackpants"
 
 /obj/item/clothing/under/pants/khaki
 	name = "khaki pants"
 	desc = "A pair of dust beige khaki pants."
 	icon_state = "khaki"
 	item_state = "khaki"
-	item_color = "khaki"
+	//item_color = "khaki"
 
 /obj/item/clothing/under/pants/camo
 	name = "camouflage pants"
 	desc = "A pair of woodland camouflage pants, not good for camouflage in this environment."
 	icon_state = "camopants"
 	item_state = "camopants"
-	item_color = "camopants"
+	//item_color = "camopants"
 
 //random
 
@@ -279,7 +279,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "billydonka"
 	item_state = "billydonka"
-	item_color = "billydonka"
+	//item_color = "billydonka"
 
 /obj/item/clothing/head/urist/billydonka
 	name = "candyman's hat"

@@ -30,6 +30,13 @@
 
 		return "[output][and_text][input[index]]"
 
+
+/proc/ConvertReqString2List(var/list/source_list)
+	var/list/temp_list = params2list(source_list)
+	for(var/O in temp_list)
+		temp_list[O] = text2num(temp_list[O])
+	return temp_list
+
 //Returns list element or null. Should prevent "index out of bounds" error.
 proc/listgetindex(var/list/list,index)
 	if(istype(list) && list.len)
@@ -64,11 +71,17 @@ proc/isemptylist(list/list)
 			return 1
 	return 0
 
-//Empties the list by setting the length to 0. Hopefully the elements get garbage collected
-proc/clearlist(list/list)
-	if(istype(list))
-		list.len = 0
-	return
+/proc/instances_of_type_in_list(var/atom/A, var/list/L)
+	var/instances = 0
+	for(var/type in L)
+		if(istype(A, type))
+			instances++
+	return instances
+
+//Empties the list by .Cut(). Setting lenght = 0 has been confirmed to leak references.
+proc/clearlist(var/list/L)
+	if(islist(L))
+		L.Cut()
 
 //Removes any null entries from the list
 proc/listclearnulls(list/list)
@@ -175,11 +188,9 @@ proc/listclearnulls(list/list)
 
 //Return a list with no duplicate entries
 /proc/uniquelist(var/list/L)
-	var/list/K = list()
-	for(var/item in L)
-		if(!(item in K))
-			K += item
-	return K
+	. = list()
+	for(var/i in L)
+		. |= i
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortKey(var/list/client/L, var/order = 1)
@@ -343,6 +354,12 @@ proc/listclearnulls(list/list)
 		return (result + L.Copy(Li, 0))
 	return (result + R.Copy(Ri, 0))
 
+// Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
+#define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))
+#define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
+#define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
+#define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
 	var/list/r = list()
@@ -368,6 +385,12 @@ proc/listclearnulls(list/list)
 			return key
 		i++
 	return null
+
+// Returns the key based on the index
+/proc/get_key_by_value(var/list/L, var/value)
+	for(var/key in L)
+		if(L[key] == value)
+			return key
 
 /proc/count_by_type(var/list/L, type)
 	var/i = 0
@@ -580,7 +603,18 @@ datum/proc/dd_SortValue()
 	return "[src]"
 
 /obj/machinery/dd_SortValue()
-	return "[sanitize(name)]"
+	return "[sanitize_old(name)]"
 
 /obj/machinery/camera/dd_SortValue()
 	return "[c_tag]"
+
+/datum/alarm/dd_SortValue()
+	return "[sanitize_old(last_name)]"
+
+//creates every subtype of prototype (excluding prototype) and adds it to list L.
+//if no list/L is provided, one is created.
+/proc/init_subtypes(prototype, list/L)
+	if(!istype(L))	L = list()
+	for(var/path in (typesof(prototype) - prototype))
+		L += new path()
+	return L

@@ -6,6 +6,7 @@
 	icon_state = "aiupload"
 	density = 1
 	req_one_access = list(access_hop, access_captain, access_cent_captain)
+	anchored = 1
 	var/receipt_num
 	var/machine_id = ""
 	var/obj/item/weapon/card/id/held_card
@@ -141,10 +142,11 @@
 			if("finalise_create_account")
 				var/account_name = href_list["holder_name"]
 				var/starting_funds = max(text2num(href_list["starting_funds"]), 0)
-				create_account(account_name, starting_funds, src)
 
 				starting_funds = Clamp(starting_funds, 0, station_account.money)	// Not authorized to put the station in debt.
-				starting_funds = min(starting_funds, fund_cap)						// Not authrorized to give more than the fund cap.
+				starting_funds = min(starting_funds, fund_cap)						// Not authorized to give more than the fund cap.
+
+				create_account(account_name, starting_funds, src)
 				if(starting_funds > 0)
 					//subtract the money
 					station_account.money -= starting_funds

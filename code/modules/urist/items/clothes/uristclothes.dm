@@ -55,7 +55,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	slowdown = 1.5
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	flags = STOPSPRESSUREDMAGE
+	flags = STOPPRESSUREDAMAGE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	species_restricted = list("exclude","Vox")
@@ -143,7 +143,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "psychologist"
 	item_state = "blacksuit"
-	item_color = "psychologist"
+	//item_color = "psychologist"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
@@ -195,7 +195,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "An opulent outfit worn by a Terran Confederacy trader"
 	icon_state = "TCToutfit"
 	item_state = "TCToutfit"
-	item_color = "TCToutfit"
+	//item_color = "TCToutfit"
 
 /obj/item/clothing/suit/terran/trader
 	name = "Terran Confederacy trader's cloak"
@@ -232,7 +232,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "NTsuit"
 	item_state = "NTsuit"
-	item_color = "NTsuit"
+	//item_color = "NTsuit"
 
 
 /obj/item/clothing/under/urist/nanotrasen/white
@@ -243,7 +243,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "NTWsuit"
 	item_state = "NTWsuit"
-	item_color = "NTWsuit"
+	//item_color = "NTWsuit"
 
 //SO MANY FUCKING DRESSES
 
@@ -251,7 +251,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "teal dress"
 	desc = "A pretty teal dress, for pretty ladies."
 	icon_state = "tealdress"
-	item_color = "tealdress"
+	//item_color = "tealdress"
 	item_state = "tealdress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -259,7 +259,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "floral yellow dress"
 	desc = "A pretty yellow dress with some cute designs on it."
 	icon_state = "yellowdress"
-	item_color = "yellowdress"
+	//item_color = "yellowdress"
 	item_state = "yellowdress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -267,7 +267,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "short white dress"
 	desc = "A pretty white dress. Short and sweet!"
 	icon_state = "wd1"
-	item_color = "wd1"
+	//item_color = "wd1"
 	item_state = "wd1"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -275,7 +275,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "long white dress"
 	desc = "A beautiful long white dress. Looks more formal than most dresses."
 	icon_state = "wd2"
-	item_color = "wd2"
+	//item_color = "wd2"
 	item_state = "wd2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -283,7 +283,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "princess dress"
 	desc = "A cute dress fit for a princess!"
 	icon_state = "princess"
-	item_color = "princess"
+	//item_color = "princess"
 	item_state = "princess"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -291,7 +291,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "red cocktail dress"
 	desc = "A very pretty red cocktail dress."
 	icon_state = "reddress"
-	item_color = "reddress"
+	//item_color = "reddress"
 	item_state = "reddress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -301,7 +301,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "white nurse outfit"
 	desc = "A pretty nurse outfit. It brings a sense of joy to you."
 	icon_state = "nursejoy"
-	item_color = "nursejoy"
+	//item_color = "nursejoy"
 	item_state = "nursejoy"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -311,7 +311,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "green RD's outfit"
 	desc = "A cute green outfit sometimes worn by the Research Director."
 	icon_state = "emaRD"
-	item_color = "emaRD"
+	//item_color = "emaRD"
 	item_state = "emaRD"
 
 //trolololo
@@ -319,10 +319,11 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/sakura_hokkaido_kimono
 	name = "Kimono"
 	desc = "A pale-pink, nearly white, kimono with a red and gold obi. There is a embroidered design of cherry blossom flowers covering the kimono."
-	icon = 'icons/obj/custom_items.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
-	item_color = "sakura_hokkaido_kimono"
+	//item_color = "sakura_hokkaido_kimono"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 //Super hero/villain stuff
@@ -331,7 +332,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "The Trickster suit"
 	desc = "Go pull some tricks."
 	icon_state = "trickster"
-	item_color = "trickster"
+	//item_color = "trickster"
 	item_state = "trickster"
 
 /obj/item/clothing/suit/urist/trickster
@@ -344,21 +345,21 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Darvey Flint work suit"
 	desc = "Suit on one side, party on the other."
 	icon_state = "harvey_flint"
-	item_color = "harvey_flint"
+	//item_color = "harvey_flint"
 	item_state = "harvey_flint"
 
 /obj/item/clothing/under/urist/darvetflint_skin
 	name = "Darvey Flint work suit"
 	desc = "Suit on one side, party on the other with fake skin?"
 	icon_state = "harvey_flint"
-	item_color = "harvey_flint_skin"
+	//item_color = "harvey_flint_skin"
 	item_state = "harvey_flint_skin"
 
 /obj/item/clothing/under/urist/jester
 	name = "The Jester"
 	desc = "A 'Happy' jester outfit."
 	icon_state = "the_jester"
-	item_color = "the_jester"
+	//item_color = "the_jester"
 	item_state = "the_jester"
 
 /obj/item/clothing/suit/urist/jester
@@ -371,7 +372,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Penguin's suit"
 	desc = "The Penguin's suit."
 	icon_state = "penguin"
-	item_color = "penguin"
+	//item_color = "penguin"
 	item_state = "penguin"
 
 //fancy cmo shit
@@ -380,7 +381,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "CMO's formal outfit"
 	desc = "A fancy outfit sometimes worn by the CMO."
 	icon_state = "cmo"
-	item_color = "cmo"
+	//item_color = "cmo"
 	item_state = "cmo"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo/alt
@@ -397,7 +398,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "captain's formal outfit"
 	desc = "A formal outfit for female captains. Or really flamboyant male captains."
 	icon_state = "captainfemaleformal"
-	item_color = "captainfemaleformal"
+	//item_color = "captainfemaleformal"
 	item_state = "captainfemaleformal"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
@@ -416,11 +417,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //hooonk bs12
 
-/obj/item/clothing/suit/storage/labcoat/robotics //I believe this one is non-buttonable by design
+/obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
-	icon = 'icons/obj/custom_items.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "aeneasrinil_open"
+	icon_open = "aeneasrinil_open"
+	icon_closed = "aeneasrinil"
 
 //for the carpenter
 
@@ -428,7 +432,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "carpenter's overalls"
 	desc = "A pair of well used overalls with a plaid shirt underneath."
 	icon_state = "overalls"
-	item_color = "overalls"
+	//item_color = "overalls"
 	item_state = "overalls"
 
 //scrdest's coats
@@ -505,14 +509,15 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A black jumper and a pair of jeans, basic and inconspicuous."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "dresdenunder"
-	item_color = "dresdenunder"
+	//item_color = "dresdenunder"
+
 //alt janitor shit
 
 /obj/item/clothing/under/urist/rank/janialt
 	name = "work clothes"
 	desc = "A grubby shirt and work pants worn by a janitor."
 	icon_state = "jani"
-	item_color = "jani"
+	//item_color = "jani"
 	item_state = "jani"
 
 /obj/item/clothing/suit/urist/janicoat
@@ -535,7 +540,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "barber outfit"
 	desc = "A white, red and blue striped shirt with black pants and bowtie."
 	icon_state = "barber"
-	item_color = "barber"
+	//item_color = "barber"
 	item_state = "barber"
 
 //More Dresses!
@@ -545,7 +550,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A white dress."
 	icon_state = "whitedress"
 	item_state = "whitedress"
-	item_color = "whitedress"
+	//item_color = "whitedress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/pink
@@ -553,7 +558,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A pink dress."
 	icon_state = "pinkdress"
 	item_state = "pinkdress"
-	item_color = "pinkdress"
+	//item_color = "pinkdress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/gold
@@ -561,7 +566,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A gold dress."
 	icon_state = "golddress"
 	item_state = "golddress"
-	item_color = "golddress"
+	//item_color = "golddress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/green
@@ -569,7 +574,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A green dress."
 	icon_state = "greendress"
 	item_state = "greendress"
-	item_color = "greendress"
+	//item_color = "greendress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/purple
@@ -577,7 +582,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A purple dress."
 	icon_state = "purpledress"
 	item_state = "purpledress"
-	item_color = "purpledress"
+	//item_color = "purpledress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/black
@@ -585,7 +590,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A black dress."
 	icon_state = "blackdress"
 	item_state = "blackdress"
-	item_color = "blackdress"
+	//item_color = "blackdress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //pinstripe suit
@@ -595,7 +600,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A classy pinstripe suit. Lookin' good champ!"
 	icon_state = "pinstripe"
 	item_state = "pinstripe"
-	item_color = "pinstripe"
+	//item_color = "pinstripe"
 
 //IAA Dress
 
@@ -604,7 +609,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "The plain, professional dress of an Internal Affairs Agent"
 	icon_state = "dress_IAA"
 	item_state = "dress_IAA"
-	item_color = "dress_IAA"
+	//item_color = "dress_IAA"
 
 //polka dot dress
 
@@ -613,7 +618,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A cute little dress in a polka dot pattern."
 	icon_state = "polkaskirt"
 	item_state = "polkaskirt"
-	item_color = "polkaskirt"
+	//item_color = "polkaskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //dress blouse
@@ -623,7 +628,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A crisp blue dress with a matching blouse."
 	icon_state = "dress_blouse"
 	item_state = "dress_blouse"
-	item_color = "dress_blouse"
+	//item_color = "dress_blouse"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 //Fallout event clothing
@@ -633,21 +638,21 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "It's a long-sleeve beige shirt with a red sweater-vest and brown trousers."
 	icon_state = "springm"
 	item_state = "springm"
-	item_color = "springm"
+	//item_color = "springm"
 
 /obj/item/clothing/under/urist/relaxedwearm
 	name = "pre-War male relaxedwear"
 	desc = "It's along-sleeve blue shirt with a greenish brown sweater-vest and slacks."
 	icon_state = "relaxedwearm"
 	item_state = "relaxedwearm"
-	item_color = "relaxedwearm"
+	//item_color = "relaxedwearm"
 
 /obj/item/clothing/under/urist/enclaveo
 	name = "Enclave officer uniform"
 	desc = "It's a standard Enclave officer uniform.<br>The outer layer is made of a sturdy material designed to withstand the harsh conditions of the wasteland."
 	icon_state = "enclaveo"
 	item_state = "enclaveo"
-	item_color = "enclaveo"
+	//item_color = "enclaveo"
 
 /obj/item/clothing/suit/urist/autumn //Based of Colonel Autumn's uniform.
 	name = "tan trenchcoat"
@@ -656,4 +661,70 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "autumn"
 	blood_overlay_type = "armor"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
-	allowed = list(/obj/item/weapon/kitchenknife, /obj/item/weapon/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
+	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
+
+//Blueshield
+/obj/item/clothing/suit/storage/urist/coat/blueshield //no toggle yet
+	name = "blueshield coat"
+	desc = "NT deluxe ripoff. You finally have your own coat."
+	icon_state = "blueshieldcoat"
+	item_state = "det_suit"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight,/obj/item/weapon/melee/telebaton)
+	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags = ONESIZEFITSALL
+
+/obj/item/clothing/suit/armor/vest/deus_blueshield
+	name = "blue shield security armor"
+	desc = "An armored vest with the badge of a Blue Shield Security lieutenant."
+	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon_state = "deus_blueshield"
+	item_state = "deus_blueshield"
+
+//more pants
+
+/obj/item/clothing/under/pants/jeans
+	name = "jeans"
+	desc = "A pair of tough blue jeans."
+	icon_state = "jeans"
+	item_state = "jeans"
+
+/obj/item/clothing/under/pants/jeans_b
+	name = "black jeans"
+	desc = "A pair of tough blue jeans."
+	icon_state = "jeans_b"
+	item_state = "jeans_b"
+
+/obj/item/clothing/under/pants/jeans_m
+	name = "mustang jeans"
+	desc = "A pair of washed out jeans."
+	icon_state = "jeans_m"
+	item_state = "jeans_m"
+
+/obj/item/clothing/under/pants/jeans_d
+	name = "distressed jeans"
+	desc = "A pair of distressed blue jeans. You cool cat."
+	icon_state = "jeans_d"
+	item_state = "jeans_d"
+
+/obj/item/clothing/under/pants/whitepants
+	name = "white pants"
+	desc = "A pair of crisp white pants. They're clean, for now."
+	icon_state = "whitepants"
+	item_state = "whitepants"
+
+/obj/item/clothing/under/pants/redpants
+	name = "red pants"
+	desc = "A pair of crisp red pants. Good for hiding your blood."
+	icon_state = "redpants"
+	item_state = "redpants"
+
+/obj/item/clothing/under/pants/militarypants
+	name = "military pants"
+	desc = "A pair of military style pants. Why are you wearing these again?"
+	icon_state = "militarypants"
+	item_state = "militarypants"
+

@@ -5,6 +5,7 @@
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "robot"
+	light_color = "#a97faa"
 	req_access = list(access_robotics)
 	circuit = "/obj/item/weapon/circuitboard/robotics"
 
@@ -98,7 +99,7 @@
 
 /obj/machinery/computer/robotics/Topic(href, href_list)
 	if(..())
-		return
+		return 1
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 

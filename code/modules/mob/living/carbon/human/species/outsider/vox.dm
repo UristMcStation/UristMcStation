@@ -6,7 +6,7 @@
 	default_language = "Vox-pidgin"
 	language = "Galactic Common"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
-	rarity_value = 2
+	rarity_value = 4
 	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
 	scavenging vermin who prey on isolated stations, ships or planets to keep their own ancient arkships \
 	alive. They are four to five feet tall, reptillian, beaked, tailed and quilled; human crews often \
@@ -42,56 +42,81 @@
 		)
 
 	has_organ = list(
-		"heart" =    /datum/organ/internal/heart,
-		"lungs" =    /datum/organ/internal/lungs,
-		"liver" =    /datum/organ/internal/liver,
-		"kidneys" =  /datum/organ/internal/kidney,
-		"brain" =    /datum/organ/internal/brain,
-		"eyes" =     /datum/organ/internal/eyes,
-		"stack" =    /datum/organ/internal/stack/vox
+		"heart" =    /obj/item/organ/heart,
+		"lungs" =    /obj/item/organ/lungs,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys,
+		"brain" =    /obj/item/organ/brain,
+		"eyes" =     /obj/item/organ/eyes,
+		"stack" =    /obj/item/organ/stack/vox
 		)
 
 /datum/species/vox/get_random_name(var/gender)
 	var/datum/language/species_language = all_languages[default_language]
 	return species_language.get_random_name(gender)
 
-/datum/species/vox/armalis
-	name = "Vox Armalis"
-	name_plural = "Vox"
-	icobase = 'icons/mob/human_races/r_armalis.dmi'
-	deform = 'icons/mob/human_races/r_armalis.dmi'
-	rarity_value = 10
+/datum/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
+	if(H.backbag == 1)
+		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H), slot_r_hand)
+		H.internal = H.back
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
+		H.internal = H.r_hand
+	H.internals.icon_state = "internal1"
+		
 
-	warning_low_pressure = 50
-	hazard_low_pressure = 0
+/datum/species/vox/get_station_variant()
+	return "Vox Pariah"
 
-	cold_level_1 = 80
-	cold_level_2 = 50
-	cold_level_3 = 0
+// Joining as a station vox will give you this template, hence IS_RESTRICTED flag.
+/datum/species/vox/pariah
+	name = "Vox Pariah"
+	rarity_value = 0.1
+	speech_chance = 60        // No volume control.
+	siemens_coefficient = 0.5 // Ragged scaleless patches.
 
-	heat_level_1 = 2000
-	heat_level_2 = 3000
-	heat_level_3 = 4000
+	warning_low_pressure = (WARNING_LOW_PRESSURE-20)
+	hazard_low_pressure =  (HAZARD_LOW_PRESSURE-10)
+	total_health = 80
 
-	brute_mod = 0.2
-	burn_mod = 0.2
+	cold_level_1 = 130
+	cold_level_2 = 100
+	cold_level_3 = 60
 
-	eyes = "blank_eyes"
-	breath_type = "nitrogen"
-	poison_type = "oxygen"
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws, /datum/unarmed_attack/bite)
 
-	flags = IS_RESTRICTED | NO_SCAN | NO_BLOOD | NO_PAIN | HAS_EYE_COLOR
-
-	blood_color = "#2299FC"
-	flesh_color = "#808D11"
-
-	tail = "armalis_tail"
-	icon_template = 'icons/mob/human_races/r_armalis.dmi'
-
-	reagent_tag = IS_VOX
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/leap,
-		/mob/living/carbon/human/proc/gut,
-		/mob/living/carbon/human/proc/commune
+	// Pariahs have no stack.
+	has_organ = list(
+		"heart" =    /obj/item/organ/heart,
+		"lungs" =    /obj/item/organ/lungs,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys,
+		"brain" =    /obj/item/organ/pariah_brain,
+		"eyes" =     /obj/item/organ/eyes
 		)
+	flags = IS_RESTRICTED | NO_SCAN | HAS_EYE_COLOR
+
+// No combat skills for you.
+/datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
+	return 0
+
+// Pariahs are really gross.
+/datum/species/vox/pariah/handle_environment_special(var/mob/living/carbon/human/H)
+	if(prob(5))
+		var/stink_range = rand(3,5)
+		for(var/mob/living/M in range(H,stink_range))
+			if(M.stat || M == H)
+				continue
+			var/mob/living/carbon/human/target = M
+			if(istype(target))
+				if(target.head && (target.head.flags & HEADCOVERSMOUTH) && (target.head.flags & AIRTIGHT))
+					continue
+				if(target.wear_mask && (target.wear_mask.flags & MASKCOVERSMOUTH) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
+					continue
+			M << "<span class='danger'>A terrible stench emanates from \the [H].</span>"
+
+/datum/species/vox/pariah/get_bodytype()
+	return "Vox"

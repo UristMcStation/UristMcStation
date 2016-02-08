@@ -4,7 +4,7 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	flag = "energy"
+	check_armour = "energy"
 
 
 	on_hit(var/atom/target, var/blocked = 0)
@@ -16,7 +16,7 @@
 	name ="explosive bolt"
 	icon_state= "bolter"
 	damage = 50
-	flag = "bullet"
+	check_armour = "bullet"
 	sharp = 1
 	edge = 1
 
@@ -30,7 +30,7 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	flag = "energy"
+	check_armour = "energy"
 	var/temperature = 300
 
 
@@ -47,7 +47,7 @@
 	damage = 0
 	damage_type = BRUTE
 	nodamage = 1
-	flag = "bullet"
+	check_armour = "bullet"
 
 	Bump(atom/A as mob|obj|turf|area)
 		if(A == firer)
@@ -65,7 +65,7 @@
 				for(var/mob/M in range(10, src))
 					if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 						shake_camera(M, 3, 1)
-				del(src)
+				qdel(src)
 				return 1
 		else
 			return 0
@@ -76,7 +76,7 @@
 	damage = 0
 	damage_type = TOX
 	nodamage = 1
-	flag = "energy"
+	check_armour = "energy"
 
 	on_hit(var/atom/target, var/blocked = 0)
 		var/mob/living/M = target
@@ -115,7 +115,7 @@
 	damage = 0
 	damage_type = TOX
 	nodamage = 1
-	flag = "energy"
+	check_armour = "energy"
 
 	on_hit(var/atom/target, var/blocked = 0)
 		var/mob/M = target

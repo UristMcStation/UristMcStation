@@ -56,7 +56,7 @@
 	name = "Security Camera Network Main Key"
 	var/title = "Station"
 	var/desc = "Connects to station security cameras."
-	var/list/networks = list("SS13")
+	var/networks = list("ALL") // A little workaround as it is not possible to place station_networks here
 	var/screen = "cameras"
 
 	execute(var/datum/file/source)
@@ -76,53 +76,66 @@
 						return
 		computer.Crash(MISSING_PROGRAM)
 
+/datum/file/camnet_key/New()
+	for(var/N in networks)
+		if(N == "ALL")
+			networks = station_networks
+			break
+	return ..()
+
 /datum/file/camnet_key/mining
 	name = "Mining Camera Network Key"
 	title = "mining station"
 	desc = "Connects to mining security cameras."
-	networks = list("MINE")
+	networks = list(NETWORK_MINE)
 	screen = "miningcameras"
 
 /datum/file/camnet_key/research
 	name = "Research Camera Network Key"
 	title = "research"
-	networks = list("RD")
+	networks = list(NETWORK_RESEARCH)
 
 /datum/file/camnet_key/bombrange
 	name = "R&D Bomb Range Camera Network Key"
 	title = "bomb range"
 	desc = "Monitors the bomb range."
-	networks = list("Toxins")
+	networks = list(NETWORK_RESEARCH)
 
 /datum/file/camnet_key/xeno
 	name = "R&D Misc. Research Camera Network Key"
 	title = "special research"
-	networks = list("Misc")
+	networks = list(NETWORK_RESEARCH)
 
 /datum/file/camnet_key/singulo
 	name = "Singularity Camera Network Key"
 	title = "singularity"
-	networks = list("Singularity")
+	networks = list(NETWORK_ENGINE)
 
 /datum/file/camnet_key/entertainment
 	name = "Entertainment Channel Encryption Key"
 	title = "entertainment"
 	desc = "Damn, I hope they have /tg/thechannel on here."
-	networks = list("thunder")
+	networks = list(NETWORK_THUNDER)
 	screen = "entertainment"
 
 /datum/file/camnet_key/creed
 	name = "Special Ops Camera Encryption Key"
 	title = "special ops"
 	desc = "Connects to special ops secure camera feeds."
-	networks = list("CREED")
+	networks = list(NETWORK_ERT)
 
 /datum/file/camnet_key/prison
 	name = "Prison Camera Network Key"
 	title = "prison"
 	desc = "Monitors the prison."
-	networks = list("Prison")
+	networks = list(NETWORK_SECURITY)
 
+/datum/file/camnet_key/syndicate
+	name = "Camera Network Key"
+	title = "%!#BUFFER OVERFLOW"
+	desc = "Connects to security cameras."
+	networks = list("ALL")
+	hidden_file = 1
 
 
 /*
@@ -174,7 +187,7 @@
 
 /datum/file/program/security
 	name			= "camera monitor"
-	desc			= "Connets to the Nanotrasen Camera Network"
+	desc			= "Connects to the Nanotrasen Camera Network"
 	image			= 'icons/ntos/camera.png'
 	active_state	= "camera-static"
 
@@ -200,7 +213,7 @@
 
 	Reset()
 		..()
-		current = null
+		reset_current()
 		for(var/mob/living/L in viewers(1))
 			if(!istype(L,/mob/living/silicon/ai) && L.machine == src)
 				L.reset_view(null)
@@ -232,7 +245,7 @@
 
 			camera_list = "Network Key: [key.title] [topic_link(src,"keyselect","\[ Select key \]")]<hr>"
 			for(var/obj/machinery/camera/C in temp_list)
-				if(C.status)
+				if(C.can_use())
 					camera_list += "[C.c_tag] - [topic_link(src,"show=\ref[C]","Show")]<br>"
 				else
 					camera_list += "[C.c_tag] - <b>DEACTIVATED</b><br>"
@@ -258,25 +271,81 @@
 
 		if("show" in href_list)
 			var/obj/machinery/camera/C = locate(href_list["show"])
-			if(istype(C) && C.status)
-				current = C
+			if(istype(C) && C.can_use())
+				set_current(C)
 				usr.reset_view(C)
 				interact()
 				return
 
 		if("keyselect" in href_list)
-			current = null
+			reset_current()
 			usr.reset_view(null)
 			key = input(usr,"Select a camera network key:", "Key Select", null) as null|anything in computer.list_files(/datum/file/camnet_key)
-			camera_list = null
-			update_icon()
-			computer.update_icon()
+			select_key(key)
 			if(key)
 				interact()
 			else
 				usr << "The screen turns to static."
 			return
 
+/datum/file/program/security/proc/select_key(var/selected_key)
+	key = selected_key
+	camera_list = null
+	update_icon()
+	computer.update_icon()
+
+/datum/file/program/security/proc/set_current(var/obj/machinery/camera/C)
+	if(current == C)
+		return
+
+	if(current)
+		reset_current()
+
+	src.current = C
+	if(current)
+		var/mob/living/L = current.loc
+		if(istype(L))
+			L.tracking_initiated()
+
+/datum/file/program/security/proc/reset_current()
+	if(current)
+		var/mob/living/L = current.loc
+		if(istype(L))
+			L.tracking_cancelled()
+	current = null
+
 			// Atlantis: Required for camnetkeys to work.
 /datum/file/program/security/hidden
 	hidden_file = 1
+
+/*
+	Camera monitoring program
+
+	Works much as the parent program, except:
+	* It requires a camera to be found using the proximity network card.
+	* It begins with all cam-access.
+*/
+
+/datum/file/program/security/syndicate
+	name			= "camer# moni!%r"
+	desc			= "Cons the Nanotrash Camera Network"
+	var/special_key		= new/datum/file/camnet_key/syndicate
+	var/camera_conn	= null
+
+	interact()
+		if(!interactable())
+			return
+
+		if(!computer.net)
+			computer.Crash(MISSING_PERIPHERAL)
+			return
+
+		camera_conn = computer.net.connect_to(/obj/machinery/camera,camera_conn)
+
+		if(!camera_conn)
+			computer.Crash(NETWORK_FAILURE)
+			return
+
+		// On interact, override camera key selection
+		select_key(special_key)
+		..()

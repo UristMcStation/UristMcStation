@@ -39,7 +39,7 @@
 			if(reagents.total_volume < 1)
 				user << "[src] is out of water!</span>"
 			else
-				reagents.trans_to(I, 5)	//
+				reagents.trans_to_obj(I, 5)	//
 				user << "<span class='notice'>You wet [I] in [src].</span>"
 				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 				return
@@ -83,22 +83,23 @@
 
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
-	user.set_machine(src)
-	var/dat
-	if(mybag)
-		dat += "<a href='?src=\ref[src];garbage=1'>[mybag.name]</a><br>"
-	if(mymop)
-		dat += "<a href='?src=\ref[src];mop=1'>[mymop.name]</a><br>"
-	if(myspray)
-		dat += "<a href='?src=\ref[src];spray=1'>[myspray.name]</a><br>"
-	if(myreplacer)
-		dat += "<a href='?src=\ref[src];replacer=1'>[myreplacer.name]</a><br>"
-	if(signs)
-		dat += "<a href='?src=\ref[src];sign=1'>[signs] sign\s</a><br>"
-	var/datum/browser/popup = new(user, "janicart", name, 240, 160)
-	popup.set_content(dat)
-	popup.open()
+	ui_interact(user)
+	return
 
+/obj/structure/janitorialcart/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	var/data[0]
+	data["name"] = capitalize(name)
+	data["bag"] = mybag ? capitalize(mybag.name) : null
+	data["mop"] = mymop ? capitalize(mymop.name) : null
+	data["spray"] = myspray ? capitalize(myspray.name) : null
+	data["replacer"] = myreplacer ? capitalize(myreplacer.name) : null
+	data["signs"] = signs ? "[signs] sign\s" : null
+
+	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
+		ui.set_initial_data(data)
+		ui.open()
 
 /obj/structure/janitorialcart/Topic(href, href_list)
 	if(!in_range(src, usr))
@@ -106,36 +107,39 @@
 	if(!isliving(usr))
 		return
 	var/mob/living/user = usr
-	if(href_list["garbage"])
-		if(mybag)
-			user.put_in_hands(mybag)
-			user << "<span class='notice'>You take [mybag] from [src].</span>"
-			mybag = null
-	if(href_list["mop"])
-		if(mymop)
-			user.put_in_hands(mymop)
-			user << "<span class='notice'>You take [mymop] from [src].</span>"
-			mymop = null
-	if(href_list["spray"])
-		if(myspray)
-			user.put_in_hands(myspray)
-			user << "<span class='notice'>You take [myspray] from [src].</span>"
-			myspray = null
-	if(href_list["replacer"])
-		if(myreplacer)
-			user.put_in_hands(myreplacer)
-			user << "<span class='notice'>You take [myreplacer] from [src].</span>"
-			myreplacer = null
-	if(href_list["sign"])
-		if(signs)
-			var/obj/item/weapon/caution/Sign = locate() in src
-			if(Sign)
-				user.put_in_hands(Sign)
-				user << "<span class='notice'>You take \a [Sign] from [src].</span>"
-				signs--
-			else
-				warning("[src] signs ([signs]) didn't match contents")
-				signs = 0
+	
+	if(href_list["take"])
+		switch(href_list["take"])
+			if("garbage")
+				if(mybag)
+					user.put_in_hands(mybag)
+					user << "<span class='notice'>You take [mybag] from [src].</span>"
+					mybag = null
+			if("mop")
+				if(mymop)
+					user.put_in_hands(mymop)
+					user << "<span class='notice'>You take [mymop] from [src].</span>"
+					mymop = null
+			if("spray")
+				if(myspray)
+					user.put_in_hands(myspray)
+					user << "<span class='notice'>You take [myspray] from [src].</span>"
+					myspray = null
+			if("replacer")
+				if(myreplacer)
+					user.put_in_hands(myreplacer)
+					user << "<span class='notice'>You take [myreplacer] from [src].</span>"
+					myreplacer = null
+			if("sign")
+				if(signs)
+					var/obj/item/weapon/caution/Sign = locate() in src
+					if(Sign)
+						user.put_in_hands(Sign)
+						user << "<span class='notice'>You take \a [Sign] from [src].</span>"
+						signs--
+					else
+						warning("[src] signs ([signs]) didn't match contents")
+						signs = 0
 
 	update_icon()
 	updateUsrDialog()
@@ -156,7 +160,7 @@
 
 
 //old style retardo-cart
-/obj/structure/stool/bed/chair/janicart
+/obj/structure/bed/chair/janicart
 	name = "janicart"
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "pussywagon"
@@ -169,12 +173,12 @@
 	var/callme = "pimpin' ride"	//how do people refer to it?
 
 
-/obj/structure/stool/bed/chair/janicart/New()
+/obj/structure/bed/chair/janicart/New()
 	create_reagents(100)
 	update_layer()
 
 
-/obj/structure/stool/bed/chair/janicart/examine(mob/user)
+/obj/structure/bed/chair/janicart/examine(mob/user)
 	if(!..(user, 1))
 		return
 
@@ -183,10 +187,10 @@
 		user << "\A [mybag] is hanging on the [callme]."
 
 
-/obj/structure/stool/bed/chair/janicart/attackby(obj/item/I, mob/user)
+/obj/structure/bed/chair/janicart/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/mop))
 		if(reagents.total_volume > 1)
-			reagents.trans_to(I, 2)
+			reagents.trans_to_obj(I, 2)
 			user << "<span class='notice'>You wet [I] in the [callme].</span>"
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		else
@@ -200,7 +204,7 @@
 		mybag = I
 
 
-/obj/structure/stool/bed/chair/janicart/attack_hand(mob/user)
+/obj/structure/bed/chair/janicart/attack_hand(mob/user)
 	if(mybag)
 		mybag.loc = get_turf(user)
 		user.put_in_hands(mybag)
@@ -209,9 +213,9 @@
 		..()
 
 
-/obj/structure/stool/bed/chair/janicart/relaymove(mob/user, direction)
+/obj/structure/bed/chair/janicart/relaymove(mob/user, direction)
 	if(user.stat || user.stunned || user.weakened || user.paralysis)
-		unbuckle()
+		unbuckle_mob()
 	if(istype(user.l_hand, /obj/item/key) || istype(user.r_hand, /obj/item/key))
 		step(src, direction)
 		update_mob()
@@ -219,46 +223,34 @@
 		user << "<span class='notice'>You'll need the keys in one of your hands to drive this [callme].</span>"
 
 
-/obj/structure/stool/bed/chair/janicart/Move()
+/obj/structure/bed/chair/janicart/Move()
 	..()
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.loc = loc
 
 
-/obj/structure/stool/bed/chair/janicart/buckle_mob(mob/M, mob/user)
-	if(M != user || !ismob(M) || get_dist(src, user) > 1 || user.restrained() || user.lying || user.stat || M.buckled || istype(user, /mob/living/silicon))
-		return
-
-	unbuckle()
-
-	M.visible_message(\
-		"<span class='notice'>[M] climbs onto the [callme]!</span>",\
-		"<span class='notice'>You climb onto the [callme]!</span>")
-	M.buckled = src
-	M.loc = loc
-	M.set_dir(dir)
-	M.update_canmove()
-	buckled_mob = M
+/obj/structure/bed/chair/janicart/post_buckle_mob(mob/living/M)
 	update_mob()
-	add_fingerprint(user)
+	return ..()
 
 
-/obj/structure/stool/bed/chair/janicart/update_layer()
+/obj/structure/bed/chair/janicart/update_layer()
 	if(dir == SOUTH)
 		layer = FLY_LAYER
 	else
 		layer = OBJ_LAYER
 
 
-/obj/structure/stool/bed/chair/janicart/unbuckle()
-	if(buckled_mob)
-		buckled_mob.pixel_x = 0
-		buckled_mob.pixel_y = 0
-	..()
+/obj/structure/bed/chair/janicart/unbuckle_mob()
+	var/mob/living/M = ..()
+	if(M)
+		M.pixel_x = 0
+		M.pixel_y = 0
+	return M
 
 
-/obj/structure/stool/bed/chair/janicart/set_dir()
+/obj/structure/bed/chair/janicart/set_dir()
 	..()
 	update_layer()
 	if(buckled_mob)
@@ -269,7 +261,7 @@
 	update_mob()
 
 
-/obj/structure/stool/bed/chair/janicart/proc/update_mob()
+/obj/structure/bed/chair/janicart/proc/update_mob()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 		switch(dir)
@@ -287,7 +279,7 @@
 				buckled_mob.pixel_y = 7
 
 
-/obj/structure/stool/bed/chair/janicart/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/bed/chair/janicart/bullet_act(var/obj/item/projectile/Proj)
 	if(buckled_mob)
 		if(prob(85))
 			return buckled_mob.bullet_act(Proj)

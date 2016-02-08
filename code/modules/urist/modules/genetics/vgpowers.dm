@@ -18,7 +18,7 @@ Obviously, requires DNA2.
 	deactivation_messages = list("Your muscles quit tensing.")
 //	flags = GENE_UNNATURAL // Do NOT spawn on roundstart.
 
-	spelltype = /obj/effect/proc_holder/spell/targeted/hulk
+	spelltype = new/spell/targeted/hulk
 
 	New()
 		..()
@@ -52,25 +52,23 @@ Obviously, requires DNA2.
 				M.Weaken(3)
 				M.emote("collapse")
 
-/obj/effect/proc_holder/spell/targeted/hulk
+/spell/targeted/hulk
 	name = "Hulk Out"
 	panel = "Mutant Powers"
 	range = -1
-	include_user = 1
+	spell_flags = INCLUDEUSER
 
 	charge_type = "recharge"
 	charge_max = HULK_COOLDOWN
 
-	clothes_req = 0
-	stat_allowed = 0
-
 	invocation_type = "none"
+	hud_state = "gen_hulk"
 
-/obj/effect/proc_holder/spell/targeted/hulk/New()
+/spell/targeted/hulk/New()
 	desc = "Get mad!  For [HULK_DURATION/10] seconds, anyway."
 	..()
 
-/obj/effect/proc_holder/spell/targeted/hulk/cast(list/targets)
+/spell/targeted/hulk/cast(list/targets)
 	if (istype(usr.loc,/mob/))
 		usr << "\red You can't hulk out right now!"
 		return

@@ -40,30 +40,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
 	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/electrode"
+	projectile_type = /obj/item/projectile/energy/electrode
 	origin_tech = "combat=2;magnets=2"
 	modifystate = "senergystun"
 
-	mode = 0 //0 = stun, 1 = kill
-
-
-	attack_self(mob/living/user as mob)
-		switch(mode)
-			if(0)
-				mode = 1
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Laser.ogg'
-				user << "\red [src.name] is now set to kill."
-				projectile_type = "/obj/item/projectile/beam"
-				modifystate = "senergykill"
-			if(1)
-				mode = 0
-				charge_cost = 150
-				fire_sound = 'sound/weapons/Taser.ogg'
-				user << "\red [src.name] is now set to stun."
-				projectile_type = "/obj/item/projectile/energy/electrode"
-				modifystate = "senergystun"
-		update_icon()
+	firemodes = list(
+		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
+		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg'),
+		)
 
 	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
@@ -143,7 +127,7 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
 	charge_cost = 150 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/energy/plasma2"
+	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
 	cell_type = "/obj/item/weapon/cell/crap"
@@ -172,7 +156,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/grenade/syndieminibomb/prime()
 	explosion(src.loc, 1, 2, 4, 4)
-	del(src)
+	qdel(src)
 
 //dual saber proc
 
@@ -185,11 +169,11 @@ the sprite and make my own projectile -Glloyd*/
 				user.adjustBrainLoss(10)
 		else
 			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
-			new /obj/item/weapon/twohanded/dualsaber(user.loc)
-			user.before_take_item(W)
-			user.before_take_item(src)
-			del(W)
-			del(src)
+			new /obj/item/weapon/material/twohanded/dualsaber(user.loc)
+			user.remove_from_mob(W)
+			user.remove_from_mob(src)
+			qdel(W)
+			qdel(src)
 
 //Knight .45 - suppressed PDW
 
@@ -202,27 +186,34 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 2
 	max_shells = 7
 	slot_flags = SLOT_BELT
-	load_method = 2
-
-/obj/item/weapon/gun/projectile/silenced/knight/New()
-	..()
-	empty_mag = new /obj/item/ammo_casing/c45(src)
-	update_icon()
-	return
-
-
-/obj/item/weapon/gun/projectile/silenced/knight/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
-	..()
-	if(!loaded.len && empty_mag)
-		empty_mag.loc = get_turf(src.loc)
-		empty_mag = null
-		update_icon()
-	return
+	load_method = MAGAZINE
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45m
+	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/silenced/knight/update_icon()
 	..()
-	if(empty_mag)
+	if(ammo_magazine)
 		icon_state = "knight45"
 	else
 		icon_state = "knight45-empty"
-	return
+
+///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
+/obj/item/weapon/gun/projectile/revolver/detective/deckard
+	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
+	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
+	//what do you know, it was restored-ish in revolver.dm
+	icon_state = "deckard-empty"
+
+/obj/item/weapon/gun/projectile/revolver/detective/deckard/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "deckard-loaded"
+	else
+		icon_state = "deckard-empty"
+
+/obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
+	if(istype(A, /obj/item/ammo_magazine))
+		flick("deckard-reloading",src)
+	..()

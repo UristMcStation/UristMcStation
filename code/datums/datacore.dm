@@ -2,10 +2,8 @@
 	data_core = new /obj/effect/datacore()
 	return 1
 
-/obj/effect/datacore/proc/manifest(var/nosleep = 0)
+/obj/effect/datacore/proc/manifest()
 	spawn()
-		if(!nosleep)
-			sleep(40)
 		for(var/mob/living/carbon/human/H in player_list)
 			manifest_inject(H)
 		return
@@ -39,7 +37,7 @@
 	if(PDA_Manifest.len)
 		PDA_Manifest.Cut()
 
-	if(H.mind && (H.mind.assigned_role != "MODE"))
+	if(H.mind && !player_is_antag(H.mind, only_offstation_roles = 1))
 		var/assignment
 		if(H.mind.role_alt_title)
 			assignment = H.mind.role_alt_title
@@ -50,8 +48,7 @@
 		else
 			assignment = "Unassigned"
 
-		var/id = add_zero(num2hex(rand(1, 1.6777215E7)), 6)	//this was the best they could come up with? A large random number? *sigh*
-
+		var/id = generate_record_id()
 		var/icon/front = new(get_id_photo(H), dir = SOUTH)
 		var/icon/side = new(get_id_photo(H), dir = WEST)
 		//General Record
@@ -139,8 +136,10 @@
 		locked += L
 	return
 
+/proc/generate_record_id()
+	return add_zero(num2hex(rand(1, 65535)), 4)	//no point generating higher numbers because of the limitations of num2hex
 
-proc/get_id_photo(var/mob/living/carbon/human/H)
+/proc/get_id_photo(var/mob/living/carbon/human/H)
 	var/icon/preview_icon = null
 
 	var/g = "m"
@@ -156,12 +155,8 @@ proc/get_id_photo(var/mob/living/carbon/human/H)
 	temp = new /icon(icobase, "head_[g]")
 	preview_icon.Blend(temp, ICON_OVERLAY)
 
-	for(var/datum/organ/external/E in H.organs)
-		if(E.status & ORGAN_CUT_AWAY || E.status & ORGAN_DESTROYED) continue
-		temp = new /icon(icobase, "[E.name]")
-		if(E.status & ORGAN_ROBOT)
-			temp.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
-		preview_icon.Blend(temp, ICON_OVERLAY)
+	for(var/obj/item/organ/external/E in H.organs)
+		preview_icon.Blend(E.get_icon(), ICON_OVERLAY)
 
 	//Tail
 	if(H.species.tail)
@@ -298,7 +293,7 @@ proc/get_id_photo(var/mob/living/carbon/human/H)
 	preview_icon.Blend(eyes_s, ICON_OVERLAY)
 	if(clothes_s)
 		preview_icon.Blend(clothes_s, ICON_OVERLAY)
-	del(eyes_s)
-	del(clothes_s)
+	qdel(eyes_s)
+	qdel(clothes_s)
 
 	return preview_icon

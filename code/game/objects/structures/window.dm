@@ -13,26 +13,71 @@
 	var/state = 2
 	var/reinf = 0
 	var/basestate
-	var/shardtype = /obj/item/weapon/shard
+	var/shardtype = /obj/item/weapon/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
-//	var/silicate = 0 // number of units of silicate
-//	var/icon/silicateIcon = null // the silicated icon
+	var/silicate = 0 // number of units of silicate
+
+/obj/structure/window/examine(mob/user)
+	. = ..(user)
+
+	if(health == maxhealth)
+		user << "<span class='notice'>It looks fully intact.</span>"
+	else
+		var/perc = health / maxhealth
+		if(perc > 0.75)
+			user << "<span class='notice'>It has a few cracks.</span>"
+		else if(perc > 0.5)
+			user << "<span class='warning'>It looks slightly damaged.</span>"
+		else if(perc > 0.25)
+			user << "<span class='warning'>It looks moderately damaged.</span>"
+		else
+			user << "<span class='danger'>It looks heavily damaged.</span>"
+	if(silicate)
+		if (silicate < 30)
+			user << "<span class='notice'>It has a thin layer of silicate.</span>"
+		else if (silicate < 70)
+			user << "<span class='notice'>It is covered in silicate.</span>"
+		else
+			user << "<span class='notice'>There is a thick layer of silicate covering it.</span>"
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
-	var/initialhealth = src.health
-	src.health = max(0, src.health - damage)
-	if(src.health <= 0)
-		src.shatter()
+	var/initialhealth = health
+
+	if(silicate)
+		damage = damage * (1 - silicate / 200)
+
+	health = max(0, health - damage)
+
+	if(health <= 0)
+		shatter()
 	else
 		if(sound_effect)
 			playsound(loc, 'sound/effects/Glasshit.ogg', 100, 1)
-		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
+		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message("[src] looks like it's about to shatter!" )
-		else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
+		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message("[src] looks seriously damaged!" )
-		else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
+		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message("Cracks begin to appear in [src]!" )
 	return
+
+/obj/structure/window/proc/apply_silicate(var/amount)
+	if(health < maxhealth) // Mend the damage
+		health = min(health + amount * 3, maxhealth)
+		if(health == maxhealth)
+			visible_message("[src] looks fully repaired." )
+	else // Reinforce
+		silicate = min(silicate + amount, 100)
+		updateSilicate()
+
+/obj/structure/window/proc/updateSilicate()
+	if (overlays)
+		overlays.Cut()
+
+	var/image/img = image(src.icon, src.icon_state)
+	img.color = "#ffffff"
+	img.alpha = silicate * 255 / 100
+	overlays += img
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, "shatter", 70, 1)
@@ -42,20 +87,20 @@
 		var/index = null
 		index = 0
 		while(index < 2)
-			new shardtype(loc)
-			if(reinf) new /obj/item/stack/rods(loc)
+			new shardtype(loc) //todo pooling?
+			if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
 			index++
 	else
-		new shardtype(loc)
-		if(reinf) new /obj/item/stack/rods(loc)
-	del(src)
+		new shardtype(loc) //todo pooling?
+		if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+	qdel(src)
 	return
 
 
 /obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
 
 	//Tasers and the like should not damage windows.
-	if(Proj.damage_type == HALLOSS)
+	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
 		return
 
 	..()
@@ -66,7 +111,7 @@
 /obj/structure/window/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			shatter(0)
@@ -95,7 +140,7 @@
 		return 1
 	if(is_full_window())
 		return 0	//full tile window, you can't move into it!
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, target) & dir)
 		return !density
 	else
 		return 1
@@ -133,9 +178,10 @@
 	if(HULK in user.mutations)
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
 		user.visible_message("<span class='danger'>[user] smashes through [src]!</span>")
+		user.do_attack_animation(src)
 		shatter()
 
-	else if (usr.a_intent == "hurt")
+	else if (usr.a_intent == I_HURT)
 
 		if (istype(usr,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = usr
@@ -144,13 +190,14 @@
 				return
 
 		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
-		usr.visible_message("\red [usr.name] bangs against the [src.name]!", \
-							"\red You bang against the [src.name]!", \
+		user.do_attack_animation(src)
+		usr.visible_message("\red [usr.name] bangs against the [src.name]!",
+							"\red You bang against the [src.name]!",
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
-		usr.visible_message("[usr.name] knocks on the [src.name].", \
-							"You knock on the [src.name].", \
+		usr.visible_message("[usr.name] knocks on the [src.name].",
+							"You knock on the [src.name].",
 							"You hear a knocking sound.")
 	return
 
@@ -162,6 +209,7 @@
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+	user.do_attack_animation(src)
 	return 1
 
 /obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
@@ -171,7 +219,7 @@
 		if(istype(G.affecting,/mob/living))
 			var/mob/living/M = G.affecting
 			var/state = G.state
-			del(W)	//gotta delete it here because if window breaks, it won't get deleted
+			qdel(W)	//gotta delete it here because if window breaks, it won't get deleted
 			switch (state)
 				if(1)
 					M.visible_message("<span class='warning'>[user] slams [M] against \the [src]!</span>")
@@ -217,13 +265,14 @@
 		else
 			visible_message("<span class='notice'>[user] dismantles \the [src].</span>")
 			if(dir == SOUTHWEST)
-				var/obj/item/stack/sheet/mats = new glasstype(loc)
+				var/obj/item/stack/material/mats = new glasstype(loc)
 				mats.amount = is_fulltile() ? 4 : 2
 			else
 				new glasstype(loc)
-			del(src)
+			qdel(src)
 	else
 		if(W.damtype == BRUTE || W.damtype == BURN)
+			user.do_attack_animation(src)
 			hit(W.force)
 			if(health <= 7)
 				anchored = 0
@@ -245,13 +294,17 @@
 	set category = "Object"
 	set src in oview(1)
 
+	// TODO :  Change to incapacitated() on merge.
+	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+		return 0
+	
 	if(anchored)
 		usr << "It is fastened to the floor therefore you can't rotate it!"
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
 	set_dir(turn(dir, 90))
-//	updateSilicate()
+	updateSilicate()
 	update_nearby_tiles(need_rebuild=1)
 	return
 
@@ -261,32 +314,19 @@
 	set category = "Object"
 	set src in oview(1)
 
+	// TODO :  Change to incapacitated() on merge.
+	if(usr.stat || usr.lying || usr.resting || usr.buckled)
+		return 0
+
 	if(anchored)
 		usr << "It is fastened to the floor therefore you can't rotate it!"
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
 	set_dir(turn(dir, 270))
-//	updateSilicate()
+	updateSilicate()
 	update_nearby_tiles(need_rebuild=1)
 	return
-
-
-/*
-/obj/structure/window/proc/updateSilicate()
-	if(silicateIcon && silicate)
-		icon = initial(icon)
-
-		var/icon/I = icon(icon,icon_state,dir)
-
-		var/r = (silicate / 100) + 1
-		var/g = (silicate / 70) + 1
-		var/b = (silicate / 50) + 1
-		I.SetIntensity(r,g,b)
-		icon = I
-		silicateIcon = I
-*/
-
 
 /obj/structure/window/New(Loc, start_dir=null, constructed=0)
 	..()
@@ -306,7 +346,7 @@
 	update_nearby_icons()
 
 
-/obj/structure/window/Del()
+/obj/structure/window/Destroy()
 	density = 0
 	update_nearby_tiles()
 	update_nearby_icons()
@@ -370,7 +410,7 @@
 	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
 	icon_state = "window"
 	basestate = "window"
-	glasstype = /obj/item/stack/sheet/glass
+	glasstype = /obj/item/stack/material/glass
 
 
 /obj/structure/window/phoronbasic
@@ -378,8 +418,8 @@
 	desc = "A phoron-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
 	basestate = "phoronwindow"
 	icon_state = "phoronwindow"
-	shardtype = /obj/item/weapon/shard/phoron
-	glasstype = /obj/item/stack/sheet/glass/phoronglass
+	shardtype = /obj/item/weapon/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronglass
 	maxhealth = 120
 
 /obj/structure/window/phoronbasic/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -392,8 +432,8 @@
 	desc = "A phoron-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic phoron windows are insanely fireproof."
 	basestate = "phoronrwindow"
 	icon_state = "phoronrwindow"
-	shardtype = /obj/item/weapon/shard/phoron
-	glasstype = /obj/item/stack/sheet/glass/phoronrglass
+	shardtype = /obj/item/weapon/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = 1
 	maxhealth = 160
 
@@ -407,7 +447,7 @@
 	basestate = "rwindow"
 	maxhealth = 40
 	reinf = 1
-	glasstype = /obj/item/stack/sheet/glass/reinforced
+	glasstype = /obj/item/stack/material/glass/reinforced
 
 /obj/structure/window/New(Loc, constructed=0)
 	..()
@@ -442,3 +482,51 @@
 
 	update_icon() //icon_state has to be set manually
 		return
+
+/obj/structure/window/reinforced/polarized
+	name = "electrochromic window"
+	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
+	var/id
+
+/obj/structure/window/reinforced/polarized/proc/toggle()
+	if(opacity)
+		animate(src, color="#FFFFFF", time=5)
+		set_opacity(0)
+	else
+		animate(src, color="#222222", time=5)
+		set_opacity(1)
+
+
+
+/obj/machinery/button/windowtint
+	name = "window tint control"
+	icon = 'icons/obj/power.dmi'
+	icon_state = "light0"
+	desc = "A remote control switch for polarized windows."
+	var/range = 7
+
+/obj/machinery/button/windowtint/attack_hand(mob/user as mob)
+	if(..())
+		return 1
+
+	toggle_tint()
+
+/obj/machinery/button/windowtint/proc/toggle_tint()
+	use_power(5)
+
+	active = !active
+	update_icon()
+
+	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
+		if (W.id == src.id || !W.id)
+			spawn(0)
+				W.toggle()
+				return
+
+/obj/machinery/button/windowtint/power_change()
+	..()
+	if(active && !powered(power_channel))
+		toggle_tint()
+
+/obj/machinery/button/windowtint/update_icon()
+	icon_state = "light[active]"

@@ -68,6 +68,92 @@
 	if(!vampire_power(required_blood, max_stat)) return
 	return T
 
+/client/proc/vampire_coffinsleep() //because I don't like keeping hooks in life.dm for little reason.
+	set category = "Vampire"
+	set name = "Vampiric Torpor (Toggle)"
+	set desc= "Enter a corpselike state that allows you to regenerate in coffins."
+	var/datum/mind/M = usr.mind
+	if(!M) return
+	var/mob/living/carbon/human/H = M.current
+
+	if(!M.vampire.torpor)
+		M.vampire.torpor = 1
+		H << "<span class='notice'>You are now entering torpor. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
+		H.status_flags |= FAKEDEATH		//play dead
+	else
+		M.vampire.torpor = 0
+		H << "<span class='notice'>You are now waking up from your sleep.</span>"
+		H.paralysis += 2 //as above
+		H.status_flags &= ~(FAKEDEATH)
+		H.update_canmove()
+		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
+
+	do
+		vampire_coffinregen(M)
+		sleep(10)
+	while(vampire_canregen(M))
+
+
+/proc/vampire_canregen(var/datum/mind/V)
+	var/mob/living/carbon/human/H = V.current
+	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
+			return 1
+		for(var/obj/item/organ/I in H.internal_organs)
+			if(I.damage > 0)
+				return 1
+		for(var/obj/item/organ/external/E in H.bad_external_organs)
+			if ((E.status & (ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY || ORGAN_BROKEN))||(E.is_stump()))
+				return 1
+	else
+		return 0
+
+/proc/vampire_coffinregen(var/datum/mind/V)
+
+	var/mob/living/carbon/human/H = V.current
+
+	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+		//blatant edited copypasta from xenomorph in alien_species.dm
+		var/heal_rate = 3
+		var/mend_prob = 20
+
+		//first heal damages
+		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
+			H.adjustBruteLoss(-heal_rate)
+			H.adjustFireLoss(-heal_rate)
+			H.adjustOxyLoss(-heal_rate)
+			H.adjustToxLoss(-heal_rate)
+			if (prob(5))
+				H << "<span class='sinister'>You feel a soothing sensation come over you...</span>"
+			return 0
+
+
+		//next internal organs
+		for(var/obj/item/organ/I in H.internal_organs)
+			if(I.damage > 0)
+				I.damage = max(I.damage - heal_rate, 0)
+				if (prob(5))
+					H << "<span class='sinister'>You feel a soothing sensation within your [I.parent_organ]...</span>"
+				return 0
+
+
+		//next mend broken bones, approx 10 ticks each
+		for(var/obj/item/organ/external/E in H.bad_external_organs)
+			if (E.status & ORGAN_BROKEN)
+				if (prob(mend_prob))
+					if (E.mend_fracture())
+						H << "<span class='sinister'>You feel something mend itself inside your [E.name].</span>"
+					return 0
+			if ((E.status & (ORGAN_DEAD || ORGAN_MUTATED || ORGAN_CUT_AWAY))||(E.is_stump()))
+				if (prob(round(mend_prob,1)))
+					E.status = 0
+					H << "<span class='sinister'>You feel your [E.name] regrow, completely intact.</span>"
+	else
+		return 1
+	return
+
+
+
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
 	set name = "Rejuvenate "
@@ -101,6 +187,10 @@
 	var/mob/living/carbon/C = M.current.vampire_active(0, 0, 1)
 
 	if(!C) return
+	if(C == M.current)
+		M.current << "<span class='warning'>You try to stare into your own eyes. Oddly, it doesn't work.</span>"
+		return
+
 	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as he stares into [C.name]'s eyes</span>")
 	M.current.verbs -= /client/proc/vampire_hypnotise
 	spawn(1800)
@@ -130,6 +220,9 @@
 
 	var/mob/living/carbon/C = M.current.vampire_active(50, 0, 1)
 	if(!C) return
+	if(C == M.current)
+		M.current << "<span class='warning'>You decide against infecting yourself with a deadly disease.</span>"
+		return
 	if(!M.current.vampire_can_reach(C, 1))
 		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</span>"
 		return
@@ -145,8 +238,8 @@
 	holder.effect += O
 	holder.chance = 10
 	shutdown.infectionchance = 100
-	shutdown.antigen |= text2num(pick(ANTIGENS))
-	shutdown.antigen |= text2num(pick(ANTIGENS))
+	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
+	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
 	shutdown.spreadtype = "None"
 	shutdown.uniqueID = rand(0,10000)
 	shutdown.effects += holder
@@ -175,6 +268,7 @@
 		for(var/mob/living/carbon/C in view(1))
 			if(!C.vampire_affected(M)) continue
 			if(!M.current.vampire_can_reach(C, 1)) continue
+			if(!C.eyecheck()) continue
 			C.Stun(8)
 			C.Weaken(8)
 			C.stuttering = 20
@@ -213,37 +307,53 @@
 			C.stuttering = 20
 			C.Stun(8)
 			C.make_jittery(150)
-		for(var/obj/structure/window/W in view(4))
-			new /obj/item/weapon/shard(W.loc)
-			if(W.reinf) new /obj/item/stack/rods(W.loc)
-			W.Del()
+		//sonic grenade code copypasta, more elegant than my method
+		for(var/obj/structure/window/W in view(4, M.current.loc)) //Shatters windows
+			W.hit(20,1)
+			if(get_dist(W, M.current.loc) <= 3) //Reinf windows
+				W.hit(60,0)
+			if(get_dist(W, M.current.loc) <= 1)
+				W.hit(40,0)
+		for(var/obj/machinery/door/window/D in view(4, M.current.loc)) //Busting windoors
+			D.take_damage(150)
+			if(get_dist(D, M.current.loc) <= 2)
+				D.take_damage(150)
+
 		playsound(M.current.loc, 'sound/urist/creepyshriek.ogg', 100, 1)
 		M.current.remove_vampire_blood(30)
 		M.current.verbs -= /client/proc/vampire_screech
 		spawn(1800) M.current.verbs += /client/proc/vampire_screech
 
-/client/proc/vampire_enthrall()
+/client/proc/vampire_turn()
 	set category = "Vampire"
-	set name = "Enthrall (300)"
-	set desc = "You use a large portion of your power to sway those loyal to none to be loyal to you only."
+	set name = "Turn (500)"
+	set desc = "Use a massive portion of your power to infect your victim with vampirism."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	var/mob/living/carbon/C = M.current.vampire_active(300, 0, 1)
 	if(!C) return
+	if(C == M.current)
+		M.current << ("<span class='warning'> Try as you might, you cannot figure out how to bite your own neck.</span>")
+		return
+
 	M.current.visible_message("<span class='warning'> [M.current.name] bites [C.name]'s neck!</span>", "<span class='warning'> You bite [C.name]'s neck and begin the flow of power.</span>")
-	C << "<span class='warning'>You feel the tendrils of evil invade your mind.</span>"
+	C << "<span class='sinister'>You feel the tendrils of evil invade your body.</span>"
 	if(!ishuman(C))
-		M.current << "<span class='warning'> You can only enthrall humans!</span>"
+		M.current << "<span class='warning'> You can only turn humanoids!</span>"
 		return
 
 	if(do_mob(M.current, C, 50))
-		if(M.current.can_enthrall(C) && M.current.vampire_power(300, 0)) // recheck
-			M.current.handle_enthrall(C)
-			M.current.remove_vampire_blood(300)
-			M.current.verbs -= /client/proc/vampire_enthrall
-			spawn(1800) M.current.verbs += /client/proc/vampire_enthrall
+		if(M.current.can_vampirize(C))
+			if(M.current.vampire_power(500, 0)) // recheck
+				M.current.handle_vampirize(C.mind)
+				M.current.remove_vampire_blood(500)
+				M.current.verbs -= /client/proc/vampire_turn
+				spawn(1800) M.current.verbs += /client/proc/vampire_turn
+			else
+				M.current << "<span class='warning'> You don't have enough usable blood.</span>"
+				return
 		else
-			M.current << "<span class='warning'> You or your target either moved or you dont have enough usable blood.</span>"
+			M.current << "<span class='warning'> Target is unavailable.</span>"
 			return
 
 
@@ -262,63 +372,59 @@
 	if(!mind || !mind.vampire || !ishuman(src))
 		alpha = 255
 		return
-	var/turf/simulated/T = get_turf(src)
 
-	if(!istype(T))
-		return 0
+	var/light_amount = 0
+	if(isturf(src.loc))
+		var/turf/T = src.loc
+		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+		if(L)
+			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
+		else
+			light_amount =  10
+
+//	if(!istype(T))
+//		return 0
 
 	if(!mind.vampire.iscloaking)
 		alpha = 255
 		return 0
-	if(T.lighting_lumcount <= 2)
-		alpha = 0
+	if(light_amount <= 2)
+		alpha = 10
 		return 1
 	else
 		alpha = round((255 * 0.80))
 
-/mob/proc/can_enthrall(mob/living/carbon/C)
-	var/enthrall_safe = 0
-	for(var/obj/item/weapon/implant/loyalty/L in C)
-		if(L && L.implanted)
-			enthrall_safe = 1
-			break
-/*	for(var/obj/item/weapon/implant/traitor/T in C) //No tater implants in Urist... yet? Saving it for now in case we get it.
-		if(T && T.implanted)
-			enthrall_safe = 1
-			break */
+/mob/proc/can_vampirize(mob/living/carbon/C)
+	var/vampirize_safe = 0
+
 	if(!C)
-		world.log << "something bad happened on enthralling a mob src is [src] [src.key] \ref[src]"
+		world.log << "something bad happened on vampirizing a mob src is [src] [src.key] \ref[src]"
 		return 0
 	if(!C.mind)
-		src << "<span class='warning'> [C.name]'s mind is not there for you to enthrall.</span>"
+		src << "<span class='warning'> [C.name]'s mind is not there for you to vampirize.</span>"
 		return 0
-	if(enthrall_safe || ( C.mind in ticker.mode.vampires )||( C.mind.vampire )||( C.mind in ticker.mode.enthralled ))
-		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
+	if(vampirize_safe)
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a strange sensation in your skull that quickly dissipates.</span>")
+		return 0
+	if((C.mind in get_antags("vampire") )||( C.mind.vampire ))
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
-		C.visible_message("<span class='warning'> [C] seems to resist the takeover!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
-	if(!ishuman(C))
-		src << "<span class='warning'> You can only enthrall humans!</span>"
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
+	if(!ishumanoid(C))
+		C.visible_message("<span class='warning'> [C] seems unaffected by the infection!</span>","<span class='notice'> Your simple mind briefly registers an undescribable sensation, but it quickly dissipates among your usual concerns.")
 		return 0
 	return 1
 
-/mob/proc/handle_enthrall(mob/living/carbon/human/H as mob)
+/mob/proc/handle_vampirize(var/datum/mind/H)
 	if(!istype(H))
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
-	var/ref = "\ref[src.mind]"
-	if(!(ref in ticker.mode.thralls))
-		ticker.mode.thralls[ref] = list(H.mind)
-	else
-		ticker.mode.thralls[ref] += H.mind
-	ticker.mode.enthralled.Add(H.mind)
-	ticker.mode.enthralled[H.mind] = src.mind
-	H.mind.special_role = "VampThrall"
-	H << "<b><span class='warning'> You have been Enthralled by [name]. Follow their every command.</span></b>"
-	src << "<span class='warning'> You have successfully Enthralled [H.name]. <i>If they refuse to do as you say just adminhelp.</i></span>"
-	ticker.mode.update_vampire_icons_added(H.mind)
-	ticker.mode.update_vampire_icons_added(src.mind)
-	log_admin("[ckey(src.key)] has mind-slaved [ckey(H.key)].")
+
+	vamps.add_antagonist(H)
+	H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
+	src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
+	log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
 
 /client/proc/vampire_bats()
 	set category = "Vampire"
@@ -361,7 +467,7 @@
 		return 0
 
 	else if(M.current.vampire_power(15, 0))
-		if(M.current.buckled) M.current.buckled.unbuckle()
+		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/mobloc = get_turf(M.current.loc)
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
@@ -373,9 +479,9 @@
 			animation.icon_state = "liquify"
 			animation.layer = 5
 			animation.master = holder
-			//M.current.ExtinguishMob() //mobs on fire-dependent
+			M.current.ExtinguishMob()
 			if(M.current.buckled)
-				M.current.buckled.unbuckle()
+				M.current.buckled.unbuckle_mob()
 			flick("liquify",animation)
 			M.current.loc = holder
 			M.current.client.eye = holder
@@ -399,8 +505,8 @@
 							break
 			M.current.canmove = 1
 			M.current.client.eye = M.current
-			del(animation)
-			del(holder)
+			qdel(animation)
+			qdel(holder)
 		M.current.remove_vampire_blood(15)
 		M.current.verbs -= /client/proc/vampire_jaunt
 		spawn(600) M.current.verbs += /client/proc/vampire_jaunt
@@ -418,11 +524,11 @@
 	var/inner_tele_radius = 0
 	var/outer_tele_radius = 6
 
-	// Maximum lighting_lumcount.
+	// Maximum light_amount
 	var/max_lum = 1
 
 	if(M.current.vampire_power(0, 0))
-		if(M.current.buckled) M.current.buckled.unbuckle()
+		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/list/turfs = new/list()
 			for(var/turf/T in range(usr,outer_tele_radius))
@@ -433,7 +539,15 @@
 				if(T.y>world.maxy-outer_tele_radius || T.y<outer_tele_radius)	continue
 
 				// LIGHTING CHECK
-				if(T.lighting_lumcount > max_lum) continue
+				var/light_amount = 0
+				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+
+				if(L)
+					light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
+				else
+					light_amount =  10
+
+				if(light_amount > max_lum) continue
 				turfs += T
 
 			if(!turfs.len)
@@ -444,9 +558,9 @@
 
 			if(!picked || !isturf(picked))
 				return
-			//M.current.ExtinguishMob() //mobs on fire-dependent
+			M.current.ExtinguishMob()
 			if(M.current.buckled)
-				M.current.buckled.unbuckle()
+				M.current.buckled.unbuckle_mob()
 			var/atom/movable/overlay/animation = new /atom/movable/overlay( get_turf(usr) )
 			animation.name = usr.name
 			animation.density = 0
@@ -457,7 +571,7 @@
 			//animation.master = src
 			usr.loc = picked
 			spawn(10)
-				del(animation)
+				qdel(animation)
 		M.current.remove_vampire_blood(0)
 		M.current.verbs -= /client/proc/vampire_shadowstep
 		spawn(20)

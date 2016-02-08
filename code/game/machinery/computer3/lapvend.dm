@@ -31,22 +31,20 @@
 /obj/machinery/lapvend/blob_act()
 	if (prob(50))
 		spawn(0)
-			del(src)
+			qdel(src)
 		return
 
 	return
 
 
 /obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(vendmode == 1)
-		if(istype(W, /obj/item/weapon/card))
-			var/obj/item/weapon/card/I = W
-			scan_card(I)
-			vendmode = 0
-	if(vendmode == 3)
-		if(istype(W,/obj/item/weapon/card))
-			var/obj/item/weapon/card/I = W
-			reimburse(I)
+	var/obj/item/weapon/card/id/I = W.GetID()
+
+	if(vendmode == 1 && I)
+		scan_id(I, W)
+		vendmode = 0
+	if(vendmode == 3 && I)
+		if(reimburse_id(I, W))
 			vendmode = 0
 	if(vendmode == 0)
 		if(istype(W, /obj/item/device/laptop))
@@ -202,31 +200,32 @@
 	if (network == 3)
 		newlap.spawn_parts += (/obj/item/part/computer/networking/cable)
 	if (power == 1)
-		del(newlap.battery)
-		newlap.battery = new /obj/item/weapon/cell/high(newlap)
+		newlap.battery.maxcharge = 1000
+		newlap.battery.charge = 1000
 	if (power == 2)
-		del(newlap.battery)
-		newlap.battery = new /obj/item/weapon/cell/super(newlap)
+		newlap.battery.maxcharge = 1750
+		newlap.battery.charge = 1750
 
 	newlap.spawn_parts()
 
-/obj/machinery/lapvend/proc/scan_card(var/obj/item/weapon/card/I)
-	if (istype(I, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/C = I
-		visible_message("<span class='info'>[usr] swipes a card through [src].</span>")
-		var/datum/money_account/CH = get_account(C.associated_account_number)
-		if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
-			if(vendor_account)
-				var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-				var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
-				if(D)
-					transfer_and_vend(D, C)
-				else
-					usr << "\icon[src]<span class='warning'>Unable to access account. Check security settings and try again.</span>"
+/obj/machinery/lapvend/proc/scan_id(var/obj/item/weapon/card/id/C, var/obj/item/I)
+	visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+	var/datum/money_account/CH = get_account(C.associated_account_number)
+	if(!CH)
+		usr << "\icon[src]<span class='warning'>No valid account number is associated with this card.</span>"
+		return
+	if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
+		if(vendor_account)
+			var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
+			var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
+			if(D)
+				transfer_and_vend(D, C)
 			else
 				usr << "\icon[src]<span class='warning'>Unable to access vendor account. Please record the machine ID and call CentComm Support.</span>"
 		else
-			transfer_and_vend(CH, C)
+			usr << "\icon[src]<span class='warning'>Unable to access vendor account. Please record the machine ID and call CentComm Support.</span>"
+	else
+		transfer_and_vend(CH, C)
 
 
 // Transfers money and vends the laptop.
@@ -358,23 +357,28 @@
 
 
 
-/obj/machinery/lapvend/proc/reimburse(var/obj/item/weapon/card/I)
-	if (istype(I, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/C = I
-		visible_message("<span class='info'>[usr] swipes a card through [src].</span>")
-		var/datum/money_account/CH = get_account(C.associated_account_number)
-		if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
-			if(vendor_account)
-				var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-				var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
-				if(D)
-					transfer_and_reimburse(D)
-				else
-					usr << "\icon[src]<span class='warning'>Unable to access account. Check security settings and try again.</span>"
+/obj/machinery/lapvend/proc/reimburse_id(var/obj/item/weapon/card/id/C, var/obj/item/I)
+	visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+	var/datum/money_account/CH = get_account(C.associated_account_number)
+	if(!CH)
+		usr << "\icon[src]<span class='warning'>No valid account number is associated with this card.</span>"
+		return 0
+	if(CH.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
+		if(vendor_account)
+			var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
+			var/datum/money_account/D = attempt_account_access(C.associated_account_number, attempt_pin, 2)
+			if(D)
+				transfer_and_reimburse(D)
+				return 1
 			else
 				usr << "\icon[src]<span class='warning'>Unable to access vendor account. Please record the machine ID and call CentComm Support.</span>"
+				return 0
 		else
-			transfer_and_reimburse(CH)
+			usr << "\icon[src]<span class='warning'>Unable to access vendor account. Please record the machine ID and call CentComm Support.</span>"
+			return 0
+	else
+		transfer_and_reimburse(CH)
+		return 1
 
 /obj/machinery/lapvend/proc/transfer_and_reimburse(var/datum/money_account/D)
 	var/transaction_amount = total()
@@ -404,7 +408,7 @@
 	T.time = worldtime2text()
 	vendor_account.transaction_log.Add(T)
 
-	del(relap)
+	qdel(relap)
 	vendmode = 0
 	cardreader = 0
 	floppy = 0

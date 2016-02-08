@@ -4,10 +4,10 @@
 	set hidden = 1
 	if(!check_rights(R_ADMIN))	return
 
-	msg = sanitize(copytext(msg, 1, MAX_MESSAGE_LEN))
+	msg = sanitize(msg)
 	if(!msg)	return
 
-	log_admin("[key_name(src)] : [msg]")
+	log_admin("ADMIN: [key_name(src)] : [msg]")
 
 	if(check_rights(R_ADMIN,0))
 		for(var/client/C in admins)
@@ -23,13 +23,13 @@
 
 	if(!check_rights(R_ADMIN|R_MOD|R_MENTOR))	return
 
-	msg = sanitize(copytext(msg, 1, MAX_MESSAGE_LEN))
+	msg = sanitize(msg)
 	log_admin("MOD: [key_name(src)] : [msg]")
 
 	if (!msg)
 		return
 
-	var/sender_name = src.key
+	var/sender_name = key_name(usr, 1)
 	if(check_rights(R_ADMIN, 0))
 		sender_name = "<span class='admin'>[sender_name]</span>"
 	for(var/client/C in admins)

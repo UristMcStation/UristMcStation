@@ -12,7 +12,7 @@
 		src << "Guests may not use OOC."
 		return
 
-	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
+	msg = sanitize(msg)
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
@@ -77,7 +77,7 @@
 		src << "Guests may not use OOC."
 		return
 
-	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
+	msg = sanitize(msg)
 	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_LOOC))
@@ -85,8 +85,8 @@
 		return
 
 	if(!holder)
-		if(!config.ooc_allowed)
-			src << "<span class='danger'>OOC is globally muted.</span>"
+		if(!config.looc_allowed)
+			src << "<span class='danger'>LOOC is globally muted.</span>"
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
 			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
@@ -105,7 +105,7 @@
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
-	var/list/heard = get_mobs_in_view(7, source)
+	var/list/heard = get_mobs_in_view(7, get_turf(source))
 
 	var/display_name = source.key
 	if(holder && holder.fakekey)

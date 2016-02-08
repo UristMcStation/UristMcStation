@@ -87,3 +87,17 @@
 	bound_width = 64
 	bound_height = 64
 	icon_state = "cvrt-broken"
+
+//ryclies
+
+/obj/mecha/working/cvrt/ryclies
+	icon_state = "rcvrt"
+	initial_icon = "rcvrt"
+	wreckage = /obj/effect/decal/mecha_wreckage/rcvrt
+
+/obj/effect/decal/mecha_wreckage/rcvrt
+	name = "CVR wreckage"
+	icon = 'icons/urist/vehicles/cvrt.dmi'
+	bound_width = 64
+	bound_height = 64
+	icon_state = "rcvrt-broken"

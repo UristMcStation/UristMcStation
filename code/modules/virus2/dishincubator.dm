@@ -1,5 +1,5 @@
 /obj/machinery/disease2/incubator/
-	name = "Pathogenic incubator"
+	name = "pathogenic incubator"
 	density = 1
 	anchored = 1
 	icon = 'icons/obj/virology.dmi'
@@ -108,6 +108,7 @@
 				dish.virus2.majormutate()
 				if(dish.info)
 					dish.info = "OUTDATED : [dish.info]"
+					dish.basic_info = "OUTDATED: [dish.basic_info]"
 					dish.analysed = 0
 				ping("\The [src] pings, \"Mutant viral strain detected.\"")
 			else if(prob(5))
@@ -127,18 +128,25 @@
 		nanomanager.update_uis(src)
 
 	if(beaker)
-		if(!beaker.reagents.remove_reagent("virusfood",5))
-			foodsupply += 10
+		if(foodsupply < 100 && beaker.reagents.remove_reagent("virusfood",5))
+			if(foodsupply + 10 <= 100)
+				foodsupply += 10
+			else
+				beaker.reagents.add_reagent("virusfood",(100 - foodsupply)/2)
+				foodsupply = 100
 			nanomanager.update_uis(src)
 
-		if (locate(/datum/reagent/toxin) in beaker.reagents.reagent_list)
+		if (locate(/datum/reagent/toxin) in beaker.reagents.reagent_list && toxins < 100)
 			for(var/datum/reagent/toxin/T in beaker.reagents.reagent_list)
-				toxins += max(T.toxpwr,1)
+				toxins += max(T.strength,1)
 				beaker.reagents.remove_reagent(T.id,1)
+				if(toxins > 100)
+					toxins = 100
+					break
 			nanomanager.update_uis(src)
 
 /obj/machinery/disease2/incubator/Topic(href, href_list)
-	if (..()) return 0
+	if (..()) return 1
 
 	var/mob/user = usr
 	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
@@ -169,7 +177,7 @@
 		return 1
 
 	if (href_list["rad"])
-		radiation += 10
+		radiation = min(100, radiation + 10)
 		return 1
 
 	if (href_list["flush"])

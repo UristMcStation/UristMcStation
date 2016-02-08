@@ -8,7 +8,7 @@
 	if(prob(100 * weakness))
 		user << "\red You are suddenly zapped away elsewhere!"
 		if (user.buckled)
-			user.buckled.unbuckle()
+			user.buckled.unbuckle_mob()
 
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))
@@ -28,15 +28,15 @@
 			if(prob(100 * weakness))
 				M << "\red You are displaced by a strange force!"
 				if(M.buckled)
-					M.buckled.unbuckle()
+					M.buckled.unbuckle_mob()
 
 				var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 				sparks.set_up(3, 0, get_turf(M))
 				sparks.start()
-				//
-				M.loc = pick(orange(get_turf(T), 50))
+
+				M.Move(pick(trange(50, T)))
 				sparks = new /datum/effect/effect/system/spark_spread()
-				sparks.set_up(3, 0, get_turf(M))
+				sparks.set_up(3, 0, M.loc)
 				sparks.start()
 
 /datum/artifact_effect/teleport/DoEffectPulse()
@@ -47,13 +47,13 @@
 			if(prob(100 * weakness))
 				M << "\red You are displaced by a strange force!"
 				if(M.buckled)
-					M.buckled.unbuckle()
+					M.buckled.unbuckle_mob()
 
 				var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 				sparks.set_up(3, 0, get_turf(M))
 				sparks.start()
-				//
-				M.loc = pick(orange(get_turf(T), 50))
+
+				M.Move(pick(trange(50, T)))
 				sparks = new /datum/effect/effect/system/spark_spread()
-				sparks.set_up(3, 0, get_turf(M))
+				sparks.set_up(3, 0, M.loc)
 				sparks.start()

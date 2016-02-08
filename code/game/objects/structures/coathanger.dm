@@ -4,7 +4,7 @@
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
-	var/list/allowed = list(/obj/item/clothing/suit/storage/labcoat, /obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_suit)
+	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_suit)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	user.visible_message("[user] takes [coat] off \the [src].", "You take [coat] off the \the [src]")
@@ -21,13 +21,12 @@
 	if (can_hang && !coat)
 		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
 		coat = W
-		user.drop_item(src)
-		coat.loc = src
+		user.drop_from_inventory(coat, src)
 		update_icon()
 
 	else if(istype(W, /obj/item/weapon/wrench) && !coat)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		var/obj/item/stack/sheet/wood/S = new /obj/item/stack/sheet/wood(src.loc)
+		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		del(src)
 	else

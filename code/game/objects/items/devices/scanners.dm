@@ -4,7 +4,6 @@ T-RAY
 DETECTIVE SCANNER
 HEALTH ANALYZER
 GAS ANALYZER
-PLANT ANALYZER
 MASS SPECTROMETER
 REAGENT SCANNER
 */
@@ -17,7 +16,7 @@ REAGENT SCANNER
 	w_class = 2
 	item_state = "electronic"
 
-	matter = list("metal" = 150)
+	matter = list(DEFAULT_WALL_MATERIAL = 150)
 
 	origin_tech = "magnets=1;engineering=1"
 
@@ -74,7 +73,7 @@ REAGENT SCANNER
 	w_class = 2.0
 	throw_speed = 5
 	throw_range = 10
-	matter = list("metal" = 200)
+	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = "magnets=1;biotech=1"
 	var/mode = 1;
 
@@ -92,7 +91,7 @@ REAGENT SCANNER
 	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
 		usr << "\red You don't have the dexterity to do this!"
 		return
-	user.visible_message("<span class='notice'> [user] has analyzed [M]'s vitals.","<span class='notice'> You have analyzed [M]'s vitals.")
+	user.visible_message("<span class='notice'> [user] has analyzed [M]'s vitals.</span>","<span class='notice'> You have analyzed [M]'s vitals.</span>")
 
 	if (!istype(M, /mob/living/carbon) || (ishuman(M) && (M:species.flags & IS_SYNTHETIC)))
 		//these sensors are designed for organic life
@@ -100,7 +99,7 @@ REAGENT SCANNER
 		user.show_message("\t Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font>", 1)
 		user.show_message("\t Damage Specifics: <font color='blue'>?</font> - <font color='green'>?</font> - <font color='#FFA500'>?</font> - <font color='red'>?</font>")
 		user.show_message("\blue Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)", 1)
-		user.show_message("\red <b>Warning: Blood Level ERROR: --% --cl.\blue Type: ERROR")
+		user.show_message("\red <b>Warning: Blood Level ERROR: --% --cl.\blue Type: ERROR</b>")
 		user.show_message("\blue Subject's pulse: <font color='red'>-- bpm.</font>")
 		return
 
@@ -124,9 +123,9 @@ REAGENT SCANNER
 		var/list/damaged = H.get_damaged_organs(1,1)
 		user.show_message("\blue Localized Damage, Brute/Burn:",1)
 		if(length(damaged)>0)
-			for(var/datum/organ/external/org in damaged)
+			for(var/obj/item/organ/external/org in damaged)
 				user.show_message(text("\blue \t []: [][]\blue - []",	\
-				"[capitalize(org.display_name)][org.status & ORGAN_ROBOT ? "(Cybernetic)" : ""]",	\
+				"[capitalize(org.name)][org.status & ORGAN_ROBOT ? "(Cybernetic)" : ""]",	\
 				(org.brute_dam > 0)	?	"\red [org.brute_dam]"							:0,		\
 				(org.status & ORGAN_BLEEDING)?"\red <b>\[Bleeding\]</b>":"\t", 		\
 				(org.burn_dam > 0)	?	"<font color='#FFA500'>[org.burn_dam]</font>"	:0),1)
@@ -140,14 +139,15 @@ REAGENT SCANNER
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 ? 		"\red Severe oxygen deprivation detected\blue" 	: 	"Subject bloodstream oxygen level normal"
 	user.show_message("[OX] | [TX] | [BU] | [BR]")
-	if (istype(M, /mob/living/carbon))
-		if(M:reagents.total_volume > 0)
+	if(istype(M, /mob/living/carbon))
+		var/mob/living/carbon/C = M
+		if(C.reagents.total_volume)
 			var/unknown = 0
 			var/reagentdata[0]
-			for(var/A in M.reagents.reagent_list)
+			for(var/A in C.reagents.reagent_list)
 				var/datum/reagent/R = A
 				if(R.scannable)
-					reagentdata["[R.id]"] = "\t \blue [round(M.reagents.get_reagent_amount(R.id), 1)]u [R.name]"
+					reagentdata["[R.id]"] = "\t \blue [round(C.reagents.get_reagent_amount(R.id), 1)]u [R.name]"
 				else
 					unknown++
 			if(reagentdata.len)
@@ -156,8 +156,16 @@ REAGENT SCANNER
 					user.show_message(reagentdata[d])
 			if(unknown)
 				user.show_message(text("\red Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood."))
-		if(M:virus2.len)
-			var/mob/living/carbon/C = M
+		if(C.ingested && C.ingested.total_volume)
+			var/unknown = 0
+			for(var/datum/reagent/R in C.ingested.reagent_list)
+				if(R.scannable)
+					user << "<span class='notice'>[R.name] found in subject's stomach.</span>"
+				else
+					++unknown
+			if(unknown)
+				user << "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+		if(C.virus2.len)
 			for (var/ID in C.virus2)
 				if (ID in virusDB)
 					var/datum/data/record/V = virusDB[ID]
@@ -181,8 +189,10 @@ REAGENT SCANNER
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		for(var/name in H.organs_by_name)
-			var/datum/organ/external/e = H.organs_by_name[name]
-			var/limb = e.display_name
+			var/obj/item/organ/external/e = H.organs_by_name[name]
+			if(!e)
+				continue
+			var/limb = e.name
 			if(e.status & ORGAN_BROKEN)
 				if(((e.name == "l_arm") || (e.name == "r_arm") || (e.name == "l_leg") || (e.name == "r_leg")) && (!(e.status & ORGAN_SPLINTED)))
 					user << "\red Unsecured fracture in subject [limb]. Splinting recommended for transport."
@@ -190,11 +200,13 @@ REAGENT SCANNER
 				user << "\red Infected wound detected in subject [limb]. Disinfection recommended."
 
 		for(var/name in H.organs_by_name)
-			var/datum/organ/external/e = H.organs_by_name[name]
-			if(e.status & ORGAN_BROKEN)
+			var/obj/item/organ/external/e = H.organs_by_name[name]
+			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("\red Bone fractures detected. Advanced scanner required for location."), 1)
 				break
-		for(var/datum/organ/external/e in H.organs)
+		for(var/obj/item/organ/external/e in H.organs)
+			if(!e)
+				continue
 			for(var/datum/wound/W in e.wounds) if(W.internal)
 				user.show_message(text("\red Internal bleeding detected. Advanced scanner required for location."), 1)
 				break
@@ -204,9 +216,9 @@ REAGENT SCANNER
 			var/blood_type = M.dna.b_type
 			blood_percent *= 100
 			if(blood_volume <= 500 && blood_volume > 336)
-				user.show_message("\red <b>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl.\blue Type: [blood_type]")
+				user.show_message("\red <b>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl.</b>\blue Type: [blood_type]")
 			else if(blood_volume <= 336)
-				user.show_message("\red <b>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl.\blue Type: [blood_type]")
+				user.show_message("\red <b>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl.</b>\blue Type: [blood_type]")
 			else
 				user.show_message("\blue Blood Level Normal: [blood_percent]% [blood_volume]cl. Type: [blood_type]")
 		user.show_message("\blue Subject's pulse: <font color='[H.pulse == PULSE_THREADY || H.pulse == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font>")
@@ -237,7 +249,7 @@ REAGENT SCANNER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list("metal" = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 	origin_tech = "magnets=1;engineering=1"
 
@@ -284,7 +296,7 @@ REAGENT SCANNER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list("metal" = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 	origin_tech = "magnets=2;biotech=2"
 	var/details = 0
@@ -357,7 +369,7 @@ REAGENT SCANNER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list("metal" = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 	origin_tech = "magnets=2;biotech=2"
 	var/details = 0
@@ -416,7 +428,7 @@ REAGENT SCANNER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list("metal" = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M as mob, mob/living/user as mob)
 	if (!isslime(M))

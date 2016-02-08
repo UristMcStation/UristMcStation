@@ -1,7 +1,7 @@
 /proc/getbrokeninhands()
-	var/icon/IL = new('icons/mob/items_lefthand.dmi')
+	var/icon/IL = new('icons/mob/items/lefthand.dmi')
 	var/list/Lstates = IL.IconStates()
-	var/icon/IR = new('icons/mob/items_righthand.dmi')
+	var/icon/IR = new('icons/mob/items/righthand.dmi')
 	var/list/Rstates = IR.IconStates()
 
 
@@ -26,7 +26,7 @@
 		//	if(!istates.Find(O.item_state))
 		//		text += "[O.type] MISSING NORMAL ICON CALLED\n\"[O.item_state]\" IN \"[O.icon]\"\n"
 		//text+="\n"
-		del(O)
+		qdel(O)
 	if(text)
 		var/F = file("broken_icons.txt")
 		fdel(F)

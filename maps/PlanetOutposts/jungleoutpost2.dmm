@@ -34,18 +34,18 @@
 "aH" = (/turf/unsimulated/wall{tag = "icon-metal11"; icon_state = "metal11"},/area/jungle)
 "aI" = (/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
 "aJ" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{dir = 9; icon_state = "carpetside"},/area/jungle)
-"aK" = (/obj/structure/stool/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 5; icon_state = "carpetside"},/area/jungle)
+"aK" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 5; icon_state = "carpetside"},/area/jungle)
 "aL" = (/obj/structure/mirror{pixel_y = 32},/obj/structure/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/turf/unsimulated/floor{tag = "icon-showroomfloor"; icon_state = "showroomfloor"},/area/jungle)
 "aM" = (/obj/structure/toilet{pixel_y = 20},/turf/unsimulated/floor{tag = "icon-showroomfloor"; icon_state = "showroomfloor"},/area/jungle)
 "aN" = (/obj/structure/stool,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
-"aO" = (/obj/structure/table,/obj/item/ashtray/plastic,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
+"aO" = (/obj/structure/table,/obj/item/weapon/material/ashtray/plastic,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
 "aP" = (/turf/unsimulated/wall{tag = "icon-metal1"; icon_state = "metal1"},/area/jungle)
 "aQ" = (/obj/structure/table,/turf/unsimulated/floor{tag = "icon-neutral (NORTHWEST)"; icon_state = "neutral"; dir = 9},/area/jungle)
-"aR" = (/obj/structure/rack,/turf/unsimulated/floor{tag = "icon-neutral (NORTH)"; icon_state = "neutral"; dir = 1},/area/jungle)
-"aS" = (/obj/structure/rack,/turf/unsimulated/floor{tag = "icon-neutral (NORTHEAST)"; icon_state = "neutral"; dir = 5},/area/jungle)
+"aR" = (/turf/unsimulated/floor{tag = "icon-neutral (NORTH)"; icon_state = "neutral"; dir = 1},/area/jungle)
+"aS" = (/turf/unsimulated/floor{tag = "icon-neutral (NORTHEAST)"; icon_state = "neutral"; dir = 5},/area/jungle)
 "aT" = (/turf/unsimulated/wall{icon_state = "plasma1"},/area/jungle)
 "aU" = (/turf/unsimulated/floor{dir = 10; icon_state = "carpetside"},/area/jungle)
-"aV" = (/obj/machinery/door_control{id = "jungledorm3"; name = "Door Bolt Control"; normaldoorcontrol = 1; pixel_x = 25; pixel_y = 0; req_access_txt = "0"; specialfunctions = 4},/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
+"aV" = (/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
 "aW" = (/turf/unsimulated/floor{tag = "icon-showroomfloor"; icon_state = "showroomfloor"},/area/jungle)
 "aX" = (/obj/machinery/shower{dir = 8},/turf/unsimulated/floor{tag = "icon-showroomfloor"; icon_state = "showroomfloor"},/area/jungle)
 "aY" = (/obj/structure/table,/obj/item/weapon/deck,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
@@ -65,48 +65,45 @@
 "bm" = (/turf/unsimulated/floor{tag = "icon-wood-broken"; icon_state = "wood-broken"},/area/jungle)
 "bn" = (/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/jungle)
 "bo" = (/obj/machinery/door/airlock{name = "Dorms"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/jungle)
-"bp" = (/obj/structure/rack,/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
-"bq" = (/obj/machinery/door/airlock{id_tag = "jungledorm2"; name = "Dorm 2"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/jungle)
-"br" = (/obj/machinery/door/airlock{id_tag = "jungledorm1"; name = "Dorm 1"},/turf/unsimulated/floor{tag = "icon-wood-broken6"; icon_state = "wood-broken6"},/area/jungle)
-"bs" = (/turf/unsimulated/wall{tag = "icon-metal10"; icon_state = "metal10"},/area/jungle)
-"bt" = (/obj/machinery/vending/coffee,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
-"bu" = (/obj/machinery/vending/cigarette,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
-"bv" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
-"bw" = (/obj/machinery/vending/cola,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
-"bx" = (/turf/unsimulated/floor{tag = "icon-neutral (SOUTHWEST)"; icon_state = "neutral"; dir = 10},/area/jungle)
-"by" = (/turf/unsimulated/floor{tag = "icon-neutral"; icon_state = "neutral"},/area/jungle)
-"bz" = (/turf/unsimulated/floor{tag = "icon-neutral (SOUTHEAST)"; icon_state = "neutral"; dir = 6},/area/jungle)
-"bA" = (/turf/unsimulated/floor{dir = 9; icon_state = "carpetside"},/area/jungle)
-"bB" = (/obj/machinery/door_control{id = "jungledorm2"; name = "Door Bolt Control"; normaldoorcontrol = 1; pixel_x = 25; pixel_y = 0; req_access_txt = "0"; specialfunctions = 4},/turf/unsimulated/floor{dir = 5; icon_state = "carpetside"},/area/jungle)
-"bC" = (/obj/machinery/door_control{id = "jungledorm1"; name = "Door Bolt Control"; normaldoorcontrol = 1; pixel_x = 25; pixel_y = 0; req_access_txt = "0"; specialfunctions = 4},/turf/unsimulated/floor{dir = 5; icon_state = "carpetside"},/area/jungle)
-"bD" = (/obj/structure/noticeboard{pixel_x = 32; pixel_y = 0},/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
-"bE" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{dir = 10; icon_state = "carpetside"},/area/jungle)
-"bF" = (/obj/structure/stool/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
-"bG" = (/obj/structure/stool/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 10; icon_state = "carpetside"},/area/jungle)
-"bH" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
-"bI" = (/obj/machinery/sleeper,/turf/unsimulated/floor{tag = "icon-warnwhite (SOUTHWEST)"; icon_state = "warnwhite"; dir = 10},/area/jungle)
-"bJ" = (/obj/machinery/sleep_console,/turf/unsimulated/floor{tag = "icon-warnwhite (SOUTHEAST)"; icon_state = "warnwhite"; dir = 6},/area/jungle)
-"bK" = (/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bL" = (/turf/unsimulated/floor{dir = 8; icon_state = "whitehall"; tag = "icon-whitehall (EAST)"},/area/jungle)
-"bM" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
-"bN" = (/turf/unsimulated/wall{tag = "icon-metal5"; icon_state = "metal5"},/area/jungle)
-"bO" = (/turf/unsimulated/wall{tag = "icon-metal13"; icon_state = "metal13"},/area/jungle)
-"bP" = (/obj/structure/sign/greencross{pixel_x = -32},/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bQ" = (/obj/machinery/door/airlock/glass{name = "Medical Room"},/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bR" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
-"bS" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/regular,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bT" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/toxin,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bU" = (/obj/structure/table,/obj/item/roller,/obj/item/bodybag/cryobag,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
-"bV" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
-"bW" = (/turf/simulated/floor/plating/airless,/area/shuttle/outpost/jungle)
-"bX" = (/obj/machinery/door/airlock/multi_tile/glass,/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
-"bY" = (/obj/structure/reagent_dispensers/watertank,/turf/unsimulated/floor,/area/jungle)
-"bZ" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/floor,/area/jungle)
-"ca" = (/turf/unsimulated/floor,/area/jungle)
-"cb" = (/turf/unsimulated/floor{tag = "icon-neutral (NORTH)"; icon_state = "neutral"; dir = 1},/area/jungle)
-"cc" = (/obj/machinery/door/airlock/maintenance,/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
-"cd" = (/obj/structure/rack,/obj/item/weapon/storage/toolbox/emergency,/turf/unsimulated/floor,/area/jungle)
-"ce" = (/obj/structure/rack,/obj/item/weapon/storage/toolbox/mechanical,/turf/unsimulated/floor,/area/jungle)
+"bp" = (/obj/machinery/door/airlock{id_tag = "jungledorm2"; name = "Dorm 2"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/jungle)
+"bq" = (/obj/machinery/door/airlock{id_tag = "jungledorm1"; name = "Dorm 1"},/turf/unsimulated/floor{tag = "icon-wood-broken6"; icon_state = "wood-broken6"},/area/jungle)
+"br" = (/turf/unsimulated/wall{tag = "icon-metal10"; icon_state = "metal10"},/area/jungle)
+"bs" = (/obj/machinery/vending/coffee,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
+"bt" = (/obj/machinery/vending/cigarette,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
+"bu" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
+"bv" = (/obj/machinery/vending/cola,/turf/unsimulated/floor{icon_state = "bar"; dir = 2},/area/jungle)
+"bw" = (/turf/unsimulated/floor{tag = "icon-neutral (SOUTHWEST)"; icon_state = "neutral"; dir = 10},/area/jungle)
+"bx" = (/turf/unsimulated/floor{tag = "icon-neutral"; icon_state = "neutral"},/area/jungle)
+"by" = (/turf/unsimulated/floor{tag = "icon-neutral (SOUTHEAST)"; icon_state = "neutral"; dir = 6},/area/jungle)
+"bz" = (/turf/unsimulated/floor{dir = 9; icon_state = "carpetside"},/area/jungle)
+"bA" = (/turf/unsimulated/floor{dir = 5; icon_state = "carpetside"},/area/jungle)
+"bB" = (/obj/structure/noticeboard{pixel_x = 32; pixel_y = 0},/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
+"bC" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{dir = 10; icon_state = "carpetside"},/area/jungle)
+"bD" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
+"bE" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/blue,/turf/unsimulated/floor{dir = 10; icon_state = "carpetside"},/area/jungle)
+"bF" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{dir = 6; icon_state = "carpetside"},/area/jungle)
+"bG" = (/obj/machinery/sleeper,/turf/unsimulated/floor{tag = "icon-warnwhite (SOUTHWEST)"; icon_state = "warnwhite"; dir = 10},/area/jungle)
+"bH" = (/obj/machinery/sleep_console,/turf/unsimulated/floor{tag = "icon-warnwhite (SOUTHEAST)"; icon_state = "warnwhite"; dir = 6},/area/jungle)
+"bI" = (/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bJ" = (/turf/unsimulated/floor{dir = 8; icon_state = "whitehall"; tag = "icon-whitehall (EAST)"},/area/jungle)
+"bK" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
+"bL" = (/turf/unsimulated/wall{tag = "icon-metal5"; icon_state = "metal5"},/area/jungle)
+"bM" = (/turf/unsimulated/wall{tag = "icon-metal13"; icon_state = "metal13"},/area/jungle)
+"bN" = (/obj/structure/sign/greencross{pixel_x = -32},/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bO" = (/obj/machinery/door/airlock/glass{name = "Medical Room"},/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bP" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
+"bQ" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/regular,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bR" = (/obj/structure/table,/obj/item/weapon/storage/firstaid/toxin,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bS" = (/obj/structure/table,/obj/item/roller,/obj/item/bodybag/cryobag,/turf/unsimulated/floor{icon_state = "white"},/area/jungle)
+"bT" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor,/area/jungle)
+"bU" = (/turf/simulated/floor/plating/airless,/area/shuttle/outpost/jungle)
+"bV" = (/obj/machinery/door/airlock/multi_tile/glass,/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
+"bW" = (/obj/structure/reagent_dispensers/watertank,/turf/unsimulated/floor,/area/jungle)
+"bX" = (/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/floor,/area/jungle)
+"bY" = (/turf/unsimulated/floor,/area/jungle)
+"bZ" = (/obj/machinery/door/airlock/maintenance,/turf/unsimulated/floor{icon_state = "floor"},/area/jungle)
+"ca" = (/obj/item/weapon/storage/toolbox/emergency,/turf/unsimulated/floor,/area/jungle)
+"cb" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/unsimulated/floor,/area/jungle)
 
 (1,1,1) = {"
 aaaaaaaaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -250,18 +247,18 @@ amauaFaFaGaFaFaHaIaIaIaIaAasasazawaxayazasasasasasararananananananananananananan
 amaAaJaKaAaLaMaAaNaOaNaIaPawayaPaQaRaSaPawayaTasasasararanananananananananananalalanananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
 amaAaUaVaAaWaXaAaNaYaNaIaZbabaaZbbbabcaZbabdaZasasasasaranananananananananananalalanananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
 ambeavbfaPbgbhbiaIaIaIaIbjbababjbbbabcbkbabdbkasasasararanananananananananananalalananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
-amaAblbmbnbnbnboaIaIaIaIbjbabaaZbbbabcaZbpbdaZasasasaranananananananananananananananananananananananananananananalalanananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
-ambeavbqazbrbhbsbtbubvbwaZbabaazbxbybzazawayaTasasararanananananananananananananananananananananananananananananalalanananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
-amaAbAbBaAbAbCbeaFaFaFaFavbabDaTavawayaPasasasasasasararanananananananananananananananananaqananananananananananalalananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
-amaAbEbFaAbGbHaAbIbJbKaZbLbabababMasasasasasasasasasasararananananananananananananananananaqananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
-ambNaFaFbOaFaFaTbPbKbKbQbLbabababRasasauaFaFaFaFaFbsasasarananananananananananananananananaqaqaqaqaqaqaqaqanananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamamaAbSbTbUaZbLbabababVasasaAbWbWbWbWbWaAasararananananananananananananananananananananananaqaqanananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamambeaFaFaFbsaZbXbaaZazasasaAbWbWbWbWbWaAasarananananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamamaAbYbZcaaPcbcbcbcbbNavaZaPbWbWbWbWbWaAasarananananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamamaAcacacaccbabababababkbabkbWbWbWbWbWaAasararanananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamamaAcacdceauaFaFaFaFaFavaZazbWbWbWbWbWaAasasaranananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamambNaFaFaFbiamamamamamasasaAbWbWbWbWbWaPasasaranananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakakaaaaaaaaaaaa
-amamamamamamamamamamamamamamamamamamasaPbWbWbWbWbWamamamamamamamamananananamamamamamamamananananananananananananananananananananananananamamamamamamamamamamamamamamaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakakakaaaaaaaaaaaa
+amaAblbmbnbnbnboaIaIaIaIbjbabaaZbbbabcaZbabdaZasasasaranananananananananananananananananananananananananananananalalanananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
+ambeavbpazbqbhbrbsbtbubvaZbabaazbwbxbyazawayaTasasararanananananananananananananananananananananananananananananalalanananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
+amaAbzbAaAbzbAbeaFaFaFaFavbabBaTavawayaPasasasasasasararanananananananananananananananananaqananananananananananalalananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
+amaAbCbDaAbEbFaAbGbHbIaZbJbabababKasasasasasasasasasasararananananananananananananananananaqananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakaaaaaaaaaaaa
+ambLaFaFbMaFaFaTbNbIbIbObJbabababPasasauaFaFaFaFaFbrasasarananananananananananananananananaqaqaqaqaqaqaqaqanananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamamaAbQbRbSaZbJbabababTasasaAbUbUbUbUbUaAasararananananananananananananananananananananananaqaqanananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamambeaFaFaFbraZbVbaaZazasasaAbUbUbUbUbUaAasarananananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamamaAbWbXbYaPaRaRaRaRbLavaZaPbUbUbUbUbUaAasarananananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamamaAbYbYbYbZbabababababkbabkbUbUbUbUbUaAasararanananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamamaAbYcacbauaFaFaFaFaFavaZazbUbUbUbUbUaAasasaranananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamambLaFaFaFbiamamamamamasasaAbUbUbUbUbUaPasasaranananananananananananananananananananananananananananananananananananaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakakaaaaaaaaaaaa
+amamamamamamamamamamamamamamamamamamasaPbUbUbUbUbUamamamamamamamamananananamamamamamamamananananananananananananananananananananananananamamamamamamamamamamamamamamaqaqaqaqaqaqaqaqaqaqaqaqalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakakakakakaaaaaaaaaaaa
 amamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamananananananananananananananananamamamamamamamamamamamamamamamamamamamamamamamamaqaqaqaqaqaqaqaqaqaqaqamamamamamamamamamamamamamamanamamamamamamamamamamamamamamamamamamamamaaaaaaaaaaaa
 amamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamaaaaaaaaaaaa
 amamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamaaaaaaaaaaaa

@@ -22,7 +22,6 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	name = "scom"
 	config_tag = "scom"
 	required_players = 2 //lowpop mode ahoy
-	required_players_secret = 18
 	votable = 1
 	var/declared = 0
 	var/scommapsloaded = 0
@@ -37,7 +36,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	world << "\red \b Setting up S-COM, please be patient. This may take a minute or two."
 
 	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
-		del(L)
+		qdel(L)
 
 	if(!scommapsloaded) //necessary incase an admin fucks something up.
 		LoadScom()

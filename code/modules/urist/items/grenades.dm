@@ -101,7 +101,7 @@
 			//To lead to deafness.
 
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
-	del(src)
+	qdel(src)
 	return
 
 //A box for them

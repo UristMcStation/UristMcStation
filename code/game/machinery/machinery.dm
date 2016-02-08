@@ -28,6 +28,9 @@ Class Variables:
    component_parts (list)
       A list of component parts of machine used by frame based machines.
 
+   panel_open (num)
+      Whether the panel is open
+
    uid (num)
       Unique id of machine across all machines.
 
@@ -43,13 +46,10 @@ Class Variables:
          MAINT:8 -- machine is currently under going maintenance.
          EMPED:16 -- temporary broken by EMP pulse
 
-   manual (num)
-      Currently unused.
-
 Class Procs:
    New()                     'game/machinery/machine.dm'
 
-   Del()                     'game/machinery/machine.dm'
+   Destroy()                     'game/machinery/machine.dm'
 
    auto_use_power()            'game/machinery/machine.dm'
       This proc determines how power mode power is deducted by the machine.
@@ -104,13 +104,12 @@ Class Procs:
 		//2 = run auto, use active
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
-	var/power_channel = EQUIP
-		//EQUIP,ENVIRON or LIGHT
-	var/list/component_parts = list() //list of all the parts used to build it, if made from certain kinds of frames.
+	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
-	var/manual = 0
-	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
+	var/panel_open = 0
 	var/global/gl_uid = 1
+	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 
 /obj/machinery/New(l, d=0)
 	..(l)
@@ -122,18 +121,30 @@ Class Procs:
 		machines += src
 		machinery_sort_required = 1
 
-/obj/machinery/Del()
+/obj/machinery/Destroy()
 	machines -= src
+	if(component_parts)
+		for(var/atom/A in component_parts)
+			if(A.loc == src) // If the components are inside the machine, delete them.
+				qdel(A)
+			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
+				component_parts -= A
+	if(contents) // The same for contents.
+		for(var/atom/A in contents)
+			qdel(A)
 	..()
 
 /obj/machinery/process()//If you dont use process or power why are you here
-	return PROCESS_KILL
+	if(!(use_power || idle_power_usage || active_power_usage))
+		return PROCESS_KILL
+
+	return
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
 		use_power(7500/severity)
 
-		var/obj/effect/overlay/pulse2 = new/obj/effect/overlay ( src.loc )
+		var/obj/effect/overlay/pulse2 = PoolOrNew(/obj/effect/overlay, src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
@@ -141,31 +152,31 @@ Class Procs:
 		pulse2.set_dir(pick(cardinal))
 
 		spawn(10)
-			pulse2.delete()
+			qdel(pulse2)
 	..()
 
 /obj/machinery/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src)
+			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
-				del(src)
+				qdel(src)
 				return
 		if(3.0)
 			if (prob(25))
-				del(src)
+				qdel(src)
 				return
 		else
 	return
 
 /obj/machinery/blob_act()
 	if(prob(50))
-		del(src)
+		qdel(src)
 
 //sets the use_power var and then forces an area power update
-/obj/machinery/proc/update_use_power(var/new_use_power, var/force_update = 0)
+/obj/machinery/proc/update_use_power(var/new_use_power)
 	use_power = new_use_power
 
 /obj/machinery/proc/auto_use_power()
@@ -183,67 +194,21 @@ Class Procs:
 /obj/machinery/proc/inoperable(var/additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
 
+/obj/machinery/CanUseTopic(var/mob/user)
+	if(stat & BROKEN)
+		return STATUS_CLOSE
 
-/obj/machinery/Topic(href, href_list, var/nowindow = 0, var/checkrange = 1)
-	if(..())
-		return 1
-	if(!can_be_used_by(usr, be_close = checkrange))
-		return 1
-	add_fingerprint(usr)
-	return 0
+	if(!interact_offline && (stat & NOPOWER))
+		return STATUS_CLOSE
 
-/obj/machinery/proc/can_be_used_by(mob/user, be_close = 1)
-	if(!interact_offline && stat & (NOPOWER|BROKEN))
-		return 0
-	if(!user.canUseTopic(src, be_close))
-		return 0
-	return 1
+	return ..()
 
-////////////////////////////////////////////////////////////////////////////////////////////
+/obj/machinery/CouldUseTopic(var/mob/user)
+	..()
+	user.set_machine(src)
 
-/mob/proc/canUseTopic(atom/movable/M, be_close = 1)
-	return
-
-/mob/dead/observer/canUseTopic(atom/movable/M, be_close = 1)
-	if(check_rights(R_ADMIN, 0))
-		return
-
-/mob/living/canUseTopic(atom/movable/M, be_close = 1, no_dextery = 0)
-	if(no_dextery)
-		src << "<span class='notice'>You don't have the dexterity to do this!</span>"
-		return 0
-	return be_close && !in_range(M, src)
-
-/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close = 1)
-	if(restrained() || lying || stat || stunned || weakened)
-		return
-	if(be_close && !in_range(M, src))
-		if(TK in mutations)
-			var/mob/living/carbon/human/H = M
-			if(istype(H.l_hand, /obj/item/tk_grab) || istype(H.r_hand, /obj/item/tk_grab))
-				return 1
-		return
-	if(!isturf(M.loc) && M.loc != src)
-		return
-	return 1
-
-/mob/living/silicon/ai/canUseTopic(atom/movable/M)
-	if(stat)
-		return
-	// Prevents the AI from using Topic on admin levels (by for example viewing through the court/thunderdome cameras)
-	// unless it's on the same level as the object it's interacting with.
-	if(!(z == M.z || M.z in config.player_levels))
-		return
-	//stop AIs from leaving windows open and using then after they lose vision
-	//apc_override is needed here because AIs use their own APC when powerless
-	if(cameranet && !cameranet.checkTurfVis(get_turf(M)) && !apc_override)
-		return
-	return 1
-
-/mob/living/silicon/robot/canUseTopic(atom/movable/M)
-	if(stat || lockcharge || stunned || weakened)
-		return
-	return 1
+/obj/machinery/CouldNotUseTopic(var/mob/user)
+	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -262,8 +227,7 @@ Class Procs:
 	if(user.lying || user.stat)
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
-			istype(usr, /mob/living/silicon) || \
-			istype(usr, /mob/living/carbon/monkey)) )
+			istype(usr, /mob/living/silicon)))
 		usr << "\red You don't have the dexterity to do this!"
 		return 1
 /*
@@ -282,7 +246,7 @@ Class Procs:
 
 	src.add_fingerprint(user)
 
-	return 0
+	return ..()
 
 /obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
 	return
@@ -292,15 +256,15 @@ Class Procs:
 	gl_uid++
 
 /obj/machinery/proc/state(var/msg)
-  for(var/mob/O in hearers(src, null))
-    O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+	for(var/mob/O in hearers(src, null))
+		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
 
 /obj/machinery/proc/ping(text=null)
-  if (!text)
-    text = "\The [src] pings."
+	if (!text)
+		text = "\The [src] pings."
 
-  state(text, "blue")
-  playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+	state(text, "blue")
+	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /obj/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
@@ -312,14 +276,62 @@ Class Procs:
 	s.start()
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
-		if(temp_area && temp_area.master)
-			var/obj/machinery/power/apc/temp_apc = temp_area.master.get_apc()
+		if(temp_area)
+			var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
 
 			if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 				temp_apc.terminal.powernet.trigger_warning()
-		return 1
-	else
+		if(user.stunned)
+			return 1
+	return 0
+
+/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
+	if(!istype(C))
 		return 0
+	if(!panel_open)
+		return 0
+	. = dismantle()
+
+/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
+	if(!istype(S))
+		return 0
+	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+	panel_open = !panel_open
+	user << "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>"
+	update_icon()
+	return 1
+
+/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
+	if(!istype(R))
+		return 0
+	if(!component_parts)
+		return 0
+	if(panel_open)
+		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
+		var/P
+		for(var/obj/item/weapon/stock_parts/A in component_parts)
+			for(var/D in CB.req_components)
+				var/T = text2path(D)
+				if(ispath(A.type, T))
+					P = T
+					break
+			for(var/obj/item/weapon/stock_parts/B in R.contents)
+				if(istype(B, P) && istype(A, P))
+					if(B.rating > A.rating)
+						R.remove_from_storage(B, src)
+						R.handle_item_insertion(A, 1)
+						component_parts -= A
+						component_parts += B
+						B.loc = null
+						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
+						break
+			update_icon()
+			RefreshParts()
+	else
+		user << "<span class='notice'>Following parts detected in the machine:</span>"
+		for(var/var/obj/item/C in component_parts)
+			user << "<span class='notice'>    [C.name]</span>"
+	return 1
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
@@ -331,53 +343,5 @@ Class Procs:
 		if(I.reliability != 100 && crit_fail)
 			I.crit_fail = 1
 		I.loc = loc
-	del(src)
+	qdel(src)
 	return 1
-
-/obj/machinery/proc/on_assess_perp(mob/living/carbon/human/perp)
-	return 0
-
-/obj/machinery/proc/is_assess_emagged()
-	return emagged
-
-/obj/machinery/proc/assess_perp(mob/living/carbon/human/perp, var/auth_weapons, var/check_records, var/check_arrest)
-	var/threatcount = 0	//the integer returned
-
-	if(is_assess_emagged())
-		return 10	//if emagged, always return 10.
-
-	threatcount += on_assess_perp(perp)
-	if(threatcount >= 10)
-		return threatcount
-
-	//Agent cards lower threatlevel.
-	var/obj/item/weapon/card/id/id = GetIdCard(perp)
-	if(id && istype(id, /obj/item/weapon/card/id/syndicate))
-		threatcount -= 2
-
-	if(auth_weapons && !src.allowed(perp))
-		if(istype(perp.l_hand, /obj/item/weapon/gun) || istype(perp.l_hand, /obj/item/weapon/melee))
-			threatcount += 4
-
-		if(istype(perp.r_hand, /obj/item/weapon/gun) || istype(perp.r_hand, /obj/item/weapon/melee))
-			threatcount += 4
-
-		if(istype(perp.belt, /obj/item/weapon/gun) || istype(perp.belt, /obj/item/weapon/melee))
-			threatcount += 2
-
-		if(perp.species.name != "Human") //beepsky so racist.
-			threatcount += 2
-
-	if(check_records || check_arrest)
-		var/perpname = perp.name
-		if(id)
-			perpname = id.registered_name
-
-		var/datum/data/record/R = find_security_record("name", perpname)
-		if(check_records && !R)
-			threatcount += 4
-
-		if(check_arrest && R && (R.fields["criminal"] == "*Arrest*"))
-			threatcount += 4
-
-	return threatcount

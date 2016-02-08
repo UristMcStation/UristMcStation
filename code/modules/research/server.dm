@@ -24,7 +24,7 @@
 	RefreshParts()
 	src.initialize(); //Agouri
 
-/obj/machinery/r_n_d/server/Del()
+/obj/machinery/r_n_d/server/Destroy()
 	griefProtection()
 	..()
 
@@ -103,7 +103,7 @@
 /obj/machinery/r_n_d/server/proc/produce_heat()
 	if (!produces_heat)
 		return
-	
+
 	if (!use_power)
 		return
 
@@ -118,7 +118,7 @@
 
 			if(removed)
 				var/heat_produced = idle_power_usage	//obviously can't produce more heat than the machine draws from it's power source
-				
+
 				removed.add_thermal_energy(heat_produced)
 
 			env.merge(removed)
@@ -129,16 +129,16 @@
 	if (shocked)
 		shock(user,50)
 	if (istype(O, /obj/item/weapon/screwdriver))
-		if (!opened)
-			opened = 1
+		if (!panel_open)
+			panel_open = 1
 			icon_state = "server_o"
 			user << "You open the maintenance hatch of [src]."
 		else
-			opened = 0
+			panel_open = 0
 			icon_state = "server"
 			user << "You close the maintenance hatch of [src]."
 		return
-	if (opened)
+	if (panel_open)
 		if(istype(O, /obj/item/weapon/crowbar))
 			griefProtection()
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
@@ -149,7 +149,7 @@
 				if(I.reliability != 100 && crit_fail)
 					I.crit_fail = 1
 				I.loc = src.loc
-			del(src)
+			qdel(src)
 			return 1
 
 /obj/machinery/r_n_d/server/attack_hand(mob/user as mob)
@@ -196,6 +196,7 @@
 /obj/machinery/computer/rdservercontrol
 	name = "R&D Server Controller"
 	icon_state = "rdcomp"
+	light_color = "#a97faa"
 	circuit = /obj/item/weapon/circuitboard/rdservercontrol
 	var/screen = 0
 	var/obj/machinery/r_n_d/server/temp_server
@@ -205,7 +206,7 @@
 
 /obj/machinery/computer/rdservercontrol/Topic(href, href_list)
 	if(..())
-		return
+		return 1
 
 	add_fingerprint(usr)
 	usr.set_machine(src)

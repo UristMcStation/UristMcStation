@@ -34,7 +34,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon = 'icons/urist/items/tgitems.dmi'
 	desc = "An ancient Roman armor. Made of metallic strips and leather straps."
 	icon_state = "roman"
-	item_color = "roman"
+	//item_color = "roman"
 	item_state = "armor"
 	armor = list(melee = 25, bullet = 0, laser = 25, energy = 10, bomb = 10, bio = 0, rad = 0)
 
@@ -68,42 +68,42 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	desc = "A charcoal suit and red tie. Very professional."
 	icon_state = "charcoal_suit"
 	item_state = "charcoal_suit"
-	item_color = "charcoal_suit"
+	//item_color = "charcoal_suit"
 
 /obj/item/clothing/under/urist/suit_jacket/black
 	name = "black suit"
 	desc = "Black dress pants and a black skinny tie. Very professional."
 	icon_state = "blacksuit"
 	item_state = "blacksuit"
-	item_color = "blacksuit"
+	//item_color = "blacksuit"
 
 /obj/item/clothing/under/urist/suit_jacket/navy
 	name = "navy suit"
 	desc = "A navy suit and red tie, intended for the station's finest."
 	icon_state = "navy_suit"
 	item_state = "navy_suit"
-	item_color = "navy_suit"
+	//item_color = "navy_suit"
 
 /obj/item/clothing/under/urist/suit_jacket/burgundy
 	name = "burgundy suit"
 	desc = "A burgundy suit and black tie. Somewhat formal."
 	icon_state = "burgundy_suit"
 	item_state = "burgundy_suit"
-	item_color = "burgundy_suit"
+	//item_color = "burgundy_suit"
 
 /obj/item/clothing/under/urist/suit_jacket/checkered
 	name = "checkered suit"
 	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
 	icon_state = "checkered_suit"
 	item_state = "checkered_suit"
-	item_color = "checkered_suit"
+	//item_color = "checkered_suit"
 
 /obj/item/clothing/under/urist/suit_jacket/tan
 	name = "tan suit"
 	desc = "A tan suit with a yellow tie. Smart, but casual."
 	icon_state = "tan_suit"
 	item_state = "tan_suit"
-	item_color = "tan_suit"
+	//item_color = "tan_suit"
 
 /obj/item/clothing/under/urist/formal
 	urist_only = 1
@@ -115,42 +115,42 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	desc = "A captain's formal-wear, for special occasions."
 	icon_state = "captain_formal"
 	item_state = "captain_formal"
-	item_color = "captain_formal"
+	//item_color = "captain_formal"
 
 /obj/item/clothing/under/urist/formal/hosformalmale
 	name = "head of security's formal uniform"
 	desc = "A male head of security's formal-wear, for special occasions."
 	icon_state = "hos_formal_male"
 	item_state = "hos_formal_male"
-	item_color = "hos_formal_male"
+	//item_color = "hos_formal_male"
 
 /obj/item/clothing/under/urist/formal/hosformalfem
 	name = "head of security's formal uniform"
 	desc = "A female head of security's formal-wear, for special occasions."
 	icon_state = "hos_formal_fem"
 	item_state = "hos_formal_fem"
-	item_color = "hos_formal_fem"
+	//item_color = "hos_formal_fem"
 
 /obj/item/clothing/under/urist/formal/assistantformal
 	name = "assistant's formal uniform"
 	desc = "An assistant's formal-wear. Why an assistant needs formal-wear is still unknown."
 	icon_state = "assistant_formal"
 	item_state = "assistant_formal"
-	item_color = "assistant_formal"
+	//item_color = "assistant_formal"
 
 /obj/item/clothing/under/urist/formal/hopformal
 	name = "head of personal's formal uniform"
 	desc = "The head of personal's formal-wear, for special occasions."
 	icon_state = "hopformal"
 	item_state = "hopformal"
-	item_color = "hopformal"
+	//item_color = "hopformal"
 
 /obj/item/clothing/under/urist/formal/blacktango
 	name = "black tango dress"
 	desc = "Filled with latin fire."
 	icon_state = "black_tango"
 	item_state = "black_tango"
-	item_color = "black_tango"
+	//item_color = "black_tango"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/suit/urist/blackjacket

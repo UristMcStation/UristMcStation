@@ -159,7 +159,7 @@
 			var/obj/effect/landmark/scom/enemyspawn/S = new R
 			if(mission == S.mission)
 				S.spawnmobs()
-				del(S)*/
+				qdel(S)*/
 
 //		for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 //			if(C.location == 0)

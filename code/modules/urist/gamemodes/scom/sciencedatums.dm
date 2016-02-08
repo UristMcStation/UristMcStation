@@ -13,7 +13,7 @@
 
 		var/obj/I = new recipe.path //what the fuck
 		if(recipe.resources) //This is pointless
-			del(I) //TODO: Come back to this
+			qdel(I) //TODO: Come back to this
 
 /datum/scomscience/recipe
 	var/name = "object"

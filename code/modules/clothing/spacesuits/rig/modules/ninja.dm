@@ -10,14 +10,14 @@
 
 	name = "active camouflage module"
 	desc = "A robust hardsuit-integrated stealth module."
-	icon_state = "stealth"
+	icon_state = "cloak"
 
 	toggleable = 1
 	disruptable = 1
 	disruptive = 0
 
-	use_power_cost = 5
-	active_power_cost = 1
+	use_power_cost = 50
+	active_power_cost = 10
 	passive_power_cost = 0
 	module_cooldown = 30
 
@@ -66,6 +66,7 @@
 
 	name = "teleportation module"
 	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module."
+	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = 1
 	usable = 1
@@ -100,6 +101,10 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
+	if(!istype(H.loc, /turf))
+		H << "<span class='warning'>You cannot teleport out of your current location.</span>"
+		return 0
+
 	var/turf/T
 	if(target)
 		T = get_turf(target)
@@ -110,14 +115,26 @@
 		H << "<span class='warning'>You cannot teleport into solid walls.</span>"
 		return 0
 
+	if(T.z in config.admin_levels)
+		H << "<span class='warning'>You cannot use your teleporter on this Z-level.</span>"
+		return 0
+
+	if(T.contains_dense_objects())
+		H << "<span class='warning'>You cannot teleport to a location with solid objects.</span>"
+		return 0
+
+	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
+		H << "<span class='warning'>You cannot teleport to such a distant object.</span>"
+		return 0
+
 	phase_out(H,get_turf(H))
-	H.loc = T
+	H.forceMove(T)
 	phase_in(H,get_turf(H))
 
 	for(var/obj/item/weapon/grab/G in H.contents)
 		if(G.affecting)
 			phase_out(G.affecting,get_turf(G.affecting))
-			G.affecting.loc = locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z)
+			G.affecting.forceMove(locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
 			phase_in(G.affecting,get_turf(G.affecting))
 
 	return 1
@@ -126,6 +143,7 @@
 
 	name = "net projector"
 	desc = "Some kind of complex energy projector with a hardsuit mount."
+	icon_state = "enet"
 
 	interface_name = "energy net launcher"
 	interface_desc = "An advanced energy-patterning projector used to capture targets."
@@ -147,6 +165,7 @@
 
 	name = "self-destruct module"
 	desc = "Oh my God, Captain. A bomb."
+	icon_state = "deadman"
 	usable = 1
 	active = 1
 	permanent = 1
@@ -176,12 +195,12 @@
 	explosion(get_turf(src), 1, 2, 4, 5)
 	if(holder && holder.wearer)
 		holder.wearer.drop_from_inventory(src)
-		del(holder)
-	del(src)
+		qdel(holder)
+	qdel(src)
 
 /obj/item/rig_module/self_destruct/small/engage()
 	explosion(get_turf(src), 0, 0, 3, 4)
 	if(holder && holder.wearer)
 		holder.wearer.drop_from_inventory(src)
-		del(holder)
-	del(src)
+		qdel(holder)
+	qdel(src)

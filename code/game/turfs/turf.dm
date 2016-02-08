@@ -2,7 +2,7 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1.0
 
-	//for floors, use is_plating(), is_plasteel_floor() and is_light_floor()
+	//for floors, use is_plating(), is_steel_floor() and is_light_floor()
 	var/intact = 1
 
 	//Properties for open tiles (/floor)
@@ -26,13 +26,26 @@
 	var/has_resources
 	var/list/resources
 
+	// Flick animation
+	var/atom/movable/overlay/c_animation = null
+
+	// holy water
+	var/holy = 0
+
+	var/dynamic_lighting = 1
+	luminosity = 1
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)
 		spawn( 0 )
 			src.Entered(AM)
 			return
-	return
+	turfs |= src
+
+/turf/Destroy()
+	turfs -= src
+	..()
 
 /turf/ex_act(severity)
 	return 0
@@ -53,18 +66,6 @@
 	else
 		step(user.pulling, get_dir(user.pulling.loc, src))
 	return 1
-
-/turf/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/beam/pulse))
-		src.ex_act(2)
-	..()
-	return 0
-
-/turf/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj ,/obj/item/projectile/bullet/gyro))
-		explosion(src, -1, 0, 2)
-	..()
-	return 0
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -159,7 +160,7 @@
 	return 0
 /turf/proc/is_asteroid_floor()
 	return 0
-/turf/proc/is_plasteel_floor()
+/turf/proc/is_steel_floor()
 	return 0
 /turf/proc/is_light_floor()
 	return 0
@@ -203,10 +204,10 @@
 /turf/proc/RemoveLattice()
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 	if(L)
-		del L
+		qdel(L)
 
 //Creates a new turf
-/turf/proc/ChangeTurf(var/turf/N)
+/turf/proc/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
 	if (!N)
 		return
 
@@ -224,8 +225,11 @@
 					return W
 ///// Z-Level Stuff
 
-	var/old_lumcount = lighting_lumcount - initial(lighting_lumcount)
 	var/obj/fire/old_fire = fire
+	var/old_opacity = opacity
+	var/old_dynamic_lighting = dynamic_lighting
+	var/list/old_affecting_lights = affecting_lights
+	var/old_lighting_overlay = lighting_overlay
 
 	//world << "Replacing [src.type] with [N]"
 
@@ -239,53 +243,53 @@
 		if(S.zone) S.zone.rebuild()
 
 	if(ispath(N, /turf/simulated/floor))
-		//if the old turf had a zone, connect the new turf to it as well - Cael
-		//Adjusted by SkyMarshal 5/10/13 - The air master will handle the addition of the new turf.
-		//if(zone)
-		//	zone.RemoveTurf(src)
-		//	if(!zone.CheckStatus())
-		//		zone.SetStatus(ZONE_ACTIVE)
-
 		var/turf/simulated/W = new N( locate(src.x, src.y, src.z) )
-		//W.Assimilate_Air()
-
-		W.lighting_lumcount += old_lumcount
-
-		if(W.lighting_lumcount)
-			W.UpdateAffectingLights()
-
 		if(old_fire)
 			fire = old_fire
 
 		if (istype(W,/turf/simulated/floor))
 			W.RemoveLattice()
 
+		if(tell_universe)
+			universe.OnTurfChange(W)
+
 		if(air_master)
-			air_master.mark_for_update(src)
+			air_master.mark_for_update(src) //handle the addition of the new turf.
+
+		for(var/turf/space/S in range(W,1))
+			S.update_starlight()
 
 		W.levelupdate()
-		return W
+		. = W
 
 	else
-		//if(zone)
-		//	zone.RemoveTurf(src)
-		//	if(!zone.CheckStatus())
-		//		zone.SetStatus(ZONE_ACTIVE)
 
 		var/turf/W = new N( locate(src.x, src.y, src.z) )
-		W.lighting_lumcount += old_lumcount
-		if(old_lumcount != W.lighting_lumcount)
-			W.lighting_changed = 1
-			lighting_controller.changed_turfs += W
 
 		if(old_fire)
 			old_fire.RemoveFire()
 
+		if(tell_universe)
+			universe.OnTurfChange(W)
+
 		if(air_master)
 			air_master.mark_for_update(src)
 
+		for(var/turf/space/S in range(W,1))
+			S.update_starlight()
+
 		W.levelupdate()
-		return W
+		. =  W
+
+	lighting_overlay = old_lighting_overlay
+	affecting_lights = old_affecting_lights
+	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+		reconsider_lights()
+	if(dynamic_lighting != old_dynamic_lighting)
+		if(dynamic_lighting)
+			lighting_build_overlays()
+		else
+			lighting_clear_overlays()
 
 
 //Commented out by SkyMarshal 5/10/13 - If you are patching up space, it should be vacuum.
@@ -342,7 +346,8 @@
 
 /turf/proc/ReplaceWithLattice()
 	src.ChangeTurf(/turf/space)
-	new /obj/structure/lattice( locate(src.x, src.y, src.z) )
+	spawn()
+		new /obj/structure/lattice( locate(src.x, src.y, src.z) )
 
 /turf/proc/kill_creatures(mob/U = null)//Will kill people/creatures and damage mechs./N
 //Useful to batch-add creatures to the list.
@@ -380,3 +385,28 @@
 			if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
 				L.Add(t)
 	return L
+
+/turf/proc/process()
+	return PROCESS_KILL
+
+/turf/proc/contains_dense_objects()
+	if(density)
+		return 1
+	for(var/atom/A in src)
+		if(A.density && !(A.flags & ON_BORDER))
+			return 1
+	return 0
+
+//expects an atom containing the reagents used to clean the turf
+/turf/proc/clean(atom/source, mob/user)
+	if(source.reagents.has_reagent("water", 1) || source.reagents.has_reagent("cleaner", 1))
+		clean_blood()
+		if(istype(src, /turf/simulated))
+			var/turf/simulated/T = src
+			T.dirt = 0
+		for(var/obj/effect/O in src)
+			if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+				qdel(O)
+	else
+		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.

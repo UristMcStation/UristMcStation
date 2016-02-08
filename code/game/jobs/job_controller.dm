@@ -185,36 +185,6 @@ var/global/datum/controller/occupations/job_master
 		return
 
 
-	proc/FillAIPosition()
-		var/ai_selected = 0
-		var/datum/job/job = GetJob("AI")
-		if(!job)	return 0
-		if((job.title == "AI") && (config) && (!config.allow_ai))	return 0
-
-		for(var/i = job.total_positions, i > 0, i--)
-			for(var/level = 1 to 3)
-				var/list/candidates = list()
-				if(ticker.mode.name == "AI malfunction")//Make sure they want to malf if its malf
-					candidates = FindOccupationCandidates(job, level, BE_MALF)
-				else
-					candidates = FindOccupationCandidates(job, level)
-				if(candidates.len)
-					var/mob/new_player/candidate = pick(candidates)
-					if(AssignRole(candidate, "AI"))
-						ai_selected++
-						break
-			//Malf NEEDS an AI so force one if we didn't get a player who wanted it
-			if((ticker.mode.name == "AI malfunction")&&(!ai_selected))
-				unassigned = shuffle(unassigned)
-				for(var/mob/new_player/player in unassigned)
-					if(jobban_isbanned(player, "AI"))	continue
-					if(AssignRole(player, "AI"))
-						ai_selected++
-						break
-			if(ai_selected)	return 1
-			return 0
-
-
 /** Proc DivideOccupations
  *  fills var "assigned_role" for all ready players.
  *  This proc must not have any side effect besides of modifying "assigned_role".
@@ -225,10 +195,11 @@ var/global/datum/controller/occupations/job_master
 		SetupOccupations()
 
 		//Holder for Triumvirate is stored in the ticker, this just processes it
-		if(ticker)
-			for(var/datum/job/ai/A in occupations)
-				if(ticker.triai)
+		if(ticker && ticker.triai)
+			for(var/datum/job/A in occupations)
+				if(A.title == "AI")
 					A.spawn_positions = 3
+					break
 
 		//Get the players who are ready
 		for(var/mob/new_player/player in player_list)
@@ -245,7 +216,7 @@ var/global/datum/controller/occupations/job_master
 
 		//People who wants to be assistants, sure, go on.
 		Debug("DO, Running Assistant Check 1")
-		var/datum/job/assist = new /datum/job/assistant()
+		var/datum/job/assist = new DEFAULT_JOB_TYPE ()
 		var/list/assistant_candidates = FindOccupationCandidates(assist, 3)
 		Debug("AC1, Candidates: [assistant_candidates.len]")
 		for(var/mob/new_player/player in assistant_candidates)
@@ -259,11 +230,6 @@ var/global/datum/controller/occupations/job_master
 		FillHeadPosition()
 		Debug("DO, Head Check end")
 
-		//Check for an AI
-		Debug("DO, Running AI Check")
-		FillAIPosition()
-		Debug("DO, AI Check end")
-
 		//Other jobs are now checked
 		Debug("DO, Running Standard Check")
 
@@ -274,6 +240,7 @@ var/global/datum/controller/occupations/job_master
 
 		// Loop through all levels from high to low
 		var/list/shuffledoccupations = shuffle(occupations)
+		// var/list/disabled_jobs = ticker.mode.disabled_jobs  // So we can use .Find down below without a colon.
 		for(var/level = 1 to 3)
 			//Check the head jobs first each level
 			CheckHeadPositions(level)
@@ -283,7 +250,7 @@ var/global/datum/controller/occupations/job_master
 
 				// Loop through all jobs
 				for(var/datum/job/job in shuffledoccupations) // SHUFFLE ME BABY
-					if(!job)
+					if(!job || ticker.mode.disabled_jobs.Find(job.title) )
 						continue
 
 					if(jobban_isbanned(player, job.title))
@@ -347,7 +314,6 @@ var/global/datum/controller/occupations/job_master
 
 
 	proc/EquipRank(var/mob/living/carbon/human/H, var/rank, var/joined_late = 0)
-
 		if(!H)	return null
 
 		var/datum/job/job = GetJob(rank)
@@ -392,7 +358,10 @@ var/global/datum/controller/occupations/job_master
 							spawn_in_storage += thing
 			//Equip job items.
 			job.equip(H)
+			job.equip_backpack(H)
+			job.equip_survival(H)
 			job.apply_fingerprints(H)
+
 			//If some custom items could not be equipped before, try again now.
 			for(var/thing in custom_equip_leftovers)
 				var/datum/gear/G = gear_datums[thing]
@@ -421,7 +390,7 @@ var/global/datum/controller/occupations/job_master
 			if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 				H.loc = S.loc
 			// Moving wheelchair if they have one
-			if(H.buckled && istype(H.buckled, /obj/structure/stool/bed/chair/wheelchair))
+			if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
 				H.buckled.loc = H.loc
 				H.buckled.set_dir(H.dir)
 
@@ -463,72 +432,50 @@ var/global/datum/controller/occupations/job_master
 			switch(rank)
 				if("Cyborg")
 					return H.Robotize()
-				if("AI","Clown")	//don't need bag preference stuff!
+				if("AI")
+					return H
+				if("Captain")
+					var/sound/announce_sound = (ticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
+					captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
+
+			//Deferred item spawning.
+			if(spawn_in_storage && spawn_in_storage.len)
+				var/obj/item/weapon/storage/B
+				for(var/obj/item/weapon/storage/S in H.contents)
+					B = S
+					break
+
+				if(!isnull(B))
+					for(var/thing in spawn_in_storage)
+						H << "\blue Placing [thing] in your [B]!"
+						var/datum/gear/G = gear_datums[thing]
+						new G.path(B)
 				else
-					switch(H.backbag) //BS12 EDIT
-						if(1)
-							H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
-						if(2)
-							var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack(H)
-							new /obj/item/weapon/storage/box/survival(BPK)
-							H.equip_to_slot_or_del(BPK, slot_back,1)
-						if(3)
-							var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack/satchel_norm(H)
-							new /obj/item/weapon/storage/box/survival(BPK)
-							H.equip_to_slot_or_del(BPK, slot_back,1)
-						if(4)
-							var/obj/item/weapon/storage/backpack/BPK = new/obj/item/weapon/storage/backpack/satchel(H)
-							new /obj/item/weapon/storage/box/survival(BPK)
-							H.equip_to_slot_or_del(BPK, slot_back,1)
-
-					//Deferred item spawning.
-					if(spawn_in_storage && spawn_in_storage.len)
-						var/obj/item/weapon/storage/B
-						for(var/obj/item/weapon/storage/S in H.contents)
-							B = S
-							break
-
-						if(!isnull(B))
-							for(var/thing in spawn_in_storage)
-								H << "\blue Placing [thing] in your [B]!"
-								var/datum/gear/G = gear_datums[thing]
-								new G.path(B)
-						else
-							H << "\red Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."
-
-		//TODO: Generalize this by-species
-		if(H.species)
-			if(H.species.name == "Tajara" || H.species.name == "Unathi")
-				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes,1)
-			else if(H.species.name == "Vox")
-				H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
-				if(!H.r_hand)
-					H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_r_hand)
-					H.internal = H.r_hand
-				else if (!H.l_hand)
-					H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_l_hand)
-					H.internal = H.l_hand
-				H.internals.icon_state = "internal1"
+					H << "\red Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."
 
 		if(istype(H)) //give humans wheelchairs, if they need them.
-			var/datum/organ/external/l_foot = H.get_organ("l_foot")
-			var/datum/organ/external/r_foot = H.get_organ("r_foot")
-			if((!l_foot || l_foot.status & ORGAN_DESTROYED) && (!r_foot || r_foot.status & ORGAN_DESTROYED))
-				var/obj/structure/stool/bed/chair/wheelchair/W = new /obj/structure/stool/bed/chair/wheelchair(H.loc)
+			var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
+			var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+			if(!l_foot || !r_foot)
+				var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
 				H.buckled = W
 				H.update_canmove()
 				W.set_dir(H.dir)
 				W.buckled_mob = H
 				W.add_fingerprint(H)
 
-		H << "<B>You are the [alt_title ? alt_title : rank].</B>"
-		H << "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>"
-		H << "<b>To speak on your department's radio channel use :h. For the use of other channels, examine your headset.</b>"
+		H << "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>"
+
+		if(job.supervisors)
+			H << "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>"
+
+		if(job.idtype)
+			spawnId(H, rank, alt_title)
+			H.equip_to_slot_or_del(new /obj/item/device/radio/headset(H), slot_l_ear)
+			H << "<b>To speak on your department's radio channel use :h. For the use of other channels, examine your headset.</b>"
+
 		if(job.req_admin_notify)
 			H << "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>"
-
-		spawnId(H, rank, alt_title)
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset(H), slot_l_ear)
 
 		//Gives glasses to the vision impaired
 		if(H.disabilities & NEARSIGHTED)
@@ -536,11 +483,10 @@ var/global/datum/controller/occupations/job_master
 			if(equipped != 1)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
-//		H.update_icons()
 
-		H.hud_updateflag |= (1 << ID_HUD)
-		H.hud_updateflag |= (1 << IMPLOYAL_HUD)
-		H.hud_updateflag |= (1 << SPECIALROLE_HUD)
+		BITSET(H.hud_updateflag, ID_HUD)
+		BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+		BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 		return H
 
 

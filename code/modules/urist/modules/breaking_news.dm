@@ -72,6 +72,10 @@
 			switch(DD)
 				if(9)							BNews = "Beer company Blue Moon has been shut down by Terran health officals after finding traces of mercury in their drinks."
 				if(16)							BNews = "The infamous pirate captain Black-Eyed John has been killed by Terran Navy ships today after 15 years of terrorizing Terran Space."
+				if(26)							BNews = "ALERT: After a lull in alien attacks spanning three Earth months, there has been a massive resurgence in attacks on human colonies across the Milky Way, proving that the Galactic Crisis is still a massive concern for humans everywhere. We will provide continuing coverage over the coming days."
+				if(27)							BNews = "HIGH ALERT: This is an emergency broadcast for all living in the Ryclies sector. An alien fleet of unprecedented size has been spotted entering the Ryclies system. Ryclies defence forces and Terran naval units are moving to respond."
+				if(28)							BNews = "SYSTEM WIDE HIGH ALERT: The Ryclies system is on high alert today as alien forces have crushed Ryclies defence forces and Terran Naval units in the sector. We have recieved confirmed reports of alien forces landing in large numbers on Ryclies II. A spokesman for the joint Terran/Nanotrasen naval force ANFOR (created in response to the Galactic Crisis) has stated that they will do everything they can to protect the Ryclies system."
+				if(29)							BNews = "SYSTEM WIDE HIGH ALERT: We have confirmed reports that fighting continues on the surface of Ryclies II. ANFOR units have been reported arriving in the sector along with units from an unknown force called SCOM. It has been suggested that they will be engaging the growing alien forces above Ryclies II. Citizens on Ryclies I are advised to follow local evacuation orders as closely as possible."
 
 		if(9) //September //remind Knox to update this
 			switch(DD)

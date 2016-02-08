@@ -6,11 +6,13 @@
 	w_class = 2
 	anchored = 0
 
-	matter = list("metal" = 700,"glass" = 300)
+	matter = list(DEFAULT_WALL_MATERIAL = 700,"glass" = 300)
 
 	//	Motion, EMP-Proof, X-Ray
-	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/sheet/mineral/osmium, /obj/item/weapon/stock_parts/scanning_module)
+	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/weapon/stock_parts/scanning_module)
 	var/list/upgrades = list()
+	var/camera_name
+	var/camera_network
 	var/state = 0
 	var/busy = 0
 	/*
@@ -47,7 +49,7 @@
 
 			else if(iswrench(W))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-				user << "You unattach the assembly from it's place."
+				user << "You unattach the assembly from its place."
 				anchored = 0
 				update_icon()
 				state = 0
@@ -67,7 +69,7 @@
 			else if(iswelder(W))
 
 				if(weld(W, user))
-					user << "You unweld the assembly from it's place."
+					user << "You unweld the assembly from its place."
 					state = 1
 					anchored = 1
 				return
@@ -78,7 +80,7 @@
 			if(isscrewdriver(W))
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-				var/input = strip_html(input(usr, "Which networks would you like to connect this camera to? Seperate networks with a comma. No Spaces!\nFor example: SS13,Security,Secret ", "Set Network", "SS13"))
+				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Exodus,Security,Secret ", "Set Network", camera_network ? camera_network : "Exodus"))
 				if(!input)
 					usr << "No input found please hang up and try your call again."
 					return
@@ -90,7 +92,7 @@
 
 				var/area/camera_area = get_area(src)
 				var/temptag = "[sanitize(camera_area.name)] ([rand(1, 999)])"
-				input = strip_html(input(usr, "How would you like to name the camera?", "Set Camera Name", temptag))
+				input = sanitizeSafe(input(usr, "How would you like to name the camera?", "Set Camera Name", camera_name ? camera_name : temptag), MAX_NAME_LEN)
 
 				state = 4
 				var/obj/machinery/camera/C = new(src.loc)
@@ -99,10 +101,7 @@
 
 				C.auto_turn()
 
-				C.network = uniquelist(tempnetwork)
-				tempnetwork = difflist(C.network,restricted_camera_networks)
-				if(!tempnetwork.len)//Camera isn't on any open network - remove its chunk from AI visibility.
-					cameranet.removeCamera(C)
+				C.replace_networks(uniquelist(tempnetwork))
 
 				C.c_tag = input
 
@@ -128,7 +127,7 @@
 	if(is_type_in_list(W, possible_upgrades) && !is_type_in_list(W, upgrades)) // Is a possible upgrade and isn't in the camera already.
 		user << "You attach \the [W] into the assembly inner circuits."
 		upgrades += W
-		user.drop_item(W)
+		user.remove_from_mob(W)
 		W.loc = src
 		return
 

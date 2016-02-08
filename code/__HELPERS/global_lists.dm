@@ -7,6 +7,8 @@ var/list/directory = list()							//list of all ckeys with associated client
 
 var/global/list/player_list = list()				//List of all mobs **with clients attached**. Excludes /mob/new_player
 var/global/list/mob_list = list()					//List of all mobs, including clientless
+var/global/list/human_mob_list = list()				//List of all human mobs and sub-types, including clientless
+var/global/list/silicon_mob_list = list()			//List of all silicon mobs, including clientless
 var/global/list/living_mob_list = list()			//List of all alive mobs, including clientless. Excludes /mob/new_player
 var/global/list/dead_mob_list = list()				//List of all dead mobs, including clientless. Excludes /mob/new_player
 
@@ -18,6 +20,8 @@ var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
+
+var/global/list/turfs = list()						//list of all turfs
 
 //Languages/species/whitelist.
 var/global/list/all_species[0]
@@ -42,13 +46,24 @@ var/global/list/facial_hair_styles_male_list = list()
 var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 	//Underwear
-var/global/list/underwear_m = list("White", "Grey", "Green", "Blue", "Black", "Mankini", "Heart Boxers", "Black Boxers", "White Boxers", "Striped Boxers", "None") //Curse whoever made male/female underwear diffrent colours
-var/global/list/underwear_f = list("Red", "White", "Yellow", "Blue", "Black", "Thong", "Black Alt", "White Alt", "Green", "Pink", "None")
+var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "Heart Boxers" = "m7", "Black Boxers" = "m8", "White Boxers" = "m9", "Striped Boxers" = "m10", "White Briefs" = "m11", "Striped Underwear" = "m12", "Nanotrasen Boxers" = "m14","None") //Curse whoever made male/female underwear diffrent colours
+var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8", "White Alt" = "f9", "Green" = "f10", "Pink" = "f11", "Striped" = "f12", "Frilly" = "f13", "None")
 	//undershirt
-var/global/list/undershirt_t = list("Black Tank top", "White Tank top", "Black shirt", "White shirt", "Female Tank Top", "None")
+var/global/list/undershirt_t = list("White Tank top" = "u1", "Black Tank top" = "u2", "Black shirt" = "u3", "White shirt" = "u4", "Blue shirt" = "u5", "Red shirt" = "u6", "Yellow shirt" = "u7", "Green shirt" = "u8", "Corgi shirt" = "u9", "I Love NT shirt" = "u10", "Peace sign shirt" = "u11", "Blue Polo" = "u12", "Red Polo" = "u13", "White Polo" = "u14", "White Halter Top" = "u15", "None")
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt")
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
+// Visual nets
+var/list/datum/visualnet/visual_nets = list()
+var/datum/visualnet/camera/cameranet = new()
+var/datum/visualnet/cult/cultnet = new()
+
+// Runes
+var/global/list/rune_list = new()
+var/global/list/escape_list = list()
+var/global/list/endgame_exits = list()
+var/global/list/endgame_safespawns = list()
 //////////////////////////
 /////Initial Building/////
 //////////////////////////
@@ -88,7 +103,8 @@ var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Al
 	sort_surgeries()
 
 	//List of job. I can't believe this was calculated multiple times per tick!
-	paths = typesof(/datum/job) -list(/datum/job,/datum/job/ai,/datum/job/cyborg)
+	paths = typesof(/datum/job)-/datum/job
+	paths -= exclude_jobs
 	for(var/T in paths)
 		var/datum/job/J = new T
 		joblist[J.title] = J

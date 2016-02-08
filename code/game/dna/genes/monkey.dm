@@ -5,7 +5,7 @@
 	block=MONKEYBLOCK
 
 /datum/dna/gene/monkey/can_activate(var/mob/M,var/flags)
-	return istype(M, /mob/living/carbon/human) || istype(M,/mob/living/carbon/monkey)
+	return istype(M, /mob/living/carbon/human) || istype(M,/mob/living/carbon/human/monkey)
 
 /datum/dna/gene/monkey/activate(var/mob/living/M, var/connected, var/flags)
 	if(!istype(M,/mob/living/carbon/human))
@@ -33,10 +33,10 @@
 		animation.master = src
 		flick("h2monkey", animation)
 		sleep(48)
-		del(animation)
+		qdel(animation)
 
 
-	var/mob/living/carbon/monkey/O = null
+	var/mob/living/carbon/human/monkey/O = null
 	if(H.species.primitive)
 		O = new H.species.primitive(src)
 	else
@@ -60,7 +60,7 @@
 
 
 	for(var/obj/T in (M.contents-implants))
-		del(T)
+		qdel(T)
 
 	O.loc = M.loc
 
@@ -77,19 +77,19 @@
 	O.adjustToxLoss(M.getToxLoss() + 20)
 	O.adjustOxyLoss(M.getOxyLoss())
 	O.stat = M.stat
-	O.a_intent = "hurt"
+	O.a_intent = I_HURT
 	for (var/obj/item/weapon/implant/I in implants)
 		I.loc = O
 		I.implanted = O
 //		O.update_icon = 1	//queue a full icon update at next life() call
-	del(M)
+	qdel(M)
 	return
 
 /datum/dna/gene/monkey/deactivate(var/mob/living/M, var/connected, var/flags)
-	if(!istype(M,/mob/living/carbon/monkey))
+	if(!istype(M,/mob/living/carbon/human/monkey))
 		//testing("Cannot humanize [M], type is [M.type].")
 		return
-	var/mob/living/carbon/monkey/Mo = M
+	var/mob/living/carbon/human/monkey/Mo = M
 	Mo.monkeyizing = 1
 	var/list/implants = list() //Still preserving implants
 	for(var/obj/item/weapon/implant/W in Mo)
@@ -108,7 +108,7 @@
 		animation.master = src
 		flick("monkey2h", animation)
 		sleep(48)
-		del(animation)
+		qdel(animation)
 
 	var/mob/living/carbon/human/O
 	if(Mo.greaterform)
@@ -136,7 +136,7 @@
 		M.viruses -= D
 
 	//for(var/obj/T in M)
-	//	del(T)
+	//	qdel(T)
 
 	O.loc = M.loc
 
@@ -171,5 +171,5 @@
 		I.loc = O
 		I.implanted = O
 //		O.update_icon = 1	//queue a full icon update at next life() call
-	del(M)
+	qdel(M)
 	return

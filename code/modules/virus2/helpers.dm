@@ -50,7 +50,7 @@ proc/infection_check(var/mob/living/carbon/M, var/vector = "Airborne")
 	if (vector == "Airborne")
 		var/obj/item/I = M.wear_mask
 		if (istype(I))
-			protection = max(protection, round(0.06*I.armor["bio"]))
+			protection = max(protection, I.armor["bio"])
 
 	return prob(protection)
 
@@ -77,7 +77,8 @@ proc/airborne_can_reach(turf/source, turf/target)
 	if ("[disease.uniqueID]" in M.virus2)
 		return
 	// if one of the antibodies in the mob's body matches one of the disease's antigens, don't infect
-	if((M.antibodies & disease.antigen) != 0)
+	var/list/antibodies_in_common = M.antibodies & disease.antigen
+	if(antibodies_in_common.len)
 		return
 	if(M.reagents.has_reagent("spaceacillin"))
 		return
@@ -85,9 +86,9 @@ proc/airborne_can_reach(turf/source, turf/target)
 	if(!disease.affected_species.len)
 		return
 
-	if (!(M.species.name in disease.affected_species))
+	if (!(M.species.get_bodytype() in disease.affected_species))
 		if (forced)
-			disease.affected_species[1] = M.species.name
+			disease.affected_species[1] = M.species.get_bodytype()
 		else
 			return //not compatible with this species
 
@@ -98,7 +99,7 @@ proc/airborne_can_reach(turf/source, turf/target)
 		D.minormutate()
 //		log_debug("Adding virus")
 		M.virus2["[D.uniqueID]"] = D
-		M.hud_updateflag |= 1 << STATUS_HUD
+		BITSET(M.hud_updateflag, STATUS_HUD)
 
 
 //Infects mob M with disease D
@@ -109,12 +110,14 @@ proc/airborne_can_reach(turf/source, turf/target)
 //Infects mob M with random lesser disease, if he doesn't have one
 /proc/infect_mob_random_lesser(var/mob/living/carbon/M)
 	var/datum/disease2/disease/D = new /datum/disease2/disease
+
 	D.makerandom(1)
 	infect_mob(M, D)
 
 //Infects mob M with random greated disease, if he doesn't have one
 /proc/infect_mob_random_greater(var/mob/living/carbon/M)
 	var/datum/disease2/disease/D = new /datum/disease2/disease
+
 	D.makerandom(2)
 	infect_mob(M, D)
 
@@ -144,18 +147,18 @@ proc/airborne_can_reach(turf/source, turf/target)
 //					log_debug("Could not reach target")
 
 			if (vector == "Contact")
-				if (in_range(src, victim))
+				if (Adjacent(victim))
 //					log_debug("In range, infecting")
 					infect_virus2(victim,V)
 
 	//contact goes both ways
-	if (victim.virus2.len > 0 && vector == "Contact")
+	if (victim.virus2.len > 0 && vector == "Contact" && Adjacent(victim))
 //		log_debug("Spreading [vector] diseases from [victim] to [src]")
 		var/nudity = 1
 
 		if (ishuman(victim))
 			var/mob/living/carbon/human/H = victim
-			var/datum/organ/external/select_area = H.get_organ(src.zone_sel.selecting)
+			var/obj/item/organ/external/select_area = H.get_organ(src.zone_sel.selecting)
 			var/list/clothes = list(H.head, H.wear_mask, H.wear_suit, H.w_uniform, H.gloves, H.shoes)
 			for(var/obj/item/clothing/C in clothes)
 				if(C && istype(C))

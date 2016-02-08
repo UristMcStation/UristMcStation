@@ -9,8 +9,8 @@
 /var/const/access_tox = 7
 /var/const/access_tox_storage = 8
 /var/const/access_genetics = 9
-/var/const/access_engine = 10
-/var/const/access_engine_equip= 11
+/var/const/access_engine = 10 //engineering hallways
+/var/const/access_engine_equip = 11
 /var/const/access_maint_tunnels = 12
 /var/const/access_external_airlocks = 13
 /var/const/access_emergency_storage = 14
@@ -66,6 +66,7 @@
 /var/const/access_psychiatrist = 64 // Psychiatrist's office
 /var/const/access_xenoarch = 65
 /var/const/access_blueshield = 66
+/var/const/access_medical_equip = 67
 
 	//BEGIN CENTCOM ACCESS
 	/*Should leave plenty of room if we need to add more access levels.
@@ -86,10 +87,8 @@
 	//MONEY
 /var/const/access_crate_cash = 200
 
-/obj/var/list/req_access = null
-/obj/var/req_access_txt = "0"
-/obj/var/list/req_one_access = null
-/obj/var/req_one_access_txt = "0"
+/obj/var/list/req_access = list()
+/obj/var/list/req_one_access = list()
 
 //returns 1 if this mob has sufficient access to use this object
 /obj/proc/allowed(mob/M)
@@ -104,11 +103,6 @@
 		//if they are holding or wearing a card that has access, that works
 		if(src.check_access(H.get_active_hand()) || src.check_access(H.wear_id))
 			return 1
-	else if(istype(M, /mob/living/carbon/monkey))
-		var/mob/living/carbon/george = M
-		//they can only hold things :(
-		if(src.check_access(george.get_active_hand()))
-			return 1
 	return 0
 
 /obj/item/proc/GetAccess()
@@ -118,54 +112,17 @@
 	return null
 
 /obj/proc/check_access(obj/item/I)
-	//These generations have been moved out of /obj/New() because they were slowing down the creation of objects that never even used the access system.
-	if(!src.req_access)
-		src.req_access = list()
-		if(src.req_access_txt)
-			var/list/req_access_str = text2list(req_access_txt,";")
-			for(var/x in req_access_str)
-				var/n = text2num(x)
-				if(n)
-					req_access += n
-
-	if(!src.req_one_access)
-		src.req_one_access = list()
-		if(src.req_one_access_txt)
-			var/list/req_one_access_str = text2list(req_one_access_txt,";")
-			for(var/x in req_one_access_str)
-				var/n = text2num(x)
-				if(n)
-					req_one_access += n
-
-	if(!istype(src.req_access, /list)) //something's very wrong
-		return 1
-
-	var/list/L = src.req_access
-	if(!L.len && (!src.req_one_access || !src.req_one_access.len)) //no requirements
-		return 1
-	if(!I)
-		return 0
-	for(var/req in src.req_access)
-		if(!(req in I.GetAccess())) //doesn't have this access
-			return 0
-	if(src.req_one_access && src.req_one_access.len)
-		for(var/req in src.req_one_access)
-			if(req in I.GetAccess()) //has an access from the single access list
-				return 1
-		return 0
-	return 1
-
+	return check_access_list(I ? I.GetAccess() : list())
 
 /obj/proc/check_access_list(var/list/L)
-	if(!src.req_access  && !src.req_one_access)	return 1
-	if(!istype(src.req_access, /list))	return 1
-	if(!src.req_access.len && (!src.req_one_access || !src.req_one_access.len))	return 1
+	if(!req_access)		req_access = list()
+	if(!req_one_access)	req_one_access = list()
 	if(!L)	return 0
 	if(!istype(L, /list))	return 0
 	for(var/req in src.req_access)
 		if(!(req in L)) //doesn't have this access
 			return 0
-	if(src.req_one_access && src.req_one_access.len)
+	if(src.req_one_access.len)
 		for(var/req in src.req_one_access)
 			if(req in L) //has an access from the single access list
 				return 1
@@ -204,7 +161,7 @@
 	            access_hydroponics, access_library, access_lawyer, access_virology, access_psychiatrist, access_cmo, access_qm, access_clown, access_mime, access_surgery,
 	            access_theatre, access_research, access_mining, access_mailsorting,
 	            access_heads_vault, access_mining_station, access_xenobiology, access_ce, access_hop, access_hos, access_RC_announce,
-	            access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_blueshield)
+	            access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_blueshield, access_medical_equip)
 
 /proc/get_all_centcom_access()
 	return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_medical, access_cent_living, access_cent_storage, access_cent_teleporter, access_cent_creed, access_cent_captain)
@@ -219,7 +176,7 @@
 		if(1) //security
 			return list(access_sec_doors, access_security, access_brig, access_armory, access_forensics_lockers, access_court, access_hos)
 		if(2) //medbay
-			return list(access_medical, access_genetics, access_morgue, access_chemistry, access_psychiatrist, access_virology, access_surgery, access_cmo)
+			return list(access_medical, access_medical_equip, access_genetics, access_morgue, access_chemistry, access_psychiatrist, access_virology, access_surgery, access_cmo)
 		if(3) //research
 			return list(access_research, access_tox, access_tox_storage, access_robotics, access_xenobiology, access_xenoarch, access_rd)
 		if(4) //engineering and maintenance
@@ -258,7 +215,7 @@
 		if(access_cargo_bot)
 			return "Cargo Bot Delivery"
 		if(access_security)
-			return "Security"
+			return "Security Equipment"
 		if(access_brig)
 			return "Holding Cells"
 		if(access_court)
@@ -382,7 +339,9 @@
 		if(access_gateway)
 			return "Gateway"
 		if(access_sec_doors)
-			return "Brig"
+			return "Security"
+		if(access_medical_equip)
+			return "Medical Equipment"
 
 /proc/get_centcom_access_desc(A)
 	switch(A)
@@ -408,7 +367,7 @@
 /proc/get_all_jobs()
 	var/list/all_jobs = list()
 	var/list/all_datums = typesof(/datum/job)
-	all_datums.Remove(list(/datum/job,/datum/job/ai,/datum/job/cyborg))
+	all_datums -= exclude_jobs
 	var/datum/job/jobdatum
 	for(var/jobtype in all_datums)
 		jobdatum = new jobtype

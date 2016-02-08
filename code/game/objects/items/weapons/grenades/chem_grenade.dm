@@ -1,10 +1,12 @@
 /obj/item/weapon/grenade/chem_grenade
 	name = "grenade casing"
 	icon_state = "chemg"
-	item_state = "flashbang"
+	item_state = "grenade"
 	desc = "A hand made chemical grenade."
 	w_class = 2.0
 	force = 2.0
+	det_time = null
+	unacidable = 1
 	var/stage = 0
 	var/state = 0
 	var/path = 0
@@ -25,6 +27,7 @@
 				detonator.detached()
 				usr.put_in_hands(detonator)
 				detonator=null
+				det_time = null
 				stage=0
 				icon_state = initial(icon_state)
 			else if(beakers.len)
@@ -60,6 +63,12 @@
 			user.remove_from_mob(det)
 			det.loc = src
 			detonator = det
+			if(istimer(detonator.a_left))
+				var/obj/item/device/assembly/timer/T = detonator.a_left
+				det_time = 10*T.time
+			if(istimer(detonator.a_right))
+				var/obj/item/device/assembly/timer/T = detonator.a_right
+				det_time = 10*T.time
 			icon_state = initial(icon_state) +"_ass"
 			name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			stage = 1
@@ -143,12 +152,19 @@
 		if(!has_reagents)
 			icon_state = initial(icon_state) +"_locked"
 			playsound(src.loc, 'sound/items/Screwdriver2.ogg', 50, 1)
+			spawn(0) //Otherwise det_time is erroneously set to 0 after this
+				if(istimer(detonator.a_left)) //Make sure description reflects that the timer has been reset
+					var/obj/item/device/assembly/timer/T = detonator.a_left
+					det_time = 10*T.time
+				if(istimer(detonator.a_right))
+					var/obj/item/device/assembly/timer/T = detonator.a_right
+					det_time = 10*T.time
 			return
 
 		playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
 
 		for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-			G.reagents.trans_to(src, G.reagents.total_volume)
+			G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
 		if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
 			var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
@@ -158,7 +174,7 @@
 
 			for(var/atom/A in view(affected_area, src.loc))
 				if( A == src ) continue
-				src.reagents.reaction(A, 1, 10)
+				src.reagents.touch(A)
 
 		if(istype(loc, /mob/living/carbon))		//drop dat grenade if it goes off in your hand
 			var/mob/living/carbon/C = loc
@@ -167,7 +183,7 @@
 
 		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
 		spawn(50)		   //To make sure all reagents can work
-			del(src)	   //correctly before deleting the grenade.
+			qdel(src)	   //correctly before deleting the grenade.
 
 
 /obj/item/weapon/grenade/chem_grenade/large

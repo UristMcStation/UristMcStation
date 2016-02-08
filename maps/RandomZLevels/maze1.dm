@@ -31,17 +31,17 @@
 
 	var/teleport_x = 0	// teleportation coordinates (if one is null, then no teleport!)
 	var/teleport_y = 0
-	var/teleport_z = 0
+//	var/teleport_z = 0
 
 /obj/structure/maze/diamond/attack_hand(mob/user as mob)
 
 	user << "<span class='notice'>[src] disappears and you feel yourself getting sucked away!</span>"
 
-	if(teleport_x && teleport_y && teleport_z)
+	if(teleport_x && teleport_y) // && teleport_z)
 
 		user.x = teleport_x
 		user.y = teleport_y
-		user.z = teleport_z
+//		user.z = teleport_z
 
 	var/obj/effect/gateway/G1 = new /obj/effect/gateway(get_step(src, EAST))
 	var/obj/effect/gateway/G2 = new /obj/effect/gateway(get_step(src, WEST))
@@ -51,23 +51,24 @@
 	G2.density = 0
 	G3.density = 0
 
-	var/obj/effect/step_trigger/teleporter/T1 = new /obj/effect/step_trigger/teleporter(get_step(src, EAST))
-	var/obj/effect/step_trigger/teleporter/T2 = new /obj/effect/step_trigger/teleporter(get_step(src, WEST))
-	var/obj/effect/step_trigger/teleporter/T3 = new /obj/effect/step_trigger/teleporter(src.loc)
+	var/obj/effect/step_trigger/teleporter/urist/T1 = new /obj/effect/step_trigger/teleporter/urist(get_step(src, EAST))
+	var/obj/effect/step_trigger/teleporter/urist/T2 = new /obj/effect/step_trigger/teleporter/urist(get_step(src, WEST))
+	var/obj/effect/step_trigger/teleporter/urist/T3 = new /obj/effect/step_trigger/teleporter/urist(src.loc)
 
 	T1.teleport_x = teleport_x
 	T1.teleport_y = teleport_y
-	T1.teleport_z = teleport_z
+//	T1.teleport_z = teleport_z
 
 	T2.teleport_x = teleport_x
 	T2.teleport_y = teleport_y
-	T2.teleport_z = teleport_z
+//	T2.teleport_z = teleport_z
 
 	T3.teleport_x = teleport_x
 	T3.teleport_y = teleport_y
-	T3.teleport_z = teleport_z
+//	T3.teleport_z = teleport_z
 
-	del(src)
+	qdel(src)
+	return
 
 /obj/item/clothing/head/urist/director
 	name = "Director's Helmet"
@@ -98,7 +99,8 @@
 	user << "<span class='notice'>The Director collapses to the ground, armour tumbling on the floor. As the dust settles, you think you hear a faint voice whisper 'thank you...'</span>"
 	new /obj/item/clothing/suit/space/director(src.loc)
 	new /obj/item/clothing/head/urist/director(src.loc)
-	del(src)
+	qdel(src)
+	return
 
 /obj/structure/maze/fakegateway
 	name = "gateway"
@@ -107,3 +109,13 @@
 	icon_state = "off"
 	density = 1
 	anchored = 1
+
+/obj/effect/step_trigger/teleporter/urist/New()
+	if(!teleport_z)
+		teleport_z = src.z
+	if(!teleport_y)
+		teleport_y = src.y
+	if(!teleport_x)
+		teleport_x = src.x
+
+	..()

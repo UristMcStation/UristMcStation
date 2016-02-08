@@ -314,7 +314,7 @@ datum/design/circuit/aifixer
 ///////////////////////////////////
 datum/design/circuit/shield
 	req_tech = list("bluespace" = 4, "phorontech" = 3)
-	materials = list("$glass" = 2000, "sacid" = 20, "$phoron" = 10000, "$diamond" = 5000, "$gold" = 10000)
+	materials = list("$glass" = 2000, "sacid" = 20, "$diamond" = 5000, "$gold" = 10000)
 
 datum/design/circuit/shield/AssembleDesignName()
 	name = "Shield generator circuit design ([name])"
@@ -358,7 +358,7 @@ datum/design/aimodule/safeguard
 	build_path = /obj/item/weapon/aiModule/safeguard
 
 datum/design/aimodule/onehuman
-	name = "OneHuman"
+	name = "OneCrewMember"
 	id = "onehuman"
 	req_tech = list("programming" = 4, "materials" = 6)
 	build_path = /obj/item/weapon/aiModule/oneHuman
@@ -484,6 +484,12 @@ datum/design/circuit/tcom/receiver
 	id = "tcom-receiver"
 	req_tech = list("programming" = 4, "engineering" = 3, "bluespace" = 2)
 	build_path = /obj/item/weapon/circuitboard/telecomms/receiver
+
+datum/design/circuit/tcom/bluespacerelay
+	name = "emergency bluespace relay"
+	id = "bluespace-relay"
+	req_tech = list("programming" = 4, "bluespace" = 4)
+	build_path = /obj/item/weapon/circuitboard/bluespacerelay
 
 ///////////////////////////////////
 ////////////Mecha Modules//////////
@@ -760,6 +766,14 @@ datum/design/item/stock_part/AssembleDesignDesc()
 	if(!desc)
 		desc = "A stock part used in the construction of various devices."
 
+/datum/design/item/stock_part/RPED
+	name = "Rapid Part Exchange Device"
+	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
+	id = "rped"
+	req_tech = list("engineering" = 3, "materials" = 3)
+	materials = list("$metal" = 15000, "$glass" = 5000)
+	build_path = /obj/item/weapon/storage/part_replacer
+
 datum/design/item/stock_part/basic_capacitor
 	build_type = PROTOLATHE | AUTOLATHE
 	id = "basic_capacitor"
@@ -970,6 +984,18 @@ datum/design/circuit/secure_airlock
 	id = "securedoor"
 	req_tech = list("programming" = 3)
 	build_path = /obj/item/weapon/airlock_electronics/secure
+
+datum/design/circuit/biogenerator
+	name = "biogenerator"
+	id = "biogenerator"
+	req_tech = list("programming" = 2)
+	build_path = /obj/item/weapon/circuitboard/biogenerator
+
+datum/design/circuit/recharge_station
+	name = "cyborg recharge station"
+	id = "recharge_station"
+	req_tech = list("programming" = 3, "engineering" = 2)
+	build_path = /obj/item/weapon/circuitboard/recharge_station
 
 /////////////////////////////////////////
 ////////Power Stuff Circuitboards////////
@@ -1292,7 +1318,7 @@ datum/design/item/weapon/rapidsyringe
 	id = "rapidsyringe"
 	req_tech = list("combat" = 3, "materials" = 3, "engineering" = 3, "biotech" = 2)
 	materials = list("$metal" = 5000, "$glass" = 1000)
-	build_path = /obj/item/weapon/gun/syringe/rapidsyringe
+	build_path = /obj/item/weapon/gun/launcher/syringe/rapid
 /*
 datum/design/item/weapon/largecrossbow
 	name = "Energy Crossbow"

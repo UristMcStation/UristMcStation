@@ -2,7 +2,7 @@
 	faction = "hostile"
 	mouse_opacity = 2 //This makes it easier to hit hostile mobs, you only need to click on their tile, and is set back to 1 when they die
 	stop_automated_movement_when_pulled = 0
-	var/environment_smash = 1 //Set to 1 to break closets,tables,racks, etc; 2 for walls; 3 for rwalls
+	environment_smash = 1 //Set to 1 to break closets,tables,racks, etc; 2 for walls; 3 for rwalls
 
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/atom/target // /vg/ edit:  Removed type specification so spiders can target doors.
@@ -280,12 +280,12 @@
 		for(var/dir in cardinal)
 			var/turf/T = get_step(src, dir)
 			if(istype(T, /turf/simulated/wall) && T.Adjacent(src))
-				T.attack_generic(src)
+				T.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			for(var/atom/A in T)
 				if(!A.Adjacent(src))
 					continue
 				if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
-					A.attack_generic(src)
+					A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 	return
 
 /mob/living/simple_animal/hostile/proc/EscapeConfinement()
@@ -301,3 +301,43 @@
 		return 1
 	else
 		return 0
+
+//Tentatively throwing those two procs for the purpose of porting cult critter checks.
+//That behavior is apparently removed due to performance concerns and throwing 'em here is untested at all, so remove if needed.
+
+/mob/living/simple_animal/hostile/proc/check_horde()
+	return 0
+/*	if(emergency_shuttle.shuttle.location)
+		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
+			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
+				shuttletarget = pick(escape_list) //Pick a shuttle target
+			enroute = 1
+			stop_automated_movement = 1
+			spawn()
+				if(!src.stat)
+					horde()
+
+		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
+			enroute = 0
+			stop_automated_movement = 0
+
+/mob/living/simple_animal/hostile/proc/horde()
+	var/turf/T = get_step_to(src, shuttletarget)
+	for(var/atom/A in T)
+		if(istype(A,/obj/machinery/door/airlock))
+			var/obj/machinery/door/airlock/D = A
+			D.open(1)
+		else if(istype(A,/obj/structure/simple_door))
+			var/obj/structure/simple_door/D = A
+			if(D.density)
+				D.Open()
+		else if(istype(A,/obj/structure/cult/pylon))
+			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
+		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
+			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
+	Move(T)
+	FindTarget()
+	if(!target_mob || enroute)
+		spawn(10)
+			if(!src.stat)
+				horde()*/

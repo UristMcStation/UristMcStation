@@ -26,7 +26,7 @@
 "z" = (/obj/item/weapon/gun/energy/pulse_rifle/destroyer,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
 "A" = (/obj/item/toy/spinningtoy,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
 "B" = (/obj/item/weapon/card/id/centcom,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
-"C" = (/obj/item/weapon/gun/grenadelauncher,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
+"C" = (/obj/item/weapon/gun/launcher/grenade,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
 "D" = (/obj/machinery/turret{dir = 8; lasers = 1; name = "Angry Turret"},/obj/machinery/light,/turf/simulated/floor{icon_state = "white"},/area/awaymission)
 
 (1,1,1) = {"

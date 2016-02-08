@@ -51,6 +51,7 @@
 	var/will_help = 0
 	var/can_heal = 0
 	var/will_flee = 0
+	search_objects = 1
 
 /mob/living/simple_animal/hostile/scom/husk
 	name = "Husk"
@@ -173,7 +174,7 @@
 
 /mob/living/simple_animal/hostile/scom/harvester/death()
 	..()
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/scom/forgotten
@@ -200,7 +201,7 @@
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 	flick("forgotten_die", src)
 	sleep(4)
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/alien/ravager
@@ -233,7 +234,7 @@
 	icon_state = "alienprojectile"
 	damage = 25
 
-obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
+/obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	name = "mind blast"
 	icon_state = "" //INVISIBUL
 	damage = 30
@@ -241,7 +242,7 @@ obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
 	weaken = 5
 	stutter = 5
 
-obj/item/projectile/beam/scom/alien5
+/obj/item/projectile/beam/scom/alien5
 	name = "dark energy"
 	icon_state = "dblast"
 	damage = 15
@@ -249,13 +250,18 @@ obj/item/projectile/beam/scom/alien5
 	weaken = 5
 	stutter = 5
 
+/obj/item/projectile/beam/scom/alien6//for the fighters
+	name = "alien beam"
+	icon_state = "alienprojectile"
+	damage = 30
+
 /mob/living/simple_animal/hostile/scom/lactera/death()
 	..()
 	if(weapon1)
 		new weapon1 (src.loc)
 	flick("fire", src)
 	sleep(5)
-	del(src)
+	qdel(src)
 	return
 
 /mob/living/simple_animal/hostile/scom/allophylus/death()
@@ -263,6 +269,6 @@ obj/item/projectile/beam/scom/alien5
 	visible_message("<span class='danger'>The [src.name] bursts into a ball of psionic energy!</span>")
 	flick("emfield_s1", src)
 	sleep(6)
-	del(src)
+	qdel(src)
 	return
 

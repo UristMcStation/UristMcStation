@@ -14,6 +14,10 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
 
+
+/obj/item/weapon/rig/combat/equipped
+
+
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,

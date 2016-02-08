@@ -116,7 +116,7 @@
 	w_class = 4
 	storage_slots = 7
 	max_w_class = 3
-	max_combined_w_class = 24
+	max_storage_space = 24
 	can_hold = list(
 		"/obj/item"
 		)

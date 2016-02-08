@@ -77,7 +77,7 @@
 			return
 		user.drop_item()
 		if(W)
-			W.loc = src.loc
+			W.forceMove(src.loc)
 	else if((istype(W, /obj/item/weapon/card/emag)||istype(W, /obj/item/weapon/melee/energy/blade)) && !src.broken)
 		broken = 1
 		locked = 0
@@ -132,3 +132,25 @@
 			overlays += "welded"
 	else
 		icon_state = icon_opened
+
+
+/obj/structure/closet/secure_closet/req_breakout()
+	if(!opened && locked) return 1
+	return ..() //It's a secure closet, but isn't locked.
+
+/obj/structure/closet/secure_closet/break_open()
+	desc += " It appears to be broken."
+	icon_state = icon_off
+	spawn()
+		flick(icon_broken, src)
+		sleep(10)
+		flick(icon_broken, src)
+		sleep(10)
+	broken = 1
+	locked = 0
+	update_icon()
+	//Do this to prevent contents from being opened into nullspace (read: bluespace)
+	if(istype(loc, /obj/structure/bigDelivery))
+		var/obj/structure/bigDelivery/BD = loc
+		BD.unwrap()
+	open()

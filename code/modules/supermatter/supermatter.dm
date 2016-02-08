@@ -1,8 +1,8 @@
 
 #define NITROGEN_RETARDATION_FACTOR 0.15	//Higher == N2 slows reaction more
-#define THERMAL_RELEASE_MODIFIER 750		//Higher == more heat released during reaction
+#define THERMAL_RELEASE_MODIFIER 10000		//Higher == more heat released during reaction
 #define PHORON_RELEASE_MODIFIER 1500		//Higher == less phoron released by reaction
-#define OXYGEN_RELEASE_MODIFIER 1500		//Higher == less oxygen released at high temperature/power
+#define OXYGEN_RELEASE_MODIFIER 15000		//Higher == less oxygen released at high temperature/power
 #define REACTION_POWER_MODIFIER 1.1			//Higher == more overall power
 
 /*
@@ -18,7 +18,7 @@
 //Controls how much power is produced by each collector in range - this is the main parameter for tweaking SM balance, as it basically controls how the power variable relates to the rest of the game.
 #define POWER_FACTOR 1.0
 #define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
-#define CRITICAL_TEMPERATURE 800	//K
+#define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
 #define DAMAGE_RATE_LIMIT 3			//damage rate cap at power = 300, scales linearly with power
 
@@ -37,7 +37,7 @@
 	icon_state = "darkmatter"
 	density = 1
 	anchored = 0
-	luminosity = 4
+	light_range = 4
 
 	var/gasefficency = 0.25
 
@@ -47,13 +47,14 @@
 	var/damage_archived = 0
 	var/safe_alert = "Crystaline hyperstructure returning to safe operating levels."
 	var/safe_warned = 0
+	var/public_alert = 0 //Stick to Engineering frequency except for big warnings when integrity bad
 	var/warning_point = 100
 	var/warning_alert = "Danger! Crystal hyperstructure instability!"
 	var/emergency_point = 700
 	var/emergency_alert = "CRYSTAL DELAMINATION IMMINENT."
 	var/explosion_point = 1000
 
-	l_color = "#8A8A00"
+	light_color = "#8A8A00"
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 
@@ -88,11 +89,11 @@
 
 /obj/machinery/power/supermatter/New()
 	. = ..()
-	radio = new (src)
+	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 
-/obj/machinery/power/supermatter/Del()
-	del radio
+/obj/machinery/power/supermatter/Destroy()
+	qdel(radio)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -102,7 +103,8 @@
 	grav_pulling = 1
 	exploded = 1
 	for(var/mob/living/mob in living_mob_list)
-		if(loc.z == mob.loc.z)
+		var/turf/T = get_turf(mob)
+		if(T && (loc.z == T.z))
 			if(istype(mob, /mob/living/carbon/human))
 				//Hilariously enough, running into a closet should make you get hit the hardest.
 				var/mob/living/carbon/human/H = mob
@@ -111,22 +113,20 @@
 			mob.apply_effect(rads, IRRADIATE)
 	spawn(pull_time)
 		explosion(get_turf(src), explosion_power, explosion_power * 2, explosion_power * 3, explosion_power * 4, 1)
-		del src
+		qdel(src)
 		return
 
 //Changes color and luminosity of the light to these values if they were not already set
 /obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
-	if(l_color != clr)
-		l_color = clr
-	if(luminosity != lum)
-		SetLuminosity(lum)
+	if(lum != light_range || clr != light_color)
+		set_light(lum, l_color = clr)
 
 /obj/machinery/power/supermatter/proc/announce_warning()
 	var/integrity = damage / explosion_point
 	integrity = round(100 - integrity * 100)
 	integrity = integrity < 0 ? 0 : integrity
 	var/alert_msg = " Integrity at [integrity]%"
-
+	
 	if(damage > emergency_point)
 		alert_msg = emergency_alert + alert_msg
 		lastwarning = world.timeofday - WARNING_DELAY * 4
@@ -141,7 +141,15 @@
 	else
 		alert_msg = null
 	if(alert_msg)
-		radio.autosay(alert_msg, "Supermatter Monitor")
+		radio.autosay(alert_msg, "Supermatter Monitor", "Engineering")
+		//Public alerts
+		if((damage > emergency_point) && !public_alert)
+			radio.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
+			public_alert = 1
+		else if(safe_warned && public_alert)
+			radio.autosay(alert_msg, "Supermatter Monitor")
+			public_alert = 0
+		
 
 /obj/machinery/power/supermatter/process()
 
@@ -165,7 +173,7 @@
 		if(!istype(L, /turf/space) && (world.timeofday - lastwarning) >= WARNING_DELAY * 10)
 			announce_warning()
 	else
-		shift_light(4,initial(l_color))
+		shift_light(4,initial(light_color))
 	if(grav_pulling)
 		supermatter_pull()
 
@@ -209,7 +217,7 @@
 		power = max( (removed.temperature * temp_factor) * oxygen + power, 0)
 
 		//We've generated power, now let's transfer it to the collectors for storing/usage
-		transfer_energy()
+		//transfer_energy()
 
 		var/device_energy = power * REACTION_POWER_MODIFIER
 
@@ -233,9 +241,11 @@
 		if(!istype(l.glasses, /obj/item/clothing/glasses/meson))
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 
-	//adjusted range so that a power of 300 (pretty high) results in 8 tiles, roughly the distance from the core to the engine monitoring room.
-	for(var/mob/living/l in range(src, round(sqrt(power / 5))))
-		var/rads = (power / 10) * sqrt( 1 / get_dist(l, src) )
+	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
+	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
+	for(var/mob/living/l in range(src, round(sqrt(power / 2))))
+		var/radius = max(get_dist(l, src), 1)
+		var/rads = (power / 10) * ( 1 / (radius**2) )
 		l.apply_effect(rads, IRRADIATE)
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
@@ -273,6 +283,7 @@
 
 	Consume(user)
 
+/*
 /obj/machinery/power/supermatter/proc/transfer_energy()
 	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
 		var/distance = get_dist(R, src)
@@ -280,6 +291,7 @@
 			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
 			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
 	return
+*/
 
 /obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
@@ -293,6 +305,8 @@
 
 
 /obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+	if(istype(AM, /obj/effect))
+		return
 	if(istype(AM, /mob/living))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
@@ -309,7 +323,7 @@
 		user.dust()
 		power += 200
 	else
-		del user
+		qdel(user)
 
 	power += 200
 
@@ -330,29 +344,7 @@
 		defer_powernet_rebuild = 1
 	// Let's just make this one loop.
 	for(var/atom/X in orange(pull_radius,src))
-		// Movable atoms only
-		if(istype(X, /atom/movable))
-			if(is_type_in_list(X, uneatable))	continue
-			if(((X) && (!istype(X,/mob/living/carbon/human))))
-				step_towards(X,src)
-				if(istype(X, /obj)) //unanchored objects pulled twice as fast
-					var/obj/O = X
-					if(!O.anchored)
-						step_towards(X,src)
-				else
-					step_towards(X,src)
-				if(istype(X, /obj/structure/window)) //shatter windows
-					var/obj/structure/window/W = X
-					W.ex_act(2.0)
-			else if(istype(X,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = X
-				if(istype(H.shoes,/obj/item/clothing/shoes/magboots))
-					var/obj/item/clothing/shoes/magboots/M = H.shoes
-					if(M.magpulse)
-						step_towards(H,src) //step just once with magboots
-						continue
-				step_towards(H,src) //step twice
-				step_towards(H,src)
+		X.singularity_pull(src, STAGE_FIVE)
 
 	if(defer_powernet_rebuild != 2)
 		defer_powernet_rebuild = 0

@@ -44,8 +44,8 @@
 	invisibility = 101
 	New()
 		if(prob(10))
-			new /obj/effect/glowshroom(src.loc)
-		del(src)
+			new /obj/effect/plant(src.loc)
+		qdel(src)
 
 /obj/effect/landmark/loot_spawn
 	name = "loot spawner"
@@ -91,19 +91,19 @@
 					var/amount = rand(2,6)
 					var/quantity = rand(10,50)
 					var/list/possible_spawns = list()
-					for(var/bar_type in typesof(/obj/item/stack/sheet/mineral) - /obj/item/stack/sheet/mineral - /obj/item/stack/sheet/mineral/enruranium)
+					for(var/bar_type in typesof(/obj/item/stack/material) - /obj/item/stack/material)
 						possible_spawns += bar_type
 
 					var/bar_type = pick(possible_spawns)
 					for(var/i=0,i<amount,i++)
-						var/obj/item/stack/sheet/mineral/M = new bar_type(C)
+						var/obj/item/stack/material/M = new bar_type(C)
 						M.amount = quantity
 				else
 					//credits
 
 					var/amount = rand(2,6)
 					var/list/possible_spawns = list()
-					for(var/cash_type in typesof(/obj/item/stack/sheet/mineral))
+					for(var/cash_type in typesof(/obj/item/stack/material))
 						possible_spawns += cash_type
 
 					var/cash_type = pick(possible_spawns)
@@ -116,7 +116,7 @@
 					new /obj/effect/decal/remains/xeno(src.loc)
 			if("plants")
 				if(prob(25))
-					new /obj/effect/glowshroom(src.loc)
+					new /obj/effect/plant(src.loc)
 				else if(prob(33))
 					new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap(src.loc)
 				else if(prob(50))
@@ -153,10 +153,10 @@
 			if("weapons")
 				var/obj/structure/closet/crate/secure/weapon/C = new(src.loc)
 				var/new_type = pick(
-				200; /obj/item/weapon/hatchet, \
+				200; /obj/item/weapon/material/hatchet, \
 				/obj/item/weapon/gun/projectile/pistol, \
 				/obj/item/weapon/gun/projectile/deagle, \
-				/obj/item/weapon/gun/projectile/russian, \
+				// /obj/item/weapon/gun/projectile/revolver/russian, \ //got commented out in revolver.dm
 				)
 				new new_type(C)
 			if("spacesuit")
@@ -263,7 +263,7 @@
 				for(var/i=0,i<num,i++)
 					new /mob/living/simple_animal/hostile/viscerator(C)
 
-		del(src)
+		qdel(src)
 
 /obj/effect/landmark/loot_spawn/low
 	name = "low prob loot spawner"
@@ -283,8 +283,8 @@
 
 	New()
 		trap_type = pick(50;"thrower","sawburst","poison_dart","flame_burst",10;"phoron_gas",5;"n2_gas")
-		if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
-			new /obj/effect/glowshroom(src.loc)
+//		if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
+//			new /obj/effect/plant(src.loc)
 
 		//hint that this tile is dangerous
 		if(prob(90))
@@ -306,7 +306,7 @@
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
 			M << "\red <b>You feel something small and sharp strike you!</b>"
@@ -317,7 +317,7 @@
 			myloc.overlays += flicker
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
 			M << "\red <b>A jet of fire comes out of nowhere!</b>"
@@ -349,7 +349,7 @@
 					my_turf.density = 0
 			spawn(8)
 				myloc.overlays -= flicker
-				del(flicker)
+				qdel(flicker)
 
 			var/dist = rand(1,5)
 			var/curtiles = 0
@@ -373,11 +373,11 @@
 
 	New()
 		if(prob(10))
-			new /obj/effect/glowshroom(src.loc)
+			new /obj/effect/plant(src.loc)
 		if(prob(90))
 			var/turf/T = get_turf(src)
 			T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
-		del(src)
+		qdel(src)
 
 //50% chance of being a trap
 /obj/effect/step_trigger/trap/fifty
@@ -390,8 +390,8 @@
 			..()
 		else
 			if(prob(10))
-				new /obj/effect/glowshroom(src.loc)
-			del(src)
+				new /obj/effect/plant(src.loc)
+			qdel(src)
 
 //structures
 

@@ -85,7 +85,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	cable_list += src //add it to the global cable list
 
 
-/obj/structure/cable/Del()					// called when a cable is deleted
+/obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()				// update the powernets
 	cable_list -= src							//remove it from global cable list
@@ -154,11 +154,11 @@ By design, d1 is the smallest direction and d2 is the highest
 					var/turf/below = locate(src.x, src.y, controller.down_target)
 					for(var/obj/structure/cable/c in below)
 						if(c.d1 == 12 || c.d2 == 12)
-							c.Del()
+							qdel(c)
 ///// Z-Level Stuff
 		investigate_log("was cut by [key_name(usr, usr.client)] in [user.loc.loc]","wires")
 
-		del(src) // qdel
+		qdel(src)
 		return
 
 
@@ -193,24 +193,24 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(5, 1, src)
 		s.start()
-		return 1
-	else
-		return 0
+		if(usr.stunned)
+			return 1
+	return 0
 
 //explosion handling
 /obj/structure/cable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			del(src) // qdel
+			qdel(src)
 		if(2.0)
 			if (prob(50))
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
-				del(src) // qdel
+				qdel(src)
 
 		if(3.0)
 			if (prob(25))
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
-				del(src) // qdel
+				qdel(src)
 	return
 
 obj/structure/cable/proc/cableColor(var/colorC)
@@ -347,64 +347,54 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	. = list()	// this will be a list of all connected power objects
 	var/turf/T
 
-///// Z-Level Stuff
-	if (d1 == 11 || d1 == 12)
+	// Handle up/down cables
+	if(d1 == 11 || d1 == 12 || d2 == 11 || d2 == 12)
 		var/turf/controllerlocation = locate(1, 1, z)
 		for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
-			if(controller.up && d1 == 12)
+			if(controller.up && (d1 == 12 || d2 == 12))
 				T = locate(src.x, src.y, controller.up_target)
 				if(T)
 					. += power_list(T, src, 11, 1)
-			if(controller.down && d1 == 11)
+			if(controller.down && (d1 == 11 || d2 == 11))
 				T = locate(src.x, src.y, controller.down_target)
 				if(T)
 					. += power_list(T, src, 12, 1)
-///// Z-Level Stuff
-	//get matching cables from the first direction
-	else if(d1) //if not a node cable
-		T = get_step(src, d1)
-		if(T)
-			. += power_list(T, src, turn(d1, 180), powernetless_only) //get adjacents matching cables
 
-	if(d1&(d1-1)) //diagonal direction, must check the 4 possibles adjacents tiles
-		T = get_step(src,d1&3) // go north/south
+	// Handle standard cables in adjacent turfs
+	for(var/cable_dir in list(d1, d2))
+		if(cable_dir == 11 || cable_dir == 12 || cable_dir == 0)
+			continue
+		var/reverse = reverse_dir[cable_dir]
+		T = get_step(src, cable_dir)
 		if(T)
-			. += power_list(T, src, d1 ^ 3, powernetless_only) //get diagonally matching cables
-		T = get_step(src,d1&12) // go east/west
-		if(T)
-			. += power_list(T, src, d1 ^ 12, powernetless_only) //get diagonally matching cables
-
-	. += power_list(loc, src, d1, powernetless_only) //get on turf matching cables
-
-///// Z-Level Stuff
-	if(d2 == 11 || d2 == 12)
-		var/turf/controllerlocation = locate(1, 1, z)
-		for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
-			if(controller.up && d2 == 12)
-				T = locate(src.x, src.y, controller.up_target)
+			for(var/obj/structure/cable/C in T)
+				if((C.d1 && C.d1 == reverse) || (C.d2 && C.d2 == reverse))
+					. += C
+		if(cable_dir & (cable_dir - 1)) // Diagonal, check for /\/\/\ style cables along cardinal directions
+			for(var/pair in list(NORTH|SOUTH, EAST|WEST))
+				T = get_step(src, cable_dir & pair)
 				if(T)
-					. += power_list(T, src, 11, 1)
-			if(controller.down && d2 == 11)
-				T = locate(src.x, src.y, controller.down_target)
-				if(T)
-					. += power_list(T, src, 12, 1)
-///// Z-Level Stuff
-	else
-		//do the same on the second direction (which can't be 0)
-		T = get_step(src, d2)
-		if(T)
-			. += power_list(T, src, turn(d2, 180), powernetless_only) //get adjacents matching cables
+					var/req_dir = cable_dir ^ pair
+					for(var/obj/structure/cable/C in T)
+						if((C.d1 && C.d1 == req_dir) || (C.d2 && C.d2 == req_dir))
+							. += C
 
-		if(d2&(d2-1)) //diagonal direction, must check the 4 possibles adjacents tiles
-			T = get_step(src,d2&3) // go north/south
-			if(T)
-				. += power_list(T, src, d2 ^ 3, powernetless_only) //get diagonally matching cables
-			T = get_step(src,d2&12) // go east/west
-			if(T)
-				. += power_list(T, src, d2 ^ 12, powernetless_only) //get diagonally matching cables
-		. += power_list(loc, src, d2, powernetless_only) //get on turf matching cables
+	// Handle cables on the same turf as us
+	for(var/obj/structure/cable/C in loc)
+		if(C.d1 == d1 || C.d2 == d1 || C.d1 == d2 || C.d2 == d2) // if either of C's d1 and d2 match either of ours
+			. += C
 
-	return .
+	if(d1 == 0)
+		for(var/obj/machinery/power/P in loc)
+			if(P.powernet == 0) continue // exclude APCs with powernet=0
+			if(!powernetless_only || !P.powernet)
+				. += P
+
+	// if the caller asked for powernetless cables only, dump the ones with powernets
+	if(powernetless_only)
+		for(var/obj/structure/cable/C in .)
+			if(C.powernet)
+				. -= C
 
 //should be called after placing a cable which extends another cable, creating a "smooth" cable that no longer terminates in the centre of a turf.
 //needed as this can, unlike other placements, disconnect cables
@@ -418,7 +408,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		propagate_network(powerlist[1],PN) //propagates the new powernet beginning at the source cable
 
 		if(PN.is_empty()) //can happen with machines made nodeless when smoothing cables
-			del(PN) // qdel
+			qdel(PN)
 
 // cut the cable's powernet at this cable and updates the powergrid
 /obj/structure/cable/proc/cut_cable_from_powernet()
@@ -470,20 +460,29 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	amount = MAXCOIL
 	max_amount = MAXCOIL
 	color = COLOR_RED
-	//item_color = COLOR_RED Use regular "color" var instead. No need to have it duplicate in two vars. Causes confusion.
 	desc = "A coil of power cable."
 	throwforce = 10
 	w_class = 2.0
 	throw_speed = 2
 	throw_range = 5
-	matter = list("metal" = 50, "glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 20)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
+	stacktype = /obj/item/stack/cable_coil
+
+/obj/item/stack/cable_coil/cyborg
+	name = "cable coil synthesizer"
+	desc = "A device that makes cable."
+	gender = NEUTER
+	matter = null
+	uses_charge = 1
+	charge_costs = list(1)
+	stacktype = /obj/item/stack/cable_coil
 
 /obj/item/stack/cable_coil/suicide_act(mob/user)
-	if(locate(/obj/structure/stool) in user.loc)
+	if(locate(/obj/item/weapon/stool) in user.loc)
 		user.visible_message("<span class='suicide'>[user] is making a noose with the [src.name]! It looks like \he's trying to commit suicide.</span>")
 	else
 		user.visible_message("<span class='suicide'>[user] is strangling \himself with the [src.name]! It looks like \he's trying to commit suicide.</span>")
@@ -507,7 +506,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/attack(mob/M as mob, mob/user as mob)
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/datum/organ/external/S = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/S = H.get_organ(user.zone_sel.selecting)
 		if(!(S.status & ORGAN_ROBOT) || user.a_intent != "help")
 			return ..()
 
@@ -518,7 +517,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		if(S.burn_dam > 0 && use(1))
 			S.heal_damage(0,15,0,1)
-			user.visible_message("\red \The [user] repairs some burn damage on \the [M]'s [S.display_name] with \the [src].")
+			user.visible_message("\red \The [user] repairs some burn damage on \the [M]'s [S.name] with \the [src].")
 			return
 		else
 			user << "Nothing to fix!"
@@ -576,7 +575,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		usr << "\blue You cannot do that."
 	..()
 
-/obj/item/stack/cable_coil/robot/verb/set_colour()
+/obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
 	set category = "Object"
 
@@ -604,61 +603,29 @@ obj/structure/cable/proc/cableColor(var/colorC)
 // Items usable on a cable coil :
 //   - Wirecutters : cut them duh !
 //   - Cable coil : merge cables
-/obj/item/stack/cable_coil/attackby(obj/item/weapon/W, mob/user)
-	..()
-	if( istype(W, /obj/item/weapon/wirecutters) && src.amount > 1)
-		src.amount--
-		new/obj/item/stack/cable_coil(user.loc, 1,color)
-		user << "You cut a piece off the cable coil."
-		src.update_icon()
+/obj/item/stack/cable_coil/proc/can_merge(var/obj/item/stack/cable_coil/C)
+	return color == C.color
+
+/obj/item/stack/cable_coil/cyborg/can_merge()
+	return 1
+
+/obj/item/stack/cable_coil/transfer_to(obj/item/stack/cable_coil/S)
+	if(!istype(S))
 		return
-	else if(istype(W, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = W
-		if(C.amount >= MAXCOIL)
-			user << "The coil is too long, you cannot add any more cable to it."
-			return
+	if(!can_merge(S))
+		return
 
-		if( (C.amount + src.amount <= MAXCOIL) )
-			user << "You join the cable coils together."
-			C.give(src.amount) // give it cable
-			src.use(src.amount) // make sure this one cleans up right
-			return
+	..()
 
-		else
-			var/amt = MAXCOIL - C.amount
-			user << "You transfer [amt] length\s of cable from one coil to the other."
-			C.give(amt)
-			src.use(amt)
-			return
-
-//remove cables from the stack
-/* This is probably reduntant
-/obj/item/stack/cable_coil/use(var/used)
-	if(src.amount < used)
-		return 0
-	else if (src.amount == used)
-		if(ismob(loc)) //handle mob icon update
-			var/mob/M = loc
-			M.unEquip(src)
-		qdel(src)
-		return 1
-	else
-		amount -= used
-		update_icon()
-		return 1
-*/
-/obj/item/stack/cable_coil/use(var/used)
+/obj/item/stack/cable_coil/use()
 	. = ..()
 	update_icon()
 	return
 
-//add cables to the stack
-/obj/item/stack/cable_coil/proc/give(var/extra)
-	if(amount + extra > MAXCOIL)
-		amount = MAXCOIL
-	else
-		amount += extra
+/obj/item/stack/cable_coil/add()
+	. = ..()
 	update_icon()
+	return
 
 ///////////////////////////////////////////////
 // Cable laying procedures
@@ -761,7 +728,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if (C.shock(user, 50))
 				if (prob(50)) //fail
 					new/obj/item/stack/cable_coil(C.loc, 1, C.color)
-					del(C) // qdel
+					qdel(C)
 
 // called when cable_coil is click on an installed obj/cable
 // or click on a turf that already contains a "node" cable
@@ -825,7 +792,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if (NC.shock(user, 50))
 				if (prob(50)) //fail
 					new/obj/item/stack/cable_coil(NC.loc, 1, NC.color)
-					del(NC) // qdel
+					qdel(NC)
 
 			return
 
@@ -873,7 +840,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if (C.shock(user, 50))
 			if (prob(50)) //fail
 				new/obj/item/stack/cable_coil(C.loc, 2, C.color)
-				del(C) // qdel
+				qdel(C)
 				return
 
 		C.denode()// this call may have disconnected some cables that terminated on the centre of the turf, if so split the powernets.

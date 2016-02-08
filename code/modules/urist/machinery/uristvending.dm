@@ -14,7 +14,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A vending machine for costumes."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
-	req_access_txt = "46" //Theatre access needed, unless hacked.
+	req_access = list("access_theatre") // Theatre access needed, unless hacked.
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
 	vend_delay = 15
 	vend_reply = "Thank you for using AutoDrobe!"
@@ -48,7 +48,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(/obj/item/weapon/reagent_containers/food/snacks/tofu = 24,
 					/obj/item/weapon/reagent_containers/food/drinks/ice = 12,
 					/obj/item/weapon/reagent_containers/food/snacks/candy_corn = 6)
-	contraband = list(/obj/item/weapon/kitchen/utensil/knife = 6)
+	contraband = list(/obj/item/weapon/material/kitchen/utensil/knife = 6)
 
 //nt vanity machine.
 
@@ -96,8 +96,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Take care now!"
 	product_ads = "Buy some hats!;A bare head is absolutely ASKING for a robusting!"
 	product_slogans = "Warning, not all hats are dog/monkey compatable. Apply forcefully with care.;Apply directly to the forehead.;Who doesn't love spending cash on hats?!;From the people that brought you collectable hat crates, Hatlord!"
-	products = list(/obj/item/clothing/head/bowler = 10,/obj/item/clothing/head/urist/beaverhat = 10,/obj/item/clothing/head/urist/boaterhat = 10,/obj/item/clothing/head/urist/fedora = 5,/obj/item/clothing/head/urist/fez = 10,/obj/item/clothing/head/soft/blue = 10,/obj/item/clothing/head/soft/green = 10,/obj/item/clothing/head/soft/purple = 10,/obj/item/clothing/head/soft/yellow = 10,/obj/item/clothing/head/fluff/bruce_hachert = 10,/obj/item/clothing/head/beanie = 10,/obj/item/clothing/head/flatcap = 5)
-	prices = list(/obj/item/clothing/head/bowler = 50,/obj/item/clothing/head/urist/beaverhat = 50,/obj/item/clothing/head/urist/boaterhat = 50,/obj/item/clothing/head/urist/fedora = 100,/obj/item/clothing/head/urist/fez = 50,/obj/item/clothing/head/soft/blue = 30,/obj/item/clothing/head/soft/green = 30,/obj/item/clothing/head/soft/purple = 30,/obj/item/clothing/head/soft/yellow = 30,/obj/item/clothing/head/fluff/bruce_hachert = 50,/obj/item/clothing/head/beanie = 50,/obj/item/clothing/head/flatcap = 100)
+	products = list(/obj/item/clothing/head/bowler = 10,/obj/item/clothing/head/urist/beaverhat = 10,/obj/item/clothing/head/urist/boaterhat = 10,/obj/item/clothing/head/urist/fedora = 5,/obj/item/clothing/head/urist/fez = 10,/obj/item/clothing/head/soft/blue = 10,/obj/item/clothing/head/soft/green = 10,/obj/item/clothing/head/soft/purple = 10,/obj/item/clothing/head/soft/yellow = 10,/obj/item/clothing/head/beanie = 10,/obj/item/clothing/head/flatcap = 5)//worn hat got the axe, sorry!
+	prices = list(/obj/item/clothing/head/bowler = 50,/obj/item/clothing/head/urist/beaverhat = 50,/obj/item/clothing/head/urist/boaterhat = 50,/obj/item/clothing/head/urist/fedora = 100,/obj/item/clothing/head/urist/fez = 50,/obj/item/clothing/head/soft/blue = 30,/obj/item/clothing/head/soft/green = 30,/obj/item/clothing/head/soft/purple = 30,/obj/item/clothing/head/soft/yellow = 30,/obj/item/clothing/head/beanie = 50,/obj/item/clothing/head/flatcap = 100)
 	contraband = list(/obj/item/clothing/head/bearpelt = 1)
 	premium = list(/obj/item/clothing/head/soft/rainbow = 1)
 
@@ -142,10 +142,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Pants: Wear them."
 	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
 	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
-	products = list(/obj/item/clothing/under/pants/jeans = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10)
-	prices = list(/obj/item/clothing/under/pants/jeans = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100)
+	products = list(/obj/item/clothing/under/pants/bluepants = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10,/obj/item/clothing/under/pants/jeans_m = 10,/obj/item/clothing/under/pants/jeans_d = 10,/obj/item/clothing/under/pants/jeans_d = 10,/obj/item/clothing/under/pants/redpants = 10,/obj/item/clothing/under/pants/whitepants = 10,/obj/item/clothing/under/pants/jeans_b = 10)
+	prices = list(/obj/item/clothing/under/pants/bluepants = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100,/obj/item/clothing/under/pants/jeans_m = 100,/obj/item/clothing/under/pants/jeans_d = 100,/obj/item/clothing/under/pants/jeans_d = 100,/obj/item/clothing/under/pants/redpants = 100,/obj/item/clothing/under/pants/whitepants = 100,/obj/item/clothing/under/pants/jeans_b = 100)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
-//	premium = list(/obj/item/clothing/shoes/rainbow = 1)
+	premium = list(/obj/item/clothing/under/pants/militarypants = 1)
 
 //coats!
 
