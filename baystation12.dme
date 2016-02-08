@@ -1790,6 +1790,7 @@
 #include "code\modules\urist\structures\dresser.dm"
 #include "code\modules\urist\structures\emplacements.dm"
 #include "code\modules\urist\structures\engicart.dm"
+#include "code\modules\urist\structures\uristlighting.dm"
 #include "code\modules\urist\structures\uriststructures.dm"
 #include "code\modules\urist\vehicles\fourwheel.dm"
 #include "code\modules\urist\vehicles\motorcycle.dm"
