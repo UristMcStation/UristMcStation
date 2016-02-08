@@ -64,3 +64,23 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containername = "Xenobiology supplies crate"
 	access = access_rd
 	group = "Medical / Science"
+
+/datum/supply_packs/tintedlighttubes
+	name = "Replacement tinted lights"
+	contains = list(/obj/item/weapon/storage/box/lights/mixedtint,
+					/obj/item/weapon/storage/box/lights/mixedtint,
+					/obj/item/weapon/storage/box/lights/mixedtint)
+	cost = 20
+	containertype = /obj/structure/closet/crate
+	containername = "Replacement tinted lights"
+	group = "Engineering"
+
+/datum/supply_packs/redlightbulbs
+	name = "Replacement maintenance lights"
+	contains = list(/obj/item/weapon/storage/box/lights/redbulbs,
+					/obj/item/weapon/storage/box/lights/redbulbs,
+					/obj/item/weapon/storage/box/lights/redbulbs)
+	cost = 10
+	containertype = /obj/structure/closet/crate
+	containername = "Replacement maintenance lights"
+	group = "Engineering"

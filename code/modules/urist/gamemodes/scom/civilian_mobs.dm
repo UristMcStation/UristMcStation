@@ -3,7 +3,7 @@
 	faction = "neutral"
 
 /mob/living/simple_animal/hostile/scom/civ/civvie
-	name = "Civilian"
+	name = "civilian"
 	desc = "A defenseless civilian. Better protect them!"
 	response_help = "pokes"
 	response_disarm = "shoves"
@@ -37,21 +37,22 @@
 	return
 
 /mob/living/simple_animal/hostile/scom/civ/combat/police
-	name = "Police Officer"
+	name = "police officer"
 	desc = "An officer from a local police force."
-	icon_state = "necro_s"
-	icon_living = "necro_s"
-	icon_dead = "necro_d"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "gunman"
+	icon_living = "gunman"
+	icon_dead = "gunman_dead"
 
 /mob/living/simple_animal/hostile/scom/civ/combat/mil
-	name = "Soldier"
+	name = "soldier"
 	desc = "A soldier from a local military force."
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
 
 /mob/living/simple_animal/hostile/scom/civ/combat/ryclies
-	name = "RDF Soldier"
+	name = "\improper RDF Soldier"
 	desc = "A soldier from the Ryclies Defence Force."
 	icon_state = "RDF"
 	icon_living = "RDF"
@@ -64,7 +65,7 @@
 	minimum_distance = 5
 
 /mob/living/simple_animal/hostile/scom/civ/combat/anfor
-	name = "ANFOR Marine"
+	name = "\improper ANFOR Marine"
 	desc = "A marine from the Allied Naval Forces"
 	icon_state = "ANFOR"
 	icon_living = "ANFOR"
