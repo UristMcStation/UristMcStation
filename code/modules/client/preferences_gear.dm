@@ -449,6 +449,12 @@ var/global/list/gear_datums = list()
 	slot = slot_w_uniform
 	cost = 1
 
+/datum/gear/Kimono
+	display_name = "kimono, pink"
+	path = /obj/item/clothing/under/sakura_hokkaido_kimono
+	slot = slot_w_uniform
+	cost = 1
+
 /datum/gear/navysuit
 	display_name = "suit, navy"
 	path = /obj/item/clothing/under/suit_jacket/navy
@@ -464,6 +470,12 @@ var/global/list/gear_datums = list()
 /datum/gear/redlawyer
 	display_name = "suit, lawyer-red"
 	path = /obj/item/clothing/under/lawyer/red
+	slot = slot_w_uniform
+	cost = 1
+
+/datum/gear/schoolgirl
+	display_name = "schoolgirl uniform"
+	path = /obj/item/clothing/under/schoolgirl
 	slot = slot_w_uniform
 	cost = 1
 
