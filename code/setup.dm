@@ -750,7 +750,7 @@ var/list/be_special_flags = list(
 #define IS_UNATHI 4
 #define IS_XENOS  5
 
-#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 7 // Used in chargen for accessory loadout limit.
 
 /*
  *	Atmospherics Machinery.
