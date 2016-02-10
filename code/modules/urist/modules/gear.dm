@@ -65,7 +65,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	
-/datum/gear/Kimono
+/datum/gear/kimono
 	display_name = "kimono, pink"
 	path = /obj/item/clothing/under/sakura_hokkaido_kimono
 	slot = slot_w_uniform
