@@ -134,7 +134,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "poker_tableparts"
 	flags = null
 
-/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+/*/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/R = I
@@ -147,7 +147,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>" //wut
 
 		qdel(src)
-		qdel(I)
+		qdel(I)*/
 
 //shuttle chairs
 
@@ -256,7 +256,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //legacy reasons, all this does is create a new table frame somewhere. //i'm okay with this for now
 
 /obj/item/weapon/table_parts
-	name = "table frame parts"
+	name = "table parts"
 	desc = "Parts of a table. Poor table."
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
@@ -280,6 +280,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/weapon/table_parts/reinforced
 	tabletype = /obj/structure/table/reinforced
+	icon_state = "reinf_tableparts"
+	name = "reinforced table parts"
+
+/obj/item/weapon/table_parts/wood
+	tabletype = /obj/structure/table/woodentable
+	icon_state = "wood_tableparts"
+	name = "wood table parts"
 
 /obj/item/weapon/table_parts/rack
+	name = "rack parts"
+	desc = "Parts of a rack. Poor rack."
 	tabletype = /obj/structure/table/rack
+	icon_state = "rack_parts"
