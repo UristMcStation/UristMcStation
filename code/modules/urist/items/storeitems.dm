@@ -199,3 +199,14 @@ datum/storeitem/dollfarwa
 	desc="A plush little farwa doll to keep you company in the lonely depths of space."
 	typepath=/obj/item/toy/plushie/farwa
 	cost = 300
+
+
+/////////////////////////////////////////////////////////
+//                       Random                        //
+/////////////////////////////////////////////////////////
+
+datum/storeitem/glowsticksbox
+	name="Glowsticks Box"
+	desc="A box containing 7 different colour glowsticks."
+	typepath=/obj/item/weapon/storage/box/glowsticks
+	cost = 500
