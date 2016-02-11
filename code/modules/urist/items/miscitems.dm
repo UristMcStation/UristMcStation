@@ -10,7 +10,7 @@
 
 //glowsticks dunno where else to put thiese
 
-/obj/item/device/flashlight/flare/glowstick //this should never be seen
+/obj/item/device/flashlight/glowstick //this should never be seen
 	name = "glowstick"
 	desc = "A glowstick, provides a small amount of light when it "
 	icon = 'icons/urist/items/misc.dmi'
@@ -18,10 +18,15 @@
 	light_power = 2
 	icon_state = "glowstick"
 	item_state = "glowstick"
-	on_damage = 0
-	produce_heat = 0
+	var/fuel = 0
+	icon_action_button = null
+	w_class = 2
 
-/obj/item/device/flashlight/flare/glowstick/process()
+/obj/item/device/flashlight/glowstick/New()
+	fuel = rand(800, 1000)
+	..()
+
+/obj/item/device/flashlight/glowstick/process()
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		on = 0
@@ -31,7 +36,7 @@
 			name = "dead glowstick"
 		processing_objects -= src
 
-/obj/item/device/flashlight/flare/glowstick/attack_self(mob/user)
+/obj/item/device/flashlight/glowstick/attack_self(mob/user)
 
 	if(!fuel)
 		user << "<span class='notice'>The glowstick is dead.</span>"
@@ -45,13 +50,13 @@
 		user.visible_message("<span class='notice'>[user] cracks the glowstick!</span>", "<span class='notice'>You crack the glowstick, activating it!</span>")
 		processing_objects += src
 
-/obj/item/device/flashlight/flare/glowstick/random
+/obj/item/device/flashlight/glowstick/random
 	var/red = 0
 	var/green = 0
 	var/blue = 0
 
 
-/obj/item/device/flashlight/flare/glowstick/random/New() //IT COULD BE ANYTHING
+/obj/item/device/flashlight/glowstick/random/New() //IT COULD BE ANYTHING
 	red = rand(0,255)
 	green = rand(0,255)
 	blue = rand(0,255)
@@ -59,27 +64,27 @@
 	light_color = color
 	..()
 
-/obj/item/device/flashlight/flare/glowstick/red
+/obj/item/device/flashlight/glowstick/red
 	light_color = "#e60000"
 	color = "#e60000"
 
-/obj/item/device/flashlight/flare/glowstick/blue
+/obj/item/device/flashlight/glowstick/blue
 	light_color = "#0000ff"
 	color = "#0000ff"
 
-/obj/item/device/flashlight/flare/glowstick/green
+/obj/item/device/flashlight/glowstick/green
 	light_color = "#00b300"
 	color = "#00b300"
 
-/obj/item/device/flashlight/flare/glowstick/purple
+/obj/item/device/flashlight/glowstick/purple
 	light_color = "#ac00e6"
 	color = "#ac00e6"
 
-/obj/item/device/flashlight/flare/glowstick/orange
+/obj/item/device/flashlight/glowstick/orange
 	light_color = "#ff8000"
 	color = "#ff8000"
 
-/obj/item/device/flashlight/flare/glowstick/yellow
+/obj/item/device/flashlight/glowstick/yellow
 	light_color = "#ffff00"
 	color = "#ffff00"
 
@@ -92,11 +97,11 @@
 
 	New()
 		..()
-		new /obj/item/device/flashlight/flare/glowstick/green(src)
-		new /obj/item/device/flashlight/flare/glowstick/red(src)
-		new /obj/item/device/flashlight/flare/glowstick/blue(src)
-		new /obj/item/device/flashlight/flare/glowstick/orange(src)
-		new /obj/item/device/flashlight/flare/glowstick/purple(src)
-		new /obj/item/device/flashlight/flare/glowstick/yellow(src)
-		new /obj/item/device/flashlight/flare/glowstick/random(src)
+		new /obj/item/device/flashlight/glowstick/green(src)
+		new /obj/item/device/flashlight/glowstick/red(src)
+		new /obj/item/device/flashlight/glowstick/blue(src)
+		new /obj/item/device/flashlight/glowstick/orange(src)
+		new /obj/item/device/flashlight/glowstick/purple(src)
+		new /obj/item/device/flashlight/glowstick/yellow(src)
+		new /obj/item/device/flashlight/glowstick/random(src)
 
