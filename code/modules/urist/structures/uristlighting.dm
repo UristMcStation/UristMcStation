@@ -87,8 +87,9 @@
 	light_color = "#E09D37"
 	w_class = 4
 	flags = CONDUCT
+	light_range = 6
 
-	on = 1
+	on = 0
 
 /obj/item/weapon/storage/box/lights/mixedtint
 	name = "box of replacement tinted lights"
