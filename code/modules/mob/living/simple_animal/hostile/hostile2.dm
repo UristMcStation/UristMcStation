@@ -235,22 +235,21 @@
 	var/target = the_target
 	visible_message("\red <b>[src]</b> [ranged_message] at [target]!", 1)
 
-	var/tturf = get_turf(target)
 	if(rapid)
 		spawn(1)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 		spawn(4)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 		spawn(6)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 	else
-		Shoot(tturf, src.loc, src)
+		Shoot(target, src.loc, src)
 		if(casingtype)
 			new casingtype
 	ranged_cooldown = ranged_cooldown_cap
@@ -264,14 +263,7 @@
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 
-	if (!istype(target, /turf))
-		del(A)
-		return
-	A.current = target
-	A.yo = target:y - start:y
-	A.xo = target:x - start:x
-	spawn( 0 )
-		A.process()
+	A.launch(target, "chest")
 	return
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
