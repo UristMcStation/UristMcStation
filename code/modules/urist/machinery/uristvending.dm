@@ -14,7 +14,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A vending machine for costumes."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
-	req_access = list("access_theatre") // Theatre access needed, unless hacked.
+	req_access = list(access_theatre) // Theatre access needed, unless hacked.
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
 	vend_delay = 15
 	vend_reply = "Thank you for using AutoDrobe!"

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-//                      URIST CUSTOM LIGHTS                              //
+//                        URIST CUSTOM LIGHTS                            //
 //    put both lightbulb-style obj/weapons and light machinery here      //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
@@ -11,9 +11,10 @@
 	fitting = "bulb"
 	brightness_range = 6
 	brightness_power = 1
-	active_power_usage = 10
+	active_power_usage = 2
+	name = "Maintenance light fixture"
 	desc = "A small, low-power lighting fixture used for maintenance lighting."
-	light_type = /obj/item/weapon/light/bulb //tentatively leaving it this way, so it can be swapped back for regular bulbs and vice-versa
+	light_type = /obj/item/weapon/light/bulb/red
 	brightness_color = "#B12525"
 
 /obj/item/weapon/light/bulb/red
@@ -86,8 +87,9 @@
 	light_color = "#E09D37"
 	w_class = 4
 	flags = CONDUCT
+	light_range = 6
 
-	on = 1
+	on = 0
 
 /obj/item/weapon/storage/box/lights/mixedtint
 	name = "box of replacement tinted lights"

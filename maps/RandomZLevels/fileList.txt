@@ -12,7 +12,7 @@ maps/RandomZLevels/challenge.dmm
 maps/RandomZLevels/maze1.dmm
 maps/RandomZLevels/spacebattle.dmm
 maps/RandomZLevels/spacehotel.dmm
-maps/RandomZLevels/stationCollision.dmm
+#maps/RandomZLevels/stationCollision.dmm
 
 
 
