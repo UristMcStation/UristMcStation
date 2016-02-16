@@ -443,7 +443,7 @@
 	ammo_type = "/obj/item/ammo_casing/chameleon"
 	w_class = 3.0
 	caliber = ".45"
-	load_method = MAGAZINE
+	load_method = 4 //Unable to set to MAGAZINE because the file's read before the macro def
 	origin_tech = "combat=2;materials=2;syndicate=8"
 	matter = list()
 	var/list/gun_choices = list()
