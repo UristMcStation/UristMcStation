@@ -1679,6 +1679,7 @@
 #include "code\modules\urist\gamemodes\event\mapevent.dm"
 #include "code\modules\urist\gamemodes\event\rycliesII.dm"
 #include "code\modules\urist\gamemodes\event\train.dm"
+#include "code\modules\urist\gamemodes\paranoia\paranoia.dm"
 #include "code\modules\urist\gamemodes\scom\alienspawns.dm"
 #include "code\modules\urist\gamemodes\scom\civilian_mobs.dm"
 #include "code\modules\urist\gamemodes\scom\machinery.dm"
