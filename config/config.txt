@@ -353,3 +353,6 @@ GENERATE_ASTEROID
 
 ## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
 #AGGRESSIVE_CHANGELOG
+
+SHOW_MENTORS
+SHOW_MODS
