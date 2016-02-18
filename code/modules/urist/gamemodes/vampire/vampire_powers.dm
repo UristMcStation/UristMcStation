@@ -1,6 +1,5 @@
 //This should hold all the vampire related powers
 
-
 /mob/proc/vampire_power(required_blood=0, max_stat=0)
 
 	if(!src.mind)		return 0
@@ -268,7 +267,7 @@
 		for(var/mob/living/carbon/C in view(1))
 			if(!C.vampire_affected(M)) continue
 			if(!M.current.vampire_can_reach(C, 1)) continue
-			if(!C.eyecheck()) continue
+			if((C.eyecheck()) > 1) continue
 			C.Stun(8)
 			C.Weaken(8)
 			C.stuttering = 20
