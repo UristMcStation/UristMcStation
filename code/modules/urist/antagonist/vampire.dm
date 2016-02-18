@@ -20,7 +20,7 @@ var/datum/antagonist/vampire/vamps
 ///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
 //	return //"<br><b>Real Name:</b> [player.real_name].
 
-/datum/antagonist/vampire/create_antagonist(var/datum/mind/player)
+/datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 	..()
 	player.current.make_vampire()
 
