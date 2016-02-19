@@ -1,6 +1,5 @@
 //This should hold all the vampire related powers
 
-
 /mob/proc/vampire_power(required_blood=0, max_stat=0)
 
 	if(!src.mind)		return 0
@@ -268,7 +267,7 @@
 		for(var/mob/living/carbon/C in view(1))
 			if(!C.vampire_affected(M)) continue
 			if(!M.current.vampire_can_reach(C, 1)) continue
-			if(!C.eyecheck()) continue
+			if((C.eyecheck()) > 1) continue
 			C.Stun(8)
 			C.Weaken(8)
 			C.stuttering = 20
@@ -345,10 +344,12 @@
 	if(do_mob(M.current, C, 50))
 		if(M.current.can_vampirize(C))
 			if(M.current.vampire_power(500, 0)) // recheck
-				M.current.handle_vampirize(C.mind)
-				M.current.remove_vampire_blood(500)
-				M.current.verbs -= /client/proc/vampire_turn
-				spawn(1800) M.current.verbs += /client/proc/vampire_turn
+				if(M.current.handle_vampirize(C.mind))
+					M.current.remove_vampire_blood(500)
+					M.current.verbs -= /client/proc/vampire_turn
+					spawn(1800) M.current.verbs += /client/proc/vampire_turn
+				else
+					M.current << "<span class='warning'> Something's wrong. You have fail to vampirize [C.key], even though you should be fully able to. Yell at coders.</span>"
 			else
 				M.current << "<span class='warning'> You don't have enough usable blood.</span>"
 				return
@@ -421,10 +422,14 @@
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	vamps.add_antagonist(H)
-	H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
-	src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
-	log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
+	if(vamps.add_antagonist(H,1,0,0,1,1))
+		H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
+		src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
+		log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
+		return 1
+	else
+		log_admin("add_antagonist failed while vampirizing [H.key] ([ckey(H.key)]), relay to a coder please")
+		return 0
 
 /client/proc/vampire_bats()
 	set category = "Vampire"
