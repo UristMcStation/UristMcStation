@@ -579,6 +579,7 @@
 #define BE_LOYALIST   8192
 #define BE_PAI        16384
 #define BE_VAMPIRE	  32768
+#define BE_AGENT	  65536
 
 var/list/be_special_flags = list(
 	"Traitor"          = BE_TRAITOR,
@@ -596,7 +597,8 @@ var/list/be_special_flags = list(
 	"Diona"            = BE_PLANT,
 	"Loyalist"         = BE_LOYALIST,
 	"pAI"              = BE_PAI,
-	"Vampire"          = BE_VAMPIRE
+	"Vampire"          = BE_VAMPIRE,
+	"Conspiracy Leader"= BE_AGENT
 )
 
 // Age limits on a character.
