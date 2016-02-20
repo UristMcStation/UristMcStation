@@ -342,7 +342,7 @@
 	if(!scommapsloaded)
 		world << "\red \b Loading S-COM Maps..."
 
-		var/file = file("maps/ScomMaps/missions2.dmm")
+		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
 			maploader.load_map(file)
 			world.log << "S-COM Maps loaded."
