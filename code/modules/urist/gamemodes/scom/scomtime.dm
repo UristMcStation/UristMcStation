@@ -345,6 +345,11 @@
 		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
 			maploader.load_map(file)
+
+			for(var/x = 1 to world.maxx)
+				for(var/y = 1 to world.maxy)
+					turfs += locate(x,y,world.maxz)
+
 			world.log << "S-COM Maps loaded."
 
 		world << "\red \b S-COM Maps loaded."

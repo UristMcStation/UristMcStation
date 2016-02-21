@@ -22,8 +22,6 @@ datum/controller/game_controller/New()
 			qdel(master_controller)
 		master_controller = src
 
-	createRandomZlevel()
-
 	if(!job_master)
 		job_master = new /datum/controller/occupations()
 		job_master.SetupOccupations()
@@ -32,6 +30,8 @@ datum/controller/game_controller/New()
 
 	if(!syndicate_code_phrase)		syndicate_code_phrase	= generate_code_phrase()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
+
+	createRandomZlevel()
 
 datum/controller/game_controller/proc/setup()
 	world.tick_lag = config.Ticklag
