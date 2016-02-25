@@ -36,9 +36,9 @@
 		dat += "<span class='notice'>Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.</span><BR>"
 
 		if(emagged)
-			dat += "<A href='?src=\ref[src];burntest'>(<font color=red>Begin Atmospheric Burn Simulation</font>)</A><BR>"
-			dat += "Ensure the holodeck is empty before testing.<BR>"
-			dat += "<BR>"
+//			dat += "<A href='?src=\ref[src];burntest'>(<font color=red>Begin Atmospheric Burn Simulation</font>)</A><BR>"
+//			dat += "Ensure the holodeck is empty before testing.<BR>"
+//			dat += "<BR>"
 			dat += "<A href='?src=\ref[src];wildlifecarp'>(<font color=red>Begin Wildlife Simulation</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
@@ -90,11 +90,11 @@
 			if(target)
 				loadProgram(target)
 
-		else if("burntest" in href_list)
-			if(!emagged)	return
-			target = locate(/area/holodeck/source_burntest)
-			if(target)
-				loadProgram(target)
+//		else if("burntest" in href_list)
+//			if(!emagged)	return
+//			target = locate(/area/holodeck/source_burntest)
+//			if(target)
+//				loadProgram(target)
 
 		else if("wildlifecarp" in href_list)
 			if(!emagged)	return
