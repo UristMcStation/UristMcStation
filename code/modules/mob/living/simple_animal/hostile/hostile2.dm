@@ -263,7 +263,8 @@
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 
-	A.launch(target, "chest")
+	A.shot_from = src
+	A.launch(target, src, null, "chest")
 	return
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
