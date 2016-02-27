@@ -6,7 +6,7 @@
 	for(var/mob/living/carbon/human/M in player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 
 		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id)) //we're going to actually let them keep their IDs because their account is tied to it
+			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/organ)) //we're going to actually let them keep their IDs because their account is tied to it
 				continue
 			qdel(I)
 
@@ -163,29 +163,28 @@
 		if(istype(S, /mob/living/silicon/robot))
 			S.loc = pick(scomspawn3)
 			for(var/obj/item/weapon/cell/cell in S)
-				cell.charge = INFINITY
 				cell.maxcharge = INFINITY
+				cell.charge = INFINITY
 
 		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/robot/R = new /mob/living/silicon/robot(S.loc)
 			R.ckey = S.ckey
 			R.loc = pick(scomspawn3)
 			for(var/obj/item/weapon/cell/cell in R)
-				cell.charge = INFINITY
 				cell.maxcharge = INFINITY
+				cell.charge = INFINITY
 			qdel(S)
 
 /mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
 		for(var/obj/item/weapon/cell/cell in L)
-			cell.charge = INFINITY
 			cell.maxcharge = INFINITY
-
+			cell.charge = INFINITY
 
 /mob/new_player/proc/ScomLateJoin(var/mob/living/carbon/L)
 	for (var/obj/item/I in L)
-		if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id))
+		if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/organ))
 			continue
 		qdel(I)
 
@@ -342,9 +341,14 @@
 	if(!scommapsloaded)
 		world << "\red \b Loading S-COM Maps..."
 
-		var/file = file("maps/ScomMaps/missions2.dmm")
+		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
 			maploader.load_map(file)
+
+			for(var/x = 1 to world.maxx)
+				for(var/y = 1 to world.maxy)
+					turfs += locate(x,y,world.maxz)
+
 			world.log << "S-COM Maps loaded."
 
 		world << "\red \b S-COM Maps loaded."

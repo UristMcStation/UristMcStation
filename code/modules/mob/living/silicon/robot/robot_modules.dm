@@ -187,7 +187,8 @@ var/global/list/robot_modules = list(
 					"Standard" = "surgeon",
 					"Advanced Droid" = "droid-medical",
 					"Needles" = "medicalrobot",
-					"Drone" = "drone-surgery"
+					"Drone" = "drone-surgery",
+					"Ravensdale" = "ravensdale-Medical"
 					)
 
 /obj/item/weapon/robot_module/medical/surgeon/New()
@@ -239,7 +240,8 @@ var/global/list/robot_modules = list(
 					"Advanced Droid" = "droid-medical",
 					"Needles" = "medicalrobot",
 					"Drone - Medical" = "drone-medical",
-					"Drone - Chemistry" = "drone-chemistry"
+					"Drone - Chemistry" = "drone-chemistry",
+					"Ravensdale" = "ravensdale-Medical"
 					)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
@@ -304,7 +306,8 @@ var/global/list/robot_modules = list(
 					"Antique" = "engineerrobot",
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
-					"Drone" = "drone-engineer"
+					"Drone" = "drone-engineer",
+					"Ravensdale" = "ravensdale-Engineering"
 					)
 
 /obj/item/weapon/robot_module/engineering/construction
@@ -418,7 +421,8 @@ var/global/list/robot_modules = list(
 					"Black Knight" = "securityrobot",
 					"Bloodhound" = "bloodhound",
 					"Bloodhound - Treaded" = "secborg+tread",
-					"Drone" = "drone-sec"
+					"Drone" = "drone-sec",
+					"Ravensdale" = "ravensdale-Security"
 				)
 
 /obj/item/weapon/robot_module/security/general/New()
@@ -451,7 +455,8 @@ var/global/list/robot_modules = list(
 					"Basic" = "JanBot2",
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
-					"Drone" = "drone-janitor"
+					"Drone" = "drone-janitor",
+					"Ravensdale" = "ravensdale-Janitor"
 					)
 
 /obj/item/weapon/robot_module/janitor/New()
@@ -495,7 +500,8 @@ var/global/list/robot_modules = list(
 					"Rich" = "maximillion",
 					"Default" = "Service2",
 					"Drone - Service" = "drone-service",
-					"Drone - Hydro" = "drone-hydro"
+					"Drone - Hydro" = "drone-hydro",
+					"Ravensdale" = "ravensdale-Service"
 				  	)
 
 /obj/item/weapon/robot_module/clerical/butler/New()
@@ -538,7 +544,8 @@ var/global/list/robot_modules = list(
 					"Bro" = "Brobot",
 					"Rich" = "maximillion",
 					"Default" = "Service2",
-					"Drone" = "drone-service"
+					"Drone" = "drone-service",
+					"Ravensdale" = "ravensdale-Service"
 					)
 
 /obj/item/weapon/robot_module/clerical/general/New()
@@ -566,7 +573,8 @@ var/global/list/robot_modules = list(
 					"Basic" = "Miner_old",
 					"Advanced Droid" = "droid-miner",
 					"Treadhead" = "Miner",
-					"Drone" = "drone-miner"
+					"Drone" = "drone-miner",
+					"Ravensdale" = "ravensdale-Miner"
 				)
 	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
 
@@ -647,7 +655,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
-	sprites = list("Combat Android" = "droid-combat")
+	sprites = list("Combat Android" = "droid-combat",
+					"Ravensdale" = "ravensdale-Combat"
+					)
 
 /obj/item/weapon/robot_module/combat/New()
 	..()
