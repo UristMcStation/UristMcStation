@@ -35,7 +35,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "senergystun100"
+	icon_state = "senergy"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1

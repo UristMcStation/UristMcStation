@@ -52,6 +52,10 @@
 			maploader.load_map(file)
 			world << "\red \b Event Map loaded."
 
+			for(var/x = 1 to world.maxx)
+				for(var/y = 1 to world.maxy)
+					turfs += locate(x,y,world.maxz)
+
 		else
 			src << "\red Event Map couldn't be loaded properly. Yell at the coders."
 
