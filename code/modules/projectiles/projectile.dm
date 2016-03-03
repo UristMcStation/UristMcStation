@@ -138,8 +138,9 @@
 	yo = targloc.y - curloc.y + y_offset
 	xo = targloc.x - curloc.x + x_offset
 
-	shot_from = launcher
-	silenced = launcher.silenced
+	if(launcher)
+		shot_from = launcher
+		silenced = launcher.silenced
 
 	spawn()
 		process()
