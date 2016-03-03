@@ -728,3 +728,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "militarypants"
 	item_state = "militarypants"
 
+//blackwarden
+
+/obj/item/clothing/suit/urist/armor/warden
+	urist_only = 0
+	name = "Warden's black jacket"
+	desc = "A black armoured jacket worn by a Warden of a security force."
+	icon_state = "warden_jacket"
+	item_state = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	blood_overlay_type = "armor"
+	flags = ONESIZEFITSALL
+	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/under/urist/blackwarden
+	name = "black Warden's jumpsuit"
+	desc = "A black jumpsuit worn by the Warden of a security force."
+	icon_state = "warden_black"
+	item_state = "warden_black"
+
+
