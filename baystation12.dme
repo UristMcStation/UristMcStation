@@ -1764,6 +1764,7 @@
 #include "code\modules\urist\modules\supplycrates.dm"
 #include "code\modules\urist\modules\uristjobs.dm"
 #include "code\modules\urist\modules\uristscience.dm"
+#include "code\modules\urist\modules\weather.dm"
 #include "code\modules\urist\modules\carpentry\planer.dm"
 #include "code\modules\urist\modules\carpentry\tools.dm"
 #include "code\modules\urist\modules\genetics\_genetics.dm"
