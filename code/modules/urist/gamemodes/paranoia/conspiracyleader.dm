@@ -11,7 +11,7 @@ var/datum/antagonist/agent/agents
 	feedback_tag = "paranoia_objective"
 	antag_indicator = "rev_head"
 	leader_welcome_text = "You are a leader of a shadowy cabal operating on the station. Lead your faction to supremacy!"
-	welcome_text = "Down with the capitalists! Down with the Bourgeoise!"
+	welcome_text = "The laptop you spawn with is a concealed intelligence uplink. Find intel folders and upload them using the laptop to gain Telecrystals."
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
 	victory_feedback_tag = "win - heads killed"
