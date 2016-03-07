@@ -83,6 +83,7 @@ var/datum/antagonist/agent/agents
 		return 0
 
 	spawn_uplink(agent_mob)
+	new /obj/item/device/inteluplink(agent_mob.loc)
 
 /datum/antagonist/agent/proc/spawn_uplink(var/mob/living/carbon/human/agent_mob)
 	if(!istype(agent_mob))
