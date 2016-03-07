@@ -54,6 +54,19 @@ var/datum/antagonist/agent/agents
 		else
 			src << "<span class='warning'>Something's wrong. Either you don't belong to a faction or belong to too many!</span>"
 
+	var/converteval = is_other_conspiracy(M.mind)
+	if(converteval == 0)
+		src << "<span class='warning'>[M] is already an agent of your conspiracy!"
+	if(converteval)
+		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
+		if(choice == "Yes!")
+			src << "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>"
+			strip_all_other_conspiracies(M.mind,conspiracy)
+		else
+			src << "<span class='warning'>[M] refuses to abandon their cause!"
+	else
+		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
+
 	convert_to_faction(M.mind, conspiracy)
 
 /datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)

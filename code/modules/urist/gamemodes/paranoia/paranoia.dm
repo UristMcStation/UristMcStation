@@ -8,7 +8,7 @@
 	required_players = 4
 	required_enemies = 3
 	auto_recall_shuttle = 1
-	uplink_welcome = "AntagCorp Uplink Console:"
+	uplink_welcome = "Spymaster's Uplink Console:"
 	uplink_uses = 10
 	end_on_antag_death = 0
 	shuttle_delay = 3
@@ -62,3 +62,43 @@
 			new/datum/uplink_item(/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate, 2, "Syndicate Cigarettes", "SC")
 			)
 		)
+
+/proc/is_other_conspiracy(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
+	var/paranoia_parent = /datum/antagonist/agent
+	var/nonselfsum = 0 //how many other conspiracies the mind is a member of. Shouldn't come up, but better safe than sorry.
+	var/own //
+	for(var/antag_type in all_antag_types)
+		var/datum/antagonist/antag = all_antag_types[antag_type]
+		if(istype(antag,paranoia_parent))
+			if(istype(antag, conspiracy))
+				if(player in antag.current_antagonists)
+					own = 1
+				if(player in antag.pending_antagonists)
+					own = 1
+			else
+				if(player in antag.current_antagonists)
+					nonselfsum++
+				if(player in antag.pending_antagonists)
+					nonselfsum++
+		else
+			continue
+	if(own)
+		if(nonselfsum)
+			return //somehow belongs to the target and other conspiracies
+		else
+			return 0 //doesn't need converting
+	return nonselfsum //number of conspiracy factions to strip
+
+/proc/strip_all_other_conspiracies(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
+
+	var/paranoia_parent = /datum/antagonist/agent
+	for(var/antag_type in all_antag_types)
+		var/datum/antagonist/antag = all_antag_types[antag_type]
+		if(istype(antag,paranoia_parent))
+			if(istype(antag, conspiracy))
+				continue
+			else
+				if(player in antag.current_antagonists)
+					antag.remove_antagonist(player)
+		else
+			continue
