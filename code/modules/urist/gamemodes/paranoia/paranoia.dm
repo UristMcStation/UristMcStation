@@ -14,6 +14,7 @@
 	shuttle_delay = 3
 	antag_tags = list("Buildaborg","Freemesons","MIG","Aliuminati")
 	require_all_templates = 0
+	votable = 0
 
 	//Paranoia uplink, cut down on the combat-heavy items.
 
