@@ -52,6 +52,7 @@
 	ranged = 1
 	ranged_cooldown_cap = 5
 	rapid = 1
+	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/a12mm

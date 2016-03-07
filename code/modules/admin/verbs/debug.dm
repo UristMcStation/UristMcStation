@@ -134,6 +134,14 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				if("mob's area")
 					var/mob/temp = input("Select mob", "Selection", usr) as mob in world
 					lst[i] = temp.loc
+				
+				if("path")
+					var/raw_input = input("Enter path:","Path",null) as text
+					raw_input = text2path(raw_input)
+					if(ispath(raw_input))
+						lst[i] = raw_input
+					else
+						lst[i] = null
 
 		if(targetselected)
 			if(!target)

@@ -43,13 +43,17 @@ proc/createRandomZlevel()
 			maploader.load_map(file)
 			world.log << "away mission loaded: [map]"
 
-		for(var/obj/effect/landmark/L in landmarks_list)
-			if (L.name != "awaystart")
-				continue
-			awaydestinations.Add(L)
+			for(var/x = 1 to world.maxx)
+				for(var/y = 1 to world.maxy)
+					turfs += locate(x,y,world.maxz)
 
-		admin_notice("\red \b Away mission loaded.", R_DEBUG)
+			for(var/obj/effect/landmark/L in landmarks_list)
+				if (L.name != "awaystart")
+					continue
+				awaydestinations.Add(L)
 
+			admin_notice("\red \b Away mission loaded.", R_DEBUG)
+			return
 	else
 		admin_notice("\red \b No away missions found.", R_DEBUG)
 		return

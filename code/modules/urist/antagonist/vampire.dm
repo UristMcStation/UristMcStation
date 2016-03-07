@@ -14,6 +14,7 @@ var/datum/antagonist/vampire/vamps
 	antag_indicator = "vampire"
 	uristantag = 1
 	initial_spawn_req = 1
+	initial_spawn_target = 1
 	hard_cap = 999	//should be able to multiply freely, if costs are met
 	hard_cap_round = 5
 

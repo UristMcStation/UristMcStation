@@ -1767,6 +1767,7 @@
 #include "code\modules\urist\modules\mining.dm"
 #include "code\modules\urist\modules\supplycrates.dm"
 #include "code\modules\urist\modules\uristjobs.dm"
+#include "code\modules\urist\modules\uristlanguages.dm"
 #include "code\modules\urist\modules\uristscience.dm"
 #include "code\modules\urist\modules\carpentry\planer.dm"
 #include "code\modules\urist\modules\carpentry\tools.dm"

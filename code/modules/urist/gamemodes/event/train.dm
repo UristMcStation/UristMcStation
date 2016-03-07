@@ -113,7 +113,7 @@ proc/traintime()
 	for(var/mob/living/carbon/human/M in player_list)
 
 		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/weapon/implant))
+			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ))
 				continue
 			qdel(I)
 
@@ -158,7 +158,7 @@ proc/snowtraintime()
 	for(var/mob/living/carbon/human/M in player_list)
 
 		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/weapon/implant))
+			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ))
 				continue
 			qdel(I)
 

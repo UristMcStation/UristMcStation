@@ -287,3 +287,20 @@ obj/item/clothing/head/princessbow
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "enclavesoft"
 	//item_color = "enclavesoft"
+
+//blackwarden
+
+/obj/item/clothing/head/helmet/urist
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
+
+/obj/item/clothing/head/helmet/urist/hopformal
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "warden's black hat"
+	desc = "It's a special black helmet issued to the Warden of a security force. Protects the head from impacts."
+	icon_state = "policehelm"
+	flags_inv = 0
+	body_parts_covered = 0
+	item_state = "policehelm"
