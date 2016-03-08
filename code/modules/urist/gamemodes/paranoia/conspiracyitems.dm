@@ -31,8 +31,10 @@
 	throw_speed = 1
 	layer = 4
 	pressure_resistance = 1
-	var/uploaded = 0 //holds how many % of the file was uploaded
 	var/value = 2 //how many TC it grants
+	var/upload_id //for persistent uploads
+	var/basedesc = "A file containing top-secret data."
+	var/faction = "Broken Code Initiative"
 
 /obj/item/weapon/conspiracyintel/New()
 	..()
@@ -45,26 +47,39 @@
 		if(6) valuedesc = "top-secret"
 
 	desc = "A file containing \a [valuedesc] [datatype]."
+	basedesc = desc
+	if(faction)
+		desc = "[basedesc] It seems to concern the assets of \the [faction]."
 
-/obj/item/weapon/conspiracyintel/randomfaction
-	var/faction
+		/*icon = 'icons/obj/bureaucracy.dmi' //reenable this for faction-specific folder icons
+		switch(faction)
+			if("Buildaborg Group")
+				icon_state = "folder_blue
+			if("Freemesons")
+				icon_state = "folder_red
+			if("Men in Grey")
+				icon_state = "folder_white
+			if("Aliuminati")
+				icon_state = "folder_yellow*/
 
-/obj/item/weapon/conspiracyintel/randomfaction/New()
-	..()
+/obj/item/weapon/conspiracyintel/buildaborg
+	faction = "Buildaborg Group"
+
+/obj/item/weapon/conspiracyintel/freemesons
+	faction = "Freemesons"
+
+/obj/item/weapon/conspiracyintel/mig
+	faction = "Men in Grey"
+
+/obj/item/weapon/conspiracyintel/aliuminati
+	faction = "Aliuminati"
+
+/obj/item/weapon/conspiracyintel/random
+
+/obj/item/weapon/conspiracyintel/random/New()
+
 	faction = pick("Buildaborg Group","Freemesons","Men in Grey","Aliuminati")
-
-/*	icon = 'icons/obj/bureaucracy.dmi' //reenable this for faction-specific folder icons
-	switch(faction)
-		if("Buildaborg Group")
-			icon_state = "folder_blue
-		if("Freemesons")
-			icon_state = "folder_red
-		if("Men in Grey")
-			icon_state = "folder_white
-		if("Aliuminati")
-			icon_state = "folder_yellow*/
-
-	desc = "[desc] It seems to concern the assets of \the [faction]."
+	..()
 
 /obj/item/device/inteluplink
 	name		= "Laptop Computer"
@@ -78,6 +93,16 @@
 	var/open = 0
 	var/uploading = 0
 	var/stored_crystals = 0
+	var/faction = "You shouldn't see this" 		//which faction receives the uploaded file - so the teams can't upload their own intel, as num
+	var/alliedf = "You shouldn't see this" 		//one of the other factions, whose intel is not currently needed, as num
+	var/cached_progress = 0 					//persistent progress - if you stop uploading, you can resume it later if it's the same file
+	var/progress = 0 							//temporary progress
+	var/lastuploaded = -1 						//caches id of the last intel item
+
+/obj/item/device/inteluplink/New(var/maker)
+	..()
+	if(maker)
+		faction = maker
 
 /obj/item/device/inteluplink/verb/open_computer()
 	set name = "Open Laptop"
@@ -148,15 +173,34 @@
 		return
 	if(istype(I,/obj/item/weapon/conspiracyintel))
 		var/obj/item/weapon/conspiracyintel/C = I
+		if(cmptext(C.faction,faction))
+			user << "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>"
+			return
+		if(cmptext(C.faction,alliedf))
+			user << "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>"
+			return
+		if(!(C.upload_id))
+			C.upload_id = rand(1,9999) //should be more than enough to be unique
+		if(lastuploaded == C.upload_id)
+			progress = cached_progress
+		else
+			progress = 0
+		lastuploaded = C.upload_id
 		uploading = 1
 		update_icon()
-		user.visible_message("<span class='notice'>[user] starts typing commands on the [src]'s keyboard frantically!.</span>","<span class='notice'>You start scanning and uploading the [C].</span>","<span class='notice'>You hear someone frantically typing on a keyboard.</span>")
-		var/uploadamount = min(10,(100 - C.uploaded))
-		while(do_after(user, 50))
-			C.uploaded += uploadamount
-			if(C.uploaded >= 100)
-				qdel(C)
+		user.visible_message("<span class='notice'>[user] starts typing commands on \the [src]'s keyboard frantically!</span>","<span class='notice'>You start scanning and uploading \the [C] to the [faction]'s databases.</span>","<span class='notice'>You hear someone frantically typing on a keyboard.</span>")
+		var/uploadamount = min(5,(100 - progress))
+		while(do_after(user, 50, 5, 0))
+			progress += uploadamount
+
+			if(progress >= 100)
+				user.visible_message("<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>You hear a buzz and the sound of utterly annihilated paper.</span>")
+				if(prob(50))
+					alliedf = C.faction
+					user << "<span class='notice'>A message from \the [faction] arrives: \"Thank you for your service. We will have no need for more data on [alliedf] for a while.\".</span>"
 				uploading = 0
+				progress = 0
+				cached_progress = 0
 				update_icon()
 
 				var/obj/item/device/uplink/hidden/suplink = user.mind.find_syndicate_uplink()
@@ -167,12 +211,14 @@
 						suplink.uses += crystals
 					else
 						stored_crystals += crystals
-
-		if(C.uploaded < 100)
-			user << "<span class='warning'>Upload aborted!</span>"
+				qdel(C)
+		if(progress < 100)
+			cached_progress = progress
+			user << "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>"
 
 	if(stored_crystals)
 		if(I.hidden_uplink)
 			var/obj/item/device/uplink/hidden/suplink = I.hidden_uplink
 			suplink.uses += stored_crystals
 			stored_crystals = 0
+	..()
