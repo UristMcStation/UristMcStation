@@ -305,20 +305,3 @@ proc/snowtraintime()
 
 /turf/unsimulated/wall/other/transparent
 	opacity = 0
-
-/obj/effect/blowingsnow
-	name = "blowing snow"
-	icon = 'icons/urist/events/train.dmi'
-	icon_state = "bsnow"
-	layer = 5
-
-/obj/effect/blowingsnow/Crossed(O as mob)
-	..()
-	if(istype(O, /mob/living/))
-		var/mob/living/M = O
-		if(COLD_RESISTANCE in M.mutations)
-			M << ("<span class='warning'> The cold wind feels surprisingly pleasant to you.</span>")
-		else
-			if(prob(85))
-				M.apply_damage(rand(3,5), BURN)
-				M << ("<span class='warning'> The cold wind tears at your skin!</span>")
