@@ -26,16 +26,16 @@
 
 /obj/item/weapon/storage/secure/briefcase/money/New()
 	..()
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
+	new /obj/item/weapon/spacecash/c1000(src)
 
 /obj/item/weapon/conspiracyintel
 	name = "intel"
