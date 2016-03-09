@@ -4,7 +4,7 @@
 	name = "Paranoia"
 	config_tag = "paranoia"
 	round_description = "Secret cabals have recruited crewmembers to accomplish their goals!"
-	extended_round_description = "Agents - expand your faction's influence... or double-cross it for your own gain. Crew - try to root out "
+	extended_round_description = "Agents - expand your faction's influence... or double-cross it for your own gain. Crew - join the conspiracies, or try to stay out of the crossfire."
 	required_players = 4
 	required_enemies = 3
 	auto_recall_shuttle = 1
@@ -13,7 +13,7 @@
 	end_on_antag_death = 0
 	shuttle_delay = 3
 	antag_tags = list("Buildaborg","Freemesons","MIG","Aliuminati")
-	require_all_templates = 0
+	require_all_templates = 1
 	votable = 0
 
 	//Paranoia uplink, cut down on the combat-heavy items.
