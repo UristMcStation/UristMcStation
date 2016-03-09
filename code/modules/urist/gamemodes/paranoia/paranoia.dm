@@ -48,7 +48,8 @@
 			new/datum/uplink_item(/obj/item/device/encryptionkey/binary, 3, "Binary Translator Key", "BT"),
 			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/clerical, 3, "Morphic Clerical Kit", "CK"),
 			new/datum/uplink_item(/obj/item/weapon/aiModule/syndicate, 7, "Hacked AI Upload Module", "AI"),
-			new/datum/uplink_item(/obj/item/device/inteluplink, 8, "Intel Uplink", "UL")
+			new/datum/uplink_item(/obj/item/device/inteluplink, 8, "Intel Uplink", "UL"),
+			new/datum/uplink_item(/obj/item/weapon/storage/secure/briefcase/money, 3, "Operations Funding", "OF")
 			),
 		"Implants" = list(
 			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/imp_freedom, 3, "Freedom Implant", "FI"),
