@@ -37,8 +37,8 @@
 
 
 	var/mob/living/carbon/human/monkey/O = null
-	if(H.species.primitive)
-		O = new H.species.primitive(src)
+	if(H.species.primitive_form)
+		O = new(src, H.species.primitive_form)
 	else
 		H.gib() //Trying to change the species of a creature with no primitive var set is messy.
 		return
@@ -83,6 +83,7 @@
 		I.implanted = O
 //		O.update_icon = 1	//queue a full icon update at next life() call
 	qdel(M)
+	O.active_genes |= /datum/dna/gene/monkey //For some reason, this isn't done otherwise
 	return
 
 /datum/dna/gene/monkey/deactivate(var/mob/living/M, var/connected, var/flags)
@@ -111,8 +112,8 @@
 		qdel(animation)
 
 	var/mob/living/carbon/human/O
-	if(Mo.greaterform)
-		O = new(src, Mo.greaterform)
+	if(Mo.species.greater_form)
+		O = new(src, Mo.species.greater_form)
 	else
 		O = new(src)
 

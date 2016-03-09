@@ -26,6 +26,12 @@
 	..(new_loc, "Machine")
 
 /mob/living/carbon/human/monkey/New(var/new_loc)
+	//Monkeys need genes for the genetics lab to work
+	dna = new /datum/dna(null)
+	dna.ResetUI()
+	dna.ResetSE()
+	dna.SetSEState(MONKEYBLOCK, 1)
+	active_genes |= /datum/dna/gene/monkey
 	..(new_loc, "Monkey")
 
 /mob/living/carbon/human/farwa/New(var/new_loc)
