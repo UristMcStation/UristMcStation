@@ -18,6 +18,25 @@
 	..()
 	desc = "Contains jet fuel. Warning: results may vary!"
 
+//early-bird port of Operations Funding
+
+/obj/item/weapon/storage/secure/briefcase/money
+	name = "suspicious briefcase"
+	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
+
+/obj/item/weapon/storage/secure/briefcase/money/New()
+	..()
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+	new /obj/item/weapon/spacecash/bundle/c1000(src)
+
 /obj/item/weapon/conspiracyintel
 	name = "intel"
 	desc = "A file containing top-secret data."
