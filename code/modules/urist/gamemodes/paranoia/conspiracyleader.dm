@@ -11,7 +11,7 @@ var/datum/antagonist/agent/agents
 	feedback_tag = "paranoia_objective"
 	antag_indicator = "rev_head"
 	leader_welcome_text = "You are a leader of a shadowy cabal operating on the station. Lead your faction to supremacy!"
-	welcome_text = "Down with the capitalists! Down with the Bourgeoise!"
+	welcome_text = "The laptop you spawn with is a concealed intelligence uplink. Find intel folders and upload them using the laptop to gain Telecrystals."
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
 	victory_feedback_tag = "win - heads killed"
@@ -22,8 +22,8 @@ var/datum/antagonist/agent/agents
 
 	hard_cap = 3
 	hard_cap_round = 1
-	initial_spawn_req = 2
-	initial_spawn_target = 3
+	initial_spawn_req = 1
+	initial_spawn_target = 2
 
 	//Inround agents.
 	faction_role_text = "Conspiracy Agent"
@@ -54,6 +54,19 @@ var/datum/antagonist/agent/agents
 		else
 			src << "<span class='warning'>Something's wrong. Either you don't belong to a faction or belong to too many!</span>"
 
+	var/converteval = is_other_conspiracy(M.mind)
+	if(converteval == 0)
+		src << "<span class='warning'>[M] is already an agent of your conspiracy!"
+	if(converteval)
+		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
+		if(choice == "Yes!")
+			src << "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>"
+			strip_all_other_conspiracies(M.mind,conspiracy)
+		else
+			src << "<span class='warning'>[M] refuses to abandon their cause!"
+	else
+		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
+
 	convert_to_faction(M.mind, conspiracy)
 
 /datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)
@@ -70,6 +83,7 @@ var/datum/antagonist/agent/agents
 		return 0
 
 	spawn_uplink(agent_mob)
+	new /obj/item/device/inteluplink(agent_mob.loc)
 
 /datum/antagonist/agent/proc/spawn_uplink(var/mob/living/carbon/human/agent_mob)
 	if(!istype(agent_mob))
