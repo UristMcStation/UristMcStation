@@ -1680,7 +1680,6 @@
 #include "code\modules\urist\gamemodes\event\mapevent.dm"
 #include "code\modules\urist\gamemodes\event\rycliesII.dm"
 #include "code\modules\urist\gamemodes\event\train.dm"
-#include "code\modules\urist\gamemodes\infestation\weapons&armour.dm"
 #include "code\modules\urist\gamemodes\paranoia\conspiracyitems.dm"
 #include "code\modules\urist\gamemodes\paranoia\conspiracyleader.dm"
 #include "code\modules\urist\gamemodes\paranoia\paranoia.dm"
