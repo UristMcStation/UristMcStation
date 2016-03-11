@@ -1672,6 +1672,7 @@
 #include "code\modules\telesci\telepad.dm"
 #include "code\modules\telesci\telesci_computer.dm"
 #include "code\modules\urist\_helpers.dm"
+#include "code\modules\urist\random.dm"
 #include "code\modules\urist\antagonist\conspiracies.dm"
 #include "code\modules\urist\antagonist\vampire.dm"
 #include "code\modules\urist\area&turf\areas.dm"
