@@ -194,10 +194,10 @@
 
 	if(world.time < move_delay)	return
 
-	if(locate(/obj/effect/stop/, mob.loc))
+/*	if(locate(/obj/effect/stop/, mob.loc)) //what the cancer
 		for(var/obj/effect/stop/S in mob.loc)
 			if(S.victim == mob)
-				return
+				return*/
 
 	if(mob.stat==DEAD && isliving(mob))
 		mob.ghostize()

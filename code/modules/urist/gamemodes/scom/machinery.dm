@@ -85,7 +85,7 @@
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
-	for(var/obj/machinery/scom/scomscience/S in world)
+	for(var/obj/machinery/scom/scomscience/S in machines)
 		if(S.scomtechlvl < scomtechlvl)
 			S.scomtechlvl = scomtechlvl
 
@@ -158,7 +158,7 @@
 			return
 
 		if(scommoney >= making.resources)
-			for(var/obj/machinery/scom/scomscience/S in world)
+			for(var/obj/machinery/scom/scomscience/S in machines)
 //				if(S.squad == 0) //test this
 //					scommoney = scommoney - making.resources
 
@@ -289,13 +289,13 @@
 	density = 1
 
 /obj/machinery/scom/teleporter1/attack_hand(var/mob/living/carbon/A)
-	for(var/obj/machinery/scom/teleporter2/T in world)
+	for(var/obj/machinery/scom/teleporter2/T in machines)
 		A.x = T.x
 		A.y = T.y
 		A.z = T.z
 
 /obj/machinery/scom/teleporter1/Bumped(var/mob/living/carbon/A)
-	for(var/obj/machinery/scom/teleporter2/T in world)
+	for(var/obj/machinery/scom/teleporter2/T in machines)
 		A.x = T.x
 		A.y = T.y
 		A.z = T.z
