@@ -10,7 +10,7 @@ var/datum/antagonist/agent/buildaborg/buildaborgs
 	buildaborgs = src
 
 /datum/antagonist/agent/buildaborg
-	id = "Buildaborg"
+	id = "buildaborg"
 	role_text = "Buildaborg Group Leader"
 	role_text_plural = "Buildaborg Agents"
 	faction_role_text = "Buildaborg Agent"
@@ -25,7 +25,7 @@ var/datum/antagonist/agent/freemesonry/freemesons
 	freemesons = src
 
 /datum/antagonist/agent/freemesonry
-	id = "Freemesons"
+	id = "freemesons"
 	role_text = "Mesonic Lodge Master"
 	role_text_plural = "Freemeson Agents"
 	faction_role_text = "Freemeson Agent"
@@ -55,7 +55,7 @@ var/datum/antagonist/agent/aliuminati/aliuminatis
 	buildaborgs = src
 
 /datum/antagonist/agent/aliuminati
-	id = "Aliuminati"
+	id = "aliuminati"
 	role_text = "The Aliuminated One"
 	role_text_plural = "Aliuminati Agents"
 	faction_role_text = "Aliuminati Agent"
