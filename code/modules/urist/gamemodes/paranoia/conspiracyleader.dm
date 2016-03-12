@@ -22,8 +22,8 @@ var/datum/antagonist/agent/agents
 
 	hard_cap = 3
 	hard_cap_round = 1
-	initial_spawn_req = 2
-	initial_spawn_target = 3
+	initial_spawn_req = 1
+	initial_spawn_target = 2
 
 	//Inround agents.
 	faction_role_text = "Conspiracy Agent"
