@@ -40,7 +40,8 @@
 
 			new/datum/uplink_item(/obj/item/clothing/mask/gas/voice, 4, "Voice Changer", "VC"),
 			new/datum/uplink_item(/obj/item/weapon/disk/file/cameras/syndicate, 6, "Camera Network Access - Floppy", "SF"),
-			new/datum/uplink_item(/obj/item/weapon/storage/backpack/satchel_flat, 1, "Smuggler's Satchel", "SU")
+			new/datum/uplink_item(/obj/item/weapon/storage/backpack/satchel_flat, 1, "Smuggler's Satchel", "SU"),
+			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/fleshsuit, 4, "Human-suit", "FS")
 			),
 		"Devices and Tools" = list(
 			new/datum/uplink_item(/obj/item/weapon/storage/box/syndie_kit/jetfuel, 1, "Beaker of Jet Fuel (Destroys walls (maybe))", "JF"),
@@ -69,7 +70,7 @@
 /proc/is_other_conspiracy(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
 	var/paranoia_parent = /datum/antagonist/agent
 	var/nonselfsum = 0 //how many other conspiracies the mind is a member of. Shouldn't come up, but better safe than sorry.
-	var/own //
+	var/own //belongs to the target faction
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		if(istype(antag,paranoia_parent))
@@ -87,16 +88,17 @@
 			continue
 	if(own)
 		if(nonselfsum)
-			return //somehow belongs to the target and other conspiracies
+			return 0 //somehow belongs to the target and other conspiracies
 		else
-			return 0 //doesn't need converting
+			return -1 //doesn't need converting
 	return nonselfsum //number of conspiracy factions to strip
 
 /proc/strip_all_other_conspiracies(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
-
+	var/list/antaglist = all_antag_types.Copy()
 	var/paranoia_parent = /datum/antagonist/agent
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	antaglist -= paranoia_parent //kinda hacky, but prevents weirdness
+	for(var/antag_type in antaglist)
+		var/datum/antagonist/antag = antaglist[antag_type]
 		if(istype(antag,paranoia_parent))
 			if(istype(antag, conspiracy))
 				continue
@@ -105,3 +107,28 @@
 					antag.remove_antagonist(player)
 		else
 			continue
+
+/proc/get_mob_conspiracy(var/mob/M)
+
+	var/datum/mind/player = M.mind
+	if(!player)
+		return
+
+	var/list/antaglist = all_antag_types.Copy()
+	var/paranoia_parent = /datum/antagonist/agent
+	var/conspiracy_number = 0 //test to prevent cases where someone belongs to more than one and it overwrites, which shouldn't happen
+	var/mob_conspiracy
+	antaglist -= paranoia_parent
+
+	for(var/antag_type in antaglist)
+		var/datum/antagonist/antag = antaglist[antag_type]
+		if(istype(antag,paranoia_parent))
+			if(player in antag.current_antagonists)
+				conspiracy_number++
+				mob_conspiracy = antag
+
+	if(conspiracy_number == 0)
+		return -1
+	else if(conspiracy_number == 1)
+		return mob_conspiracy
+	return //this is an error state!
