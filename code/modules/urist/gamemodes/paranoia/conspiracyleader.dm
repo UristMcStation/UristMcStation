@@ -4,7 +4,7 @@ var/datum/antagonist/agent/agents
 
 /datum/antagonist/agent
 	id = "agent"
-	role_type = BE_AGENT
+	role_type = BE_REV
 	role_text = "Conspiracy Leader"
 	role_text_plural = "Conspiracy Agents"
 	bantype = "agent"
