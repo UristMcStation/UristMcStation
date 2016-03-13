@@ -55,8 +55,10 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/weapon/conspiracyintel/New()
+/obj/item/weapon/conspiracyintel/New(var/presetconspiracy)
 	..()
+	if(presetconspiracy)
+		faction = presetconspiracy
 	var/datatype = pick("blueprints","financial records","operational reports","experimental data","access codes","personnel files","schematics","operation plans","communication frequencies")
 	var/valuedesc
 	value = pick(2,4,6)
@@ -297,3 +299,10 @@
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
+
+/obj/effect/landmark/intelspawn
+	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
+
+/obj/effect/landmark/intelspawn/New()
+	invisibility = 101
+	return

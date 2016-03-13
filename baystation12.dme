@@ -1684,6 +1684,7 @@
 #include "code\modules\urist\gamemodes\paranoia\conspiracyitems.dm"
 #include "code\modules\urist\gamemodes\paranoia\conspiracyleader.dm"
 #include "code\modules\urist\gamemodes\paranoia\paranoia.dm"
+#include "code\modules\urist\gamemodes\paranoia\paranoiahelpers.dm"
 #include "code\modules\urist\gamemodes\scom\alienspawns.dm"
 #include "code\modules\urist\gamemodes\scom\civilian_mobs.dm"
 #include "code\modules\urist\gamemodes\scom\machinery.dm"

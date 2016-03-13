@@ -6,15 +6,22 @@
 	round_description = "Secret cabals have recruited crewmembers to accomplish their goals!"
 	extended_round_description = "Agents - expand your faction's influence... or double-cross it for your own gain. Crew - join the conspiracies, or try to stay out of the crossfire."
 	required_players = 4
-	required_enemies = 3
-	auto_recall_shuttle = 1
+	required_enemies = 4
+	auto_recall_shuttle = 0
 	uplink_welcome = "Spymaster's Uplink Console:"
 	uplink_uses = 10
 	end_on_antag_death = 0
 	shuttle_delay = 3
-	antag_tags = list("Buildaborg","Freemesons","MIG","Aliuminati")
+	antag_tags = list("buildaborg","freemesons","MIG","aliuminati")
 	require_all_templates = 1
 	votable = 0
+	var/next_intel_drop = 0
+	var/intel_drop_delay_min = 6000 //10 minutes
+	var/intel_drop_delay_max = 9000 //15 minutes
+	var/use_random_drops = 1 //intel drops around the station, based on landmarks
+	var/use_leader_drops = 1 //intel drops on faction leaders
+	var/max_landmark_spawns = 10 //with random drops, a cutoff for maximum spawns
+	//so that even with many landmarks and high probs, intel amount is manageable
 
 	//Paranoia uplink, cut down on the combat-heavy items.
 
@@ -67,68 +74,61 @@
 			)
 		)
 
-/proc/is_other_conspiracy(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
-	var/paranoia_parent = /datum/antagonist/agent
-	var/nonselfsum = 0 //how many other conspiracies the mind is a member of. Shouldn't come up, but better safe than sorry.
-	var/own //belongs to the target faction
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
-		if(istype(antag,paranoia_parent))
-			if(istype(antag, conspiracy))
-				if(player in antag.current_antagonists)
-					own = 1
-				if(player in antag.pending_antagonists)
-					own = 1
-			else
-				if(player in antag.current_antagonists)
-					nonselfsum++
-				if(player in antag.pending_antagonists)
-					nonselfsum++
-		else
-			continue
-	if(own)
-		if(nonselfsum)
-			return 0 //somehow belongs to the target and other conspiracies
-		else
-			return -1 //doesn't need converting
-	return nonselfsum //number of conspiracy factions to strip
+//INTEL-DROPPING CODE BEGIN//
 
-/proc/strip_all_other_conspiracies(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
-	var/list/antaglist = all_antag_types.Copy()
-	var/paranoia_parent = /datum/antagonist/agent
-	antaglist -= paranoia_parent //kinda hacky, but prevents weirdness
-	for(var/antag_type in antaglist)
-		var/datum/antagonist/antag = antaglist[antag_type]
-		if(istype(antag,paranoia_parent))
-			if(istype(antag, conspiracy))
-				continue
-			else
-				if(player in antag.current_antagonists)
-					antag.remove_antagonist(player)
+/datum/game_mode/paranoia/process()
+	..()
+	if(world.time < next_intel_drop)
+		process_intel_drop()
+
+/datum/game_mode/paranoia/proc/drop_intel()
+	var/anydropped = 0
+	var/spawnedany = 0
+	for(var/datum/antagonist/A in antag_templates)
+		if(A.leader)
+			if(A.leader.current)
+				var/mob/leadermob = A.leader.current
+				if(use_leader_drops)
+					var/intel
+					if(A.faction_descriptor)
+						intel = new /obj/item/weapon/conspiracyintel(presetconspiracy = A.faction_descriptor)
+					else
+						intel = new /obj/item/weapon/conspiracyintel()
+					if(!(leadermob.equip_to_storage(intel)))
+						leadermob.put_in_hands(intel)
+					anydropped++
+				leadermob << "<span class='notice'><b>Intel drop!</b></span>"
 		else
-			continue
+			spawnedany = 0 //only one per faction should spawn, if there's more than one laptop
+			for(var/obj/item/device/inteluplink/IU in world)
+				if(!spawnedany)
+					if((A.faction_descriptor) && (IU.faction))
+						if(cmptext(IU.faction,A.faction_descriptor))
+							new /obj/item/weapon/conspiracyintel(IU.loc, presetconspiracy = A.faction_descriptor)
+							anydropped++
+							spawnedany = 1
 
-/proc/get_mob_conspiracy(var/mob/M)
+	if(use_random_drops)
+		var/landmarkspawns = 0
+		for(var/obj/effect/landmark/intelspawn/IS in world)
+			if(landmarkspawns < max_landmark_spawns)
+				var/spawnprob = 50
+				if(IS.probability)
+					spawnprob = IS.probability
+				if(prob(spawnprob))
+					new /obj/item/weapon/conspiracyintel/random(IS.loc)
+					landmarkspawns++
+					anydropped++
+	return anydropped
 
-	var/datum/mind/player = M.mind
-	if(!player)
+/datum/game_mode/paranoia/proc/process_intel_drop()
+	message_admins("Intel drop incoming.")
+
+	if(drop_intel())
+		next_intel_drop = world.time + rand(intel_drop_delay_min, intel_drop_delay_max)
 		return
 
-	var/list/antaglist = all_antag_types.Copy()
-	var/paranoia_parent = /datum/antagonist/agent
-	var/conspiracy_number = 0 //test to prevent cases where someone belongs to more than one and it overwrites, which shouldn't happen
-	var/mob_conspiracy
-	antaglist -= paranoia_parent
+	message_admins("Intel drop failed. Yell at scrdest/other developer if unavailable.")
+	next_intel_drop = world.time + intel_drop_delay_min //recheck again in the miniumum time
 
-	for(var/antag_type in antaglist)
-		var/datum/antagonist/antag = antaglist[antag_type]
-		if(istype(antag,paranoia_parent))
-			if(player in antag.current_antagonists)
-				conspiracy_number++
-				mob_conspiracy = antag
-
-	if(conspiracy_number == 0)
-		return -1
-	else if(conspiracy_number == 1)
-		return mob_conspiracy
-	return //this is an error state!
+//INTEL-DROPPING CODE END//
