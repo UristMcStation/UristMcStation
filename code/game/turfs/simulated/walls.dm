@@ -218,6 +218,7 @@ var/list/global/wall_cache = list()
 	O.anchored = 1
 	O.density = 1
 	O.layer = 5
+	O.color = "#ff6600"
 
 	src.ChangeTurf(/turf/simulated/floor/plating)
 

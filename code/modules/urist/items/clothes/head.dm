@@ -295,7 +295,7 @@ obj/item/clothing/head/princessbow
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 
-/obj/item/clothing/head/helmet/urist/hopformal
+/obj/item/clothing/head/helmet/urist/blackwarden
 	urist_only = 1
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "warden's black hat"

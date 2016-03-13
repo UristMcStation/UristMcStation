@@ -135,7 +135,7 @@
 
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()
-	for(var/current_species_name in all_species)
+/*	for(var/current_species_name in all_species)
 		var/datum/species/current_species = all_species[current_species_name]
 
 		if(check_whitelist && config.usealienwhitelist && !check_rights(R_ADMIN, 0, src)) //If we're using the whitelist, make sure to check it!
@@ -148,7 +148,8 @@
 			if((current_species.flags & IS_WHITELISTED) && !is_alien_whitelisted(src, current_species_name))
 				continue
 
-		valid_species += current_species_name
+		valid_species += current_species_name*/
+	valid_species = list("Unathi","Skrell","Human") //fuck it
 
 	return valid_species
 
