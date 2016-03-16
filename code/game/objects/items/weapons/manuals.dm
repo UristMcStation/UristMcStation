@@ -712,19 +712,12 @@
 
 /obj/item/weapon/book/manual/security_space_law/New()
 	..()
-	dat = {"
+	var/sechelp = file2text('ingame_manuals/corporate_regulations.html')
+	if(!sechelp)
+		sechelp = "Error loading help (file /ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
 
-		<html><head>
-		</head>
 
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
+	dat = sechelp
 
 
 /obj/item/weapon/book/manual/medical_diagnostics_manual
