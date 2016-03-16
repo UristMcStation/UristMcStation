@@ -714,7 +714,7 @@
 	..()
 	var/sechelp = file2text('ingame_manuals/corporate_regulations.html')
 	if(!sechelp)
-		sechelp = "Error loading help (file /ingame_manuals/malf_ai.html is probably missing). Please report this to server administration staff."
+		sechelp = "Error loading help (file /ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
 
 
 	dat = sechelp
