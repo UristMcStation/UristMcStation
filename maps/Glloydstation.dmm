@@ -3307,7 +3307,7 @@
 "blE" = (/obj/machinery/cryopod,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = ""},/turf/simulated/floor,/area/security/brig)
 "blF" = (/obj/structure/cryofeed,/turf/simulated/floor,/area/security/brig)
 "blG" = (/turf/simulated/floor{icon_state = "red"},/area/security/brig)
-"blH" = (/obj/machinery/button/remote/blast_door{id = "visitext"; name = "Privacy Shutters"; pixel_x = -5; pixel_y = -24},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/turf/simulated/floor{icon_state = "red"},/area/security/brig)
+"blH" = (/obj/machinery/button/remote/blast_door{id = "visitext"; name = "Privacy Shutters"; pixel_x = -5; pixel_y = -24},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/obj/machinery/button/remote/blast_door{id = "visit"; name = "Center Shutters"; pixel_x = -5; pixel_y = -32},/turf/simulated/floor{icon_state = "red"},/area/security/brig)
 "blI" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/door/blast/shutters{density = 0; dir = 8; icon_state = "shutter0"; id = "visitext"; name = "Blast Shutters"; opacity = 0},/turf/simulated/floor/plating,/area/security/brig)
 "blJ" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor{icon_state = "red"; dir = 8},/area/security/brig)
 "blK" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor,/area/security/brig)
