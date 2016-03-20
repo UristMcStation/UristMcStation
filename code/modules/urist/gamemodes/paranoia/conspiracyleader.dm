@@ -23,7 +23,7 @@ var/datum/antagonist/agent/agents
 	hard_cap = 3
 	hard_cap_round = 1
 	initial_spawn_req = 1
-	initial_spawn_target = 2
+	initial_spawn_target = 1
 
 	//Inround agents.
 	faction_role_text = "Conspiracy Agent"
@@ -58,7 +58,7 @@ var/datum/antagonist/agent/agents
 	if(!M.mind)
 		return
 
-	var/datum/antagonist/agent/conspiracy = get_mob_conspiracy(src)
+	var/datum/antagonist/agent/conspiracy = M.get_mob_conspiracy(src)
 
 	if(!conspiracy)
 		src << "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>"
@@ -98,7 +98,9 @@ var/datum/antagonist/agent/agents
 		return 0
 
 	spawn_uplink(agent_mob)
-	new /obj/item/device/inteluplink(agent_mob.loc, maker = src.faction_descriptor)
+	var/intel_laptop = new /obj/item/device/inteluplink(agent_mob.loc, maker = src.faction_descriptor)
+	if(!(agent_mob.equip_to_storage(intel_laptop)))
+		agent_mob.put_in_hands(intel_laptop)
 
 /datum/antagonist/agent/proc/spawn_uplink(var/mob/living/carbon/human/agent_mob)
 	if(!istype(agent_mob))
