@@ -109,7 +109,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "suits"
 	vend_reply = "Come again!"
 	product_ads = "Skinny? Looking for some clothes? Suitlord is the machine for you!;BUY MY PRODUCT!"
-	product_slogans = "Pre-Ironed, Pre-Washed, Pre-Wor-*BZZT*;Blood of your enemys washes right out!;Who are YOU wearing?;Look dapper! Look like an idiot!;Dont carry your size? How about you shave off some pounds you fat lazy- *BZZT*"
+	product_slogans = "Pre-Ironed, Pre-Washed, Pre-Wor-*BZZT*;Blood of your enemies washes right out!;Who are YOU wearing?;Look dapper! Look like an idiot!;Dont carry your size? How about you shave off some pounds you fat lazy- *BZZT*"
 	products = list(/obj/item/clothing/under/brown = 10,/obj/item/clothing/under/gentlesuit = 10,/obj/item/clothing/under/suit_jacket = 10,/obj/item/clothing/under/suit_jacket/female = 10,/obj/item/clothing/under/suit_jacket/really_black = 10,
 					/obj/item/clothing/under/sl_suit = 10,/obj/item/clothing/under/urist/formal/assistantformal = 10,/obj/item/clothing/under/urist/suit_jacket/black = 10,/obj/item/clothing/under/urist/suit_jacket/burgundy = 10,/obj/item/clothing/under/urist/suit_jacket/charcoal = 10,
 					/obj/item/clothing/under/urist/suit_jacket/checkered = 10,/obj/item/clothing/under/urist/suit_jacket/navy = 10,/obj/item/clothing/under/urist/suit_jacket/tan = 10, /obj/item/clothing/under/urist/casual/olive = 10,/obj/item/clothing/under/urist/casual/plaid = 10, /obj/item/clothing/under/urist/casual/suspenders = 10)
@@ -151,10 +151,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/machinery/vending/urist/coatdispenser
 	name = "Coatlord 9000"
-	desc = "A vendor for coats and jackets. For some reason, you feel like this should be called the suit machine..."
+	desc = "A vendor for coats and jackets. For some reason, you feel like this should be called Suitlord instead..."
 	icon_state = "coat"
 	vend_reply = "Stay classy!"
-	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you.."
+	product_ads = "Choose Coatlord, and keep yourself warm.;Need a coat? We're here for you."
 	product_slogans = "Cover yourself!;Dress to impress!;Lumberjack approved!;Warning, leather jackets are not vegan.;Can't afford shoes, pants, suits or dresses? Well fuck off, we didn't want your money anyways."
 	products = list(/obj/item/clothing/suit/coat/jacket/leather = 5,/obj/item/clothing/suit/coat/jacket = 10,/obj/item/clothing/suit/coat = 10,/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket = 10,/obj/item/clothing/suit/storage/lawyer/purpjacket = 10,/obj/item/clothing/suit/urist/blackjacket = 10, /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/brown = 5, /obj/item/clothing/suit/storage/toggle/urist/coat/black = 5,/obj/item/clothing/suit/urist/sweater = 5)
 	prices = list(/obj/item/clothing/suit/coat/jacket/leather = 500,/obj/item/clothing/suit/coat/jacket = 200,/obj/item/clothing/suit/coat = 200,/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket = 300,/obj/item/clothing/suit/storage/lawyer/purpjacket = 300,/obj/item/clothing/suit/urist/blackjacket = 300, /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit = 900, /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat = 600, /obj/item/clothing/suit/storage/toggle/urist/coat/brown = 200, /obj/item/clothing/suit/storage/toggle/urist/coat/black = 200,/obj/item/clothing/suit/urist/sweater = 200)
