@@ -747,4 +747,73 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "warden_black"
 	item_state = "warden_black"
 
+//New jackets
 
+/obj/item/clothing/suit/storage/toggle/urist/coat/brown
+	name = "brown coat"
+	desc = "A warm wool jacket in brown. Perfect for looking nice in Space Winter."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "brownjacket"
+
+/obj/item/clothing/suit/storage/toggle/urist/coat/black
+	name = "black coat"
+	desc = "A warm wool jacket in black. Perfect for looking nice in Space Winter."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "blackjacket"
+
+//Some casual clothing.
+
+/obj/item/clothing/under/urist/casual/olive
+	name = "olive outfit"
+	desc = "A olive button up shirt sporting jeans."
+	icon_state = "oliveoutfit"
+	item_state = "oliveoutfit"
+
+/obj/item/clothing/under/urist/casual/plaid
+	name = "plaid outfit"
+	desc = "A plaid green button up shirt sporting brown slacks."
+	icon_state = "plaidoutfit"
+	item_state = "plaidoutfit"
+
+/obj/item/clothing/under/urist/casual/suspenders
+	name = "red outfit with suspenders"
+	desc = "A red button up shirt sporting tan slacks and suspenders."
+	icon_state = "moutfit"
+	item_state = "moutfit"
+
+/obj/item/clothing/suit/urist/sweater
+	name = "pink sweater"
+	desc = "A pink sweater that makes you feel prettier and manlier."
+	icon_state = "pinksweater"
+	item_state = "pinksweater"
+
+//Luna's Men
+
+/obj/item/clothing/under/urist/luna
+	name = "luna's men"
+	desc = "An outfit of those who support Luna."
+	icon_state = "luna"
+	item_state = "luna"
+
+//First Order
+
+/obj/item/clothing/suit/urist/armor/fo
+	name = "first order suit"
+	desc = "A very clean white and black suit."
+	icon_state = "fo"
+	item_state = "fo"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	blood_overlay_type = "armor"
+	flags = ONESIZEFITSALL
+	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+//Actual armour
+
+/obj/item/clothing/suit/urist/armor/trash //Isn't actually good
+	name = "heavy metal armour"
+	desc = "A heavy set of armour"
+	icon_state = "trash"
+	item_state = "trash"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	blood_overlay_type = "armor"
+	flags = ONESIZEFITSALL

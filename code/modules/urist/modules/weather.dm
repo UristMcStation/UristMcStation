@@ -51,3 +51,4 @@
 	pixel_x = -32
 	pixel_y = -32
 	color = "#fff"
+	alpha = 128

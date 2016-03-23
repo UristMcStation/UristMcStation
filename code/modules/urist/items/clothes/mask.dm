@@ -73,3 +73,9 @@
 	icon_state = "pdchains"
 	item_state = "pdchains"
 
+//Luna's Men I'm using payday because it's easier
+
+/obj/item/clothing/mask/gas/payday/luna
+	desc = "A mask showing the support of Luna."
+	icon_state = "lunamask"
+	item_state = "lunamask"

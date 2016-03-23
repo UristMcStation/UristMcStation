@@ -39,6 +39,27 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 //technically /vg/, but not warrenting its own .dm
 
+/obj/item/weapon/book/manual/security_space_law/urist
+	name = "Corporate Regulations"
+	desc = "A set of NanoTrasen guidelines for keeping law and order on their space stations."
+	icon_state = "bookSpaceLaw"
+	author = "NanoTrasen"
+	title = "Corporate Regulations"
+
+/obj/item/weapon/book/manual/security_space_law/urist/New()
+	..()
+
+	/* Use this as a template for other in-game manuals. This allows you to store the file locally rather then on a file, which
+	reduces space tremendously, allowing you to create much more complex and interesting books (such as a googlespreadsheet.)
+	Just replace the var with your own bookname, and point the var into the right direction. - Skeeve2 */
+
+	var/seclaw = file2text('ingame_manuals/corporate_regulations.html')
+	if(!seclaw)
+		seclaw = "Error loading help (file /ingame_manuals/corporate_regulations.html is probably missing). Please report this to server administration staff."
+
+	dat = seclaw
+
+
 /obj/effect/decal/warning_stripes/urist
 	name = "warning decal"
 	icon = 'icons/urist/items/uristdecals.dmi'
