@@ -7,7 +7,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500, "waste" = 100)
 	origin_tech = "magnets=2"
 
-	wires = WIRE_PULSE
+	wires = WIRE_RECEIVE | WIRE_PULSE
 
 	secured = 0
 
@@ -120,7 +120,7 @@
 
 
 	Topic(href, href_list)
-		if(..()) return 1
+		//if(..()) return 1
 		if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 			usr << browse(null, "window=infra")
 			onclose(usr, "infra")
