@@ -787,6 +787,24 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "pinksweater"
 	item_state = "pinksweater"
 
+/obj/item/clothing/suit/urist/sweater/blue
+	name = "blue sweater"
+	desc = "A blue sweater that makes you feel prettier and happier."
+	icon_state = "bluesweater"
+	item_state = "bluesweater"
+
+/obj/item/clothing/suit/urist/sweater/blue/heart
+	name = "blue heart sweater"
+	desc = "A blue sweater with a heart that makes you feel prettier and in love."
+	icon_state = "blueheart"
+	item_state = "blueheart"
+
+/obj/item/clothing/suit/urist/sweater/mint
+	name = "mint sweater"
+	desc = "A mint sweater that makes you feel prettier and yummier."
+	icon_state = "mintsweater"
+	item_state = "mintsweater"
+
 //Luna's Men
 
 /obj/item/clothing/under/urist/luna
