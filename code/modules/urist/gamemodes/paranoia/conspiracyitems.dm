@@ -121,8 +121,8 @@
 	var/lastuploaded = -1 						//caches id of the last intel item
 	
 /obj/item/device/inteluplink/AltClick()
-		if(Adjacent(usr))
-			open_computer()
+	if(Adjacent(usr))
+		open_computer()
 
 /obj/item/device/inteluplink/New(var/maker)
 	..()
