@@ -764,12 +764,17 @@
 	return 0
 
 /mob/living/silicon/robot/updateicon()
+	var/list/custom_cover  //Add the sprite name from the list where a cyborg picks its module, then change that sprite's name to match for this to work.
+	custom_cover = list("Advanced-Drone", "Wiredroid", "Worm", "Spider", "Eyebot")
+
 	overlays.Cut()
 	if(stat == 0)
 		overlays += "eyes-[module_sprites[icontype]]"
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
+		if(icontype in custom_cover)
+			panelprefix = icontype
 		if(wiresexposed)
 			overlays += "[panelprefix]-openpanel +w"
 		else if(cell)
