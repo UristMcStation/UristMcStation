@@ -55,7 +55,7 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/weapon/conspiracyintel/New(var/presetconspiracy)
+/obj/item/weapon/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
 	..()
 	if(presetconspiracy)
 		faction = presetconspiracy
