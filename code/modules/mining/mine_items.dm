@@ -152,7 +152,7 @@
 	throwforce = 4.0
 	item_state = "shovel"
 	w_class = 3.0
-	matter = list(DEFAULT_WALL_MATERIAL = 500, "wood" = 600)
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	origin_tech = "materials=1;engineering=1"
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = 0
@@ -166,7 +166,7 @@
 	force = 5.0
 	throwforce = 7.0
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 300)
+
 
 /**********************Mining car (Crate like thing, not the rail car)**************************/
 

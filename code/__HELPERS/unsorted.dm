@@ -848,7 +848,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 					if(turftoleave)
 						fromupdate += T.ChangeTurf(turftoleave)
 					else
-						T.ChangeTurf(get_base_turf_by_area(src))
+						T.ChangeTurf(/turf/space)
 
 					refined_src -= T
 					refined_trg -= B
@@ -933,7 +933,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					var/old_icon1 = T.icon
 
 					if(platingRequired)
-						if(istype(B, get_base_turf_by_area(B)))
+						if(istype(B, /turf/space))
 							continue moving
 
 					var/turf/X = B

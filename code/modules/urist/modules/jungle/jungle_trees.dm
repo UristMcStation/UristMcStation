@@ -14,7 +14,14 @@
 	pixel_x = -32
 
 /obj/structure/flora/tree/jungle/large/New()
-	icon_state = "tree[rand(1,4)]"
+	if(prob(25))
+		icon_state = "tree1"
+	if(prob(25))
+		icon_state = "tree2"
+	if(prob(25))
+		icon_state = "tree3"
+	if(prob(25))
+		icon_state = "tree4"
 
 /obj/structure/flora/tree/jungle/small
 	icon = 'icons/urist/jungle/trees-small.dmi'
@@ -22,7 +29,26 @@
 	small = 1
 
 /obj/structure/flora/tree/jungle/small/New()
-	icon_state = "tree[rand(1,4)]"
+	if(prob(10))
+		icon_state = "tree1"
+	if(prob(10))
+		icon_state = "tree2"
+	if(prob(10))
+		icon_state = "tree3"
+	if(prob(10))
+		icon_state = "tree4"
+	if(prob(10))
+		icon_state = "tree5"
+	if(prob(10))
+		icon_state = "tree6"
+	if(prob(10))
+		icon_state = "tree7"
+	if(prob(10))
+		icon_state = "tree8"
+	if(prob(10))
+		icon_state = "tree9"
+	if(prob(10))
+		icon_state = "tree10"
 
 /obj/structure/flora/tree/jungle/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
@@ -32,17 +58,28 @@
 
 		sleep(5)
 
-
-		chops += 1
-
-		if(chops == 4 && small)
+		if(chops == 0)
+			chops = 1
+		else if(chops == 1)
+			chops = 2
+		else if(chops == 2)
+			chops = 3
+		else if(chops == 3 && small)
 			user << "<span class='notice'>[src] comes crashing down!</span>"
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			qdel(src)
 
-		else if(chops == 8)
+		else if(chops == 3 && !small)
+			chops = 4
+		else if(chops == 4)
+			chops = 5
+		else if(chops == 5)	//todo, add a small chance for a hostile animal to jump out.
+			chops = 6
+		else if(chops == 6)
+			chops = 7
+		else if(chops == 7)
 			user << "<span class='notice'>[src] comes crashing down!</span>"
 
 			sleep(5)
@@ -53,7 +90,7 @@
 			new /obj/structure/log(src.loc)
 			var/obj/structure/log/L = new /obj/structure/log(get_step(src, NORTH))
 
-			L.y += 1
+			L.pixel_y = 32
 
 			qdel(src)
 
@@ -74,7 +111,7 @@
 			var/obj/item/stack/material/wood/r_wood/W = new /obj/item/stack/material/wood/r_wood(src.loc)
 
 			W.pixel_y = src.pixel_y
-			W.amount = rand(2,3) //going to mess with this value for a while, we'll see
+			W.amount = 2 //going to mess with this value for a while, we'll see
 
 			qdel(src)
 

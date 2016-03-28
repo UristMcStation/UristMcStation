@@ -83,7 +83,7 @@
 	force = 5.0
 	throwforce = 7.0
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "wood" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
 /obj/item/weapon/cane/concealed

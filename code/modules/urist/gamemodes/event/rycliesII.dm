@@ -69,16 +69,16 @@
 	if(ticker.mode == "event")
 		switch(severity)
 			if(1.0)
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 				return
 			if(2.0)
 				if(prob(75))
 
-					src.ChangeTurf(get_base_turf_by_area(src))
+					src.ChangeTurf(/turf/space)
 			if(3.0)
 				if(prob(25))
 
-					src.ChangeTurf(get_base_turf_by_area(src))
+					src.ChangeTurf(/turf/space)
 
 			else
 		return
@@ -88,16 +88,16 @@
 /turf/unsimulated/wall/urist/other/destructable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf_by_area(src))
+			src.ChangeTurf(/turf/space)
 			return
 		if(2.0)
 			if(prob(75))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 		if(3.0)
 			if(prob(25))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 
 		else
 	return
@@ -105,16 +105,16 @@
 /turf/unsimulated/wall/urist/other/see/destructable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf_by_area(src))
+			src.ChangeTurf(/turf/space)
 			return
 		if(2.0)
 			if(prob(75))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 		if(3.0)
 			if(prob(25))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 
 		else
 	return
@@ -137,16 +137,16 @@
 /turf/unsimulated/floor/uristturf/other/scom/destructable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf_by_area(src))
+			src.ChangeTurf(/turf/space)
 			return
 		if(2.0)
 			if(prob(75))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 		if(3.0)
 			if(prob(25))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 
 		else
 	return
@@ -193,12 +193,12 @@
 /turf/simulated/shuttle/wall/destructable/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf_by_area(src))
+			src.ChangeTurf(/turf/space)
 			return
 		if(2.0)
 			if(prob(75))
 
-				src.ChangeTurf(get_base_turf_by_area(src))
+				src.ChangeTurf(/turf/space)
 			else
 				src.ChangeTurf(/turf/simulated/floor/plating)
 		if(3.0)

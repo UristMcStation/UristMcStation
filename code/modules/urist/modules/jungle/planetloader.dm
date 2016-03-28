@@ -44,12 +44,11 @@ proc/createPlanetOutpost()
 		var/map = pick(potentialPlanetOutposts)
 		var/file = file(map)
 		if(isfile(file))
-			maploader.load_map(file)
+			maploader.load_map(file, load_speed = 1000)
 
 //		for(var/obj/effect/landmark/L in landmarks_list)
 //			if (L.name != "awaystart")
 //				continue
-//		sleep(-1)
 
 		world << "\red \b Planetary Outpost loaded."
 

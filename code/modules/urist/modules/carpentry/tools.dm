@@ -14,7 +14,6 @@
 	force = 8
 	throwforce = 2
 	attack_verb = list("cut", "sawed")
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, "wood" = 500)
 
 /obj/item/weapon/carpentry/axe
 	name = "woodsman's axe"
@@ -27,4 +26,3 @@
 	throwforce = 5
 	attack_verb = list("slashed", "cut", "chopped", "hacked")
 	w_class = 4.0 //suck it
-	matter = list(DEFAULT_WALL_MATERIAL = 2000, "wood" = 1000)

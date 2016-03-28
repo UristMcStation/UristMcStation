@@ -233,17 +233,3 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event2/l3
 	name = "\improper Event 2 - 3 "
-
-//REMEMBER THIS FOR THE MERGE
-
-/area/outpost/base_turf = /turf/simulated/jungle
-
-/area/outpost/abandoned/base_turf = /turf/simulated/floor/plating/airless/asteroid
-
-/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/plating/airless/asteroid
-
-/area/outpost/research/eva/base_turf = /turf/simulated/floor/plating/airless/asteroid
-
-/area/shuttle/mining/outpost/base_turf = /turf/simulated/jungle/clear
-
-/area/shuttle/research/outpost/base_turf = /turf/simulated/jungle/clear

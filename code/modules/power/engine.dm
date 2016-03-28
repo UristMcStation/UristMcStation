@@ -18,12 +18,12 @@
 /turf/simulated/floor/engine/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			ChangeTurf(get_base_turf_by_area(src))
+			ChangeTurf(/turf/space)
 			qdel(src)
 			return
 		if(2.0)
 			if (prob(50))
-				ChangeTurf(get_base_turf_by_area(src))
+				ChangeTurf(/turf/space)
 				qdel(src)
 				return
 		else
@@ -31,7 +31,7 @@
 
 /turf/simulated/floor/engine/blob_act()
 	if (prob(25))
-		ChangeTurf(get_base_turf_by_area(src))
+		ChangeTurf(/turf/space)
 		qdel(src)
 		return
 	return

@@ -232,7 +232,7 @@
 					return
 				else if(istype(object,/turf/simulated/floor))
 					var/turf/T = object
-					T.ChangeTurf(get_base_turf_by_area(src))
+					T.ChangeTurf(/turf/space)
 					return
 				else if(istype(object,/turf/simulated/wall/r_wall))
 					var/turf/T = object

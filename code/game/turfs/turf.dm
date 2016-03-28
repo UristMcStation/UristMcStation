@@ -345,7 +345,7 @@
 
 
 /turf/proc/ReplaceWithLattice()
-	src.ChangeTurf(get_base_turf_by_area(src))
+	src.ChangeTurf(/turf/space)
 	spawn()
 		new /obj/structure/lattice( locate(src.x, src.y, src.z) )
 
