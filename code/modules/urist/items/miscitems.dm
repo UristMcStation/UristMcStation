@@ -95,7 +95,7 @@
 	icon_state = "gsbox"
 
 
-	New()
+/obj/item/weapon/storage/box/glowsticks/New()
 		..()
 		new /obj/item/device/flashlight/glowstick/green(src)
 		new /obj/item/device/flashlight/glowstick/red(src)
@@ -105,3 +105,47 @@
 		new /obj/item/device/flashlight/glowstick/yellow(src)
 		new /obj/item/device/flashlight/glowstick/random(src)
 
+//wood stuff - everything int he dmi, pickaxe/hand paper? shovel. axe, saw, cane, rolling pin, guitar(?), add datums for all of that stuff as well as vars holding the wood. COde all the stuff in the dmi.
+
+/obj/item/weapon/material/minihoe/wood
+	icon = 'icons/urist/items/wood.dmi'
+	matter = list(DEFAULT_WALL_MATERIAL = 500, "wood" = 300)
+
+/obj/item/weapon/material/hatchet/wood
+	icon = 'icons/urist/items/wood.dmi'
+	matter = list(DEFAULT_WALL_MATERIAL = 625, "wood" = 375)
+
+/obj/item/weapon/reagent_containers/food/drinks/woodcup
+	name = "cup"
+	desc = "A simple wooden cup."
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "cup"
+	volume = 30
+	center_of_mass = list("x"=15, "y"=13)
+	matter = list("wood" = 50)
+
+/obj/item/weapon/dice/wood
+	name = "d6"
+	matter = list("wood" = 30)
+	icon = 'icons/urist/items/wood.dmi'
+
+/obj/item/weapon/mop/wood
+	icon = 'icons/urist/items/wood.dmi'
+	matter = list(DEFAULT_WALL_MATERIAL = 150, "wood" = 200)
+
+/obj/item/weapon/pickaxe/old
+	name = "pickaxe"
+	desc = "The most basic of mining tools, for short excavations and small mineral extractions."
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "pickaxe"
+	item_state = "pickaxe"
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, "wood" = 900)
+
+/obj/item/weapon/shovel/spade/wood
+	name = "spade"
+	desc = "A small tool for digging and moving dirt. It has a wooden handle"
+	icon = 'icons/urist/items/wood.dmi'
+	matter = list(DEFAULT_WALL_MATERIAL = 300, "wood" = 300)
+
+/obj/item/weapon/material/ashtray/wood/New(var/newloc)
+	..(newloc, "wood")

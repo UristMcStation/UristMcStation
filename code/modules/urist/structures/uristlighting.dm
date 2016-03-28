@@ -17,6 +17,10 @@
 	light_type = /obj/item/weapon/light/bulb/red
 	brightness_color = "#B12525"
 
+/obj/machinery/light/small/red/New()
+	..()
+	icon_state = "firelight1"
+
 /obj/item/weapon/light/bulb/red
 	name = "light bulb (maintenance)"
 	desc = "A replacement light bulb. This one has a red filter and is designed for usage in Maintenance."
