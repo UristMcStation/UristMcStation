@@ -64,7 +64,7 @@
 	path = /obj/item/clothing/under/pants/khaki
 	slot = slot_w_uniform
 	cost = 1
-	
+
 /datum/gear/kimono
 	display_name = "kimono, pink"
 	path = /obj/item/clothing/under/sakura_hokkaido_kimono
@@ -86,5 +86,35 @@
 /datum/gear/black_jacket
 	display_name = "black suit jacket"
 	path = /obj/item/clothing/suit/urist/blackjacket
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/pink_sweater
+	display_name = "pink sweater"
+	path = /obj/item/clothing/suit/urist/sweater/pink
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/blue_sweater
+	display_name = "blue sweater"
+	path = /obj/item/clothing/suit/urist/sweater/blue
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/blue_heart_sweater
+	display_name = "blue heart sweater"
+	path = /obj/item/clothing/suit/urist/sweater/blue/heart
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/mint_sweater
+	display_name = "mint sweater"
+	path = /obj/item/clothing/suit/urist/sweater/mint
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/nanotrasen_sweater
+	display_name = "Nanotrasen sweater"
+	path = /obj/item/clothing/suit/urist/sweater/nanotrasen
 	slot = slot_wear_suit
 	cost = 1
