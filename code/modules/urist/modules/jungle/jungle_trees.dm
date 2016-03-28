@@ -22,7 +22,7 @@
 	small = 1
 
 /obj/structure/flora/tree/jungle/small/New()
-	icon_state = "tree[rand(1,4)]"
+	icon_state = "tree[rand(1,10)]"
 
 /obj/structure/flora/tree/jungle/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
