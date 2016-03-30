@@ -87,6 +87,7 @@
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
 /obj/item/weapon/cane/concealed
+	matter = list(DEFAULT_WALL_MATERIAL = 500, "wood" = 150)
 	var/concealed_blade
 
 /obj/item/weapon/cane/concealed/New()

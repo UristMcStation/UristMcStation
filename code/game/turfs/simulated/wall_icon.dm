@@ -47,7 +47,7 @@
 	damage_overlay = 0
 
 	if(!wall_cache["[new_state]-[material.icon_colour]"])
-		var/image/I = image(icon='icons/turf/wall_masks.dmi',icon_state="[new_state]")
+		var/image/I = image(icon='icons/urist/turf/wall_masks.dmi',icon_state="[new_state]")
 		I.color = material.icon_colour
 		wall_cache["[new_state]-[material.icon_colour]"] = I
 	overlays |= wall_cache["[new_state]-[material.icon_colour]"]
@@ -60,9 +60,9 @@
 		if(!wall_cache[cache_key])
 			var/image/I
 			if(!isnull(construction_stage) && construction_stage<6)
-				I = image(icon='icons/turf/wall_masks.dmi',icon_state="reinf_construct-[construction_stage]")
+				I = image(icon='icons/urist/turf/wall_masks.dmi',icon_state="reinf_construct-[construction_stage]")
 			else
-				I = image(icon='icons/turf/wall_masks.dmi',icon_state="[material.icon_reinf]")
+				I = image(icon='icons/urist/turf/wall_masks.dmi',icon_state="[material.icon_reinf]")
 			I.color = reinf_material.icon_colour
 			wall_cache[cache_key] = I
 		overlays |= wall_cache[cache_key]

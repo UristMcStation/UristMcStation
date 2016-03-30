@@ -105,15 +105,17 @@
 		new /obj/item/device/flashlight/glowstick/yellow(src)
 		new /obj/item/device/flashlight/glowstick/random(src)
 
-//wood stuff - everything int he dmi, pickaxe/hand paper? shovel. axe, saw, cane, rolling pin, guitar(?), add datums for all of that stuff as well as vars holding the wood. COde all the stuff in the dmi.
+//wood stuff
 
-/obj/item/weapon/material/minihoe/wood
+/obj/item/weapon/material/minihoe/wood/New()
+	..()
 	icon = 'icons/urist/items/wood.dmi'
-	matter = list(DEFAULT_WALL_MATERIAL = 500, "wood" = 300)
+	matter = list(DEFAULT_WALL_MATERIAL = 400, "wood" = 250)
 
-/obj/item/weapon/material/hatchet/wood
+/obj/item/weapon/material/hatchet/wood/New()
+	..()
 	icon = 'icons/urist/items/wood.dmi'
-	matter = list(DEFAULT_WALL_MATERIAL = 625, "wood" = 375)
+	matter = list(DEFAULT_WALL_MATERIAL = 350, "wood" = 250)
 
 /obj/item/weapon/reagent_containers/food/drinks/woodcup
 	name = "cup"
@@ -149,3 +151,5 @@
 
 /obj/item/weapon/material/ashtray/wood/New(var/newloc)
 	..(newloc, "wood")
+
+/obj/item/device/flashlight/glowstick/New()

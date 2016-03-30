@@ -31,8 +31,6 @@ datum/controller/game_controller/New()
 	if(!syndicate_code_phrase)		syndicate_code_phrase	= generate_code_phrase()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
 
-	createPlanetOutpost()
-
 	createRandomZlevel()
 
 datum/controller/game_controller/proc/setup()
@@ -75,7 +73,8 @@ datum/controller/game_controller/proc/setup_objects()
 	// Create the mining ore distribution map.
 	// These values determine the specific area that the map is applied to.
 	// If you do not use the official Baycode asteroid map, you will need to change them.
-	asteroid_ore_map = new /datum/random_map/ore(null,13,32,5,217,223)
+//	asteroid_ore_map = new /datum/random_map/ore(null,13,32,5,217,223)
+	asteroid_ore_map = new /datum/random_map/ore(null,39,34,5,225,227)
 
 	// Set up antagonists.
 	populate_antag_type_list()

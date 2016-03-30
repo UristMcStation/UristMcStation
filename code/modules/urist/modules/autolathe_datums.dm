@@ -89,3 +89,8 @@
 	path = /obj/item/ammo_magazine/c38/rubber
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/canesword
+	name = "canesword"
+	path = /obj/item/weapon/cane/concealed
+	hidden = 1
+	category = "Arms and Ammunition"
