@@ -52,7 +52,7 @@
 	return
 
 /turf/simulated/jungle/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/shovel))
+	if(istype(I, /obj/item/weapon/shovel && !farmed))
 		new /obj/machinery/portable_atmospherics/hydroponics/soil(src.loc)
 
 		user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
@@ -138,6 +138,9 @@
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 
+/turf/simulated/jungle/rock/attackby()
+	return
+
 /turf/simulated/jungle/rock/New()
 	spawn(1)
 		var/turf/T
@@ -168,6 +171,9 @@
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
+
+/turf/simulated/jungle/water/attackby()
+	return
 
 /turf/simulated/jungle/water/New()
 	..()

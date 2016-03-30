@@ -115,7 +115,7 @@ var/list/name_to_material
 	// Wallrot crumble message.
 	var/rotting_touch_message = "crumbles under your touch"
 
-	var/table_icon_base = "metal"
+	var/table_icon_base = null
 
 // Placeholders for light tiles and rglass.
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
