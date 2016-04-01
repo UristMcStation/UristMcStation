@@ -57,7 +57,7 @@
 	var/list/sprite_sheets = null
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
 
-	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands and betls
+	var/urist_only = null //If the item is unique to Tajaran McERPStation //Now only used for in_hands and betls
 
 	//scom shit
 	var/scomtechlvl = null

@@ -7,35 +7,35 @@
 
 kg333 - Host
 vactor - Host 
-glloyd - Head Admin
-Nienhaus2 - Game Master
-hanspanda - Game Master
-CoraiUnki - Game Master
+glloyd - King of the Tajaran
+Nienhaus2 - ERP Master
+hanspanda - ERP Master
+CoraiUnki - ERP Master
 #Aedel
-Kydrasz - Game Master
-MisterTeeth - Game Master
-Stefender - Game Master
-Rabidgam3r - Game Master
-Acemuto10 - Game Master
+Kydrasz - ERP Master
+MisterTeeth - ERP Master
+Stefender - ERP Master
+Rabidgam3r - ERP Master
+Acemuto10 - ERP Master
 Zty8212000 - Game Master
 
-Scrdest - Coder
+Scrdest - ERP Coder
 
-greatorder - Moderator
-andreathesecond - Moderator
-Donuts223 - Moderator
+greatorder - ModeratERP
+andreathesecond - ModeratERP
+Donuts223 - ModeratERP
 
-Magnetite - Mentor
-Iceblaster98 - Mentor
-Vakothu - Mentor
-Grant4455 - Mentor
-Ozarck - Mentor
-AseaHeru - Mentor
-Werty892 - Mentor
-Mapleguy555 - Mentor
+Magnetite - ERP Mentor
+Iceblaster98 - ERP Mentor
+Vakothu - ERP Mentor
+Grant4455 - ERP Mentor
+Ozarck - ERP Mentor
+AseaHeru - ERP Mentor
+Werty892 - ERP Mentor
+Mapleguy555 - ERP Mentor
 
-androidsfv - Inactive Admin
-USEC_OFFICER - Inactive Admin
-bdthemag - Inactive Admin
-electronics111 - Inactive Admin
+androidsfv - Inactive ERPer
+USEC_OFFICER - Inactive ERPer
+bdthemag - Inactive ERPer
+electronics111 - Inactive ERPer
 #Electronics
