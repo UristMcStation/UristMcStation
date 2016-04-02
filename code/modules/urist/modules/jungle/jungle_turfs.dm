@@ -9,12 +9,13 @@
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
-//	var/icon_spawn_state = "grass1"
+	var/icon_spawn_state = "grass1"
 //	luminosity = 3
 	var/farmed = 0
 
 /turf/simulated/jungle/New()
-//	icon_state = icon_spawn_state
+	if(icon_spawn_state)
+		icon_state = icon_spawn_state
 
 	if(plants_spawn && prob(40))
 		if(prob(90))
@@ -51,23 +52,29 @@
 /turf/simulated/jungle/ex_act(severity)
 	return
 
-/turf/simulated/jungle/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/shovel && !farmed))
-		new /obj/machinery/portable_atmospherics/hydroponics/soil(src.loc)
+/turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/weapon/shovel) && !farmed)
 
+		new /obj/machinery/portable_atmospherics/hydroponics/soil(src.loc)
 		user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
 		"<span class='notice'>You dig up some soil and prepare the ground for planting.</span>")
 		src.farmed = 1
+		src.overlays = null
+
+	else if(istype(I, /obj/item/stack/tile/steel))
+		src.overlays = null
+		src.ChangeTurf(/turf/simulated/floor/plating)
+
 
 /turf/simulated/jungle/med
 	large_trees_low = 1
-	icon_state = "grass1" //4
-//	icon_spawn_state = "grass1"
+	icon_state = "grass4" //4
+	icon_spawn_state = "grass1"
 
 /turf/simulated/jungle/thick
 	large_trees_high = 1
-	icon_state = "grass1" //3
-//	icon_spawn_state = "grass1"
+	icon_state = "grass3" //3
+	icon_spawn_state = "grass1"
 
 /turf/simulated/jungle/clear
 	bushes_spawn = 0
@@ -75,11 +82,21 @@
 	small_trees = 0
 	icon_state = "grass3" //clear
 //	icon_spawn_state = "grass3"
+	icon_spawn_state = null
+
+/turf/simulated/jungle/clear/grass1
+	bushes_spawn = 0
+	plants_spawn = 0
+	small_trees = 0
+	icon_state = "grass1" //clear
+//	icon_spawn_state = "grass3"
+	icon_spawn_state = null
 
 /turf/simulated/jungle/clear/dark
 	icon_state = "grass1" //clear
 //	icon_spawn_state = "grass1"
 	luminosity = 0
+	icon_spawn_state = null
 
 /turf/simulated/jungle/path
 	bushes_spawn = 0
@@ -87,8 +104,8 @@
 	name = "wet grass"
 	desc = "thick, long wet grass"
 	icon = 'icons/jungle.dmi'
-	icon_state = "grass2" //path
-//	icon_spawn_state = "grass2"
+	icon_state = "grass_path" //path
+	icon_spawn_state = "grass2"
 
 /turf/simulated/jungle/path/New()
 	..()
@@ -118,8 +135,8 @@
 	small_trees = 0
 	large_trees_high = 1
 	large_trees_low = 1
-	icon_state = "grass1" //impenetrable
-//	icon_spawn_state = "grass1"
+	icon_state = "grass_impenetrable" //impenetrable
+	icon_spawn_state = "grass1"
 
 /turf/simulated/jungle/impenetrable/New()
 		..()
@@ -137,6 +154,7 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
+	icon_spawn_state = null
 
 /turf/simulated/jungle/rock/attackby()
 	return
@@ -171,6 +189,7 @@
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
+	icon_spawn_state = null
 
 /turf/simulated/jungle/water/attackby()
 	return

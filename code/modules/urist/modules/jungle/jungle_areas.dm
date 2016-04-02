@@ -18,7 +18,11 @@
 	icon_state = "area"
 	lighting_use_dynamic = 0
 	luminosity = 1
-	base_turf = /turf/simulated/jungle
+	base_turf = /turf/simulated/jungle/clear/grass1
+
+/area/jungle/explored
+	icon_state = "area2"
+
 //temple area
 
 /area/jungle/temple_one
@@ -30,4 +34,4 @@
 /area/jungleoutpost
 	name = "\improper Jungle Outpost"
 	icon_state = "away"
-	base_turf = /turf/simulated/jungle
+	base_turf = /turf/simulated/jungle/clear/grass1

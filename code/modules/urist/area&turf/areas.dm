@@ -234,9 +234,28 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/shuttle/event2/l3
 	name = "\improper Event 2 - 3 "
 
+//elevators
+
+/area/shuttle/elevator/mining/surface
+	name = "\improper Mining Elevator"
+	icon_state = "shuttle"
+
+/area/shuttle/elevator/mining/underground
+	name = "\improper Mining Elevator"
+	icon_state = "shuttle"
+
+/area/shuttle/elevator/research/surface
+	name = "\improper Research Elevator"
+	icon_state = "shuttle"
+
+/area/shuttle/elevator/research/underground
+	name = "\improper Research Elevator"
+	icon_state = "shuttle"
+
+
 //REMEMBER THIS FOR THE MERGE
 
-/area/outpost/base_turf = /turf/simulated/jungle
+/area/outpost/base_turf = /turf/simulated/jungle/clear
 
 /area/outpost/abandoned/base_turf = /turf/simulated/floor/plating/airless/asteroid
 
@@ -247,3 +266,5 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/shuttle/mining/outpost/base_turf = /turf/simulated/jungle/clear
 
 /area/shuttle/research/outpost/base_turf = /turf/simulated/jungle/clear
+
+/area/shuttle/elevator/base_turf = /turf/simulated/floor/plating

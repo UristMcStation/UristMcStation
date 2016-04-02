@@ -1,6 +1,6 @@
 //porting this early from Bay/Polaris. I'll delete the file when we merge.
 
-/area/var/turf/base_turf
+/area/var/turf/base_turf //= /turf/space
 
 // Returns the lowest turf available on a given Z-level
 var/global/list/base_turf_by_z = list(
@@ -36,3 +36,9 @@ proc/get_base_turf_by_area(var/turf/T)
 	base_turf_by_z["[choice]"] = new_base_path
 	message_admins("[key_name_admin(usr)] has set the base turf for z-level [choice] to [get_base_turf(choice)].")
 	log_admin("[key_name(usr)] has set the base turf for z-level [choice] to [get_base_turf(choice)].")
+
+/area/shuttle/base_turf = /turf/space
+
+/area/supply/base_turf = /turf/space
+
+///area/syndicate_station/start/base_turf = /turf/unsimulated/snow //need a snow turf

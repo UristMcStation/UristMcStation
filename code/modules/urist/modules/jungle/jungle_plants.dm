@@ -44,6 +44,7 @@
 
 		if(stump)
 			user << "\blue You clear away the stump."
+			qdel(src)
 
 		else if(!stump)
 			user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
@@ -138,6 +139,18 @@ var/jungle_plants_init = 0
 	else
 		user << "\red There are no fruit left on [src]."
 
+/obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
+	//hatchets can clear away undergrowth
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+
+
+		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+		spawn(rand(15,30))
+			if(get_dist(user,src) < 2)
+				user << "\blue You clear away [src]."
+				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				qdel(src)
 //reeds
 
 /obj/structure/flora/reeds

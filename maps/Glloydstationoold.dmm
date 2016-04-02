@@ -7982,7 +7982,7 @@
 "cXz" = (/obj/structure/closet,/obj/item/weapon/screwdriver,/obj/item/device/flashlight/glowstick/random,/turf/simulated/floor/plating,/area/maintenance/atmos_control)
 "cXA" = (/obj/structure/grille,/turf/simulated/floor/plating,/area/maintenance/atmos_control)
 "cXB" = (/obj/item/weapon/table_parts/rack,/obj/effect/landmark/costume,/turf/simulated/floor/plating,/area/maintenance/atmos_control)
-"cXC" = (/obj/machinery/planer,/turf/simulated/floor/wood,/area/maintenance/atmos_control)
+"cXC" = (/obj/machinery/carpentry/planer,/turf/simulated/floor/wood,/area/maintenance/atmos_control)
 "cXD" = (/turf/simulated/floor/wood,/area/maintenance/atmos_control)
 "cXE" = (/obj/structure/coatrack,/turf/simulated/floor/wood,/area/maintenance/atmos_control)
 "cXF" = (/obj/item/weapon/table_parts/rack,/turf/simulated/floor/plating,/area/maintenance/atmos_control)

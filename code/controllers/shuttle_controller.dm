@@ -277,6 +277,22 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["SCOM2"] = shuttle
 	process_shuttles += shuttle
 
+	shuttle = new/datum/shuttle/ferry/elevator/mining()
+	shuttle.location = 0
+	shuttle.warmup_time = 2
+	shuttle.area_offsite = locate(/area/shuttle/elevator/mining/underground)
+	shuttle.area_station = locate(/area/shuttle/elevator/mining/surface)
+	shuttles["MiningElevator"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/elevator/research()
+	shuttle.location = 0
+	shuttle.warmup_time = 2
+	shuttle.area_offsite = locate(/area/shuttle/elevator/research/underground)
+	shuttle.area_station = locate(/area/shuttle/elevator/research/surface)
+	shuttles["ResearchElevator"] = shuttle
+	process_shuttles += shuttle
+
 //End Urist shuttles
 
 	// ERT Shuttle
