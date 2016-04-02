@@ -1,4 +1,4 @@
-/*Urist McStation Areas!
+/*Tajaran McERPStation Areas!
 
 Basically, if you need to add areas for UMcS, use this file -Glloyd */
 

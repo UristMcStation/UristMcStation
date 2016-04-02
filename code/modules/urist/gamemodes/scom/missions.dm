@@ -74,7 +74,7 @@
 /datum/scommissions/m6
 	mission = 6
 	basemission = 6
-	missionannounce = "We've managed to track the alien presence in Nyx down to a single research facility under the name of 'Urist McStation'. Signals are typically erratic from this end of Nyx, so we haven't located them until now. Luckily, we don't think they know we're coming. Get in there fast, find the source of the infestation (suspected to be in the southern half of the station, wipe them out and get the hell out of there."
+	missionannounce = "We've managed to track the alien presence in Nyx down to a single research facility under the name of 'Tajaran McERPStation'. Signals are typically erratic from this end of Nyx, so we haven't located them until now. Luckily, we don't think they know we're coming. Get in there fast, find the source of the infestation (suspected to be in the southern half of the station, wipe them out and get the hell out of there."
 	missionloc1 = /area/shuttle/scom/s1/mission6
 	missionloc2 = /area/shuttle/scom/s2/mission6
 

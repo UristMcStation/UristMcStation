@@ -1,16 +1,5 @@
-<h1>Welcome to Urist McStation! Before you begin...</h1>
+<h1>Welcome to Tajaran McERPStation! Before you begin...</h1>
 
-<i>This server is running a BayStation13 Git build with a custom map and features.</i>
-<i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i>
-<h2>Server Rules:</h2>
-Click the "Rules" tab at the top of this window and read them!
-If you aren't aware of our rules, you could be warned by an admin or jobbanned! Poor conduct as a member of the security force/a head/a silicon will not be tolerated. These roles will be treated more harshly should rules be broken.<br>
-Keep IC in IC chat and OOC in OOC chat.  Please don't discuss ongoing rounds in OOC or you will be muted.
-No killing, except in self defense, or as an antagonist (and show restraint even then).  Sitting around watching isn't fun.<br>
-For a good idea of antagonist knowledge and how to react in-character, see <a href="http://baystation12.net/wiki/index.php?title=Identifying_Antagonists">BS12's "Identifying Antagonists" page.</a><br>
-If you have a problem or a question, <b>adminhelp it!</b><br>
-We exist for a reason, and would like to keep the server fun. We can't predict everything, and questions are likely to crop up during play, especially with regard to antagonists. Asking won't hurt anyone.<br>
-<b>We recently updated our ruleset, click the rules tab at the top of your screen to read through them. In the case of an incident, it will be assumed that you have already read them.</b><br>
-<b>Golden Rule:</b> Do unto others as you would have done unto you.  Try to keep things enjoyable for everyone.
-<hr>
-<center><b>Important Links: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FP35B3S54PLEQ">Donate!</a> <a href="http://www.prevess.com/index.php">Forums!</a> <a href="http://www.prevess.com/viewtopic.php?f=5&t=3">Rules!</a> <a href="https://github.com/UristMcStation/UristMcStation/issues/new">Bug Reports!</a> <a href="https://github.com/UristMcStation/UristMcStation">Github!</a> <a href="http://pastebin.com/U0J5wQ4q">Lore!</a> <a href="http://steamcommunity.com/groups/SS13forlife">Steam Group!</a></b></center></p>
+This is a Heavy Roleplaying Server running a heavily modified build of Hitler's favourite codebase. 
+
+Remember! ERP IS MANDATORY.

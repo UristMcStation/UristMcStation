@@ -27,27 +27,29 @@
 # +SPAWN (or +CREATE) = mob transformations, spawning of most atoms including mobs (high-risk atoms, e.g. blackholes, will require the +FUN flag too)
 # +EVERYTHING (or +HOST or +ALL) = Simply gives you everything without having to type every flag
 
-Admin Observer
-Retired Admin		+MOD +ADMIN
-Moderator		+MOD +ADMIN
-Admin Candidate		+ADMIN
-Trial Admin		+@ +SPAWN +REJUV +VAREDIT +BAN
-Badmin			+@ +POSSESS +BUILDMODE +SERVER +FUN
-Game Admin		+@ +STEALTH +SOUNDS +DEBUG
-Game Master		+EVERYTHING
+ERP Observer
+Retired ERPer		+MOD +ADMIN
+ERPerator		+MOD +ADMIN
+ERP Candidate		+ADMIN
+Trial ERPer		+@ +SPAWN +REJUV +VAREDIT +BAN
+Tajmin			+@ +POSSESS +BUILDMODE +SERVER +FUN
+ERP Admin		+@ +STEALTH +SOUNDS +DEBUG
+ERP Master		+EVERYTHING
 
-Eventmin		+ADMIN +SPAWN +REJUV +VAREDIT +POSSESS +BUILDMODE +FUN
+ERPmin		+ADMIN +SPAWN +REJUV +VAREDIT +POSSESS +BUILDMODE +FUN
 
-Head Admin		+EVERYTHING
+King of the Tajaran	+EVERYTHING
+
+ERP Loremaster  +EVERYTHING
 
 Host			+EVERYTHING
 
-Coder			+DEBUG +VAREDIT +SERVER +SPAWN +MOD
+ERP Coder		+DEBUG +VAREDIT +SERVER +SPAWN +MOD
 
-Mentor			+MENTOR
+ERP Mentor		+MENTOR
 
-Developer		+DEBUG +VAREDIT +SERVER +SPAWN +REJUV +POSSESS +BUILDMODE
+DevelopERP		+DEBUG +VAREDIT +SERVER +SPAWN +REJUV +POSSESS +BUILDMODE
 
-Dev Mod			+@ +MOD
+DEDICATED ERP DEVELOPER	+@ +MOD
 
-Inactive Admin		+MOD +ADMIN
+Inactive ERPer		+MOD +ADMIN

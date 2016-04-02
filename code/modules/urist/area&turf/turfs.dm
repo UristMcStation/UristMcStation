@@ -1,4 +1,4 @@
-/*Urist McStation turfs! Includes the entryscreen because yes, that's a turf.
+/*Tajaran McERPStation turfs! Includes the entryscreen because yes, that's a turf.
 
 Basically, if you need to add turfs for UMcS, use this file -Glloyd */
 
