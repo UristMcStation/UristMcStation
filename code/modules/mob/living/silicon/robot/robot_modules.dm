@@ -1,7 +1,7 @@
 var/global/list/robot_modules = list(
 	"Standard"		= /obj/item/weapon/robot_module/standard,
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
+	"Cargo" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
 	"Miner" 		= /obj/item/weapon/robot_module/miner,
 	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
@@ -573,7 +573,7 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/clerical/general
-	name = "clerical robot module"
+	name = "cargo robot module"
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
@@ -603,6 +603,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/packageWrap(src)
 	src.modules += new /obj/item/weapon/packageWrap(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/screwdriver(src)
 	src.emag = new /obj/item/weapon/stamp/denied(src)
 
 /obj/item/weapon/robot_module/general/butler/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
