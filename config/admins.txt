@@ -21,9 +21,9 @@ Zty8212000 - Game Master
 
 Scrdest - ERP Coder
 
-greatorder - ModeratERP
-andreathesecond - ModeratERP
-Donuts223 - ModeratERP
+greatorder - ERPerator
+andreathesecond - ERPerator
+Donuts223 - ERPerator
 
 Magnetite - ERP Mentor
 Iceblaster98 - ERP Mentor
