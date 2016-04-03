@@ -1,7 +1,7 @@
 var/global/list/robot_modules = list(
 	"Standard"		= /obj/item/weapon/robot_module/standard,
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
-	"Cargo" 		= /obj/item/weapon/robot_module/clerical/general,
+	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
 	"Miner" 		= /obj/item/weapon/robot_module/miner,
 	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
@@ -573,7 +573,7 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/clerical/general
-	name = "cargo robot module"
+	name = "clerical robot module"
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
