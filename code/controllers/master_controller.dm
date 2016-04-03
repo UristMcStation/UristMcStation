@@ -31,6 +31,8 @@ datum/controller/game_controller/New()
 	if(!syndicate_code_phrase)		syndicate_code_phrase	= generate_code_phrase()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
 
+	preloadTemplates()
+
 	createRandomZlevel()
 
 datum/controller/game_controller/proc/setup()

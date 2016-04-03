@@ -1,11 +1,10 @@
-//surface planer, for "processing" wood. I know, I know. But nobody else knows anything about carpentry, so it's okay. -Glloyd
 /obj/machinery/carpentry
 	var/sheets = 0
 	var/busy = 0
 
 /obj/machinery/carpentry/planer
-	name = "surface planer"
-	desc = "A surface planer, used for processing unprocessed wood." //*cringe*
+	name = "wood processor"
+	desc = "A machine used for processing unprocessed wood. Just shove your rough wood into the slot and let the machine do the rest." //honk
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "planer"
 	anchored = 1
@@ -49,7 +48,7 @@
 	singular_name = "unprocessed wood plank"
 
 /obj/machinery/carpentry/woodprocessor
-	name = "wood processor"
+	name = "pulp and paper processor"
 	desc = "A machine used for processing wood into cardboard or paper."
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "paper"

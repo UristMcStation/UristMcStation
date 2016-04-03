@@ -38,16 +38,16 @@
 			var/obj/structure/jungle_plant/J = new(src)
 			J.pixel_x = rand(-6,6)
 			J.pixel_y = rand(-6,6)
-	if(bushes_spawn && prob(80))
-		new /obj/structure/bush(src)
-	if(small_trees && prob(10)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
-		new /obj/structure/flora/tree/jungle/small(src)
-	if(large_trees_low && prob(1))
-		new /obj/structure/flora/tree/jungle/large(src)
-	if(large_trees_high && prob(5)) //1 in ten? //noooooope
-		new /obj/structure/flora/tree/jungle/large(src)
 	if(reeds_spawn && prob(10))
 		new /obj/structure/flora/reeds(src)
+	if(bushes_spawn && prob(76))
+		new /obj/structure/bush(src)
+	else if(small_trees && prob(9)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
+		new /obj/structure/flora/tree/jungle/small(src)
+	else if(large_trees_low && prob(1))
+		new /obj/structure/flora/tree/jungle/large(src)
+	else if(large_trees_high && prob(4)) //1 in ten? //noooooope
+		new /obj/structure/flora/tree/jungle/large(src)
 
 /turf/simulated/jungle/ex_act(severity)
 	return
@@ -150,7 +150,7 @@
 	plants_spawn = 0
 	density = 1
 	opacity = 1
-	name = "rock wall"
+	name = "impassable rock wall"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
@@ -190,9 +190,16 @@
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
+	var/bridge = 0 //has there been a bridge built?
 
-/turf/simulated/jungle/water/attackby()
-	return
+/turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/stack/material/wood && !bridge))
+		var/obj/item/stack/material/wood/R = I
+
+		if(R.amount >= 3)
+			user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
+			R.overlays += image('icons/jungle.dmi', "bridge")
+		return
 
 /turf/simulated/jungle/water/New()
 	..()
@@ -205,7 +212,11 @@
 
 /turf/simulated/jungle/water/Entered(atom/movable/O)
 	..()
-	if(istype(O, /mob/living/))
+	if(bridge)
+		return
+
+
+	else if(istype(O, /mob/living/))
 		var/mob/living/M = O
 		//slip in the murky water if we try to run through it
 		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
@@ -225,9 +236,9 @@
 	plants_spawn = 0
 	density = 1
 	reeds_spawn = 0 //too deep for reeds
-	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
+	bridge = 1 //simple hack to stop people building bridges on the deep water and then complaining about not being able to walk on it.
 
 /turf/simulated/jungle/temple_wall
 	name = "temple wall"
@@ -237,8 +248,10 @@
 	icon_state = "phoron0"
 	var/mineral = "phoron"
 
-/turf/simulated/jungle/water/edge
+/turf/simulated/jungle/clear/edge
+	name = "murky water"
+	desc = "thick, murky water"
+	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
-//	icon_spawn_state = "
-
+	icon_spawn_state = null
 

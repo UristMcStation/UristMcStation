@@ -324,3 +324,7 @@
 	//idle_power_usage = 0
 	produces_heat = 0
 	autolinkers = list("s2_relay")
+
+/obj/machinery/telecomms/relay/preset/planet
+	id = "Planet Relay"
+	autolinkers = list("p_relay")

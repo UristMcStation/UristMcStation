@@ -40,7 +40,7 @@
 	id = "Hub"
 	network = "tcommsat"
 	autolinkers = list("hub", "relay", "c_relay", "s_relay", "m_relay", "r_relay", "science", "medical",
-	"supply", "service", "common", "command", "engineering", "security", "unused",
+	"supply", "service", "common", "command", "engineering", "security", "unused", "p_relay",
 	"receiverA", "broadcasterA")
 
 /obj/machinery/telecomms/hub/preset_cent

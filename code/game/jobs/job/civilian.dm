@@ -145,13 +145,13 @@
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#dddddd"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mint, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mint, access_mining_station, access_mailsorting)
-	alt_titles = list("Shaft Miner","Drill Technician","Prospector","Lumberjack","Carpenter","Hunter")
+	alt_titles = list("Shaft Miner","Drill Technician","Prospector","Lumberjack","Carpenter") //"Hunter"
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -170,12 +170,12 @@
 					H.equip_to_slot_or_del(new /obj/item/clothing/head/urist/toque(H), slot_head)
 
 //				if("Hunter")
-//					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
+//					H.equip_to_slot_or_del(new /obj/item/clothing/under/urist/rank/hunter(H), slot_w_uniform)
 
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/overalls(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/device/pda/shaftminer(H), slot_belt)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/shaftminer(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 //		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 		if(H.backbag == 1)
 			H.equip_to_slot_or_del(new /obj/item/weapon/crowbar(H), slot_l_hand)
