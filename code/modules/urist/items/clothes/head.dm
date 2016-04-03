@@ -315,3 +315,11 @@ obj/item/clothing/head/princessbow
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "fohelm"
 	armor = list(melee = 20, laser = 35)
+
+//toque/beanie
+/obj/item/clothing/head/urist/toque
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "toque"
+	desc = "A nice warm toque, known by some fucking heathens as a beanie."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "toque"

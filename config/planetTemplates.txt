@@ -1,0 +1,6 @@
+#List the potential random templates here. This file is for small things that would appear on the planet surface, such as hidden temples, crashed shuttles, abandoned building or whatever you can think of
+#Maps must be the full path to them
+#Templates should be 35x35 at max. Anymore than that will break the game.
+#SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
+
+maps/templates/planet_clearing1.dmm

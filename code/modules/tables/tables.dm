@@ -303,7 +303,7 @@
 		// Standard table image
 		if(material)
 			for(var/n in connections)
-				var/image/I = image(icon, "[material.icon_base]_[n]")
+				var/image/I = image(icon, "[material.table_icon_base]_[n]")
 				I.color = material.icon_colour
 				I.alpha = 255 * material.opacity
 				overlays += I
@@ -338,7 +338,7 @@
 
 		icon_state = "flip[type]"
 		if(material)
-			var/image/I = image(icon, "[material.icon_base]_flip[type]")
+			var/image/I = image(icon, "[material.table_icon_base]_flip[type]")
 			I.color = material.icon_colour
 			I.alpha = 255 * material.opacity
 			overlays += I

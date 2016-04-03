@@ -3,7 +3,7 @@ var/list/global/wall_cache = list()
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	icon = 'icons/turf/wall_masks.dmi'
+	icon = 'icons/urist/turf/wall_masks.dmi'
 	icon_state = "generic"
 	opacity = 1
 	density = 1
@@ -178,7 +178,7 @@ var/list/global/wall_cache = list()
 /turf/simulated/wall/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(/turf/space)
+			src.ChangeTurf(get_base_turf_by_area(src))
 			return
 		if(2.0)
 			if(prob(75))

@@ -1,0 +1,11 @@
+#List the potential planetary outposts here.
+#Maps must be the full path to them
+#Maps should be 255x255 or smaller and be bounded.  Falling off the edge of the map will result in undefined behavior. 
+#SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
+#Really only Glloyd should be messing with this.
+
+#maps/PlanetOutposts/test.dmm
+maps/PlanetOutposts/jungle3.dmm
+
+
+

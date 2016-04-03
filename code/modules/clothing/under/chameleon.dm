@@ -47,6 +47,7 @@
 		icon_state = A.icon_state
 		icon = A.icon
 		icon_override = A.icon_override
+		sprite_sheets = A.sprite_sheets
 		urist_only = A.urist_only
 		item_state = A.item_state
 		//item_color = A.//item_color

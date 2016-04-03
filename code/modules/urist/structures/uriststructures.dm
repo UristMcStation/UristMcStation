@@ -293,3 +293,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "Parts of a rack. Poor rack."
 	tabletype = /obj/structure/table/rack
 	icon_state = "rack_parts"
+
+//woodrack
+
+/obj/structure/table/rack/wood
+	name = "wooden rack"
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "rack"
