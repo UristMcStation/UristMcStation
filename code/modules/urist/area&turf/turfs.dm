@@ -212,3 +212,10 @@ turf/simulated/floor/beach/pool/New()
 
 /turf/simulated/wall/r_wall/false
 	can_open = 1
+
+/turf/simulated/wall/wood
+	icon = 'icons/urist/turf/walls.dmi'
+	icon_state = "wood0"
+
+/turf/simulated/wall/wood/New(var/newloc)
+	..(newloc,"wood")

@@ -36,7 +36,7 @@
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"
 	desc = "A stationary anti-tank gun."
-	icon = 'icons/urist/structures&machinery/64x64emplacements.dmi'
+	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
 	icon_state = "ryclies_AT"
 	bound_width = 64
 	ammo = 25

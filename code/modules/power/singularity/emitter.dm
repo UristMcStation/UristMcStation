@@ -132,6 +132,9 @@
 		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter( src.loc )
 		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
 
+		if(!active_power_usage) //shitty hack to save the singulo
+			A.damage = 150
+
 		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
 		if(prob(35))
 			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread

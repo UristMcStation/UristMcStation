@@ -252,6 +252,8 @@ Please only put items here that don't have a huge definition - Glloyd											
 		B2.reagents.add_reagent("phosphorus", 25)
 		B2.reagents.add_reagent("sugar", 25)
 
+		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
 		beakers += B1
 		beakers += B2
 		icon_state = "grenade"
@@ -260,6 +262,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	name = "box of tear gas grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
 	icon_state = "flashbang"
+
 
 	New()
 		..()

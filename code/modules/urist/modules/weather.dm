@@ -14,7 +14,7 @@
 	icon_state = "bsnow"
 	var/safe = 0 //safe == not arctic; ugly, but better than changing the vars on the map
 
-/obj/effect/weather/blowingsnow/Crossed(O as mob)
+/obj/effect/weather/blowingsnow/Crossed(O as mob) //TODO: check for cold resistant clothing at some point
 	..()
 	if(!safe)
 		if(istype(O, /mob/living/))

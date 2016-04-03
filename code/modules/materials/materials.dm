@@ -115,6 +115,8 @@ var/list/name_to_material
 	// Wallrot crumble message.
 	var/rotting_touch_message = "crumbles under your touch"
 
+	var/table_icon_base = null
+
 // Placeholders for light tiles and rglass.
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -153,6 +155,8 @@ var/list/name_to_material
 		use_name = display_name
 	if(!shard_icon)
 		shard_icon = shard_type
+	if(!table_icon_base)
+		table_icon_base = icon_base //why the fuck wasn't this a thing already? goddammit zuhayr, you don't have to make everything generic.
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -552,7 +556,8 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/wood
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "solid"
+	icon_base = "wood"
+	table_icon_base = "solid"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks

@@ -304,3 +304,22 @@ obj/item/clothing/head/princessbow
 	flags_inv = 0
 	body_parts_covered = 0
 	item_state = "policehelm"
+
+//First Order
+
+/obj/item/clothing/head/helmet/space/fo
+	urist_only = 1
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "first order helmet"
+	desc = "A very clean white and black helmet."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "fohelm"
+	armor = list(melee = 20, laser = 35)
+
+//toque/beanie
+/obj/item/clothing/head/urist/toque
+	icon_override = 'icons/uristmob/head.dmi'
+	name = "toque"
+	desc = "A nice warm toque, known by some fucking heathens as a beanie."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "toque"

@@ -55,7 +55,7 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/weapon/conspiracyintel/New(var/presetconspiracy)
+/obj/item/weapon/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
 	..()
 	if(presetconspiracy)
 		faction = presetconspiracy
@@ -119,6 +119,10 @@
 	var/cached_progress = 0 					//persistent progress - if you stop uploading, you can resume it later if it's the same file
 	var/progress = 0 							//temporary progress
 	var/lastuploaded = -1 						//caches id of the last intel item
+	
+/obj/item/device/inteluplink/AltClick()
+	if(Adjacent(usr))
+		open_computer()
 
 /obj/item/device/inteluplink/New(var/maker)
 	..()
@@ -179,6 +183,7 @@
 	overlays.Cut()
 	if(open)
 		icon_state = "adv-laptop"
+		light_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/computer3.dmi',icon_state="command")
 			overlays = list(screen)
@@ -188,6 +193,7 @@
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
+		light_range = 0
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 

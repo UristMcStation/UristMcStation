@@ -1,7 +1,7 @@
 var/global/list/robot_modules = list(
 	"Standard"		= /obj/item/weapon/robot_module/standard,
 	"Service" 		= /obj/item/weapon/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
+	"Cargo" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
 	"Miner" 		= /obj/item/weapon/robot_module/miner,
 	"Crisis" 		= /obj/item/weapon/robot_module/medical/crisis,
@@ -159,7 +159,12 @@ var/global/list/robot_modules = list(
 	sprites = list(	"Basic" = "robot_old",
 					"Android" = "droid",
 					"Default" = "robot",
-					"Drone" = "drone-standard"
+					"Drone" = "drone-standard",
+					"Advanced-Drone" = "Advanced-Drone-Standard",
+					"Wiredroid" = "Wiredroid-Standard",
+					"Worm" = "Worm-Standard",
+					"Spider" = "Spider-Standard",
+					"Eyebot" = "Eyebot-standard"
 				  )
 
 /obj/item/weapon/robot_module/standard/New()
@@ -188,7 +193,12 @@ var/global/list/robot_modules = list(
 					"Advanced Droid" = "droid-medical",
 					"Needles" = "medicalrobot",
 					"Drone" = "drone-surgery",
-					"Ravensdale" = "ravensdale-Medical"
+					"Ravensdale" = "ravensdale-Medical",
+					"Advanced-Drone" = "Advanced-Drone-Medical",
+					"Wiredroid" = "Wiredroid-Medical",
+					"Worm" = "Worm-Surgeon",
+					"Spider" = "Spider-Surgeon",
+					"Eyebot" = "Eyebot-surgeon"
 					)
 
 /obj/item/weapon/robot_module/medical/surgeon/New()
@@ -241,7 +251,12 @@ var/global/list/robot_modules = list(
 					"Needles" = "medicalrobot",
 					"Drone - Medical" = "drone-medical",
 					"Drone - Chemistry" = "drone-chemistry",
-					"Ravensdale" = "ravensdale-Medical"
+					"Ravensdale" = "ravensdale-Medical",
+					"Advanced-Drone" = "Advanced-Drone-Medical",
+					"Wiredroid" = "Wiredroid-Medical",
+					"Worm" = "Worm-Crisis",
+					"Spider" = "Spider-Crisis",
+					"Eyebot" = "Eyebot-crisis"
 					)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
@@ -307,7 +322,12 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer",
-					"Ravensdale" = "ravensdale-Engineering"
+					"Ravensdale" = "ravensdale-Engineering",
+					"Advanced-Drone" = "Advanced-Drone-Engineering",
+					"Wiredroid" = "Wiredroid-Engineering",
+					"Worm" = "Worm-Engineering",
+					"Spider" = "Spider-Engineering",
+					"Eyebot" = "Eyebot-engineering"
 					)
 
 /obj/item/weapon/robot_module/engineering/construction
@@ -422,7 +442,12 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "bloodhound",
 					"Bloodhound - Treaded" = "secborg+tread",
 					"Drone" = "drone-sec",
-					"Ravensdale" = "ravensdale-Security"
+					"Ravensdale" = "ravensdale-Security",
+					"Advanced-Drone" = "Advanced-Drone-Security",
+					"Wiredroid" = "Wiredroid-Security",
+					"Worm" = "Worm-Security",
+					"Spider" = "Spider-Security",
+					"Eyebot" = "Eyebot-security"
 				)
 
 /obj/item/weapon/robot_module/security/general/New()
@@ -433,6 +458,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
+	src.modules += new /obj/item/device/hailer(src)
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 	return
 
@@ -456,7 +482,12 @@ var/global/list/robot_modules = list(
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
 					"Drone" = "drone-janitor",
-					"Ravensdale" = "ravensdale-Janitor"
+					"Ravensdale" = "ravensdale-Janitor",
+					"Advanced-Drone" = "Advanced-Drone-Janitor",
+					"Wiredroid" = "Wiredroid-Janitor",
+					"Worm" = "Worm-Janitor",
+					"Spider" = "Spider-Janitor",
+					"Eyebot" = "Eyebot-janitor"
 					)
 
 /obj/item/weapon/robot_module/janitor/New()
@@ -501,7 +532,12 @@ var/global/list/robot_modules = list(
 					"Default" = "Service2",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
-					"Ravensdale" = "ravensdale-Service"
+					"Ravensdale" = "ravensdale-Service",
+					"Advanced-Drone" = "Advanced-Drone-Service",
+					"Wiredroid" = "Wiredroid-Service",
+					"Worm" = "Worm-Service",
+					"Spider" = "Spider-Clerical",
+					"Eyebot" = "Eyebot-service"
 				  	)
 
 /obj/item/weapon/robot_module/clerical/butler/New()
@@ -537,7 +573,9 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/weapon/robot_module/clerical/general
-	name = "clerical robot module"
+	name = "cargo robot module"
+	channels = list("Supply" = 1)
+	networks = list(NETWORK_MINE)
 	sprites = list(
 					"Waitress" = "Service",
 					"Kent" = "toiletbot",
@@ -545,7 +583,12 @@ var/global/list/robot_modules = list(
 					"Rich" = "maximillion",
 					"Default" = "Service2",
 					"Drone" = "drone-service",
-					"Ravensdale" = "ravensdale-Service"
+					"Ravensdale" = "ravensdale-Service",
+					"Advanced-Drone" = "Advanced-Drone-Service",
+					"Wiredroid" = "Wiredroid-Service",
+					"Worm" = "Worm-Service",
+					"Spider" = "Spider-Clerical",
+					"Eyebot" = "Eyebot-service"
 					)
 
 /obj/item/weapon/robot_module/clerical/general/New()
@@ -555,6 +598,13 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/form_printer(src)
 	src.modules += new /obj/item/weapon/gripper/paperwork(src)
 	src.modules += new /obj/item/weapon/hand_labeler(src)
+	src.modules += new /obj/item/device/destTagger(src)
+	src.modules += new /obj/item/weapon/packageWrap(src)
+	src.modules += new /obj/item/weapon/packageWrap(src)
+	src.modules += new /obj/item/weapon/packageWrap(src)
+	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/weapon/gripper/miner(src)
+	src.modules += new /obj/item/weapon/screwdriver(src)
 	src.emag = new /obj/item/weapon/stamp/denied(src)
 
 /obj/item/weapon/robot_module/general/butler/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -574,7 +624,12 @@ var/global/list/robot_modules = list(
 					"Advanced Droid" = "droid-miner",
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner",
-					"Ravensdale" = "ravensdale-Miner"
+					"Ravensdale" = "ravensdale-Miner",
+					"Advanced-Drone" = "Advanced-Drone-Miner",
+					"Wiredroid" = "Wiredroid-Miner",
+					"Worm" = "Worm-Miner",
+					"Spider" = "Spider-Miner",
+					"Eyebot" = "Eyebot-miner"
 				)
 	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
 
@@ -590,6 +645,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
+	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
 	return
 
@@ -598,7 +654,11 @@ var/global/list/robot_modules = list(
 	channels = list("Science" = 1)
 	sprites = list(
 					"Droid" = "droid-science",
-					"Drone" = "drone-science"
+					"Drone" = "drone-science",
+					"Advanced-Drone" = "Advanced-Drone-Research",
+					"Wiredroid" = "Wiredroid-Medical",
+					"Worm" = "Worm-Crisis",
+					"Spider" = "Spider-Surgeon"
 					)
 
 /obj/item/weapon/robot_module/research/New()
@@ -617,6 +677,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	src.modules += new /obj/item/weapon/wirecutters(src)
 	src.emag = new /obj/item/weapon/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
@@ -656,7 +717,8 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
 	sprites = list("Combat Android" = "droid-combat",
-					"Ravensdale" = "ravensdale-Combat"
+					"Ravensdale" = "ravensdale-Combat",
+					"Spider" = "Spider-Combat"
 					)
 
 /obj/item/weapon/robot_module/combat/New()

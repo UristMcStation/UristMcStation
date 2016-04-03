@@ -83,14 +83,14 @@ MENTORS
 ## default probablity is 1, increase to make that mode more likely to be picked
 ## set to 0 to disable that mode
 PROBABILITY EXTENDED 0
-PROBABILITY AUTOTRAITOR 3
-PROBABILITY MALFUNCTION 2
-PROBABILITY NUCLEAR 3
-PROBABILITY WIZARD 1
+PROBABILITY AUTOTRAITOR 6
+PROBABILITY MALFUNCTION 1
+PROBABILITY NUCLEAR 5
+PROBABILITY WIZARD 3
 PROBABILITY CHANGELING 1
-PROBABILITY CULT 3
-PROBABILITY HEIST 3
-PROBABILITY VAMPIRE 3
+PROBABILITY CULT 5
+PROBABILITY HEIST 5
+PROBABILITY VAMPIRE 5
 PROBABILITY SCOM 0
 PROBABILITY PARANOIA 0
 
@@ -221,7 +221,7 @@ SOCKET_TALK 0
 #TOR_BAN
 
 ## Comment this out to disable automuting
-#AUTOMUTE_ON
+AUTOMUTE_ON
 
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 GATEWAY_DELAY 18000
@@ -284,10 +284,10 @@ STATION_LEVELS 1
 ADMIN_LEVELS 2
 
 ## Defines which Z-levels which, for example, a Code Red announcement may affect
-CONTACT_LEVELS 1;5
+CONTACT_LEVELS 1;5;7
 
 ## Defines all Z-levels a character can typically reach
-PLAYER_LEVELS 1;3;4;5;6
+PLAYER_LEVELS 1;3;4;5;6;7
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 120

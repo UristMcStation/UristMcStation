@@ -15,14 +15,7 @@
 
 /obj/structure/bush/New()
 
-	if(prob(25)) //3,2,1,4. Don't ask.
-		icon_state = "bushnew3"
-	else if(prob(25))
-		icon_state = "bushnew1"
-	else if(prob(25))
-		icon_state = "bushnew2"
-	else if(prob(25))
-		icon_state = "bushnew4"
+	icon_state = "bushnew[rand(1,4)]"
 
 	if(prob(20))
 		name = "thick foliage"
@@ -43,11 +36,17 @@
 
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/material/hatchet) && !stump)
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
 			user << "\red You flail away at the undergrowth, but it's too thick here."
-		else
+			return
+
+		if(stump)
+			user << "\blue You clear away the stump."
+			qdel(src)
+
+		else if(!stump)
 			user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
@@ -63,20 +62,10 @@
 						stump = 1
 						pixel_x = rand(-6,6)
 						pixel_y = rand(-6,6)
-						if (icon_state == "newbush1")
-							icon_state = "newstump1"
-						else if (icon_state == "newbush2")
-							icon_state = "newstump2"
-						else if (icon_state == "newbush3")
-							icon_state = "newstump2"
-						else if (icon_state == "newbush4")
-							icon_state = "newstump1"
-						else
-							icon_state = "newstump1"
+						icon_state = "[icon_state]-stump"
+
 					else
 						qdel(src)
-	else
-		return ..()
 
 //*******************************//
 // Strange, fruit-bearing plants //
@@ -96,7 +85,12 @@ var/jungle_plants_init = 0
 	desc = "It smells weird and looks off."
 	icon = 'icons/jungle.dmi'
 	icon_state = "orange"
-	potency = 1
+//	potency = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/New()
+	seed = plant_controller.create_random_seed() //it could be anything!
+	plantname = seed.name
+	..()
 
 /obj/structure/jungle_plant
 	icon = 'icons/jungle.dmi'
@@ -105,7 +99,7 @@ var/jungle_plants_init = 0
 	var/fruits_left = 3
 	var/fruit_type = -1
 	var/icon/fruit_overlay
-	var/plant_strength = 1
+//	var/plant_strength = 1
 	var/fruit_r
 	var/fruit_g
 	var/fruit_b
@@ -124,7 +118,7 @@ var/jungle_plants_init = 0
 	fruit_b = fruit_type * 36
 	fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
 	overlays += fruit_overlay
-	plant_strength = rand(20,200)
+//	plant_strength = rand(20,200)
 
 /obj/structure/jungle_plant/attack_hand(var/mob/user as mob)
 	if(fruits_left > 0)
@@ -132,10 +126,10 @@ var/jungle_plants_init = 0
 		user << "\blue You pick a fruit off [src]."
 
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
-		J.potency = plant_strength
-		J.icon_state = fruit_icon_states[fruit_type]
-		J.reagents.add_reagent(reagent_effects[fruit_type], 1+round((plant_strength / 20), 1))
-		J.bitesize = 1+round(J.reagents.total_volume / 2, 1)
+//		J.potency = plant_strength
+//		J.icon_state = fruit_icon_states[fruit_type]
+//		J.reagents.add_reagent(reagent_effects[fruit_type], 1+round((plant_strength / 20), 1))
+//		J.bitesize = 1+round(J.reagents.total_volume / 2, 1)
 		J.attack_hand(user)
 
 		overlays -= fruit_overlay
@@ -145,6 +139,18 @@ var/jungle_plants_init = 0
 	else
 		user << "\red There are no fruit left on [src]."
 
+/obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
+	//hatchets can clear away undergrowth
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+
+
+		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+		spawn(rand(15,30))
+			if(get_dist(user,src) < 2)
+				user << "\blue You clear away [src]."
+				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				qdel(src)
 //reeds
 
 /obj/structure/flora/reeds

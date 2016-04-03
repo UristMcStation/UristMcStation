@@ -1,0 +1,57 @@
+"a" = (/turf/simulated/jungle/path,/area/jungle)
+"b" = (/turf/simulated/jungle/clear,/area/jungle)
+"c" = (/turf/unsimulated/floor,/area/jungle)
+"d" = (/turf/simulated/wall,/area/jungle)
+"e" = (/obj/structure/girder,/turf/simulated/floor/plating,/area/jungle)
+"f" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/plating{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/jungle)
+"g" = (/obj/structure/grille,/obj/structure/window/reinforced/tinted,/obj/structure/window/reinforced/tinted{dir = 8; icon_state = "twindow"},/obj/structure/window/reinforced/tinted{dir = 4; icon_state = "twindow"},/obj/structure/window/reinforced/tinted{dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/jungle)
+"h" = (/obj/machinery/door/airlock/research{name = "Xenobiology"; req_access = list(55)},/turf/simulated/floor{icon_state = "white"},/area/jungle)
+"i" = (/obj/structure/grille,/obj/structure/window/reinforced/tinted,/obj/structure/window/reinforced/tinted{dir = 4; icon_state = "twindow"},/obj/structure/window/reinforced/tinted{dir = 1},/obj/structure/window/reinforced/tinted{dir = 8; icon_state = "twindow"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/jungle)
+"j" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/cobweb,/obj/item/weapon/screwdriver,/turf/simulated/floor/plating,/area/jungle)
+"k" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor,/area/jungle)
+"l" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/ash,/turf/simulated/floor,/area/jungle)
+"m" = (/turf/simulated/floor/plating{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/jungle)
+"n" = (/turf/simulated/floor/plating{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/jungle)
+"o" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/plating{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/jungle)
+"p" = (/turf/simulated/floor,/area/jungle)
+"q" = (/turf/simulated/floor/plating,/area/jungle)
+"r" = (/obj/effect/decal/cleanable/liquid_fuel,/turf/simulated/floor,/area/jungle)
+"s" = (/obj/structure/table/woodentable,/turf/simulated/floor,/area/jungle)
+"t" = (/obj/item/stack/material/glass,/turf/simulated/floor,/area/jungle)
+"u" = (/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/jungle/path,/area/jungle)
+"v" = (/obj/structure/table/woodentable,/turf/simulated/floor/plating,/area/jungle)
+"w" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/plating,/area/jungle)
+"x" = (/turf/simulated/wall/r_wall,/area/jungle)
+"y" = (/obj/item/weapon/material/shard,/obj/item/weapon/caution,/turf/simulated/floor/plating,/area/jungle)
+"z" = (/obj/structure/disposalpipe/broken,/turf/simulated/floor/plating,/area/jungle)
+"A" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/jungle)
+"B" = (/obj/item/weapon/circuitboard/broken,/turf/simulated/floor/plating,/area/jungle)
+"C" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/plating,/area/jungle)
+"D" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/jungle)
+"E" = (/obj/effect/decal/cleanable/blood/xeno,/turf/simulated/floor,/area/jungle)
+"F" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/plating,/area/jungle)
+"G" = (/obj/item/stack/rods{amount = 25},/turf/simulated/floor/plating,/area/jungle)
+"H" = (/obj/structure/grille{density = 0; icon_state = "brokengrille"},/obj/item/stack/rods{amount = 25},/turf/simulated/floor/plating,/area/jungle)
+"I" = (/obj/effect/decal/cleanable/cobweb2{tag = "icon-cobweb1"; icon_state = "cobweb1"},/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+"J" = (/obj/effect/decal/cleanable/blood/gibs/xeno/body,/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+"K" = (/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+"L" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard{icon_state = "medium"},/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+"M" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+"N" = (/obj/structure/closet,/turf/unsimulated/floor{icon_state = "engine"},/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaa
+abbaaaaaacccaa
+bbbbbbbbbcccba
+ddddefeddghida
+djklmnoppqppda
+dprrqaaaaaspda
+dtmruaaaaqvvda
+dpqaaaaaqmvwda
+xqyqqqmpppzpda
+xABCeDEFxGpHxa
+xIJKxLKMxKKKxa
+xKKKxKKNxKKKxa
+xKKKxKKKxKKKxa
+xxxxxxxxxxxxxa
+"}

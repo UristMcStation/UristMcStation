@@ -277,6 +277,22 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["SCOM2"] = shuttle
 	process_shuttles += shuttle
 
+	shuttle = new/datum/shuttle/ferry/elevator/mining()
+	shuttle.location = 0
+	shuttle.warmup_time = 2
+	shuttle.area_offsite = locate(/area/shuttle/elevator/mining/underground)
+	shuttle.area_station = locate(/area/shuttle/elevator/mining/surface)
+	shuttles["MiningElevator"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/elevator/research()
+	shuttle.location = 0
+	shuttle.warmup_time = 2
+	shuttle.area_offsite = locate(/area/shuttle/elevator/research/underground)
+	shuttle.area_station = locate(/area/shuttle/elevator/research/surface)
+	shuttles["ResearchElevator"] = shuttle
+	process_shuttles += shuttle
+
 //End Urist shuttles
 
 	// ERT Shuttle
@@ -302,7 +318,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"Fore Port Solars" = locate(/area/skipjack_station/northwest_solars),
 		"Aft Starboard Solars" = locate(/area/skipjack_station/southeast_solars),
 		"Aft Port Solars" = locate(/area/skipjack_station/southwest_solars),
-		"Mining asteroid" = locate(/area/skipjack_station/mining)
+		"Planet Surface" = locate(/area/skipjack_station/mining)
 		)
 
 	VS.announcer = "NDV Icarus"
@@ -326,7 +342,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 		"South of the station" = locate(/area/syndicate_station/south),
 		"Southeast of the station" = locate(/area/syndicate_station/southeast),
 		"Abandoned Satellite" = locate(/area/syndicate_station/commssat),
-		"Mining Asteroid" = locate(/area/syndicate_station/mining),
+		"Planet Surface" = locate(/area/syndicate_station/mining),
 //		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock),
 		)
 

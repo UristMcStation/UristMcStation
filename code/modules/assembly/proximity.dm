@@ -5,7 +5,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 800, "glass" = 200, "waste" = 50)
 	origin_tech = "magnets=1"
 
-	wires = WIRE_PULSE
+	wires = WIRE_RECEIVE | WIRE_PULSE
 
 	secured = 0
 
@@ -129,7 +129,7 @@
 
 
 	Topic(href, href_list)
-		if(..()) return 1
+//		if(..()) return 1
 		if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 			usr << browse(null, "window=prox")
 			onclose(usr, "prox")

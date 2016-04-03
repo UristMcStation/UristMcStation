@@ -168,3 +168,24 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	desc = "A fancy hat made just for the HoP"
 	icon_state = "hopcap"
 	item_state = "hopcap"
+
+/obj/item/clothing/head/helmet/urist/sombrero
+	icon_override = 'icons/uristmob/head.dmi'
+	urist_only = 1
+	icon = 'icons/urist/items/tgitems.dmi'
+	name = "large sombrero"
+	desc = "A nice looking large sombrero"
+	icon_state = "sombrero"
+	item_state = "sombrero"
+
+/obj/item/clothing/head/helmet/urist/sombrero/green
+	name = "green sombrero"
+	desc = "A nice looking large green sombrero"
+	icon_state = "greensombrero"
+	item_state = "greensombrero"
+
+/obj/item/clothing/head/helmet/urist/sombrero/shame
+	name = "shamebrero"
+	desc = "A not so nice shamebrero for the losers."
+	icon_state = "shamebrero"
+	item_state = "shamebrero"

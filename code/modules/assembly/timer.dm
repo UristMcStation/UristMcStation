@@ -5,7 +5,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 50, "waste" = 10)
 	origin_tech = "magnets=1"
 
-	wires = WIRE_PULSE
+	wires = WIRE_RECEIVE | WIRE_PULSE
 
 	secured = 0
 
@@ -42,6 +42,7 @@
 		if(!holder)
 			visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
 		cooldown = 2
+		update_icon()
 		spawn(10)
 			process_cooldown()
 		return
@@ -83,7 +84,7 @@
 
 
 	Topic(href, href_list)
-		if(..()) return 1
+//		if(..()) return 1
 		if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 			usr << browse(null, "window=timer")
 			onclose(usr, "timer")
