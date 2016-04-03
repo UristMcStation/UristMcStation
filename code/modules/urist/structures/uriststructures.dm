@@ -298,5 +298,5 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/table/rack/wood
 	name = "wooden rack"
-	icon = 'icons/urist/items/wood.dmi'
+	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "rack"
