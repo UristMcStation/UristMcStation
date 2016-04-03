@@ -1,0 +1,52 @@
+"a" = (/turf/simulated/jungle/thick,/area/jungle)
+"b" = (/turf/simulated/wall/wood,/area/jungle)
+"c" = (/obj/structure/grille/cult,/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/turf/space,/area/jungle)
+"d" = (/obj/structure/grille/cult,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced,/turf/space,/area/jungle)
+"e" = (/obj/structure/bookcase{name = "bookcase (Religious)"},/turf/simulated/floor/wood{icon_state = "wood-broken6"},/area/jungle)
+"f" = (/obj/structure/curtain/black{pixel_y = 32},/turf/simulated/floor/wood,/area/jungle)
+"g" = (/obj/structure/noticeboard{pixel_y = 32},/obj/structure/coatrack,/turf/simulated/floor/wood{icon_state = "wood-broken4"},/area/jungle)
+"h" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/box{name = "donation box"},/obj/item/weapon/spacecash/c20,/obj/machinery/light/small/red{tag = "icon-firelight1 (EAST)"; icon_state = "firelight1"; dir = 4},/obj/item/weapon/flame/candle,/turf/simulated/floor/wood,/area/jungle)
+"i" = (/obj/structure/curtain/black{pixel_y = 32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/jungle)
+"j" = (/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/engine/cult,/area/jungle)
+"k" = (/obj/structure/curtain/black{pixel_y = 32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/engine/cult,/area/jungle)
+"l" = (/obj/structure/curtain/black,/turf/simulated/floor/engine/cult,/area/jungle)
+"m" = (/obj/structure/table/woodentable,/obj/item/weapon/book/tome,/obj/item/weapon/veilrender{charged = 0},/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/jungle)
+"n" = (/turf/simulated/wall/wood,/turf/simulated/wall/cult,/area/jungle)
+"o" = (/obj/structure/sink/puddle,/turf/simulated/jungle/path,/area/jungle)
+"p" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor/wood,/area/jungle)
+"q" = (/turf/simulated/floor/wood{icon_state = "wood-broken3"},/area/jungle)
+"r" = (/turf/simulated/floor/wood{tag = "icon-wood-broken7"; icon_state = "wood-broken7"},/area/jungle)
+"s" = (/turf/simulated/floor/wood{tag = "icon-wood-broken"; icon_state = "wood-broken"},/area/jungle)
+"t" = (/obj/structure/simple_door/iron,/turf/simulated/floor/wood{icon_state = "wood-broken3"},/area/jungle)
+"u" = (/turf/simulated/floor/engine/cult,/area/jungle)
+"v" = (/obj/effect/rune{word1 = "hell"; word2 = "blood"; word3 = "join"},/turf/simulated/floor/engine/cult,/area/jungle)
+"w" = (/obj/structure/cult/talisman,/obj/effect/gibspawner/human,/obj/effect/landmark/mobcorpse/russian/ranged,/turf/simulated/floor/engine/cult,/area/jungle)
+"x" = (/turf/simulated/jungle/path,/area/jungle)
+"y" = (/obj/structure/simple_door/wood,/turf/simulated/floor/wood{tag = "icon-wood-broken3"; icon_state = "wood-broken3"},/area/jungle)
+"z" = (/obj/structure/curtain/black{pixel_y = -32},/turf/simulated/floor/wood,/area/jungle)
+"A" = (/obj/item/device/flashlight/lamp/lantern,/turf/simulated/floor/wood{icon_state = "wood-broken4"},/area/jungle)
+"B" = (/obj/structure/table/woodentable,/obj/machinery/light/small/red{tag = "icon-firelight1 (EAST)"; icon_state = "firelight1"; dir = 4},/obj/item/trash/candle,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/fancy/candle_box,/obj/item/weapon/flame/lighter/random,/turf/simulated/floor/wood{tag = "icon-wood-broken6"; icon_state = "wood-broken6"},/area/jungle)
+"C" = (/obj/structure/curtain/black{pixel_y = -32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/jungle{pixel_y = -32})
+"D" = (/obj/structure/curtain/black{pixel_y = -32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/engine/cult,/area/jungle)
+"E" = (/obj/structure/table/woodentable,/obj/item/clothing/suit/chaplain_hoodie,/obj/item/bodybag,/obj/item/bodybag,/obj/item/bodybag,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/backpack/cultpack,/turf/simulated/floor/engine/cult,/area/jungle)
+"F" = (/turf/simulated/floor/beach/sand,/area/jungle)
+"G" = (/obj/item/weapon/shovel,/turf/simulated/floor/beach/sand,/area/jungle)
+"H" = (/obj/effect/decal/remains/human,/turf/simulated/floor/beach/sand,/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaa
+aabbcbbbdbdbdbbbaa
+aabefghbijkjklmnba
+aobpqrstuuuuulvwba
+axyrzABbCjDjDlEnba
+axbbdbbbdbdbdbbbaa
+axaaaaaaaaaaaaaaaa
+axaaaxxxxaaaaaaaaa
+axxaxxxaxxaaxxxaaa
+axxxxxaaaxxxxxxaaa
+aaxxaaaaaxxxxaxaaa
+aFFFFaaaaaaaaaxaaa
+aFFGHaaaaaaaaxxxaa
+aaaaaaaaaaaaaxxxaa
+"}
