@@ -131,15 +131,15 @@ var/list/datum/map_template/planet_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-	world << "<span class='boldannounce'>Loading ruins...</span>"
+//	world << "<span class='boldannounce'>Loading ruins...</span>"
 	if(!template && possible_ruins.len)
 		template = safepick(possible_ruins)
 	if(!template)
-		world << "<span class='boldannounce'>No ruins found.</span>"
+//		world << "<span class='boldannounce'>No ruins found.</span>"
 		return
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
-	world << "<span class='boldannounce'>Ruins loaded.</span>"
+//	world << "<span class='boldannounce'>Ruins loaded.</span>"
 	qdel(src)
 
 /obj/effect/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
@@ -148,13 +148,13 @@ var/list/datum/map_template/planet_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-	world << "<span class='boldannounce'>Loading ruins...</span>"
+//	world << "<span class='boldannounce'>Loading ruins...</span>"
 	if(!template && possible_ruins.len)
 		template = safepick(possible_ruins)
 	if(!template)
-		world << "<span class='boldannounce'>No ruins found.</span>"
+//		world << "<span class='boldannounce'>No ruins found.</span>"
 		return
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
-	world << "<span class='boldannounce'>Ruins loaded.</span>"
+//	world << "<span class='boldannounce'>Ruins loaded.</span>"
 	qdel(src)
