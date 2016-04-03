@@ -84,6 +84,14 @@
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
+/turf/simulated/jungle/clear/New()
+	set_light(2)
+
+	for(var/obj/structure/bush/B in src)
+		qdel(B)
+	for(var/obj/structure/flora/F in src)
+		qdel(F)
+
 /turf/simulated/jungle/clear/grass1
 	bushes_spawn = 0
 	plants_spawn = 0
@@ -193,14 +201,19 @@
 	var/bridge = 0 //has there been a bridge built?
 
 /turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/wood && !bridge))
-		var/obj/item/stack/material/wood/R = I
+	if(istype(I, /obj/item/stack/material/wood))
+		if(!bridge)
+			var/obj/item/stack/material/wood/R = I
 
-		if(R.amount >= 3)
-			user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
-			R.overlays += image('icons/jungle.dmi', "bridge")
+			if(R.amount >= 3)
+				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
+				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
+				desc = "thick murky water. There's a makeshift platform over it."
+				R.use(3)
+				bridge = 1
+			return
+	else
 		return
-
 /turf/simulated/jungle/water/New()
 	..()
 	for(var/obj/structure/bush/B in src)
@@ -248,7 +261,7 @@
 	icon_state = "phoron0"
 	var/mineral = "phoron"
 
-/turf/simulated/jungle/clear/edge
+/turf/simulated/jungle/water/edge
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'

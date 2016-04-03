@@ -41,6 +41,13 @@ var/list/datum/map_template/planet_templates = list()
 	if(T.y+height > world.maxy)
 		return
 
+
+
+	for(var/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
+		var/turf/B = L
+		for(var/obj/A in B)
+			qdel(A)
+
 	maploader.load_map(get_file(), T.x-1, T.y-1, T.z)
 
 	//initialize things that are normally initialized after map load
@@ -90,6 +97,9 @@ var/list/datum/map_template/planet_templates = list()
 	preloadOtherTemplates()
 
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
+
+	for(var/obj/effect/template_loader/E in world)
+		E.Load()
 
 /proc/preloadOtherTemplates() //TODO: add underground templates for the planet when we get some made
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")

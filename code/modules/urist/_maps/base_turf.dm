@@ -42,3 +42,7 @@ proc/get_base_turf_by_area(var/turf/T)
 /area/supply/base_turf = /turf/space
 
 ///area/syndicate_station/start/base_turf = /turf/unsimulated/snow //need a snow turf
+
+/area/syndicate_station/mining/base_turf = /turf/simulated/jungle/clear
+
+/area/syndicate_station/mining/base_turf = /turf/simulated/jungle/clear

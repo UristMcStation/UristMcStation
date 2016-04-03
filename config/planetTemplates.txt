@@ -4,3 +4,4 @@
 #SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
 
 maps/templates/planet_clearing1.dmm
+maps/templates/planet_j_pen_ruins.dmm

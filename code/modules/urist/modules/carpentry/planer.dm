@@ -67,7 +67,7 @@
 /obj/machinery/carpentry/woodprocessor/attack_hand(mob/user as mob)
 	if(sheets)
 
-		var/t = "<B>Wood Processor</B><br><br>Stored Sheers: [sheets]"
+		var/t = "<B>Wood Processor</B><br><br>Stored Sheets: [sheets]<br>"
 		//t += "<A href='?src=\ref[src];on=1'>On</A><br>"
 		t += "<A href='?src=\ref[src];on1=Cardboard'>Cardboard</A><br>"
 		t += "<A href='?src=\ref[src];on2=PackageWrap'>Package Wrap</A><br>"
@@ -83,22 +83,24 @@
 	if( href_list["on1"] )
 		var/obj/item/stack/material/cardboard/W = new /obj/item/stack/material/cardboard(src.loc)
 		if(sheets >= 50)
-			sheets =- 50
+			sheets -= 50
 			W.amount = 50
 		else
 			W.amount = sheets
+			sheets -= W.amount
 			return
 
 	if( href_list["on2"] )
 		var/obj/item/weapon/packageWrap/W = new /obj/item/weapon/packageWrap(src.loc)
 		if(sheets >= 25)
-			sheets =- 25
+			sheets -= 25
 			W.amount = 25
 		else
 			W.amount = sheets
+			sheets -= W.amount
 			return
 
 	if( href_list["on3"] )
 		new /obj/item/weapon/paper(src.loc)
-		sheets =- 1
+		sheets -= 1
 		return

@@ -491,7 +491,7 @@ area/space/atmosalert()
 	icon_state = "south"
 
 /area/syndicate_station/mining
-	name = "\improper north east of the mining asteroid"
+	name = "\improper somewhere on the planet's surface"
 	icon_state = "north"
 
 /area/syndicate_station/arrivals_dock
@@ -542,7 +542,7 @@ area/space/atmosalert()
 	icon_state = "southeast"
 
 /area/skipjack_station/mining
-	name = "\improper nearby mining asteroid"
+	name = "\improper somewhere on the planet's surface"
 	icon_state = "north"
 
 //PRISON
