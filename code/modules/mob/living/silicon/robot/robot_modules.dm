@@ -576,8 +576,7 @@ var/global/list/robot_modules = list(
 	name = "clerical robot module"
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
-	sprites = list(
-					"Waitress" = "Service",
+	sprites = list( "Waitress" = "Service",
 					"Kent" = "toiletbot",
 					"Bro" = "Brobot",
 					"Rich" = "maximillion",
