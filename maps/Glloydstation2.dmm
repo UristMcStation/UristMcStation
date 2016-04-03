@@ -12702,7 +12702,7 @@
 "eKn" = (/obj/machinery/light,/turf/simulated/floor,/area/outpost/research/eva)
 "eKo" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/outpost/abandoned)
 "eKp" = (/turf/simulated/floor/airless,/area/outpost/abandoned)
-"eKq" = (/obj/machinery/door/airlock/glass_mining{name = "Mining Station EVA"; req_access = list(54)},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/outpost/research/eva)
+"eKq" = (/obj/machinery/door/airlock/glass_mining{name = "Mining Station EVA"; req_access = list(65)},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/outpost/research/eva)
 "eKr" = (/obj/structure/window/reinforced{dir = 4},/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/floor/plating/airless,/area/outpost/abandoned)
 "eKs" = (/obj/item/stack/rods,/obj/structure/door_assembly/door_assembly_ext{name = "Broken External Airlock"},/turf/simulated/floor/airless,/area/outpost/abandoned)
 "eKt" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/floor/plating/airless,/area/outpost/abandoned)
