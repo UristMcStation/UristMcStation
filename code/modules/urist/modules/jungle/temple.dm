@@ -58,7 +58,7 @@
 		200 - low_probability * 175;"treasure", \
 		25 + low_probability * 75;"remains", \
 		25 + low_probability * 75;"plants", \
-		5; "blob", \
+/*		5; "blob", \*/
 		50 + low_probability * 50;"clothes", \
 		"glasses", \
 		100 - low_probability * 50;"weapons", \
@@ -121,8 +121,9 @@
 					new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap(src.loc)
 				else if(prob(50))
 					new /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris(src.loc)
-			if("blob")
-				new /obj/effect/blob/core(src.loc)
+//			if("blob")
+//				new /obj/effect/blob/core(src.loc) //blob will lag out the planet
+				return
 			if("clothes")
 				var/obj/structure/closet/C = new(src.loc)
 				C.icon_state = "blue"

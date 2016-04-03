@@ -64,13 +64,13 @@ var/global/universe_has_ended = 0
 		var/txt = {"
 There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavily damaged and many personnel are dead or dying. We are seeing increasing indications of the universe itself beginning to unravel.
 
-[station_name()], you are the only facility nearby a bluespace rift, which is near your research outpost. You are hereby directed to enter the rift using all means necessary, quite possibly as the last of your species alive.
+[station_name()], you are the only facility nearby a bluespace rift, which is on the surface of the planet near your research outpost. You are hereby directed to enter the rift using all means necessary, quite possibly as the last of your species alive.
 
 You have five minutes before the universe collapses. Good l\[\[###!!!-
 
 AUTOMATED ALERT: Link to [command_name()] lost.
 
-The access requirements on the Asteroid Shuttles' consoles have now been revoked.
+The access requirements on the Planet Shuttles' consoles have now been revoked.
 "}
 		priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
