@@ -169,6 +169,9 @@
 					H.equip_to_slot_or_del(new /obj/item/clothing/under/urist/rank/carpenter(H), slot_w_uniform)
 					H.equip_to_slot_or_del(new /obj/item/clothing/head/urist/toque(H), slot_head)
 
+				if("Resource Technician")
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/overalls(H), slot_w_uniform)
+
 //				if("Hunter")
 //					H.equip_to_slot_or_del(new /obj/item/clothing/under/urist/rank/hunter(H), slot_w_uniform)
 
