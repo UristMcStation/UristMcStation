@@ -29,9 +29,9 @@
 "C" = (/obj/structure/curtain/black{pixel_y = -32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/jungle{pixel_y = -32})
 "D" = (/obj/structure/curtain/black{pixel_y = -32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/engine/cult,/area/jungle)
 "E" = (/obj/structure/table/woodentable,/obj/item/clothing/suit/chaplain_hoodie,/obj/item/bodybag,/obj/item/bodybag,/obj/item/bodybag,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/backpack/cultpack,/turf/simulated/floor/engine/cult,/area/jungle)
-"F" = (/turf/simulated/floor/beach/sand,/area/jungle)
-"G" = (/obj/item/weapon/shovel,/turf/simulated/floor/beach/sand,/area/jungle)
-"H" = (/obj/effect/decal/remains/human,/turf/simulated/floor/beach/sand,/area/jungle)
+"F" = (/turf/simulated/jungle/clear,/area/jungle)
+"G" = (/obj/item/weapon/shovel,/turf/simulated/jungle/path,/area/jungle)
+"H" = (/obj/effect/decal/remains/human,/turf/simulated/jungle/path,/area/jungle)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaa
@@ -44,9 +44,9 @@ axbbdbbbdbdbdbbbaa
 axaaaaaaaaaaaaaaaa
 axaaaxxxxaaaaaaaaa
 axxaxxxaxxaaxxxaaa
-axxxxxaaaxxxxxxaaa
-aaxxaaaaaxxxxaxaaa
-aFFFFaaaaaaaaaxaaa
-aFFGHaaaaaaaaxxxaa
+aFxxxxaaaxxxxxxaaa
+aaFFaaaaaxxxxaxaaa
+axxxxaaaaaaaaaxaaa
+axxGHaaaaaaaaxxxaa
 aaaaaaaaaaaaaxxxaa
 "}

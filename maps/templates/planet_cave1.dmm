@@ -1,29 +1,28 @@
 "a" = (/turf/simulated/jungle/med,/area/jungle)
 "b" = (/turf/simulated/jungle/thick,/area/jungle)
 "c" = (/turf/simulated/jungle/rock,/area/jungle)
-"d" = (/obj/effect/landmark/glowshroom_spawn,/turf/simulated/jungle/clear/dark,/area/jungle)
-"e" = (/obj/effect/landmark/glowshroom_spawn,/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit,/turf/simulated/jungle/clear/dark,/area/jungle)
-"f" = (/turf/simulated/jungle/clear/dark,/area/jungle)
-"g" = (/obj/effect/spider,/turf/simulated/jungle/clear/dark,/area/jungle)
-"h" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark,/area/jungle)
-"i" = (/obj/effect/landmark/glowshroom_spawn,/obj/effect/landmark/loot_spawn/low,/turf/simulated/jungle/clear/dark,/area/jungle)
-"j" = (/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit,/obj/effect/landmark/glowshroom_spawn,/turf/simulated/jungle/clear/dark,/area/jungle)
-"k" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark,/area/jungle)
+"d" = (/turf/simulated/jungle/med,/area/space)
+"e" = (/turf/simulated/jungle/thick,/area/space)
+"f" = (/obj/effect/landmark/glowshroom_spawn,/turf/simulated/jungle/rock,/area/jungle)
+"g" = (/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
+"h" = (/turf/simulated/jungle/rock,/area/space)
+"i" = (/obj/effect/spider,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
+"j" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
+"k" = (/obj/effect/landmark/loot_spawn/low,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
+"l" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark,/area/jungle)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaa
-aabbbbbbbbbbbba
-abbbbbccccccbbb
-bbbccccdeddcccb
-bbccccdffffdccb
-bbccddffffffdcb
-bccgfffdcdffdcb
-bcffdfdcccffdcb
-bcfccecccdffdcb
-bcfhcccciffjccb
-bcchhhcccidccbb
-bbccchccccccbbb
-bbbcckcccccbbba
-abbbbbbbbbbbbaa
-aabbbbbbbbbbaaa
+aabbbbbccccbbbd
+abbbbcccccccbbe
+bbbcccfggggfcce
+bbccffggggggfch
+bbccgggggggggch
+bcciggggcggggch
+bcgggggfcfgggch
+bcgcfgfcfggggch
+bcgjcfcfkgggfce
+bccjjjccfkgfcbe
+bbcccjcccffcbbe
+bbbcclcccccbbbe
+abbbbbbbbbbbbad
 "}
