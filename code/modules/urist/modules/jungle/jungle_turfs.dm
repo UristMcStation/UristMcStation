@@ -13,6 +13,9 @@
 //	luminosity = 3
 	var/farmed = 0
 
+/turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
+	return
+
 /turf/simulated/jungle/New()
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
@@ -62,8 +65,10 @@
 		src.overlays = null
 
 	else if(istype(I, /obj/item/stack/tile/steel))
+		var/obj/item/stack/tile/steel/R = I
 		src.overlays = null
 		src.ChangeTurf(/turf/simulated/floor/plating)
+		R.use(1)
 
 
 /turf/simulated/jungle/med

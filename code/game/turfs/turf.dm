@@ -235,7 +235,7 @@
 
 	if(connections) connections.erase_all()
 
-	if(istype(src,/turf/simulated))
+	if(istype(src,/turf/simulated) && src.loc != /area/jungle)
 		//Yeah, we're just going to rebuild the whole thing.
 		//Despite this being called a bunch during explosions,
 		//the zone will only really do heavy lifting once.
@@ -253,7 +253,7 @@
 		if(tell_universe)
 			universe.OnTurfChange(W)
 
-		if(air_master)
+		if(air_master && src.loc != /area/jungle)
 			air_master.mark_for_update(src) //handle the addition of the new turf.
 
 		for(var/turf/space/S in range(W,1))
@@ -272,7 +272,7 @@
 		if(tell_universe)
 			universe.OnTurfChange(W)
 
-		if(air_master)
+		if(air_master && src.loc != /area/jungle)
 			air_master.mark_for_update(src)
 
 		for(var/turf/space/S in range(W,1))
