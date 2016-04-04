@@ -39,13 +39,13 @@
 // Loot //
 //******//
 
-/obj/effect/landmark/glowshroom_spawn
+/*/obj/effect/landmark/glowshroom_spawn
 	icon_state = "x3"
 	invisibility = 101
 	New()
 		if(prob(10))
 			new /obj/effect/plant(src.loc)
-		qdel(src)
+		qdel(src)*/ //restore once it DOESN'T RUNTIME
 
 /obj/effect/landmark/loot_spawn
 	name = "loot spawner"
@@ -116,7 +116,7 @@
 					new /obj/effect/decal/remains/xeno(src.loc)
 			if("plants")
 				if(prob(25))
-					new /obj/effect/plant(src.loc)
+					new /obj/item/weapon/bananapeel(src.loc)
 				else if(prob(33))
 					new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap(src.loc)
 				else if(prob(50))
