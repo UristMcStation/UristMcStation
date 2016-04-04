@@ -12,6 +12,9 @@
 	var/icon_spawn_state = "grass1"
 //	luminosity = 3
 	var/farmed = 0
+	light_color = null
+	light_power = 2
+	light_range = 2 //for some reason, range 1 doesn't apply at all.
 
 /turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
@@ -52,6 +55,8 @@
 	else if(large_trees_high && prob(4)) //1 in ten? //noooooope
 		new /obj/structure/flora/tree/jungle/large(src)
 
+	update_light()
+
 /turf/simulated/jungle/ex_act(severity)
 	return
 
@@ -90,12 +95,14 @@
 	icon_spawn_state = null
 
 /turf/simulated/jungle/clear/New()
-	set_light(2)
+	//set_light(2)
 
 	for(var/obj/structure/bush/B in src)
 		qdel(B)
 	for(var/obj/structure/flora/F in src)
 		qdel(F)
+
+	update_light()
 
 /turf/simulated/jungle/clear/grass1
 	bushes_spawn = 0
@@ -164,10 +171,13 @@
 	density = 1
 	opacity = 1
 	name = "impassable rock wall"
+	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null
+	light_range = 0
+	light_power = 0
 
 /turf/simulated/jungle/rock/attackby()
 	return
@@ -191,6 +201,7 @@
 			T = get_step(src, WEST)
 			if (T)
 				T.overlays += image('icons/turf/walls.dmi', "rock_side_e", layer=6)
+		update_light()
 
 /turf/simulated/jungle/water
 	bushes_spawn = 0
@@ -273,3 +284,9 @@
 	icon_state = "test"
 	icon_spawn_state = null
 
+/turf/simulated/jungle/clear/underground
+	name = "dirt"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "asteroid"
+	light_range = 0
+	light_power = 0

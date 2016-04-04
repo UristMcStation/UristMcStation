@@ -1,11 +1,11 @@
 "a" = (/turf/simulated/jungle/med,/area/jungle)
 "b" = (/turf/simulated/jungle/thick,/area/jungle)
 "c" = (/turf/simulated/jungle/rock,/area/jungle)
-"d" = (/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
-"e" = (/obj/effect/spider,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
-"f" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
-"g" = (/obj/effect/landmark/loot_spawn/low,/turf/simulated/jungle/clear/dark{icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"},/area/jungle)
-"h" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/dark,/area/jungle)
+"d" = (/turf/simulated/jungle/clear/underground,/area/jungle)
+"e" = (/obj/effect/spider,/turf/simulated/jungle/clear/underground,/area/jungle)
+"f" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/underground,/area/jungle)
+"g" = (/obj/effect/landmark/loot_spawn/low,/turf/simulated/jungle/clear/underground,/area/jungle)
+"h" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/jungle/clear/underground,/area/jungle)
 
 (1,1,1) = {"
 aabbbbbccccbbba
