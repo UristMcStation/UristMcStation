@@ -1,0 +1,34 @@
+"a" = (/turf/simulated/jungle/thick,/area/jungle)
+"b" = (/obj/item/weapon/storage/secure/briefcase/money,/obj/effect/decal/remains/human,/turf/simulated/jungle/path,/area/jungle)
+"c" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/jungle/path,/area/jungle)
+"d" = (/turf/simulated/jungle/path,/area/jungle)
+"e" = (/turf/simulated/jungle/clear/dark,/area/jungle)
+"f" = (/obj/effect/decal/remains/robot,/turf/simulated/jungle/path,/area/jungle)
+"g" = (/obj/structure/shuttle/engine/propulsion/burst{dir = 4},/turf/simulated/jungle/clear/dark,/area/jungle)
+"h" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/jungle/clear/dark,/area/jungle)
+"i" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/plating{tag = "icon-platingdmg2"; icon_state = "platingdmg2"},/area/jungle)
+"j" = (/turf/simulated/shuttle/wall{tag = "icon-swall12"; icon_state = "swall12"; dir = 2},/area/jungle)
+"k" = (/turf/simulated/jungle/clear/dark,/turf/simulated/shuttle/wall{dir = 3; icon_state = "swall_f10"; layer = 2},/area/jungle)
+"l" = (/obj/effect/decal/remains/robot,/turf/simulated/jungle/clear/dark,/area/jungle)
+"m" = (/obj/machinery/door/airlock/external{aiControlDisabled = 1; aiDisabledIdScanner = 1; autoclose = 0; density = 0; explosion_resistance = 0; frequency = null; icon_state = "door_open"; id_tag = null; locked = 1; main_power_lost_until = -1; name = "Escape Pod Hatch"; opacity = 0},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/plating{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/jungle)
+"n" = (/obj/item/device/radio/intercom{pixel_y = 25},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/jungle)
+"o" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (EAST)"; icon_state = "shuttlechair"; dir = 4},/obj/machinery/light/small{active_power_usage = 10; brightness_range = 5; dir = 4; icon_state = "bulb-broken"; status = 2},/obj/effect/decal/cleanable/dirt,/obj/item/weapon/material/shard{icon_state = "medium"},/obj/effect/decal/cleanable/cobweb2,/turf/simulated/shuttle/floor,/area/jungle)
+"p" = (/obj/structure/window/reinforced,/obj/item/stack/rods,/obj/item/stack/rods,/obj/item/stack/rods,/obj/item/weapon/material/shard,/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/floor/plating{tag = "icon-platingdmg2"; icon_state = "platingdmg2"},/area/jungle)
+"q" = (/obj/structure/bed/chair/urist/shuttle,/turf/simulated/jungle/clear/dark,/area/jungle)
+"r" = (/turf/simulated/floor/plating,/obj/structure/shuttle/engine/propulsion/burst{dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_f5"; dir = 2},/area/jungle)
+"s" = (/turf/simulated/jungle/clear/dark,/turf/simulated/shuttle/wall{icon_state = "swall_f9"; dir = 2},/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaabaaaaaa
+aaaaaaaaaaaaaaaaaaacaaaaa
+aaaaaaaaaaaaaaaaaadaaaaaa
+aaaaaaaaaaaaaaaaaadaaaaaa
+aaaaaaaaaaaaaaaaaaacaaaaa
+aaaaaaaaaaaaaaaaaaadaaaaa
+aaaaaaaaaaaaaaaaaacaaaaaa
+aaaaaaaaaaaaaaaaaaddaaaaa
+adaeddafdegeeedeaedhdijjk
+dafddeddddeedlddededdmnop
+aadedadededdadeqdedlerjjs
+"}

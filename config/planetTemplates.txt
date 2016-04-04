@@ -7,3 +7,4 @@ maps/templates/planet_clearing1.dmm
 maps/templates/planet_j_pen_ruins.dmm
 maps/templates/planet_cultchapel1.dmm
 maps/templates/planet_cave1.dmm
+maps/templates/planet_crashed_pod.dmm
