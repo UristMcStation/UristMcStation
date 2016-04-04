@@ -162,10 +162,18 @@
 			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
 		if (H.mind.role_alt_title)
 			switch(H.mind.role_alt_title)
-				if("Drill Technician" || "Prospector" || "Shaft Miner")
+				if("Shaft Miner")
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/miner(H), slot_w_uniform)
+				if("Drill Technician")
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/miner(H), slot_w_uniform)
+				if("Prospector")
 					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/miner(H), slot_w_uniform)
 
-				if("Lumberjack" || "Carpenter")
+				if("Lumberjack")
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/urist/rank/carpenter(H), slot_w_uniform)
+					H.equip_to_slot_or_del(new /obj/item/clothing/head/urist/toque(H), slot_head)
+
+				if("Carpenter")
 					H.equip_to_slot_or_del(new /obj/item/clothing/under/urist/rank/carpenter(H), slot_w_uniform)
 					H.equip_to_slot_or_del(new /obj/item/clothing/head/urist/toque(H), slot_head)
 
