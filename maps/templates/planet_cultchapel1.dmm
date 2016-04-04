@@ -12,7 +12,7 @@
 "l" = (/obj/structure/curtain/black,/turf/simulated/floor/engine/cult,/area/jungle)
 "m" = (/obj/structure/table/woodentable,/obj/item/weapon/book/tome,/obj/item/weapon/veilrender{charged = 0},/obj/item/weapon/flame/candle,/turf/simulated/floor/engine/cult,/area/jungle)
 "n" = (/turf/simulated/wall/wood,/turf/simulated/wall/cult,/area/jungle)
-"o" = (/obj/structure/sink/puddle,/turf/simulated/jungle/path,/area/jungle)
+"o" = (/obj/structure/sink/puddle{desc = "A puddle of slightly reddish water."},/turf/simulated/jungle/path,/area/jungle)
 "p" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor/wood,/area/jungle)
 "q" = (/turf/simulated/floor/wood{icon_state = "wood-broken3"},/area/jungle)
 "r" = (/turf/simulated/floor/wood{tag = "icon-wood-broken7"; icon_state = "wood-broken7"},/area/jungle)
@@ -30,8 +30,9 @@
 "D" = (/obj/structure/curtain/black{pixel_y = -32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/engine/cult,/area/jungle)
 "E" = (/obj/structure/table/woodentable,/obj/item/clothing/suit/chaplain_hoodie,/obj/item/bodybag,/obj/item/bodybag,/obj/item/bodybag,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/backpack/cultpack,/turf/simulated/floor/engine/cult,/area/jungle)
 "F" = (/turf/simulated/jungle/clear,/area/jungle)
-"G" = (/obj/item/weapon/shovel,/turf/simulated/jungle/path,/area/jungle)
-"H" = (/obj/effect/decal/remains/human,/turf/simulated/jungle/path,/area/jungle)
+"G" = (/turf/simulated/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
+"H" = (/obj/item/weapon/shovel,/turf/simulated/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
+"I" = (/obj/effect/decal/remains/human,/turf/simulated/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid_dug"; name = "wet dirt"},/area/jungle)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaa
@@ -46,7 +47,7 @@ axaaaxxxxaaaaaaaaa
 axxaxxxaxxaaxxxaaa
 aFxxxxaaaxxxxxxaaa
 aaFFaaaaaxxxxaxaaa
-axxxxaaaaaaaaaxaaa
-axxGHaaaaaaaaxxxaa
+aGGGGaaaaaaaaaxaaa
+aGGHIaaaaaaaaxxxaa
 aaaaaaaaaaaaaxxxaa
 "}
