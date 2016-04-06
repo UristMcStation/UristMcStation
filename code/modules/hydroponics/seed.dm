@@ -177,17 +177,14 @@
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
 
 	if(chems)
-		for(var/mob/living/M in T.contents)
-			if(!M.reagents)
-				continue
-			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
-			if(istype(M, /mob/living/carbon/))
-				var/mob/living/carbon/H = M
-				for(var/chem in chems)
-					H.touching.add_reagent(chem,injecting)
-			else
-				for(var/chem in chems)
-					M.reagents.add_reagent(chem,injecting)
+		var/datum/reagents/R = new/datum/reagents(100)
+		var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
+		for(var/rid in chems)
+			R.add_reagent(rid, injecting)
+
+		R.splash(T, R.total_volume, 1, 1)
+		for(var/atom/M in T.contents)
+			R.splash(M, R.total_volume, 0.5, 1)
 
 //Applies an effect to a target atom.
 /datum/seed/proc/thrown_at(var/obj/item/thrown,var/atom/target, var/force_explode)
