@@ -180,9 +180,14 @@
 		for(var/mob/living/M in T.contents)
 			if(!M.reagents)
 				continue
-			for(var/chem in chems)
-				var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
-				M.reagents.add_reagent(chem,injecting)
+			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
+			if(istype(M, /mob/living/carbon/))
+				var/mob/living/carbon/H = M
+				for(var/chem in chems)
+					H.touching.add_reagent(chem,injecting)
+			else
+				for(var/chem in chems)
+					M.reagents.add_reagent(chem,injecting)
 
 //Applies an effect to a target atom.
 /datum/seed/proc/thrown_at(var/obj/item/thrown,var/atom/target, var/force_explode)
