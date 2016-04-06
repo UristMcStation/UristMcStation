@@ -363,3 +363,96 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/backpack/satchel_flat/New()
 	..()
 	new /obj/item/weapon/crowbar(src)
+
+// Rolling papers from /tg/
+
+/obj/item/clothing/mask/smokable/cigarette/rollie
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_override = 'icons/uristmob/mask.dmi'
+
+	name = "rollie"
+	desc = "A roll of dried plant matter wrapped in thin paper."
+	icon_state = "spliffoff"
+	icon_on = "spliffon"
+	icon_off = "spliffoff"
+	type_butt = /obj/item/weapon/cigbutt/roach
+	throw_speed = 0.5
+	item_state = "spliffoff"
+	smoketime = 180
+	chem_volume = 50
+
+/obj/item/clothing/mask/cigarette/rollie/New()
+	..()
+	src.pixel_x = rand(-5, 5)
+	src.pixel_y = rand(-5, 5)
+
+/obj/item/weapon/cigbutt/roach
+	icon = 'icons/urist/items/tgitems.dmi'
+
+	name = "roach"
+	desc = "A manky old roach, or for non-stoners, a used rollup."
+	icon_state = "roach"
+
+/obj/item/weapon/cigbutt/roach/New()
+	..()
+	src.pixel_x = rand(-5, 5)
+	src.pixel_y = rand(-5, 5)
+
+
+/obj/item/weapon/rollingpaper
+	name = "rolling paper"
+	desc = "A thin piece of paper used to make fine smokeables."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "cig_paper"
+	w_class = 1
+
+/obj/item/weapon/rollingpaper/afterattack(atom/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(istype(target, /obj/item/weapon/reagent_containers/food/snacks/grown))
+		var/obj/item/weapon/reagent_containers/food/snacks/grown/O = target
+		if(O.dry)
+			user.unEquip(target, 1)
+			user.unEquip(src, 1)
+			var/obj/item/clothing/mask/smokable/cigarette/rollie/R = new /obj/item/clothing/mask/smokable/cigarette/rollie(user.loc)
+			R.chem_volume = target.reagents.total_volume
+			target.reagents.trans_to_holder(R.reagents, R.chem_volume)
+			user.put_in_active_hand(R)
+			user << "<span class='notice'>You roll the [target.name] into a rolling paper.</span>"
+			R.desc = "Dried [target.name] rolled up in a thin piece of paper."
+			qdel(target)
+			qdel(src)
+		else
+			user << "<span class='warning'>You need to dry this first!</span>"
+	else
+		..()
+
+/obj/item/weapon/storage/fancy/rollingpapers
+	name = "rolling paper pack"
+	desc = "A pack of NanoTrasen brand rolling papers."
+	w_class = 1
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "cig_paper_pack"
+	storage_slots = 10
+	icon_type = "rolling paper"
+	can_hold = list(/obj/item/weapon/rollingpaper)
+
+/obj/item/weapon/storage/fancy/rollingpapers/New()
+	..()
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+	new /obj/item/weapon/rollingpaper(src)
+
+
+/obj/item/weapon/storage/fancy/rollingpapers/update_icon()
+	overlays.Cut()
+	if(!contents.len)
+		overlays += "[icon_state]_empty"
+	return
