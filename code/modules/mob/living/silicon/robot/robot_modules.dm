@@ -645,6 +645,9 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/weapon/gripper/no_use/loader
+	src.modules += new /obj/item/weapon/carpentry/saw
+	src.modules += new /obj/item/weapon/carpentry/axe
 	src.emag = new /obj/item/weapon/pickaxe/plasmacutter(src)
 	return
 
