@@ -4,3 +4,6 @@
 #SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
 
 maps/templates/space_asteroid1.dmm
+maps/templates/space_asteroid2.dmm
+maps/templates/space_shuttle1.dmm
+maps/templates/space_clownshuttle.dmm
