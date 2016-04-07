@@ -112,3 +112,13 @@
 	for(var/i = 0; i < 21; i++)
 		new /obj/item/weapon/light/bulb/red(src)
 	..()
+
+//experiment - object-based sunlight.
+/obj/effect/sun
+	name = "sun"
+	desc = "You really shouldn't be seeing this."
+	invisibility = 101
+	anchored = 1
+	light_color = "#fcfcb6"
+	light_power = 1
+	light_range = 127

@@ -16,7 +16,7 @@
 	name = "jungle"
 	icon = 'icons/jungle.dmi'
 	icon_state = "area"
-	lighting_use_dynamic = 0
+	lighting_use_dynamic = 1
 	luminosity = 1
 	base_turf = /turf/simulated/jungle/clear/grass1
 

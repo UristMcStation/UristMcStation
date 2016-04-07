@@ -279,7 +279,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/gloves/botanic_leather,
 					/obj/item/clothing/suit/apron,
 					/obj/item/weapon/material/minihoe,
-					/obj/item/weapon/storage/box/botanydisk
+					/obj/item/weapon/storage/box/botanydisk,
+					/obj/item/weapon/storage/fancy/rollingpapers
 					) // Updated with new things
 	cost = 15
 	containertype = /obj/structure/closet/crate/hydroponics

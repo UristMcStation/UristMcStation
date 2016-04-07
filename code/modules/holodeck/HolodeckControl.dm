@@ -366,7 +366,7 @@
 	"Snow Field" 		= "snowfield",
 	"Theatre" 			= "theatre",
 	"Meeting Hall" 		= "meetinghall",
-	"Courtroom" 		= "courtroom"
+	//"Courtroom" 		= "courtroom"  Glloydstation2.dmm doesn't have a holodeck courtroom mapped
 	)
 
 	restricted_programs = list(
