@@ -72,6 +72,7 @@
 		t += "<A href='?src=\ref[src];on1=Cardboard'>Cardboard</A><br>"
 		t += "<A href='?src=\ref[src];on2=PackageWrap'>Package Wrap</A><br>"
 		t += "<A href='?src=\ref[src];on3=Paper'>Paper</A><br>"
+		t += "<A href='?src=\ref[src];on4=RollingPapers'>Rolling Papers</A><br>"
 
 		user << browse(t, "window=woodprocessor;size=300x300")
 
@@ -102,5 +103,10 @@
 
 	if( href_list["on3"] )
 		new /obj/item/weapon/paper(src.loc)
+		sheets -= 1
+		return
+
+	if( href_list["on4"] )
+		new /obj/item/weapon/storage/fancy/rollingpapers(src.loc)
 		sheets -= 1
 		return
