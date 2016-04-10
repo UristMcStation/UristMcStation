@@ -841,3 +841,11 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armor"
 	flags = ONESIZEFITSALL
+
+//altshield
+
+/obj/item/clothing/under/urist/altshield
+	name = "blueshield's outfit"
+	desc = "A more practical outfit often worn by Nanotrasen blueshields."
+	icon_state = "altshield"
+	item_state = "altshield"

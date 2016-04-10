@@ -118,3 +118,15 @@
 	path = /obj/item/clothing/suit/urist/sweater/nanotrasen
 	slot = slot_wear_suit
 	cost = 1
+
+/datum/gear/brown_jacket
+	display_name = "brown jacket"
+	path =  /obj/item/clothing/suit/storage/toggle/urist/coat/brown
+	slot = slot_wear_suit
+	cost = 1
+
+/datum/gear/black_jacket_alt
+	display_name = "black jacket"
+	path =  /obj/item/clothing/suit/storage/toggle/urist/coat/black
+	slot = slot_wear_suit
+	cost = 1

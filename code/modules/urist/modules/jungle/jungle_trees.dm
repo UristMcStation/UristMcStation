@@ -74,7 +74,7 @@
 			var/obj/item/stack/material/wood/r_wood/W = new /obj/item/stack/material/wood/r_wood(src.loc)
 
 			W.pixel_y = src.pixel_y
-			W.amount = rand(2,5) //going to mess with this value for a while, we'll see
+			W.amount = rand(3,6) //going to mess with this value for a while, we'll see
 
 			qdel(src)
 

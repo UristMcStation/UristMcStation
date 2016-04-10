@@ -47,6 +47,9 @@
 	icon_state = "planks"
 	singular_name = "unprocessed wood plank"
 
+/obj/item/stack/material/wood/r_wood/attack_self(var/mob/user)
+	return
+
 /obj/machinery/carpentry/woodprocessor
 	name = "pulp and paper processor"
 	desc = "A machine used for processing wood into cardboard or paper."

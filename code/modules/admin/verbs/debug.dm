@@ -134,7 +134,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				if("mob's area")
 					var/mob/temp = input("Select mob", "Selection", usr) as mob in world
 					lst[i] = temp.loc
-				
+
 				if("path")
 					var/raw_input = input("Enter path:","Path",null) as text
 					raw_input = text2path(raw_input)
@@ -1067,13 +1067,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			var/obj/item/device/radio/R = new /obj/item/device/radio/headset(M)
 			R.set_frequency(DTH_FREQ)
 			M.equip_to_slot_or_del(R, slot_l_ear)
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/anfor(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/space/void/commando(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/anfor/marine(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/void/commando(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(M), slot_wear_mask)
-			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(M), slot_glasses)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/urist/anfor(M), slot_head)
+//			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(M), slot_wear_mask)
+//			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal(M), slot_glasses)
 
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)

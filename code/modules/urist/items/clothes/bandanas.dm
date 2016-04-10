@@ -13,32 +13,32 @@
 	var/is_flipped = 1
 	var/on = 1
 
-	/obj/item/clothing/mask/bandana/verb/togglemask()
-		set name = "Toggle Bandana"
-		set category = "Object"
-		set src in usr
-		if(!usr.canmove || usr.stat || usr.restrained())
-			return
-		if(!can_flip)
-			usr << "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down."
-			return
-		if(src.is_flipped == 2)
-			src.icon_state = initial(icon_state)
-			gas_transfer_coefficient = initial(gas_transfer_coefficient)
-			permeability_coefficient = initial(permeability_coefficient)
-			flags = initial(flags)
-			flags_inv = initial(flags_inv)
-			usr << "You push down [src]."
-			src.is_flipped = 1
-		else
-			src.icon_state += "_up"
-			usr << "You push up [src]."
-			gas_transfer_coefficient = null
-			permeability_coefficient = null
-			flags = null
-			flags_inv = null
-			src.is_flipped = 2
-		usr.update_inv_wear_mask()
+/obj/item/clothing/mask/bandana/verb/togglemask()
+	set name = "Toggle Bandana"
+	set category = "Object"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	if(!can_flip)
+		usr << "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down."
+		return
+	if(src.is_flipped == 2)
+		src.icon_state = initial(icon_state)
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		permeability_coefficient = initial(permeability_coefficient)
+		flags = initial(flags)
+		flags_inv = initial(flags_inv)
+		usr << "You push down [src]."
+		src.is_flipped = 1
+	else
+		src.icon_state += "_up"
+		usr << "You push up [src]."
+		gas_transfer_coefficient = null
+		permeability_coefficient = null
+		flags = null
+		flags_inv = null
+		src.is_flipped = 2
+	usr.update_inv_wear_mask()
 
 /obj/item/clothing/mask/bandana/attack_self()
 	togglemask()
@@ -59,32 +59,32 @@
 	var/can_roll = 1
 	var/is_rolled = 1
 
-	/obj/item/clothing/mask/bandana/bedsheet/verb/rollmask()
-		set name = "Roll Bandana"
-		set category = "Object"
-		set src in usr
-		if(!usr.canmove || usr.stat || usr.restrained())
-			return
-		if(!can_roll)
-			usr << "You try rolling up [src], but it doesn't work!"
-			return
-		if(src.is_rolled == 2)
-			src.icon_state = initial(icon_state)
-			gas_transfer_coefficient = initial(gas_transfer_coefficient)
-			permeability_coefficient = initial(permeability_coefficient)
-			flags = initial(flags)
-			flags_inv = initial(flags_inv)
-			usr << "You unroll [src]."
-			src.is_rolled = 1
-		else
-			src.icon_state += "_roll"
-			usr << "You roll up [src]."
-			gas_transfer_coefficient = null
-			permeability_coefficient = null
-			flags = null
-			flags_inv = null
-			src.is_rolled = 2
-		usr.update_inv_wear_mask()
+/obj/item/clothing/mask/bandana/bedsheet/verb/rollmask()
+	set name = "Roll Bandana"
+	set category = "Object"
+	set src in usr
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	if(!can_roll)
+		usr << "You try rolling up [src], but it doesn't work!"
+		return
+	if(src.is_rolled == 2)
+		src.icon_state = initial(icon_state)
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		permeability_coefficient = initial(permeability_coefficient)
+		flags = initial(flags)
+		flags_inv = initial(flags_inv)
+		usr << "You unroll [src]."
+		src.is_rolled = 1
+	else
+		src.icon_state += "_roll"
+		usr << "You roll up [src]."
+		gas_transfer_coefficient = null
+		permeability_coefficient = null
+		flags = null
+		flags_inv = null
+		src.is_rolled = 2
+	usr.update_inv_wear_mask()
 
 //bedsheet bandanas.
 

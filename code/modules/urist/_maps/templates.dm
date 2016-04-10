@@ -1,6 +1,7 @@
 var/list/datum/map_template/map_templates = list()
 var/list/datum/map_template/space_ruins_templates = list()
 var/list/datum/map_template/planet_templates = list()
+var/list/datum/map_template/underground_templates = list()
 
 /datum/map_template
 	var/name = "Default Template Name"
@@ -101,7 +102,7 @@ var/list/datum/map_template/planet_templates = list()
 	for(var/obj/effect/template_loader/E in world)
 		E.Load()
 
-/proc/preloadOtherTemplates() //TODO: add underground templates for the planet when we get some made
+/proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
 	for(var/ruin in potentialSpaceRuins)
 		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
@@ -111,6 +112,11 @@ var/list/datum/map_template/planet_templates = list()
 	for(var/ruin in potentialPlanetTemplates)
 		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
 		planet_templates[T.name] = T
+
+	var/list/potentialUndergroundTemplates = generateMapList(filename = "config/undergroundTemplates.txt")
+	for(var/ruin in potentialUndergroundTemplates)
+		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
+		underground_templates[T.name] = T
 
 /obj/effect/template_loader
 	name = "random ruin"
@@ -143,6 +149,23 @@ var/list/datum/map_template/planet_templates = list()
 	qdel(src)
 
 /obj/effect/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
+	var/list/possible_ruins = list()
+	for(var/A in potentialRuins)
+		var/datum/map_template/T = potentialRuins[A]
+		if(!T.loaded)
+			possible_ruins += T
+//	world << "<span class='boldannounce'>Loading ruins...</span>"
+	if(!template && possible_ruins.len)
+		template = safepick(possible_ruins)
+	if(!template)
+//		world << "<span class='boldannounce'>No ruins found.</span>"
+		return
+	template.load(get_turf(src),centered = TRUE)
+	template.loaded++
+//	world << "<span class='boldannounce'>Ruins loaded.</span>"
+	qdel(src)
+
+/obj/effect/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]

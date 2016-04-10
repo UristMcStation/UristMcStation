@@ -61,13 +61,14 @@
 	return
 
 /turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/shovel) && !farmed)
+	if(istype(I, /obj/item/weapon/shovel))
+		if(!farmed) //todo; add a way to remove the soil
 
-		new /obj/machinery/portable_atmospherics/hydroponics/soil(src.loc)
-		user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
-		"<span class='notice'>You dig up some soil and prepare the ground for planting.</span>")
-		src.farmed = 1
-		src.overlays = null
+			new /obj/machinery/portable_atmospherics/hydroponics/soil(src)
+			user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
+			"<span class='notice'>You dig up some soil and prepare the ground for planting.</span>")
+			src.farmed = 1
+			src.overlays = null
 
 	else if(istype(I, /obj/item/stack/tile/steel))
 		var/obj/item/stack/tile/steel/R = I
