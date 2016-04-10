@@ -9,7 +9,7 @@ var/list/sacrificed = list()
  * Use as a general guideline for this and related files:
  *  * <span class='warning'>...</span> - when something non-trivial or an error happens, so something similar to "Sparks come out of the machine!"
  *  * <span class='danger'>...</span>  - when something that is fit for 'warning' happens but there is some damage or pain as well.
- *  * <span class='cult'>...</span>    - when there is a private message to the cultists. This guideline is very arbitrary but there has to be some consistency!
+ *  * <span class='sinister'>...</span>    - when there is a private message to the cultists. This guideline is very arbitrary but there has to be some consistency!
  */
 
 
@@ -142,21 +142,21 @@ var/list/sacrificed = list()
 					admin_attack_log(attacker, target, "Used a convert rune", "Was subjected to a convert rune", "used a convert rune on")
 					switch(target.getFireLoss())
 						if(0 to 25)
-							target << "<span class='cult'>Your blood boils as you force yourself to resist the corruption invading every corner of your mind.</span>"
+							target << "<span class='sinister'>Your blood boils as you force yourself to resist the corruption invading every corner of your mind.</span>"
 						if(25 to 45)
-							target << "<span class='cult'>Your blood boils and your body burns as the corruption further forces itself into your body and mind.</span>"
+							target << "<span class='sinister'>Your blood boils and your body burns as the corruption further forces itself into your body and mind.</span>"
 						if(45 to 75)
-							target << "<span class='cult'>You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble.</span>"
+							target << "<span class='sinister'>You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble.</span>"
 							target.apply_effect(rand(1,10), STUTTER)
 						if(75 to 100)
-							target << "<span class='cult'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>"
+							target << "<span class='sinister'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>"
 							//broken mind - 5000 may seem like a lot I wanted the effect to really stand out for maxiumum losing-your-mind-spooky
 							//hallucination is reduced when the step off as well, provided they haven't hit the last stage...
 							target.hallucination += 5000
 							target.apply_effect(10, STUTTER)
 							target.adjustBrainLoss(1)
 						if(100 to INFINITY)
-							target << "<span class='cult'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>"
+							target << "<span class='sinister'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>"
 							target.hallucination += 5000
 							target.apply_effect(15, STUTTER)
 							target.adjustBrainLoss(rand(1,5))
@@ -172,7 +172,7 @@ var/list/sacrificed = list()
 
 					if(!(cult.can_become_antag(target.mind)) || jobban_isbanned(target, "cultist"))//putting jobban check here because is_convertable uses mind as argument
 						//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
-						target << "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
+						target << "<span class='sinister'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
 						target << "<span class='danger'>And you were able to force it out of your mind. You now know the truth, there's something horrible out there, stop it and its minions at all costs.</span>"
 
 					else spawn()
@@ -357,8 +357,8 @@ var/list/sacrificed = list()
 //			else
 //				ticker.mode.cult |= corpse_to_raise.mind
 
-			corpse_to_raise << "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
-			corpse_to_raise << "<span class='cult'>Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring It back.</span>"
+			corpse_to_raise << "<span class='sinister'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>"
+			corpse_to_raise << "<span class='sinister'>Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring It back.</span>"
 			return
 
 
@@ -603,7 +603,7 @@ var/list/sacrificed = list()
 			log_and_message_admins("used a communicate rune to say '[input]'")
 			for(var/datum/mind/H in cult.current_antagonists)
 				if (H.current)
-					H.current << "<span class='cult'>[input]</span>"
+					H.current << "<span class='sinister'>[input]</span>"
 			qdel(src)
 			return 1
 
@@ -647,17 +647,17 @@ var/list/sacrificed = list()
 								H.dust()//To prevent the MMI from remaining
 							else
 								H.gib()
-							usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>"
+							usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>"
 						else
 							usr << "<span class='warning'>Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.</span>"
 					else
 						if(cultsinrange.len >= 3)
 							if(H.stat !=2)
 								if(prob(80) || worth)
-									usr << "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
 									cult.grant_runeword(usr)
 								else
-									usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 									usr << "<span class='warning'>However, this soul was not enough to gain His favor.</span>"
 								if(isrobot(H))
 									H.dust()//To prevent the MMI from remaining
@@ -665,10 +665,10 @@ var/list/sacrificed = list()
 									H.gib()
 							else
 								if(prob(40) || worth)
-									usr << "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>"
 									cult.grant_runeword(usr)
 								else
-									usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 									usr << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
 								if(isrobot(H))
 									H.dust()//To prevent the MMI from remaining
@@ -680,10 +680,10 @@ var/list/sacrificed = list()
 							else
 								if(prob(40))
 
-									usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 									cult.grant_runeword(usr)
 								else
-									usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+									usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 									usr << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
 								if(isrobot(H))
 									H.dust()//To prevent the MMI from remaining
@@ -693,10 +693,10 @@ var/list/sacrificed = list()
 					if(cultsinrange.len >= 3)
 						if(H.stat !=2)
 							if(prob(80))
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								cult.grant_runeword(usr)
 							else
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								usr << "<span class='warning'>However, this soul was not enough to gain His favor.</span>"
 							if(isrobot(H))
 								H.dust()//To prevent the MMI from remaining
@@ -704,10 +704,10 @@ var/list/sacrificed = list()
 								H.gib()
 						else
 							if(prob(40))
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								cult.grant_runeword(usr)
 							else
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								usr << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
 							if(isrobot(H))
 								H.dust()//To prevent the MMI from remaining
@@ -718,10 +718,10 @@ var/list/sacrificed = list()
 							usr << "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>"
 						else
 							if(prob(40))
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								cult.grant_runeword(usr)
 							else
-								usr << "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>"
+								usr << "<span class='sinister'>The Geometer of Blood accepts this sacrifice.</span>"
 								usr << "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>"
 							if(isrobot(H))
 								H.dust()//To prevent the MMI from remaining
