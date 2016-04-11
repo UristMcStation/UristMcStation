@@ -9,6 +9,7 @@
 	offline_slowdown = 10
 	vision_restriction = 1
 	offline_vision_restriction = 2
+	species_restricted = list("Unathi")
 
 /obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
