@@ -168,3 +168,11 @@ var/jungle_plants_init = 0
 		icon_state = "reedbush_3"
 	if(prob(25))
 		icon_state = "reedbush_4"
+
+/obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+		spawn(rand(5,10))
+			if(get_dist(user,src) < 2)
+				user << "\blue You clear away [src]."
+				qdel(src)

@@ -11,14 +11,14 @@
 	density = 1
 
 /obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/wood/r_wood))
+	if(istype(I, /obj/item/stack/material/r_wood))
 
 		if(busy)
 			user << "<span class='notice'>The [src] is busy, you can't put in wood yet!.</span>"
 			return
 
 		else if(!busy)
-			var/obj/item/stack/material/wood/r_wood/R = I
+			var/obj/item/stack/material/r_wood/R = I
 			busy = 1
 			sheets = R.amount
 			R.use(R.amount)
@@ -40,14 +40,20 @@
 		return
 
 
-/obj/item/stack/material/wood/r_wood
+/obj/item/stack/material/r_wood
 	name = "unprocessed wooden planks"
 //	desc = "A bunch of unprocessed wood planks."
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "planks"
 	singular_name = "unprocessed wood plank"
+	default_type = "wood"
 
-/obj/item/stack/material/wood/r_wood/attack_self(var/mob/user)
+/obj/item/stack/material/r_wood/New()
+	..()
+	name = "unprocessed wooden planks"
+	singular_name = "unprocessed wood plank"
+
+/obj/item/stack/material/r_wood/attack_self(var/mob/user)
 	return
 
 /obj/machinery/carpentry/woodprocessor
@@ -59,12 +65,12 @@
 	density = 1
 
 /obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/wood))
+	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
 		user << "<span class='notice'>You feed the wood into the [src].</span>"
 
 		flick("paper_anim",src)
-		var/obj/item/stack/material/wood/R = I
-		sheets = R.amount
+		var/obj/item/stack/material/R = I
+		sheets += R.amount
 		R.use(R.amount)
 
 /obj/machinery/carpentry/woodprocessor/attack_hand(mob/user as mob)

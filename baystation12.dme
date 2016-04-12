@@ -1780,6 +1780,7 @@
 #include "code\modules\urist\modules\weather.dm"
 #include "code\modules\urist\modules\carpentry\planer.dm"
 #include "code\modules\urist\modules\carpentry\tools.dm"
+#include "code\modules\urist\modules\events\break.dm"
 #include "code\modules\urist\modules\genetics\_genetics.dm"
 #include "code\modules\urist\modules\genetics\disabilities.dm"
 #include "code\modules\urist\modules\genetics\powers.dm"

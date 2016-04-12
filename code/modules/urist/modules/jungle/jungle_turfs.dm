@@ -220,15 +220,55 @@
 /turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/wood))
 		if(!bridge)
+
 			var/obj/item/stack/material/wood/R = I
 
 			if(R.amount >= 3)
 				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 				bridge = 1
-			return
+				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
+			else
+				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
+
+	else if(istype(I, /obj/item/stack/material/r_wood))
+		if(!bridge)
+			var/obj/item/stack/material/r_wood/R = I
+
+			if(R.amount >= 3)
+				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
+				desc = "thick murky water. There's a makeshift platform over it."
+				R.use(3)
+
+				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
+				bridge = 2
+			else
+				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
+
+
+
+	else if(istype(I, /obj/item/weapon/crowbar))
+		if(bridge)
+			user << "<span class='notice'>You begin to disassemble the bridge.</span>"
+			spawn(rand(15,30))
+				if(get_dist(user,src) < 2)
+					playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+
+					user << "<span class='notice'>You disassemble the bridge.</span>"
+
+					src.overlays = null
+
+					if(bridge == 1)
+						var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
+						S.amount = 3
+
+					else if(bridge == 2)
+						var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
+						S.amount = 3
+
+					bridge = 0
+
 	else
 		return
 /turf/simulated/jungle/water/New()
@@ -268,7 +308,9 @@
 	reeds_spawn = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
-	bridge = 1 //simple hack to stop people building bridges on the deep water and then complaining about not being able to walk on it.
+
+/turf/simulated/jungle/water/deep/attackby()
+	return
 
 /turf/simulated/jungle/temple_wall
 	name = "temple wall"

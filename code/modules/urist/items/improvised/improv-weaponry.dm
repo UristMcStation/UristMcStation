@@ -92,7 +92,8 @@
 	item_state = "prod"
 	force = 3
 	throwforce = 5
-	stunforce = 5
+	stunforce = 0
+	agonyforce = 60	//same force as a stunbaton, but uses way more charge.
 	hitcost = 2500
 	slot_flags = null
 

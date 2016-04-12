@@ -300,3 +300,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "wooden rack"
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "rack"
+
+/obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
+	if(istype(P, /obj/item/weapon/wrench))
+		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+		user << "<span class='notice'>You disassemble \the [src].</span>"
+		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
+		S.amount = 1
+		qdel(src)
+	else
+		..()
