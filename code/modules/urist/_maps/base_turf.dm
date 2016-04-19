@@ -45,4 +45,4 @@ proc/get_base_turf_by_area(var/turf/T)
 
 /area/syndicate_station/mining/base_turf = /turf/simulated/jungle/clear
 
-/area/syndicate_station/mining/base_turf = /turf/simulated/jungle/clear
+/area/skipjack_station/mining/base_turf = /turf/simulated/jungle/clear

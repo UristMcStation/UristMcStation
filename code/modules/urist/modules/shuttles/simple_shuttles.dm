@@ -22,6 +22,10 @@
 	req_one_access = list(65)
 	//circuit = /obj/item/weapon/circuitboard/
 
+/obj/machinery/computer/shuttle_control/securityoutpost
+	name = "security outpost shuttle console"
+	shuttle_tag = "Security"
+	req_one_access = list(1)
 
 /datum/shuttle/ferry/elevator
 	var/id = null

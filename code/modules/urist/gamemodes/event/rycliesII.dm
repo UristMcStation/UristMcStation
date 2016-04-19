@@ -235,7 +235,7 @@
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
 	icon_state = "KH50"
 	item_state = "gun"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	force = 12
 	caliber = "12.7x54mm"
 	magazine_type = /obj/item/ammo_magazine/a127x54mm
@@ -256,7 +256,7 @@
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm"
 	desc = "A magazine for the KH-50 rifle. Holds up to twenty 12.7x54mm Caseless rounds. This magazine is loaded with regular ball ammo."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
 	ammo_type = /obj/item/ammo_casing/a127x54mm
 	max_ammo = 31
@@ -267,7 +267,7 @@
 /obj/item/ammo_magazine/a127x54mm/empty //not sure if this is even necessary anymore
 	name = "magazine (12.7x54mm)"
 	icon_state = "12.7x54mm-empty"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
