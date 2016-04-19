@@ -169,13 +169,14 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/a762/m60
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
-	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "-empty"]"
+	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
 
 /obj/item/ammo_magazine/a762/m60
 	name = "M60 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
+	multiple_sprites = 0
 
 /obj/item/ammo_magazine/a762/m60/empty
 	initial_ammo = 0
@@ -297,7 +298,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/ammo_magazine/a556/m16/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/combat
+/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca
 	name = "Ithaca 37 combat shotgun"
 	desc = "A standard Nanotrasen combat shotgun. Holds 7 rounds (8 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."
 	icon = 'icons/urist/items/guns.dmi'
@@ -345,6 +346,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/bhp9mm
 	name = "\improper Browning HP pistol"
 	desc = "The NCO's sidearm. 15 rounds of 9mm. Less power than a .45, but almost double the capacity. May be issued to medical units as well."
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "brownhp"
 	item_state = null
 	w_class = 2
