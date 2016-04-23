@@ -347,7 +347,7 @@
 			else
 				character << "Your chosen spawnpoint ([S.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
 				character.loc = pick(latejoin)
-				join_message = "has arrived on the station"
+				join_message = "is in transit to the station"
 		else
 			character.loc = pick(latejoin)
 			join_message = "is in transit to the station"
@@ -386,7 +386,7 @@
 			if(character.mind.role_alt_title)
 				rank = character.mind.role_alt_title
 			// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-			global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+			global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
 
 	proc/LateChoices()
 		var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name

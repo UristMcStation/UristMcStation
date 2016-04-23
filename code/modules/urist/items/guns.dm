@@ -348,7 +348,7 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "The NCO's sidearm. 15 rounds of 9mm. Less power than a .45, but almost double the capacity. May be issued to medical units as well."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "brownhp"
-	item_state = null
+	item_state = "gun"
 	w_class = 2
 	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=2"
