@@ -1685,6 +1685,7 @@ area/space/atmosalert()
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
+	base_turf = /turf/simulated/jungle/clear
 
 /area/constructionsite
 	name = "\improper Construction Site"
