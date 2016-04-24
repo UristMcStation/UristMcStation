@@ -753,7 +753,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 	name = "Armor crate"
 	cost = 40
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/gear
 	containername = "Armor crate"
 	access = access_security
 	group = "Security"
@@ -780,7 +780,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/storage/box/beanbags,
 					/obj/item/weapon/storage/box/handcuffs)
 	cost = 60
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/gear
 	containername = "Riot gear crate"
 	access = access_armory
 	group = "Security"
@@ -791,7 +791,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/energy/laser,
 					/obj/item/weapon/gun/energy/laser)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "energy weapons crate"
 	access = access_armory
 	group = "Security"
@@ -807,7 +807,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/storage/belt/urist/bandolier,
 					/obj/item/weapon/storage/belt/urist/bandolier)
 	cost = 65
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Shotgun crate"
 	access = access_armory
 	group = "Security"
@@ -819,7 +819,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/energy/sniperrifle,
 					/obj/item/weapon/gun/energy/sniperrifle)
 	cost = 90
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Energy marksman crate"
 	access = access_armory
 	group = "Security"
@@ -842,7 +842,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/energy/ionrifle,
 					/obj/item/weapon/storage/box/emps)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "electromagnetic weapons crate"
 	access = access_armory
 	group = "Security"
@@ -853,7 +853,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	contains = list(/obj/item/weapon/gun/projectile/automatic/wt550,
 					/obj/item/weapon/gun/projectile/automatic/z8)
 	cost = 90
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Automatic weapon crate"
 	access = access_armory
 	group = "Security"
@@ -888,7 +888,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/energy/gun,
 					/obj/item/weapon/gun/energy/gun)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Experimental energy gear crate"
 	access = access_armory
 	group = "Security"
@@ -900,7 +900,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/helmet/riot,
 					/obj/item/clothing/suit/armor/riot)
 	cost = 35
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/gear
 	containername = "Experimental armor crate"
 	access = access_armory
 	group = "Security"
@@ -1267,7 +1267,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_packs/tactical
 	name = "Tactical suits"
-	containertype = /obj/structure/closet/crate/secure
+	containertype = /obj/structure/closet/crate/secure/gear
 	containername = "Tactical Suit Locker"
 	cost = 45
 	group = "Security"
