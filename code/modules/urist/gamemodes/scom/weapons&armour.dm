@@ -4,7 +4,7 @@
 	urist_only = 1
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "psniper"
 	item_state = "psniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
@@ -18,7 +18,7 @@
 	urist_only = 1
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	force = 7
@@ -39,7 +39,7 @@
 	urist_only = 1
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "pulse_cannon"
 	item_state = "pulse_cannon"
 	force = 12
@@ -56,7 +56,7 @@
 	urist_only = 1
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "lpistol"
 	item_state = "lpistol"
 	w_class = 2.0
@@ -66,7 +66,7 @@
 	urist_only = 1
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "lrifle"
 	item_state = "lrifle"
 	w_class = 3.0
@@ -78,7 +78,7 @@
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"
 	item_state = "SVD"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	force = 10
 	caliber = "7.62mm"
 	ammo_type = "/obj/item/ammo_casing/a762mm"
@@ -110,7 +110,7 @@
 /obj/item/ammo_magazine/a762mm
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a762mm"
 	max_ammo = 10
@@ -121,7 +121,7 @@
 /obj/item/ammo_magazine/a762mm/empty
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	ammo_type = "/obj/item/ammo_casing/a762mm"
 	mag_type = MAGAZINE
 	initial_ammo = 0

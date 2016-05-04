@@ -236,6 +236,9 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 //elevators
 
+/area/shuttle/elevator
+	lighting_use_dynamic = 0
+
 /area/shuttle/elevator/mining/surface
 	name = "\improper Mining Elevator"
 	icon_state = "shuttle"
@@ -252,6 +255,32 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Research Elevator"
 	icon_state = "shuttle"
 
+//security outpost
+
+/area/shuttle/securityoutpost/station
+	name = "\improper Security Outpost Shuttle Station"
+	icon_state = "shuttle"
+	lighting_use_dynamic = 0
+
+/area/shuttle/securityoutpost/outpost
+	name = "\improper Security Outpost Shuttle Outpost"
+	icon_state = "shuttle"
+	lighting_use_dynamic = 0
+	base_turf = /turf/simulated/jungle/clear
+
+/area/outpost/security
+	icon_state = "security"
+
+/area/outpost/security/hallway
+	name = "\improper Security Outpost Hallway"
+
+/area/outpost/security/lounge
+	name = "\improper Security Outpost Lounge"
+	icon_state = "checkpoint1"
+
+/area/outpost/security/storage
+	name = "\improper Security Outpost Storage"
+	icon_state = "storage"
 
 //REMEMBER THIS FOR THE MERGE
 
@@ -268,3 +297,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/shuttle/research/outpost/base_turf = /turf/simulated/jungle/clear
 
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
+
+/area/shuttle/constructionsite/base_turf = /turf/simulated/jungle/clear
+
+/area/shuttle/securityoutpost/base_turf = /turf/simulated/jungle/clear

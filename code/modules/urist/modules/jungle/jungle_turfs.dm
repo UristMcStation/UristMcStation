@@ -70,6 +70,14 @@
 			src.farmed = 1
 			src.overlays = null
 
+		else if(farmed == 1)
+			for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
+				qdel(S)
+				farmed = 2
+				user.visible_message("<span class='notice'>[user] digs up a large amount of soil, forming a pit.</span>", \
+				"<span class='notice'>You dig up even more soil, forming a pit.</span>")
+				new /obj/structure/pit(src)
+
 	else if(istype(I, /obj/item/stack/tile/steel))
 		var/obj/item/stack/tile/steel/R = I
 		src.overlays = null

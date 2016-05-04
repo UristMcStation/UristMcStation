@@ -279,7 +279,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	shuttle = new/datum/shuttle/ferry/elevator/mining()
 	shuttle.location = 0
-	shuttle.warmup_time = 2
+	shuttle.warmup_time = 5
 	shuttle.area_offsite = locate(/area/shuttle/elevator/mining/underground)
 	shuttle.area_station = locate(/area/shuttle/elevator/mining/surface)
 	shuttles["MiningElevator"] = shuttle
@@ -287,10 +287,20 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	shuttle = new/datum/shuttle/ferry/elevator/research()
 	shuttle.location = 0
-	shuttle.warmup_time = 2
+	shuttle.warmup_time = 5
 	shuttle.area_offsite = locate(/area/shuttle/elevator/research/underground)
 	shuttle.area_station = locate(/area/shuttle/elevator/research/surface)
 	shuttles["ResearchElevator"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/securityoutpost/outpost)
+	shuttle.area_station = locate(/area/shuttle/securityoutpost/station)
+	shuttle.docking_controller_tag = "security_shuttle"
+	shuttle.dock_target_station = "security_dock_airlock"
+	shuttle.dock_target_offsite = "secdock_airlock"
+	shuttles["Security"] = shuttle
 	process_shuttles += shuttle
 
 //End Urist shuttles

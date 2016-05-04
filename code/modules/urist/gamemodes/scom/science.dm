@@ -34,7 +34,7 @@
 
 /obj/item/scom/aliengun
 	name = "alien weapon"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 
 /obj/item/scom/aliengun/a1
 	icon_state = "alienpistol"

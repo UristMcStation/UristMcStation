@@ -224,6 +224,7 @@ area/space/atmosalert()
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
 	music = "music/escape.ogg"
+	lighting_use_dynamic = 0
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
@@ -313,6 +314,7 @@ area/space/atmosalert()
 /area/shuttle/research
 	name = "\improper Research Shuttle"
 	music = "music/escape.ogg"
+	lighting_use_dynamic = 0
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
@@ -1676,12 +1678,14 @@ area/space/atmosalert()
 /area/shuttle/constructionsite
 	name = "\improper Construction Site Shuttle"
 	icon_state = "yellow"
+	lighting_use_dynamic = 0
 
 /area/shuttle/constructionsite/station
 	name = "\improper Construction Site Shuttle"
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
+	base_turf = /turf/simulated/jungle/clear
 
 /area/constructionsite
 	name = "\improper Construction Site"

@@ -217,7 +217,7 @@
 	melee_damage_upper = 30
 
 /obj/item/projectile/beam/scom
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 
 /obj/item/projectile/beam/scom/alien1
 	name = "alien beam"
