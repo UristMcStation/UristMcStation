@@ -119,10 +119,13 @@
 	var/cached_progress = 0 					//persistent progress - if you stop uploading, you can resume it later if it's the same file
 	var/progress = 0 							//temporary progress
 	var/lastuploaded = -1 						//caches id of the last intel item
-	
+
 /obj/item/device/inteluplink/AltClick()
 	if(Adjacent(usr))
-		open_computer()
+		if(!open)
+			open_computer()
+		else if(open)
+			close_computer()
 
 /obj/item/device/inteluplink/New(var/maker)
 	..()
@@ -258,8 +261,8 @@
 		if(I.hidden_uplink)
 			var/obj/item/device/uplink/hidden/suplink = I.hidden_uplink
 			suplink.uses += stored_crystals
-			stored_crystals = 0
 			user << "<span class='notice'>Your [I] pings quietly as [stored_crystals] telecrystals are added to it.</span>"
+			stored_crystals = 0
 	..()
 
 //a suit that looks like a black-haired human in a suit, for muh Reptilians and/or Thin Mints
