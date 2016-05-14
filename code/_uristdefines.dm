@@ -37,3 +37,6 @@ slot_belt_str = 'icons/uristmob/belt_mirror.dmi', slot_shoes_str = 'icons/uristm
 slot_wear_mask_str = 'icons/uristmob/mask.dmi', slot_gloves_str = 'icons/uristmob/gloves.dmi', \
 slot_glasses_str = 'icons/uristmob/glasses.dmi', slot_tie_str = 'icons/uristmob/ties.dmi', \
 slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_ear.dmi')
+
+//genetics:
+#define M_NOIR 205

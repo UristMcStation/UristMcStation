@@ -27,6 +27,7 @@
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
+	var/list/colourmatrix = list()
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -64,7 +65,7 @@
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
-	
+
 	var/bleed_ticks = 0
 	var/bleed_colour = COLOR_BLOOD_HUMAN
 	var/can_bleed = TRUE
@@ -105,7 +106,7 @@
 	handle_confused()
 	handle_supernatural()
 	handle_impaired_vision()
-	
+
 	if(can_bleed && bleed_ticks > 0)
 		handle_bleeding()
 
@@ -274,17 +275,19 @@
 		to_chat(user, "<span class='danger'>This weapon is ineffective; it does no damage.</span>")
 		return 2
 
-	var/damage = O.force
-	if (O.damtype == PAIN)
-		damage = 0
-	if (O.damtype == STUN)
-		damage = (O.force / 8)
-	if(supernatural && istype(O,/obj/item/weapon/nullrod))
-		damage *= 2
-		purge = 3
-	adjustBruteLoss(damage)
-	if(O.edge || O.sharp)
-		adjustBleedTicks(damage)
+		var/damage = O.force
+		if (O.damtype == PAIN)
+			damage = 0
+
+		if (O.damtype == STUN)
+			damage = (O.force / 8)
+			if(supernatural && istype(O,/obj/item/weapon/nullrod))
+				damage *= 2
+				purge = 3
+			adjustBruteLoss(damage)
+
+		if(O.edge || O.sharp)
+			adjustBleedTicks(damage)
 
 	return 0
 
@@ -431,13 +434,13 @@
 		bleed_ticks = max(bleed_ticks, amount)
 	else
 		bleed_ticks = max(bleed_ticks + amount, 0)
-		
+
 	bleed_ticks = round(bleed_ticks)
-	
+
 /mob/living/simple_animal/proc/handle_bleeding()
 	bleed_ticks--
 	adjustBruteLoss(1)
-	
+
 	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
 	drip.basecolor = bleed_colour
 	drip.update_icon()

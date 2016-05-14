@@ -2826,6 +2826,8 @@
 #include "code\modules\urist\mob\robots.dm"
 #include "code\modules\urist\mob\spoopymobs.dm"
 #include "code\modules\urist\mob\uristanimals.dm"
+#include "code\modules\urist\mob\uristclient.dm"
+#include "code\modules\urist\mob\uristliving.dm"
 #include "code\modules\urist\modules\breaking_news.dm"
 #include "code\modules\urist\modules\donate.dm"
 #include "code\modules\urist\modules\ghost_powers.dm"

@@ -65,6 +65,7 @@
 
 	client.images = null				//remove the images such as AIs being unable to see runes
 	client.screen = list()				//remove hud items just in case
+	client.color  = null
 	InitializeHud()
 
 	next_move = 1

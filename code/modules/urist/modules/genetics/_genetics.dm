@@ -28,6 +28,7 @@ var/EMPATHBLOCK = 0
 //var/SUPERFARTBLOCK = 0
 //var/IMMOLATEBLOCK = 0
 //var/POLYMORPHBLOCK = 0
+var/NOIRBLOCK = 0
 
 //////////////////////////////////////
 //important from vg for shit to work//

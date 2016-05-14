@@ -13,8 +13,9 @@
 	layer = HUD_BASE_LAYER
 	appearance_flags = NO_CLIENT_COLOR
 	unacidable = 1
-	var/obj/master = null    //A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy()
 	master = null
