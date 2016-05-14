@@ -79,3 +79,11 @@
 	desc = "A mask showing the support of Luna."
 	icon_state = "lunamask"
 	item_state = "lunamask"
+
+/obj/item/clothing/mask/balaclava/skimask
+	name = "ski mask"
+	desc = "A balaclava with three separate holes instead of just one. This clearly makes it superior."
+	icon = 'icons/urist/items/clothes/masks.dmi'
+	icon_override = 'icons/uristmob/mask.dmi'
+	icon_state = "skimask"
+	item_state = "skimask"

@@ -1078,19 +1078,18 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)
 
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a357(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m/a7(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/flashbangs(M), slot_in_backpack)
+//			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/flashbangs(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/plastique(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt/a7(M), slot_s_store)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/flashbang(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen(M), slot_s_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/mateba(M), slot_belt)
-
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/laser(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/a22(M), slot_r_hand)
 
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
