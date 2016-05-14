@@ -81,12 +81,13 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
+		/obj/item/weapon/gun/projectile/bhp9mm,
 		/obj/item/weapon/gun/projectile/sec,
 		/obj/item/taperoll/police
 		)
 
 /obj/item/weapon/storage/backpack/urist/nam
 	name = "jungle camo backpack"
-	desc = "A backpack styled with jungle camouflage. Can hold security gear like handcuffs and flashes."
+	desc = "A backpack styled with jungle camouflage."
 	icon_state = "nambackpack"
 	item_state = "nambackpack"

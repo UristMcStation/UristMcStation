@@ -334,4 +334,5 @@
 		..()
 		reagents.add_reagent("chloralhydrate", 50)
 		mode = SYRINGE_INJECT
+		icon_state = "50"
 		update_icon()

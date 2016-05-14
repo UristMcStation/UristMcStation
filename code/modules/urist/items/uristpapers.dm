@@ -17,6 +17,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //S-COM pamphlet
 
-obj/item/weapon/paper/pamphlet/SCOM
+/obj/item/weapon/paper/pamphlet/SCOM
 	name = "S-COM Informational Pamphlet"
 	info = "<center><b>Welcome to the S-COM project...</b></center><BR><BR><small>Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Confederacy marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the  galaxy and all within it!<BR><BR>Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the project.</small><BR><BR>S-COM operation basics.<BR><BR><small>Using a state of the art naval ship or experimental bluespace teleporation, you will be dropped into the combat zone to complete your mission objectives. As we cannot afford leaks, we will send cleanup crews after your operations to remove corpses, weaponry and any other evidence you had existed.<BR><BR>Collateral damage or civilian casulties are unacceptable. Attempt to preserve innocent lives over ending them, and unless the combat zone is completely overrun, try not to destroy it.</small><BR><BR>Relations with the rest of the galaxy.<BR><BR><small>Due to the neccesity to remain secret, only the most trustworthy and higher-ups of the galaxy know of us. Despite this, we are made to protect the galaxy. We are not a force to attack a corporation or nation. As such, you must put aside any hate you have for your fellow operatives so that you may work as a team.</small><BR><BR>S-COM command.<BR><BR><small>During your operations, command will keep you updated using command announcements. Your inbuilt P.R.A.Y implants will also automatically hack into any communication console, allowing you to send a message  directly to us if you are able to reach the command to send a message.<BR><BR>The Council, who are your commander's bosses, are made up of CEOs, generals and admirals of various corporations and nations among the stars. In the event you are needed by one of the Council members, you will be dispatched at once.</small><BR><BR><BR><b>Glory to Humanity.<b>"
+
+/obj/item/weapon/book/manual/blueshield
+	name = "Blueshield Regulations and Procedures"
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state ="blueshieldbook"
+	author = "Director of Blueshield Operations"
+	title = "Blueshield Regulations and Procedures"
+
+/obj/item/weapon/book/manual/blueshield/New()
+	dat = file2text("ingame_manuals/blueshield.html")

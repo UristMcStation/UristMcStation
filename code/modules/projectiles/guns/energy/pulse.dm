@@ -5,11 +5,12 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	slot_flags = SLOT_BELT|SLOT_BACK
 	force = 10
+	cell_type = /obj/item/weapon/cell/high
 	fire_sound='sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	max_shots = 10
-	
+
 	firemodes = list(
 		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),

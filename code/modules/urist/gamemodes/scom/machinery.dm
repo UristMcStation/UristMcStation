@@ -1,6 +1,6 @@
 /obj/machinery/door/airlock/multi_tile/marine
 	name = "Airlock"
-	icon = 'icons/urist/structures&machinery/Door2x1marine.dmi'
+	icon = 'icons/urist/structures&machinery/doors/Door2x1marine.dmi'
 	assembly_type = /obj/structure/door_assembly/multi_tile
 	bound_height = 64
 	bound_width = 64 //changed in New(), meant to stop geometry from breaking

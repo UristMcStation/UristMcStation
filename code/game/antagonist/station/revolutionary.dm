@@ -8,7 +8,7 @@ var/datum/antagonist/revolutionary/revs
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "rev_head"
-	welcome_text = "Down with the capitalists! Down with the Bourgeoise!"
+	welcome_text = "Down with the capitalists! Down with the Bourgeoise! This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
 	victory_feedback_tag = "win - heads killed"
@@ -25,7 +25,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_role_text = "Revolutionary"
 	faction_descriptor = "Revolution"
 	faction_verb = /mob/living/proc/convert_to_rev
-	faction_welcome = "Help the cause overturn the ruling class. Do not harm your fellow freedom fighters."
+	faction_welcome = "Help the cause overturn the ruling class. Do not harm your fellow freedom fighters. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	faction_indicator = "rev"
 	faction_invisible = 1
 

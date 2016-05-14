@@ -277,6 +277,13 @@
 
 					bridge = 0
 
+	var/obj/item/weapon/reagent_containers/RG = I
+	if (istype(RG) && RG.is_open_container())
+		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		user.visible_message("<span class='notice'>user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
+		return
+
+
 	else
 		return
 /turf/simulated/jungle/water/New()
@@ -298,7 +305,7 @@
 		var/mob/living/M = O
 		//slip in the murky water if we try to run through it
 		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
-			M << pick("\blue You slip on something slimy.","\blue You fall over into the murk.")
+			M << pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>")
 			M.Stun(2)
 			M.Weaken(1)
 

@@ -8,7 +8,7 @@ var/datum/antagonist/raider/raiders
 	bantype = "raider"
 	antag_indicator = "mutineer"
 	landmark_id = "voxstart"
-	welcome_text = "Use :H to talk on your encrypted channel."
+	welcome_text = "Use :H to talk on your encrypted channel. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudmutineer"
 

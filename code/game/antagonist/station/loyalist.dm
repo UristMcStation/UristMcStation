@@ -8,7 +8,7 @@ var/datum/antagonist/loyalists/loyalists
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "loyal_head"
-	welcome_text = "You belong to the Company, body and soul. Preserve its interests against the conspirators amongst the crew."
+	welcome_text = "You belong to the Company, body and soul. Preserve its interests against the conspirators amongst the crew. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	victory_text = "The heads of staff remained at their posts! The loyalists win!"
 	loss_text = "The heads of staff did not stop the revolution!"
 	victory_feedback_tag = "win - rev heads killed"
@@ -25,7 +25,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_role_text = "Loyalist"
 	faction_descriptor = "Company"
 	faction_verb = /mob/living/proc/convert_to_loyalist
-	faction_welcome = "Preserve NanoTrasen's interests against the traitorous recidivists amongst the crew. Protect the heads of staff with your life."
+	faction_welcome = "Preserve NanoTrasen's interests against the traitorous recidivists amongst the crew. Protect the heads of staff with your life. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	faction_indicator = "loyal"
 	faction_invisible = 1
 	restricted_jobs = list("AI", "Cyborg")
