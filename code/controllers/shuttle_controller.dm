@@ -294,6 +294,7 @@ var/global/datum/shuttle_controller/shuttle_controller
 	process_shuttles += shuttle
 
 	shuttle = new()
+	shuttle.location = 0
 	shuttle.warmup_time = 10
 	shuttle.area_offsite = locate(/area/shuttle/securityoutpost/outpost)
 	shuttle.area_station = locate(/area/shuttle/securityoutpost/station)
@@ -301,6 +302,40 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttle.dock_target_station = "security_dock_airlock"
 	shuttle.dock_target_offsite = "secdock_airlock"
 	shuttles["Security"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/infestation()
+	shuttle.location = 0
+	shuttle.warmup_time = 20
+	shuttle.area_offsite = locate(/area/shuttle/infestation/i1/station)
+	shuttle.area_station = locate(/area/shuttle/infestation/i1/ship)
+	shuttle.transit_direction = EAST
+	shuttles["Infestation1"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new/datum/shuttle/ferry/infestation()
+	shuttle.location = 0
+	shuttle.warmup_time = 20
+	shuttle.area_offsite = locate(/area/shuttle/infestation/i2/station)
+	shuttle.area_station = locate(/area/shuttle/infestation/i2/ship)
+	shuttle.transit_direction = EAST
+	shuttles["Infestation2"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.location = 0
+	shuttle.warmup_time = 30
+	shuttle.area_offsite = locate(/area/shuttle/assault/a1/station)
+	shuttle.area_station = locate(/area/shuttle/assault/a1/base)
+	shuttles["Assault1"] = shuttle
+	process_shuttles += shuttle
+
+	shuttle = new()
+	shuttle.location = 0
+	shuttle.warmup_time = 30
+	shuttle.area_offsite = locate(/area/shuttle/assault/a2/station)
+	shuttle.area_station = locate(/area/shuttle/assault/a2/base)
+	shuttles["Assault2"] = shuttle
 	process_shuttles += shuttle
 
 //End Urist shuttles

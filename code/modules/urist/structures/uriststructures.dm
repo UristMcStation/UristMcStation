@@ -310,3 +310,35 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		qdel(src)
 	else
 		..()
+
+//mapping objects
+
+/obj/structure/table/standard/flipped
+	climbable = 0
+
+	flipped = 1
+	icon_state = "flip0"
+
+/obj/structure/table/standard/flipped/New()
+	..()
+
+	verbs -=/obj/structure/table/verb/do_flip
+	verbs +=/obj/structure/table/proc/do_put
+	flags |= ON_BORDER
+	update_connections(1)
+	update_icon()
+
+/obj/structure/table/standard/flipped/n
+	dir = 1
+
+/obj/structure/table/standard/flipped/s
+	dir = 2
+	layer = 5
+
+/obj/structure/table/standard/flipped/e
+	dir = 4
+	layer = 5
+
+/obj/structure/table/standard/flipped/w
+	dir = 8
+	layer = 5

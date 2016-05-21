@@ -86,6 +86,9 @@
 			if(mind.vampire)
 				stat("Total Blood", mind.vampire.bloodtotal)
 				stat("Usable Blood", mind.vampire.bloodusable)
+		if(master_mode == "assault")
+			stat("Remaining Lactera", remaininglactera)
+
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
 		flick("flash", flash)

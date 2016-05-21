@@ -371,7 +371,7 @@
 		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 		usr << "You have been dead for[pluralcheck] [deathtimeseconds] seconds."
 
-		if (deathtime < 12000)
+		if (deathtime < respawntime) //respawntime is located in code/modules/urist/random.dm. defaults to 12000 = 20 mins
 			usr << "You must wait 20 minutes to respawn!"
 			return
 		else

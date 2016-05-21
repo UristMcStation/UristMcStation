@@ -1,0 +1,39 @@
+"a" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/item/weapon/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
+"b" = (/turf/simulated/wall,/area/template_noop)
+"c" = (/obj/machinery/light{dir = 8},/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"d" = (/obj/machinery/firealarm{dir = 4; pixel_x = 24},/obj/item/ammo_casing/c9mm,/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+"e" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/table/standard/flipped/n,/turf/simulated/floor/plating,/area/template_noop)
+"f" = (/obj/item/device/radio/intercom{freerange = 1; frequency = 1459; name = "Station Intercom (General)"; pixel_x = -30},/obj/item/ammo_casing/c9mm,/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"g" = (/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+"h" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/item/ammo_magazine/c38,/turf/simulated/floor/plating,/area/template_noop)
+"i" = (/obj/structure/girder,/turf/simulated/floor/plating,/area/template_noop)
+"j" = (/obj/item/weapon/cigbutt,/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"k" = (/obj/structure/extinguisher_cabinet{pixel_x = 32},/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+"l" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating{tag = "icon-panelscorched"; icon_state = "panelscorched"},/area/template_noop)
+"m" = (/turf/simulated/floor/plating,/area/template_noop)
+"n" = (/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"o" = (/obj/machinery/newscaster{pixel_x = 32},/obj/item/ammo_casing/c9mm,/obj/item/weapon/cigbutt,/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+"p" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/plating,/area/template_noop)
+"q" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
+"r" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"s" = (/obj/machinery/atm{pixel_x = 30},/obj/structure/table/standard/flipped/n,/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/space)
+"t" = (/obj/machinery/dna_scannernew,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/template_noop)
+"u" = (/obj/item/device/flashlight/lamp/green,/turf/simulated/floor/plating,/area/template_noop)
+"v" = (/obj/item/ammo_casing/c9mm,/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"w" = (/obj/item/ammo_magazine/c45m/a7/empty,/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+"x" = (/obj/machinery/computer/cloning,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/template_noop)
+"y" = (/obj/machinery/clonepod,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor/plating,/area/template_noop)
+"z" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{color = "#4444FF"; dir = 4},/turf/simulated/floor/plating,/area/template_noop)
+"A" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/turf/simulated/floor{tag = "icon-neutralcorner (NORTH)"; icon_state = "neutralcorner"; dir = 1},/area/template_noop)
+"B" = (/obj/machinery/light{dir = 4},/turf/simulated/floor{tag = "icon-neutralcorner (EAST)"; icon_state = "neutralcorner"; dir = 4},/area/template_noop)
+
+(1,1,1) = {"
+abcdb
+ebfgb
+hijkb
+lmnob
+pqrsb
+tuvwb
+xmvgb
+yzABb
+"}

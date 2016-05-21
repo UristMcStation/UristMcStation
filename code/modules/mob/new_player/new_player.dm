@@ -107,7 +107,7 @@
 
 		if(href_list["observe"])
 
-			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
+			if(alert(src,"Are you sure you wish to observe? You will have to wait 20 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
 				var/mob/dead/observer/observer = new()
 
@@ -373,20 +373,29 @@
 		if(master_mode=="scom")
 			ScomLateJoin(character)
 			ScomRobotLateJoin(character)
+
+		else if(master_mode=="assault")
+			AssaultLateJoin(character)
 		qdel(src)
 
 	proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)
 		if (ticker.current_state == GAME_STATE_PLAYING)
-			if(character.mind.role_alt_title)
-				rank = character.mind.role_alt_title
-			global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
+			if(master_mode=="assault") //we don't announce for assault, only lactera are getting to the station.
+				return
+			else
+				if(character.mind.role_alt_title)
+					rank = character.mind.role_alt_title
+				global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
 
 	proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
 		if (ticker.current_state == GAME_STATE_PLAYING)
-			if(character.mind.role_alt_title)
-				rank = character.mind.role_alt_title
-			// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-			global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
+			if(master_mode=="assault")
+				return
+			else
+				if(character.mind.role_alt_title)
+					rank = character.mind.role_alt_title
+				// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
+				global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "is in transit to the station"].", "Centcomm Transit Computer")
 
 	proc/LateChoices()
 		var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name

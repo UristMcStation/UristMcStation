@@ -40,16 +40,19 @@
 	icon_state = "alienpistol"
 	scomtechlvl = 1
 	scommoney = 100
+	origin_tech = "combat=6;magnets=4;materials=3;engineering=1;powerstorage=3;"
 
 /obj/item/scom/aliengun/a2
 	icon_state = "lightalienrifle"
 	scomtechlvl = 2
 	scommoney = 250
+	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
 
 /obj/item/scom/aliengun/a3
 	scomtechlvl = 4
 	scommoney = 600
 	icon_state = "alienrifle"
+	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 
 /obj/item/scom/aliengun/a4
 	scomtechlvl = 6
