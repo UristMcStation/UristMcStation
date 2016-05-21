@@ -101,7 +101,7 @@
 	hud_type = null
 
 	has_fine_manipulation = 1
-	gluttonous = 2
+	gluttonous = 1
 
 	eyes = "blank_eyes"
 

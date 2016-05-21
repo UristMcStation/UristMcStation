@@ -1,4 +1,4 @@
-var/global/remaininglactera = 40 //we'll tweak this in testing, add an admin command to mess with the number.
+var/global/remaininglactera = 40 //we'll tweak this in testing
 var/global/gamemode_endstate = 0
 
 /datum/game_mode/assault
@@ -8,17 +8,16 @@ var/global/gamemode_endstate = 0
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
 
-
 /datum/game_mode/assault/announce()
 	world << "<B>The current game mode is - Assault!</B>"
 	world << "<B>Nyx has been threatened by the ongoing Galactic Crisis, and a large lactera strike force stands ready to assault Urist McStation. As a member of the station, it's your job to defend the station's shield generator against the strike force until all lactera are defeated. For those who late-join, you will be lactera, whose goal is to destroy the shield generator, or wipe out all the station's crew. This is a team gamemode, work with your team to accomplish your goal.</B>"
 
 
 /datum/game_mode/assault/pre_setup()
-	world << "/red Setting up Assault, this may take a minute or two."
+	world << "\red Setting up Assault, this may take a minute or two."
 
-	for(var/obj/effect/template_loader/gamemode/L in world)
-		L.Load()
+//	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
+//		L.Load()
 
 	return 1
 
@@ -40,9 +39,16 @@ var/global/gamemode_endstate = 0
 		qdel(S)
 
 	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(prob(15))
-			var/obj/item/device/radio/R = new /obj/item/device/radio/headset(M)
-			M.equip_to_slot_or_del(R, slot_l_ear)
+		if(prob(15) && M.client)
+
+			for (var/obj/item/I in M)
+				if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses)) //we're going to actually let them keep their IDs because their account is tied to it
+					continue
+
+				else
+					qdel(I)
+
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/anfor(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/anfor/marine(M), slot_wear_suit)
@@ -71,19 +77,20 @@ var/global/gamemode_endstate = 0
 			W.assignment = "ANFOR Marine"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
+
 			for(var/obj/effect/landmark/assault/marinespawn/H in world)
 				M.loc = H.loc
 				qdel(H)
 
 			M << "<span_class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
 
-		spawn(300)
-			command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Your station is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
-			spawn(600)
-				command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
-				sleep(rand(2000,2400))
-				for(var/obj/machinery/computer/shuttle_control/assault/A in machines)
-					A.readytogo = 1 //it's go time bois
+	spawn(300)
+		command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Your station is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
+		spawn(600)
+			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
+			sleep(rand(2000,2400))
+			for(var/obj/machinery/computer/shuttle_control/assault/A in machines)
+				A.readytogo = 1 //it's go time bois
 
 /datum/game_mode/assault/process()
 	//Reset the survivor count to zero per process call.
@@ -94,21 +101,26 @@ var/global/gamemode_endstate = 0
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
-				if(H.species == "Human")
-					humansurvivors += 1 //Add them to the amount of people who're alive.
-				if(H.species == "Lactera")
+				if(H.species == "Xenomorph")
 					aliensurvivors += 1
-	if(humansurvivors == 0) //add a check for humans on the station z to the human survivors check
-		gamemode_endstate = 1
+				else
+					humansurvivors += 1 //Add them to the amount of people who're alive.
 
-	else if(aliensurvivors == 0 && remaininglactera == 0)
-		gamemode_endstate = 2
+	if(gamemode_endstate == 5)
+		return
 
-	else if(station_was_nuked)
-		gamemode_endstate = 4
+	else
+		if(humansurvivors == 0)
+			gamemode_endstate = 1
 
-	if(gamemode_endstate)
-		declare_completion()
+		else if(aliensurvivors == 0 && remaininglactera == 0)
+			gamemode_endstate = 2
+
+		else if(station_was_nuked)
+			gamemode_endstate = 4
+
+		if(gamemode_endstate)
+			declare_completion()
 
 /datum/game_mode/assault/declare_completion()
 	if(gamemode_endstate == 1)
@@ -127,7 +139,7 @@ var/global/gamemode_endstate = 0
 		feedback_set_details("round_end_result","draw - the station has been nuked")
 		world << "\red <FONT size = 3><B>Draw.</B></FONT>"
 		world << "\red <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT>"
-
+	gamemode_endstate = 5
 	..()
 	return 1
 
@@ -180,5 +192,16 @@ var/global/gamemode_endstate = 0
 			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about half depleted. Good job!.", "ANFOR Nyx Command")
 
 		qdel(L)
+
+/client/proc/remaininglacterachange(rl as num)
+	set category = "Fun"
+	set name = "Change Remaining Lactera"
+
+	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_FUN))
+		return
+
+	remaininglactera = rl
+
+	message_admins("[key_name_admin(usr)] changed the remaining lactera to [rl].")
 
 //add in the shield generator/code the endgame for it. add in another couple maps? add in shuttle maps. add the number to the status panel? test lactera, tweak them.

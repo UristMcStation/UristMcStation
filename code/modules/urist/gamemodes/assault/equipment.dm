@@ -36,7 +36,7 @@
 	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 1 //rapid fire
-	max_shots = 5
+	max_shots = 8
 	self_recharge = 1
 	var/inertstate = /obj/item/scom/aliengun
 
@@ -49,7 +49,7 @@
 	icon_state = "alienpistol"
 	item_state = "alienpistol"
 	projectile_type = /obj/item/projectile/beam/scom/alien2
-	max_shots = 3
+	max_shots = 4
 	origin_tech = "combat=6;magnets=4;materials=3;engineering=1;powerstorage=3;"
 	inertstate = /obj/item/scom/aliengun/a1
 
@@ -77,7 +77,7 @@
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)
 	var/mob/living/carbon/human/M = user
-	if(M.species != "Lactera")
+	if(M.species != "Xenomorph")
 		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
 		new inertstate(src.loc)
 		qdel(src)
@@ -87,7 +87,7 @@
 
 /obj/item/weapon/gun/energy/lactera/verb_pickup()
 	var/mob/living/carbon/human/M = usr
-	if(M.species != "Lactera")
+	if(M.species != /datum/species/xenos/lactera)
 		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
 		new inertstate(src.loc)
 		qdel(src)
@@ -127,6 +127,7 @@
 	item_state = "lactera_under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
+	species_restricted = list("Xenomorph")
 
 /obj/item/clothing/under/lactera/MouseDrop(obj/over_object as obj)
 	return
@@ -139,6 +140,7 @@
 	icon_override = 'icons/uristmob/scommobs.dmi'
 	item_state = "lactera_shoes"
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
+	species_restricted = list("Xenomorph")
 
 /obj/item/clothing/shoes/magboots/lactera/attack_hand(mob/user as mob)
 	return
@@ -146,6 +148,7 @@
 /obj/item/clothing/suit/lactera
 	icon = 'icons/uristmob/scommobs.dmi'
 	icon_override = 'icons/uristmob/r_lactera.dmi'
+	species_restricted = list("Xenomorph")
 
 /obj/item/clothing/suit/lactera/regular
 	name = "lactera armoured vest"
@@ -229,8 +232,10 @@
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life."
-	icon = 'icons/urist/structures&machinery/scomscience.dmi'
-	icon_state = "norm2"
+//	icon = 'icons/urist/structures&machinery/scomscience.dmi'
+//	icon_state = "norm2"
+	icon = 'icons/obj/power.dmi'
+	icon_state = "bbox_on"
 	var/remaininggens = 4
 	var/health = 200
 	var/maxhealth = 200
@@ -242,14 +247,15 @@
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if(health >= maxhealth)
-				user << "<span class='warning'>The barricade is smashed apart!</span>"
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-			user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
-				"You start to patch some dents on the shield generator", \
-				"You hear welding")
-			if (do_after(user,20))
-				if(!src || !WT.isOn()) return
-
+				user << "<span class='warning'>The shield generator is fully repaired alredy!</span>"
+			else
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
+					"You start to patch some dents on the shield generator", \
+					"You hear welding")
+				if (do_after(user,20))
+					if(!src || !WT.isOn()) return
+					health += 10
 
 		else
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
@@ -259,11 +265,11 @@
 			if("fire")
 				src.health -= W.force * 1
 			if("brute")
-				src.health -= W.force * 0.75
+				src.health -= W.force * 0.50
 			else
 		if (src.health <= 0)
 			visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
-			qdel(src)
+			kaboom()
 			return
 		..()
 
@@ -274,18 +280,36 @@
 			return
 		if(2.0)
 			if(prob(75))
-				qdel(src)
+				kaboom()
+				return
+			else
+				health -= 150
 		if(3.0)
 			if(prob(25))
-				qdel(src)
+				kaboom()
+				return
+			else
+				health -= 50
+
+	if(src.health <=0)
+		visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
+		qdel(src)
 
 	return
 
-/obj/structure/assaultshieldgen/Destroy()
+/obj/structure/assaultshieldgen/bullet_act(var/obj/item/projectile/Proj)
+	health -= Proj.damage
+
+	if(health <= 0)
+		kaboom()
+
+	..()
+
+/obj/structure/assaultshieldgen/proc/kaboom()
 	for(var/obj/structure/assaultshieldgen/S in world)
 		remaininggens -= 1
 
 	if(remaininggens == 0)
 		gamemode_endstate = 3
 
-	..()
+	qdel(src)

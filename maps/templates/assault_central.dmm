@@ -30,29 +30,29 @@
 "aD" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/table/standard/flipped/w,/turf/simulated/floor/engine,/area/template_noop)
 "aE" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; pixel_y = 0},/turf/simulated/floor/engine,/area/template_noop)
 "aF" = (/obj/item/weapon/storage/firstaid/combat,/obj/item/weapon/storage/firstaid/combat,/turf/simulated/floor/engine,/area/template_noop)
-"aG" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/engine,/area/template_noop)
-"aH" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/engine,/area/template_noop)
+"aG" = (/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/assaultshieldgen,/turf/simulated/floor/engine,/area/template_noop)
+"aH" = (/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/assaultshieldgen,/turf/simulated/floor/engine,/area/template_noop)
 "aI" = (/obj/item/stack/nanopaste,/turf/simulated/floor/engine,/area/template_noop)
 "aJ" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"; tag = ""},/turf/simulated/floor/engine,/area/template_noop)
 "aK" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/table/standard/flipped/e,/turf/simulated/floor/engine,/area/template_noop)
 "aL" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/turf/simulated/floor/engine,/area/template_noop)
 "aM" = (/obj/item/stack/medical/bruise_pack,/turf/simulated/floor/engine,/area/template_noop)
 "aN" = (/obj/item/weapon/storage/firstaid/fire,/obj/item/weapon/storage/firstaid/fire,/turf/simulated/floor/engine,/area/template_noop)
-"aO" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/engine,/area/template_noop)
-"aP" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/engine,/area/template_noop)
+"aO" = (/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/obj/structure/assaultshieldgen,/turf/simulated/floor/engine,/area/template_noop)
+"aP" = (/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/assaultshieldgen,/turf/simulated/floor/engine,/area/template_noop)
 "aQ" = (/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/engine,/area/template_noop)
-"aR" = (/turf/simulated/floor/engine,/area/space)
-"aS" = (/obj/item/weapon/gun/projectile/shotgun/pump,/turf/simulated/floor/engine,/area/template_noop)
-"aT" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/engine,/area/template_noop)
-"aU" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/structure/table/standard/flipped/e,/turf/simulated/floor/engine,/area/template_noop)
-"aV" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/light{dir = 4},/turf/simulated/floor/engine,/area/template_noop)
-"aW" = (/obj/machinery/camera{c_tag = "Central Primary Hallway Garden Southwest"; dir = 4; network = list("Exodus")},/turf/simulated/floor/engine,/area/template_noop)
-"aX" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/engine,/area/template_noop)
-"aY" = (/obj/machinery/hologram/holopad,/turf/simulated/floor/engine,/area/template_noop)
-"aZ" = (/obj/machinery/camera{c_tag = "Central Primary Hallway Garden South"; dir = 8; network = list("Exodus")},/obj/item/stack/medical/splint,/turf/simulated/floor/engine,/area/template_noop)
-"ba" = (/obj/structure/table/standard,/obj/machinery/recharger,/turf/simulated/floor/engine,/area/template_noop)
-"bb" = (/obj/machinery/shieldgen,/turf/simulated/floor/engine,/area/template_noop)
-"bc" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/engine,/area/template_noop)
+"aR" = (/obj/item/weapon/gun/projectile/shotgun/pump,/turf/simulated/floor/engine,/area/template_noop)
+"aS" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/engine,/area/template_noop)
+"aT" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/structure/table/standard/flipped/e,/turf/simulated/floor/engine,/area/template_noop)
+"aU" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/light{dir = 4},/turf/simulated/floor/engine,/area/template_noop)
+"aV" = (/obj/machinery/camera{c_tag = "Central Primary Hallway Garden Southwest"; dir = 4; network = list("Exodus")},/turf/simulated/floor/engine,/area/template_noop)
+"aW" = (/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/engine,/area/template_noop)
+"aX" = (/obj/machinery/hologram/holopad,/turf/simulated/floor/engine,/area/template_noop)
+"aY" = (/obj/machinery/camera{c_tag = "Central Primary Hallway Garden South"; dir = 8; network = list("Exodus")},/obj/item/stack/medical/splint,/turf/simulated/floor/engine,/area/template_noop)
+"aZ" = (/obj/structure/table/standard,/obj/machinery/recharger,/turf/simulated/floor/engine,/area/template_noop)
+"ba" = (/obj/machinery/shieldgen,/turf/simulated/floor/engine,/area/template_noop)
+"bb" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/engine,/area/template_noop)
+"bc" = (/obj/structure/table/standard/flipped/s,/obj/item/weapon/storage/box/shotgunammo,/turf/simulated/floor/engine,/area/template_noop)
 "bd" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; layer = 2.4},/obj/structure/table/standard/flipped/s,/turf/simulated/floor/engine,/area/template_noop)
 "be" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/table/standard/flipped/s,/turf/simulated/floor/engine,/area/template_noop)
 "bf" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/turf/simulated/floor/engine,/area/template_noop)
@@ -67,8 +67,8 @@ asapatapapauavawaxap
 apayazauapapapaAaBaC
 adaDaEaFaGaHaIaJaKaL
 auayaMaNaOaPaQapaBap
-aRayaSapapapapaTaUaV
-aWapapaXapaYapapapaZ
-babbapbcbcbdbebfbbba
-aabaaubgapapbhbibaaa
+apayaRapapapapaSaTaU
+aVapapaWapaXapapapaY
+aZbaapbbbcbdbebfbaaZ
+aaaZaubgapapbhbiaZaa
 "}

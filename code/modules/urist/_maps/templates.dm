@@ -195,12 +195,14 @@ var/list/datum/map_template/underground_templates = list()
 	var/mapfile
 	invisibility = 101
 
-/obj/effect/template_loader/gamemode/Load(datum/map_template/template = null)
+/obj/effect/template_loader/gamemode/Load()
 
-	if(!template)
-		template = mapfile
-
-	template.load(get_turf(src),centered = TRUE)
+	var/datum/map_template/template
+//	var/map = mapfile
+//	template = map_templates[map]
+	template = mapfile
+	var/turf/T = get_turf(src)
+	template.load(T, centered = TRUE)
 	template.loaded++
 
 	qdel(src)

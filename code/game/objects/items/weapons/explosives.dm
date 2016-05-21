@@ -16,7 +16,7 @@
 
 /obj/item/weapon/plastique/New()
 	wires = new(src)
-	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
+	image_overlay = image(src.icon, "plastic-explosive2")
 	..()
 
 /obj/item/weapon/plastique/attackby(var/obj/item/I, var/mob/user)

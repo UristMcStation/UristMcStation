@@ -1,0 +1,48 @@
+"a" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/maintenance/fsmaint)
+"b" = (/turf/simulated/wall,/area/maintenance/fsmaint)
+"c" = (/turf/space,/area/space)
+"d" = (/turf/space,/area/shuttle/assault/a1/station)
+"e" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating{tag = "icon-platingdmg3"; icon_state = "platingdmg3"},/area/maintenance/fsmaint)
+"f" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/maintenance/fsmaint)
+"g" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/plating,/area/maintenance/fsmaint)
+"h" = (/turf/simulated/wall,/area/hallway/secondary/exit)
+"i" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+"j" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+"k" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+"l" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/hatch{name = "Observatory"},/turf/simulated/floor,/area/hallway/secondary/exit)
+"m" = (/turf/simulated/floor,/area/hallway/secondary/exit)
+"n" = (/obj/machinery/light{dir = 1},/turf/simulated/floor,/area/hallway/secondary/exit)
+"o" = (/obj/machinery/light,/turf/simulated/floor,/area/hallway/secondary/exit)
+"p" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor,/area/hallway/secondary/exit)
+"q" = (/turf/template_noop,/area/template_noop)
+"r" = (/obj/machinery/light{brightness_power = 4; brightness_range = 9; dir = 8; icon_state = "tube1"},/turf/simulated/floor,/area/hallway/secondary/exit)
+"s" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+"t" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/wall,/area/hallway/secondary/exit)
+"u" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+"v" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/wall,/area/hallway/secondary/exit)
+"w" = (/turf/simulated/floor/plating,/area/hallway/secondary/exit)
+
+(1,1,1) = {"
+abbcccccccddddddddd
+abccccccccddddddddd
+ebccccccccddddddddd
+fbccccccccddddddddd
+abccccccccddddddddd
+gbccccccccddddddddd
+hhccccccccddddddddd
+hcccccccccddddddddd
+hhhijjjkhhddddddddd
+lmnmmmmmmhddddddddd
+lmmmmmommhddddddddd
+hhhhhhhmmhddddddddd
+hccccchmphddddddddd
+hccccchmmhddddddddd
+qccccchrmhccdddddcc
+qcccccsmmsccdddddcc
+qccccctmmtccsuusccc
+qccccchmmhccvwwvccc
+qccccchmmhhhtuuvccc
+qccccchmmmnmmmmvccc
+qccccchommmmmomtccc
+qccccchhijjjkhhhccc
+"}
