@@ -46,8 +46,14 @@ var/list/datum/map_template/underground_templates = list()
 
 	for(var/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
 		var/turf/B = L
-		for(var/obj/A in B)
+		for(var/obj/A in B) //disabling this for now until i devise a better system, just gonna qdel jungle stuff until templates get expanded
 			qdel(A)
+/*		for(var/obj/structure/jungle_plant/A in B)
+			qdel(A)
+		for(var/obj/structure/flora/A in B)
+			qdel(A)
+		for(var/obj/structure/bush/A in B)
+			qdel(A)*/
 
 	maploader.load_map(get_file(), T.x-1, T.y-1, T.z)
 
@@ -100,7 +106,10 @@ var/list/datum/map_template/underground_templates = list()
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
 
 	for(var/obj/effect/template_loader/E in world)
-		E.Load()
+		if(istype(E, /obj/effect/template_loader/gamemode))//come back to this
+			return
+		else
+			E.Load()
 
 /proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
@@ -180,4 +189,20 @@ var/list/datum/map_template/underground_templates = list()
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
 //	world << "<span class='boldannounce'>Ruins loaded.</span>"
+	qdel(src)
+
+/obj/effect/template_loader/gamemode
+	var/mapfile
+	invisibility = 101
+
+/obj/effect/template_loader/gamemode/Load()
+
+	var/datum/map_template/template
+//	var/map = mapfile
+//	template = map_templates[map]
+	template = mapfile
+	var/turf/T = get_turf(src)
+	template.load(T, centered = TRUE)
+	template.loaded++
+
 	qdel(src)

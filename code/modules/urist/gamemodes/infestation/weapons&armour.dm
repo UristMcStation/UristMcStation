@@ -2,7 +2,7 @@
 	name = "anfor armour"
 	desc = "dammit admins, stop spawning the parent classes"
 	icon_state = "m3_ppa"
-	armor = list(melee = 50, bullet = 60, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 75, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/urist/armor/anfor/nco
 	name = "ANFOR NCO armour"
@@ -53,6 +53,7 @@
 	name = "ANFOR Marine helmet"
 	desc = "An olive drab M10 protective helmet, standard issue for all Anfor marines."
 	icon_state = "m10_pbh"
+	armor = list(melee = 40, bullet = 75, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
 	var/obj/item/weapon/storage/fancy/cigarettes/cigs
 
 /obj/item/clothing/head/helmet/urist/anfor/attack_hand(var/mob/living/M)
@@ -83,7 +84,7 @@
 	icon_state = "jackboots"
 	item_state = "jackboots"
 	force = 3
-	armor = list(melee = 40, bullet = 15, laser = 15, energy = 15, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 40, bullet = 40, laser = 15, energy = 15, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 	var/obj/item/weapon/material/hatchet/tacknife/knife
 
@@ -152,7 +153,7 @@
 /obj/item/ammo_magazine/a556/a22
 	name = "A22 magazine (5.56mm)"
 	icon = 'icons/urist/items/guns.dmi'
-	icon_state = "br-mag"
+	icon_state = "brmag"
 	mag_type = MAGAZINE
 	caliber = "a556"
 	origin_tech = "combat=2"
@@ -188,6 +189,11 @@
 
 	var/gl_attach = 0
 	var/scoped = 0
+
+/obj/item/weapon/gun/projectile/a18/scoped
+	name = "A18-Scoped"
+	scoped = 1
+	icon_state = "FALrifle-scope"
 
 /obj/item/weapon/gun/projectile/a18/verb/scope()
 	set category = "Object"
@@ -331,11 +337,12 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/asmg
+	urist_only = 1
 	name = "\improper A37 SMG"
-	desc = "The standard submachine gun of the ANFOR Marine Corps. Has 30 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
+	desc = "The standard submachine gun of the ANFOR Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ASMG"
-	item_state = "wt550"
+	item_state = "ASMG"
 	w_class = 3
 	force = 10
 	caliber = "9mm"
@@ -351,7 +358,10 @@
 		)
 
 /obj/item/weapon/gun/projectile/automatic/asmg/update_icon()
-	icon_state = "ASMG[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 5) : "-empty"]"
+	if(ammo_magazine)
+		icon_state = "ASMG"
+	else
+		icon_state = "ASMG"
 
 /obj/item/ammo_magazine/a9mm
 	name = "A37 magazine (9mm)"
@@ -363,7 +373,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
-	multiple_sprites = 1
+//	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a9mm/empty
 	initial_ammo = 0
