@@ -39,7 +39,7 @@ var/global/gamemode_endstate = 0
 		qdel(S)
 
 	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(prob(15))
+		if(prob(16))
 	//		if(M.Species == "Human")
 
 			for (var/obj/item/I in M)
@@ -85,8 +85,8 @@ var/global/gamemode_endstate = 0
 
 			M << "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
 
-			else
-				return
+	//		else
+	//			return
 	spawn(300)
 		command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Your station is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
 		spawn(600)
