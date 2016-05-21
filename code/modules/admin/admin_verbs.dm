@@ -120,6 +120,7 @@ var/list/admin_verbs_fun = list(
 	/client/proc/load_event_map,
 	/client/proc/warpallplayers,
 	/client/proc/delaymissions,
+	/client/proc/remaininglacterachange,
 	/client/proc/roll_dices
 	)
 var/list/admin_verbs_spawn = list(
