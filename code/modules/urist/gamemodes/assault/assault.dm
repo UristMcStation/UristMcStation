@@ -39,10 +39,11 @@ var/global/gamemode_endstate = 0
 		qdel(S)
 
 	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(prob(15) && M.client)
+		if(prob(15))
+	//		if(M.Species == "Human")
 
 			for (var/obj/item/I in M)
-				if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses)) //we're going to actually let them keep their IDs because their account is tied to it
+				if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses))
 					continue
 
 				else
@@ -82,8 +83,10 @@ var/global/gamemode_endstate = 0
 				M.loc = H.loc
 				qdel(H)
 
-			M << "<span_class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
+			M << "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
 
+			else
+				return
 	spawn(300)
 		command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Your station is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
 		spawn(600)

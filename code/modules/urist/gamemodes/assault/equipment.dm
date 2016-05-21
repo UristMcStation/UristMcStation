@@ -5,7 +5,7 @@
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
-		user << "<span_class='warning'>The shuttles will be ready to launch shortly.</span>"
+		user << "<span class='warning'>The shuttles will be ready to launch shortly.</span>"
 		return
 	else
 		..()
@@ -77,7 +77,8 @@
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)
 	var/mob/living/carbon/human/M = user
-	if(M.species != "Xenomorph")
+	if(!istype(M, /mob/living/carbon/human/lactera))
+//	if(M.species != "Xenomorph")
 		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
 		new inertstate(src.loc)
 		qdel(src)
@@ -87,7 +88,8 @@
 
 /obj/item/weapon/gun/energy/lactera/verb_pickup()
 	var/mob/living/carbon/human/M = usr
-	if(M.species != /datum/species/xenos/lactera)
+	if(!istype(M, /mob/living/carbon/human/lactera))
+//	if(M.species != /datum/species/xenos/lactera)
 		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
 		new inertstate(src.loc)
 		qdel(src)
@@ -199,7 +201,7 @@
 
 /obj/item/weapon/mine/attack_self(mob/user as mob)
 	new /obj/effect/mine/frag(user.loc)
-	user.visible_message("<span_class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
+	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
 	user.regenerate_icons()
 
@@ -225,7 +227,7 @@
 	triggerproc = "explode2"
 
 /obj/effect/mine/frag/attack_hand(mob/user as mob)
-	user.visible_message("<span_class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
+	user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
 	new /obj/item/weapon/mine/frag(src.loc)
 	qdel(src)
 
