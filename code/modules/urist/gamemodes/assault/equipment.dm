@@ -38,11 +38,13 @@
 	fire_delay = 1 //rapid fire
 	max_shots = 8
 	self_recharge = 1
+	urist_only = 1
 	var/inertstate = /obj/item/scom/aliengun
 
 /obj/item/weapon/gun/energy/lactera/update_icon()
 	..()
 	item_state = initial(item_state)
+	icon_state = initial(icon_state)
 
 /obj/item/weapon/gun/energy/lactera/a1
 	name = "alien pistol"
