@@ -179,8 +179,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //Assault mode vender
 
 /obj/machinery/vending/urist/assaultdispenser
-	name = "Military Ammunition Vender"
-	desc = "An automated military supply cache for efficent storage and distribution of ammunition and material."
+	name = "ANFOR Ammunition Vender"
+	desc = "An automated ANFOR supply cache for efficent storage and distribution of ammunition and material."
 	icon_state = "clothing2"
 	vend_reply = "Git some!"
 	product_ads = "Food for your rifle.;Out of rounds? We're here for you.;Resupply here!"
@@ -188,24 +188,24 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_delay = 5
 	products = list(
 		//ammo
-		/obj/item/ammo_magazine/a556/m16 = 60,
-		/obj/item/ammo_magazine/a762/m60 = 60,
-		/obj/item/ammo_magazine/a762/m14 = 60,
+		/obj/item/ammo_magazine/a556/a22 = 60,
+		/obj/item/ammo_magazine/a762/a18 = 60,
+		/obj/item/ammo_magazine/a9mm = 60,
 		/obj/item/weapon/storage/box/shotgunammo = 60,
 		/obj/item/weapon/storage/box/shotgunshells = 60,
-		/obj/item/ammo_magazine/c45m/m3 = 60,
-		/obj/item/ammo_magazine/mc9mm/bhp = 60,
+		/obj/item/ammo_magazine/c45m/a7 = 60,
 		//guns
-		/obj/item/weapon/gun/projectile/automatic/l6_saw/m60 = 3,
-		/obj/item/weapon/gun/projectile/automatic/m14 = 10,
-		/obj/item/weapon/gun/projectile/automatic/m16 = 15,
-		/obj/item/weapon/gun/projectile/automatic/m16/gl = 5,
-		/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca = 10,
-		/obj/item/weapon/gun/projectile/automatic/m3 = 10,
-		/obj/item/weapon/gun/projectile/bhp9mm = 20,
+		/obj/item/weapon/gun/projectile/automatic/a22 = 10,
+		/obj/item/weapon/gun/projectile/a18 = 10,
+		/obj/item/weapon/gun/projectile/automatic/asmg = 10,
+		/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41 = 10,
+		/obj/item/weapon/gun/projectile/colt/a7 = 20,
+		//attachments
+		/obj/item/weapon/gunattachment/grenadelauncher = 10,
+		/obj/item/weapon/gunattachment/scope/a18 = 10,
 		//gernades and mines
-		/obj/item/weapon/storage/box/anforgrenade = 20,
-		/obj/item/weapon/storage/box/mines = 5
+		/obj/item/weapon/storage/box/anforgrenade = 10,
+		/obj/item/weapon/storage/box/mines = 3
 		)
 	contraband = list(
 		/obj/item/weapon/storage/box/flashshells = 5,
