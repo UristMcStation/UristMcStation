@@ -202,7 +202,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		/obj/item/weapon/gun/projectile/automatic/m16/gl = 5,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca = 10,
 		/obj/item/weapon/gun/projectile/automatic/m3 = 10,
-		/obj/item/weapon/gun/projectile/bhp9mm = 10,
+		/obj/item/weapon/gun/projectile/bhp9mm = 20,
 		//gernades and mines
 		/obj/item/weapon/storage/box/anforgrenade = 20,
 		/obj/item/weapon/storage/box/mines = 5
@@ -210,7 +210,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contraband = list(
 		/obj/item/weapon/storage/box/flashshells = 5,
 		/obj/item/weapon/storage/box/beanbags = 5,
-		/obj/item/ammo_magazine/mc9mmt = 10,
+		/obj/item/ammo_magazine/c38 = 10,
 		/obj/item/ammo_magazine/c45m = 10,
 		/obj/item/ammo_magazine/a556 = 10,
 		/obj/item/ammo_magazine/c762 = 10
