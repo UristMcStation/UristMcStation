@@ -176,11 +176,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
 	contraband = list(/obj/item/weapon/storage/belt/utility = 1)
 
-//Assault mode vender
+//Assault mode ammo vender
 
-/obj/machinery/vending/urist/assaultdispenser
-	name = "ANFOR Ammunition Vender"
-	desc = "An automated ANFOR supply cache for efficent storage and distribution of ammunition and material."
+/obj/machinery/vending/urist/assaultammodispenser
+	name = "ANFOR Weapon Cache"
+	desc = "An automated ANFOR supply cache for efficent storage and distribution of weapons, ammunition and material."
 	icon_state = "clothing2"
 	vend_reply = "Git some!"
 	product_ads = "Food for your rifle.;Out of rounds? We're here for you.;Resupply here!"
@@ -216,4 +216,29 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		/obj/item/ammo_magazine/c762 = 10
 		)
 		
+//Assault mode clothing and armor vender
 		
+/obj/machinery/vending/urist/assaultclothingdispenser
+	name = "ANFOR Equipment Cache"
+	desc = "An automated ANFOR supply cache for efficent storage and distribution of armor and equipment."
+	product_slogans = "Look like a real soldier."
+	product_ads = "Keep yourself covered.;Protection for our fighting forces."
+	vend_delay = 15
+	vend_reply = "Suit up!"
+	icon_state = "clothing2"
+	products = list(
+		/obj/item/clothing/suit/urist/armor/anfor/nco = 2,
+		/obj/item/clothing/suit/urist/armor/anfor/marine = 20,
+		/obj/item/clothing/suit/urist/armor/anfor/engi = 5,
+		/obj/item/clothing/suit/urist/armor/anfor/medic = 5,
+		/obj/item/clothing/under/urist/anfor = 30,
+		/obj/item/clothing/head/helmet/urist/anfor = 30,
+		/obj/item/clothing/head/soft/anfor = 2,
+		/obj/item/clothing/shoes/urist/anforjackboots = 30,
+		/obj/item/weapon/storage/belt/security/tactical = 30
+		)
+	contraband = list(
+		/obj/item/weapon/storage/fancy/cigar = 1
+		)
+	
+	
