@@ -184,7 +184,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "clothing2"
 	vend_reply = "Git some!"
 	product_ads = "Food for your rifle.;Out of rounds? We're here for you.;Resupply here!"
-	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMAREZ!"
+	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMIREZ!"
 	vend_delay = 5
 	products = list(
 		//ammo
