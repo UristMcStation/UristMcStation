@@ -227,15 +227,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Suit up!"
 	icon_state = "clothing2"
 	products = list(
-		/obj/item/clothing/suit/urist/armor/anfor/nco = 2,
 		/obj/item/clothing/suit/urist/armor/anfor/marine = 20,
-		/obj/item/clothing/suit/urist/armor/anfor/engi = 5,
-		/obj/item/clothing/suit/urist/armor/anfor/medic = 5,
-		/obj/item/clothing/under/urist/anfor = 30,
-		/obj/item/clothing/head/helmet/urist/anfor = 30,
-		/obj/item/clothing/head/soft/anfor = 2,
-		/obj/item/clothing/shoes/urist/anforjackboots = 30,
-		/obj/item/weapon/storage/belt/security/tactical = 30
+		/obj/item/clothing/under/urist/anfor = 20,
+		/obj/item/clothing/head/helmet/urist/anfor = 20,
+		/obj/item/clothing/shoes/urist/anforjackboots = 20,
+		/obj/item/weapon/storage/belt/security/tactical = 20
 		)
 	contraband = list(
 		/obj/item/weapon/storage/fancy/cigar = 1
