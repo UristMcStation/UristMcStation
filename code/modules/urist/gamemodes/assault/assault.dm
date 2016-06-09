@@ -7,6 +7,7 @@ var/global/gamemode_endstate = 0
 	required_players = 1 //20
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
+	votable = 0 //WEW
 
 /datum/game_mode/assault/announce()
 	world << "<B>The current game mode is - Assault!</B>"
@@ -16,14 +17,14 @@ var/global/gamemode_endstate = 0
 /datum/game_mode/assault/pre_setup()
 	world << "\red Setting up Assault, this may take a minute or two."
 
-//	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
-//		L.Load()
-
 	return 1
 
 /datum/game_mode/assault/post_setup()
 
 	respawntime = 100 //ten second respawn time, instant action
+
+//	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
+//		L.Load()
 
 	for(var/obj/machinery/computer/shuttle_control/S in machines)
 		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security")
@@ -36,6 +37,9 @@ var/global/gamemode_endstate = 0
 
 	for(var/obj/machinery/computer/communications/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		new /obj/structure/computerframe(S.loc)
+		qdel(S)
+
+	for(var/obj/structure/reagent_dispensers/fueltank/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
 	for(var/mob/living/carbon/human/M in living_mob_list)
@@ -92,6 +96,7 @@ var/global/gamemode_endstate = 0
 		spawn(600)
 			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
 			sleep(rand(2000,2400))
+			command_announcement.Announce("ATTENTION URIST MCSTATION: We're detecting multiple ships pulling into orbit of your station. Looks like they're here. We'll do our best to take out as many as we can, but expect hostile contacts imminently.", "ANFOR Nyx Command")
 			for(var/obj/machinery/computer/shuttle_control/assault/A in machines)
 				A.readytogo = 1 //it's go time bois
 

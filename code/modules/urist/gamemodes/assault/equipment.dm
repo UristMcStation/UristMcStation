@@ -59,12 +59,13 @@
 	item_state = "lightalienrifle"
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
+	max_shots = 16
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
 	item_state = "alienrifle"
 	icon_state = "alienrifle"
-	projectile_type = /obj/item/projectile/beam/scom/alien1
+	projectile_type = /obj/item/projectile/beam/scom/alien2
 	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 	inertstate = /obj/item/scom/aliengun/a3
 
@@ -116,6 +117,27 @@
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
+/obj/item/weapon/plastique/alienexplosive/explode(var/location)
+	if(!target)
+		target = get_atom_on_turf(src)
+	if(!target)
+		target = src
+	if(location)
+		explosion(location, -1, -1, 2, 3)
+
+	if(target)
+		if (istype(target, /turf/simulated/wall))
+			var/turf/simulated/wall/W = target
+			W.dismantle_wall(1)
+		else if (istype(target, /turf/simulated/floor))
+			target.ex_act(3) //no destroying floors for the shitter aliums
+		else if(istype(target, /mob/living))
+			target.ex_act(2) // c4 can't gib mobs anymore.
+		else
+			target.ex_act(1)
+	if(target)
+		target.overlays -= image_overlay
+	qdel(src)
 
 /obj/item/weapon/plastique/alienexplosive/attackby(var/obj/item/I, var/mob/user)
 	return
@@ -151,6 +173,7 @@
 	icon = 'icons/uristmob/scommobs.dmi'
 	icon_override = 'icons/uristmob/r_lactera.dmi'
 	species_restricted = list("Xenomorph")
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/grenade,/obj/item/weapon/plastique)
 
 /obj/item/clothing/suit/lactera/regular
 	name = "lactera armoured vest"
@@ -238,7 +261,7 @@
 //	icon_state = "norm2"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-	var/remaininggens = 4
+	var/remaininggens = 6
 	var/health = 200
 	var/maxhealth = 200
 	anchored = 1
@@ -309,7 +332,7 @@
 
 /obj/structure/assaultshieldgen/proc/kaboom()
 	for(var/obj/structure/assaultshieldgen/S in world)
-		remaininggens -= 1
+		S.remaininggens -= 1
 
 	if(remaininggens == 0)
 		gamemode_endstate = 3
