@@ -77,10 +77,10 @@ var/list/datum/map_template/underground_templates = list()
 	SSmachine.setup_template_powernets(cables)
 	SSair.setup_template_machinery(atmos_machines)*/
 
-	for(var/turf/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
+//	for(var/turf/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
 
-		L.lighting_clear_overlays()
-		L.lighting_build_overlays()
+//		L.lighting_clear_overlays()
+//		L.lighting_build_overlays()
 
 
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
