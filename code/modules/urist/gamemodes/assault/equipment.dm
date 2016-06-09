@@ -61,7 +61,7 @@
 	item_state = "lightalienrifle"
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
-	max_shots = 16
+	max_shots = 12
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
@@ -83,7 +83,7 @@
 	item_state = "alienrifle" //temporary
 	icon_state = "alienlmg"
 	projectile_type = /obj/item/projectile/beam/scom/alien1
-	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
+	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
 	inertstate = /obj/item/scom/aliengun/a4
 	max_shots = 16
 
