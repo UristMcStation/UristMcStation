@@ -77,12 +77,11 @@
 	desc = "A neosilk clip-on tie. This one is disgusting."
 	icon_state = "horribletie"
 
-/obj/item/clothing/accessory/waistcoat
+/obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
 	icon_state = "waistcoat"
 	item_state = "waistcoat"
-	item_color = "waistcoat"
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
