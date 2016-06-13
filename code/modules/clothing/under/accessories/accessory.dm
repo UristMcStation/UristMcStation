@@ -77,7 +77,7 @@
 	desc = "A neosilk clip-on tie. This one is disgusting."
 	icon_state = "horribletie"
 
-/obj/item/clothing/tie/waistcoat
+/obj/item/clothing/accesory/waistcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
 	icon_state = "waistcoat"
