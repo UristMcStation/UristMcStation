@@ -277,7 +277,7 @@
 //	icon_state = "norm2"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-	var/remaininggens = 6
+//	var/remaininggens = 6
 	var/health = 200
 	var/maxhealth = 200
 	anchored = 1
@@ -347,10 +347,10 @@
 	..()
 
 /obj/structure/assaultshieldgen/proc/kaboom()
-	for(var/obj/structure/assaultshieldgen/S in world)
-		S.remaininggens -= 1
-
-	if(remaininggens == 0)
-		gamemode_endstate = 3
+//	for(var/obj/structure/assaultshieldgen/S in world)
+//		S.remaininggens -= 1
+	remaininggens -= 1
+//	if(remaininggens == 0)
+//		gamemode_endstate = 3
 
 	qdel(src)

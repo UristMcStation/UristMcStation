@@ -1,10 +1,11 @@
 var/global/remaininglactera = 40 //we'll tweak this in testing
 var/global/gamemode_endstate = 0
+var/global/remaininggens = 6
 
 /datum/game_mode/assault
 	name = "assault"
 	config_tag = "assault"
-	required_players = 1 //20
+	required_players = 1 //15
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
 	votable = 0 //WEW
@@ -130,6 +131,9 @@ var/global/gamemode_endstate = 0
 		if(gamemode_endstate)
 			declare_completion()
 
+	if(remaininggens == 0)
+		gamemode_endstate = 3
+
 /datum/game_mode/assault/declare_completion()
 	if(gamemode_endstate == 1)
 		feedback_set_details("round_end_result","alien major victory - station crew eliminated")
@@ -168,38 +172,46 @@ var/global/gamemode_endstate = 0
 			cell.charge = INFINITY*/
 
 /mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
-	for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
-//		L.loc = S.loc
-		var/mob/living/carbon/human/lactera/H = new /mob/living/carbon/human/lactera(S.loc)
-		H.ckey = L.ckey
-		if(remaininglactera == 40)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/officer(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-			H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a3(H), slot_r_hand)
+	if(remaininglactera <= 0)
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+			var/mob/dead/observer/H = new /mob/dead/observer(S.loc)
+			H.ckey = L.ckey
 
-			H << "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>"
+	else
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+	//		L.loc = S.loc
+			var/mob/living/carbon/human/lactera/H = new /mob/living/carbon/human/lactera(S.loc)
+			H.ckey = L.ckey
+			if(remaininglactera == 40 || remaininglactera == 20)
+				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
+				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/officer(H), slot_wear_suit)
+				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a3(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/regular(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-			H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a2(H), slot_r_hand)
+				H << "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>"
 
-			H << "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>"
+			else
+				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
+				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/regular(H), slot_wear_suit)
+				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a2(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-		remaininglactera -= 1
+				H << "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>"
 
-		if(remaininglactera == 20)
-			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about half depleted. Good job!.", "ANFOR Nyx Command")
+			remaininglactera -= 1
 
-		qdel(L)
+			if(remaininglactera == 20)
+				command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about half depleted. Good job!.", "ANFOR Nyx Command")
+
+			qdel(L)
 
 /client/proc/remaininglacterachange(rl as num)
 	set category = "Fun"

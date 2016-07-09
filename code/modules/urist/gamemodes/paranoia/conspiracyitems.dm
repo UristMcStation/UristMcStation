@@ -310,6 +310,7 @@
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
 
 /obj/effect/landmark/intelspawn
+	icon_state = "x3"
 	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
 
 /obj/effect/landmark/intelspawn/New()
