@@ -9,9 +9,9 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 		usr << "<span clas='warning'>You are not an Antagonist.</span>"
 		return
 
-	if(say_disabled)
+	/*if(say_disabled)
 		usr << "<span clas='warning'>Speech is currently admin-disabled.</span>"
-		return
+		return*/
 
 	if(!mob)	return //No turf can talk
 	if(IsGuestKey(key))
@@ -35,8 +35,8 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 		if(prefs.muted & MUTE_OOC)
 			src << "<span clas='warning'>You cannot use OOC (muted).</span>"
 			return
-		if(handle_spam_prevention(msg,MUTE_OOC))
-			return
+		/*if(handle_spam_prevention(msg,MUTE_OOC))
+			return*/
 		if(findtext(msg, "byond://"))
 			src << "<B>Advertising other servers is not allowed.</B>"
 			log_admin("[key_name(src)] has attempted to advertise in AntagOOC: [msg]")

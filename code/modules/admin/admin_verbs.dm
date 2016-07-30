@@ -123,7 +123,7 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
 	/client/proc/create_dungeon,
-	/datum/admins/proc/ai_hologram_set
+	/datum/admins/proc/ai_hologram_set,
 	/client/proc/load_event_map,
 	/client/proc/warpallplayers,
 	/client/proc/delaymissions,
@@ -350,7 +350,7 @@ var/list/admin_verbs_mentor = list(
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
 		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
-		if(holder.rights & R_POLL)			verbs += admin_verbs_poll
+		if(holder.rights & R_ADMIN)			verbs += admin_verbs_poll
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(

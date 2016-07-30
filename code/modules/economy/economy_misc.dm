@@ -53,9 +53,9 @@
 												/datum/species/human/spacer      = 10,
 												/datum/species/human/vatgrown    = 5, //if it weren't for the fact that they were humans I would have given them less,
 												/datum/species/skrell            = 12,
-												/datum/species/tajaran           = 7,
+//												/datum/species/tajaran           = 7,
 												/datum/species/unathi            = 7,
-												/datum/species/machine           = 7,
+//												/datum/species/machine           = 7,
 												/datum/species/diona             = 5,
 												/datum/species/resomi            = 5,
 												/datum/species/vox/pariah        = 1

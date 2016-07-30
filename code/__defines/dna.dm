@@ -1,5 +1,5 @@
 // Bitflags for mutations.
-#define STRUCDNASIZE 27
+#define STRUCDNASIZE 50
 #define   UNIDNASIZE 13
 
 // Generic mutations:

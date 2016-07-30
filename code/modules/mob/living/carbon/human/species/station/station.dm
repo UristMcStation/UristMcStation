@@ -356,4 +356,4 @@
 		if(H) H.update_hair()
 
 /datum/species/machine/sanitize_name(var/new_name)
-	return sanitizeName(new_name, allow_numbers = 1)
+	return sanitizeName(new_name, allow_numbers = 1)*/

@@ -24,10 +24,10 @@
 			if(covered_locations & HEAD)
 				return 0
 		if("eyes")
-			if(covered_locations & HEAD || face_covered & HIDEEYES || eyesmouth_covered & GLASSESCOVERSEYES)
+			if(covered_locations & HEAD || covered_locations & EYES)
 				return 0
 		if("mouth")
-			if(covered_locations & HEAD || face_covered & HIDEFACE || eyesmouth_covered & MASKCOVERSMOUTH)
+			if(covered_locations & HEAD || covered_locations & MOUTH)
 				return 0
 		if("chest")
 			if(covered_locations & UPPER_TORSO)

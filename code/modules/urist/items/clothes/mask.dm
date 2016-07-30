@@ -45,7 +45,7 @@
     name = "clown mask"
     icon = 'icons/urist/items/clothes/masks.dmi'
     icon_override = 'icons/uristmob/mask.dmi'
-    flags = MASKCOVERSMOUTH | MASKCOVERSEYES | BLOCK_GAS_SMOKE_EFFECT
+    flags = BLOCK_GAS_SMOKE_EFFECT
     flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
     w_class = 3.0
     gas_transfer_coefficient = 0.01

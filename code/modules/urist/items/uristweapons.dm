@@ -5,7 +5,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Welder machete, icons by ShoesandHats, object by Cozarctan
 
-/obj/item/weapon/machete
+/obj/item/weapon/material/sword/machete
 	urist_only = 1
 	name = "machete"
 	desc = "a large blade beloved by sugar farmers and mass murderers"
@@ -14,19 +14,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "machete"
 	sharp = 1
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
-	force = 20
-	throwforce = 10
+	slot_flags = SLOT_BELT | SLOT_BACK
+	force_divisor = 0.34 // 20-ish when wielded with hardness 60 (steel), same as before
+	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	w_class = 3
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("cleaved", "slashed", "sliced", "torn", "ripped", "diced", "cut")
 
-	suicide_act(mob/user)
+	/*suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</b>"
-		return(BRUTELOSS)
-
-/obj/item/weapon/machete/IsShield()
-		return 1
+		return (BRUTELOSS)*/
 
 //dual saber proc
 

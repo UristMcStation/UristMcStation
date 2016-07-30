@@ -14,10 +14,10 @@
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/childpart = /obj/item/weapon/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
-	suicide_act(mob/user)
+	/*suicide_act(mob/user)
 		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
 							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
-		return (BRUTELOSS)
+		return (BRUTELOSS)*/
 
 /obj/item/weapon/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/weapon/screwdriver))
