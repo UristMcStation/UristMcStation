@@ -5,6 +5,13 @@
 	icon_state = "densecrate"
 	density = 1
 
+/obj/structure/largecrate/initialize()
+	..()
+	for(var/obj/I in src.loc)
+		if(I.density || I.anchored || I == src || !I.simulated)
+			continue
+		I.forceMove(src)
+
 /obj/structure/largecrate/attack_hand(mob/user as mob)
 	user << "<span class='notice'>You need a crowbar to pry this open!</span>"
 	return
@@ -13,8 +20,8 @@
 	if(istype(W, /obj/item/weapon/crowbar))
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
-		for(var/atom/movable/M in contents)
-			M.forceMove(T)
+		for(var/atom/movable/AM in contents)
+			if(AM.simulated) AM.forceMove(T)
 		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 							 "<span class='notice'>You pry open \the [src].</span>", \
 							 "<span class='notice'>You hear splitting wood.</span>")

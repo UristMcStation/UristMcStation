@@ -43,12 +43,15 @@
 				interact()
 				return
 			edit_area()
+		if ("delete_area")
+			//skip the sanity checking, delete_area() does it anyway
+			delete_area()
 
 /obj/item/blueprints/interact()
 	var/area/A = get_area()
 	var/text = {"<HTML><head><title>[src]</title></head><BODY>
 <h2>[station_name()] blueprints</h2>
-<small>Property of Nanotrasen. For heads of staff only. Store in high-secure storage.</small><hr>
+<small>Property of [company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
 "}
 	switch (get_area_type())
 		if (AREA_SPACE)
@@ -57,10 +60,18 @@
 <p><a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a></p>
 "}
 		if (AREA_STATION)
-			text += {"
+			if (A.apc)
+				text += {"
 <p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
 <p>You may <a href='?src=\ref[src];action=edit_area'>
 move an amendment</a> to the drawing.</p>
+<p>You can't erase this area, because it has an APC.</p>
+"}
+			else
+				text += {"
+<p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
+<p>You may <a href='?src=\ref[src];action=edit_area'>
+move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_area'>erase part of it</a>.</p>
 "}
 		if (AREA_SPECIAL)
 			text += {"
@@ -88,7 +99,11 @@ move an amendment</a> to the drawing.</p>
 		/area/centcom,
 		/area/asteroid,
 		/area/tdome,
+		/area/acting,
+		/area/supply,
 		/area/syndicate_station,
+		/area/skipjack_station,
+		/area/syndicate_mothership,
 		/area/wizard_station,
 		/area/prison
 		// /area/derelict //commented out, all hail derelict-rebuilders!
@@ -96,6 +111,8 @@ move an amendment</a> to the drawing.</p>
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )
 			return AREA_SPECIAL
+	if(A.z in using_map.admin_levels)
+		return AREA_SPECIAL
 	return AREA_STATION
 
 /obj/item/blueprints/proc/create_area()
@@ -104,20 +121,20 @@ move an amendment</a> to the drawing.</p>
 	if(!istype(res,/list))
 		switch(res)
 			if(ROOM_ERR_SPACE)
-				usr << "\red The new area must be completely airtight!"
+				usr << "<span class='warning'>The new area must be completely airtight!</span>"
 				return
 			if(ROOM_ERR_TOOLARGE)
-				usr << "\red The new area too large!"
+				usr << "<span class='warning'>The new area too large!</span>"
 				return
 			else
-				usr << "\red Error! Please notify administration!"
+				usr << "<span class='warning'>Error! Please notify administration!</span>"
 				return
 	var/list/turf/turfs = res
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", ""), MAX_NAME_LEN)
 	if(!str || !length(str)) //cancel
 		return
 	if(length(str) > 50)
-		usr << "\red Name too long."
+		usr << "<span class='warning'>Name too long.</span>"
 		return
 	var/area/A = new
 	A.name = str
@@ -153,13 +170,24 @@ move an amendment</a> to the drawing.</p>
 	if(!str || !length(str) || str==prevname) //cancel
 		return
 	if(length(str) > 50)
-		usr << "\red Text too long."
+		usr << "<span class='warning'>Text too long.</span>"
 		return
 	set_area_machinery_title(A,str,prevname)
 	A.name = str
-	usr << "\blue You set the area '[prevname]' title to '[str]'."
+	usr << "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>"
 	interact()
 	return
+
+
+/obj/item/blueprints/proc/delete_area()
+	var/area/A = get_area()
+	if (get_area_type(A)!=AREA_STATION || A.apc) //let's just check this one last time, just in case
+		interact()
+		return
+	usr << "<span class='notice'>You scrub [A.name] off the blueprint.</span>"
+	log_and_message_admins("deleted area [A.name] via station blueprints.")
+	qdel(A)
+	interact()
 
 
 

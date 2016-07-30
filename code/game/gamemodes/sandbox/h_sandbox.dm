@@ -66,25 +66,25 @@ datum/hSB
 						P.wear_suit.layer = initial(P.wear_suit.layer)
 						P.wear_suit = null
 					P.wear_suit = new/obj/item/clothing/suit/space(P)
-					P.wear_suit.layer = 20
+					P.wear_suit.layer = SCREEN_LAYER+0.01
 					if(P.head)
 						P.head.loc = P.loc
 						P.head.layer = initial(P.head.layer)
 						P.head = null
 					P.head = new/obj/item/clothing/head/helmet/space(P)
-					P.head.layer = 20
+					P.head.layer = SCREEN_LAYER+0.01
 					if(P.wear_mask)
 						P.wear_mask.loc = P.loc
 						P.wear_mask.layer = initial(P.wear_mask.layer)
 						P.wear_mask = null
 					P.wear_mask = new/obj/item/clothing/mask/gas(P)
-					P.wear_mask.layer = 20
+					P.wear_mask.layer = SCREEN_LAYER+0.01
 					if(P.back)
 						P.back.loc = P.loc
 						P.back.layer = initial(P.back.layer)
 						P.back = null
 					P.back = new/obj/item/weapon/tank/jetpack(P)
-					P.back.layer = 20
+					P.back.layer = SCREEN_LAYER+0.01
 					P.internal = P.back
 				if("hsbmetal")
 					var/obj/item/stack/sheet/hsb = new/obj/item/stack/sheet/metal
@@ -105,7 +105,7 @@ datum/hSB
 							hsb.req_access += A
 
 					hsb.loc = usr.loc
-					usr << "<b>Sandbox:  Created an airlock."
+					usr << "<b>Sandbox:  Created an airlock.</b>"
 				if("hsbcanister")
 					var/list/hsbcanisters = typesof(/obj/machinery/portable_atmospherics/canister/) - /obj/machinery/portable_atmospherics/canister/
 					var/hsbcanister = input(usr, "Choose a canister to spawn.", "Sandbox:") in hsbcanisters + "Cancel"
@@ -137,8 +137,6 @@ datum/hSB
 						if(istype(O, /obj/item/assembly))
 							continue
 						if(istype(O, /obj/item/device/camera))
-							continue
-						if(istype(O, /obj/item/weapon/cloaking_device))
 							continue
 						if(istype(O, /obj/item/weapon/dummy))
 							continue

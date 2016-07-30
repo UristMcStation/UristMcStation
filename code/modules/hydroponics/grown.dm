@@ -4,7 +4,9 @@
 	name = "fruit"
 	icon = 'icons/obj/hydroponics_products.dmi'
 	icon_state = "blank"
+	randpixel = 5
 	desc = "Nutritious! Probably."
+	slot_flags = SLOT_HOLSTER
 
 	var/plantname
 	var/datum/seed/seed
@@ -15,8 +17,6 @@
 	..()
 	if(!dried_type)
 		dried_type = type
-	src.pixel_x = rand(-5.0, 5)
-	src.pixel_y = rand(-5.0, 5)
 
 	// Fill the object up with the appropriate reagents.
 	if(planttype)
@@ -51,9 +51,12 @@
 		var/list/reagent_data = seed.chems[rid]
 		if(reagent_data && reagent_data.len)
 			var/rtotal = reagent_data[1]
+			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			reagents.add_reagent(rid,max(1,rtotal))
+			if(rid == "nutriment")
+				data[seed.seed_name] = max(1,rtotal)
+			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
 	if(reagents.total_volume > 0)
 		bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -99,7 +102,7 @@
 			descriptors |= "shiny"
 		if(reagents.has_reagent("lube"))
 			descriptors |= "slippery"
-		if(reagents.has_reagent("pacid") || reagents.has_reagent("sacid"))
+		if(reagents.has_reagent("pacid") || reagents.has_reagent("sacid") || reagents.has_reagent("hclacid"))
 			descriptors |= "acidic"
 		if(seed.get_trait(TRAIT_JUICY))
 			descriptors |= "juicy"
@@ -154,7 +157,7 @@
 
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
-				if(H.shoes && H.shoes.flags & NOSLIP)
+				if(H.shoes && H.shoes.item_flags & NOSLIP)
 					return
 
 			M.stop_pulling()
@@ -197,7 +200,6 @@
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					for(var/i=0,i<2,i++)
 						var/obj/item/stack/material/wood/NG = new (user.loc)
-						NG.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 						for (var/obj/item/stack/material/wood/G in user.loc)
 							if(G==NG)
 								continue
@@ -224,66 +226,22 @@
 					return
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/attack(var/mob/living/carbon/M, var/mob/user, var/def_zone)
-	if(user == M)
-		return ..()
+/obj/item/weapon/reagent_containers/food/snacks/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	. = ..()
 
-	if(user.a_intent == I_HURT)
-
-		// This is being copypasted here because reagent_containers (WHY DOES FOOD DESCEND FROM THAT) overrides it completely.
-		// TODO: refactor all food paths to be less horrible and difficult to work with in this respect. ~Z
-		if(!istype(M) || (can_operate(M) && do_surgery(M,user,src))) return 0
-
-		user.lastattacked = M
-		M.lastattacker = user
-		user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
-		msg_admin_attack("[key_name(user)] attacked [key_name(M)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])" )
-
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			var/hit = H.attacked_by(src, user, def_zone)
-			if(hit && hitsound)
-				playsound(loc, hitsound, 50, 1, -1)
-			return hit
-		else
-			if(attack_verb.len)
-				user.visible_message("<span class='danger'>[M] has been [pick(attack_verb)] with [src] by [user]!</span>")
-			else
-				user.visible_message("<span class='danger'>[M] has been attacked with [src] by [user]!</span>")
-
-			if (hitsound)
-				playsound(loc, hitsound, 50, 1, -1)
-			switch(damtype)
-				if("brute")
-					M.take_organ_damage(force)
-					if(prob(33))
-						var/turf/simulated/location = get_turf(M)
-						if(istype(location)) location.add_blood_floor(M)
-				if("fire")
-					if (!(COLD_RESISTANCE in M.mutations))
-						M.take_organ_damage(0, force)
-			M.updatehealth()
-
-		if(seed && seed.get_trait(TRAIT_STINGS))
-			if(!reagents || reagents.total_volume <= 0)
-				return
-			reagents.remove_any(rand(1,3))
-			seed.thrown_at(src,M)
-			sleep(-1)
-			if(!src)
-				return
-			if(prob(35))
-				if(user)
-					user << "<span class='danger'>\The [src] has fallen to bits.</span>"
-					user.drop_from_inventory(src)
-				qdel(src)
-
-		add_fingerprint(user)
-		return 1
-
-	else
-		..()
+	if(seed && seed.get_trait(TRAIT_STINGS))
+		if(!reagents || reagents.total_volume <= 0)
+			return
+		reagents.remove_any(rand(1,3))
+		seed.thrown_at(src, target)
+		sleep(-1)
+		if(!src)
+			return
+		if(prob(35))
+			if(user)
+				user << "<span class='danger'>\The [src] has fallen to bits.</span>"
+				user.drop_from_inventory(src)
+			qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/attack_self(mob/user as mob)
 
@@ -304,7 +262,6 @@
 		user.show_message("<span class='notice'>You make a grass tile out of \the [src]!</span>", 1)
 		for(var/i=0,i<2,i++)
 			var/obj/item/stack/tile/grass/G = new (user.loc)
-			G.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 			for (var/obj/item/stack/tile/grass/NG in user.loc)
 				if(G==NG)
 					continue
@@ -349,8 +306,9 @@
 		if(!reagents || reagents.total_volume <= 0)
 			return
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
-		seed.do_thorns(H,src)
-		seed.do_sting(H,src,pick("r_hand","l_hand"))
+		var/affected = pick("r_hand","l_hand")
+		seed.do_thorns(H,src,affected)
+		seed.do_sting(H,src,affected)
 
 // Predefined types for placing on the map.
 
@@ -368,6 +326,23 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/poppy
 	plantname = "poppy"
+
+	name = "[S.seed_name] slice"
+	desc = "A slice of \a [S.seed_name]. Tasty, probably."
+
+	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)
+	if(!flesh_colour) flesh_colour = rind_colour
+	if(!fruit_icon_cache["rind-[rind_colour]"])
+		var/image/I = image(icon,"fruit_rind")
+		I.color = rind_colour
+		fruit_icon_cache["rind-[rind_colour]"] = I
+	overlays |= fruit_icon_cache["rind-[rind_colour]"]
+	if(!fruit_icon_cache["slice-[rind_colour]"])
+		var/image/I = image(icon,"fruit_slice")
+		I.color = flesh_colour
+		fruit_icon_cache["slice-[rind_colour]"] = I
+	overlays |= fruit_icon_cache["slice-[rind_colour]"]
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/harebell
 	plantname = "harebell"

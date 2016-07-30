@@ -43,7 +43,7 @@ var/global/universe_has_ended = 0
 	world << sound('sound/effects/cascade.ogg')
 
 	for(var/mob/M in player_list)
-		flick("e_flash", M.flash)
+		M.flash_eyes()
 
 	if(emergency_shuttle.can_recall())
 		priority_announcement.Announce("The emergency shuttle has returned due to bluespace distortion.")
@@ -94,7 +94,7 @@ The access requirements on the Planet Shuttles' consoles have now been revoked.
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	spawn(0)
 		for(var/atom/movable/lighting_overlay/L in world)
-			if(L.z in config.admin_levels)
+			if(L.z in using_map.admin_levels)
 				L.update_lumcount(1,1,1)
 			else
 				L.update_lumcount(0.0, 0.4, 1)
@@ -122,6 +122,6 @@ The access requirements on the Planet Shuttles' consoles have now been revoked.
 			continue
 		if(M.current.stat!=2)
 			M.current.Weaken(10)
-			flick("e_flash", M.current.flash)
+			M.current.flash_eyes()
 
 		clear_antag_roles(M)

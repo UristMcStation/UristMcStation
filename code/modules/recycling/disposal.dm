@@ -40,7 +40,7 @@
 			trunk.linked = src	// link the pipe trunk to self
 
 		air_contents = new/datum/gas_mixture(PRESSURE_TANK_VOLUME)
-		update()
+		update_icon()
 
 /obj/machinery/disposal/Destroy()
 	eject()
@@ -78,7 +78,7 @@
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "You start slicing the floorweld off the disposal unit."
 
-				if(do_after(user,20))
+				if(do_after(user,20,src))
 					if(!src || !W.isOn()) return
 					user << "You sliced the floorweld off the disposal unit."
 					var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -103,7 +103,7 @@
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
-		update()
+		update_icon()
 		return
 
 	var/obj/item/weapon/grab/G = I
@@ -112,11 +112,11 @@
 			var/mob/GM = G.affecting
 			for (var/mob/V in viewers(usr))
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
-			if(do_after(usr, 20))
+			if(do_after(usr, 20, src))
 				if (GM.client)
 					GM.client.perspective = EYE_PERSPECTIVE
 					GM.client.eye = src
-				GM.loc = src
+				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
 					C.show_message("\red [GM.name] has been placed in the [src] by [user].", 3)
 				qdel(G)
@@ -132,7 +132,7 @@
 
 	user.drop_item()
 	if(I)
-		I.loc = src
+		I.forceMove(src)
 
 	user << "You place \the [I] into the [src]."
 	for(var/mob/M in viewers(src))
@@ -140,7 +140,7 @@
 			continue
 		M.show_message("[user.name] places \the [I] into the [src].", 3)
 
-	update()
+	update_icon()
 
 // mouse drop another mob or self
 //
@@ -163,11 +163,11 @@
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			if(target.anchored) return
 			V.show_message("[usr] starts stuffing [target.name] into the disposal.", 3)
-	if(!do_after(usr, 20))
+	if(!do_after(usr, 20, src))
 		return
 	if(target_loc != target.loc)
 		return
-	if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in
+	if(target == user && !user.incapacitated(INCAPACITATION_ALL))	// if drop self, then climbed in
 											// must be awake, not stunned or whatever
 		msg = "[user.name] climbs into the [src]."
 		user << "You climb into the [src]."
@@ -183,19 +183,16 @@
 	if (target.client)
 		target.client.perspective = EYE_PERSPECTIVE
 		target.client.eye = src
-	target.loc = src
+
+	target.forceMove(src)
 
 	for (var/mob/C in viewers(src))
 		if(C == user)
 			continue
 		C.show_message(msg, 3)
 
-	update()
+	update_icon()
 	return
-
-// can breath normally in the disposal
-/obj/machinery/disposal/alter_health()
-	return get_turf(src)
 
 // attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/user as mob)
@@ -211,8 +208,8 @@
 	if (user.client)
 		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
-	user.loc = src.loc
-	update()
+	user.forceMove(src.loc)
+	update_icon()
 	return
 
 // ai as human but can't flush
@@ -234,7 +231,7 @@
 		interact(user, 0)
 	else
 		flush = !flush
-		update()
+		update_icon()
 	return
 
 // user interaction
@@ -302,12 +299,12 @@
 				mode = 1
 			else
 				mode = 0
-			update()
+			update_icon()
 
 		if(!isAI(usr))
 			if(href_list["handle"])
 				flush = text2num(href_list["handle"])
-				update()
+				update_icon()
 
 			if(href_list["eject"])
 				eject()
@@ -320,15 +317,14 @@
 // eject the contents of the disposal unit
 /obj/machinery/disposal/proc/eject()
 	for(var/atom/movable/AM in src)
-		AM.loc = src.loc
+		AM.forceMove(src.loc)
 		AM.pipe_eject(0)
-	update()
+	update_icon()
 
 // update the icon & overlays to reflect mode & status
-/obj/machinery/disposal/proc/update()
+/obj/machinery/disposal/update_icon()
 	overlays.Cut()
 	if(stat & BROKEN)
-		icon_state = "disposal-broken"
 		mode = 0
 		flush = 0
 		return
@@ -376,7 +372,7 @@
 		update_use_power(1)
 	else if(air_contents.return_pressure() >= SEND_PRESSURE)
 		mode = 2 //if full enough, switch to ready mode
-		update()
+		update_icon()
 	else
 		src.pressurize() //otherwise charge
 
@@ -432,14 +428,14 @@
 	flush = 0
 	if(mode == 2)	// if was ready,
 		mode = 1	// switch to charging
-	update()
+	update_icon()
 	return
 
 
 // called when area power changes
 /obj/machinery/disposal/power_change()
 	..()	// do default setting/reset of stat NOPOWER bit
-	update()	// update icon
+	update_icon()	// update icon
 	return
 
 
@@ -453,7 +449,7 @@
 		for(var/atom/movable/AM in H)
 			target = get_offset_target_turf(src.loc, rand(5)-rand(5), rand(5)-rand(5))
 
-			AM.loc = src.loc
+			AM.forceMove(src.loc)
 			AM.pipe_eject(0)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Poor drones kept smashing windows and taking system damage being fired out of disposals. ~Z
 				spawn(1)
@@ -469,7 +465,7 @@
 		if(istype(I, /obj/item/projectile))
 			return
 		if(prob(75))
-			I.loc = src
+			I.forceMove(src)
 			for(var/mob/M in viewers(src))
 				M.show_message("\The [I] lands in \the [src].", 3)
 		else
@@ -518,7 +514,7 @@
 		// now everything inside the disposal gets put into the holder
 		// note AM since can contain mobs or objs
 		for(var/atom/movable/AM in D)
-			AM.loc = src
+			AM.forceMove(src)
 			if(istype(AM, /obj/structure/bigDelivery) && !hasmob)
 				var/obj/structure/bigDelivery/T = AM
 				src.destinationTag = T.sortTag
@@ -538,7 +534,7 @@
 			D.expel(src)	// no trunk connected, so expel immediately
 			return
 
-		loc = D.trunk
+		forceMove(D.trunk)
 		active = 1
 		set_dir(DOWN)
 		spawn(1)
@@ -595,7 +591,7 @@
 	// used when a a holder meets a stuck holder
 	proc/merge(var/obj/structure/disposalholder/other)
 		for(var/atom/movable/AM in other)
-			AM.loc = src		// move everything in other holder to this one
+			AM.forceMove(src)		// move everything in other holder to this one
 			if(ismob(AM))
 				var/mob/M = AM
 				if(M.client)	// if a client mob, update eye to follow this holder
@@ -681,7 +677,7 @@
 				// this is unlikely, but just dump out everything into the turf in case
 
 				for(var/atom/movable/AM in H)
-					AM.loc = T
+					AM.forceMove(T)
 					AM.pipe_eject(0)
 				qdel(H)
 				..()
@@ -712,9 +708,9 @@
 			if(H2 && !H2.active)
 				H.merge(H2)
 
-			H.loc = P
+			H.forceMove(P)
 		else			// if wasn't a pipe, then set loc to turf
-			H.loc = T
+			H.forceMove(T)
 			return null
 
 		return P
@@ -723,7 +719,7 @@
 	// update the icon_state to reflect hidden status
 	proc/update()
 		var/turf/T = src.loc
-		hide(T.intact && !istype(T,/turf/space))	// space never hides pipes
+		hide(!T.is_plating() && !istype(T,/turf/space))	// space never hides pipes
 
 	// hide called by levelupdate if turf intact status changes
 	// change visibility status and force update of icon
@@ -759,14 +755,11 @@
 			qdel(H)
 			return
 
-		if(T.intact && istype(T,/turf/simulated/floor)) //intact floor, pop the tile
+
+		if(!T.is_plating() && istype(T,/turf/simulated/floor)) //intact floor, pop the tile
 			var/turf/simulated/floor/F = T
-			//F.health	= 100
-			F.burnt	= 1
-			F.intact	= 0
-			F.levelupdate()
+			F.break_tile()
 			new /obj/item/stack/tile(H)	// add to holder so it will be thrown with other stuff
-			F.icon_state = "Floor[F.burnt ? "1" : ""]"
 
 		var/turf/target
 		if(direction)		// direction is specified
@@ -778,7 +771,7 @@
 			playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 			if(H)
 				for(var/atom/movable/AM in H)
-					AM.loc = T
+					AM.forceMove(T)
 					AM.pipe_eject(direction)
 					spawn(1)
 						if(AM)
@@ -793,7 +786,7 @@
 				for(var/atom/movable/AM in H)
 					target = get_offset_target_turf(T, rand(5)-rand(5), rand(5)-rand(5))
 
-					AM.loc = T
+					AM.forceMove(T)
 					AM.pipe_eject(0)
 					spawn(1)
 						if(AM)
@@ -826,7 +819,7 @@
 				// this is unlikely, but just dump out everything into the turf in case
 
 				for(var/atom/movable/AM in H)
-					AM.loc = T
+					AM.forceMove(T)
 					AM.pipe_eject(0)
 				qdel(H)
 				return
@@ -870,7 +863,7 @@
 	attackby(var/obj/item/I, var/mob/user)
 
 		var/turf/T = src.loc
-		if(T.intact)
+		if(!T.is_plating())
 			return		// prevent interaction with T-scanner revealed pipes
 		src.add_fingerprint(user)
 		if(istype(I, /obj/item/weapon/weldingtool))
@@ -947,7 +940,7 @@
 			// this is unlikely, but just dump out everything into the turf in case
 
 			for(var/atom/movable/AM in H)
-				AM.loc = T
+				AM.forceMove(T)
 				AM.pipe_eject(0)
 			qdel(H)
 			..()
@@ -957,6 +950,9 @@
 		if(H)
 			expel(H, T, 0)
 	..()
+
+/obj/structure/disposalpipe/hides_under_flooring()
+	return 1
 
 // *** TEST verb
 //client/verb/dispstop()
@@ -1003,12 +999,9 @@
 		var/obj/structure/disposalpipe/P
 
 		if(nextdir == 12)
-			var/turf/controllerlocation = locate(1, 1, src.z)
-			for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
-				if(controller.up)
-					T = locate(src.x, src.y, controller.up_target)
+			T = GetAbove(src)
 			if(!T)
-				H.loc = src.loc
+				H.forceMove(loc)
 				return
 			else
 				for(var/obj/structure/disposalpipe/down/F in T)
@@ -1024,9 +1017,9 @@
 			if(H2 && !H2.active)
 				H.merge(H2)
 
-			H.loc = P
+			H.forceMove(P)
 		else			// if wasn't a pipe, then set loc to turf
-			H.loc = T
+			H.forceMove(T)
 			return null
 
 		return P
@@ -1056,12 +1049,9 @@
 		var/obj/structure/disposalpipe/P
 
 		if(nextdir == 11)
-			var/turf/controllerlocation = locate(1, 1, src.z)
-			for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
-				if(controller.down)
-					T = locate(src.x, src.y, controller.down_target)
+			T = GetBelow(src)
 			if(!T)
-				H.loc = src.loc
+				H.forceMove(src.loc)
 				return
 			else
 				for(var/obj/structure/disposalpipe/up/F in T)
@@ -1077,9 +1067,9 @@
 			if(H2 && !H2.active)
 				H.merge(H2)
 
-			H.loc = P
+			H.forceMove(P)
 		else			// if wasn't a pipe, then set loc to turf
-			H.loc = T
+			H.forceMove(T)
 			return null
 
 		return P
@@ -1270,9 +1260,9 @@
 			if(H2 && !H2.active)
 				H.merge(H2)
 
-			H.loc = P
+			H.forceMove(P)
 		else			// if wasn't a pipe, then set loc to turf
-			H.loc = T
+			H.forceMove(T)
 			return null
 
 		return P
@@ -1353,7 +1343,7 @@
 		return
 
 	var/turf/T = src.loc
-	if(T.intact)
+	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
 	if(istype(I, /obj/item/weapon/weldingtool))
@@ -1460,7 +1450,7 @@
 
 		if(H)
 			for(var/atom/movable/AM in H)
-				AM.loc = src.loc
+				AM.forceMove(src.loc)
 				AM.pipe_eject(dir)
 				if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
 					spawn(5)
@@ -1490,7 +1480,7 @@
 			if(W.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				user << "You start slicing the floorweld off the disposal outlet."
-				if(do_after(user,20))
+				if(do_after(user,20, src))
 					if(!src || !W.isOn()) return
 					user << "You sliced the floorweld off the disposal outlet."
 					var/obj/structure/disposalconstruct/C = new (src.loc)

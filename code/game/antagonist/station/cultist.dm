@@ -10,10 +10,8 @@ var/datum/antagonist/cultist/cult
 	id = MODE_CULTIST
 	role_text = "Cultist"
 	role_text_plural = "Cultists"
-	bantype = "cultist"
 	restricted_jobs = list("Chaplain","AI", "Cyborg", "Internal Affairs Agent", "Head of Security", "Captain")
 	protected_jobs = list("Security Officer", "Warden", "Detective")
-	role_type = BE_CULTIST
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
 	welcome_text = "You have a talisman in your possession; one that will help you start the cult on this station. Use it well and remember - there are others. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
@@ -34,6 +32,8 @@ var/datum/antagonist/cultist/cult
 	var/list/allwords = list("travel","self","see","hell","blood","join","tech","destroy", "other", "hide")
 	var/list/sacrificed = list()
 	var/list/harvested = list()
+
+	faction = "cult"
 
 /datum/antagonist/cultist/New()
 	..()
@@ -101,7 +101,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	if(!..())
 		return 0
-	player.current << "<span class='danger'>An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it."
+	player.current << "<span class='danger'>An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it.</span>"
 	player.memory = ""
 	if(show_message)
 		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>")
@@ -110,6 +110,13 @@ var/datum/antagonist/cultist/cult
 	. = ..()
 	if(.)
 		player << "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back."
+		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
+			player.current.add_language(LANGUAGE_CULT)
+
+/datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+	. = ..()
+	if(. && player.current && !istype(player.current, /mob/living/simple_animal/construct))
+		player.current.remove_language(LANGUAGE_CULT)
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player)
 	if(!..())

@@ -6,7 +6,7 @@
 	armor = list(melee = 15, bullet = 0, laser = 5,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/gloves/cyborg
-	desc = "beep boop borp"
+	desc = "Beep boop borp!"
 	name = "cyborg gloves"
 	icon_state = "black"
 	item_state = "r_hands"
@@ -49,6 +49,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)
 
 	germ_level = 0
+
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "botanist's leather gloves"

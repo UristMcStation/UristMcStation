@@ -1,7 +1,7 @@
-/mob/living/proc/convert_to_rev(mob/M as mob in oview(src))
+/mob/living/proc/convert_to_rev(mob/M as mob in able_mobs_in_oview(src))
 	set name = "Convert Bourgeoise"
 	set category = "Abilities"
-	if(!M.mind)
+	if(!M.mind || !M.client)
 		return
 	convert_to_faction(M.mind, revs)
 
@@ -30,8 +30,8 @@
 		return
 
 	src << "<span class='danger'>You are attempting to convert \the [player.current]...</span>"
-	log_admin("[src]([src.ckey]) attempted to convert [player.current].")
-	message_admins("<span class='danger'>[src]([src.ckey]) attempted to convert [player.current].</span>")
+	log_admin("[src]([src.ckey]) attempted to convert [player.current] to the [faction.faction_role_text] faction.")
+	message_admins("<span class='danger'>[src]([src.ckey]) attempted to convert [player.current] to the [faction.faction_role_text] faction.</span>")
 
 	player.rev_cooldown = world.time+100
 	var/choice = alert(player.current,"Asked by [src]: Do you want to join the [faction.faction_descriptor]?","Join the [faction.faction_descriptor]?","No!","Yes!")
@@ -42,9 +42,9 @@
 		player << "<span class='danger'>You reject this traitorous cause!</span>"
 	src << "<span class='danger'>\The [player.current] does not support the [faction.faction_descriptor]!</span>"
 
-/mob/living/proc/convert_to_loyalist(mob/M as mob in oview(src))
+/mob/living/proc/convert_to_loyalist(mob/M as mob in able_mobs_in_oview(src))
 	set name = "Convert Recidivist"
 	set category = "Abilities"
-	if(!M.mind)
+	if(!M.mind || !M.client)
 		return
 	convert_to_faction(M.mind, loyalists)

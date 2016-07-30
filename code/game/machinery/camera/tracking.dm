@@ -6,13 +6,11 @@
 /mob/living/silicon/ai/var/stored_locations[0]
 
 /proc/InvalidPlayerTurf(turf/T as turf)
-	return !(T && T.z in config.player_levels)
+	return !(T && T.z in using_map.player_levels)
 
 /mob/living/silicon/ai/proc/get_camera_list()
 	if(src.stat == 2)
 		return
-
-	cameranet.process_sort()
 
 	var/list/T = list()
 	for (var/obj/machinery/camera/C in cameranet.cameras)
@@ -26,7 +24,7 @@
 
 
 /mob/living/silicon/ai/proc/ai_camera_list(var/camera in get_camera_list())
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Show Camera List"
 
 	if(check_unable())
@@ -41,26 +39,26 @@
 	return
 
 /mob/living/silicon/ai/proc/ai_store_location(loc as text)
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Store Camera Location"
 	set desc = "Stores your current camera location by the given name"
 
 	loc = sanitize(loc)
 	if(!loc)
-		src << "\red Must supply a location name"
+		src << "<span class='warning'>Must supply a location name</span>"
 		return
 
 	if(stored_locations.len >= max_locations)
-		src << "\red Cannot store additional locations. Remove one first"
+		src << "<span class='warning'>Cannot store additional locations. Remove one first</span>"
 		return
 
 	if(loc in stored_locations)
-		src << "\red There is already a stored location by this name"
+		src << "<span class='warning'>There is already a stored location by this name</span>"
 		return
 
 	var/L = src.eyeobj.getLoc()
 	if (InvalidPlayerTurf(get_turf(L)))
-		src << "\red Unable to store this location"
+		src << "<span class='warning'>Unable to store this location</span>"
 		return
 
 	stored_locations[loc] = L
@@ -70,24 +68,24 @@
 	return sortList(stored_locations)
 
 /mob/living/silicon/ai/proc/ai_goto_location(loc in sorted_stored_locations())
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Goto Camera Location"
 	set desc = "Returns to the selected camera location"
 
 	if (!(loc in stored_locations))
-		src << "\red Location [loc] not found"
+		src << "<span class='warning'>Location [loc] not found</span>"
 		return
 
 	var/L = stored_locations[loc]
 	src.eyeobj.setLoc(L)
 
 /mob/living/silicon/ai/proc/ai_remove_location(loc in sorted_stored_locations())
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Delete Camera Location"
 	set desc = "Deletes the selected camera location"
 
 	if (!(loc in stored_locations))
-		src << "\red Location [loc] not found"
+		src << "<span class='warning'>Location [loc] not found</span>"
 		return
 
 	stored_locations.Remove(loc)
@@ -129,7 +127,7 @@
 	return targets
 
 /mob/living/silicon/ai/proc/ai_camera_track(var/target_name in trackable_mobs())
-	set category = "AI Commands"
+	set category = "Silicon Commands"
 	set name = "Follow With Camera"
 	set desc = "Select who you would like to track."
 
@@ -155,6 +153,11 @@
 	if(!istype(target))	return
 	var/mob/living/silicon/ai/U = usr
 
+	if(target == U.cameraFollow)
+		return
+
+	if(U.cameraFollow)
+		U.ai_cancel_tracking()
 	U.cameraFollow = target
 	U << "Now tracking [target.name] on camera."
 	target.tracking_initiated()
@@ -211,13 +214,16 @@
 mob/living/proc/near_camera()
 	if (!isturf(loc))
 		return 0
-	else if(!cameranet.checkVis(src))
+	else if(!cameranet.is_visible(src))
 		return 0
 	return 1
 
 /mob/living/proc/tracking_status()
 	// Easy checks first.
 	// Don't detect mobs on Centcom. Since the wizard den is on Centcomm, we only need this.
+	var/obj/item/weapon/card/id/id = GetIdCard()
+	if(id && id.prevent_tracking())
+		return TRACKING_TERMINATE
 	if(InvalidPlayerTurf(get_turf(src)))
 		return TRACKING_TERMINATE
 	if(invisibility >= INVISIBILITY_LEVEL_ONE) //cloaked
@@ -235,25 +241,14 @@ mob/living/proc/near_camera()
 	if(. == TRACKING_NO_COVERAGE)
 		return camera && camera.can_use() ? TRACKING_POSSIBLE : TRACKING_NO_COVERAGE
 
-/mob/living/silicon/robot/syndicate/tracking_status()
-	return TRACKING_TERMINATE
-
 /mob/living/carbon/human/tracking_status()
-	//Cameras can't track people wearing an agent card or a ninja hood.
-	if(wear_id && istype(wear_id.GetID(), /obj/item/weapon/card/id/syndicate))
-		return TRACKING_TERMINATE
-	if(istype(head, /obj/item/clothing/head/helmet/space/rig))
-		var/obj/item/clothing/head/helmet/space/rig/helmet = head
-		if(helmet.prevent_track())
-			return TRACKING_TERMINATE
-
 	. = ..()
 	if(. == TRACKING_TERMINATE)
 		return
 
 	if(. == TRACKING_NO_COVERAGE)
 		var/turf/T = get_turf(src)
-		if(T && (T.z in config.station_levels) && hassensorlevel(src, SUIT_SENSOR_TRACKING))
+		if(T && (T.z in using_map.station_levels) && hassensorlevel(src, SUIT_SENSOR_TRACKING))
 			return TRACKING_POSSIBLE
 
 mob/living/proc/tracking_initiated()

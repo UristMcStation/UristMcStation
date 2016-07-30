@@ -67,7 +67,7 @@
 	name = "teleportation module"
 	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module."
 	icon_state = "teleporter"
-	use_power_cost = 40
+	use_power_cost = 200
 	redundant = 1
 	usable = 1
 	selectable = 1
@@ -78,26 +78,17 @@
 	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
 /obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
-
 	if(!M || !T)
 		return
-
 	holder.spark_system.start()
-	playsound(T, 'sound/effects/phasein.ogg', 25, 1)
-	playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
-	anim(T,M,'icons/mob/mob.dmi',,"phasein",,M.dir)
+	M.phase_in(T)
 
 /obj/item/rig_module/teleporter/proc/phase_out(var/mob/M,var/turf/T)
-
 	if(!M || !T)
 		return
+	M.phase_out(T)
 
-	playsound(T, "sparks", 50, 1)
-	anim(T,M,'icons/mob/mob.dmi',,"phaseout",,M.dir)
-
-/obj/item/rig_module/teleporter/engage(atom/target)
-
-	if(!..()) return 0
+/obj/item/rig_module/teleporter/engage(var/atom/target, var/notify_ai)
 
 	var/mob/living/carbon/human/H = holder.wearer
 
@@ -109,13 +100,17 @@
 	if(target)
 		T = get_turf(target)
 	else
-		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
+		T = get_teleport_loc(get_turf(H), H, 6, 1, 1, 1)
 
-	if(!T || T.density)
+	if(!T)
+		H << "<span class='warning'>No valid teleport target found.</span>"
+		return 0
+
+	if(T.density)
 		H << "<span class='warning'>You cannot teleport into solid walls.</span>"
 		return 0
 
-	if(T.z in config.admin_levels)
+	if(T.z in using_map.admin_levels)
 		H << "<span class='warning'>You cannot use your teleporter on this Z-level.</span>"
 		return 0
 
@@ -126,6 +121,8 @@
 	if(T.z != H.z || get_dist(T, get_turf(H)) > world.view)
 		H << "<span class='warning'>You cannot teleport to such a distant object.</span>"
 		return 0
+
+	if(!..()) return 0
 
 	phase_out(H,get_turf(H))
 	H.forceMove(T)
@@ -174,6 +171,10 @@
 
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
+	var/list/explosion_values = list(1,2,4,5)
+
+/obj/item/rig_module/self_destruct/small
+	explosion_values = list(0,0,3,4)
 
 /obj/item/rig_module/self_destruct/activate()
 	return
@@ -189,17 +190,12 @@
 
 	//OH SHIT.
 	if(holder.wearer.stat == 2)
-		engage()
+		engage(1)
 
-/obj/item/rig_module/self_destruct/engage()
-	explosion(get_turf(src), 1, 2, 4, 5)
-	if(holder && holder.wearer)
-		holder.wearer.drop_from_inventory(src)
-		qdel(holder)
-	qdel(src)
-
-/obj/item/rig_module/self_destruct/small/engage()
-	explosion(get_turf(src), 0, 0, 3, 4)
+/obj/item/rig_module/self_destruct/engage(var/skip_check)
+	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
+		return
+	explosion(get_turf(src), explosion_values[1], explosion_values[2], explosion_values[3], explosion_values[4])
 	if(holder && holder.wearer)
 		holder.wearer.drop_from_inventory(src)
 		qdel(holder)

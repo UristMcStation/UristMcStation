@@ -5,9 +5,9 @@
 	reagent_state = LIQUID
 	metabolism = REM * 5
 	color = "#C80000"
-
-	glass_icon_state = "glass_red"
-	glass_name = "glass of tomato juice"
+	taste_description = "iron"
+	taste_mult = 1.3
+	glass_name = "tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
 /datum/reagent/blood/initialize_data(var/newdata)
@@ -23,23 +23,6 @@
 		t["virus2"] = v.Copy()
 	return t
 
-/datum/reagent/blood/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
-	if(data["viruses"] || newdata["viruses"])
-		var/list/mix1 = data["viruses"]
-		var/list/mix2 = newdata["viruses"]
-		var/list/to_mix = list() // Stop issues with the list changing during mixing.
-		for(var/datum/disease/advance/AD in mix1)
-			to_mix += AD
-		for(var/datum/disease/advance/AD in mix2)
-			to_mix += AD
-		var/datum/disease/advance/AD = Advance_Mix(to_mix)
-		if(AD)
-			var/list/preserve = list(AD)
-			for(var/D in data["viruses"])
-				if(!istype(D, /datum/disease/advance))
-					preserve += D
-			data["viruses"] = preserve
-
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
 	if(!istype(T) || volume < 3)
 		return
@@ -51,16 +34,11 @@
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
 /datum/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+
 	if(dose > 5)
 		M.adjustToxLoss(removed)
 	if(dose > 15)
 		M.adjustToxLoss(removed)
-	if(data && data["viruses"])
-		for(var/datum/disease/D in data["viruses"])
-			if(D.spread_type == SPECIAL || D.spread_type == NON_CONTAGIOUS)
-				continue
-			if(D.spread_type in list(CONTACT_FEET, CONTACT_HANDS, CONTACT_GENERAL))
-				M.contract_disease(D)
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
 		if(vlist.len)
@@ -70,12 +48,8 @@
 					infect_virus2(M, V.getcopy())
 
 /datum/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(data && data["viruses"])
-		for(var/datum/disease/D in data["viruses"])
-			if(D.spread_type == SPECIAL || D.spread_type == NON_CONTAGIOUS)
-				continue
-			if(D.spread_type in list(CONTACT_FEET, CONTACT_HANDS, CONTACT_GENERAL))
-				M.contract_disease(D)
+	if(alien == IS_MACHINE)
+		return
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
 		if(vlist.len)
@@ -90,30 +64,11 @@
 	M.inject_blood(src, volume)
 	remove_self(volume)
 
-/datum/reagent/vaccine
-	name = "Vaccine"
-	id = "vaccine"
-	reagent_state = LIQUID
-	color = "#C81040"
-
-/datum/reagent/vaccine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(data)
-		for(var/datum/disease/D in M.viruses)
-			if(istype(D, /datum/disease/advance))
-				var/datum/disease/advance/A = D
-				if(A.GetDiseaseID() == data)
-					D.cure()
-			else
-				if(D.type == data)
-					D.cure()
-
-		M.resistances += data
-	return
-
 // pure concentrated antibodies
 /datum/reagent/antibodies
 	data = list("antibodies"=list())
 	name = "Antibodies"
+	taste_description = "slime"
 	id = "antibodies"
 	reagent_state = LIQUID
 	color = "#0050F0"
@@ -131,9 +86,8 @@
 	reagent_state = LIQUID
 	color = "#0064C877"
 	metabolism = REM * 10
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of water"
+	taste_description = "water"
+	glass_name = "water"
 	glass_desc = "The father of all refreshments."
 
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
@@ -158,24 +112,7 @@
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
 	else if(volume >= 10)
-		if(T.wet >= 1)
-			return
-		T.wet = 1
-		if(T.wet_overlay)
-			T.overlays -= T.wet_overlay
-			T.wet_overlay = null
-		T.wet_overlay = image('icons/effects/water.dmi',T,"wet_floor")
-		T.overlays += T.wet_overlay
-
-		spawn(800) // This is terrible and needs to be changed when possible.
-			if(!T || !istype(T))
-				return
-			if(T.wet >= 2)
-				return
-			T.wet = 0
-			if(T.wet_overlay)
-				T.overlays -= T.wet_overlay
-				T.wet_overlay = null
+		T.wet_floor(1)
 
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
@@ -197,7 +134,7 @@
 /datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(8 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
+		S.adjustToxLoss(5 * removed) // Babies have 150 health, adults have 200; So, 30 units and 40
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null
@@ -209,11 +146,12 @@
 	name = "Welding fuel"
 	id = "fuel"
 	description = "Required for welders. Flamable."
+	taste_description = "gross metal"
 	reagent_state = LIQUID
 	color = "#660000"
+	touch_met = 5
 
-	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of welder fuel"
+	glass_name = "welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
 /datum/reagent/fuel/touch_turf(var/turf/T)

@@ -26,12 +26,16 @@ var/global/datum/controller/gameticker/ticker
 	var/list/availablefactions = list()	  // list of factions with openings
 
 	var/pregame_timeleft = 0
+	var/gamemode_voted = 0
 
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0//Global holder for Triumvirate
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
+
+	var/list/antag_pool = list()
+	var/looking_for_antags = 0
 
 /datum/controller/gameticker/proc/pregame()
 	login_music = pick(\
@@ -45,16 +49,35 @@ var/global/datum/controller/gameticker/ticker
 	'sound/music/clouds.s3m',\
 	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
 	do
-		pregame_timeleft = 180
+		if(!gamemode_voted)
+			pregame_timeleft = 180
+		else
+			pregame_timeleft = 15
+			if(!isnull(secondary_mode))
+				master_mode = secondary_mode
+				secondary_mode = null
+				world << "Trying to start the second top game mode..."
+				if(!hide_mode)
+					world << "<b>The game mode is now: [master_mode]</b>"
+			else if(!isnull(tertiary_mode))
+				master_mode = tertiary_mode
+				tertiary_mode = null
+				world << "Trying to start the third top game mode..."
+				if(!hide_mode)
+					world << "<b>The game mode is now: [master_mode]</b>"
+			else
+				master_mode = "extended"
+				world << "<b>Forcing the game mode to extended...</b>"
 		world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
 		world << "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds"
 		while(current_state == GAME_STATE_PREGAME)
 			for(var/i=0, i<10, i++)
 				sleep(1)
 				vote.process()
-			if(going)
+			if(round_progressing)
 				pregame_timeleft--
-			if(pregame_timeleft == config.vote_autogamemode_timeleft)
+			if(pregame_timeleft == config.vote_autogamemode_timeleft && !gamemode_voted)
+				gamemode_voted = 1
 				if(!vote.time_remaining)
 					vote.autogamemode()	//Quit calling this over and over and over and over.
 					while(vote.time_remaining)
@@ -64,7 +87,7 @@ var/global/datum/controller/gameticker/ticker
 			if(pregame_timeleft == 90 && master_mode=="scom")
 //				LoadScom()
 				world << "\red \b Welcome to the Beta version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of the psionic trooper. There are also three major updates planned for the future, which I will outline on the steam group later this week."
-			if(pregame_timeleft <= 0)
+			if(pregame_timeleft <= 0 || (initialization_stage == INITIALIZATION_NOW_AND_COMPLETE))
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())
 
@@ -162,8 +185,6 @@ var/global/datum/controller/gameticker/ticker
 
 	processScheduler.start()
 
-	for(var/obj/multiz/ladder/L in world) L.connect() //Lazy hackfix for ladders. TODO: move this to an actual controller. ~ Z
-
 	if(config.sql_enabled)
 		statistic_cycle() // Polls population totals regularly and stores them in an SQL DB -- TLE
 
@@ -182,19 +203,19 @@ var/global/datum/controller/gameticker/ticker
 		cinematic = new(src)
 		cinematic.icon = 'icons/effects/station_explosion.dmi'
 		cinematic.icon_state = "station_intact"
-		cinematic.layer = 20
+		cinematic.layer = CINEMA_LAYER
 		cinematic.mouse_opacity = 0
 		cinematic.screen_loc = "1,0"
 
 		var/obj/structure/bed/temp_buckle = new(src)
 		//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 		if(station_missed)
-			for(var/mob/living/M in living_mob_list)
+			for(var/mob/living/M in living_mob_list_)
 				M.buckled = temp_buckle				//buckles the mob so it can't do anything
 				if(M.client)
 					M.client.screen += cinematic	//show every client the cinematic
 		else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
-			for(var/mob/living/M in living_mob_list)
+			for(var/mob/living/M in living_mob_list_)
 				M.buckled = temp_buckle
 				if(M.client)
 					M.client.screen += cinematic
@@ -202,7 +223,7 @@ var/global/datum/controller/gameticker/ticker
 				switch(M.z)
 					if(0)	//inside a crate or something
 						var/turf/T = get_turf(M)
-						if(T && T.z in config.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
+						if(T && T.z in using_map.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
 							M.health = 0
 							M.stat = DEAD
 					if(1)	//on a z-level 1 turf.
@@ -261,8 +282,8 @@ var/global/datum/controller/gameticker/ticker
 						flick("station_explode_fade_red", cinematic)
 						world << sound('sound/effects/explosionfar.ogg')
 						cinematic.icon_state = "summary_selfdes"
-				for(var/mob/living/M in living_mob_list)
-					if(M.loc.z in config.station_levels)
+				for(var/mob/living/M in living_mob_list_)
+					if(is_station_turf(get_turf(M)))
 						M.death()//No mercy
 		//If its actually the end of the round, wait for it to end.
 		//Otherwise if its a verb it will continue on afterwards.
@@ -282,8 +303,8 @@ var/global/datum/controller/gameticker/ticker
 				else if(!player.mind.assigned_role)
 					continue
 				else
-					player.create_character()
-					qdel(player)
+					if(player.create_character())
+						qdel(player)
 
 
 	proc/collect_minds()
@@ -331,17 +352,25 @@ var/global/datum/controller/gameticker/ticker
 			spawn
 				declare_completion()
 
-			spawn(50)
-				callHook("roundend")
 
-				if (mode.station_was_nuked)
-					feedback_set_details("end_proper","nuke")
+			spawn(50)
+				if(config.allow_map_switching && config.auto_map_vote && all_maps.len > 1)
+					vote.automap()
+					while(vote.time_remaining)
+						sleep(50)
+
+				callHook("roundend")
+				if (universe_has_ended)
+					if(mode.station_was_nuked)
+						feedback_set_details("end_proper","nuke")
+					else
+						feedback_set_details("end_proper","universe destroyed")
 					if(!delay_end)
-						world << "\blue <B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B>"
+						world << "<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>"
 				else
 					feedback_set_details("end_proper","proper completion")
 					if(!delay_end)
-						world << "\blue <B>Restarting in [restart_timeout/10] seconds</B>"
+						world << "<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>"
 
 
 				if(blackbox)
@@ -352,9 +381,9 @@ var/global/datum/controller/gameticker/ticker
 					if(!delay_end)
 						world.Reboot()
 					else
-						world << "\blue <B>An admin has delayed the round end</B>"
+						world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
 				else
-					world << "\blue <B>An admin has delayed the round end</B>"
+					world << "<span class='notice'><b>An admin has delayed the round end</b></span>"
 
 		else if (mode_finished)
 			post_game = 1
@@ -364,7 +393,7 @@ var/global/datum/controller/gameticker/ticker
 			//call a transfer shuttle vote
 			spawn(50)
 				if(!round_end_announced) // Spam Prevention. Now it should announce only once.
-					world << "\red The round has ended!"
+					world << "<span class='danger'>The round has ended!</span>"
 					round_end_announced = 1
 				vote.autotransfer()
 
@@ -388,8 +417,8 @@ var/global/datum/controller/gameticker/ticker
 				else
 					Player << "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>"
 			else
-				if(istype(Player,/mob/dead/observer))
-					var/mob/dead/observer/O = Player
+				if(isghost(Player))
+					var/mob/observer/ghost/O = Player
 					if(!O.started_as_observer)
 						Player << "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>"
 				else
@@ -419,9 +448,9 @@ var/global/datum/controller/gameticker/ticker
 
 		if (!robo.connected_ai)
 			if (robo.stat != 2)
-				world << "<b>[robo.name] (Played by: [robo.key]) survived as an AI-less borg! Its laws were:</b>"
+				world << "<b>[robo.name] (Played by: [robo.key]) survived as an AI-less synthetic! Its laws were:</b>"
 			else
-				world << "<b>[robo.name] (Played by: [robo.key]) was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>"
+				world << "<b>[robo.name] (Played by: [robo.key]) was unable to survive the rigors of being a synthetic without an AI. Its laws were:</b>"
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
@@ -452,3 +481,42 @@ var/global/datum/controller/gameticker/ticker
 		log_game("[i]s[total_antagonists[i]].")
 
 	return 1
+
+/datum/controller/gameticker/proc/attempt_late_antag_spawn(var/list/antag_choices)
+	var/datum/antagonist/antag = antag_choices[1]
+	while(antag_choices.len && antag)
+		var/needs_ghost = antag.flags & (ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB)
+		if (needs_ghost)
+			looking_for_antags = 1
+			antag_pool.Cut()
+			world << "<b>A ghost is needed to spawn \a [antag.role_text].</b>\nGhosts may enter the antag pool by making sure their [antag.role_text] preference is set to high, then using the toggle-add-antag-candidacy verb. You have 3 minutes to enter the pool."
+			sleep(3 MINUTES)
+			looking_for_antags = 0
+			antag.update_current_antag_max()
+			antag.build_candidate_list(needs_ghost)
+			for(var/datum/mind/candidate in antag.candidates)
+				if(!(candidate in antag_pool))
+					antag.candidates -= candidate
+					log_debug("[candidate.key] was not in the antag pool and could not be selected.")
+		else
+			antag.update_current_antag_max()
+			antag.build_candidate_list(needs_ghost)
+			for(var/datum/mind/candidate in antag.candidates)
+				if(isghostmind(candidate))
+					antag.candidates -= candidate
+					log_debug("[candidate.key] is a ghost and can not be selected.")
+		if(length(antag.candidates) >= antag.initial_spawn_req)
+			antag.attempt_spawn()
+			antag.finalize_spawn()
+			return 1
+		else
+			if(antag.initial_spawn_req > 1)
+				world << "Failed to find enough [antag.role_text_plural]."
+			else
+				world << "Failed to find a [antag.role_text]."
+			antag_choices -= antag
+			if(length(antag_choices))
+				antag = antag_choices[1]
+				if(antag)
+					world << "Attempting to spawn [antag.role_text_plural]."
+	return 0

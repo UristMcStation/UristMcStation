@@ -4,7 +4,9 @@
 	icon_state ="bible"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3.0
+	w_class = 3
+	max_w_class = 2
+	max_storage_space = 4
 	var/mob/affecting = null
 	var/deity_name = "Christ"
 	var/stupidreligion = 0
@@ -14,13 +16,11 @@
 	desc = "To be applied to the head repeatedly."
 	icon_state ="bible"
 
-/obj/item/weapon/storage/bible/booze/New()
-	..()
-	new /obj/item/weapon/reagent_containers/food/drinks/cans/beer(src)
-	new /obj/item/weapon/reagent_containers/food/drinks/cans/beer(src)
-	new /obj/item/weapon/spacecash(src)
-	new /obj/item/weapon/spacecash(src)
-	new /obj/item/weapon/spacecash(src)
+	startswith = list(
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+		/obj/item/weapon/spacecash/bundle/c50,
+		/obj/item/weapon/spacecash/bundle/c50,
+		)
 //BS12 EDIT
  // All cult functionality moved to Null Rod
 /obj/item/weapon/storage/bible/proc/bless(mob/living/carbon/M as mob)
@@ -97,7 +97,7 @@
 	if(!proximity) return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent("water")) //blesses all the water in the holder
-			user << "\blue You bless [A]."
+			user << "<span class='notice'>You bless [A].</span>"
 			var/water2holy = A.reagents.get_reagent_amount("water")
 			A.reagents.del_reagent("water")
 			A.reagents.add_reagent("holywater",water2holy)

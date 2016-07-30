@@ -5,7 +5,7 @@
 	max_co2 = 0
 	minbodytemp = 0
 	maxbodytemp = 500
-	mob_size = 5
+	mob_size = MOB_SMALL
 
 	var/obj/item/device/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
@@ -39,7 +39,6 @@
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE
-	small = 1
 	speak_emote = list("beeps","clicks","chirps")
 
 /mob/living/simple_animal/spiderbot/New()
@@ -62,7 +61,7 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/dead/observer/G in player_list)
+				for(var/mob/observer/ghost/G in player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
@@ -129,28 +128,19 @@
 		else
 			user << "<span class='danger'>You swipe your card with no effect.</span>"
 			return 0
-	else if (istype(O, /obj/item/weapon/card/emag))
-		if (emagged)
-			user << "<span class='danger'>\The [src] is already overloaded - better run!</span>"
-			return 0
-		else
-			var/obj/item/weapon/card/emag/emag = O
-			emag.uses--
-			emagged = 1
-			user << "<span class='danger'>You short out the security protocols and overload \the [src]'s cell, priming it to explode in a short time.</span>"
-			spawn(0)
-				sleep(100)
-				if(!src) return
-				src << "<span class='warning'>Your cell seems to be outputting a lot of power...</span>"
-				sleep(200)
-				if(!src) return
-				src << "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>"
-				sleep(300)
-				if(!src) return
-				src.explode()
-				return
+
 	else
-		attacked_with_item(O, user)
+		O.attack(src, user, user.zone_sel.selecting)
+
+/mob/living/simple_animal/spiderbot/emag_act(var/remaining_charges, var/mob/user)
+	if (emagged)
+		user << "<span class='warning'>[src] is already overloaded - better run.</span>"
+		return 0
+	else
+		user << "<span class='notice'>You short out the security protocols and overload [src]'s cell, priming it to explode in a short time.</span>"
+		spawn(100)	src << "<span class='danger'>Your cell seems to be outputting a lot of power...</span>"
+		spawn(200)	src << "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>"
+		spawn(300)	src.explode()
 
 /mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
 
@@ -204,9 +194,7 @@
 	..()
 
 /mob/living/simple_animal/spiderbot/death()
-
-	living_mob_list -= src
-	dead_mob_list += src
+	switch_from_living_to_dead_mob_list()
 
 	if(camera)
 		camera.status = 0
@@ -214,7 +202,7 @@
 	held_item.loc = src.loc
 	held_item = null
 
-	gibs(loc, viruses, null, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	gibs(loc, null, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 
@@ -237,7 +225,7 @@
 			"You hear a skittering noise and a thump!")
 		var/obj/item/weapon/grenade/G = held_item
 		G.loc = src.loc
-		G.prime()
+		G.detonate()
 		held_item = null
 		return 1
 
@@ -265,7 +253,7 @@
 
 	var/list/items = list()
 	for(var/obj/item/I in view(1,src))
-		if(I.loc != src && I.w_class <= 2 && I.Adjacent(src) )
+		if(I.loc != src && I.w_class <= SMALL_ITEM && I.Adjacent(src) )
 			items.Add(I)
 
 	var/obj/selection = input("Select an item.", "Pickup") in items
@@ -289,9 +277,5 @@
 	..(user)
 	if(src.held_item)
 		user << "It is carrying \icon[src.held_item] \a [src.held_item]."
-
-/mob/living/simple_animal/spiderbot/cannot_use_vents()
-	return
-
 /mob/living/simple_animal/spiderbot/binarycheck()
 	return positronic

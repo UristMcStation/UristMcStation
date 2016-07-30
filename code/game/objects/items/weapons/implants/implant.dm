@@ -36,7 +36,7 @@
 		return 0
 
 	proc/meltdown()	//breaks it down, making implant unrecongizible
-		imp_in << "\red You feel something melting inside [part ? "your [part.name]" : "you"]!"
+		imp_in << "<span class='warning'>You feel something melting inside [part ? "your [part.name]" : "you"]!</span>"
 		if (part)
 			part.take_damage(burn = 15, used_weapon = "Electronics meltdown")
 		else
@@ -50,7 +50,7 @@
 	Destroy()
 		if(part)
 			part.implants.Remove(src)
-		..()
+		return ..()
 
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"
@@ -162,6 +162,7 @@ Implant Specifics:<BR>"}
 		if (malfunction == MALFUNCTION_PERMANENT)
 			return
 
+
 		var/need_gib = null
 		if(istype(imp_in, /mob/))
 			var/mob/T = imp_in
@@ -172,7 +173,7 @@ Implant Specifics:<BR>"}
 			if(ishuman(imp_in))
 				if (elevel == "Localized Limb")
 					if(part) //For some reason, small_boom() didn't work. So have this bit of working copypaste.
-						imp_in.visible_message("\red Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!")
+						imp_in.visible_message("<span class='warning'>Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!</span>")
 						playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
 						sleep(25)
 						if (istype(part,/obj/item/organ/external/chest) ||	\
@@ -237,7 +238,7 @@ Implant Specifics:<BR>"}
 
 	proc/small_boom()
 		if (ishuman(imp_in) && part)
-			imp_in.visible_message("\red Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!")
+			imp_in.visible_message("<span class='warning'>Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!</span>")
 			playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
 			spawn(25)
 				if (ishuman(imp_in) && part)
@@ -251,6 +252,15 @@ Implant Specifics:<BR>"}
 						part.droplimb(0,DROPLIMB_BLUNT)
 				explosion(get_turf(imp_in), -1, -1, 2, 3)
 				qdel(src)
+
+/obj/item/weapon/implant/explosive/New()
+	..()
+	listening_objects += src
+
+/obj/item/weapon/implant/explosive/Destroy()
+	listening_objects -= src
+	return ..()
+
 
 /obj/item/weapon/implant/chem
 	name = "chemical implant"
@@ -323,7 +333,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> Nanotrasen Employee Management Implant<BR>
+<b>Name:</b> [company_name] Employee Management Implant<BR>
 <b>Life:</b> Ten years.<BR>
 <b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
 <HR>
@@ -339,11 +349,11 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		var/mob/living/carbon/human/H = M
 		var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 		if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-			H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of Nanotrasen try to invade your mind!")
+			H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [company_name] try to invade your mind!")
 			return 0
 		else
 			clear_antag_roles(H.mind, 1)
-			H << "<span class='notice'>You feel a surge of loyalty towards Nanotrasen.</span>"
+			H << "<span class='notice'>You feel a surge of loyalty towards [company_name].</span>"
 		return 1
 
 
@@ -370,7 +380,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		if (src.uses < 1)	return 0
 		if (emote == "pale")
 			src.uses--
-			source << "\blue You feel a sudden surge of energy!"
+			source << "<span class='notice'>You feel a sudden surge of energy!</span>"
 			source.SetStunned(0)
 			source.SetWeakened(0)
 			source.SetParalysis(0)
@@ -392,7 +402,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> NanoTrasen \"Profit Margin\" Class Employee Lifesign Sensor<BR>
+<b>Name:</b> [company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
 <b>Life:</b> Activates upon death.<BR>
 <b>Important Notes:</b> Alerts crew to crewmember death.<BR>
 <HR>
@@ -414,26 +424,25 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	activate(var/cause)
 		var/mob/M = imp_in
 		var/area/t = get_area(M)
+		var/death_message = "[mobname] has died-zzzzt in-in-in..."
 		switch (cause)
 			if("death")
-				var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-				if(istype(t, /area/syndicate_station) || istype(t, /area/syndicate_mothership) || istype(t, /area/shuttle/syndicate_elite) )
-					//give the syndies a bit of stealth
-					a.autosay("[mobname] has died in Space!", "[mobname]'s Death Alarm")
+				if(!t.requires_power) // We assume areas that don't use power are some sort of special zones
+					var/area/default = world.area
+					death_message = "[mobname] has died in [initial(default.name)]"
 				else
-					a.autosay("[mobname] has died in [t.name]!", "[mobname]'s Death Alarm")
-				qdel(a)
+					death_message = "[mobname] has died in [t.name]!"
 				processing_objects.Remove(src)
 			if ("emp")
-				var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-				var/name = prob(50) ? t.name : pick(teleportlocs)
-				a.autosay("[mobname] has died in [name]!", "[mobname]'s Death Alarm")
-				qdel(a)
+				var/name = prob(50) ? t : pick(teleportlocs)
+				death_message = "[mobname] has died in [name]!"
 			else
-				var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-				a.autosay("[mobname] has died-zzzzt in-in-in...", "[mobname]'s Death Alarm")
-				qdel(a)
 				processing_objects.Remove(src)
+
+		var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset/heads/captain(null)
+		for(var/channel in list("Security", "Medical", "Command"))
+			a.autosay(death_message, "[mobname]'s Death Alarm", channel)
+		qdel(a)
 
 	emp_act(severity)			//for some reason alarms stop going off in case they are emp'd, even without this
 		if (malfunction)		//so I'm just going to add a meltdown chance here
@@ -466,7 +475,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> NanoTrasen \"Profit Margin\" Class Employee Lifesign Sensor<BR>
+<b>Name:</b> [company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
 <b>Life:</b> Activates upon death.<BR>
 <b>Important Notes:</b> Alerts crew to crewmember death.<BR>
 <HR>

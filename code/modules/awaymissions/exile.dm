@@ -13,12 +13,12 @@
 
 /obj/item/weapon/implant/exile
 	name = "exile"
-	desc = "Prevents you from returning from away missions"
+	desc = "Prevents you from returning from away missions."
 
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> Nanotrasen Employee Exile Implant<BR>
+<b>Name:</b> [company_name] Employee Exile Implant<BR>
 <b>Implant Details:</b> The onboard gateway system has been modified to reject entry by individuals containing this implant<BR>"}
 		return dat
 

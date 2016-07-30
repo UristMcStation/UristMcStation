@@ -18,7 +18,7 @@
 	w_class = 2
 	sharp = 1
 	edge = 1
-	origin_tech = "materials=2;combat=1"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
 
@@ -31,7 +31,7 @@
 
 /obj/item/weapon/material/hatchet/tacknife
 	name = "tactical knife"
-	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Nyx."
+	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Space."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "tacknife"
 	item_state = "knife"
@@ -44,7 +44,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "hoe"
 	item_state = "hoe"
-	flags = CONDUCT | NOBLUDGEON
 	force_divisor = 0.25 // 5 with weight 20 (steel)
 	thrown_force_divisor = 0.25 // as above
 	w_class = 2
@@ -60,8 +59,7 @@
 	edge = 1
 	throw_speed = 1
 	throw_range = 3
-	w_class = 4
-	flags = NOSHIELD
+	w_class = 5
 	slot_flags = SLOT_BACK
-	origin_tech = "materials=2;combat=2"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")

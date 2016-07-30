@@ -3,8 +3,7 @@
 //////////////////////////////////////////////////////////////
 
 //global datum that will preload variables on atoms instanciation
-var/global/use_preloader = FALSE
-var/global/dmm_suite/preloader/_preloader = new
+var/global/dmm_suite/preloader/_preloader = null
 
 
 /**
@@ -17,15 +16,10 @@ var/global/dmm_suite/preloader/_preloader = new
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */
-/dmm_suite/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num)
+/dmm_suite/load_map(var/dmm_file as file, var/z_offset as num)
 	if(!z_offset)//what z_level we are creating the map on
 		z_offset = world.maxz+1
 
-	if(!x_offset)
-		x_offset = 0
-
-	if(!y_offset)
-		y_offset = 0
 	var/quote = ascii2text(34)
 	var/tfile = file2text(dmm_file)//the map file we're creating
 	var/tfile_len = length(tfile)
@@ -53,8 +47,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//position of the currently processed square
 	var/zcrd=-1
-	var/ycrd=y_offset
-	var/xcrd=x_offset
+	var/ycrd=0
+	var/xcrd=0
 
 	for(var/zpos=findtext(tfile,"\n(1,1,",lpos,0);zpos!=0;zpos=findtext(tfile,"\n(1,1,",zpos+1,0))	//in case there's several maps to load
 
@@ -66,9 +60,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 		//if exceeding the world max x or y, increase it
 		var/x_depth = length(copytext(zgrid,1,findtext(zgrid,"\n",2,0)))
-		var/x_tilecount = x_depth/key_len
-		if(world.maxx<x_tilecount)
-			world.maxx=x_tilecount
+		if(world.maxx<x_depth)
+			world.maxx=x_depth
 
 		var/y_depth = z_depth / (x_depth+1)//x_depth + 1 because we're counting the '\n' characters in z_depth
 		if(world.maxy<y_depth)
@@ -82,12 +75,10 @@ var/global/dmm_suite/preloader/_preloader = new
 
 			//fill the current square using the model map
 			xcrd=0
-
-
-			for(var/mpos in 1 to x_depth step key_len)
+			for(var/mpos=1;mpos<=x_depth;mpos+=key_len)
 				xcrd++
 				var/model_key = copytext(grid_line,mpos,mpos+key_len)
-				parse_grid(grid_models[model_key],xcrd+x_offset,ycrd+y_offset,zcrd+z_offset)
+				parse_grid(grid_models[model_key],xcrd,ycrd,zcrd+z_offset)
 
 			//reached end of current map
 			if(gpos+x_depth+1>z_depth)
@@ -119,7 +110,7 @@ var/global/dmm_suite/preloader/_preloader = new
  * 4) Instanciates the atom with its variables
  *
  */
-/dmm_suite/proc/parse_grid(model as text,xcrd as num,ycrd as num,zcrd as num)
+/dmm_suite/proc/parse_grid(var/model as text,var/xcrd as num,var/ycrd as num,var/zcrd as num)
 	/*Method parse_grid()
 	- Accepts a text string containing a comma separated list of type paths of the
 		same construction as those contained in a .dmm file, and instantiates them.
@@ -174,17 +165,15 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//first instance the /area and remove it from the members list
 	index = members.len
-	if(members[index] != /area/template_noop)
-		var/atom/instance
-		_preloader.setup(members_attributes[index])//preloader for assigning  set variables on atom creation
+	var/atom/instance
+	_preloader = new(members_attributes[index])//preloader for assigning  set variables on atom creation
 
-		instance = locate(members[index])
-		var/turf/crds = locate(xcrd,ycrd,zcrd)
-		if(crds)
-			instance.contents.Add(crds)
+	instance = locate(members[index])
+	instance.contents.Add(locate(xcrd,ycrd,zcrd))
 
-		if(use_preloader && instance)
-			_preloader.load(instance)
+	if(_preloader && instance)
+		_preloader.load(instance)
+
 	members.Remove(members[index])
 
 	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
@@ -194,22 +183,19 @@ var/global/dmm_suite/preloader/_preloader = new
 		first_turf_index++
 
 	//instanciate the first /turf
-	var/turf/T
-	if(members[first_turf_index] != /turf/template_noop)
-		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],xcrd,ycrd,zcrd)
+	var/turf/T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],xcrd,ycrd,zcrd)
 
-	if(T)
-		//if others /turf are presents, simulates the underlays piling effect
-		index = first_turf_index + 1
-		while(index <= members.len)
-			turfs_underlays.Insert(1,image(T.icon,null,T.icon_state,T.layer,T.dir))//add the current turf image to the underlays list
-			var/turf/UT = instance_atom(members[index],members_attributes[index],xcrd,ycrd,zcrd)//instance new turf
-			add_underlying_turf(UT,T,turfs_underlays)//simulates the DMM piling effect
-			T = UT
-			index++
+	//if others /turf are presents, simulates the underlays piling effect
+	index = first_turf_index + 1
+	while(index <= members.len)
+		turfs_underlays.Insert(1,image(T.icon,null,T.icon_state,T.layer,T.dir))//add the current turf image to the underlays list
+		var/turf/UT = instance_atom(members[index],members_attributes[index],xcrd,ycrd,zcrd)//instance new turf
+		add_underlying_turf(UT,T,turfs_underlays)//simulates the DMM piling effect
+		T = UT
+		index++
 
 	//finally instance all remainings objects/mobs
-	for(index in 1 to first_turf_index-1)
+	for(index=1,index < first_turf_index,index++)
 		instance_atom(members[index],members_attributes[index],xcrd,ycrd,zcrd)
 
 ////////////////
@@ -217,22 +203,20 @@ var/global/dmm_suite/preloader/_preloader = new
 ////////////////
 
 //Instance an atom at (x,y,z) and gives it the variables in attributes
-/dmm_suite/proc/instance_atom(path,list/attributes, x, y, z)
+/dmm_suite/proc/instance_atom(var/path,var/list/attributes, var/x, var/y, var/z)
 	var/atom/instance
-	_preloader.setup(attributes, path)
+	_preloader = new(attributes, path)
 
-	var/turf/T = locate(x,y,z)
-	if(T)
-		instance = new path (T)//first preloader pass
+	instance = new path (locate(x,y,z))//first preloader pass
 
-	if(use_preloader && instance)//second preloader pass, for those atoms that don't ..() in New()
+	if(_preloader && instance)//second preloader pass, for those atoms that don't ..() in New()
 		_preloader.load(instance)
 
 	return instance
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
-/dmm_suite/proc/trim_text(what as text,trim_quotes=0)
+/dmm_suite/proc/trim_text(var/what as text,var/trim_quotes=0)
 	while(length(what) && (findtext(what," ",1,2)))
 		what=copytext(what,2,0)
 	while(length(what) && (findtext(what," ",length(what),0)))
@@ -246,7 +230,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 //find the position of the next delimiter,skipping whatever is comprised between opening_escape and closing_escape
 //returns 0 if reached the last delimiter
-/dmm_suite/proc/find_next_delimiter_position(text as text,initial_position as num, delimiter=",",opening_escape=quote,closing_escape=quote)
+/dmm_suite/proc/find_next_delimiter_position(var/text as text,var/initial_position as num, var/delimiter=",",var/opening_escape=quote,var/closing_escape=quote)
 	var/position = initial_position
 	var/next_delimiter = findtext(text,delimiter,position,0)
 	var/next_opening = findtext(text,opening_escape,position,0)
@@ -301,10 +285,6 @@ var/global/dmm_suite/preloader/_preloader = new
 			else if(copytext(trim_right,1,2) == "'")
 				trim_right = file(copytext(trim_right,2,length(trim_right)))
 
-			//Check for path
-			else if(ispath(text2path(trim_right)))
-				trim_right = text2path(trim_right)
-
 			to_return[trim_left] = trim_right
 
 		else//simple var
@@ -315,7 +295,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	return to_return
 
 //simulates the DM multiple turfs on one tile underlaying
-/dmm_suite/proc/add_underlying_turf(turf/placed,turf/underturf, list/turfs_underlays)
+/dmm_suite/proc/add_underlying_turf(var/turf/placed,var/turf/underturf, var/list/turfs_underlays)
 	if(underturf.density)
 		placed.density = 1
 	if(underturf.opacity)
@@ -324,7 +304,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 //atom creation method that preloads variables at creation
 /atom/New()
-	if(use_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
+	if(_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
 
 	. = ..()
@@ -338,19 +318,15 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/list/attributes
 	var/target_path
 
-/dmm_suite/preloader/proc/setup(list/the_attributes, path)
-	if(the_attributes.len)
-		use_preloader = TRUE
-		attributes = the_attributes
-		target_path = path
+/dmm_suite/preloader/New(var/list/the_attributes, var/path)
+	.=..()
+	if(!the_attributes.len)
+		del(src)
+		return
+	attributes = the_attributes
+	target_path = path
 
 /dmm_suite/preloader/proc/load(atom/what)
 	for(var/attribute in attributes)
 		what.vars[attribute] = attributes[attribute]
-	use_preloader = FALSE
-
-/area/template_noop
-	name = "Area Passthrough"
-
-/turf/template_noop
-	name = "Turf Passthrough"
+	del(src)

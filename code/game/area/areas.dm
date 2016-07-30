@@ -18,6 +18,11 @@
 		power_equip = 0
 		power_environ = 0
 
+	if(lighting_use_dynamic)
+		luminosity = 0
+	else
+		luminosity = 1
+
 	..()
 
 /area/proc/initialize()
@@ -67,7 +72,7 @@
 		for(var/obj/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
-					E.nextstate = CLOSED
+					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
 					spawn(0)
 						E.close()
@@ -78,7 +83,7 @@
 		for(var/obj/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
-					E.nextstate = OPEN
+					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
 					spawn(0)
 						E.open()
@@ -92,7 +97,7 @@
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
-					D.nextstate = CLOSED
+					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
 					spawn()
 						D.close()
@@ -105,7 +110,7 @@
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
-					D.nextstate = OPEN
+					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
 					spawn(0)
 					D.open()
@@ -137,14 +142,14 @@
 		for(var/obj/machinery/door/firedoor/D in src)
 			if(!D.blocked)
 				if(D.operating)
-					D.nextstate = OPEN
+					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
 					spawn(0)
 					D.open()
 	return
 
 /area/proc/updateicon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party) && (!requires_power||power_environ))//If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)
 			icon_state = "blue"
 		/*else if(atmosalm && !fire && !eject && !party)
@@ -158,7 +163,6 @@
 	else
 	//	new lighting behaviour with obj lights
 		icon_state = null
-
 
 /*
 #define EQUIP 1
@@ -216,6 +220,16 @@
 		if(ENVIRON)
 			used_environ += amount
 
+/area/proc/set_lightswitch(var/new_switch)
+	if(lightswitch != new_switch)
+		lightswitch = new_switch
+		updateicon()
+		power_change()
+
+/area/proc/set_emergency_lighting(var/enable)
+	for(var/obj/machinery/light/M in src)
+		M.set_emergency_lighting(enable)
+
 
 var/list/mob/living/forced_ambiance_list = new
 
@@ -229,16 +243,17 @@ var/list/mob/living/forced_ambiance_list = new
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity == 0) && (newarea.has_gravity == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
-		thunk(L)
-		L.update_floating( L.Check_Dense_Object() )
+	if(oldarea.has_gravity != newarea.has_gravity)
+		if(newarea.has_gravity == 1 && L.m_intent == "run") // Being ready when you change areas allows you to avoid falling.
+			thunk(L)
+		L.update_floating()
 
 	L.lastarea = newarea
 	play_ambience(L)
 
 /area/proc/play_ambience(var/mob/living/L)
 	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(!(L && L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))	return
+	if(!(L && L.is_preference_enabled(/datum/client_preference/play_ambiance)))	return
 
 	// If we previously were in an area with force-played ambiance, stop it.
 	if(L in forced_ambiance_list)
@@ -267,7 +282,7 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/mob/M in A)
 		if(has_gravity)
 			thunk(M)
-		M.update_floating( M.Check_Dense_Object() )
+		M.update_floating()
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
@@ -275,14 +290,37 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
-		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.flags & NOSLIP))
+		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
 			return
 
 		if(H.m_intent == "run")
-			H.AdjustStunned(2)
-			H.AdjustWeakened(2)
+			H.AdjustStunned(6)
+			H.AdjustWeakened(6)
 		else
-			H.AdjustStunned(1)
-			H.AdjustWeakened(1)
+			H.AdjustStunned(3)
+			H.AdjustWeakened(3)
 		mob << "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>"
 
+/area/proc/prison_break()
+	var/obj/machinery/power/apc/theAPC = get_apc()
+	if(theAPC.operating)
+		for(var/obj/machinery/power/apc/temp_apc in src)
+			temp_apc.overload_lighting(70)
+		for(var/obj/machinery/door/airlock/temp_airlock in src)
+			temp_airlock.prison_open()
+		for(var/obj/machinery/door/window/temp_windoor in src)
+			temp_windoor.open()
+
+/area/proc/has_gravity()
+	return has_gravity
+
+/area/space/has_gravity()
+	return 0
+
+/proc/has_gravity(atom/AT, turf/T)
+	if(!T)
+		T = get_turf(AT)
+	var/area/A = get_area(T)
+	if(A && A.has_gravity())
+		return 1
+	return 0

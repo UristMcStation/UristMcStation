@@ -12,7 +12,7 @@
 	throw_range = 10
 	amount_per_transfer_from_this = 10
 	unacidable = 1 //plastic
-	possible_transfer_amounts = list(5,10) //Set to null instead of list, if there is only one.
+	possible_transfer_amounts = "5;10" //Set to null instead of list, if there is only one.
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
 	volume = 250
@@ -38,7 +38,7 @@
 
 	Spray_at(A, user, proximity)
 
-	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
@@ -52,6 +52,7 @@
 	return
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
+	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 	if (A.density && proximity)
 		A.visible_message("[usr] sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
@@ -70,7 +71,7 @@
 /obj/item/weapon/reagent_containers/spray/attack_self(var/mob/user)
 	if(!possible_transfer_amounts)
 		return
-	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
+	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, cached_number_list_decode(possible_transfer_amounts))
 	spray_size = next_in_list(spray_size, spray_sizes)
 	user << "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>"
 
@@ -104,6 +105,14 @@
 /obj/item/weapon/reagent_containers/spray/cleaner/New()
 	..()
 	reagents.add_reagent("cleaner", volume)
+
+/obj/item/weapon/reagent_containers/spray/sterilizine
+	name = "sterilizine"
+	desc = "Great for hiding incriminating bloodstains and sterilizing scalpels."
+
+/obj/item/weapon/reagent_containers/spray/sterilizine/New()
+	..()
+	reagents.add_reagent("sterilizine", volume)
 
 /obj/item/weapon/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -154,10 +163,10 @@
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
 	throwforce = 3
-	w_class = 3.0
+	w_class = 4
 	possible_transfer_amounts = null
 	volume = 600
-	origin_tech = "combat=3;materials=3;engineering=3"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/Spray_at(atom/A as mob|obj)
 	var/direction = get_dir(src, A)

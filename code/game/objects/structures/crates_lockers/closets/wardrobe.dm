@@ -1,6 +1,6 @@
 /obj/structure/closet/wardrobe
 	name = "wardrobe"
-	desc = "It's a storage unit for standard-issue Nanotrasen attire."
+	desc = "It's a storage unit for standard-issue attire."
 	icon_state = "blue"
 	icon_closed = "blue"
 
@@ -26,9 +26,9 @@
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
+	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
+	new /obj/item/clothing/head/beret/sec/corporate/officer(src)
 	return
 
 
@@ -68,7 +68,7 @@
 
 /obj/structure/closet/wardrobe/chaplain_black
 	name = "chapel wardrobe"
-	desc = "It's a storage unit for Nanotrasen-approved religious attire."
+	desc = "It's a storage unit for approved religious attire."
 	icon_state = "black"
 	icon_closed = "black"
 
@@ -85,6 +85,7 @@
 	new /obj/item/weapon/storage/backpack/cultpack (src)
 	new /obj/item/weapon/storage/fancy/candle_box(src)
 	new /obj/item/weapon/storage/fancy/candle_box(src)
+	new /obj/item/weapon/deck/tarot(src)
 	return
 
 
@@ -120,7 +121,7 @@
 
 /obj/structure/closet/wardrobe/orange
 	name = "prison wardrobe"
-	desc = "It's a storage unit for Nanotrasen-regulation prisoner attire."
+	desc = "It's a storage unit for regulation prisoner attire."
 	icon_state = "orange"
 	icon_closed = "orange"
 
@@ -167,9 +168,9 @@
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/red(src)
-	new /obj/item/clothing/head/beret/eng(src)
-	new /obj/item/clothing/head/beret/eng(src)
-	new /obj/item/clothing/head/beret/eng(src)
+	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/engineering(src)
 	return
 
 
@@ -190,9 +191,9 @@
 	new /obj/item/clothing/head/hardhat(src)
 	new /obj/item/clothing/head/hardhat(src)
 	new /obj/item/clothing/head/hardhat(src)
-	new /obj/item/clothing/head/beret/eng(src)
-	new /obj/item/clothing/head/beret/eng(src)
-	new /obj/item/clothing/head/beret/eng(src)
+	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/engineering(src)
 	return
 
 
@@ -235,7 +236,7 @@
 	icon_state = "white"
 	icon_closed = "white"
 
-/obj/structure/closet/wardrobe/toxins_white/New()
+/obj/structure/closet/wardrobe/science_white/New()
 	..()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/under/rank/scientist(src)
@@ -246,9 +247,6 @@
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/slippers(src)
-	new /obj/item/clothing/shoes/slippers(src)
-	new /obj/item/clothing/shoes/slippers(src)
 	return
 
 
@@ -332,6 +330,13 @@
 	new /obj/item/clothing/under/rank/medical/blue(src)
 	new /obj/item/clothing/under/rank/medical/green(src)
 	new /obj/item/clothing/under/rank/medical/purple(src)
+	new /obj/item/clothing/under/rank/medical/black(src)
+	new /obj/item/clothing/under/rank/medical/navyblue(src)
+	new /obj/item/clothing/head/surgery/navyblue(src)
+	new /obj/item/clothing/head/surgery/purple(src)
+	new /obj/item/clothing/head/surgery/blue(src)
+	new /obj/item/clothing/head/surgery/green(src)
+	new /obj/item/clothing/head/surgery/black(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
@@ -421,3 +426,23 @@
 	new /obj/item/clothing/under/suit_jacket/really_black(src)
 	new /obj/item/clothing/under/suit_jacket/red(src)
 	new /obj/item/clothing/under/scratch(src)
+
+
+/obj/structure/closet/wardrobe/lawyer_black
+	name = "internal affairs wardrobe"
+	icon_state = "black"
+	icon_closed = "black"
+
+/obj/structure/closet/wardrobe/lawyer_black/New()
+	..()
+	new /obj/item/clothing/under/rank/internalaffairs(src)
+	new /obj/item/clothing/under/rank/internalaffairs(src)
+	new /obj/item/clothing/suit/storage/toggle/internalaffairs(src)
+	new /obj/item/clothing/suit/storage/toggle/internalaffairs(src)
+	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/glasses/sunglasses/big(src)
+	new /obj/item/clothing/glasses/sunglasses/big(src)
+	new /obj/item/weapon/storage/briefcase(src)
+	new /obj/item/weapon/storage/briefcase(src)
+	return

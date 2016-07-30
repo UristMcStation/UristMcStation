@@ -37,6 +37,8 @@
 /obj/machinery/power/proc/add_avail(var/amount)
 	if(powernet)
 		powernet.newavail += amount
+		return 1
+	return 0
 
 /obj/machinery/power/proc/draw_power(var/amount)
 	if(powernet)
@@ -58,9 +60,9 @@
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
 
-// returns true if the area has power on given channel (or doesn't require power).
-// defaults to power_channel
-/obj/machinery/proc/powered(var/chan = -1) // defaults to power_channel
+// returns true if the area has power on given channel (or doesn't require power), defaults to power_channel. 
+// May also optionally specify an area, otherwise defaults to src.loc.loc
+/obj/machinery/proc/powered(var/chan = -1, var/area/check_area = null)
 
 	if(!src.loc)
 		return 0
@@ -70,12 +72,13 @@
 	//if(!use_power)
 	//	return 1
 
-	var/area/A = src.loc.loc		// make sure it's in an area
-	if(!A || !isarea(A))
+	if(!check_area)
+		check_area = src.loc.loc		// make sure it's in an area
+	if(!check_area || !isarea(check_area))
 		return 0					// if not, then not powered
 	if(chan == -1)
 		chan = power_channel
-	return A.powered(chan)			// return power status of the area
+	return check_area.powered(chan)			// return power status of the area
 
 // increment the power usage stats for an area
 /obj/machinery/proc/use_power(var/amount, var/chan = -1) // defaults to power_channel
@@ -86,15 +89,19 @@
 		chan = power_channel
 	A.use_power(amount, chan)
 
-/obj/machinery/proc/power_change()		// called whenever the power settings of the containing area change
-										// by default, check equipment channel & set flag
-										// can override if needed
+// called whenever the power settings of the containing area change
+// by default, check equipment channel & set flag can override if needed
+/obj/machinery/proc/power_change()
+	var/oldstat = stat
+
 	if(powered(power_channel))
 		stat &= ~NOPOWER
 	else
-
 		stat |= NOPOWER
-	return
+
+	. = (stat != oldstat)
+	if(.)
+		update_icon()
 
 // connect the machine to a powernet if a node cable is present on the turf
 /obj/machinery/power/proc/connect_to_network()
@@ -126,7 +133,7 @@
 
 		var/turf/T = user.loc
 
-		if(T.intact || !istype(T, /turf/simulated/floor))
+		if(!T.is_plating() || !istype(T, /turf/simulated/floor))
 			return
 
 		if(get_dist(src, user) > 1)

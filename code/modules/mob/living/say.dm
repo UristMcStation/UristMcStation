@@ -1,49 +1,51 @@
 var/list/department_radio_keys = list(
-	  ":r" = "right ear",	"#r" = "right ear",		".r" = "right ear",
-	  ":l" = "left ear",	"#l" = "left ear",		".l" = "left ear",
-	  ":i" = "intercom",	"#i" = "intercom",		".i" = "intercom",
-	  ":h" = "department",	"#h" = "department",	".h" = "department",
-	  ":+" = "special",		"#+" = "special",		".+" = "special", //activate radio-specific special functions
-	  ":c" = "Command",		"#c" = "Command",		".c" = "Command",
-	  ":n" = "Science",		"#n" = "Science",		".n" = "Science",
-	  ":m" = "Medical",		"#m" = "Medical",		".m" = "Medical",
-	  ":e" = "Engineering", "#e" = "Engineering",	".e" = "Engineering",
-	  ":s" = "Security",	"#s" = "Security",		".s" = "Security",
-	  ":w" = "whisper",		"#w" = "whisper",		".w" = "whisper",
-	  ":t" = "Syndicate",	"#t" = "Syndicate",		".t" = "Syndicate",
-	  ":u" = "Supply",		"#u" = "Supply",		".u" = "Supply",
-	  ":v" = "Service",		"#v" = "Service",		".v" = "Service",
-	  ":p" = "AI Private",	"#p" = "AI Private",	".p" = "AI Private",
+	  ":r" = "right ear",	".r" = "right ear",
+	  ":l" = "left ear",	".l" = "left ear",
+	  ":i" = "intercom",	".i" = "intercom",
+	  ":h" = "department",	".h" = "department",
+	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
+	  ":c" = "Command",		".c" = "Command",
+	  ":n" = "Science",		".n" = "Science",
+	  ":m" = "Medical",		".m" = "Medical",
+	  ":e" = "Engineering", ".e" = "Engineering",
+	  ":s" = "Security",	".s" = "Security",
+	  ":w" = "whisper",		".w" = "whisper",
+	  ":t" = "Mercenary",	".t" = "Mercenary",
+	  ":u" = "Supply",		".u" = "Supply",
+	  ":v" = "Service",		".v" = "Service",
+	  ":p" = "AI Private",	".p" = "AI Private",
+	  ":z" = "Entertainment",".z" = "Entertainment",
 
-	  ":R" = "right ear",	"#R" = "right ear",		".R" = "right ear",
-	  ":L" = "left ear",	"#L" = "left ear",		".L" = "left ear",
-	  ":I" = "intercom",	"#I" = "intercom",		".I" = "intercom",
-	  ":H" = "department",	"#H" = "department",	".H" = "department",
-	  ":C" = "Command",		"#C" = "Command",		".C" = "Command",
-	  ":N" = "Science",		"#N" = "Science",		".N" = "Science",
-	  ":M" = "Medical",		"#M" = "Medical",		".M" = "Medical",
-	  ":E" = "Engineering",	"#E" = "Engineering",	".E" = "Engineering",
-	  ":S" = "Security",	"#S" = "Security",		".S" = "Security",
-	  ":W" = "whisper",		"#W" = "whisper",		".W" = "whisper",
-	  ":T" = "Syndicate",	"#T" = "Syndicate",		".T" = "Syndicate",
-	  ":U" = "Supply",		"#U" = "Supply",		".U" = "Supply",
-	  ":V" = "Service",		"#V" = "Service",		".V" = "Service",
-	  ":P" = "AI Private",	"#P" = "AI Private",	".P" = "AI Private",
+	  ":R" = "right ear",	".R" = "right ear",
+	  ":L" = "left ear",	".L" = "left ear",
+	  ":I" = "intercom",	".I" = "intercom",
+	  ":H" = "department",	".H" = "department",
+	  ":C" = "Command",		".C" = "Command",
+	  ":N" = "Science",		".N" = "Science",
+	  ":M" = "Medical",		".M" = "Medical",
+	  ":E" = "Engineering",	".E" = "Engineering",
+	  ":S" = "Security",	".S" = "Security",
+	  ":W" = "whisper",		".W" = "whisper",
+	  ":T" = "Mercenary",	".T" = "Mercenary",
+	  ":U" = "Supply",		".U" = "Supply",
+	  ":V" = "Service",		".V" = "Service",
+	  ":P" = "AI Private",	".P" = "AI Private",
+	  ":Z" = "Entertainment",".Z" = "Entertainment",
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	"#ê" = "right ear",		".ê" = "right ear",
-	  ":ä" = "left ear",	"#ä" = "left ear",		".ä" = "left ear",
-	  ":ø" = "intercom",	"#ø" = "intercom",		".ø" = "intercom",
-	  ":ð" = "department",	"#ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		"#ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		"#ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		"#ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	"#ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	"#û" = "Security",		".û" = "Security",
-	  ":ö" = "whisper",		"#ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
-	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
+	  ":ê" = "right ear",	".ê" = "right ear",
+	  ":ä" = "left ear",	".ä" = "left ear",
+	  ":ø" = "intercom",	".ø" = "intercom",
+	  ":ð" = "department",	".ð" = "department",
+	  ":ñ" = "Command",		".ñ" = "Command",
+	  ":ò" = "Science",		".ò" = "Science",
+	  ":ü" = "Medical",		".ü" = "Medical",
+	  ":ó" = "Engineering",	".ó" = "Engineering",
+	  ":û" = "Security",	".û" = "Security",
+	  ":ö" = "whisper",		".ö" = "whisper",
+	  ":å" = "Mercenary",	".å" = "Mercenary",
+	  ":é" = "Supply",		".é" = "Supply",
 )
 
 
@@ -85,27 +87,30 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/is_muzzled()
 	return 0
 
-/mob/living/proc/handle_speech_problems(var/message, var/verb)
-	var/list/returns[3]
-	var/speech_problem_flag = 0
+//Takes a list of the form list(message, verb, whispering) and modifies it as needed
+//Returns 1 if a speech problem was applied, 0 otherwise
+/mob/living/proc/handle_speech_problems(var/list/message_data)
+	var/message = message_data[1]
+	var/verb = message_data[2]
+
+	. = 0
 
 	if((HULK in mutations) && health >= 25 && length(message))
 		message = "[uppertext(message)]!!!"
 		verb = pick("yells","roars","hollers")
-		speech_problem_flag = 1
+		message_data[3] = 0
+		. = 1
 	if(slurring)
 		message = slur(message)
 		verb = pick("slobbers","slurs")
-		speech_problem_flag = 1
+		. = 1
 	if(stuttering)
 		message = stutter(message)
 		verb = pick("stammers","stutters")
-		speech_problem_flag = 1
+		. = 1
 
-	returns[1] = message
-	returns[2] = verb
-	returns[3] = speech_problem_flag
-	return returns
+	message_data[1] = message
+	message_data[2] = verb
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	if(message_mode == "intercom")
@@ -138,10 +143,6 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_dead(message)
 		return
 
-	if(is_muzzled())
-		src << "<span class='danger'>You're muzzled and cannot speak!</span>"
-		return
-
 	var/message_mode = parse_message_mode(message, "headset")
 
 	switch(copytext(message,1,2))
@@ -165,26 +166,27 @@ proc/get_radio_key_from_channel(var/channel)
 	else
 		speaking = get_default_language()
 
-	if (speaking)
-		// This is broadcast to all mobs with the language,
-		// irrespective of distance or anything else.
-		if(speaking.flags & HIVEMIND)
-			speaking.broadcast(src,trim(message))
-			return 1
-		//If we've gotten this far, keep going!
-		if(speaking.flags & COMMON_VERBS)
-			verb = say_quote(message)
-		else
-			verb = speaking.get_spoken_verb(copytext(message, length(message)))
-	else
-		verb = say_quote(message)
+	// This is broadcast to all mobs with the language,
+	// irrespective of distance or anything else.
+	if(speaking && (speaking.flags & HIVEMIND))
+		speaking.broadcast(src,trim(message))
+		return 1
+
+	verb = say_quote(message, speaking)
+
+	if(is_muzzled())
+		src << "<span class='danger'>You're muzzled and cannot speak!</span>"
+		return
 
 	message = trim_left(message)
 
+	message = handle_autohiss(message, speaking)
+
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
-		var/list/handle_s = handle_speech_problems(message, verb)
-		message = handle_s[1]
-		verb = handle_s[2]
+		var/list/message_data = list(message, verb, 0)
+		if(handle_speech_problems(message_data))
+			message = message_data[1]
+			verb = message_data[2]
 
 	if(!message || message == "")
 		return 0
@@ -215,6 +217,8 @@ proc/get_radio_key_from_channel(var/channel)
 			if (speech_sound)
 				sound_vol *= 0.5
 
+	var/list/listening = list()
+	var/list/listening_obj = list()
 	var/turf/T = get_turf(src)
 
 	//handle nonverbal and sign languages here
@@ -225,9 +229,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 		if (speaking.flags & SIGNLANG)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
-
-	var/list/listening = list()
-	var/list/listening_obj = list()
 
 	if(T)
 		//make sure the air can transmit speech - speaker's side
@@ -240,28 +241,8 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = hear(message_range, T)
-		var/list/hearturfs = list()
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
-		for(var/I in hear)
-			if(istype(I, /mob/))
-				var/mob/M = I
-				listening += M
-				hearturfs += M.locs[1]
-				for(var/obj/O in M.contents)
-					listening_obj |= O
-			else if(istype(I, /obj/))
-				var/obj/O = I
-				hearturfs += O.locs[1]
-				listening_obj |= O
-
-
-		for(var/mob/M in player_list)
-			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-				listening |= M
-				continue
-			if(M.loc && M.locs[1] in hearturfs)
-				listening |= M
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")

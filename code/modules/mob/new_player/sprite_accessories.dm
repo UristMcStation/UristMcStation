@@ -57,6 +57,25 @@
 		name = "Short Hair"	  // try to capatilize the names please~
 		icon_state = "hair_a" // you do not need to define _s or _l sub-states, game automatically does this for you
 
+	short2
+		name = "Short Hair 2"
+		icon_state = "hair_shorthair3"
+
+	resomi
+		name = "Resomi Plumage"
+		icon_state = "resomi_default"
+		species_allowed = list("Resomi")
+
+	resomi_ears
+		name = "Resomi Ears"
+		icon_state = "resomi_ears"
+		species_allowed = list("Resomi")
+
+	resomi_excited
+		name = "Resomi Spiky"
+		icon_state = "resomi_spiky"
+		species_allowed = list("Resomi")
+
 	cut
 		name = "Cut Hair"
 		icon_state = "hair_c"
@@ -123,6 +142,15 @@
 		icon_state = "hair_ponytail4"
 		gender = FEMALE
 
+	ponytail5
+		name = "Ponytail 5"
+		icon_state = "hair_ponytail5"
+		gender = FEMALE
+
+	fringetail
+		name = "Fringetail"
+		icon_state = "hair_fringetail"
+
 	sideponytail
 		name = "Side Ponytail"
 		icon_state = "hair_stail"
@@ -136,6 +164,10 @@
 		name = "Pompadour"
 		icon_state = "hair_pompadour"
 		gender = MALE
+
+	sleeze
+		name = "Sleeze"
+		icon_state = "hair_sleeze"
 
 	quiff
 		name = "Quiff"
@@ -231,6 +263,14 @@
 		name = "Big Afro"
 		icon_state = "hair_bigafro"
 		gender = MALE
+
+	rows
+		name = "Rows"
+		icon_state = "hair_rows1"
+
+	rows2
+		name = "Rows 2"
+		icon_state = "hair_rows2"
 
 	sargeant
 		name = "Flat Top"
@@ -398,6 +438,34 @@
 		icon_state = "hair_joestar"
 		gender = MALE
 
+	volaju
+		name = "Volaju"
+		icon_state = "hair_volaju"
+
+	longeralt2
+		name = "Long Hair Alt 2"
+		icon_state = "hair_longeralt2"
+
+	shortbangs
+		name = "Short Bangs"
+		icon_state = "hair_shortbangs"
+
+	halfshaved
+		name = "Half-Shaved Emo"
+		icon_state = "hair_halfshaved"
+
+	bun
+		name = "Low Bun"
+		icon_state = "hair_bun"
+		
+	bun2
+		name = "High Bun"
+		icon_state = "hair_bun2"
+
+	doublebun
+		name = "Double-Bun"
+		icon_state = "hair_doublebun"
+
 	bald
 		name = "Bald"
 		icon_state = "bald"
@@ -487,7 +555,7 @@
 
 /datum/sprite_accessory/facial_hair
 
-	icon = 'icons/mob/Human_face.dmi'
+	icon = 'icons/mob/human_face.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix /w beards :P)
 
 	shaved
@@ -562,6 +630,10 @@
 	jensen
 		name = "Adam Jensen Beard"
 		icon_state = "facial_jensen"
+
+	volaju
+		name = "Volaju"
+		icon_state = "facial_volaju"
 
 	dwarf
 		name = "Dwarf Beard"
@@ -681,6 +753,15 @@
 		icon_state = "vox_shortquills"
 		species_allowed = list("Vox")
 
+	vox_quills_kingly
+		name = "Kingly Vox Quills"
+		icon_state = "vox_kingly"
+		species_allowed = list("Vox")
+
+	vox_quills_mohawk
+		name = "Quill Mohawk"
+		icon_state = "vox_mohawk"
+		species_allowed = list("Vox")
 /datum/sprite_accessory/facial_hair
 
 	taj_sideburns

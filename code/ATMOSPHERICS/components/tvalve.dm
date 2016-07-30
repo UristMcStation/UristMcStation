@@ -3,7 +3,7 @@
 	icon_state = "map_tvalve0"
 
 	name = "manual switching valve"
-	desc = "A pipe valve"
+	desc = "A pipe valve."
 
 	level = 1
 	dir = SOUTH
@@ -290,12 +290,6 @@
 	icon_state = "map_tvalve1"
 	state = 1
 
-/obj/machinery/atmospherics/tvalve/digital/power_change()
-	var/old_stat = stat
-	..()
-	if(old_stat != stat)
-		update_icon()
-
 /obj/machinery/atmospherics/tvalve/digital/update_icon()
 	..()
 	if(!powered())
@@ -308,7 +302,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		user << "\red Access denied."
+		user << "<span class='warning'>Access denied.</span>"
 		return
 	..()
 
@@ -350,21 +344,21 @@
 	if (!istype(W, /obj/item/weapon/wrench))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
-		user << "\red You cannot unwrench this [src], it's too complicated."
+		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		user << "\red You cannot unwrench this [src], it too exerted due to internal pressure."
+		user << "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>"
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	user << "\blue You begin to unfasten \the [src]..."
-	if (do_after(user, 40))
+	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
+	if (do_after(user, 40, src))
 		user.visible_message( \
-			"[user] unfastens \the [src].", \
-			"\blue You have unfastened \the [src].", \
-			"You hear ratchet.")
+			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
+			"<span class='notice'>You have unfastened \the [src].</span>", \
+			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 
@@ -430,12 +424,6 @@
 	icon_state = "map_tvalvem1"
 	state = 1
 
-/obj/machinery/atmospherics/tvalve/mirrored/digital/power_change()
-	var/old_stat = stat
-	..()
-	if(old_stat != stat)
-		update_icon()
-
 /obj/machinery/atmospherics/tvalve/mirrored/digital/update_icon()
 	..()
 	if(!powered())
@@ -448,7 +436,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		user << "\red Access denied."
+		user << "<span class='warning'>Access denied.</span>"
 		return
 	..()
 

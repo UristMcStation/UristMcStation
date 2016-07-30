@@ -3,6 +3,7 @@
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	icon_state = "cat2"
+	item_state = "cat2"
 	icon_living = "cat2"
 	icon_dead = "cat2_dead"
 	speak = list("Meow!","Esp!","Purr!","HSSSSS")
@@ -23,12 +24,15 @@
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/weapon/holder/cat
-	mob_size = 5
+	mob_size = MOB_SMALL
+	possession_candidate = 1
 
 /mob/living/simple_animal/cat/Life()
+	if(!..() || incapacitated() || client)
+		return
 	//MICE!
 	if((src.loc) && isturf(src.loc))
-		if(!stat && !resting && !buckled)
+		if(!resting && !buckled)
 			for(var/mob/living/simple_animal/mouse/M in loc)
 				if(!M.stat)
 					M.splat()
@@ -37,26 +41,27 @@
 					stop_automated_movement = 0
 					break
 
-	..()
+
 
 	for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
 		if(snack.stat < DEAD && prob(15))
 			audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 		break
 
-	if(!stat && !resting && !buckled)
-		turns_since_scan++
-		if (turns_since_scan > 5)
-			walk_to(src,0)
-			turns_since_scan = 0
 
-			if (flee_target) //fleeing takes precendence
-				handle_flee_target()
-			else
-				handle_movement_target()
+
+	turns_since_scan++
+	if (turns_since_scan > 5)
+		walk_to(src,0)
+		turns_since_scan = 0
+
+		if (flee_target) //fleeing takes precendence
+			handle_flee_target()
+		else
+			handle_movement_target()
 
 	if(prob(2)) //spooky
-		var/mob/dead/observer/spook = locate() in range(src,5)
+		var/mob/observer/ghost/spook = locate() in range(src,5)
 		if(spook)
 			var/turf/T = spook.loc
 			var/list/visible = list()
@@ -128,16 +133,11 @@
 	var/mob/living/carbon/H = over_object
 	if(!istype(H) || !Adjacent(H)) return ..()
 
-	if(H.a_intent == "help")
+	if(H.a_intent == I_HELP)
 		get_scooped(H)
 		return
 	else
 		return ..()
-
-/mob/living/simple_animal/cat/get_scooped(var/mob/living/carbon/grabber)
-	if (stat >= DEAD)
-		return //since the holder icon looks like a living cat
-	..()
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
@@ -146,7 +146,7 @@
 
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
 	if (friend)
-		var/follow_dist = 5
+		var/follow_dist = 4
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
 			follow_dist = 1
 		else if (friend.stat || friend.health <= 50) //danger or just sleeping
@@ -196,24 +196,28 @@
 			var/verb = pick("meows", "mews", "mrowls")
 			audible_emote("[verb] anxiously.")
 
-/mob/living/simple_animal/cat/fluff/verb/friend()
+/mob/living/simple_animal/cat/fluff/verb/become_friends()
 	set name = "Become Friends"
 	set category = "IC"
 	set src in view(1)
 
-	if(friend && usr == friend)
+	if(!friend)
+		var/mob/living/carbon/human/H = usr
+		if(istype(H) && (!befriend_job || H.job == befriend_job))
+			friend = usr
+			. = 1
+	else if(usr == friend)
+		. = 1 //already friends, but show success anyways
+
+	if(.)
 		set_dir(get_dir(src, friend))
-		say("Meow!")
-		return
-
-	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+		visible_emote(pick("nuzzles [friend].",
+						   "brushes against [friend].",
+						   "rubs against [friend].",
+						   "purrs."))
+	else
 		usr << "<span class='notice'>[src] ignores you.</span>"
-		return
-
-	friend = usr
-
-	set_dir(get_dir(src, friend))
-	say("Meow!")
+	return
 
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/cat/fluff/Runtime
@@ -221,14 +225,15 @@
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	gender = FEMALE
 	icon_state = "cat"
+	item_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
-	befriend_job = "Chief Medical Officer"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
 	desc = "D'aaawwww"
 	icon_state = "kitten"
+	item_state = "kitten"
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
 	gender = NEUTER
@@ -245,6 +250,7 @@
 	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
+	item_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
 	holder_type = /obj/item/weapon/holder/cat/fluff/bones

@@ -1,7 +1,21 @@
+
+//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent id
+/proc/initialize_chemical_reagents()
+	var/paths = typesof(/datum/reagent) - /datum/reagent
+	chemical_reagents_list = list()
+	for(var/path in paths)
+		var/datum/reagent/D = new path()
+		if(!D.name)
+			continue
+		chemical_reagents_list[D.id] = D
+
+
 /datum/reagent
 	var/name = "Reagent"
 	var/id = "reagent"
 	var/description = "A non-descript chemical."
+	var/taste_description = "old rotten bandaids"
+	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/datum/reagents/holder = null
 	var/reagent_state = SOLID
 	var/list/data = null
@@ -13,13 +27,14 @@
 	var/max_dose = 0
 	var/overdose = 0
 	var/scannable = 0 // Shows up on health analyzers.
-	var/affects_dead = 0
-	var/glass_icon_state = null
-	var/glass_name = null
-	var/glass_desc = null
-	var/glass_center_of_mass = null
 	var/color = "#000000"
 	var/color_weight = 1
+	var/flags = 0
+
+	var/glass_icon = DRINK_ICON_DEFAULT
+	var/glass_name = "something"
+	var/glass_desc = "It's a glass of... what, exactly?"
+	var/list/glass_special = null // null equivalent to list()
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	holder.remove_reagent(id, amount)
@@ -37,26 +52,38 @@
 /datum/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
-	if(!affects_dead && M.stat == DEAD)
+	if(!(flags & AFFECTS_DEAD) && M.stat == DEAD)
 		return
-	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
-		overdose(M, alien)
+	if(overdose && (location != CHEM_TOUCH))
+		var/overdose_threshold = overdose * (flags & IGNORE_MOB_SIZE? 1 : MOB_MEDIUM/M.mob_size)
+		if(volume > overdose_threshold)
+			overdose(M, alien)
+
+	//determine the metabolism rate
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))
 		removed = ingest_met
 	if(touch_met && (location == CHEM_TOUCH))
 		removed = touch_met
 	removed = min(removed, volume)
+
+	//adjust effective amounts - removed, dose, and max_dose - for mob size
+	var/effective = removed
 	max_dose = max(volume, max_dose)
-	dose = min(dose + removed, max_dose)
-	if(removed >= (metabolism * 0.1) || removed >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
+	if(!(flags & IGNORE_MOB_SIZE) && location != CHEM_TOUCH)
+		effective *= (MOB_MEDIUM/M.mob_size)
+		max_dose *= (MOB_MEDIUM/M.mob_size)
+
+	dose = min(dose + effective, max_dose)
+	if(effective >= (metabolism * 0.1) || effective >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
 		switch(location)
 			if(CHEM_BLOOD)
-				affect_blood(M, alien, removed)
+				affect_blood(M, alien, effective)
 			if(CHEM_INGEST)
-				affect_ingest(M, alien, removed)
+				affect_ingest(M, alien, effective)
 			if(CHEM_TOUCH)
-				affect_touch(M, alien, removed)
+				affect_touch(M, alien, effective)
+
 	remove_self(removed)
 	return
 
@@ -103,10 +130,3 @@
 
 /datum/reagent/proc/reaction_mob(var/mob/target)
 	touch_mob(target)
-
-/datum/reagent/woodpulp
-	name = "Wood Pulp"
-	id = "woodpulp"
-	description = "A mass of wood fibers."
-	reagent_state = LIQUID
-	color = "#B97A57"

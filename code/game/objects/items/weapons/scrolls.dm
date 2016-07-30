@@ -8,9 +8,13 @@
 	item_state = "paper"
 	throw_speed = 4
 	throw_range = 20
-	origin_tech = "bluespace=4"
+	origin_tech = list(TECH_BLUESPACE = 4)
 
 /obj/item/weapon/teleportation_scroll/attack_self(mob/user as mob)
+	if((user.mind && !wizards.is_antagonist(user.mind)))
+		usr << "<span class='warning'>You stare at the scroll but cannot make sense of the markings!</span>"
+		return
+
 	user.set_machine(src)
 	var/dat = "<B>Teleportation Scroll:</B><BR>"
 	dat += "Number of uses: [src.uses]<BR>"
@@ -54,7 +58,7 @@
 	smoke.attach(user)
 	smoke.start()
 	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
+	for(var/turf/T in get_area_turfs(thearea))
 		if(!T.density)
 			var/clear = 1
 			for(var/obj/O in T)

@@ -50,8 +50,9 @@
 		if(istype(A, /mob/living))
 			var/mob/living/M = A
 			visible_message("\red [src] knocks over [M]!")
+			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
-			M.apply_damages(22 / move_delay)	// and do damage according to how fast the train is going
+			M.apply_damage(22 / move_delay, BRUTE, def_zone, M.run_armor_check(def_zone, "melee"))	// and do damage according to how fast the train is going
 			if(istype(load, /mob/living/carbon/human))
 				var/mob/living/D = load
 				D << "\red You hit [M]!"
@@ -72,6 +73,9 @@
 // Interaction procs
 //-------------------------------------------
 /obj/vehicle/train/relaymove(mob/user, direction)
+	if(user.incapacitated())
+		return 0
+
 	var/turf/T = get_step_to(src, get_step(src, direction))
 	if(!T)
 		user << "You can't find a clear area to step onto."

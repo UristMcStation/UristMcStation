@@ -27,7 +27,7 @@
 			internal_bleeding = 1
 			break
 
-		return affected.open >= 2 && internal_bleeding
+		return affected.open == (affected.encased ? 3 : 2) && internal_bleeding
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -88,7 +88,8 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("\blue [user] has cut away necrotic tissue in [target]'s [affected.name] with \the [tool].", \
 			"\blue You have cut away necrotic tissue in [target]'s [affected.name] with \the [tool].")
-		affected.open = 3
+		affected.status &= ~ORGAN_DEAD
+		playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -113,11 +114,8 @@
 	max_duration = 60
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (!istype(tool, /obj/item/weapon/reagent_containers))
-			return 0
-
 		var/obj/item/weapon/reagent_containers/container = tool
-		if(!container.reagents.has_reagent("peridaxon"))
+		if(!istype(container) || !container.reagents.has_reagent("peridaxon"))
 			return 0
 
 		if(!hasorgans(target))
@@ -144,11 +142,18 @@
 
 		var/obj/item/weapon/reagent_containers/container = tool
 
-		var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
+		var/amount = container.amount_per_transfer_from_this
+		var/datum/reagents/temp = new(amount)
+		container.reagents.trans_to_holder(temp, amount)
+
+		var/rejuvenate = temp.has_reagent("peridaxon")
+
+		var/trans = temp.trans_to_mob(target, temp.total_volume, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 		if (trans > 0)
 
-			if(container.reagents.has_reagent("peridaxon"))
+			if(rejuvenate)
 				affected.status &= ~ORGAN_DEAD
+				affected.owner.update_body(1)
 
 			user.visible_message("\blue [user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]", \
 				"\blue You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool].")
@@ -186,7 +191,7 @@
 			return 0
 		if(istype(tool,/obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/welder = tool
-			if(!welder.isOn())
+			if(!welder.isOn() || !welder.remove_fuel(1,user))
 				return 0
 		return (target_zone == "chest") && istype(target.back, /obj/item/weapon/rig) && !(target.back.canremove)
 

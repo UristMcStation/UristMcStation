@@ -3,10 +3,23 @@
 	desc = "To stop that awful noise."
 	icon_state = "muzzle"
 	item_state = "muzzle"
-	flags = MASKCOVERSMOUTH
-	body_parts_covered = 0
+	body_parts_covered = FACE
 	w_class = 2
 	gas_transfer_coefficient = 0.90
+	voicechange = 1
+
+/obj/item/clothing/mask/muzzle/tape
+	name = "length of tape"
+	desc = "It's a robust DIY muzzle!"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "tape_cross"
+	item_state = null
+	w_class = 1
+
+/obj/item/clothing/mask/muzzle/New()
+    ..()
+    say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
+    say_verbs = list("mumbles", "says")
 
 // Clumsy folks can't take the mask off themselves.
 /obj/item/clothing/mask/muzzle/attack_hand(mob/user as mob)
@@ -20,8 +33,8 @@
 	icon_state = "sterile"
 	item_state = "sterile"
 	w_class = 2
-	flags = MASKCOVERSMOUTH
-	body_parts_covered = 0
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
@@ -41,13 +54,14 @@
 	body_parts_covered = 0
 
 //scarves (fit in in mask slot)
-
+//None of these actually have on-mob sprites...
 /obj/item/clothing/mask/bluescarf
 	name = "blue neck scarf"
 	desc = "A blue neck scarf."
 	icon_state = "blueneckscarf"
 	item_state = "blueneckscarf"
-	flags = MASKCOVERSMOUTH
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
 	w_class = 2
 	gas_transfer_coefficient = 0.90
 
@@ -56,7 +70,8 @@
 	desc = "A red and white checkered neck scarf."
 	icon_state = "redwhite_scarf"
 	item_state = "redwhite_scarf"
-	flags = MASKCOVERSMOUTH
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
 	w_class = 2
 	gas_transfer_coefficient = 0.90
 
@@ -65,7 +80,8 @@
 	desc = "A green neck scarf."
 	icon_state = "green_scarf"
 	item_state = "green_scarf"
-	flags = MASKCOVERSMOUTH
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
 	w_class = 2
 	gas_transfer_coefficient = 0.90
 
@@ -74,7 +90,8 @@
 	desc = "A stealthy, dark scarf."
 	icon_state = "ninja_scarf"
 	item_state = "ninja_scarf"
-	flags = MASKCOVERSMOUTH
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
 	w_class = 2
 	gas_transfer_coefficient = 0.90
 	siemens_coefficient = 0
@@ -84,8 +101,7 @@
 	desc = "A rubber pig mask."
 	icon_state = "pig"
 	item_state = "pig"
-	flags = BLOCKHAIR
-	flags_inv = HIDEFACE
+	flags_inv = HIDEFACE|BLOCKHAIR
 	w_class = 2
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
@@ -95,12 +111,17 @@
 	desc = "A mask made of soft vinyl and latex, representing the head of a horse."
 	icon_state = "horsehead"
 	item_state = "horsehead"
-	flags = BLOCKHAIR
-	flags_inv = HIDEFACE
+	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	w_class = 2
-	var/voicechange = 0
 	siemens_coefficient = 0.9
+
+/obj/item/clothing/mask/horsehead/New()
+    ..()
+    // The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
+    say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
+    say_verbs = list("whinnies", "neighs", "says")
+
 
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
@@ -108,27 +129,54 @@
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
-	body_parts_covered = 0
-	var/mob/eye/aiEye/eye
+	body_parts_covered = FACE|EYES
+	action_button_name = "Toggle MUI"
+	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	var/active = FALSE
+	var/mob/observer/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/New()
 	eye = new(src)
+	eye.name_sufix = "camera MIU"
+	..()
+
+/obj/item/clothing/mask/ai/Destroy()
+	if(eye)
+		if(active)
+			disengage_mask(eye.owner)
+		qdel(eye)
+		eye = null
+	..()
+
+/obj/item/clothing/mask/ai/attack_self(var/mob/user)
+	if(user.incapacitated())
+		return
+	active = !active
+	user << "<span class='notice'>You [active ? "" : "dis"]engage \the [src].</span>"
+	if(active)
+		engage_mask(user)
+	else
+		disengage_mask(user)
 
 /obj/item/clothing/mask/ai/equipped(var/mob/user, var/slot)
 	..(user, slot)
-	if(slot == slot_wear_mask)
-		eye.owner = user
-		user.eyeobj = eye
-
-		for(var/datum/chunk/c in eye.visibleChunks)
-			c.remove(eye)
-		eye.setLoc(user)
+	engage_mask(user)
 
 /obj/item/clothing/mask/ai/dropped(var/mob/user)
 	..()
-	if(eye.owner == user)
-		for(var/datum/chunk/c in eye.visibleChunks)
-			c.remove(eye)
+	disengage_mask(user)
 
-		eye.owner.eyeobj = null
-		eye.owner = null
+/obj/item/clothing/mask/ai/proc/engage_mask(var/mob/user)
+	if(!active)
+		return
+	if(user.get_equipped_item(slot_wear_mask) != src)
+		return
+
+	eye.possess(user)
+	eye.owner << "<span class='notice'>You feel disorented for a moment as your mind connects to the camera network.</span>"
+
+/obj/item/clothing/mask/ai/proc/disengage_mask(var/mob/user)
+	if(user == eye.owner)
+		eye.owner << "<span class='notice'>You feel disorented for a moment as your mind disconnects from the camera network.</span>"
+		eye.release(eye.owner)
+		eye.forceMove(src)

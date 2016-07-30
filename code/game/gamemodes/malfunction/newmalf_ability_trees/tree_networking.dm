@@ -86,7 +86,7 @@
 /datum/game_mode/malfunction/verb/advanced_encryption_hack()
 	set category = "Software"
 	set name = "Advanced Encryption Hack"
-	set desc = "75 CPU - Attempts to bypass encryption on Central Command Quantum Relay, giving you ability to fake centcom messages. Has chance of failing."
+	set desc = "75 CPU - Attempts to bypass encryption on the Command Quantum Relay, giving you ability to fake legitimate messages. Has chance of failing."
 	var/price = 75
 	var/mob/living/silicon/ai/user = usr
 
@@ -145,7 +145,7 @@
 		return
 	var/list/remaining_apcs = list()
 	for(var/obj/machinery/power/apc/A in machines)
-		if(!(A.z in config.station_levels)) 		// Only station APCs
+		if(!(A.z in using_map.station_levels)) 		// Only station APCs
 			continue
 		if(A.hacker == user || A.aidisabled) 		// This one is already hacked, or AI control is disabled on it.
 			continue
@@ -191,7 +191,7 @@
 	sleep(300)
 	// Hack all APCs, including those built during hack sequence.
 	for(var/obj/machinery/power/apc/A in machines)
-		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in config.station_levels)
+		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in using_map.station_levels)
 			A.ai_hack(src)
 
 

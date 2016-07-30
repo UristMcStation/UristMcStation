@@ -16,7 +16,7 @@
 
 
 /obj/structure/janitorialcart/New()
-	create_reagents(100)
+	create_reagents(180)
 
 
 /obj/structure/janitorialcart/examine(mob/user)
@@ -37,9 +37,9 @@
 	else if(istype(I, /obj/item/weapon/mop))
 		if(I.reagents.total_volume < I.reagents.maximum_volume)	//if it's not completely soaked we assume they want to wet it, otherwise store it
 			if(reagents.total_volume < 1)
-				user << "[src] is out of water!</span>"
+				user << "<span class='warning'>[src] is out of water!</span>"
 			else
-				reagents.trans_to_obj(I, 5)	//
+				reagents.trans_to_obj(I, I.reagents.maximum_volume)
 				user << "<span class='notice'>You wet [I] in [src].</span>"
 				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 				return
@@ -107,7 +107,7 @@
 	if(!isliving(usr))
 		return
 	var/mob/living/user = usr
-	
+
 	if(href_list["take"])
 		switch(href_list["take"])
 			if("garbage")
@@ -175,7 +175,6 @@
 
 /obj/structure/bed/chair/janicart/New()
 	create_reagents(100)
-	update_layer()
 
 
 /obj/structure/bed/chair/janicart/examine(mob/user)
@@ -235,13 +234,6 @@
 	return ..()
 
 
-/obj/structure/bed/chair/janicart/update_layer()
-	if(dir == SOUTH)
-		layer = FLY_LAYER
-	else
-		layer = OBJ_LAYER
-
-
 /obj/structure/bed/chair/janicart/unbuckle_mob()
 	var/mob/living/M = ..()
 	if(M)
@@ -252,7 +244,6 @@
 
 /obj/structure/bed/chair/janicart/set_dir()
 	..()
-	update_layer()
 	if(buckled_mob)
 		if(buckled_mob.loc != loc)
 			buckled_mob.buckled = null //Temporary, so Move() succeeds.

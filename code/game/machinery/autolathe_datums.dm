@@ -16,7 +16,7 @@
 			recipe.resources = list()
 			for(var/material in I.matter)
 				recipe.resources[material] = I.matter[material]*1.25 // More expensive to produce than they are to recycle.
-			qdel(I)
+		qdel(I)
 
 /datum/autolathe/recipe
 	var/name = "object"
@@ -32,9 +32,44 @@
 	path = /obj/item/weapon/reagent_containers/glass/bucket
 	category = "General"
 
+/datum/autolathe/recipe/drinkingglass
+	name = "drinking glass"
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/square
+	category = "General"
+	New()
+		..()
+		var/obj/O = path
+		name = initial(O.name) // generic recipes yay
+
+/datum/autolathe/recipe/drinkingglass/rocks
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/rocks
+
+/datum/autolathe/recipe/drinkingglass/shake
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/shake
+
+/datum/autolathe/recipe/drinkingglass/cocktail
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/cocktail
+
+/datum/autolathe/recipe/drinkingglass/shot
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/shot
+
+/datum/autolathe/recipe/drinkingglass/pint
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/pint
+
+/datum/autolathe/recipe/drinkingglass/mug
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/mug
+
+/datum/autolathe/recipe/drinkingglass/wine
+	path = /obj/item/weapon/reagent_containers/food/drinks/glass2/wine
+
 /datum/autolathe/recipe/flashlight
 	name = "flashlight"
 	path = /obj/item/device/flashlight
+	category = "General"
+
+/datum/autolathe/recipe/floor_light
+	name = "floor light"
+	path = /obj/machinery/floor_light
 	category = "General"
 
 /datum/autolathe/recipe/extinguisher
@@ -301,6 +336,11 @@
 	path = /obj/item/weapon/camera_assembly
 	category = "Engineering"
 
+/datum/autolathe/recipe/weldinggoggles
+	name = "welding goggles"
+	path = /obj/item/clothing/glasses/welding
+	category = "General"
+
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
 	path = /obj/item/weapon/flamethrower/full
@@ -332,8 +372,8 @@
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_c20r
-	name = "ammunition (12mm)"
-	path = /obj/item/ammo_magazine/a12mm
+	name = "ammunition (10mm)"
+	path = /obj/item/ammo_magazine/a10mm
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -408,5 +448,3 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
-
-

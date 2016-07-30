@@ -15,7 +15,7 @@
 		I.throw_at(get_edge_target_turf(src,pick(alldirs)), rand(1,3), round(30/I.w_class))
 
 	..(species.gibbed_anim)
-	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
+	gibs(loc, dna, null, species.flesh_color, species.blood_color)
 
 /mob/living/carbon/human/dust()
 	if(species)
@@ -31,10 +31,16 @@
 	BITSET(hud_updateflag, STATUS_HUD)
 	BITSET(hud_updateflag, LIFE_HUD)
 
-	handle_hud_list()
+
+	//backs up lace if available.
+	var/obj/item/organ/stack/s = get_organ("stack")
+	if(s)
+		s.do_backup()
+
 
 	//Handle species-specific deaths.
 	species.handle_death(src)
+
 	animate_tail_stop()
 
 	//Handle brain slugs.
@@ -58,15 +64,19 @@
 
 	callHook("death", list(src, gibbed))
 
-	if(!gibbed && species.death_sound)
-		playsound(loc, species.death_sound, 80, 1, 1)
-
-
 	if(ticker && ticker.mode)
 		sql_report_death(src)
 		ticker.mode.check_win()
 
-	return ..(gibbed,species.death_message)
+	if(wearing_rig)
+		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
+
+	. = ..(gibbed,species.death_message)
+	if(!gibbed)
+		handle_organs()
+		if(species.death_sound)
+			playsound(loc, species.death_sound, 80, 1, 1)
+	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
 	if(HUSK in mutations)	return
@@ -78,7 +88,8 @@
 	update_hair(0)
 
 	mutations.Add(HUSK)
-	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
+	for(var/obj/item/organ/external/E in organs)
+		E.disfigured = 1
 	update_body(1)
 	return
 
@@ -97,6 +108,7 @@
 	update_hair(0)
 
 	mutations.Add(SKELETON)
-	status_flags |= DISFIGURED
-	update_body(0)
+	for(var/obj/item/organ/external/E in organs)
+		E.disfigured = 1
+	update_body(1)
 	return

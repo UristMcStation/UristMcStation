@@ -57,8 +57,30 @@
 
 		new /obj/effect/decal/cleanable/vomit(get_turf(src))
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-		new /mob/living/simple_animal/borer(get_turf(src))
+		new /mob/living/simple_animal/borer(get_turf(src), B.generation + 1)
 
 	else
 		src << "You do not have enough chemicals stored to reproduce."
 		return
+		
+/**
+ *  Attempt to devour victim
+ *
+ *  Returns TRUE on success, FALSE on failure
+ */
+/mob/living/carbon/proc/devour(mob/victim)
+	var/can_eat = can_devour(victim)
+	if(!can_eat)
+		return FALSE
+	
+	src.visible_message("<span class='danger'>\The [src] is attempting to devour \the [victim]!</span>")
+	if(can_eat == DEVOUR_FAST)
+		if(!do_mob(src, victim, 30)) return FALSE
+	else
+		if(!do_mob(src, victim, 100)) return FALSE
+	src.visible_message("<span class='danger'>\The [src] devours \the [victim]!</span>")
+	admin_attack_log(src, victim, "Devoured.", "Was devoured by.", "devoured")
+	victim.forceMove(src)
+	src.stomach_contents.Add(victim)
+	
+	return TRUE

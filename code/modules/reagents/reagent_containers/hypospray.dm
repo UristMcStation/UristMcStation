@@ -20,15 +20,31 @@
 //	reagents.add_reagent("tricordrazine", 30)
 //	return
 
+/obj/item/weapon/reagent_containers/hypospray/do_surgery(mob/living/carbon/M, mob/living/user)
+	if(user.a_intent != I_HELP) //in case it is ever used as a surgery tool
+		return ..()
+	attack(M, user)
+	return 1
+
 /obj/item/weapon/reagent_containers/hypospray/attack(mob/living/M as mob, mob/user as mob)
 	if(!reagents.total_volume)
 		user << "<span class='warning'>[src] is empty.</span>"
 		return
 	if (!istype(M))
 		return
-	if(!M.can_inject(user, 1))
-		return
 
+	var/mob/living/carbon/human/H = M
+	if(istype(H))
+		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
+		if(!affected)
+			user << "<span class='danger'>\The [H] is missing that limb!</span>"
+			return
+		else if(affected.robotic >= ORGAN_ROBOT)
+			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
+			return
+
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(M)
 	user << "<span class='notice'>You inject [M] with [src].</span>"
 	M << "<span class='notice'>You feel a tiny prick!</span>"
 

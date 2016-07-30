@@ -3,6 +3,7 @@
 	var/const/radIntervall 	= 5	// Enough time between enter/leave belt for 10 hits, as per original implementation
 	var/const/leaveBelt		= 80
 	var/const/revokeAccess	= 135
+	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess
 	var/postStartTicks 		= 0
@@ -29,20 +30,20 @@
 		command_announcement.Announce("The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all access again shortly.", "Anomaly Alert")
 
 /datum/event/radiation_storm/proc/radiate()
-	for(var/mob/living/carbon/C in living_mob_list)
+	for(var/mob/living/carbon/C in living_mob_list_)
 		var/area/A = get_area(C)
 		if(!A)
 			continue
-		if(!(A.z in config.station_levels))
+		if(!(A.z in using_map.station_levels))
 			continue
 		if(A.flags & RAD_SHIELDED)
 			continue
 
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect((rand(15,35)),IRRADIATE,0)
+			H.apply_effect((rand(15,35)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 			if(prob(5))
-				H.apply_effect((rand(40,70)),IRRADIATE,0)
+				H.apply_effect((rand(40,70)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 				if (prob(75))
 					randmutb(H) // Applies bad mutation
 					domutcheck(H,null,MUTCHK_FORCED)
@@ -52,3 +53,6 @@
 
 /datum/event/radiation_storm/end()
 	revoke_maint_all_access()
+
+/datum/event/radiation_storm/syndicate/radiate()
+	return

@@ -13,21 +13,20 @@
 	throw_speed = 1
 	throw_range = 4
 
-	origin_tech = "magnets=2;materials=2"
+	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/weapon/cell/cell
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 16.6		//charge per second at max_cooling
+	var/charge_consumption = 3		//charge per second at max_cooling
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/New()
 	processing_objects |= src
-
-	cell = new/obj/item/weapon/cell()	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
+	cell = new/obj/item/weapon/cell/high()	//comes not with the crappy default power cell - because this is dedicated EVA equipment
 	cell.loc = src
 
 /obj/item/device/suit_cooling_unit/process()
@@ -62,10 +61,11 @@
 	if (ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(istype(H.loc, /obj/mecha))
-			var/obj/mecha/M = loc
+			var/obj/mecha/M = H.loc
 			return M.return_temperature()
 		else if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			return H.loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+			return C.air_contents.temperature
 
 	var/turf/T = get_turf(src)
 	if(istype(T, /turf/space))

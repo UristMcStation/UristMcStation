@@ -12,7 +12,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/changelingID = "Changeling"
 	var/geneticdamage = 0
 	var/isabsorbing = 0
-	var/geneticpoints = 5
+	var/geneticpoints = 25
 	var/purchasedpowers = list()
 	var/mimicing = ""
 
@@ -229,7 +229,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	T.dna.real_name = T.real_name //Set this again, just to be sure that it's properly set.
 	changeling.absorbed_dna |= T.dna
-	if(src.nutrition < 400) src.nutrition = min((src.nutrition + T.nutrition), 400)
 	changeling.chem_charges += 10
 	changeling.geneticpoints += 2
 
@@ -333,14 +332,10 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 
 	changeling.chem_charges--
-	H.remove_changeling_powers()
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
 	H << "<span class='warning'>Our genes cry out!</span>"
-	var/list/implants = list() //Try to preserve implants.
-	for(var/obj/item/weapon/implant/W in H)
-		implants += W
-	H.monkeyize()
+	H = H.monkeyize()
 	feedback_add_details("changeling_powers","LF")
 	return 1
 
@@ -374,7 +369,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for (var/obj/item/weapon/implant/I in C) //Still preserving implants
 		implants += I
 
-	C.monkeyizing = 1
+	C.transforming = 1
 	C.canmove = 0
 	C.icon = null
 	C.overlays.Cut()
@@ -442,7 +437,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	C.remove_changeling_powers()
 
 	C.emote("gasp")
-	C.tod = worldtime2text()
+	C.tod = stationtime2text()
 
 	spawn(rand(800,2000))
 		if(changeling_power(20,1,100,DEAD))
@@ -814,7 +809,6 @@ var/list/datum/dna/hivemind_bank = list()
 	var/mob/living/carbon/T = changeling_sting(5,/mob/proc/changeling_unfat_sting)
 	if(!T)	return 0
 	T << "<span class='danger'>you feel a small prick as stomach churns violently and you become to feel skinnier.</span>"
-	T.overeatduration = 0
 	T.nutrition -= 100
 	feedback_add_details("changeling_powers","US")
 	return 1

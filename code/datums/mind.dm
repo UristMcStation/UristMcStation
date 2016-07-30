@@ -62,9 +62,12 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	//used for optional self-objectives that antagonists can give themselves, which are displayed at the end of the round.
+	var/ambitions
+
 /datum/mind/New(var/key)
 	src.key = key
-
+	..()
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
@@ -81,6 +84,9 @@
 
 	current = new_character		//link ourself to our new body
 	new_character.mind = src	//and link our new body to ourself
+
+	if(learned_spells && learned_spells.len)
+		restore_spells(new_character)
 
 	if(changeling)
 		new_character.make_changeling()
@@ -102,7 +108,8 @@
 		for(var/datum/objective/objective in objectives)
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
-
+	if(ambitions)
+		output += "<HR><B>Ambitions:</B> [ambitions]<br>"
 	recipient << browse(output,"window=memory")
 
 /datum/mind/proc/edit_memory()
@@ -136,7 +143,8 @@
 
 	else
 		out += "None."
-	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a>"
+	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
+	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
 	usr << browse(out, "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
@@ -175,6 +183,24 @@
 		var/new_memo = sanitize(input("Write new memory", "Memory", memory) as null|message)
 		if (isnull(new_memo)) return
 		memory = new_memo
+
+	else if (href_list["amb_edit"])
+		var/datum/mind/mind = locate(href_list["amb_edit"])
+		if(!mind)
+			return
+		var/new_ambition = input("Enter a new ambition", "Memory", mind.ambitions) as null|message
+		if(isnull(new_ambition))
+			return
+		new_ambition = sanitize(new_ambition)
+		if(mind)
+			if(new_ambition)
+				mind.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [mind.ambitions]</span>"
+				log_and_message_admins("made [key_name(mind.current)]'s ambitions be '[mind.ambitions]'.")
+			else
+				mind.current << "<span class='warning'>Your ambitions have been unmade by higher powers.</span>"
+				log_and_message_admins("has cleared [key_name(mind.current)]'s ambitions.")
+		else
+			usr << "<span class='warning'>The mind has ceased to be.</span>"
 
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
@@ -319,10 +345,10 @@
 						if(I in organs.implants)
 							qdel(I)
 							break
-				H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</font></span>"
+				H << "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>"
 				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].")
 			if("add")
-				H << "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font>"
+				H << "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>"
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 			else
@@ -376,7 +402,7 @@
 				memory = null//Remove any memory they may have had.
 			if("crystals")
 				if (usr.client.holder.rights & R_FUN)
-					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
+					var/obj/item/device/uplink/suplink = find_syndicate_uplink()
 					var/crystals
 					if (suplink)
 						crystals = suplink.uses
@@ -401,7 +427,7 @@
 	return null
 
 /datum/mind/proc/take_uplink()
-	var/obj/item/device/uplink/hidden/H = find_syndicate_uplink()
+	var/obj/item/device/uplink/H = find_syndicate_uplink()
 	if(H)
 		qdel(H)
 

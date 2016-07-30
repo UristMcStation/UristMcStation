@@ -8,12 +8,6 @@
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
-/obj/structure/bed/chair/New()
-	..() //Todo make metal/stone chairs display as thrones
-	spawn(3)	//sorry. i don't think there's a better way to do this.
-		update_layer()
-	return
-
 /obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
@@ -39,27 +33,42 @@
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()
+	return ..()
 
 /obj/structure/bed/chair/update_icon()
 	..()
+
+	var/cache_key = "[base_icon]-[material.name]-over"
+	if(isnull(stool_cache[cache_key]))
+		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+			I.color = material.icon_colour
+		I.layer = FLY_LAYER
+		stool_cache[cache_key] = I
+	overlays |= stool_cache[cache_key]
+	// Padding overlay.
+	if(padding_material)
+		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
+		if(isnull(stool_cache[padding_cache_key]))
+			var/image/I =  image(icon, "[base_icon]_padding_over")
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
+				I.color = padding_material.icon_colour
+			I.layer = FLY_LAYER
+			stool_cache[padding_cache_key] = I
+		overlays |= stool_cache[padding_cache_key]
+
 	if(buckled_mob && padding_material)
-		var/cache_key = "[base_icon]-armrest-[padding_material.name]"
+		cache_key = "[base_icon]-armrest-[padding_material.name]"
 		if(isnull(stool_cache[cache_key]))
 			var/image/I = image(icon, "[base_icon]_armrest")
 			I.layer = MOB_LAYER + 0.1
-			I.color = padding_material.icon_colour
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
+				I.color = padding_material.icon_colour
 			stool_cache[cache_key] = I
 		overlays |= stool_cache[cache_key]
 
-/obj/structure/bed/chair/proc/update_layer()
-	if(src.dir == NORTH)
-		src.layer = FLY_LAYER
-	else
-		src.layer = OBJ_LAYER
-
 /obj/structure/bed/chair/set_dir()
 	..()
-	update_layer()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 
@@ -68,19 +77,18 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(config.ghost_interaction)
-		src.set_dir(turn(src.dir, 90))
+	if(!usr || !Adjacent(usr))
 		return
-	else
-		if(istype(usr,/mob/living/simple_animal/mouse))
-			return
-		if(!usr || !isturf(usr.loc))
-			return
-		if(usr.stat || usr.restrained())
-			return
 
-		src.set_dir(turn(src.dir, 90))
+	if(usr.stat == DEAD)
+		if(!round_is_spooky())
+			src << "<span class='warning'>The veil is not thin enough for you to do that.</span>"
+			return
+	else if(usr.incapacitated())
 		return
+
+	src.set_dir(turn(src.dir, 90))
+	return
 
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy
@@ -117,9 +125,7 @@
 /obj/structure/bed/chair/office
 	anchored = 0
 	buckle_movable = 1
-
-/obj/structure/bed/chair/office/update_icon()
-	return
+	material_alteration = MATERIAL_ALTERATION_NONE
 
 /obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
@@ -167,19 +173,19 @@
 		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
 
 /obj/structure/bed/chair/office/light
-	icon_state = "officechair_white"
+	base_icon = "officechair_white"
+	icon_state = "officechair_white_preview"
 
 /obj/structure/bed/chair/office/dark
-	icon_state = "officechair_dark"
+	base_icon = "officechair_dark"
+	icon_state = "officechair_dark_preview"
 
 // Chair types
 /obj/structure/bed/chair/wood
-	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
-	icon_state = "wooden_chair"
-
-/obj/structure/bed/chair/wood/update_icon()
-	return
+	base_icon = "wooden_chair"
+	icon_state = "wooden_chair_preview"
+	material_alteration = MATERIAL_ALTERATION_NAME
 
 /obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
@@ -190,4 +196,5 @@
 	..(newloc, "wood")
 
 /obj/structure/bed/chair/wood/wings
-	icon_state = "wooden_chair_wings"
+	base_icon = "wooden_chair_wings"
+	icon_state = "wooden_chair_wings_preview"

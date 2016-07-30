@@ -6,16 +6,16 @@
 
 /obj/item/clothing/accessory/badge
 	name = "detective's badge"
-	desc = "NanoTrasen Security Department detective's badge, made from gold."
-	icon_state = "badge"
+	desc = "A simple badge, made from gold."
+	icon_state = "goldbadge"
 	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
-	var/badge_string = "NanoTrasen Security Department"
+	var/badge_string = "Private Investigator"
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
-	desc = "A faded badge, backed with leather. It bears the emblem of the Forensic division."
+	desc = "A faded badge, backed with leather. Looks crummy."
 	icon_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -25,7 +25,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		user << "You polish your old badge fondly, shining up the surface."
+		user << "You polish your [src.name] fondly, shining up the surface."
 		set_name(user.real_name)
 		return
 
@@ -42,8 +42,10 @@
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"
-	desc = "This glowing blue badge marks the holder as THE LAW."
+	desc = "This glowing blue badge marks the holder as a member of corporate security."
 	icon_state = "holobadge"
+	item_state = "holobadge"
+	badge_string = "NanoTrasen Security"
 	var/emagged //Emagging removes Sec check.
 
 /obj/item/clothing/accessory/badge/holo/cord
@@ -56,18 +58,17 @@
 		return
 	return ..()
 
+/obj/item/clothing/accessory/badge/holo/emag_act(var/remaining_charges, var/mob/user)
+	if (emagged)
+		user << "<span class='danger'>\The [src] is already cracked.</span>"
+		return
+	else
+		emagged = 1
+		user << "<span class='danger'>You crack the holobadge security checks.</span>"
+		return 1
+
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-
-	if (istype(O, /obj/item/weapon/card/emag))
-		if (emagged)
-			user << "<span class='danger'>[src] is already cracked.</span>"
-			return
-		else
-			emagged = 1
-			user << "<span class='danger'>You swipe [O] and crack the holobadge security checks.</span>"
-			return
-
-	else if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
+	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
 
 		var/obj/item/weapon/card/id/id_card = null
 
@@ -97,3 +98,25 @@
 		new /obj/item/clothing/accessory/badge/holo/cord(src)
 		..()
 		return
+
+
+/obj/item/clothing/accessory/badge/security
+	name = "security forces badge"
+	desc = "A silver law enforcement badge. Stamped with the words 'Master at Arms'."
+	icon_state = "silverbadge"
+	slot_flags = SLOT_TIE
+	badge_string = "Sol Central Government"
+
+/obj/item/clothing/accessory/badge/marshal
+	name = "marshal's badge"
+	desc = "A leather-backed gold badge displaying the crest of the Colonial Marshals."
+	icon_state = "marshalbadge"
+	badge_string = "Colonial Marshal Bureau"
+
+/obj/item/clothing/accessory/badge/tags //child of a badge for now because I'd rather not copy-paste their code
+	name = "dog tags"
+	desc = "Plain identification tags made from a durable metal. Stamped with a variety of informational details."
+	icon_state = "tags"
+	badge_string = "Sol Central Government"
+	slot_flags = SLOT_MASK | SLOT_TIE
+

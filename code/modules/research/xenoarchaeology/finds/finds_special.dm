@@ -10,6 +10,7 @@
 	processing_objects.Add(src)
 	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
 
+
 /obj/item/weapon/reagent_containers/glass/replenishing/process()
 	reagents.add_reagent(spawning_id, 0.3)
 
@@ -23,6 +24,13 @@
 
 /obj/item/clothing/mask/gas/poltergeist/New()
 	processing_objects.Add(src)
+	listening_objects += src
+	..()
+
+/obj/item/clothing/mask/gas/poltergeist/Destroy()
+	processing_objects.Remove(src)
+	listening_objects -= src
+	return ..()
 
 /obj/item/clothing/mask/gas/poltergeist/process()
 	if(heard_talk.len && istype(src.loc, /mob/living) && prob(10))
@@ -57,6 +65,12 @@
 /obj/item/weapon/vampiric/New()
 	..()
 	processing_objects.Add(src)
+	listening_objects += src
+
+/obj/item/weapon/vampiric/Destroy()
+	processing_objects.Remove(src)
+	listening_objects -= src
+	return ..()
 
 /obj/item/weapon/vampiric/process()
 	//see if we've identified anyone nearby
@@ -127,7 +141,7 @@
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3)
 		nearby_mobs.Add(M)
 
-		var/target = pick("chest","groin","head","l_arm","r_arm","r_leg","l_leg","l_hand","r_hand","l_foot","r_foot")
+		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), BRUTE, target)
 		M << "\red The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
@@ -145,6 +159,10 @@
 	..()
 	processing_objects.Add(src)
 	loc_last_process = src.loc
+
+/obj/effect/decal/cleanable/blood/splatter/animated/Destroy()
+	processing_objects.Remove(src)
+	return ..()
 
 /obj/effect/decal/cleanable/blood/splatter/animated/process()
 	if(target_turf && src.loc != target_turf)
@@ -175,6 +193,10 @@
 /obj/effect/shadow_wight/New()
 	processing_objects.Add(src)
 
+/obj/effect/shadow_wight/Destroy()
+	processing_objects.Remove(src)
+	return ..()
+
 /obj/effect/shadow_wight/process()
 	if(src.loc)
 		src.loc = get_turf(pick(orange(1,src)))
@@ -200,4 +222,4 @@
 		processing_objects.Remove(src)
 
 /obj/effect/shadow_wight/Bump(var/atom/obstacle)
-	obstacle << "\red You feel a chill run down your spine!"
+	obstacle << "<span class='warning'>You feel a chill run down your spine!</span>"

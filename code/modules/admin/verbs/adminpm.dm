@@ -19,9 +19,9 @@
 	var/list/client/targets[0]
 	for(var/client/T)
 		if(T.mob)
-			if(istype(T.mob, /mob/new_player))
+			if(isnewplayer(T.mob))
 				targets["(New Player) - [T]"] = T
-			else if(istype(T.mob, /mob/dead/observer))
+			else if(isghost(T.mob))
 				targets["[T.mob.name](Ghost) - [T]"] = T
 			else
 				targets["[T.mob.real_name](as [T.mob.name]) - [T]"] = T
@@ -56,8 +56,6 @@
 			else		adminhelp(msg)	//admin we are replying to has vanished, adminhelp instead
 			return
 
-	if (src.handle_spam_prevention(msg,MUTE_ADMINHELP))
-		return
 
 	//clean the message if it's not sent by a high-rank admin
 	//todo: sanitize for all???
@@ -104,7 +102,7 @@
 
 	//play the recieving admin the adminhelp sound (if they have them enabled)
 	//non-admins shouldn't be able to disable this
-	if(C.prefs && C.prefs.toggles & SOUND_ADMINHELP)
+	if(C.is_preference_enabled(/datum/client_preference/holder/play_adminhelp_ping))
 		C << 'sound/effects/adminhelp.ogg'
 
 	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]")
@@ -133,10 +131,13 @@
 	// Handled on Bot32's end, unsure about other bots
 //	if(length(msg) > 400) // TODO: if message length is over 400, divide it up into seperate messages, the message length restriction is based on IRC limitations.  Probably easier to do this on the bots ends.
 //		src << "<span class='warning'>Your message was not sent because it was more then 400 characters find your message below for ease of copy/pasting</span>"
-//		src << "\blue [msg]</span>"
+//		src << "<span class='notice'>[msg]</span>"
 //		return
 
-	send2adminirc("PlayerPM to [sender] from [key_name(src)]: [html_decode(msg)]")
+	var/rank = "Player"
+	if(holder)
+		rank = holder.rank
+	send2adminirc("[rank]PM to [sender] from [key_name(src)]: [html_decode(msg)]")
 
 	src << "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>IRC-[sender]</span>: <span class='message'>[msg]</span></span></span>"
 
