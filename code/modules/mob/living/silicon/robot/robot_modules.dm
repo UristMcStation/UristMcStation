@@ -712,7 +712,7 @@ var/global/list/robot_modules = list(
 					"Spider" = "Spider-Combat"
 					)
 
-/obj/item/weapon/robot_module/combat/New()
+/obj/item/weapon/robot_module/security/combat/New()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/gun/energy/laser/mounted(src)
