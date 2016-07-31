@@ -8,7 +8,6 @@
 	item_state = "waterbackpack"
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	slowdown = 1
 	action_button_name = "Toggle Mister"
 
 	var/obj/item/weapon/reagent_containers/glass/mister/noz
@@ -17,6 +16,7 @@
 
 /obj/item/weapon/watertank/New()
 	..()
+	slowdown_per_slot[slot_back] = 1
 	create_reagents(volume)
 	return
 

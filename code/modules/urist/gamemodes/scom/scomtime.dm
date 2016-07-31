@@ -151,7 +151,7 @@
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/navy/officer(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
 
 			M.loc = pick(scomspawn3)
@@ -329,7 +329,7 @@
 		L.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(L), slot_shoes)
 		L.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(L), slot_gloves)
 		L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(L), slot_belt)
-		L.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/alt(L), slot_head)
+		L.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/navy/officer(L), slot_head)
 		L.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(L), slot_r_store)
 
 		L.loc = pick(scomspawn3)

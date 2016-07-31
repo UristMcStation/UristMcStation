@@ -289,7 +289,7 @@
 	icon_state = "fleshmask"
 	body_parts_covered = FACE|HEAD
 	flags_inv = HIDEEARS|HIDEFACE
-	flags = MASKCOVERSMOUTH | BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
+	flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
 	var/usedonce = 0 //can only set voice once, to prevent being superior to voice changer at the same cost
 
 /obj/item/clothing/mask/gas/voice/fleshmask/Set_Voice(name as text)

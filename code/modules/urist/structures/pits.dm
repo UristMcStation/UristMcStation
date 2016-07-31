@@ -150,10 +150,11 @@
 //			/obj/item/clothing/accessory/badge/marshal/old,
 			/obj/item/clothing/accessory/horrible,
 			/obj/item/clothing/accessory/medal,
+			/obj/item/clothing/accessory/medal/iron,
 			/obj/item/clothing/accessory/medal/silver,
-			/obj/item/clothing/accessory/medal/silver/valor,
+			/obj/item/clothing/accessory/medal/silver/sword,
 			/obj/item/clothing/accessory/medal/gold,
-			/obj/item/clothing/accessory/medal/gold/heroism
+			/obj/item/clothing/accessory/medal/gold/crest
 			)
 		loot = pick(misc)
 		new loot(C)

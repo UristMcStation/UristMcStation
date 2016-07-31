@@ -99,7 +99,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
-	icon_type = "cigarette"
+	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 //watches
 

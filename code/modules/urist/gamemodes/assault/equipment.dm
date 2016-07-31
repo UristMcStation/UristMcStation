@@ -73,9 +73,9 @@
 
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/a4
@@ -88,8 +88,8 @@
 	max_shots = 16
 
 	firemodes = list(
-		list(name="short bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
-		list(name="long bursts",	burst=16, move_delay=10, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
+		list(mode_name="short bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
+		list(mode_name="long bursts",	burst=16, move_delay=10, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)

@@ -137,9 +137,9 @@
 	magazine_type = /obj/item/ammo_magazine/a556/a22
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/a22/update_icon()
@@ -182,7 +182,7 @@
 	magazine_type = /obj/item/ammo_magazine/a762/a18
 	firemode_type = /datum/firemode/a18
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0)
+		list(mode_name="semiauto", burst=1, fire_delay=0)
 		)
 
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
@@ -240,7 +240,7 @@
 			gl_attach = 0
 			firemodes = null
 			firemodes = list(
-				list(name="semiauto", burst=1, fire_delay=0)
+				list(mode_name="semiauto", burst=1, fire_delay=0)
 				)
 			update_icon()
 			new /obj/item/weapon/gunattachment/grenadelauncher(user.loc)
@@ -263,8 +263,8 @@
 			gl_attach = 1
 			firemodes = null
 			firemodes = list(
-				list(name="semiauto", burst=1, fire_delay=0),
-				list(name="fire grenades", use_launcher=1)
+				list(mode_name="semiauto", burst=1, fire_delay=0),
+				list(mode_name="fire grenades", use_launcher=1)
 				)
 			update_icon()
 			user.remove_from_mob(I)
@@ -305,8 +305,8 @@
 	icon_state = "FALrifle-GL"
 	gl_attach = 1
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="fire grenades", use_launcher=1)
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="fire grenades", use_launcher=1)
 		)
 
 /obj/item/weapon/gunattachment
@@ -352,9 +352,9 @@
 	magazine_type = /obj/item/ammo_magazine/a9mm
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/asmg/update_icon()

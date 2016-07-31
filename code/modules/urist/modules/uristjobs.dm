@@ -2,14 +2,13 @@
 
 /datum/job/blueshield
 	title = "Blueshield"
-	flag =  BLUESHIELD
-	department_flag = ENGSEC
+	department_flag = SEC|COM
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "whichever head you protect. Remember, you are NOT security. Ultimately, you report to Nanotrasen, but if unavailable, defer to the Captain."
 	selection_color = "#ddddff"
-	idtype = /obj/item/weapon/card/id/centcom
+	idtype = /obj/item/weapon/card/id/centcom/station
 	req_admin_notify = 1
 	minimal_player_age = 8
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,

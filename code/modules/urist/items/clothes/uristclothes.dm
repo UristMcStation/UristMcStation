@@ -37,8 +37,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "Scirig"
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/box/monkeycubes,/obj/item/device/aicard,/obj/item/device/paicard,/obj/item/weapon/hand_tele)
 	armor = list(melee = 10, bullet = 5, laser = 10,energy = 5, bomb = 60, bio = 100, rad = 30)
-	offline_slowdown = 3
-	online_slowdown = 2
+
+/obj/item/clothing/suit/space/void/science/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 2
 
 //Emergency Suit. It's really shitty, but better than a firesuit when it comes to space or biological hazards. Will need a special "emergency locker" for this.
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
@@ -55,14 +57,17 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen)
-	slowdown = 1.5
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency)
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	flags = STOPPRESSUREDAMAGE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	species_restricted = list("exclude","Vox")
+
+/obj/item/clothing/suit/emergencysuit/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1.5
 
 //Armoured biosuit for sec
 
@@ -77,10 +82,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	slowdown = 3.0 //disgusting slowdown to compensate.
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
+	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+
+/obj/item/clothing/suit/bio_suit/asec/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 3
 
 //Welder apron done by ShoesandHats and added by Cozarctan. Moved from welder. Welder machete goes into the new uristweapons.dm
 
@@ -105,9 +113,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "navyspace"
 	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
 	w_class = 3
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/device/flashlight)
-	slowdown = 1
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+
+/obj/item/clothing/suit/space/naval/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
 
 //Naval Commando Suit
 
@@ -120,10 +131,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/melee/energy/sword)
-	slowdown = 1
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
 	can_breach = 0
+
+/obj/item/clothing/suit/space/void/commando/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
 
 //Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
@@ -665,7 +679,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "autumn"
 	blood_overlay_type = "armor"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
-	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
+	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
 
 //Blueshield
 /obj/item/clothing/suit/storage/urist/coat/blueshield //no toggle yet
@@ -679,7 +693,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags = ONESIZEFITSALL
+	//flags =
 
 /obj/item/clothing/suit/armor/vest/deus_blueshield
 	name = "blue shield security armor"
@@ -742,7 +756,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armor"
-	flags = ONESIZEFITSALL
+	//flags =
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/under/urist/blackwarden
@@ -843,7 +857,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "fo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armor"
-	flags = ONESIZEFITSALL || THICKMATERIAL
+	flags = THICKMATERIAL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 //Actual armour
@@ -855,7 +869,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "trash"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armor"
-	flags = ONESIZEFITSALL || THICKMATERIAL
+	flags = THICKMATERIAL
 
 //altshield
 

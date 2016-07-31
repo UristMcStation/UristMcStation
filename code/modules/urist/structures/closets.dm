@@ -99,10 +99,10 @@
 
 	new /obj/item/clothing/head/emergencyhood(src)
 	new /obj/item/clothing/suit/emergencysuit(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
+	new /obj/item/weapon/tank/emergency/oxygen(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/weapon/storage/toolbox/emergency(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
+	new /obj/item/weapon/tank/emergency/oxygen(src)
 
 //Armored sec biosuit locker
 
@@ -141,7 +141,7 @@
 /obj/structure/closet/scom/sniper/New()
 	..()
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
 	new /obj/item/weapon/gun/projectile/deagle(src)
@@ -155,7 +155,7 @@
 /obj/structure/closet/scom/assault/New()
 	..()
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
 	new /obj/item/weapon/gun/projectile/deagle(src)

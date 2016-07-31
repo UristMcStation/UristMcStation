@@ -1,7 +1,7 @@
 /*Poll panel*/
 
 /datum/admins/proc/poll_panel()
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -18,7 +18,7 @@
 	return
 
 /datum/admins/proc/view_poll_panel(var/pollid)
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -136,7 +136,7 @@
 		usr << browse(dat, "window=viewpollpanel;size=400x600")
 
 /datum/admins/proc/manage_poll_panel()
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -197,7 +197,7 @@
 	return
 
 /datum/admins/proc/create_poll_panel()
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -319,7 +319,7 @@
 	return
 
 /datum/admins/proc/remove_poll(var/pollid)
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -355,7 +355,7 @@
 
 /datum/admins/proc/create_new_poll(var/polltype,var/timelength,var/question,list/polloptions,var/adminonly,var/multilimit,var/maxval,var/minval,var/descmax,var/descmin,var/descmed)
 
-	if(!check_rights(R_POLL,1))	return
+	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())

@@ -21,7 +21,7 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 	msg = trim(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)) //No in-chat HTML for you user!
 	if(!msg)	return
 
-	if(!(prefs.toggles & CHAT_OOC))
+	if(!is_preference_enabled(/datum/client_preference/show_ooc))
 		src << "<span clas='warning'>You have OOC muted.</span>"
 		return
 
@@ -46,7 +46,7 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 	log_ooc("[mob.name]/[key]/AOOC : [msg]")
 
 	for(var/client/C in clients)
-		if(C.prefs.toggles & CHAT_OOC)
+		if(is_preference_enabled(/datum/client_preference/show_ooc))
 			var/display_name = src.key
 			if(holder)
 				if(holder.fakekey)

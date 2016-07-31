@@ -284,7 +284,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
-	icon_type = "cigarette"
+	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 
 /obj/item/weapon/storage/fancy/cigarettes/urist/uplift
@@ -434,8 +434,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
-	icon_type = "rolling paper"
+	key_type = /obj/item/weapon/rollingpaper
 	can_hold = list(/obj/item/weapon/rollingpaper)
+	startswith = list(/obj/item/weapon/rollingpaper = 9)
 
 /obj/item/weapon/storage/fancy/rollingpapers/New()
 	..()

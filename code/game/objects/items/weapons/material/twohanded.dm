@@ -77,7 +77,7 @@
 	base_icon = "fireaxe"
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
-	
+
 	// 15/32 with hardness 60 (steel) and 20/42 with hardness 80 (plasteel)
 	force_divisor = 0.525
 	unwielded_force_divisor = 0.25
@@ -121,7 +121,7 @@
 	force_wielded = 30
 	wieldsound = 'sound/weapons/saberon.ogg'
 	unwieldsound = 'sound/weapons/saberoff.ogg'
-	flags = NOSHIELD
+//	flags =
 	origin_tech = "magnets=3;syndicate=4"
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	sharp = 1

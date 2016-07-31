@@ -246,7 +246,7 @@ B --><-- A
 /proc/living_player_count()
 	var/living_player_count = 0
 	for(var/mob in player_list)
-		if(mob in living_mob_list)
+		if(mob in living_mob_list_)
 			living_player_count += 1
 	return living_player_count
 

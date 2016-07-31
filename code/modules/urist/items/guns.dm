@@ -15,13 +15,13 @@
 	modifystate = "senergystun"
 
 	firemodes = list(
-		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg'),
 		)
 
-	suicide_act(mob/user)
+	/*suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
-		return(BRUTELOSS)
+		return(BRUTELOSS)*/
 
 //umbrella gun
 
@@ -102,9 +102,9 @@ the sprite and make my own projectile -Glloyd*/
 	modifystate = "plasmapistol"
 	cell_type = "/obj/item/weapon/cell/crap"
 
-	suicide_act(mob/user)
+/*	suicide_act(mob/user)
 		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
-		return(BRUTELOSS)
+		return(BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2
 	name = "ionized phoron"
@@ -229,9 +229,9 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/a556/m16
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/m16/update_icon()
@@ -249,9 +249,9 @@ the sprite and make my own projectile -Glloyd*/
 
 	firemode_type = /datum/firemode/z8
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="fire grenades", use_launcher=1)
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="fire grenades", use_launcher=1)
 		)
 
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
@@ -318,8 +318,8 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m/m3
 	firemodes = list(
-		list(name="short bursts",	burst=4, move_delay=6, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(name="long bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=4, move_delay=6, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/m3/update_icon()

@@ -90,7 +90,7 @@
 			if("Peace")
 				user << "<B>Whatever alien sentience that the Wish Granter possesses is satisfied with your wish. There is a distant wailing as the last of the Faithless begin to die, then silence.</B>"
 				user << "You feel as if you just narrowly avoided a terrible fate..."
-				for(var/mob/living/simple_animal/hostile/faithless/F in living_mob_list)
+				for(var/mob/living/simple_animal/hostile/faithless/F in living_mob_list_)
 					F.health = -10
 					F.stat = 2
 					F.icon_state = "faithless_dead"
@@ -120,7 +120,7 @@
 
 	if(triggered) return
 
-	if(istype(M, /mob/living/carbon/human) || istype(M, /mob/living/carbon/monkey))
+	if(istype(M, /mob/living/carbon/human))
 		for(var/mob/O in viewers(world.view, src.loc))
 			O << "<font color='red'>[M] triggered the \icon[src] [src]</font>"
 		triggered = 1
@@ -155,8 +155,8 @@
 
 	spawn(rand(800,1200))
 		if(C.stat == DEAD)
-			dead_mob_list -= C
-			living_mob_list += C
+			dead_mob_list_ -= C
+			living_mob_list_ += C
 		C.stat = CONSCIOUS
 		C.tod = null
 		C.setToxLoss(0)
