@@ -150,10 +150,10 @@
 	sharp = 1
 	edge = 1
 
-	suicide_act(mob/user)
+/*	suicide_act(mob/user)
 		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
 							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
-		return (BRUTELOSS)
+		return (BRUTELOSS)*/
 
 /obj/item/weapon/material/shard/attackby(var/obj/item/I, mob/user as mob)
 	..()

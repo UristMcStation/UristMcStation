@@ -177,13 +177,13 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	New()
 		..()
-		new /obj/item/clothing/accessory/medal/silver/valor(src)
-		new /obj/item/clothing/accessory/medal/silver/security(src)
-		new /obj/item/clothing/accessory/medal/bronze_heart(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/gold/captain(src)
+		new /obj/item/clothing/accessory/medal/silver(src)
+		new /obj/item/clothing/accessory/medal/silver(src)
+		new /obj/item/clothing/accessory/medal/bronze/nanotrasen(src)
+		new /obj/item/clothing/accessory/medal/gold(src)
+		new /obj/item/clothing/accessory/medal/iron(src)
+		new /obj/item/clothing/accessory/medal/iron/nanotrasen(src)
+		new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
 //holojanisign
 

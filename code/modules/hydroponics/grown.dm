@@ -198,8 +198,11 @@
 			else if(seed.chems)
 				if(istype(W,/obj/item/weapon/material/hatchet) && !isnull(seed.chems["woodpulp"]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
+					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
+					if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 					for(var/i=0,i<2,i++)
 						var/obj/item/stack/material/wood/NG = new (user.loc)
+						if(flesh_colour) NG.color = flesh_colour
 						for (var/obj/item/stack/material/wood/G in user.loc)
 							if(G==NG)
 								continue
@@ -222,6 +225,15 @@
 				else if(!isnull(seed.chems["soymilk"]))
 					user << "You roughly chop up \the [src]."
 					new /obj/item/weapon/reagent_containers/food/snacks/soydope(get_turf(src))
+					qdel(src)
+					return
+				else if(seed.get_trait(TRAIT_FLESH_COLOUR))
+					user << "You slice up \the [src]."
+					var/slices = rand(3,5)
+					var/reagents_to_transfer = round(reagents.total_volume/slices)
+					for(var/i=i;i<=slices;i++)
+						var/obj/item/weapon/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
+						if(reagents_to_transfer) reagents.trans_to_obj(F,reagents_to_transfer)
 					qdel(src)
 					return
 	..()
@@ -260,8 +272,11 @@
 
 	if(seed.kitchen_tag == "grass")
 		user.show_message("<span class='notice'>You make a grass tile out of \the [src]!</span>", 1)
+		var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
+		if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 		for(var/i=0,i<2,i++)
 			var/obj/item/stack/tile/grass/G = new (user.loc)
+			if(flesh_colour) G.color = flesh_colour
 			for (var/obj/item/stack/tile/grass/NG in user.loc)
 				if(G==NG)
 					continue
@@ -318,14 +333,20 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris
 	plantname = "ambrosia"
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/amanita
-	plantname = "amanita"
+/obj/item/weapon/reagent_containers/food/snacks/fruit_slice
+	name = "fruit slice"
+	desc = "A slice of some tasty fruit."
+	icon = 'icons/obj/hydroponics_misc.dmi'
+	icon_state = ""
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi
-	plantname = "reishi"
+var/list/fruit_icon_cache = list()
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/poppy
-	plantname = "poppy"
+/obj/item/weapon/reagent_containers/food/snacks/fruit_slice/New(var/newloc, var/datum/seed/S)
+	..(newloc)
+	// Need to go through and make a general image caching controller. Todo.
+	if(!istype(S))
+		qdel(src)
+		return
 
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
@@ -343,6 +364,3 @@
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
 	overlays |= fruit_icon_cache["slice-[rind_colour]"]
-
-/obj/item/weapon/reagent_containers/food/snacks/grown/harebell
-	plantname = "harebell"

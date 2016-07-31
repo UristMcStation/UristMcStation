@@ -32,11 +32,13 @@
 	if(!mind.vampire)
 		mind.vampire = new /datum/vampire(gender)
 		mind.vampire.owner = src
+	if(!mind in vamps.current_antagonists)
+		vamps.current_antagonists |= src.mind
+
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_coffinsleep
 	verbs += /client/proc/vampire_hypnotise
 	verbs += /client/proc/vampire_glare
-	faction = "vampire"
 
 	for(var/i = 1; i <= 3; i++)
 		if(!(i in mind.vampire.powers))
