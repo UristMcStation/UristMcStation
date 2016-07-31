@@ -20,6 +20,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	urist_only = 1
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
+	species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
+
+/obj/item/clothing/suit/armor/species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
 
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...

@@ -180,13 +180,13 @@ GUEST_BAN
 #SERVER server.net:port
 
 ## forum address
-FORUMURL http://www.prevess.com/index.php
+FORUMURL http://uristmcstation.com/forum/
 
 ## Wiki address
-WIKIURL "http://baystation12.net/wiki/"
+WIKIURL "http://uristmcstation.com/wiki/index.php/Main_Page"
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://www.prevess.com/viewforum.php?f=10&sid=40b6718d8bfcf8e66a951b4b28069491
+BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard

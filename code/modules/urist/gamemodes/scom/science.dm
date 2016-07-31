@@ -57,7 +57,7 @@
 /obj/item/scom/aliengun/a4
 	scomtechlvl = 6
 	scommoney = 1000
-	icon_state = "alienrifle" //temp
+	icon_state = "alienlmg"
 
 /obj/item/scom/borgmodkit
 	name = "cyborg mod kit - Combat"

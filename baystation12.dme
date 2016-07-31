@@ -2095,6 +2095,7 @@
 #include "code\modules\urist\gamemodes\infestation\machinery.dm"
 #include "code\modules\urist\gamemodes\infestation\shuttles.dm"
 #include "code\modules\urist\gamemodes\infestation\weapons&armour.dm"
+#include "code\modules\urist\gamemodes\infestation\aliens\harvester.dm"
 #include "code\modules\urist\gamemodes\infestation\aliens\lactera.dm"
 #include "code\modules\urist\gamemodes\paranoia\conspiracyitems.dm"
 #include "code\modules\urist\gamemodes\paranoia\conspiracyleader.dm"

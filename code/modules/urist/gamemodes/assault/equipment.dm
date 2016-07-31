@@ -38,11 +38,13 @@
 	fire_delay = 1 //rapid fire
 	max_shots = 8
 	self_recharge = 1
+	urist_only = 1
 	var/inertstate = /obj/item/scom/aliengun
 
 /obj/item/weapon/gun/energy/lactera/update_icon()
 	..()
 	item_state = initial(item_state)
+	icon_state = initial(icon_state)
 
 /obj/item/weapon/gun/energy/lactera/a1
 	name = "alien pistol"
@@ -59,12 +61,13 @@
 	item_state = "lightalienrifle"
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
+	max_shots = 12
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
 	item_state = "alienrifle"
 	icon_state = "alienrifle"
-	projectile_type = /obj/item/projectile/beam/scom/alien1
+	projectile_type = /obj/item/projectile/beam/scom/alien2
 	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 	inertstate = /obj/item/scom/aliengun/a3
 
@@ -73,6 +76,20 @@
 		list(name="semiauto", burst=1, fire_delay=0),
 		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
 		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/weapon/gun/energy/lactera/a4
+	name = "alien LMG"
+	item_state = "alienrifle" //temporary
+	icon_state = "alienlmg"
+	projectile_type = /obj/item/projectile/beam/scom/alien1
+	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
+	inertstate = /obj/item/scom/aliengun/a4
+	max_shots = 16
+
+	firemodes = list(
+		list(name="short bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
+		list(name="long bursts",	burst=16, move_delay=10, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)
@@ -116,6 +133,27 @@
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
+/obj/item/weapon/plastique/alienexplosive/explode(var/location)
+	if(!target)
+		target = get_atom_on_turf(src)
+	if(!target)
+		target = src
+	if(location)
+		explosion(location, -1, -1, 2, 3)
+
+	if(target)
+		if (istype(target, /turf/simulated/wall))
+			var/turf/simulated/wall/W = target
+			W.dismantle_wall(1)
+		else if (istype(target, /turf/simulated/floor))
+			target.ex_act(3) //no destroying floors for the shitter aliums
+		else if(istype(target, /mob/living))
+			target.ex_act(2) // c4 can't gib mobs anymore.
+		else
+			target.ex_act(1)
+	if(target)
+		target.overlays -= image_overlay
+	qdel(src)
 
 /obj/item/weapon/plastique/alienexplosive/attackby(var/obj/item/I, var/mob/user)
 	return
@@ -151,6 +189,7 @@
 	icon = 'icons/uristmob/scommobs.dmi'
 	icon_override = 'icons/uristmob/r_lactera.dmi'
 	species_restricted = list("Xenomorph")
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/grenade,/obj/item/weapon/plastique)
 
 /obj/item/clothing/suit/lactera/regular
 	name = "lactera armoured vest"
@@ -238,7 +277,7 @@
 //	icon_state = "norm2"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-	var/remaininggens = 4
+//	var/remaininggens = 6
 	var/health = 200
 	var/maxhealth = 200
 	anchored = 1
@@ -308,10 +347,10 @@
 	..()
 
 /obj/structure/assaultshieldgen/proc/kaboom()
-	for(var/obj/structure/assaultshieldgen/S in world)
-		remaininggens -= 1
-
-	if(remaininggens == 0)
-		gamemode_endstate = 3
+//	for(var/obj/structure/assaultshieldgen/S in world)
+//		S.remaininggens -= 1
+	remaininggens -= 1
+//	if(remaininggens == 0)
+//		gamemode_endstate = 3
 
 	qdel(src)

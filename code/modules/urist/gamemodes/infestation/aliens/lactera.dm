@@ -2,10 +2,15 @@
 	h_style = "Bald"
 	..(new_loc, "Lactera")
 
+	faction = "alien"
+
 /mob/living/carbon/human/lactera/bullet_act(var/obj/item/projectile/Proj)
 	Proj.embed = 0
 
 	..()
+
+/mob/living/carbon/human/lactera/handle_strip()
+	return //can't strip lactera
 
 /obj/item/organ/external/chest/lactera
 	cannot_break = 1

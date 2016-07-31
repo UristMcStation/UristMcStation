@@ -91,6 +91,7 @@
 				stat("Usable Blood", mind.vampire.bloodusable)
 		if(master_mode == "assault")
 			stat("Remaining Lactera", remaininglactera)
+			stat("Remaining Shieldgens", remaininggens)
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
