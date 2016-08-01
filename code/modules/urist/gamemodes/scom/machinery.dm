@@ -199,7 +199,7 @@
 	animation_state = "lead_o"
 	bound_width = 32
 
-/obj/machinery/scom/scomscience/squadlead/interact(mob/user as mob)
+/obj/machinery/scom/scomscience/squadlead/interact(mob/living/user as mob)
 	if(user.job in list("Head of Personnel", "Head of Security", "Chief Engineer", "Chief Medical Officer"))
 		..()
 	else

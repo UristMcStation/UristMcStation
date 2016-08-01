@@ -18,6 +18,7 @@
 	name = "5xEMP Grenades"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/emps
+	antag_costs = list(MODE_PARANOIA = 15)
 
 /datum/uplink_item/item/grenades/frag_high_yield
 	name = "Fragmentation Bomb"

@@ -8,7 +8,7 @@
 //spoopy red maint lights, Alien-style
 /obj/machinery/light/small/red
 	icon_state = "firelight1"
-	fitting = "bulb"
+	construct_type = /obj/machinery/light/small
 	brightness_range = 6
 	brightness_power = 1
 	active_power_usage = 2

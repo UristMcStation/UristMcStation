@@ -42,17 +42,6 @@
 /mob/living/carbon/harvester/attack_ui(slot_id)
 	return
 
-/mob/living/carbon/harvester/meteorhit(O as obj)
-	for(var/mob/M in viewers(src, null))
-		if ((M.client && !( M.blinded )))
-			M.show_message(text("<span class='danger'> [] has been hit by []</span>", src, O), 1)
-	if (health > 0)
-		adjustBruteLoss((istype(O, /obj/effect/meteor/small) ? 10 : 25))
-		adjustFireLoss(30)
-
-		updatehealth()
-	return
-
 /mob/living/carbon/harvester/attack_hand(mob/living/carbon/M as mob)
 
 	..()
@@ -84,9 +73,6 @@
 
 /mob/living/carbon/harvester/ex_act(severity)
 
-	if(!blinded)
-		flick("flash", flash)
-
 	var/b_loss = null
 	var/f_loss = null
 	switch (severity)
@@ -116,13 +102,6 @@
 
 /datum/hud/proc/infestharvester_hud()
 
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = 'icons/mob/screen1.dmi'
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
-	mymob.flash.layer = 17
-
 	mymob.fire = new /obj/screen()
 	mymob.fire.icon = 'icons/mob/screen1_construct.dmi'
 	mymob.fire.icon_state = "fire0"
@@ -148,7 +127,7 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list(mymob.fire, mymob.healths, mymob.pullin, mymob.zone_sel, mymob.flash)
+	mymob.client.screen += list(mymob.fire, mymob.healths, mymob.pullin, mymob.zone_sel)
 
 
 /mob/living/carbon/harvester/Life()
@@ -211,7 +190,7 @@
 	else if(!iscloaking)
 		alpha = 255
 
-/mob/living/carbon/harvester/proc/handle_mutations_and_radiation()
+/mob/living/carbon/harvester/handle_mutations_and_radiation()
 
 	if(!radiation)
 		return
@@ -224,7 +203,7 @@
 	adjustToxLoss(-(rads))
 	return
 
-/mob/living/carbon/harvester/proc/handle_regular_status_updates() //edit this
+/mob/living/carbon/harvester/handle_regular_status_updates() //edit this
 
 	if(status_flags & GODMODE)	return 0
 

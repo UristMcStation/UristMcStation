@@ -27,7 +27,7 @@
 			if(covered_locations & HEAD || covered_locations & EYES)
 				return 0
 		if("mouth")
-			if(covered_locations & HEAD || covered_locations & MOUTH)
+			if(covered_locations & HEAD || covered_locations & FACE)
 				return 0
 		if("chest")
 			if(covered_locations & UPPER_TORSO)

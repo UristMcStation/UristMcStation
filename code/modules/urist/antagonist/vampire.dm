@@ -4,7 +4,6 @@ var/datum/antagonist/vampire/vamps
 	id = MODE_VAMPIRE
 	role_text = "Vampire"
 	role_text_plural = "Vampires"
-	bantype = "vampire"
 	feedback_tag = "vampire_objective"
 	restricted_jobs = list("AI", "Cyborg", "Chaplain")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")

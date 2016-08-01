@@ -286,11 +286,11 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/outpost/base_turf = /turf/simulated/jungle/clear
 
-/area/outpost/abandoned/base_turf = /turf/simulated/floor/plating/airless/asteroid
+/area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
 
-/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/plating/airless/asteroid
+/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid
 
-/area/outpost/research/eva/base_turf = /turf/simulated/floor/plating/airless/asteroid
+/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/mining/outpost/base_turf = /turf/simulated/jungle/clear
 

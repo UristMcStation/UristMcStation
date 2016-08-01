@@ -15,6 +15,7 @@
 	var/list/nutriment_desc = list("food" = 1)
 	center_of_mass = "x=16;y=16"
 	w_class = 2
+	var/deepfried = 0
 
 /obj/item/weapon/reagent_containers/food/snacks/New()
 	..()

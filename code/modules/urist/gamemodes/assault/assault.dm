@@ -32,11 +32,7 @@ var/global/remaininggens = 6
 			new /obj/structure/computerframe(S.loc)
 			qdel(S)
 
-	for(var/obj/machinery/computer/supplycomp/S in machines)
-		new /obj/structure/computerframe(S.loc)
-		qdel(S)
-
-	for(var/obj/machinery/computer/communications/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
+	for(var/obj/machinery/computer/supply/S in machines)
 		new /obj/structure/computerframe(S.loc)
 		qdel(S)
 
@@ -174,7 +170,7 @@ var/global/remaininggens = 6
 /mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
 	if(remaininglactera <= 0)
 		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
-			var/mob/dead/observer/H = new /mob/dead/observer(S.loc)
+			var/mob/observer/H = new /mob/observer(S.loc)
 			H.ckey = L.ckey
 
 	else

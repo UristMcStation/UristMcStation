@@ -18,25 +18,6 @@
 	..()
 	desc = "Contains jet fuel. Warning: results may vary!"
 
-//early-bird port of Operations Funding
-
-/obj/item/weapon/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
-
-/obj/item/weapon/storage/secure/briefcase/money/New()
-	..()
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-	new /obj/item/weapon/spacecash/bundle/c1000(src)
-
 /obj/item/weapon/conspiracyintel
 	name = "intel"
 	desc = "A file containing top-secret data."
@@ -49,7 +30,6 @@
 	throw_range = 2
 	throw_speed = 1
 	layer = 4
-	pressure_resistance = 1
 	var/value = 2 //how many TC it grants
 	var/upload_id //for persistent uploads
 	var/basedesc = "A file containing top-secret data."
@@ -241,28 +221,16 @@
 				cached_progress = 0
 				update_icon()
 
-				var/obj/item/device/uplink/hidden/suplink = user.mind.find_syndicate_uplink()
 				var/crystals
 				crystals = C.value
 				if (!isnull(crystals))
-					if(suplink)
-						suplink.uses += crystals
-						user << "<span class='notice'>[crystals] telecrystals have been added to your account.</span>"
-					else
-						stored_crystals += crystals
+					new /obj/item/stack/telecrystal(src.loc, crystals)
 				qdel(C)
 		if(progress < 100)
 			cached_progress = progress
 			uploading = 0
 			update_icon()
 			user << "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>"
-
-	if(stored_crystals)
-		if(I.hidden_uplink)
-			var/obj/item/device/uplink/hidden/suplink = I.hidden_uplink
-			suplink.uses += stored_crystals
-			user << "<span class='notice'>Your [I] pings quietly as [stored_crystals] telecrystals are added to it.</span>"
-			stored_crystals = 0
 	..()
 
 //a suit that looks like a black-haired human in a suit, for muh Reptilians and/or Thin Mints

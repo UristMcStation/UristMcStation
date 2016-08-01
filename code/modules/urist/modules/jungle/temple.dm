@@ -111,9 +111,9 @@
 						new cash_type(C)
 			if("remains")
 				if(prob(50))
-					new /obj/effect/item/remains/human(src.loc)
+					new /obj/item/remains/human(src.loc)
 				else
-					new /obj/effect/item/remains/xeno(src.loc)
+					new /obj/item/remains/xeno(src.loc)
 			if("plants")
 				if(prob(25))
 					new /obj/item/weapon/bananapeel(src.loc)
@@ -210,13 +210,15 @@
 				for(var/i=0,i<num,i++)
 					new new_type(C)
 			if("alien")
+				qdel(src)
+				return
 				//ancient aliens
-				var/obj/structure/closet/acloset/C = new(src.loc)
-				if(prob(33))
+				//var/obj/structure/closet/acloset/C = new(src.loc)
+				/*if(prob(33))
 					//facehuggers
 					var/num = rand(1,3)
 					for(var/i=0,i<num,i++)
-						new /obj/item/clothing/mask/facehugger(C)
+						new /obj/item/clothing/mask/facehugger(C)*/
 				/*else if(prob(50))
 					//something else very much alive and angry
 					var/spawn_type = pick(/mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/alien/drone, /mob/living/simple_animal/hostile/alien/sentinel)
@@ -251,9 +253,9 @@
 			if("coffin")
 				new /obj/structure/closet/coffin(src.loc)
 				if(prob(33))
-					new /obj/effect/item/remains/human(src)
+					new /obj/item/remains/human(src)
 				else if(prob(50))
-					new /obj/effect/item/remains/xeno(src)
+					new /obj/item/remains/xeno(src)
 			/*if("mimic")
 				//a guardian of the tomb!
 				new /mob/living/simple_animal/hostile/mimic/crate(src.loc)*/

@@ -14,3 +14,4 @@
 #define VAMP_FULL    4096
 
 #define MODE_VAMPIRE "vampire"
+#define MODE_PARANOIA "agent"

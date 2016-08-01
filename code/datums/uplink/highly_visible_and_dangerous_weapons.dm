@@ -18,6 +18,7 @@
 	name = "Energy Sword"
 	item_cost = 8
 	path = /obj/item/weapon/melee/energy/sword
+	antag_costs = list(MODE_PARANOIA = 16)
 
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced Holdout Pistol"
@@ -28,33 +29,35 @@
 	name = "Exosuit (APLU) Rigged Laser"
 	item_cost = 8
 	path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
+	antag_costs = list(MODE_PARANOIA = 16)
 
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
 	item_cost = 14
-	antag_costs = list(MODE_MERCENARY = 7)
+	antag_costs = list(MODE_MERCENARY = 7, MODE_PARANOIA = 28)
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver
 
 /datum/uplink_item/item/visible_weapons/grenade_launcher
 	name = "Grenade Launcher"
 	item_cost = 15
-	antag_roles = list(MODE_MERCENARY = 12)
+	antag_roles = list(MODE_MERCENARY = 12, MODE_PARANOIA = 30)
 	path = /obj/item/weapon/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "Submachine Gun"
 	item_cost = 13
-	antag_costs = list(MODE_MERCENARY = 6)
+	antag_costs = list(MODE_MERCENARY = 6, MODE_PARANOIA = 26)
 	path = /obj/item/weapon/gun/projectile/automatic/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
 	item_cost = 15
-	antag_costs = list(MODE_MERCENARY = 9)
+	antag_costs = list(MODE_MERCENARY = 9, MODE_PARANOIA = 30)
 	path = /obj/item/weapon/gun/projectile/automatic/sts35
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle with ammunition"
 	item_cost = 17
 	path = /obj/item/weapon/storage/secure/briefcase/heavysniper
+	antag_costs = list(MODE_PARANOIA = 50)

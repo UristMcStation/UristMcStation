@@ -118,7 +118,7 @@
 /obj/structure/pit/closed/grave/initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
-	var/obj/effect/item/remains/human/bones = new(C)
+	var/obj/item/remains/human/bones = new(C)
 	bones.layer = MOB_LAYER
 
 	var/loot

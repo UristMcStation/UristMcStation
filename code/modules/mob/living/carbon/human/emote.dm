@@ -560,6 +560,9 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, vomit"}
 		log_emote("[name]/[key] : [message]")
 		custom_emote(m_type,message)
 
+	if (emote_sound)
+		playsound(src.loc, emote_sound, emote_sound_params[1], emote_sound_params[2], emote_sound_params[3])
+
 
 /mob/living/carbon/human/verb/pose()
 	set name = "Set Pose"

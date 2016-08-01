@@ -103,3 +103,16 @@
 	item_cost = 15
 	antag_costs = list(MODE_MERCENARY = 30)
 	path = /obj/item/clothing/mask/ai
+
+/datum/uplink_item/item/tools/intel_uplink
+	name = "Intel Uplink"
+	item_cost = 16
+	antag_costs = list(MODE_PARANOIA = 16)
+	path = /obj/item/device/inteluplink
+	antag_roles = list(MODE_PARANOIA)
+
+/datum/uplink_item/item/tools/jet_fuel
+	name = "Jet Fuel"
+	item_cost = 1
+	antag_costs = list(MODE_PARANOIA = 11)
+	path = /obj/item/weapon/storage/box/syndie_kit/jetfuel

@@ -125,7 +125,7 @@
 	item_state = "flashbang"
 	origin_tech = "materials=5;magnets=5"
 
-/obj/item/weapon/grenade/aliengrenade/prime()
+/obj/item/weapon/grenade/aliengrenade/detonate()
 	explosion(src.loc, 0, 0, 3, 3)
 	qdel(src)
 
@@ -218,7 +218,7 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
 
-/obj/item/weapon/grenade/anforgrenade/prime()
+/obj/item/weapon/grenade/anforgrenade/detonate()
 	explosion(src.loc, 0, 0, 2, 2)
 	qdel(src)
 

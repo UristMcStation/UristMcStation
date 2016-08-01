@@ -13,4 +13,4 @@ datum/design/plasmapistol
 	build_type = PROTOLATHE
 	materials = list("$silver" = 1000, "$metal" = 4000, "$uranium" = 1000, "$glass" = 500, "$gold" = 500, "$plasma" = 500)
 	build_path = /obj/item/weapon/gun/energy/plasmapistol
-	locked = 1
+	sort_string = "XAAAA"

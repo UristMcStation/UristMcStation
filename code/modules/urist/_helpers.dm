@@ -224,7 +224,7 @@ B --><-- A
 		loc = get_turf(orbiting)
 		orbiting = null
 
-/proc/screen_loc2turf(scr_loc, turf/origin)
+/*/proc/screen_loc2turf(scr_loc, turf/origin)
 	var/tX = splittext(scr_loc, ",")
 	var/tY = splittext(tX[2], ":")
 	var/tZ = origin.z
@@ -233,7 +233,7 @@ B --><-- A
 	tX = tX[1]
 	tX = max(1, min(world.maxx, origin.x + (text2num(tX) - (world.view + 1))))
 	tY = max(1, min(world.maxy, origin.y + (text2num(tY) - (world.view + 1))))
-	return locate(tX, tY, tZ)
+	return locate(tX, tY, tZ)*/
 
 /proc/random_step(atom/movable/AM, steps, chance)
 	var/initial_chance = chance
@@ -344,10 +344,10 @@ B --><-- A
 	if(J) //Only set the icon if it succeeded, the icon without the pixel is 1000x better than a black square.
 		icon = J
 		return J
-	return 0
+	return 0*/
 
 //Monkeys et al being a human type mess with the purpose of regular ishuman; ishumanoid is intended to check strictly 'sentient' races
 /proc/ishumanoid(A)
 	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa))) // && !(istype (A, /mob/living/carbon/human/neara)))
 		return 1 //whoever thought subtyping all these under /human/monkey or whatever was a bad idea is literally Hitler
-	return 0*/
+	return 0

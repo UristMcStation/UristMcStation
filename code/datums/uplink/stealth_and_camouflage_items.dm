@@ -33,3 +33,8 @@
 	name = "Chameleon-Projector"
 	item_cost = 8
 	path = /obj/item/device/chameleon
+
+/datum/uplink_item/item/stealth_items/fleshsuit
+	name = "Human-suit"
+	item_cost = 5
+	path = /obj/item/weapon/storage/box/syndie_kit/fleshsuit

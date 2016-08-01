@@ -14,7 +14,7 @@
 //Do the thing!
 
 
-/obj/structure/dresser/attack_hand(mob/user as mob)
+/*/obj/structure/dresser/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
 	var/mob/living/carbon/human/H = user
 	if(!ishuman(user) || (H.species && !(H.species.flags & HAS_UNDERWEAR)))
@@ -24,10 +24,8 @@
 	var/utype = alert("Which section do you want to pick from?",,"Male underwear", "Female underwear", "Undershirts")
 	var/list/selection
 	switch(utype)
-		if("Male underwear")
-			selection = underwear_m
-		if("Female underwear")
-			selection = underwear_f
+		if("Underwear")
+			selection = global_underwear
 		if("Undershirts")
 			selection = undershirt_t
 	var/pick = input("Select the style") as null|anything in selection
@@ -40,7 +38,7 @@
 			H.underwear = selection[pick]
 		H.update_body(1)
 
-	return 1
+	return 1*/ //undies_wardrobe does the same thing natively
 
 /*/obj/structure/dresser/attack_hand(mob/user as mob)
 

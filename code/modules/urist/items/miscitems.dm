@@ -19,7 +19,7 @@
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	var/fuel = 0
-	icon_action_button = null
+	action = null
 	w_class = 2
 
 /obj/item/device/flashlight/glowstick/New()

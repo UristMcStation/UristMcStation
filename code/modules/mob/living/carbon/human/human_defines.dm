@@ -98,3 +98,4 @@
 	var/exploit_record = ""
 
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
+	var/miming = 0
