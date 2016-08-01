@@ -135,7 +135,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/assaultarmort2
 	name = "advanced assault armour"
-	path = /obj/item/clothing/suit/armor/tactical
+	path = /obj/item/clothing/suit/storage/vest/merc
 	category = "Assault"
 	scomtechlvl = 3
 	hidden = 1
@@ -229,7 +229,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/leaderhelmett2
 	name = "advanced squad leader helmet"
-	path = /obj/item/clothing/head/helmet/ert/command
+	path = /obj/item/clothing/head/helmet/ert
 	category = "Squad Leader"
 	scomtechlvl = 3
 	hidden = 1
@@ -237,7 +237,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/leaderarmort2
 	name = "advanced squad leader armour"
-	path = /obj/item/clothing/suit/armor/vest/ert/command
+	path = /obj/item/clothing/suit/armor/vest/ert
 	scomtechlvl = 3
 	hidden = 1
 	resources = 300

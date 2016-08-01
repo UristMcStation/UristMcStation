@@ -43,7 +43,7 @@ var/global/remaininggens = 6
 	for(var/obj/structure/reagent_dispensers/fueltank/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
-	for(var/mob/living/carbon/human/M in living_mob_list)
+	for(var/mob/living/carbon/human/M in living_mob_list_)
 		if(prob(16))
 	//		if(M.Species == "Human")
 
@@ -107,7 +107,7 @@ var/global/remaininggens = 6
 	aliensurvivors = 0
 
 	//For each survivor, add one to the count. Should work accurately enough.
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/human/H in living_mob_list_)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
 				if(H.species == "Xenomorph")

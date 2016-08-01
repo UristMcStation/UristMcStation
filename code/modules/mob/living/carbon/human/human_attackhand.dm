@@ -124,10 +124,10 @@
 			//Vampire code //hope I didn't fuck up the copypasta - scr
 			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
 				if(M.mind && M.mind.vampire && !M.mind.vampire.draining)
-					if((head && (head.flags & HEADCOVERSMOUTH)) || (wear_mask && (wear_mask.flags & MASKCOVERSMOUTH)))
+					if((head && (check_head_coverage()) || (check_mouth_coverage())))
 						M << "<span class='warning'> Remove their mask!</span>"
 						return 0
-					if((H.head && (H.head.flags & HEADCOVERSMOUTH)) || (H.wear_mask && (H.wear_mask.flags & MASKCOVERSMOUTH)))
+					if((H.head && (H.check_head_coverage()) || (H.check_mouth_coverage())))
 						M << "<span class='warning'> Remove your mask!</span>"
 						return 0
 					if(mind && mind.vampire)

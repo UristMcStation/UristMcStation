@@ -15,8 +15,8 @@
 	modifystate = "senergystun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
 		)
 
 	/*suicide_act(mob/user)
@@ -167,6 +167,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "l6closedmag"
 	max_shells = 75
 	magazine_type = /obj/item/ammo_magazine/a762/m60
+	requires_two_hands = 6
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
@@ -196,6 +197,7 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762/m14
+	requires_two_hands = 4
 
 /obj/item/weapon/gun/projectile/automatic/m14/update_icon()
 	..()
@@ -227,11 +229,12 @@ the sprite and make my own projectile -Glloyd*/
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556/m16
+	requires_two_hands = 4
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
-		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, requires_two_hands = 5, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/m16/update_icon()
@@ -246,12 +249,13 @@ the sprite and make my own projectile -Glloyd*/
 	name = "\improper M16-GL Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle, complete with underslung grenade launcher."
 	icon_state = "M16-GL"
+	var/use_launcher = null
 
-	firemode_type = /datum/firemode/z8
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
-		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1), dispersion = list(0.0, 0.6, 0.6)),
-		list(mode_name="fire grenades", use_launcher=1)
+		list(mode_name="semiauto", burst=1, use_launcher=null, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, use_launcher=null, move_delay=6, fire_delay=null, requires_two_hands = 5, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", burst=5, use_launcher=null, move_delay=6, fire_delay=null, requires_two_hands = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="fire grenades", burst=null, fire_delay=null, move_delay=null, use_launcher=1,  burst_accuracy=null, dispersion=null)
 		)
 
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
@@ -267,15 +271,13 @@ the sprite and make my own projectile -Glloyd*/
 		..()
 
 /obj/item/weapon/gun/projectile/automatic/m16/gl/attack_hand(mob/user)
-	var/datum/firemode/z8/current_mode = firemodes[sel_mode]
-	if(user.get_inactive_hand() == src && current_mode.use_launcher)
+	if(user.get_inactive_hand() == src && src.use_launcher)
 		launcher.unload(user)
 	else
 		..()
 
 /obj/item/weapon/gun/projectile/automatic/m16/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
-	var/datum/firemode/z8/current_mode = firemodes[sel_mode]
-	if(current_mode.use_launcher)
+	if(src.use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
 			switch_firemodes() //switch back automatically
@@ -317,9 +319,10 @@ the sprite and make my own projectile -Glloyd*/
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m/m3
+	requires_two_hands = 1
 	firemodes = list(
-		list(mode_name="short bursts",	burst=4, move_delay=6, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/m3/update_icon()

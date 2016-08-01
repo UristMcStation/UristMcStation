@@ -13,6 +13,7 @@
 	charge_cost = 250
 	fire_delay = 35
 	w_class = 3.0
+	requires_two_hands = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
 	urist_only = 1
@@ -29,8 +30,8 @@
 	w_class = 2.0
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/light, fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/light, fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse/light, fire_sound='sound/weapons/pulse.ogg', fire_delay=25, charge_cost=400),
 		)
 
@@ -48,6 +49,7 @@
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
 	cell_type = "/obj/item/weapon/cell/super"
 	w_class = 4.0
+	requires_two_hands = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] only has one setting.</span>"
@@ -71,6 +73,7 @@
 	item_state = "lrifle"
 	w_class = 3.0
 	projectile_type = /obj/item/projectile/beam //maybe change this
+	requires_two_hands = 4
 
 /obj/item/weapon/gun/projectile/sniper
 	urist_only = 1
@@ -92,6 +95,7 @@
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
+	requires_two_hands = 8
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"
@@ -158,9 +162,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a12mm(src)
-		new /obj/item/ammo_magazine/a12mm(src)
-		new /obj/item/ammo_magazine/a12mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of sniper ammo"

@@ -23,7 +23,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/bridge/meeting_hall
 	name = "\improper Meeting Hall"
 	icon_state = "bridge"
-	music = null
 
 /area/crew_quarters/heads_dorms //Noble's Quarters, hehehe.
 	name = "\improper Heads of Staff Dorms"

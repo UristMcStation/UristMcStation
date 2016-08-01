@@ -125,7 +125,7 @@
 	..(5)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
-	custom_emote(1, pick( list("slashes at [target_mob]", "bites [target_mob]") ) )
+	custom_emote(1, pick( list("slashes at [target]", "bites [target]") ) )
 
 	var/damage = rand(20,30)
 

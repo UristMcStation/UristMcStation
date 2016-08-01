@@ -297,7 +297,6 @@ area/space/atmosalert()
 
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
-	music = "music/escape.ogg"
 	lighting_use_dynamic = 0
 
 /area/shuttle/mining/station

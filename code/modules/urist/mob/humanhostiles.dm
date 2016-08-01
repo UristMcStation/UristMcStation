@@ -55,7 +55,7 @@
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/a12mm
+	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/Gunshot_light.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 	maxHealth = 100
@@ -81,7 +81,7 @@
 	icon_dead = "ANTAG_dead"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a12mm
+	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -98,7 +98,7 @@
 	icon_dead = "skrellorist_dead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
-	casingtype = /obj/item/ammo_casing/a12mm
+	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "skrellt"
 	rapid = 1
 	maxHealth = 100

@@ -110,14 +110,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Come again!"
 	product_ads = "Skinny? Looking for some clothes? Suitlord is the machine for you!;BUY MY PRODUCT!"
 	product_slogans = "Pre-Ironed, Pre-Washed, Pre-Wor-*BZZT*;Blood of your enemies washes right out!;Who are YOU wearing?;Look dapper! Look like an idiot!;Dont carry your size? How about you shave off some pounds you fat lazy- *BZZT*"
-	products = list(/obj/item/clothing/under/brown = 10,/obj/item/clothing/under/gentlesuit = 10,/obj/item/clothing/under/suit_jacket = 10,/obj/item/clothing/under/suit_jacket/female = 10,/obj/item/clothing/under/suit_jacket/really_black = 10,
+	products = list(/obj/item/clothing/under/color/brown = 10,/obj/item/clothing/under/gentlesuit = 10,/obj/item/clothing/under/suit_jacket = 10,/obj/item/clothing/under/suit_jacket/female = 10,/obj/item/clothing/under/suit_jacket/really_black = 10,
 					/obj/item/clothing/under/sl_suit = 10,/obj/item/clothing/under/urist/formal/assistantformal = 10,/obj/item/clothing/under/urist/suit_jacket/black = 10,/obj/item/clothing/under/urist/suit_jacket/burgundy = 10,/obj/item/clothing/under/urist/suit_jacket/charcoal = 10,
 					/obj/item/clothing/under/urist/suit_jacket/checkered = 10,/obj/item/clothing/under/urist/suit_jacket/navy = 10,/obj/item/clothing/under/urist/suit_jacket/tan = 10, /obj/item/clothing/under/urist/casual/olive = 10,/obj/item/clothing/under/urist/casual/plaid = 10, /obj/item/clothing/under/urist/casual/suspenders = 10)
-	prices = list(/obj/item/clothing/under/brown = 150,/obj/item/clothing/under/gentlesuit = 150,/obj/item/clothing/under/suit_jacket = 150,/obj/item/clothing/under/suit_jacket/female = 150,/obj/item/clothing/under/suit_jacket/really_black = 150,
+	prices = list(/obj/item/clothing/under/color/brown = 150,/obj/item/clothing/under/gentlesuit = 150,/obj/item/clothing/under/suit_jacket = 150,/obj/item/clothing/under/suit_jacket/female = 150,/obj/item/clothing/under/suit_jacket/really_black = 150,
 					/obj/item/clothing/under/sl_suit = 150,/obj/item/clothing/under/urist/formal/assistantformal = 150,/obj/item/clothing/under/urist/suit_jacket/black = 150,/obj/item/clothing/under/urist/suit_jacket/burgundy = 150,/obj/item/clothing/under/urist/suit_jacket/charcoal = 150,
 					/obj/item/clothing/under/urist/suit_jacket/checkered = 150,/obj/item/clothing/under/urist/suit_jacket/navy = 150,/obj/item/clothing/under/urist/suit_jacket/tan = 150, /obj/item/clothing/under/urist/casual/olive = 150,/obj/item/clothing/under/urist/casual/plaid = 150, /obj/item/clothing/under/urist/casual/suspenders = 150)
 	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 1,/obj/item/clothing/under/psyche = 1,/obj/item/clothing/under/color/orange = 1)
-	premium = list(/obj/item/clothing/under/rainbow = 1)
+	premium = list(/obj/item/clothing/under/color/rainbow = 1)
 
 //shoes!
 
@@ -215,9 +215,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		/obj/item/ammo_magazine/a556 = 10,
 		/obj/item/ammo_magazine/c762 = 10
 		)
-		
+
 //Assault mode clothing and armor vender
-		
+
 /obj/machinery/vending/urist/assaultclothingdispenser
 	name = "ANFOR Equipment Cache"
 	desc = "An automated ANFOR supply cache for efficent storage and distribution of armor and equipment."
@@ -236,5 +236,5 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contraband = list(
 		/obj/item/weapon/storage/fancy/cigar = 1
 		)
-	
-	
+
+

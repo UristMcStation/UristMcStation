@@ -10,8 +10,6 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	if(prefs.muted & MUTE_ADMINHELP)
 		src << "<font color='red'>Error: Admin-PM: You cannot send adminhelps (Muted).</font>"
 		return
-	if(src.handle_spam_prevention(msg,MUTE_ADMINHELP))
-		return
 
 	adminhelped = 1 //Determines if they get the message to reply by clicking the name.
 

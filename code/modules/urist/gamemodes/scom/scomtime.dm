@@ -24,7 +24,7 @@
 			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_r_ear)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/smokable/cigarette(M), slot_wear_mask)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/formalcaptain(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/caphat/formal(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/fancy/cigarettes(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
 

@@ -123,14 +123,14 @@
 	if(!(istype(mobpath, /mob/living/simple_animal/hostile/zombie))) //not very elegant, but it prevens abuse for other mobtypes
 		mobpath = /mob/living/simple_animal/hostile/zombie/regen/plague
 
-	if(monkeyizing)
+	if(transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
 	src.mutations.Add(HUSK)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0 //considering they're dead shouldn't be much of a problem, but w/e
 
 	var/old_icon = src.icon

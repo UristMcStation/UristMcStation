@@ -276,7 +276,7 @@ B --><-- A
 //NOTE: if your atom has non-standard bounds then this proc
 //will handle it, but it'll be a bit slower.
 
-/proc/get_turf_pixel(atom/movable/AM)
+/*/proc/get_turf_pixel(atom/movable/AM)
 	if(istype(AM))
 		var/rough_x = 0
 		var/rough_y = 0
@@ -350,4 +350,4 @@ B --><-- A
 /proc/ishumanoid(A)
 	if(istype(A, /mob/living/carbon/human) && !(istype (A, /mob/living/carbon/human/monkey)) && !(istype (A, /mob/living/carbon/human/stok)) && !(istype (A, /mob/living/carbon/human/farwa))) // && !(istype (A, /mob/living/carbon/human/neara)))
 		return 1 //whoever thought subtyping all these under /human/monkey or whatever was a bad idea is literally Hitler
-	return 0
+	return 0*/

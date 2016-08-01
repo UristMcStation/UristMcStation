@@ -62,6 +62,7 @@
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
 	max_shots = 12
+	requires_two_hands = 1
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
@@ -70,12 +71,13 @@
 	projectile_type = /obj/item/projectile/beam/scom/alien2
 	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 	inertstate = /obj/item/scom/aliengun/a3
+	requires_two_hands = 2
 
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
-		list(mode_name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null, requires_two_hands = 2),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 4, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/a4
@@ -86,10 +88,11 @@
 	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
 	inertstate = /obj/item/scom/aliengun/a4
 	max_shots = 16
+	requires_two_hands = 6
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
-		list(mode_name="long bursts",	burst=16, move_delay=10, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
+		list(mode_name="short bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 8, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
+		list(mode_name="long bursts",	burst=16, fire_delay=null, move_delay=10, requires_two_hands = 9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)

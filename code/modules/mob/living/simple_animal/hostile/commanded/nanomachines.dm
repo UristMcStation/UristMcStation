@@ -28,8 +28,8 @@
 	if(.)
 		switch(stance)
 			if(COMMANDED_HEAL)
-				if(!target_mob)
-					target_mob = FindTarget(COMMANDED_HEAL)
+				if(!target)
+					target = FindTarget(COMMANDED_HEAL)
 				move_to_heal()
 			if(COMMANDED_HEALING)
 				heal()
@@ -39,44 +39,44 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/commanded/nanomachine/proc/move_to_heal()
-	if(!target_mob)
+	if(!target)
 		return 0
-	walk_to(src,target_mob,1,move_to_delay)
-	if(Adjacent(target_mob))
+	walk_to(src,target,1,move_to_delay)
+	if(Adjacent(target))
 		stance = COMMANDED_HEALING
 
 /mob/living/simple_animal/hostile/commanded/nanomachine/proc/heal()
 	if(health <= 3 && !emergency_protocols) //dont die doing this.
 		return 0
-	if(!target_mob)
+	if(!target)
 		return 0
-	if(!Adjacent(target_mob) || SA_attackable(target_mob))
+	if(!Adjacent(target) || SA_attackable(target))
 		stance = COMMANDED_HEAL
 		return 0
-	if(target_mob.stat || target_mob.health >= target_mob.maxHealth) //he's either dead or healthy, move along.
-		allowed_targets -= target_mob
-		target_mob = null
+	if(target.stat || target.health >= target.maxHealth) //he's either dead or healthy, move along.
+		allowed_targets -= target
+		target = null
 		stance = COMMANDED_HEAL
 		return 0
-	src.visible_message("\The [src] glows green for a moment, healing \the [target_mob]'s wounds.")
+	src.visible_message("\The [src] glows green for a moment, healing \the [target]'s wounds.")
 	health -= 3
-	target_mob.adjustBruteLoss(-5)
-	target_mob.adjustFireLoss(-5)
+	target.adjustBruteLoss(-5)
+	target.adjustFireLoss(-5)
 
 /mob/living/simple_animal/hostile/commanded/nanomachine/misc_command(var/mob/speaker,var/text)
 	if(stance != COMMANDED_HEAL || stance != COMMANDED_HEALING) //dont want attack to bleed into heal.
 		allowed_targets = list()
-		target_mob = null
+		target = null
 	if(findtext(text,"heal")) //heal shit pls
 		if(findtext(text,"me")) //assumed want heals on master.
-			target_mob = speaker
+			target = speaker
 			stance = COMMANDED_HEAL
 			return 1
 		var/list/targets = get_targets_by_name(text)
 		if(targets.len > 1 || !targets.len)
 			src.say("ERROR. TARGET COULD NOT BE PARSED.")
 			return 0
-		target_mob = targets[1]
+		target = targets[1]
 		stance = COMMANDED_HEAL
 		return 1
 	if(findtext(text,"emergency protocol"))

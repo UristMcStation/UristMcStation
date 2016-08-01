@@ -121,7 +121,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	//item_color = "p_watch"
 
 /obj/item/clothing/accessory/watch/examine()
-	usr << "[desc] The time reads [worldtime2text()]."
+	usr << "[desc] The time reads [stationtime2text()]."
 
 //comb
 

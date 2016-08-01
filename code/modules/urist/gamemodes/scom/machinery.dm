@@ -232,7 +232,7 @@
 				if("Heavy")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/ammo_magazine/c45(src.loc)
+					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
 					new /obj/item/weapon/storage/box/lmgammo(src.loc)
@@ -241,7 +241,7 @@
 				if("Assault")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/ammo_magazine/c45(src.loc)
+					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
@@ -262,7 +262,7 @@
 					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
 					new /obj/item/weapon/storage/box/c20ammo(src.loc)
 					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
-					new /obj/item/ammo_magazine/c45(src.loc)
+					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/storage/firstaid/adv(src.loc)
 					W.assignment = "S-COM Combat Medic"
 
