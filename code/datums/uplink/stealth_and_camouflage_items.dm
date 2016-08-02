@@ -38,3 +38,8 @@
 	name = "Human-suit"
 	item_cost = 5
 	path = /obj/item/weapon/storage/box/syndie_kit/fleshsuit
+
+/datum/uplink_item/item/stealth_items/smugglers_satchel
+	name = "Smuggler's Satchel"
+	item_cost = 2
+	path = /obj/item/weapon/storage/backpack/satchel_flat

@@ -194,7 +194,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762/m14
 	requires_two_hands = 4
@@ -230,6 +230,7 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556/m16
 	requires_two_hands = 4
+	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -320,6 +321,7 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m/m3
 	requires_two_hands = 1
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
 		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
@@ -355,7 +357,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 2
 	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=2"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/bhp

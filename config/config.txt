@@ -335,6 +335,9 @@ ALIENS_ALLOWED
 ## Uncomment to disable respawning by default.
 #DISABLE_RESPAWN
 
+## Respawn delay in minutes before one may respawn as a crew member.
+#RESPAWN_DELAY 20
+
 ## Uncomment to use a dynamic mission difficulty system for SCOM.
 SCOM_DYNAMIC_DIFFICULTY
 
@@ -356,3 +359,37 @@ GENERATE_ASTEROID
 
 SHOW_MENTORS
 SHOW_MODS
+
+## If cortical stacks are to be used instead of standard cloning.
+USE_CORTICAL_STACKS
+
+
+
+## Uncomment to enable organ decay outside of a body or storage item.
+ORGANS_CAN_DECAY
+
+## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
+#AGGRESSIVE_CHANGELOG
+
+## Uncomment to override default brain health.
+#DEFAULT_BRAIN_HEALTH 400
+
+## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and - 
+# DEFAULT_LANGUAGE_PREFIXES , # -
+
+## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
+## Defaults to 'title' if left unset.
+# LOBBY_SCREENS title
+
+## Uncomment this line to announce shuttle dock announcements to the main IRC channel, if MAIN_IRC has also been setup.
+# ANNOUNCE_SHUTTLE_DOCK_TO_IRC
+
+## Uncomment to enable map voting; you'll need to use the script at tools/server.sh or an equivalent for it to take effect
+## You'll also likely need to enable WAIT_FOR_SIGUSR1 below
+MAP_SWITCHING
+
+## Uncomment to enable an automatic map vote and switch at end of round. MAP_SWITCHING must also be enabled.
+AUTO_MAP_VOTE
+
+## Uncomment to make Dream Daemon refuse to reboot for any reason other than SIGUSR1
+# WAIT_FOR_SIGUSR1

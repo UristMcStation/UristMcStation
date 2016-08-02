@@ -131,6 +131,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556/a22
 	requires_two_hands = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -177,6 +178,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762/a18
 	requires_two_hands = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
@@ -341,6 +343,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a9mm
 	requires_two_hands = 1
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 1, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -378,6 +381,7 @@
 	item_state = "A41"
 	urist_only = 1
 	requires_two_hands = 3
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
 /obj/item/weapon/gun/projectile/colt/a7
 	name = "\improper A7 pistol"

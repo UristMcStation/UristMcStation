@@ -96,6 +96,7 @@
 	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
 	requires_two_hands = 8
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"

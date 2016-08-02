@@ -85,7 +85,7 @@
 /obj/item/device/inteluplink
 	name		= "Laptop Computer"
 	desc		= "A clamshell portable computer. It is closed."
-	icon		= 'icons/obj/computer3.dmi'
+	icon		= 'icons/urist/items/misc.dmi'
 	icon_state	=  "adv-laptop-closed"
 	item_state	=  "laptop-inhand"
 	pixel_x		= 2

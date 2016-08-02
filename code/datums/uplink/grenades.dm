@@ -38,3 +38,13 @@
 	item_cost = 10
 	antag_roles = list(MODE_MERCENARY)
 	path = /obj/item/weapon/storage/box/frags
+
+/datum/uplink_item/item/grenades/syndicate_minibomb
+	name = "Syndicate Minibomb"
+	item_cost = 12
+	path = /obj/item/weapon/grenade/syndieminibomb
+
+/datum/uplink_item/item/grenades/sonic
+	name = "4xSonic Grenades"
+	item_cost = 8
+	path = /obj/item/weapon/storage/box/sonics
