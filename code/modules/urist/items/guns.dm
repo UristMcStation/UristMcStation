@@ -166,20 +166,21 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60closed75"
 	item_state = "l6closedmag"
 	max_shells = 75
-	magazine_type = /obj/item/ammo_magazine/a762/m60
+	magazine_type = /obj/item/ammo_magazine/a762mm/m60
 	requires_two_hands = 6
+	wielded_item_state = "genericLMG-wielded"
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
 
-/obj/item/ammo_magazine/a762/m60
+/obj/item/ammo_magazine/a762mm/m60
 	name = "M60 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
 	multiple_sprites = 0
 
-/obj/item/ammo_magazine/a762/m60/empty
+/obj/item/ammo_magazine/a762mm/m60/empty
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m14
@@ -196,8 +197,9 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = "/obj/item/ammo_casing/a762"
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762/m14
+	magazine_type = /obj/item/ammo_magazine/a762mm/m14
 	requires_two_hands = 4
+	wielded_item_state = "woodarifle-wielded"
 
 /obj/item/weapon/gun/projectile/automatic/m14/update_icon()
 	..()
@@ -207,7 +209,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "M14-empty"
 	return
 
-/obj/item/ammo_magazine/a762/m14
+/obj/item/ammo_magazine/a762mm/m14
 	name = "M14 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M14MAG"
@@ -231,6 +233,7 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/a556/m16
 	requires_two_hands = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -380,3 +383,24 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/mc9mm/bhp/empty
 	initial_ammo = 0
+
+//adminfuckery gun slash proof of concept
+/obj/item/weapon/gun/projectile/automatic/l6saw/shotmachinegun
+	name = "Shotmachinegun"
+	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "M60closed75"
+	item_state = "l6closedmag"
+	caliber = "shotgun"
+	max_shells = 75
+	magazine_type = /obj/item/ammo_magazine/box/shotmachinegun
+	requires_two_hands = 6
+	wielded_item_state = "genericLMG-wielded"
+
+/obj/item/ammo_magazine/box/shotmachinegun
+	caliber = "shotgun"
+	ammo_type = /obj/item/projectile/bullet/shotgun
+	initial_ammo = 75
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	multiple_sprites = 0
+

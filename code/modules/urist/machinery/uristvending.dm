@@ -189,7 +189,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(
 		//ammo
 		/obj/item/ammo_magazine/a556/a22 = 60,
-		/obj/item/ammo_magazine/a762/a18 = 60,
+		/obj/item/ammo_magazine/a762mm/a18 = 60,
 		/obj/item/ammo_magazine/a9mm = 60,
 		/obj/item/weapon/storage/box/shotgunammo = 60,
 		/obj/item/weapon/storage/box/shotgunshells = 60,

@@ -132,6 +132,7 @@
 	magazine_type = /obj/item/ammo_magazine/a556/a22
 	requires_two_hands = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -161,9 +162,6 @@
 /obj/item/ammo_magazine/a556/a22/empty
 	initial_ammo = 0
 
-/datum/firemode/a18
-	var/use_launcher = 0
-
 /obj/item/weapon/gun/projectile/a18
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
@@ -176,11 +174,13 @@
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762/a18
+	magazine_type = /obj/item/ammo_magazine/a762mm/a18
 	requires_two_hands = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	var/use_launcher = 0
+	wielded_item_state = "genericrifle-wielded"
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null)
+		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
 
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
@@ -199,7 +199,7 @@
 	set popup_menu = 1
 
 	if(scoped)
-		toggle_scope(2.0)
+		toggle_scope(usr, 2.0)
 
 	else
 		return
@@ -238,7 +238,7 @@
 			gl_attach = 0
 			firemodes = null
 			firemodes = list(
-				list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null)
+				list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 				)
 			update_icon()
 			new /obj/item/weapon/gunattachment/grenadelauncher(user.loc)
@@ -277,15 +277,13 @@
 			new /obj/item/weapon/gunattachment/scope/a18(user.loc)
 
 /obj/item/weapon/gun/projectile/a18/attack_hand(mob/user)
-	var/datum/firemode/a18/current_mode = firemodes[sel_mode]
-	if(user.get_inactive_hand() == src && current_mode.use_launcher && gl_attach)
+	if(user.get_inactive_hand() == src && use_launcher && gl_attach)
 		launcher.unload(user)
 	else
 		..()
 
 /obj/item/weapon/gun/projectile/a18/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
-	var/datum/firemode/a18/current_mode = firemodes[sel_mode]
-	if(current_mode.use_launcher)
+	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
 			switch_firemodes() //switch back automatically
@@ -314,7 +312,7 @@
 	name = "A18 attachable scope"
 	desc = "A marksman's scope designed to be attached to an A18 rifle."
 
-/obj/item/ammo_magazine/a762/a18
+/obj/item/ammo_magazine/a762mm/a18
 	name = "A18 magazine (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "FALmag"
@@ -325,7 +323,7 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 30
 
-/obj/item/ammo_magazine/a762/a18/empty
+/obj/item/ammo_magazine/a762mm/a18/empty
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/asmg

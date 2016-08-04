@@ -439,7 +439,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "aeneasrinil_open"
 	icon_open = "aeneasrinil_open"
 	icon_closed = "aeneasrinil"

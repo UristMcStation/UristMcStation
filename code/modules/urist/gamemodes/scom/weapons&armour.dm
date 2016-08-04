@@ -97,13 +97,14 @@
 	handle_casings = EJECT_CASINGS
 	requires_two_hands = 8
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	wielded_item_state = "woodarifle-wielded"
 
 /obj/item/weapon/gun/projectile/sniper/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
-	toggle_scope(2.0)
+	toggle_scope(usr, 2.0)
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()
@@ -183,9 +184,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762mm(src)
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"
