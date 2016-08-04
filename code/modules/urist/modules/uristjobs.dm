@@ -41,7 +41,6 @@
 		new /obj/item/weapon/implanter(src)
 		new /obj/item/weapon/implantpad(src)
 
-
 /decl/hierarchy/outfit/job/blueshield
 	name = OUTFIT_JOB_NAME("Blueshield")
 	uniform = /obj/item/clothing/under/rank/centcom
