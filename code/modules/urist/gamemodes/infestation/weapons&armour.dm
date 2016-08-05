@@ -163,6 +163,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/a18
+	urist_only = 1
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
 	icon = 'icons/urist/items/guns.dmi'
@@ -170,7 +171,7 @@
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = "7.62mm"
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -178,7 +179,7 @@
 	requires_two_hands = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	var/use_launcher = 0
-	wielded_item_state = "genericrifle-wielded"
+	wielded_item_state = "woodarifle-wielded"
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
@@ -317,7 +318,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "FALmag"
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = "7.62mm"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762

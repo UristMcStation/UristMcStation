@@ -117,6 +117,7 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/weapon/gun/projectile/silenced/knight
+	urist_only = 1
 	name = "Knight .45"
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
@@ -140,6 +141,7 @@ the sprite and make my own projectile -Glloyd*/
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/weapon/gun/projectile/revolver/detective/deckard
+	urist_only = 1
 	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
 	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
 	//what do you know, it was restored-ish in revolver.dm
@@ -160,6 +162,7 @@ the sprite and make my own projectile -Glloyd*/
 //NamERT
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
+	urist_only = 1
 	name = "M60 Machinegun"
 	desc = "The general-purpose machinegun and the main firearm for the Machinegunner. Chambered in 7.62mm , it is fed through a 75-round belt. Fires in short and long bursts, perfect for support and suppresive fire."
 	icon = 'icons/urist/items/guns.dmi'
@@ -169,6 +172,7 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/a762mm/m60
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
+	caliber = "7.62mm"
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
@@ -184,6 +188,7 @@ the sprite and make my own projectile -Glloyd*/
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m14
+	urist_only = 1
 	name = "\improper M14 Rifle"
 	desc = "A selective-fire rifle for when you need more stopping power. Has a 15-round magazine of 7.62mm. Unlike the M16s that have the ability to fire in bursts or semi-auto, the M14 can only fire in either long bursts or semi-auto."
 	icon = 'icons/urist/items/guns.dmi'
@@ -191,7 +196,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = "7.62mm"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
@@ -215,10 +220,11 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M14MAG"
 	max_ammo = 15
 
-/obj/item/ammo_magazine/a762/m14/empty
+/obj/item/ammo_magazine/a762mm/m14/empty
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m16
+	urist_only = 1
 	name = "\improper M16 Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle."
 	icon = 'icons/urist/items/guns.dmi'
@@ -311,6 +317,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "ithaca"
 
 /obj/item/weapon/gun/projectile/automatic/m3
+	urist_only = 1
 	name = "M3 Grease Gun"
 	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 .45 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -385,19 +392,26 @@ the sprite and make my own projectile -Glloyd*/
 	initial_ammo = 0
 
 //adminfuckery gun slash proof of concept
-/obj/item/weapon/gun/projectile/automatic/l6saw/shotmachinegun
+/obj/item/weapon/gun/projectile/automatic/shotmachinegun
+	urist_only = 1
 	name = "Shotmachinegun"
 	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60closed75"
-	item_state = "l6closedmag"
+	item_state = "M60closed"
 	caliber = "shotgun"
 	max_shells = 75
-	magazine_type = /obj/item/ammo_magazine/box/shotmachinegun
+	magazine_type = /obj/item/ammo_magazine/shotmachinegun
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	load_method = MAGAZINE
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, move_delay=12, requires_two_hands=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, move_delay=15, requires_two_hands=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
 
-/obj/item/ammo_magazine/box/shotmachinegun
+/obj/item/ammo_magazine/shotmachinegun
 	caliber = "shotgun"
 	ammo_type = /obj/item/projectile/bullet/shotgun
 	initial_ammo = 75

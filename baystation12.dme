@@ -2189,7 +2189,6 @@
 #include "code\modules\urist\modules\gear.dm"
 #include "code\modules\urist\modules\mining.dm"
 #include "code\modules\urist\modules\supplycrates.dm"
-#include "code\modules\urist\modules\uristjobs.dm"
 #include "code\modules\urist\modules\uristlanguages.dm"
 #include "code\modules\urist\modules\uristscience.dm"
 #include "code\modules\urist\modules\weather.dm"

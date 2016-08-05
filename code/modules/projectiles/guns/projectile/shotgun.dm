@@ -15,6 +15,7 @@
 	handle_casings = HOLD_CASINGS
 	requires_two_hands = 2
 	var/recentpump = 0 // to prevent spammage
+	wielded_item_state = "gun_wielded"
 
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)

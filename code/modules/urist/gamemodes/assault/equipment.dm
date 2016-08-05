@@ -23,6 +23,7 @@
 	icon_state = "cellconsole"
 
 /obj/item/weapon/gun/energy/lactera
+	urist_only = 1
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
 	icon_state = "alienrifle"
