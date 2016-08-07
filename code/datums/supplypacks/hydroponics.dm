@@ -47,7 +47,8 @@
 					/obj/item/clothing/gloves/botanic_leather,
 					/obj/item/clothing/suit/apron,
 					/obj/item/weapon/material/minihoe,
-					/obj/item/weapon/storage/box/botanydisk
+					/obj/item/weapon/storage/box/botanydisk,
+					/obj/item/weapon/storage/fancy/rollingpapers
 					)
 	cost = 15
 	containername = "\improper Hydroponics crate"
