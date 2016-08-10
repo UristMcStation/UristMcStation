@@ -627,6 +627,12 @@ var/global/list/gear_datums = list()
 	slot = slot_tie
 	cost = 1
 
+/datum/gear/wcoat
+	display_name = "waistcoat"
+	path = /obj/item/clothing/accessory/wcoat
+	cost = 1
+	slot = slot_tie
+
 /datum/gear/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
@@ -803,12 +809,6 @@ var/global/list/gear_datums = list()
 /datum/gear/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/suit/suspenders
-	cost = 1
-	slot = slot_wear_suit
-
-/datum/gear/wcoat
-	display_name = "waistcoat"
-	path = /obj/item/clothing/suit/wcoat
 	cost = 1
 	slot = slot_wear_suit
 
