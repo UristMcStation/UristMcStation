@@ -5,12 +5,13 @@
 	#include "glloydstation_unit_testing.dm"
 	#include "glloydstation_holodecks.dm"
 
-	#include "glloydstation-1.dmm"
-	#include "glloydstation-2.dmm"
-	#include "glloydstation-3.dmm"
-	#include "glloydstation-4.dmm"
-	#include "glloydstation-5.dmm"
-	#include "glloydstation-6.dmm"
+	#include "Glloydstation2-1.dmm"
+	#include "Glloydstation2-2.dmm"
+	#include "Glloydstation2-3.dmm"
+	#include "Glloydstation2-4.dmm"
+	#include "Glloydstation2-5.dmm"
+	#include "Glloydstation2-6.dmm"
+	#include "Glloydstation2-7.dmm"
 
 	#define USING_MAP_DATUM /datum/map/glloydstation
 
