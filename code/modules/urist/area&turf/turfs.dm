@@ -214,3 +214,9 @@ turf/simulated/floor/beach/pool/New()
 
 /turf/simulated/wall/wood/New(var/newloc)
 	..(newloc,"wood")
+
+//unsimulated floor w/ plating icon, for base-turf in hangars and such
+/turf/unsimulated/floor/plating
+	name = "floor"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "plating"
