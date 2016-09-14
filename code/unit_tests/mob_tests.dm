@@ -280,7 +280,7 @@ datum/unit_test/mob_damage/unathi/halloss
 	name = "MOB: Unathi Halloss Damage Check"
 	damagetype = HALLOSS
 
-// =================================================================
+/*// =================================================================
 // SpessKahjit aka Tajaran
 // =================================================================
 
@@ -312,7 +312,7 @@ datum/unit_test/mob_damage/tajaran/clone
 
 datum/unit_test/mob_damage/tajaran/halloss
 	name = "MOB: Tajaran Halloss Damage Check"
-	damagetype = HALLOSS
+	damagetype = HALLOSS*/
 
 // =================================================================
 // Resomi
@@ -448,7 +448,7 @@ datum/unit_test/mob_damage/diona/halloss
 	name = "MOB: Diona Halloss Damage Check"
 	damagetype = HALLOSS
 
-// =================================================================
+/*// =================================================================
 // SPECIAL WHITTLE SNOWFLAKES aka IPC
 // =================================================================
 
@@ -483,7 +483,7 @@ datum/unit_test/mob_damage/machine/clone
 
 datum/unit_test/mob_damage/machine/halloss
 	name = "MOB: IPC Halloss Damage Check"
-	damagetype = HALLOSS
+	damagetype = HALLOSS*/
 
 
 // ==============================================================================

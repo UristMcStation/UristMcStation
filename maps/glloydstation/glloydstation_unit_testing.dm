@@ -41,4 +41,6 @@
 		/area/storage/emergency2 = NO_SCRUBBER|NO_VENT,
 		/area/supply = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/syndicate_station = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/centcom/scom = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shuttle/naval1/centcom = NO_SCRUBBER|NO_VENT|NO_APC,
 	)

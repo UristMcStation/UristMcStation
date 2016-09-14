@@ -66,7 +66,7 @@ var/datum/antagonist/agent/agents
 
 	var/converteval = is_other_conspiracy(M.mind)
 	if(converteval == -1)
-		src << "<span class='warning'>[M] is already an agent of your conspiracy!"
+		src << "<span class='warning'>[M] is already an agent of your conspiracy!</span>"
 	else if(converteval)
 		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
 		if(choice == "Yes!")

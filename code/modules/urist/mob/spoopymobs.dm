@@ -109,7 +109,7 @@
 
 	if(istype(T, /mob/living/carbon/human))
 		var/mob/living/carbon/human/victim = T
-		src.visible_message("<span class = 'warning'>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
+		src.visible_message("<span class = 'warning'><b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
 		victim.Zombify(src.type)
 	else if(istype(T, /mob/living/simple_animal/hostile/scom/civ))
 		var/mob/living/simple_animal/hostile/scom/civ/victim = T

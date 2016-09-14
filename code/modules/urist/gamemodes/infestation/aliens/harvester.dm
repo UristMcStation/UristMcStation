@@ -292,7 +292,7 @@
 	set desc= "A scary glare that incapacitates people for a short while around you."
 	var/datum/mind/M = usr.mind
 	if(!M) return
-	M.current.visible_message("<span class='warning'> <b>The harvester emits a blinding light.!</span>")
+	M.current.visible_message("<span class='warning'> <b>The harvester emits a blinding light.!</b></span>")
 	M.current.verbs -= /mob/living/carbon/harvester/proc/harvester_glare
 	spawn(300)
 		M.current.verbs += /mob/living/carbon/harvester/proc/harvester_glare

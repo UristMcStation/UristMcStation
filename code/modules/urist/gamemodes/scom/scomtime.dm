@@ -87,25 +87,25 @@
 				W.name = "[M.real_name]'s ID Card"
 				if(M.job == "Head of Personnel")
 					W.assignment = "S-COM Squad 1 Leader"
-					M << ("<FONT size = 3>\b You are in squad 1")
+					M << ("<FONT size = 3>\b You are in squad 1</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_general
 				if(M.job == "Head of Security")
 					W.assignment = "S-COM Squad 2 Leader"
-					M << ("<FONT size = 3>\b You are in squad 2")
+					M << ("<FONT size = 3>\b You are in squad 2</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_thunder
 				if(M.job == "Chief Engineer")
 					W.assignment = "S-COM Squad 3 Leader"
-					M << ("<FONT size = 3>\b You are in squad 3")
+					M << ("<FONT size = 3>\b You are in squad 3</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_specops
 				if(M.job == "Chief Medical Officer")
 					W.assignment = "S-COM Squad 4 Leader"
-					M << ("<FONT size = 3>\b You are in squad 4")
+					M << ("<FONT size = 3>\b You are in squad 4</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4l(M), slot_w_uniform)
 					W.access = get_all_accesses()
 					W.access += access_cent_medical
@@ -131,19 +131,19 @@
 				W.assignment = "S-COM Operative"
 				W.access = get_all_accesses()
 				if(squad == 1)
-					M << ("<FONT size = 3>\b You are in squad 1")
+					M << ("<FONT size = 3>\b You are in squad 1</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1(M), slot_w_uniform)
 					W.access += access_cent_general
 				else if(squad == 2)
-					M << ("<FONT size = 3>\b You are in squad 2")
+					M << ("<FONT size = 3>\b You are in squad 2</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2(M), slot_w_uniform)
 					W.access += access_cent_thunder
 				else if(squad == 3)
-					M << ("<FONT size = 3>\b You are in squad 3")
+					M << ("<FONT size = 3>\b You are in squad 3</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3(M), slot_w_uniform)
 					W.access += access_cent_specops
 				else if(squad == 4)
-					M << ("<FONT size = 3>\b You are in squad 4")
+					M << ("<FONT size = 3>\b You are in squad 4</font>")
 					M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4(M), slot_w_uniform)
 					W.access += access_cent_medical
 				W.registered_name = M.real_name
@@ -264,25 +264,25 @@
 			W.name = "[L.real_name]'s ID Card"
 			if(L.job == "Head of Personnel")
 				W.assignment = "S-COM Squad 1 Leader"
-				L << ("<FONT size = 3>\b You are in squad 1")
+				L << ("<FONT size = 3>\b You are in squad 1</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_general
 			if(L.job == "Head of Security")
 				W.assignment = "S-COM Squad 2 Leader"
-				L << ("<FONT size = 3>\b You are in squad 2")
+				L << ("<FONT size = 3>\b You are in squad 2</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_thunder
 			if(L.job == "Chief Engineer")
 				W.assignment = "S-COM Squad 3 Leader"
-				L << ("<FONT size = 3>\b You are in squad 3")
+				L << ("<FONT size = 3>\b You are in squad 3</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_specops
 			if(L.job == "Chief Medical Officer")
 				W.assignment = "S-COM Squad 4 Leader"
-				L << ("<FONT size = 3>\b You are in squad 4")
+				L << ("<FONT size = 3>\b You are in squad 4</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4l(L), slot_w_uniform)
 				W.access = get_all_accesses()
 				W.access += access_cent_medical
@@ -309,19 +309,19 @@
 			W.assignment = "S-COM Operative"
 			W.access = get_all_accesses()
 			if(squad == 1)
-				L << ("<FONT size = 3>\b You are in squad 1")
+				L << ("<FONT size = 3>\b You are in squad 1</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s1(L), slot_w_uniform)
 				W.access += access_cent_general
 			else if(squad == 2)
-				L << ("<FONT size = 3>\b You are in squad 2")
+				L << ("<FONT size = 3>\b You are in squad 2</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s2(L), slot_w_uniform)
 				W.access += access_cent_thunder
 			else if(squad == 3)
-				L << ("<FONT size = 3>\b You are in squad 3")
+				L << ("<FONT size = 3>\b You are in squad 3</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s3(L), slot_w_uniform)
 				W.access += access_cent_specops
 			else if(squad == 4)
-				L << ("<FONT size = 3>\b You are in squad 4")
+				L << ("<FONT size = 3>\b You are in squad 4</font>")
 				L.equip_to_slot_or_del(new /obj/item/clothing/under/urist/scom/s4(L), slot_w_uniform)
 				W.access += access_cent_medical
 			W.registered_name = L.real_name

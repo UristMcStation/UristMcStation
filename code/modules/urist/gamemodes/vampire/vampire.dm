@@ -92,7 +92,7 @@
 	src.attack_log += text("\[[time_stamp()]\] <font color='red'>Bit [H.name] ([H.ckey]) in the neck and started draining their blood</font>")
 	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been bit in the neck by [src.name] ([src.ckey])</font>")
 	log_attack("[src.name] ([src.ckey]) bit [H.name] ([H.ckey]) in the neck")
-	src.visible_message("<span class='warning'><b>[src.name] bites [H.name]'s neck!<b>,</span>", "<span class='warning'><b>You bite [H.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
+	src.visible_message("<span class='warning'><b>[src.name] bites [H.name]'s neck!</b>,</span>", "<span class='warning'><b>You bite [H.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
 	if(!iscarbon(src))
 		H.LAssailant = null
 	else
@@ -126,7 +126,7 @@
 				var/mob/living/carbon/human/V = src.mind.current
 				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 		if(bloodtotal != src.mind.vampire.bloodtotal)
-			src << "<span class='notice'> <b>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] usable blood</span>" : "."]"
+			src << "<span class='notice'>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] left to use" : "."]</span>"
 		check_vampire_upgrade(mind)
 		H.vessel.remove_reagent("blood",25)
 
@@ -193,13 +193,13 @@
 					src << "<span class='notice'> Your vampiric vision has improved.</span>"
 					//no verb
 				if(VAMP_DISEASE)
-					src << "<span class='notice'> You have gained the Diseased Touch ability which causes those you touch to die shortly after unless treated medically."
+					src << "<span class='notice'> You have gained the Diseased Touch ability which causes those you touch to die shortly after unless treated medically.</span>"
 					verbs += /client/proc/vampire_disease
 				if(VAMP_CLOAK)
-					src << "<span class='notice'> You have gained the Cloak of Darkness ability which when toggled makes you near invisible in the shroud of darkness."
+					src << "<span class='notice'> You have gained the Cloak of Darkness ability which when toggled makes you near invisible in the shroud of darkness.</span>"
 					verbs += /client/proc/vampire_cloak
 				if(VAMP_BATS)
-					src << "<span class='notice'>You have gained the Summon Bats ability."
+					src << "<span class='notice'>You have gained the Summon Bats ability.</span>"
 					verbs += /client/proc/vampire_bats // work in progress
 				if(VAMP_SCREAM)
 					src << "<span class='notice'> You have gained the Chriopteran Screech ability which stuns anything with ears in a large radius and shatters glass in the process.</span>"

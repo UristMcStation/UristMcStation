@@ -223,7 +223,7 @@
 		M.current << "<span class='warning'>You decide against infecting yourself with a deadly disease.</span>"
 		return
 	if(!M.current.vampire_can_reach(C, 1))
-		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</span>"
+		M.current << "<span class='warning'> <b>You cannot touch [C.name] from where you are standing!</b></span>"
 		return
 	M.current << "<span class='warning'> You stealthily infect [C.name] with your diseased touch.</span>"
 
@@ -257,7 +257,7 @@
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	if(M.current.vampire_power(0, 1))
-		M.current.visible_message("<span class='warning'> <b>[M.current.name]'s eyes emit a blinding flash!</span>")
+		M.current.visible_message("<span class='warning'> <b>[M.current.name]'s eyes emit a blinding flash!</b></span>")
 		M.current.verbs -= /client/proc/vampire_glare
 		spawn(300)
 			M.current.verbs += /client/proc/vampire_glare
@@ -413,7 +413,7 @@
 	if(!C.vampire_affected(mind))
 		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
 	if(!ishumanoid(C))
-		C.visible_message("<span class='warning'> [C] seems unaffected by the infection!</span>","<span class='notice'> Your simple mind briefly registers an undescribable sensation, but it quickly dissipates among your usual concerns.")
+		C.visible_message("<span class='warning'> [C] seems unaffected by the infection!</span>","<span class='notice'> Your simple mind briefly registers an undescribable sensation, but it quickly dissipates among your usual concerns.</span>")
 		return 0
 	return 1
 
