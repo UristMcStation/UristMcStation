@@ -52,6 +52,7 @@
 	icon_state = "shuttle"
 	requires_power = 0
 	lighting_use_dynamic = 0
+	base_turf = /turf/unsimulated/floor/plating
 
 /area/shuttle/scom/s1/base //todo, maybe make a mission var here to reduce this path spam
 
