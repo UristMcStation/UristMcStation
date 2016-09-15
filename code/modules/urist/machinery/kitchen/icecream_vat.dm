@@ -193,7 +193,6 @@
 		dat += "<strong>Dispense in:</strong><BR>"
 		dat += "<A href='?src=\ref[src];createcup=1'>Chocolate Cone</A><BR>"
 		dat += "<A href='?src=\ref[src];createcone=1'>Cone</A><BR>"
-		dat += "</center>"
 	return dat
 
 

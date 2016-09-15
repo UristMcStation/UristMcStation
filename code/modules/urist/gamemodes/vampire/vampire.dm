@@ -92,7 +92,7 @@
 	src.attack_log += text("\[[time_stamp()]\] <font color='red'>Bit [H.name] ([H.ckey]) in the neck and started draining their blood</font>")
 	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been bit in the neck by [src.name] ([src.ckey])</font>")
 	log_attack("[src.name] ([src.ckey]) bit [H.name] ([H.ckey]) in the neck")
-	src.visible_message("<span class='warning'><b>[src.name] bites [H.name]'s neck!</b>,</span>", "<span class='warning'><b>You bite [H.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
+	src.visible_message("<span class='warning'><b>[src.name] bites [H.name]'s neck!</b>,</span>", "<span class='warning'>You bite [H.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
 	if(!iscarbon(src))
 		H.LAssailant = null
 	else
