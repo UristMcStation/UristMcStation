@@ -227,14 +227,7 @@
 	name = "box of frag grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause cause death within a short radius.</B>"
 	icon_state = "flashbang"
-
-/obj/item/weapon/storage/box/anforgrenade/New()
-	..()
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
+	startswith = list(/obj/item/weapon/grenade/anforgrenade = 5)
 
 /obj/item/weapon/mine/frag
 	name = "frag mine"
@@ -252,18 +245,48 @@
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
-
-/obj/item/weapon/storage/box/mines/New()
-	..()
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
+	startswith = list(/obj/item/weapon/mine/frag = 4)
 
 /obj/effect/mine/proc/explode2(obj)
+	/* oldcode, pre-fragification -scr
 	explosion(loc, 0, 0, 2, 2)
 	spawn(1)
-		qdel(src)
+		qdel(src)*/
+	//vars stolen for fragification
+	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
+	var/num_fragments = 72  //total number of fragments produced by the grenade
+	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
+	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
+
+	//blatant copypaste from frags, but those are a whole different type so vOv
+	set waitfor = 0
+	..()
+
+	var/turf/O = get_turf(src)
+	if(!O) return
+
+	var/list/target_turfs = getcircle(O, spread_range)
+	var/fragments_per_projectile = round(num_fragments/target_turfs.len)
+
+	for(var/turf/T in target_turfs)
+		sleep(0)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(O)
+
+		P.pellets = fragments_per_projectile
+		P.shot_from = src.name
+
+		P.launch(T)
+
+		//Make sure to hit any mobs in the source turf
+		for(var/mob/living/M in O)
+			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
+			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
+			if(M.lying && isturf(src.loc))
+				P.attack_mob(M, 0, 0)
+			else
+				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+
+	qdel(src)
 
 /obj/effect/mine/frag
 	name = "Frag Mine"

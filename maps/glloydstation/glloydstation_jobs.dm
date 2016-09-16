@@ -119,6 +119,7 @@
 	req_admin_notify = 1
 	minimal_player_age = 8
 	economic_modifier = 15
+	outfit_type = /decl/hierarchy/outfit/job/blueshield
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,

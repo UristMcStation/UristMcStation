@@ -262,17 +262,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
 	icon_state = "flashbang"
 
-
-	New()
-		..()
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-
 //TG cigarettes
 /obj/item/weapon/storage/fancy/cigarettes/urist
 	name = "urist packet"
@@ -435,20 +424,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 10
 	key_type = /obj/item/weapon/rollingpaper
 	can_hold = list(/obj/item/weapon/rollingpaper)
-	startswith = list(/obj/item/weapon/rollingpaper = 9)
-
-/obj/item/weapon/storage/fancy/rollingpapers/New()
-	..()
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
+	startswith = list(/obj/item/weapon/rollingpaper = 10)
 
 
 /obj/item/weapon/storage/fancy/rollingpapers/update_icon()
