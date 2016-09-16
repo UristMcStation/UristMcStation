@@ -31,7 +31,7 @@
 	name = "alien ship"
 
 /turf/unsimulated/floor/uristturf/other
-	icon = 'icons/urist/turf/floors+.dmi'
+	icon = 'icons/urist/turf/floorsplus.dmi'
 
 /turf/unsimulated/floor/uristturf/other/scom
 	icon = 'icons/urist/turf/scomturfs.dmi'
