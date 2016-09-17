@@ -28,6 +28,7 @@
 	req_one_access = list(1)
 
 /datum/shuttle/ferry/elevator
+	name = "some elevator"
 	var/id = null
 
 /datum/shuttle/ferry/elevator/arrived()

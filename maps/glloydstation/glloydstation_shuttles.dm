@@ -205,12 +205,12 @@
 		"Response Team Base" = "rescue_base",
 		"Arrivals dock" = "rescue_shuttle_dock_airlock",
 		)
-	announcer = "NDV Icarus"*/
+	announcer = "NDV Icarus"
 
 /datum/shuttle/multi_shuttle/rescue/New()
 	arrival_message = "Attention, [station_short], there's a small patrol craft headed your way, it flashed us Asset Protection codes and we let it pass. You've got guests on the way."
 	departure_message = "[station_short], That Asset Protection vessel is headed back the way it came. Hope they were helpful."
-	..()
+	..()*/
 
 /datum/shuttle/ferry/multidock/specops/ert
 	name = "Special Operations"

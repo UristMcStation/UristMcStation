@@ -57,6 +57,7 @@
 
 
 /datum/shuttle/ferry/scom
+	name = "SCOM-BU66Y5H1T" //really nobody should see it ever, and I couldn't resist. I'll see myself out.
 	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch), 8 minutes in total. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
