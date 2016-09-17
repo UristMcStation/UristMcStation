@@ -1,5 +1,5 @@
 //dammit Bay
-/var/const/access_court = 42
+/var/const/access_court = 51
 /datum/access/court
 	id = access_court
 	desc = "Courtroom"

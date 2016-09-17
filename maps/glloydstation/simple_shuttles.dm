@@ -30,6 +30,8 @@
 /datum/shuttle/ferry/elevator
 	name = "some elevator"
 	var/id = null
+	dock_target_station = "mining_elevator_surface" //placeholders to make Travis shut up. It's a parent, Travis.
+	dock_target_offsite = "mining_elevator_underground"
 
 /datum/shuttle/ferry/elevator/arrived()
 	for(var/obj/machinery/door/blast/M in machines)
