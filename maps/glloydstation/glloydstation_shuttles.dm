@@ -149,13 +149,13 @@
 		"South of the station" = /area/syndicate_station/south,
 		"Southeast of the station" = /area/syndicate_station/southeast,
 		"Telecomms Satellite" = /area/syndicate_station/commssat,
-		"Mining Station" = /area/syndicate_station/mining,
-		"Arrivals dock" = /area/syndicate_station/arrivals_dock,
+		"Planetside" = /area/syndicate_station/mining,
+		//"Arrivals dock" = /area/syndicate_station/arrivals_dock,
 		)
 	docking_controller_tag = "merc_shuttle"
 	destination_dock_targets = list(
 		"Mercenary Base" = "merc_base",
-		"Arrivals dock" = "nuke_shuttle_dock_airlock",
+		//"Arrivals dock" = "nuke_shuttle_dock_airlock",
 		)
 	announcer = "NDV Icarus"
 
@@ -174,7 +174,7 @@
 		"Fore Port Solars" = /area/skipjack_station/northwest_solars,
 		"Aft Starboard Solars" = /area/skipjack_station/southeast_solars,
 		"Aft Port Solars" = /area/skipjack_station/southwest_solars,
-		"Mining Station" = /area/skipjack_station/mining
+		"Planetside" = /area/skipjack_station/mining
 		)
 	announcer = "NDV Icarus"
 
@@ -183,7 +183,7 @@
 	departure_message = "Your guests are pulling away, [station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 	..()
 
-/datum/shuttle/multi_shuttle/rescue
+/*/datum/shuttle/multi_shuttle/rescue
 	name = "Rescue"
 	warmup_time = 0
 	origin = /area/rescue_base/start
@@ -205,7 +205,7 @@
 		"Response Team Base" = "rescue_base",
 		"Arrivals dock" = "rescue_shuttle_dock_airlock",
 		)
-	announcer = "NDV Icarus"
+	announcer = "NDV Icarus"*/
 
 /datum/shuttle/multi_shuttle/rescue/New()
 	arrival_message = "Attention, [station_short], there's a small patrol craft headed your way, it flashed us Asset Protection codes and we let it pass. You've got guests on the way."

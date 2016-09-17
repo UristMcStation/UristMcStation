@@ -66,9 +66,11 @@
 	var/missiondelayed = 0
 
 /datum/shuttle/ferry/scom/s1
+	name = "SCOM-400"
 	missionloc = /area/shuttle/scom/s1/mission0
 
 /datum/shuttle/ferry/scom/s2
+	name = "SCOM-402"
 	missionloc = /area/shuttle/scom/s2/mission0
 
 /datum/shuttle/ferry/scom/s1/launch()

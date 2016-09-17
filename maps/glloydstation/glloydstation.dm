@@ -4,6 +4,8 @@
 	#include "glloydstation_shuttles.dm"
 	#include "glloydstation_unit_testing.dm"
 	#include "glloydstation_holodecks.dm"
+	#include "arrivals.dm"
+	#include "simple_shuttles.dm"
 
 	#include "Glloydstation2-1.dmm"
 	#include "Glloydstation2-2.dmm"
