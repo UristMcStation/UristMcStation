@@ -2926,7 +2926,7 @@
 "ben" = (/turf/unsimulated/wall/wood,/area/centcom/antag)
 "beo" = (/turf/unsimulated/wall/wood{tag = "icon-wood11"; icon_state = "wood11"},/area/centcom/antag)
 "bep" = (/turf/unsimulated/floor{icon_state = "steel"},/area/centcom/antag)
-"beq" = (/turf/unsimulated/floor{dir = 8; icon = 'icons/urist/turf/floors+.dmi'; icon_state = "fakestairs_left"},/area/centcom/antag)
+"beq" = (/turf/unsimulated/floor/fakestairs{icon_state = "fakestairs_left"},/area/centcom/antag)
 "ber" = (/turf/unsimulated/wall/wood{tag = "icon-wood3"; icon_state = "wood3"},/area/centcom/antag)
 "bes" = (/turf/simulated/wall/voxshuttle,/area/skipjack_station/start)
 "bet" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1331; master_tag = "vox_west_control"; req_one_access = list(150)},/turf/simulated/wall/voxshuttle,/area/skipjack_station/start)

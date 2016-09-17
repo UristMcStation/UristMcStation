@@ -8,7 +8,7 @@ Basically, if you need to add turfs for UMcS, use this file -Glloyd */
 
 Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
-/turf/simulated/floor/uristturf
+/turf/simulated/floor/tiled/uristturf
 	name = "floor"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "yellowdiag02"
@@ -220,3 +220,8 @@ turf/simulated/floor/beach/pool/New()
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
+
+/turf/unsimulated/floor/fakestairs
+	name = "stairs"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "fakestairs"
