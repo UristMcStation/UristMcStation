@@ -71,13 +71,13 @@
 /datum/shuttle/ferry/scom/s1
 	name = "SCOM-400"
 	area_station = /area/shuttle/scom/s1/mission0
-	area_offsite = /area/shuttle/scom/s1/mission0
+	area_offsite = /area/shuttle/scom/s1/mission1
 
 
 /datum/shuttle/ferry/scom/s2
 	name = "SCOM-402"
 	area_station = /area/shuttle/scom/s2/mission0
-	area_offsite = /area/shuttle/scom/s2/mission0
+	area_offsite = /area/shuttle/scom/s2/mission1
 
 /datum/shuttle/ferry/scom/s1/launch()
 	command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
@@ -102,11 +102,11 @@
 		for(var/R in typesof(/datum/scommissions))
 			var/datum/scommissions/S = new R
 			if(basemission == S.basemission)
-				area_offsite = S.missionloc1
+				missionloc = S.missionloc1
 				missionannounce = S.missionannounce //only announce it once
 				mission = S.mission
 				for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
-					C.area_offsite = S.missionloc2
+					C.missionloc = S.missionloc2
 
 		spawn(missiontime - 300)
 		command_announcement.Announce("Incoming transmission, please stand by for orders...", "S-COM Mission Command")
@@ -152,7 +152,7 @@
 //		for(var/R in typesof(/datum/scommissions))
 //			var/datum/scommissions/S = new R
 //			if(basemission == S.basemission)
-//				area_offsite = S.missionloc2
+//				missionloc = S.missionloc2
 //				mission = S.mission
 
 		for(var/mob/living/carbon/C in mob_list)

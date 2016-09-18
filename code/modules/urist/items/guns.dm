@@ -169,6 +169,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60closed75"
 	item_state = "l6closedmag"
 	max_shells = 75
+	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/m60)
 	magazine_type = /obj/item/ammo_magazine/a762mm/m60
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
@@ -401,6 +402,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "M60closed"
 	caliber = "shotgun"
 	max_shells = 75
+	allowed_magazines = list(/obj/item/ammo_magazine/shotmachinegun)
 	magazine_type = /obj/item/ammo_magazine/shotmachinegun
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
