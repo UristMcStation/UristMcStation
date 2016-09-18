@@ -169,8 +169,8 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60closed75"
 	item_state = "l6closedmag"
 	max_shells = 75
-	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/m60)
-	magazine_type = /obj/item/ammo_magazine/a762mm/m60
+	allowed_magazines = list(/obj/item/ammo_magazine/a762/m60)
+	magazine_type = /obj/item/ammo_magazine/a762/m60
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
 	caliber = "7.62mm"
@@ -178,14 +178,14 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
 
-/obj/item/ammo_magazine/a762mm/m60
+/obj/item/ammo_magazine/a762/m60
 	name = "M60 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
 	multiple_sprites = 0
 
-/obj/item/ammo_magazine/a762mm/m60/empty
+/obj/item/ammo_magazine/a762/m60/empty
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m14

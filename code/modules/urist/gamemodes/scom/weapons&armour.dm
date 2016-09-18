@@ -184,9 +184,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"

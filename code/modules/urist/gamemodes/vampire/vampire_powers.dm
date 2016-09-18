@@ -261,9 +261,9 @@
 		M.current.verbs -= /client/proc/vampire_glare
 		spawn(300)
 			M.current.verbs += /client/proc/vampire_glare
-		if(istype(M.current:glasses, /obj/item/clothing/glasses/sunglasses/blindfold))
+		/*if(istype(M.current:glasses, /obj/item/clothing/glasses/sunglasses/blindfold))
 			M.current << "<span class='warning'>You're blindfolded!</span>"
-			return
+			return*/ //restore before merge
 		for(var/mob/living/carbon/C in view(1))
 			if(!C.vampire_affected(M)) continue
 			if(!M.current.vampire_can_reach(C, 1)) continue
