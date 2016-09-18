@@ -413,8 +413,9 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/shotmachinegun
 	caliber = "shotgun"
-	ammo_type = /obj/item/projectile/bullet/shotgun
+	ammo_type = /obj/item/ammo_casing/shotgun
 	initial_ammo = 75
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	mag_type = MAGAZINE
 	multiple_sprites = 0
 

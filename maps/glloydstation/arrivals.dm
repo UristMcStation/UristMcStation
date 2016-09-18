@@ -1,6 +1,6 @@
 /obj/machinery/computer/shuttle_control/arrivals
 	name = "arrival shuttle console"
-	shuttle_tag = "Arrival"
+	shuttle_tag = "Arrivals"
 	//req_access =
 	//circuit = /obj/item/weapon/circuitboard/
 

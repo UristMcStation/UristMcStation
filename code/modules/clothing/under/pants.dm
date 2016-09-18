@@ -1,6 +1,7 @@
 /obj/item/clothing/under/pants
 	name = "jeans"
 	desc = "A nondescript pair of tough blue jeans."
+	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "jeans"
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS
