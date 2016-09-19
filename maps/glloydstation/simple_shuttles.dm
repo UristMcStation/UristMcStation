@@ -12,13 +12,13 @@
 
 /obj/machinery/computer/shuttle_control/miningelevator
 	name = "mining elevator console"
-	shuttle_tag = "MiningElevator"
+	shuttle_tag = "Mining Elevator"
 	req_one_access = list(48)
 	//circuit = /obj/item/weapon/circuitboard/
 
 /obj/machinery/computer/shuttle_control/researchelevator
 	name = "research elevator console"
-	shuttle_tag = "ResearchElevator"
+	shuttle_tag = "Xenoarch Elevator"
 	req_one_access = list(65)
 	//circuit = /obj/item/weapon/circuitboard/
 

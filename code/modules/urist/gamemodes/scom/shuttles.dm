@@ -115,7 +115,7 @@
 		command_announcement.Announce("[missionannounce]", "S-COM Mission Command")
 
 		spawn(missiontime + 50)
-		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleporters in the hanger bay.", "S-COM Shuttle Control")
+		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleporters in the hangar bay.", "S-COM Shuttle Control")
 
 //		spawn(missiontime + 1250)
 
