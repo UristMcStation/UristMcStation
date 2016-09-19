@@ -13,6 +13,7 @@
 	id_type = /obj/item/weapon/card/id/syndicate/station_access
 	pda_slot = slot_belt
 	pda_type = /obj/item/device/pda/heads
+	id_pda_assignment = "ANTAG Operative"
 
 /decl/hierarchy/outfit/ANTAG/post_equip(var/mob/living/carbon/human/H)
 	var/obj/item/weapon/storage/secure/briefcase/sec_briefcase = new(H)
@@ -63,7 +64,8 @@
 	l_pocket = /obj/item/device/radio
 
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/syndicate/station_access
+	id_type = /obj/item/weapon/card/id/centcom
+	id_pda_assignment = "SCOM Operative"
 
 /decl/hierarchy/outfit/RDF
 	name = "RDF Soldier"
@@ -81,7 +83,7 @@
 	l_pocket = /obj/item/device/radio
 
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/syndicate/station_access
+	id_type = /obj/item/weapon/card/id/centcom
 
 /decl/hierarchy/outfit/conductor
 	name = "Conductor"
