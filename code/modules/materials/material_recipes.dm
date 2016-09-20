@@ -119,6 +119,7 @@
 	recipes += new/datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood, 3, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("fancy wooden chair", /obj/structure/bed/chair/wood/wings, 3, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("crossbow frame", /obj/item/weapon/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("improvised rifle stock", /obj/item/weapon/imprifleframe, 10, time = 50, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4)
 	recipes += new/datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1)
