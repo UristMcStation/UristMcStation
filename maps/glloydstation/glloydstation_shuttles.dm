@@ -223,3 +223,12 @@
 	docking_controller_tag_offsite = "specops_shuttle_fore"
 	dock_target_station = "specops_centcom_dock"
 	dock_target_offsite = "specops_dock_airlock"
+
+/*/datum/shuttle/naval
+	location = 1
+	warmup_time = 10
+	area_offsite = /area/shuttle/naval1/centcom
+	area_station = /area/shuttle/naval1/station
+	docking_controller_tag = "naval_shuttle"
+	dock_target_station = "naval_shuttle_dock_airlock"
+	dock_target_offsite = "naval_shuttle_bay"*/

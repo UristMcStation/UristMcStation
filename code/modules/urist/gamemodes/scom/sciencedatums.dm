@@ -6,14 +6,14 @@
 	//Create global scomscience recipe list if it hasn't been made already.
 	scomscience_recipes = list()
 	scomscience_categories = list()
-	for(var/R in typesof(/datum/scomscience/recipe)-/datum/scomscience/recipe)
+	for(var/R in subtypesof(/datum/scomscience/recipe))
 		var/datum/scomscience/recipe/recipe = new R
 		scomscience_recipes += recipe
 		scomscience_categories |= recipe.category
 
-		var/obj/I = new recipe.path //what the fuck
-		if(recipe.resources) //This is pointless
-			qdel(I) //TODO: Come back to this
+		//var/obj/I = new recipe.path //what the fuck
+		//if(recipe.resources) //This is pointless
+		//	qdel(I) //TODO: Come back to this
 
 /datum/scomscience/recipe
 	var/name = "object"

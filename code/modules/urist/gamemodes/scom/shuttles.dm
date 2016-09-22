@@ -57,6 +57,7 @@
 
 
 /datum/shuttle/ferry/scom
+	category = /datum/shuttle/ferry/scom //parent, hide he
 	name = "SCOM-BU66Y5H1T" //really nobody should see it ever, and I couldn't resist. I'll see myself out.
 	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch), 8 minutes in total. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
@@ -65,23 +66,21 @@
 //	var/missionarea = /area/scom/mission/nolighting //temp
 	var/basemission = 0
 	var/missiondelayed = 0
-	area_station = /area/shuttle/scom
-	area_offsite = /area/shuttle/scom
+	transit_direction = EAST
 
 /datum/shuttle/ferry/scom/s1
 	name = "SCOM-400"
-	area_station = /area/shuttle/scom/s1/mission0
-	area_offsite = /area/shuttle/scom/s1/mission1
+	area_station = /area/shuttle/scom/s1/base
+	area_offsite = /area/shuttle/scom/s1/mission0
 
 
 /datum/shuttle/ferry/scom/s2
 	name = "SCOM-402"
-	area_station = /area/shuttle/scom/s2/mission0
-	area_offsite = /area/shuttle/scom/s2/mission1
+	area_station = /area/shuttle/scom/s2/base
+	area_offsite = /area/shuttle/scom/s2/mission0
 
 /datum/shuttle/ferry/scom/s1/launch()
 	command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
-
 	..()
 
 	for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)

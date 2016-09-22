@@ -10,12 +10,12 @@
 	warmup_time = 10
 	area_offsite = /area/shuttle/arrivals/centcom
 	area_station = /area/shuttle/arrivals/station
-	area_transition = null
+	area_transition = /area/shuttle/arrivals/transit
 	docking_controller_tag = "arrival_shuttle"
 	dock_target_station = "arrival_dock"
 	dock_target_offsite = "centcom_dock"
-	transit_direction = NORTH
-	move_time = null
+	transit_direction = WEST
+	move_time = 20
 
 /datum/shuttle/ferry/arrivals/proc/AnnounceArrival()
 	if (ticker.current_state == GAME_STATE_PLAYING)
