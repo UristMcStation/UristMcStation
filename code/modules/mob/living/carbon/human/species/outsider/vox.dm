@@ -37,7 +37,7 @@
 	siemens_coefficient = 0.2
 
 	flags = NO_SCAN | NO_MINOR_CUT
-	spawn_flags = IS_WHITELISTED
+	spawn_flags = IS_WHITELISTED | IS_RESTRICTED
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
 	blood_color = "#2299FC"
