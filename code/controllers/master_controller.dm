@@ -39,6 +39,8 @@ datum/controller/game_controller/proc/setup()
 	spawn(20)
 		createRandomZlevel()
 
+	preloadTemplates()
+
 	setup_objects()
 	setupgenetics()
 	SetupXenoarch()
