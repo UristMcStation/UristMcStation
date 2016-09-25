@@ -112,10 +112,9 @@ var/list/datum/map_template/underground_templates = list()
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
 
 	for(var/obj/effect/template_loader/E in world)
-		if(istype(E, /obj/effect/template_loader/gamemode))//come back to this
-			return
-		else
-			E.Load()
+		if(E.gamemode == 1)
+			continue
+		E.Load()
 
 /proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
@@ -138,6 +137,7 @@ var/list/datum/map_template/underground_templates = list()
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
 	invisibility = 0
+	var/gamemode = 0
 
 /*/obj/effect/template_loader/New()
 	..()
@@ -200,6 +200,7 @@ var/list/datum/map_template/underground_templates = list()
 /obj/effect/template_loader/gamemode
 	var/mapfile
 	invisibility = 101
+	gamemode = 1
 
 /obj/effect/template_loader/gamemode/Load()
 
