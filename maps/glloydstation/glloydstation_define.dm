@@ -1,6 +1,6 @@
 /datum/map/glloydstation
-	name = "Exodus"
-	full_name = "NSS Exodus"
+	name = "Urist"
+	full_name = "NSS Urist"
 	path = "glloydstation"
 
 	station_levels = list(1)
