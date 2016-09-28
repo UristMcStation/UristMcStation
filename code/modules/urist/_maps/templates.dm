@@ -29,8 +29,9 @@ var/list/datum/map_template/underground_templates = list()
 	var/content = copytext(map_file,findtext(map_file,quote+"\n",mapstart,0)+2,findtext(map_file,"\n"+quote,mapstart,0)+1)
 	var/line_len = length(copytext(content,1,findtext(content,"\n",2,0)))
 
-	width = line_len/key_len
-	height = length(content)/(line_len+1)
+	if((line_len) && (key_len)) //prevents runtimes if it loads an empty/nonexistent file; obscures potential problem, remove line if fixed
+		width = line_len/key_len
+		height = length(content)/(line_len+1)
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)
