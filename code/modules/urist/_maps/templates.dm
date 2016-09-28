@@ -29,8 +29,9 @@ var/list/datum/map_template/underground_templates = list()
 	var/content = copytext(map_file,findtext(map_file,quote+"\n",mapstart,0)+2,findtext(map_file,"\n"+quote,mapstart,0)+1)
 	var/line_len = length(copytext(content,1,findtext(content,"\n",2,0)))
 
-	width = line_len/key_len
-	height = length(content)/(line_len+1)
+	if((line_len) && (key_len)) //prevents runtimes if it loads an empty/nonexistent file; obscures potential problem, remove line if fixed
+		width = line_len/key_len
+		height = length(content)/(line_len+1)
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)
@@ -112,10 +113,9 @@ var/list/datum/map_template/underground_templates = list()
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
 
 	for(var/obj/effect/template_loader/E in world)
-		if(istype(E, /obj/effect/template_loader/gamemode))//come back to this
-			return
-		else
-			E.Load()
+		if(E.gamemode == 1)
+			continue
+		E.Load()
 
 /proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
@@ -138,6 +138,7 @@ var/list/datum/map_template/underground_templates = list()
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
 	invisibility = 0
+	var/gamemode = 0
 
 /*/obj/effect/template_loader/New()
 	..()
@@ -200,6 +201,7 @@ var/list/datum/map_template/underground_templates = list()
 /obj/effect/template_loader/gamemode
 	var/mapfile
 	invisibility = 101
+	gamemode = 1
 
 /obj/effect/template_loader/gamemode/Load()
 

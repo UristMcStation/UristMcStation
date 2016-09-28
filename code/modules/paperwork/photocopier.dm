@@ -146,16 +146,7 @@
 					toner = 0
 	return
 
-/obj/machinery/photocopier/blob_act()
-	if(prob(50))
-		qdel(src)
-	else
-		if(toner > 0)
-			new /obj/effect/decal/cleanable/blood/oil(get_turf(src))
-			toner = 0
-	return
-
-/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy)
+/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/need_toner=1)
 	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper (loc)
 	if(toner > 10)	//lots of toner, make it dark
 		c.info = "<font color = #101010>"
@@ -165,7 +156,7 @@
 	copied = replacetext(copied, "<font face=\"[c.deffont]\" color=", "<font face=\"[c.deffont]\" nocolor=")	//state of the art techniques in action
 	copied = replacetext(copied, "<font face=\"[c.crayonfont]\" color=", "<font face=\"[c.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
 	c.info += copied
-	c.info += "</font>"
+	c.info += "</font>"//</font>
 	c.name = copy.name // -- Doohl
 	c.fields = copy.fields
 	c.stamps = copy.stamps
@@ -186,13 +177,14 @@
 		img.pixel_y = copy.offset_y[j]
 		c.overlays += img
 	c.updateinfolinks()
-	toner--
+	if(need_toner)
+		toner--
 	if(toner == 0)
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
 	return c
 
 
-/obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
+/obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy, var/need_toner=1)
 	var/obj/item/weapon/photo/p = photocopy.copy()
 	p.loc = src.loc
 
@@ -206,7 +198,8 @@
 		p.img.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(100,100,100))
 		p.tiny.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(100,100,100))
 	p.icon = I
-	toner -= 5	//photos use a lot of ink!
+	if(need_toner)
+		toner -= 5	//photos use a lot of ink!
 	if(toner < 0)
 		toner = 0
 		visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")
@@ -228,13 +221,11 @@
 			W = photocopy(W)
 		W.loc = p
 		p.pages += W
-		
+
 	p.loc = src.loc
 	p.update_icon()
 	p.icon_state = "paper_words"
 	p.name = bundle.name
-	p.pixel_y = rand(-8, 8)
-	p.pixel_x = rand(-9, 9)
 	return p
 
 /obj/item/device/toner

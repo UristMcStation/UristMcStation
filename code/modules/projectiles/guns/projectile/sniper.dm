@@ -1,22 +1,21 @@
 /obj/item/weapon/gun/projectile/heavysniper
-	name = "\improper PTR-7 rifle"
-	desc = "A portable anti-armour rifle fitted with a scope. Originally designed to used against armoured exosuits, it is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	name = "anti-materiel rifle"
+	desc = "A portable anti-armour rifle fitted with a scope, the HI PTR-7 Rifle was originally designed to used against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
 	icon_state = "heavysniper"
-	item_state = "l6closednomag" //placeholder
-	w_class = 4
+	item_state = "heavysniper" //sort of placeholder
+	w_class = 5
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=8;materials=2;syndicate=8"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	caliber = "14.5mm"
-	recoil = 2 //extra kickback
-	//fire_sound = 'sound/weapons/sniper.ogg'
+	screen_shake = 2 //extra kickback
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a145
-	//+2 accuracy over the LWAP because only one shot
-	accuracy = -1
-	scoped_accuracy = 2
+	requires_two_hands = 6
+	accuracy = -2
+	scoped_accuracy = 5 //increased accuracy over the LWAP because only one shot
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
@@ -63,5 +62,5 @@
 	set name = "Use Scope"
 	set popup_menu = 1
 
-	toggle_scope(2.0)
+	toggle_scope(usr, 2.0)
 

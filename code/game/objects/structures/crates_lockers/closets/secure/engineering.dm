@@ -15,6 +15,8 @@
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		if(prob(50))
+			new /obj/item/weapon/storage/backpack/dufflebag/eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
@@ -33,6 +35,7 @@
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/engineering(src)
+		new /obj/item/weapon/crowbar/brace_jack(src)
 		return
 
 
@@ -108,6 +111,8 @@
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		if(prob(50))
+			new /obj/item/weapon/storage/backpack/dufflebag/eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
@@ -137,6 +142,8 @@
 			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		if(prob(50))
+			new /obj/item/weapon/storage/backpack/dufflebag/eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
@@ -148,5 +155,5 @@
 		new /obj/item/clothing/suit/storage/hazardvest(src)
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/weapon/cartridge/atmos(src)
-		new /obj/item/taperoll/engineering(src)
+		new /obj/item/taperoll/atmos(src)
 		return

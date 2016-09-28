@@ -48,45 +48,49 @@
 				user << "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart."
 				if (!(LASER in user.mutations))
 					user.mutations.Add(LASER)
-					user << "\blue You feel pressure building behind your eyes."
+					user << "<span class='notice'>You feel pressure building behind your eyes.</span>"
 				if (!(COLD_RESISTANCE in user.mutations))
 					user.mutations.Add(COLD_RESISTANCE)
-					user << "\blue Your body feels warm."
+					user << "<span class='notice'>Your body feels warm.</span>"
 				if (!(XRAY in user.mutations))
 					user.mutations.Add(XRAY)
 					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 					user.see_in_dark = 8
 					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-					user << "\blue The walls suddenly disappear."
-				user.set_species("Shadow")
-				user.update_icons()
+					user << "<span class='notice'>The walls suddenly disappear.</span>"
+				user.dna.mutantrace = "shadow"
+				user.update_mutantrace()
 			if("Wealth")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart."
 				new /obj/structure/closet/syndicate/resources/everything(loc)
-				user.set_species("Shadow")
-				user.update_icons()
+				user.dna.mutantrace = "shadow"
+				user.update_mutantrace()
 			if("Immortality")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart."
 				user.verbs += /mob/living/carbon/proc/immortality
-				user.set_species("Shadow")
-				user.update_icons()
+				user.dna.mutantrace = "shadow"
+				user.update_mutantrace()
 			if("To Kill")
 				user << "<B>Your wish is granted, but at a terrible cost...</B>"
 				user << "The Wish Granter punishes you for your wickedness, claiming your soul and warping your body to match the darkness in your heart."
-				traitors.add_antagonist(user, 1, 1, 0, 1, 1)
+				ticker.mode.traitors += user.mind
+				user.mind.special_role = "traitor"
+				var/datum/objective/hijack/hijack = new
+				hijack.owner = user.mind
+				user.mind.objectives += hijack
 				user << "<B>Your inhibitions are swept away, the bonds of loyalty broken, you are free to murder as you please!</B>"
 				var/obj_count = 1
 				for(var/datum/objective/OBJ in user.mind.objectives)
 					user << "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]"
 					obj_count++
-				user.set_species("Shadow")
-				user.update_icons()
+				user.dna.mutantrace = "shadow"
+				user.update_mutantrace()
 			if("Peace")
 				user << "<B>Whatever alien sentience that the Wish Granter possesses is satisfied with your wish. There is a distant wailing as the last of the Faithless begin to die, then silence.</B>"
 				user << "You feel as if you just narrowly avoided a terrible fate..."
-				for(var/mob/living/simple_animal/hostile/faithless/F in living_mob_list)
+				for(var/mob/living/simple_animal/hostile/faithless/F in living_mob_list_)
 					F.health = -10
 					F.stat = 2
 					F.icon_state = "faithless_dead"
@@ -109,8 +113,8 @@
 /obj/effect/meatgrinder/New()
 	icon_state = "blob"
 
-///obj/effect/meatgrinder/HasEntered(AM as mob|obj)
-//	Bumped(AM)
+/obj/effect/meatgrinder/HasEntered(AM as mob|obj)
+	Bumped(AM)
 
 /obj/effect/meatgrinder/Bumped(mob/M as mob|obj)
 
@@ -151,8 +155,8 @@
 
 	spawn(rand(800,1200))
 		if(C.stat == DEAD)
-			dead_mob_list -= C
-			living_mob_list += C
+			dead_mob_list_ -= C
+			living_mob_list_ += C
 		C.stat = CONSCIOUS
 		C.tod = null
 		C.setToxLoss(0)

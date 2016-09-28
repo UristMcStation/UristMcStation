@@ -1,9 +1,9 @@
 //tunnels and shit commented out for now
 
-/*/turf/simulated/floor/plating/airless/asteroid/cave
+/*/turf/simulated/floor/asteroid/cave
 	var/length = 100
 
-/turf/simulated/floor/plating/airless/asteroid/cave/New(loc, var/length, var/go_backwards = 1, var/exclude_dir = -1)
+/turf/simulated/floor/asteroid/cave/New(loc, var/length, var/go_backwards = 1, var/exclude_dir = -1)
 
 	// If length (arg2) isn't defined, get a random length; otherwise assign our length to the length arg.
 	if(!length)
@@ -24,7 +24,7 @@
 	SpawnFloor(src)
 	..()
 
-/turf/simulated/floor/plating/airless/asteroid/cave/proc/make_tunnel(var/dir)
+/turf/simulated/floor/asteroid/cave/proc/make_tunnel(var/dir)
 
 	var/turf/simulated/mineral/tunnel = src
 	var/next_angle = pick(45, -45)
@@ -60,8 +60,8 @@
 			dir = angle2dir(dir2angle(dir) + next_angle)
 
 
-/turf/simulated/floor/plating/airless/asteroid/cave/proc/SpawnFloor(var/turf/T)
-	var/turf/simulated/floor/t = new /turf/simulated/floor/plating/airless/asteroid(T)
+/turf/simulated/floor/asteroid/cave/proc/SpawnFloor(var/turf/T)
+	var/turf/simulated/floor/t = new /turf/simulated/floor/asteroid(T)
 	spawn(2)
 		t.fullUpdateMineralOverlays()*/
 

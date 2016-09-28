@@ -20,10 +20,6 @@
 	..()
 	update_icon()
 
-/obj/machinery/ai_slipper/power_change()
-	..()
-	update_icon()
-
 /obj/machinery/ai_slipper/update_icon()
 	if (stat & NOPOWER || stat & BROKEN)
 		icon_state = "motion0"
@@ -52,7 +48,7 @@
 				if (user.machine==src)
 					src.attack_hand(usr)
 		else
-			user << "\red Access denied."
+			user << "<span class='warning'>Access denied.</span>"
 			return
 	return
 

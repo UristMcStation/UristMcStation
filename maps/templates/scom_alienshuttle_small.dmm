@@ -26,7 +26,7 @@
 "z" = (/turf/unsimulated/floor/uristturf/other/scom/destructable{tag = "icon-2,14 (SOUTHEAST)"; icon_state = "2,14"; dir = 6},/area/shuttle/assault/a1/station)
 "A" = (/turf/unsimulated/floor/uristturf/other/scom/destructable{tag = "icon-2,14 (NORTH)"; icon_state = "2,14"; dir = 1},/area/shuttle/assault/a1/station)
 "B" = (/turf/unsimulated/wall/urist/other/destructable{tag = "icon-3,15 (SOUTHWEST)"; icon_state = "3,15"; dir = 10},/area/shuttle/assault/a1/station)
-"C" = (/turf/template_noop,/area/template_noop)
+"C" = (/turf/space,/area/template_noop)
 
 (1,1,1) = {"
 abbbbbbbc

@@ -36,8 +36,6 @@ obj/machinery/atmospherics/mains_pipe
 	icon = 'icons/obj/atmospherics/mainspipe.dmi'
 	layer = 2.4 //under wires with their 2.5
 
-	force = 20
-
 	var/volume = 0
 
 	var/alert_pressure = 80*ONE_ATMOSPHERE
@@ -181,7 +179,7 @@ obj/machinery/atmospherics/mains_pipe/simple
 		..() // initialize internal pipes
 
 		var/turf/T = src.loc			// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	hidden
@@ -243,7 +241,7 @@ obj/machinery/atmospherics/mains_pipe/manifold
 		..() // initialize internal pipes
 
 		var/turf/T = src.loc			// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	update_icon()
@@ -293,7 +291,7 @@ obj/machinery/atmospherics/mains_pipe/manifold4w
 		..() // initialize internal pipes
 
 		var/turf/T = src.loc			// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	update_icon()
@@ -354,7 +352,7 @@ obj/machinery/atmospherics/mains_pipe/split
 					N1.merge(N2)
 
 		var/turf/T = src.loc			// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	update_icon()
@@ -475,7 +473,7 @@ obj/machinery/atmospherics/mains_pipe/split3
 					N1.merge(N2)
 
 		var/turf/T = src.loc			// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	update_icon()
@@ -525,7 +523,7 @@ obj/machinery/atmospherics/mains_pipe/cap
 		..()
 
 		var/turf/T = src.loc	// hide if turf is not intact
-		hide(T.intact)
+		if(level == 1 && !T.is_plating()) hide(1)
 		update_icon()
 
 	hidden
@@ -649,7 +647,7 @@ obj/machinery/atmospherics/mains_pipe/valve
 
 		attack_hand(mob/user as mob)
 			if(!src.allowed(user))
-				user << "\red Access denied."
+				user << "<span class='warning'>Access denied.</span>"
 				return
 			..()
 

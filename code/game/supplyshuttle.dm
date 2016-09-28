@@ -1,8 +1,6 @@
 //Config stuff
 #define SUPPLY_DOCKZ 2          //Z-level of the Dock.
 #define SUPPLY_STATIONZ 1       //Z-level of the Station.
-#define SUPPLY_STATION_AREATYPE "/area/supply/station" //Type of the supply shuttle area for station
-#define SUPPLY_DOCK_AREATYPE "/area/supply/dock"	//Type of the supply shuttle area for dock
 
 //Supply packs are in /code/defines/obj/supplypacks.dm
 //Computers are in /code/game/machinery/computer/supply.dm
@@ -26,11 +24,6 @@ var/list/mechtoys = list(
 /obj/item/weapon/paper/manifest
 	name = "supply manifest"
 	var/is_copy = 1
-
-/area/supply/station
-	name = "Supply Shuttle"
-	icon_state = "shuttle3"
-	requires_power = 0
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -70,11 +63,7 @@ var/list/mechtoys = list(
 		for(var/mob_type in mobs_can_pass)
 			if(istype(A, mob_type))
 				return ..()
-		if(istype(A, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			if(H.species.is_small)
-				return ..()
-		return 0
+		return issmall(M)
 
 	return ..()
 
@@ -118,9 +107,11 @@ var/list/mechtoys = list(
 
 /datum/supply_order
 	var/ordernum
-	var/datum/supply_packs/object = null
+	var/decl/hierarchy/supply_pack/object = null
 	var/orderedby = null
 	var/comment = null
+	var/reason = null
+	var/orderedrank = null //used for supply console printing
 
 /datum/controller/supply
 	//supply points
@@ -134,17 +125,21 @@ var/list/mechtoys = list(
 	var/ordernum
 	var/list/shoppinglist = list()
 	var/list/requestlist = list()
-	var/list/supply_packs = list()
+	var/list/master_supply_list = list()
 	//shuttle movement
 	var/movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
 
+	var/obj/machinery/computer/supply/primaryterminal //terminal hardcopy forms will be printed to.
+
 	New()
 		ordernum = rand(1,9000)
 
-		for(var/typepath in (typesof(/datum/supply_packs) - /datum/supply_packs))
-			var/datum/supply_packs/P = new typepath()
-			supply_packs[P.name] = P
+		//Build master supply list
+		for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
+			if(sp.is_category())
+				for(var/decl/hierarchy/supply_pack/spc in sp.children)
+					master_supply_list += spc
 
 	// Supply shuttle ticker - handles supply point regeneration
 	// This is called by the process scheduler every thirty seconds
@@ -212,10 +207,8 @@ var/list/mechtoys = list(
 	//Buyin
 	proc/buy()
 		if(!shoppinglist.len) return
-
 		var/area/area_shuttle = shuttle.get_location_area()
 		if(!area_shuttle)	return
-
 		var/list/clear_turfs = list()
 
 		for(var/turf/T in area_shuttle)
@@ -228,7 +221,6 @@ var/list/mechtoys = list(
 			if(contcount)
 				continue
 			clear_turfs += T
-
 		for(var/S in shoppinglist)
 			if(!clear_turfs.len)	break
 			var/i = rand(1,clear_turfs.len)
@@ -236,11 +228,10 @@ var/list/mechtoys = list(
 			clear_turfs.Cut(i,i+1)
 
 			var/datum/supply_order/SO = S
-			var/datum/supply_packs/SP = SO.object
+			var/decl/hierarchy/supply_pack/SP = SO.object
 
 			var/obj/A = new SP.containertype(pickedloc)
-			A.name = "[SP.containername] [SO.comment ? "([SO.comment])":"" ]"
-
+			A.name = "[SP.containername][SO.comment ? " ([SO.comment])":"" ]"
 			//supply manifest generation begin
 
 			var/obj/item/weapon/paper/manifest/slip
@@ -263,24 +254,10 @@ var/list/mechtoys = list(
 				else
 					world << "<span class='danger'>Supply pack with invalid access restriction [SP.access] encountered!</span>"
 
-			var/list/contains
-			if(istype(SP,/datum/supply_packs/randomised))
-				var/datum/supply_packs/randomised/SPR = SP
-				contains = list()
-				if(SPR.contains.len)
-					for(var/j=1,j<=SPR.num_contained,j++)
-						contains += pick(SPR.contains)
-			else
-				contains = SP.contains
-
-			for(var/typepath in contains)
-				if(!typepath)	continue
-				var/atom/B2 = new typepath(A)
-				if(SP.amount && B2:amount) B2:amount = SP.amount
-				if(slip) slip.info += "<li>[B2.name]</li>" //add the item to the manifest
-
-			//manifest finalisation
+			var/list/spawned = SP.spawn_contents(A)
 			if(slip)
+				for(var/atom/content in spawned)
+					slip.info += "<li>[content.name]</li>" //add the item to the manifest
 				slip.info += "</ul><br>"
 				slip.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>"
 

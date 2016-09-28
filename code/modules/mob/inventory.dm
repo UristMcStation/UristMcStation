@@ -1,7 +1,13 @@
 //This proc is called whenever someone clicks an inventory ui slot.
 /mob/proc/attack_ui(slot)
 	var/obj/item/W = get_active_hand()
-	if(istype(W))
+	var/obj/item/E = get_equipped_item(slot)
+	if (istype(E))
+		if(istype(W))
+			E.attackby(W,src)
+		else
+			E.attack_hand(src)
+	else
 		equip_to_slot_if_possible(W, slot)
 
 /mob/proc/put_in_any_hand_if_possible(obj/item/W as obj, del_on_fail = 0, disable_warning = 1, redraw_mob = 1)
@@ -77,16 +83,15 @@ var/list/slot_equipment_priority = list( \
 	// Try put it in their backpack
 	if(istype(src.back,/obj/item/weapon/storage))
 		var/obj/item/weapon/storage/backpack = src.back
-		if(backpack.contents.len < backpack.storage_slots)
+		if(backpack.can_be_inserted(newitem, null, 1))
 			newitem.forceMove(src.back)
-			return 1
+			return backpack
 
 	// Try to place it in any item that can store stuff, on the mob.
 	for(var/obj/item/weapon/storage/S in src.contents)
-		if (S.contents.len < S.storage_slots)
+		if(S.can_be_inserted(newitem, null, 1))
 			newitem.forceMove(S)
-			return 1
-	return 0
+			return S
 
 //These procs handle putting s tuff in your hand. It's probably best to use these rather than setting l_hand = ...etc
 //as they handle all relevant stuff like adding it to the player's screen and updating their overlays.
@@ -127,22 +132,15 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/put_in_hands(var/obj/item/W)
 	if(!W)
 		return 0
-	W.forceMove(get_turf(src))
-	W.layer = initial(W.layer)
-	W.dropped()
+	drop_from_inventory(W)
 	return 0
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W)
-		if(!Target)
-			Target = loc
-
-		remove_from_mob(W)
+		remove_from_mob(W, target)
 		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
-
-		W.forceMove(Target)
 		update_icons()
 		return 1
 	return 0
@@ -164,7 +162,9 @@ var/list/slot_equipment_priority = list( \
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
 	Does nothing else.
 
-	DO NOT CALL THIS PROC DIRECTLY. It is meant to be called only by other inventory procs.
+	>>>> *** DO NOT CALL THIS PROC DIRECTLY *** <<<<
+
+	It is meant to be called only by other inventory procs.
 	It's probably okay to use it if you are transferring the item between slots on the same mob,
 	but chances are you're safer calling remove_from_mob() or drop_from_inventory() anyways.
 
@@ -186,28 +186,38 @@ var/list/slot_equipment_priority = list( \
 		update_inv_wear_mask(0)
 	return
 
-//This differs from remove_from_mob() in that it checks if the item can be unequipped first.
-/mob/proc/unEquip(obj/item/I, force = 0) //Force overrides NODROP for things like wizarditis and admin undress.
+/mob/proc/isEquipped(obj/item/I)
+	if(!I)
+		return 0
+	return get_inventory_slot(I) != 0
+
+/mob/proc/canUnEquip(obj/item/I)
 	if(!I) //If there's nothing to drop, the drop is automatically successful.
 		return 1
-
 	var/slot = get_inventory_slot(I)
-	if(slot && !I.mob_can_unequip(src, slot))
-		return 0
-
-	drop_from_inventory(I)
-	return 1
+	if(!slot)
+		return 1 //already unequipped, so success
+	return I.mob_can_unequip(src, slot)
 
 /mob/proc/get_inventory_slot(obj/item/I)
-	var/slot
-	for(var/s in slot_back to slot_tie) //kind of worries me
+	var/slot = 0
+	for(var/s in slot_first to slot_last) //kind of worries me
 		if(get_equipped_item(s) == I)
 			slot = s
 			break
 	return slot
 
+//This differs from remove_from_mob() in that it checks if the item can be unequipped first.
+/mob/proc/unEquip(obj/item/I, force = 0) //Force overrides NODROP for things like wizarditis and admin undress.
+	if(!(force || canUnEquip(I)))
+		return
+	drop_from_inventory(I)
+	return 1
+
 //Attemps to remove an object on a mob.
-/mob/proc/remove_from_mob(var/obj/O)
+/mob/proc/remove_from_mob(var/obj/O, var/atom/target)
+	if(!O) // Nothing to remove, so we succeed.
+		return 1
 	src.u_equip(O)
 	if (src.client)
 		src.client.screen -= O
@@ -215,7 +225,10 @@ var/list/slot_equipment_priority = list( \
 	O.screen_loc = null
 	if(istype(O, /obj/item))
 		var/obj/item/I = O
-		I.forceMove(src.loc)
+		if(target)
+			I.forceMove(target)
+		else
+			I.dropInto(loc)
 		I.dropped(src)
 	return 1
 
@@ -229,25 +242,16 @@ var/list/slot_equipment_priority = list( \
 		if(slot_wear_mask) return wear_mask
 	return null
 
-//Outdated but still in use apparently. This should at least be a human proc.
-/mob/proc/get_equipped_items()
-	var/list/items = new/list()
+/mob/proc/get_equipped_items(var/include_carried = 0)
+	. = list()
+	if(slot_back) . += back
+	if(slot_wear_mask) . += wear_mask
 
-	if(hasvar(src,"back")) if(src:back) items += src:back
-	if(hasvar(src,"belt")) if(src:belt) items += src:belt
-	if(hasvar(src,"l_ear")) if(src:l_ear) items += src:l_ear
-	if(hasvar(src,"r_ear")) if(src:r_ear) items += src:r_ear
-	if(hasvar(src,"glasses")) if(src:glasses) items += src:glasses
-	if(hasvar(src,"gloves")) if(src:gloves) items += src:gloves
-	if(hasvar(src,"head")) if(src:head) items += src:head
-	if(hasvar(src,"shoes")) if(src:shoes) items += src:shoes
-	if(hasvar(src,"wear_id")) if(src:wear_id) items += src:wear_id
-	if(hasvar(src,"wear_mask")) if(src:wear_mask) items += src:wear_mask
-	if(hasvar(src,"wear_suit")) if(src:wear_suit) items += src:wear_suit
-//	if(hasvar(src,"w_radio")) if(src:w_radio) items += src:w_radio  commenting this out since headsets go on your ears now PLEASE DON'T BE MAD KEELIN
-	if(hasvar(src,"w_uniform")) if(src:w_uniform) items += src:w_uniform
+	if(include_carried)
+		if(slot_l_hand) . += l_hand
+		if(slot_r_hand) . += r_hand
 
-	//if(hasvar(src,"l_hand")) if(src:l_hand) items += src:l_hand
-	//if(hasvar(src,"r_hand")) if(src:r_hand) items += src:r_hand
-
-	return items
+/mob/proc/delete_inventory(var/include_carried = FALSE)
+	for(var/entry in get_equipped_items(include_carried))
+		drop_from_inventory(entry)
+		qdel(entry)

@@ -111,9 +111,9 @@
 						new cash_type(C)
 			if("remains")
 				if(prob(50))
-					new /obj/effect/decal/remains/human(src.loc)
+					new /obj/item/remains/human(src.loc)
 				else
-					new /obj/effect/decal/remains/xeno(src.loc)
+					new /obj/item/remains/xeno(src.loc)
 			if("plants")
 				if(prob(25))
 					new /obj/item/weapon/bananapeel(src.loc)
@@ -129,7 +129,7 @@
 				C.icon_state = "blue"
 				C.icon_closed = "blue"
 				if(prob(33))
-					new /obj/item/clothing/under/rainbow(C)
+					new /obj/item/clothing/under/color/rainbow(C)
 					new /obj/item/clothing/shoes/rainbow(C)
 					new /obj/item/clothing/head/soft/rainbow(C)
 					new /obj/item/clothing/gloves/rainbow(C)
@@ -198,7 +198,7 @@
 				var/obj/structure/closet/crate/freezer/C = new(src.loc)
 				var/num = rand(2,6)
 				var/new_type = pick(
-				/obj/item/weapon/reagent_containers/food/drinks/cans/beer, \
+				/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer, \
 				/obj/item/weapon/reagent_containers/food/drinks/tea, \
 				/obj/item/weapon/reagent_containers/food/drinks/dry_ramen, \
 				/obj/item/weapon/reagent_containers/food/snacks/candiedapple, \
@@ -210,13 +210,15 @@
 				for(var/i=0,i<num,i++)
 					new new_type(C)
 			if("alien")
+				qdel(src)
+				return
 				//ancient aliens
-				var/obj/structure/closet/acloset/C = new(src.loc)
-				if(prob(33))
+				//var/obj/structure/closet/acloset/C = new(src.loc)
+				/*if(prob(33))
 					//facehuggers
 					var/num = rand(1,3)
 					for(var/i=0,i<num,i++)
-						new /obj/item/clothing/mask/facehugger(C)
+						new /obj/item/clothing/mask/facehugger(C)*/
 				/*else if(prob(50))
 					//something else very much alive and angry
 					var/spawn_type = pick(/mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/alien/drone, /mob/living/simple_animal/hostile/alien/sentinel)
@@ -251,9 +253,9 @@
 			if("coffin")
 				new /obj/structure/closet/coffin(src.loc)
 				if(prob(33))
-					new /obj/effect/decal/remains/human(src)
+					new /obj/item/remains/human(src)
 				else if(prob(50))
-					new /obj/effect/decal/remains/xeno(src)
+					new /obj/item/remains/xeno(src)
 			/*if("mimic")
 				//a guardian of the tomb!
 				new /mob/living/simple_animal/hostile/mimic/crate(src.loc)*/

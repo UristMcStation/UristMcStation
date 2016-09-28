@@ -2,10 +2,8 @@ var/datum/antagonist/vampire/vamps
 
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
-	role_type = BE_VAMPIRE
 	role_text = "Vampire"
 	role_text_plural = "Vampires"
-	bantype = "vampire"
 	feedback_tag = "vampire_objective"
 	restricted_jobs = list("AI", "Cyborg", "Chaplain")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
@@ -17,6 +15,7 @@ var/datum/antagonist/vampire/vamps
 	initial_spawn_target = 1
 	hard_cap = 999	//should be able to multiply freely, if costs are met
 	hard_cap_round = 5
+	faction = "vampire"
 
 ///datum/antagonist/vampire/get_special_objective_text(var/datum/mind/player)
 //	return //"<br><b>Real Name:</b> [player.real_name].

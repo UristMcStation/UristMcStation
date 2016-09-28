@@ -3,8 +3,15 @@
 
 ///Process_Grab()
 ///Called by client/Move()
-///Checks to see if you are grabbing anything and if moving will affect your grab.
+///Checks to see if you are grabbing or being grabbed by anything and if moving will affect your grab.
 /client/proc/Process_Grab()
+	//if we are being grabbed
+	if(isliving(mob))
+		var/mob/living/L = mob
+		if(!L.canmove && L.grabbed_by.len)
+			L.resist() //shortcut for resisting grabs
+
+	//if we are grabbing someone
 	for(var/obj/item/weapon/grab/G in list(mob.l_hand, mob.r_hand))
 		G.reset_kill_state() //no wandering across the station/asteroid while choking someone
 
@@ -27,7 +34,7 @@
 	layer = 21
 	abstract = 1
 	item_state = "nothing"
-	w_class = 5.0
+	simulated = 0
 
 
 /obj/item/weapon/grab/New(mob/user, mob/victim)
@@ -57,6 +64,9 @@
 				dancing = 1
 	adjust_position()
 
+/obj/item/weapon/grab/get_storage_cost()
+	return DO_NOT_STORE
+
 //Used by throw code to hand over the mob, instead of throwing the grab. The grab is then deleted by the throw code.
 /obj/item/weapon/grab/proc/throw_held()
 	if(affecting)
@@ -69,7 +79,7 @@
 
 
 //This makes sure that the grab screen object is displayed in the correct hand.
-/obj/item/weapon/grab/proc/synch()
+/obj/item/weapon/grab/proc/synch() //why is this needed?
 	if(affecting)
 		if(assailant.r_hand == src)
 			hud.screen_loc = ui_rhand
@@ -124,9 +134,9 @@
 
 		if(iscarbon(affecting))
 			handle_eye_mouth_covering(affecting, assailant, assailant.zone_sel.selecting)
-		
+
 		if(force_down)
-			if(affecting.loc != assailant.loc)
+			if(affecting.loc != assailant.loc || size_difference(affecting, assailant) > 0)
 				force_down = 0
 			else
 				affecting.Weaken(2)
@@ -138,17 +148,18 @@
 			L.adjustOxyLoss(1)
 
 	if(state >= GRAB_KILL)
-		//affecting.apply_effect(STUTTER, 5) //would do this, but affecting isn't declared as mob/living for some stupid reason.
-		affecting.stuttering = max(affecting.stuttering, 5) //It will hamper your voice, being choked and all.
-		affecting.Weaken(5)	//Should keep you down unless you get help.
-		affecting.losebreath = max(affecting.losebreath + 2, 3)
+		if(iscarbon(affecting))
+			var/mob/living/carbon/C = affecting
+			C.apply_effect(STUTTER, 5) //It will hamper your voice, being choked and all.
+			C.Weaken(5)	//Should keep you down unless you get help.
+			C.losebreath = max(C.losebreath + 2, 3)
 
 	adjust_position()
 
 /obj/item/weapon/grab/proc/handle_eye_mouth_covering(mob/living/carbon/target, mob/user, var/target_zone)
 	var/announce = (target_zone != last_hit_zone) //only display messages when switching between different target zones
 	last_hit_zone = target_zone
-	
+
 	switch(target_zone)
 		if("mouth")
 			if(announce)
@@ -165,11 +176,17 @@
 	return s_click(hud)
 
 
+/obj/item/weapon/grab/proc/reset_position()
+	if(!affecting.buckled)
+		animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
+	affecting.layer = initial(affecting.layer)
+
 //Updating pixelshift, position and direction
 //Gets called on process, when the grab gets upgraded or the assailant moves
 /obj/item/weapon/grab/proc/adjust_position()
-	if(affecting.buckled)
-		animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
+	if(!affecting || affecting.buckled)
+		return
+	if(!assailant)
 		return
 	if(affecting.lying && state != GRAB_KILL)
 		animate(affecting, pixel_x = 0, pixel_y = 0, 5, 1, LINEAR_EASING)
@@ -178,7 +195,7 @@
 		return
 	var/shift = 0
 	var/adir = get_dir(assailant, affecting)
-	affecting.layer = 4
+	affecting.layer = initial(affecting.layer)
 	switch(state)
 		if(GRAB_PASSIVE)
 			shift = 8
@@ -201,7 +218,7 @@
 	switch(adir)
 		if(NORTH)
 			animate(affecting, pixel_x = 0, pixel_y =-shift, 5, 1, LINEAR_EASING)
-			affecting.layer = 3.9
+			affecting.layer = initial(affecting.layer) - 0.1
 		if(SOUTH)
 			animate(affecting, pixel_x = 0, pixel_y = shift, 5, 1, LINEAR_EASING)
 		if(WEST)
@@ -214,7 +231,7 @@
 		return
 	if(state == GRAB_UPGRADING)
 		return
-	if(assailant.next_move > world.time)
+	if(!assailant.canClick())
 		return
 	if(world.time < (last_action + UPGRADE_COOLDOWN))
 		return
@@ -227,12 +244,12 @@
 	if(state < GRAB_AGGRESSIVE)
 		if(!allow_upgrade)
 			return
-		if(!affecting.lying)
+		if(!affecting.lying || size_difference(affecting, assailant) > 0)
 			assailant.visible_message("<span class='warning'>[assailant] has grabbed [affecting] aggressively (now hands)!</span>")
 		else
 			assailant.visible_message("<span class='warning'>[assailant] pins [affecting] down to the ground (now hands)!</span>")
 			apply_pinning(affecting, assailant)
-		
+
 		state = GRAB_AGGRESSIVE
 		icon_state = "grabbed1"
 		hud.icon_state = "reinforce1"
@@ -261,9 +278,11 @@
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>Strangled (kill intent) [affecting.name] ([affecting.ckey])</font>"
 		msg_admin_attack("[key_name(assailant)] strangled (kill intent) [key_name(affecting)]")
 
-		assailant.next_move = world.time + 10
-		affecting.losebreath += 1
+		affecting.setClickCooldown(10)
 		affecting.set_dir(WEST)
+		if(iscarbon(affecting))
+			var/mob/living/carbon/C = affecting
+			C.losebreath += 1
 	adjust_position()
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.
@@ -284,13 +303,14 @@
 		return
 	if(world.time < (last_action + 20))
 		return
-	
+
 	last_action = world.time
 	reset_kill_state() //using special grab moves will interrupt choking them
-	
+
 	//clicking on the victim while grabbing them
 	if(M == affecting)
 		if(ishuman(affecting))
+			var/mob/living/carbon/human/H = affecting
 			var/hit_zone = assailant.zone_sel.selecting
 			flick(hud.icon_state, hud)
 			switch(assailant.a_intent)
@@ -299,11 +319,14 @@
 						assailant << "<span class='warning'>You are no longer pinning [affecting] to the ground.</span>"
 						force_down = 0
 						return
-					inspect_organ(affecting, assailant, hit_zone)
-				
+					if(state >= GRAB_AGGRESSIVE)
+						H.apply_pressure(assailant, hit_zone)
+					else
+						inspect_organ(affecting, assailant, hit_zone)
+
 				if(I_GRAB)
 					jointlock(affecting, assailant, hit_zone)
-				
+
 				if(I_HURT)
 					if(hit_zone == "eyes")
 						attack_eye(affecting, assailant)
@@ -311,33 +334,73 @@
 						headbut(affecting, assailant)
 					else
 						dislocate(affecting, assailant, hit_zone)
-				
+
 				if(I_DISARM)
 					pin_down(affecting, assailant)
-	
+
 	//clicking on yourself while grabbing them
 	if(M == assailant && state >= GRAB_AGGRESSIVE)
-		devour(affecting, assailant)
+		if(assailant.devour(affecting))
+			qdel(src)
 
 /obj/item/weapon/grab/dropped()
+	..()
 	loc = null
 	if(!destroying)
 		qdel(src)
 
 /obj/item/weapon/grab/proc/reset_kill_state()
-	if(state == GRAB_KILL) 
+	if(state == GRAB_KILL)
 		assailant.visible_message("<span class='warning'>[assailant] lost \his tight grip on [affecting]'s neck!</span>")
 		hud.icon_state = "kill"
 		state = GRAB_NECK
+
+/obj/item/weapon/grab/proc/handle_resist()
+	var/grab_name = "grip"
+	var/break_strength = 1
+	var/list/break_chance_table = list(100)
+	switch(state)
+		if(GRAB_PASSIVE)
+			//Being knocked down makes it harder to break a grab, so it is easier to cuff someone who is down without forcing them into unconsciousness.
+			//use same chance_table as aggressive but give +2 for not-weakened so that resomi grabs don't become auto-success for weakened either, that's lame
+			if(!affecting.incapacitated(INCAPACITATION_KNOCKDOWN))
+				break_strength += 2
+			break_chance_table = list(15, 60, 100)
+
+		if(GRAB_AGGRESSIVE)
+			//Being knocked down makes it harder to break a grab, so it is easier to cuff someone who is down without forcing them into unconsciousness.
+			if(!affecting.incapacitated(INCAPACITATION_KNOCKDOWN))
+				break_strength++
+			break_chance_table = list(15, 60, 100)
+
+		if(GRAB_NECK)
+			grab_name = "headlock"
+			//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
+			if(world.time - assailant.l_move_time < 30 || !affecting.stunned)
+				break_strength++
+			break_chance_table = list(3, 18, 45, 100)
+
+	//It's easier to break out of a grab by a smaller mob
+	break_strength += max(size_difference(affecting, assailant), 0)
+
+	var/break_chance = break_chance_table[Clamp(break_strength, 1, break_chance_table.len)]
+	if(prob(break_chance))
+		if(grab_name)
+			affecting.visible_message("<span class='warning'>[affecting] has broken free of [assailant]'s [grab_name]!</span>")
+		qdel(src)
+
+//returns the number of size categories between affecting and assailant, rounded. Positive means A is larger than B
+/obj/item/weapon/grab/proc/size_difference(mob/A, mob/B)
+	return mob_size_difference(A.mob_size, B.mob_size)
 
 /obj/item/weapon/grab
 	var/destroying = 0
 
 /obj/item/weapon/grab/Destroy()
-	animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
-	affecting.layer = 4
 	if(affecting)
+		reset_position()
 		affecting.grabbed_by -= src
+		affecting.layer = initial(affecting.layer)
 		affecting = null
 	if(assailant)
 		if(assailant.client)

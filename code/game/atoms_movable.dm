@@ -1,5 +1,6 @@
 /atom/movable
 	layer = 3
+	appearance_flags = TILE_BOUND
 	var/last_move = null
 	var/anchored = 0
 	// var/elevation = 2    - not used anywhere
@@ -13,6 +14,7 @@
 	var/throw_range = 7
 	var/moved_recently = 0
 	var/mob/pulledby = null
+	var/item_state = null // Used to specify the item state for the on-mob overlays.
 
 	var/auto_init = 1
 
@@ -33,19 +35,17 @@
 
 /atom/movable/Destroy()
 	. = ..()
-	if(reagents)
-		qdel(reagents)
-		reagents = null
-	for(var/atom/movable/AM in contents)
+	for(var/atom/movable/AM in src)
 		qdel(AM)
-	loc = null
+	forceMove(null)
 	if (pulledby)
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
 
 /atom/movable/proc/initialize()
-	return
+	if(!isnull(gcDestroyed))
+		crash_with("GC: -- [type] had initialize() called after qdel() --")
 
 /atom/movable/Bump(var/atom/A, yes)
 	if(src.throwing)
@@ -53,7 +53,7 @@
 		src.throwing = 0
 
 	spawn(0)
-		if ((A && yes))
+		if (A && yes)
 			A.last_bumped = world.time
 			A.Bumped(src)
 		return
@@ -61,13 +61,35 @@
 	return
 
 /atom/movable/proc/forceMove(atom/destination)
+	if(loc == destination)
+		return 0
+	var/is_origin_turf = isturf(loc)
+	var/is_destination_turf = isturf(destination)
+	// It is a new area if:
+	//  Both the origin and destination are turfs with different areas.
+	//  When either origin or destination is a turf and the other is not.
+	var/is_new_area = (is_origin_turf ^ is_destination_turf) || (is_origin_turf && is_destination_turf && loc.loc != destination.loc)
+
+	var/atom/origin = loc
+	loc = destination
+
+	if(origin)
+		origin.Exited(src, destination)
+		if(is_origin_turf)
+			for(var/atom/movable/AM in origin)
+				AM.Uncrossed(src)
+			if(is_new_area && is_origin_turf)
+				origin.loc.Exited(src, destination)
+
 	if(destination)
-		if(loc)
-			loc.Exited(src)
-		loc = destination
-		loc.Entered(src)
-		return 1
-	return 0
+		destination.Entered(src, origin)
+		if(is_destination_turf) // If we're entering a turf, cross all movable atoms
+			for(var/atom/movable/AM in loc)
+				if(AM != src)
+					AM.Crossed(src)
+			if(is_new_area && is_destination_turf)
+				destination.loc.Entered(src, origin)
+	return 1
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
@@ -78,7 +100,7 @@
 	else if(isobj(hit_atom))
 		var/obj/O = hit_atom
 		if(!O.anchored)
-			step(O, src.dir)
+			step(O, src.last_move)
 		O.hitby(src,speed)
 
 	else if(isturf(hit_atom))
@@ -86,7 +108,7 @@
 		var/turf/T = hit_atom
 		if(T.density)
 			spawn(2)
-				step(src, turn(src.dir, 180))
+				step(src, turn(src.last_move, 180))
 			if(istype(src,/mob/living))
 				var/mob/living/M = src
 				M.turf_collision(T, speed)
@@ -104,13 +126,15 @@
 					src.throw_impact(A,speed)
 
 /atom/movable/proc/throw_at(atom/target, range, speed, thrower)
-	if(!target || !src)	return 0
+	if(!target || !src)
+		return 0
+	if(target.z != src.z)
+		return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
-
 	src.throwing = 1
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
-
+	src.pixel_z = 0
 	if(usr)
 		if(HULK in usr.mutations)
 			src.throwing = 2 // really strong throw!
@@ -210,7 +234,11 @@
 /atom/movable/overlay/New()
 	for(var/x in src.verbs)
 		src.verbs -= x
-	return
+	..()
+
+/atom/movable/overlay/Destroy()
+	master = null
+	. = ..()
 
 /atom/movable/overlay/attackby(a, b)
 	if (src.master)
@@ -221,3 +249,48 @@
 	if (src.master)
 		return src.master.attack_hand(a, b, c)
 	return
+
+/atom/movable/proc/touch_map_edge()
+	if(z in using_map.sealed_levels)
+		return
+
+	if(config.use_overmap)
+		overmap_spacetravel(get_turf(src), src)
+		return
+
+	var/new_x
+	var/new_y
+	var/new_z = src.get_transit_zlevel()
+	if(new_z)
+		if(x <= TRANSITIONEDGE)
+			new_x = world.maxx - TRANSITIONEDGE - 2
+			new_y = rand(TRANSITIONEDGE + 2, world.maxy - TRANSITIONEDGE - 2)
+
+		else if (x >= (world.maxx - TRANSITIONEDGE + 1))
+			new_x = TRANSITIONEDGE + 1
+			new_y = rand(TRANSITIONEDGE + 2, world.maxy - TRANSITIONEDGE - 2)
+
+		else if (y <= TRANSITIONEDGE)
+			new_y = world.maxy - TRANSITIONEDGE -2
+			new_x = rand(TRANSITIONEDGE + 2, world.maxx - TRANSITIONEDGE - 2)
+
+		else if (y >= (world.maxy - TRANSITIONEDGE + 1))
+			new_y = TRANSITIONEDGE + 1
+			new_x = rand(TRANSITIONEDGE + 2, world.maxx - TRANSITIONEDGE - 2)
+
+		var/turf/T = locate(new_x, new_y, new_z)
+		if(T)
+			forceMove(T)
+
+//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
+var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
+
+//by default, transition randomly to another zlevel
+/atom/movable/proc/get_transit_zlevel()
+	var/list/candidates = accessible_z_levels.Copy()
+	candidates.Remove("[src.z]")
+
+	if(!candidates.len)
+		return null
+	return text2num(pickweight(candidates))
+

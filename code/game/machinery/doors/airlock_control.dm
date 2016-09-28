@@ -14,13 +14,15 @@ obj/machinery/door/airlock/process()
 		execute_current_command()
 
 obj/machinery/door/airlock/receive_signal(datum/signal/signal)
-	if (!arePowerSystemsOn()) return //no power
-
 	if(!signal || signal.encryption) return
 
 	if(id_tag != signal.data["tag"] || !signal.data["command"]) return
 
 	cur_command = signal.data["command"]
+
+	//if there's no power, recieve the signal but just don't do anything. This allows airlocks to continue to work normally once power is restored
+	if (arePowerSystemsOn()) return //no power
+
 	spawn()
 		execute_current_command()
 
@@ -130,11 +132,15 @@ obj/machinery/door/airlock/proc/set_frequency(new_frequency)
 
 
 obj/machinery/door/airlock/initialize()
+	..()
 	if(frequency)
 		set_frequency(frequency)
 
-	update_icon()
+	//wireless connection
+	if(_wifi_id)
+		wifi_receiver = new(_wifi_id, src)
 
+	update_icon()
 
 obj/machinery/door/airlock/New()
 	..()
@@ -261,7 +267,7 @@ obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		user << "\red Access Denied"
+		user << "<span class='warning'>Access Denied</span>"
 
 	else if(radio_connection)
 		var/datum/signal/signal = new

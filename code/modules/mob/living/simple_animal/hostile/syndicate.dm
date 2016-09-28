@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/syndicate
 	name = "\improper Syndicate operative"
-	desc = "Death to Nanotrasen."
+	desc = "Death to the Company."
 	icon_state = "syndicate"
 	icon_living = "syndicate"
 	icon_dead = "syndicate_dead"
@@ -99,16 +99,13 @@
 	corpse = /obj/effect/landmark/mobcorpse/syndicatecommando
 	speed = 0
 
-/mob/living/simple_animal/hostile/syndicate/melee/space/Process_Spacemove(var/check_drift = 0)
-	return
-
 /mob/living/simple_animal/hostile/syndicate/ranged
 	ranged = 1
 	rapid = 1
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/a12mm
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	casingtype = /obj/item/ammo_casing/a10mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 	weapon1 = /obj/item/weapon/gun/projectile/automatic/c20r
@@ -128,11 +125,6 @@
 	minbodytemp = 0
 	corpse = /obj/effect/landmark/mobcorpse/syndicatecommando
 	speed = 0
-
-/mob/living/simple_animal/hostile/syndicate/ranged/space/Process_Spacemove(var/check_drift = 0)
-	return
-
-
 
 /mob/living/simple_animal/hostile/viscerator
 	name = "viscerator"

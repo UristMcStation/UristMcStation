@@ -79,7 +79,7 @@
 	if (bodytemperature >= 330.23) // 135 F
 		return -1	// slimes become supercharged at high temperatures
 
-	var/tally = 0
+	var/tally = ..()
 
 	var/health_deficiency = (maxHealth - health)
 	if(health_deficiency >= 30) tally += (health_deficiency / 25)
@@ -139,11 +139,11 @@
 
 	..()
 
-/mob/living/carbon/slime/Process_Spacemove()
-	return 2
+/mob/living/carbon/slime/Allow_Spacemove()
+	return 1
 
 /mob/living/carbon/slime/Stat()
-	..()
+	. = ..()
 
 	statpanel("Status")
 	stat(null, "Health: [round((health / maxHealth) * 100)]%")
@@ -197,39 +197,10 @@
 	updatehealth()
 
 
-/mob/living/carbon/slime/blob_act()
-	if (stat == 2)
-		return
-	var/shielded = 0
-
-	var/damage = null
-	if (stat != 2)
-		damage = rand(10,30)
-
-	if(shielded)
-		damage /= 4
-
-	show_message("<span class='danger'> The blob attacks you!</span>")
-
-	adjustFireLoss(damage)
-
-	updatehealth()
-	return
-
-
 /mob/living/carbon/slime/u_equip(obj/item/W as obj)
 	return
 
 /mob/living/carbon/slime/attack_ui(slot)
-	return
-
-/mob/living/carbon/slime/meteorhit(O as obj)
-	visible_message("<span class='warning'>[src] has been hit by [O]</span>")
-
-	adjustBruteLoss((istype(O, /obj/effect/meteor/small) ? 10 : 25))
-	adjustFireLoss(30)
-
-	updatehealth()
 	return
 
 /mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
@@ -414,4 +385,4 @@
 /mob/living/carbon/slime/cannot_use_vents()
 	if(Victim)
 		return "You cannot ventcrawl while feeding."
-	..()
+	return null

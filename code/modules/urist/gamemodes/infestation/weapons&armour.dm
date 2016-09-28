@@ -30,12 +30,7 @@
 	icon_state = "bdu_olive"
 	item_state = "bdu_olive"
 
-/obj/item/clothing/under/urist/anfor/verb/rollsleeves()
-	set name = "Roll Sleeves"
-	set category = "Object"
-	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
+/obj/item/clothing/under/urist/anfor/rollsleeves()
 
 	if(icon_state == "bdu_olive_shirt")
 		src.icon_state = "bdu_olive"
@@ -135,11 +130,14 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556/a22
+	requires_two_hands = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", burst=5, fire_delay=null, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/a22/update_icon()
@@ -164,10 +162,8 @@
 /obj/item/ammo_magazine/a556/a22/empty
 	initial_ammo = 0
 
-/datum/firemode/a18
-	var/use_launcher = 0
-
 /obj/item/weapon/gun/projectile/a18
+	urist_only = 1
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
 	icon = 'icons/urist/items/guns.dmi'
@@ -175,14 +171,17 @@
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = "7.62mm"
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762/a18
-	firemode_type = /datum/firemode/a18
+	magazine_type = /obj/item/ammo_magazine/a762mm/a18
+	requires_two_hands = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	var/use_launcher = 0
+	wielded_item_state = "woodarifle-wielded"
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0)
+		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
 
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
@@ -201,7 +200,7 @@
 	set popup_menu = 1
 
 	if(scoped)
-		toggle_scope(2.0)
+		toggle_scope(usr, 2.0)
 
 	else
 		return
@@ -240,16 +239,13 @@
 			gl_attach = 0
 			firemodes = null
 			firemodes = list(
-				list(name="semiauto", burst=1, fire_delay=0)
+				list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 				)
 			update_icon()
 			new /obj/item/weapon/gunattachment/grenadelauncher(user.loc)
 
-			if(!firemodes.len)
-				firemodes += new firemode_type
-			else
-				for(var/i in 1 to firemodes.len)
-					firemodes[i] = new firemode_type(firemodes[i])
+			for(var/i in 1 to firemodes.len)
+				firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	else if(!gl_attach && !scoped)
 
@@ -263,18 +259,15 @@
 			gl_attach = 1
 			firemodes = null
 			firemodes = list(
-				list(name="semiauto", burst=1, fire_delay=0),
-				list(name="fire grenades", use_launcher=1)
+				list(mode_name="semiauto", burst=1,  use_launcher=null, requires_two_hands = 4, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null),
+				list(mode_name="fire grenades", requires_two_hands = 6, burst=null, fire_delay=null, move_delay=null, use_launcher=1, burst_accuracy=null, dispersion=null)
 				)
 			update_icon()
 			user.remove_from_mob(I)
 			qdel(I)
 
-			if(!firemodes.len)
-				firemodes += new firemode_type
-			else
-				for(var/i in 1 to firemodes.len)
-					firemodes[i] = new firemode_type(firemodes[i])
+			for(var/i in 1 to firemodes.len)
+				firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	else if(scoped)
 
@@ -285,15 +278,13 @@
 			new /obj/item/weapon/gunattachment/scope/a18(user.loc)
 
 /obj/item/weapon/gun/projectile/a18/attack_hand(mob/user)
-	var/datum/firemode/a18/current_mode = firemodes[sel_mode]
-	if(user.get_inactive_hand() == src && current_mode.use_launcher && gl_attach)
+	if(user.get_inactive_hand() == src && use_launcher && gl_attach)
 		launcher.unload(user)
 	else
 		..()
 
 /obj/item/weapon/gun/projectile/a18/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
-	var/datum/firemode/a18/current_mode = firemodes[sel_mode]
-	if(current_mode.use_launcher)
+	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
 			switch_firemodes() //switch back automatically
@@ -305,8 +296,8 @@
 	icon_state = "FALrifle-GL"
 	gl_attach = 1
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="fire grenades", use_launcher=1)
+		list(mode_name="semiauto", burst=1, requires_two_hands = 4, fire_delay=0,  move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="fire grenades", requires_two_hands = 6, burst=null, fire_delay=null, move_delay=null, use_launcher=1, burst_accuracy=null, dispersion=null)
 		)
 
 /obj/item/weapon/gunattachment
@@ -322,18 +313,18 @@
 	name = "A18 attachable scope"
 	desc = "A marksman's scope designed to be attached to an A18 rifle."
 
-/obj/item/ammo_magazine/a762/a18
+/obj/item/ammo_magazine/a762mm/a18
 	name = "A18 magazine (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "FALmag"
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = "7.62mm"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 30
 
-/obj/item/ammo_magazine/a762/a18/empty
+/obj/item/ammo_magazine/a762mm/a18/empty
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/asmg
@@ -350,11 +341,13 @@
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a9mm
+	requires_two_hands = 1
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/asmg/update_icon()
@@ -386,6 +379,8 @@
 	icon_state = "A41"
 	item_state = "A41"
 	urist_only = 1
+	requires_two_hands = 3
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
 /obj/item/weapon/gun/projectile/colt/a7
 	name = "\improper A7 pistol"

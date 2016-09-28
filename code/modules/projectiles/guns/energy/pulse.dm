@@ -5,16 +5,15 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	slot_flags = SLOT_BELT|SLOT_BACK
 	force = 10
-	cell_type = /obj/item/weapon/cell/high
-	fire_sound='sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
-	max_shots = 10
+	max_shots = 30
+	w_class = 5
 
 	firemodes = list(
-		list(name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
-		list(name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25, charge_cost=400),
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_delay=null, charge_cost=null),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_delay=null, charge_cost=null),
+		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_delay=25, charge_cost=400),
 		)
 
 /obj/item/weapon/gun/energy/pulse_rifle/mounted
@@ -26,7 +25,6 @@
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	cell_type = /obj/item/weapon/cell/super
 	fire_delay = 25
-	fire_sound='sound/weapons/pulse.ogg'
 	projectile_type=/obj/item/projectile/beam/pulse
 	charge_cost=400
 
@@ -39,4 +37,6 @@
 	desc = "It's not the size of the gun, it's the size of the hole it puts through people."
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	icon_state = "m1911-p"
-	max_shots = 5
+	item_state = "pulse"
+	max_shots = 8
+	w_class = 3

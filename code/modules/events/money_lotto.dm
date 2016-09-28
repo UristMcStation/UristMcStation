@@ -16,14 +16,14 @@
 			T.purpose = "Winner!"
 			T.amount = winner_sum
 			T.date = current_date_string
-			T.time = worldtime2text()
+			T.time = stationtime2text()
 			T.source_terminal = "Biesel TCD Terminal #[rand(111,333)]"
 			D.transaction_log.Add(T)
 
 			deposit_success = 1
 
 /datum/event/money_lotto/announce()
-	var/author = "NanoTrasen Editor"
+	var/author = "[company_name] Editor"
 	var/channel = "Nyx Daily"
 
 	var/body = "Nyx Daily wishes to congratulate <b>[winner_name]</b> for recieving the Nyx Stellar Slam Lottery, and receiving the out of this world sum of [winner_sum] credits!"

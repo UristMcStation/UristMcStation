@@ -1,7 +1,8 @@
 /obj/machinery/computer/aifixer
 	name = "\improper AI system integrity restorer"
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "ai-fixer"
+	icon_keyboard = "rd_key"
+	icon_screen = "ai-fixer"
 	light_color = "#a97faa"
 	circuit = /obj/item/weapon/circuitboard/aifixer
 	req_one_access = list(access_robotics, access_heads)
@@ -18,7 +19,7 @@
 
 	// Transfer over the AI.
 	transfer << "You have been uploaded to a stationary terminal. Sadly, there is no remote access from here."
-	user << "\blue <b>Transfer successful</b>: \black [transfer.name] ([rand(1000,9999)].exe) installed and executed successfully. Local copy has been removed."
+	user << "<span class='notice'>Transfer successful:</span> [transfer.name] ([rand(1000,9999)].exe) installed and executed successfully. Local copy has been removed."
 
 	transfer.loc = src
 	transfer.cancel_camera()
@@ -44,7 +45,7 @@
 
 		if(istype(comp_ai))
 			if(active)
-				user << "\red <b>ERROR</b>: \black Reconstruction in progress."
+				user << "<span class='danger'>ERROR:</span> Reconstruction in progress."
 				return
 			card.grab_ai(comp_ai, user)
 			if(!(locate(/mob/living/silicon/ai) in src)) occupant = null
@@ -110,8 +111,7 @@
 			if (src.occupant.health >= 0 && src.occupant.stat == DEAD)
 				src.occupant.stat = CONSCIOUS
 				src.occupant.lying = 0
-				dead_mob_list -= src.occupant
-				living_mob_list += src.occupant
+				src.occupant.switch_from_dead_to_living_mob_list()
 				src.overlays -= image('icons/obj/computer.dmi', "ai-fixer-404")
 				src.overlays += image('icons/obj/computer.dmi', "ai-fixer-full")
 				src.occupant.add_ai_verbs()
@@ -128,16 +128,13 @@
 
 /obj/machinery/computer/aifixer/update_icon()
 	..()
-
-	overlays.Cut()
-
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 
 	if(occupant)
 		if(occupant.stat)
-			overlays += image('icons/obj/computer.dmi', "ai-fixer-404")
+			overlays += image('icons/obj/computer.dmi', "ai-fixer-404", overlay_layer)
 		else
-			overlays += image('icons/obj/computer.dmi', "ai-fixer-full")
+			overlays += image('icons/obj/computer.dmi', "ai-fixer-full", overlay_layer)
 	else
-		overlays += image('icons/obj/computer.dmi', "ai-fixer-empty")
+		overlays += image('icons/obj/computer.dmi', "ai-fixer-empty", overlay_layer)

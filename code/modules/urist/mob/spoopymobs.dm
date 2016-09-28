@@ -109,7 +109,7 @@
 
 	if(istype(T, /mob/living/carbon/human))
 		var/mob/living/carbon/human/victim = T
-		src.visible_message("<span class = 'warning'>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
+		src.visible_message("<span class = 'warning'><b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
 		victim.Zombify(src.type)
 	else if(istype(T, /mob/living/simple_animal/hostile/scom/civ))
 		var/mob/living/simple_animal/hostile/scom/civ/victim = T
@@ -123,14 +123,14 @@
 	if(!(istype(mobpath, /mob/living/simple_animal/hostile/zombie))) //not very elegant, but it prevens abuse for other mobtypes
 		mobpath = /mob/living/simple_animal/hostile/zombie/regen/plague
 
-	if(monkeyizing)
+	if(transforming)
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
 	src.mutations.Add(HUSK)
 	regenerate_icons()
-	monkeyizing = 1
+	transforming = 1
 	canmove = 0 //considering they're dead shouldn't be much of a problem, but w/e
 
 	var/old_icon = src.icon

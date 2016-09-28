@@ -36,7 +36,7 @@
 
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
 			user << "\red You flail away at the undergrowth, but it's too thick here."
@@ -141,7 +141,7 @@ var/jungle_plants_init = 0
 
 /obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 
 
 		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
@@ -170,7 +170,7 @@ var/jungle_plants_init = 0
 		icon_state = "reedbush_4"
 
 /obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
 		spawn(rand(5,10))
 			if(get_dist(user,src) < 2)

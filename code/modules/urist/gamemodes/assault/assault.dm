@@ -32,18 +32,14 @@ var/global/remaininggens = 6
 			new /obj/structure/computerframe(S.loc)
 			qdel(S)
 
-	for(var/obj/machinery/computer/supplycomp/S in machines)
-		new /obj/structure/computerframe(S.loc)
-		qdel(S)
-
-	for(var/obj/machinery/computer/communications/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
+	for(var/obj/machinery/computer/supply/S in machines)
 		new /obj/structure/computerframe(S.loc)
 		qdel(S)
 
 	for(var/obj/structure/reagent_dispensers/fueltank/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
-	for(var/mob/living/carbon/human/M in living_mob_list)
+	for(var/mob/living/carbon/human/M in living_mob_list_)
 		if(prob(16))
 	//		if(M.Species == "Human")
 
@@ -107,7 +103,7 @@ var/global/remaininggens = 6
 	aliensurvivors = 0
 
 	//For each survivor, add one to the count. Should work accurately enough.
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/human/H in living_mob_list_)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
 				if(H.species == "Xenomorph")
@@ -174,7 +170,7 @@ var/global/remaininggens = 6
 /mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
 	if(remaininglactera <= 0)
 		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
-			var/mob/dead/observer/H = new /mob/dead/observer(S.loc)
+			var/mob/observer/H = new /mob/observer(S.loc)
 			H.ckey = L.ckey
 
 	else

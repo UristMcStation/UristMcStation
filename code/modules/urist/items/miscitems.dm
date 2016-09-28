@@ -19,7 +19,7 @@
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	var/fuel = 0
-	icon_action_button = null
+	action = null
 	w_class = 2
 
 /obj/item/device/flashlight/glowstick/New()
@@ -157,3 +157,20 @@
 
 	if(prob(50))
 		icon = 'icons/urist/items/tools.dmi'
+
+//for the blueshield
+
+/obj/item/weapon/storage/box/deathimp
+	name = "death alarm implant kit"
+	desc = "Box of life sign monitoring implants."
+	icon_state = "implant"
+
+	New()
+		..()
+		new /obj/item/weapon/implantcase/death_alarm(src)
+		new /obj/item/weapon/implantcase/death_alarm(src)
+		new /obj/item/weapon/implantcase/death_alarm(src)
+		new /obj/item/weapon/implantcase/death_alarm(src)
+		new /obj/item/weapon/implantcase/death_alarm(src)
+		new /obj/item/weapon/implanter(src)
+		new /obj/item/weapon/implantpad(src)

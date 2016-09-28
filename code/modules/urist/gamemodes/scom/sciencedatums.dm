@@ -6,14 +6,14 @@
 	//Create global scomscience recipe list if it hasn't been made already.
 	scomscience_recipes = list()
 	scomscience_categories = list()
-	for(var/R in typesof(/datum/scomscience/recipe)-/datum/scomscience/recipe)
+	for(var/R in subtypesof(/datum/scomscience/recipe))
 		var/datum/scomscience/recipe/recipe = new R
 		scomscience_recipes += recipe
 		scomscience_categories |= recipe.category
 
-		var/obj/I = new recipe.path //what the fuck
-		if(recipe.resources) //This is pointless
-			qdel(I) //TODO: Come back to this
+		//var/obj/I = new recipe.path //what the fuck
+		//if(recipe.resources) //This is pointless
+		//	qdel(I) //TODO: Come back to this
 
 /datum/scomscience/recipe
 	var/name = "object"
@@ -135,7 +135,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/assaultarmort2
 	name = "advanced assault armour"
-	path = /obj/item/clothing/suit/armor/tactical
+	path = /obj/item/clothing/suit/storage/vest/merc
 	category = "Assault"
 	scomtechlvl = 3
 	hidden = 1
@@ -229,7 +229,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/leaderhelmett2
 	name = "advanced squad leader helmet"
-	path = /obj/item/clothing/head/helmet/ert/command
+	path = /obj/item/clothing/head/helmet/ert
 	category = "Squad Leader"
 	scomtechlvl = 3
 	hidden = 1
@@ -237,7 +237,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/leaderarmort2
 	name = "advanced squad leader armour"
-	path = /obj/item/clothing/suit/armor/vest/ert/command
+	path = /obj/item/clothing/suit/armor/vest/ert
 	scomtechlvl = 3
 	hidden = 1
 	resources = 300

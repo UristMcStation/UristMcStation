@@ -53,9 +53,6 @@
 	consume(user)
 	return 1
 
-/obj/singularity/blob_act(severity)
-	return
-
 /obj/singularity/ex_act(severity)
 	if(current_size == STAGE_SUPER)//IT'S UNSTOPPABLE
 		return
@@ -266,12 +263,10 @@
 			allowed_size = STAGE_SUPER
 
 	if (current_size != allowed_size && current_size != STAGE_SUPER)
-		expand(null, current_size > allowed_size)
+		expand(null, current_size < allowed_size)
 	return 1
 
 /obj/singularity/proc/eat()
-	set background = BACKGROUND_ENABLED
-
 	for(var/atom/X in orange(grav_pull, src))
 		var/dist = get_dist(X, src)
 		var/obj/singularity/S = src
@@ -419,7 +414,7 @@
 	for(var/mob/living/M in view(toxrange, src.loc))
 		if(M.status_flags & GODMODE)
 			continue
-		M.apply_effect(rand(radiationmin,radiation), IRRADIATE)
+		M.apply_effect(rand(radiationmin,radiation), IRRADIATE, blocked = M.getarmor(null, "rad"))
 		toxdamage = (toxdamage - (toxdamage*M.getarmor(null, "rad")))
 		M.apply_effect(toxdamage, TOX)
 	return
@@ -453,7 +448,7 @@
 /obj/singularity/proc/smwave()
 	for(var/mob/living/M in view(10, src.loc))
 		if(prob(67))
-			M.apply_effect(rand(energy), IRRADIATE)
+			M.apply_effect(rand(energy), IRRADIATE, blocked = M.getarmor(null, "rad"))
 			M << "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>"
 			M << "<span class=\"notice\">Miraculously, it fails to kill you.</span>"
 		else

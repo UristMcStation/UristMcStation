@@ -58,7 +58,7 @@
 	desc = "A grenade which blows out windows and stuns people. Probably illegal."
 	icon_state = "emp"
 	item_state = "emp"
-/obj/item/weapon/grenade/sonic/prime()
+/obj/item/weapon/grenade/sonic/detonate()
 	..()
 
 	for(var/obj/structure/window/W in view(6, src.loc)) //Shatters windows
@@ -183,6 +183,6 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=4;syndicate=4"
 
-/obj/item/weapon/grenade/syndieminibomb/prime()
+/obj/item/weapon/grenade/syndieminibomb/detonate()
 	explosion(src.loc, 1, 2, 4, 4)
 	qdel(src)

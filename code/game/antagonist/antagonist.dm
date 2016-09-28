@@ -14,7 +14,7 @@
 
 	// Role data.
 	var/id = "traitor"                      // Unique datum identifier.
-	var/role_type = BE_TRAITOR              // Preferences option for this role.
+	var/role_type                           // Preferences option for this role. Defaults to the id if unset
 	var/role_text = "Traitor"               // special_role text.
 	var/role_text_plural = "Traitors"       // As above but plural.
 
@@ -29,6 +29,7 @@
 	var/faction_descriptor                  // Description of the cause. Mandatory for faction role.
 	var/faction_verb                        // Verb added when becoming a member of the faction, if any.
 	var/faction_welcome                     // Message shown to faction members.
+	var/faction = "neutral"					// Actual faction name. Used primarily in stuff like simple_animals seeing if you are a threat or not.
 
 	// Spawn values (autotraitor and game mode)
 	var/hard_cap = 3                        // Autotraitor var. Won't spawn more than this many antags.
@@ -45,12 +46,14 @@
 	var/landmark_id                         // Spawn point identifier.
 	var/mob_path = /mob/living/carbon/human // Mobtype this antag will use if none is provided.
 	var/feedback_tag = "traitor_objective"  // End of round
-	var/bantype = "Syndicate"               // Ban to check when spawning this antag.
+	var/minimum_player_age = 7            	// Players need to be at least minimum_player_age days old before they are eligable for auto-spawning
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
+	var/show_objectives_on_creation = 1     // Whether or not objectives are shown when a player is added to this antag datum
 
 	// Used for setting appearance.
 	var/list/valid_species =       list("Unathi","Skrell","Human")
+	var/min_player_age = 14
 
 	// Runtime vars.
 	var/datum/mind/leader                   // Current leader, if any.
@@ -68,12 +71,21 @@
 	var/default_access = list()
 	var/id_type = /obj/item/weapon/card/id
 
+	var/antag_text = "You are an antagonist! Within the rules, \
+		try to act as an opposing force to the crew. Further RP and try to make sure \
+		other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, \
+		and before taking extreme actions, please try to also contact the administration! \
+		Think through your actions and make the roleplay immersive! <b>Please remember all \
+		rules aside from those without explicit exceptions apply to antagonists.</b>"
 	//UristMcStation stuff
 	var/uristantag = 0 //used for overriding the indicator icon path to our own dmi
 
 
 /datum/antagonist/New()
 	..()
+	if(!role_type)
+		role_type = id
+
 	cur_max = hard_cap
 	get_starting_locations()
 	if(!role_text_plural)
@@ -96,8 +108,10 @@
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in ticker.mode.get_players_for_role(role_type, id))
-		if(ghosts_only && !istype(player.current, /mob/dead))
+		if(ghosts_only && !(isghostmind(player) || isnewplayer(player.current)))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
+		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: Is only [player.current.client.player_age] day\s old, has to be [minimum_player_age] day\s!")
 		else if(player.special_role)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
 		else if (player in pending_antagonists)
@@ -179,6 +193,9 @@
 		return 0
 	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/new_player)))
 		log_debug("[player.key] was selected for [role_text] by lottery, but they have not joined the game.")
+		return 0
+	if(ticker.current_state >= GAME_STATE_PLAYING && (isghostmind(player) || isnewplayer(player.current)) && !(player in ticker.antag_pool))
+		log_debug("[player.key] was selected for [role_text] by lottery, but they are a ghost not in the antag pool.")
 		return 0
 
 	pending_antagonists |= player

@@ -17,6 +17,7 @@
 		var/locked = 1
 		var/destroyed = 0
 		var/directwired = 1
+		var/max_range = 8
 //		var/maxshieldload = 200
 		var/obj/structure/cable/attached		// the attached cable
 		var/storedpower = 0
@@ -131,7 +132,7 @@
 	else if(NSEW == 8)
 		oNSEW = 4
 
-	for(var/dist = 0, dist <= 9, dist += 1) // checks out to 8 tiles away for another generator
+	for(var/dist = 0, dist <= (max_range + 1), dist += 1) // checks out to max_range + 1 tiles away for another generator
 		T = get_step(T2, NSEW)
 		T2 = T
 		steps += 1
@@ -194,7 +195,7 @@
 	var/turf/T = src.loc
 	var/turf/T2 = src.loc
 
-	for(var/dist = 0, dist <= 9, dist += 1) // checks out to 8 tiles away for fields
+	for(var/dist = 0, dist <= (max_range + 1), dist += 1) // checks out to max range + 1 tiles away for fields
 		T = get_step(T2, NSEW)
 		T2 = T
 		if(locate(/obj/machinery/shieldwall) in T)
@@ -214,7 +215,7 @@
 	..()
 
 /obj/machinery/shieldwallgen/bullet_act(var/obj/item/projectile/Proj)
-	storedpower -= 400 * Proj.damage
+	storedpower -= 400 * Proj.get_structure_damage()
 	..()
 	return
 
@@ -285,7 +286,7 @@
 			G = gen_primary
 		else
 			G = gen_secondary
-		G.storedpower -= 400 * Proj.damage
+		G.storedpower -= 400 * Proj.get_structure_damage()
 	..()
 	return
 
@@ -293,26 +294,16 @@
 /obj/machinery/shieldwall/ex_act(severity)
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
+		if(prob(50))
+			G = gen_primary
+		else
+			G = gen_secondary
 		switch(severity)
 			if(1.0) //big boom
-				if(prob(50))
-					G = gen_primary
-				else
-					G = gen_secondary
 				G.storedpower -= 120000
-
 			if(2.0) //medium boom
-				if(prob(50))
-					G = gen_primary
-				else
-					G = gen_secondary
 				G.storedpower -= 30000
-
 			if(3.0) //lil boom
-				if(prob(50))
-					G = gen_primary
-				else
-					G = gen_secondary
 				G.storedpower -= 12000
 	return
 

@@ -1,4 +1,4 @@
-"a" = (/turf/template_noop,/area/template_noop)
+"a" = (/turf/space,/area/template_noop)
 "b" = (/turf/unsimulated/wall/urist/other/destructable{tag = "icon-1,0 (NORTH)"; icon_state = "1,0"; dir = 1},/area/template_noop)
 "c" = (/turf/unsimulated/wall/urist/other/destructable{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/template_noop)
 "d" = (/turf/unsimulated/wall/urist/other/destructable{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/turf/unsimulated/wall/urist/other/destructable{tag = "icon-9,15 (SOUTHEAST)"; icon_state = "9,15"; dir = 6},/area/template_noop)

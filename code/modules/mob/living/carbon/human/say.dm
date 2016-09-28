@@ -6,9 +6,6 @@
 	message = sanitize(message)
 	..(message, alt_name = alt_name)
 
-/mob/living/carbon/human/is_muzzled()
-	return istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
-
 /mob/living/carbon/human/proc/forcesay(list/append)
 	if(stat == CONSCIOUS)
 		if(client)
@@ -105,15 +102,6 @@
 	return special_voice
 
 
-/*
-   ***Deprecated***
-   let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
-   robot_talk() proc.
-   There is no language handling build into it however there is at the /mob level so we accept the call
-   for it but just ignore it.
-*/
-
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
 	var/verb = "says"
 	var/ending = copytext(message, length(message))
@@ -128,39 +116,20 @@
 
 	return verb
 
-/mob/living/carbon/human/handle_speech_problems(var/message, var/verb)
+/mob/living/carbon/human/handle_speech_problems(var/list/message_data)
 	if(silent || (sdisabilities & MUTE))
-		message = ""
-		speech_problem_flag = 1
-	else if(istype(wear_mask, /obj/item/clothing/mask/horsehead))
-		var/obj/item/clothing/mask/horsehead/hoers = wear_mask
-		if(hoers.voicechange)
-			message = pick("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
-			verb = pick("whinnies","neighs", "says")
-			speech_problem_flag = 1
+		message_data[1] = ""
+		. = 1
 
-	if(message != "")
-		var/list/parent = ..()
-		message = parent[1]
-		verb = parent[2]
-		if(parent[3])
-			speech_problem_flag = 1
+	else if(istype(wear_mask, /obj/item/clothing/mask))
+		var/obj/item/clothing/mask/M = wear_mask
+		if(M.voicechange)
+			message_data[1] = pick(M.say_messages)
+			message_data[2] = pick(M.say_verbs)
+			. = 1
 
-		var/braindam = getBrainLoss()
-		if(braindam >= 60)
-			speech_problem_flag = 1
-			if(prob(braindam/4))
-				message = stutter(message)
-				verb = pick("stammers", "stutters")
-			if(prob(braindam))
-				message = uppertext(message)
-				verb = "yells loudly"
-
-	var/list/returns[3]
-	returns[1] = message
-	returns[2] = verb
-	returns[3] = speech_problem_flag
-	return returns
+	else
+		. = ..(message_data)
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	switch(message_mode)
@@ -220,4 +189,5 @@
 		var/list/returns[2]
 		returns[1] = sound(pick(species.speech_sounds))
 		returns[2] = 50
+		return returns
 	return ..()

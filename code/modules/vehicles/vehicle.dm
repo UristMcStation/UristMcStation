@@ -40,7 +40,6 @@
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
 	var/mob_offset_x = 0		//pixel_x offset for mob overlay
 
-
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
@@ -95,6 +94,7 @@
 			if(health < maxhealth)
 				if(open)
 					health = min(maxhealth, health+10)
+					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message("\red [user] repairs [src]!","\blue You repair [src]!")
 				else
 					user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
@@ -102,9 +102,8 @@
 				user << "<span class='notice'>[src] does not need a repair.</span>"
 		else
 			user << "<span class='notice'>Unable to repair while [src] is off.</span>"
-	else if(istype(W, /obj/item/weapon/card/emag) && !emagged)
-		Emag(user)
 	else if(hasvar(W,"force") && hasvar(W,"damtype"))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
 			if("fire")
 				health -= W.force * fire_dam_coeff
@@ -116,19 +115,9 @@
 		..()
 
 /obj/vehicle/bullet_act(var/obj/item/projectile/Proj)
-	if (Proj.damage_type == BRUTE || Proj.damage_type == BURN)
-		health -= Proj.damage
+	health -= Proj.get_structure_damage()
 	..()
 	healthcheck()
-
-/obj/vehicle/meteorhit()
-	explode()
-	return
-
-/obj/vehicle/blob_act()
-	src.health -= rand(20,40)*fire_dam_coeff
-	healthcheck()
-	return
 
 /obj/vehicle/ex_act(severity)
 	switch(severity)
@@ -170,10 +159,6 @@
 /obj/vehicle/attack_ai(mob/user as mob)
 	return
 
-// For downstream compatibility (in particular Paradise)
-/obj/vehicle/proc/handle_rotation()
-	return
-
 //-------------------------------------------
 // Vehicle procs
 //-------------------------------------------
@@ -192,15 +177,16 @@
 	set_light(0)
 	update_icon()
 
-/obj/vehicle/proc/Emag(mob/user as mob)
-	emagged = 1
-
-	if(locked)
-		locked = 0
-		user << "<span class='warning'>You bypass [src]'s controls.</span>"
+/obj/vehicle/emag_act(var/remaining_charges, mob/user as mob)
+	if(!emagged)
+		emagged = 1
+		if(locked)
+			locked = 0
+			user << "<span class='warning'>You bypass [src]'s controls.</span>"
+		return 1
 
 /obj/vehicle/proc/explode()
-	src.visible_message("\red <B>[src] blows apart!</B>", 1)
+	src.visible_message("<span class='danger'>\The [src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
 	PoolOrNew(/obj/item/stack/rods, Tsec)
@@ -286,8 +272,8 @@
 
 	// if a create/closet, close before loading
 	var/obj/structure/closet/crate = C
-	if(istype(crate))
-		crate.close()
+	if(istype(crate) && crate.opened && !crate.close())
+		return 0
 
 	C.forceMove(loc)
 	C.set_dir(dir)
@@ -296,16 +282,18 @@
 	load = C
 
 	if(load_item_visible)
+		C.layer = layer + 0.1		//so it sits above the vehicle
+
+	if(ismob(C))
+		buckle_mob(C)
+	else if(load_item_visible)
 		if(ismob(C) && mob_offset_x != 0 && mob_offset_y != 0) //if the offset is not set, use load offset
 			C.pixel_x += mob_offset_x
 			C.pixel_y += mob_offset_y
 		else
 			C.pixel_x += load_offset_x
 			C.pixel_y += load_offset_y
-		C.layer = layer + 0.1		//so it sits above the vehicle
 
-	if(ismob(C))
-		buckle_mob(C)
 
 	return 1
 
@@ -343,8 +331,13 @@
 	load.forceMove(dest)
 	load.set_dir(get_dir(loc, dest))
 	load.anchored = 0		//we can only load non-anchored items, so it makes sense to set this to false
-	load.pixel_x = initial(load.pixel_x)
-	load.pixel_y = initial(load.pixel_y)
+	if(ismob(load)) //atoms should probably have their own procs to define how their pixel shifts and layer can be manipulated, someday
+		var/mob/M = load
+		M.pixel_x = M.default_pixel_x
+		M.pixel_y = M.default_pixel_y
+	else
+		load.pixel_x = initial(load.pixel_x)
+		load.pixel_y = initial(load.pixel_y)
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
@@ -364,9 +357,10 @@
 /obj/vehicle/attack_generic(var/mob/user, var/damage, var/attack_message)
 	if(!damage)
 		return
-	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
-	user.do_attack_animation(src)
+	visible_message("<span class='danger'>\The [user] [attack_message] the \the [src]!</span>")
+	if(istype(user))
+		user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked \the [src.name]</font>")
+		user.do_attack_animation(src)
 	src.health -= damage
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)

@@ -2,10 +2,8 @@ var/datum/antagonist/loyalists/loyalists
 
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
-	role_type = BE_LOYALIST
 	role_text = "Head Loyalist"
 	role_text_plural = "Loyalists"
-	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "loyal_head"
 	welcome_text = "You belong to the Company, body and soul. Preserve its interests against the conspirators amongst the crew. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
@@ -29,6 +27,8 @@ var/datum/antagonist/loyalists/loyalists
 	faction_indicator = "loyal"
 	faction_invisible = 1
 	restricted_jobs = list("AI", "Cyborg")
+
+	faction = "loyalist"
 
 /datum/antagonist/loyalists/New()
 	..()

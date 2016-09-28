@@ -248,7 +248,7 @@ datum/signal
 		if(source in S.stored_names)
 			newsign.data["name"] = source
 		else
-			newsign.data["name"] = "<i>[html_encode(uppertext(source))]<i>"
+			newsign.data["name"] = "<i>[html_encode(uppertext(source))]</i>"
 		newsign.data["realname"] = newsign.data["name"]
 		newsign.data["job"] = job
 		newsign.data["compression"] = 0
@@ -268,7 +268,7 @@ datum/signal
 		newsign.data["vmask"] = 0
 		newsign.data["level"] = list()
 
-		var/pass = S.relay_information(newsign, "/obj/machinery/telecomms/hub")
+		var/pass = S.relay_information(newsign, /obj/machinery/telecomms/hub)
 		if(!pass)
-			S.relay_information(newsign, "/obj/machinery/telecomms/broadcaster") // send this simple message to broadcasters
+			S.relay_information(newsign, /obj/machinery/telecomms/broadcaster) // send this simple message to broadcasters
 

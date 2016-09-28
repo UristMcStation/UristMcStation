@@ -23,7 +23,7 @@
 		new /obj/item/clothing/gloves/captain(src)
 		new /obj/item/clothing/under/dress/dress_cap(src)
 		new /obj/item/clothing/suit/coat/captain(src)
-		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/head/caphat/cap(src)
 		new /obj/item/clothing/under/urist/rank/capdressalt(src)
 		return
 
@@ -48,7 +48,7 @@
 		new /obj/item/clothing/suit/armor/captain(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/suit/armor/vest/capcarapace(src)
-		new /obj/item/clothing/head/helmet/cap(src)
+		new /obj/item/clothing/head/caphat/cap(src)
 		new /obj/item/clothing/head/helmet/space/capspace(src)
 		new /obj/item/weapon/tank/jetpack/oxygen(src)
 		new /obj/item/clothing/mask/gas(src)
@@ -99,10 +99,10 @@
 
 	new /obj/item/clothing/head/emergencyhood(src)
 	new /obj/item/clothing/suit/emergencysuit(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
+	new /obj/item/weapon/tank/emergency/oxygen(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/weapon/storage/toolbox/emergency(src)
-	new /obj/item/weapon/tank/emergency_oxygen(src)
+	new /obj/item/weapon/tank/emergency/oxygen(src)
 
 //Armored sec biosuit locker
 
@@ -141,7 +141,7 @@
 /obj/structure/closet/scom/sniper/New()
 	..()
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
 	new /obj/item/weapon/gun/projectile/deagle(src)
@@ -155,7 +155,7 @@
 /obj/structure/closet/scom/assault/New()
 	..()
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
 	new /obj/item/weapon/gun/projectile/deagle(src)
@@ -211,7 +211,7 @@
 /obj/structure/closet/wardrobe/tactical/New()
 	..()
 	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/armor/tactical(src)
+	new /obj/item/clothing/suit/storage/vest/tactical(src)
 	new /obj/item/clothing/head/helmet/tactical(src)
 	new /obj/item/clothing/mask/balaclava/tactical(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
@@ -219,7 +219,7 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/armor/tactical(src)
+	new /obj/item/clothing/suit/storage/vest/tactical(src)
 	new /obj/item/clothing/head/helmet/tactical(src)
 	new /obj/item/clothing/mask/balaclava/tactical(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)

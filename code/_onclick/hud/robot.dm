@@ -1,5 +1,7 @@
 var/obj/screen/robot_inventory
 
+/mob/living/silicon/robot/instantiate_hud(var/datum/hud/HUD)
+	HUD.robot_hud()
 
 /datum/hud/proc/robot_hud()
 
@@ -15,7 +17,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "radio"
 	using.screen_loc = ui_movi
-	using.layer = 20
+	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Module select
@@ -26,7 +28,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv1"
 	using.screen_loc = ui_inv1
-	using.layer = 20
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	mymob:inv1 = using
 
@@ -36,7 +38,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv2"
 	using.screen_loc = ui_inv2
-	using.layer = 20
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	mymob:inv2 = using
 
@@ -46,7 +48,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "inv3"
 	using.screen_loc = ui_inv3
-	using.layer = 20
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	mymob:inv3 = using
 
@@ -59,7 +61,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = mymob.a_intent
 	using.screen_loc = ui_acti
-	using.layer = 20
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	action_intent = using
 
@@ -90,7 +92,7 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen1_robot.dmi'
 	using.icon_state = "panel"
 	using.screen_loc = ui_borg_panel
-	using.layer = 19
+	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Store
@@ -132,20 +134,6 @@ var/obj/screen/robot_inventory
 	mymob.pullin.name = "pull"
 	mymob.pullin.screen_loc = ui_borg_pull
 
-	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen1_full.dmi'
-	mymob.blind.icon_state = "blackimageoverlay"
-	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1"
-	mymob.blind.layer = 0
-
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = 'icons/mob/screen1_robot.dmi'
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = "1,1 to 15,15"
-	mymob.flash.layer = 17
-
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
 	mymob.zone_sel.overlays.Cut()
@@ -153,34 +141,14 @@ var/obj/screen/robot_inventory
 
 	//Handle the gun settings buttons
 	mymob.gun_setting_icon = new /obj/screen/gun/mode(null)
-	if (mymob.client)
-		if (mymob.client.gun_mode) // If in aim mode, correct the sprite
-			mymob.gun_setting_icon.set_dir(2)
-	for(var/obj/item/weapon/gun/G in mymob) // If targeting someone, display other buttons
-		if (G.aim_targets)
-			mymob.item_use_icon = new /obj/screen/gun/item(null)
-			if (mymob.client.target_can_click)
-				mymob.item_use_icon.set_dir(1)
-			src.adding += mymob.item_use_icon
-			mymob.radio_use_icon = new /obj/screen/gun/radio(null)
-			if (mymob.client.target_can_radio)
-				mymob.radio_use_icon.set_dir(1)
-			src.adding += mymob.radio_use_icon
-			mymob.gun_move_icon = new /obj/screen/gun/move(null)
-			if (mymob.client.target_can_move)
-				mymob.gun_move_icon.set_dir(1)
-				mymob.gun_run_icon = new /obj/screen/gun/run(null)
-				if (mymob.client.target_can_run)
-					mymob.gun_run_icon.set_dir(1)
-				src.adding += mymob.gun_run_icon
-			src.adding += mymob.gun_move_icon
+	mymob.item_use_icon = new /obj/screen/gun/item(null)
+	mymob.gun_move_icon = new /obj/screen/gun/move(null)
+	mymob.radio_use_icon = new /obj/screen/gun/radio(null)
 
-	mymob.client.screen = null
-
-	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.fire, mymob.hands, mymob.healths, mymob:cells, mymob.pullin, mymob.blind, mymob.flash, mymob.gun_setting_icon, robot_inventory) //, mymob.rest, mymob.sleep, mymob.mach )
+	mymob.client.screen = list()
+	mymob.client.screen += list(mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.fire, mymob.hands, mymob.healths, mymob:cells, mymob.pullin, robot_inventory, mymob.gun_setting_icon)
 	mymob.client.screen += src.adding + src.other
-
-	return
+	common_hud()
 
 
 /datum/hud/proc/toggle_show_robot_modules()
@@ -239,7 +207,7 @@ var/obj/screen/robot_inventory
 					A.screen_loc = "CENTER[x]:16,SOUTH+[y]:7"
 				else
 					A.screen_loc = "CENTER+[x]:16,SOUTH+[y]:7"
-				A.layer = 20
+				A.layer = SCREEN_LAYER
 
 				x++
 				if(x == 4)

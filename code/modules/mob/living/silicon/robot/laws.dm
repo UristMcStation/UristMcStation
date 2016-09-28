@@ -1,5 +1,5 @@
 /mob/living/silicon/robot/verb/cmd_show_laws()
-	set category = "Robot Commands"
+	set category = "Silicon Commands"
 	set name = "Show Laws"
 	show_laws()
 
@@ -22,7 +22,7 @@
 				src << "<b>Laws synced with AI, be sure to note any changes.</b>"
 				// TODO: Update to new antagonist system.
 				if(mind && mind.special_role == "traitor" && mind.original == src)
-					src << "<b>Remember, your AI does NOT share or know about your law 0."
+					src << "<b>Remember, your AI does NOT share or know about your law 0.</b>"
 		else
 			src << "<b>No AI selected to sync laws with, disabling lawsync protocol.</b>"
 			lawupdate = 0
@@ -49,6 +49,6 @@
 	return
 
 /mob/living/silicon/robot/proc/robot_checklaws()
-	set category = "Robot Commands"
+	set category = "Silicon Commands"
 	set name = "State Laws"
-	subsystem_law_manager()
+	open_subsystem(/datum/nano_module/law_manager)

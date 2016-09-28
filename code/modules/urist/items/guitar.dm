@@ -24,56 +24,82 @@ obj/item/device/guitar/proc/playnote(var/note as text)
 
 
 		if("En3")	soundfile = 'sound/urist/guitar/En3.ogg'
+		if("E#3")	soundfile = 'sound/urist/guitar/Fb3.ogg'
 		if("Fb3")	soundfile = 'sound/urist/guitar/Fb3.ogg'
 		if("Fn3")	soundfile = 'sound/urist/guitar/Fn3.ogg'
+		if("F#3")	soundfile = 'sound/urist/guitar/Gb3.ogg'
 		if("Gb3")	soundfile = 'sound/urist/guitar/Gb3.ogg'
 		if("Gn3")	soundfile = 'sound/urist/guitar/Gn3.ogg'
+		if("G#3")	soundfile = 'sound/urist/guitar/Ab3.ogg'
 		if("Ab3")	soundfile = 'sound/urist/guitar/Ab3.ogg'
 		if("An3")	soundfile = 'sound/urist/guitar/An3.ogg'
+		if("A#3")	soundfile = 'sound/urist/guitar/Bb3.ogg'
 		if("Bb3")	soundfile = 'sound/urist/guitar/Bb3.ogg'
 		if("Bn3")	soundfile = 'sound/urist/guitar/Bn3.ogg'
+		if("B#4")	soundfile = 'sound/urist/guitar/Cb4.ogg'
 		if("Cb4")	soundfile = 'sound/urist/guitar/Cb4.ogg'
 		if("Cn4")	soundfile = 'sound/urist/guitar/Cn4.ogg'
+		if("C#4")	soundfile = 'sound/urist/guitar/Db4.ogg'
 		if("Db4")	soundfile = 'sound/urist/guitar/Db4.ogg'
 		if("Dn4")	soundfile = 'sound/urist/guitar/Dn4.ogg'
+		if("D#4")	soundfile = 'sound/urist/guitar/Eb4.ogg'
 		if("Eb4")	soundfile = 'sound/urist/guitar/Eb4.ogg'
 		if("En4")	soundfile = 'sound/urist/guitar/En4.ogg'
+		if("E#4")	soundfile = 'sound/urist/guitar/Fb4.ogg'
 		if("Fb4")	soundfile = 'sound/urist/guitar/Fb4.ogg'
 		if("Fn4")	soundfile = 'sound/urist/guitar/Fn4.ogg'
+		if("F#4")	soundfile = 'sound/urist/guitar/Gb4.ogg'
 		if("Gb4")	soundfile = 'sound/urist/guitar/Gb4.ogg'
 		if("Gn4")	soundfile = 'sound/urist/guitar/Gn4.ogg'
+		if("G#4")	soundfile = 'sound/urist/guitar/Ab4.ogg'
 		if("Ab4")	soundfile = 'sound/urist/guitar/Ab4.ogg'
 		if("An4")	soundfile = 'sound/urist/guitar/An4.ogg'
+		if("A#4")	soundfile = 'sound/urist/guitar/Bb4.ogg'
 		if("Bb4")	soundfile = 'sound/urist/guitar/Bb4.ogg'
 		if("Bn4")	soundfile = 'sound/urist/guitar/Bn4.ogg'
-		if("Cb5")	soundfile = 'sound/urist/guitar/Cb5.ogg'
-		if("Cn5")	soundfile = 'sound/urist/guitar/Cn5.ogg'
-		if("Db5")	soundfile = 'sound/urist/guitar/Db5.ogg'
-		if("Dn5")	soundfile = 'sound/urist/guitar/Dn5.ogg'
-		if("Eb5")	soundfile = 'sound/urist/guitar/Eb5.ogg'
+		if("B#4")	soundfile = 'sound/urist/guitar/Cb4.ogg'
+		if("Cb4")	soundfile = 'sound/urist/guitar/Cb4.ogg'
+		if("Cn4")	soundfile = 'sound/urist/guitar/Cn4.ogg'
+		if("C#4")	soundfile = 'sound/urist/guitar/Db4.ogg'
+		if("Db4")	soundfile = 'sound/urist/guitar/Db4.ogg'
+		if("Dn4")	soundfile = 'sound/urist/guitar/Dn4.ogg'
+		if("D#4")	soundfile = 'sound/urist/guitar/Eb4.ogg'
+		if("Eb4")	soundfile = 'sound/urist/guitar/Eb4.ogg'
 		if("En5")	soundfile = 'sound/urist/guitar/En5.ogg'
+		if("E#5")	soundfile = 'sound/urist/guitar/Fb5.ogg'
 		if("Fb5")	soundfile = 'sound/urist/guitar/Fb5.ogg'
 		if("Fn5")	soundfile = 'sound/urist/guitar/Fn5.ogg'
+		if("F#5")	soundfile = 'sound/urist/guitar/Gb5.ogg'
 		if("Gb5")	soundfile = 'sound/urist/guitar/Gb5.ogg'
 		if("Gn5")	soundfile = 'sound/urist/guitar/Gn5.ogg'
+		if("G#5")	soundfile = 'sound/urist/guitar/Ab5.ogg'
 		if("Ab5")	soundfile = 'sound/urist/guitar/Ab5.ogg'
 		if("An5")	soundfile = 'sound/urist/guitar/An5.ogg'
+		if("A#5")	soundfile = 'sound/urist/guitar/Bb5.ogg'
 		if("Bb5")	soundfile = 'sound/urist/guitar/Bb5.ogg'
 		if("Bn5")	soundfile = 'sound/urist/guitar/Bn5.ogg'
-		if("Cb6")	soundfile = 'sound/urist/guitar/Cb6.ogg'
-		if("Cn6")	soundfile = 'sound/urist/guitar/Cn6.ogg'
-		if("Db6")	soundfile = 'sound/urist/guitar/Db6.ogg'
-		if("Dn6")	soundfile = 'sound/urist/guitar/Dn6.ogg'
-		if("Eb6")	soundfile = 'sound/urist/guitar/Eb6.ogg'
+		if("B#5")	soundfile = 'sound/urist/guitar/Cb5.ogg'
+		if("Cb5")	soundfile = 'sound/urist/guitar/Cb5.ogg'
+		if("Cn5")	soundfile = 'sound/urist/guitar/Cn5.ogg'
+		if("C#5")	soundfile = 'sound/urist/guitar/Db5.ogg'
+		if("Db5")	soundfile = 'sound/urist/guitar/Db5.ogg'
+		if("Dn5")	soundfile = 'sound/urist/guitar/Dn5.ogg'
+		if("D#5")	soundfile = 'sound/urist/guitar/Eb5.ogg'
+		if("Eb5")	soundfile = 'sound/urist/guitar/Eb5.ogg'
 		if("En6")	soundfile = 'sound/urist/guitar/En6.ogg'
+		if("E#6")	soundfile = 'sound/urist/guitar/Fb6.ogg'
 		if("Fb6")	soundfile = 'sound/urist/guitar/Fb6.ogg'
 		if("Fn6")	soundfile = 'sound/urist/guitar/Fn6.ogg'
+		if("F#6")	soundfile = 'sound/urist/guitar/Gb6.ogg'
 		if("Gb6")	soundfile = 'sound/urist/guitar/Gb6.ogg'
 		if("Gn6")	soundfile = 'sound/urist/guitar/Gn6.ogg'
+		if("G#6")	soundfile = 'sound/urist/guitar/Ab6.ogg'
 		if("Ab6")	soundfile = 'sound/urist/guitar/Ab6.ogg'
 		if("An6")	soundfile = 'sound/urist/guitar/An6.ogg'
+		if("A#6")	soundfile = 'sound/urist/guitar/Bb6.ogg'
 		if("Bb6")	soundfile = 'sound/urist/guitar/Bb6.ogg'
 		if("Bn6")	soundfile = 'sound/urist/guitar/Bn6.ogg'
+		if("B#6")	soundfile = 'sound/urist/guitar/Cb7.ogg'
 		if("Cb7")	soundfile = 'sound/urist/guitar/Cb7.ogg'
 
 
@@ -95,10 +121,10 @@ obj/item/device/guitar/proc/playnote(var/note as text)
 
 		for(var/line in song.lines)
 			//world << line
-			for(var/beat in text2list(lowertext(line), ","))
+			for(var/beat in splittext(lowertext(line), ","))
 				//world << "beat: [beat]"
-				var/list/notes = text2list(beat, "/")
-				for(var/note in text2list(notes[1], "-"))
+				var/list/notes = splittext(beat, "/")
+				for(var/note in splittext(notes[1], "-"))
 					//world << "note: [note]"
 					if(!playing || !isliving(loc))//If the guitar is playing, or isn't held by a person
 						playing = 0
@@ -164,7 +190,7 @@ obj/item/device/guitar/proc/playnote(var/note as text)
 					Notes are played by the names of the note, and optionally, the accidental, and/or the octave number.<br>
 					By default, every note is natural and in octave 3. Defining otherwise is remembered for each note.<br>
 					Example: <i>C,D,E,F,G,A,B</i> will play a C major scale.<br>
-					After a note has an accidental placed, it will be remembered: <i>C,C4,C,C3</i> is C3,C4,C4,C3</i><br>
+					After a note has an accidental placed, it will be remembered: <i>C,C4,C,C3</i> is <i>C3,C4,C4,C3</i><br>
 					Chords can be played simply by seperating each note with a hyphon: <i>A-C#,Cn-E,E-G#,Gn-B</i><br>
 					A pause may be denoted by an empty chord: <i>C,E,,C,G</i><br>
 					To make a chord be a different time, end it with /x, where the chord length will be length<br>
@@ -260,7 +286,7 @@ obj/item/device/guitar/proc/playnote(var/note as text)
 
 			//split into lines
 			spawn()
-				var/list/lines = text2list(t, "\n")
+				var/list/lines = splittext(t, "\n")
 				var/tempo = 5
 				if(copytext(lines[1],1,6) == "BPM: ")
 					tempo = 600 / text2num(copytext(lines[1],6))

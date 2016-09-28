@@ -458,7 +458,7 @@
 		usr << "\red [M.name] is dying, and their thoughts are too scrambled to read."
 		return
 
-	usr << "\blue Mind Reading of [M.name]:</b>"
+	usr << "<span class='notice'> Mind Reading of <b>[M.name]:</b></span>"
 	var/pain_condition = M.health
 	// lower health means more pain
 	var/list/randomthoughts = list("what to have for lunch","the future","the past","money",

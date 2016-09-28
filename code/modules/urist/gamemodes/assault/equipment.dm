@@ -23,6 +23,7 @@
 	icon_state = "cellconsole"
 
 /obj/item/weapon/gun/energy/lactera
+	urist_only = 1
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
 	icon_state = "alienrifle"
@@ -62,6 +63,7 @@
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
 	max_shots = 12
+	requires_two_hands = 1
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
@@ -70,12 +72,13 @@
 	projectile_type = /obj/item/projectile/beam/scom/alien2
 	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 	inertstate = /obj/item/scom/aliengun/a3
+	requires_two_hands = 2
 
 
 	firemodes = list(
-		list(name="semiauto", burst=1, fire_delay=0),
-		list(name="3-round bursts", burst=3, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(name="short bursts", 	burst=5, move_delay=6, accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null, requires_two_hands = 2),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 4, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/a4
@@ -86,10 +89,11 @@
 	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
 	inertstate = /obj/item/scom/aliengun/a4
 	max_shots = 16
+	requires_two_hands = 6
 
 	firemodes = list(
-		list(name="short bursts",	burst=8, move_delay=8, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
-		list(name="long bursts",	burst=16, move_delay=10, accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
+		list(mode_name="short bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 8, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
+		list(mode_name="long bursts",	burst=16, fire_delay=null, move_delay=10, requires_two_hands = 9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
 		)
 
 /obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)
@@ -122,7 +126,7 @@
 	item_state = "flashbang"
 	origin_tech = "materials=5;magnets=5"
 
-/obj/item/weapon/grenade/aliengrenade/prime()
+/obj/item/weapon/grenade/aliengrenade/detonate()
 	explosion(src.loc, 0, 0, 3, 3)
 	qdel(src)
 
@@ -215,7 +219,7 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
 
-/obj/item/weapon/grenade/anforgrenade/prime()
+/obj/item/weapon/grenade/anforgrenade/detonate()
 	explosion(src.loc, 0, 0, 2, 2)
 	qdel(src)
 
@@ -223,14 +227,7 @@
 	name = "box of frag grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause cause death within a short radius.</B>"
 	icon_state = "flashbang"
-
-/obj/item/weapon/storage/box/anforgrenade/New()
-	..()
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
-	new /obj/item/weapon/grenade/anforgrenade( src )
+	startswith = list(/obj/item/weapon/grenade/anforgrenade = 5)
 
 /obj/item/weapon/mine/frag
 	name = "frag mine"
@@ -248,18 +245,48 @@
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
-
-/obj/item/weapon/storage/box/mines/New()
-	..()
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
-	new /obj/item/weapon/mine/frag( src )
+	startswith = list(/obj/item/weapon/mine/frag = 4)
 
 /obj/effect/mine/proc/explode2(obj)
+	/* oldcode, pre-fragification -scr
 	explosion(loc, 0, 0, 2, 2)
 	spawn(1)
-		qdel(src)
+		qdel(src)*/
+	//vars stolen for fragification
+	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
+	var/num_fragments = 72  //total number of fragments produced by the grenade
+	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
+	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
+
+	//blatant copypaste from frags, but those are a whole different type so vOv
+	set waitfor = 0
+	..()
+
+	var/turf/O = get_turf(src)
+	if(!O) return
+
+	var/list/target_turfs = getcircle(O, spread_range)
+	var/fragments_per_projectile = round(num_fragments/target_turfs.len)
+
+	for(var/turf/T in target_turfs)
+		sleep(0)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(O)
+
+		P.pellets = fragments_per_projectile
+		P.shot_from = src.name
+
+		P.launch(T)
+
+		//Make sure to hit any mobs in the source turf
+		for(var/mob/living/M in O)
+			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
+			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
+			if(M.lying && isturf(src.loc))
+				P.attack_mob(M, 0, 0)
+			else
+				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+
+	qdel(src)
 
 /obj/effect/mine/frag
 	name = "Frag Mine"

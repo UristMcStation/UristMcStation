@@ -4,18 +4,19 @@
 	name = "jetpack (empty)"
 	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
 	icon_state = "jetpack"
-	w_class = 4.0
+	gauge_icon = null
+	w_class = 5
 	item_state = "jetpack"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect/effect/system/trail/ion/ion_trail
 	var/on = 0.0
 	var/stabilization_on = 0
 	var/volume_rate = 500              //Needed for borg jetpack transfer
-	icon_action_button = "action_jetpack"
+	action_button_name = "Toggle Jetpack"
 
 /obj/item/weapon/tank/jetpack/New()
 	..()
-	src.ion_trail = new /datum/effect/effect/system/ion_trail_follow()
+	src.ion_trail = new /datum/effect/effect/system/trail/ion()
 	src.ion_trail.set_up(src)
 
 /obj/item/weapon/tank/jetpack/Destroy()
@@ -49,6 +50,7 @@
 	if (ismob(usr))
 		var/mob/M = usr
 		M.update_inv_back()
+		M.update_action_buttons()
 
 	usr << "You toggle the thrusters [on? "on":"off"]."
 

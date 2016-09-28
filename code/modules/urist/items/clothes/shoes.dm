@@ -19,7 +19,6 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	icon_state = "leather"
 	permeability_coefficient = 0.05
 	flags = NOSLIP
-	slowdown = SHOES_SLOWDOWN+1
 	species_restricted = null
 	siemens_coefficient = 0.6
 	armor = list(melee = 50, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 10, rad = 0)
@@ -28,6 +27,10 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/urist/leather/New()
+	..()
+	slowdown_per_slot[slot_shoes] = SHOES_SLOWDOWN+1
 
 //winter boots, for the shoevend
 

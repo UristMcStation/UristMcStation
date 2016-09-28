@@ -16,6 +16,7 @@
 	icon = 'icons/obj/machines/artillery.dmi'
 	anchored = 1
 	density = 1
+	desc = "The ship's old bluespace artillery cannon. Looks inoperative."
 
 /obj/structure/artilleryplaceholder/decorative
 	density = 0
@@ -26,7 +27,7 @@
 	dat += "Locked on<BR>"
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
 	dat += "<A href='byond://?src=\ref[src];fire=1'>Open Fire</A><BR>"
-	dat += "Deployment of weapon authorized by <br>Nanotrasen Naval Command<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
+	dat += "Deployment of weapon authorized by <br>[company_name] Naval Command<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
@@ -45,7 +46,7 @@
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
 			var/list/L = list()
-			for(var/turf/T in get_area_turfs(thearea.type))
+			for(var/turf/T in get_area_turfs(thearea))
 				L+=T
 			var/loc = pick(L)
 			explosion(loc,2,5,11)
@@ -59,7 +60,7 @@
 	spawn(30)
 	var/list/L = list()
 
-	for(var/turf/T in get_area_turfs(thearea.type))
+	for(var/turf/T in get_area_turfs(thearea))
 		L+=T
 	var/loc = pick(L)
 	explosion(loc,2,5,11)*/

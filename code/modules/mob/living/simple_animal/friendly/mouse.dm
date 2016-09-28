@@ -3,6 +3,7 @@
 	real_name = "mouse"
 	desc = "It's a small rodent."
 	icon_state = "mouse_gray"
+	item_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	speak = list("Squeek!","SQUEEK!","Squeek?")
@@ -10,7 +11,6 @@
 	emote_hear = list("squeeks","squeaks","squiks")
 	emote_see = list("runs in a circle", "shakes", "scritches at something")
 	pass_flags = PASSTABLE
-	small = 1
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -28,7 +28,12 @@
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
 	universal_understand = 1
-	mob_size = 1
+	holder_type = /obj/item/weapon/holder/mouse
+	mob_size = MOB_MINISCULE
+	possession_candidate = 1
+
+	can_pull_size = TINY_ITEM
+	can_pull_mobs = MOB_PULL_NONE
 
 /mob/living/simple_animal/mouse/Life()
 	..()
@@ -50,6 +55,10 @@
 		else if(prob(5))
 			audible_emote("snuffles.")
 
+/mob/living/simple_animal/mouse/lay_down()
+	..()
+	icon_state = resting ? "mouse_[body_color]_sleep" : "mouse_[body_color]"
+
 /mob/living/simple_animal/mouse/New()
 	..()
 
@@ -57,28 +66,33 @@
 	verbs += /mob/living/proc/hide
 
 	if(name == initial(name))
-		name = "[name] ([rand(1, 1000)])"
+		name = "[name] ([sequential_id(/mob/living/simple_animal/mouse)])"
 	real_name = name
 
 	if(!body_color)
 		body_color = pick( list("brown","gray","white") )
 	icon_state = "mouse_[body_color]"
+	item_state = "mouse_[body_color]"
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
 
 /mob/living/simple_animal/mouse/proc/splat()
 	src.health = 0
-	src.stat = DEAD
+	src.death()
 	src.icon_dead = "mouse_[body_color]_splat"
 	src.icon_state = "mouse_[body_color]_splat"
-	layer = MOB_LAYER
-	if(client)
-		client.time_died_as_mouse = world.time
 
-/mob/living/simple_animal/mouse/start_pulling(var/atom/movable/AM)//Prevents mouse from pulling things
-	src << "<span class='warning'>You are too small to pull anything.</span>"
-	return
+/mob/living/simple_animal/mouse/MouseDrop(atom/over_object)
+
+	var/mob/living/carbon/H = over_object
+	if(!istype(H) || !Adjacent(H)) return ..()
+
+	if(H.a_intent == I_HELP)
+		get_scooped(H)
+		return
+	else
+		return ..()
 
 /mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
 	if( ishuman(AM) )
@@ -90,8 +104,6 @@
 
 /mob/living/simple_animal/mouse/death()
 	layer = MOB_LAYER
-	if(client)
-		client.time_died_as_mouse = world.time
 	..()
 
 /*
@@ -119,6 +131,4 @@
 	..()
 	// Change my name back, don't want to be named Tom (666)
 	name = initial(name)
-
-/mob/living/simple_animal/mouse/cannot_use_vents()
-	return
+	real_name = name

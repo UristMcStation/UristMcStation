@@ -118,7 +118,7 @@
 /obj/structure/pit/closed/grave/initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
-	var/obj/effect/decal/remains/human/bones = new(C)
+	var/obj/item/remains/human/bones = new(C)
 	bones.layer = MOB_LAYER
 
 	var/loot
@@ -139,7 +139,7 @@
 		/obj/item/clothing/under/serviceoveralls,
 		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
-		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/color/brown,
 		)
 	loot = pick(uniforms)
 	new loot(C)
@@ -150,10 +150,11 @@
 //			/obj/item/clothing/accessory/badge/marshal/old,
 			/obj/item/clothing/accessory/horrible,
 			/obj/item/clothing/accessory/medal,
+			/obj/item/clothing/accessory/medal/iron,
 			/obj/item/clothing/accessory/medal/silver,
-			/obj/item/clothing/accessory/medal/silver/valor,
+			/obj/item/clothing/accessory/medal/silver/sword,
 			/obj/item/clothing/accessory/medal/gold,
-			/obj/item/clothing/accessory/medal/gold/heroism
+			/obj/item/clothing/accessory/medal/gold/crest
 			)
 		loot = pick(misc)
 		new loot(C)

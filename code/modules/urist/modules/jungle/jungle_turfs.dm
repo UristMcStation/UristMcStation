@@ -78,8 +78,8 @@
 				"<span class='notice'>You dig up even more soil, forming a pit.</span>")
 				new /obj/structure/pit(src)
 
-	else if(istype(I, /obj/item/stack/tile/steel))
-		var/obj/item/stack/tile/steel/R = I
+	else if(istype(I, /obj/item/stack/tile/floor_steel))
+		var/obj/item/stack/tile/floor_steel/R = I
 		src.overlays = null
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)

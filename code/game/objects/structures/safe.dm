@@ -7,7 +7,7 @@ FLOOR SAFES
 //SAFES
 /obj/structure/safe
 	name = "safe"
-	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
+	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\"."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "safe"
 	anchored = 1
@@ -34,7 +34,7 @@ FLOOR SAFES
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
-		if(I.w_class + space <= maxspace)
+		if(I.w_class + space <= maxspace) //todo replace with internal storage or something
 			space += I.w_class
 			I.loc = src
 
@@ -160,17 +160,8 @@ FLOOR SAFES
 			return
 
 
-obj/structure/safe/blob_act()
-	return
-
-
 obj/structure/safe/ex_act(severity)
 	return
-
-
-obj/structure/safe/meteorhit(obj/O as obj)
-	return
-
 
 //FLOOR SAFES
 /obj/structure/safe/floor
@@ -180,12 +171,15 @@ obj/structure/safe/meteorhit(obj/O as obj)
 	level = 1	//underfloor
 	layer = 2.5
 
-
 /obj/structure/safe/floor/initialize()
 	..()
 	var/turf/T = loc
-	hide(T.intact)
-
+	if(istype(T) && !T.is_plating())
+		hide(1)
+	update_icon()
 
 /obj/structure/safe/floor/hide(var/intact)
 	invisibility = intact ? 101 : 0
+
+/obj/structure/safe/floor/hides_under_flooring()
+	return 1

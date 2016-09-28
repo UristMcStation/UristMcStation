@@ -10,7 +10,7 @@
 	edge = 0
 	throwforce = 7
 	w_class = 3
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
 	var/agonyforce = 60
@@ -18,14 +18,15 @@
 	var/obj/item/weapon/cell/bcell = null
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 
-/obj/item/weapon/melee/baton/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is putting the live [name] in \his mouth! It looks like \he's trying to commit suicide.</span>")
-	return (FIRELOSS)
-
 /obj/item/weapon/melee/baton/New()
 	..()
 	update_icon()
 	return
+
+/obj/item/weapon/melee/baton/Destroy()
+	qdel(bcell)
+	bcell = null
+	return ..()
 
 /obj/item/weapon/melee/baton/loaded/New() //this one starts with a cell pre-installed.
 	..()
@@ -50,6 +51,11 @@
 		icon_state = "[initial(name)]_nocell"
 	else
 		icon_state = "[initial(name)]"
+
+	if(icon_state == "[initial(name)]_active")
+		set_light(1.5, 2, "#FF6A00")
+	else
+		set_light(0)
 
 /obj/item/weapon/melee/baton/examine(mob/user)
 	if(!..(user, 1))
@@ -84,83 +90,78 @@
 	return
 
 /obj/item/weapon/melee/baton/attack_self(mob/user)
+	set_status(!status, user)
+	add_fingerprint(user)
+
+/obj/item/weapon/melee/baton/proc/set_status(var/newstatus, mob/user)
 	if(bcell && bcell.charge > hitcost)
-		status = !status
-		user << "<span class='notice'>[src] is now [status ? "on" : "off"].</span>"
-		playsound(loc, "sparks", 75, 1, -1)
-		update_icon()
+		if(status != newstatus)
+			status = newstatus
+			user << "<span class='notice'>[src] is now [status ? "on" : "off"].</span>"
+			playsound(loc, "sparks", 75, 1, -1)
+			update_icon()
 	else
 		status = 0
 		if(!bcell)
 			user << "<span class='warning'>[src] does not have a power source!</span>"
 		else
 			user << "<span class='warning'>[src] is out of charge.</span>"
-	add_fingerprint(user)
-
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user)
 	if(status && (CLUMSY in user.mutations) && prob(50))
-		user << "span class='danger'>You accidentally hit yourself with the [src]!</span>"
+		user << "<span class='danger'>You accidentally hit yourself with the [src]!</span>"
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
+	return ..()
 
-	if(isrobot(M))
-		..()
-		return
+/obj/item/weapon/melee/baton/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	if(isrobot(target))
+		return ..()
 
 	var/agony = agonyforce
 	var/stun = stunforce
-	var/mob/living/L = M
+	var/obj/item/organ/external/affecting = null
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		affecting = H.get_organ(hit_zone)
 
-	var/target_zone = check_zone(user.zone_sel.selecting)
-	if(user.a_intent == I_HURT)
-		if (!..())	//item/attack() does it's own messaging and logs
+	if(user.a_intent == I_HURT || user.a_intent == I_DISARM)
+		. = ..()
+		if (!.)	//item/attack() does it's own messaging and logs
 			return 0	// item/attack() will return 1 if they hit, 0 if they missed.
-		agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
+
+		//whacking someone causes a much poorer electrical contact than deliberately prodding them.
 		stun *= 0.5
-		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
-	else
-		//copied from human_defense.dm - human defence code should really be refactored some time.
-		if (ishuman(L))
-			user.lastattacked = L	//are these used at all, if we have logs?
-			L.lastattacker = user
-
-			if (user != L) // Attacking yourself can't miss
-				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
-
-			if(!target_zone)
-				L.visible_message("\red <B>[user] misses [L] with \the [src]!")
-				return 0
-
-			var/mob/living/carbon/human/H = L
-			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
-			if (affecting)
-				if(!status)
-					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
-					return 1
-				else
-					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+		if(status)		//Checks to see if the stunbaton is on.
+			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
 		else
-			if(!status)
-				L.visible_message("<span class='warning'>[L] has been prodded with [src] by [user]. Luckily it was off.</span>")
-				return 1
-			else
-				L.visible_message("<span class='danger'>[L] has been prodded with [src] by [user]!</span>")
+			agony = 0	//Shouldn't really stun if it's off, should it?
+		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.
+	else if(!status)
+		if(affecting)
+			target.visible_message("<span class='warning'>[target] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
+		else
+			target.visible_message("<span class='warning'>[target] has been prodded with [src] by [user]. Luckily it was off.</span>")
+	else
+		if(affecting)
+			target.visible_message("<span class='danger'>[target] has been prodded in the [affecting.name] with [src] by [user]!</span>")
+		else
+			target.visible_message("<span class='danger'>[target] has been prodded with [src] by [user]!</span>")
+		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	//stun effects
-	L.stun_effect_act(stun, agony, target_zone, src)
+	if(status)
+		target.stun_effect_act(stun, agony, hit_zone, src)
+		msg_admin_attack("[key_name(user)] stunned [key_name(target)] with the [src].")
 
-	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src].")
+		deductcharge(hitcost)
 
-	deductcharge(hitcost)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			H.forcesay(hit_appends)
 
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.forcesay(hit_appends)
-
-	return 1
+	return 0
 
 /obj/item/weapon/melee/baton/emp_act(severity)
 	if(bcell)
