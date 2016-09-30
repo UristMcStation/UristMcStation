@@ -2,7 +2,7 @@
 	name = "ANTAG Operative"
 	uniform = /obj/item/clothing/under/suit_jacket //change this
 	shoes = /obj/item/clothing/shoes/black
-	gloves = /obj/item/clothing/gloves/black
+	gloves = /obj/item/clothing/gloves/thick
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	suit = /obj/item/clothing/suit/wcoat
@@ -35,7 +35,7 @@
 	name = "ANFOR Marine"
 	uniform = /obj/item/clothing/under/urist/anfor
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	//glasses = /obj/item/clothing/glasses/thermal
 	suit = /obj/item/clothing/suit/urist/armor/anfor/marine
@@ -56,7 +56,7 @@
 	name = "SCOM Operative"
 	uniform = /obj/item/clothing/under/urist/scom
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	head = /obj/item/clothing/head/beret/sec/navy/officer
 	belt = /obj/item/weapon/storage/belt/urist/military/scom
@@ -71,7 +71,7 @@
 	name = "RDF Soldier"
 	uniform = /obj/item/clothing/under/urist/ryclies/uniform
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	suit = /obj/item/clothing/suit/urist/armor/ryclies
 	head = /obj/item/clothing/head/urist/ryclies/helmet

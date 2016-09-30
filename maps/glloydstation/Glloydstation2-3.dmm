@@ -247,7 +247,7 @@
 "eM" = (/turf/simulated/floor/plating/airless,/area/AIsattele)
 "eN" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/plating/airless,/area/AIsattele)
 "eO" = (/obj/structure/cable,/turf/simulated/floor/plating/airless,/area/AIsattele)
-"eP" = (/obj/structure/table/rack,/obj/item/clothing/gloves/yellow,/turf/simulated/floor/plating/airless,/area/AIsattele)
+"eP" = (/obj/structure/table/rack,/obj/item/clothing/gloves/insulated,/turf/simulated/floor/plating/airless,/area/AIsattele)
 "eQ" = (/obj/structure/girder,/turf/simulated/floor/plating/airless,/area/AIsattele)
 "eR" = (/obj/item/weapon/cell,/turf/simulated/floor/plating/airless,/area/AIsattele)
 "eS" = (/obj/structure/grille{density = 0; icon_state = "brokengrille"},/turf/simulated/floor/plating/airless,/area/AIsattele)
