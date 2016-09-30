@@ -197,7 +197,7 @@
 	new /obj/item/device/radio/headset/syndicate(src)
 	new /obj/item/clothing/under/rank/centcom(src)
 	new /obj/item/clothing/shoes/swat(src)
-	new /obj/item/clothing/gloves/swat(src)
+	new /obj/item/clothing/gloves/thick/swat(src)
 	new /obj/item/weapon/storage/belt/urist/military/scom(src)
 
 //for the map
@@ -217,7 +217,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
 	new /obj/item/weapon/storage/belt/security/tactical(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/under/tactical(src)
 	new /obj/item/clothing/suit/storage/vest/tactical(src)
 	new /obj/item/clothing/head/helmet/tactical(src)
@@ -225,5 +225,5 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
 	new /obj/item/weapon/storage/belt/security/tactical(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/gloves/thick(src)
 	return

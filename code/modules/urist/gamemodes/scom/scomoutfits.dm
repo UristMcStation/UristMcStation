@@ -87,7 +87,7 @@
 /decl/hierarchy/outfit/scom/squaddie/scomgrunt
 	name = "S-COM Operative"
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
 	belt = /obj/item/weapon/storage/belt/urist/military/scom
 	head = /obj/item/clothing/head/beret/sec/navy/officer
 	r_pocket = /obj/item/weapon/gun/projectile/silenced/knight
@@ -107,7 +107,7 @@
 	spawn(2)
 		new /obj/item/device/radio/headset(src)
 		new /obj/item/clothing/shoes/swat(src)
-		new /obj/item/clothing/gloves/swat(src)
+		new /obj/item/clothing/gloves/thick/swat(src)
 		new /obj/item/weapon/storage/belt/urist/military/scom(src)
 		new /obj/item/clothing/head/beret/sec/navy/officer(src)
 		new /obj/item/weapon/gun/projectile/silenced/knight(src)
@@ -126,7 +126,7 @@
 	spawn(2)
 		new /obj/item/device/radio/headset(src)
 		new /obj/item/clothing/shoes/swat(src)
-		new /obj/item/clothing/gloves/swat(src)
+		new /obj/item/clothing/gloves/thick/swat(src)
 		new /obj/item/weapon/storage/belt/urist/military/scom(src)
 		new /obj/item/clothing/head/beret/centcom/captain(src)
 		new /obj/item/weapon/gun/projectile/silenced/knight(src)

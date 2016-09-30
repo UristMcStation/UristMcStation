@@ -144,4 +144,4 @@
 	backpack = /obj/item/weapon/storage/backpack/security
 	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/thick/combat
