@@ -15,6 +15,7 @@
 /obj/item/clothing/gloves/insulated
 	desc = "These gloves will protect the wearer from electric shock."
 	name = "insulated gloves"
+	icon = 'icons/urist/items/clothes/gloves.dmi'
 	icon_state = "yellow"
 	item_state = "ygloves"
 	siemens_coefficient = 0
