@@ -8,7 +8,7 @@
 						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/chaplain,
 						/datum/job/rd, /datum/job/scientist, /datum/job/mining, /datum/job/blueshield,
-						/datum/job/mime, /datum/job/clown, /datum/job/xenobiologist
+						/datum/job/mime, /datum/job/clown, /datum/job/librarian, /datum/job/psychiatrist
 						)
 
 //Resource Technician et al
@@ -45,16 +45,6 @@
 
 //Mime
 
-/decl/hierarchy/outfit/job/mime
-	name = OUTFIT_JOB_NAME("Mime")
-	uniform = /obj/item/clothing/under/mime
-	head = /obj/item/clothing/head/beret
-	mask = /obj/item/clothing/mask/gas/mime
-	gloves = /obj/item/clothing/gloves/white
-	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/suspenders
-	pda_type = /obj/item/device/pda/mime
-
 /datum/job/mime
 	title = "Mime"
 	department = "Civilian"
@@ -65,7 +55,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#515151"
 	economic_modifier = 1
-	access = list(access_mime, access_theatre, access_maint_tunnels)
+	access = list(access_maint_tunnels, access_mime, access_theatre)
 	minimal_access = list(access_mime, access_theatre)
 	minimal_player_age = 10
 	outfit_type = /decl/hierarchy/outfit/job/mime
@@ -74,19 +64,23 @@
 	. = ..()
 	if(.)
 		H.miming = 1
+		H.verbs += /client/proc/mimespeak
+		H.verbs += /client/proc/mimewall
+		H.mind.special_verbs += /client/proc/mimespeak
+		H.mind.special_verbs += /client/proc/mimewall
+
+/decl/hierarchy/outfit/job/mime
+	name = OUTFIT_JOB_NAME("Mime")
+	uniform = /obj/item/clothing/under/mime
+	head = /obj/item/clothing/head/beret
+	mask = /obj/item/clothing/mask/gas/mime
+	gloves = /obj/item/clothing/gloves/white
+	shoes = /obj/item/clothing/shoes/black
+	suit = /obj/item/clothing/suit/suspenders
+	pda_type = /obj/item/device/pda/mime
+	id_type = /obj/item/weapon/card/id/civilian/mime
 
 //Clown :^)
-
-/decl/hierarchy/outfit/job/clown
-	name = OUTFIT_JOB_NAME("Clown")
-	uniform = /obj/item/clothing/under/rank/clown
-	mask = /obj/item/clothing/mask/gas/clown_hat
-	shoes = /obj/item/clothing/shoes/clown_shoes
-	backpack_contents = list(/obj/item/weapon/reagent_containers/food/snacks/grown/banana = 1, /obj/item/weapon/bikehorn = 1,
-		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
-		/obj/item/toy/waterflower = 1)
-	back = /obj/item/weapon/storage/backpack/clown
-	pda_type = /obj/item/device/pda/clown
 
 /datum/job/clown
 	title = "Clown"
@@ -98,15 +92,27 @@
 	supervisors = "the head of personnel"
 	selection_color = "#515151"
 	economic_modifier = 1
-	access = list(access_clown, access_theatre, access_maint_tunnels)
+	access = list(access_maint_tunnels, access_clown, access_theatre)
 	minimal_access = list(access_clown, access_theatre)
 	minimal_player_age = 10
 	outfit_type = /decl/hierarchy/outfit/job/clown
 
-///datum/job/clown/equip(var/mob/living/carbon/human/H)
-//	. = ..()
-//	if(.)
-//		H.mutations.Add(CLUMSY)
+/datum/job/clown/equip(var/mob/living/carbon/human/H)
+	. = ..()
+	if(.)
+		H.mutations.Add(CLUMSY)
+
+/decl/hierarchy/outfit/job/clown
+	name = OUTFIT_JOB_NAME("Clown")
+	uniform = /obj/item/clothing/under/rank/clown
+	mask = /obj/item/clothing/mask/gas/clown_hat
+	shoes = /obj/item/clothing/shoes/clown_shoes
+	backpack_contents = list(/obj/item/weapon/reagent_containers/food/snacks/grown/banana = 1, /obj/item/weapon/bikehorn = 1,
+		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
+		/obj/item/toy/waterflower = 1)
+	back = /obj/item/weapon/storage/backpack/clown
+	pda_type = /obj/item/device/pda/clown
+	id_type = /obj/item/weapon/card/id/civilian/clown
 
 /datum/job/blueshield
 	title = "Blueshield"
@@ -139,9 +145,29 @@
 	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/weapon/card/id/centcom/station
+	id_type = /obj/item/weapon/card/id/blueshield
 	pda_type = /obj/item/device/pda/heads/hop
 	backpack = /obj/item/weapon/storage/backpack/security
 	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
+
+//ids for the jobs
+
+/obj/item/weapon/card/id/civilian/clown
+	name = "identification card"
+	desc = "A card issued to the station's clown."
+	icon_state = "clown"
+	job_access_type = /datum/job/clown
+
+/obj/item/weapon/card/id/civilian/mime
+	name = "identification card"
+	desc = "A card issued to the station's mime."
+	icon_state = "mime"
+	job_access_type = /datum/job/mime
+
+/obj/item/weapon/card/id/blueshield
+	name = "identification card"
+	desc = "A card issued to the station's blueshield."
+	icon_state = "centcom"
+	job_access_type = /datum/job/blueshield

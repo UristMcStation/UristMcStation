@@ -21,7 +21,7 @@
 	desc = "Theatre"
 	region = ACCESS_REGION_GENERAL
 
-/var/const/access_blueshield = 51
+/var/const/access_blueshield = 52
 /datum/access/blueshield
 	id = access_blueshield
 	desc = "Blueshield Access"
