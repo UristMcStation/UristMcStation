@@ -2,7 +2,8 @@
 	hierarchy_type = /decl/hierarchy/outfit/job/engineering
 	belt = /obj/item/weapon/storage/belt/utility/full
 	l_ear = /obj/item/device/radio/headset/headset_eng
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = /obj/item/clothing/shoes/urist/leather
+	gloves = /obj/item/clothing/gloves/urist/leather
 	backpack = /obj/item/weapon/storage/backpack/industrial
 	satchel_one = /obj/item/weapon/storage/backpack/satchel_eng
 	pda_slot = slot_l_store
@@ -24,6 +25,7 @@
 	r_pocket = /obj/item/device/t_scanner
 	id_type = /obj/item/weapon/card/id/engineering
 	pda_type = /obj/item/device/pda/engineering
+	suit = /obj/item/clothing/suit/storage/hazardvest
 
 /decl/hierarchy/outfit/job/engineering/atmos
 	name = OUTFIT_JOB_NAME("Atmospheric technician")
@@ -31,3 +33,4 @@
 	belt = /obj/item/weapon/storage/belt/utility/atmostech
 	id_type = /obj/item/weapon/card/id/engineering/atmos
 	pda_type = /obj/item/device/pda/atmos
+	suit = /obj/item/clothing/suit/storage/hazardvest
