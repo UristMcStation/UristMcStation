@@ -83,16 +83,6 @@
 	siemens_coefficient = 0.9
 	starting_accessories = list(/obj/item/clothing/accessory/blue_clip)
 
-/obj/item/clothing/under/det/verb/rollup()
-	set name = "Roll Suit Sleeves"
-	set category = "Object"
-	set src in usr
-	var/unrolled = item_state_slots[slot_w_uniform_str] == initial(worn_state)
-	item_state_slots[slot_w_uniform_str] = unrolled ? "[worn_state]_r" : initial(worn_state)
-	var/mob/living/carbon/human/H = loc
-	H.update_inv_w_uniform(1)
-	H << "<span class='notice'>You roll the sleeves of your shirt [unrolled ? "up" : "down"]</span>"
-
 /obj/item/clothing/under/det/grey
 	icon_state = "detective2"
 	worn_state = "detective2"
@@ -104,7 +94,7 @@
 	worn_state = "detective3"
 	item_state = "sl_suit"
 	desc = "An immaculate white dress shirt, paired with a pair of dark grey dress pants, a red tie, and a charcoal vest."
-	starting_accessories = list(/obj/item/clothing/accessory/red_long, /obj/item/clothing/accessory/vest)
+	starting_accessories = list(/obj/item/clothing/accessory/red_long, /obj/item/clothing/accessory/toggleable/vest)
 
 /obj/item/clothing/head/det
 	name = "fedora"
@@ -114,10 +104,14 @@
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat",
 		)
-	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
 	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.9
-	body_parts_covered = 0
+	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/det/attack_self(mob/user)
+	flags_inv ^= BLOCKHEADHAIR
+	user << "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>"
+	..()
 
 /obj/item/clothing/head/det/grey
 	icon_state = "detective2"
@@ -180,7 +174,6 @@
 	item_state = "hostrench"
 	flags_inv = 0
 	siemens_coefficient = 0.6
-	body_parts_covered = UPPER_TORSO|ARMS
 
 /*
  * Navy uniforms

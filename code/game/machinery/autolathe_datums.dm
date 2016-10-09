@@ -137,6 +137,11 @@
 	path = /obj/item/device/radio/off
 	category = "General"
 
+/datum/autolathe/recipe/suit_cooler
+	name = "suit cooling unit"
+	path = /obj/item/device/suit_cooling_unit
+	category = "General"
+
 /datum/autolathe/recipe/weldermask
 	name = "welding mask"
 	path = /obj/item/clothing/head/welding
@@ -173,7 +178,12 @@
 
 /datum/autolathe/recipe/taperecorder
 	name = "tape recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/device/taperecorder/empty
+	category = "General"
+
+/datum/autolathe/recipe/tape
+	name = "tape"
+	path = /obj/item/device/tape
 	category = "General"
 
 /datum/autolathe/recipe/airlockmodule
@@ -299,11 +309,6 @@
 /datum/autolathe/recipe/signaler
 	name = "signaler"
 	path = /obj/item/device/assembly/signaler
-	category = "Devices and Components"
-
-/datum/autolathe/recipe/sensor_infra
-	name = "infrared sensor"
-	path = /obj/item/device/assembly/infra
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/timer
@@ -448,3 +453,8 @@
 	path = /obj/item/weapon/handcuffs
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/cell_device
+	name = "device cell"
+	path = /obj/item/weapon/cell/device/standard
+	category = "Devices and Components"

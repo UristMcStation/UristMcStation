@@ -15,7 +15,7 @@
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE)
-		M.add_chemical_effect(CE_PAINKILLER, 25)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.add_chemical_effect(CE_PULSE, 1)
 
 /datum/reagent/bicaridine
@@ -188,7 +188,7 @@
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 50)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -255,7 +255,7 @@
 	holder.remove_reagent("mindbreaker", 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
-	M.add_chemical_effect(CE_PAINKILLER, 40)
+	M.add_chemical_effect(CE_PAINKILLER, 20)
 
 /datum/reagent/alkysine
 	name = "Alkysine"
@@ -292,7 +292,7 @@
 	M.eye_blind = max(M.eye_blind - 5, 0)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
@@ -313,7 +313,7 @@
 		var/mob/living/carbon/human/H = M
 
 		for(var/obj/item/organ/I in H.internal_organs)
-			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
+			if((I.damage > 0) && !(I.robotic >= ORGAN_ROBOT)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
 
 /datum/reagent/ryetalyn

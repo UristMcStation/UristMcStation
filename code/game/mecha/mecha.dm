@@ -24,7 +24,7 @@
 	var/list/dropped_items = list()
 	var/step_in = 10 //make a step in step_in/10 sec.
 	var/dir_in = 2//What direction will the mech face when entered/powered on? Defaults to South.
-	var/step_energy_drain = 10
+	var/step_energy_drain = 200		// Energy usage per step in joules.
 	var/health = 300 //health is health
 	var/deflect_chance = 10 //chance to deflect incoming projectiles, hits, or lesser the effect of ex_act.
 	var/r_deflect_coeff = 1
@@ -1683,17 +1683,17 @@
 /obj/mecha/proc/get_charge()
 	if(!src.cell)
 		return
-	return max(0, src.cell.charge)
+	return max(0, src.cell.charge / CELLRATE)
 
 /obj/mecha/proc/use_power(amount)
 	if(get_charge())
-		cell.use(amount)
+		cell.use(amount * CELLRATE)
 		return 1
 	return 0
 
 /obj/mecha/proc/give_power(amount)
 	if(!isnull(get_charge()))
-		cell.give(amount)
+		cell.give(amount * CELLRATE)
 		return 1
 	return 0
 
@@ -1716,13 +1716,13 @@
 		src.hit_damage(damage, is_melee=1)
 		src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 		visible_message("<span class='danger'>[user] [attack_message] [src]!</span>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
+		admin_attacker_log(user, "attacked \the [src]")
 	else
 		src.log_append_to_last("Armor saved.")
 		playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
 		src.occupant_message("<span class='notice'>\The [user]'s attack is stopped by the armor.</span>")
 		visible_message("<span class='notice'>\The [user] rebounds off [src.name]'s armor!</span>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
+		admin_attacker_log(user, "attacked \the [src] but rebounded")
 	return 1
 
 /obj/mecha/onDropInto(var/atom/movable/AM)
@@ -1817,8 +1817,7 @@
 		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			if(mecha.get_charge())
 				mecha.spark_system.start()
-				mecha.cell.charge -= min(20,mecha.cell.charge)
-				mecha.cell.maxcharge -= min(20,mecha.cell.maxcharge)
+				mecha.use_power(rand(1 KILOWATTS, 5 KILOWATTS))
 		return
 
 

@@ -31,7 +31,7 @@
 	var/move_delay = 1	//set this to limit the speed of the vehicle
 
 	var/obj/item/weapon/cell/cell
-	var/charge_use = 5	//set this to adjust the amount of power the vehicle uses per move
+	var/charge_use = 200 //W
 
 	var/atom/movable/load		//all vehicles can take a load, since they should all be a least drivable
 	var/load_item_visible = 1	//set if the loaded item should be overlayed on the vehicle sprite
@@ -50,7 +50,7 @@
 /obj/vehicle/Move()
 	if(world.time > l_move_time + move_delay)
 		var/old_loc = get_turf(src)
-		if(on && powered && cell.charge < charge_use)
+		if(on && powered && cell.charge < (charge_use * CELLRATE))
 			turn_off()
 
 		var/init_anc = anchored
@@ -63,7 +63,7 @@
 		anchored = init_anc
 
 		if(on && powered)
-			cell.use(charge_use)
+			cell.use(charge_use * CELLRATE)
 
 		//Dummy loads do not have to be moved as they are just an overlay
 		//See load_object() proc in cargo_trains.dm for an example
@@ -140,7 +140,7 @@
 /obj/vehicle/emp_act(severity)
 	var/was_on = on
 	stat |= EMPED
-	var/obj/effect/overlay/pulse2 = PoolOrNew(/obj/effect/overlay, src.loc)
+	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
 	pulse2.icon = 'icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
@@ -159,13 +159,18 @@
 /obj/vehicle/attack_ai(mob/user as mob)
 	return
 
+/obj/vehicle/unbuckle_mob(mob/user)
+	. = ..(user)
+	if(load == .)
+		unload(.)
+
 //-------------------------------------------
 // Vehicle procs
 //-------------------------------------------
 /obj/vehicle/proc/turn_on()
 	if(stat)
 		return 0
-	if(powered && cell.charge < charge_use)
+	if(powered && cell.charge < (charge_use * CELLRATE))
 		return 0
 	on = 1
 	set_light(initial(light_range))
@@ -189,8 +194,8 @@
 	src.visible_message("<span class='danger'>\The [src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
-	PoolOrNew(/obj/item/stack/rods, Tsec)
-	PoolOrNew(/obj/item/stack/rods, Tsec)
+	new /obj/item/stack/rods(Tsec)
+	new /obj/item/stack/rods(Tsec)
 	new /obj/item/stack/cable_coil/cut(Tsec)
 
 	if(cell)
@@ -222,7 +227,7 @@
 		turn_off()
 		return
 
-	if(cell.charge < charge_use)
+	if(cell.charge < (charge_use * CELLRATE))
 		turn_off()
 		return
 
@@ -359,7 +364,7 @@
 		return
 	visible_message("<span class='danger'>\The [user] [attack_message] the \the [src]!</span>")
 	if(istype(user))
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked \the [src.name]</font>")
+		admin_attacker_log(user, "attacked \the [src]")
 		user.do_attack_animation(src)
 	src.health -= damage
 	if(prob(10))

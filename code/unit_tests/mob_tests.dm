@@ -107,11 +107,10 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 		if(HALLOSS)
 			loss = M.getHalLoss()
 
-	/*if(!loss && istype(M, /mob/living/carbon/human))          // Revert IPC's when?
-		var/mob/living/carbon/human/H = M                 // IPC's have robot limbs which don't report damage to getXXXLoss()
-		if(istype(H.species, /datum/species/machine))     // So we have ot hard code this check or create a different one for them.
-			return 100 - H.health                     */ // TODO: Find better way to do this then hardcoding this formula
-
+	if(!loss && istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M            // Synthetics have robot limbs which don't report damage to getXXXLoss()
+		if(H.isSynthetic())                          // So we have to hard code this check or create a different one for them.
+			return H.species.total_health - H.health
 	return loss
 
 // ==============================================================================================================
@@ -135,7 +134,7 @@ datum/unit_test/mob_damage
 	var/mob_type = /mob/living/carbon/human
 	var/expected_vulnerability = STANDARD
 	var/check_health = 0
-	var/damage_location = "chest"
+	var/damage_location = BP_CHEST
 
 datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)
@@ -459,12 +458,10 @@ datum/unit_test/mob_damage/machine
 datum/unit_test/mob_damage/machine/brute
 	name = "MOB: IPC Brute Damage Check"
 	damagetype = BRUTE
-	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/machine/fire
 	name = "MOB: IPC Fire Damage Check"
 	damagetype = BURN
-	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/machine/tox
 	name = "MOB: IPC Toxins Damage Check"

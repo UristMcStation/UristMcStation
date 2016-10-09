@@ -45,16 +45,14 @@
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
 
-	if(!(user.zone_sel.selecting == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
+	if(!(user.zone_sel.selecting == (BP_EYES || BP_HEAD))) //////////////hitting anything else other than the eyes
 		if(prob(33))
 			src.add_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))
 				location.add_blood(H)     ///Plik plik, the sound of blood
 
-		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
-		msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to attack [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		admin_attack_log(user, M, "Attacked using \the [src]", "Was attacked with \a [src]", "used \a [src] to attack")
 
 		if(prob(15))
 			M.Weaken(3)

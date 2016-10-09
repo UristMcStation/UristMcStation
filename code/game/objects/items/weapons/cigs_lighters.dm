@@ -23,6 +23,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else if(istype(A, /obj/item/weapon/flame))
 		var/obj/item/weapon/flame/F = A
 		return (F.lit)
+	else if(istype(A, /obj/item/clothing/mask/smokable) && !istype(A, /obj/item/clothing/mask/smokable/pipe))
+		var/obj/item/clothing/mask/smokable/S = A
+		return (S.lit)
 	else if(istype(A, /obj/item/device/assembly/igniter))
 		return 1
 	return 0
@@ -94,6 +97,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/zippomes = "USER lights NAME with FLAME"
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
+	var/brand
 
 /obj/item/clothing/mask/smokable/New()
 	..()
@@ -152,6 +156,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if (type_butt)
 		var/obj/item/butt = new type_butt(T)
 		transfer_fingerprints_to(butt)
+		if(brand)
+			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
@@ -479,9 +485,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				else
 					user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
 					if (user.l_hand == src)
-						user.apply_damage(2,BURN,"l_hand")
+						user.apply_damage(2,BURN,BP_L_HAND)
 					else
-						user.apply_damage(2,BURN,"r_hand")
+						user.apply_damage(2,BURN,BP_R_HAND)
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
 			set_light(2)
@@ -509,7 +515,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		M.IgniteMob()
 
-		if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == "mouth")
+		if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == BP_MOUTH)
 			var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
 			if(M == user)
 				cig.attackby(src, user)

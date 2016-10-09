@@ -6,8 +6,6 @@ var/list/gamemode_cache = list()
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
-	var/list/lobby_screens = list("title") // Which lobby screens are available
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -66,8 +64,6 @@ var/list/gamemode_cache = list()
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
-	var/show_mods = 0
-	var/show_mentors = 0
 	var/mods_can_tempban = 0
 	var/mods_can_job_tempban = 0
 	var/mod_tempban_max = 1440
@@ -139,7 +135,7 @@ var/list/gamemode_cache = list()
 	var/use_loyalty_implants = 0
 
 	var/welder_vision = 1
-	var/generate_asteroid = 0
+	var/generate_map = 0
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
@@ -342,7 +338,7 @@ var/list/gamemode_cache = list()
 					config.log_runtime = 1
 
 				if ("generate_asteroid")
-					config.generate_asteroid = 1
+					config.generate_map = 1
 
 				if ("no_click_cooldown")
 					config.no_click_cooldown = 1
@@ -516,12 +512,6 @@ var/list/gamemode_cache = list()
 
 				if("kick_inactive")
 					config.kick_inactive = text2num(value)
-
-				if("show_mods")
-					config.show_mods = 1
-
-				if("show_mentors")
-					config.show_mentors = 1
 
 				if("mods_can_tempban")
 					config.mods_can_tempban = 1
@@ -719,9 +709,6 @@ var/list/gamemode_cache = list()
 					if(values.len > 0)
 						language_prefixes = values
 
-				if ("lobby_screens")
-					config.lobby_screens = splittext(value, ";")
-
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = TRUE
 
@@ -898,7 +885,7 @@ var/list/gamemode_cache = list()
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
+		if(M && !M.startRequirements() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
 			runnable_modes |= M
 	return runnable_modes
 

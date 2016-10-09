@@ -95,27 +95,16 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 	if(istype(A, /area/jungle))
 		return AREA_SPACE
 	var/list/SPECIALS = list(
-		/area/shuttle,
-		/area/admin,
-		/area/arrival,
-		/area/centcom,
-		/area/asteroid,
-		/area/tdome,
-		/area/acting,
-		/area/supply,
-		/area/syndicate_station,
-		/area/skipjack_station,
-		/area/syndicate_mothership,
-		/area/wizard_station,
-		/area/prison
-		// /area/derelict //commented out, all hail derelict-rebuilders!
+		/area/shuttle
 	)
-	for (var/type in SPECIALS)
-		if ( istype(A,type) )
-			return AREA_SPECIAL
-	if(A.z in using_map.admin_levels)
+
+	if(is_type_in_list(A, SPECIALS))
 		return AREA_SPECIAL
-	return AREA_STATION
+
+	if(A.z in using_map.station_levels)
+		return AREA_STATION
+
+	return AREA_SPECIAL
 
 /obj/item/blueprints/proc/create_area()
 	//world << "DEBUG: create_area"

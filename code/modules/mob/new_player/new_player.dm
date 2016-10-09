@@ -290,8 +290,10 @@
 		src << alert("[rank] is not available. Please try another.")
 		return 0
 
-	var/turf/T = job_master.LateSpawn(client, rank, 1)
-	var/airstatus = IsTurfAtmosUnsafe(T)
+	
+	var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, rank)
+	var/turf/spawn_turf = pick(spawnpoint.turfs)
+	var/airstatus = IsTurfAtmosUnsafe(spawn_turf)
 	if(airstatus)
 		var/reply = alert(usr, "Warning. Your selected spawn location seems to have unfavorable atmospheric conditions. \
 		You may die shortly after spawning. It is possible to select different spawn point via character preferences. \
@@ -335,8 +337,8 @@
 		qdel(src)
 		return
 
-	//Find our spawning point.
-	var/join_message = job_master.LateSpawn(character.client, rank)
+	// Move them to the spawnpoint turf
+	character.forceMove(spawn_turf)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -352,9 +354,9 @@
 
 			//Grab some data from the character prefs for use in random news procs.
 
-			AnnounceArrival(character, rank, join_message)
+			AnnounceArrival(character, rank, spawnpoint.msg)
 		else
-			AnnounceCyborg(character, rank, join_message)
+			AnnounceCyborg(character, rank, spawnpoint.msg)
 
 		if(master_mode=="scom")
 			ScomLateJoin(character)
@@ -378,14 +380,13 @@
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [roundduration2text()]<br>"
 
-	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
-		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
-			dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
-		if(emergency_shuttle.online())
-			if (emergency_shuttle.evac)	// Emergency shuttle is past the point of no recall
-				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
-			else						// Crew transfer initiated
-				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
+	if(evacuation_controller.has_evacuated())
+		dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
+	else if(evacuation_controller.is_evacuating())
+		if(evacuation_controller.emergency_evacuation) // Emergency shuttle is past the point of no recall
+			dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
+		else                                           // Crew transfer initiated
+			dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in job_master.occupations)
@@ -457,7 +458,7 @@
 		new_character.disabilities |= NEARSIGHTED
 
 	// Give them their cortical stack if we're using them.
-	if(config && config.use_cortical_stacks && client && client.prefs.has_cortical_stack /*&& new_character.species.has_organ["brain"]*/)
+	if(config && config.use_cortical_stacks && client && client.prefs.has_cortical_stack /*&& new_character.should_have_organ(BP_BRAIN)*/)
 		new_character.create_stack()
 
 	// Do the initial caching of the player's body icons.
@@ -466,6 +467,7 @@
 	new_character.regenerate_icons()
 	new_character.key = key		//Manually transfer the key to log them in
 	return new_character
+
 /mob/new_player/proc/ViewManifest()
 	var/dat = "<div align='center'>"
 	dat += data_core.get_manifest(OOC = 1)

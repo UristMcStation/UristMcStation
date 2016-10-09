@@ -19,6 +19,14 @@
 	var/cuff_type = "handcuffs"
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
 
+/obj/item/weapon/handcuffs/get_mob_overlay(mob/user_mob, slot)
+	var/image/ret = ..()
+	if(slot == slot_handcuffed_str)
+		ret.icon_state = "handcuff1"
+	if(slot == slot_legcuffed_str)
+		ret.icon_state = "legcuff1"
+	return ret
+
 /obj/item/weapon/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
@@ -67,9 +75,7 @@
 	if(!do_after(user,30, target))
 		return 0
 
-	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Attempted to handcuff [H.name] ([H.ckey])</font>")
-	msg_admin_attack("[key_name(user)] attempted to handcuff [key_name(H)]")
+	admin_attack_log(user, H, "Attempted to handcuff the victim", "Was target of an attempted handcuff", "attempted to handcuff")
 	feedback_add_details("handcuffs","H")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -83,9 +89,7 @@
 		cuffs = new(get_turf(user))
 	else
 		user.drop_from_inventory(cuffs)
-	cuffs.loc = target
-	target.handcuffed = cuffs
-	target.update_inv_handcuffed()
+	target.equip_to_slot(cuffs,slot_handcuffed)
 	return 1
 
 var/last_chew = 0
@@ -96,17 +100,15 @@ var/last_chew = 0
 	var/mob/living/carbon/human/H = A
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
-	if (H.zone_sel.selecting != "mouth") return
+	if (H.zone_sel.selecting != BP_MOUTH) return
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 
-	var/obj/item/organ/external/O = H.organs_by_name[H.hand?"l_hand":"r_hand"]
+	var/obj/item/organ/external/O = H.organs_by_name[(H.hand ? BP_L_HAND : BP_R_HAND)]
 	if (!O) return
 
-	var/s = "<span class='warning'>[H.name] chews on \his [O.name]!</span>"
-	H.visible_message(s, "<span class='warning'>You chew on your [O.name]!</span>")
-	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
-	log_attack("[s] ([H.ckey])")
+	H.visible_message("<span class='warning'>\The [H] chews on \his [O.name]!</span>", "<span class='warning'>You chew on your [O.name]!</span>")
+	admin_attacker_log(H, "chewed on their [O.name]!")
 
 	if(O.take_damage(3,0,1,1,"teeth marks"))
 		H:UpdateDamageIcon()

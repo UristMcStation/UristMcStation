@@ -2,7 +2,7 @@
 //Robotic Component Analyser, basically a health analyser for robots
 //
 /obj/item/device/robotanalyzer
-	name = "cyborg analyzer"
+	name = "robot analyzer"
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
@@ -65,10 +65,12 @@
 			user.show_message("\blue Operating Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)", 1)
 
 		if("prosthetics")
+
 			var/mob/living/carbon/human/H = M
 			user << "<span class='notice'>Analyzing Results for \the [H]:</span>"
+			if(H.isSynthetic())
+				user << "System instability: <font color='green'>[H.getToxLoss()]</font>"
 			user << "Key: <font color='#FFA500'>Electronics</font>/<font color='red'>Brute</font>"
-
 			user << "<span class='notice'>External prosthetics:</span>"
 			var/organ_found
 			if(H.internal_organs.len)

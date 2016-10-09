@@ -72,9 +72,9 @@
 	icon_state = "cell"
 	item_to_spawn()
 		return pick(prob(10);/obj/item/weapon/cell/crap,\
-					prob(40);/obj/item/weapon/cell,\
-					prob(40);/obj/item/weapon/cell/high,\
-					prob(9);/obj/item/weapon/cell/super,\
+					prob(80);/obj/item/weapon/cell,\
+					prob(5);/obj/item/weapon/cell/high,\
+					prob(4);/obj/item/weapon/cell/super,\
 					prob(1);/obj/item/weapon/cell/hyper)
 
 
@@ -319,40 +319,9 @@
 	desc = "This is some random junk."
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "trashbag3"
-	item_to_spawn()
-		return pick(/obj/item/weapon/material/shard,\
-					/obj/item/weapon/material/shard/shrapnel,\
-					/obj/item/stack/material/cardboard,\
-					/obj/item/weapon/storage/box/lights/mixed,\
-					/obj/item/trash/raisins,\
-					/obj/item/trash/candy,\
-					/obj/item/trash/cheesie,\
-					/obj/item/trash/chips,\
-					/obj/item/trash/popcorn,\
-					/obj/item/trash/sosjerky,\
-					/obj/item/trash/syndi_cakes,\
-					/obj/item/trash/waffles,\
-					/obj/item/trash/plate,\
-					/obj/item/trash/snack_bowl,\
-					/obj/item/trash/pistachios,\
-					/obj/item/trash/semki,\
-					/obj/item/trash/tray,\
-					/obj/item/trash/candle,\
-					/obj/item/trash/liquidfood,\
-					/obj/item/trash/tastybread,\
-					/obj/item/weapon/paper/crumpled,\
-					/obj/item/weapon/paper/crumpled/bloody,\
-					/obj/effect/decal/cleanable/molten_item,\
-					/obj/item/weapon/cigbutt,\
-					/obj/item/weapon/cigbutt/cigarbutt,\
-					/obj/item/weapon/pen,\
-					/obj/item/weapon/pen/blue,\
-					/obj/item/weapon/pen/red,\
-					/obj/item/weapon/pen/multi,\
-					/obj/item/weapon/bananapeel,\
-					/obj/item/inflatable/torn,\
-					/obj/item/weapon/storage/box/matches)
 
+/obj/random/junk/item_to_spawn()
+	return get_random_junk_type()
 
 /obj/random/trash //Mostly remains and cleanable decals. Stuff a janitor could clean up
 	name = "random trash"
@@ -463,7 +432,7 @@ obj/random/material //Random materials for building stuff
 					/obj/item/toy/katana,\
 					/obj/item/toy/snappop,\
 					/obj/item/toy/sword,\
-					/obj/item/toy/balloon,\
+					/obj/item/toy/water_balloon,\
 					/obj/item/toy/crossbow,\
 					/obj/item/toy/blink,\
 					/obj/item/toy/waterflower,\
@@ -494,6 +463,7 @@ obj/random/material //Random materials for building stuff
 					prob(3);/obj/item/weapon/tank/emergency/oxygen/engi,\
 					prob(2);/obj/item/weapon/tank/emergency/oxygen/double,\
 					prob(2);/obj/item/weapon/tank/emergency/nitrogen,\
+					prob(1);/obj/item/weapon/tank/emergency/nitrogen/double,\
 					prob(1);/obj/item/weapon/tank/nitrogen)
 
 
@@ -670,6 +640,7 @@ obj/random/material //Random materials for building stuff
 		return pick(/obj/item/clothing/head/helmet/space/void,\
 					/obj/item/clothing/head/helmet/space/void/engineering,\
 					/obj/item/clothing/head/helmet/space/void/engineering/alt,\
+					/obj/item/clothing/head/helmet/space/void/engineering/salvage,\
 					/obj/item/clothing/head/helmet/space/void/mining,\
 					/obj/item/clothing/head/helmet/space/void/mining/alt,\
 					/obj/item/clothing/head/helmet/space/void/security,\
@@ -689,6 +660,7 @@ obj/random/material //Random materials for building stuff
 		return pick(/obj/item/clothing/suit/space/void,\
 					/obj/item/clothing/suit/space/void/engineering,\
 					/obj/item/clothing/suit/space/void/engineering/alt,\
+					/obj/item/clothing/suit/space/void/engineering/salvage,\
 					/obj/item/clothing/suit/space/void/mining,\
 					/obj/item/clothing/suit/space/void/mining/alt,\
 					/obj/item/clothing/suit/space/void/security,\
@@ -712,3 +684,95 @@ obj/random/material //Random materials for building stuff
 					/obj/item/weapon/rig/light,\
 					/obj/item/weapon/rig/unathi,\
 					/obj/item/weapon/rig/unathi/fancy)
+
+/*
+	Selects one spawn point out of a group of points with the same ID and asks it to generate its items
+*/
+var/list/multi_point_spawns
+
+/obj/random_multi
+	name = "random object spawn point"
+	desc = "This item type is used to spawn random objects at round-start. Only one spawn point for a given group id is selected."
+	icon = 'icons/misc/mark.dmi'
+	icon_state = "x3"
+	invisibility = INVISIBILITY_MAXIMUM
+	var/id     // Group id
+	var/weight // Probability weight for this spawn point
+
+/obj/random_multi/initialize()
+	..()
+	weight = max(1, round(weight))
+
+	if(!multi_point_spawns)
+		multi_point_spawns = list()
+	var/list/spawnpoints = multi_point_spawns[id]
+	if(!spawnpoints)
+		spawnpoints = list()
+		multi_point_spawns[id] = spawnpoints
+	spawnpoints[src] = weight
+
+/obj/random_multi/Destroy()
+	var/list/spawnpoints = multi_point_spawns[id]
+	spawnpoints -= src
+	if(!spawnpoints.len)
+		multi_point_spawns -= id
+	. = ..()
+
+/obj/random_multi/proc/generate_items()
+	return
+
+/obj/random_multi/single_item
+	var/item_path  // Item type to spawn
+
+/obj/random_multi/single_item/generate_items()
+	new item_path(loc)
+
+/hook/roundstart/proc/generate_multi_spawn_items()
+	for(var/id in multi_point_spawns)
+		var/list/spawn_points = multi_point_spawns[id]
+		var/obj/random_multi/rm = pickweight(spawn_points)
+		rm.generate_items()
+		for(var/entry in spawn_points)
+			qdel(entry)
+	return 1
+
+/obj/random_multi/single_item/captains_spare_id
+	name = "Multi Point - Captain's Spare"
+	id = "Captain's spare id"
+	item_path = /obj/item/weapon/card/id/captains_spare
+
+var/list/random_junk_
+var/list/random_useful_
+/proc/get_random_useful_type()
+	if(!random_useful_)
+		random_useful_ = subtypesof(/obj/item/weapon/pen/crayon)
+		random_useful_ += /obj/item/weapon/pen
+		random_useful_ += /obj/item/weapon/pen/blue
+		random_useful_ += /obj/item/weapon/pen/red
+		random_useful_ += /obj/item/weapon/pen/multi
+		random_useful_ += /obj/item/weapon/storage/box/matches
+		random_useful_ += /obj/item/stack/material/cardboard
+	return pick(random_useful_)
+
+/proc/get_random_junk_type()
+	if(prob(20)) // Misc. clutter
+		return /obj/effect/decal/cleanable/generic
+	if(prob(70)) // Misc. junk
+		if(!random_junk_)
+			random_junk_ = subtypesof(/obj/item/trash)
+			random_junk_ += typesof(/obj/item/weapon/cigbutt)
+			random_junk_ += /obj/effect/decal/cleanable/spiderling_remains
+			random_junk_ += /obj/item/remains/mouse
+			random_junk_ += /obj/item/remains/robot
+			random_junk_ += /obj/item/weapon/paper/crumpled
+			random_junk_ += /obj/item/inflatable/torn
+			random_junk_ += /obj/effect/decal/cleanable/molten_item
+			random_junk_ += /obj/item/weapon/material/shard
+
+			random_junk_ -= /obj/item/trash/plate
+			random_junk_ -= /obj/item/trash/snack_bowl
+			random_junk_ -= /obj/item/trash/syndi_cakes
+			random_junk_ -= /obj/item/trash/tray
+		return pick(random_junk_)
+	// Misc. actually useful stuff
+	return get_random_useful_type()

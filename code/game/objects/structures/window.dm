@@ -91,11 +91,11 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+			if(reinf) new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+		if(reinf) new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
 
@@ -268,7 +268,7 @@
 	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
-	var/def_zone = ran_zone("head", 20)
+	var/def_zone = ran_zone(BP_HEAD, 20)
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)

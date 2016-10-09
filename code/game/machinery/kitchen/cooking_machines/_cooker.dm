@@ -83,7 +83,7 @@
 	// Gotta hurt.
 	if(istype(cooking_obj, /obj/item/weapon/holder))
 		for(var/mob/living/M in cooking_obj.contents)
-			M.apply_damage(rand(30,40), BURN, "chest")
+			M.apply_damage(rand(30,40), BURN, BP_CHEST)
 
 	// Not sure why a food item that passed the previous checks would fail to drop, but safety first.
 	if(!user.unEquip(I))
@@ -100,11 +100,7 @@
 	sleep(cook_time)
 
 	// Sanity checks.
-	if(!cooking_obj || cooking_obj.loc != src)
-		cooking_obj = null
-		icon_state = off_icon
-		cooking = 0
-		return
+	check_cooking_obj()
 
 	// RIP slow-moving held mobs.
 	if(istype(cooking_obj, /obj/item/weapon/holder))
@@ -161,7 +157,7 @@
 				cooking_obj = new /obj/item/weapon/reagent_containers/food/snacks/badrecipe(src)
 				// Produce nasty smoke.
 				visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
-				var/datum/effect/effect/system/smoke_spread/bad/smoke = PoolOrNew(/datum/effect/effect/system/smoke_spread/bad)
+				var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad()
 				smoke.attach(src)
 				smoke.set_up(10, 0, usr.loc)
 				smoke.start()
@@ -171,6 +167,13 @@
 				cooking = 0
 				icon_state = off_icon
 				break
+
+/obj/machinery/cooker/proc/check_cooking_obj()
+	if(!cooking_obj || cooking_obj.loc != src)
+		cooking_obj = null
+		icon_state = off_icon
+		cooking = 0
+		return
 
 /obj/machinery/cooker/attack_hand(var/mob/user)
 

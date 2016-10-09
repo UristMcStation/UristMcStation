@@ -10,8 +10,6 @@ var/global/datum/controller/gameticker/ticker
 	var/event_time = null
 	var/event = 0
 
-	var/login_music			// music played in pregame lobby
-
 	var/list/datum/mind/minds = list()//The people in the game. Used for objective tracking.
 
 	var/Bible_icon_state	// icon_state the chaplain has chosen for his bible
@@ -38,16 +36,6 @@ var/global/datum/controller/gameticker/ticker
 	var/looking_for_antags = 0
 
 /datum/controller/gameticker/proc/pregame()
-	login_music = pick(\
-	/*'sound/music/halloween/skeletons.ogg',\
-	'sound/music/halloween/halloween.ogg',\
-	'sound/music/halloween/ghosts.ogg'*/
-	'sound/music/space.ogg',\
-	'sound/music/traitor.ogg',\
-	'sound/music/title1.ogg',\
-	'sound/music/title2.ogg',\
-	'sound/music/clouds.s3m',\
-	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
 	do
 		if(!gamemode_voted)
 			pregame_timeleft = 180
@@ -123,8 +111,9 @@ var/global/datum/controller/gameticker/ticker
 	src.mode.pre_setup()
 	job_master.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
-	if(!src.mode.can_start())
-		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
+	var/t = src.mode.startRequirements()
+	if(t)
+		world << "<B>Unable to start [mode.name].</B> [t] Reverting to pre-game lobby."
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
@@ -340,10 +329,10 @@ var/global/datum/controller/gameticker/ticker
 		var/game_finished = 0
 		var/mode_finished = 0
 		if (config.continous_rounds)
-			game_finished = (emergency_shuttle.returned() || mode.station_was_nuked)
+			game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
 			mode_finished = (!post_game && mode.check_finished())
 		else
-			game_finished = (mode.check_finished() || (emergency_shuttle.returned() && emergency_shuttle.evac == 1)) || universe_has_ended
+			game_finished = (mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation) || universe_has_ended)
 			mode_finished = game_finished
 
 		if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
@@ -405,7 +394,7 @@ var/global/datum/controller/gameticker/ticker
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
-				if(emergency_shuttle.departed && emergency_shuttle.evac)
+				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
 					if(isNotAdminLevel(playerTurf.z))
 						Player << "<font color='blue'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></font>"
 					else

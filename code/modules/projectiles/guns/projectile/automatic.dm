@@ -153,7 +153,6 @@
 	requires_two_hands = 5
 	burst_delay = 4
 	wielded_item_state = "z8carbine-wielded"
-
 	//would have requires_two_hands=4,5 but the added weight of a grenade launcher makes one-handing even harder
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1,    fire_delay=0,    move_delay=null, use_launcher=null, requires_two_hands=5, burst_accuracy=null, dispersion=null),

@@ -25,7 +25,7 @@
 			//They need a brain!
 			if(istype(M, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
-				if(H.species.has_organ["brain"] && !H.has_brain())
+				if(H.should_have_organ(BP_BRAIN) && !H.has_brain())
 					continue
 			if(M.ckey == find_key)
 				selected = M
@@ -219,8 +219,10 @@
 			return
 		if(default_part_replacement(user, W))
 			return
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
-		if(!check_access(W))
+			
+	var/id = W.GetIdCard()
+	if(id)
+		if(!check_access(id))
 			user << "<span class='warning'>Access Denied.</span>"
 			return
 		if((!locked) || (isnull(occupant)))

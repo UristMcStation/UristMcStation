@@ -9,21 +9,21 @@ var/global/floorIsLava = 0
 	log_adminwarn(msg)
 	for(var/client/C in admins)
 		if(R_ADMIN & C.holder.rights)
-			C << msg
+			to_chat(C, msg)
 
 /proc/msg_admin_attack(var/text) //Toggleable Attack Messages
 	log_attack(text)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
 	for(var/client/C in admins)
-		if(R_ADMIN & C.holder.rights)
+		if(check_rights(R_INVESTIGATE, 0, C))
 			if(C.is_preference_enabled(/datum/client_preference/admin/show_attack_logs))
 				var/msg = rendered
-				C << msg
+				to_chat(C, msg)
 
-proc/admin_notice(var/message, var/rights)
+/proc/admin_notice(var/message, var/rights)
 	for(var/mob/M in mob_list)
 		if(check_rights(rights, 0, M))
-			M << message
+			to_chat(M, message)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
@@ -59,7 +59,8 @@ proc/admin_notice(var/message, var/rights)
 		<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a> -
 		<a href='?src=\ref[src];subtlemessage=\ref[M]'>SM</a> -
 		[admin_jump_link(M, src)]\] <br>
-		<b>Mob type</b> = [M.type]<br><br>
+		<b>Mob type:</b> [M.type]<br>
+		<b>Inactivity time:</b> [M.client ? "[M.client.inactivity/600] minutes" : "Logged out"]<br/><br/>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
 		<A href='?src=\ref[src];newban=\ref[M]'>Ban</A> |
@@ -608,12 +609,14 @@ proc/admin_notice(var/message, var/rights)
 	for(var/datum/admin_secret_category/category in admin_secrets.categories)
 		if(!category.can_view(usr))
 			continue
-		dat += "<A href='?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
+		if(active_category == category)
+			dat += "<span class='linkOn'>[category.name]</span>"
+		else
+			dat += "<A href='?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
 	dat += "<HR>"
 
 	// If a category is selected, print its description and then options
 	if(istype(active_category) && active_category.can_view(usr))
-		dat += "<B>[active_category.name]</B><BR>"
 		if(active_category.desc)
 			dat += "<I>[active_category.desc]</I><BR>"
 		for(var/datum/admin_secret_item/item in active_category.items)
@@ -622,7 +625,7 @@ proc/admin_notice(var/message, var/rights)
 			dat += "<A href='?src=\ref[src];admin_secrets=\ref[item]'>[item.name()]</A><BR>"
 		dat += "<BR>"
 
-	var/datum/browser/popup = new(usr, "secrets", "Secrets", 500, 500)
+	var/datum/browser/popup = new(usr, "secrets", "Secrets", 550, 500)
 	popup.set_content(dat)
 	popup.open()
 	return
@@ -641,10 +644,10 @@ proc/admin_notice(var/message, var/rights)
 	if(confirm == "Cancel")
 		return
 	if(confirm == "Yes")
-		world << "<span class='danger'>Restarting world!</span> <span class='notice'>Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]!</span>"
+		world << "<span class='danger'>Restarting world!</span> <span class='notice'>Initiated by [usr.key]!</span>"
 		log_admin("[key_name(usr)] initiated a reboot.")
 
-		feedback_set_details("end_error","admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]")
+		feedback_set_details("end_error","admin reboot - by [usr.key]")
 		feedback_add_details("admin_verb","R") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 		if(blackbox)
@@ -660,12 +663,11 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Announce your desires to the world"
 	if(!check_rights(0))	return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null)  as message//todo: sanitize for all?
+	var/message = input("Global message to send:", "Admin Announce", null, null) as message
+	message = sanitize(message, 500, extra = 0)
 	if(message)
-		if(!check_rights(R_SERVER,0))
-			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
-		world << "<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>"
+		world << "<span class=notice><b>[usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>"
 		log_admin("Announce: [key_name(usr)] : [message]")
 	feedback_add_details("admin_verb","A") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -903,10 +905,10 @@ proc/admin_notice(var/message, var/rights)
 	if(!usr.client.holder)	return
 	if( alert("Reboot server?",,"Yes","No") == "No")
 		return
-	world << "\red <b>Rebooting world!</b> \blue Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]!"
+	world << "<span class='danger'>Rebooting world!</span> <span class='notice'>Initiated by [usr.key]!</span>"
 	log_admin("[key_name(usr)] initiated an immediate reboot.")
 
-	feedback_set_details("end_error","immediate admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]")
+	feedback_set_details("end_error","immediate admin reboot - by [usr.key]")
 	feedback_add_details("admin_verb","IR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	if(blackbox)

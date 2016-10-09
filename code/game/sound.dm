@@ -74,18 +74,19 @@ var/const/FALLOFF_SOUNDS = 0.5
 
 /mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global)
 	if(!src.client || ear_deaf > 0)	return
-	soundin = get_sfx(soundin)
-
-	var/sound/S = sound(soundin)
-	S.wait = 0 //No queue
-	S.channel = 0 //Any channel
-	S.volume = vol
-	S.environment = -1
-	if (vary)
-		if(frequency)
-			S.frequency = frequency
-		else
-			S.frequency = get_rand_frequency()
+	var/sound/S = soundin
+	if(!istype(S))
+		soundin = get_sfx(soundin)
+		S = sound(soundin)
+		S.wait = 0 //No queue
+		S.channel = 0 //Any channel
+		S.volume = vol
+		S.environment = -1
+		if (vary)
+			if(frequency)
+				S.frequency = frequency
+			else
+				S.frequency = get_rand_frequency()
 
 	//sound volume falloff with pressure
 	var/pressure_factor = 1.0
@@ -155,9 +156,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 	src << S
 
 /client/proc/playtitlemusic()
-	if(!ticker || !ticker.login_music)	return
 	if(is_preference_enabled(/datum/client_preference/play_lobby_music))
-		src << sound(ticker.login_music, repeat = 1, wait = 0, volume = 85, channel = 1) // MAD JAMS
+		using_map.lobby_music.play_to(src)
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.

@@ -187,7 +187,11 @@
 		edit_admin_permissions()
 
 	else if(href_list["call_shuttle"])
+
 		if(!check_rights(R_ADMIN))	return
+
+		if (!ticker || !evacuation_controller)
+			return
 
 		if( ticker.mode.name == "blob" )
 			alert("You can't call the shuttle during blob!")
@@ -195,47 +199,13 @@
 
 		switch(href_list["call_shuttle"])
 			if("1")
-				if ((!( ticker ) || !emergency_shuttle.location()))
-					return
-				if (emergency_shuttle.can_call())
-					emergency_shuttle.call_evac()
-					log_admin("[key_name(usr)] called the Emergency Shuttle")
-					message_admins("\blue [key_name_admin(usr)] called the Emergency Shuttle to the station", 1)
-
+				if (evacuation_controller.call_evacuation(usr, TRUE))
+					log_admin("[key_name(usr)] called an evacuation.")
+					message_admins("\blue [key_name_admin(usr)] called an evacuation.", 1)
 			if("2")
-				if (!( ticker ) || !emergency_shuttle.location())
-					return
-				if (emergency_shuttle.can_call())
-					emergency_shuttle.call_evac()
-					log_admin("[key_name(usr)] called the Emergency Shuttle")
-					message_admins("\blue [key_name_admin(usr)] called the Emergency Shuttle to the station", 1)
-
-				else if (emergency_shuttle.can_recall())
-					emergency_shuttle.recall()
-					log_admin("[key_name(usr)] sent the Emergency Shuttle back")
-					message_admins("\blue [key_name_admin(usr)] sent the Emergency Shuttle back", 1)
-
-		href_list["secretsadmin"] = "check_antagonist"
-
-	else if(href_list["edit_shuttle_time"])
-		if(!check_rights(R_SERVER))	return
-
-		if (emergency_shuttle.wait_for_launch)
-			var/new_time_left = input("Enter new shuttle launch countdown (seconds):","Edit Shuttle Launch Time", emergency_shuttle.estimate_launch_time() ) as num
-
-			emergency_shuttle.launch_time = world.time + new_time_left*10
-
-			log_admin("[key_name(usr)] edited the Emergency Shuttle's launch time to [new_time_left]")
-			message_admins("\blue [key_name_admin(usr)] edited the Emergency Shuttle's launch time to [new_time_left*10]", 1)
-		else if (emergency_shuttle.shuttle.has_arrive_time())
-
-			var/new_time_left = input("Enter new shuttle arrival time (seconds):","Edit Shuttle Arrival Time", emergency_shuttle.estimate_arrival_time() ) as num
-			emergency_shuttle.shuttle.arrive_time = world.time + new_time_left*10
-
-			log_admin("[key_name(usr)] edited the Emergency Shuttle's arrival time to [new_time_left]")
-			message_admins("\blue [key_name_admin(usr)] edited the Emergency Shuttle's arrival time to [new_time_left*10]", 1)
-		else
-			alert("The shuttle is neither counting down to launch nor is it in transit. Please try again when it is.")
+				if (evacuation_controller.cancel_evacuation())
+					log_admin("[key_name(usr)] cancelled an evacuation.")
+					message_admins("\blue [key_name_admin(usr)] cancelled an evacuation.", 1)
 
 		href_list["secretsadmin"] = "check_antagonist"
 
@@ -849,7 +819,7 @@
 				feedback_inc("ban_perma",1)
 				DB_ban_record(BANTYPE_PERMA, M, -1, reason)
 
-				qdel(M.client)
+				del(M.client)
 				//qdel(M)
 			if("Cancel")
 				return
@@ -1178,11 +1148,29 @@
 		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))	return
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
-
 		var/client/C = usr.client
+		if(!M)
+			C << "<span class='warning'>Unable to locate mob.</span>"
+			return
+
 		if(!isghost(usr))	C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
+
+	else if(href_list["adminplayerobservefollow"])
+		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))
+			return
+
+		var/mob/M = locate(href_list["adminplayerobservefollow"])
+		var/client/C = usr.client
+		if(!M)
+			C << "<span class='warning'>Unable to locate mob.</span>"
+			return
+
+		if(!isobserver(usr))	C.admin_ghost()
+		var/mob/observer/ghost/G = C.mob
+		sleep(2)
+		G.ManualFollow(M)
 
 	else if(href_list["check_antagonist"])
 		check_antagonists()
@@ -1949,11 +1937,11 @@ mob/living/silicon/ai/can_centcom_reply()
 
 /mob/extra_admin_link(var/source)
 	if(client && eyeobj)
-		return "|<A HREF='?[source];adminplayerobservejump=\ref[eyeobj]'>EYE</A>"
+		return "|<A HREF='?[source];adminplayerobservefollow=\ref[eyeobj]'>EYE</A>"
 
 /mob/observer/ghost/extra_admin_link(var/source)
 	if(mind && (mind.current && !isghost(mind.current)))
-		return "|<A HREF='?[source];adminplayerobservejump=\ref[mind.current]'>BDY</A>"
+		return "|<A HREF='?[source];adminplayerobservefollow=\ref[mind.current]'>BDY</A>"
 
 /proc/admin_jump_link(var/atom/target, var/source)
 	if(!target) return
@@ -1963,5 +1951,5 @@ mob/living/silicon/ai/can_centcom_reply()
 	else
 		source = "_src_=holder"
 
-	. = "<A HREF='?[source];adminplayerobservejump=\ref[target]'>JMP</A>"
+	. = "<A HREF='?[source];adminplayerobservefollow=\ref[target]'>JMP</A>"
 	. += target.extra_admin_link(source)
