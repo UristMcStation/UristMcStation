@@ -3,7 +3,7 @@
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
-	force = 3.0
+	force = 5
 	throwforce = 10.0
 	throw_speed = 5
 	throw_range = 10
@@ -22,11 +22,13 @@
 		if(reagents.total_volume < 1)
 			user << "<span class='notice'>Your mop is dry!</span>"
 			return
+		var/turf/T = get_turf(A)
+		if(!T)
+			return
 
-		user.visible_message("<span class='warning'>[user] begins to clean \the [get_turf(A)].</span>")
+		user.visible_message("<span class='warning'>[user] begins to clean \the [T].</span>")
 
-		if(do_after(user, 40))
-			var/turf/T = get_turf(A)
+		if(do_after(user, 40, T))
 			if(T)
 				T.clean(src, user)
 			user << "<span class='notice'>You have finished mopping!</span>"

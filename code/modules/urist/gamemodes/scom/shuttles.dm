@@ -57,6 +57,8 @@
 
 
 /datum/shuttle/ferry/scom
+	category = /datum/shuttle/ferry/scom //parent, hide he
+	name = "SCOM-BU66Y5H1T" //really nobody should see it ever, and I couldn't resist. I'll see myself out.
 	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch), 8 minutes in total. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
@@ -64,16 +66,21 @@
 //	var/missionarea = /area/scom/mission/nolighting //temp
 	var/basemission = 0
 	var/missiondelayed = 0
+	transit_direction = EAST
 
 /datum/shuttle/ferry/scom/s1
-	missionloc = /area/shuttle/scom/s1/mission0
+	name = "SCOM-400"
+	area_station = /area/shuttle/scom/s1/base
+	area_offsite = /area/shuttle/scom/s1/mission0
+
 
 /datum/shuttle/ferry/scom/s2
-	missionloc = /area/shuttle/scom/s2/mission0
+	name = "SCOM-402"
+	area_station = /area/shuttle/scom/s2/base
+	area_offsite = /area/shuttle/scom/s2/mission0
 
 /datum/shuttle/ferry/scom/s1/launch()
 	command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
-
 	..()
 
 	for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
@@ -107,7 +114,7 @@
 		command_announcement.Announce("[missionannounce]", "S-COM Mission Command")
 
 		spawn(missiontime + 50)
-		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleporters in the hanger bay.", "S-COM Shuttle Control")
+		command_announcement.Announce("Shuttles will be launched in two minutes. Grab your gear and get to the shuttles. If you miss them, use the teleporters in the hangar bay.", "S-COM Shuttle Control")
 
 //		spawn(missiontime + 1250)
 

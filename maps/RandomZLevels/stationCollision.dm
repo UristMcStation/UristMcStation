@@ -19,22 +19,22 @@
  * Areas
  */
  //Gateroom gets its own APC specifically for the gate
- /area/awaymission/gateroom
+/area/awaymission/gateroom
 
  //Library, medbay, storage room
- /area/awaymission/southblock
+/area/awaymission/southblock
 
  //Arrivals, security, hydroponics, shuttles (since they dont move, they dont need specific areas)
- /area/awaymission/arrivalblock
+/area/awaymission/arrivalblock
 
  //Crew quarters, cafeteria, chapel
- /area/awaymission/midblock
+/area/awaymission/midblock
 
  //engineering, bridge (not really north but it doesnt really need its own APC)
- /area/awaymission/northblock
+/area/awaymission/northblock
 
  //That massive research room
- /area/awaymission/research
+/area/awaymission/research
 
 //Syndicate shuttle
 /area/awaymission/syndishuttle
@@ -64,8 +64,8 @@ obj/item/weapon/gun/energy/laser/retro/sc_retro
 	name ="retro laser"
 	icon_state = "retro"
 	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's security or military forces."
-	projectile_type = "/obj/item/projectile/practice"
-//	special_check = 0 //No sense in having a harmless gun blow up in the clowns face //REMOVE SNOWFALKE remove snowflake
+	projectile_type = /obj/item/projectile/practice
+	clumsy_check = 0 //No sense in having a harmless gun blow up in the clowns face
 
 //Syndicate silenced pistol. This definition is not necessary, it's just habit.
 /obj/item/weapon/gun/projectile/silenced/sc_silenced
@@ -96,7 +96,7 @@ obj/item/weapon/gun/energy/laser/retro/sc_retro
 /obj/item/weapon/gun/energy/laser/practice/sc_laser
 	name = "Old laser"
 	desc = "A once potent weapon, years of dust have collected in the chamber and lens of this weapon, weakening the beam significantly."
-//	clumsy_check = 0 //see above, snowflake = bad and it would allow hulks to shoot it now
+	clumsy_check = 0
 
 /*
  * Safe code hints
@@ -166,11 +166,40 @@ var/sc_safecode5 = "[rand(0,9)]"
 /*
  * Modified Nar-Sie
  */
-/obj/singularity/narsie/sc_Narsie
+/obj/machinery/singularity/narsie/sc_Narsie
 	desc = "Your body becomes weak and your feel your mind slipping away as you try to comprehend what you know can't be possible."
 	move_self = 0 //Contianed narsie does not move!
 	grav_pull = 0 //Contained narsie does not pull stuff in!
 
 //Override this to prevent no adminlog runtimes and admin warnings about a singularity without containment
-/obj/singularity/narsie/sc_Narsie/admin_investigate_setup()
+/obj/machinery/singularity/narsie/sc_Narsie/admin_investigate_setup()
+	return
+
+/obj/machinery/singularity/narsie/sc_Narsie/process()
+	eat()
+	if(prob(25))
+		mezzer()
+
+/obj/machinery/singularity/narsie/sc_Narsie/consume(var/atom/A)
+	if(is_type_in_list(A, uneatable))
+		return 0
+	if (istype(A,/mob/living))
+		var/mob/living/L = A
+		L.gib()
+	else if(istype(A,/obj/))
+		var/obj/O = A
+		O.ex_act(1.0)
+		if(O) del(O)
+	else if(isturf(A))
+		var/turf/T = A
+		if(T.intact)
+			for(var/obj/O in T.contents)
+				if(O.level != 1)
+					continue
+				if(O.invisibility == 101)
+					src.consume(O)
+		T.ChangeTurf(/turf/space)
+	return
+
+/obj/machinery/singularity/narsie/sc_Narsie/ex_act()
 	return

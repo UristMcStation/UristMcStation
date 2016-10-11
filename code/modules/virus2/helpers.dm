@@ -3,25 +3,26 @@ proc/infection_check(var/mob/living/carbon/M, var/vector = "Airborne")
 	if (!istype(M))
 		return 0
 
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && H.species.virus_immune)
+		return 0
+
 	var/protection = M.getarmor(null, "bio")	//gets the full body bio armour value, weighted by body part coverage.
 	var/score = round(0.06*protection) 			//scales 100% protection to 6.
 
 	switch(vector)
 		if("Airborne")
-			if(M.internal)
-				score = 6	//not breathing infected air helps greatly
-				var/obj/item/I = M.wear_mask
-
-				//masks provide a small bonus and can replace overall bio protection
-				if(I)
-					score = max(score, round(0.06*I.armor["bio"]))
-					if (istype(I, /obj/item/clothing/mask))
-						score += 1 //this should be added after
+			if(M.internal) //not breathing infected air helps greatly
+				return 0
+			var/obj/item/I = M.wear_mask
+			//masks provide a small bonus and can replace overall bio protection
+			if(I)
+				score = max(score, round(0.06*I.armor["bio"]))
+				if (istype(I, /obj/item/clothing/mask))
+					score += 1 //this should be added after
 
 		if("Contact")
-			if(istype(M, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-
+			if(istype(H))
 				//gloves provide a larger bonus
 				if (istype(H.gloves, /obj/item/clothing/gloves))
 					score += 2
@@ -158,12 +159,24 @@ proc/airborne_can_reach(turf/source, turf/target)
 
 		if (ishuman(victim))
 			var/mob/living/carbon/human/H = victim
-			var/obj/item/organ/external/select_area = H.get_organ(src.zone_sel.selecting)
-			var/list/clothes = list(H.head, H.wear_mask, H.wear_suit, H.w_uniform, H.gloves, H.shoes)
-			for(var/obj/item/clothing/C in clothes)
-				if(C && istype(C))
-					if(C.body_parts_covered & select_area.body_part)
-						nudity = 0
+
+			//Allow for small chance of touching other zones. 
+			//This is proc is also used for passive spreading so just because they are targeting
+			//that zone doesn't mean that's necessarily where they will touch.
+			var/touch_zone = ran_zone(src.zone_sel.selecting, 80)
+			var/obj/item/organ/external/select_area = H.get_organ(touch_zone)
+			if(!select_area)
+				//give it one more chance, since this is also called for passive spreading
+				select_area = H.get_organ(ran_zone())
+
+			if(!select_area)
+				nudity = 0 //cant contact a missing body part
+			else
+				var/list/clothes = list(H.head, H.wear_mask, H.wear_suit, H.w_uniform, H.gloves, H.shoes)
+				for(var/obj/item/clothing/C in clothes)
+					if(C && istype(C))
+						if(C.body_parts_covered & select_area.body_part)
+							nudity = 0
 		if (nudity)
 			for (var/ID in victim.virus2)
 				var/datum/disease2/disease/V = victim.virus2[ID]

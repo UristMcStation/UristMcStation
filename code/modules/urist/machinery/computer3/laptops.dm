@@ -1,4 +1,4 @@
-/obj/machinery/computer3/laptop/captain
+/obj/machinery/modular_computer/laptop/captain
 	name = "Captain's Portable Laptop"
 	desc = "A clamshell laptop preloaded with specific files for productive captains. It is open."
 	spawn_files =	list(/datum/file/program/arcade,/datum/file/program/security,/datum/file/program/crew,/datum/file/program/crew,/datum/file/program/med_data,

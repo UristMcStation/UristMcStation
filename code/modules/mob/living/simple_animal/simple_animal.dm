@@ -14,7 +14,7 @@
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
-	var/list/speak = list()
+	var/list/speak = list("...")
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
@@ -72,7 +72,8 @@
 
 /mob/living/simple_animal/Login()
 	if(src && src.client)
-		src.client.screen = null
+		src.client.screen = list()
+		src.client.screen += src.client.void
 	..()
 
 /mob/living/simple_animal/updatehealth()
@@ -85,8 +86,7 @@
 	if(stat == DEAD)
 		if(health > 0)
 			icon_state = icon_living
-			dead_mob_list -= src
-			living_mob_list += src
+			switch_from_dead_to_living_mob_list()
 			stat = CONSCIOUS
 			density = 1
 		return 0
@@ -102,7 +102,6 @@
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
-	update_canmove()
 	handle_supernatural()
 
 	//Movement
@@ -111,46 +110,28 @@
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
 				if(!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
-					/var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
+					var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
 					moving_to = pick(cardinal)
-					dir = moving_to			//How about we turn them the direction they are moving, yay.
+					set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
 					Move(get_step(src,moving_to))
 					turns_since_move = 0
 
 	//Speaking
 	if(!client && speak_chance)
 		if(rand(0,200) < speak_chance)
-			if(speak && speak.len)
-				if((emote_hear && emote_hear.len) || (emote_see && emote_see.len))
-					var/length = speak.len
-					if(emote_hear && emote_hear.len)
-						length += emote_hear.len
-					if(emote_see && emote_see.len)
-						length += emote_see.len
-					var/randomValue = rand(1,length)
-					if(randomValue <= speak.len)
-						say(pick(speak))
-					else
-						randomValue -= speak.len
-						if(emote_see && randomValue <= emote_see.len)
-							visible_emote("[pick(emote_see)].")
-						else
-							audible_emote("[pick(emote_hear)].")
-				else
-					say(pick(speak))
-			else
-				if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-					visible_emote("[pick(emote_see)].")
-				if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
-					audible_emote("[pick(emote_hear)].")
-				if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-					var/length = emote_hear.len + emote_see.len
-					var/pick = rand(1,length)
-					if(pick <= emote_see.len)
-						visible_emote("[pick(emote_see)].")
-					else
-						audible_emote("[pick(emote_hear)].")
+			var/action = pick(
+				speak.len;      "speak",
+				emote_hear.len; "emote_hear",
+				emote_see.len;  "emote_see"
+				)
 
+			switch(action)
+				if("speak")
+					say(pick(speak))
+				if("emote_hear")
+					audible_emote("[pick(emote_hear)].")
+				if("emote_see")
+					visible_emote("[pick(emote_see)].")
 
 	//Atmos
 	var/atmos_suitable = 1
@@ -270,12 +251,14 @@
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/stack/medical))
-		user.changeNext_move(4)
 		if(stat != DEAD)
 			var/obj/item/stack/medical/MED = O
+			if(!MED.animal_heal)
+				user << "<span class='notice'>That [MED] won't help \the [src] at all!</span>"
+				return
 			if(health < maxHealth)
 				if(MED.amount >= 1)
-					adjustBruteLoss(-MED.heal_brute)
+					adjustBruteLoss(-MED.animal_heal)
 					MED.amount -= 1
 					if(MED.amount <= 0)
 						qdel(MED)
@@ -284,37 +267,38 @@
 							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
 		else
 			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
+		return
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/knife/butch))
 			harvest(user)
 	else
-		attacked_with_item(O, user)
+		if(!O.force)
+			visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
+		else
+			O.attack(src, user, user.zone_sel.selecting)
 
-//TODO: refactor mob attackby(), attacked_by(), and friends.
-/mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
-	user.changeNext_move(8)
-	if(!O.force)
-		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
-		return
+/mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 
-	if(O.force > resistance)
-		var/damage = O.force
-		if (O.damtype == HALLOSS)
-			damage = 0
-		if(supernatural && istype(O,/obj/item/weapon/nullrod))
-			damage *= 2
-			purge = 3
-		adjustBruteLoss(damage)
-	else
-		usr << "<span class='danger>This weapon is ineffective, it does no damage.</span>"
+	visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by [user].</span>")
 
-	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
-	user.do_attack_animation(src)
+	if(O.force <= resistance)
+		user << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
+		return 2
+
+	var/damage = O.force
+	if (O.damtype == HALLOSS)
+		damage = 0
+	if(supernatural && istype(O,/obj/item/weapon/nullrod))
+		damage *= 2
+		purge = 3
+	adjustBruteLoss(damage)
+
+	return 0
 
 /mob/living/simple_animal/movement_delay()
-	var/tally = 0 //Incase I need to add stuff other than "speed" later
+	var/tally = ..() //Incase I need to add stuff other than "speed" later
 
-	tally = speed
+	tally += speed
 	if(purge)//Purged creatures will move more slowly. The more time before their purge stops, the slower they'll move.
 		if(tally <= 0)
 			tally = 1
@@ -323,7 +307,7 @@
 	return tally+config.animal_delay
 
 /mob/living/simple_animal/Stat()
-	..()
+	. = ..()
 
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
@@ -331,23 +315,27 @@
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	icon_state = icon_dead
 	density = 0
+	walk_to(src,0)
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
+
+	var/damage
 	switch (severity)
 		if (1.0)
-			adjustBruteLoss(500)
-			gib()
-			return
+			damage = 500
+			if(!prob(getarmor(null, "bomb")))
+				gib()
 
 		if (2.0)
-			adjustBruteLoss(60)
-
+			damage = 120
 
 		if(3.0)
-			adjustBruteLoss(30)
+			damage = 30
+
+	adjustBruteLoss(damage * blocked_mult(getarmor(null, "bomb")))
 
 /mob/living/simple_animal/adjustBruteLoss(damage)
 	health = Clamp(health - damage, 0, maxHealth)
@@ -366,14 +354,6 @@
 		if(B.health > 0)
 			return (0)
 	return 1
-
-//Call when target overlay should be added/removed
-/mob/living/simple_animal/update_targeted()
-	if(!targeted_by && target_locked)
-		qdel(target_locked)
-	overlays = null
-	if (targeted_by && target_locked)
-		overlays += target_locked
 
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
@@ -398,10 +378,20 @@
 		for(var/i=0;i<actual_meat_amount;i++)
 			var/obj/item/meat = new meat_type(get_turf(src))
 			meat.name = "[src.name] [meat.name]"
-		if(small)
+		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
 			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
 			gib()
+
+/mob/living/simple_animal/handle_fire()
+	return
+
+/mob/living/simple_animal/update_fire()
+	return
+/mob/living/simple_animal/IgniteMob()
+	return
+/mob/living/simple_animal/ExtinguishMob()
+	return

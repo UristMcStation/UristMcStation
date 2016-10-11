@@ -9,10 +9,12 @@
 	var/projectilesound
 	var/casingtype
 	var/move_to_delay = 4 //delay for the automated movement.
+	var/attack_delay = DEFAULT_ATTACK_COOLDOWN
 	var/list/friends = list()
 	var/break_stuff_probability = 10
 	stop_automated_movement_when_pulled = 0
 	var/destroy_surroundings = 1
+	a_intent = I_HURT
 	var/can_heal = 0
 	var/will_help = 0
 	var/will_flee = 0
@@ -84,7 +86,6 @@
 			walk_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
-
 	stop_automated_movement = 1
 	if(!target_mob || SA_attackable(target_mob))
 		LoseTarget()
@@ -92,11 +93,14 @@
 	if(!(target_mob in ListTargets(10)))
 		LostTarget()
 		return 0
+	if(next_move >= world.time)
+		return 0
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
 		return 1
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
+	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
 		return
 	if(isliving(target_mob))
@@ -110,6 +114,7 @@
 	if(istype(target_mob,/obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		return B
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
@@ -164,26 +169,46 @@
 					DestroySurroundings()
 				AttackTarget()
 
+
+/mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
+	var/oldhealth = health
+	. = ..()
+	if(health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT))
+		target_mob = user
+		MoveToTarget()
+
+/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M)
+	. = ..()
+	if(M.a_intent == I_HURT && !incapacitated(INCAPACITATION_KNOCKOUT))
+		target_mob = M
+		MoveToTarget()
+
+/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/Proj)
+	var/oldhealth = health
+	. = ..()
+	if(!target_mob && health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT))
+		target_mob = Proj.firer
+		MoveToTarget()
+
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	var/target = target_mob
 	visible_message("\red <b>[src]</b> fires at [target]!", 1)
 
-	var/tturf = get_turf(target)
 	if(rapid)
 		spawn(1)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 		spawn(4)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 		spawn(6)
-			Shoot(tturf, src.loc, src)
+			Shoot(target, src.loc, src)
 			if(casingtype)
 				new casingtype(get_turf(src))
 	else
-		Shoot(tturf, src.loc, src)
+		Shoot(target, src.loc, src)
 		if(casingtype)
 			new casingtype
 
@@ -199,18 +224,8 @@
 	var/obj/item/projectile/A = new projectiletype(user:loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
-
-	if (!istype(target, /turf))
-		qdel(A)
-		return
-	A.current = target
-	A.starting = get_turf(src)
-	A.original = get_turf(target)
-	A.yo = target:y - start:y
-	A.xo = target:x - start:x
-	spawn( 0 )
-		A.process()
-	return
+	var/def_zone = get_exposed_defense_zone(target)
+	A.launch(target, def_zone)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
 	if(prob(break_stuff_probability))
@@ -243,13 +258,9 @@
 /mob/living/simple_animal/hostile/proc/horde()
 	var/turf/T = get_step_to(src, shuttletarget)
 	for(var/atom/A in T)
-		if(istype(A,/obj/machinery/door/airlock))
-			var/obj/machinery/door/airlock/D = A
+		if(istype(A,/obj/machinery/door/))
+			var/obj/machinery/door/D = A
 			D.open(1)
-		else if(istype(A,/obj/structure/simple_door))
-			var/obj/structure/simple_door/D = A
-			if(D.density)
-				D.Open()
 		else if(istype(A,/obj/structure/cult/pylon))
 			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
 		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))

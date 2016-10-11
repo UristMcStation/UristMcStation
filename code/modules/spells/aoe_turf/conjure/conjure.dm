@@ -10,7 +10,7 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 	school = "conjuration" //funny, that
 
 	var/list/summon_type = list() //determines what exactly will be summoned
-	//should be text, like list("/obj/machinery/bot/ed209")
+	//should NOT be text, like list(/obj/machinery/bot/ed209)
 
 	range = 0		//default values: only spawn on the player tile
 	selection_type = "view"
@@ -45,7 +45,7 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 		var/atom/summoned_object
 		if(ispath(summoned_object_type,/turf))
 			if(istype(get_turf(user),/turf/simulated/shuttle) || istype(spawn_place, /turf/simulated/shuttle))
-				user << "<span class='warning>You can't build things on shuttles!</span>"
+				user << "<span class='warning'>You can't build things on shuttles!</span>"
 				continue
 			spawn_place.ChangeTurf(summoned_object_type)
 			summoned_object = spawn_place
@@ -58,7 +58,9 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 		animation.icon = 'icons/effects/effects.dmi'
 		animation.layer = 3
 		animation.master = summoned_object
-
+		if(istype(summoned_object,/mob)) //we want them to NOT attack us.
+			var/mob/M = summoned_object
+			M.faction = user.faction
 		for(var/varName in newVars)
 			if(varName in summoned_object.vars)
 				summoned_object.vars[varName] = newVars[varName]

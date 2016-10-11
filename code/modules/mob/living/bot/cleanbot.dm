@@ -2,7 +2,7 @@
 	name = "Cleanbot"
 	desc = "A little cleaning robot, he looks so excited!"
 	icon_state = "cleanbot0"
-	req_access = list(access_janitor)
+	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
 	locked = 0 // Start unlocked so roboticist can set them to patrol.
@@ -38,6 +38,13 @@
 	if(radio_controller)
 		radio_controller.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
+/mob/living/bot/cleanbot/Destroy()
+	. = ..()
+	path = null
+	patrol_path = null
+	target = null
+	ignorelist = null
+
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(loc == target.loc)
 		if(!cleaning)
@@ -47,7 +54,9 @@
 //		spawn(0)
 		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			custom_emote(2, "[src] can't reach the target and is giving up.")
+			custom_emote(2, "can't reach \the [target.name] and is giving up for now.")
+			log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
+			ignorelist |= weakref(target)
 			target = null
 			path = list()
 		return
@@ -56,47 +65,40 @@
 		path -= path[1]
 		return 1
 	return
-		
+
 /mob/living/bot/cleanbot/Life()
 	..()
 
 	if(!on)
+		ignorelist = list()
 		return
+
+	if(ignorelist.len && prob(2))
+		ignorelist -= pick(ignorelist)
 
 	if(client)
 		return
 	if(cleaning)
 		return
-	
+
 	if(!screwloose && !oddbutton && prob(5))
 		custom_emote(2, "makes an excited beeping booping sound!")
 
 	if(screwloose && prob(5)) // Make a mess
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/T = loc
-			if(T.wet < 1)
-				T.wet = 1
-				if(T.wet_overlay)
-					T.overlays -= T.wet_overlay
-					T.wet_overlay = null
-				T.wet_overlay = image('icons/effects/water.dmi', T, "wet_floor")
-				T.overlays += T.wet_overlay
-				spawn(800)
-					if(istype(T) && T.wet < 2)
-						T.wet = 0
-						if(T.wet_overlay)
-							T.overlays -= T.wet_overlay
-							T.wet_overlay = null
+			T.wet_floor()
 
 	if(oddbutton && prob(5)) // Make a big mess
 		visible_message("Something flies out of [src]. He seems to be acting oddly.")
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(loc)
-		ignorelist += gib
+		var/datum/weakref/g = weakref(gib)
+		ignorelist += g
 		spawn(600)
-			ignorelist -= gib
+			ignorelist -= g
 
 		// Find a target
-	
+
 	if(pulledby) // Don't wiggle if someone pulls you
 		patrol_path = list()
 		return
@@ -104,19 +106,24 @@
 	var/found_spot
 	search_loop:
 		for(var/i=0, i <= maximum_search_range, i++)
-			for(var/obj/effect/decal/cleanable/D in view(i, src))
-				if(D in ignorelist)
-					continue
-				for(var/T in target_types)
-					if(istype(D, T))
-						patrol_path = list()
-						target = D
-						found_spot = handle_target()
-						if (found_spot)
-							break search_loop
-						else
-							target = null
-							continue // no need to check the other types
+			cleanable_loop:
+				for(var/obj/effect/decal/cleanable/D in view(i, src))
+					for(var/item in ignorelist)
+						var/datum/weakref/wr = item
+						if(wr.resolve() == D)
+							continue cleanable_loop
+					if(!turf_is_targetable(get_turf(D)))
+						continue
+					for(var/T in target_types)
+						if(istype(D, T))
+							patrol_path = list()
+							target = D
+							found_spot = handle_target()
+							if (found_spot)
+								break search_loop
+							else
+								target = null
+								continue // no need to check the other types
 
 
 	if(!found_spot && !target) // No targets in range
@@ -168,7 +175,7 @@
 	custom_emote(2, "begins to clean up \the [D]")
 	update_icons()
 	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	if(do_after(src, cleantime))
+	if(do_after(src, cleantime, progress = 0))
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/f = loc
 			f.dirt = 0
@@ -254,12 +261,14 @@
 			usr << "<span class='notice'>You press the weird button.</span>"
 	attack_hand(usr)
 
-/mob/living/bot/cleanbot/Emag(var/mob/user)
-	..()
-	if(user)
-		user << "<span class='notice'>The [src] buzzes and beeps.</span>"
-	oddbutton = 1
-	screwloose = 1
+/mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
+	. = ..()
+	if(!screwloose || !oddbutton)
+		if(user)
+			user << "<span class='notice'>The [src] buzzes and beeps.</span>"
+		oddbutton = 1
+		screwloose = 1
+		return 1
 
 /mob/living/bot/cleanbot/proc/get_targets()
 	target_types = list()

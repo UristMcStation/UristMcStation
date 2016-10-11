@@ -12,7 +12,6 @@
 	desc = "This is used to lie in, sleep in or strap on."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
-	pressure_resistance = 15
 	anchored = 1
 	can_buckle = 1
 	buckle_dir = SOUTH
@@ -20,6 +19,7 @@
 	var/material/material
 	var/material/padding_material
 	var/base_icon = "bed"
+	var/material_alteration = MATERIAL_ALTERATION_ALL
 
 /obj/structure/bed/New(var/newloc, var/new_material, var/new_padding_material)
 	..(newloc)
@@ -46,7 +46,8 @@
 	var/cache_key = "[base_icon]-[material.name]"
 	if(isnull(stool_cache[cache_key]))
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		I.color = material.icon_colour
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+			I.color = material.icon_colour
 		stool_cache[cache_key] = I
 	overlays |= stool_cache[cache_key]
 	// Padding overlay.
@@ -54,17 +55,18 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
 		if(isnull(stool_cache[padding_cache_key]))
 			var/image/I =  image(icon, "[base_icon]_padding")
-			I.color = padding_material.icon_colour
+			if(material_alteration & MATERIAL_ALTERATION_COLOR)
+				I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		overlays |= stool_cache[padding_cache_key]
+
 	// Strings.
-	desc = initial(desc)
-	if(padding_material)
-		name = "[padding_material.display_name] [initial(name)]" //this is not perfect but it will do for now.
-		desc += " It's made of [material.use_name] and covered with [padding_material.use_name]."
-	else
-		name = "[material.display_name] [initial(name)]"
-		desc += " It's made of [material.use_name]."
+	if(material_alteration & MATERIAL_ALTERATION_NAME)
+		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+
+	if(material_alteration & MATERIAL_ALTERATION_DESC)
+		desc = initial(desc)
+		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name]." : " It's made of [material.use_name]."
 
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSTABLE))
@@ -85,11 +87,6 @@
 			if (prob(5))
 				qdel(src)
 				return
-
-/obj/structure/bed/blob_act()
-	if(prob(75))
-		material.place_sheet(get_turf(src))
-		qdel(src)
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
@@ -135,15 +132,9 @@
 		var/obj/item/weapon/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-		if(do_after(user, 20))
-			affecting.loc = loc
-			spawn(0)
-				if(buckle_mob(affecting))
-					affecting.visible_message(\
-						"<span class='danger'>[affecting.name] is buckled to [src] by [user.name]!</span>",\
-						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
-						"<span class='notice'>You hear metal clanking.</span>")
-			qdel(W)
+		if(do_after(user, 20, src))
+			if(user_buckle_mob(affecting, user))
+				qdel(W)
 	else
 		..()
 
@@ -189,6 +180,7 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "down"
 	anchored = 0
+	buckle_pixel_shift = "x=0;y=6"
 
 /obj/structure/bed/roller/update_icon()
 	return // Doesn't care about material or anything else.
@@ -212,7 +204,7 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "folded"
-	w_class = 4.0 // Can't be put in backpacks. Oh well.
+	w_class = 5 // Can't be put in backpacks. Oh well. For now.
 
 /obj/item/roller/attack_self(mob/user)
 		var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
@@ -224,8 +216,8 @@
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W
 		if(!RH.held)
-			user << "\blue You collect the roller bed."
-			src.loc = RH
+			user << "<span class='notice'>You collect the roller bed.</span>"
+			src.forceMove(RH)
 			RH.held = src
 			return
 
@@ -245,36 +237,40 @@
 /obj/item/roller_holder/attack_self(mob/user as mob)
 
 	if(!held)
-		user << "\blue The rack is empty."
+		user << "<span class='notice'>The rack is empty.</span>"
 		return
 
-	user << "\blue You deploy the roller bed."
+	user << "<span class='notice'>You deploy the roller bed.</span>"
 	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
 
 
-/obj/structure/bed/roller/Move()
-	..()
+/obj/structure/bed/roller/proc/move_buckled()
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
-			buckled_mob.loc = src.loc
+			buckled_mob.forceMove(src.loc)
 		else
 			buckled_mob = null
 
 /obj/structure/bed/roller/post_buckle_mob(mob/living/M as mob)
 	if(M == buckled_mob)
-		M.pixel_y = 6
-		M.old_y = 6
 		density = 1
 		icon_state = "up"
 	else
-		M.pixel_y = 0
-		M.old_y = 0
 		density = 0
 		icon_state = "down"
 
+	return ..()
+
+/obj/structure/bed/roller/buckle_mob()
+	. = ..()
+	if(.)
+		moved_event.register(src, src, /obj/structure/bed/roller/proc/move_buckled)
+
+/obj/structure/bed/roller/unbuckle_mob()
+	moved_event.unregister(src, src)
 	return ..()
 
 /obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)

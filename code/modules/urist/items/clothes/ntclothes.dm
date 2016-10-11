@@ -117,11 +117,13 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	item_state = "syndie_hardsuit"
-	slowdown = 1
 	w_class = 3
 	armor = list(melee = 65, bullet = 45, laser = 30, energy = 20, bomb = 30, bio = 100, rad = 50)
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency_oxygen)
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency)
 
+/obj/item/clothing/suit/space/void/syndistealth/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
 
 // COLD RIGZ
 

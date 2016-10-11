@@ -34,7 +34,7 @@
 	status_flags = CANPUSH
 	stat_attack = 1
 	projectiletype = /obj/item/projectile/bullet
-	projectilesound = 'sound/weapons/Gunshot.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	casingtype = /obj/item/ammo_casing/c9mm
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
@@ -55,8 +55,8 @@
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/a12mm
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	casingtype = /obj/item/ammo_casing/a10mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 	maxHealth = 100
 	health = 100
@@ -74,6 +74,7 @@
 	health = 150
 	minimum_distance = 4
 	retreat_distance = 2
+	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 /mob/living/simple_animal/hostile/urist/ANTAG
 	icon_state = "ANTAG"
@@ -81,7 +82,7 @@
 	icon_dead = "ANTAG_dead"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a12mm
+	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -89,7 +90,7 @@
 	minimum_distance = 4
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
@@ -98,13 +99,13 @@
 	icon_dead = "skrellorist_dead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
-	casingtype = /obj/item/ammo_casing/a12mm
+	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "skrellt"
 	rapid = 1
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 /mob/living/simple_animal/hostile/urist/riotcop

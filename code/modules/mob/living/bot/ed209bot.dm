@@ -3,11 +3,12 @@
 	desc = "A security robot.  He looks less than thrilled."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "ed2090"
+	attack_state = "ed209-c"
 	density = 1
 	health = 100
 	maxHealth = 100
 
-	bot_version = "2.5"
+	bot_version = 2.6
 	is_ranged = 1
 	preparing_arrest_sounds = new()
 
@@ -18,12 +19,6 @@
 
 	var/shot_delay = 4
 	var/last_shot = 0
-
-/mob/living/bot/secbot/ed209/update_icons()
-	if(on && is_attacking)
-		icon_state = "ed209-c"
-	else
-		icon_state = "ed209[on]"
 
 /mob/living/bot/secbot/ed209/explode()
 	visible_message("<span class='warning'>[src] blows apart!</span>")
@@ -56,25 +51,14 @@
 		return
 
 	last_shot = world.time
-	var/turf/T = get_turf(src)
-	var/turf/U = get_turf(A)
-
 	var/projectile = /obj/item/projectile/beam/stun
 	if(emagged)
 		projectile = /obj/item/projectile/beam
 
 	playsound(loc, emagged ? 'sound/weapons/Laser.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
 	var/obj/item/projectile/P = new projectile(loc)
-
-	P.original = A
-	P.starting = T
-	P.current = T
-	P.yo = U.y - T.y
-	P.xo = U.x - T.x
-	spawn()
-		P.process()
-	return
-
+	var/def_zone = get_exposed_defense_zone(A)
+	P.launch(A, def_zone)
 // Assembly
 
 /obj/item/weapon/secbot_assembly/ed209_assembly
@@ -157,7 +141,7 @@
 					user << "<span class='warning'>You need one coil of wire to wire [src].</span>"
 					return
 				user << "<span class='notice'>You start to wire [src].</span>"
-				if(do_after(user, 40) && build_step == 6)
+				if(do_after(user, 40, src) && build_step == 6)
 					if(C.use(1))
 						build_step++
 						user << "<span class='notice'>You wire the ED-209 assembly.</span>"

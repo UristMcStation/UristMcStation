@@ -21,12 +21,18 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom //the joke is that 90% of this stuff is handled by other procs
 	name = "scom"
 	config_tag = "scom"
-	required_players = 2 //lowpop mode ahoy
+	required_players = 1 //lowpop mode ahoy //if you see this on master, I fucked up, should be 2 -scr
 	votable = 1
 	var/declared = 0
 	var/scommapsloaded = 0
 	var/aliencount = 0
 	var/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
+	var/list/teamnames = list(1,2,3,4) //all possible team names, putting this in one place for easy editing
+	var/list/freeteams = list()
+
+/datum/game_mode/scom/New()
+	freeteams = teamnames
+	..()
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"

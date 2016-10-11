@@ -205,7 +205,7 @@
 		else
 			prefix=""
 
-		var/list/words = text2list(message," ")
+		var/list/words = splittext(message," ")
 		var/list/rearranged = list()
 		for(var/i=1;i<=words.len;i++)
 			var/cword = pick(words)

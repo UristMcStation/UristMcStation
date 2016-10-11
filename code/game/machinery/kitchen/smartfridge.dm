@@ -1,3 +1,4 @@
+
 /* SmartFridge.  Much todo
 */
 /obj/machinery/smartfridge
@@ -15,7 +16,8 @@
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
 	var/icon_panel = "smartfridge-panel"
-	var/item_quants = list()
+	var/list/item_records = list()
+	var/datum/stored_items/currently_vending = null	//What we're putting out of the machine.
 	var/seconds_electrified = 0;
 	var/shoot_inventory = 0
 	var/locked = 0
@@ -35,7 +37,11 @@
 
 /obj/machinery/smartfridge/Destroy()
 	qdel(wires)
-	..()
+	wires = null
+	for(var/datum/stored_items/S in item_records)
+		qdel(S)
+	item_records = null
+	return ..()
 
 /obj/machinery/smartfridge/proc/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
@@ -57,7 +63,7 @@
 
 /obj/machinery/smartfridge/secure/extract
 	name = "\improper Slime Extract Storage"
-	desc = "A refrigerated storage unit for slime extracts"
+	desc = "A refrigerated storage unit for slime extracts."
 	req_access = list(access_research)
 
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
@@ -121,6 +127,9 @@
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
+	icon_state = "drying_rack"
+	icon_on = "drying_rack_on"
+	icon_off = "drying_rack"
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
 	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/))
@@ -131,25 +140,37 @@
 
 /obj/machinery/smartfridge/drying_rack/process()
 	..()
-	if (contents.len)
+	if(inoperable())
+		return
+	if(contents.len)
 		dry()
+		update_icon()
+
+/obj/machinery/smartfridge/drying_rack/update_icon()
+	overlays.Cut()
+	if(inoperable())
+		icon_state = icon_off
+	else
+		icon_state = icon_on
+	if(contents.len)
+		overlays += "drying_rack_filled"
+		if(!inoperable())
+			overlays += "drying_rack_drying"
 
 /obj/machinery/smartfridge/drying_rack/proc/dry()
-	for(var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
-		if(S.dry) continue
-		if(S.dried_type == S.type)
-			S.dry = 1
-			item_quants[S.name]--
-			S.name = "dried [S.name]"
-			S.color = "#AAAAAA"
-			S.loc = loc
-		else
-			var/D = S.dried_type
-			new D(loc)
-			item_quants[S.name]--
-			qdel(S)
-		return
-	return
+	for(var/datum/stored_items/I in item_records)
+		for(var/obj/item/weapon/reagent_containers/food/snacks/S in I.instances)
+			if(S.dry || !I.get_specific_product(get_turf(src), S)) continue
+			if(S.dried_type == S.type)
+				S.dry = 1
+				S.name = "dried [S.name]"
+				S.color = "#AAAAAA"
+				stock_item(S)
+			else
+				var/D = S.dried_type
+				new D(get_turf(src))
+				qdel(S)
+			return
 
 /obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
@@ -158,12 +179,6 @@
 		src.seconds_electrified--
 	if(src.shoot_inventory && prob(2))
 		src.throw_item()
-
-/obj/machinery/smartfridge/power_change()
-	var/old_stat = stat
-	..()
-	if(old_stat != stat)
-		update_icon()
 
 /obj/machinery/smartfridge/update_icon()
 	if(stat & (BROKEN|NOPOWER))
@@ -195,55 +210,48 @@
 		return
 
 	if(accept_check(O))
-		if(contents.len >= max_n_of_items)
-			user << "<span class='notice'>\The [src] is full.</span>"
-			return 1
-		else
-			user.remove_from_mob(O)
-			O.loc = src
-			if(item_quants[O.name])
-				item_quants[O.name]++
-			else
-				item_quants[O.name] = 1
-			user.visible_message("<span class='notice'>[user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
+		if(!user.remove_from_mob(O))
+			return
+		stock_item(O)
+		user.visible_message("<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
 
-			nanomanager.update_uis(src)
-
-	else if(istype(O, /obj/item/weapon/storage/bag))
+	else if(istype(O, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/bag/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
-			if(accept_check(G))
-				if(contents.len >= max_n_of_items)
-					user << "<span class='notice'>\The [src] is full.</span>"
-					return 1
-				else
-					P.remove_from_storage(G,src)
-					if(item_quants[G.name])
-						item_quants[G.name]++
-					else
-						item_quants[G.name] = 1
-					plants_loaded++
+			if(P.remove_from_storage(G, src) && accept_check(G))
+				plants_loaded++
+				stock_item(G)
+
 		if(plants_loaded)
-
-			user.visible_message("<span class='notice'>[user] loads \the [src] with \the [P].</span>", "<span class='notice'>You load \the [src] with \the [P].</span>")
+			user.visible_message("<span class='notice'>\The [user] loads \the [src] with \the [P].</span>", "<span class='notice'>You load \the [src] with \the [P].</span>")
 			if(P.contents.len > 0)
-				user << "<span class='notice'>Some items are refused.</span>"
-
-		nanomanager.update_uis(src)
+				user << "<span class='notice'>Some items were refused.</span>"
 
 	else
 		user << "<span class='notice'>\The [src] smartly refuses [O].</span>"
-		return 1
+	return 1
 
-/obj/machinery/smartfridge/secure/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/card/emag))
+/obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
 		emagged = 1
 		locked = -1
 		user << "You short out the product lock on [src]."
-		return
+		return 1
 
-	..()
+/obj/machinery/smartfridge/proc/stock_item(var/obj/item/O)
+	for(var/datum/stored_items/I in item_records)
+		if(istype(O, I.item_path) && O.name == I.item_name)
+			stock(I, O)
+			return
+
+	var/datum/stored_items/I = new/datum/stored_items(src, O.type, O.name)
+	dd_insertObjectList(item_records, I)
+	stock(I, O)
+
+/obj/machinery/smartfridge/proc/stock(var/datum/stored_items/I, var/obj/item/O)
+	I.add_product(O)
+	nanomanager.update_uis(src)
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
 	attack_hand(user)
@@ -269,11 +277,11 @@
 	data["secure"] = is_secure
 
 	var/list/items[0]
-	for (var/i=1 to length(item_quants))
-		var/K = item_quants[i]
-		var/count = item_quants[K]
+	for (var/i=1 to length(item_records))
+		var/datum/stored_items/I = item_records[i]
+		var/count = I.get_amount()
 		if(count > 0)
-			items.Add(list(list("display_name" = html_encode(capitalize(K)), "vend" = i, "quantity" = count)))
+			items.Add(list(list("display_name" = html_encode(capitalize(I.item_name)), "vend" = i, "quantity" = count)))
 
 	if(items.len > 0)
 		data["contents"] = items
@@ -300,20 +308,15 @@
 	if(href_list["vend"])
 		var/index = text2num(href_list["vend"])
 		var/amount = text2num(href_list["amount"])
-		var/K = item_quants[index]
-		var/count = item_quants[K]
+		var/datum/stored_items/I = item_records[index]
+		var/count = I.get_amount()
 
 		// Sanity check, there are probably ways to press the button when it shouldn't be possible.
 		if(count > 0)
-			item_quants[K] = max(count - amount, 0)
-
-			var/i = amount
-			for(var/obj/O in contents)
-				if(O.name == K)
-					O.loc = loc
-					i--
-					if(i <= 0)
-						return 1
+			if((count - amount) < 0)
+				amount = count
+			for(var/i = 1 to amount)
+				I.get_product(get_turf(src))
 
 		return 1
 	return 0
@@ -324,22 +327,17 @@
 	if(!target)
 		return 0
 
-	for (var/O in item_quants)
-		if(item_quants[O] <= 0) //Try to use a record that actually has something to dump.
+	for(var/datum/stored_items/I in src.item_records)
+		throw_item = I.get_product(loc)
+		if (!throw_item)
 			continue
-
-		item_quants[O]--
-		for(var/obj/T in contents)
-			if(T.name == O)
-				T.loc = src.loc
-				throw_item = T
-				break
 		break
+
 	if(!throw_item)
 		return 0
 	spawn(0)
 		throw_item.throw_at(target,16,3,src)
-	src.visible_message("\red <b>[src] launches [throw_item.name] at [target.name]!</b>")
+	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
 
 /************************

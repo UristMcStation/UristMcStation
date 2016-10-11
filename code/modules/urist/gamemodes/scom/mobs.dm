@@ -218,6 +218,9 @@
 
 /obj/item/projectile/beam/scom
 	icon = 'icons/urist/items/guns.dmi'
+	muzzle_type = /obj/effect/projectile/xray/muzzle
+	tracer_type = /obj/effect/projectile/xray/tracer
+	impact_type = /obj/effect/projectile/xray/impact
 
 /obj/item/projectile/beam/scom/alien1
 	name = "alien beam"

@@ -22,14 +22,14 @@
  	/obj/item/device/mmi
  	)
 
- /obj/item/weapon/storage/belt/robotics/full/New()
- 	..()
- 	new /obj/item/weapon/screwdriver(src)
- 	new /obj/item/weapon/wrench(src)
- 	new /obj/item/weapon/weldingtool(src)
- 	new /obj/item/weapon/crowbar(src)
- 	new /obj/item/weapon/wirecutters(src)
- 	new /obj/item/stack/cable_coil(src, 30, pick("red", "yellow", "orange"))
+/obj/item/weapon/storage/belt/robotics/full/New()
+	..()
+	new /obj/item/weapon/screwdriver(src)
+	new /obj/item/weapon/wrench(src)
+	new /obj/item/weapon/weldingtool(src)
+	new /obj/item/weapon/crowbar(src)
+	new /obj/item/weapon/wirecutters(src)
+	new /obj/item/stack/cable_coil(src, 30, pick("red", "yellow", "orange"))
 
 /obj/item/weapon/storage/belt/vanity
 	icon = 'icons/urist/items/clothes/belt.dmi'

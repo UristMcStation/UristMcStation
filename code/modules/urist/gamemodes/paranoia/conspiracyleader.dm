@@ -4,10 +4,8 @@ var/datum/antagonist/agent/agents
 
 /datum/antagonist/agent
 	id = "agent"
-	role_type = BE_REV
 	role_text = "Conspiracy Leader"
 	role_text_plural = "Conspiracy Agents"
-	bantype = "agent"
 	feedback_tag = "paranoia_objective"
 	antag_indicator = "blank"
 	leader_welcome_text = "You are a leader of a shadowy cabal operating on the station. Lead your faction to supremacy!"
@@ -68,7 +66,7 @@ var/datum/antagonist/agent/agents
 
 	var/converteval = is_other_conspiracy(M.mind)
 	if(converteval == -1)
-		src << "<span class='warning'>[M] is already an agent of your conspiracy!"
+		src << "<span class='warning'>[M] is already an agent of your conspiracy!</span>"
 	else if(converteval)
 		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
 		if(choice == "Yes!")
@@ -141,17 +139,16 @@ var/datum/antagonist/agent/agents
 	if(istype(R,/obj/item/device/radio))
 		// generate list of radio freqs
 		var/obj/item/device/radio/target_radio = R
-		var/freq = 1441
+		var/freq = PUBLIC_LOW_FREQ
 		var/list/freqlist = list()
-		while (freq <= 1489)
+		while (freq <= PUBLIC_HIGH_FREQ)
 			if (freq < 1451 || freq > PUB_FREQ)
 				freqlist += freq
 			freq += 2
 			if ((freq % 2) == 0)
 				freq += 1
 		freq = freqlist[rand(1, freqlist.len)]
-		var/obj/item/device/uplink/hidden/T = new(R)
-		T.uplink_owner = agent_mob.mind
+		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
 		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
@@ -160,8 +157,7 @@ var/datum/antagonist/agent/agents
 	else if (istype(R, /obj/item/device/pda))
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
-		var/obj/item/device/uplink/hidden/T = new(R)
-		T.uplink_owner = agent_mob.mind
+		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		R.hidden_uplink = T
 		var/obj/item/device/pda/P = R
 		P.lock_code = pda_pass

@@ -28,7 +28,8 @@ var/global/photo_count = 0
 	icon = 'icons/obj/items.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = 2.0
+	randpixel = 10
+	w_class = 1
 	var/id
 	var/icon/img	//Big photo image
 	var/scribble	//Scribble on the back.
@@ -86,6 +87,8 @@ var/global/photo_count = 0
 	icon = 'icons/obj/items.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
+	w_class = 3 //same as book
+	storage_slots = DEFAULT_BOX_STORAGE //yes, that's storage_slots. Photos are w_class 1 so this has as many slots equal to the number of photos you could put in a box
 	can_hold = list(/obj/item/weapon/photo)
 
 /obj/item/weapon/storage/photo_album/MouseDrop(obj/over_object as obj)
@@ -98,11 +101,11 @@ var/global/photo_count = 0
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
 				if("r_hand")
-					M.u_equip(src)
-					M.put_in_r_hand(src)
+					if(M.unEquip(src))
+						M.put_in_r_hand(src)
 				if("l_hand")
-					M.u_equip(src)
-					M.put_in_l_hand(src)
+					if(M.unEquip(src))
+						M.put_in_l_hand(src)
 			add_fingerprint(usr)
 			return
 		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
@@ -165,55 +168,6 @@ var/global/photo_count = 0
 	..()
 
 
-/obj/item/device/camera/proc/get_icon(list/turfs, turf/center)
-
-	//Bigger icon base to capture those icons that were shifted to the next tile
-	//i.e. pretty much all wall-mounted machinery
-	var/icon/res = icon('icons/effects/96x96.dmi', "")
-	res.Scale(size*32, size*32)
-	// Initialize the photograph to black.
-	res.Blend("#000", ICON_OVERLAY)
-
-	var/atoms[] = list()
-	for(var/turf/the_turf in turfs)
-		// Add outselves to the list of stuff to draw
-		atoms.Add(the_turf);
-		// As well as anything that isn't invisible.
-		for(var/atom/A in the_turf)
-			if(A.invisibility) continue
-			atoms.Add(A)
-
-	// Sort the atoms into their layers
-	var/list/sorted = sort_atoms_by_layer(atoms)
-	var/center_offset = (size-1)/2 * 32 + 1
-	for(var/i; i <= sorted.len; i++)
-		var/atom/A = sorted[i]
-		if(A)
-			var/icon/img = getFlatIcon(A)//build_composite_icon(A)
-
-			// If what we got back is actually a picture, draw it.
-			if(istype(img, /icon))
-				// Check if we're looking at a mob that's lying down
-				if(istype(A, /mob/living) && A:lying)
-					// If they are, apply that effect to their picture.
-					img.BecomeLying()
-				// Calculate where we are relative to the center of the photo
-				var/xoff = (A.x - center.x) * 32 + center_offset
-				var/yoff = (A.y - center.y) * 32 + center_offset
-				if (istype(A,/atom/movable))
-					xoff+=A:step_x
-					yoff+=A:step_y
-				res.Blend(img, blendMode2iconMode(A.blend_mode),  A.pixel_x + xoff, A.pixel_y + yoff)
-
-	// Lastly, render any contained effects on top.
-	for(var/turf/the_turf in turfs)
-		// Calculate where we are relative to the center of the photo
-		var/xoff = (the_turf.x - center.x) * 32 + center_offset
-		var/yoff = (the_turf.y - center.y) * 32 + center_offset
-		res.Blend(getFlatIcon(the_turf.loc), blendMode2iconMode(the_turf.blend_mode),xoff,yoff)
-	return res
-
-
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
 	for(var/mob/living/carbon/A in the_turf)
@@ -248,37 +202,39 @@ var/global/photo_count = 0
 		icon_state = icon_on
 		on = 1
 
-/obj/item/device/camera/proc/can_capture_turf(turf/T, mob/user)
+//Proc for capturing check
+/mob/living/proc/can_capture_turf(turf/T)
 	var/mob/dummy = new(T)	//Go go visibility check dummy
-	var/viewer = user
-	if(user.client)		//To make shooting through security cameras possible
-		viewer = user.client.eye
+	var/viewer = src
+	if(src.client)		//To make shooting through security cameras possible
+		viewer = src.client.eye
 	var/can_see = (dummy in viewers(world.view, viewer))
 
 	qdel(dummy)
 	return can_see
 
-/obj/item/device/camera/proc/captureimage(atom/target, mob/user, flag)
+/obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
 	var/x_c = target.x - (size-1)/2
 	var/y_c = target.y + (size-1)/2
 	var/z_c	= target.z
-	var/list/turfs = list()
 	var/mobs = ""
 	for(var/i = 1; i <= size; i++)
 		for(var/j = 1; j <= size; j++)
 			var/turf/T = locate(x_c, y_c, z_c)
-			if(can_capture_turf(T, user))
-				turfs.Add(T)
+			if(user.can_capture_turf(T))
 				mobs += get_mobs(T)
 			x_c++
 		y_c--
 		x_c = x_c - size
 
-	var/obj/item/weapon/photo/p = createpicture(target, user, turfs, mobs, flag)
+	var/obj/item/weapon/photo/p = createpicture(target, user, mobs, flag)
 	printpicture(user, p)
 
-/obj/item/device/camera/proc/createpicture(atom/target, mob/user, list/turfs, mobs, flag)
-	var/icon/photoimage = get_icon(turfs, target)
+/obj/item/device/camera/proc/createpicture(atom/target, mob/user, mobs, flag)
+	var/x_c = target.x - (size-1)/2
+	var/y_c = target.y - (size-1)/2
+	var/z_c	= target.z
+	var/icon/photoimage = generate_image(x_c, y_c, z_c, size, CAPTURE_MODE_REGULAR, user)
 
 	var/icon/small_img = icon(photoimage)
 	var/icon/tiny_img = icon(photoimage)
@@ -295,8 +251,6 @@ var/global/photo_count = 0
 	p.tiny = pc
 	p.img = photoimage
 	p.desc = mobs
-	p.pixel_x = rand(-10, 10)
-	p.pixel_y = rand(-10, 10)
 	p.photo_size = size
 
 	return p

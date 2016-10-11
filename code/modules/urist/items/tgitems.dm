@@ -77,7 +77,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "A bag for books."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "bookbag"
-	display_contents_with_number = 0 //This would look really stupid otherwise
 	storage_slots = 7
 	max_storage_space = 21 //check values!
 	max_w_class = 3
@@ -177,13 +176,13 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	New()
 		..()
-		new /obj/item/clothing/accessory/medal/silver/valor(src)
-		new /obj/item/clothing/accessory/medal/silver/security(src)
-		new /obj/item/clothing/accessory/medal/bronze_heart(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/conduct(src)
-		new /obj/item/clothing/accessory/medal/gold/captain(src)
+		new /obj/item/clothing/accessory/medal/silver(src)
+		new /obj/item/clothing/accessory/medal/silver(src)
+		new /obj/item/clothing/accessory/medal/bronze/nanotrasen(src)
+		new /obj/item/clothing/accessory/medal/gold(src)
+		new /obj/item/clothing/accessory/medal/iron(src)
+		new /obj/item/clothing/accessory/medal/iron/nanotrasen(src)
+		new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
 //holojanisign
 
@@ -263,17 +262,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
 	icon_state = "flashbang"
 
-
-	New()
-		..()
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-		new /obj/item/weapon/grenade/chem_grenade/teargas(src)
-
 //TG cigarettes
 /obj/item/weapon/storage/fancy/cigarettes/urist
 	name = "urist packet"
@@ -284,7 +272,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
-	icon_type = "cigarette"
+	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 
 /obj/item/weapon/storage/fancy/cigarettes/urist/uplift
@@ -434,21 +422,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
-	icon_type = "rolling paper"
+	key_type = /obj/item/weapon/rollingpaper
 	can_hold = list(/obj/item/weapon/rollingpaper)
-
-/obj/item/weapon/storage/fancy/rollingpapers/New()
-	..()
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
-	new /obj/item/weapon/rollingpaper(src)
+	startswith = list(/obj/item/weapon/rollingpaper = 10)
 
 
 /obj/item/weapon/storage/fancy/rollingpapers/update_icon()

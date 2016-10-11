@@ -11,7 +11,7 @@
 
 /obj/item/projectile/change/proc/wabbajack(var/mob/M)
 	if(istype(M, /mob/living) && M.stat != DEAD)
-		if(M.monkeyizing)
+		if(M.transforming)
 			return
 		if(M.has_brain_worms())
 			return //Borer stuff - RR
@@ -76,7 +76,7 @@
 				H.set_species(randomize)
 				H.universal_speak = 1
 				var/datum/preferences/A = new() //Randomize appearance for the human
-				A.randomize_appearance_for(H)
+				A.randomize_appearance_and_body_for(H)
 
 		if(new_mob)
 			for (var/spell/S in M.spell_list)

@@ -224,16 +224,16 @@ B --><-- A
 		loc = get_turf(orbiting)
 		orbiting = null
 
-/proc/screen_loc2turf(scr_loc, turf/origin)
-	var/tX = text2list(scr_loc, ",")
-	var/tY = text2list(tX[2], ":")
+/*/proc/screen_loc2turf(scr_loc, turf/origin)
+	var/tX = splittext(scr_loc, ",")
+	var/tY = splittext(tX[2], ":")
 	var/tZ = origin.z
 	tY = tY[1]
-	tX = text2list(tX[1], ":")
+	tX = splittext(tX[1], ":")
 	tX = tX[1]
 	tX = max(1, min(world.maxx, origin.x + (text2num(tX) - (world.view + 1))))
 	tY = max(1, min(world.maxy, origin.y + (text2num(tY) - (world.view + 1))))
-	return locate(tX, tY, tZ)
+	return locate(tX, tY, tZ)*/
 
 /proc/random_step(atom/movable/AM, steps, chance)
 	var/initial_chance = chance
@@ -246,7 +246,7 @@ B --><-- A
 /proc/living_player_count()
 	var/living_player_count = 0
 	for(var/mob in player_list)
-		if(mob in living_mob_list)
+		if(mob in living_mob_list_)
 			living_player_count += 1
 	return living_player_count
 
@@ -276,7 +276,7 @@ B --><-- A
 //NOTE: if your atom has non-standard bounds then this proc
 //will handle it, but it'll be a bit slower.
 
-/proc/get_turf_pixel(atom/movable/AM)
+/*/proc/get_turf_pixel(atom/movable/AM)
 	if(istype(AM))
 		var/rough_x = 0
 		var/rough_y = 0
@@ -344,7 +344,7 @@ B --><-- A
 	if(J) //Only set the icon if it succeeded, the icon without the pixel is 1000x better than a black square.
 		icon = J
 		return J
-	return 0
+	return 0*/
 
 //Monkeys et al being a human type mess with the purpose of regular ishuman; ishumanoid is intended to check strictly 'sentient' races
 /proc/ishumanoid(A)

@@ -1,7 +1,7 @@
 /mob/living/carbon/alien/ex_act(severity)
 
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -31,26 +31,3 @@
 	adjustFireLoss(f_loss)
 
 	updatehealth()
-
-
-
-/mob/living/carbon/alien/blob_act()
-	if (stat == 2)
-		return
-	var/shielded = 0
-
-	var/damage = null
-	if (stat != 2)
-		damage = rand(10,30)
-
-	if(shielded)
-		damage /= 4
-
-		//paralysis += 1
-
-	show_message("\red The blob attacks you!")
-
-	adjustFireLoss(damage)
-
-	updatehealth()
-	return

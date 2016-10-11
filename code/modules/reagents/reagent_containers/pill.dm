@@ -3,10 +3,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/reagent_containers/pill
 	name = "pill"
-	desc = "a pill."
+	desc = "A pill."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	item_state = "pill"
+	randpixel = 7
 	possible_transfer_amounts = null
 	w_class = 1
 	slot_flags = SLOT_EARS
@@ -18,18 +19,11 @@
 			icon_state = "pill[rand(1, 20)]"
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
+		//TODO: replace with standard_feed_mob() call.
+		
 		if(M == user)
-
-			if(istype(M, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(H.species.flags & IS_SYNTHETIC)
-					H << "<span class='notice'>You have a monitor for a head, where do you think you're going to put that?</span>"
-					return
-
-				var/obj/item/blocked = H.check_mouth_coverage()
-				if(blocked)
-					user << "<span class='warning'>\The [blocked] is in the way!</span>"
-					return
+			if(!M.can_eat(src))
+				return
 
 			M << "<span class='notice'>You swallow \the [src].</span>"
 			M.drop_from_inventory(src) //icon update
@@ -39,20 +33,12 @@
 			return 1
 
 		else if(istype(M, /mob/living/carbon/human))
-
-			var/mob/living/carbon/human/H = M
-			if(H.species.flags & IS_SYNTHETIC)
-				H << "<span class='notice'>They have a monitor for a head, where do you think you're going to put that?</span>"
-				return
-
-			var/obj/item/blocked = H.check_mouth_coverage()
-
-			if(blocked)
-				user << "<span class='warning'>\The [blocked] is in the way!</span>"
+			if(!M.can_force_feed(user, src))
 				return
 
 			user.visible_message("<span class='warning'>[user] attempts to force [M] to swallow \the [src].</span>")
 
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(!do_mob(user, M))
 				return
 
@@ -261,3 +247,11 @@
 	New()
 		..()
 		reagents.add_reagent("spaceacillin", 15)
+
+/obj/item/weapon/reagent_containers/pill/diet
+	name = "diet pill"
+	desc = "Guaranteed to get you slim!"
+	icon_state = "pill9"
+	New()
+		..()
+		reagents.add_reagent("lipozine", 2)

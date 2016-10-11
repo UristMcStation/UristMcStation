@@ -73,6 +73,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	ranged = 1
-	projectilesound = 'sound/weapons/Gunshot.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	weapon1 = /obj/item/weapon/gun/energy/laser
 	minimum_distance = 5

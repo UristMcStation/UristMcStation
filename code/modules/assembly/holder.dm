@@ -3,7 +3,7 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
-	flags = CONDUCT
+	flags = CONDUCT | PROXMOVE
 	throwforce = 5
 	w_class = 2.0
 	throw_speed = 3
@@ -210,6 +210,15 @@
 //				special_assembly.dothings()
 		return 1
 
+
+/obj/item/device/assembly_holder/New()
+	..()
+	listening_objects += src
+
+/obj/item/device/assembly_holder/Destroy()
+	listening_objects -= src
+	return ..()
+	
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M as mob, msg, verb, datum/language/speaking)
 	if(a_right)

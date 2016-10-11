@@ -11,9 +11,10 @@
 	language = null
 	default_language = "Chimpanzee"
 	greater_form = "Human"
-	is_small = 1
+	mob_size = MOB_SMALL
 	has_fine_manipulation = 0
 	show_ssd = null
+	health_hud_intensity = 1.75
 
 	eyes = "blank_eyes"
 
@@ -26,19 +27,20 @@
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
 	hud_type = /datum/hud_data/monkey
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
-	holder_type = /obj/item/weapon/holder/monkey
 
 	rarity_value = 0.1
 	total_health = 75
 	brute_mod = 1.5
 	burn_mod = 1.5
 
-	flags = IS_RESTRICTED
+	spawn_flags = IS_RESTRICTED
 
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
+	pass_flags = PASSTABLE
+	holder_type = /obj/item/weapon/holder
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
@@ -53,6 +55,7 @@
 /datum/species/monkey/tajaran
 	name = "Farwa"
 	name_plural = "Farwa"
+	health_hud_intensity = 2
 
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
@@ -62,11 +65,11 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
-	holder_type = /obj/item/weapon/holder/monkey/farwa
 
 /datum/species/monkey/skrell
 	name = "Neaera"
 	name_plural = "Neaera"
+	health_hud_intensity = 1.75
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
@@ -77,11 +80,11 @@
 	blood_color = "#1D2CBF"
 	reagent_tag = IS_SKRELL
 	tail = null
-	holder_type = /obj/item/weapon/holder/monkey/neaera
 
 /datum/species/monkey/unathi
 	name = "Stok"
 	name_plural = "Stok"
+	health_hud_intensity = 1.5
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
@@ -92,4 +95,3 @@
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
-	holder_type = /obj/item/weapon/holder/monkey/stok

@@ -33,12 +33,12 @@ obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
 
 	if(isnull(insults))
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
-		user.audible_message("<span class='warning'>[user]'s [name] rasps, \"[use_message]\"</span>", "<span class='warning'>\The [user] holds up \the [name].</span>")
+		user.audible_message("<span class='warning'>[user]'s [name] rasps, \"[use_message]\"</span>", null, "<span class='warning'>\The [user] holds up \the [name].</span>")
 	else
 		if(insults > 0)
 			playsound(get_turf(src), 'sound/voice/binsult.ogg', 100, 1, vary = 0)
 			// Yes, it used to show the transcription of the sound clip. That was a) inaccurate b) immature as shit.
-			user.audible_message("<span class='warning'>[user]'s [name] gurgles something indecipherable and deeply offensive.</span>", "<span class='warning'>\The [user] holds up \the [name].</span>")
+			user.audible_message("<span class='warning'>[user]'s [name] gurgles something indecipherable and deeply offensive.</span>", null, "<span class='warning'>\The [user] holds up \the [name].</span>")
 			insults--
 		else
 			user << "<span class='danger'>*BZZZZZZZZT*</span>"
@@ -47,12 +47,10 @@ obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
 	spawn(20)
 		spamcheck = 0
 
-/obj/item/device/hailer/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/card/emag))
-		if(isnull(insults))
-			user << "<span class='danger'>You overload \the [src]'s voice synthesizer.</span>"
-			insults = rand(1, 3)//to prevent dickflooding
-		else
-			user << "The hailer is fried. You can't even fit the sequencer into the input slot."
+/obj/item/device/hailer/emag_act(var/remaining_charges, var/mob/user)
+	if(isnull(insults))
+		user << "<span class='danger'>You overload \the [src]'s voice synthesizer.</span>"
+		insults = rand(1, 3)//to prevent dickflooding
+		return 1
 	else
-		return .. ()
+		user << "The hailer is fried. You can't even fit the sequencer into the input slot."

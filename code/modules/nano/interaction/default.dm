@@ -9,10 +9,12 @@
 /mob/proc/default_can_use_topic(var/src_object)
 	return STATUS_CLOSE // By default no mob can do anything with NanoUI
 
-/mob/dead/observer/default_can_use_topic()
-	if(check_rights(R_ADMIN, 0, src))
-		return STATUS_INTERACTIVE				// Admins are more equal
-	return STATUS_UPDATE						// Ghosts can view updates
+/mob/observer/ghost/default_can_use_topic(var/src_object)
+	if(can_admin_interact())
+		return STATUS_INTERACTIVE							// Admins are more equal
+	if(!client || get_dist(src_object, src)	> client.view)	// Preventing ghosts from having a million windows open by limiting to objects in range
+		return STATUS_CLOSE
+	return STATUS_UPDATE									// Ghosts can view updates
 
 /mob/living/silicon/pai/default_can_use_topic(var/src_object)
 	if((src_object == src || src_object == radio) && !stat)
@@ -30,21 +32,6 @@
 		return STATUS_INTERACTIVE	// interactive (green visibility)
 	return STATUS_DISABLED			// no updates, completely disabled (red visibility)
 
-/mob/living/silicon/robot/syndicate/default_can_use_topic(var/src_object)
-	. = ..()
-	if(. != STATUS_INTERACTIVE)
-		return
-
-	if(z in config.admin_levels)						// Syndicate borgs can interact with everything on the admin level
-		return STATUS_INTERACTIVE
-	if(istype(get_area(src), /area/syndicate_station))	// If elsewhere, they can interact with everything on the syndicate shuttle
-		return STATUS_INTERACTIVE
-	if(istype(src_object, /obj/machinery))				// Otherwise they can only interact with emagged machinery
-		var/obj/machinery/Machine = src_object
-		if(Machine.emagged)
-			return STATUS_INTERACTIVE
-	return STATUS_UPDATE
-
 /mob/living/silicon/ai/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction()
 	if(. != STATUS_INTERACTIVE)
@@ -53,7 +40,7 @@
 	// Prevents the AI from using Topic on admin levels (by for example viewing through the court/thunderdome cameras)
 	// unless it's on the same level as the object it's interacting with.
 	var/turf/T = get_turf(src_object)
-	if(!T || !(z == T.z || (T.z in config.player_levels)))
+	if(!T || !(z == T.z || (T.z in using_map.player_levels)))
 		return STATUS_CLOSE
 
 	// If an object is in view then we can interact with it
@@ -63,7 +50,7 @@
 	// If we're installed in a chassi, rather than transfered to an inteliCard or other container, then check if we have camera view
 	if(is_in_chassis())
 		//stop AIs from leaving windows open and using then after they lose vision
-		if(cameranet && !cameranet.checkTurfVis(get_turf(src_object)))
+		if(cameranet && !cameranet.is_turf_visible(get_turf(src_object)))
 			return STATUS_CLOSE
 		return STATUS_INTERACTIVE
 	else if(get_dist(src_object, src) <= client.view)	// View does not return what one would expect while installed in an inteliCard

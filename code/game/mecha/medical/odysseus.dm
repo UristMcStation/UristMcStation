@@ -84,9 +84,6 @@
 			if(M.see_invisible < patient.invisibility)
 				continue
 			var/foundVirus = 0
-			for(var/datum/disease/D in patient.viruses)
-				if(!D.hidden[SCANNER])
-					foundVirus++
 
 			for (var/ID in patient.virus2)
 				if (ID in virusDB)
@@ -94,15 +91,15 @@
 					break
 
 			holder = patient.hud_list[HEALTH_HUD]
-			if(patient.stat == 2)
+			if(patient.stat == DEAD)
 				holder.icon_state = "hudhealth-100"
 				C.images += holder
 			else
-				holder.icon_state = "hud[RoundHealth((patient.health-config.health_threshold_crit)/(patient.maxHealth-config.health_threshold_crit)*100)]"
+				holder.icon_state = RoundHealth((patient.health-config.health_threshold_crit)/(patient.maxHealth-config.health_threshold_crit)*100)
 				C.images += holder
 
 			holder = patient.hud_list[STATUS_HUD]
-			if(patient.stat == 2)
+			if(patient.stat == DEAD)
 				holder.icon_state = "huddead"
 			else if(patient.status_flags & XENO_HOST)
 				holder.icon_state = "hudxeno"

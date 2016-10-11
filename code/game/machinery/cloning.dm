@@ -4,23 +4,32 @@
 //Potential replacement for genetics revives or something I dunno (?)
 
 //Find a dead mob with a brain and client.
-/proc/find_dead_player(var/find_key)
+/proc/find_dead_player(var/find_key, var/include_observers = 0)
 	if(isnull(find_key))
 		return
 
 	var/mob/selected = null
-	for(var/mob/living/M in player_list)
-		//Dead people only thanks!
-		if((M.stat != 2) || (!M.client))
-			continue
-		//They need a brain!
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			if(H.species.has_organ["brain"] && !H.has_brain())
+
+	if(include_observers)
+		for(var/mob/M in player_list)
+			if((M.stat != DEAD) || (!M.client))
 				continue
-		if(M.ckey == find_key)
-			selected = M
-			break
+			if(M.ckey == find_key)
+				selected = M
+				break
+	else
+		for(var/mob/living/M in player_list)
+			//Dead people only thanks!
+			if((M.stat != DEAD) || (!M.client))
+				continue
+			//They need a brain!
+			if(istype(M, /mob/living/carbon/human))
+				var/mob/living/carbon/human/H = M
+				if(H.species.has_organ["brain"] && !H.has_brain())
+					continue
+			if(M.ckey == find_key)
+				selected = M
+				break
 	return selected
 
 #define CLONE_BIOMASS 150
@@ -45,6 +54,7 @@
 	var/biomass = CLONE_BIOMASS * 3
 
 /obj/machinery/clonepod/New()
+	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
 	..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
@@ -57,6 +67,11 @@
 
 	RefreshParts()
 	update_icon()
+
+/obj/machinery/clonepod/Destroy()
+    if(connected)
+        connected.release_pod(src)
+    return ..()
 
 /obj/machinery/clonepod/attack_ai(mob/user as mob)
 
@@ -77,17 +92,14 @@
 /obj/machinery/clonepod/proc/growclone(var/datum/dna2/record/R)
 	if(mess || attempting)
 		return 0
-	var/datum/mind/clonemind = locate(R.mind)
+	var/datum/mind/clonemind
 
-	if(!istype(clonemind, /datum/mind))	//not a mind
-		return 0
-	if(clonemind.current && clonemind.current.stat != DEAD)	//mind is associated with a non-dead body
-		return 0
-	if(clonemind.active)	//somebody is using that mind
-		if(ckey(clonemind.key) != R.ckey)
+	if(!config.use_cortical_stacks)
+		clonemind = locate(R.mind)
+		if(!istype(clonemind, /datum/mind))	//not a mind
 			return 0
 	else
-		for(var/mob/dead/observer/G in player_list)
+		for(var/mob/observer/ghost/G in player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -104,21 +116,22 @@
 	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src, R.dna.species)
 	occupant = H
 
-	if(!R.dna.real_name)	//to prevent null names
+	if(!R.dna.real_name /*|| config.use_cortical_stacks*/)	//to prevent null names
 		R.dna.real_name = "clone ([rand(0,999)])"
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.adjustCloneLoss(150) // New damage var so you can't eject a clone early then stab them to abuse the current damage system --NeoFite
-	H.adjustBrainLoss(80) // Even if healed to full health, it will have some brain damage
+	H.setCloneLoss(H.maxHealth - config.health_threshold_crit) // New damage var so you can't eject a clone early then stab them to abuse the current damage system --NeoFite
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
 	H.updatehealth()
 
-	clonemind.transfer_to(H)
-	H.ckey = R.ckey
-	H << "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>"
+	if(clonemind)
+		clonemind.transfer_to(H)
+		if(R.ckey)
+			H.ckey = R.ckey
+			H << "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>"
 
 	// -- Mode/mind specific stuff goes here
 	callHook("clone", list(H))
@@ -131,6 +144,7 @@
 	else
 		H.dna = R.dna
 	H.UpdateAppearance()
+	H.sync_organ_dna()
 	if(heal_level < 60)
 		randmutb(H) //Sometimes the clones come out wrong.
 		H.dna.UpdateSE()
@@ -142,7 +156,6 @@
 	for(var/datum/language/L in R.languages)
 		H.add_language(L.name)
 	H.flavor_texts = R.flavor.Copy()
-	H.suiciding = 0
 	attempting = 0
 	return 1
 
@@ -156,7 +169,7 @@
 		return
 
 	if((occupant) && (occupant.loc == src))
-		if((occupant.stat == DEAD) || (occupant.suiciding) || !occupant.key)  //Autoeject corpses and suiciding dudes.
+		if((occupant.stat == DEAD))  //Autoeject corpses
 			locked = 0
 			go_out()
 			connected_message("Clone Rejected: Deceased.")
@@ -169,7 +182,7 @@
 			occupant.adjustCloneLoss(-2 * heal_rate)
 
 			//Premature clones may have brain damage.
-			occupant.adjustBrainLoss(-1 * heal_rate)
+			occupant.adjustBrainLoss(-(ceil(0.5*heal_rate)))
 
 			//So clones don't die of oxyloss in a running pod.
 			if(occupant.reagents.get_reagent_amount("inaprovaline") < 30)
@@ -182,6 +195,8 @@
 			return
 
 		else if((occupant.health >= heal_level) && (!eject_wait))
+			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
+			src.audible_message("\The [src] signals that the cloning process is complete.")
 			connected_message("Cloning Process Complete.")
 			locked = 0
 			go_out()
@@ -216,13 +231,6 @@
 		else
 			locked = 0
 			user << "System unlocked."
-	else if(istype(W, /obj/item/weapon/card/emag))
-		if(isnull(occupant))
-			return
-		user << "You force an emergency ejection."
-		locked = 0
-		go_out()
-		return
 	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
 		user << "<span class='notice'>\The [src] processes \the [W].</span>"
 		biomass += 50
@@ -244,13 +252,16 @@
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
 				user.visible_message("[user] unsecures [src] from the floor.", "You unsecure [src] from the floor.")
-	else if(istype(W, /obj/item/device/multitool))
-		var/obj/item/device/multitool/M = W
-		M.connecting = src
-		user << "<span class='notice'>You load connection data from [src] to [M].</span>"
-		return
 	else
 		..()
+
+/obj/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
+	if(isnull(occupant))
+		return NO_EMAG_ACT
+	user << "You force an emergency ejection."
+	locked = 0
+	go_out()
+	return 1
 
 //Put messages in the connected computer's temp var for display.
 /obj/machinery/clonepod/proc/connected_message(var/message)
@@ -306,7 +317,7 @@
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.loc = loc
 	eject_wait = 0 //If it's still set somehow.
-	domutcheck(occupant) //Waiting until they're out before possible monkeyizing.
+	domutcheck(occupant) //Waiting until they're out before possible transforming.
 	occupant = null
 
 	biomass -= CLONE_BIOMASS
@@ -405,6 +416,7 @@
 	read_only = 1
 
 	New()
+		..()
 		initializeDisk()
 		buf.types=DNA2_BUF_UE|DNA2_BUF_UI
 		//data = "066000033000000000AF00330660FF4DB002690"
@@ -420,6 +432,7 @@
 	read_only = 1
 
 	New()
+		..()
 		initializeDisk()
 		buf.types=DNA2_BUF_SE
 		var/list/new_SE=list(0x098,0x3E8,0x403,0x44C,0x39F,0x4B0,0x59D,0x514,0x5FC,0x578,0x5DC,0x640,0x6A4)

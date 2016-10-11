@@ -263,8 +263,8 @@
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 
-	A.shot_from = src
-	A.launch(target, src, null, "chest")
+	var/def_zone = get_exposed_defense_zone(target)
+	A.launch(target, def_zone)
 	return
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()

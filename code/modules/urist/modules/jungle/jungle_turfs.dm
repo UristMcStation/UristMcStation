@@ -78,8 +78,14 @@
 				"<span class='notice'>You dig up even more soil, forming a pit.</span>")
 				new /obj/structure/pit(src)
 
-	else if(istype(I, /obj/item/stack/tile/steel))
-		var/obj/item/stack/tile/steel/R = I
+	else if(istype(I, /obj/item/stack/tile/floor))
+		var/obj/item/stack/tile/floor/R = I
+		src.overlays = null
+		src.ChangeTurf(/turf/simulated/floor/plating)
+		R.use(1)
+
+	else if(istype(I, /obj/item/stack/tile/floor_steel))
+		var/obj/item/stack/tile/floor_steel/R = I
 		src.overlays = null
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
@@ -197,19 +203,19 @@
 		if(!istype(get_step(src, NORTH), /turf/simulated/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
 			T = get_step(src, NORTH)
 			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_s")
+				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_s")
 		if(!istype(get_step(src, SOUTH), /turf/simulated/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
 			T = get_step(src, SOUTH)
 			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_n", layer=6)
+				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
 		if(!istype(get_step(src, EAST), /turf/simulated/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
 			T = get_step(src, EAST)
 			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_w", layer=6)
+				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
 		if(!istype(get_step(src, WEST), /turf/simulated/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
 			T = get_step(src, WEST)
 			if (T)
-				T.overlays += image('icons/turf/walls.dmi', "rock_side_e", layer=6)
+				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
 		update_light()
 
 /turf/simulated/jungle/water

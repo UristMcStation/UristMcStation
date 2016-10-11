@@ -18,25 +18,6 @@
 	..()
 	desc = "Contains jet fuel. Warning: results may vary!"
 
-//early-bird port of Operations Funding
-
-/obj/item/weapon/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
-
-/obj/item/weapon/storage/secure/briefcase/money/New()
-	..()
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-
 /obj/item/weapon/conspiracyintel
 	name = "intel"
 	desc = "A file containing top-secret data."
@@ -49,7 +30,6 @@
 	throw_range = 2
 	throw_speed = 1
 	layer = 4
-	pressure_resistance = 1
 	var/value = 2 //how many TC it grants
 	var/upload_id //for persistent uploads
 	var/basedesc = "A file containing top-secret data."
@@ -105,7 +85,7 @@
 /obj/item/device/inteluplink
 	name		= "Laptop Computer"
 	desc		= "A clamshell portable computer. It is closed."
-	icon		= 'icons/obj/computer3.dmi'
+	icon		= 'icons/urist/items/misc.dmi'
 	icon_state	=  "adv-laptop-closed"
 	item_state	=  "laptop-inhand"
 	pixel_x		= 2
@@ -188,11 +168,11 @@
 		icon_state = "adv-laptop"
 		light_range = 3
 		if(uploading)
-			var/global/image/screen = image('icons/obj/computer3.dmi',icon_state="command")
+			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open. It seems that some kind of files are being transmitted."
 		else
-			var/global/image/screen = image('icons/obj/computer3.dmi',icon_state="osod")
+			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="generic")
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
@@ -241,28 +221,16 @@
 				cached_progress = 0
 				update_icon()
 
-				var/obj/item/device/uplink/hidden/suplink = user.mind.find_syndicate_uplink()
 				var/crystals
 				crystals = C.value
 				if (!isnull(crystals))
-					if(suplink)
-						suplink.uses += crystals
-						user << "<span class='notice'>[crystals] telecrystals have been added to your account.</span>"
-					else
-						stored_crystals += crystals
+					new /obj/item/stack/telecrystal(src.loc, crystals)
 				qdel(C)
 		if(progress < 100)
 			cached_progress = progress
 			uploading = 0
 			update_icon()
 			user << "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>"
-
-	if(stored_crystals)
-		if(I.hidden_uplink)
-			var/obj/item/device/uplink/hidden/suplink = I.hidden_uplink
-			suplink.uses += stored_crystals
-			user << "<span class='notice'>Your [I] pings quietly as [stored_crystals] telecrystals are added to it.</span>"
-			stored_crystals = 0
 	..()
 
 //a suit that looks like a black-haired human in a suit, for muh Reptilians and/or Thin Mints
@@ -289,7 +257,7 @@
 	icon_state = "fleshmask"
 	body_parts_covered = FACE|HEAD
 	flags_inv = HIDEEARS|HIDEFACE
-	flags = MASKCOVERSMOUTH | BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
+	flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
 	var/usedonce = 0 //can only set voice once, to prevent being superior to voice changer at the same cost
 
 /obj/item/clothing/mask/gas/voice/fleshmask/Set_Voice(name as text)
@@ -310,6 +278,7 @@
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
 
 /obj/effect/landmark/intelspawn
+	icon_state = "x3"
 	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
 
 /obj/effect/landmark/intelspawn/New()

@@ -51,7 +51,7 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/weapon/reagent_containers/borghypo/attack(var/mob/living/M, var/mob/user)
+/obj/item/weapon/reagent_containers/borghypo/attack(var/mob/living/M, var/mob/user, var/target_zone)
 	if(!istype(M))
 		return
 
@@ -59,7 +59,17 @@
 		user << "<span class='warning'>The injector is empty.</span>"
 		return
 
-	if(M.can_inject(user, 1))
+	var/mob/living/carbon/human/H = M
+	if(istype(H))
+		var/obj/item/organ/external/affected = H.get_organ(target_zone)
+		if(!affected)
+			user << "<span class='danger'>\The [H] is missing that limb!</span>"
+			return
+		else if(affected.robotic >= ORGAN_ROBOT)
+			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
+			return
+
+	if (M.can_inject(user, target_zone))
 		user << "<span class='notice'>You inject [M] with the injector.</span>"
 		M << "<span class='notice'>You feel a tiny prick!</span>"
 
@@ -110,7 +120,7 @@
 	charge_cost = 20
 	recharge_time = 3
 	volume = 60
-	possible_transfer_amounts = list(5, 10, 20, 30)
+	possible_transfer_amounts = "5;10;20;30"
 	reagent_ids = list("beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac", "ale", "mead", "water", "sugar", "ice", "tea", "icetea", "cola", "spacemountainwind", "dr_gibb", "space_up", "tonic", "sodawater", "lemon_lime", "orangejuice", "limejuice", "watermelonjuice")
 
 /obj/item/weapon/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)

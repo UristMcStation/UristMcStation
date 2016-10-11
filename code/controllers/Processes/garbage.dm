@@ -1,13 +1,17 @@
+// The time a datum was destroyed by the GC, or null if it hasn't been
+/datum/var/gcDestroyed
+#define GC_COLLECTIONS_PER_RUN 300
+#define GC_COLLECTION_TIMEOUT (30 SECONDS)
+#define GC_FORCE_DEL_PER_RUN 30
+
 var/datum/controller/process/garbage_collector/garbage_collector
 var/list/delayed_garbage = list()
 
 /datum/controller/process/garbage_collector
 	var/garbage_collect = 1			// Whether or not to actually do work
-	var/collection_timeout = 300	//deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
-	var/max_checks_multiplier = 5	//multiplier (per-decisecond) for calculating max number of tests per tick. These tests check if our GC'd objects are actually GC'd
-	var/max_forcedel_multiplier = 1	//multiplier (per-decisecond) for calculating max number of force del() calls per tick.
-
-	var/dels 		= 0			// number of del()'s we've done this tick
+	var/total_dels 	= 0			// number of total del()'s
+	var/tick_dels 	= 0			// number of del()'s we've done this tick
+	var/soft_dels	= 0
 	var/hard_dels 	= 0			// number of hard dels in total
 	var/list/destroyed = list() // list of refID's of things that should be garbage collected
 								// refID's are associated with the time at which they time out and need to be manually del()
@@ -18,7 +22,8 @@ var/list/delayed_garbage = list()
 
 /datum/controller/process/garbage_collector/setup()
 	name = "garbage"
-	schedule_interval = 2 SECONDS
+	schedule_interval = 5 SECONDS
+	start_delay = 3
 
 	if(!garbage_collector)
 		garbage_collector = src
@@ -28,17 +33,21 @@ var/list/delayed_garbage = list()
 	delayed_garbage.Cut()
 	delayed_garbage = null
 
+#ifdef GC_FINDREF
+world/loop_checks = 0
+#endif
+
 /datum/controller/process/garbage_collector/doWork()
 	if(!garbage_collect)
 		return
 
-	dels = 0
-	var/time_to_kill = world.time - collection_timeout // Anything qdel() but not GC'd BEFORE this time needs to be manually del()
-	var/checkRemain = max_checks_multiplier * schedule_interval
-	var/maxDels = max_forcedel_multiplier * schedule_interval
+	tick_dels = 0
+	var/time_to_kill = world.time - GC_COLLECTION_TIMEOUT
+	var/checkRemain = GC_COLLECTIONS_PER_RUN
+	var/remaining_force_dels = GC_FORCE_DEL_PER_RUN
 
 	while(destroyed.len && --checkRemain >= 0)
-		if(dels >= maxDels)
+		if(remaining_force_dels <= 0)
 			#ifdef GC_DEBUG
 			testing("GC: Reached max force dels per tick [dels] vs [maxDels]")
 			#endif
@@ -55,17 +64,73 @@ var/list/delayed_garbage = list()
 		testing("GC: [refID] old enough to test: GCd_at_time: [GCd_at_time] time_to_kill: [time_to_kill] current: [world.time]")
 		#endif
 		if(A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
+			#ifdef GC_FINDREF
+			LocateReferences(A)
+			#endif
 			// Something's still referring to the qdel'd object.  Kill it.
 			testing("GC: -- \ref[A] | [A.type] was unable to be GC'd and was deleted --")
 			logging["[A.type]"]++
 			del(A)
-			++dels
-			++hard_dels
-		#ifdef GC_DEBUG
+
+			hard_dels++
+			remaining_force_dels--
 		else
+			#ifdef GC_DEBUG
 			testing("GC: [refID] properly GC'd at [world.time] with timeout [GCd_at_time]")
-		#endif
+			#endif
+			soft_dels++
+		tick_dels++
+		total_dels++
 		destroyed.Cut(1, 2)
+		SCHECK
+
+#undef GC_FORCE_DEL_PER_TICK
+#undef GC_COLLECTION_TIMEOUT
+#undef GC_COLLECTIONS_PER_TICK
+
+#ifdef GC_FINDREF
+
+/datum/controller/process/garbage_collector/proc/LocateReferences(var/atom/A)
+	testing("GC: Attempting to locate references to [A] | [A.type]. This is a potentially long-running operation.")
+	if(istype(A))
+		if(A.loc != null)
+			testing("GC: [A] | [A.type] is located in [A.loc] instead of null")
+		if(A.contents.len)
+			testing("GC: [A] | [A.type] has contents: [jointext(A.contents)]")
+	var/ref_count = 0
+	for(var/atom/atom)
+		ref_count += LookForRefs(atom, A)
+	for(var/datum/datum)	// This is strictly /datum, not subtypes.
+		ref_count += LookForRefs(datum, A)
+	for(var/client/client)
+		ref_count += LookForRefs(client, A)
+	var/message = "GC: References found to [A] | [A.type]: [ref_count]."
+	if(!ref_count)
+		message += " Has likely been supplied as an 'in list' argment to a proc."
+	testing(message)
+
+/datum/controller/process/garbage_collector/proc/LookForRefs(var/datum/D, var/datum/A)
+	. = 0
+	for(var/V in D.vars)
+		if(V == "contents")
+			continue
+		if(!islist(D.vars[V]))
+			if(D.vars[V] == A)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], var [V]")
+				. += 1
+		else
+			. += LookForListRefs(D.vars[V], A, D, V)
+
+/datum/controller/process/garbage_collector/proc/LookForListRefs(var/list/L, var/datum/A, var/datum/D, var/V)
+	. = 0
+	for(var/F in L)
+		if(!islist(F))
+			if(F == A || L[F] == A)
+				testing("GC: [A] | [A.type] referenced by [D] | [D.type], list [V]")
+				. += 1
+		else
+			. += LookForListRefs(F, A, D, "[F] in list [V]")
+#endif
 
 /datum/controller/process/garbage_collector/proc/AddTrash(datum/A)
 	if(!istype(A) || !isnull(A.gcDestroyed))
@@ -77,11 +142,14 @@ var/list/delayed_garbage = list()
 	destroyed -= "\ref[A]" // Removing any previous references that were GC'd so that the current object will be at the end of the list.
 	destroyed["\ref[A]"] = world.time
 
-/datum/controller/process/garbage_collector/getStatName()
-	return ..()+"([garbage_collector.destroyed.len]/[garbage_collector.dels]/[garbage_collector.hard_dels])"
+/datum/controller/process/garbage_collector/statProcess()
+	..()
+	stat(null, "[garbage_collect ? "On" : "Off"], [destroyed.len] queued")
+	stat(null, "Dels: [total_dels], [soft_dels] soft, [hard_dels] hard, [tick_dels]  last run")
+
 
 // Tests if an atom has been deleted.
-/proc/deleted(atom/A) 
+/proc/deleted(atom/A)
 	return !A || !isnull(A.gcDestroyed)
 
 // Should be treated as a replacement for the 'del' keyword.
@@ -94,7 +162,7 @@ var/list/delayed_garbage = list()
 		crash_with("qdel() passed object of type [A.type]. qdel() can only handle /datum types.")
 		del(A)
 		if(garbage_collector)
-			garbage_collector.dels++
+			garbage_collector.total_dels++
 			garbage_collector.hard_dels++
 	else if(isnull(A.gcDestroyed))
 		// Let our friend know they're about to get collected
@@ -128,11 +196,15 @@ var/list/delayed_garbage = list()
 
 /turf/finalize_qdel()
 	del(src)
+	
+/area/finalize_qdel()
+    del(src)
 
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return true if the the GC controller should allow the object to continue existing. (Useful if pooling objects.)
 /datum/proc/Destroy()
+	nanomanager.close_uis(src)
 	tag = null
 	return
 
@@ -203,4 +275,8 @@ var/list/delayed_garbage = list()
 
 #ifdef GC_DEBUG
 #undef GC_DEBUG
+#endif
+
+#ifdef GC_FINDREF
+#undef GC_FINDREF
 #endif

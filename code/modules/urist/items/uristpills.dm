@@ -133,28 +133,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/storage/pill_bottle/citalopram
 	name = "bottle of citalopram pills"
 	desc = "Contains pills used to stabilize a patient's mind."
-
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
+	startswith = list(/obj/item/weapon/reagent_containers/pill/citalopram = 7)
 
 /obj/item/weapon/storage/pill_bottle/methylphenidate
 	name = "bottle of methylphenidate pills"
 	desc = "Contains pills used to enhance a patient's concentration"
-
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
-		new /obj/item/weapon/reagent_containers/pill/methylphenidate( src )
+	startswith = list(/obj/item/weapon/reagent_containers/pill/methylphenidate = 7)
 

@@ -78,9 +78,9 @@
 				var/mob/living/carbon/C = user
 				C.throw_mode_on()
 			spawn(det_time)
-				prime()
+				detonate()
 
-/obj/item/weapon/grenade/iedcasing/prime() //Blowing that can up
+/obj/item/weapon/grenade/iedcasing/detonate() //Blowing that can up
 	update_icon()
 	explosion(src.loc,-1,0,2)
 	qdel(src)

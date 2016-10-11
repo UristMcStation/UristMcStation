@@ -8,11 +8,10 @@ Basically, if you need to add turfs for UMcS, use this file -Glloyd */
 
 Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
-/turf/simulated/floor/uristturf
+/turf/simulated/floor/fixed/uristturf
 	name = "floor"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "yellowdiag02"
-	floor_type = new/obj/item/stack/tile/steel
 
 //unsimulated version
 
@@ -122,8 +121,6 @@ turf/simulated/floor/beach/pool/New()
 	//lighting_lumcount = 4		//starlight
 	layer = 2
 
-	intact = 0
-
 	New()
 		..()
 		// Fucking cockshit dickfuck shitslut
@@ -169,7 +166,6 @@ turf/simulated/floor/beach/pool/New()
 	oxygen = 0.01
 	nitrogen = 0.01
 	temperature = T0C
-	icon_plating = "moon"
 
 
 /turf/simulated/floor/plating/airless/moon/New()
@@ -184,7 +180,6 @@ turf/simulated/floor/beach/pool/New()
 	name = "floor"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "moon_floor"
-	floor_type = new/obj/item/stack/tile/steel
 
 /turf/simulated/floor/plating/airless/uristturf
 	name = "plating"
@@ -219,3 +214,20 @@ turf/simulated/floor/beach/pool/New()
 
 /turf/simulated/wall/wood/New(var/newloc)
 	..(newloc,"wood")
+
+//unsimulated floor w/ plating icon, for base-turf in hangars and such
+/turf/unsimulated/floor/plating
+	name = "floor"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "plating"
+
+/turf/unsimulated/floor/fakestairs
+	name = "stairs"
+	icon = 'icons/urist/turf/uristturf.dmi'
+	icon_state = "fakestairs"
+
+//more baseturf
+/turf/unsimulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"

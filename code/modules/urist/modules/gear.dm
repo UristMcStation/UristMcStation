@@ -49,7 +49,7 @@
 
 /datum/gear/jeans
 	display_name = "jeans"
-	path = /obj/item/clothing/under/pants/jeans
+	path = /obj/item/clothing/under/pants/urist/jeans
 	slot = slot_w_uniform
 	cost = 1
 

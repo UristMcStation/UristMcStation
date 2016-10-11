@@ -6,6 +6,12 @@ Thumbs.db
 *.dmb
 *.lk
 *.backup
+*.before
 data/
 cfg/
-
+build_log.txt
+use_map
+stopserver
+reboot_called
+atupdate
+__pycache__

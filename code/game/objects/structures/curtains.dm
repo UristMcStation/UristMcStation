@@ -1,5 +1,5 @@
 #define SHOWER_OPEN_LAYER OBJ_LAYER + 0.4
-#define SHOWER_CLOSED_LAYER MOB_LAYER + 0.1
+#define SHOWER_CLOSED_LAYER MOB_LAYER + 0.2
 
 /obj/structure/curtain
 	name = "curtain"
@@ -43,6 +43,14 @@
 	name = "plastic curtain"
 	color = "#B8F5E3"
 	alpha = 200
+
+/obj/structure/curtain/open/bed
+	name = "bed curtain"
+	color = "#854636"
+
+/obj/structure/curtain/open/privacy
+	name = "privacy curtain"
+	color = "#B8F5E3"
 
 /obj/structure/curtain/open/shower
 	name = "shower curtain"

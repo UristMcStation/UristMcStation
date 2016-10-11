@@ -25,20 +25,15 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	icon_state = "radfirstaid3"
 	item_state = "firstaid-advanced"
 
+	startswith = list(
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/rad = 5,
+		/obj/item/weapon/reagent_containers/syringe/antitoxin,
+		/obj/item/device/healthanalyzer
+		)
+
 	New()
 		..()
-		if (empty) return
-
 		icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
-
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad( src )
-		new /obj/item/weapon/reagent_containers/syringe/antitoxin( src )
-		new /obj/item/device/healthanalyzer( src )
-		return
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv
 	name = "advanced autoinjector"
@@ -86,12 +81,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	name = "box of advanced autoinjectors"
 	desc = "A box containing a number of advanced autoinjectors and a cryobag just in case."
 
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
-		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv(src)
-		new /obj/item/bodybag/cryobag(src)
-
+	startswith = list(
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/adv = 5,
+		/obj/item/bodybag/cryobag
+		)

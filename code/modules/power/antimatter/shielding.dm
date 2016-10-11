@@ -90,20 +90,6 @@ proc/cardinalrange(var/center)
 	return 0
 
 
-/obj/machinery/am_shielding/blob_act()
-	stability -= 20
-	if(prob(100-stability))
-		if(prob(10))//Might create a node
-			new /obj/effect/blob/node(src.loc,150)
-		else
-			new /obj/effect/blob(src.loc,60)
-		spawn(0)
-			qdel(src)
-		return
-	check_stability()
-	return
-
-
 /obj/machinery/am_shielding/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -205,7 +191,7 @@ proc/cardinalrange(var/center)
 	icon = 'icons/obj/machines/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
-	w_class = 4.0
+	w_class = 5
 	flags = CONDUCT
 	throwforce = 5
 	throw_speed = 1

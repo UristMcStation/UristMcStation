@@ -4,14 +4,16 @@
 	singular_name = "metal rod"
 	icon_state = "rods"
 	flags = CONDUCT
-	w_class = 3.0
+	w_class = 4
 	force = 9.0
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 1875)
-	max_amount = 60
+	max_amount = 100
+	center_of_mass = null
 	attack_verb = list("hit", "bludgeoned", "whacked")
+	lock_picking_level = 3
 
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"
@@ -22,20 +24,24 @@
 	charge_costs = list(500)
 	stacktype = /obj/item/stack/rods
 
+/obj/item/stack/rods/New()
+	..()
+	update_icon()
+
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(get_amount() < 2)
-			user << "\red You need at least two rods to do this."
+			user << "<span class='warning'>You need at least two rods to do this.</span>"
 			return
 
 		if(WT.remove_fuel(0,user))
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
-				M.show_message("\red [src] is shaped into metal by [user.name] with the weldingtool.", 3, "\red You hear welding.", 2)
+				M.show_message("<span class='notice'>[src] is shaped into metal by [user.name] with the weldingtool.</span>", 3, "<span class='notice'>You hear welding.</span>", 2)
 			var/obj/item/stack/rods/R = src
 			src = null
 			var/replace = (user.get_inactive_hand()==R)
@@ -64,16 +70,32 @@
 
 	else if(!in_use)
 		if(get_amount() < 2)
-			user << "\blue You need at least two rods to do this."
+			user << "<span class='warning'>You need at least two rods to do this.</span>"
 			return
-		usr << "\blue Assembling grille..."
+		usr << "<span class='notice'>Assembling grille...</span>"
 		in_use = 1
 		if (!do_after(usr, 10))
 			in_use = 0
 			return
 		var/obj/structure/grille/F = new /obj/structure/grille/ ( usr.loc )
-		usr << "\blue You assemble a grille"
+		usr << "<span class='notice'>You assemble a grille</span>"
 		in_use = 0
 		F.add_fingerprint(usr)
 		use(2)
 	return
+
+/obj/item/stack/rods/update_icon()
+	if(amount == 1)
+		icon = 'icons/obj/weapons.dmi'
+		icon_state = "metal-rod"
+	else
+		icon = initial(icon)
+		icon_state = initial(icon_state)
+
+/obj/item/stack/rods/use()
+	. = ..()
+	update_icon()
+
+/obj/item/stack/rods/add()
+	. = ..()
+	update_icon()
