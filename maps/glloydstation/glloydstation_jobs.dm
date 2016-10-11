@@ -2,7 +2,7 @@
 
 /datum/map/glloydstation
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/janitor, /datum/job/lawyer, /datum/job/librarian, /datum/job/psychiatrist.
+						/datum/job/janitor, /datum/job/lawyer, /datum/job/librarian, /datum/job/psychiatrist,
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
