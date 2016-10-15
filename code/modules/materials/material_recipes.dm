@@ -125,7 +125,7 @@
 	recipes += new/datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1)
 	recipes += new/datum/stack_recipe("book shelf", /obj/structure/bookcase, 5, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("bookcase", /obj/structure/bookcase, 6, time = 30, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("dresser", /obj/structure/dresser, 8, time = 40, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("underwear wardrobe", /obj/structure/undies_wardrobe, 8, time = 40, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 4, time = 25, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 2, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1)
