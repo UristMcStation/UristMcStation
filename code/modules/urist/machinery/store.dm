@@ -68,8 +68,7 @@ var/global/datum/store/centcomm_store=new
 
 /obj/machinery/computer/merch
 	name = "Merchandise Computer"
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "comm_logs"
+	icon_screen = "comm_logs"
 	circuit = "/obj/item/weapon/circuitboard/merch"
 
 /obj/item/weapon/circuitboard/merch
