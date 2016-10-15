@@ -47,8 +47,14 @@ var/list/datum/map_template/underground_templates = list()
 
 	for(var/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
 		var/turf/B = L
-		for(var/obj/A in B) //disabling this for now until i devise a better system, just gonna qdel jungle stuff until templates get expanded
-			qdel(A)
+
+		turfs += B
+
+		for(var/obj/W in B) //disabling this for now until i devise a better system, just gonna qdel jungle stuff until templates get expanded
+			if(istype(W,/obj/machinery/atmospherics) || istype(W,/obj/machinery/atm) || istype(W,/obj/machinery/power/apc) || istype(W,/obj/machinery/alarm) || istype(W,/obj/machinery/firealarm) || istype(W,/obj/structure/cable))
+				continue
+			qdel(W)
+
 /*		for(var/obj/structure/jungle_plant/A in B)
 			qdel(A)
 		for(var/obj/structure/flora/A in B)
@@ -77,12 +83,6 @@ var/list/datum/map_template/underground_templates = list()
 	SSobj.setup_template_objects(atoms)
 	SSmachine.setup_template_powernets(cables)
 	SSair.setup_template_machinery(atmos_machines)*/
-
-//	for(var/turf/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
-
-//		L.lighting_clear_overlays()
-//		L.lighting_build_overlays()
-
 
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
 
@@ -199,18 +199,20 @@ var/list/datum/map_template/underground_templates = list()
 	qdel(src)
 
 /obj/effect/template_loader/gamemode
-	var/mapfile
+	var/mapfile = null
 	invisibility = 101
 	gamemode = 1
 
-/obj/effect/template_loader/gamemode/Load()
+/obj/effect/template_loader/gamemode/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
 
-	var/datum/map_template/template
-//	var/map = mapfile
-//	template = map_templates[map]
-	template = mapfile
-	var/turf/T = get_turf(src)
-	template.load(T, centered = TRUE)
+	for(var/A in potentialRuins)
+		var/datum/map_template/T = potentialRuins[A]
+//		world << "<span class='boldannounce'>T = [T.name]</span>"
+		if(T.name == src.mapfile)
+			template = T
+//	world << "<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>"
+	template.load(get_turf(src), centered = TRUE)
 	template.loaded++
 
 	qdel(src)
+
