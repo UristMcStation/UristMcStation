@@ -9,6 +9,7 @@ var/global/remaininggens = 6
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
 	votable = 0 //WEW
+	auto_recall_shuttle = 1
 
 /datum/game_mode/assault/announce()
 	world << "<B>The current game mode is - Assault!</B>"
@@ -82,7 +83,7 @@ var/global/remaininggens = 6
 
 			for(var/obj/effect/landmark/assault/marinespawn/H in world)
 				M.loc = H.loc
-				qdel(H)
+//				qdel(H)
 
 			M << "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
 
@@ -235,4 +236,3 @@ var/global/remaininggens = 6
 
 	message_admins("[key_name_admin(usr)] changed the remaining lactera to [rl].")
 
-//add in the shield generator/code the endgame for it. add in another couple maps? add in shuttle maps. add the number to the status panel? test lactera, tweak them.
