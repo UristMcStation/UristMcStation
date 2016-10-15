@@ -389,7 +389,7 @@ LOBBY_SCREENS urist
 # MAP_SWITCHING
 
 ## Uncomment to enable an automatic map vote and switch at end of round. MAP_SWITCHING must also be enabled.
-AUTO_MAP_VOTE
+# AUTO_MAP_VOTE
 
 ## Uncomment to make Dream Daemon refuse to reboot for any reason other than SIGUSR1
 # WAIT_FOR_SIGUSR1
