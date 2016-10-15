@@ -672,7 +672,7 @@
 			Paralyse(3)
 
 		if(hallucination)
-			if(hallucination >= 20)
+			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)) )
 				if(prob(3))
 					fake_attack(src)
 				if(!handling_hal)
@@ -687,11 +687,11 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-			if(halloss >= species.total_health)
-				src << "<span class='warning'>[species.halloss_message_self]</span>"
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
-				Paralyse(10)
-				setHalLoss(species.total_health-1)
+		if(halloss >= species.total_health)
+			src << "<span class='warning'>[species.halloss_message_self]</span>"
+			src.visible_message("<B>[src]</B> [species.halloss_message].")
+			Paralyse(10)
+			setHalLoss(species.total_health-1)
 
 		if(paralysis || sleeping)
 			blinded = 1
@@ -1171,7 +1171,7 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+		client.screen.Remove(global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)

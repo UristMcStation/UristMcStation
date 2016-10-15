@@ -16,10 +16,9 @@
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	opacity = 0
 	density = 0
-	glass = 1
-	layer = DOOR_OPEN_LAYER - 0.01
-	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
-	closed_layer = DOOR_CLOSED_LAYER + 0.01 // Just above doors when closed
+	layer = BELOW_DOOR_LAYER
+	open_layer = BELOW_DOOR_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -347,9 +346,9 @@
 			return //needs power to open unless it was forced
 		else
 			use_power(360)
-	//else
-	//	log_admin("[usr]([usr.ckey]) has forced open an emergency shutter.")
-	//	message_admins("<span class='danger'>[usr]([usr.ckey]) has forced open an emergency shutter.</span>")
+	else
+		log_admin("[usr]([usr.ckey]) has forced open an emergency shutter.")
+		message_admins("[usr]([usr.ckey]) has forced open an emergency shutter.")
 	latetoggle()
 	return ..()
 

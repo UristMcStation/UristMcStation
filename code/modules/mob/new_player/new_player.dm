@@ -72,7 +72,10 @@
 	. = ..()
 
 	if(statpanel("Lobby") && ticker)
-		stat("Game Mode:", PUBLIC_GAME_MODE)
+		if(check_rights(R_INVESTIGATE, 0, src))
+			stat("Game Mode:", "[ticker.mode || master_mode][ticker.hide_mode ? " (Secret)" : ""]")
+		else
+			stat("Game Mode:", PUBLIC_GAME_MODE)
 		var/extra_antags = list2params(additional_antag_types)
 		stat("Added Antagonists:", extra_antags ? extra_antags : "None")
 
@@ -104,6 +107,9 @@
 		new_player_panel_proc()
 
 	if(href_list["observe"])
+		if(!(initialization_stage&INITIALIZATION_COMPLETE))
+			to_chat(src, "<span class='warning'>Please wait for server initialization to complete...</span>")
+			return
 
 		if(!config.respawn_delay || alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minute\s before being able to respawn!","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
@@ -117,7 +123,7 @@
 			var/obj/O = locate("landmark*Observer-Start")
 			if(istype(O))
 				src << "<span class='notice'>Now teleporting.</span>"
-				observer.loc = O.loc
+				observer.forceMove(O.loc)
 			else
 				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
@@ -126,11 +132,7 @@
 
 			var/mob/living/carbon/human/dummy/mannequin = new()
 			client.prefs.dress_preview_mob(mannequin)
-			observer.appearance = mannequin
-			observer.appearance_flags |= KEEP_TOGETHER // replace KEEP_TOGETHER flag so the ghost looks normal-ish
-			observer.alpha = 127
-			observer.layer = initial(observer.layer)
-			observer.invisibility = initial(observer.invisibility)
+			observer.set_appearance(mannequin)
 			qdel(mannequin)
 
 			if(client.prefs.be_random_name)
@@ -290,7 +292,7 @@
 		src << alert("[rank] is not available. Please try another.")
 		return 0
 
-	
+
 	var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, rank)
 	var/turf/spawn_turf = pick(spawnpoint.turfs)
 	var/airstatus = IsTurfAtmosUnsafe(spawn_turf)

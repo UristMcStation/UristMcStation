@@ -100,7 +100,6 @@ var/list/adminlog  = list()
 var/list/powernets = list()
 
 var/Debug2 = 0
-var/datum/debug/debugobj
 
 var/gravity_is_on = 1
 
