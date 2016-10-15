@@ -14,7 +14,6 @@
 	head = /obj/item/clothing/head/hardhat/white
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	l_ear = /obj/item/device/radio/headset/heads/ce
-	gloves = /obj/item/clothing/gloves/thick
 	id_type = /obj/item/weapon/card/id/engineering/head
 	pda_type = /obj/item/device/pda/heads/ce
 

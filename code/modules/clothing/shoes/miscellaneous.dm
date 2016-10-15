@@ -161,7 +161,7 @@
 	desc = "Help you swim good."
 	name = "swimming fins"
 	icon_state = "flippers"
-	item_flags = NOSLIP
+//	item_flags = NOSLIP
 	species_restricted = null
 
 /obj/item/clothing/shoes/swimmingfins/New()

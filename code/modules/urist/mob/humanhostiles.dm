@@ -5,7 +5,7 @@
 	icon_state = "gunman"
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
-	icon_gib = "syndicate_gib"
+	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pokes"
@@ -55,6 +55,8 @@
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
+	icon_dead = "syndicate_dead"
+	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
@@ -120,6 +122,7 @@
 	move_to_delay = 9 //this armor is *heavy*
 	maxHealth = 200 //but it offers some serious protection
 	health = 200
+	resistance = 4 //including padding
 	minimum_distance = 1
 	faction = "NTIS"
 	attack_sound = 'sound/weapons/genhit3.ogg'
@@ -151,4 +154,4 @@
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
 	new /obj/effect/effect/smoke/bad(loc)
-	del src
+	qdel(src)

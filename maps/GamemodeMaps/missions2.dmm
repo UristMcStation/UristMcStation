@@ -439,7 +439,7 @@
 "iw" = (/obj/structure/bed/chair{dir = 4},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/scom/mission/nolighting)
 "ix" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/scom/mission/nolighting)
 "iy" = (/obj/structure/closet{icon_closed = "cabinet_closed"; icon_opened = "cabinet_open"; icon_state = "cabinet_closed"},/turf/unsimulated/floor{dir = 8; icon_state = "wood"},/area/scom/mission/nolighting)
-"iz" = (/obj/structure/dresser,/turf/unsimulated/floor{dir = 8; icon_state = "wood"},/area/scom/mission/nolighting)
+"iz" = (/obj/structure/undies_wardrobe,/turf/unsimulated/floor{dir = 8; icon_state = "wood"},/area/scom/mission/nolighting)
 "iA" = (/turf/unsimulated/wall/wood{tag = "icon-wood2"; icon_state = "wood2"},/area/scom/mission/nolighting)
 "iB" = (/obj/effect/landmark/scom/enemyspawn/easy{mission = 14; spawntype = 2},/turf/unsimulated/beach/sand{tag = "icon-desert"; icon_state = "desert"},/area/scom/mission/nolighting)
 "iC" = (/obj/effect/landmark/scom/enemyspawn/norm{mission = 14; spawntype = 16},/turf/unsimulated/beach/sand{tag = "icon-desert"; icon_state = "desert"},/area/scom/mission/nolighting)

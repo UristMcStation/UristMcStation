@@ -24,8 +24,8 @@ var/global/remaininggens = 6
 
 	respawntime = 100 //ten second respawn time, instant action
 
-//	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
-//		L.Load()
+	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
+		L.Load()
 
 	for(var/obj/machinery/computer/shuttle_control/S in machines)
 		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security")
@@ -111,44 +111,59 @@ var/global/remaininggens = 6
 				else
 					humansurvivors += 1 //Add them to the amount of people who're alive.
 
-	if(gamemode_endstate == 5)
-		return
+	if(remaininglactera == 0 && gamemode_endstate == 0)
+		command_announcement.Announce("ATTENTION URIST MCSTATION: Our sensors have detected that they have run out of reinforcements. Good job, once you've mopped up the few remaining lactera, you can count this as a victory for humanity.", "ANFOR Nyx Command")
+		remaininglactera = 0
+		gamemode_endstate = 5 //we've won, but we haven't exactly won yet as long as those lizard fucks remain alive.
+		config.enter_allowed = 0
 
-	else
-		if(humansurvivors == 0)
-			gamemode_endstate = 1
+	if(humansurvivors == 0)
+		gamemode_endstate = 1
 
-		else if(aliensurvivors == 0 && remaininglactera == 0)
-			gamemode_endstate = 2
-
-		else if(station_was_nuked)
-			gamemode_endstate = 4
-
-		if(gamemode_endstate)
-			declare_completion()
+	if(aliensurvivors == 0 && remaininglactera == 0)
+		gamemode_endstate = 2
 
 	if(remaininggens == 0)
 		gamemode_endstate = 3
 
+	if(station_was_nuked)
+		gamemode_endstate = 4
+
+	if(gamemode_endstate && !sploded) //reusing vars because why not
+		declare_completion()
+
 /datum/game_mode/assault/declare_completion()
-	if(gamemode_endstate == 1)
-		feedback_set_details("round_end_result","alien major victory - station crew eliminated")
-		world << "\red <FONT size = 4><B>Alien major victory!</B></FONT>"
-		world << "\red <FONT size = 3><B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</B></FONT>"
-	else if(gamemode_endstate == 2)
-		feedback_set_details("round_end_result","station major victory - lactera strike force eradicated")
-		world << "\red <FONT size = 4><B>Station major victory!</B></FONT>"
-		world << "\red <FONT size = 3><B>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</B></FONT>"
-	else if(gamemode_endstate == 3)
-		feedback_set_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
-		world << "\red <FONT size = 3><B>Alien major victory.</B></FONT>"
-		world << "\red <FONT size = 3><B>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</B></FONT>"
-	else if(gamemode_endstate == 4)
-		feedback_set_details("round_end_result","draw - the station has been nuked")
-		world << "\red <FONT size = 3><B>Draw.</B></FONT>"
-		world << "\red <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT>"
-	gamemode_endstate = 5
+	if(sploded == 0)
+		if(gamemode_endstate == 1)
+			feedback_set_details("round_end_result","alien major victory - station crew eliminated")
+			world << "\red <FONT size = 4><B>Alien major victory!</B></FONT>"
+			world << "\red <FONT size = 3><B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</B></FONT>"
+		else if(gamemode_endstate == 2)
+			feedback_set_details("round_end_result","station major victory - lactera strike force eradicated")
+			world << "\red <FONT size = 4><B>Station major victory!</B></FONT>"
+			world << "\red <FONT size = 3><B>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</B></FONT>"
+		else if(gamemode_endstate == 3)
+			feedback_set_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
+			world << "\red <FONT size = 3><B>Alien major victory.</B></FONT>"
+			world << "\red <FONT size = 3><B>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</B></FONT>"
+		else if(gamemode_endstate == 4)
+			feedback_set_details("round_end_result","draw - the station has been nuked")
+			world << "\red <FONT size = 3><B>Draw.</B></FONT>"
+			world << "\red <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT>"
+
 	..()
+
+	sploded = 1
+
+	spawn(5)
+		world << "\blue Rebooting in thirty seconds."
+
+		spawn(300)
+			if(!ticker.delay_end)
+				world.Reboot()
+			else
+				world << "\blue <B>An admin has delayed the round end</B>"
+
 	return 1
 
 /obj/effect/landmark/assault/marinespawn
