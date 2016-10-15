@@ -7,10 +7,11 @@
 	round_description = "There are Vampires from Space Transylvania on the station!"
 	extended_round_description = "Posing as ordinary crewmembers, unholy creatures have infiltrated the station! Keep your blood close and neck safe!"
 	config_tag = "vampire"
-	required_players = 1
+	required_players = 2
 	required_enemies = 1
-	end_on_antag_death = 1
+	end_on_antag_death = 0
 	antag_scaling_coeff = 7
+
 
 /datum/vampire
 	var/bloodtotal = 0

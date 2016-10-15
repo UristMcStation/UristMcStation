@@ -3,6 +3,8 @@
 	desc = "A nondescript pair of tough blue jeans."
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "jeans"
+	urist_only = 0
+	icon_override = 'icons/mob/uniform.dmi'
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS
 
