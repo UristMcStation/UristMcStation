@@ -282,9 +282,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Security Outpost Storage"
 	icon_state = "storage"
 
-//REMEMBER THIS FOR THE MERGE
-
-/area/outpost/base_turf = /turf/simulated/jungle/clear
+//REMEMBER THIS FOR THE MERGE //I forgot
 
 /area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
 
