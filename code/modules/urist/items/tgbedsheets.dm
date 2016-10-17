@@ -12,6 +12,7 @@ LINEN BINS
 	icon_state = "sheetwhite"
 	item_state = "bedsheet"
 	slot_flags = SLOT_BACK
+	randpixel = 0
 	layer = 4.0
 	throwforce = 1
 	throw_speed = 1
@@ -19,6 +20,17 @@ LINEN BINS
 	w_class = 1.0
 
 	var/on = 1
+
+/obj/item/weapon/bedsheet/attackby(obj/item/I, mob/user)
+	if(is_sharp(I))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
+		if(do_after(user, 50, src))
+			user << "<span class='notice'>You cut \the [src] into pieces!</span>"
+			for(var/i in 1 to rand(2,5))
+				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+			qdel(src)
+		return
+	..()
 
 /obj/item/weapon/bedsheet/attack_self(mob/user as mob)
 	user.drop_item()
