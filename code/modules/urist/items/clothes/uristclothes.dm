@@ -894,6 +894,18 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "witchhunt"
 	item_state = "witchhunt"
 
+/obj/item/clothing/suit/urist/armor/trash/spacemarine //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "spacemarine"
+	item_state = "spacemarine"
+
+/obj/item/clothing/suit/urist/armor/trash/doom //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "doomguy"
+	item_state = "doomguy"
+
 //altshield
 
 /obj/item/clothing/under/urist/altshield
