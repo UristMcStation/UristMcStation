@@ -876,6 +876,36 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	blood_overlay_type = "armor"
 	flags = THICKMATERIAL
 
+/obj/item/clothing/suit/urist/armor/trash/blue //Isn't actually good
+	name = "heavy metal blue armour"
+	desc = "A heavy set of blue armour"
+	icon_state = "bluetrash"
+	item_state = "bluetrash"
+
+/obj/item/clothing/suit/urist/armor/trash/heavy //Isn't actually good
+	name = "spooky dragon armour"
+	desc = "A heavy set of armour"
+	icon_state = "heavytrash"
+	item_state = "heavytrash"
+
+/obj/item/clothing/suit/urist/armor/trash/hunt //Isn't actually good
+	name = "witch hunt armour"
+	desc = "A heavy set of armour"
+	icon_state = "witchhunt"
+	item_state = "witchhunt"
+
+/obj/item/clothing/suit/urist/armor/trash/spacemarine //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "spacemarine"
+	item_state = "spacemarine"
+
+/obj/item/clothing/suit/urist/armor/trash/doom //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "doomguy"
+	item_state = "doomguy"
+
 //altshield
 
 /obj/item/clothing/under/urist/altshield
@@ -883,3 +913,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A more practical outfit often worn by Nanotrasen blueshields."
 	icon_state = "altshield"
 	item_state = "altshield"
+
+//Halloween
+
+/obj/item/clothing/under/urist/halloween/princess
+	name = "princess"
+	desc = "A very pretty dress."
+	icon_state = "princesszeld"
+	item_state = "princesszeld"
+
+/obj/item/clothing/under/urist/halloween/beaker
+	name = "beaker"
+	desc = "An over sized beaker."
+	icon_state = "beaker"
+	item_state = "beaker"
+
+/obj/item/clothing/under/urist/halloween/facebook
+	name = "facebook"
+	desc = "Did someone really tape a book to their face?"
+	icon_state = "facebook"
+	item_state = "facebook"
