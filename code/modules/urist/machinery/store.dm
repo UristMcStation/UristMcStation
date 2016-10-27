@@ -69,6 +69,7 @@ var/global/datum/store/centcomm_store=new
 /obj/machinery/computer/merch
 	name = "Merchandise Computer"
 	icon_screen = "comm_logs"
+	light_color = "#00b000"
 	circuit = "/obj/item/weapon/circuitboard/merch"
 
 /obj/item/weapon/circuitboard/merch
@@ -210,7 +211,7 @@ td.cost.toomuch {
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/merch/update_icon()
+/*/obj/machinery/computer/merch/update_icon()
 
 	if(stat & BROKEN)
 		icon_state = "comm_logs0"
@@ -220,5 +221,5 @@ td.cost.toomuch {
 			stat |= NOPOWER
 		else
 			icon_state = initial(icon_state)
-			stat &= ~NOPOWER
+			stat &= ~NOPOWER*/
 
