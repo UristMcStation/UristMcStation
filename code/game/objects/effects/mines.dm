@@ -4,6 +4,7 @@
 	density = 1
 	anchored = 1
 	layer = 3
+	throwpass = 1
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "uglymine"
 	var/triggerproc = "explode" //name of the proc thats called when the mine is triggered
@@ -103,3 +104,9 @@
 	name = "Stun Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerstun"
+
+/obj/effect/mine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover) && mover.checkpass(PASSTABLE))
+		return 1
+	else
+		return ..()
