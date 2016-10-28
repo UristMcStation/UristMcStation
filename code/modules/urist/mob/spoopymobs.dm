@@ -5,14 +5,16 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "zombie_s"
 	icon_living = "zombie_s"
-	icon_dead = "zombie_d"
+//	icon_dead = "zombie_d"
+	icon_dead = ""
+	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
-	faction = "zombie"
+	faction = "undead"
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -208,7 +210,7 @@
 	melee_damage_upper = 20
 	attacktext = "bit"
 	attack_sound = 'sound/items/drink.ogg'
-	faction = "vampire"
+	faction = "undead"
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -219,6 +221,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 	ranged = 0
+	simplify_dead_icon = 1
 
 /mob/living/simple_animal/hostile/urist/vampire/New()
 	var/danglybits = pick(0, 1) //random gender
