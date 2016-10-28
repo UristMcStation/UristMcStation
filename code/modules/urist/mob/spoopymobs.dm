@@ -234,3 +234,236 @@
 		icon_living = "vampire_f_s"
 		icon_dead = "vampire_f_d"
 	..()
+
+/mob/living/simple_animal/hostile/urist/skeleton
+	name = "skeleton"
+	desc = "Too spooky."
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "skeltal"
+	icon_living = "skeltal"
+	faction = "undead"
+	health = 40 //not much keeping them in one piece
+	resistance = 10 //but not much to hit either unless you use a heavy object
+	ranged = 0
+	melee_damage_lower = 10
+	melee_damage_upper = 20
+
+//a more persistent variant of the shadow wight with a different soundset
+/obj/effect/haunter
+	name = "wight"
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "ghost-narsie"
+	density = 1
+
+/obj/effect/haunter/New()
+	processing_objects.Add(src)
+
+/obj/effect/haunter/Destroy()
+	processing_objects.Remove(src)
+	return ..()
+
+/obj/effect/haunter/process()
+	if(src.loc)
+		src.loc = get_turf(pick(orange(1,src)))
+		var/mob/living/carbon/M = locate() in src.loc
+		if(M)
+			playsound(src.loc, pick('sound/hallucinations/growl1.ogg',\
+			'sound/hallucinations/growl2.ogg',\
+			'sound/hallucinations/growl3.ogg',\
+			'sound/effects/ghost.ogg',\
+			'sound/effects/ghost2.ogg',\
+			'sound/hallucinations/wail.ogg',\
+			'sound/hallucinations/veryfar_noise.ogg',\
+			'sound/effects/wind/wind_2_2.ogg',\
+			'sound/effects/wind/wind_3_1.ogg',\
+			'sound/hallucinations/far_noise.ogg',\
+			), 50, 1, -3)
+			M.sleeping = max(M.sleeping,rand(5,10))
+			if(prob(20))
+				src.loc = null
+	else
+		processing_objects.Remove(src)
+
+//not-faceless that split on death into weaker clones
+/mob/living/simple_animal/hostile/urist/amorph
+	name = "amorph"
+	desc = "A shapeless biomass twisted into a mockery of a human shape."
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "amorphic"
+	icon_living = "amorphic"
+	faction = "biohorror"
+	var/generation = 1
+	maxHealth = 200
+	health = 200
+	ranged = 0
+	move_to_delay = 7
+
+/mob/living/simple_animal/hostile/urist/amorph/death() //splits into two
+	var/nextgen = src.generation++
+	if(nextgen < 1)
+		nextgen = 1
+	if(nextgen < 5)
+		var/mob/living/simple_animal/hostile/urist/amorph/A1 = new /mob/living/simple_animal/hostile/urist/amorph(src.loc)
+		var/mob/living/simple_animal/hostile/urist/amorph/A2 = new /mob/living/simple_animal/hostile/urist/amorph(src.loc)
+		A1.generation = nextgen
+		A2.generation = nextgen
+		A1.maxHealth = round(src.maxHealth / nextgen)
+		A2.maxHealth = round(src.maxHealth / nextgen)
+	..()
+	qdel(src)
+
+//Mutants. oldDoom former humans meets frankensteining.
+//TODO: Assemble them from species' bodyparts randomly and the weapon inhand
+
+/mob/living/simple_animal/hostile/urist/mutant
+	name = "mutant"
+	desc = "A horrifying jumble of organs and homicidal rage."
+	faction = "biohorror"
+	icon_state = "hybrid"
+	icon_living = "hybrid"
+	maxHealth = 80
+	health = 80
+	ranged = 0
+	retreat_distance = 0
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	attacktext = "hacked"
+	attack_sound = 'sound/weapons/slice.ogg'
+
+/mob/living/simple_animal/hostile/urist/mutant/Life()
+	if(IsInRange(src.health, 1, (maxHealth - 1)))
+		health++ //regenerates while alive
+	..()
+
+/mob/living/simple_animal/hostile/urist/mutant/ranged
+	desc = "Despite physical and mental degradation, he can still operate a shotgun."
+	icon_state = "mutant_ranged"
+	icon_living = "mutant_ranged"
+	ranged = 1
+	projectilesound = 'sound/weapons/gunshot/shotgun.ogg'
+	projectiletype = /obj/item/projectile/bullet/pellet/shotgun //check balance
+	ranged_cooldown_cap = 10
+	attacktext = "kicked"
+	attack_sound = 'sound/weapons/genhit3.ogg'
+
+/mob/living/simple_animal/hostile/urist/mutant/melee
+	desc = "Homicidal, tough bastard wielding a heavy axe."
+	icon_state = "mutant_melee"
+	icon_living = "mutant_melee"
+	environment_smash = 2
+	ranged = 0
+	minimum_distance = 1
+	melee_damage_lower = 15
+	melee_damage_upper = 25
+	resistance = 5
+	attacktext = "hacked"
+	attack_sound = 'sound/weapons/slice.ogg'
+
+/mob/living/simple_animal/hostile/urist/mutant/hybrid
+	name = "Xenohybrid"
+	desc = "A fast and terrifyingly persistent hunter."
+	move_to_delay = 3
+	maxHealth = 120
+	health = 120
+	ranged = 0
+	minimum_distance = 1
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	vision_range = 12
+	aggro_vision_range = 18
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/rapidslice.ogg'
+
+//A surreal alien with a massive mouth for a face, sprite by Nienhaus
+/mob/living/simple_animal/hostile/urist/devourer
+	name = "Devourer"
+	desc = "What the hell...?"
+	icon_state = "eyelien"
+	icon_living = "eyelien"
+	icon_dead = "eyelien_dead"
+	simplify_dead_icon = 0
+	faction = "biohorror"
+	attacktext = "chomped"
+	attack_sound = 'sound/weapons/bite.ogg'
+	maxHealth = 100
+	health = 100
+	ranged = 1
+	ranged_message = "spits"
+	projectiletype = /obj/item/projectile/energy/neurotoxin
+	projectilesound = 'sound/weapons/bite.ogg'
+	minimum_distance = 1
+
+//even more blatant...
+/mob/living/simple_animal/hostile/urist/imp
+	name = "imp"
+	desc = "Party like it's 1993."
+	icon_state = "imp"
+	icon_living = "imp"
+	icon_dead = "imp_dead"
+	simplify_dead_icon = 0 //because fancy dead icon
+	faction = "cult"
+	minimum_distance = 2
+	ranged = 1
+	maxHealth = 75
+	health = 75
+	projectiletype = /obj/item/projectile/energy/phoron
+	projectilesound = 'sound/effects/squelch1.ogg'
+	melee_damage_lower = 5
+	melee_damage_upper = 15
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/rapidslice.ogg'
+
+//TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
+/mob/living/simple_animal/hostile/urist/stalker
+	desc = "Implacable killer."
+	icon_state = "mutant_melee" //temporary
+	icon_living = "mutant_melee"
+	environment_smash = 1
+	maxHealth = 500
+	health = 500
+	resistance = 6
+	ranged = 0
+	move_to_delay = 6
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/rapidslice.ogg'
+	attack_same = 1
+	var/stalkee //who he stalks
+
+/mob/living/simple_animal/hostile/urist/stalker/New()
+	..()
+	if(!(stalkee))
+		stalkee = pick(player_list)
+
+/mob/living/simple_animal/hostile/urist/stalker/Found(var/atom/A)
+	if(A == stalkee)
+		return 1
+	return 0
+
+/mob/living/simple_animal/hostile/urist/stalker/Life()
+	if(..())
+		if(prob(25))
+			HuntingTeleport()
+
+/mob/living/simple_animal/hostile/urist/stalker/death()
+	..()
+	qdel(src)
+
+/mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
+	var/list/destinations = new/list()
+	for(var/turf/T in range(stalkee,4))
+		if(istype(T,/turf/space)) continue
+		if(T.density) continue
+		var/light_amount = 10
+		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+		if(L)
+			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
+		if(light_amount > 3) continue
+		destinations += T
+	if(destinations.len)
+		var/turf/picked = pick(destinations)
+		if(!picked || !isturf(picked))
+			return
+		src.loc = picked
+	return
