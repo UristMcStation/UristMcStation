@@ -536,8 +536,8 @@
 		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/list/turfs = new/list()
-			for(var/turf/T in range(usr,outer_tele_radius))
-				if(T in range(usr,inner_tele_radius)) continue
+			for(var/turf/T in range(outer_tele_radius, usr))
+				if(T in range(inner_tele_radius, usr)) continue
 				if(istype(T,/turf/space)) continue
 				if(T.density) continue
 				if(T.x>world.maxx-outer_tele_radius || T.x<outer_tele_radius)	continue	//putting them at the edge is dumb

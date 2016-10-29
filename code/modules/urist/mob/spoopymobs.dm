@@ -278,7 +278,7 @@
 			'sound/effects/wind/wind_3_1.ogg',\
 			'sound/hallucinations/far_noise.ogg',\
 			), 50, 1, -3)
-			M.sleeping = max(M.sleeping,rand(5,10))
+			//M.sleeping = max(M.sleeping,rand(5,10))
 			if(prob(20))
 				src.loc = null
 	else
@@ -332,7 +332,8 @@
 
 /mob/living/simple_animal/hostile/urist/mutant/Life()
 	if(IsInRange(src.health, 1, (maxHealth - 1)))
-		health++ //regenerates while alive
+		if(prob(25))
+			health++ //regenerates while alive
 	..()
 
 /mob/living/simple_animal/hostile/urist/mutant/ranged
@@ -345,6 +346,7 @@
 	ranged_cooldown_cap = 10
 	attacktext = "kicked"
 	attack_sound = 'sound/weapons/genhit3.ogg'
+	minimum_distance = 2
 
 /mob/living/simple_animal/hostile/urist/mutant/melee
 	desc = "Homicidal, tough bastard wielding a heavy axe."
@@ -415,9 +417,10 @@
 
 //TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
 /mob/living/simple_animal/hostile/urist/stalker
+	name = "psycho"
 	desc = "Implacable killer."
-	icon_state = "mutant_melee" //temporary
-	icon_living = "mutant_melee"
+	icon_state = "psycho"
+	icon_living = "psycho"
 	environment_smash = 1
 	maxHealth = 500
 	health = 500
@@ -452,14 +455,15 @@
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
 	var/list/destinations = new/list()
-	for(var/turf/T in range(stalkee,4))
+	for(var/turf/T in range(5, stalkee))
 		if(istype(T,/turf/space)) continue
 		if(T.density) continue
+		if(T in range(src, 9)) continue //so they don't teleport pointlessly while in range
 		var/light_amount = 10
 		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
 		if(L)
 			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-		if(light_amount > 3) continue
+		if(light_amount > 1) continue
 		destinations += T
 	if(destinations.len)
 		var/turf/picked = pick(destinations)
