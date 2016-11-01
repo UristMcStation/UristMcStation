@@ -84,8 +84,8 @@
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
 	caliber = "7.62mm"
-	ammo_type = "/obj/item/ammo_casing/a762mm"
-	magazine_type = /obj/item/ammo_magazine/a762mm
+	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	zoomdevicename = "scope"
@@ -118,21 +118,30 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a762mm"
+	ammo_type = "/obj/item/ammo_casing/a762"
+	mag_type = MAGAZINE
+	caliber = "7.62mm"
+
+/obj/item/ammo_magazine/a762mm/sniper
+	name = "magazine (7.62mm)"
+	icon_state = "7.62mm"
+	icon = 'icons/urist/items/guns.dmi'
+	origin_tech = "combat=2"
+	ammo_type = "/obj/item/ammo_casing/a762/sniper"
 	max_ammo = 10
 	mag_type = MAGAZINE
 	multiple_sprites = 1
 	caliber = "7.62mm"
 
-/obj/item/ammo_magazine/a762mm/empty
+/obj/item/ammo_magazine/a762mm/sniper/empty
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = "/obj/item/ammo_casing/a762mm"
+	ammo_type = "/obj/item/ammo_casing/a762/sniper"
 	mag_type = MAGAZINE
 	initial_ammo = 0
 
-/obj/item/ammo_casing/a762mm
+/obj/item/ammo_casing/a762/sniper
 	desc = "A 7.62mm bullet casing."
 	caliber = "7.62mm"
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
