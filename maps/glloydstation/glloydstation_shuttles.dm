@@ -225,6 +225,7 @@
 	dock_target_offsite = "specops_dock_airlock"
 
 /datum/shuttle/ferry/naval
+	name = "Naval"
 	location = 1
 	warmup_time = 10
 	area_offsite = /area/shuttle/naval1/centcom
@@ -234,6 +235,7 @@
 //	dock_target_offsite = "naval_shuttle_bay"
 
 /datum/shuttle/ferry/security
+	name = "Security"
 	location = 0
 	warmup_time = 10
 	area_offsite = /area/shuttle/securityoutpost/outpost
