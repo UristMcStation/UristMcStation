@@ -2143,6 +2143,7 @@
 #include "code\modules\urist\items\uristpens.dm"
 #include "code\modules\urist\items\uristpills.dm"
 #include "code\modules\urist\items\uristvanity.dm"
+#include "code\modules\urist\items\uristwar2.dm"
 #include "code\modules\urist\items\uristweapons.dm"
 #include "code\modules\urist\items\watertank.dm"
 #include "code\modules\urist\items\clothes\back.dm"

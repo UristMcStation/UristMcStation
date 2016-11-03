@@ -21,8 +21,10 @@
 /obj/item/clothing/accessory/proc/get_inv_overlay()
 	if(!inv_overlay)
 		var/tmp_icon_state = overlay_state? overlay_state : icon_state
+
+
 		if(icon_override && ("[tmp_icon_state]_tie" in icon_states(icon_override)))
-			inv_overlay = image(icon = icon_override, icon_state = "[tmp_icon_state]_tie", dir = SOUTH)
+			inv_overlay = image(icon = icon_override, icon_state = "[tmp_icon_state]", dir = SOUTH) //yeah, sure, I'll just make three versions of the exact same fucking icon. fuck you bay, I'm changing it
 		else
 			inv_overlay = image(icon = INV_ACCESSORIES_DEF_ICON, icon_state = tmp_icon_state, dir = SOUTH)
 	return inv_overlay
@@ -40,8 +42,8 @@
 		if(sprite_sheets[bodytype])
 			use_sprite_sheet = sprite_sheets[bodytype]
 
-		if(icon_override && ("[tmp_icon_state]_mob" in icon_states(icon_override)))
-			mob_overlay[bodytype] = image(icon = icon_override, icon_state = "[tmp_icon_state]_mob")
+		if(icon_override && ("[tmp_icon_state]" in icon_states(icon_override)))
+			mob_overlay[bodytype] = image(icon = icon_override, icon_state = "[tmp_icon_state]")
 		else
 			mob_overlay[bodytype] = image(icon = use_sprite_sheet, icon_state = tmp_icon_state)
 	return mob_overlay[bodytype]
