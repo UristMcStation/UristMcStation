@@ -83,7 +83,7 @@
 	item_state = "SVD"
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
-	caliber = "7.62mm"
+	caliber = "a762"
 	ammo_type = "/obj/item/ammo_casing/a762/sniper"
 	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
 	slot_flags = SLOT_BACK
@@ -120,7 +120,7 @@
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a762"
 	mag_type = MAGAZINE
-	caliber = "7.62mm"
+	caliber = "a762"
 
 /obj/item/ammo_magazine/a762mm/sniper
 	name = "magazine (7.62mm)"
@@ -131,7 +131,7 @@
 	max_ammo = 10
 	mag_type = MAGAZINE
 	multiple_sprites = 1
-	caliber = "7.62mm"
+	caliber = "a762"
 
 /obj/item/ammo_magazine/a762mm/sniper/empty
 	name = "magazine (7.62mm)"
@@ -143,7 +143,7 @@
 
 /obj/item/ammo_casing/a762/sniper
 	desc = "A 7.62mm bullet casing."
-	caliber = "7.62mm"
+	caliber = "a762"
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 
 /obj/item/projectile/bullet/rifle/sniper

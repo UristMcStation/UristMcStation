@@ -173,7 +173,7 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/box/a762/m60
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
-	caliber = "7.62mm"
+	caliber = "a762"
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
@@ -197,7 +197,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "7.62mm"
+	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
