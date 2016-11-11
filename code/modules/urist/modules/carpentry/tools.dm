@@ -26,5 +26,8 @@
 	force = 15 //carpenters op plz nerf //this high because carpenters will need to defend themselves too
 	throwforce = 5
 	attack_verb = list("slashed", "cut", "chopped", "hacked")
-	w_class = 4.0 //suck it
+	w_class = 3 //changing to 3 because why not
 	matter = list(DEFAULT_WALL_MATERIAL = 2000, "wood" = 1000)
+
+//hunter stuff
+

@@ -15,6 +15,7 @@
 	light_color = null
 	light_power = 2
 	light_range = 2 //for some reason, range 1 doesn't apply at all.
+	var/bushspawnchance = 35 //let's try it, why not
 
 /turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
@@ -46,7 +47,7 @@
 			J.pixel_y = rand(-6,6)
 	if(reeds_spawn && prob(10))
 		new /obj/structure/flora/reeds(src)
-	if(bushes_spawn && prob(76))
+	if(bushes_spawn && prob(bushspawnchance))
 		new /obj/structure/bush(src)
 	else if(small_trees && prob(9)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
 		new /obj/structure/flora/tree/jungle/small(src)
@@ -95,11 +96,13 @@
 	large_trees_low = 1
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
+	bushspawnchance = 54
 
 /turf/simulated/jungle/thick
 	large_trees_high = 1
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
+	bushspawnchance = 73
 
 /turf/simulated/jungle/clear
 	bushes_spawn = 0
@@ -230,9 +233,62 @@
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
 	var/bridge = 0 //has there been a bridge built?
+	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
+	var/fishing = 0 //are we fishing
+
 
 /turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/wood))
+	if(istype(I, /obj/item/weapon/fishingrod))
+		if(bridge)
+			user << "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>"
+			return
+
+		else if(fishleft && !fishing && !bridge)
+			if(prob(1))
+				user << "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>"
+
+			else
+				user << "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>"
+
+			var/fishtime = (rand(40,140)) //test this shit
+			fishing = 1
+
+			if (do_after(user, fishtime, src))
+				user << "<span class='notice'>You feel a tug on your line!</span>"
+				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
+				fishing = 2
+				var/tempfish = fishleft
+				spawn(rand(35,70))
+					if(fishing && fishleft == tempfish)
+						user << "<span class='notice'>Looks like it got away...</span>"
+						fishing = 0
+						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+
+		else if(fishleft && fishing == 2 && !bridge)
+			var/obj/item/F
+
+			if(prob(2))
+				F = new/obj/item/weapon/storage/belt/utility(user.loc)
+			else if(prob(1))
+				F = new	/obj/item/weapon/beartrap(user.loc)
+			else if(prob(10))
+				F = new/obj/item/weapon/reagent_containers/food/drinks/cans/cola(user.loc)
+			else if(prob(3))
+				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
+			else if(prob(5))
+				F = new/obj/item/clothing/glasses/sunglasses(user.loc)
+			else
+				F = new/obj/item/fish(user.loc)
+			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+			fishleft -= 1
+			fishing = 0
+			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
+
+		else if(!fishleft && !bridge)
+			user << "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>"
+			return
+
+	else if(istype(I, /obj/item/stack/material/wood))
 		if(!bridge)
 
 			var/obj/item/stack/material/wood/R = I
@@ -286,12 +342,9 @@
 	var/obj/item/weapon/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		user.visible_message("<span class='notice'>user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
-		return
+		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
+		return 1
 
-
-	else
-		return
 /turf/simulated/jungle/water/New()
 	..()
 	for(var/obj/structure/bush/B in src)
@@ -320,7 +373,7 @@
 			M << "\blue You feel something slithering around your legs."
 			spawn(rand(25,50))
 				M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something bite into your leg!")
-				M.apply_damage(rand(1,3), BRUTE, sharp=1)
+				M.apply_damage(rand(3,5), BRUTE, sharp=1)
 
 
 /turf/simulated/jungle/water/deep
