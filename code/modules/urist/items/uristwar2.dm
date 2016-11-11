@@ -537,7 +537,7 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
-/obj/item/weapon/gun/projectile/automatic/ppsh
+/obj/item/weapon/gun/projectile/automatic/degtyaryov
 	urist_only = 1
 	name = "Degtyaryov machine gun"
 	desc = "The standard light machinegun of the Red Army. Only fires in short and long bursts. Takes pan magazines of 60 7.62mm rounds."
@@ -549,7 +549,7 @@
 	caliber = "a762"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/dp
+	magazine_type = /obj/item/ammo_magazine/a762mm/degtyaryov
 	wielded_item_state = "genericLMG-wielded"
 	requires_two_hands = 6
 	max_shells = 60
@@ -558,15 +558,15 @@
 		list(mode_name="long bursts",	burst=8, move_delay=15, requires_two_hands=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/ppsh/update_icon()
+/obj/item/weapon/gun/projectile/automatic/degtyaryov/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "ppsh41"
+		icon_state = "DT"
 	else
-		icon_state = "ppsh41-empty"
+		icon_state = "DT-empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/dp
+/obj/item/ammo_magazine/a762mm/degtyaryov
 	name = "Degtyaryov pan magazine (7.62mm)"
 	icon_state = "DTmag"
 	icon = 'icons/urist/items/guns.dmi'
@@ -574,7 +574,7 @@
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 60 //only the vehicle mounted version had 60 round mags, but fuck it.
 
-/obj/item/ammo_magazine/a762mm/dp/empty
+/obj/item/ammo_magazine/a762mm/degtyaryov/empty
 	initial_ammo = 0
 
 /obj/item/weapon/grenade/frag/sovietgrenade
