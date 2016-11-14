@@ -245,6 +245,7 @@
 	health = 40 //not much keeping them in one piece
 	resistance = 10 //but not much to hit either unless you use a heavy object
 	ranged = 0
+	attacktext = "stabbed"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 
