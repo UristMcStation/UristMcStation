@@ -1,6 +1,6 @@
 /obj/item/device/saxophone
 	name = "saxophone"
-	desc = "A shiny bronze saxophone."
+	desc = "A shiny brass saxophone."
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "saxophone"
 	item_state = "saxophone"
