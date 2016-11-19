@@ -173,7 +173,7 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/box/a762/m60
 	requires_two_hands = 6
 	wielded_item_state = "genericLMG-wielded"
-	caliber = "7.62mm"
+	caliber = "a762"
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
@@ -197,7 +197,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "7.62mm"
+	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
@@ -206,6 +206,11 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/a762mm/m14
 	requires_two_hands = 4
 	wielded_item_state = "woodarifle-wielded"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
 
 /obj/item/weapon/gun/projectile/automatic/m14/update_icon()
 	..()
@@ -364,7 +369,7 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "The NCO's sidearm. 15 rounds of 9mm. Less power than a .45, but almost double the capacity. May be issued to medical units as well."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "brownhp"
-	item_state = "gun"
+	item_state = "pistol"
 	w_class = 2
 	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=2"
@@ -426,9 +431,9 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
 	if(bolt_open)
-		icon_state = "308bolt_alt"
+		icon_state = "[initial(icon_state)]_alt"
 	else
-		icon_state = "308bolt"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/weapon/gun/projectile/manualcycle/attack_self(mob/user as mob)
 	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)

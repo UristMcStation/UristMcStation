@@ -37,7 +37,7 @@ var/global/remaininggens = 6
 		new /obj/structure/computerframe(S.loc)
 		qdel(S)
 
-	for(var/obj/structure/reagent_dispensers/fueltank/S in machines) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
+	for(var/obj/structure/reagent_dispensers/fueltank/S in world) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
 	for(var/mob/living/carbon/human/M in living_mob_list_)
@@ -157,9 +157,9 @@ var/global/remaininggens = 6
 	sploded = 1
 
 	spawn(5)
-		world << "\blue Rebooting in thirty seconds."
+		world << "\blue Rebooting in fourty five seconds."
 
-		spawn(300)
+		spawn(450)
 			if(!ticker.delay_end)
 				world.Reboot()
 			else
