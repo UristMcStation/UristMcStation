@@ -1,12 +1,12 @@
 /obj/item/device/saxophone
-	name = "saxophone"
-	desc = "A shiny brass saxophone."
+	name = "plastic saxophone"
+	desc = "A plastic saxophone with colourful buttons. You are number one with this."
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "saxophone"
 	item_state = "saxophone"
 	urist_only = 1
-	force = 10
-	attack_verb = list("played metal on", "crashed", "banged on")
+	force = 2
+	attack_verb = list("serenaded on", "banged", "walloped")
 	var/next_sound = 0
 	var/use_sound = 'sound/urist/WAN1.ogg'
 
