@@ -300,7 +300,7 @@
 	move_to_delay = 7
 
 /mob/living/simple_animal/hostile/urist/amorph/death() //splits into two
-	var/nextgen = src.generation++
+	var/nextgen = (1 + src.generation)
 	if(nextgen < 1)
 		nextgen = 1
 	if(nextgen < 5)
