@@ -4,7 +4,7 @@
 	opacity = 0
 	density = 0
 	layer = ABOVE_WINDOW_LAYER
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -22,7 +22,7 @@
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
 	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
-		user << "You unfasten the sign with your [tool.name]."
+		to_chat(user, "You unfasten the sign with your [tool.name].")
 		var/obj/item/sign/S = new(src.loc)
 		S.name = name
 		S.desc = desc
@@ -35,7 +35,7 @@
 	name = "sign"
 	desc = ""
 	icon = 'icons/obj/decals.dmi'
-	w_class = 3		//big
+	w_class = ITEM_SIZE_NORMAL		//big
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
@@ -56,7 +56,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		user << "You fasten \the [S] with your [tool]."
+		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
 
@@ -93,12 +93,14 @@
 
 /obj/structure/sign/warning/bomb_range
 	name = "\improper BOMB RANGE"
+	icon_state = "blast"
 
 /obj/structure/sign/warning/caution
 	name = "\improper CAUTION"
 
 /obj/structure/sign/warning/compressed_gas
 	name = "\improper COMPRESSED GAS"
+	icon_state = "hikpa"
 
 /obj/structure/sign/warning/deathsposal
 	name = "\improper DISPOSAL LEADS TO SPACE"
@@ -127,6 +129,7 @@
 
 /obj/structure/sign/warning/lethal_turrets
 	name = "\improper LETHAL TURRETS"
+	icon_state = "turrets"
 
 /obj/structure/sign/warning/lethal_turrets/New()
 	..()

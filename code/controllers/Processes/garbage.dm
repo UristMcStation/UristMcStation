@@ -4,7 +4,6 @@
 #define GC_COLLECTION_TIMEOUT (30 SECONDS)
 #define GC_FORCE_DEL_PER_RUN 30
 
-
 var/datum/controller/process/garbage_collector/garbage_collector
 var/list/delayed_garbage = list()
 
@@ -50,14 +49,14 @@ world/loop_checks = 0
 	while(destroyed.len && --checkRemain >= 0)
 		if(remaining_force_dels <= 0)
 			#ifdef GC_DEBUG
-			testing("GC: Reached max force dels per tick [dels] vs [maxDels]")
+			testing("GC: Reached max force dels per tick ([remaining_force_dels] remaining of [GC_FORCE_DEL_PER_RUN])")
 			#endif
 			break // Server's already pretty pounded, everything else can wait 2 seconds
 		var/refID = destroyed[1]
 		var/GCd_at_time = destroyed[refID]
 		if(GCd_at_time > time_to_kill)
 			#ifdef GC_DEBUG
-			testing("GC: [refID] not old enough, breaking at [world.time] for [GCd_at_time - time_to_kill] deciseconds until [GCd_at_time + collection_timeout]")
+			testing("GC: [refID] not old enough, breaking at [world.time] for [GCd_at_time - time_to_kill] deciseconds until [GCd_at_time + GC_COLLECTION_TIMEOUT]")
 			#endif
 			break // Everything else is newer, skip them
 		var/datum/A = locate(refID)
@@ -163,11 +162,19 @@ world/loop_checks = 0
 
 var/list/unwrappable_lists = list("contents","verbs","overlays","underlays","screen")
 
-/mob/verb/create_and_delete_thing() // Prevents the hidden reference counter from holding our thing
+// BYOND keeps a hidden reference to objects used in a verb for a few minutes
+//  which often results in items deleted by Right Click->Delete not GCing properly. Thus, this proc.
+/mob/verb/create_and_delete(path_text as text)
 	set category = "Debug"
-	set name = "Create And Delete Thing"
+	set name = "Create And Delete"
 
-	var/path = input("Enter path")
+	path_text = sanitize(path_text)
+	if(!path_text)
+		return
+
+	var/path = text2path(path_text)
+	if(!path)
+		to_chat(src, "Unable to find the path [path_text]")
 	var/atom/thing = new path(loc)
 	qdel(thing)
 
@@ -216,7 +223,7 @@ var/list/unwrappable_lists = list("contents","verbs","overlays","underlays","scr
 	. = 0
 	for(var/element in L)
 		if(!islist(element))
-			if(element == A || (!isnum(element) && L[element]) == A)
+			if(element == A || (!isnum(element) && !(list_name in view_variables_no_assoc) && L[element] == A))
 				testing("GC: '[log_info_line(A)]' referenced by [D ? "'[log_info_line(D)]'" : "global list"], list: [list_name]")
 				. += 1
 		else if(islist(element))

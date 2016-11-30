@@ -102,7 +102,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = 5//bulky item
+	w_class = ITEM_SIZE_HUGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -305,6 +305,13 @@
 	icon_state = "dress_pink"
 	item_state = "p_suit"
 	worn_state = "dress_pink"
+
+/obj/item/clothing/under/dress/dress_purple
+	name = "purple dress"
+	desc= "A simple, tight fitting purple dress."
+	icon_state = "tian_dress"
+	item_state = "p_suit"
+	worn_state = "tian_dress"
 
 /obj/item/clothing/under/dress/dress_yellow
 	name = "yellow dress"
@@ -607,4 +614,9 @@
 	species_restricted = list("Monkey")
 	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/uniform.dmi')
 
+/obj/item/clothing/under/rank/psych/turtleneck/sweater
+	desc = "A warm looking sweater and a pair of dark blue slacks."
+	name = "sweater"
+	icon_state = "turtleneck"
+	worn_state = "turtleneck"
 
