@@ -1,6 +1,7 @@
+#define WORLD_ICON_SIZE 32
 
 /var/game_id = null
-/proc/generate_gameid()
+/hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return
 	game_id = ""
@@ -17,6 +18,51 @@
 	for(var/_ = 1 to 3)
 		game_id = "[c[(t % l) + 1]][game_id]"
 		t = round(t / l)
+	return 1
+
+// Find mobs matching a given string
+//
+// search_string: the string to search for, in params format; for example, "some_key;mob_name"
+// restrict_type: A mob type to restrict the search to, or null to not restrict
+//
+// Partial matches will be found, but exact matches will be preferred by the search
+//
+// Returns: A possibly-empty list of the strongest matches
+/proc/text_find_mobs(search_string, restrict_type = null)
+	var/list/search = params2list(search_string)
+	var/list/ckeysearch = list()
+	for(var/text in search)
+		ckeysearch += ckey(text)
+
+	var/list/match = list()
+
+	for(var/mob/M in mob_list)
+		if(restrict_type && !istype(M, restrict_type))
+			continue
+		var/strings = list(M.name, M.ckey)
+		if(M.mind)
+			strings += M.mind.assigned_role
+			strings += M.mind.special_role
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(H.species)
+				strings += H.species.name
+		for(var/text in strings)
+			if(ckey(text) in ckeysearch)
+				match[M] += 10 // an exact match is far better than a partial one
+			else
+				for(var/searchstr in search)
+					if(findtext(text, searchstr))
+						match[M] += 1
+
+	var/maxstrength = 0
+	for(var/mob/M in match)
+		maxstrength = max(match[M], maxstrength)
+	for(var/mob/M in match)
+		if(match[M] < maxstrength)
+			match -= M
+
+	return match
 
 
 /world
@@ -25,9 +71,10 @@
 	area = /area/space
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
+	icon_size = WORLD_ICON_SIZE
 
 
-#define RECOMMENDED_VERSION 509
+#define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
@@ -46,7 +93,7 @@
 		config.server_name += " #[(world.port % 1000) / 100]"
 
 	if(config && config.log_runtime)
-		var/runtime_log = file("data/logs/runtime/[date_string]-[game_id].log")
+		var/runtime_log = file("data/logs/runtime/[date_string]_[time2text(world.timeofday, "hh:mm")]_[game_id].log")
 		runtime_log << "Game [game_id] starting up at [time2text(world.timeofday, "hh:mm.ss")]"
 		log = runtime_log
 
@@ -74,20 +121,9 @@
 	// This is kinda important. Set up details of what the hell things are made of.
 	populate_material_list()
 
-	if(config.generate_asteroid)
-		// These values determine the specific area that the map is applied to.
-		// If you do not use the official Baycode moonbase map, you will need to change them.
-		//Create the mining Z-level.
-		new /datum/random_map/automata/cave_system(null,1,1,5,255,255)
-		//new /datum/random_map/noise/volcanism(null,1,1,5,255,255) // Not done yet! Pretty, though.
-		// Create the mining ore distribution map.
-		new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)
-		// Update all turfs to ensure everything looks good post-generation. Yes,
-		// it's brute-forcey, but frankly the alternative is a mine turf rewrite.
-		for(var/turf/simulated/mineral/M in world) // Ugh.
-			M.updateMineralOverlays()
-		for(var/turf/simulated/floor/asteroid/M in world) // Uuuuuugh.
-			M.updateMineralOverlays()
+	if(config.generate_map)
+		if(using_map.perform_map_generation())
+			using_map.refresh_mining_turfs()
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
@@ -161,7 +197,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 			for(var/client/C in clients)
 				if(C.holder)
-					if(C.holder.fakekey)
+					if(C.is_stealthed())
 						continue
 					admins[C.key] = C.holder.rank
 				players += C.key
@@ -176,7 +212,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 			for(var/client/C in clients)
 				if(C.holder)
-					if(C.holder.fakekey)
+					if(C.is_stealthed())
 						continue	//so stealthmins aren't revealed by the hub
 					admins++
 				s["player[n]"] = C.key
@@ -219,6 +255,56 @@ var/world_topic_spam_protect_time = world.timeofday
 
 		return list2params(L)
 
+	else if(copytext(T,1,5) == "laws")
+		var/input[] = params2list(T)
+		if(input["key"] != config.comms_password)
+			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+
+				spawn(50)
+					world_topic_spam_protect_time = world.time
+					return "Bad Key (Throttled)"
+
+			world_topic_spam_protect_time = world.time
+			world_topic_spam_protect_ip = addr
+
+			return "Bad Key"
+
+		var/list/match = text_find_mobs(input["laws"], /mob/living/silicon)
+
+		if(!match.len)
+			return "No matches"
+		else if(match.len == 1)
+			var/mob/living/silicon/S = match[1]
+			var/info = list()
+			info["name"] = S.name
+			info["key"] = S.key
+
+			if(!S.laws)
+				info["laws"] = null
+				return list2params(info)
+
+			var/list/lawset_parts = list(
+				"ion" = S.laws.ion_laws,
+				"inherent" = S.laws.inherent_laws,
+				"supplied" = S.laws.supplied_laws
+			)
+
+			for(var/law_type in lawset_parts)
+				var/laws = list()
+				for(var/datum/ai_law/L in lawset_parts[law_type])
+					laws += L.law
+				info[law_type] = list2params(laws)
+
+			info["zero"] = S.laws.zeroth_law ? S.laws.zeroth_law.law : null
+
+			return list2params(info)
+
+		else
+			var/list/ret = list()
+			for(var/mob/M in match)
+				ret[M.key] = M.name
+			return list2params(ret)
+
 	else if(copytext(T,1,5) == "info")
 		var/input[] = params2list(T)
 		if(input["key"] != config.comms_password)
@@ -233,36 +319,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 			return "Bad Key"
 
-		var/list/search = params2list(input["info"])
-		var/list/ckeysearch = list()
-		for(var/text in search)
-			ckeysearch += ckey(text)
-
-		var/list/match = list()
-
-		for(var/mob/M in mob_list)
-			var/strings = list(M.name, M.ckey)
-			if(M.mind)
-				strings += M.mind.assigned_role
-				strings += M.mind.special_role
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if(H.species)
-					strings += H.species.name
-			for(var/text in strings)
-				if(ckey(text) in ckeysearch)
-					match[M] += 10 // an exact match is far better than a partial one
-				else
-					for(var/searchstr in search)
-						if(findtext(text, searchstr))
-							match[M] += 1
-
-		var/maxstrength = 0
-		for(var/mob/M in match)
-			maxstrength = max(match[M], maxstrength)
-		for(var/mob/M in match)
-			if(match[M] < maxstrength)
-				match -= M
+		var/list/match = text_find_mobs(input["info"])
 
 		if(!match.len)
 			return "No matches"
@@ -350,14 +407,12 @@ var/world_topic_spam_protect_time = world.timeofday
 		C.received_irc_pm = world.time
 		C.irc_admin = input["sender"]
 
-		C << 'sound/effects/adminhelp.ogg'
-		C << message
-
+		sound_to(C, 'sound/effects/adminhelp.ogg')
+		to_chat(C, message)
 
 		for(var/client/A in admins)
 			if(A != C)
-				A << amessage
-
+				to_chat(A, amessage)
 		return "Message Successful"
 
 	else if(copytext(T,1,6) == "notes")
@@ -405,21 +460,26 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/Reboot(var/reason)
 	/*spawn(0)
-		world << sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')) // random end sounds!! - LastyBatsy
+		sound_to(world, sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
+
 		*/
 
 	processScheduler.stop()
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)
-			C << link("byond://[config.server]")
+			to_chat(C, link("byond://[config.server]"))
 
 	if(config.wait_for_sigusr1_reboot && reason != 3)
 		text2file("foo", "reboot_called")
-		world << "<span class=danger>World reboot waiting for external scripts. Please be patient.</span>"
+		to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
 		return
 
 	..(reason)
+
+/world/Del()
+	callHook("shutdown")
+	return ..()
 
 /hook/startup/proc/loadMode()
 	world.load_mode()
@@ -439,7 +499,6 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/F = file("data/mode.txt")
 	fdel(F)
 	F << the_mode
-
 
 /hook/startup/proc/loadMOTD()
 	world.load_motd()

@@ -31,11 +31,35 @@
 	cost = 10
 	containername = "\improper Plastic sheets crate"
 
+/decl/hierarchy/supply_pack/engineering/smes_circuit
+	name = "Superconducting Magnetic Energy Storage Unit Circuitry"
+	contains = list(/obj/item/weapon/circuitboard/smes)
+	cost = 20
+	containername = "\improper Superconducting Magnetic Energy Storage Unit Circuitry"
+
 /decl/hierarchy/supply_pack/engineering/smescoil
-	name = "Superconducting Magnetic Coil"
+	name = "Superconductive Magnetic Coil"
 	contains = list(/obj/item/weapon/smes_coil)
-	cost = 75
-	containername = "\improper Superconducting Magnetic Coil crate"
+	cost = 35
+	containername = "\improper Superconductive Magnetic Coil crate"
+
+/decl/hierarchy/supply_pack/engineering/smescoil_weak
+	name = "Basic Superconductive Magnetic Coil"
+	contains = list(/obj/item/weapon/smes_coil/weak)
+	cost = 25
+	containername = "\improper Basic Superconductive Magnetic Coil crate"
+
+/decl/hierarchy/supply_pack/engineering/smescoil_super_capacity
+	name = "Superconductive Capacitance Coil"
+	contains = list(/obj/item/weapon/smes_coil/super_capacity)
+	cost = 45
+	containername = "\improper Superconductive Capacitance Coil crate"
+
+/decl/hierarchy/supply_pack/engineering/smescoil_super_io
+	name = "Superconductive Transmission Coil"
+	contains = list(/obj/item/weapon/smes_coil/super_io)
+	cost = 45
+	containername = "\improper Superconductive Transmission Coil crate"
 
 /decl/hierarchy/supply_pack/engineering/electrical
 	name = "Electrical maintenance crate"
@@ -170,28 +194,12 @@
 	containername = "\improper Disposal Dispenser Crate"
 	access = access_atmospherics
 
-/decl/hierarchy/supply_pack/engineering/shield_gen
-	name = "Bubble shield generator circuitry"
-	contains = list(/obj/item/weapon/circuitboard/shield_gen)
+/decl/hierarchy/supply_pack/engineering/shield_generator
+	name = "Shield Generator Construction Kit"
+	contains = list(/obj/item/weapon/circuitboard/shield_generator, /obj/item/weapon/stock_parts/capacitor, /obj/item/weapon/stock_parts/micro_laser, /obj/item/weapon/smes_coil, /obj/item/weapon/stock_parts/console_screen)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure
-	containername = "\improper bubble shield generator circuitry crate"
-	access = access_ce
-
-/decl/hierarchy/supply_pack/engineering/shield_gen_ex
-	name = "Hull shield generator circuitry"
-	contains = list(/obj/item/weapon/circuitboard/shield_gen_ex)
-	cost = 50
-	containertype = /obj/structure/closet/crate/secure
-	containername = "\improper hull shield generator circuitry crate"
-	access = access_ce
-
-/decl/hierarchy/supply_pack/engineering/shield_cap
-	name = "Bubble shield capacitor circuitry"
-	contains = list(/obj/item/weapon/circuitboard/shield_cap)
-	cost = 50
-	containertype = /obj/structure/closet/crate/secure
-	containername = "\improper shield capacitor circuitry crate"
+	containername = "\improper shield generator construction kit crate"
 	access = access_ce
 
 /decl/hierarchy/supply_pack/engineering/smbig

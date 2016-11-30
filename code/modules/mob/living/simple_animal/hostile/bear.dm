@@ -45,14 +45,6 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 
-/mob/living/simple_animal/hostile/bear/Move()
-	..()
-	if(stat != DEAD)
-		if(loc && istype(loc,/turf/space))
-			icon_state = "bear"
-		else
-			icon_state = "bearfloor"
-
 /mob/living/simple_animal/hostile/bear/Life()
 	. =..()
 	if(!.)
@@ -131,7 +123,7 @@
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
+		var/dam_zone = pick(BP_CHEST, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
 		var/obj/item/organ/external/affecting = H.get_organ(ran_zone(dam_zone))
 		H.apply_damage(damage, BRUTE, affecting, H.run_armor_check(affecting, "melee"))
 		return H

@@ -15,6 +15,10 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 
+/obj/machinery/power/initialize()
+	..()
+	connect_to_network()
+
 /obj/machinery/power/Destroy()
 	disconnect_from_network()
 	disconnect_terminal()
@@ -24,6 +28,12 @@
 ///////////////////////////////
 // General procedures
 //////////////////////////////
+
+
+/obj/machinery/power/powered()
+	if(use_power)
+		return ..()
+	return 1 //doesn't require an external power source
 
 // common helper procs for all power machines
 /obj/machinery/power/drain_power(var/drain_check, var/surge, var/amount = 0)
@@ -60,7 +70,7 @@
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
 
-// returns true if the area has power on given channel (or doesn't require power), defaults to power_channel. 
+// returns true if the area has power on given channel (or doesn't require power), defaults to power_channel.
 // May also optionally specify an area, otherwise defaults to src.loc.loc
 /obj/machinery/proc/powered(var/chan = -1, var/area/check_area = null)
 

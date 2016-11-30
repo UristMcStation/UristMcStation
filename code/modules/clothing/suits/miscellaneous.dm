@@ -91,15 +91,6 @@
 	flags_inv = HIDEJUMPSUIT
 
 
-/obj/item/clothing/suit/wcoat
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
-	icon_state = "vest"
-	item_state = "wcoat"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
-
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"
 	desc = "A set of denim overalls."
@@ -113,7 +104,7 @@
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency,/obj/item/toy)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
@@ -182,12 +173,20 @@
  */
 
 /obj/item/clothing/suit/straight_jacket
-	name = "straight jacket"
+	name = "straitjacket"
 	desc = "A suit that completely restrains the wearer."
 	icon_state = "straight_jacket"
 	item_state = "straight_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+
+/obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
+	if(slot == slot_wear_suit)
+		if(iscarbon(user))
+			var/mob/living/carbon/C = user
+			C.drop_from_inventory(C.handcuffed)
+		user.drop_l_hand()
+		user.drop_r_hand()
 
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"
@@ -311,31 +310,31 @@
 	icon_state = "swim_red"
 	siemens_coefficient = 1
 
-/obj/item/clothing/suit/poncho
+/obj/item/clothing/suit/poncho/colored
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
 
-/obj/item/clothing/suit/poncho/green
+/obj/item/clothing/suit/poncho/colored/green
 	name = "green poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is green."
 	icon_state = "greenponcho"
 	item_state = "greenponcho"
 
-/obj/item/clothing/suit/poncho/red
+/obj/item/clothing/suit/poncho/colored/red
 	name = "red poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is red."
 	icon_state = "redponcho"
 	item_state = "redponcho"
 
-/obj/item/clothing/suit/poncho/purple
+/obj/item/clothing/suit/poncho/colored/purple
 	name = "purple poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is purple."
 	icon_state = "purpleponcho"
 	item_state = "purpleponcho"
 
-/obj/item/clothing/suit/poncho/blue
+/obj/item/clothing/suit/poncho/colored/blue
 	name = "blue poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is blue."
 	icon_state = "blueponcho"
@@ -404,4 +403,32 @@
 	icon_state = "mbill"
 	item_state = "mbill"
 
+/obj/item/clothing/suit/poncho/roles/security
+	name = "security poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is black and red, standard NanoTrasen Security colors."
+	icon_state = "secponcho"
+	item_state = "secponcho"
 
+/obj/item/clothing/suit/poncho/roles/medical
+	name = "medical poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
+	icon_state = "medponcho"
+	item_state = "medponcho"
+
+/obj/item/clothing/suit/poncho/roles/engineering
+	name = "engineering poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is yellow and orange, standard Engineering colors."
+	icon_state = "engiponcho"
+	item_state = "engiponcho"
+
+/obj/item/clothing/suit/poncho/roles/science
+	name = "science poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	icon_state = "sciponcho"
+	item_state = "sciponcho"
+
+/obj/item/clothing/suit/poncho/roles/cargo
+	name = "cargo poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	icon_state = "cargoponcho"
+	item_state = "cargoponcho"

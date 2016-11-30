@@ -69,16 +69,16 @@
 			if(host.reagents.has_reagent("sugar"))
 				if(!docile)
 					if(controlling)
-						host << "\blue You feel the soporific flow of sugar in your host's blood, lulling you into docility."
+						to_chat(host, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
 					else
-						src << "\blue You feel the soporific flow of sugar in your host's blood, lulling you into docility."
+						to_chat(src, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
 					docile = 1
 			else
 				if(docile)
 					if(controlling)
-						host << "\blue You shake off your lethargy as the sugar leaves your host's blood."
+						to_chat(host, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
 					else
-						src << "\blue You shake off your lethargy as the sugar leaves your host's blood."
+						to_chat(src, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
 					docile = 0
 
 			if(chemicals < 250)
@@ -86,7 +86,7 @@
 			if(controlling)
 
 				if(docile)
-					host << "\blue You are feeling far too docile to continue controlling your host..."
+					to_chat(host, "<span class='notice'>You are feeling far too docile to continue controlling your host...</span>")
 					host.release_control()
 					return
 
@@ -94,14 +94,14 @@
 					host.adjustBrainLoss(0.1)
 
 				if(prob(host.brainloss/20))
-					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_s","gasp"))]")
+					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_v","gasp"))]")
 
 /mob/living/simple_animal/borer/Stat()
 	. = ..()
 	statpanel("Status")
 
-	if(emergency_shuttle)
-		var/eta_status = emergency_shuttle.get_status_panel_eta()
+	if(evacuation_controller)
+		var/eta_status = evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
@@ -114,7 +114,7 @@
 
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
-		var/obj/item/organ/external/head = H.get_organ("head")
+		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		head.implants -= src
 
 	controlling = 0

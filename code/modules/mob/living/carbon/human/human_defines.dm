@@ -1,4 +1,6 @@
 /mob/living/carbon/human
+	plane = HUMAN_PLANE
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -78,7 +80,9 @@
 
 	var/list/flavor_texts = list()
 	var/gunshot_residue
-	var/pulling_punches // Are you trying not to hurt your opponent?
+	var/pulling_punches    // Are you trying not to hurt your opponent?
+	var/full_prosthetic    // We are a robutt.
+	var/robolimb_count = 0 // Number of robot limbs.
 
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
@@ -96,6 +100,9 @@
 	var/sec_record = ""
 	var/gen_record = ""
 	var/exploit_record = ""
+	
+	var/datum/mil_branch/char_branch = null
+	var/datum/mil_rank/char_rank = null
 
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
-	var/miming = 0
+	var/cloaked // If set, mob will only render its inhands, no other icons will be shown.	var/miming = 0

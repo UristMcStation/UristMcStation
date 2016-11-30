@@ -47,11 +47,11 @@ meteor_act
 	agony_amount *= siemens_coeff
 
 	switch (def_zone)
-		if("head")
+		if(BP_HEAD)
 			agony_amount *= 1.50
-		if("l_hand", "r_hand")
+		if(BP_L_HAND, BP_R_HAND)
 			var/c_hand
-			if (def_zone == "l_hand")
+			if (def_zone == BP_L_HAND)
 				c_hand = l_hand
 			else
 				c_hand = r_hand
@@ -64,7 +64,7 @@ meteor_act
 					emote("me", 1, "drops what they were holding, their [affected.name] malfunctioning!")
 				else
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					emote("me", 1, "[(species && species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
+					emote("me", 1, "[affected.can_feel_pain() ? "" : emote_scream]drops what they were holding in their [affected.name]!")
 
 	..(stun_amount, agony_amount, def_zone)
 
@@ -160,7 +160,7 @@ meteor_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		user << "<span class='danger'>They are missing that limb!</span>"
+		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return null
 
 	return hit_zone
@@ -237,7 +237,7 @@ meteor_act
 				H.bloody_hands(src)
 
 		switch(hit_zone)
-			if("head")
+			if(BP_HEAD)
 				if(wear_mask)
 					wear_mask.add_blood(src)
 					update_inv_wear_mask(0)
@@ -247,7 +247,7 @@ meteor_act
 				if(glasses && prob(33))
 					glasses.add_blood(src)
 					update_inv_glasses(0)
-			if("chest")
+			if(BP_CHEST)
 				bloody_body(src)
 
 /mob/living/carbon/human/proc/projectile_hit_bloody(obj/item/projectile/P, var/effective_force, var/hit_zone)
@@ -261,7 +261,7 @@ meteor_act
 			location.add_blood(src)
 
 		switch(hit_zone)
-			if("head")
+			if(BP_HEAD)
 				if(wear_mask)
 					wear_mask.add_blood(src)
 					update_inv_wear_mask(0)
@@ -271,7 +271,7 @@ meteor_act
 				if(glasses && prob(33))
 					glasses.add_blood(src)
 					update_inv_glasses(0)
-			if("chest")
+			if(BP_CHEST)
 				bloody_body(src)
 
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/effective_force, var/dislocate_mult, var/blocked)
@@ -291,12 +291,12 @@ meteor_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.robotic >= ORGAN_ROBOT))
-		user << "<span class='warning'>That limb isn't robotic.</span>"
+		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
 		return -1
 	if(affecting.sabotaged)
-		user << "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>"
+		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
 		return -1
-	user << "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>"
+	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
 	affecting.sabotaged = 1
 	return 1
 
@@ -321,7 +321,7 @@ meteor_act
 			var/mob/living/L = O.thrower
 			zone = check_zone(L.zone_sel.selecting)
 		else
-			zone = ran_zone("chest",75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
@@ -346,7 +346,7 @@ meteor_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("\red [src] has been hit in the [hit_area] by [O].")
+		src.visible_message("<span class='warning'>\The [src] has been hit in the [hit_area] by \the [O].</span>")
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].") //I guess "melee" is the best fit here
 		if(armor < 100)
 			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
@@ -355,10 +355,7 @@ meteor_act
 			var/mob/M = O.thrower
 			var/client/assailant = M.client
 			if(assailant)
-				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
-				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [src.name] ([src.ckey]) with a thrown [O]</font>")
-				if(!istype(src,/mob/living/simple_animal/mouse))
-					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+				admin_attack_log(M, src, "Threw \an [O] at their victim.", "Had \an [O] thrown at them", "threw \an [O] at")
 
 		//thrown weapon embedded object code.
 		if(dtype == BRUTE && istype(O,/obj/item))
@@ -388,7 +385,7 @@ meteor_act
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("\red [src] staggers under the impact!","\red You stagger under the impact!")
+			visible_message("<span class='warning'>\The [src] staggers under the impact!</span>","<span class='warning'>You stagger under the impact!</span>")
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src) return

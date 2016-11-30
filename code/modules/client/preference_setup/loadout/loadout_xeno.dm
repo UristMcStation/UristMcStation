@@ -101,7 +101,7 @@
 /datum/gear/uniform/resomi/sec
 	display_name = "uniform, Security (Resomi)"
 	path = /obj/item/clothing/under/resomi/red
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list("Security Officer","Head of Security","Warden","Detective")
 
 /datum/gear/uniform/resomi/med
 	display_name = "uniform, Medical (Resomi)"
@@ -110,3 +110,20 @@
 /datum/gear/uniform/resomi/science
 	display_name = "uniform, Science (Resomi)"
 	path = /obj/item/clothing/under/resomi/science
+
+/datum/gear/uniform/harness
+	display_name = "gear harness (Full Body Prosthetic, Diona)"
+	path = /obj/item/clothing/under/harness
+	sort_category = "Xenowear"
+
+/datum/gear/mask/ipc_monitor
+	display_name = "display monitor (IPC)"
+	path = /obj/item/clothing/mask/monitor
+	sort_category = "Xenowear"
+	whitelisted = "Machine"
+	cost = 1
+
+/datum/gear/shoes/toeless
+	display_name = "toeless jackboots"
+	path = /obj/item/clothing/shoes/jackboots/unathi
+	sort_category = "Xenowear"

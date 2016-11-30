@@ -67,9 +67,13 @@
 				if(M.gender == MALE)
 					H.gender = MALE
 					H.name = pick(first_names_male)
-				else
+				else if(M.gender == FEMALE)
 					H.gender = FEMALE
 					H.name = pick(first_names_female)
+				else
+					H.gender = NEUTER
+					H.name = pick(first_names_female|first_names_male)
+
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
@@ -88,10 +92,10 @@
 			else
 				new_mob.key = M.key
 
-			new_mob << "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>"
+			to_chat(new_mob, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
 
 			qdel(M)
 			return
 		else
-			M << "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>"
+			to_chat(M, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
 			return

@@ -68,18 +68,7 @@
 
 	var/simplify_dead_icon = 0 //Set to 1 to create an icon_dead from a 90 deg turn of icon_state
 
-/mob/living/simple_animal/New()
-	..()
-	verbs -= /mob/verb/observe
 
-/mob/living/simple_animal/Login()
-	if(src && src.client)
-		src.client.screen = list()
-		src.client.screen += src.client.void
-	..()
-
-/mob/living/simple_animal/updatehealth()
-	return
 
 /mob/living/simple_animal/Life()
 	..()
@@ -199,10 +188,6 @@
 /mob/living/simple_animal/gib()
 	..(icon_gib,1)
 
-/mob/living/simple_animal/emote(var/act, var/type, var/desc)
-	if(act)
-		..(act, type, desc)
-
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
 	custom_emote(1, act_desc)
 
@@ -223,10 +208,10 @@
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("\blue [M] [response_help] \the [src]")
+				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
 
 		if(I_DISARM)
-			M.visible_message("\blue [M] [response_disarm] \the [src]")
+			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
 			M.do_attack_animation(src)
 			//TODO: Push the mob away or something
 
@@ -244,12 +229,12 @@
 			G.affecting = src
 			LAssailant = M
 
-			M.visible_message("\red [M] has grabbed [src] passively!")
+			M.visible_message("<span class='warning'>[M] has grabbed \the [src] passively!</span>")
 			M.do_attack_animation(src)
 
 		if(I_HURT)
 			adjustBruteLoss(harm_intent_damage)
-			M.visible_message("\red [M] [response_harm] \the [src]")
+			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
 			M.do_attack_animation(src)
 
 	return
@@ -259,7 +244,7 @@
 		if(stat != DEAD)
 			var/obj/item/stack/medical/MED = O
 			if(!MED.animal_heal)
-				user << "<span class='notice'>That [MED] won't help \the [src] at all!</span>"
+				to_chat(user, "<span class='notice'>That [MED] won't help \the [src] at all!</span>")
 				return
 			if(health < maxHealth)
 				if(MED.amount >= 1)
@@ -271,7 +256,7 @@
 						if ((M.client && !( M.blinded )))
 							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
 		else
-			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
+			to_chat(user, "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>")
 		return
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/knife/butch))
@@ -287,7 +272,7 @@
 	visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by [user].</span>")
 
 	if(O.force <= resistance)
-		user << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
+		to_chat(user, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
 		return 2
 
 	var/damage = O.force
@@ -349,7 +334,20 @@
 	adjustBruteLoss(damage * blocked_mult(getarmor(null, "bomb")))
 
 /mob/living/simple_animal/adjustBruteLoss(damage)
-	health = Clamp(health - damage, 0, maxHealth)
+	..()
+	updatehealth()
+
+/mob/living/simple_animal/adjustFireLoss(damage)
+	..()
+	updatehealth()
+
+/mob/living/simple_animal/adjustToxLoss(damage)
+	..()
+	updatehealth()
+
+/mob/living/simple_anima/adjustOxyLoss(damage)
+	..()
+	updatehealth()
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))

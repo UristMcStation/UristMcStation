@@ -88,7 +88,7 @@ obj/var/contaminated = 0
 	if(vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
 			burn_skin(0.75)
-			if(prob(20)) src << "<span class='danger'>Your skin burns!</span>"
+			if(prob(20)) to_chat(src, "<span class='danger'>Your skin burns!</span>")
 			updatehealth()
 
 	//Burn eyes if exposed.
@@ -111,22 +111,18 @@ obj/var/contaminated = 0
 	if(vsc.plc.GENETIC_CORRUPTION)
 		if(rand(1,10000) < vsc.plc.GENETIC_CORRUPTION)
 			randmutb(src)
-			src << "<span class='danger'>High levels of toxins cause you to spontaneously mutate!</span>"
+			to_chat(src, "<span class='danger'>High levels of toxins cause you to spontaneously mutate!</span>")
 			domutcheck(src,null)
 
 
 /mob/living/carbon/human/proc/burn_eyes()
-	//The proc that handles eye burning.
-	if(!species.has_organ["eyes"])
-		return
-
-	var/obj/item/organ/eyes/E = internal_organs_by_name["eyes"]
+	var/obj/item/organ/internal/eyes/E = internal_organs_by_name[BP_EYES]
 	if(E)
-		if(prob(20)) src << "<span class='danger'>Your eyes burn!</span>"
+		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
 		E.damage += 2.5
 		eye_blurry = min(eye_blurry+1.5,50)
 		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
-			src << "<span class='danger'>You are blinded!</span>"
+			to_chat(src, "<span class='danger'>You are blinded!</span>")
 			eye_blind += 20
 
 /mob/living/carbon/human/proc/pl_head_protected()
@@ -143,15 +139,15 @@ obj/var/contaminated = 0
 	//Checks if the suit is adequately sealed.
 	var/coverage = 0
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
-		if(!protection) 
+		if(!protection)
 			continue
 		if(vsc.plc.PHORONGUARD_ONLY && !(protection.flags & PHORONGUARD))
 			return 0
 		coverage |= protection.body_parts_covered
-	
+
 	if(vsc.plc.PHORONGUARD_ONLY)
 		return 1
-	
+
 	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)
 
 /mob/living/carbon/human/proc/suit_contamination()

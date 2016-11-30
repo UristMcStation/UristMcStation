@@ -55,7 +55,7 @@
 		for(var/i = 1 to severity)
 			num += rand(2,max_number)
 		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location]", location = pick_area_turf(location))
-		while(turfs.len > 0 && num > 0)
+		while(vermin_turfs.len && num > 0)
 			var/turf/simulated/floor/T = pick(vermin_turfs)
 			vermin_turfs.Remove(T)
 			num--
@@ -69,7 +69,7 @@
 	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in \the [location]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
 
 /datum/event/infestation/proc/set_location_get_infestation_turfs()
-	location = pick_area(list(/proc/is_not_space, /proc/is_station_area))
+	location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area))
 	if(!location)
 		log_debug("Vermin infestation failed to find a viable area. Aborting.")
 		kill()
