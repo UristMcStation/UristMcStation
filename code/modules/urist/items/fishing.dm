@@ -9,6 +9,13 @@
 	throwforce = 3
 	attack_verb = list("hit", "bashed", "hooked")
 	w_class = 4
+	var/fishingpower = 1
+
+/obj/item/weapon/fishingrod/improvised
+	name = "improvised fishing rod"
+	desc = "An improvised fishing rod made out of a wooden shaft and some cable. It's alright for fishing, probably. You can try to fish with it, dumbass."
+	icon_state = "impfishingrod"
+	fishingpower = 1.25 //maybe make this longer, I dunno
 
 /obj/item/fish
 	name = "fish"
@@ -27,6 +34,8 @@
 /obj/item/fish/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
 		user << "<span class='notice'>You chop up the fish into wonderful fish fillet.</span>"
+		new /obj/item/weapon/reagent_containers/food/snacks/fishmeat(user.loc)
+		qdel(src)
 
 /obj/item/weapon/reagent_containers/food/snacks/fishmeat
 	name = "fish fillet"
