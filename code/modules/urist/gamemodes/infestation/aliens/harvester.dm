@@ -168,12 +168,7 @@
 	if(iscloaking)
 		var/light_amount = 0
 		if(isturf(src.loc))
-			var/turf/T = src.loc
-			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-			if(L)
-				light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-			else
-				light_amount =  10
+			light_amount = get_light_amt(src.loc)
 
 		//	if(!istype(T))
 		//		return 0
