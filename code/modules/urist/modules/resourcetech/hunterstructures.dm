@@ -1,0 +1,1 @@
+//tanning racks and etc
