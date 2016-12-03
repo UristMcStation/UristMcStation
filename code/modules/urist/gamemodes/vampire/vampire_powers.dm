@@ -377,11 +377,7 @@
 	var/light_amount = 0
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L)
-			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-		else
-			light_amount =  10
+		light_amount = get_light_amt(T)
 
 //	if(!istype(T))
 //		return 0
@@ -543,16 +539,7 @@
 				if(T.x>world.maxx-outer_tele_radius || T.x<outer_tele_radius)	continue	//putting them at the edge is dumb
 				if(T.y>world.maxy-outer_tele_radius || T.y<outer_tele_radius)	continue
 
-				// LIGHTING CHECK
-				var/light_amount = 0
-				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-
-				if(L)
-					light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-				else
-					light_amount =  10
-
-				if(light_amount > max_lum) continue
+				if(!(shadow_check(T, max_lum))) continue
 				turfs += T
 
 			if(!turfs.len)
@@ -574,7 +561,7 @@
 			animation.alpha = 127
 			animation.layer = 5
 			//animation.master = src
-			usr.loc = picked
+			usr.forceMove(picked)
 			spawn(10)
 				qdel(animation)
 		M.current.remove_vampire_blood(0)
