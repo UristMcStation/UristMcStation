@@ -31,3 +31,6 @@
 
 //hunter stuff
 
+//huntergun
+
+//hunterknife
