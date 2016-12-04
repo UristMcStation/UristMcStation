@@ -168,8 +168,9 @@
 			LostTarget()
 	LostTarget()
 
-/mob/living/simple_animal/hostile/proc/Goto(var/target, var/delay, var/minimum_distance)
-	step_towards(src, target) //weird but necessary so they try to bump openable obstacles
+/mob/living/simple_animal/hostile/proc/Goto(var/atom/target, var/delay, var/minimum_distance)
+	if(get_dist(src, target.loc) > minimum_distance)
+		step_towards(src, target) //weird but necessary so they try to bump openable obstacles
 	walk_to(src, target, minimum_distance, delay)
 
 /mob/living/simple_animal/hostile/adjustBruteLoss(var/damage)
