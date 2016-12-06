@@ -14,17 +14,6 @@ var/global/datum/shuttle_controller/shuttle_controller
 	for (var/datum/shuttle/ferry/shuttle in process_shuttles)
 		if (shuttle.process_state)
 			shuttle.process()
-	#ifdef URISTCODE
-		for (var/datum/shuttle/ferry/scom/s1/SO in process_shuttles)
-			missionloc1 = SO.missionloc
-			SO.area_offsite = locate(missionloc1)
-			SO.process()
-
-		for (var/datum/shuttle/ferry/scom/s2/ST in process_shuttles)
-			missionloc2 = ST.missionloc
-			ST.area_offsite = locate(missionloc2)
-			ST.process()
-	#endif
 
 //This is called by gameticker after all the machines and radio frequencies have been properly initialized
 /datum/shuttle_controller/proc/setup_shuttle_docks()
