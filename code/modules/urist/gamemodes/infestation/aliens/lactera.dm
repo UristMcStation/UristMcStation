@@ -155,6 +155,6 @@
 /datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
-	spawn(30)
+	spawn(5)
 		qdel(H)
 	return
