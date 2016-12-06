@@ -89,7 +89,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	spawn(600)
 		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion.<BR><BR> Your first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders.", "S-COM Mission Command")
 		spawn(50)
-			command_announcement.Announce("<b>Shuttles will be launching in 3 minutes. </b>", "S-COM Shuttle Control")
+			command_announcement.Announce("Shuttles will be launching in 3 minutes.", "S-COM Shuttle Control")
 	spawn(2400)
 		command_announcement.Announce("Launching shuttles in one minute.", "S-COM Shuttle Control")
 		spawn(600)
