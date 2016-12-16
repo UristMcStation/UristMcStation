@@ -8,7 +8,7 @@
 	var/atom/target // /vg/ edit:  Removed type specification so spiders can target doors.
 	var/attack_same = 0 //Set us to 1 to allow us to attack our own faction, or 2, to only ever attack our own faction
 	var/ranged = 0
-	var/rapid = 0
+	var/rapid = 0 //how many *additional* shots per burst, so set to 1 for 2-shot bursts etc. 2 is original behavior (3 rd. burst)
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
@@ -235,25 +235,23 @@
 /mob/living/simple_animal/hostile/proc/OpenFire(var/the_target)
 
 	var/target = the_target
+	var/shottimer = -2 //so that first shot is at spawn(1) like it used to
+	var/automove_cache = src.stop_automated_movement //so it can be restored to same value as it was, not always 0
 	visible_message("\red <b>[src]</b> [ranged_message] at [target]!", 1)
+	stop_automated_movement = 1 //so the mobs don't run into own bullets
 
-	if(rapid)
-		spawn(1)
+	var/shots = 0
+	while(1) //always true, we'll terminate manually to unstop movement
+		shottimer += 3
+		spawn(shottimer)
 			Shoot(target, src.loc, src)
 			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(4)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(6)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-	else
-		Shoot(target, src.loc, src)
-		if(casingtype)
-			new casingtype
+				var/obj/item/ammo_casing/droppedcasing = new casingtype(get_turf(src))
+				droppedcasing.BB = null
+		shots++
+		if(shots > rapid) //manual break
+			stop_automated_movement = automove_cache
+			break
 	ranged_cooldown = ranged_cooldown_cap
 	return
 
