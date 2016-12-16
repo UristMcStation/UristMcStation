@@ -29,6 +29,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	var/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
 	var/list/teamnames = list(1,2,3,4) //all possible team names, putting this in one place for easy editing
 	var/list/freeteams = list()
+	auto_recall_shuttle = 1
+	ert_disabled = 1
 
 /datum/game_mode/scom/New()
 	freeteams = teamnames
