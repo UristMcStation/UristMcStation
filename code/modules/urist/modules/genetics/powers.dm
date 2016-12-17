@@ -53,17 +53,12 @@
 
 	OnMobLife(var/mob/M)
 
-		var/light_amount = 0
 		if(isturf(M.loc))
 			var/turf/T = M.loc
-			var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-			if(L)
-				light_amount = L.lum_r + L.lum_g + L.lum_b //I am so gonna regret copying this code instead of proccing it next dev cycle --scrdest
+			if(shadow_check(T, 2, 1))
+				M.alpha = 0
 			else
-				light_amount =  10
-
-		if(light_amount <= 2)
-			M.alpha = 0
+				M.alpha = round(255 * 0.80)
 		else
 			M.alpha = round(255 * 0.80)
 

@@ -426,7 +426,7 @@ the sprite and make my own projectile -Glloyd*/
 	mag_type = MAGAZINE
 	multiple_sprites = 0
 
-/obj/item/weapon/gun/projectile/manualcycle/
+/obj/item/weapon/gun/projectile/manualcycle
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
