@@ -3,52 +3,75 @@
 /obj/effect/weather
 	name = "weather"
 	icon = 'icons/urist/weather.dmi'
-	icon_state = "bsnow"
+	icon_state = ""
 
 	layer = 5
 	anchored = 1 //prevents weather from being /draggable/
 	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
+	var/safe = 0 //1 makes it aesthetic-only
+	var/list/active_weathers = list()
+	var/mutable = 1 //if 1, changes periodically
+	var/list/tracker = list()
+
+/obj/effect/weather/New()
+	if(mutable)
+		weather_report()
+	..()
+
+//Handles initializing weather processing for a z-level if an instance is spawned on a new z
+/obj/effect/weather/proc/weather_report()
+	var/datum/weather_master/W = weathermaster
+	W.weather_cache += src
+
+//An 'I'm alive!' response, for minimal possible load
+/obj/effect/weather/proc/check_in()
+	if(mutable)
+		return 1
+
+//Something entered the weather zone so the weather has to do work
+/obj/effect/weather/proc/activate()
+	if(!(safe)) //does not process effects, so don't bother
+		var/datum/weather_master/W = weathermaster
+		W.active_cache += src
+
+//If there's still processable objects, return 1
+/obj/effect/weather/proc/Active()
+	if(!(safe))
+		if(tracker.len)
+			return 1
+	return 0
+
+/obj/effect/weather/update_icon()
+	overlays = null
+	for(var/obj/weathertype/WT in active_weathers)
+		overlays += WT
+
+//Handles all weather effects
+/obj/effect/weather/proc/inflict()
+	for(var/obj/weathertype/WT in active_weathers)
+		WT.GetWeatherEffect(src.loc)
+
+/obj/effect/weather/Crossed(O)
+	if(!(safe))
+		src.activate()
+		tracker += O
+	..()
+
+/obj/effect/weather/Uncrossed(O)
+	if(!(safe))
+		if(O in tracker)
+			tracker -= O
+	..()
 
 /obj/effect/weather/blowingsnow
 	name = "blowing snow"
-	icon_state = "bsnow"
-	var/safe = 0 //safe == not arctic; ugly, but better than changing the vars on the map
-
-/obj/effect/weather/blowingsnow/Crossed(O as mob) //TODO: check for cold resistant clothing at some point
-	..()
-	if(!safe)
-		if(istype(O, /mob/living/))
-			var/mob/living/M = O
-			if(COLD_RESISTANCE in M.mutations)
-				M << ("<span class='warning'> The cold wind feels surprisingly pleasant to you.</span>")
-			else
-				if(prob(85))
-					M.apply_damage(rand(3,5), BURN)
-					M << ("<span class='warning'> The cold wind tears at your skin!</span>")
 
 /obj/effect/weather/rain
 	name = "rain"
-	icon_state = "rain"
-	color = null //fully supports colors, the null works but is very subtle
-
-/obj/effect/weather/rain/Crossed(O as mob)
-	..()
-	if(istype(O, /mob/living/carbon/))
-		var/mob/living/carbon/M = O
-		M.ExtinguishMob()
 
 //optional underlay thing for the rain - uses the same colors, #556 recommended for rain with null splash
 /obj/effect/weather/splash
 	name = "rain splashes"
-	icon_state = "splash"
-	color = null
-	layer = 2
 
 /obj/effect/weather/fog
 	name = "fog"
-	icon = 'icons/urist/96x96.dmi'
-	icon_state = "fog"
-	pixel_x = -32
-	pixel_y = -32
-	color = "#fff"
-	alpha = 128
