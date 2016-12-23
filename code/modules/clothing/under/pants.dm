@@ -70,67 +70,67 @@
 
 //Baggy Pants//
 
-/obj/item/clothing/under/pants/baggy
+/obj/item/clothing/under/pants/urist/baggy
 	name = "baggy jeans"
 	desc = "A nondescript pair of tough baggy blue jeans."
 	icon_state = "baggy_jeans"
 
-/obj/item/clothing/under/pants/baggy/classicjeans
+/obj/item/clothing/under/pants/urist/baggy/classicjeans
 	name = "baggy classic jeans"
 	desc = "You feel cooler already."
 	icon_state = "baggy_jeansclassic"
 
-/obj/item/clothing/under/pants/baggy/mustangjeans
-	name = "maggy must hang jeans"
+/obj/item/clothing/under/pants/urist/baggy/mustangjeans
+	name = "baggy must hang jeans"
 	desc = "Made in the finest space jeans factory this side of Alpha Centauri."
 	icon_state = "baggy_jeansmustang"
 
-/obj/item/clothing/under/pants/baggy/blackjeans
+/obj/item/clothing/under/pants/urist/baggy/blackjeans
 	name = "baggy black jeans"
 	desc = "Only for those who can pull it off."
 	icon_state = "baggy_jeansblack"
 
-/obj/item/clothing/under/pants/baggy/greyjeans
+/obj/item/clothing/under/pants/urist/baggy/greyjeans
 	name = "baggy grey jeans"
 	desc = "Only for those who can pull it off."
 	icon_state = "baggy_jeansgrey"
 
-/obj/item/clothing/under/pants/baggy/youngfolksjeans
+/obj/item/clothing/under/pants/urist/baggy/youngfolksjeans
 	name = "baggy young folks jeans"
 	desc = "For those tired of boring old jeans. Relive the passion of your youth!"
 	icon_state = "baggy_jeansyoungfolks"
 
-/obj/item/clothing/under/pants/baggy/white
+/obj/item/clothing/under/pants/urist/baggy/white
 	name = "baggy white pants"
 	desc = "Plain white pants. Boring."
 	icon_state = "baggy_whitepants"
 
-/obj/item/clothing/under/pants/baggy/red
+/obj/item/clothing/under/pants/urist/baggy/red
 	name = "baggy red pants"
 	desc = "Bright red pants. Overflowing with personality."
 	icon_state = "baggy_redpants"
 
-/obj/item/clothing/under/pants/baggy/black
+/obj/item/clothing/under/pants/urist/baggy/black
 	name = "baggy black pants"
 	desc = "These pants are dark, like your soul."
 	icon_state = "baggy_blackpants"
 
-/obj/item/clothing/under/pants/baggy/tan
+/obj/item/clothing/under/pants/urist/baggy/tan
 	name = "baggy tan pants"
 	desc = "Some tan pants. You look like a white collar worker with these on."
 	icon_state = "baggy_tanpants"
 
-/obj/item/clothing/under/pants/baggy/track
+/obj/item/clothing/under/pants/urist/baggy/track
 	name = "baggy track pants"
 	desc = "A pair of track pants, for the athletic."
 	icon_state = "baggy_trackpants"
 
-/obj/item/clothing/under/pants/baggy/khaki
+/obj/item/clothing/under/pants/urist/baggy/khaki
 	name = "baggy khaki pants"
 	desc = "A pair of dust beige khaki pants."
 	icon_state = "baggy_khaki"
 
-/obj/item/clothing/under/pants/baggy/camo
+/obj/item/clothing/under/pants/urist/baggy/camo
 	name = "baggy camo pants"
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
 	icon_state = "baggy_camopants"

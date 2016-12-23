@@ -55,13 +55,13 @@
 
 /datum/gear/trackpants
 	display_name = "track pants"
-	path = /obj/item/clothing/under/pants/trackpants
+	path = /obj/item/clothing/under/pants/urist/trackpants
 	slot = slot_w_uniform
 	cost = 1
 
 /datum/gear/khakis
 	display_name = "khaki pants"
-	path = /obj/item/clothing/under/pants/khaki
+	path = /obj/item/clothing/under/pants/urist/khaki
 	slot = slot_w_uniform
 	cost = 1
 
@@ -79,7 +79,7 @@
 
 /datum/gear/camopants
 	display_name = "camo pants"
-	path = /obj/item/clothing/under/pants/camo
+	path = /obj/item/clothing/under/pants/urist/camo
 	slot = slot_w_uniform
 	cost = 1
 

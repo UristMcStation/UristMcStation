@@ -201,34 +201,34 @@
 
 //pants
 
-/obj/item/clothing/under/pants
+/*/obj/item/clothing/under/pants
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	gender = PLURAL
-	body_parts_covered = LOWER_TORSO|LEGS
+	body_parts_covered = LOWER_TORSO|LEGS*/
 
-/obj/item/clothing/under/pants/bluepants
+/obj/item/clothing/under/pants/urist/bluepants
 	name = "blue pants"
 	desc = "A pair of blue pants."
 	icon_state = "bluepants"
 	item_state = "bluepants"
 	//item_color = "jeans"
 
-/obj/item/clothing/under/pants/trackpants
+/obj/item/clothing/under/pants/urist/trackpants
 	name = "track pants"
 	desc = "A pair of track pants, for the athletic."
 	icon_state = "trackpants"
 	item_state = "trackpants"
 	//item_color = "trackpants"
 
-/obj/item/clothing/under/pants/khaki
+/obj/item/clothing/under/pants/urist/khaki
 	name = "khaki pants"
 	desc = "A pair of dust beige khaki pants."
 	icon_state = "khaki"
 	item_state = "khaki"
 	//item_color = "khaki"
 
-/obj/item/clothing/under/pants/camo
+/obj/item/clothing/under/pants/urist/camo
 	name = "camouflage pants"
 	desc = "A pair of woodland camouflage pants, not good for camouflage in this environment."
 	icon_state = "camopants"

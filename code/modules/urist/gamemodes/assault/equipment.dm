@@ -246,7 +246,7 @@
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/mine/frag = 4)
+	startswith = list(/obj/item/weapon/mine/frag = 3)
 
 /obj/effect/mine/proc/explode2(obj)
 	/* oldcode, pre-fragification -scr
