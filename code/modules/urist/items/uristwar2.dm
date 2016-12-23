@@ -72,6 +72,7 @@
 	caliber = "7.92x57mm"
 	ammo_type = /obj/item/ammo_casing/a792x57mm
 	icon = 'icons/urist/items/guns.dmi'
+	mag_type = MAGAZINE
 
 /obj/item/ammo_magazine/a792x57mm/stripper
 	name = "stripper clip (7.92x57mm)"
@@ -101,6 +102,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a792x57mm/g43mag
+	allowed_magazines = list(/obj/item/ammo_magazine/a792x57mm/g43mag,/obj/item/ammo_magazine/a792x57mm/stripper)
 	requires_two_hands = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
@@ -134,6 +136,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a792x33mm
+	allowed_magazines = list(/obj/item/ammo_magazine/a792x33mm)
 	requires_two_hands = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -159,8 +162,9 @@
 	ammo_type = /obj/item/ammo_casing/a792x33mm
 	icon = 'icons/urist/items/guns.dmi'
 	max_ammo = 30
+	mag_type = MAGAZINE
 
-/obj/item/ammo_magazine/a792x33mm/stg44mag/empty
+/obj/item/ammo_magazine/a792x33mm/empty
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a792x33mm
@@ -184,6 +188,7 @@
 	slot_flags = SLOT_BELT || SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/mp40
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/mp40)
 	requires_two_hands = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -222,6 +227,7 @@
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/p38
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/p38)
 
 /obj/item/weapon/gun/projectile/p38/update_icon()
 	..()
@@ -270,6 +276,7 @@
 	name = "MG 42 belt (7.92x57mm)"
 	icon_state = "mg42belt"
 	max_ammo = 250
+	mag_type = MAGAZINE
 
 /obj/item/ammo_magazine/a792x57mm/mg42/empty
 	initial_ammo = 0
@@ -394,6 +401,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/svt40mag
+	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/svt40mag)
 	requires_two_hands = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
@@ -419,6 +427,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/barmag
+	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/barmag)
 	requires_two_hands = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -459,6 +468,7 @@
 	slot_flags = SLOT_BELT || SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/ppsh
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/ppsh)
 	requires_two_hands = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -497,6 +507,7 @@
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/tt33
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/tt33)
 
 /obj/item/weapon/gun/projectile/tt33/update_icon()
 	..()
@@ -550,6 +561,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/degtyaryov
+	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/degtyaryov)
 	wielded_item_state = "genericLMG-wielded"
 	requires_two_hands = 6
 	max_shells = 60

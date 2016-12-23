@@ -52,14 +52,14 @@
 	desc = "A henchman of the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	ranged = 1
 	ranged_cooldown_cap = 5
-	rapid = 1
+	rapid = 2
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 	maxHealth = 100
 	health = 100
 
@@ -69,7 +69,7 @@
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
-	rapid = 1
+	rapid = 2
 	ranged_cooldown_cap = 5
 	maxHealth = 150
 	health = 150
@@ -82,7 +82,7 @@
 	icon_living = "ANTAG"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/a762
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -91,7 +91,7 @@
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
@@ -100,12 +100,12 @@
 	desc = "An anti-human, Skrell-isolationist insurgent."
 	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "skrellt"
-	rapid = 1
+	rapid = 2
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 
 /mob/living/simple_animal/hostile/urist/riotcop
 	icon_state = "riotcop"

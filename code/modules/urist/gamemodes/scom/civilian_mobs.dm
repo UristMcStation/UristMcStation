@@ -12,6 +12,7 @@
 	icon_state = "civ1"
 	icon_living = "civ1"
 	icon_dead = "civ1_d"
+	simplify_dead_icon = 1
 
 /mob/living/simple_animal/hostile/scom/civ/civvie/New()
 	..()
@@ -47,9 +48,9 @@
 /mob/living/simple_animal/hostile/scom/civ/combat/mil
 	name = "soldier"
 	desc = "A soldier from a local military force."
-	icon_state = "necro_s"
-	icon_living = "necro_s"
-	icon_dead = "necro_d"
+	icon_state = "gunman"
+	icon_living = "gunman"
+	icon_dead = "gunman_dead"
 
 /mob/living/simple_animal/hostile/scom/civ/combat/ryclies
 	name = "\improper RDF Soldier"

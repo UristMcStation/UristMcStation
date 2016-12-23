@@ -245,8 +245,18 @@
 	health = 40 //not much keeping them in one piece
 	resistance = 10 //but not much to hit either unless you use a heavy object
 	ranged = 0
+	attacktext = "stabbed"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
 
 //a more persistent variant of the shadow wight with a different soundset
 /obj/effect/haunter
@@ -299,7 +309,7 @@
 	move_to_delay = 7
 
 /mob/living/simple_animal/hostile/urist/amorph/death() //splits into two
-	var/nextgen = src.generation++
+	var/nextgen = (1 + src.generation)
 	if(nextgen < 1)
 		nextgen = 1
 	if(nextgen < 5)
@@ -432,12 +442,28 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	attack_same = 1
-	var/stalkee //who he stalks
+	var/mob/stalkee //who he stalks
+	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
 
 /mob/living/simple_animal/hostile/urist/stalker/New()
 	..()
-	if(!(stalkee))
+	GetNewStalkee()
+
+/mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
+	var/attempts = 3
+	while(!(stalkee))
 		stalkee = pick(player_list)
+		attempts--
+		var/recheck = 0
+		if(stalkee)
+			if(!(isliving(stalkee))) //for some reason new_players *were* being picked
+				recheck = 1
+			if((!(stalkee.mind)) && mindplease) //not much fun if they can't fight back
+				recheck = 1
+		if(recheck) //ugly but prevents trying to read a property of a null without parenthesis cancer
+			stalkee = null
+		if(attempts <= 0) //infinite loop prevention in case there are no
+			break
 
 /mob/living/simple_animal/hostile/urist/stalker/Found(var/atom/A)
 	if(A == stalkee)
@@ -446,11 +472,17 @@
 
 /mob/living/simple_animal/hostile/urist/stalker/Life()
 	if(..())
-		if(prob(25))
-			HuntingTeleport()
+		if(stalkee)
+			if(stalkee.stat != DEAD)
+				if(prob(25))
+					HuntingTeleport()
+			else
+				GetNewStalkee()
+		else
+			GetNewStalkee()
 
 /mob/living/simple_animal/hostile/urist/stalker/death()
-	..()
+	..(0, "disappears!")
 	qdel(src)
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
@@ -459,15 +491,20 @@
 		if(istype(T,/turf/space)) continue
 		if(T.density) continue
 		if(T in range(src, 9)) continue //so they don't teleport pointlessly while in range
-		var/light_amount = 10
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L)
-			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-		if(light_amount > 1) continue
-		destinations += T
+		if(shadow_check(T, 1))
+			destinations += T
 	if(destinations.len)
 		var/turf/picked = pick(destinations)
 		if(!picked || !isturf(picked))
 			return
-		src.loc = picked
+		src.forceMove(picked)
+	if(flickerlights)
+		if(stalkee)
+			if(isturf(stalkee.loc))
+				var/turf/stalkeeturf = stalkee.loc
+				for(var/datum/light_source/LS in stalkeeturf.affecting_lights)
+					if(istype(LS.source_atom, /obj/machinery/light))
+						var/obj/machinery/light/FL = LS.source_atom
+						if(prob(10))
+							FL.flicker(3)
 	return
