@@ -64,20 +64,37 @@
 /turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
 		if(!farmed) //todo; add a way to remove the soil
-
-			new /obj/machinery/portable_atmospherics/hydroponics/soil(src)
-			user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
-			"<span class='notice'>You dig up some soil and prepare the ground for planting.</span>")
-			src.farmed = 1
-			src.overlays = null
+			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
+			"<span class='notice'>You start to dig up some soil and prepare the ground for planting.</span>")
+			if (do_after(user, 30, src))
+				new /obj/machinery/portable_atmospherics/hydroponics/soil(src)
+				user.visible_message("<span class='notice'>[user] digs up some soil and prepares the ground for planting.</span>", \
+				"<span class='notice'>You dig up some soil and prepares the ground for planting.</span>")
+				src.farmed = 1
+				src.overlays = null
 
 		else if(farmed == 1)
-			for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
-				qdel(S)
-				farmed = 2
-				user.visible_message("<span class='notice'>[user] digs up a large amount of soil, forming a pit.</span>", \
-				"<span class='notice'>You dig up even more soil, forming a pit.</span>")
-				new /obj/structure/pit(src)
+			var/want = input("What would you like to do?", "Shovel", "Cancel") in list ("Cancel", "Remove the farm plot", "Dig a pit")
+			switch(want)
+				if("Cancel")
+					return
+				if("Remove the farm plot")
+					user.visible_message("<span class='notice'>[user] smooths over the ground, removing the farm plot.</span>", \
+					"<span class='notice'>You smooth over the ground, removing the farm plot.</span>")
+					for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
+						qdel(S)
+					src.overlays += image('icons/urist/jungle/turfs.dmi', "dirt", layer=2.1)
+					farmed = 0
+				if("Dig a pit")
+					user.visible_message("<span class='notice'>[user] starts to dig up large amounts of soil to form a pit.</span>", \
+					"<span class='notice'>You start to dig up large amounts of soil to form a pit.</span>")
+					if (do_after(user, 30, src))
+						for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
+							qdel(S)
+						farmed = 2
+						user.visible_message("<span class='notice'>[user] digs up a large amount of soil, forming a pit.</span>", \
+							"<span class='notice'>You dig up even more soil, forming a pit.</span>")
+						new /obj/structure/pit(src)
 
 	else if(istype(I, /obj/item/stack/tile/floor))
 		var/obj/item/stack/tile/floor/R = I
@@ -250,7 +267,9 @@
 			else
 				user << "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>"
 
+			var/obj/item/weapon/fishingrod/F = I
 			var/fishtime = (rand(40,140)) //test this shit
+			fishtime *= F.fishingpower //here we account for using shitty improvised fishing rods, which increase the time
 			fishing = 1
 
 			if (do_after(user, fishtime, src))
@@ -339,6 +358,17 @@
 
 					bridge = 0
 
+	else if(istype(I, /obj/item/weapon/paddle))
+		if(!bridge)
+			for(var/obj/structure/raft/R in user.loc)
+				if(R.built)
+					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					user.loc = get_turf(src)
+					R.loc = get_turf(src)
+
+				else
+					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
+
 	var/obj/item/weapon/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
@@ -356,6 +386,9 @@
 
 /turf/simulated/jungle/water/Entered(atom/movable/O)
 	..()
+	if(density) //to account for deep water
+		return
+
 	if(bridge)
 		return
 

@@ -342,3 +342,25 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/table/standard/flipped/w
 	dir = 8
 	layer = 5
+
+/obj/structure/grille/wood
+	name = "wooden grille"
+	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	rodpath = /obj/item/stack/woodrods
+
+/obj/structure/raft //just a fucking raft
+	name = "raft frame"
+	desc = "It's a shitty little improvised raft frame."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "raft-frame"
+	density = 0
+	anchored = 0
+	var/built = 0
+	var/buildstage = 0
+
+/obj/structure/raft/built
+	name = "raft"
+	desc = "It's a shitty little improvised raft. Good luck."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "raft-frame"

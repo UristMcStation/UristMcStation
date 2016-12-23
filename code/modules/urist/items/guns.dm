@@ -678,3 +678,24 @@ the sprite and make my own projectile -Glloyd*/
 	chamber_offset = 0
 	return ..()
 */
+
+/obj/item/weapon/gun/projectile/manualcycle/mosinnagant
+	urist_only = 1
+	name = "Mosin-Nagant"
+	icon = 'icons/urist/items/guns.dmi'
+	desc = "The standard bolt action rifle of the Red Army. The glorious Soviet Moist Nugget is chambered in 7.62 and holds 5 rounds, fed by a stripper clip."
+	wielded_item_state = "rifle2"
+	icon_state = "huntrifle"
+	item_state = "rifle2" //maybe change this
+	w_class = 5
+	requires_two_hands = 4
+	force = 10
+	slot_flags = SLOT_BACK
+	caliber = "a762"
+	handle_casings = HOLD_CASINGS
+//	load_method = SINGLE_CASING
+	max_shells = 5
+	ammo_type = /obj/item/ammo_casing/a762
+//	accuracy = -1
+//	jam_chance = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
