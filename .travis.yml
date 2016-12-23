@@ -51,7 +51,7 @@ script:
   - (num=`grep -E '"/area' **/*.dm | wc -l`; echo "$num /area text paths (expecting 2 or less)"; [ $num -le 2 ])
   - (num=`grep -E '"/datum' **/*.dm | wc -l`; echo "$num /datum text paths (expecting 2 or less)"; [ $num -le 2 ])
   - (num=`grep -E '"/mob' **/*.dm | wc -l`; echo "$num /mob text paths (expecting 2 or less)"; [ $num -le 2 ])
-  - (num=`grep -E '"/obj' **/*.dm | wc -l`; echo "$num /obj text paths (expecting 13 or less)"; [ $num -le 13 ])
+  - (num=`grep -E '"/obj' **/*.dm | wc -l`; echo "$num /obj text paths (expecting 15 or less)"; [ $num -le 15 ])
   - (num=`grep -E '"/turf' **/*.dm | wc -l`; echo "$num /turf text paths (expecting 8 or less)"; [ $num -le 8 ])
   - awk -f tools/indentation.awk **/*.dm
   - md5sum -c - <<< "4bab08611ef5a6f7478d8c4f8b1aa355 *.gitignore"

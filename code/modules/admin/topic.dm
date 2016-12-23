@@ -667,7 +667,7 @@
 						usr << "<span class='warning'> You Cannot issue temporary job-bans!</span>"
 						return
 					if(config.ban_legacy_system)
-						usr << "\red Your server is using the legacy banning system, which does not support temporary job bans. Consider upgrading. Aborting ban."
+						usr << "<span class='warning'> Your server is using the legacy banning system, which does not support temporary job bans. Consider upgrading. Aborting ban.</span>"
 						return
 					var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
 					if(!mins)

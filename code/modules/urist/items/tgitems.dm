@@ -81,7 +81,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
-	can_hold = list("/obj/item/weapon/book", "/obj/item/weapon/spellbook") //No bibles, consistent with bookcase
+	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
 
@@ -119,9 +119,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(charged == 1)
 		new /obj/effect/rend(get_turf(usr))
 		charged = 0
-		visible_message("\red <B>[src] hums with power as [usr] deals a blow to reality itself!</B>")
+		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to reality itself!</span>")
 	else
-		user << "\red The unearthly energies that powered the blade are now dormant"
+		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>"
 
 /obj/item/weapon/veilrender/vealrender
 	name = "veal render"
@@ -131,9 +131,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(charged)
 		new /obj/effect/rend/cow(get_turf(usr))
 		charged = 0
-		visible_message("\red <B>[src] hums with power as [usr] deals a blow to hunger itself!</B>")
+		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to hunger itself!</span>")
 	else
-		user << "\red The unearthly energies that powered the blade are now dormant."
+		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant.</span>"
 
 /obj/effect/rend/cow
 	desc = "Reverberates with the sound of ten thousand moos."
@@ -152,7 +152,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/effect/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/nullrod))
-		visible_message("\red <b>[I] strikes a blow against \the [src], banishing it!</b>")
+		visible_message("<span class='danger'>[I] strikes a blow against \the [src], banishing it!</span>")
 		spawn(1)
 			qdel(src)
 		return
@@ -271,7 +271,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 

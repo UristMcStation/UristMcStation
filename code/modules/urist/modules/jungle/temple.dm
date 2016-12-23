@@ -301,7 +301,7 @@
 
 	switch(trap_type)
 		if("sawburst")
-			M << "\red <b>A sawblade shoots out of the ground and strikes you!</b>"
+			M << "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>"
 			M.apply_damage(rand(5,10), BRUTE, sharp=1, edge=1)
 
 			var/atom/myloc = src.loc
@@ -312,7 +312,7 @@
 				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
-			M << "\red <b>You feel something small and sharp strike you!</b>"
+			M << "<span class='danger'>You feel something small and sharp strike you!</span>"
 			M.apply_damage(rand(5,10), TOX)
 
 			var/atom/myloc = src.loc
@@ -323,7 +323,7 @@
 				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
-			M << "\red <b>A jet of fire comes out of nowhere!</b>"
+			M << "<span class='danger'>A jet of fire comes out of nowhere!</span>"
 			M.apply_damage(rand(5,10), BURN)
 
 			var/atom/myloc = src.loc
@@ -340,7 +340,7 @@
 		if("thrower")
 			//edited version of obj/effect/step_trigger/thrower
 			var/throw_dir = pick(1,2,4,8)
-			M.visible_message("\red <b>The floor under [M] suddenly tips upward!</b>","\red <b>The floor tips upward under you!</b>")
+			M.visible_message("<span class='danger'>The floor under [M] suddenly tips upward!</span>","<span class='danger'>The floor tips upward under you!</span>")
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"throw[throw_dir]")

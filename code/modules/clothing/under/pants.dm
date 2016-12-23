@@ -81,7 +81,7 @@
 	icon_state = "baggy_jeansclassic"
 
 /obj/item/clothing/under/pants/baggy/mustangjeans
-	name = "maggy must hang jeans"
+	name = "baggy must hang jeans"
 	desc = "Made in the finest space jeans factory this side of Alpha Centauri."
 	icon_state = "baggy_jeansmustang"
 

@@ -65,9 +65,9 @@
 			if (O.damtype == HALLOSS)
 				damage = 0
 			health -= damage
-			visible_message("\red \b [src] has been attacked with the [O] by [user]. ")
+			visible_message("<span class='danger'> [src] has been attacked with the [O] by [user]. </span>")
 		else
-			visible_message("\red \b [src] blocks the [O] with its shield! ")
+			visible_message("<span class='danger'> [src] blocks the [O] with its shield! </span>")
 		//user.do_attack_animation(src)
 	else
 		usr << "\red This weapon is ineffective, it does no damage."

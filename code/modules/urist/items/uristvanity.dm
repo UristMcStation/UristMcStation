@@ -98,7 +98,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 //watches
@@ -136,7 +136,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attack_self(mob/user)
 		if(user.r_hand == src || user.l_hand == src)
 			for(var/mob/O in viewers(user, null))
-				O.show_message(text("\red [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.", user, src), 1)
+				O.show_message(text("<span class='warning'> [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.</span>", user, src), 1)
 		return
 
 //unathi doll and doll parent type

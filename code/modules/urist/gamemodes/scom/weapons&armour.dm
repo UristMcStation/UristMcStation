@@ -26,7 +26,7 @@
 	fire_sound = 'sound/weapons/pulse.ogg'
 	charge_cost = 150
 	projectile_type = /obj/item/projectile/beam/pulse/light
-	cell_type = "/obj/item/weapon/cell/super"
+	cell_type = /obj/item/weapon/cell/super
 	w_class = 2.0
 
 	firemodes = list(
@@ -47,7 +47,7 @@
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
-	cell_type = "/obj/item/weapon/cell/super"
+	cell_type = /obj/item/weapon/cell/super
 	w_class = 4.0
 	requires_two_hands = 8
 
@@ -84,7 +84,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
 	caliber = "a762"
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -118,7 +118,7 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = /obj/item/ammo_casing/a762
 	mag_type = MAGAZINE
 	caliber = "a762"
 
@@ -127,7 +127,7 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	max_ammo = 10
 	mag_type = MAGAZINE
 	multiple_sprites = 1
@@ -137,7 +137,7 @@
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	mag_type = MAGAZINE
 	initial_ammo = 0
 
@@ -170,43 +170,38 @@
 /obj/item/weapon/storage/box/c20ammo
 	name = "box of c20r ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	startswith = list(/obj/item/ammo_magazine/a10mm = 3)
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
+		make_exact_fit()
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of sniper ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	startswith = list(/obj/item/ammo_magazine/a762mm = 3)
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
+		make_exact_fit()
 
 /obj/item/weapon/storage/box/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	startswith = list(/obj/item/ammo_magazine/box/a762 = 3)
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
+		make_exact_fit()
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	startswith = list(/obj/item/ammo_magazine/c45m = 4)
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
+		make_exact_fit()
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

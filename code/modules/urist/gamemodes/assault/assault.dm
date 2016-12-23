@@ -17,7 +17,7 @@ var/global/remaininggens = 6
 
 
 /datum/game_mode/assault/pre_setup()
-	world << "\red Setting up Assault, this may take a minute or two."
+	world << "<span class='warning'> Setting up Assault, this may take a minute or two.</span>"
 
 	return 1
 
@@ -137,33 +137,33 @@ var/global/remaininggens = 6
 	if(sploded == 0)
 		if(gamemode_endstate == 1)
 			feedback_set_details("round_end_result","alien major victory - station crew eliminated")
-			world << "\red <FONT size = 4><B>Alien major victory!</B></FONT>"
-			world << "\red <FONT size = 3><B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</B></FONT>"
+			world << "<span class='danger'> <FONT size = 4>Alien major victory!</font></span>"
+			world << "<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</font></span>"
 		else if(gamemode_endstate == 2)
 			feedback_set_details("round_end_result","station major victory - lactera strike force eradicated")
-			world << "\red <FONT size = 4><B>Station major victory!</B></FONT>"
-			world << "\red <FONT size = 3><B>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</B></FONT>"
+			world << "<span class='danger'> <FONT size = 4>Station major victory!</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</FONT></span>"
 		else if(gamemode_endstate == 3)
 			feedback_set_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
-			world << "\red <FONT size = 3><B>Alien major victory.</B></FONT>"
-			world << "\red <FONT size = 3><B>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</B></FONT>"
+			world << "<span class='danger'> <FONT size = 3>Alien major victory.</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</FONT></span>"
 		else if(gamemode_endstate == 4)
 			feedback_set_details("round_end_result","draw - the station has been nuked")
-			world << "\red <FONT size = 3><B>Draw.</B></FONT>"
-			world << "\red <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT>"
+			world << "<span class='danger'> <FONT size = 3>Draw.</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station has blown by a nuclear fission device... there are no winners!</FONT></span>"
 
 	..()
 
 	sploded = 1
 
 	spawn(5)
-		world << "\blue Rebooting in fourty five seconds."
+		world << "<span class='notice'> Rebooting in fourty five seconds.</span>"
 
 		spawn(450)
 			if(!ticker.delay_end)
 				world.Reboot()
 			else
-				world << "\blue <B>An admin has delayed the round end</B>"
+				world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"
 
 	return 1
 
