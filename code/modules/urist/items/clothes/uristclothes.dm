@@ -707,7 +707,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/pants/urist
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 
 /obj/item/clothing/under/pants/urist/jeans
 	name = "jeans"
