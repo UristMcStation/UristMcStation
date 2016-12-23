@@ -88,3 +88,31 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "trench knife"
 	icon_state = "trench"
 	item_state = "katana"
+
+//bow and arrow shit
+
+/obj/item/weapon/arrow/improv
+	name = "improvised arrow"
+	desc = "It's a shitty improvised arrow. It has a wooden shaft and a makeshift glass arrowhead."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "improvarrow"
+	item_state = "bolt"
+	throwforce = 7
+	w_class = 3.0
+	sharp = 1
+	edge = 0
+	lock_picking_level = 1
+
+/obj/item/weapon/arrow/woodarrow
+	name = "arrow"
+	desc = "It's a regular arrow, wooden shaft, metal arrowhead. You get the deal."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "arrow"
+	item_state = "bolt"
+	throwforce = 8
+	w_class = 3.0
+	sharp = 1
+	edge = 0
+	lock_picking_level = 2
+
+///obj/item/weapon/gun/launcher/crossbow/bow //gonna mess with this

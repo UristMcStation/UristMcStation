@@ -162,6 +162,14 @@ var/last_chew = 0
 			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 			qdel(src)
 			update_icon(user)
+	else if(istype(I, /obj/item/stack/woodrods))
+		var/obj/item/stack/woodrods/R = I
+		if (R.use(1))
+			var/obj/item/weapon/material/woodwirerod/W = new(get_turf(user))
+			user.put_in_hands(W)
+			user << "<span class='notice'>You wrap the cable restraint around the top of the wood shaft.</span>"
+			qdel(src)
+			update_icon(user)
 
 /obj/item/weapon/handcuffs/cyborg
 	dispenser = 1

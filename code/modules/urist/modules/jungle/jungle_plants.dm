@@ -12,6 +12,7 @@
 	layer = 3.2
 	var/indestructable = 0
 	var/stump = 0
+	climbable = 1
 
 /obj/structure/bush/New()
 
@@ -33,6 +34,12 @@
 	else if (istype(M, /mob/living/carbon/human/monkey))
 		var/mob/living/carbon/human/monkey/A = M
 		A.loc = get_turf(src)
+
+/obj/structure/bush/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover,/obj/item/projectile))
+		return 1
+
+	else ..()
 
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
@@ -66,6 +73,31 @@
 
 					else
 						qdel(src)
+
+/obj/structure/bush/do_climb(var/mob/living/user)
+	if (!can_climb(user))
+		return
+
+	if(indestructable)
+		return
+
+	usr.visible_message("<span class='warning'>\The [user] starts making their way through the bush!</span>")
+	climbers |= user
+
+	if(!do_after(user,(issmall(user) ? 10 : 25), src))
+		climbers -= user
+		return
+
+	if (!can_climb(user, post_climb_check=1))
+		climbers -= user
+		return
+
+	usr.forceMove(get_turf(src))
+
+	if (get_turf(user) == get_turf(src))
+		usr.visible_message("<span class='warning'>\The [user] slowly makes their way through the bush!</span>")
+	climbers -= user
+
 
 //*******************************//
 // Strange, fruit-bearing plants //

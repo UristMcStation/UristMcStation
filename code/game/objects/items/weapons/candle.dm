@@ -22,7 +22,7 @@
 	icon_state = "candle[i][lit ? "_lit" : ""]"
 
 
-/obj/item/weapon/flame/candle/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/flame/candle/attackby(obj/item/weapon/W as obj, mob/user as mob) //who wrote this, jesus fuck
 	..()
 	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
@@ -39,6 +39,10 @@
 	else if(istype(W, /obj/item/weapon/flame/candle))
 		var/obj/item/weapon/flame/candle/C = W
 		if(C.lit)
+			light()
+	else if(istype(W, /obj/item/weapon/flame/torch))
+		var/obj/item/weapon/flame/candle/T = W
+		if(T.lit)
 			light()
 
 
