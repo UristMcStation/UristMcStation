@@ -137,20 +137,20 @@ var/global/remaininggens = 6
 	if(sploded == 0)
 		if(gamemode_endstate == 1)
 			feedback_set_details("round_end_result","alien major victory - station crew eliminated")
-			world << "<span class='danger'> <FONT size = 4><B>Alien major victory!</span>"
-			world << "<span class='danger'> <FONT size = 3><B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</span>"
+			world << "<span class='danger'> <FONT size = 4>Alien major victory!</span>"
+			world << "<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</span>"
 		else if(gamemode_endstate == 2)
 			feedback_set_details("round_end_result","station major victory - lactera strike force eradicated")
-			world << "<span class='danger'> <FONT size = 4><B>Station major victory!</FONT></span>"
-			world << "<span class='danger'> <FONT size = 3><B>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</FONT></span>"
+			world << "<span class='danger'> <FONT size = 4>Station major victory!</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</FONT></span>"
 		else if(gamemode_endstate == 3)
 			feedback_set_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
-			world << "<span class='danger'> <FONT size = 3><B>Alien major victory.</B></FONT></span>"
-			world << "<span class='danger'> <FONT size = 3><B>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</B></FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>Alien major victory.</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</FONT></span>"
 		else if(gamemode_endstate == 4)
 			feedback_set_details("round_end_result","draw - the station has been nuked")
-			world << "<span class='danger'> <FONT size = 3><B>Draw.</B></FONT></span>"
-			world << "<span class='danger'> <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>Draw.</FONT></span>"
+			world << "<span class='danger'> <FONT size = 3>The station has blown by a nuclear fission device... there are no winners!</FONT></span>"
 
 	..()
 
