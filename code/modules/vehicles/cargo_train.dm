@@ -55,7 +55,7 @@
 
 	if(is_train_head() && !on)
 		return 0
-	
+
 	//space check ~no flying space trains sorry
 	if(on && istype(destination, /turf/space))
 		return 0
@@ -162,8 +162,8 @@
 
 	if(is_train_head() && istype(load, /mob/living/carbon/human))
 		var/mob/living/carbon/human/D = load
-		D << "\red \b You ran over [H]!"
-		visible_message("<B>\red \The [src] ran over [H]!</B>")
+		D << "<span class='danger'> You ran over [H]!</span>"
+		visible_message("<B><span class='warning'> \The [src] ran over [H]!</span>")
 		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</font>")
 		msg_admin_attack("[D.name] ([D.ckey]) ran over [H.name] ([H.ckey]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	else

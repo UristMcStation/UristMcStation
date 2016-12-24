@@ -4,7 +4,7 @@
 	set category = "Fun"
 	set desc = "Warp all players to you."
 	if(!check_rights(R_FUN))
-		src <<"\red \b You do not have the required admin rights."
+		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
 	for(var/mob/living/M in player_list)

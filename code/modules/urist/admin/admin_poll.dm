@@ -5,7 +5,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	var/dat = "<html><head><title>Poll Panel</title></head>"
@@ -22,7 +22,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("SELECT polltype,question FROM erro_poll_question WHERE id=[pollid];")
@@ -140,7 +140,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("SELECT * FROM erro_poll_question;")
@@ -201,7 +201,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	//<input type='hidden' name='src' value='\ref[src]'>
@@ -323,7 +323,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("DELETE FROM erro_poll_question WHERE id=[pollid]")
@@ -359,7 +359,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'> Failed to establish database connection</span>"
 		return
 
 	var/i
