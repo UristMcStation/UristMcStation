@@ -137,8 +137,8 @@ var/global/remaininggens = 6
 	if(sploded == 0)
 		if(gamemode_endstate == 1)
 			feedback_set_details("round_end_result","alien major victory - station crew eliminated")
-			world << "<span class='danger'> <FONT size = 4>Alien major victory!</span>"
-			world << "<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</span>"
+			world << "<span class='danger'> <FONT size = 4>Alien major victory!</font></span>"
+			world << "<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</font></span>"
 		else if(gamemode_endstate == 2)
 			feedback_set_details("round_end_result","station major victory - lactera strike force eradicated")
 			world << "<span class='danger'> <FONT size = 4>Station major victory!</FONT></span>"

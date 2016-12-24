@@ -329,7 +329,7 @@
 		return
 
 	if (istype(usr.loc,/turf/))
-		usr.visible_message("<span class='danger'>[usr.name]</b> takes a huge leap!</span>")
+		usr.visible_message("<span class='danger'>[usr.name] takes a huge leap!</span>")
 		playsound(usr.loc, 'sound/weapons/thudswoosh.ogg', 50, 1)
 		var/prevLayer = usr.layer
 		usr.layer = 15
@@ -341,7 +341,7 @@
 			sleep(1)
 
 		if (FAT in usr.mutations && prob(66))
-			usr.visible_message("<span class='danger'>[usr.name]</b> crashes due to their heavy weight!</span>")
+			usr.visible_message("<span class='danger'>[usr.name] crashes due to their heavy weight!</span>")
 			//playsound(usr.loc, 'zhit.wav', 50, 1)
 			usr.weakened += 10
 			usr.stunned += 5
@@ -353,7 +353,7 @@
 		usr << "<span class='warning'> You leap and slam your head against the inside of [container]! Ouch!</span>"
 		usr.paralysis += 3
 		usr.weakened += 5
-		container.visible_message("<span class='danger'>[usr.loc]</b> emits a loud thump and rattles a bit.</span>")
+		container.visible_message("<span class='danger'>[usr.loc]emits a loud thump and rattles a bit.</span>")
 		playsound(usr.loc, 'sound/effects/bang.ogg', 50, 1)
 		var/wiggle = 6
 		while(wiggle > 0)
