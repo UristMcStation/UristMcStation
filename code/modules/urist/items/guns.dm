@@ -20,7 +20,7 @@
 		)
 
 	/*suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head!</span>"
 		return(BRUTELOSS)*/
 
 //umbrella gun
@@ -59,8 +59,8 @@
 	icon = 'icons/urist/items/guns.dmi'
 	on = !on
 	if(on)
-		user.visible_message("\red [user] fires the gun, BANG.",\
-		"\red You fire the gun.",\
+		user.visible_message("<span class='warning'> [user] fires the gun, BANG.</span>",\
+		"<span class='warning'> You fire the gun.</span>",\
 		"You hear a BANG.")
 		icon_state = "gunbang"
 		item_state = "gunbang"
@@ -68,8 +68,8 @@
 		force = 3
 		attack_verb = list("smacked", "struck", "slapped")
 	else
-		user.visible_message("\blue [user] pushes the BANG back into the barrel.",\
-		"\blue You push the BANG back into the barrel.",\
+		user.visible_message("<span class='notice'> [user] pushes the BANG back into the barrel.</span>",\
+		"<span class='notice'> You push the BANG back into the barrel.</span>",\
 		"You hear a click.")
 		icon_state = "gun"
 		item_state = "gun"
@@ -103,7 +103,7 @@ the sprite and make my own projectile -Glloyd*/
 	cell_type = "/obj/item/weapon/cell/crap"
 
 /*	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
+		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"
 		return(BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2

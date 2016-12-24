@@ -164,7 +164,7 @@
 	if(probability <= 0)
 		return
 
-	//world << "\blue Spread([probability])"
+	//world << "<span class='notice'> Spread([probability])</span>"
 	for(var/turf/simulated/jungle/J in orange(1, src))
 		if(!J.bushes_spawn)
 			continue
@@ -396,9 +396,9 @@
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
 		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
-			M << "\blue You feel something slithering around your legs."
+			M << "<span class='notice'> You feel something slithering around your legs.</span>"
 			spawn(rand(25,50))
-				M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something bite into your leg!")
+				M << pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>")
 				M.apply_damage(rand(3,5), BRUTE, sharp=1)
 
 
