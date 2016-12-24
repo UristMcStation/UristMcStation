@@ -248,6 +248,10 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/weapon/mine/frag = 3)
 
+/obj/item/weapon/storage/box/mines/New()
+	..()
+	make_exact_fit()
+
 /obj/effect/mine/proc/explode2(obj)
 	/* oldcode, pre-fragification -scr
 	explosion(loc, 0, 0, 2, 2)

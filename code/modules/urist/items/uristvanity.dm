@@ -98,7 +98,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 //watches

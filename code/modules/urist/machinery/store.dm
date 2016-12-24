@@ -70,7 +70,7 @@ var/global/datum/store/centcomm_store=new
 	name = "Merchandise Computer"
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
-	circuit = "/obj/item/weapon/circuitboard/merch"
+	circuit = /obj/item/weapon/circuitboard/merch
 
 /obj/item/weapon/circuitboard/merch
 	name = "\improper Merchandise Computer Circuitboard"
