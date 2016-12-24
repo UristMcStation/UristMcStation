@@ -52,7 +52,7 @@ script:
   - (num=`grep -E '"/area' **/*.dm | wc -l`; echo "$num /area text paths (expecting 2 or less)"; [ $num -le 2 ])
   - (num=`grep -E '"/datum' **/*.dm | wc -l`; echo "$num /datum text paths (expecting 2 or less)"; [ $num -le 2 ])
   - (num=`grep -E '"/mob' **/*.dm | wc -l`; echo "$num /mob text paths (expecting 2 or less)"; [ $num -le 2 ])
-  - (num=`grep -E '"/obj' **/*.dm | wc -l`; echo "$num /obj text paths (expecting 12 or less)"; [ $num -le 12 ])
+  - (num=`grep -E '"/obj' **/*.dm | wc -l`; echo "$num /obj text paths (expecting 15 or less)"; [ $num -le 15 ])
   - (num=`grep -E '"/turf' **/*.dm | wc -l`; echo "$num /turf text paths (expecting 8 or less)"; [ $num -le 8 ])
   - (num=`grep -E 'world<<|world[[:space:]]<<' **/*.dm | wc -l`; echo "$num world<< uses (expecting 5 or less)"; [ $num -le 5 ])
   - (num=`grep -E 'world.log<<|world.log[[:space:]]<<' **/*.dm | wc -l`; echo "$num world.log<< uses (expecting 52 or less)"; [ $num -le 52 ])
