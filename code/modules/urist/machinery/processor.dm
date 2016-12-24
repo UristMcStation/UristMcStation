@@ -111,7 +111,7 @@
 		user << "<span class='warning'> The processor is in the process of processing.</span>"
 		return 1
 	if(src.contents.len > 0) //TODO: several items at once? several different items?
-		user << "<span class='warning'> Something is already in the processing chamber.</span>"
+		user << "<span class='warning'> Something is already in the processing chamber."
 		return 1
 	var/what = O
 	if (istype(O, /obj/item/weapon/grab))

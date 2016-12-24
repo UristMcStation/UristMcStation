@@ -326,7 +326,7 @@
 	var/mob/living/L = usr
 
 	L.adjust_fire_stacks(0.5) // Same as walking into fire. Was 100 (goon fire)
-	L.visible_message("<span class='danger'>[L.name]</b> suddenly bursts into flames!</span>")
+	L.visible_message("<span class='warning'><b>[L.name]</b> suddenly bursts into flames!</span>")
 	L.on_fire = 1
 	L.update_icon = 1
 	playsound(L.loc, 'sound/effects/bamf.ogg', 50, 0)*/
