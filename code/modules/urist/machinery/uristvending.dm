@@ -187,27 +187,23 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMIREZ!"
 	vend_delay = 5
 	products = list(
-		//ammo
-
+		//ammo,
 		/obj/item/ammo_magazine/a556/a22 = 60,
 		/obj/item/ammo_magazine/a762mm/a18 = 60,
 		/obj/item/ammo_magazine/a9mm = 60,
 		/obj/item/weapon/storage/box/shotgunammo = 60,
 		/obj/item/weapon/storage/box/shotgunshells = 60,
 		/obj/item/ammo_magazine/c45m/a7 = 60,
-		//guns
-
+		//guns,
 		/obj/item/weapon/gun/projectile/automatic/a22 = 10,
 		/obj/item/weapon/gun/projectile/a18 = 10,
 		/obj/item/weapon/gun/projectile/automatic/asmg = 10,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41 = 10,
 		/obj/item/weapon/gun/projectile/colt/a7 = 20,
-		//attachments
-
+		//attachments,
 		/obj/item/weapon/gunattachment/grenadelauncher = 10,
 		/obj/item/weapon/gunattachment/scope/a18 = 10,
-		//grenades and mines
-
+		//grenades and mines,
 		/obj/item/weapon/storage/box/anforgrenade = 10,
 		/obj/item/weapon/storage/box/mines = 3
 		)
