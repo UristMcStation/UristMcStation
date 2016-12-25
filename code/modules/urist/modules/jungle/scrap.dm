@@ -5,7 +5,7 @@
 	opacity = 0
 	density = 0
 	icon_state = "small"
-	//icon = 'icons/urist/structures&machinery/scrap/base.dmi'
+	icon = 'icons/urist/structures&machinery/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
 	var/loot_min = 3
 	var/loot_max = 5
@@ -19,7 +19,7 @@
 		/obj/item/weapon/material/shard/shrapnel
 		)
 
-	var/parts_icon //= 'icons/urist/structures&machinery/scrap/trash.dmi'
+	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'
 	var/base_min = 3	//min and max number of random pieces of base icon
 	var/base_max = 5
 	var/base_spread = 8	//limits on pixel offsets of base pieces
@@ -101,7 +101,7 @@
 
 /obj/structure/scrap/vehicle
 	name = "debris pile"
-	//parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
+	parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
 	loot_list = list(
 		/obj/item/vehicle_part,
 		/obj/item/vehicle_part,
