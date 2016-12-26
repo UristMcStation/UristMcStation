@@ -5,7 +5,7 @@ var/datum/controller/process/weather/weatherProcess
 	var/weather_change_ticks = 50 //delays weather changes by N scheduler intervals
 	var/current_wcticks = 0
 	var/weather_cache = list() //meteorologically active weather objects
-	var/active_cache = list() //weathers with new objects to process, EVEN IMMUTABLE
+	var/active_cache = list() //weathers with new objects to process, EVEN STATIC
 
 /datum/controller/process/weather/setup()
 	name = "weather"
@@ -51,7 +51,6 @@ var/datum/controller/process/weather/weatherProcess
 			local_climate = WA.climate.Copy() //so we can remove values from it
 			nuweather += (take_weather_from(local_climate))
 			if(prob(10) && local_climate.len) //check values on prob
-				world << "DEBUG: Rolled secondary weather" //remove this!
 				nuweather += (take_weather_from(local_climate))
 	return nuweather
 

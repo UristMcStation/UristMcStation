@@ -141,6 +141,8 @@ obj/item/clothing/head/princessbow
 	icon_state = "beaver_hat"
 	item_state = "beaver_hat"
 	desc = "Like a top hat, but made of beavers."
+	cold_protection = HEAD
+	min_cold_protection_temperature = 263.15
 
 /obj/item/clothing/head/urist/boaterhat
 	name = "boater hat"
@@ -323,3 +325,5 @@ obj/item/clothing/head/princessbow
 	desc = "A nice warm toque, known by some fucking heathens as a beanie."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "toque"
+	cold_protection = HEAD
+	min_cold_protection_temperature = 243.15

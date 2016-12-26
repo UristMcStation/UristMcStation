@@ -2,8 +2,8 @@
 //NOTE: /clear weather's effect is overriden by all other types! If you have rain and clear, it's effectively rain.
 
 /area
-	var/list/climate = list(/obj/weathertype/clear)
-	var/list/weather = list(/obj/weathertype/clear)
+	var/list/climate = list(/obj/weathertype/clear) //all potential area weather types
+	var/list/weather = list(/obj/weathertype/clear) //current pick for all objects in area
 
 /area/jungle
 	climate = list(/obj/weathertype/rain, /obj/weathertype/fog, /obj/weathertype/clear)
