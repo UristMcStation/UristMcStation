@@ -20,7 +20,7 @@
 		)
 
 	/*suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head!</b>"
+		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head!</span>"
 		return(BRUTELOSS)*/
 
 //umbrella gun
@@ -37,7 +37,7 @@
 	caliber = "9mm"
 	silenced = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = "/obj/item/ammo_casing/c9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
 	load_method = 2
 
 //BANG BANG BANG, BANG BANG
@@ -59,8 +59,8 @@
 	icon = 'icons/urist/items/guns.dmi'
 	on = !on
 	if(on)
-		user.visible_message("\red [user] fires the gun, BANG.",\
-		"\red You fire the gun.",\
+		user.visible_message("<span class='warning'> [user] fires the gun, BANG.</span>",\
+		"<span class='warning'> You fire the gun.</span>",\
 		"You hear a BANG.")
 		icon_state = "gunbang"
 		item_state = "gunbang"
@@ -68,8 +68,8 @@
 		force = 3
 		attack_verb = list("smacked", "struck", "slapped")
 	else
-		user.visible_message("\blue [user] pushes the BANG back into the barrel.",\
-		"\blue You push the BANG back into the barrel.",\
+		user.visible_message("<span class='notice'> [user] pushes the BANG back into the barrel.</span>",\
+		"<span class='notice'> You push the BANG back into the barrel.</span>",\
 		"You hear a click.")
 		icon_state = "gun"
 		item_state = "gun"
@@ -100,10 +100,10 @@ the sprite and make my own projectile -Glloyd*/
 	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
-	cell_type = "/obj/item/weapon/cell/crap"
+	cell_type = /obj/item/weapon/cell/crap
 
 /*	suicide_act(mob/user)
-		viewers(user) << "\red <b>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</b>"
+		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"
 		return(BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2
@@ -200,7 +200,7 @@ the sprite and make my own projectile -Glloyd*/
 	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = /obj/item/ammo_casing/a762
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/m14
@@ -426,7 +426,7 @@ the sprite and make my own projectile -Glloyd*/
 	mag_type = MAGAZINE
 	multiple_sprites = 0
 
-/obj/item/weapon/gun/projectile/manualcycle/
+/obj/item/weapon/gun/projectile/manualcycle
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
@@ -678,3 +678,24 @@ the sprite and make my own projectile -Glloyd*/
 	chamber_offset = 0
 	return ..()
 */
+
+/obj/item/weapon/gun/projectile/manualcycle/mosinnagant
+	urist_only = 1
+	name = "Mosin-Nagant"
+	icon = 'icons/urist/items/guns.dmi'
+	desc = "The standard bolt action rifle of the Red Army. The glorious Soviet Moist Nugget is chambered in 7.62 and holds 5 rounds, fed by a stripper clip."
+	wielded_item_state = "rifle2"
+	icon_state = "huntrifle"
+	item_state = "rifle2" //maybe change this
+	w_class = 5
+	requires_two_hands = 4
+	force = 10
+	slot_flags = SLOT_BACK
+	caliber = "a762"
+	handle_casings = HOLD_CASINGS
+//	load_method = SINGLE_CASING
+	max_shells = 5
+	ammo_type = /obj/item/ammo_casing/a762
+//	accuracy = -1
+//	jam_chance = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'

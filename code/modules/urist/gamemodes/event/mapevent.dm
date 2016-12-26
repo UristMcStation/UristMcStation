@@ -4,11 +4,11 @@
 	set category = "Fun"
 	set desc = "Loads the map for the event."
 	if(!check_rights(R_SERVER))
-		src <<"\red \b You do not have the required admin rights."
+		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
 	var/list/potentialEventMap = list()
-	world << "\red \b Searching for Event Map..."
+	world << "<span class='danger'> Searching for Event Map...</span>"
 	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
 	if(!Lines.len)	return
 	for (var/t in Lines)
@@ -38,27 +38,27 @@
 
 
 	if(potentialEventMap.len)
-		world << "\red \b Loading EventMap..."
+		world << "<span class='danger'> Loading EventMap...</span>"
 
 		var/eventmap = input(src,"Which event map to load?") as null|anything in potentialEventMap
 		var/file = file(eventmap)
 //		var/file = file(mappath) //leaving it in as the basis to a future port to a .dm file-based map loading, instead of the other way round
 
 		if(eventmap == null)
-			world << "\red \b Event Map loading aborted"
+			world << "<span class='danger'> Event Map loading aborted</span>"
 			return
 
 		if(isfile(file))
 			maploader.load_map(file)
-			world << "\red \b Event Map loaded."
+			world << "<span class='danger'> Event Map loaded.</span>"
 
 			for(var/x = 1 to world.maxx)
 				for(var/y = 1 to world.maxy)
 					turfs += locate(x,y,world.maxz)
 
 		else
-			src << "\red Event Map couldn't be loaded properly. Yell at the coders."
+			src << "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>"
 
 	else
-		world << "\red \b Event Map not found."
+		world << "<span class='danger'> Event Map not found.</span>"
 		return

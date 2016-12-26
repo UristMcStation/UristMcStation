@@ -124,7 +124,7 @@
 	l_hand = /obj/item/ammo_magazine/a792x57mm/stripper
 	belt = 	/obj/item/ammo_magazine/a792x57mm/stripper
 
-/decl/hierarchy/outfit/wwii/germanrifleman/pre_equip()
+/decl/hierarchy/outfit/wwii/germanrifleman/pre_equip(mob/living/carbon/human/H)
 	if(prob(10))
 		back = /obj/item/weapon/gun/projectile/automatic/stg44
 		l_pocket = /obj/item/ammo_magazine/a792x33mm
@@ -146,7 +146,8 @@
 		l_hand = /obj/item/ammo_magazine/a792x57mm/mg42
 		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
 
-	..()
+	else
+		return
 
 /decl/hierarchy/outfit/wwii/germanrifleman/post_equip(var/mob/living/carbon/human/H)
 	..()
@@ -192,7 +193,7 @@
 	l_hand = /obj/item/ammo_magazine/a762mm/stripper
 	belt = /obj/item/ammo_magazine/a762mm/stripper
 
-/decl/hierarchy/outfit/wwii/sovietrifleman/pre_equip()
+/decl/hierarchy/outfit/wwii/sovietrifleman/pre_equip(mob/living/carbon/human/H)
 	if(prob(5))
 		back = /obj/item/weapon/gun/projectile/automatic/ppsh
 		l_pocket = /obj/item/ammo_magazine/mc9mm/ppsh
@@ -221,7 +222,8 @@
 		l_hand = /obj/item/ammo_magazine/a762mm/barmag
 		belt = 	/obj/item/ammo_magazine/a762mm/barmag
 
-	..()
+	else
+		return
 
 /decl/hierarchy/outfit/wwii/sovietrifleman/post_equip(var/mob/living/carbon/human/H)
 	..()
@@ -245,13 +247,14 @@
 	l_hand = /obj/item/ammo_magazine/mc9mm/tt33
 	belt = /obj/item/weapon/gun/projectile/tt33
 
-/decl/hierarchy/outfit/wwii/sovietofficer/pre_equip()
+/decl/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
 	if(prob(50))
 		l_hand = /obj/item/ammo_magazine/r762
 		belt = /obj/item/weapon/gun/projectile/revolver/nagantm1895
 		suit = /obj/item/clothing/suit/urist/wwii/soviet //full commissar
 		suit_store = /obj/item/ammo_magazine/r762
-	..()
+	else
+		return
 
 /decl/hierarchy/outfit/wwii/sovietofficer/post_equip(var/mob/living/carbon/human/H)
 	..()

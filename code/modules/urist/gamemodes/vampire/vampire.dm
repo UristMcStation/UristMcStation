@@ -162,7 +162,7 @@
 		if(!(VAMP_SCREAM in vamp.powers))
 			vamp.powers.Add(VAMP_SCREAM)
 		// Commented out until we can figured out a way to stop this from spamming.
-		//src << "\blue Your rejuvination abilities have improved and will now heal you over time when used."
+		//src << "<span class='notice'> Your rejuvination abilities have improved and will now heal you over time when used.</span>"
 
 	// TIER 3.5 (/vg/)
 	if(vamp.bloodtotal >= 250)
@@ -247,9 +247,9 @@
 				src << "<span class='warning'>Your skin sizzles!</span>"
 			if((-INFINITY) to 60)
 				if(!on_fire)
-					src << "<b><span class='warning'> Your skin burns!</span></b>"
+					src << "<span class='danger'> Your skin burns!</span>"
 				else
-					src << "<b>\red You continue to burn!</b>"
+					src << "<span class='danger'> You continue to burn!</span>"
 				fire_stacks += 5
 				IgniteMob() //mobs on fire, woo!
 

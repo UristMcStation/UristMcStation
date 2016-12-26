@@ -11,7 +11,7 @@
 	world << "<B>Admins are holding a special event, read the custom event info for more details!.</B>"
 
 /datum/game_mode/event/pre_setup()
-	world << "\red \b Setting up the event, please be patient. This may take a minute or two."
+	world << "<span class='danger'> Setting up the event, please be patient. This may take a minute or two.</span>"
 
 //	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 //		qdel(L)
@@ -24,7 +24,7 @@
 
 
 ///datum/game_mode/event/post_setup()
-//	world << "\red \b Spawning players..."
+//	world << "<span class='danger'> Spawning players...</span>"
 //	EventTime()
 
 //datum/game_mode/event/process()

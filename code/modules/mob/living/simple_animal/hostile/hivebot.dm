@@ -35,7 +35,7 @@
 
 /mob/living/simple_animal/hostile/hivebot/rapid
 	ranged = 1
-	rapid = 1
+	rapid = 2
 
 /mob/living/simple_animal/hostile/hivebot/strong
 	name = "Strong Hivebot"
