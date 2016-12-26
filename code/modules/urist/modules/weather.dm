@@ -16,12 +16,22 @@
 /obj/effect/weather/New()
 	if(mutable)
 		weather_report()
+	if(!(active_weathers) || !(active_weathers.len))
+		active_weathers += get_climate_weather(get_area(src))
+	var/index = 0
+	for(var/i in active_weathers) //paths don't work with implicit types
+		index++
+		if(ispath(i, /obj/weathertype))
+			var/obj/weathertype/WT = i
+			active_weathers[index] = new WT //instantiate all types
+	update_icon()
 	..()
 
 //Handles initializing weather processing for a z-level if an instance is spawned on a new z
 /obj/effect/weather/proc/weather_report()
-	var/datum/weather_master/W = weathermaster
-	W.weather_cache += src
+	while(!(weatherProcess))
+		sleep(1) //await controller setup
+	weatherProcess.weather_cache += src
 
 //An 'I'm alive!' response, for minimal possible load
 /obj/effect/weather/proc/check_in()
@@ -31,8 +41,7 @@
 //Something entered the weather zone so the weather has to do work
 /obj/effect/weather/proc/activate()
 	if(!(safe)) //does not process effects, so don't bother
-		var/datum/weather_master/W = weathermaster
-		W.active_cache += src
+		weatherProcess.active_cache += src
 
 //If there's still processable objects, return 1
 /obj/effect/weather/proc/Active()
@@ -42,7 +51,8 @@
 	return 0
 
 /obj/effect/weather/update_icon()
-	overlays = null
+	..()
+	overlays.Cut()
 	for(var/obj/weathertype/WT in active_weathers)
 		overlays += WT
 
@@ -50,6 +60,7 @@
 /obj/effect/weather/proc/inflict()
 	for(var/obj/weathertype/WT in active_weathers)
 		WT.GetWeatherEffect(src.loc)
+	return 1
 
 /obj/effect/weather/Crossed(O)
 	if(!(safe))
@@ -65,13 +76,31 @@
 
 /obj/effect/weather/blowingsnow
 	name = "blowing snow"
+	mutable = 0
+	active_weathers = list(/obj/weathertype/snow)
 
 /obj/effect/weather/rain
 	name = "rain"
+	mutable = 0
+	active_weathers = list(/obj/weathertype/rain)
 
 //optional underlay thing for the rain - uses the same colors, #556 recommended for rain with null splash
 /obj/effect/weather/splash
 	name = "rain splashes"
+	safe = 1
+	mutable = 0
+	active_weathers = list(/obj/weathertype/splash)
 
 /obj/effect/weather/fog
 	name = "fog"
+	safe = 1
+	mutable = 0
+	active_weathers = list(/obj/weathertype/fog)
+
+/* Helper for grabbing and instantiating new weather types */
+/proc/take_weather_from(var/list/climate)
+	var/weather = pick_n_take(climate)
+	if(ispath(weather, /obj/weathertype))
+		var/obj/weathertype/WT = weather
+		return (WT)
+	return
