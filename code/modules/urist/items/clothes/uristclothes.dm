@@ -465,6 +465,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -680,6 +682,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	blood_overlay_type = "armor"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
 	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15
 
 //Blueshield
 /obj/item/clothing/suit/storage/urist/coat/blueshield //no toggle yet
@@ -693,6 +697,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	min_cold_protection_temperature = 263.15
 	//flags =
 
 /obj/item/clothing/suit/armor/vest/deus_blueshield

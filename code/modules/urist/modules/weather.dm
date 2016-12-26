@@ -10,11 +10,11 @@
 	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
 	var/safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
-	var/mutable = 1 //if 1, changes periodically
+	var/dynamic = 1 //if 1, changes periodically
 	var/list/tracker = list()
 
 /obj/effect/weather/New()
-	if(mutable)
+	if(dynamic)
 		weather_report()
 	if(!(active_weathers) || !(active_weathers.len))
 		active_weathers += get_climate_weather(get_area(src))
@@ -35,7 +35,7 @@
 
 //An 'I'm alive!' response, for minimal possible load
 /obj/effect/weather/proc/check_in()
-	if(mutable)
+	if(dynamic)
 		return 1
 
 //Something entered the weather zone so the weather has to do work
@@ -74,28 +74,58 @@
 			tracker -= O
 	..()
 
-/obj/effect/weather/blowingsnow
-	name = "blowing snow"
-	mutable = 0
+/*did not really merit a subtype just for dynamic=0, adding this
+so that static new weathers can be mapped in easily by VVing it directly*/
+/obj/effect/weather/invariant
+	dynamic = 0
+	active_weathers = list()
+
+/obj/effect/weather/invariant/mildsnow
+	name = "snow"
 	active_weathers = list(/obj/weathertype/snow)
 
-/obj/effect/weather/rain
+/obj/effect/weather/invariant/blowingsnow
+	name = "blizzard"
+	active_weathers = list(/obj/weathertype/snow/arctic)
+
+/obj/effect/weather/invariant/rain
 	name = "rain"
-	mutable = 0
 	active_weathers = list(/obj/weathertype/rain)
 
+/obj/effect/weather/invariant/bloodrain
+	name = "blood rain" //ow the edge
+	safe = 0
+	active_weathers = list(/obj/weathertype/rain/blood)
+
+/obj/effect/weather/invariant/acidrain
+	name = "acid rain"
+	safe = 0
+	active_weathers = list(/obj/weathertype/rain/acid)
+
 //optional underlay thing for the rain - uses the same colors, #556 recommended for rain with null splash
-/obj/effect/weather/splash
+/obj/effect/weather/invariant/splash
 	name = "rain splashes"
 	safe = 1
-	mutable = 0
+	dynamic = 0
 	active_weathers = list(/obj/weathertype/splash)
 
-/obj/effect/weather/fog
+/obj/effect/weather/invariant/fog
 	name = "fog"
 	safe = 1
-	mutable = 0
+	dynamic = 0
 	active_weathers = list(/obj/weathertype/fog)
+
+/obj/effect/weather/invariant/fallout
+	name = "fallout"
+	safe = 0
+	dynamic = 0
+	active_weathers = list(/obj/weathertype/rain/fallout)
+
+/obj/effect/weather/invariant/sandstorm
+	name = "sandstorm"
+	safe = 0
+	dynamic = 0
+	active_weathers = list(/obj/weathertype/sandstorm)
 
 /* Helper for grabbing and instantiating new weather types */
 /proc/take_weather_from(var/list/climate)
