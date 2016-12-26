@@ -2,10 +2,11 @@
 //NOTE: /clear weather's effect is overriden by all other types! If you have rain and clear, it's effectively rain.
 
 /area
-	var/climate = list(/obj/weathertype/clear)
+	var/list/climate = list(/obj/weathertype/clear)
+	var/list/weather = list(/obj/weathertype/clear)
 
 /area/jungle
-	climate = list(/obj/weathertype/rain = 200, /obj/weathertype/fog = 50, /obj/weathertype/clear)
+	climate = list(/obj/weathertype/rain, /obj/weathertype/fog, /obj/weathertype/clear)
 
 /area/awaymission/train/snow
-	climate = list(/obj/weathertype/snow = 500, /obj/weathertype/clear, /obj/weathertype/fog)
+	climate = list(/obj/weathertype/snow, /obj/weathertype/clear, /obj/weathertype/fog)

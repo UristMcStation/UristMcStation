@@ -1,53 +1,76 @@
-/var/datum/weather_master/weathermaster
+var/datum/controller/process/weather/weatherProcess
 
 //weather controller - handles weather changes
-/datum/controller/process/weather/setup()
-	name = "weather controller"
-	schedule_interval = 20
-	new weathermaster()
-
-/datum/controller/process/weather/doWork()
-	weathermaster.update_cache()
-	weathermaster.update_active()
-	weathermaster.inflict_effects()
-	weathermaster.change_weather()
-
-//weather master object
-/datum/weather_master
+/datum/controller/process/weather
+	var/weather_change_ticks = 50 //delays weather changes by N scheduler intervals
+	var/current_wcticks = 0
 	var/weather_cache = list() //meteorologically active weather objects
 	var/active_cache = list() //weathers with new objects to process, EVEN IMMUTABLE
 
-/datum/weather_master/New()
-	weathermaster = src
+/datum/controller/process/weather/setup()
+	name = "weather"
+	schedule_interval = 20
+	weatherProcess = src
+	update_cache()
+	update_active()
 
-/datum/weather_master/proc/update_cache()
-	weather_cache = get_weather_objs() //prune dead/inactive references
+/datum/controller/process/weather/doWork()
+	update_cache()
+	update_active()
+	inflict_effects()
+	current_wcticks++
+	if(current_wcticks >= weather_change_ticks)
+		change_weather()
+		current_wcticks = 0
+	SCHECK
 
-/datum/weather_master/proc/update_active()
+/datum/controller/process/weather/proc/update_cache()
+	weather_cache = get_weather_objs() //prune dead/VVd safe references
+
+/datum/controller/process/weather/proc/update_active()
+	var/list/responsive = list()
 	for(var/obj/effect/weather/WO in active_cache)
-		if(!(WO.Active())) //if there are no objects to process, don't
-			active_cache -= WO
+		if(WO.Active()) //if there are no objects to process, don't
+			responsive += WO
+	active_cache = responsive //process only 'tripped' weathers
 
-/datum/weather_master/proc/get_weather_objs()
-	var/active_weathers = list()
+/datum/controller/process/weather/proc/get_weather_objs()
+	var/act_weathers = list()
 	for(var/obj/effect/weather/WO in weather_cache)
 		if(WO.check_in()) //should be always true while object exists and should change
-			active_weathers += WO
-	return active_weathers
+			act_weathers += WO
+	return act_weathers
 
-/datum/weather_master/proc/change_weather()
+//Gets weather based on what the area can get
+/proc/get_climate_weather(var/area/WA)
+	var/list/local_climate = list()
+	var/list/nuweather = list(/obj/weathertype/error) //highly visible failure mode
+	if(WA)
+		if(WA.climate && WA.climate.len)
+			nuweather = list()
+			local_climate = WA.climate.Copy() //so we can remove values from it
+			nuweather += (take_weather_from(local_climate))
+			if(prob(10) && local_climate.len) //check values on prob
+				world << "DEBUG: Rolled secondary weather" //remove this!
+				nuweather += (take_weather_from(local_climate))
+	return nuweather
+
+/datum/controller/process/weather/proc/change_weather()
+	var/list/processed = list()
 	for(var/obj/effect/weather/WO in weather_cache)
-		var/local_climate = list()
-		var/nuweather = list()
 		var/area/WA = get_area(WO)
-		if(WA)
-			if(WA.climate)
-				local_climate = WA.climate //copy so we can remove values from it
-				nuweather = pick_n_take(local_climate)
-				if(prob(10)) //check values on prob, 1% chance rn for double weather
-					nuweather += pick_n_take(local_climate)
-		WO.active_weathers = nuweather
+		if(!(WA in processed))
+			WA.weather = get_climate_weather(WA)
+			processed += WA
+		if(!(WA.weather))
+			WA.weather = /obj/weathertype/error
+		WO.active_weathers.Cut()
+		for(var/i in WA.weather)
+			if(ispath(i, /obj/weathertype))
+				var/obj/weathertype/WT = i
+				WO.active_weathers.Add(new WT)
+		WO.update_icon()
 
-/datum/weather_master/proc/inflict_effects()
+/datum/controller/process/weather/proc/inflict_effects()
 	for(var/obj/effect/weather/WO in active_cache)
 		WO.inflict()
