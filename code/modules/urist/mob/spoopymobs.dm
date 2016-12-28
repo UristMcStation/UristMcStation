@@ -34,7 +34,11 @@
 	var/regen_delay = 900 //delay for regen revive
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
-	var/message = "Braaaaaaains!"
+	var/acount = rand(2,6)
+	var/astring = "a"
+	for(var/i, i<acount, i++)
+		astring += "a"
+	var/message = "Br[astring]ins!"
 	..(message)
 
 /mob/living/simple_animal/hostile/urist/zombie/death()
@@ -442,8 +446,10 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	attack_same = 1
+	var/caution = 1 //hit and run if low on health
 	var/mob/stalkee //who he stalks
 	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
+	var/atom/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
 
 /mob/living/simple_animal/hostile/urist/stalker/New()
 	..()
@@ -473,17 +479,24 @@
 /mob/living/simple_animal/hostile/urist/stalker/Life()
 	if(..())
 		if(stalkee)
-			if(stalkee.stat != DEAD)
+			if(stalkee.stat == DEAD)
+				GetNewStalkee()
+			else if(stance == HOSTILE_STANCE_IDLE)
 				if(prob(25))
 					HuntingTeleport()
-			else
-				GetNewStalkee()
 		else
 			GetNewStalkee()
 
 /mob/living/simple_animal/hostile/urist/stalker/death()
+	if(tele_effect)
+		HandleTeleFX(src.loc)
 	..(0, "disappears!")
 	qdel(src)
+
+/mob/living/simple_animal/hostile/urist/stalker/LostTarget()
+	..()
+	if(prob(25))
+		HuntingTeleport()
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
 	var/list/destinations = new/list()
@@ -497,6 +510,9 @@
 		var/turf/picked = pick(destinations)
 		if(!picked || !isturf(picked))
 			return
+		if(tele_effect)
+			HandleTeleFX(src.loc)
+			HandleTeleFX(picked)
 		src.forceMove(picked)
 	if(flickerlights)
 		if(stalkee)
@@ -508,3 +524,12 @@
 						if(prob(10))
 							FL.flicker(3)
 	return
+
+/mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(var/atom/fxloc)
+	if(ispath(tele_effect))
+		new tele_effect(fxloc)
+
+/mob/living/simple_animal/hostile/urist/stalker/AttackingTarget()
+	..()
+	if(caution) //run awaaaay!
+		HuntingTeleport()

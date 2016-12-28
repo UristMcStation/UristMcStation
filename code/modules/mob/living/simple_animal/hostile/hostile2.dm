@@ -37,6 +37,8 @@
 	if(!.)
 		walk(src, 0)
 		return 0
+	if(ranged)
+		ranged_cooldown--
 	if(client)
 		return 0
 	if(!stat)
@@ -55,8 +57,6 @@
 				AttackTarget()
 				DestroySurroundings()
 
-		if(ranged)
-			ranged_cooldown--
 
 //////////////HOSTILE MOB TARGETTING AND AGGRESSION////////////
 
@@ -232,9 +232,10 @@
 	..()
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/proc/OpenFire(var/the_target)
+/mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
 
-	var/target = the_target
+	var/atom/target = the_target
+	var/atom/targloc = target.loc
 	var/shottimer = -2 //so that first shot is at spawn(1) like it used to
 	var/automove_cache = src.stop_automated_movement //so it can be restored to same value as it was, not always 0
 	visible_message("\red <b>[src]</b> [ranged_message] at [target]!", 1)
@@ -244,7 +245,10 @@
 	while(1) //always true, we'll terminate manually to unstop movement
 		shottimer += 3
 		spawn(shottimer)
-			Shoot(target, src.loc, src)
+			if(target)
+				Shoot(target, src.loc, src)
+			else if(targloc)
+				Shoot(targloc, src.loc, src) //in case target dies, so Launch doesn't mess up
 			if(casingtype)
 				var/obj/item/ammo_casing/droppedcasing = new casingtype(get_turf(src))
 				droppedcasing.BB = null
@@ -255,7 +259,7 @@
 	ranged_cooldown = ranged_cooldown_cap
 	return
 
-/mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/user, var/bullet = 0)
+/mob/living/simple_animal/hostile/proc/Shoot(var/atom/target, var/start, var/user, var/bullet = 0)
 	if(target == start)
 		return
 
@@ -334,3 +338,14 @@
 		spawn(10)
 			if(!src.stat)
 				horde()*/
+
+/* Lets player-controlled ranged SAs shoot. Finally. */
+/mob/living/simple_animal/hostile/RangedAttack(var/atom/A)
+	if(ranged)
+		var/targloc = A.loc
+		if(ranged_cooldown <= 0)
+			if(A)
+				OpenFire(A)
+			else if(targloc)
+				OpenFire(targloc)
+	return

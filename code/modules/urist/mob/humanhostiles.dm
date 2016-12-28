@@ -63,7 +63,7 @@
 	maxHealth = 100
 	health = 100
 
-/mob/living/simple_animal/hostile/urist/agent
+/mob/living/simple_animal/hostile/urist/ntagent
 	icon_state = "agent"
 	icon_living = "agent"
 	name = "\improper NTIS Agent"
@@ -150,3 +150,22 @@
 	..()
 	new /obj/effect/effect/smoke/bad(loc)
 	qdel(src)
+
+//Spess Jason Bourne
+/mob/living/simple_animal/hostile/urist/stalker/ntis
+	icon_state = "agent"
+	icon_living = "agent"
+	name = "\improper NTIS Assassin"
+	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you 'know too much'."
+	faction = "NTIS"
+	ranged = 1
+	rapid = 2
+	ranged_cooldown_cap = 2
+	maxHealth = 500
+	health = 500
+	minimum_distance = 4
+	retreat_distance = 2
+	projectilesound = 'sound/urist/suppshot.ogg'
+	attacktext = "brutalized"
+	attack_sound = 'sound/weapons/punch3.ogg'
+	tele_effect = /obj/effect/sparks
