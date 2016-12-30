@@ -118,7 +118,7 @@
 				var/mob/living/carbon/human/V = src.mind.current
 				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
-			if(H.analgesic << 1) //but the pain won't set in until after they stop being drained
+			if(H.analgesic <= 1) //but the pain won't set in until after they stop being drained
 				H.analgesic = 1
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
