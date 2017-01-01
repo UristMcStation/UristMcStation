@@ -1,4 +1,4 @@
-#define WEATHER_ACTION_VOLUME 10 //how much of the reagents transfers per act
+#define WEATHER_ACTION_VOLUME 15 //how much of the reagents transfers per act
 //Those are objs only because they need to have access to some vars, *DO NOT* USE THEM DIRECTLY!
 /obj/weathertype
 	name = "DO NOT USE THIS, THIS IS ONLY AN OVERLAY!"
@@ -8,7 +8,7 @@
 	alpha = 255
 	mouse_opacity = 0
 	anchored = 1
-	layer = 5
+	layer = 9 //so it's at the tree level
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
