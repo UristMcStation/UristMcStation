@@ -109,11 +109,11 @@
 /mob/living/simple_animal/hostile/snake
 	name = "snake"
 	desc = "A sinuously coiled, venomous looking reptile."
-	icon = 'icons/jungle.dmi'
-	icon_state = "snake"
-	icon_living = "snake"
-	icon_dead = "snake_dead"
-	icon_gib = "snake_dead"
+	icon = 'icons/urist/jungle/mobs.dmi'
+	icon_state = "snake_green"
+	icon_living = "snake_green"
+	icon_dead = "snake_green_dead"
+	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 1
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
