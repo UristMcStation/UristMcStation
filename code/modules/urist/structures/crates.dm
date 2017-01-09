@@ -76,10 +76,6 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 		else
 			explosion(loc, 0, 2, 4, 5)
 
-/obj/structure/closet/crate/secure/boobytrapped/ex_act(severity)
-	trigger_trap()
-	..()
-
 /obj/structure/closet/crate/secure/boobytrapped/open()
 	if(!(triggered))
 		triggered = 1
