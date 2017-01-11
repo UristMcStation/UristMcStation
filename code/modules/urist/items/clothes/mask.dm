@@ -87,3 +87,5 @@
 	icon_override = 'icons/uristmob/mask.dmi'
 	icon_state = "skimask"
 	item_state = "skimask"
+	cold_protection = FACE
+	min_cold_protection_temperature = 243.15

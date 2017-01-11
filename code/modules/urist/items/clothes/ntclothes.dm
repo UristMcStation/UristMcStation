@@ -9,8 +9,8 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	var/has_hood = 1
-	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS|HEAD
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	min_cold_protection_temperature = 243.15
 	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper,/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight/seclite)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 	var/can_toggle = 1
@@ -39,11 +39,15 @@
 	desc = "Aviators not included."
 	icon_state = "jacket"
 	can_toggle = null
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15
 
 /obj/item/clothing/suit/coat/jacket/leather
 	name = "leather jacket"
 	desc = "Pompadour not included."
 	icon_state = "leatherjacket"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15
 
 /obj/item/clothing/suit/coat/captain
 	name = "captain's winter coat"
@@ -106,7 +110,6 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-stealth"
-	item_state = "stealth_helm"
 	//item_color = "stealth"
 	armor = list(melee = 65, bullet = 45, laser = 30,energy = 20, bomb = 30, bio = 100, rad = 50)
 
@@ -116,7 +119,6 @@
 	desc = "A sleek, armored space suit that protects the wearer against injuries during covert operations. Unique syndicate technology allows it to be carried in a backpack when not in use. Property of MI13."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
-	item_state = "syndie_hardsuit"
 	w_class = 3
 	armor = list(melee = 65, bullet = 45, laser = 30, energy = 20, bomb = 30, bio = 100, rad = 50)
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency)
@@ -134,8 +136,8 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-seccold"
-	item_state = "sec_cold"
 	//item_color = "seccold"
+	urist_only = 1
 
 /obj/item/clothing/suit/space/void/security/cold
 	icon_state = "cryo-security"
@@ -143,7 +145,7 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has an additional layer of armor."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
-	item_state = "sec_coldsuit"
+	urist_only = 1
 
 //Engineering
 /obj/item/clothing/head/helmet/space/void/engineering/cold
@@ -152,8 +154,8 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-engicold"
-	item_state = "eng_cold"
 	//item_color = "engicold"
+	urist_only = 1
 
 /obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
@@ -161,7 +163,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-engineering"
-	item_state = "eng_coldsuit"
+	urist_only = 1
 
 //Atmospherics
 /obj/item/clothing/head/helmet/space/void/atmos/cold
@@ -172,6 +174,7 @@
 	icon_state = "rig0-atmocold"
 	item_state = "atmo_cold"
 	//item_color = "atmocold"
+	urist_only = 1
 
 /obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
@@ -180,6 +183,7 @@
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-atmos"
 	item_state = "atmo_coldsuit"
+	urist_only = 1
 
 //Mining
 /obj/item/clothing/head/helmet/space/void/mining/cold
@@ -188,8 +192,8 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-minecold"
-	item_state = "mining_cold"
 	//item_color = "minecold"
+	urist_only = 1
 
 /obj/item/clothing/suit/space/void/mining/cold
 	icon_state = "cryo-mining"
@@ -197,7 +201,7 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has reinforced plating."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
-	item_state = "mining_coldsuit"
+	urist_only = 1
 
 //pants
 
@@ -253,6 +257,8 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "beanie"
+	cold_protection = HEAD
+	min_cold_protection_temperature = 243.15
 
 //cap carapace
 
