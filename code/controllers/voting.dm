@@ -301,6 +301,9 @@ datum/controller/vote
 				if("gamemode")
 					if(ticker.current_state >= GAME_STATE_SETTING_UP)
 						return 0
+					if(ticker.current_state == 1 && initiator_key != "the server")
+						usr << "<b>Voting disabled during pregame.</b>"
+						return 0
 					choices.Add(config.votable_modes)
 					for (var/F in choices)
 						var/datum/game_mode/M = gamemode_cache[F]
