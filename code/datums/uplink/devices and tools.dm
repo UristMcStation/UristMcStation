@@ -109,10 +109,10 @@
 	item_cost = 16
 	antag_costs = list(MODE_PARANOIA = 16)
 	path = /obj/item/device/inteluplink
-	antag_roles = list(MODE_PARANOIA)
+	antag_roles = list(/datum/antagonist/agent)
 
 /datum/uplink_item/item/tools/jet_fuel
 	name = "Jet Fuel"
 	item_cost = 1
-	antag_costs = list(MODE_PARANOIA = 11)
+	antag_roles = list(/datum/antagonist/agent)
 	path = /obj/item/weapon/storage/box/syndie_kit/jetfuel

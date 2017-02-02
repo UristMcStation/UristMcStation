@@ -104,8 +104,10 @@
 				missionloc = S.missionloc1
 				missionannounce = S.missionannounce //only announce it once
 				mission = S.mission
+				area_offsite = locate(missionloc)
 				for(var/datum/shuttle/ferry/scom/s2/C in shuttle_controller.process_shuttles)
 					C.missionloc = S.missionloc2
+					C.area_offsite = locate(C.missionloc)
 
 		spawn(missiontime - 300)
 		command_announcement.Announce("Incoming transmission, please stand by for orders...", "S-COM Mission Command")

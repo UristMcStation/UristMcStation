@@ -111,3 +111,157 @@
 	head = /obj/item/clothing/head/wizard/urist/necro
 	suit = /obj/item/clothing/suit/wizrobe/urist/necro
 	shoes = /obj/item/clothing/shoes/jackboots
+
+/decl/hierarchy/outfit/wwii/germanrifleman
+	name = "German Rifleman"
+	head = /obj/item/clothing/head/helmet/urist/wwii/germanhelm
+	uniform = /obj/item/clothing/under/urist/wwii/germanrifleman
+	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
+	back = /obj/item/weapon/gun/projectile/manualcycle/kar98
+	r_pocket = /obj/item/weapon/grenade/stielhandgranate
+	l_pocket = /obj/item/ammo_magazine/a792x57mm/stripper
+	r_hand = /obj/item/ammo_magazine/a792x57mm/stripper
+	l_hand = /obj/item/ammo_magazine/a792x57mm/stripper
+	belt = 	/obj/item/ammo_magazine/a792x57mm/stripper
+
+/decl/hierarchy/outfit/wwii/germanrifleman/pre_equip(mob/living/carbon/human/H)
+	if(prob(10))
+		back = /obj/item/weapon/gun/projectile/automatic/stg44
+		l_pocket = /obj/item/ammo_magazine/a792x33mm
+		r_hand = /obj/item/ammo_magazine/a792x33mm
+		l_hand = /obj/item/ammo_magazine/a792x33mm
+		belt = 	/obj/item/ammo_magazine/a792x33mm
+
+	else if(prob(10))
+		back = /obj/item/weapon/gun/projectile/g43
+		l_pocket = /obj/item/ammo_magazine/a792x57mm/g43mag
+		r_hand = /obj/item/ammo_magazine/a792x57mm/g43mag
+		l_hand = /obj/item/ammo_magazine/a792x57mm/g43mag
+		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
+
+	else if(prob(5))
+		back = /obj/item/weapon/gun/projectile/automatic/l6_saw/mg42
+		l_pocket = /obj/item/weapon/grenade/stielhandgranate
+		r_hand = /obj/item/ammo_magazine/a792x57mm/mg42
+		l_hand = /obj/item/ammo_magazine/a792x57mm/mg42
+		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
+
+	else
+		return
+
+/decl/hierarchy/outfit/wwii/germanrifleman/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/storage/webbing_german/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)
+
+/decl/hierarchy/outfit/wwii/germanofficer
+	name = "German Officer"
+	head = /obj/item/clothing/head/urist/wwii/germanofficer
+	uniform = /obj/item/clothing/under/urist/wwii/germanofficer
+	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
+	back = /obj/item/weapon/gun/projectile/automatic/mp40
+	r_pocket = /obj/item/weapon/grenade/stielhandgranate
+	l_pocket = /obj/item/ammo_magazine/mc9mm/mp40
+	r_hand = /obj/item/ammo_magazine/mc9mm/mp40
+	l_hand = /obj/item/ammo_magazine/mc9mm/p38
+	belt = /obj/item/weapon/gun/projectile/p38
+
+/decl/hierarchy/outfit/wwii/germanofficer/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/storage/webbing_german/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)
+
+/decl/hierarchy/outfit/wwii/sovietrifleman
+	name = "Soviet Rifleman"
+	head = /obj/item/clothing/head/helmet/urist/wwii/soviethelm
+	uniform = /obj/item/clothing/under/urist/wwii/sovietrifleman
+	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
+	back = /obj/item/weapon/gun/projectile/manualcycle/mosinnagant
+	r_pocket = /obj/item/weapon/grenade/frag/sovietgrenade
+	l_pocket = /obj/item/ammo_magazine/a762mm/stripper
+	r_hand = /obj/item/ammo_magazine/a762mm/stripper
+	l_hand = /obj/item/ammo_magazine/a762mm/stripper
+	belt = /obj/item/ammo_magazine/a762mm/stripper
+
+/decl/hierarchy/outfit/wwii/sovietrifleman/pre_equip(mob/living/carbon/human/H)
+	if(prob(5))
+		back = /obj/item/weapon/gun/projectile/automatic/ppsh
+		l_pocket = /obj/item/ammo_magazine/mc9mm/ppsh
+		r_hand = /obj/item/ammo_magazine/mc9mm/ppsh
+		l_hand = /obj/item/ammo_magazine/mc9mm/ppsh
+		belt = /obj/item/ammo_magazine/mc9mm/ppsh
+
+	else if(prob(10))
+		back = /obj/item/weapon/gun/projectile/svt40
+		l_pocket = /obj/item/ammo_magazine/a762mm/svt40mag
+		r_hand = /obj/item/ammo_magazine/a762mm/svt40mag
+		l_hand = /obj/item/ammo_magazine/a762mm/svt40mag
+		belt = /obj/item/ammo_magazine/a762mm/svt40mag
+
+	else if(prob(5))
+		back = /obj/item/weapon/gun/projectile/automatic/degtyaryov
+		l_pocket = /obj/item/ammo_magazine/a762mm/degtyaryov
+		r_hand = /obj/item/ammo_magazine/a762mm/degtyaryov
+		l_hand = /obj/item/ammo_magazine/a762mm/degtyaryov
+		belt = 	/obj/item/ammo_magazine/a762mm/degtyaryov
+
+	else if(prob(1)) //why not a BAR
+		back = /obj/item/weapon/gun/projectile/automatic/bar
+		l_pocket = /obj/item/ammo_magazine/a762mm/barmag
+		r_hand = /obj/item/ammo_magazine/a762mm/barmag
+		l_hand = /obj/item/ammo_magazine/a762mm/barmag
+		belt = 	/obj/item/ammo_magazine/a762mm/barmag
+
+	else
+		return
+
+/decl/hierarchy/outfit/wwii/sovietrifleman/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)
+
+/decl/hierarchy/outfit/wwii/sovietofficer
+	name = "Soviet Officer"
+	head = /obj/item/clothing/head/urist/wwii/sovietofficer
+	uniform = /obj/item/clothing/under/urist/wwii/sovietofficer
+	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
+	back = /obj/item/weapon/gun/projectile/automatic/ppsh
+	r_pocket = /obj/item/weapon/grenade/frag/sovietgrenade
+	l_pocket = /obj/item/ammo_magazine/mc9mm/ppsh
+	r_hand = /obj/item/ammo_magazine/mc9mm/ppsh
+	l_hand = /obj/item/ammo_magazine/mc9mm/tt33
+	belt = /obj/item/weapon/gun/projectile/tt33
+
+/decl/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
+	if(prob(50))
+		l_hand = /obj/item/ammo_magazine/r762
+		belt = /obj/item/weapon/gun/projectile/revolver/nagantm1895
+		suit = /obj/item/clothing/suit/urist/wwii/soviet //full commissar
+		suit_store = /obj/item/ammo_magazine/r762
+	else
+		return
+
+/decl/hierarchy/outfit/wwii/sovietofficer/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)

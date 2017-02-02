@@ -2,6 +2,7 @@
 
 /obj/machinery/computer/shuttle_control/assault
 	var/readytogo = 0
+	density = 0
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
@@ -12,13 +13,13 @@
 
 /obj/machinery/computer/shuttle_control/assault/alien1
 	name = "alien shuttle console (Shuttle 1)"
-	shuttle_tag = "Assault1"
+	shuttle_tag = "Assault 1"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
 /obj/machinery/computer/shuttle_control/assault/alien2
 	name = "alien shuttle console (Shuttle 2)"
-	shuttle_tag = "Assault2"
+	shuttle_tag = "Assault 2"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
@@ -211,7 +212,7 @@
 
 //human
 
-/obj/item/weapon/grenade/anforgrenade
+/obj/item/weapon/grenade/frag/anforgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "ANFOR grenade"
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -219,15 +220,15 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
 
-/obj/item/weapon/grenade/anforgrenade/detonate()
-	explosion(src.loc, 0, 0, 2, 2)
-	qdel(src)
+///obj/item/weapon/grenade/anforgrenade/detonate()
+//	explosion(src.loc, 0, 0, 2, 2)
+//	qdel(src)
 
 /obj/item/weapon/storage/box/anforgrenade
 	name = "box of frag grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause cause death within a short radius.</B>"
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/grenade/anforgrenade = 5)
+	startswith = list(/obj/item/weapon/grenade/frag/anforgrenade = 5)
 
 /obj/item/weapon/mine/frag
 	name = "frag mine"
@@ -245,7 +246,11 @@
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/mine/frag = 4)
+	startswith = list(/obj/item/weapon/mine/frag = 3)
+
+/obj/item/weapon/storage/box/mines/New()
+	..()
+	make_exact_fit()
 
 /obj/effect/mine/proc/explode2(obj)
 	/* oldcode, pre-fragification -scr
@@ -299,14 +304,14 @@
 
 /obj/structure/assaultshieldgen
 	name = "shield generator"
-	desc = "The shield generator for the station. Protect it with your life."
+	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
 //	icon = 'icons/urist/structures&machinery/scomscience.dmi'
 //	icon_state = "norm2"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
 //	var/remaininggens = 6
-	var/health = 200
-	var/maxhealth = 200
+	var/health = 300
+	var/maxhealth = 300
 	anchored = 1
 	density = 1
 
@@ -344,7 +349,7 @@
 /obj/structure/assaultshieldgen/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			qdel(src)
+			kaboom()
 			return
 		if(2.0)
 			if(prob(75))
@@ -353,7 +358,7 @@
 			else
 				health -= 150
 		if(3.0)
-			if(prob(25))
+			if(prob(5))
 				kaboom()
 				return
 			else

@@ -142,8 +142,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Pants: Wear them."
 	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
 	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
-	products = list(/obj/item/clothing/under/pants/bluepants = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10,/obj/item/clothing/under/pants/urist/jeans_m = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/redpants = 10,/obj/item/clothing/under/pants/urist/whitepants = 10,/obj/item/clothing/under/pants/urist/jeans_b = 10)
-	prices = list(/obj/item/clothing/under/pants/bluepants = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100,/obj/item/clothing/under/pants/urist/jeans_m = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/redpants = 100,/obj/item/clothing/under/pants/urist/whitepants = 100,/obj/item/clothing/under/pants/urist/jeans_b = 100)
+	products = list(/obj/item/clothing/under/pants/urist/bluepants = 10,/obj/item/clothing/under/pants/urist/camo = 10,/obj/item/clothing/under/pants/urist/khaki = 10,/obj/item/clothing/under/pants/urist/trackpants = 10,/obj/item/clothing/under/pants/urist/jeans_m = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/redpants = 10,/obj/item/clothing/under/pants/urist/whitepants = 10,/obj/item/clothing/under/pants/urist/jeans_b = 10)
+	prices = list(/obj/item/clothing/under/pants/urist/bluepants = 100,/obj/item/clothing/under/pants/urist/camo = 100,/obj/item/clothing/under/pants/urist/khaki = 100,/obj/item/clothing/under/pants/urist/trackpants = 100,/obj/item/clothing/under/pants/urist/jeans_m = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/redpants = 100,/obj/item/clothing/under/pants/urist/whitepants = 100,/obj/item/clothing/under/pants/urist/jeans_b = 100)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
 	premium = list(/obj/item/clothing/under/pants/urist/militarypants = 1)
 
@@ -187,23 +187,23 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMIREZ!"
 	vend_delay = 5
 	products = list(
-//		//ammo
+		//ammo,
 		/obj/item/ammo_magazine/a556/a22 = 60,
 		/obj/item/ammo_magazine/a762mm/a18 = 60,
 		/obj/item/ammo_magazine/a9mm = 60,
 		/obj/item/weapon/storage/box/shotgunammo = 60,
 		/obj/item/weapon/storage/box/shotgunshells = 60,
 		/obj/item/ammo_magazine/c45m/a7 = 60,
-//		//guns
+		//guns,
 		/obj/item/weapon/gun/projectile/automatic/a22 = 10,
 		/obj/item/weapon/gun/projectile/a18 = 10,
 		/obj/item/weapon/gun/projectile/automatic/asmg = 10,
 		/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41 = 10,
 		/obj/item/weapon/gun/projectile/colt/a7 = 20,
-//		//attachments
+		//attachments,
 		/obj/item/weapon/gunattachment/grenadelauncher = 10,
 		/obj/item/weapon/gunattachment/scope/a18 = 10,
-//		//grenades and mines
+		//grenades and mines,
 		/obj/item/weapon/storage/box/anforgrenade = 10,
 		/obj/item/weapon/storage/box/mines = 3
 		)

@@ -171,7 +171,7 @@
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "7.62mm"
+	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -318,7 +318,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "FALmag"
 	mag_type = MAGAZINE
-	caliber = "7.62mm"
+	caliber = "a762"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762

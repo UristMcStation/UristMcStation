@@ -84,7 +84,7 @@
 	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
 	var/poison_type = "phoron"                        // Poisonous air.
 	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
-	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
+	var/cold_level_1 = 280                            // Cold damage level 1 below this point.
 	var/cold_level_2 = 200                            // Cold damage level 2 below this point.
 	var/cold_level_3 = 120                            // Cold damage level 3 below this point.
 	var/heat_level_1 = 360                            // Heat damage level 1 above this point.
@@ -100,7 +100,7 @@
 	                                                  // (also affects temperature processing)
 
 	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
-	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
+	var/cold_discomfort_level = 295                   // Aesthetic messages about feeling chilly.
 	var/list/heat_discomfort_strings = list(
 		"You feel sweat drip down your neck.",
 		"You feel uncomfortably warm.",

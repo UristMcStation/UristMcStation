@@ -110,7 +110,7 @@
 
 	eyes = "blank_eyes"
 
-	brute_mod = 1.5
+	brute_mod = 1.6
 	burn_mod = 1
 
 	flags = IS_RESTRICTED | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON
@@ -154,6 +154,6 @@
 /datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
-	sleep(5)
-	qdel(H)
+	spawn(5)
+		qdel(H)
 	return

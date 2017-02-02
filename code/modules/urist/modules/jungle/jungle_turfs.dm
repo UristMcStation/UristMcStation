@@ -15,6 +15,7 @@
 	light_color = null
 	light_power = 2
 	light_range = 2 //for some reason, range 1 doesn't apply at all.
+	var/bushspawnchance = 35 //let's try it, why not
 
 /turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
@@ -46,7 +47,7 @@
 			J.pixel_y = rand(-6,6)
 	if(reeds_spawn && prob(10))
 		new /obj/structure/flora/reeds(src)
-	if(bushes_spawn && prob(76))
+	if(bushes_spawn && prob(bushspawnchance))
 		new /obj/structure/bush(src)
 	else if(small_trees && prob(9)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
 		new /obj/structure/flora/tree/jungle/small(src)
@@ -63,20 +64,37 @@
 /turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
 		if(!farmed) //todo; add a way to remove the soil
-
-			new /obj/machinery/portable_atmospherics/hydroponics/soil(src)
-			user.visible_message("<span class='notice'>[user] digs up some soil and prepare the ground for planting.</span>", \
-			"<span class='notice'>You dig up some soil and prepare the ground for planting.</span>")
-			src.farmed = 1
-			src.overlays = null
+			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
+			"<span class='notice'>You start to dig up some soil and prepare the ground for planting.</span>")
+			if (do_after(user, 30, src))
+				new /obj/machinery/portable_atmospherics/hydroponics/soil(src)
+				user.visible_message("<span class='notice'>[user] digs up some soil and prepares the ground for planting.</span>", \
+				"<span class='notice'>You dig up some soil and prepares the ground for planting.</span>")
+				src.farmed = 1
+				src.overlays = null
 
 		else if(farmed == 1)
-			for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
-				qdel(S)
-				farmed = 2
-				user.visible_message("<span class='notice'>[user] digs up a large amount of soil, forming a pit.</span>", \
-				"<span class='notice'>You dig up even more soil, forming a pit.</span>")
-				new /obj/structure/pit(src)
+			var/want = input("What would you like to do?", "Shovel", "Cancel") in list ("Cancel", "Remove the farm plot", "Dig a pit")
+			switch(want)
+				if("Cancel")
+					return
+				if("Remove the farm plot")
+					user.visible_message("<span class='notice'>[user] smooths over the ground, removing the farm plot.</span>", \
+					"<span class='notice'>You smooth over the ground, removing the farm plot.</span>")
+					for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
+						qdel(S)
+					src.overlays += image('icons/urist/jungle/turfs.dmi', "dirt", layer=2.1)
+					farmed = 0
+				if("Dig a pit")
+					user.visible_message("<span class='notice'>[user] starts to dig up large amounts of soil to form a pit.</span>", \
+					"<span class='notice'>You start to dig up large amounts of soil to form a pit.</span>")
+					if (do_after(user, 30, src))
+						for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
+							qdel(S)
+						farmed = 2
+						user.visible_message("<span class='notice'>[user] digs up a large amount of soil, forming a pit.</span>", \
+							"<span class='notice'>You dig up even more soil, forming a pit.</span>")
+						new /obj/structure/pit(src)
 
 	else if(istype(I, /obj/item/stack/tile/floor))
 		var/obj/item/stack/tile/floor/R = I
@@ -95,11 +113,13 @@
 	large_trees_low = 1
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
+	bushspawnchance = 54
 
 /turf/simulated/jungle/thick
 	large_trees_high = 1
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
+	bushspawnchance = 73
 
 /turf/simulated/jungle/clear
 	bushes_spawn = 0
@@ -151,7 +171,7 @@
 	if(probability <= 0)
 		return
 
-	//world << "\blue Spread([probability])"
+	//world << "<span class='notice'> Spread([probability])</span>"
 	for(var/turf/simulated/jungle/J in orange(1, src))
 		if(!J.bushes_spawn)
 			continue
@@ -230,9 +250,64 @@
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
 	var/bridge = 0 //has there been a bridge built?
+	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
+	var/fishing = 0 //are we fishing
+
 
 /turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/stack/material/wood))
+	if(istype(I, /obj/item/weapon/fishingrod))
+		if(bridge)
+			user << "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>"
+			return
+
+		else if(fishleft && !fishing && !bridge)
+			if(prob(1))
+				user << "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>"
+
+			else
+				user << "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>"
+
+			var/obj/item/weapon/fishingrod/F = I
+			var/fishtime = (rand(40,140)) //test this shit
+			fishtime *= F.fishingpower //here we account for using shitty improvised fishing rods, which increase the time
+			fishing = 1
+
+			if (do_after(user, fishtime, src))
+				user << "<span class='notice'>You feel a tug on your line!</span>"
+				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
+				fishing = 2
+				var/tempfish = fishleft
+				spawn(rand(35,70))
+					if(fishing && fishleft == tempfish)
+						user << "<span class='notice'>Looks like it got away...</span>"
+						fishing = 0
+						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+
+		else if(fishleft && fishing == 2 && !bridge)
+			var/obj/item/F
+
+			if(prob(2))
+				F = new/obj/item/weapon/storage/belt/utility(user.loc)
+			else if(prob(1))
+				F = new	/obj/item/weapon/beartrap(user.loc)
+			else if(prob(10))
+				F = new/obj/item/weapon/reagent_containers/food/drinks/cans/cola(user.loc)
+			else if(prob(3))
+				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
+			else if(prob(5))
+				F = new/obj/item/clothing/glasses/sunglasses(user.loc)
+			else
+				F = new/obj/item/fish(user.loc)
+			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+			fishleft -= 1
+			fishing = 0
+			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
+
+		else if(!fishleft && !bridge)
+			user << "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>"
+			return
+
+	else if(istype(I, /obj/item/stack/material/wood))
 		if(!bridge)
 
 			var/obj/item/stack/material/wood/R = I
@@ -283,15 +358,23 @@
 
 					bridge = 0
 
+	else if(istype(I, /obj/item/weapon/paddle))
+		if(!bridge)
+			for(var/obj/structure/raft/R in user.loc)
+				if(R.built)
+					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					user.loc = get_turf(src)
+					R.loc = get_turf(src)
+
+				else
+					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
+
 	var/obj/item/weapon/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		user.visible_message("<span class='notice'>user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
-		return
+		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
+		return 1
 
-
-	else
-		return
 /turf/simulated/jungle/water/New()
 	..()
 	for(var/obj/structure/bush/B in src)
@@ -303,6 +386,9 @@
 
 /turf/simulated/jungle/water/Entered(atom/movable/O)
 	..()
+	if(density) //to account for deep water
+		return
+
 	if(bridge)
 		return
 
@@ -317,10 +403,10 @@
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
 		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
-			M << "\blue You feel something slithering around your legs."
+			M << "<span class='notice'> You feel something slithering around your legs.</span>"
 			spawn(rand(25,50))
-				M << pick("\red Something sharp bites you!","\red Sharp teeth grab hold of you!","\red You feel something bite into your leg!")
-				M.apply_damage(rand(1,3), BRUTE, sharp=1)
+				M << pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>")
+				M.apply_damage(rand(3,5), BRUTE, sharp=1)
 
 
 /turf/simulated/jungle/water/deep

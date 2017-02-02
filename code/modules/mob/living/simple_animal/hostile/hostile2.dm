@@ -8,7 +8,7 @@
 	var/atom/target // /vg/ edit:  Removed type specification so spiders can target doors.
 	var/attack_same = 0 //Set us to 1 to allow us to attack our own faction, or 2, to only ever attack our own faction
 	var/ranged = 0
-	var/rapid = 0
+	var/rapid = 0 //how many *additional* shots per burst, so set to 1 for 2-shot bursts etc. 2 is original behavior (3 rd. burst)
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
@@ -37,6 +37,8 @@
 	if(!.)
 		walk(src, 0)
 		return 0
+	if(ranged)
+		ranged_cooldown--
 	if(client)
 		return 0
 	if(!stat)
@@ -55,8 +57,6 @@
 				AttackTarget()
 				DestroySurroundings()
 
-		if(ranged)
-			ranged_cooldown--
 
 //////////////HOSTILE MOB TARGETTING AND AGGRESSION////////////
 
@@ -168,7 +168,9 @@
 			LostTarget()
 	LostTarget()
 
-/mob/living/simple_animal/hostile/proc/Goto(var/target, var/delay, var/minimum_distance)
+/mob/living/simple_animal/hostile/proc/Goto(var/atom/target, var/delay, var/minimum_distance)
+	if(get_dist(src, target.loc) > minimum_distance)
+		step_towards(src, target) //weird but necessary so they try to bump openable obstacles
 	walk_to(src, target, minimum_distance, delay)
 
 /mob/living/simple_animal/hostile/adjustBruteLoss(var/damage)
@@ -230,32 +232,34 @@
 	..()
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/proc/OpenFire(var/the_target)
+/mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
 
-	var/target = the_target
+	var/atom/target = the_target
+	var/atom/targloc = target.loc
+	var/shottimer = -2 //so that first shot is at spawn(1) like it used to
+	var/automove_cache = src.stop_automated_movement //so it can be restored to same value as it was, not always 0
 	visible_message("\red <b>[src]</b> [ranged_message] at [target]!", 1)
+	stop_automated_movement = 1 //so the mobs don't run into own bullets
 
-	if(rapid)
-		spawn(1)
-			Shoot(target, src.loc, src)
+	var/shots = 0
+	while(1) //always true, we'll terminate manually to unstop movement
+		shottimer += 3
+		spawn(shottimer)
+			if(target)
+				Shoot(target, src.loc, src)
+			else if(targloc)
+				Shoot(targloc, src.loc, src) //in case target dies, so Launch doesn't mess up
 			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(4)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(6)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-	else
-		Shoot(target, src.loc, src)
-		if(casingtype)
-			new casingtype
+				var/obj/item/ammo_casing/droppedcasing = new casingtype(get_turf(src))
+				droppedcasing.BB = null
+		shots++
+		if(shots > rapid) //manual break
+			stop_automated_movement = automove_cache
+			break
 	ranged_cooldown = ranged_cooldown_cap
 	return
 
-/mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/user, var/bullet = 0)
+/mob/living/simple_animal/hostile/proc/Shoot(var/atom/target, var/start, var/user, var/bullet = 0)
 	if(target == start)
 		return
 
@@ -334,3 +338,14 @@
 		spawn(10)
 			if(!src.stat)
 				horde()*/
+
+/* Lets player-controlled ranged SAs shoot. Finally. */
+/mob/living/simple_animal/hostile/RangedAttack(var/atom/A)
+	if(ranged)
+		var/targloc = A.loc
+		if(ranged_cooldown <= 0)
+			if(A)
+				OpenFire(A)
+			else if(targloc)
+				OpenFire(targloc)
+	return

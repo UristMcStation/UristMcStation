@@ -5,7 +5,7 @@ var/global/list/potentialRandomZlevels = generateMapList(filename = "maps/Random
 		return
 
 	if(potentialRandomZlevels.len)
-		admin_notice("\red \b Loading away mission...", R_DEBUG)
+		admin_notice("<span class='danger'> Loading away mission...</span>", R_DEBUG)
 
 		var/map = pick(potentialRandomZlevels)
 		var/file = file(map)
@@ -22,10 +22,10 @@ var/global/list/potentialRandomZlevels = generateMapList(filename = "maps/Random
 					continue
 				awaydestinations.Add(L)
 
-			admin_notice("\red \b Away mission loaded.", R_DEBUG)
+			admin_notice("<span class='danger'> Away mission loaded.</span>", R_DEBUG)
 			return
 	else
-		admin_notice("\red \b No away missions found.", R_DEBUG)
+		admin_notice("<span class='danger'> No away missions found.</span>", R_DEBUG)
 		return
 
 /proc/generateMapList(filename)

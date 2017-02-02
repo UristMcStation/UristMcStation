@@ -68,9 +68,9 @@ var/global/datum/store/centcomm_store=new
 
 /obj/machinery/computer/merch
 	name = "Merchandise Computer"
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "comm_logs"
-	circuit = "/obj/item/weapon/circuitboard/merch"
+	icon_screen = "comm_logs"
+	light_color = "#00b000"
+	circuit = /obj/item/weapon/circuitboard/merch
 
 /obj/item/weapon/circuitboard/merch
 	name = "\improper Merchandise Computer Circuitboard"
@@ -205,13 +205,13 @@ td.cost.toomuch {
 			updateUsrDialog()
 			return
 		if(!centcomm_store.PlaceOrder(usr,itemID))
-			usr << "\red Unable to charge your account."
+			usr << "<span class='warning'> Unable to charge your account.</span>"
 		else
-			usr << "\blue You've successfully purchased the item.  It should be in your hands or on the floor."
+			usr << "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>"
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/merch/update_icon()
+/*/obj/machinery/computer/merch/update_icon()
 
 	if(stat & BROKEN)
 		icon_state = "comm_logs0"
@@ -221,5 +221,5 @@ td.cost.toomuch {
 			stat |= NOPOWER
 		else
 			icon_state = initial(icon_state)
-			stat &= ~NOPOWER
+			stat &= ~NOPOWER*/
 

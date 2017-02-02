@@ -1,8 +1,8 @@
 /obj/structure/undies_wardrobe
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
-	icon = 'icons/obj/closet.dmi'
-	icon_state = "cabinet_closed"
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "dresser"
 	density = 1
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
@@ -85,3 +85,12 @@
 	if(.)
 		H.update_underwear()
 		interact(H)
+
+/obj/structure/undies_wardrobe/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/wrench))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
+		S.amount = 5
+		qdel(src)
+	else
+		..()
