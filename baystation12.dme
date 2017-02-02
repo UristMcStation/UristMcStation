@@ -2181,6 +2181,7 @@
 #include "code\modules\urist\gamemodes\scom\machinery.dm"
 #include "code\modules\urist\gamemodes\scom\missions.dm"
 #include "code\modules\urist\gamemodes\scom\mobs.dm"
+#include "code\modules\urist\gamemodes\scom\operative.dm"
 #include "code\modules\urist\gamemodes\scom\science.dm"
 #include "code\modules\urist\gamemodes\scom\sciencedatums.dm"
 #include "code\modules\urist\gamemodes\scom\scom.dm"
