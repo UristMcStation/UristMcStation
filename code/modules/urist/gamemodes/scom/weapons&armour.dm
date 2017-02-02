@@ -344,3 +344,8 @@
 	desc = "The outfit of an S-COM Squad 4 Leader."
 	icon_state = "scom4l"
 	//item_color = "scom4l"
+
+#undef RANK_SUPPORT
+#undef RANK_SOLDIER
+#undef RANK_OFFICER
+#undef RANK_COMMAND

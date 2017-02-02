@@ -15,3 +15,5 @@
 
 #define MODE_VAMPIRE "vampire"
 #define MODE_PARANOIA "agent"
+
+#define SCOM_ZLEVEL 2 //which Z-level SCOM base is on

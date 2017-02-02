@@ -1,11 +1,3 @@
-/proc/scom_dressup(var/mob/living/carbon/human/H, var/decl/hierarchy/outfit/outfit, var/undress = TRUE, var/teamnum) //copypasta
-	if(!H || !outfit)
-		log_and_message_admins("Something went wrong assigning [key_name(H)] an outfit of [outfit.name].")
-		return
-	if(undress)
-		H.delete_inventory(TRUE)
-	outfit.equip(H, null, null, teamnum)
-
 /decl/hierarchy/outfit/scom
 	hierarchy_type = /decl/hierarchy/outfit/scom //hidden
 	name = "S-COM Member"
@@ -78,7 +70,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
 	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
 	r_hand = /obj/item/weapon/storage/box/c20ammo
-	id_pda_assignment = "S-COM Team Leader"
+	id_pda_assignment = "S-COM Officer"
 	team1uniform = /obj/item/clothing/under/urist/scom/s1l
 	team2uniform = /obj/item/clothing/under/urist/scom/s2l
 	team3uniform = /obj/item/clothing/under/urist/scom/s3l
@@ -111,15 +103,15 @@
 		new /obj/item/weapon/storage/belt/urist/military/scom(src)
 		new /obj/item/clothing/head/beret/sec/navy/officer(src)
 		new /obj/item/weapon/gun/projectile/silenced/knight(src)
-		new /obj/item/clothing/shoes/sandal(src)
+		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
 		new /obj/item/clothing/under/urist/scom(src)
 
 	return
 
 /obj/structure/closet/secure_closet/personal/scom/officer
-	name = "S-COM personal closet (TL)"
-	desc = "It's a secure locker for S-COM Team Leaders."
+	name = "S-COM personal closet (Officers)"
+	desc = "It's a secure locker for S-COM Officers."
 
 /obj/structure/closet/secure_closet/personal/scom/officer/New()
 	..()
@@ -133,7 +125,7 @@
 		new /obj/item/clothing/suit/armor/vest/deus_blueshield(src)
 		new /obj/item/weapon/gun/projectile/automatic/c20r(src)
 		new /obj/item/weapon/storage/box/c20ammo(src)
-		new /obj/item/clothing/shoes/sandal(src)
+		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
 		new /obj/item/clothing/under/urist/scom(src)
 	return
@@ -150,7 +142,7 @@
 		new /obj/item/clothing/shoes/white(src)
 		new /obj/item/weapon/storage/backpack/toxins(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/science(src)
-		new /obj/item/clothing/shoes/sandal(src)
+		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
 
 /obj/structure/closet/secure_closet/personal/scom/commander
@@ -173,5 +165,5 @@
 		new /obj/item/clothing/head/caphat/formal(src)
 		new /obj/item/weapon/storage/fancy/cigarettes(src)
 		new /obj/item/weapon/flame/lighter/zippo(src)
-		new /obj/item/clothing/shoes/sandal(src)
+		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
