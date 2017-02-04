@@ -143,7 +143,7 @@
 	anchored = 1
 	layer = 9
 
-/obj/structure/flora/tree/jungle/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
 		user << "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>"
 		return
