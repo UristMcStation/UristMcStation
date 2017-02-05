@@ -113,6 +113,34 @@
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "anforsoft"
 
+//voidsuit - might change this to an actual rig
+
+/obj/item/clothing/suit/space/void/anfor
+	name = "\improper ANFOR marine voidsuit"
+	desc = "A heavily armored suit that protects against moderate damage. Used by ANFOR marines when exposure to the cold dark void of space is likely."
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "anforeva"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
+	armor = list(melee = 60, bullet = 80, laser = 45,energy = 25, bomb = 50, bio = 100, rad = 100)
+	flags_inv = HIDESHOES|HIDEJUMPSUIT
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/suit/space/void/anfor/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/head/helmet/space/void/anfor
+	urist_only = 1
+	name = "ANFOR marine voidsuit helmet"
+	desc = "A comfortable voidsuit helmet used by ANFOR marines. Features cranial armor and eight-channel surround sound."
+	icon_override = 'icons/uristmob/head.dmi'
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "rig0-anforeva"
+	armor = list(melee = 50, bullet = 80, laser = 35, energy = 25, bomb = 50, bio = 100, rad = 10)
+	siemens_coefficient = 0.7
+	light_overlay = "helmet_light_dual"
 
 //Weapons
 
@@ -400,3 +428,51 @@
 
 /obj/item/ammo_magazine/c45m/a7/empty
 	initial_ammo = 0
+
+/obj/item/weapon/gun/projectile/manualcycle/a50
+	urist_only = 1
+	name = "A50 Heavy Rifle"
+	icon = 'icons/urist/items/guns.dmi'
+	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
+	wielded_item_state = "rifle2" //maybe change this
+	icon_state = "a50"
+	item_state = "rifle2"
+	w_class = 5
+	requires_two_hands = 6
+	force = 10
+	slot_flags = SLOT_BACK
+	caliber = "13.2x108mm"
+	handle_casings = HOLD_CASINGS
+//	load_method = SINGLE_CASING
+	max_shells = 5
+	ammo_type = /obj/item/ammo_casing/a132x108mm
+//	accuracy = -1
+//	jam_chance = 5
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+
+/obj/item/ammo_casing/a132x108mm
+	name = "shell casing"
+	desc = "A 13.2x108mm shell."
+	icon_state = "lcasing"
+	spent_icon = "lcasing-spent"
+	caliber = "13.2x108mm"
+	projectile_type = /obj/item/projectile/bullet/rifle/a145
+	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+
+/obj/item/projectile/bullet/rifle/a132x108mm
+	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
+	damage = 60
+	stun = 1.5
+	weaken = 1.5
+	penetrating = 5
+	armor_penetration = 60
+
+/obj/item/ammo_magazine/a132x108mm/stripper
+	name = "stripper clip (13.2x108m)"
+	icon_state = "stripper" //change
+	icon = 'icons/urist/items/guns.dmi'
+	caliber = "13.2x108mm"
+	max_ammo = 5
+	multiple_sprites = 1
+	mag_type = SPEEDLOADER
+	ammo_type = /obj/item/ammo_casing/a132x108mm

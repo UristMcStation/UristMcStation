@@ -1,7 +1,7 @@
 /obj/effect/mine
 	name = "Mine"
 	desc = "I Better stay away from that thing."
-	density = 1
+	density = 0
 	anchored = 1
 	plane = OBJ_PLANE
 	layer = OBJ_LAYER
@@ -69,7 +69,7 @@
 		qdel(src)
 
 /obj/effect/mine/proc/triggerkick(obj)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread()
+	var/datum/effect/effect/system/spark_spread/s = PoolOrNew(/datum/effect/effect/system/spark_spread)
 	s.set_up(3, 1, src)
 	s.start()
 	qdel(obj:client)
