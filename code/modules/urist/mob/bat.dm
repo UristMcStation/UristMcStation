@@ -35,7 +35,7 @@
 
 	break_stuff_probability = 2
 
-	faction = "vampire"
+	faction = "undead"
 //	var/mob/living/owner
 
 /*/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
