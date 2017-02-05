@@ -203,7 +203,7 @@
 		user.visible_message("<span class='notice'>[user] starts typing commands on \the [src]'s keyboard frantically!</span>","<span class='notice'>You start scanning and uploading \the [C] to the [faction]'s databases.</span>","<span class='notice'>You hear someone frantically typing on a keyboard.</span>")
 		var/uploadamount = min(5,(100 - progress))
 		var/initial_obj_loc = C.loc
-		while(do_after(user, 50, 5, 0))
+		while(do_after(user, 50, src, 0, 5))
 			if(!(C.loc == initial_obj_loc))
 				break
 			if(!(open))
