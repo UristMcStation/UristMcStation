@@ -77,6 +77,7 @@ var/global/remaininggens = 6
 			W.name = "[M.real_name]'s ID Card"
 			W.icon_state = "centcom"
 			W.access = get_all_accesses()
+			W.access += access_cent_general
 			W.assignment = "ANFOR Marine"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)

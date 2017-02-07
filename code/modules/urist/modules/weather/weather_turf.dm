@@ -14,9 +14,11 @@
 	if(dynamic)
 		weather_dynamic = dynamic
 	if(weatherProcess)
-		weatherProcess.weather_cache += src
+		if(!(src in weatherProcess.weather_cache))
+			weatherProcess.weather_cache += src
 	else
-		pending_weathers += src
+		if(!(src in pending_weathers))
+			pending_weathers += src
 
 //clean up and disable weather
 /turf/proc/weather_disable()
