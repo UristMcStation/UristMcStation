@@ -263,13 +263,13 @@
 	if(target == start)
 		return
 
-	var/obj/item/projectile/A = new projectiletype(user:loc)
-	playsound(user, projectilesound, 100, 1)
-	if(!A)	return
-
-	var/def_zone = get_exposed_defense_zone(target)
-	A.launch(target, def_zone)
-	return
+	var/obj/item/projectile/projtype = projectiletype
+	if(projtype)
+		var/obj/item/projectile/A = new projtype(user:loc)
+		playsound(user, projectilesound, 100, 1)
+		if(A)
+			var/def_zone = get_exposed_defense_zone(target)
+			A.launch(target, def_zone)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
 	if(environment_smash && prob(break_stuff_probability))

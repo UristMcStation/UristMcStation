@@ -148,6 +148,7 @@
 
 /obj/item/projectile/bullet/rifle/sniper
 	damage = 35
+	hitscan = 1
 
 /obj/item/projectile/beam/sniper/pulse
 	icon_state = "u_laser"
