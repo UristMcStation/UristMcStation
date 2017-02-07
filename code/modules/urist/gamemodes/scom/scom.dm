@@ -27,14 +27,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	var/scommapsloaded = 0
 	var/aliencount = 0
 	var/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
-	var/list/teamnames = list(1,2,3,4) //all possible team names, putting this in one place for easy editing
-	var/list/freeteams = list()
 	auto_recall_shuttle = 1
 	ert_disabled = 1
-
-/datum/game_mode/scom/New()
-	freeteams = teamnames
-	..()
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
@@ -103,7 +97,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	for(var/mob/living/carbon/human/H in player_list)
 		if(H.client && H.stat != DEAD && isscom(H))
 			SCOMplayercount += 1
-	if(SCOMplayercount == 0 && declared == 0)
+	if(SCOMplayercount == 0 && declared == 0 && prob(5))
 		sploded = 3
 		declare_completion()
 

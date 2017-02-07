@@ -47,7 +47,7 @@
 						break
 
 				for(var/mob/living/carbon/human/H in player_list)
-					if(!H.stat && H.z != 2)
+					if(!H.stat && H.z != SCOM_ZLEVEL)
 						user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
 						return
 					else
@@ -156,10 +156,10 @@
 //				missionloc = S.missionloc2
 //				mission = S.mission
 
-		for(var/mob/living/carbon/C in mob_list)
-			if(isscom(C)) //no need to teleport random non-operatives
+		for(var/mob/living/carbon/C in human_mob_list)
+			if(isscom(C) || (ishuman(C) && !(C.mind))) //no need to teleport random non-operatives
 				if(C.z != 2) //already on-site, skip teleporting
-					if(isobj(C.loc) && C.loc.z != 2) //being in stuff sets coords to 0, so rechecks for holder
+					if(C.z != 0 || (isobj(C.loc) && C.loc.z != 2)) //being in stuff sets coords to 0, so rechecks for holder
 						var/obj/machinery/scom/teleporter2/destination
 						var/list/all_destinations = list()
 						for(var/obj/machinery/scom/teleporter2/T in machines)
