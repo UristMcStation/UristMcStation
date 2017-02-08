@@ -237,10 +237,13 @@
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/weapon/mine/attack_self(mob/user as mob)
-	new /obj/effect/mine/frag(user.loc)
+	var/obj/effect/mine/frag/M = new /obj/effect/mine/frag(user.loc)
+	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
 	user.regenerate_icons()
+	spawn(35)
+		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 
 /obj/item/weapon/storage/box/mines
 	name = "box of frag mines (WARNING)"
@@ -298,18 +301,17 @@
 	triggerproc = "explode2"
 
 /obj/effect/mine/frag/attack_hand(mob/user as mob)
-	user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
-	new /obj/item/weapon/mine/frag(src.loc)
-	qdel(src)
+	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span_class='warning'>You start to disarm the mine. Just stay very still.</span>")
+	if (do_after(user, 30, src))
+		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
+		new /obj/item/weapon/mine/frag(src.loc)
+		qdel(src)
 
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-//	icon = 'icons/urist/structures&machinery/scomscience.dmi'
-//	icon_state = "norm2"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-//	var/remaininggens = 6
 	var/health = 300
 	var/maxhealth = 300
 	anchored = 1
@@ -379,10 +381,5 @@
 	..()
 
 /obj/structure/assaultshieldgen/proc/kaboom()
-//	for(var/obj/structure/assaultshieldgen/S in world)
-//		S.remaininggens -= 1
 	remaininggens -= 1
-//	if(remaininggens == 0)
-//		gamemode_endstate = 3
-
 	qdel(src)

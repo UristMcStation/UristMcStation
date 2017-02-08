@@ -357,8 +357,12 @@
 			AnnounceCyborg(character, rank, join_message)
 
 		if(master_mode=="scom")
-			ScomLateJoin(character)
-			ScomRobotLateJoin(character)
+			if(istype(character, /mob/living/carbon))
+				ScomLateJoin(character)
+			else if(istype(character, /mob/living/silicon))
+				ScomRobotLateJoin(character)
+			else
+				log_and_message_admins("Latejoining S-COM failed for [src]: character is neither carbon nor silicon. Somehow.")
 
 		else if(master_mode=="assault")
 			AssaultLateJoin(character)

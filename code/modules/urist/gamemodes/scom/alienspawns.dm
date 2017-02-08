@@ -18,9 +18,9 @@
 
 /obj/effect/landmark/scom/enemyspawn/proc/spawnmobs() //we call this when the shuttle does the thing with the stuff
 	if(scom_lowpop_scale)
-		spawnprob = max((round(SCOMplayerC/(SCOM_EASY)*100)),33)
+		spawnprob = max((round(SCOMplayerC/(SCOM_EASY)*100)),50)
 		//Scales like for 5 people even if there's only one - that's SCOM, baby!
-		//Scales relative to easiest difficulty, check if it doesn't work better if it scales relative to harder ones
+		//Scales relative to normal difficulty, check if it doesn't work better if it scales relative to harder ones
 	else
 		spawnprob = 100
 

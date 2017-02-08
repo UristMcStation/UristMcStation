@@ -220,10 +220,11 @@
 	icon_state = "squad"
 	anchored = 1
 	density = 1
+	var/list/already_picked = list() //stores mobs who used it to limit reuse
 
-/obj/machinery/scom/classchanger/attack_hand(mob/living/carbon/user)
-	for (var/obj/item/weapon/card/id/W in user)
-		if(W.assignment == "S-COM Operative")
+/obj/machinery/scom/classchanger/attack_hand(var/mob/living/carbon/user)
+	if(!(user in already_picked))
+		if(user.mind && isscom(user))
 			var/want = input("Which class would you like to be?", "Your Choice", "Cancel") in list ("Cancel", "Heavy", "Assault", "Medic", "Sniper")
 			switch(want)
 				if("Cancel")
@@ -236,7 +237,10 @@
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
 					new /obj/item/weapon/storage/box/lmgammo(src.loc)
-					W.assignment = "S-COM Heavy Operative"
+
+					for (var/obj/item/weapon/card/id/W in user)
+						if(W.assignment == "S-COM Operative")
+							W.assignment = "S-COM Heavy Operative"
 
 				if("Assault")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
@@ -247,7 +251,10 @@
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
 					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
-					W.assignment = "S-COM Assault Operative"
+
+					for (var/obj/item/weapon/card/id/W in user)
+						if(W.assignment == "S-COM Operative")
+							W.assignment = "S-COM Assault Operative"
 
 				if("Medic")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/medic(user), slot_wear_suit)
@@ -264,7 +271,9 @@
 					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
 					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/storage/firstaid/adv(src.loc)
-					W.assignment = "S-COM Combat Medic"
+					for (var/obj/item/weapon/card/id/W in user)
+						if(W.assignment == "S-COM Operative")
+							W.assignment = "S-COM Combat Medic"
 
 				if("Sniper")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/jacket(user), slot_wear_suit)
@@ -275,12 +284,17 @@
 					new /obj/item/weapon/storage/box/sniperammo(src.loc)
 					new /obj/item/weapon/gun/projectile/sniper(src.loc)
 					new /obj/item/weapon/gun/projectile/deagle(src.loc)
-					W.assignment = "S-COM Sniper"
+					for (var/obj/item/weapon/card/id/W in user)
+						if(W.assignment == "S-COM Operative")
+							W.assignment = "S-COM Sniper"
 
 			user.regenerate_icons()
+			for(var/obj/machinery/scom/classchanger/CC in machines)
+				CC.already_picked |= user
 
-		else
-			return
+	else
+		to_chat(usr, "<span class='warning'>Access denied.</span>")
+		return
 
 /obj/machinery/scom/teleporter1
 	icon_state = "tele1"
@@ -289,16 +303,36 @@
 	density = 1
 
 /obj/machinery/scom/teleporter1/attack_hand(var/mob/living/carbon/A)
-	for(var/obj/machinery/scom/teleporter2/T in machines)
-		A.x = T.x
-		A.y = T.y
-		A.z = T.z
+	. = ..()
+	if(A)
+		handle_teleport(A)
 
 /obj/machinery/scom/teleporter1/Bumped(var/mob/living/carbon/A)
+	if(A)
+		handle_teleport(A)
+	. = ..()
+
+/obj/machinery/scom/teleporter1/proc/handle_teleport(var/mob/living/carbon/A)
+	if(A)
+		var/obj/machinery/scom/teleporter2/destination = get_paired_destination()
+		if(destination)
+			destination.teleport_to(A)
+
+/obj/machinery/scom/teleporter1/proc/get_paired_destination()
+	var/obj/machinery/scom/teleporter2/destination
+	var/list/all_destinations = list()
 	for(var/obj/machinery/scom/teleporter2/T in machines)
-		A.x = T.x
-		A.y = T.y
-		A.z = T.z
+		all_destinations += T
+	if(all_destinations.len)
+		destination = pick(all_destinations)
+	return destination
+
+/obj/machinery/scom/teleporter2/proc/teleport_to(var/atom/movable/A)
+	if(A && src.loc)
+		if(isturf(src.loc))
+			var/turf/destination = src.loc
+			A.forceMove(destination)
+			new /obj/effect/sparks(destination)
 
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"

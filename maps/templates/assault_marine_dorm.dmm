@@ -10,17 +10,17 @@
 "j" = (/obj/structure/extinguisher_cabinet{pixel_x = 32},/turf/simulated/floor/tiled/steel,/area/template_noop)
 "k" = (/turf/simulated/wall/r_wall,/area/template_noop)
 "l" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/steel,/area/template_noop)
-"m" = (/obj/machinery/camera{c_tag = "Vacant Office"; dir = 4; network = list("Exodus")},/obj/effect/landmark/assault/marinespawn,/obj/structure/bed/nice,/obj/item/weapon/bedsheet/white,/turf/simulated/floor/tiled/dark,/area/template_noop)
-"n" = (/obj/effect/landmark/assault/marinespawn,/obj/structure/bed/nice,/obj/item/weapon/bedsheet/white,/turf/simulated/floor/tiled/dark,/area/template_noop)
-"o" = (/obj/machinery/vending/urist/assaultammodispenser,/turf/simulated/floor/tiled/dark,/area/template_noop)
-"p" = (/obj/machinery/newscaster{pixel_x = -32},/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
-"q" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
-"r" = (/obj/machinery/camera{c_tag = "Arrivals Hallway South"; dir = 8; network = list("Exodus")},/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
-"s" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/machinery/light_switch{pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/template_noop)
-"t" = (/turf/simulated/floor/tiled/dark,/area/template_noop)
-"u" = (/obj/item/stack/tile/floor_steel,/turf/simulated/floor/tiled/steel,/area/template_noop)
-"v" = (/obj/machinery/door/airlock/engineering{name = "Marine Dorms"; req_access = list(20)},/turf/simulated/floor/tiled/dark,/area/template_noop)
-"w" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/template_noop)
+"m" = (/obj/machinery/suit_storage_unit/anfor,/turf/simulated/floor/tiled/dark,/area/template_noop)
+"n" = (/obj/machinery/vending/urist/assaultammodispenser,/turf/simulated/floor/tiled/dark,/area/template_noop)
+"o" = (/obj/machinery/newscaster{pixel_x = -32},/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
+"p" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
+"q" = (/obj/machinery/camera{c_tag = "Arrivals Hallway South"; dir = 8; network = list("Exodus")},/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled/steel,/area/template_noop)
+"r" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/obj/machinery/light_switch{pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/template_noop)
+"s" = (/turf/simulated/floor/tiled/dark,/area/template_noop)
+"t" = (/obj/item/stack/tile/floor_steel,/turf/simulated/floor/tiled/steel,/area/template_noop)
+"u" = (/obj/machinery/door/airlock/engineering{name = "Marine Dorms"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/template_noop)
+"v" = (/obj/effect/landmark/assault/marinespawn,/obj/structure/bed/nice,/obj/item/weapon/bedsheet/white,/turf/simulated/floor/tiled/dark,/area/template_noop)
+"w" = (/obj/effect/landmark/assault/marinespawn,/obj/structure/bed/nice,/obj/item/weapon/bedsheet/white,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/template_noop)
 "x" = (/obj/structure/grille,/obj/structure/window/phoronreinforced,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (WEST)"; icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/turf/simulated/floor/plating,/area/template_noop)
 "y" = (/obj/item/stack/rods,/turf/simulated/floor/tiled/steel,/area/template_noop)
 "z" = (/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/turf/simulated/floor/tiled/dark,/area/template_noop)
@@ -38,10 +38,10 @@
 aaabbbccbde
 fffghhhhhhh
 iijkkkkkkkk
-iilkmnnnnok
-pqrkstttttk
-uiivtttttwk
-iiixttttttk
-yiukzABCDEk
+iilkmmmmnnk
+opqkrsssssk
+tiiussvvvwk
+iiixssssssk
+yitkzABCDEk
 FaFkkkGHIkk
 "}

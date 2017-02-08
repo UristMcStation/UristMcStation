@@ -27,14 +27,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	var/scommapsloaded = 0
 	var/aliencount = 0
 	var/SCOMplayercount = 0 //count is player number at the moment, C is at roundstart
-	var/list/teamnames = list(1,2,3,4) //all possible team names, putting this in one place for easy editing
-	var/list/freeteams = list()
 	auto_recall_shuttle = 1
 	ert_disabled = 1
-
-/datum/game_mode/scom/New()
-	freeteams = teamnames
-	..()
 
 /datum/game_mode/scom/announce() //guys, are my comments informative yet?
 	world << "<B>The current game mode is - S-COM!</B>"
@@ -78,7 +72,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 				if(SCOMplayerC >= SCOM_HRDR )
 					missiondiff = 4 //k
 	else
-		missiondiff = 1
+		missiondiff = 2
 		scom_lowpop_scale = 1
 
 /datum/game_mode/scom/post_setup()
@@ -89,7 +83,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	ScomRobotTime()
 
 	spawn(600)
-		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion.<BR><BR> Your first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders.", "S-COM Mission Command")
+		command_announcement.Announce("Welcome to the S-COM project soldiers. Over the last two months, a series of events, now referred to as the Galactic Crisis, have taken place. What started as an isolated series of attacks in the Outer Rim has turned into the possible end of humanity. The time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! You are the best of the best and we're counting on you to defend the galaxy from the recent alien invasion. \n \nYour first mission is to check out a Nanotrasen transit area in Nyx. We've gotten reports of unknown sightings, so hurry up and get out there before it's too late. Your squad leaders will direct you to the armory and coordinate your actions. Good luck, the fate of the galaxy rests on your shoulders.", "S-COM Mission Command")
 		spawn(50)
 			command_announcement.Announce("Shuttles will be launching in 3 minutes.", "S-COM Shuttle Control")
 	spawn(2400)
@@ -101,9 +95,9 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom/process()
 	SCOMplayercount = 0
 	for(var/mob/living/carbon/human/H in player_list)
-		if(H.client && H.stat != DEAD)
+		if(H.client && H.stat != DEAD && isscom(H))
 			SCOMplayercount += 1
-	if(SCOMplayercount == 0 && declared == 0)
+	if(SCOMplayercount == 0 && declared == 0 && prob(5))
 		sploded = 3
 		declare_completion()
 
