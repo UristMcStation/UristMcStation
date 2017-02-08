@@ -231,6 +231,9 @@
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
 		update_light()
 
+/turf/simulated/jungle/rock/weather_enable()
+	return
+
 /turf/simulated/jungle/water
 	bushes_spawn = 0
 	small_trees = 0 //fucking rivers winning the small tree RNG
