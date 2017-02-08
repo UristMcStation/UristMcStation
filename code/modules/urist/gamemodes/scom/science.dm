@@ -14,23 +14,19 @@
 	name = "alien technology"
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	var/scomtechlvl = 0
-	var/beenharvested = 0
 	var/scommoney = 0
 
 
 /obj/structure/scom/science/attack_hand(mob/user as mob)
-	if(beenharvested == 0)
-		var/obj/item/scom/science/S = new/obj/item/scom/science
+	var/obj/item/scom/science/S = new/obj/item/scom/science
 
-		S.scomtechlvl = scomtechlvl
-		S.scommoney = scommoney
-		beenharvested = 1
+	S.scomtechlvl = scomtechlvl
+	S.scommoney = scommoney
 
-		user.put_in_hands(S)
-		user << "<span class='notice'>You salvage some usable objects from the alien technology.</span>"
-	else if(beenharvested == 1)
-		user << "<span class='notice'>You've already salvaged this alien technology!</span>"
-		return
+	user.put_in_hands(S)
+	user << "<span class='notice'>You salvage some usable objects from the alien technology.</span>"
+	qdel(src)
+	return
 
 /obj/item/scom/aliengun
 	name = "alien weapon"
