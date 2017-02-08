@@ -167,5 +167,10 @@
 	retreat_distance = 2
 	projectilesound = 'sound/urist/suppshot.ogg'
 	attacktext = "brutalized"
-	attack_sound = 'sound/weapons/punch3.ogg'
+	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
+	attack_same = 0
 	tele_effect = /obj/effect/sparks
+
+/mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
+	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
+	..()

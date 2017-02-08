@@ -40,6 +40,7 @@
 	if(ranged)
 		ranged_cooldown--
 	if(client)
+		walk(src, 0)
 		return 0
 	if(!stat)
 		switch(stance)

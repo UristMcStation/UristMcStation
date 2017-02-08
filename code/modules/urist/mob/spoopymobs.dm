@@ -2,10 +2,9 @@
 	name = "zombie"
 	desc = "Dead man walking - and hungry for your flesh."
 	speak_emote = list("groans")
-	icon = 'icons/uristmob/simpleanimals.dmi'
-	icon_state = "zombie_s"
-	icon_living = "zombie_s"
-//	icon_dead = "zombie_d"
+	icon = 'icons/mob/human.dmi'
+	icon_state = "husk_s"
+	icon_living = "husk_s"
 	icon_dead = ""
 	simplify_dead_icon = 1
 	health = 40
@@ -29,6 +28,7 @@
 	move_to_delay = 7
 	stat_attack = 1
 	ranged = 0
+	universal_speak = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
 	var/regen_delay = 900 //delay for regen revive
@@ -42,7 +42,7 @@
 	..(message)
 
 /mob/living/simple_animal/hostile/urist/zombie/death()
-	..()
+	. = ..()
 	if(regen)
 		var/tempnameholder = src.name
 		var/tempdescholder = src.desc
@@ -61,6 +61,19 @@
 			health = maxHealth
 			src.name = tempnameholder
 			src.desc = tempdescholder
+	if(src.contents)
+		var/inv_size = contents.len
+		for(var/obj/O in src.contents)
+			if (!(regen) || prob(100 * (1 / inv_size)))
+				drop_from_inventory(O)
+		if(inv_size == 0)
+			src.desc += "\n \n It seems to have dropped everything it had." //shitty hack for now
+		update_icons()
+
+/mob/living/simple_animal/hostile/urist/zombie/Destroy()
+	if(src.contents)
+		for(var/obj/O in src.contents)
+			drop_from_inventory(O)
 
 /mob/living/simple_animal/hostile/urist/zombie/generic
 	plague = 0
@@ -95,11 +108,9 @@
 			var/mob/living/simple_animal/hostile/scom/civ/victim = target
 			if(victim.stat == DEAD)
 				src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-				victim.SAZombify(regenerative, infectious, resilience)
+				victim.Zombify(regenerative, infectious, resilience)
 				return
-		else
-			..()
-	..()
+	return ..()
 
 /mob/living/simple_animal/hostile/urist/zombie/verb/EatBrain()
 
@@ -128,7 +139,7 @@
 	else if(istype(T, /mob/living/simple_animal/hostile/scom/civ))
 		var/mob/living/simple_animal/hostile/scom/civ/victim = T
 		src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-		victim.SAZombify(src.regen, src.plague, src.maxHealth)
+		victim.Zombify(src.regen, src.plague, src.maxHealth)
 	return
 
 
@@ -137,8 +148,6 @@
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie
 	if(transforming)
 		return
-	for(var/obj/item/W in src)
-		drop_from_inventory(W)
 
 	src.mutations.Add(HUSK)
 	regenerate_icons()
@@ -162,7 +171,7 @@
 	new_mob.a_intent = "hurt"
 
 
-	new_mob << "<B>You are now a zombie. Eat braaaaains.</B>"
+	new_mob << "<span class='notice'>You are now a zombie. Eat braaaaains.</span>"
 	if(old_icon)
 		new_mob.icon = old_icon
 	if(old_icon_state)
@@ -178,11 +187,18 @@
 			new_mob.maxHealth = hitpoints
 			new_mob.health = hitpoints
 
+	for(var/obj/item/W in src)
+		if(new_mob)
+			W.forceMove(new_mob)
+		else
+			drop_from_inventory(W)
+	new_mob.update_icons()
+
 	spawn()
 		qdel(src)
 	return
 
-/mob/living/simple_animal/hostile/scom/civ/proc/SAZombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
+/mob/living/simple_animal/hostile/scom/civ/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regenplague
 
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
@@ -293,7 +309,7 @@
 			'sound/hallucinations/far_noise.ogg',\
 			), 50, 1, -3)
 			//M.sleeping = max(M.sleeping,rand(5,10))
-			if(prob(20))
+			if(prob(5))
 				src.loc = null
 	else
 		processing_objects.Remove(src)
