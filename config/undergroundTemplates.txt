@@ -5,3 +5,4 @@
 
 maps/templates/underground_cave.dmm
 maps/templates/underground_sunkenchapel.dmm
+maps/templates/underground_skrelloristbase.dmm
