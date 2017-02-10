@@ -121,7 +121,7 @@
 		"brain" =    /obj/item/organ/pariah_brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
-	spawn_flags = IS_WHITELISTED | CAN_JOIN
+	spawn_flags = IS_WHITELISTED | IS_RESTRICTED
 	flags = NO_SCAN
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 

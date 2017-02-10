@@ -12,6 +12,7 @@
 	layer = 3.2
 	var/indestructable = 0
 	var/stump = 0
+	climbable = 1
 
 /obj/structure/bush/New()
 
@@ -34,23 +35,29 @@
 		var/mob/living/carbon/human/monkey/A = M
 		A.loc = get_turf(src)
 
+/obj/structure/bush/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover,/obj/item/projectile))
+		return 1
+
+	else ..()
+
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
-			user << "\red You flail away at the undergrowth, but it's too thick here."
+			user << "<span class='warning'> You flail away at the undergrowth, but it's too thick here.</span>"
 			return
 
 		if(stump)
-			user << "\blue You clear away the stump."
+			user << "<span class='notice'> You clear away the stump.</span>"
 			qdel(src)
 
 		else if(!stump)
-			user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+			user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
-					user << "\blue You clear away [src]."
+					user << "<span class='notice'> You clear away [src].</span>"
 //					var/obj/item/stack/material/wood/W = new(src.loc) //was fun for testing, but no longer.
 //					W.amount = rand(3,15)
 					if(prob(50))
@@ -66,6 +73,31 @@
 
 					else
 						qdel(src)
+
+/obj/structure/bush/do_climb(var/mob/living/user)
+	if (!can_climb(user))
+		return
+
+	if(indestructable)
+		return
+
+	usr.visible_message("<span class='warning'>\The [user] starts making their way through the bush!</span>")
+	climbers |= user
+
+	if(!do_after(user,(issmall(user) ? 10 : 25), src))
+		climbers -= user
+		return
+
+	if (!can_climb(user, post_climb_check=1))
+		climbers -= user
+		return
+
+	usr.forceMove(get_turf(src))
+
+	if (get_turf(user) == get_turf(src))
+		usr.visible_message("<span class='warning'>\The [user] slowly makes their way through the bush!</span>")
+	climbers -= user
+
 
 //*******************************//
 // Strange, fruit-bearing plants //
@@ -123,7 +155,7 @@ var/jungle_plants_init = 0
 /obj/structure/jungle_plant/attack_hand(var/mob/user as mob)
 	if(fruits_left > 0)
 		fruits_left--
-		user << "\blue You pick a fruit off [src]."
+		user << "<span class='notice'> You pick a fruit off [src].</span>"
 
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
 //		J.potency = plant_strength
@@ -137,17 +169,17 @@ var/jungle_plants_init = 0
 		fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
 		overlays += fruit_overlay
 	else
-		user << "\red There are no fruit left on [src]."
+		user << "<span class='warning'> There are no fruit left on [src].</span>"
 
 /obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
 
 
-		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(15,30))
 			if(get_dist(user,src) < 2)
-				user << "\blue You clear away [src]."
+				user << "<span class='notice'> You clear away [src].</span>"
 				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
 				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
 				qdel(src)
@@ -171,8 +203,8 @@ var/jungle_plants_init = 0
 
 /obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
-		user.visible_message("\red <b>[user] begins clearing away [src].</b>","\red <b>You begin clearing away [src].</b>")
+		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(5,10))
 			if(get_dist(user,src) < 2)
-				user << "\blue You clear away [src]."
+				user << "<span class='notice'> You clear away [src].</span>"
 				qdel(src)

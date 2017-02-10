@@ -49,20 +49,20 @@
 	id = "planet_mining"
 	name = "Mining Elevator"
 	location = 0
-	warmup_time = 10
+	warmup_time = 5
 	area_offsite = /area/shuttle/elevator/mining/underground
 	area_station = /area/shuttle/elevator/mining/surface
-	docking_controller_tag = "mining_elevator_shaft"
-	dock_target_station = "mining_elevator_surface"
-	dock_target_offsite = "mining_elevator_underground"
+//	docking_controller_tag = "mining_elevator_shaft"
+//	dock_target_station = "mining_elevator_surface"
+//	dock_target_offsite = "mining_elevator_underground"
 
 /datum/shuttle/ferry/elevator/research
 	id = "planet_research"
 	name = "Xenoarch Elevator"
 	location = 0
-	warmup_time = 10
+	warmup_time = 5
 	area_offsite = /area/shuttle/elevator/research/underground
 	area_station = /area/shuttle/elevator/research/surface
-	docking_controller_tag = "research_elevator_shaft"
-	dock_target_station = "research_elevator_surface"
-	dock_target_offsite = "research_elevator_underground"
+//	docking_controller_tag = "research_elevator_shaft"
+//	dock_target_station = "research_elevator_surface"
+//	dock_target_offsite = "research_elevator_underground"

@@ -43,10 +43,10 @@
 			var/operation = text2num(href_list["ops"])
 			if(operation == 1) // Play
 /*				if (src.working == 1)
-					usr << "\red You need to wait until the machine stops spinning!"
+					usr << "<span class='warning'> You need to wait until the machine stops spinning!</span>"
 					return */
 				if (balance < 5)
-					usr << "\red Insufficient money to play!"
+					usr << "<span class='warning'> Insufficient money to play!</span>"
 					return
 				usr.mind.initial_account.money -= 5
 				src.money += 5
@@ -73,11 +73,11 @@
 						usr.mind.initial_account.money += 500
 						src.money -= 500
 					else if (roll > 100 && roll <= 1000)
-						usr << "\blue You win a free game!"
+						usr << "<span class='notice'> You win a free game!</span>"
 						usr.mind.initial_account.money += 5
 						src.money -= 5
 					else
-						usr << "\red No luck!"
+						usr << "<span class='warning'> No luck!</span>"
 					src.working = 0
 					src.icon_state = "slots-off"
 		src.add_fingerprint(usr)

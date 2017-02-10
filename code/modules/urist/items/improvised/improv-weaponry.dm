@@ -151,8 +151,8 @@
 	edge = 1
 
 /*	suicide_act(mob/user)
-		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
-							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
+		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
+							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
 /obj/item/weapon/material/shard/attackby(var/obj/item/I, mob/user as mob)
@@ -226,8 +226,8 @@
 	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
 	/*suicide_act(mob/user)
-		viewers(user) << pick("\red <b>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</b>", \
-							"\red <b>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</b>")
+		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
+							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
 /obj/item/weapon/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
@@ -306,7 +306,66 @@
 	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
 	qdel(src)
 
+//wood shit
 
+/obj/item/weapon/material/twohanded/woodspear //force divisors
+	icon_state = "woodspearglass0"
+	item_state = "spearglass0"
+	name = "wooden spear"
+	desc = "A haphazardly-constructed yet still deadly weapon of ancient design. It has a wooden shaft."
+	force = 10
+	w_class = 5
+	slot_flags = SLOT_BACK
+	force_wielded = 16
+	throwforce = 18
+	throw_speed = 3
+	edge = 0
+	sharp = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	default_material = "glass"
+
+/obj/item/weapon/material/twohanded/woodspear/update_icon()
+	item_state = "spearglass[wielded]"
+	return
+
+/obj/item/weapon/material/twohanded/woodquarterstaff
+	urist_only = 1
+	icon = 'icons/urist/items/improvised.dmi'
+	item_state = "woodqstaff0"
+	icon_state = "qstaff0"
+	name = "quarterstaff"
+	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together."
+	force = 8
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 13
+	throwforce = 8
+	//flags = NOSHIELD
+	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
+
+/obj/item/weapon/material/twohanded/woodquarterstaff/update_icon()
+	item_state = "qstaff[wielded]"
+	return
+
+/obj/item/weapon/material/twohanded/imppoleaxe
+	icon_state = "imppoleaxe0"
+	item_state = "spearglass0"
+	name = "improvised poleaxe"
+	desc = "It's a pole. With an axe tied to it. Okay, why not."
+	force = 11
+	w_class = 5
+	slot_flags = SLOT_BACK
+	force_wielded = 17
+	throwforce = 8
+	edge = 1
+	sharp = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed","torn")
+
+/obj/item/weapon/material/twohanded/imppoleaxe/update_icon()
+	item_state = "spearglass[wielded]"
+	return
 
 //end Urist stuff
 

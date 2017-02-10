@@ -66,6 +66,8 @@
 	var/supernatural = 0
 	var/purge = 0
 
+	var/simplify_dead_icon = 0 //Set to 1 to create an icon_dead from a 90 deg turn of icon_state
+
 /mob/living/simple_animal/New()
 	..()
 	verbs -= /mob/verb/observe
@@ -86,6 +88,9 @@
 	if(stat == DEAD)
 		if(health > 0)
 			icon_state = icon_living
+			if(simplify_dead_icon) //in case it had been applied, remove the turn
+				var/matrix/N = matrix()
+				src.transform = N
 			switch_from_dead_to_living_mob_list()
 			stat = CONSCIOUS
 			density = 1
@@ -313,7 +318,13 @@
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	icon_state = icon_dead
+	if(simplify_dead_icon)
+		var/matrix/M = matrix() //shamelessly stolen from human update_icons
+		M.Turn(90)
+		M.Translate(1,-6)
+		src.transform = M
+	else
+		icon_state = icon_dead
 	density = 0
 	walk_to(src,0)
 	return ..(gibbed,deathmessage)

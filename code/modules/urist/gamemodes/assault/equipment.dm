@@ -2,6 +2,7 @@
 
 /obj/machinery/computer/shuttle_control/assault
 	var/readytogo = 0
+	density = 0
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
@@ -12,13 +13,13 @@
 
 /obj/machinery/computer/shuttle_control/assault/alien1
 	name = "alien shuttle console (Shuttle 1)"
-	shuttle_tag = "Assault1"
+	shuttle_tag = "Assault 1"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
 /obj/machinery/computer/shuttle_control/assault/alien2
 	name = "alien shuttle console (Shuttle 2)"
-	shuttle_tag = "Assault2"
+	shuttle_tag = "Assault 2"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
@@ -211,7 +212,7 @@
 
 //human
 
-/obj/item/weapon/grenade/anforgrenade
+/obj/item/weapon/grenade/frag/anforgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "ANFOR grenade"
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -219,15 +220,15 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
 
-/obj/item/weapon/grenade/anforgrenade/detonate()
-	explosion(src.loc, 0, 0, 2, 2)
-	qdel(src)
+///obj/item/weapon/grenade/anforgrenade/detonate()
+//	explosion(src.loc, 0, 0, 2, 2)
+//	qdel(src)
 
 /obj/item/weapon/storage/box/anforgrenade
 	name = "box of frag grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause cause death within a short radius.</B>"
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/grenade/anforgrenade = 5)
+	startswith = list(/obj/item/weapon/grenade/frag/anforgrenade = 5)
 
 /obj/item/weapon/mine/frag
 	name = "frag mine"
@@ -236,16 +237,23 @@
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/weapon/mine/attack_self(mob/user as mob)
-	new /obj/effect/mine/frag(user.loc)
+	var/obj/effect/mine/frag/M = new /obj/effect/mine/frag(user.loc)
+	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
 	user.regenerate_icons()
+	spawn(35)
+		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 
 /obj/item/weapon/storage/box/mines
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/mine/frag = 4)
+	startswith = list(/obj/item/weapon/mine/frag = 3)
+
+/obj/item/weapon/storage/box/mines/New()
+	..()
+	make_exact_fit()
 
 /obj/effect/mine/proc/explode2(obj)
 	/* oldcode, pre-fragification -scr
@@ -293,20 +301,19 @@
 	triggerproc = "explode2"
 
 /obj/effect/mine/frag/attack_hand(mob/user as mob)
-	user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
-	new /obj/item/weapon/mine/frag(src.loc)
-	qdel(src)
+	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span_class='warning'>You start to disarm the mine. Just stay very still.</span>")
+	if (do_after(user, 30, src))
+		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
+		new /obj/item/weapon/mine/frag(src.loc)
+		qdel(src)
 
 /obj/structure/assaultshieldgen
 	name = "shield generator"
-	desc = "The shield generator for the station. Protect it with your life."
-//	icon = 'icons/urist/structures&machinery/scomscience.dmi'
-//	icon_state = "norm2"
+	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-//	var/remaininggens = 6
-	var/health = 200
-	var/maxhealth = 200
+	var/health = 300
+	var/maxhealth = 300
 	anchored = 1
 	density = 1
 
@@ -344,7 +351,7 @@
 /obj/structure/assaultshieldgen/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			qdel(src)
+			kaboom()
 			return
 		if(2.0)
 			if(prob(75))
@@ -353,7 +360,7 @@
 			else
 				health -= 150
 		if(3.0)
-			if(prob(25))
+			if(prob(5))
 				kaboom()
 				return
 			else
@@ -374,10 +381,5 @@
 	..()
 
 /obj/structure/assaultshieldgen/proc/kaboom()
-//	for(var/obj/structure/assaultshieldgen/S in world)
-//		S.remaininggens -= 1
 	remaininggens -= 1
-//	if(remaininggens == 0)
-//		gamemode_endstate = 3
-
 	qdel(src)

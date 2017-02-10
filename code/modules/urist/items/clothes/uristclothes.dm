@@ -465,6 +465,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -680,6 +682,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	blood_overlay_type = "armor"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
 	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15
 
 //Blueshield
 /obj/item/clothing/suit/storage/urist/coat/blueshield //no toggle yet
@@ -693,6 +697,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	min_cold_protection_temperature = 263.15
 	//flags =
 
 /obj/item/clothing/suit/armor/vest/deus_blueshield
@@ -707,7 +712,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/pants/urist
 	urist_only = 1
 	icon_override = 'icons/uristmob/clothes.dmi'
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 
 /obj/item/clothing/under/pants/urist/jeans
 	name = "jeans"
@@ -876,6 +881,36 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	blood_overlay_type = "armor"
 	flags = THICKMATERIAL
 
+/obj/item/clothing/suit/urist/armor/trash/blue //Isn't actually good
+	name = "heavy metal blue armour"
+	desc = "A heavy set of blue armour"
+	icon_state = "bluetrash"
+	item_state = "bluetrash"
+
+/obj/item/clothing/suit/urist/armor/trash/heavy //Isn't actually good
+	name = "spooky dragon armour"
+	desc = "A heavy set of armour"
+	icon_state = "heavytrash"
+	item_state = "heavytrash"
+
+/obj/item/clothing/suit/urist/armor/trash/hunt //Isn't actually good
+	name = "witch hunt armour"
+	desc = "A heavy set of armour"
+	icon_state = "witchhunt"
+	item_state = "witchhunt"
+
+/obj/item/clothing/suit/urist/armor/trash/spacemarine //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "spacemarine"
+	item_state = "spacemarine"
+
+/obj/item/clothing/suit/urist/armor/trash/doom //Isn't actually good
+	name = "heavy armour"
+	desc = "A set of large overly bulky armour."
+	icon_state = "doomguy"
+	item_state = "doomguy"
+
 //altshield
 
 /obj/item/clothing/under/urist/altshield
@@ -883,3 +918,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A more practical outfit often worn by Nanotrasen blueshields."
 	icon_state = "altshield"
 	item_state = "altshield"
+
+//Halloween
+
+/obj/item/clothing/under/urist/halloween/princess
+	name = "princess"
+	desc = "A very pretty dress."
+	icon_state = "princesszeld"
+	item_state = "princesszeld"
+
+/obj/item/clothing/under/urist/halloween/beaker
+	name = "beaker"
+	desc = "An over sized beaker."
+	icon_state = "beaker"
+	item_state = "beaker"
+
+/obj/item/clothing/under/urist/halloween/facebook
+	name = "facebook"
+	desc = "Did someone really tape a book to their face?"
+	icon_state = "facebook"
+	item_state = "facebook"

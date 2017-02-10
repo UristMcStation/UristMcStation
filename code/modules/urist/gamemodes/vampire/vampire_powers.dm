@@ -27,10 +27,12 @@
 		src << "<span class='warning'>You require at least [required_blood] units of usable blood to do that!</span>"
 		return 0
 	//chapel check
-	if(istype(loc.loc, /area/chapel))
-		if(!fullpower)
-			src << "<span class='warning'>Your powers are useless on this holy ground.</span>"
-			return 0
+	if(istype(loc, /turf))
+		var/turf/T = loc
+		if(T.holy)
+			if(!fullpower)
+				src << "<span class='warning'>Your powers are useless on this holy ground.</span>"
+				return 0
 	return 1
 
 /mob/proc/vampire_affected(datum/mind/M)
@@ -95,7 +97,7 @@
 
 /proc/vampire_canregen(var/datum/mind/V)
 	var/mob/living/carbon/human/H = V.current
-	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+	if(V.vampire.torpor && (istype(H.loc, /obj/structure/closet/coffin) || istype(H.loc, /obj/structure/morgue)))
 		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
 			return 1
 		for(var/obj/item/organ/I in H.internal_organs)
@@ -156,7 +158,7 @@
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
 	set name = "Rejuvenate "
-	set desc= "Flush your system with spare blood to remove any incapacitating effects. Heals more powerful vampires."
+	set desc= "Flush your system with spare blood to remove any incapacitating effects. Heals more powerful vampires slightly."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	if(M.current.vampire_power(0, 1))
@@ -377,11 +379,7 @@
 	var/light_amount = 0
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-		if(L)
-			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-		else
-			light_amount =  10
+		light_amount = get_light_amt(T)
 
 //	if(!istype(T))
 //		return 0
@@ -536,23 +534,14 @@
 		if(M.current.buckled) M.current.buckled.unbuckle_mob()
 		spawn(0)
 			var/list/turfs = new/list()
-			for(var/turf/T in range(usr,outer_tele_radius))
-				if(T in range(usr,inner_tele_radius)) continue
+			for(var/turf/T in range(outer_tele_radius, usr))
+				if(T in range(inner_tele_radius, usr)) continue
 				if(istype(T,/turf/space)) continue
 				if(T.density) continue
 				if(T.x>world.maxx-outer_tele_radius || T.x<outer_tele_radius)	continue	//putting them at the edge is dumb
 				if(T.y>world.maxy-outer_tele_radius || T.y<outer_tele_radius)	continue
 
-				// LIGHTING CHECK
-				var/light_amount = 0
-				var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
-
-				if(L)
-					light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-				else
-					light_amount =  10
-
-				if(light_amount > max_lum) continue
+				if(!(shadow_check(T, max_lum))) continue
 				turfs += T
 
 			if(!turfs.len)
@@ -574,7 +563,7 @@
 			animation.alpha = 127
 			animation.layer = 5
 			//animation.master = src
-			usr.loc = picked
+			usr.forceMove(picked)
 			spawn(10)
 				qdel(animation)
 		M.current.remove_vampire_blood(0)

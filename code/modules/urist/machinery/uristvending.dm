@@ -142,8 +142,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Pants: Wear them."
 	product_ads = "Don't be a nudist, choose pantslord!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Get on it with pantslord.;I just want my pants back..."
 	product_slogans = "Slide into a new pair of pants!;One size fits all!;Wake up cold and alone in an unknown room without your pants? We're here to help.;Pants: Protecting your dignity since time unknown."
-	products = list(/obj/item/clothing/under/pants/bluepants = 10,/obj/item/clothing/under/pants/camo = 10,/obj/item/clothing/under/pants/khaki = 10,/obj/item/clothing/under/pants/trackpants = 10,/obj/item/clothing/under/pants/urist/jeans_m = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/redpants = 10,/obj/item/clothing/under/pants/urist/whitepants = 10,/obj/item/clothing/under/pants/urist/jeans_b = 10)
-	prices = list(/obj/item/clothing/under/pants/bluepants = 100,/obj/item/clothing/under/pants/camo = 100,/obj/item/clothing/under/pants/khaki = 100,/obj/item/clothing/under/pants/trackpants = 100,/obj/item/clothing/under/pants/urist/jeans_m = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/redpants = 100,/obj/item/clothing/under/pants/urist/whitepants = 100,/obj/item/clothing/under/pants/urist/jeans_b = 100)
+	products = list(/obj/item/clothing/under/pants/urist/bluepants = 10,/obj/item/clothing/under/pants/urist/camo = 10,/obj/item/clothing/under/pants/urist/khaki = 10,/obj/item/clothing/under/pants/urist/trackpants = 10,/obj/item/clothing/under/pants/urist/jeans_m = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/jeans_d = 10,/obj/item/clothing/under/pants/urist/redpants = 10,/obj/item/clothing/under/pants/urist/whitepants = 10,/obj/item/clothing/under/pants/urist/jeans_b = 10)
+	prices = list(/obj/item/clothing/under/pants/urist/bluepants = 100,/obj/item/clothing/under/pants/urist/camo = 100,/obj/item/clothing/under/pants/urist/khaki = 100,/obj/item/clothing/under/pants/urist/trackpants = 100,/obj/item/clothing/under/pants/urist/jeans_m = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/jeans_d = 100,/obj/item/clothing/under/pants/urist/redpants = 100,/obj/item/clothing/under/pants/urist/whitepants = 100,/obj/item/clothing/under/pants/urist/jeans_b = 100)
 //	contraband = list(/obj/item/clothing/shoes/jackboots = 1,/obj/item/clothing/shoes/orange = 1)
 	premium = list(/obj/item/clothing/under/pants/urist/militarypants = 1)
 
@@ -175,66 +175,3 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
 	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
 	contraband = list(/obj/item/weapon/storage/belt/utility = 1)
-
-//Assault mode ammo vender
-
-/obj/machinery/vending/urist/assaultammodispenser
-	name = "ANFOR Weapon Cache"
-	desc = "An automated ANFOR supply cache for efficent storage and distribution of weapons, ammunition and material."
-	icon_state = "clothing2"
-	vend_reply = "Git some!"
-	product_ads = "Food for your rifle.;Out of rounds? We're here for you.;Resupply here!"
-	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMIREZ!"
-	vend_delay = 5
-	products = list(
-//		//ammo
-		/obj/item/ammo_magazine/a556/a22 = 60,
-		/obj/item/ammo_magazine/a762mm/a18 = 60,
-		/obj/item/ammo_magazine/a9mm = 60,
-		/obj/item/weapon/storage/box/shotgunammo = 60,
-		/obj/item/weapon/storage/box/shotgunshells = 60,
-		/obj/item/ammo_magazine/c45m/a7 = 60,
-//		//guns
-		/obj/item/weapon/gun/projectile/automatic/a22 = 10,
-		/obj/item/weapon/gun/projectile/a18 = 10,
-		/obj/item/weapon/gun/projectile/automatic/asmg = 10,
-		/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41 = 10,
-		/obj/item/weapon/gun/projectile/colt/a7 = 20,
-//		//attachments
-		/obj/item/weapon/gunattachment/grenadelauncher = 10,
-		/obj/item/weapon/gunattachment/scope/a18 = 10,
-//		//grenades and mines
-		/obj/item/weapon/storage/box/anforgrenade = 10,
-		/obj/item/weapon/storage/box/mines = 3
-		)
-	contraband = list(
-		/obj/item/weapon/storage/box/flashshells = 5,
-		/obj/item/weapon/storage/box/beanbags = 5,
-		/obj/item/ammo_magazine/c38 = 10,
-		/obj/item/ammo_magazine/c45m = 10,
-		/obj/item/ammo_magazine/a556 = 10,
-		/obj/item/ammo_magazine/c762 = 10
-		)
-
-//Assault mode clothing and armor vender
-
-/obj/machinery/vending/urist/assaultclothingdispenser
-	name = "ANFOR Equipment Cache"
-	desc = "An automated ANFOR supply cache for efficent storage and distribution of armor and equipment."
-	product_slogans = "Look like a real soldier."
-	product_ads = "Keep yourself covered.;Protection for our fighting forces."
-	vend_delay = 15
-	vend_reply = "Suit up!"
-	icon_state = "clothing2"
-	products = list(
-		/obj/item/clothing/suit/urist/armor/anfor/marine = 20,
-		/obj/item/clothing/under/urist/anfor = 20,
-		/obj/item/clothing/head/helmet/urist/anfor = 20,
-		/obj/item/clothing/shoes/urist/anforjackboots = 20,
-		/obj/item/weapon/storage/belt/security/tactical = 20
-		)
-	contraband = list(
-		/obj/item/weapon/storage/fancy/cigar = 1
-		)
-
-

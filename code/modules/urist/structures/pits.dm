@@ -7,9 +7,12 @@
 	density = 0
 	anchored = 1
 	var/open = 1
+	var/punji = 0
 
 /obj/structure/pit/attackby(obj/item/weapon/W, mob/user)
 	if( istype(W,/obj/item/weapon/shovel) )
+		if(punji)
+			user << "<span class='notice'>Remove the sharpened sticks before filling it up.</span>"
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
 		if( do_after(user, 50) )
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
@@ -33,6 +36,14 @@
 			else
 				user << "<span class='notice'>You stop making a grave marker.</span>"
 		return
+	if(istype(W,/obj/item/weapon/material/sharpwoodrod))
+		if(open)
+			if(punji == 6)
+				return
+			else
+				user << "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>"
+				punji += 1
+				src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
 	..()
 
 /obj/structure/pit/update_icon()
@@ -40,6 +51,30 @@
 //	if(istype(loc,/turf/simulated/floor/water) || istype(loc,/turf/simulated/floor/grass))
 //		icon_state="pit[open]mud"
 //		blend_mode = BLEND_OVERLAY
+
+/obj/structure/pit/Crossed(O as mob)
+	if(punji)
+		if(istype(O, /mob/living/))
+			var/mob/living/M = O
+			M << "You step into the pit and hurt yourself on the sharpened sticks within!"
+			var/punjidamage = rand(2,5) //maximum damage of 30 with 6 sticks (this probably needs balancing)
+			punjidamage *= punji
+			M.apply_damage(punjidamage, BRUTE, sharp=1)
+			M.Stun(punji) //stunned for more with more sticks. doesn't make a huge different, but w/e
+			M.Weaken(punji)
+
+
+/obj/structure/pit/attack_hand(var/mob/user as mob)
+	if(punji)
+		user << "You yank out one of the sharpened sticks from the pit."
+		punji -= 1
+		new /obj/item/weapon/material/sharpwoodrod(src.loc)
+
+/obj/structure/pit/examine()
+	if(punji)
+		usr << "[desc] There are [punji] sharpened sticks in the pit. Be careful."
+	else
+		..()
 
 /obj/structure/pit/proc/open()
 	name = "pit"

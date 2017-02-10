@@ -94,7 +94,7 @@
 		..()
 
 
-//UMcS Flora, because /tg/.dm's.
+//UMcS Flora, because /tg/.dm's. //holy fuck this shit is oooooooooooooold
 //Nienhaus plants/UMcS Shit
 
 /obj/structure/flora/pottedplant/Nienplants
@@ -136,14 +136,19 @@
 	icon_state = "violets2"
 
 //tree
-/obj/structure/flora/pottedplant/Nienplants/Glloydtree
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree //what is this path
 	name = "tree"
 	icon = 'icons/urist/structures&machinery/Glloydtrees.dmi'
 	icon_state = "tree"
 	anchored = 1
 	layer = 9
 
-//Putting this here because of stupid flora code -Glloyd
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/weapon/carpentry/axe))
+		user << "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>"
+		return
+
+//Putting this here because of stupid flora code -Glloyd //back when i signed things. why did i do this? why am i writing comments now? probably cause i'm a little drunk. but this file hasn't been touched in ages, so fuck it.
 /obj/structure/flora/pottedplant/Nienplants/plant
 	name = "bush"
 	icon = 'icons/obj/flora/ausflora.dmi'

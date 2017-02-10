@@ -107,7 +107,7 @@ var/list/admin_verbs_sounds = list(
 
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
-	/datum/admins/proc/cmd_admin_dress,
+	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
 	/client/proc/everyone_random,
@@ -249,7 +249,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
 	/client/proc/object_talk,
-	/datum/admins/proc/cmd_admin_dress,
+	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
 	/client/proc/cinematic,
@@ -448,7 +448,7 @@ var/list/admin_verbs_mentor = list(
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
 			mob.invisibility = initial(mob.invisibility)
-			mob << "\red <b>Invisimin off. Invisibility reset.</b>"
+			mob << "<span class='danger'>Invisimin off. Invisibility reset.</span>"
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
 			mob.invisibility = INVISIBILITY_OBSERVER
@@ -841,7 +841,7 @@ var/list/admin_verbs_mentor = list(
 //	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
-		usr << "\red You can only do this to humans!"
+		usr << "<span class='warning'> You can only do this to humans!</span>"
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")

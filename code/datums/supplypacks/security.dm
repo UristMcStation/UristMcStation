@@ -35,7 +35,7 @@
 					/obj/item/weapon/storage/box/flashbangs,
 					/obj/item/weapon/storage/box/teargas)
 	cost = 40
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Weapons crate"
 	access = access_security
 
@@ -46,7 +46,7 @@
 					/obj/item/weapon/gun/projectile/shotgun/doublebarrel/flare,
 					/obj/item/weapon/storage/box/flashshells)
 	cost = 25
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Flare gun crate"
 	access = access_security
 
@@ -57,7 +57,7 @@
 					/obj/item/weapon/shield/energy = 2,
 					/obj/item/clothing/suit/armor/laserproof = 2)
 	cost = 125
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Advanced Energy Weapons crate"
 	access = access_heads
 
@@ -98,7 +98,7 @@
 	name = "Energy weapons crate"
 	contains = list(/obj/item/weapon/gun/energy/laser = 3)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper energy weapons crate"
 	access = access_armory
 
@@ -109,7 +109,7 @@
 					/obj/item/weapon/storage/box/shotgunshells,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat = 2)
 	cost = 65
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Shotgun crate"
 	access = access_armory
 
@@ -118,7 +118,7 @@
 	contains = list(/obj/item/clothing/suit/armor/laserproof = 2,
 					/obj/item/weapon/gun/energy/sniperrifle = 2)
 	cost = 90
-	containertype = /obj/structure/closet/crate/secure/gear
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/gear
 	containername = "\improper Energy marksman crate"
 	access = access_armory
 
@@ -127,7 +127,7 @@
 	contains = list(/obj/item/weapon/storage/box/shotgunammo = 2,
 					/obj/item/weapon/storage/box/shotgunshells = 2)
 	cost = 60
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper ballistic ammunition crate"
 	access = access_armory
 
@@ -136,7 +136,7 @@
 	contains = list(/obj/item/weapon/gun/energy/ionrifle = 2,
 					/obj/item/weapon/storage/box/emps)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper electromagnetic weapons crate"
 	access = access_armory
 
@@ -146,7 +146,7 @@
 	contains = list(/obj/item/weapon/gun/projectile/automatic/wt550,
 					/obj/item/weapon/gun/projectile/automatic/z8)
 	cost = 90
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Automatic weapon crate"
 	access = access_armory
 	supply_method = /decl/supply_method/randomized
@@ -158,7 +158,7 @@
 					/obj/item/ammo_magazine/mc9mmt/rubber,
 					/obj/item/ammo_magazine/a556)
 	cost = 20
-	containertype = /obj/structure/closet/crate/secure/weapon
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/weapon
 	containername = "\improper Automatic weapon ammunition crate"
 	access = access_armory
 	supply_method = /decl/supply_method/randomized
@@ -168,7 +168,7 @@
 	contains = list(/obj/item/clothing/suit/armor/laserproof = 2,
 					/obj/item/weapon/gun/energy/gun = 2)
 	cost = 50
-	containertype = /obj/structure/closet/crate/secure/gear
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/gear
 	containername = "\improper Experimental energy gear crate"
 	access = access_armory
 
@@ -179,7 +179,7 @@
 					/obj/item/clothing/head/helmet/riot,
 					/obj/item/clothing/suit/armor/riot)
 	cost = 35
-	containertype = /obj/structure/closet/crate/secure/gear
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/gear
 	containername = "\improper Experimental armor crate"
 	access = access_armory
 
@@ -411,6 +411,6 @@
 					/obj/item/clothing/shoes/tactical,
 					/obj/item/clothing/gloves/tactical)
 	cost = 45
-	containertype = /obj/structure/closet/crate/secure/gear
+	containertype = /obj/structure/closet/crate/secure/boobytrapped/gear
 	containername = "\improper Tactical Suit Locker"
 	access = access_armory

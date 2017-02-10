@@ -72,7 +72,7 @@
 		for(var/obj/effect/landmark/door_spawner/D in T.contents)
 			var/spawn_type
 			if(mineral == "iron")
-				spawn_type = text2path("/obj/machinery/door/airlock/vault")
+				spawn_type = /obj/machinery/door/airlock/vault
 			else
 				spawn_type = text2path("/obj/machinery/door/airlock/[mineral]")
 			new spawn_type(D.loc)
@@ -128,7 +128,7 @@
 
 
 /obj/machinery/jungle_controller/initialize()
-	world << "\red \b Setting up jungle, this may take a bleeding eternity..."
+	world << "<span class='danger'> Setting up jungle, this may take a bleeding eternity...</span>"
 
 	//crash dat shuttle
 /*	var/area/start_location = locate(/area/jungle/crash_ship_source)

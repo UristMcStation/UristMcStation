@@ -23,12 +23,18 @@
 		src << "<span class='warning'>The forum URL is not set in the server configuration.</span>"
 	return
 
-#define RULES_FILE "config/rules.html"
+#define RULES_FILE "http://uristmcstation.com/forum/viewtopic.php?f=5&t=3"
 /client/verb/rules()
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	src << browse(file(RULES_FILE), "window=rules;size=480x320")
+//	src << browse(file(RULES_FILE), "window=rules;size=480x320")
+
+	if(alert("This will open the rules link in your browser. Are you sure?",,"Yes","No")=="No")
+		return
+	src << link(RULES_FILE)
+	return
+
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()

@@ -224,11 +224,22 @@
 	dock_target_station = "specops_centcom_dock"
 	dock_target_offsite = "specops_dock_airlock"
 
-/*/datum/shuttle/naval
+/datum/shuttle/ferry/naval
+	name = "Naval"
 	location = 1
 	warmup_time = 10
 	area_offsite = /area/shuttle/naval1/centcom
 	area_station = /area/shuttle/naval1/station
-	docking_controller_tag = "naval_shuttle"
-	dock_target_station = "naval_shuttle_dock_airlock"
-	dock_target_offsite = "naval_shuttle_bay"*/
+//	docking_controller_tag = "naval_shuttle"
+//	dock_target_station = "naval_shuttle_dock_airlock"
+//	dock_target_offsite = "naval_shuttle_bay"
+
+/datum/shuttle/ferry/security
+	name = "Security"
+	location = 0
+	warmup_time = 10
+	area_offsite = /area/shuttle/securityoutpost/outpost
+	area_station = /area/shuttle/securityoutpost/station
+	docking_controller_tag = "security_shuttle"
+	dock_target_station = "security_dock_airlock"
+	dock_target_offsite = "secdock_airlock"

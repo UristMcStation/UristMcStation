@@ -4,8 +4,8 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
-	icon_dead = "gunman_dead"
-	icon_gib = "syndicate_gib"
+	icon_dead = ""
+	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pokes"
@@ -39,6 +39,7 @@
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
+	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
@@ -51,38 +52,37 @@
 	desc = "A henchman of the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	ranged = 1
 	ranged_cooldown_cap = 5
-	rapid = 1
+	rapid = 2
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
+	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 	maxHealth = 100
 	health = 100
 
-/mob/living/simple_animal/hostile/urist/agent
+/mob/living/simple_animal/hostile/urist/ntagent
 	icon_state = "agent"
 	icon_living = "agent"
-	icon_dead = "agent_dead"
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
-	rapid = 1
+	rapid = 2
 	ranged_cooldown_cap = 5
 	maxHealth = 150
 	health = 150
 	minimum_distance = 4
 	retreat_distance = 2
-	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	projectilesound = 'sound/urist/suppshot.ogg'
 
 /mob/living/simple_animal/hostile/urist/ANTAG
 	icon_state = "ANTAG"
 	icon_living = "ANTAG"
-	icon_dead = "ANTAG_dead"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/a762
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -91,27 +91,25 @@
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
 	icon_living = "skrellorist"
-	icon_dead = "skrellorist_dead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
 	casingtype = /obj/item/ammo_casing/a10mm
 	faction = "skrellt"
-	rapid = 1
+	rapid = 2
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
 
 /mob/living/simple_animal/hostile/urist/riotcop
 	icon_state = "riotcop"
 	icon_living = "riotcop"
-	icon_dead = "riotcop_dead"
 	name = "\improper Riot Response Unit"
 	desc = "An officer equipped for dealing with riots."
 	ranged = 0
@@ -120,6 +118,7 @@
 	move_to_delay = 9 //this armor is *heavy*
 	maxHealth = 200 //but it offers some serious protection
 	health = 200
+	resistance = 4 //including padding
 	minimum_distance = 1
 	faction = "NTIS"
 	attack_sound = 'sound/weapons/genhit3.ogg'
@@ -129,7 +128,6 @@
 /mob/living/simple_animal/hostile/urist/cultist
 	icon_state = "cultist"
 	icon_living = "cultist"
-	icon_dead = "cultist_dead"
 	name = "cult assassin"
 	desc = "An assassin empowered by eldritch forces from beyond."
 	ranged = 0
@@ -151,4 +149,28 @@
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
 	new /obj/effect/effect/smoke/bad(loc)
-	del src
+	qdel(src)
+
+//Spess Jason Bourne
+/mob/living/simple_animal/hostile/urist/stalker/ntis
+	icon_state = "agent"
+	icon_living = "agent"
+	name = "\improper NTIS Assassin"
+	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you 'know too much'."
+	faction = "NTIS"
+	ranged = 1
+	rapid = 2
+	ranged_cooldown_cap = 2
+	maxHealth = 500
+	health = 500
+	minimum_distance = 4
+	retreat_distance = 2
+	projectilesound = 'sound/urist/suppshot.ogg'
+	attacktext = "brutalized"
+	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
+	attack_same = 0
+	tele_effect = /obj/effect/sparks
+
+/mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
+	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
+	..()

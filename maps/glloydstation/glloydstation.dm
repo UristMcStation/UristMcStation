@@ -18,6 +18,7 @@
 
 	#define USING_MAP_DATUM /datum/map/glloydstation
 	#define URISTCODE 1 //hacky override that tells the compiler that yes, the map is Uristcrap-compatible
+	#define SCOM_ZLEVEL 2 //in case we ever have more maps
 
 #elif !defined(MAP_OVERRIDE)
 

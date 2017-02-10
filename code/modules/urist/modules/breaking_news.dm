@@ -113,7 +113,7 @@
 	world.update_status()
 	BNews_Game_Start()
 
-	message_admins("\blue ADMIN: Event: [key_name(src)] force-set BNews to \"[BNews]\"")
+	message_admins("<span class='notice'> ADMIN: Event: [key_name(src)] force-set BNews to \"[BNews]\"</span>")
 	log_admin("[key_name(src)] force-set BNews to \"[BNews]\"")
 
 /proc/BNews_Game_Start()
