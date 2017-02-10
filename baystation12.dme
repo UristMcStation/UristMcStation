@@ -2190,6 +2190,7 @@
 #include "code\modules\urist\modules\breaking_news.dm"
 #include "code\modules\urist\modules\donate.dm"
 #include "code\modules\urist\modules\gear.dm"
+#include "code\modules\urist\modules\ghost_powers.dm"
 #include "code\modules\urist\modules\mining.dm"
 #include "code\modules\urist\modules\supplycrates.dm"
 #include "code\modules\urist\modules\uristlanguages.dm"
