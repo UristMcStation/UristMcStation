@@ -200,6 +200,13 @@ var/global/photo_count = 0
 			mob_detail = "You can see [A] on the photo[(A.health / A.maxHealth) < 0.75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
 		else
 			mob_detail += "You can also see [A] on the photo[(A.health / A.maxHealth)< 0.75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+	if(round_is_spooky())
+		for(var/mob/observer/ghost/OG in the_turf)
+			if(!mob_detail)
+				mob_detail = "You can see a wispy shape resembling [OG] on the photo."
+			else
+				mob_detail += "You can also see a wispy shape resembling [OG] on the photo."
+
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
