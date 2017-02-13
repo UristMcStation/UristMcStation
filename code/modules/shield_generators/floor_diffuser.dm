@@ -24,8 +24,7 @@
 		return
 	for(var/direction in cardinal)
 		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
-		var/obj/effect/shield/S = locate() in shielded_tile
-		if(istype(S))
+		for(var/obj/effect/shield/S in shielded_tile)
 			S.diffuse(5)
 
 /obj/machinery/shield_diffuser/attackby(obj/item/O as obj, mob/user as mob)
@@ -63,7 +62,7 @@
 	update_icon()
 
 /obj/machinery/shield_diffuser/examine(var/mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It is [enabled ? "enabled" : "disabled"].")
 	if(alarm)
 		to_chat(user, "A red LED labeled \"Proximity Alarm\" is blinking on the control panel.")

@@ -1,9 +1,8 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	desc = "It paints pipes!"
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "paint_sprayer"
-	item_state = "paint_sprayer"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "pipainter"
+	item_state = "flight"
 	var/list/modes
 	var/mode
 
@@ -28,5 +27,5 @@
 	mode = input("Which colour do you want to use?", "Pipe painter", mode) in modes
 
 /obj/item/device/pipe_painter/examine(mob/user)
-	..(user)
+	. = ..(user)
 	to_chat(user, "It is in [mode] mode.")

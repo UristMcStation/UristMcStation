@@ -48,9 +48,10 @@ var/list/mob_hat_cache = list()
 
 	mob_size = MOB_MEDIUM // Small mobs can't open doors, it's a huge pain for drones.
 
+	laws = /datum/ai_laws/drone
+
 	//Used for self-mailing.
 	var/mail_destination = ""
-	var/law_type = /datum/ai_laws/drone
 	var/module_type = /obj/item/weapon/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
@@ -75,21 +76,9 @@ var/list/mob_hat_cache = list()
 
 	if(!(old_loc && new_loc)) // Allows inventive admins to move drones between non-adjacent Z-levels by moving them to null space first I suppose
 		return
-	var/z_diff = new_loc.z - old_loc.z
-	if(z_diff == 0)
+	if(AreConnectedZLevels(old_loc.z, new_loc.z))
 		return
-	else if(z_diff > 0)  // New is potentially above old
-		var/turf/above_turf = GetAbove(old_loc)
-		while(above_turf && above_turf.z < new_loc.z)
-			above_turf = GetAbove(above_turf)
-		if(above_turf == new_loc)
-			return
-	else if(z_diff < 0) // New is potentially below old
-		var/turf/below_turf = GetBelow(old_loc)
-		while(below_turf && below_turf.z > new_loc.z)
-			below_turf = GetBelow(below_turf)
-		if(below_turf == new_loc)
-			return
+
 	// None of the tests passed, good bye
 	self_destruct()
 
@@ -123,7 +112,7 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/construction
 	icon_state = "constructiondrone"
-	law_type = /datum/ai_laws/construction_drone
+	laws = /datum/ai_laws/construction_drone
 	module_type = /obj/item/weapon/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
@@ -153,10 +142,9 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/init()
 	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
-	if(!laws) laws = new law_type
 	if(!module) module = new module_type(src)
 
-	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[using_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -265,6 +253,7 @@ var/list/mob_hat_cache = list()
 	connected_ai = null
 	clear_supplied_laws()
 	clear_inherent_laws()
+	qdel_null(laws)
 	laws = new /datum/ai_laws/syndicate_override
 	set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
 
@@ -279,7 +268,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
 		health = 35
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = 35 - (getBruteLoss() + getFireLoss())
 	return
@@ -327,6 +316,8 @@ var/list/mob_hat_cache = list()
 	clear_supplied_laws(1)
 	clear_inherent_laws(1)
 	clear_ion_laws(1)
+	qdel_null(laws)
+	var/law_type = initial(laws) || using_map.default_law_type
 	laws = new law_type
 
 //Reboot procs.

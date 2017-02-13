@@ -8,7 +8,7 @@
 	response_disarm = "prods"
 	response_harm   = "stomps on"
 	icon_state = "brainslug"
-	item_state = "brainslug"
+	item_state = "voxslug" // For the lack of a better sprite...
 	icon_living = "brainslug"
 	icon_dead = "brainslug_dead"
 	speed = 5
@@ -93,7 +93,7 @@
 				if(prob(5))
 					host.adjustBrainLoss(0.1)
 
-				if(prob(host.brainloss/20))
+				if(prob(host.getBrainLoss()/20))
 					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_v","gasp"))]")
 
 /mob/living/simple_animal/borer/Stat()

@@ -53,7 +53,9 @@ var/list/name_to_material
 /proc/get_material_by_name(name)
 	if(!name_to_material)
 		populate_material_list()
-	return name_to_material[name]
+	. = name_to_material[name]
+	if(!.)
+		log_error("Unable to acquire material by name '[name]'")
 
 /proc/material_display_name(name)
 	var/material/material = get_material_by_name(name)
@@ -407,6 +409,21 @@ var/list/name_to_material
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"
 	icon_reinf = "reinf_metal"
+
+/material/plasteel/ocp
+	name = "osmium-carbide plasteel"
+	stack_type = /obj/item/stack/material/ocp
+	integrity = 200
+	melting_point = 9000
+	icon_base = "solid"
+	icon_reinf = "reinf_over"
+	icon_colour = "#9bc6f2"
+	brute_armor = 4
+	burn_armor = 20
+	weight = 27
+	stack_origin_tech = list(TECH_MATERIAL = 3)
+	composite_material = list("plasteel" = 7500, "osmium" = 3750)
+
 
 /material/glass
 	name = "glass"

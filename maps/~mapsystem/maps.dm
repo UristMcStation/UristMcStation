@@ -30,7 +30,13 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/contact_levels = list() // Z-levels that can be contacted from the station, for eg announcements
 	var/list/player_levels = list()  // Z-levels a character can typically reach
 	var/list/sealed_levels = list()  // Z-levels that don't allow random transit at edge
+	var/list/empty_levels = null     // Empty Z-levels that may be used for various things (currently used by bluespace jump)
+
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
+	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
+
+	//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
+	var/list/accessible_z_levels = list()
 
 	var/list/allowed_jobs	       //Job datums to use.
 	                               //Works a lot better so if we get to a point where three-ish maps are used
@@ -38,6 +44,14 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	                               //That doesn't mean we have to include them with the rest of the jobs though, especially for map specific ones.
 	                               //Also including them lets us override already created jobs, letting us keep the datums to a minimum mostly.
 	                               //This is probably a lot longer explanation than it needs to be.
+
+	var/station_name  = "BAD Station"
+	var/station_short = "Baddy"
+	var/dock_name     = "THE PirateBay"
+	var/boss_name     = "Captain Roger"
+	var/boss_short    = "Cap'"
+	var/company_name  = "BadMan"
+	var/company_short = "BM"
 
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
@@ -47,6 +61,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_called_message
 	var/emergency_shuttle_recall_message
+
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
@@ -59,6 +74,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/flags = 0
 	var/evac_controller_type = /datum/evacuation_controller
+	var/use_overmap = 0		//If overmap should be used (including overmap space travel override)
+	var/overmap_size = 20		//Dimensions of overmap zlevel if overmap is used.
 	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
 
 	var/lobby_icon = 'maps/exodus/exodus_lobby.dmi' // The icon which contains the lobby image(s)
@@ -67,6 +84,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/list/branch_types  // list of branch datum paths for military branches available on this map
 	var/list/spawn_branch_types  // subset of above for branches a player can spawn in with
+
+	var/default_law_type = /datum/ai_laws/nanotrasen // The default lawset use by synth units, if not overriden by their laws var.
 
 /datum/map/New()
 	..()
@@ -97,3 +116,21 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	for(var/thing in mining_floors)
 		var/turf/simulated/floor/asteroid/M = thing
 		M.updateMineralOverlays()
+
+/datum/map/proc/get_network_access(var/network)
+	return 0
+
+// By default transition randomly to another zlevel
+/datum/map/proc/get_transit_zlevel(var/current_z_level)
+	var/list/candidates = using_map.accessible_z_levels.Copy()
+	candidates.Remove(num2text(current_z_level))
+
+	if(!candidates.len)
+		return current_z_level
+	return text2num(pickweight(candidates))
+
+/datum/map/proc/get_empty_zlevel()
+	if(empty_levels == null)
+		world.maxz++
+		empty_levels = list(world.maxz)
+	return pick(empty_levels)

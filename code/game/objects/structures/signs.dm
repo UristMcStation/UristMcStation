@@ -62,7 +62,7 @@
 
 /obj/structure/sign/double/map
 	name = "station map"
-	desc = "A framed picture of the station."
+	desc = "A framed map of the station."
 
 /obj/structure/sign/double/map/left
 	icon_state = "map-left"
@@ -219,11 +219,6 @@
 	desc = "This plaque memorializes those engineers and technicians who made the ultimate sacrifice to save their vessel and its crew."
 	icon_state = "atmosplaque"
 
-/obj/structure/sign/dedicationplaque
-	name = "\improper SEV Torch dedication plaque"
-	desc = "S.E.V. Torch - Mako Class - Sol Expeditionary Corps Registry 95519 - Shiva Fleet Yards, Mars - First Vessel To Bear The Name - Launched 2560 - Sol Central Government - 'Never was anything great achieved without danger.'"
-	icon_state = "lightplaque"
-
 /obj/structure/sign/floorplaque
 	name = "\improper commemorative plaque"
 	desc = "A list of dead explorers who gave their lives in search of the next great discovery. Hope you don't join them."
@@ -287,6 +282,11 @@
 /obj/structure/sign/xenobio_4
 	name = "\improper XENOBIOLOGY"
 	desc = "A sign labelling an area as a place where xenobiological entites are researched."
+	icon_state = "xenobio4"
+
+/obj/structure/sign/xenoarch
+	name = "\improper XENOARCHAEOLOGY"
+	desc = "A sign labelling an area as a place where xenoarchaeological finds are researched."
 	icon_state = "xenobio4"
 
 /obj/structure/sign/chemistry
@@ -358,3 +358,24 @@
 /obj/structure/sign/directions/examroom
 	name = "\improper Exam Room"
 	icon_state = "examroom"
+	
+/obj/structure/sign/deck/bridge
+	name = "\improper Bridge Deck"
+	icon_state = "deck-b"
+	
+/obj/structure/sign/deck/first
+	name = "\improper First Deck"
+	icon_state = "deck-1"
+	
+/obj/structure/sign/deck/second
+	name = "\improper Second Deck"
+	icon_state = "deck-2"
+	
+/obj/structure/sign/deck/third
+	name = "\improper Third Deck"
+	icon_state = "deck-3"
+	
+/obj/structure/sign/deck/fourth
+	name = "\improper Fourth Deck"
+	icon_state = "deck-4"
+

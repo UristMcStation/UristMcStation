@@ -56,6 +56,7 @@
 		/obj/item/weapon/material/minihoe,
 		/obj/item/weapon/material/hatchet,
 		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/taperoll,
 		/obj/item/weapon/extinguisher/mini
 		)
 
@@ -106,6 +107,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/weapon/crowbar,
 		/obj/item/device/flashlight,
+		/obj/item/taperoll,
 		/obj/item/weapon/extinguisher/mini
 		)
 
@@ -131,6 +133,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/donut/,
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/gun/energy/taser,
+		/obj/item/weapon/gun/energy/stunrevolver,
 		/obj/item/weapon/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight,
@@ -140,7 +143,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
 		/obj/item/weapon/gun/projectile/sec,
-		/obj/item/taperoll/police
+		/obj/item/taperoll
 		)
 
 /obj/item/weapon/storage/belt/soulstone
@@ -179,3 +182,26 @@
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
 	storage_slots = 9
+
+/obj/item/weapon/storage/belt/waistpack
+	name = "waist pack"
+	desc = "A small bag designed to be worn on the waist. May make your butt look big."
+	icon_state = "fannypack_white"
+	item_state = "fannypack_white"
+	storage_slots = null
+	max_w_class = ITEM_SIZE_SMALL
+	max_storage_space = ITEM_SIZE_SMALL * 4
+	slot_flags = SLOT_BELT | SLOT_BACK
+
+/obj/item/weapon/storage/belt/waistpack/big
+	name = "large waist pack"
+	desc = "An bag designed to be worn on the waist. Definitely makes your butt look big."
+	icon_state = "fannypack_big_white"
+	item_state = "fannypack_big_white"
+	w_class = ITEM_SIZE_LARGE
+	max_w_class = ITEM_SIZE_NORMAL
+	max_storage_space = ITEM_SIZE_NORMAL * 4
+
+/obj/item/weapon/storage/belt/waistpack/big/New()
+	..()
+	slowdown_per_slot[slot_belt] = 3

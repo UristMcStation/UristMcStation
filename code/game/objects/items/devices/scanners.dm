@@ -69,12 +69,12 @@ REAGENT SCANNER
 		user.show_message("<span class='notice'>Analyzing Results for [M]:</span>")
 		user.show_message("<span class='notice'>Overall Status: dead</span>")
 	else
-		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "dead" : "[round(M.health/M.maxHealth)*100]% healthy"]</span>")
+		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "dead" : "[round(M.health*100/M.maxHealth)]% healthy"]</span>")
 	user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
 	user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
 	user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
-	if(M.tod && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
-		user.show_message("<span class='notice'>Time of Death: [M.tod]</span>")
+	if(M.stat == DEAD || (M.status_flags & FAKEDEATH))
+		user.show_message("<span class='notice'>Time of Death: [time2text(worldtime2stationtime(M.timeofdeath), "hh:mm")]</span>")
 	if(istype(M, /mob/living/carbon/human) && mode == 1)
 		var/mob/living/carbon/human/H = M
 		var/list/damaged = H.get_damaged_organs(1,1)
@@ -97,6 +97,10 @@ REAGENT SCANNER
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 ? 		"<span class='warning'>Severe oxygen deprivation detected</span>" 	: 	"Subject bloodstream oxygen level normal"
 	user.show_message("[OX] | [TX] | [BU] | [BR]")
+	if(M.radiation)
+		user.show_message("<span class='notice'>Radiation Level: [M.radiation]</span>")
+	else
+		user.show_message("<span class='notice'>No radiation detected.</span>")
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/C = M
 		if(C.reagents.total_volume)
@@ -163,12 +167,24 @@ REAGENT SCANNER
 			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
 				break
+
+		var/found_bleed
+		var/found_tendon
+		var/found_disloc
 		for(var/obj/item/organ/external/e in H.organs)
-			if(!e)
-				continue
-			for(var/datum/wound/W in e.wounds) if(W.internal)
-				user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
+			if(e)
+				if(!found_disloc && e.dislocated == 2)
+					user.show_message("<span class='warning'>Dislocation detected. Advanced scanner required for location.</span>", 1)
+					found_disloc = TRUE
+				if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
+					user.show_message("<span class='warning'>Arterial bleeding detected. Advanced scanner required for location.</span>", 1)
+					found_bleed = TRUE
+				if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+					user.show_message("<span class='warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>", 1)
+					found_tendon = TRUE
+			if(found_disloc && found_bleed && found_tendon)
 				break
+
 		if(M:vessel)
 			var/blood_volume = H.vessel.get_reagent_amount("blood")
 			var/blood_percent =  round((blood_volume / H.species.blood_volume)*100)
@@ -341,35 +357,43 @@ REAGENT SCANNER
 	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M as mob, mob/living/user as mob)
-	if (!isslime(M))
-		to_chat(user, "<B>This device can only scan slimes!</B>")
+	if(!isslime(M))
+		to_chat(user, "This device can only scan slimes.")
 		return
 	var/mob/living/carbon/slime/T = M
-	user.show_message("Slime scan results:")
-	user.show_message(text("[T.colour] [] slime", T.is_adult ? "adult" : "baby"))
-	user.show_message(text("Nutrition: [T.nutrition]/[]", T.get_max_nutrition()))
-	if (T.nutrition < T.get_starve_nutrition())
-		user.show_message("<span class='alert'>Warning: slime is starving!</span>")
+	user.show_message("<span class='notice'>Slime scan result for \the [M]:</span>")
+	user.show_message("[T.colour] [T.is_adult ? "adult" : "baby"] slime")
+	user.show_message("Nutrition: [T.nutrition]/[T.get_max_nutrition()]")
+	if(T.nutrition < T.get_starve_nutrition())
+		user.show_message("<span class='alert'>Warning: the slime is starving!</span>")
 	else if (T.nutrition < T.get_hunger_nutrition())
-		user.show_message("<span class='warning'>Warning: slime is hungry</span>")
-	user.show_message("Electric change strength: [T.powerlevel]")
-	user.show_message("Health: [T.health]")
-	if (T.slime_mutation[4] == T.colour)
-		user.show_message("This slime does not evolve any further")
+		user.show_message("<span class='warning'>Warning: the slime is hungry.</span>")
+	user.show_message("Electric charge strength: [T.powerlevel]")
+	user.show_message("Health: [round(T.health / T.maxHealth)]%")
+
+	var/list/mutations = T.GetMutations()
+
+	if(!mutations.len)
+		user.show_message("This slime will never mutate.")
 	else
-		if (T.slime_mutation[3] == T.slime_mutation[4])
-			if (T.slime_mutation[2] == T.slime_mutation[1])
-				user.show_message(text("Possible mutation: []", T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance/2]% chance of mutation on splitting")
+		var/list/mutationChances = list()
+		for(var/i in mutations)
+			if(i == T.colour)
+				continue
+			if(mutationChances[i])
+				mutationChances[i] += T.mutation_chance / mutations.len
 			else
-				user.show_message(text("Possible mutations: [], [], [] (x2)", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
-		else
-			user.show_message(text("Possible mutations: [], [], [], []", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3], T.slime_mutation[4]))
-			user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
+				mutationChances[i] = T.mutation_chance / mutations.len
+
+		var/list/mutationTexts = list("[T.colour] ([100 - T.mutation_chance]%)")
+		for(var/i in mutationChances)
+			mutationTexts += "[i] ([mutationChances[i]]%)"
+
+		user.show_message("Possible colours on splitting: [english_list(mutationTexts)]")
+
 	if (T.cores > 1)
-		user.show_message("Anomalious slime core amount detected")
-	user.show_message("Growth progress: [T.amount_grown]/10")
+		user.show_message("Anomalious slime core amount detected.")
+	user.show_message("Growth progress: [T.amount_grown]/10.")
 
 /obj/item/device/price_scanner
 	name = "price scanner"

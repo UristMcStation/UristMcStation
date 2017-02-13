@@ -21,7 +21,7 @@
 
 /atom/movable/New()
 	..()
-	if(auto_init && (initialization_stage & INITIALIZATION_COMPLETE))
+	if(auto_init && (initialization_stage & INITIALIZATION_HAS_BEGUN))
 		initialize()
 
 /atom/movable/Del()
@@ -45,6 +45,9 @@
 		pulledby = null
 
 /atom/movable/proc/initialize()
+	if(rad_power)
+		radiation_repository.sources.Add(src)
+
 	if(!isnull(gcDestroyed))
 		crash_with("GC: -- [type] had initialize() called after qdel() --")
 
@@ -225,7 +228,7 @@
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null
-
+	fall()
 
 //Overlays
 /atom/movable/overlay
@@ -233,8 +236,7 @@
 	anchored = 1
 
 /atom/movable/overlay/New()
-	for(var/x in src.verbs)
-		src.verbs -= x
+	src.verbs.Cut()
 	..()
 
 /atom/movable/overlay/Destroy()
@@ -252,16 +254,19 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in using_map.sealed_levels)
+	if(!z || (z in using_map.sealed_levels))
 		return
 
-	if(config.use_overmap)
+	if(!universe.OnTouchMapEdge(src))
+		return
+
+	if(using_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
 
 	var/new_x
 	var/new_y
-	var/new_z = src.get_transit_zlevel()
+	var/new_z = using_map.get_transit_zlevel(z)
 	if(new_z)
 		if(x <= TRANSITIONEDGE)
 			new_x = world.maxx - TRANSITIONEDGE - 2
@@ -282,16 +287,3 @@
 		var/turf/T = locate(new_x, new_y, new_z)
 		if(T)
 			forceMove(T)
-
-//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
-var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
-
-//by default, transition randomly to another zlevel
-/atom/movable/proc/get_transit_zlevel()
-	var/list/candidates = accessible_z_levels.Copy()
-	candidates.Remove("[src.z]")
-
-	if(!candidates.len)
-		return null
-	return text2num(pickweight(candidates))
-

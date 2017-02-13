@@ -11,7 +11,7 @@
 	invisibility = 101
 
 	density = 0
-	stat = 2
+	stat = DEAD
 	canmove = 0
 
 	anchored = 1	//  don't get pushed around
@@ -87,7 +87,7 @@
 			totalPlayersReady = 0
 			for(var/mob/new_player/player in player_list)
 				var/highjob
-				if(player.client && player.client.prefs.job_high)
+				if(player.client && player.client.prefs && player.client.prefs.job_high)
 					highjob = " as [player.client.prefs.job_high]"
 				stat("[player.key]", (player.ready)?("(Playing[highjob])"):(null))
 				totalPlayers++
@@ -276,16 +276,28 @@
 					if(!isnull(href_list["option_[optionid]"]))	//Test if this optionid was selected
 						vote_on_poll(pollid, optionid, 1)
 
-/mob/new_player/proc/IsJobAvailable(rank)
-	var/datum/job/job = job_master.GetJob(rank)
+/mob/new_player/proc/IsJobAvailable(var/datum/job/job)
 	if(!job)	return 0
 	if(!job.is_position_available()) return 0
-	if(jobban_isbanned(src,rank))	return 0
+	if(jobban_isbanned(src, job.title))	return 0
 	if(!job.player_old_enough(src.client))	return 0
-	if(!job.is_branch_allowed(client.prefs.char_branch)) return 0
-	if(!job.is_rank_allowed(client.prefs.char_branch, client.prefs.char_rank)) return 0
 
 	return 1
+
+/mob/new_player/proc/IsJobRestricted(var/datum/job/job, var/branch_pref, var/rank_pref)
+	if(!job.is_branch_allowed(branch_pref))
+		return 1
+	if(!job.is_rank_allowed(branch_pref, rank_pref))
+		return 1
+	return 0
+
+/mob/new_player/proc/get_branch_pref()
+	if(client)
+		return client.prefs.char_branch
+
+/mob/new_player/proc/get_rank_pref()
+	if(client)
+		return client.prefs.char_rank
 
 /mob/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
 	if(src != usr)
@@ -296,8 +308,15 @@
 	if(!config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
-	if(!IsJobAvailable(rank))
-		to_chat(src, alert("[rank] is not available. Please try another."))
+	var/datum/job/job = job_master.GetJob(rank)
+	if(!IsJobAvailable(job))
+		alert("[rank] is not available. Please try another.")
+		return 0
+	if(!job.is_branch_allowed(client.prefs.char_branch))
+		alert("Wrong branch of service for [rank]. Valid branches are: [job.get_branches()].")
+		return 0
+	if(!job.is_rank_allowed(client.prefs.char_branch, client.prefs.char_rank))
+		alert("Wrong rank for [rank]. Valid ranks in [client.prefs.char_branch] are: [job.get_ranks(client.prefs.char_branch)].")
 		return 0
 
 
@@ -315,7 +334,7 @@
 			log_and_message_admins("User [src] spawned at spawn point with dangerous atmosphere.")
 
 		// Just in case someone stole our position while we were waiting for input from alert() proc
-		if(!IsJobAvailable(rank))
+		if(!IsJobAvailable(job))
 			to_chat(src, alert("[rank] is not available. Please try another."))
 			return 0
 
@@ -339,6 +358,8 @@
 		empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
+		var/mob/living/silicon/ai/A = character
+		A.on_mob_init()
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
 		ticker.mode.handle_latejoin(character)
@@ -357,6 +378,7 @@
 		character.buckled.set_dir(character.dir)
 
 	ticker.mode.handle_latejoin(character)
+	universe.OnPlayerLatejoin(character)
 	if(job_master.ShouldCreateRecords(rank))
 		if(character.mind.assigned_role != "Cyborg")
 			data_core.manifest_inject(character)
@@ -367,7 +389,7 @@
 			AnnounceArrival(character, rank, spawnpoint.msg)
 		else
 			AnnounceCyborg(character, rank, spawnpoint.msg)
-
+		matchmaker.do_matchmaking()
 		if(master_mode=="scom")
 			ScomLateJoin(character)
 			ScomRobotLateJoin(character)
@@ -386,7 +408,7 @@
 /mob/new_player/proc/LateChoices()
 	var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name
 
-	var/dat = "<html><body><center>"
+	var/list/dat = list("<html><body><center>")
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [roundduration2text()]<br>"
 
@@ -400,18 +422,22 @@
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in job_master.occupations)
-		if(job && IsJobAvailable(job.title))
+		if(job && IsJobAvailable(job))
 			if(job.minimum_character_age && (client.prefs.age < job.minimum_character_age))
 				continue
+
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
 				active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+
+			if(IsJobRestricted(job, client.prefs.char_branch, client.prefs.char_rank))
+				dat += "<a style='text-decoration: line-through' href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+			else
+				dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
 
 	dat += "</center>"
-	src << browse(dat, "window=latechoices;size=300x640;can_close=1")
-
+	src << browse(jointext(dat, null), "window=latechoices;size=300x640;can_close=1")
 
 /mob/new_player/proc/create_character()
 	spawning = 1
@@ -450,13 +476,19 @@
 
 	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))// MAD JAMS cant last forever yo
 
-
 	if(mind)
 		mind.active = 0					//we wish to transfer the key manually
 		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
 			new_character.real_name = pick(clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
 			new_character.rename_self("clown")
 		mind.original = new_character
+		if(client.prefs.relations.len)
+			for(var/T in client.prefs.relations)
+				var/TT = matchmaker.relation_types[T]
+				var/datum/relation/R = new TT
+				R.holder = mind
+				R.info = client.prefs.relations_info[T]
+			mind.gen_relations_info = client.prefs.relations_info["general"]
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
 	new_character.name = real_name
@@ -541,4 +573,4 @@ mob/new_player/MayRespawn()
 	return
 
 /mob/new_player/say(var/message)
-	sanitize_and_communicate(/decl/communication_channel/ooc, src, message)
+	sanitize_and_communicate(/decl/communication_channel/ooc, client, message)

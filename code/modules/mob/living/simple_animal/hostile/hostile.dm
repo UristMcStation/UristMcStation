@@ -15,9 +15,6 @@
 	stop_automated_movement_when_pulled = 0
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
-	var/can_heal = 0
-	var/will_help = 0
-	var/will_flee = 0
 
 	var/shuttletarget = null
 	var/enroute = 0
@@ -39,12 +36,8 @@
 
 		if(isliving(A))
 			var/mob/living/L = A
-			if(L.faction == src.faction)
-				if(can_heal && L.health <= 30)
-					stance = HOSTILE_STANCE_HEAL
-					break
-				else if (!attack_same)
-					continue
+			if(L.faction == src.faction && !attack_same)
+				continue
 			else if(L in friends)
 				continue
 			else
@@ -58,13 +51,6 @@
 			if (M.occupant)
 				stance = HOSTILE_STANCE_ATTACK
 				T = M
-				break
-
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
-			if (B.health > 0)
-				stance = HOSTILE_STANCE_ATTACK
-				T = B
 				break
 	return T
 
@@ -112,10 +98,6 @@
 		var/obj/mecha/M = target_mob
 		M.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return M
-	if(istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
-		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-		return B
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
@@ -148,27 +130,28 @@
 		return 0
 	if(client)
 		return 0
+	if(isturf(src.loc))
+		if(!stat)
+			switch(stance)
+				if(HOSTILE_STANCE_IDLE)
+					target_mob = FindTarget()
 
-	if(!stat)
+				if(HOSTILE_STANCE_ATTACK)
+					if(destroy_surroundings)
+						DestroySurroundings()
+					MoveToTarget()
 
-		switch(stance)
-			if(HOSTILE_STANCE_IDLE)
-				target_mob = FindTarget()
-
-			if(HOSTILE_STANCE_HEAL)
-				HealBitches()
-
-			if(HOSTILE_STANCE_ATTACK)
-				if(will_flee && health <=15) //half the requirement to get healed
-					GetTheFuckOut()
-				if(destroy_surroundings)
-					DestroySurroundings()
-				MoveToTarget()
-
-			if(HOSTILE_STANCE_ATTACKING)
-				if(destroy_surroundings)
-					DestroySurroundings()
-				AttackTarget()
+				if(HOSTILE_STANCE_ATTACKING)
+					if(destroy_surroundings)
+						DestroySurroundings()
+					AttackTarget()
+				if(HOSTILE_STANCE_INSIDE) //we aren't inside something so just switch
+					stance = HOSTILE_STANCE_IDLE
+	else
+		if(stance != HOSTILE_STANCE_INSIDE)
+			stance = HOSTILE_STANCE_INSIDE
+			walk(src,0)
+			target_mob = null
 
 
 /mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)

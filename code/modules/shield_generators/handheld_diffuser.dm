@@ -30,10 +30,10 @@
 
 	for(var/direction in cardinal)
 		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
-		var/obj/effect/shield/S = locate() in shielded_tile
-		// 10kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
-		if(istype(S) && !S.diffused_for && !S.disabled_for && cell.checked_use(10 KILOWATTS * CELLRATE))
-			S.diffuse(20)
+		for(var/obj/effect/shield/S in shielded_tile)
+			// 10kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
+			if(istype(S) && !S.diffused_for && !S.disabled_for && cell.checked_use(10 KILOWATTS * CELLRATE))
+				S.diffuse(20)
 
 /obj/item/weapon/shield_diffuser/attack_self()
 	enabled = !enabled
@@ -45,6 +45,6 @@
 	to_chat(usr, "You turn \the [src] [enabled ? "on" : "off"].")
 
 /obj/item/weapon/shield_diffuser/examine()
-	..()
+	. = ..()
 	to_chat(usr, "The charge meter reads [cell ? cell.percent() : 0]%")
 	to_chat(usr, "It is [enabled ? "enabled" : "disabled"].")

@@ -1,6 +1,6 @@
 /obj/item/weapon/board
 	name = "board"
-	desc = "A standard 12' checkerboard. Well used."
+	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "board"
 
@@ -141,6 +141,8 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 					addPiece(O,H,text2num(s))
 		if(href_list["remove"])
 			var/obj/item/I = board["[selected]"]
+			if(!I)
+				return
 			board["[selected]"] = null
 			board -= "[selected]"
 			board -= null

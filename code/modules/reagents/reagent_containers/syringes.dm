@@ -119,7 +119,7 @@
 						if(!do_mob(user, target, injtime))
 							return
 
-						src.take_blood_sample(T, amount)
+						T.take_blood(src, amount)
 						to_chat(user, "<span class='notice'>You take a blood sample from [target].</span>")
 						for(var/mob/O in viewers(4, user))
 							O.show_message("<span class='notice'>[user] takes a blood sample from [target].</span>", 1)
@@ -245,15 +245,11 @@
 				return
 
 			user.visible_message("<span class='danger'>[user] stabs [target] in \the [hit_area] with [src.name]!</span>")
-
-			if(affecting.take_damage(3))
-				H.UpdateDamageIcon()
+			affecting.take_damage(3)
 
 		else
 			user.visible_message("<span class='danger'>[user] stabs [target] with [src.name]!</span>")
 			target.take_organ_damage(3)// 7 is the same as crowbar punch
-
-
 
 		var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
 		var/contained_reagents = reagents.get_reagents()
@@ -270,23 +266,6 @@
 		if(user)
 			add_fingerprint(user)
 		update_icon()
-
-	proc/take_blood_sample(mob/living/carbon/T, var/amount)
-		var/datum/reagent/B
-		if(istype(T, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = T
-			if(!H.should_have_organ(BP_HEART))
-				H.reagents.trans_to_obj(src, amount)
-			else
-				B = T.take_blood(src, amount)
-		else
-			B = T.take_blood(src,amount)
-
-		if (B)
-			reagents.reagent_list += B
-			reagents.update_total()
-			on_reagent_change()
-			reagents.handle_reactions()
 
 /obj/item/weapon/reagent_containers/syringe/ld50_syringe
 	name = "Lethal Injection Syringe"

@@ -16,7 +16,7 @@
 		verbs -= /mob/living/carbon/alien/verb/evolve
 		return
 
-	if(handcuffed || legcuffed)
+	if(handcuffed)
 		to_chat(src, "<span class='warning'>You cannot evolve when you are cuffed.</span>")
 		return
 
@@ -33,6 +33,8 @@
 	adult.set_species(new_species)
 	show_evolution_blurb()
 	// TODO: drop a moulted skin. Ew.
+
+	transfer_languages(src, adult)
 
 	if(mind)
 		mind.transfer_to(adult)

@@ -13,8 +13,6 @@ meteor_act
 	if(!has_organ(def_zone))
 		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
 
-	var/obj/item/organ/external/organ = get_organ()
-
 	//Shields
 	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
 	if(shield_check)
@@ -26,6 +24,7 @@ meteor_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
+		var/obj/item/organ/external/organ = get_organ(def_zone)
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/weapon/material/shard/shrapnel/SP = new()
@@ -34,7 +33,7 @@ meteor_act
 			SP.loc = organ
 			organ.embed(SP)
 
-	var/blocked = ..(P , def_zone)
+	var/blocked = ..(P, def_zone)
 
 	projectile_hit_bloody(P, P.damage*blocked_mult(blocked), def_zone)
 
@@ -42,29 +41,15 @@ meteor_act
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
+	if(!affected)
+		return
+
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
 	agony_amount *= siemens_coeff
+	agony_amount *= affected.get_agony_multiplier()
 
-	switch (def_zone)
-		if(BP_HEAD)
-			agony_amount *= 1.50
-		if(BP_L_HAND, BP_R_HAND)
-			var/c_hand
-			if (def_zone == BP_L_HAND)
-				c_hand = l_hand
-			else
-				c_hand = r_hand
-
-			if(c_hand && (stun_amount || agony_amount > 10))
-				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect")
-
-				drop_from_inventory(c_hand)
-				if (affected.robotic >= ORGAN_ROBOT)
-					emote("me", 1, "drops what they were holding, their [affected.name] malfunctioning!")
-				else
-					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					emote("me", 1, "[affected.can_feel_pain() ? "" : emote_scream]drops what they were holding in their [affected.name]!")
+	affected.stun_act(stun_amount, agony_amount)
 
 	..(stun_amount, agony_amount, def_zone)
 
@@ -86,7 +71,7 @@ meteor_act
 			var/obj/item/organ/external/organ = organs_by_name[organ_name]
 			if(organ)
 				var/weight = organ_rel_size[organ_name]
-				armorval += getarmor_organ(organ, type) * weight //use plain addition here because we are calculating an average
+				armorval += (getarmor_organ(organ, type) * weight) //use plain addition here because we are calculating an average
 				total += weight
 	return (armorval/max(total, 1))
 
@@ -142,8 +127,54 @@ meteor_act
 		if(.) return
 	return 0
 
+
+/mob/living/carbon/human/attack_throat(var/obj/item/W, var/obj/item/weapon/grab/G, var/mob/user)
+	. = ..()
+	if(.)
+		var/obj/item/organ/external/head = get_organ(BP_HEAD)
+		if(head) head.sever_artery()
+
+/mob/living/carbon/human/proc/check_attack_tendons(var/obj/item/W, var/mob/living/user, var/target_zone)
+
+	if(!W.edge || !W.force || W.damtype != BRUTE)
+		return FALSE
+	var/obj/item/organ/external/affecting = get_organ(target_zone)
+	if(!affecting || affecting.is_stump() || !affecting.has_tendon || (affecting.status & ORGAN_TENDON_CUT))
+		return FALSE
+
+	var/obj/item/weapon/grab/grab
+	if(user.a_intent == I_HURT)
+		for(var/obj/item/weapon/grab/G in src.grabbed_by)
+			if(G.assailant == user && G.state >= GRAB_NECK)
+				grab = G
+				break
+	if(!grab)
+		return FALSE
+
+	user.visible_message("<span class='danger'>\The [user] begins to cut \the [src]'s [affecting.tendon_name] with \the [W]!</span>")
+	user.next_move = world.time + 20
+
+	if(!do_after(user, 20, progress=0))
+		return FALSE
+	if(!grab || grab.assailant != user || grab.affecting != src)
+		return FALSE
+	if(!affecting || affecting.is_stump() || !affecting.sever_tendon())
+		return FALSE
+
+	user.visible_message("<span class='danger'>\The [user] cut \the [src]'s [affecting.tendon_name] with \the [W]!</span>")
+	if(W.hitsound) playsound(loc, W.hitsound, 50, 1, -1)
+	grab.last_action = world.time
+	flick(grab.hud.icon_state, grab.hud)
+	admin_attack_log(user, src, "hamstrung their victim", "was hamstrung", "hamstrung")
+
+	return TRUE
+
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
+
 	if(check_attack_throat(I, user))
+		return null
+
+	if(check_attack_tendons(I, user, target_zone))
 		return null
 
 	if(user == src) // Attacking yourself can't miss
@@ -196,7 +227,7 @@ meteor_act
 
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(hit_appends)	//forcesay checks stat already
-	if((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(25 + (effective_force * 2)))
+	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
@@ -345,11 +376,15 @@ meteor_act
 
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
+		var/datum/wound/created_wound
 
 		src.visible_message("<span class='warning'>\The [src] has been hit in the [hit_area] by \the [O].</span>")
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].") //I guess "melee" is the best fit here
 		if(armor < 100)
-			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
+			var/damage_flags = O.damage_flags()
+			if(prob(armor))
+				damage_flags &= ~(DAM_SHARP|DAM_EDGE)
+			created_wound = apply_damage(throw_damage, dtype, zone, armor, damage_flags, O)
 
 		if(ismob(O.thrower))
 			var/mob/M = O.thrower
@@ -373,7 +408,7 @@ meteor_act
 				//Sharp objects will always embed if they do enough damage.
 				//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
 				if((sharp && prob(damage/(10*I.w_class)*100)) || (damage > embed_threshold && prob(embed_chance)))
-					affecting.embed(I)
+					affecting.embed(I, supplied_wound = created_wound)
 
 		// Begin BS12 momentum-transfer code.
 		var/mass = 1.5
@@ -399,13 +434,12 @@ meteor_act
 					src.anchored = 1
 					src.pinned += O
 
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
+/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null, var/datum/wound/supplied_wound)
 	if(!def_zone) ..()
 
 	var/obj/item/organ/external/affecting = get_organ(def_zone)
 	if(affecting)
-		affecting.embed(O)
-
+		affecting.embed(O, supplied_wound = supplied_wound)
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
 	if (gloves)

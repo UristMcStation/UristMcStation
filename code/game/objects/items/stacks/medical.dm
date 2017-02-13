@@ -25,6 +25,10 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
+		if(!affecting)
+			to_chat(user, "<span class='warning'>\The [M] is missing that body part!</span>")
+			return 1
+
 		if(affecting.organ_tag == BP_HEAD)
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 				to_chat(user, "<span class='warning'>You can't apply [src] through [H.head]!</span>")
@@ -64,7 +68,7 @@
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
 		if(affecting.open)
 			to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
@@ -78,8 +82,6 @@
 					             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 			var/used = 0
 			for (var/datum/wound/W in affecting.wounds)
-				if (W.internal)
-					continue
 				if(W.bandaged)
 					continue
 				if(used == amount)
@@ -124,7 +126,7 @@
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
 		if(affecting.open)
 			to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
@@ -159,7 +161,7 @@
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
 		if(affecting.open)
 			to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
@@ -173,8 +175,6 @@
 					             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 			var/used = 0
 			for (var/datum/wound/W in affecting.wounds)
-				if (W.internal)
-					continue
 				if (W.bandaged && W.disinfected)
 					continue
 				if(used == amount)
@@ -219,7 +219,7 @@
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
 		if(affecting.open)
 			to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>")
@@ -255,7 +255,7 @@
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 		var/limb = affecting.name
 		if(!(affecting.organ_tag in splintable_organs))
 			to_chat(user, "<span class='danger'>You can't use \the [src] to apply a splint there!</span>")

@@ -24,14 +24,16 @@
 		//Chemicals in the body
 		handle_chemicals_in_body()
 
-		//Blood - do this after chemicals so that dexplus doesn't keep people awake with no heart
-		handle_blood()
-
 		//Random events (vomiting etc)
 		handle_random_events()
 
 		//stuff in the stomach
 		handle_stomach()
+
+		. = 1
+	else if(timeofdeath && (world.time - timeofdeath < 150))
+		//This is to make dead people process reagents for a few ticks, so they can be treated and defibrilated
+		handle_chemicals_in_body()
 
 		. = 1
 
@@ -68,9 +70,6 @@
 /mob/living/proc/handle_chemicals_in_body()
 	return
 
-/mob/living/proc/handle_blood()
-	return
-
 /mob/living/proc/handle_random_events()
 	return
 
@@ -90,11 +89,11 @@
 	updatehealth()
 	if(stat != DEAD)
 		if(paralysis)
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else if (status_flags & FAKEDEATH)
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 		return 1
 
 /mob/living/proc/handle_statuses()
@@ -210,7 +209,7 @@
 		update_dead_sight()
 	else
 		update_living_sight()
-	
+
 /mob/living/proc/update_living_sight()
 	set_sight(sight&(~(SEE_TURFS|SEE_MOBS|SEE_OBJS)))
 	set_see_in_dark(initial(see_in_dark))

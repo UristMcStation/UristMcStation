@@ -1,8 +1,8 @@
 /obj/item/device/floor_painter
 	name = "floor painter"
 	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "labeler1"
-	item_state = "flight"
+	icon_state = "flpainter"
+	item_state = "fl_painter"
 
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
@@ -50,8 +50,8 @@
 		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
 		return
 
-	if(!F.flooring || !F.flooring.can_paint || F.broken || F.burnt)
-		to_chat(user, "<span class='warning'>\The [src] cannot paint broken or missing tiles.</span>")
+	if(!F.flooring.can_paint || F.broken || F.burnt)
+		to_chat(user, "<span class='warning'>\The [src] cannot paint broken tiles.</span>")
 		return
 
 	var/list/decal_data = decals[decal]
@@ -112,7 +112,7 @@
 		choose_colour()
 
 /obj/item/device/floor_painter/examine(mob/user)
-	..(user)
+	. = ..(user)
 	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
 
 /obj/item/device/floor_painter/verb/choose_colour()

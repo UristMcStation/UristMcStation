@@ -70,7 +70,7 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/syndicate
-	
+
 /obj/item/device/radio/headset/syndicate/initialize()
 	..()
 	set_frequency(SYND_FREQ)
@@ -143,7 +143,7 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/ai_integrated
 	var/myAi = null    // Atlantis: Reference back to the AI which has this radio.
-	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
+	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via inteliCard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/receive_range(freq, level)
 	if (disabledAi)
@@ -159,7 +159,7 @@
 
 /obj/item/device/radio/headset/heads/hos
 	name = "head of security's headset"
-	desc = "The headset of the man who protects your worthless lifes."
+	desc = "The headset of the man who protects your worthless lives."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/hos
@@ -187,7 +187,7 @@
 
 /obj/item/device/radio/headset/headset_cargo
 	name = "supply radio headset"
-	desc = "A headset used by the QM and their slaves."
+	desc = "A headset used by the box pushers."
 	icon_state = "cargo_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
@@ -219,6 +219,13 @@
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/entertainment
+
+/obj/item/device/radio/headset/specops
+	name = "special operations radio headset"
+	desc = "The headset of the spooks."
+	icon_state = "cent_headset"
+	item_state = "headset"
+	ks2type = /obj/item/device/encryptionkey/specops
 
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
@@ -275,6 +282,11 @@
 
 	return
 
+/obj/item/device/radio/headset/MouseDrop(var/obj/over_object)
+	var/mob/M = usr
+	if((!istype(over_object, /obj/screen)) && (src in M) && CanUseTopic(M))
+		return attack_self(M)
+	return
 
 /obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = 0)
 	src.channels = list()

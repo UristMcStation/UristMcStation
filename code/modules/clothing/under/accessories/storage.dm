@@ -10,6 +10,9 @@
 
 /obj/item/clothing/accessory/storage/New()
 	..()
+	create_storage()
+
+/obj/item/clothing/accessory/storage/proc/create_storage()
 	hold = new/obj/item/weapon/storage/internal/pockets(src, slots, max_w_class)
 
 /obj/item/clothing/accessory/storage/attack_hand(mob/user as mob)
@@ -71,6 +74,27 @@
 	icon_state = "vest_white"
 	slots = 5
 
+/obj/item/clothing/accessory/storage/drop_pouches
+	slots = 4 //to accomodate it being slotless
+
+/obj/item/clothing/accessory/storage/drop_pouches/create_storage()
+	hold = new/obj/item/weapon/storage/internal/pouch(src, slots*base_storage_cost(max_w_class))
+
+/obj/item/clothing/accessory/storage/drop_pouches/black
+	name = "black drop pouches"
+	desc = "Robust black synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_black"
+
+/obj/item/clothing/accessory/storage/drop_pouches/brown
+	name = "brown drop pouches"
+	desc = "Worn brownish synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_brown"
+
+/obj/item/clothing/accessory/storage/drop_pouches/white
+	name = "white drop pouches"
+	desc = "Durable white synthcotton bags to hold whatever you need, but cannot hold in hands."
+	icon_state = "thigh_white"
+
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
@@ -108,8 +132,12 @@
 		/obj/item/weapon/material/star,
 		/obj/item/weapon/rcd_ammo,
 		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
 		/obj/item/weapon/syringe_cartridge,
 		/obj/item/weapon/plastique,
-		/obj/item/clothing/mask/smokable
+		/obj/item/clothing/mask/smokable,
+		/obj/item/weapon/screwdriver,
+		/obj/item/device/multitool
 	)
 

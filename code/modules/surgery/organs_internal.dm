@@ -32,14 +32,15 @@
 	if (!hasorgans(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected)
+	if(!affected || affected.open < 2)
 		return
-	var/is_organ_damaged = 0
-	for(var/obj/item/organ/I in affected.internal_organs)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.damage > 0)
-			is_organ_damaged = 1
-			break
-	return ..() && is_organ_damaged
+			if(I.surface_accessible)
+				return TRUE
+			if(affected.open >= (affected.encased ? 3 : 2))
+				return TRUE
+	return FALSE
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -51,14 +52,14 @@
 	if (!hasorgans(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected || affected.open < 2)
+		return
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && I.robotic < ORGAN_ROBOT && (I.surface_accessible || affected.open >= (affected.encased ? 3 : 2)))
+			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
+			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(!(I.robotic >= ORGAN_ROBOT))
-				user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-				"You start treating damage to [target]'s [I.name] with [tool_name]." )
-
-	target.custom_pain("The pain in your [affected.name] is living hell!",100)
+	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
 	..()
 
 /datum/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -71,13 +72,13 @@
 	if (!hasorgans(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(!(I.robotic >= ORGAN_ROBOT))
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
-				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
-				I.damage = 0
+	if(!affected || affected.open < 2)
+		return
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && I.robotic < ORGAN_ROBOT && (I.surface_accessible || affected.open >= (affected.encased ? 3 : 2)))
+			user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+			"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
+			I.damage = 0
 
 /datum/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
@@ -97,8 +98,8 @@
 		target.adjustToxLoss(10)
 		affected.createwound(CUT, 5)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && I.robotic < ORGAN_ROBOT && (I.surface_accessible || affected.open >= (affected.encased ? 3 : 2)))
 			I.take_damage(dam_amt,0)
 
 //////////////////////////////////////////////////////////////////
@@ -205,7 +206,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
 	"You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
-	target.custom_pain("The pain in your [affected.name] is living hell!",100)
+	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
 	..()
 
 /datum/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -295,7 +296,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 	"You start transplanting \the [tool] into [target]'s [affected.name].")
-	target.custom_pain("Someone's rooting around in your [affected.name]!",100)
+	target.custom_pain("Someone's rooting around in your [affected.name]!",100,affecting = affected)
 	..()
 
 /datum/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

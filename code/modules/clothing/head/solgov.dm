@@ -11,6 +11,11 @@
 	desc = "It's a black ballcap bearing the Expeditonary Corps crest."
 	icon_state = "expeditionsoft"
 
+/obj/item/clothing/head/soft/sol/expedition/co
+	name = "\improper Expeditionary Corps command cap"
+	desc = "It's a black ballcap bearing the Expeditonary Corps crest. It has golden leaf on the brim."
+	icon_state = "expeditioncomsoft"
+
 /obj/item/clothing/head/soft/sol/fleet
 	name = "fleet cap"
 	desc = "It's a navy blue ballcap with the SCG Fleet crest."
@@ -107,7 +112,7 @@
 	icon_state = "greydresscap"
 
 /obj/item/clothing/head/dress/expedition/command
-	name = "expedition command dress cap"
+	name = "expedition officer's dress cap"
 	desc = "A peaked grey dress uniform cap belonging to the SCG Expeditionary Corps. This one is trimmed in gold."
 	icon_state = "greydresscap_com"
 
@@ -117,7 +122,7 @@
 	icon_state = "whitepeakcap"
 
 /obj/item/clothing/head/dress/fleet/command
-	name = "fleet command dress wheel cover"
+	name = "fleet officer's dress wheel cover"
 	desc = "A white dress uniform cover. This one has a gold stripe and an SCG Fleet crest."
 	icon_state = "whitepeakcap_com"
 
@@ -227,3 +232,27 @@
 	name = "fleet command beret"
 	desc = "An SCG Fleet beret with a command crest. For personnel that are more inclined towards style than safety."
 	icon_state = "beret_navy_command"
+
+/obj/item/clothing/head/ushanka/fleet
+	name = "fleet fur hat"
+	desc = "An SCG Fleet synthfur-lined hat for operating in cold environment."
+	icon_state = "flushankadown"
+	icon_state_up = "flushankaup"
+
+/obj/item/clothing/head/ushanka/expedition
+	name = "expeditionary fur hat"
+	desc = "An SCG Expeditionary Corps synthfur-lined hat for operating in cold environment."
+	icon_state = "ecushankadown"
+	icon_state_up = "ecushankaup"
+
+/obj/item/clothing/head/ushanka/marine
+	name = "marine fur hat"
+	desc = "An SCG Marine Corps synthfur-lined hat for operating in cold environment."
+	icon_state = "bmcushankadown"
+	icon_state_up = "bmcushankaup"
+
+/obj/item/clothing/head/ushanka/marine/green
+	name = "green marine fur hat"
+	desc = "An SCG Marine Corps synthfur-lined hat for operating in cold environment."
+	icon_state = "mcushankadown"
+	icon_state_up = "mcushankaup"

@@ -55,11 +55,12 @@
 	//uniform
 	if(w_uniform && !skipjumpsuit)
 		//Ties
-		var/tie_msg
+		var/list/ties = list()
 		if(istype(w_uniform,/obj/item/clothing/under))
 			var/obj/item/clothing/under/U = w_uniform
-			if(U.accessories.len)
-				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
+			for(var/accessory in U.accessories)
+				ties += "\icon[accessory] \a [accessory]"
+		var/tie_msg = ties.len? ". Attached to it is [english_list(ties)]" : ""
 
 		if(w_uniform.blood_DNA)
 			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [(w_uniform.blood_color != SYNTH_BLOOD_COLOUR) ? "blood" : "oil"]-stained [w_uniform.name][tie_msg]!</span>\n"
@@ -200,21 +201,23 @@
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
 
-	var/distance = get_dist(usr,src)
-	if(isghost(usr) || usr.stat == DEAD) // ghosts can see anything
+	var/distance = 0
+	if(isghost(user) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
+	else
+		distance = get_dist(user,src)
 	if (src.stat)
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
 		if((stat == DEAD || src.losebreath) && distance <= 3)
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
-		if(istype(usr, /mob/living/carbon/human) && !usr.stat && Adjacent(usr))
-			usr.visible_message("<b>[usr]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-		spawn(15)
-			if(distance <= 1 && usr.stat != 1)
-				if(pulse() == PULSE_NONE)
-					to_chat(usr, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
-				else
-					to_chat(usr, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
+		if(ishuman(user) && !user.incapacitated() && Adjacent(user))
+			spawn(0)
+				user.visible_message("<b>\The [user]</b> checks \the [src]'s pulse.", "You check \the [src]'s pulse.")
+				if(do_after(user, 15, src))
+					if(pulse() == PULSE_NONE)
+						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
+					else
+						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
 
 	if(fire_stacks)
 		msg += "[T.He] [T.is] covered in some liquid.\n"
@@ -226,7 +229,7 @@
 	if(nutrition < 100)
 		msg += "[T.He] [T.is] severely malnourished.\n"
 	else if(nutrition >= 500)
-		/*if(usr.nutrition < 100)
+		/*if(user.nutrition < 100)
 			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
 		else*/
 		msg += "[T.He] [T.is] quite chubby.\n"
@@ -243,6 +246,7 @@
 
 	var/list/wound_flavor_text = list()
 	var/applying_pressure = ""
+	var/list/shown_objects = list()
 
 	for(var/organ_tag in species.has_limbs)
 
@@ -251,10 +255,10 @@
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 
 		if(!E)
-			wound_flavor_text["[organ_descriptor]"] = "<b>[T.He] [T.is] missing [T.his] [organ_descriptor].</b>\n"
+			wound_flavor_text[organ_descriptor] = "<b>[T.He] [T.is] missing [T.his] [organ_descriptor].</b>\n"
 			continue
 
-		wound_flavor_text["[E.name]"] = ""
+		wound_flavor_text[E.name] = ""
 
 		if(E.applied_pressure == src)
 			applying_pressure = "<span class='info'>[T.He] is applying pressure to [T.his] [E.name].</span><br>"
@@ -268,24 +272,28 @@
 
 		if(hidden && user != src)
 			if(E.status & ORGAN_BLEEDING && !(hidden.item_flags & THICKMATERIAL)) //not through a spacesuit
-				wound_flavor_text["[hidden.name]"] = "[T.He] [T.has] blood soaking through [hidden]!<br>"
+				wound_flavor_text[hidden.name] = "<span class='danger'>[T.He] [T.has] blood soaking through [hidden]!</span><br>"
 		else
 			if(E.is_stump())
-				wound_flavor_text["[E.name]"] += "<b>[T.He] [T.has] a stump where [T.his] [E.name] should be.</b>\n"
+				wound_flavor_text[E.name] += "<b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b>\n"
 				if((E.wounds.len || E.open) && E.parent)
-					wound_flavor_text["[E.name]"] += "[T.He] [T.has] [E.get_wounds_desc()] on [T.his] [E.parent.name].<br>"
+					wound_flavor_text[E.name] += "[T.He] [T.has] [E.get_wounds_desc()] on [T.his] [E.parent.name].<br>"
 			else
 				if(!is_synth && E.robotic >= ORGAN_ROBOT && (E.parent && E.parent.robotic < ORGAN_ROBOT))
-					wound_flavor_text["[E.name]"] = "[T.He] [T.has] a [E.name].\n"
-				if(E.wounds.len || E.open)
-					wound_flavor_text["[E.name]"] += "[T.He] [T.has] [E.get_wounds_desc()] on [T.his] [E.name].<br>"
-
+					wound_flavor_text[E.name] = "[T.He] [T.has] a [E.name].\n"
+				var/wounddesc = E.get_wounds_desc()
+				if(wounddesc != "nothing")
+					wound_flavor_text[E.name] += "[T.He] [T.has] [wounddesc] on [T.his] [E.name].<br>"
 		if(!hidden || distance <=1)
 			if(E.dislocated > 0)
-				wound_flavor_text["[E.name]"] += "[T.His] [E.joint] is dislocated!<br>"
+				wound_flavor_text[E.name] += "[T.His] [E.joint] is dislocated!<br>"
 			if(((E.status & ORGAN_BROKEN) && E.brute_dam > E.min_broken_damage) || (E.status & ORGAN_MUTATED))
-				wound_flavor_text["[E.name]"] += "[T.His] [E.name] is dented and swollen!<br>"
+				wound_flavor_text[E.name] += "[T.His] [E.name] is dented and swollen!<br>"
 
+		for(var/datum/wound/wound in E.wounds)
+			if(wound.embedded_objects.len)
+				shown_objects += wound.embedded_objects
+				wound_flavor_text["[E.name]"] += "The [wound.desc] on [T.his] [E.name] has \a [english_list(wound.embedded_objects, and_text = " and \a ", comma_text = ", \a ")] sticking out of it!<br>"
 
 	msg += "<span class='warning'>"
 	for(var/limb in wound_flavor_text)
@@ -293,11 +301,13 @@
 	msg += "</span>"
 
 	for(var/implant in get_visible_implants(0))
+		if(implant in shown_objects)
+			continue
 		msg += "<span class='danger'>[src] [T.has] \a [implant] sticking out of [T.his] flesh!</span>\n"
 	if(digitalcamo)
 		msg += "[T.He] [T.is] repulsively uncanny!\n"
 
-	if(hasHUD(usr,"security"))
+	if(hasHUD(user,"security"))
 		var/perpname = "wot"
 		var/criminal = "None"
 
@@ -320,7 +330,7 @@
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>  <a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>\n"
 
-	if(hasHUD(usr,"medical"))
+	if(hasHUD(user,"medical"))
 		var/perpname = "wot"
 		var/medical = "None"
 

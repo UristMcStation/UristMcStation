@@ -87,8 +87,7 @@
 	var/datum/effect/effect/system/spark_spread/spark_system
 
 /obj/item/weapon/rig/examine()
-	to_chat(usr, "This is \icon[src][src.name].")
-	to_chat(usr, "[src.desc]")
+	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
@@ -761,7 +760,10 @@
 
 	var/chance
 	if(!is_emp)
-		chance = 2*max(0, damage - (chest? chest.breach_threshold : 0))
+		var/damage_resistance = 0
+		if(istype(chest, /obj/item/clothing/suit/space))
+			damage_resistance = chest.breach_threshold
+		chance = 2*max(0, damage - damage_resistance)
 	else
 		//Want this to be roughly independant of the number of modules, meaning that X emp hits will disable Y% of the suit's modules on average.
 		//that way people designing hardsuits don't have to worry (as much) about how adding that extra module will affect emp resiliance by 'soaking' hits for other modules
@@ -931,7 +933,7 @@
 			if(ishuman(wearer.buckled))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
-				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
+				if((!l_hand || !l_hand.is_usable()) && (!r_hand || !r_hand.is_usable()))
 					return // No hands to drive your chair? Tough luck!
 			wearer_move_delay += 2
 			return wearer.buckled.relaymove(wearer,direction)

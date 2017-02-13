@@ -20,11 +20,19 @@
 
 	// These should be subtypes of /obj/item/organ
 	var/list/products = list(
-		BP_HEART   = list(/obj/item/organ/internal/heart,  50),
-		BP_LUNGS   = list(/obj/item/organ/internal/lungs,  40),
+		BP_HEART   = list(/obj/item/organ/internal/heart,  25),
+		BP_LUNGS   = list(/obj/item/organ/internal/lungs,  25),
 		BP_KIDNEYS = list(/obj/item/organ/internal/kidneys,20),
-		BP_EYES    = list(/obj/item/organ/internal/eyes,   30),
-		BP_LIVER   = list(/obj/item/organ/internal/liver,  50)
+		BP_EYES    = list(/obj/item/organ/internal/eyes,   20),
+		BP_LIVER   = list(/obj/item/organ/internal/liver,  25),
+		BP_L_ARM   = list(/obj/item/organ/external/arm,  65),
+		BP_R_ARM   = list(/obj/item/organ/external/arm/right,  65),
+		BP_L_LEG   = list(/obj/item/organ/external/leg,  65),
+		BP_R_LEG   = list(/obj/item/organ/external/leg/right,  65),
+		BP_L_FOOT   = list(/obj/item/organ/external/foot,  40),
+		BP_R_FOOT   = list(/obj/item/organ/external/foot/right,  40),
+		BP_L_HAND   = list(/obj/item/organ/external/hand,  40),
+		BP_R_HAND   = list(/obj/item/organ/external/hand/right,  40)
 		)
 
 /obj/machinery/organ_printer/attackby(var/obj/item/O, var/mob/user)
@@ -54,7 +62,7 @@
 	RefreshParts()
 
 /obj/machinery/organ_printer/examine(var/mob/user)
-	..()
+	. = ..()
 	to_chat(user, "<span class='notice'>It is loaded with [stored_matter]/[max_stored_matter] matter units.</span>")
 
 /obj/machinery/organ_printer/RefreshParts()
@@ -77,8 +85,7 @@
 	if(!choice || printing || (stat & (BROKEN|NOPOWER)))
 		return
 
-	if(stored_matter <= products[choice][2])
-		to_chat(user, "<span class='warning'>There is not enough matter in \the [src].</span>")
+	if(!can_print(choice))
 		return
 
 	stored_matter -= products[choice][2]
@@ -98,11 +105,18 @@
 
 	print_organ(choice)
 
+/obj/machinery/organ_printer/proc/can_print(var/choice)
+	if(stored_matter < products[choice][2])
+		visible_message("<span class='notice'>\The [src] displays a warning: 'Not enough matter. [stored_matter] stored and [products[choice][2]] needed.'</span>")
+		return 0
+
+	return 1
+
 /obj/machinery/organ_printer/proc/print_organ(var/choice)
 	var/new_organ = products[choice][1]
 	var/obj/item/organ/result = new new_organ(get_turf(src))
 	result.status |= ORGAN_CUT_AWAY
-	
+
 	return result
 // END GENERIC PRINTER
 
@@ -179,20 +193,25 @@
 	component_parts += new /obj/item/device/healthanalyzer
 	component_parts += new /obj/item/weapon/circuitboard/bioprinter
 
+/obj/machinery/organ_printer/flesh/can_print(var/choice)
+	if(!loaded_dna || !loaded_dna["donor"])
+		visible_message("<span class='info'>\The [src] displays a warning: 'No DNA saved. Insert a blood sample.'</span>")
+		return 0
+
+	return ..()
+
 /obj/machinery/organ_printer/flesh/print_organ(var/choice)
+
 	var/obj/item/organ/O = ..()
-	if(loaded_dna)
-		var/mob/living/carbon/C = loaded_dna["donor"]
-		
-		O.set_dna(C.dna)
-		
-		if(O.species)
-			// This is a very hacky way of doing of what organ/New() does if it has an owner
-			O.w_class = max(O.w_class + mob_size_difference(O.species.mob_size, MOB_MEDIUM), 1)
-		
-		visible_message("<span class='info'>\The [src] churns for a moment, injects its stored DNA into the biomass, then spits out \a [O].</span>")
-	else
-		visible_message("<span class='info'>\The [src] churns for a moment, then spits out \a [O].</span>")
+	var/mob/living/carbon/C = loaded_dna["donor"]
+
+	O.set_dna(C.dna)
+
+	if(O.species)
+		// This is a very hacky way of doing of what organ/New() does if it has an owner
+		O.w_class = max(O.w_class + mob_size_difference(O.species.mob_size, MOB_MEDIUM), 1)
+
+	visible_message("<span class='info'>\The [src] churns for a moment, injects its stored DNA into the biomass, then spits out \a [O].</span>")
 	return O
 
 /obj/machinery/organ_printer/flesh/attackby(obj/item/weapon/W, mob/user)

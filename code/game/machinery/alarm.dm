@@ -116,10 +116,8 @@
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 		update_icon()
 		frame.transfer_fingerprints_to(src)
-	else
-		first_run()
 
-/obj/machinery/alarm/proc/first_run()
+/obj/machinery/alarm/initialize()
 	alarm_area = get_area(src)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
@@ -136,8 +134,6 @@
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-
-/obj/machinery/alarm/initialize()
 	set_frequency(frequency)
 	if (!master_is_operating())
 		elect_master()
@@ -795,7 +791,6 @@
 					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 					buildstage = 2
 					update_icon()
-					first_run()
 					return
 				else
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
@@ -807,7 +802,7 @@
 				if(do_after(user,20))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/weapon/airalarm_electronics/circuit = new /obj/item/weapon/airalarm_electronics()
-					circuit.loc = user.loc
+					circuit.dropInto(user.loc)
 					buildstage = 0
 					update_icon()
 				return
@@ -828,7 +823,7 @@
 	return ..()
 
 /obj/machinery/alarm/examine(mob/user)
-	..(user)
+	. = ..(user)
 	if (buildstage < 2)
 		to_chat(user, "It is not wired.")
 	if (buildstage < 1)
@@ -957,7 +952,7 @@ FIRE ALARM
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
 						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
-						circuit.loc = user.loc
+						circuit.dropInto(user.loc)
 						buildstage = 0
 						update_icon()
 			if(0)

@@ -2,6 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEM_SIZE_NORMAL
+	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/randpixel = 6
@@ -220,38 +221,15 @@
 		R.activate_module(src)
 		R.hud_used.update_robot_modules_display()
 
-// Due to storage type consolidation this should get used more now.
-// I have cleaned it up a little, but it could probably use more.  -Sayu
 /obj/item/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/storage))
+	if(istype(W, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup)
-			if(S.collection_mode) //Mode is set to collect all items on a tile and we clicked on a valid one.
+			if(S.collection_mode) //Mode is set to collect all items
 				if(isturf(src.loc))
-					var/list/rejections = list()
-					var/success = 0
-					var/failure = 0
-
-					for(var/obj/item/I in src.loc)
-						if(I.type in rejections) // To limit bag spamming: any given type only complains once
-							continue
-						if(!S.can_be_inserted(I, user))	// Note can_be_inserted still makes noise when the answer is no
-							rejections += I.type	// therefore full bags are still a little spammy
-							failure = 1
-							continue
-						success = 1
-						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
-					if(success && !failure)
-						to_chat(user, "<span class='notice'>You put everything in [S].</span>")
-					else if(success)
-						to_chat(user, "<span class='notice'>You put some things in [S].</span>")
-					else
-						to_chat(user, "<span class='notice'>You fail to pick anything up with \the [S].</span>")
-
+					S.gather_all(src.loc, user)
 			else if(S.can_be_inserted(src, user))
 				S.handle_item_insertion(src)
-
-	return
 
 /obj/item/proc/talk_into(mob/M as mob, text)
 	return
@@ -396,9 +374,6 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/weapon/handcuffs))
 				return 0
-		if(slot_legcuffed)
-			if(!istype(src, /obj/item/weapon/legcuffs))
-				return 0
 		if(slot_in_backpack) //used entirely for equipping spawned mobs or at round start
 			var/allow = 0
 			if(H.back && istype(H.back, /obj/item/weapon/storage/backpack))
@@ -540,9 +515,9 @@ var/list/global/slot_flags_enumeration = list(
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
 					to_chat(M, "<span class='warning'>You go blind!</span>")
-		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
-		if(affecting.take_damage(7))
-			M:UpdateDamageIcon()
+
+		var/obj/item/organ/external/affecting = H.get_organ(eyes.parent_organ)
+		affecting.take_damage(7)
 	else
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
@@ -682,17 +657,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
 
-/obj/item/proc/is_in_hand_slot(var/slot)
-	return (slot == slot_r_hand_str || slot == slot_l_hand_str)
-
-/obj/item/proc/use_spritesheet(var/bodytype, var/slot, var/selected_state)
+/obj/item/proc/use_spritesheet(var/bodytype, var/slot, var/icon_state)
 	if(!sprite_sheets || !sprite_sheets[bodytype])
 		return 0
-	if(is_in_hand_slot(slot))
+	if(slot == slot_r_hand_str || slot == slot_l_hand_str)
 		return 0
-	if(selected_state in icon_states(sprite_sheets[bodytype]))
+
+	if(icon_state in icon_states(sprite_sheets[bodytype]))
 		return 1
-	return 0
+
+	return (slot != slot_wear_suit_str && slot != slot_head_str)
 
 /obj/item/proc/get_mob_overlay(mob/user_mob, slot)
 	var/bodytype = "Default"
@@ -700,39 +674,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		var/mob/living/carbon/human/user_human = user_mob
 		bodytype = user_human.species.get_bodytype(user_human)
 
-	var/in_hand = is_in_hand_slot(slot)
-
 	var/mob_state
 	if(item_state_slots && item_state_slots[slot])
 		mob_state = item_state_slots[slot]
-	else if ( (item_state in icon_states(icon)) || in_hand)
+	else if (item_state)
 		mob_state = item_state
 	else
 		mob_state = icon_state
-
-	// STOP! BEFORE WE ENTER! WE MUST CHECK IF THEY GOT WHAT WE WANT!
-	// hack to please the spaghetti code god so we can get the code working
-	if (sprite_sheets && !in_hand)
-		if (item_state in icon_states(sprite_sheets[bodytype]))
-			mob_state = item_state
-		else if (icon_state in icon_states(sprite_sheets[bodytype]))
-			mob_state = icon_state
-
-	// legacy stuff...
-
-	// once upon a time...
-	// someone removed an important line of legacy line,..
-	// causing a 5+ month debugging adventure...
-	// figuring out why xeno clothings didn't use the right sprites
-	// midst an other chaos
-	// and, this two lines of code
-
-	if (istype(src, /obj/item/clothing/under))
-		mob_state = "[mob_state]_s"
-
-	// ...were the legendary code that was missing
-	// that was the story, kids. this why you should not trust
-	// other people
 
 	var/mob_icon
 	if(icon_override)
@@ -746,10 +694,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			mob_state = "[mob_state]_l"
 		if(slot == slot_r_ear)
 			mob_state = "[mob_state]_r"
+
 		mob_icon = sprite_sheets[bodytype]
 	else if(item_icons && item_icons[slot])
 		mob_icon = item_icons[slot]
 	else
 		mob_icon = default_onmob_icons[slot]
-
 	return overlay_image(mob_icon,mob_state,color,RESET_COLOR)

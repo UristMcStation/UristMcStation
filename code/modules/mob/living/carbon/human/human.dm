@@ -137,27 +137,24 @@
 	b_loss *= protection
 	f_loss *= protection
 
-	var/update = 0
-
 	// focus most of the blast on one organ
 	var/obj/item/organ/external/take_blast = pick(organs)
-	update |= take_blast.take_damage(b_loss * 0.7, f_loss * 0.7, used_weapon = "Explosive blast")
+	take_blast.take_damage(b_loss * 0.7, f_loss * 0.7, used_weapon = "Explosive blast")
 
 	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
 	b_loss *= 0.3
 	f_loss *= 0.3
 
 	var/weapon_message = "Explosive Blast"
-
 	for(var/obj/item/organ/external/temp in organs)
-		switch(temp.organ_tag)
-			if(BP_HEAD)
-				update |= temp.take_damage(b_loss * 0.2, f_loss * 0.2, used_weapon = weapon_message)
-			if(BP_CHEST)
-				update |= temp.take_damage(b_loss * 0.4, f_loss * 0.4, used_weapon = weapon_message)
-			else
-				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
-	if(update)	UpdateDamageIcon()
+		var/loss_val
+		if(temp.organ_tag  == BP_HEAD)
+			loss_val = 0.2
+		else if(temp.organ_tag == BP_CHEST)
+			loss_val = 0.4
+		else
+			loss_val = 0.05
+		temp.take_damage(b_loss * loss_val, f_loss * loss_val, used_weapon = weapon_message)
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
@@ -190,7 +187,7 @@
 
 
 /mob/living/carbon/human/show_inv(mob/user as mob)
-	if(user.incapacitated()  || !user.Adjacent(src))
+	if(user.incapacitated()  || !user.Adjacent(src) || !user.IsAdvancedToolUser())
 		return
 
 	var/obj/item/clothing/under/suit = null
@@ -226,9 +223,6 @@
 		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>"
 	if(handcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
-	if(legcuffed)
-		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
-
 	if(suit && suit.accessories.len)
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
@@ -242,9 +236,9 @@
 // called when something steps onto a human
 // this handles mulebots and vehicles
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
-	if(istype(AM, /obj/machinery/bot/mulebot))
-		var/obj/machinery/bot/mulebot/MB = AM
-		MB.RunOver(src)
+	if(istype(AM, /mob/living/bot/mulebot))
+		var/mob/living/bot/mulebot/MB = AM
+		MB.runOver(src)
 
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
@@ -621,11 +615,13 @@
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
-		src.examinate(I)
+		if(I)
+			src.examinate(I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
-		src.examinate(M)
+		if(M)
+			src.examinate(M)
 
 	if (href_list["flavor_change"])
 		switch(href_list["flavor_change"])
@@ -649,8 +645,10 @@
 /mob/living/carbon/human/eyecheck()
 	if(internal_organs_by_name[BP_EYES]) // Eyes are fucked, not a 'weak point'.
 		var/obj/item/organ/I = internal_organs_by_name[BP_EYES]
-		if(I.status & ORGAN_CUT_AWAY)
+		if(!I.is_usable())
 			return FLASH_PROTECTION_MAJOR
+	else // They can't be flashed if they don't have eyes.
+		return FLASH_PROTECTION_MAJOR
 	return flash_protection
 
 //Used by various things that knock people out by applying blunt trauma to the head.
@@ -1048,7 +1046,7 @@
 			"<span class='warning'>A spike of pain jolts your [organ.name] as you bump [O] inside.</span>", \
 			"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>", \
 			"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
-		custom_pain(msg,40)
+		custom_pain(msg,40,affecting = organ)
 
 	organ.take_damage(rand(1,3), 0, 0)
 	if(!(organ.robotic >= ORGAN_ROBOT) && (should_have_organ(BP_HEART))) //There is no blood in protheses.
@@ -1166,10 +1164,14 @@
 	if(config && config.use_cortical_stacks && client && client.prefs.has_cortical_stack)
 		create_stack()
 	full_prosthetic = null
-	if(species)
-		return 1
-	else
-		return 0
+
+	//recheck species-restricted clothing
+	for(var/slot in slot_first to slot_last)
+		var/obj/item/clothing/C = get_equipped_item(slot)
+		if(istype(C) && !C.mob_can_equip(src, slot, 1))
+			unEquip(C)
+
+	return 1
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -1312,7 +1314,7 @@
 /mob/living/carbon/human/has_eyes()
 	if(internal_organs_by_name[BP_EYES])
 		var/obj/item/organ/internal/eyes = internal_organs_by_name[BP_EYES]
-		if(eyes && istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
+		if(eyes && eyes.is_usable())
 			return 1
 	return 0
 
@@ -1392,13 +1394,6 @@
 				return 0
 		return 1
 	return 0
-
-/mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	var/mob/living/carbon/human/H = over_object
-	if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
-		get_scooped(H, (usr == src))
-		return
-	return ..()
 
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"

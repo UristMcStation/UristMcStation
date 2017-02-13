@@ -7,15 +7,28 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
+	var/keep_sprite = 0
 //	heat_capacity = 700000 No.
 
 /turf/space/New()
-	if(icon_state == "0")
-		icon_state = "[((x + y) ^ ~(x * y)) % 25]"
-	if(!istype(src, /turf/space/transit))
+	if((icon_state == "0") && (!keep_sprite))
 		icon_state = "[((x + y) ^ ~(x * y)) % 25]"
 	update_starlight()
 	..()
+
+/turf/space/initialize()
+	..()
+	if(!HasBelow(z))
+		return
+	var/turf/below = GetBelow(src)
+	if(istype(below, /turf/space))
+		return
+	var/area/A = below.loc
+	if(A.flags & AREA_EXTERNAL)
+		return
+	if(!below.density && istype(below.loc, /area/space))
+		return
+	ChangeTurf(/turf/simulated/floor/airless)
 
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()
@@ -193,3 +206,4 @@
 /turf/space/bluespace
 	name = "bluespace"
 	icon_state = "bluespace"
+	keep_sprite = 1

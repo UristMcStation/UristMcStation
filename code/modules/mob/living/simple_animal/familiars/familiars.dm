@@ -18,7 +18,7 @@
 
 /mob/living/simple_animal/familiar/New()
 	..()
-	add_language("Galactic Common")
+	add_language(LANGUAGE_GALCOM)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
@@ -116,16 +116,6 @@
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
 	icon = 'icons/mob/animal.dmi'
 	var/icon_rest //so that we can have resting little guys.
-
-/mob/living/simple_animal/familiar/pet/MouseDrop(atom/over_object)
-	var/mob/living/carbon/H = over_object
-	if(!istype(H) || !Adjacent(H)) return ..()
-
-	if(H.a_intent == "help" && holder_type)
-		get_scooped(H)
-		return
-	else
-		return ..()
 
 /mob/living/simple_animal/familiar/pet/Life()
 	..()

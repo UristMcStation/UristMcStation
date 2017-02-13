@@ -82,7 +82,7 @@ var/global/datum/controller/gameticker/ticker
 			if(pregame_timeleft == 90 && master_mode=="scom")
 //				LoadScom()
 				world << "\red \b Welcome to the Beta version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of the psionic trooper. There are also three major updates planned for the future, which I will outline on the steam group later this week."
-			if(pregame_timeleft <= 0 || (initialization_stage == INITIALIZATION_NOW_AND_COMPLETE))
+			if(pregame_timeleft <= 0 || ((initialization_stage & INITIALIZATION_NOW_AND_COMPLETE) == INITIALIZATION_NOW_AND_COMPLETE))
 				current_state = GAME_STATE_SETTING_UP
 	while (!setup())
 
@@ -228,10 +228,10 @@ var/global/datum/controller/gameticker/ticker
 						var/turf/T = get_turf(M)
 						if(T && T.z in using_map.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
 							M.health = 0
-							M.stat = DEAD
+							M.set_stat(DEAD)
 					if(1)	//on a z-level 1 turf.
 						M.health = 0
-						M.stat = DEAD
+						M.set_stat(DEAD)
 
 		//Now animate the cinematic
 		switch(station_missed)
@@ -254,7 +254,7 @@ var/global/datum/controller/gameticker/ticker
 
 			if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 				sleep(50)
-				sound_to(world, sound('sound/effects/explosionfar.ogg'))				
+				sound_to(world, sound('sound/effects/explosionfar.ogg'))
 			else	//station was destroyed
 				if( mode && !override )
 					override = mode.name
@@ -263,7 +263,7 @@ var/global/datum/controller/gameticker/ticker
 						flick("intro_nuke",cinematic)
 						sleep(35)
 						flick("station_explode_fade_red",cinematic)
-						sound_to(world, sound('sound/effects/explosionfar.ogg'))						
+						sound_to(world, sound('sound/effects/explosionfar.ogg'))
 						cinematic.icon_state = "summary_nukewin"
 					if("AI malfunction") //Malf (screen,explosion,summary)
 						flick("intro_malf",cinematic)

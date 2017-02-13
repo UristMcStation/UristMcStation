@@ -100,6 +100,12 @@
 		return
 
 
+/obj/item/weapon/storage/box/holobadge_solgov
+	name = "holobadge box"
+	desc = "A box claiming to contain holobadges, this one has 'Master at Arms' written on it in fine print."
+	startswith = list(/obj/item/clothing/accessory/badge/security = 6)
+
+
 /obj/item/clothing/accessory/badge/security
 	name = "security forces badge"
 	desc = "A silver law enforcement badge. Stamped with the words 'Master at Arms'."
@@ -116,6 +122,7 @@
 /obj/item/clothing/accessory/badge/tags //child of a badge for now because I'd rather not copy-paste their code
 	name = "dog tags"
 	desc = "Plain identification tags made from a durable metal. Stamped with a variety of informational details."
+	gender = PLURAL
 	icon_state = "tags"
 	badge_string = "Sol Central Government"
 	slot_flags = SLOT_MASK | SLOT_TIE

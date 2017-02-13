@@ -5,7 +5,7 @@ var/datum/antagonist/mutineer/mutineers
 	role_text = "Mutineer"
 	role_text_plural = "Mutineers"
 	id = MODE_MUTINEER
-	antag_indicator = "mutineer"
+	antag_indicator = "hudmutineer"
 	restricted_jobs = list("Captain")
 
 /datum/antagonist/mutineer/New(var/no_reference)
@@ -15,7 +15,7 @@ var/datum/antagonist/mutineer/mutineers
 
 /datum/antagonist/mutineer/proc/recruit()
 
-/datum/antagonist/mutineer/can_become_antag(var/datum/mind/player)
+/datum/antagonist/mutineer/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(!..())
 		return 0
 	if(!istype(player.current, /mob/living/carbon/human))

@@ -208,6 +208,11 @@ var/const/POWER = 8
 	else
 		CRASH("[colour] is not a key in wires.")
 
+
+/datum/wires/proc/RandomPulse()
+	var/index = rand(1, wires.len)
+	PulseIndex(index)
+
 //
 // Is Index/Colour Cut procs
 //
@@ -237,7 +242,7 @@ var/const/POWER = 8
 	if(colour && S)
 		if(!IsAttached(colour))
 			signallers[colour] = S
-			S.loc = holder
+			S.forceMove(holder)
 			S.connected = src
 			return S
 
@@ -247,7 +252,7 @@ var/const/POWER = 8
 		if(S)
 			signallers -= colour
 			S.connected = null
-			S.loc = holder.loc
+			S.dropInto(holder.loc)
 			return S
 
 
@@ -257,7 +262,6 @@ var/const/POWER = 8
 		if(S == signallers[colour])
 			PulseColour(colour)
 			break
-
 
 //
 // Cut Wire Colour/Index procs
