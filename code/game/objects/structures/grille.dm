@@ -97,7 +97,7 @@
 	if(iswirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			PoolOrNew(rodpath, list(get_turf(src), destroyed ? 1 : 2))
+			new rodpath (list(get_turf(src), destroyed ? 1 : 2))
 			qdel(src)
 	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
@@ -170,11 +170,11 @@
 			set_density(0)
 			destroyed = 1
 			update_icon()
-			PoolOrNew(rodpath, get_turf(src))
+			new rodpath(get_turf(src))
 
 		else
 			if(health <= -6)
-				PoolOrNew(rodpath, get_turf(src))
+				new rodpath(get_turf(src))
 				qdel(src)
 				return
 	return

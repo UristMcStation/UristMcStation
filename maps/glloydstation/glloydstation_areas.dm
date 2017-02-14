@@ -1078,6 +1078,27 @@ area/rnd/test_area
 /area/outpost/research/disposal
 	name = "Research Outpost Waste Disposal"
 
+
+/area/maintenance/aft
+	name = "Aft Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/fore
+	name = "Fore Maintenance"
+	icon_state = "fmaint"
+
+/area/maintenance/starboard
+	name = "Starboard Maintenance"
+	icon_state = "smaint"
+
+/area/maintenance/port
+	name = "Port Maintenance"
+	icon_state = "pmaint"
+
+/area/maintenance/atmos_control
+	name = "Atmospherics Maintenance"
+	icon_state = "fpmaint"
+
 /area/maintenance/fpmaint
 	name = "Fore Port Maintenance - 1"
 	icon_state = "fpmaint"
@@ -1093,3 +1114,248 @@ area/rnd/test_area
 /area/maintenance/fsmaint2
 	name = "Fore Starboard Maintenance - 2"
 	icon_state = "fsmaint"
+
+
+/area/maintenance/asmaint
+	name = "Aft Starboard Maintenance"
+	icon_state = "asmaint"
+
+/area/maintenance/engi_shuttle
+	name = "Engineering Shuttle Access"
+	icon_state = "maint_e_shuttle"
+
+/area/maintenance/engi_engine
+	name = "Engine Maintenance"
+	icon_state = "maint_engine"
+
+/area/maintenance/asmaint2
+	name = "Science Maintenance"
+	icon_state = "asmaint"
+
+/area/maintenance/apmaint
+	name = "Cargo Maintenance"
+	icon_state = "apmaint"
+
+/area/maintenance/maintcentral
+	name = "Bridge Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/arrivals
+	name = "Arrivals Maintenance"
+	icon_state = "maint_arrivals"
+
+/area/maintenance/bar
+	name = "Bar Maintenance"
+	icon_state = "maint_bar"
+
+/area/maintenance/cargo
+	name = "Cargo Maintenance"
+	icon_state = "maint_cargo"
+
+/area/maintenance/disposal
+	name = "Waste Disposal"
+	icon_state = "disposal"
+
+/area/maintenance/engineering
+	name = "Engineering Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/evahallway
+	name = "\improper EVA Maintenance"
+	icon_state = "maint_eva"
+
+/area/maintenance/dormitory
+	name = "Dormitory Maintenance"
+	icon_state = "maint_dormitory"
+
+/area/maintenance/incinerator
+	name = "\improper Incinerator"
+	icon_state = "disposal"
+
+/area/maintenance/library
+	name = "Library Maintenance"
+	icon_state = "maint_library"
+
+/area/maintenance/locker
+	name = "Locker Room Maintenance"
+	icon_state = "maint_locker"
+
+/area/maintenance/medbay
+	name = "Medbay Maintenance"
+	icon_state = "maint_medbay"
+
+/area/maintenance/research_port
+	name = "Research Maintenance - Port"
+	icon_state = "maint_research_port"
+
+/area/maintenance/research_starboard
+	name = "Research Maintenance - Starboard"
+	icon_state = "maint_research_starboard"
+
+/area/maintenance/research_shuttle
+	name = "Research Shuttle Dock Maintenance"
+	icon_state = "maint_research_shuttle"
+
+/area/maintenance/security_port
+	name = "Security Maintenance - Port"
+	icon_state = "maint_security_port"
+
+/area/maintenance/security_starboard
+	name = "Security Maintenance - Starboard"
+	icon_state = "maint_security_starboard"
+
+/area/maintenance/storage
+	name = "Atmospherics"
+	icon_state = "green"
+
+/area/hallway/primary/
+	sound_env = LARGE_ENCLOSED
+
+/area/hallway/primary/fore
+	name = "\improper Fore Primary Hallway"
+	icon_state = "hallF"
+
+/area/hallway/primary/starboard
+	name = "\improper Starboard Primary Hallway"
+	icon_state = "hallS"
+
+/area/hallway/primary/aft
+	name = "\improper Aft Primary Hallway"
+	icon_state = "hallA"
+
+/area/hallway/primary/port
+	name = "\improper Port Primary Hallway"
+	icon_state = "hallP"
+
+/area/hallway/primary/central_one
+	name = "\improper Central Primary Hallway"
+	icon_state = "hallC1"
+
+/area/hallway/primary/central_two
+	name = "\improper Central Primary Hallway"
+	icon_state = "hallC2"
+
+/area/hallway/primary/central_three
+	name = "\improper Central Primary Hallway"
+	icon_state = "hallC3"
+
+/area/hallway/secondary/exit
+	name = "\improper Escape Shuttle Hallway"
+	icon_state = "escape"
+
+/area/hallway/secondary/construction
+	name = "\improper Construction Area"
+	icon_state = "construction"
+
+/area/hallway/secondary/entry/pods
+	name = "\improper Arrival Shuttle Hallway - Escape Pods"
+	icon_state = "entry_pods"
+
+/area/hallway/secondary/entry/fore
+	name = "\improper Arrival Shuttle Hallway - Fore"
+	icon_state = "entry_1"
+
+/area/hallway/secondary/entry/port
+	name = "\improper Arrival Shuttle Hallway - Port"
+	icon_state = "entry_2"
+
+/area/hallway/secondary/entry/starboard
+	name = "\improper Arrival Shuttle Hallway - Starboard"
+	icon_state = "entry_3"
+
+/area/hallway/secondary/entry/aft
+	name = "\improper Arrival Shuttle Hallway - Aft"
+	icon_state = "entry_4"
+
+/area/crew_quarters/courtroom
+	name = "\improper Courtroom"
+	icon_state = "courtroom"
+
+/area/turret_protected/aisat
+	name = "\improper AI Satellite"
+	icon_state = "ai"
+
+/area/turret_protected/aisat_interior
+	name = "\improper AI Satellite"
+	icon_state = "ai"
+
+/area/turret_protected/AIsatextFP
+	name = "\improper AI Sat Ext"
+	icon_state = "storage"
+	luminosity = 1
+	lighting_use_dynamic = 0
+
+/area/turret_protected/AIsatextFS
+	name = "\improper AI Sat Ext"
+	icon_state = "storage"
+	luminosity = 1
+	lighting_use_dynamic = 0
+
+/area/turret_protected/AIsatextAS
+	name = "\improper AI Sat Ext"
+	icon_state = "storage"
+	luminosity = 1
+	lighting_use_dynamic = 0
+
+/area/turret_protected/AIsatextAP
+	name = "\improper AI Sat Ext"
+	icon_state = "storage"
+	luminosity = 1
+	lighting_use_dynamic = 0
+
+/area/turret_protected/NewAIMain
+	name = "\improper AI Main New"
+	icon_state = "storage"
+
+/area/turret_protected/tcomsat
+	name = "\improper Telecoms Satellite"
+	icon_state = "tcomsatlob"
+	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
+
+/area/turret_protected/tcomfoyer
+	name = "\improper Telecoms Foyer"
+	icon_state = "tcomsatentrance"
+	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
+
+/area/turret_protected/tcomwest
+	name = "\improper Telecommunications Satellite West Wing"
+	icon_state = "tcomsatwest"
+	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
+
+/area/turret_protected/tcomeast
+	name = "\improper Telecommunications Satellite East Wing"
+	icon_state = "tcomsateast"
+	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
+
+/area/crew_quarters/cafeteria
+	name = "\improper Cafeteria"
+	icon_state = "cafeteria"
+
+/area/prison/solitary
+	name = "Solitary Confinement"
+	icon_state = "brig"
+
+/area/prison/cell_block/A
+	name = "Prison Cell Block A"
+	icon_state = "brig"
+
+/area/prison/cell_block/B
+	name = "Prison Cell Block B"
+	icon_state = "brig"
+
+/area/prison/cell_block/C
+	name = "Prison Cell Block C"
+	icon_state = "brig"
+
+/area/crew_quarters/theatre
+	name = "\improper Theatre"
+	icon_state = "Theatre"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/toxins/telesci
+	name = "\improper Telescience Lab"
+	icon_state = "toxmisc"
+
+/area/toxins/server
+	name = "\improper Server Room"
+	icon_state = "server"
