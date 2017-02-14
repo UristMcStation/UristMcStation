@@ -274,7 +274,7 @@
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/storage/box/sniperammo(src.loc)
 					new /obj/item/weapon/gun/projectile/sniper(src.loc)
-					new /obj/item/weapon/gun/projectile/deagle(src.loc)
+					new /obj/item/weapon/gun/projectile/magnum_pistol(src.loc)
 					W.assignment = "S-COM Sniper"
 
 			user.regenerate_icons()

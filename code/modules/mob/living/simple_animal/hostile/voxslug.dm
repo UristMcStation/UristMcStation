@@ -12,7 +12,8 @@ Small, little HP, poisonous.
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stamps on"
-	destroy_surroundings = 0
+	//destroy_surroundings = 0
+	break_stuff_probability = 0
 	health = 15
 	maxHealth = 15
 	speed = 0

@@ -73,7 +73,7 @@ The access requirements on the Planet Shuttles' consoles have now been revoked.
 		priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
 		for(var/obj/machinery/computer/shuttle_control/C in machines)
-			if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining) || istype(C, /obj/machinery/computer/shuttle_control/securityoutpost) || istype(C, /obj/machinery/computer/shuttle_control/engineering))
+			if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining) || istype(C, /obj/machinery/computer/shuttle_control/engineering)) //readd! || istype(C, /obj/machinery/computer/shuttle_control/securityoutpost))
 				C.req_access = list()
 				C.req_one_access = list()
 

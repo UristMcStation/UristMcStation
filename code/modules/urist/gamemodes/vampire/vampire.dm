@@ -90,9 +90,9 @@
 	var/blood = 0
 	var/bloodtotal = 0 //used to see if we increased our blood total
 	var/bloodusable = 0 //used to see if we increased our blood usable
-	src.attack_log += text("\[[time_stamp()]\] <font color='red'>Bit [H.name] ([H.ckey]) in the neck and started draining their blood</font>")
-	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been bit in the neck by [src.name] ([src.ckey])</font>")
-	log_attack("[src.name] ([src.ckey]) bit [H.name] ([H.ckey]) in the neck")
+
+	admin_attack_log(src, H, "Bit [H.name] ([H.ckey]) in the neck and started draining their blood.", "Has been bit in the neck by [src.name] ([src.ckey]).", "bite")
+
 	src.visible_message("<span class='warning'><b>[src.name] bites [H.name]'s neck!</b>,</span>", "<span class='warning'>You bite [H.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
 	if(!iscarbon(src))
 		H.LAssailant = null
@@ -102,7 +102,7 @@
 		if((!mind.vampire) || !(mind in get_antags("vampire")))
 			src << "<span class='warning'> Your fangs have disappeared!</span>"
 			return 0
-		if(H.flags & NO_BLOOD)
+		if (!H.should_have_organ(BP_HEART))
 			src << "<span class='warning'>Not a drop of blood here</span>"
 			return 0
 		bloodtotal = src.mind.vampire.bloodtotal
@@ -118,8 +118,6 @@
 				var/mob/living/carbon/human/V = src.mind.current
 				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
-			if(H.analgesic << 1) //but the pain won't set in until after they stop being drained
-				H.analgesic = 1
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood

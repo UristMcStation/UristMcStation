@@ -102,18 +102,18 @@
 
 	icobase = 'icons/uristmob/r_lactera.dmi'
 
-	unarmed_types = list(/datum/unarmed_attack/claws)
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws/strong)
+
 	hud_type = null
 
 	has_fine_manipulation = 1
 	gluttonous = 1
-
-	eyes = "blank_eyes"
+	spawns_with_stack = 0
 
 	brute_mod = 1.6
 	burn_mod = 1
 
-	flags = SPECIES_IS_RESTRICTED | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON
+	flags = SPECIES_IS_RESTRICTED | NO_SCAN | NO_PAIN | NO_POISON
 
 	reagent_tag = IS_XENOS
 
@@ -130,25 +130,26 @@
 	vision_flags = SEE_SELF
 
 	has_organ = list(
-		"heart" =           /obj/item/organ/heart,
-		"brain" =           /obj/item/organ/brain/xeno,
-		"hive node" =       /obj/item/organ/xenos/hivenode,
+		BP_HEART =           /obj/item/organ/internal/heart,
+		BP_BRAIN =           /obj/item/organ/internal/brain/xeno,
+		BP_HIVE =       /obj/item/organ/internal/xenos/hivenode,
+		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 
 	caste_name = "lactera" // Used to update alien name.
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/lactera),
-		"groin" =  list("path" = /obj/item/organ/external/groin/lactera),
-		"head" =   list("path" = /obj/item/organ/external/head/lactera),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/lactera),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/lactera),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/lactera),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/lactera),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/lactera),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/lactera),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/lactera),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/lactera)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/lactera),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/lactera),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/lactera),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/lactera),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/lactera),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/lactera),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/lactera),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/lactera),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/lactera),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/lactera),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/lactera)
 		)
 
 /datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).

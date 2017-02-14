@@ -362,7 +362,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "A roll of dried plant matter wrapped in thin paper."
 	icon_state = "spliffoff"
 	icon_on = "spliffon"
-	icon_off = "spliffoff"
 	type_butt = /obj/item/weapon/cigbutt/roach
 	throw_speed = 0.5
 	item_state = "spliffoff"

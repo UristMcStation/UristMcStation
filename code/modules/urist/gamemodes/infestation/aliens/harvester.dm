@@ -19,7 +19,7 @@
 
 	add_language("Hivemind")
 	add_language("Xenomorph") //Bonus language.
-	internal_organs |= new /obj/item/organ/xenos/hivenode(src)
+	internal_organs |= new /obj/item/organ/internal/xenos/hivenode(src)
 
 	gender = NEUTER
 
@@ -224,7 +224,7 @@
 			handle_paralysed()
 			blinded = 1
 			stat = UNCONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		if(sleeping)
@@ -235,12 +235,12 @@
 			blinded = 1
 			stat = UNCONSCIOUS
 		else if(resting)
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		else
 			stat = CONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-1)
 
 		// Eyes and blindness.

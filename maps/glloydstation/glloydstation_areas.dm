@@ -70,14 +70,14 @@
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/administration
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
@@ -100,7 +100,7 @@
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
@@ -109,51 +109,51 @@
 /area/shuttle/escape/transit // the area to pass through for 3 minute transit
 	name = "\improper Emergency Shuttle Transit"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
 
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 /area/shuttle/escape_pod2
 	name = "\improper Escape Pod Two"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 /area/shuttle/escape_pod3
 	name = "\improper Escape Pod Three"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
 
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/east/shuttlespace_ew1
+	base_turf = /turf/space/transit/east
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
 	name = "\improper Escape Pod Five"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/east/shuttlespace_ew1
+	base_turf = /turf/space/transit/east
 
 // === Trying to remove these areas:
 
@@ -187,7 +187,7 @@
 	icon_state = "yellow"
 	requires_power = 0
 	lighting_use_dynamic = 1
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/rescue_base/base
 	name = "\improper Barracks"
@@ -239,7 +239,7 @@
 /area/rescue_base/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 //ENEMY
 
@@ -248,7 +248,7 @@
 	name = "\improper Independant Station"
 	icon_state = "yellow"
 	requires_power = 0
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
 
 /area/syndicate_station/start
 	name = "\improper Mercenary Forward Operating Base"
@@ -294,7 +294,7 @@
 /area/syndicate_station/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 /area/skipjack_station
 	name = "\improper Skipjack"
@@ -304,7 +304,7 @@
 /area/skipjack_station/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north/shuttlespace_ns1
+	base_turf = /turf/space/transit/north
 
 /area/skipjack_station/southwest_solars
 	name = "aft port solars"
@@ -329,11 +329,6 @@
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 
-/area/maintenance/substation
-	name = "Substation"
-	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED
-
 /area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
 	name = "Command Substation"
 
@@ -354,6 +349,9 @@
 
 /area/maintenance/substation/security // Security, Brig, Permabrig, etc.
 	name = "Security Substation"
+
+/area/maintenance/substation/atmospherics
+	name = "Atmospherics Substation"
 
 // Maintenance
 
@@ -425,6 +423,101 @@
 	name = "\improper Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
+/area/maintenance/exterior
+	name = "\improper Exterior Reinforcements"
+	icon_state = "maint_security_starboard"
+
+// Dank Maintenance
+/area/maintenance/sub
+	turf_initializer = /decl/turf_initializer/maintenance/heavy
+	ambience = list(
+		'sound/ambience/ambiatm1.ogg',
+		'sound/ambience/ambigen3.ogg',
+		'sound/ambience/ambigen4.ogg',
+		'sound/ambience/ambigen5.ogg',
+		'sound/ambience/ambigen6.ogg',
+		'sound/ambience/ambigen7.ogg',
+		'sound/ambience/ambigen8.ogg',
+		'sound/ambience/ambigen9.ogg',
+		'sound/ambience/ambigen10.ogg',
+		'sound/ambience/ambigen11.ogg',
+		'sound/ambience/ambigen12.ogg',
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/ambimo2.ogg',
+		'sound/ambience/ambisin4.ogg',
+		'sound/effects/wind/wind_2_1.ogg',
+		'sound/effects/wind/wind_2_2.ogg',
+		'sound/effects/wind/wind_3_1.ogg',
+	)
+
+/area/maintenance/sub/relay_station
+	name = "\improper Sublevel Maintenance - Relay Station"
+	icon_state = "blue2"
+	turf_initializer = null
+
+/area/maintenance/sub/fore
+	name = "\improper Sublevel Maintenance - Fore"
+	icon_state = "sub_maint_fore"
+
+/area/maintenance/sub/aft
+	name = "\improper Sublevel Maintenance - Aft"
+	icon_state = "sub_maint_aft"
+
+/area/maintenance/sub/port
+	name = "\improper Sublevel Maintenance - Port"
+	icon_state = "sub_maint_port"
+
+/area/maintenance/sub/starboard
+	name = "\improper Sublevel Maintenance - Starboard"
+	icon_state = "sub_maint_starboard"
+
+/area/maintenance/sub/central
+	name = "\improper Sublevel Maintenance - Central"
+	icon_state = "sub_maint_central"
+
+/area/maintenance/sub/command
+	name = "\improper Sublevel Maintenance - Command"
+	icon_state = "sub_maint_command"
+	turf_initializer = null
+
+/////////////
+//ELEVATORS//
+/////////////
+/area/turbolift/security_station
+	name = "Station - By Security"
+	lift_announce_str = "Arriving at the station level, by the Security department."
+
+/area/turbolift/security_maintenance
+	name = "Maintenance - Below Security"
+	lift_announce_str = "Arriving at the maintenance level, below the Security department."
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/research_station
+	name = "Station - By Research"
+	lift_announce_str = "Arriving at the station level, by the R&D department."
+
+/area/turbolift/research_maintenance
+	name = "Maintenance - Below Research"
+	lift_announce_str = "Arriving at the maintenance level, below the R&D department."
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/engineering_station
+	name = "Station - By Engineering"
+	lift_announce_str = "Arriving at the station level, by the Engineering department."
+
+/area/turbolift/engineering_maintenance
+	name = "Maintenance - Below Engineering"
+	lift_announce_str = "Arriving at the maintenance level, below the Engineering department."
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/cargo_station
+	name = "Station - By Cargo"
+	lift_announce_str = "Arriving at the station level, by the Cargo department."
+
+/area/turbolift/cargo_maintenance
+	name = "Maintenance - Below Cargo"
+	lift_announce_str = "Arriving at the maintenance level, below the Cargo department."
+	base_turf = /turf/simulated/floor/plating
 // Hallway
 
 /area/hallway/primary/
@@ -494,7 +587,11 @@
 /area/crew_quarters
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
-	flags = RAD_SHIELDED
+	flags = AREA_RAD_SHIELDED
+
+/area/crew_quarters/locker
+	name = "\improper Locker Room"
+	icon_state = "locker"
 
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
@@ -553,11 +650,6 @@
 	icon_state = "engineering"
 	ambience = list('sound/ambience/ambisin1.ogg','sound/ambience/ambisin2.ogg','sound/ambience/ambisin3.ogg','sound/ambience/ambisin4.ogg')
 
-/area/engineering/atmos
- 	name = "\improper Atmospherics"
- 	icon_state = "atmos"
- 	sound_env = LARGE_ENCLOSED
-
 /area/engineering/engine_airlock
 	name = "\improper Engine Room Airlock"
 	icon_state = "engine"
@@ -575,19 +667,20 @@
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
 
+/area/engineering/sublevel_access
+	name = "\improper Engineering Sublevel Access"
+
 // Medbay
 
 /area/medical/genetics
 	name = "\improper Genetics Lab"
 	icon_state = "genetics"
 
-// Solars
+/area/medical/genetics_cloning
+	name = "\improper Cloning Lab"
+	icon_state = "cloning"
 
-/area/solar
-	requires_power = 1
-	always_unpowered = 1
-	lighting_use_dynamic = 0
-	base_turf = /turf/space
+// Solars
 
 /area/solar/starboard
 	name = "\improper Starboard Auxiliary Solar Array"
@@ -985,3 +1078,18 @@ area/rnd/test_area
 /area/outpost/research/disposal
 	name = "Research Outpost Waste Disposal"
 
+/area/maintenance/fpmaint
+	name = "Fore Port Maintenance - 1"
+	icon_state = "fpmaint"
+
+/area/maintenance/fpmaint2
+	name = "Fore Port Maintenance - 2"
+	icon_state = "fpmaint"
+
+/area/maintenance/fsmaint
+	name = "Fore Starboard Maintenance - 1"
+	icon_state = "fsmaint"
+
+/area/maintenance/fsmaint2
+	name = "Fore Starboard Maintenance - 2"
+	icon_state = "fsmaint"

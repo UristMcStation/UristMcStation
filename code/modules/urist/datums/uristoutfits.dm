@@ -1,11 +1,10 @@
 /decl/hierarchy/outfit/ANTAG
 	name = "ANTAG Operative"
-	uniform = /obj/item/clothing/under/suit_jacket //change this
-	shoes = /obj/item/clothing/shoes/black
+	uniform = /obj/item/clothing/under/urist/suit_jacket/black{ starting_accessories=list(/obj/item/clothing/accessory/wcoat, /obj/item/clothing/accessory/red) }
+	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/thick
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
-	suit = /obj/item/clothing/suit/wcoat
 	l_pocket = /obj/item/weapon/melee/energy/sword
 	mask = /obj/item/clothing/mask/bandana/bedsheet/red
 

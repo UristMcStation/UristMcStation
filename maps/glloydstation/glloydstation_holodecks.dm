@@ -39,14 +39,14 @@
 		"theatre"          = new/datum/holodeck_program(/area/holodeck/source_theatre),
 		"meetinghall"      = new/datum/holodeck_program(/area/holodeck/source_meetinghall),
 		"courtroom"        = new/datum/holodeck_program(/area/holodeck/source_courtroom, list('sound/music/traitor.ogg')),
-		"burntest"         = new/datum/holodeck_program(/area/holodeck/source_burntest, list()),
+		//"burntest"         = new/datum/holodeck_program(/area/holodeck/source_burntest, list()),
 		"wildlifecarp"     = new/datum/holodeck_program(/area/holodeck/source_wildlife, list()),
 		"turnoff"          = new/datum/holodeck_program(/area/holodeck/source_plating, list())
 	)
 
 	holodeck_supported_programs = list(
 
-		"ExodusMainPrograms" = list(
+		"GlloydstationMainPrograms" = list(
 			"Empty Court"       = "emptycourt",
 			"Basketball Court"  = "basketball",
 			"Thunderdome Court" = "thunderdomecourt",
@@ -65,7 +65,7 @@
 
 	holodeck_restricted_programs = list(
 
-		"ExodusMainPrograms" = list(
+		"GlloydstationMainPrograms" = list(
 			"Wildlife Simulation" = "wildlifecarp"
 		)
 

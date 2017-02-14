@@ -85,13 +85,6 @@
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
 
-	else if(istype(I, /obj/item/stack/tile/floor_steel))
-		var/obj/item/stack/tile/floor_steel/R = I
-		src.overlays = null
-		src.ChangeTurf(/turf/simulated/floor/plating)
-		R.use(1)
-
-
 /turf/simulated/jungle/med
 	large_trees_low = 1
 	icon_state = "grass4" //4
