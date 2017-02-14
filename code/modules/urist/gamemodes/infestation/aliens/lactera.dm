@@ -107,15 +107,18 @@
 	hud_type = null
 
 	has_fine_manipulation = 1
-	gluttonous = 1
+	gluttonous = GLUT_SMALLER
 	spawns_with_stack = 0
 
 	brute_mod = 1.6
 	burn_mod = 1
 
-	flags = SPECIES_IS_RESTRICTED | NO_SCAN | NO_PAIN | NO_POISON
+	flags = NO_SCAN | NO_PAIN | NO_POISON
+	spawn_flags = SPECIES_IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
+
+	blood_color = "#A10808"
 
 	blood_color = "#05EE05"
 	flesh_color = "null"
@@ -123,6 +126,9 @@
 	dusted_anim = "blank"
 	death_message = "bursts into flames and disappears."
 	death_sound = 'sound/voice/hiss6.ogg'
+
+	default_language = "Xenomorph"
+	language = "Hivemind"
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
