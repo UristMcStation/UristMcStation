@@ -5,6 +5,7 @@
 	#include "glloydstation_unit_testing.dm"
 	#include "glloydstation_holodecks.dm"
 	#include "glloydstation_jobs.dm"
+	#include "glloydstation_presets.dm"
 	#include "arrivals.dm"
 	#include "simple_shuttles.dm"
 

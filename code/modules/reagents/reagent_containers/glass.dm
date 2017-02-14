@@ -201,6 +201,18 @@
 		reagents.add_reagent("sacid", 60)
 		update_icon()
 
+/obj/item/weapon/reagent_containers/glass/beaker/fuel
+	New()
+		..()
+		reagents.add_reagent("fuel", 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/water
+	New()
+		..()
+		reagents.add_reagent("water", 60)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/glass/bucket
 	desc = "It's a bucket."
 	name = "bucket"
