@@ -151,7 +151,7 @@
 	var/disarm_slot
 	switch(affected.body_part)
 		if(HAND_LEFT, ARM_LEFT)
-			disarm_slot = slot_r_hand
+			disarm_slot = slot_l_hand
 		if(HAND_RIGHT, ARM_RIGHT)
 			disarm_slot = slot_r_hand
 
@@ -171,7 +171,7 @@
 		spawn(10)
 			qdel(spark_system)
 
-	else 
+	else
 		var/grasp_name = affected.name
 		if((affected.body_part in list(ARM_LEFT, ARM_RIGHT)) && affected.children.len)
 			var/obj/item/organ/external/hand = pick(affected.children)

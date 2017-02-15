@@ -2,7 +2,7 @@
 
 /datum/game_mode/scom/proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
 	for(var/mob/living/carbon/human/M in player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
-		HandleScomJoinFor(M, src)
+		HandleScomJoinFor(M)
 		world << ("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>")
 
 

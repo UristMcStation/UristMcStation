@@ -231,3 +231,8 @@ transit/east is the same thing now AFAIK
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+
+/turf/simulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
