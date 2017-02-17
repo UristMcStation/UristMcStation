@@ -79,7 +79,7 @@
 /obj/item/clothing/suit/space/director
 	name = "Director's Hardsuit"
 	desc = "The hardsuit of the legendary Director."
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "director"

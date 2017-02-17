@@ -9,7 +9,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 //Roman stuff
 
 /obj/item/clothing/head/helmet/roman
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "roman helmet"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -19,7 +19,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	item_state = "roman_helm"
 
 /obj/item/clothing/head/helmet/roman/legionaire
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "roman legionaire helmet"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -28,7 +28,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	item_state = "roman_helm_c"
 
 /obj/item/clothing/under/roman
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/clothes.dmi'
 	name = "roman armor"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -39,7 +39,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	armor = list(melee = 25, bullet = 0, laser = 25, energy = 10, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/shoes/roman
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/shoes.dmi'
 	name = "roman sandals"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -48,7 +48,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	item_state = "roman_boots"
 
 /obj/item/weapon/shield/riot/roman
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/back.dmi'
 	name = "roman shield"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -59,7 +59,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 //Fancy Station. I'm porting clothing from TG which is starting with the suits from "https://github.com/tgstation/-tg-station/pull/2957" -Nien
 
 /obj/item/clothing/under/urist/suit_jacket
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
@@ -106,7 +106,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	//item_color = "tan_suit"
 
 /obj/item/clothing/under/urist/formal
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
@@ -154,7 +154,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/suit/urist/blackjacket
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	name = "black suit jacket"
@@ -173,7 +173,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 
 /obj/item/clothing/head/helmet/urist/sombrero
 	icon_override = 'icons/uristmob/head.dmi'
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/tgitems.dmi'
 	name = "large sombrero"
 	desc = "A nice looking large sombrero"

@@ -230,7 +230,7 @@
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
 /obj/item/weapon/gun/projectile/automatic/kh50
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
 	icon_state = "KH50"

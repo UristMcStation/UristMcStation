@@ -93,11 +93,12 @@
 	icon_state = "toxin"
 
 /mob/living/simple_animal/hostile/alien/death()
+	..()
 	if(corpse && ispath(corpse,/mob/living))
 		var/mob/living/corpsemob = corpse
 		new corpsemob(src.loc)
 		qdel(src)
-		corpsemob.death()
+		corpsemob.set_stat(2)
 	else
 		visible_message("[src] lets out a waning guttural screech, green blood bubbling from its maw...")
 		playsound(src, 'sound/voice/hiss6.ogg', 100, 1)

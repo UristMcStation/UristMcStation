@@ -7,7 +7,7 @@ to avoid worrying about the sprites -Glloyd*/
 //urist head id
 
 /obj/item/clothing/head/urist
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 
@@ -24,7 +24,7 @@ to avoid worrying about the sprites -Glloyd*/
 //emergency suit hood
 
 /obj/item/clothing/head/emergencyhood
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
@@ -39,7 +39,7 @@ to avoid worrying about the sprites -Glloyd*/
 //armored biosuit hood
 
 /obj/item/clothing/head/bio_hood/asec
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "armoured bio hood"
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -52,7 +52,7 @@ to avoid worrying about the sprites -Glloyd*/
 //naval space suit helmet
 
 /obj/item/clothing/head/helmet/space/naval
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval space helmet"
 	desc = "A high quality space helmet used by the Nanotrasen Navy."
@@ -63,7 +63,7 @@ to avoid worrying about the sprites -Glloyd*/
 //naval commando helmet
 
 /obj/item/clothing/head/helmet/space/void/commando
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "naval commando helmet"
 	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
@@ -75,7 +75,7 @@ to avoid worrying about the sprites -Glloyd*/
 //TC trader hat
 
 /obj/item/clothing/head/terran
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 
@@ -88,7 +88,7 @@ to avoid worrying about the sprites -Glloyd*/
 //alt space wizard outfit
 
 /obj/item/clothing/head/wizard/urist
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 
@@ -125,7 +125,7 @@ to avoid worrying about the sprites -Glloyd*/
 //princess bow
 
 obj/item/clothing/head/princessbow
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 	name = "princess bow"
@@ -293,12 +293,12 @@ obj/item/clothing/head/princessbow
 //blackwarden
 
 /obj/item/clothing/head/helmet/urist
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 
 /obj/item/clothing/head/helmet/urist/blackwarden
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "warden's black hat"
 	desc = "It's a special black helmet issued to the Warden of a security force. Protects the head from impacts."
@@ -310,7 +310,7 @@ obj/item/clothing/head/princessbow
 //First Order
 
 /obj/item/clothing/head/helmet/space/fo
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/head.dmi'
 	name = "first order helmet"
 	desc = "A very clean white and black helmet."

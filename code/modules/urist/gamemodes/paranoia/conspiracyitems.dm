@@ -165,7 +165,7 @@
 /obj/item/device/inteluplink/update_icon()
 	overlays.Cut()
 	if(open)
-		icon_state = "adv-laptop"
+		icon_state = "laptop"
 		light_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
@@ -239,7 +239,7 @@
 	name = "executive suit"
 	desc = "REGULAR HUMAN suit. Nothing to see here, fellow human."
 	item_state = "jensensuit"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "fleshsuit"

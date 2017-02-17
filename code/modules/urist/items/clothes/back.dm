@@ -6,7 +6,7 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 //The Roboticist Satchel and Backpack - TGameCo
 
 /obj/item/weapon/storage/backpack/urist
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/back.dmi'
 	icon = 'icons/urist/items/clothes/back.dmi'
 	item_icons = null

@@ -1,7 +1,7 @@
 //we're using pre-existing stuff for the most part, but here's some stuff to complete the three tiers
 
 /obj/item/weapon/gun/energy/sniperrifle/pulse
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
 	icon = 'icons/urist/items/guns.dmi'
@@ -16,7 +16,7 @@
 	requires_two_hands = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
 	icon = 'icons/urist/items/guns.dmi'
@@ -37,7 +37,7 @@
 
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
 	icon = 'icons/urist/items/guns.dmi'
@@ -55,7 +55,7 @@
 	user << "<span class='warning'>[src.name] only has one setting.</span>"
 
 /obj/item/weapon/gun/energy/laser/pistol
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/guns.dmi'
@@ -65,7 +65,7 @@
 	projectile_type = /obj/item/projectile/beam/light
 
 /obj/item/weapon/gun/energy/laser/rifle
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/guns.dmi'
@@ -76,7 +76,7 @@
 	requires_two_hands = 4
 
 /obj/item/weapon/gun/projectile/sniper
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "semi automatic sniper"
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"

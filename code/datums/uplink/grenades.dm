@@ -83,10 +83,10 @@
 
 /datum/uplink_item/item/grenades/syndicate_minibomb
 	name = "Syndicate Minibomb"
-	item_cost = 12
+	item_cost = 20
 	path = /obj/item/weapon/grenade/syndieminibomb
 
 /datum/uplink_item/item/grenades/sonic
 	name = "4xSonic Grenades"
-	item_cost = 8
+	item_cost = 32
 	path = /obj/item/weapon/storage/box/sonics

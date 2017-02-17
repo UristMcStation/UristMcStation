@@ -56,7 +56,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //nanotrasen shiiiiit for the nt vending machine
 
 /obj/item/weapon/crowbar/nanotrasen //nt crowbar
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Nanotrasen crowbar"
 	desc = "A crowbar in the Nanotrasen colours."
 	icon = 'icons/urist/items/tools.dmi'
@@ -104,7 +104,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //watches
 
 /obj/item/clothing/accessory/watch
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_override = 'icons/uristmob/ties.dmi'
 
@@ -144,7 +144,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/vanity/doll
 	icon = 'icons/urist/items/misc.dmi'
 	w_class = 2
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/weapon/vanity/doll/unathi/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\

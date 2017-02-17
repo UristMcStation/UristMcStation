@@ -106,13 +106,13 @@
 
 /datum/uplink_item/item/tools/intel_uplink
 	name = "Intel Uplink"
-	item_cost = 16
-	antag_costs = list(MODE_PARANOIA = 16)
+	item_cost = 16000 //deliberately absurdly high in case anybody sees it outside paranoia
+	antag_costs = list(MODE_PARANOIA = 80)
 	path = /obj/item/device/inteluplink
 	antag_roles = list(/datum/antagonist/agent)
 
 /datum/uplink_item/item/tools/jet_fuel
 	name = "Jet Fuel"
-	item_cost = 1
+	item_cost = 5
 	antag_roles = list(/datum/antagonist/agent)
 	path = /obj/item/weapon/storage/box/syndie_kit/jetfuel

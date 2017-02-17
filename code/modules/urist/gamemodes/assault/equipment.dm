@@ -24,7 +24,7 @@
 	icon_state = "cellconsole"
 
 /obj/item/weapon/gun/energy/lactera
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
 	icon_state = "alienrifle"
@@ -40,7 +40,7 @@
 	fire_delay = 1 //rapid fire
 	max_shots = 8
 	self_recharge = 1
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	var/inertstate = /obj/item/scom/aliengun
 
 /obj/item/weapon/gun/energy/lactera/update_icon()

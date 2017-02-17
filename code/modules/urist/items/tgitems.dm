@@ -6,7 +6,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 //seclite flashlight
 
 /obj/item/device/flashlight/seclite
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "seclite"
 	desc = "A robust flashlight used by security."
 	icon = 'icons/urist/items/tgitems.dmi'

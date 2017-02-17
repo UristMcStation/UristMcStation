@@ -1,7 +1,7 @@
 //duffelbags
 
 /obj/item/weapon/storage/backpack/duffel
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/back.dmi'
 	icon = 'icons/urist/items/clothes/back.dmi'
 	item_icons = null

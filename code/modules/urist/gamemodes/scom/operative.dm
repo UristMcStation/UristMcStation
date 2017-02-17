@@ -1,7 +1,7 @@
-#define RANK_SUPPORT 0
 #define RANK_SOLDIER 1
 #define RANK_OFFICER 2
 #define RANK_COMMAND 3
+#define RANK_SUPPORT 4
 
 var/datum/antagonist/scom/scommies
 
@@ -58,6 +58,7 @@ var/datum/antagonist/scom/scommies
 
 		player.current.real_name = scom_rank + player.current.real_name
 		player.name = player.current.real_name
+		player.current.update_icons()
 
 	return
 

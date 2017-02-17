@@ -138,7 +138,7 @@
 	icon_state = "rig0-seccold"
 	item_state = "rig0-seccold"
 	//item_color = "seccold"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/clothing/suit/space/void/security/cold
 	icon_state = "cryo-security"
@@ -146,7 +146,7 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has an additional layer of armor."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 //Engineering
 /obj/item/clothing/head/helmet/space/void/engineering/cold
@@ -157,7 +157,7 @@
 	icon_state = "rig0-engicold"
 	item_state = "rig0-engicold"
 	//item_color = "engicold"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
@@ -165,7 +165,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-engineering"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 //Atmospherics
 /obj/item/clothing/head/helmet/space/void/atmos/cold
@@ -176,7 +176,7 @@
 	icon_state = "rig0-atmocold"
 	item_state = "rig0-atmocold"
 	//item_color = "atmocold"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
@@ -185,7 +185,7 @@
 	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-atmos"
 	item_state = "atmo_coldsuit"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 //Mining
 /obj/item/clothing/head/helmet/space/void/mining/cold
@@ -196,7 +196,7 @@
 	icon_state = "rig0-minecold"
 	item_state = "rig0-minecold"
 	//item_color = "minecold"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/clothing/suit/space/void/mining/cold
 	icon_state = "cryo-mining"
@@ -204,7 +204,7 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has reinforced plating."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/clothes.dmi'
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 //pants
 

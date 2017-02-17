@@ -59,7 +59,7 @@
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/syndicate/melee/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.force)
+	/*if(O.force)
 		if(prob(80))
 			var/damage = O.force
 			if (O.damtype == PAIN)
@@ -71,16 +71,25 @@
 		//user.do_attack_animation(src)
 	else
 		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
-		visible_message("<span class='warning'>\The [user] gently taps \the [src] with \the [O].</span>")
+		visible_message("<span class='warning'>\The [user] gently taps \the [src] with \the [O].</span>")*/
+
+	if(prob(20))
+		visible_message("<span class='danger'>\The [src] blocks the [O] with its shield!</span>")
+	else
+		. = ..(O, user)
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj)	return
+	/*if(!Proj)	return
 	if(prob(65))
 		src.health -= Proj.damage
 	else
 		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
-	return 0
+	return 0*/
+	if(prob(35))
+		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
+	else
+		. = ..(Proj)
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space

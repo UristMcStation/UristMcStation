@@ -41,5 +41,5 @@
 
 /datum/uplink_item/item/stealth_items/smugglers_satchel
 	name = "Smuggler's Satchel"
-	item_cost = 2
+	item_cost = 8
 	path = /obj/item/weapon/storage/backpack/satchel_flat

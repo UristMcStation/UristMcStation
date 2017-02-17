@@ -161,6 +161,9 @@
 	var/obj/item/thing = get_equipped_item(disarm_slot)
 	drop_from_inventory(thing)
 
+	if(!thing)
+		return
+
 	if(affected.robotic >= ORGAN_ROBOT)
 		visible_message("<B>\The [src]</B> drops what they were holding, \his [affected.name] malfunctioning!")
 

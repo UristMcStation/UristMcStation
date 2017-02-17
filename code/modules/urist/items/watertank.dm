@@ -1,5 +1,5 @@
 /obj/item/weapon/watertank
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/back.dmi'
 	name = "backpack water tank"
 	desc = "A S.U.N.S.H.I.N.E. brand watertank backpack with nozzle to water plants."
@@ -60,7 +60,7 @@
 // the watertank backpack. Allowing it to be placed elsewhere or created without a parent
 // watertank object will likely lead to weird behaviour or runtimes.
 /obj/item/weapon/reagent_containers/glass/mister
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "water mister"
 	desc = "A mister nozzle attached to a water tank."
 	icon = 'icons/urist/items/tgitems.dmi'

@@ -6,7 +6,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 //generic define
 
 /obj/item/clothing/gloves/urist
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/uristmob/gloves.dmi'
 	icon = 'icons/urist/items/clothes/gloves.dmi'
 
