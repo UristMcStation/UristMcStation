@@ -436,3 +436,7 @@
 	icon_state = "asteroid"
 	light_range = 0
 	light_power = 0
+
+/turf/simulated/jungle/clear/underground/weather_enable(var/override = 0)
+	if(override)
+		..()
