@@ -97,9 +97,10 @@
 	update_coverage()
 
 /obj/machinery/camera/proc/upgradeXRay()
-	assembly.upgrades.Add(new /obj/item/weapon/stock_parts/scanning_module/adv(assembly))
-	setPowerUsage()
-	update_coverage()
+	if(assembly && assembly.upgrades)
+		assembly.upgrades.Add(new /obj/item/weapon/stock_parts/scanning_module/adv(assembly))
+		setPowerUsage()
+		update_coverage()
 
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
