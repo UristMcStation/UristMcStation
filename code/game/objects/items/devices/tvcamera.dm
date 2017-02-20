@@ -5,7 +5,7 @@
 	item_state = "camcorder"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BELT
-	var/channel = "NSS Exodus News Feed"
+	var/channel = "NSS Urist News Feed"
 	var/obj/machinery/camera/network/thunder/camera
 	var/obj/item/device/radio/radio
 
