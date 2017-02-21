@@ -604,7 +604,7 @@
 	metabolism = REM * 0.1
 
 /datum/reagent/hell_water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(iscultist(M))
+	if(iscultist(M) || isvampire(M))
 		M.AdjustParalysis(-1)
 		M.AdjustStunned(-1)
 		M.AdjustWeakened(-1)

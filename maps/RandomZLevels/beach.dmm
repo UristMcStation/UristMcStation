@@ -1,0 +1,73 @@
+"a" = (/turf/unsimulated/beach/sand{density = 1; opacity = 1},/area/beach)
+"b" = (/obj/machinery/gateway{dir = 9},/turf/unsimulated/beach/sand,/area/beach)
+"c" = (/obj/machinery/gateway{dir = 1},/turf/unsimulated/beach/sand,/area/beach)
+"d" = (/obj/machinery/gateway{dir = 5},/turf/unsimulated/beach/sand,/area/beach)
+"e" = (/turf/unsimulated/beach/sand,/area/beach)
+"f" = (/obj/effect/overlay/palmtree_r,/turf/unsimulated/beach/sand,/area/beach)
+"g" = (/obj/machinery/gateway{dir = 8},/turf/unsimulated/beach/sand,/area/beach)
+"h" = (/obj/machinery/gateway/centeraway,/turf/unsimulated/beach/sand,/area/beach)
+"i" = (/obj/machinery/gateway{dir = 4},/turf/unsimulated/beach/sand,/area/beach)
+"j" = (/obj/effect/overlay/palmtree_l,/obj/effect/overlay/coconut,/turf/unsimulated/beach/sand,/area/beach)
+"k" = (/obj/machinery/gateway{dir = 10},/turf/unsimulated/beach/sand,/area/beach)
+"l" = (/obj/machinery/gateway,/turf/unsimulated/beach/sand,/area/beach)
+"m" = (/obj/machinery/gateway{dir = 6},/turf/unsimulated/beach/sand,/area/beach)
+"n" = (/turf/unsimulated/wall/wood{tag = "icon-wood6"; icon_state = "wood6"},/area/beach)
+"o" = (/turf/unsimulated/wall/wood{tag = "icon-wood12"; icon_state = "wood12"},/area/beach)
+"p" = (/turf/unsimulated/wall/wood{tag = "icon-wood10"; icon_state = "wood10"},/area/beach)
+"q" = (/obj/structure/closet/athletic_mixed,/turf/unsimulated/beach/sand,/area/beach)
+"r" = (/obj/item/clothing/shoes/sandal,/obj/item/clothing/shoes/sandal,/obj/item/clothing/shoes/sandal,/obj/structure/closet/crate,/turf/unsimulated/beach/sand,/area/beach)
+"s" = (/turf/unsimulated/wall/wood{tag = "icon-wood3"; icon_state = "wood3"},/area/beach)
+"t" = (/obj/structure/closet/gmcloset{icon_closed = "black"; icon_state = "black"; name = "formal wardrobe"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"u" = (/obj/structure/closet/secure_closet/bar,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"v" = (/obj/structure/table/woodentable,/obj/item/weapon/book/manual/barman_recipes,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"w" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/drinks/shaker,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"x" = (/obj/structure/table/woodentable,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"y" = (/obj/structure/table/woodentable,/obj/item/clothing/glasses/sunglasses,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"z" = (/obj/machinery/vending/boozeomat{emagged = 1},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"A" = (/obj/machinery/vending/cigarette,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"B" = (/obj/machinery/vending/cola,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"C" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"D" = (/turf/unsimulated/wall/wood{tag = "icon-wood1"; icon_state = "wood1"},/area/beach)
+"E" = (/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"F" = (/obj/machinery/door/unpowered/simple/wood{tag = "icon-wood"; icon_state = "wood"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"G" = (/obj/effect/overlay/palmtree_l,/turf/unsimulated/beach/sand,/area/beach)
+"H" = (/turf/unsimulated/wall/wood,/area/beach)
+"I" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/beach)
+"J" = (/obj/item/weapon/beach_ball,/turf/unsimulated/beach/sand,/area/beach)
+"K" = (/obj/item/weapon/stool/padded,/turf/unsimulated/beach/sand,/area/beach)
+"L" = (/mob/living/simple_animal/crab,/turf/unsimulated/beach/sand,/area/beach)
+"M" = (/obj/effect/overlay/coconut,/turf/unsimulated/beach/sand,/area/beach)
+"N" = (/mob/living/simple_animal/crab/Coffee,/turf/unsimulated/beach/sand,/area/beach)
+"O" = (/obj/structure/bed/chair,/turf/unsimulated/beach/sand,/area/beach)
+"P" = (/turf/unsimulated/beach/coastline{density = 1; opacity = 1},/area/beach)
+"Q" = (/turf/unsimulated/beach/coastline,/area/beach)
+"R" = (/turf/unsimulated/beach/water{density = 1; opacity = 1},/area/beach)
+"S" = (/turf/unsimulated/beach/water,/area/beach)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abcdeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefea
+aghieeeejeeeeeeeeeeeeeeeeeeeeeeeeeeeeeea
+aklmeeeeeeeenoooooooooopeeqrqrqrqrqrqrqa
+aeeeeeeeeeeestuvwxyzABCseeeeeeeeeeeeeeea
+aeeeeeeeeeeeDEEEEEEEEEEseeeeeeeeeeeeeeea
+aeeeeeeeeeeeFEEEEEEEEEEseeeeeeeeeGeeeeea
+aefeeeeeeeeeHxIxxxxxxxxDeeeGeeJeeeeeeeea
+aeeeeeeeeeeeeKKKKKKKKKKeeeeeeeeeeeeeeeea
+aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeea
+aeeLeeeeeeeeeeeeeeeeeeeeeeeeeeefeeeeeeea
+aeeeeeGMeeeeeeeeeeeeeeGeeeeeNeeeMeeeeefa
+aeeJeeeeeeLeeOeOeOeOeOeOeeeeeeeeeeOeOeea
+aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeea
+PQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQP
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSR
+RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+"}

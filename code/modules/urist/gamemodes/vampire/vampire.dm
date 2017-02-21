@@ -34,7 +34,7 @@
 		mind.vampire = new /datum/vampire(gender)
 		mind.vampire.owner = src
 	if(!mind in vamps.current_antagonists)
-		vamps.current_antagonists |= src.mind
+		vamps.add_antagonist(src.mind)
 
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_coffinsleep
