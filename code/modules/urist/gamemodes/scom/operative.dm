@@ -38,7 +38,7 @@ var/datum/antagonist/scom/scommies
 
 /datum/antagonist/scom/New()
 	..()
-	freeteams = teamnames
+	freeteams = teamnames.Copy()
 	scommies = src
 
 /datum/antagonist/scom/update_antag_mob(var/datum/mind/player, var/preserve_appearance = 1, var/rank)
