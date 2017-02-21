@@ -1313,7 +1313,7 @@
 "azm" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/control)
 "azn" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/control)
 "azo" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/machinery/status_display{layer = 4; pixel_x = 0; pixel_y = 0},/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
-"azp" = (/obj/machinery/porta_turret,/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
+"azp" = (/obj/machinery/porta_turret{check_access = 0},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "azq" = (/obj/machinery/status_display{layer = 4; pixel_x = 0; pixel_y = 0},/turf/unsimulated/floor{icon_state = "dark"},/area/centcom/evac)
 "azr" = (/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/wall/fakeglass,/area/centcom/evac)
 "azs" = (/obj/structure/sign/urist/nt,/turf/unsimulated/wall,/area/centcom/evac)
