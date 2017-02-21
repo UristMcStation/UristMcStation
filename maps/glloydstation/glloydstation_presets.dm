@@ -1,29 +1,24 @@
-var/const/NETWORK_CIVILIAN_EAST       = "Civilian East"
-var/const/NETWORK_CIVILIAN_WEST       = "Civilian West"
 var/const/NETWORK_MAINTENANCE         = "Maintenance Deck"
 var/const/NETWORK_PRISON              = "Prison"
 var/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
 var/const/NETWORK_TELECOM             = "Tcomsat"
+var/const/NETWORK_URIST               = "Urist"
 
-/datum/map/exodus/get_network_access(var/network)
+/datum/map/glloydstation/get_network_access(var/network)
 	switch(network)
-		if(NETWORK_CIVILIAN_WEST)
-			return access_mailsorting
 		if(NETWORK_RESEARCH_OUTPOST)
 			return access_research
 		if(NETWORK_TELECOM)
 			return access_heads
 	return get_shared_network_access(network) || ..()
 
-/datum/map/exodus
+/datum/map/glloydstation
 	station_networks = list(
-		NETWORK_CIVILIAN_EAST,
-		NETWORK_CIVILIAN_WEST,
+		NETWORK_URIST,
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,
 		NETWORK_ENGINEERING,
 		NETWORK_ENGINEERING_OUTPOST,
-		NETWORK_EXODUS,
 		NETWORK_MAINTENANCE,
 		NETWORK_MEDICAL,
 		NETWORK_MINE,
@@ -46,17 +41,12 @@ var/const/NETWORK_TELECOM             = "Tcomsat"
 //
 
 // Networks
-/obj/machinery/camera/network/civilian_east
-	network = list(NETWORK_CIVILIAN_EAST)
-
-/obj/machinery/camera/network/civilian_west
-	network = list(NETWORK_CIVILIAN_WEST)
 
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/network/exodus
-	network = list(NETWORK_EXODUS)
+/obj/machinery/camera/network/urist
+	network = list(NETWORK_URIST)
 
 /obj/machinery/camera/network/maintenance
 	network = list(NETWORK_MAINTENANCE)

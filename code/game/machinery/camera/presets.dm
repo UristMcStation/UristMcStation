@@ -79,9 +79,10 @@
 	return O
 
 /obj/machinery/camera/proc/isXRay()
-	var/obj/item/weapon/stock_parts/scanning_module/O = locate(/obj/item/weapon/stock_parts/scanning_module) in assembly.upgrades
-	if (O && O.rating >= 2)
-		return O
+	if(assembly && assembly.upgrades)
+		var/obj/item/weapon/stock_parts/scanning_module/O = locate(/obj/item/weapon/stock_parts/scanning_module) in assembly.upgrades
+		if (O && O.rating >= 2)
+			return O
 	return null
 
 /obj/machinery/camera/proc/isMotion()
@@ -96,9 +97,10 @@
 	update_coverage()
 
 /obj/machinery/camera/proc/upgradeXRay()
-	assembly.upgrades.Add(new /obj/item/weapon/stock_parts/scanning_module/adv(assembly))
-	setPowerUsage()
-	update_coverage()
+	if(assembly && assembly.upgrades)
+		assembly.upgrades.Add(new /obj/item/weapon/stock_parts/scanning_module/adv(assembly))
+		setPowerUsage()
+		update_coverage()
 
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))

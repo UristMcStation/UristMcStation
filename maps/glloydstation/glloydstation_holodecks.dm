@@ -57,8 +57,7 @@
 			"Picnic Area"       = "picnicarea",
 			"Snow Field"        = "snowfield",
 			"Theatre"           = "theatre",
-			"Meeting Hall"      = "meetinghall",
-			"Courtroom"         = "courtroom"
+			"Meeting Hall"      = "meetinghall"
 		)
 
 	)
