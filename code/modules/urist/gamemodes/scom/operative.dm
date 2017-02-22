@@ -11,6 +11,14 @@ var/datum/antagonist/scom/scommies
 	if(player.mind in scommies.current_antagonists)
 		return 1
 
+/proc/find_scom_ghost(var/mob/player)
+	if(scommies)
+		for(var/mob/observer/ghost/G in player_list)
+			if(G.mind)
+				if((G.mind.current == player) && isscom(G))
+					return G
+	return
+
 /datum/antagonist/scom
 	id = "scomop"
 	role_text = "SCOM Operative"
