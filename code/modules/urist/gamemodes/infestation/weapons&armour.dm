@@ -106,8 +106,7 @@
 		M.regenerate_icons()
 
 /obj/item/clothing/head/soft/anfor
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/head.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR NCO cap"
 	desc = "A cap worn by ANFOR NCOs. Doesn't offer all that much protection, but DAMN does it look good. Hey, you can flip it around too. Your corpse will look good for sure."
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -132,10 +131,9 @@
 	slowdown_per_slot[slot_wear_suit] = 1
 
 /obj/item/clothing/head/helmet/space/void/anfor
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR marine voidsuit helmet"
 	desc = "A comfortable voidsuit helmet used by ANFOR marines. Features cranial armor and eight-channel surround sound."
-	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-anforeva"
 	armor = list(melee = 50, bullet = 80, laser = 35, energy = 25, bomb = 50, bio = 100, rad = 10)
@@ -145,7 +143,7 @@
 //Weapons
 
 /obj/item/weapon/gun/projectile/automatic/a22
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
 	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
 	icon = 'icons/urist/items/guns.dmi'

@@ -239,8 +239,7 @@
 	name = "executive suit"
 	desc = "REGULAR HUMAN suit. Nothing to see here, fellow human."
 	item_state = "jensensuit"
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "fleshsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS

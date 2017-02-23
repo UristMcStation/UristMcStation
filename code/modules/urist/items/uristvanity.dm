@@ -104,9 +104,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //watches
 
 /obj/item/clothing/accessory/watch
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/ties.dmi'
-	icon_override = 'icons/uristmob/ties.dmi'
 
 /obj/item/clothing/accessory/watch/wrist
 	name = "wrist watch"

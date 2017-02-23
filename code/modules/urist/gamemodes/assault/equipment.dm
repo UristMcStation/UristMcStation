@@ -40,7 +40,6 @@
 	fire_delay = 1 //rapid fire
 	max_shots = 8
 	self_recharge = 1
-	item_icons = DEF_URIST_INHANDS
 	var/inertstate = /obj/item/scom/aliengun
 
 /obj/item/weapon/gun/energy/lactera/update_icon()

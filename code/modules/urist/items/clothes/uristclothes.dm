@@ -10,16 +10,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //this is important to save me time with all these dresses
 
 /obj/item/clothing/under/urist
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
 //backtracking and putting this here to clean things up
 
 /obj/item/clothing/suit/urist
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 	species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
 
 /obj/item/clothing/suit/armor/species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
@@ -28,8 +26,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //It's totally not just a reskin of the medrig...
 
 /obj/item/clothing/suit/space/void/science
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "Scirig"
 	name = "science hardsuit"
@@ -46,8 +43,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
 
 /obj/item/clothing/suit/emergencysuit
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -72,8 +68,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Armoured biosuit for sec
 
 /obj/item/clothing/suit/bio_suit/asec
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "armoured bio suit"
 	desc = "An armoured suit that protects against biological contamination and minor damage."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -93,8 +88,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Welder apron done by ShoesandHats and added by Cozarctan. Moved from welder. Welder machete goes into the new uristweapons.dm
 
 /obj/item/clothing/suit/urist/welderapron
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "welder's apron"
 	desc = "A leather work apron."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -106,8 +100,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Naval Space suit. Or something like that. I don't fucking know.
 
 /obj/item/clothing/suit/space/naval
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "naval space suit"
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navyspace"
@@ -123,8 +116,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Naval Commando Suit
 
 /obj/item/clothing/suit/space/void/commando
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando suit"
 	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -142,8 +134,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Meido outfit, Pretty much Japanese for Maid outfit. I will most likely be doing more costumes. -Nien
 
 /obj/item/clothing/suit/urist/meido
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "meido costume"
 	desc = "A black maid costume."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -154,8 +145,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //psychologist clothing -- God I got lazy here.
 
 /obj/item/clothing/under/rank/psychologist
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "psychologist's suit"
 	desc = "A slightly weathered suit worn by the station's psychologist. Are those Cheesy Honker stains?" //you fukken slob
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -166,8 +156,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/suit/psychologist
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "tweed jacket"
 	desc = "A tweed jacket worn by the station's psychologist. It looks a tad worn at the elbows."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -199,13 +188,11 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Terran Confederacy Trader outfit
 
 /obj/item/clothing/under/terran
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/suit/terran
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 
 /obj/item/clothing/under/terran/trader
@@ -225,9 +212,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Alternate space wizard outfits. I hope to see more than just the necromancer's robes here one day.
 
 /obj/item/clothing/suit/wizrobe/urist
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 
 /obj/item/clothing/suit/wizrobe/urist/necro
 	name = "necromancer's robes"
@@ -244,8 +230,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //NT Outfits
 
 /obj/item/clothing/under/urist/nanotrasen/blue
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "blue nanotrasen outfit"
 	desc = "A standard blue Nanotrasen outfit with a white NT on back."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -255,8 +240,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 
 /obj/item/clothing/under/urist/nanotrasen/white
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "white nanotrasen outfit"
 	desc = "A standard white Nanotrasen outfit with a blue NT on back."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -459,7 +443,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat_open"
 	icon_open = "blackcoat_open"
 	icon_closed = "blackcoat_closed"
@@ -473,9 +457,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "nontogglecoat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter. It seems to be missing its buttons."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat_open"
-	item_state = "blackcoat_open"
+	item_state = "charcoal_suit"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
@@ -486,6 +470,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "navycoat_open"
 	icon_open = "navycoat_open"
 	icon_closed = "navycoat_closed"
+	item_state = "navy_suit"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat
 	name = "charcoal coat"
@@ -514,6 +499,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "burgcoat_open"
 	icon_open = "burgcoat_open"
 	icon_closed = "burgcoat_closed"
+	item_state = "burgundy_suit"
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
@@ -711,8 +697,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //more pants
 
 /obj/item/clothing/under/pants/urist
-	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 
 /obj/item/clothing/under/pants/urist/jeans
