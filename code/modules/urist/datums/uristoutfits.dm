@@ -102,14 +102,14 @@
 	uniform = /obj/item/clothing/under/urist/dresden
 	head = /obj/item/clothing/head/wizard/urist/dresdendora
 	suit = /obj/item/clothing/suit/wizrobe/urist/dresden
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sandal/marisa
 
 /decl/hierarchy/outfit/wizard/necro
 	name = "Wizard - Necromancer"
 	uniform = /obj/item/clothing/under/color/black
 	head = /obj/item/clothing/head/wizard/urist/necro
 	suit = /obj/item/clothing/suit/wizrobe/urist/necro
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/sandal/marisa
 
 /decl/hierarchy/outfit/wwii/germanrifleman
 	name = "German Rifleman"
@@ -265,12 +265,12 @@
 		else
 			qdel(gear)
 
-/decl/hierarchy/outfit/lactera/soldier
+/decl/hierarchy/outfit/lactera
 	name = "Lactera Soldier"
 	uniform = /obj/item/clothing/under/lactera
 	shoes = /obj/item/clothing/shoes/magboots/lactera
 	glasses = /obj/item/clothing/glasses/night
-	suit = /obj/item/clothing/suit/lactera/officer
+	suit = /obj/item/clothing/suit/lactera/regular
 	belt = /obj/item/weapon/gun/energy/lactera/a1
 	r_hand = /obj/item/weapon/gun/energy/lactera/a3
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
@@ -281,7 +281,7 @@
 	uniform = /obj/item/clothing/under/lactera
 	shoes = /obj/item/clothing/shoes/magboots/lactera
 	glasses = /obj/item/clothing/glasses/night
-	suit = /obj/item/clothing/suit/lactera/regular
+	suit = /obj/item/clothing/suit/lactera/officer
 	belt = /obj/item/weapon/gun/energy/lactera/a1
 	r_hand = /obj/item/weapon/gun/energy/lactera/a2
 	r_pocket = /obj/item/weapon/grenade/aliengrenade

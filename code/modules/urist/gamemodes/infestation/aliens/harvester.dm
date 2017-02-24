@@ -1,3 +1,4 @@
+//Keep this unticked unless you're Glloyd and unfucked this file
 /mob/living/carbon/harvester
 	name = "Harvester"
 	desc = "What the fuck is that thing?"
@@ -23,7 +24,8 @@
 
 	gender = NEUTER
 
-	add_spell(new/spell/aoe_turf/blink)
+	if(mind)
+		add_spell(new/spell/aoe_turf/blink)
 
 	verbs += /mob/living/carbon/harvester/proc/harvester_glare
 	verbs += /mob/living/carbon/harvester/proc/harvester_cloak
