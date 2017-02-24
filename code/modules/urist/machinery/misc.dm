@@ -1,5 +1,5 @@
 /obj/machinery/camera/emp_proof/engine
-	network = list(NETWORK_ENGINE)
+	network = list(NETWORK_ENGINEERING)
 
 /obj/machinery/mass_driver/sm_launcher
 	name = "gravity driver"
