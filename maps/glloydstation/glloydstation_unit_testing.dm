@@ -32,7 +32,7 @@
 		/area/outpost/mining_main/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT,
-		/area/server = 0,
+		/area/rnd/server = 0,
 		/area/shuttle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/skipjack_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/solar = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -54,6 +54,7 @@
 			/area/constructionsite/maintenance,
 			/area/solar/constructionsite,
 			/area/maintenance/exterior,
+			/area/awaymission/maze,
 			/area/maintenance/incinerator)
 
 	area_usage_test_exempted_areas = list(
@@ -91,7 +92,7 @@
 		/area/shuttle/event1/l1,
 		/area/shuttle/event1/l2,
 		/area/shuttle/event1/l3,
-		/area/shuttle/event1/l1,
+		/area/shuttle/event2/l1,
 		/area/shuttle/event2/l2,
 		/area/shuttle/event2/l3,
 		/area/shuttle/assault/a1/station,

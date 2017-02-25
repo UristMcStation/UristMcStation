@@ -346,6 +346,10 @@
 	name = "\improper Bar Maintenance"
 	icon_state = "maint_bar"
 
+/area/maintenance/kitchen
+	name = "\improper Kitchen Maintenance"
+	icon_state = "maint_bar"
+
 /area/maintenance/cargo
 	name = "\improper Cargo Maintenance"
 	icon_state = "maint_cargo"
@@ -407,6 +411,7 @@
 	icon_state = "maint_security_starboard"
 
 // Dank Maintenance
+/*
 /area/maintenance/sub
 	turf_initializer = /decl/turf_initializer/maintenance/heavy
 	ambience = list(
@@ -427,7 +432,7 @@
 		'sound/effects/wind/wind_2_1.ogg',
 		'sound/effects/wind/wind_2_2.ogg',
 		'sound/effects/wind/wind_3_1.ogg',
-	)
+	)*/
 
 // Hallway
 
@@ -688,10 +693,6 @@
 /area/medical/patient_wing/washroom
 	name = "\improper Patient Wing Washroom"
 
-/area/medical/surgery2
-	name = "\improper Operating Theatre 2"
-	icon_state = "surgery"
-
 /area/medical/surgeryobs
 	name = "\improper Operation Observation Room"
 	icon_state = "surgery"
@@ -718,20 +719,12 @@
 	name = "\improper Security Lobby"
 	icon_state = "security"
 
-/area/security/brig/processing
-	name = "\improper Security - Processing"
-	icon_state = "brig"
-
 /area/security/brig/interrogation
 	name = "\improper Security - Interrogation"
 	icon_state = "brig"
 
 /area/security/brig/solitaryA
-	name = "\improper Security - Solitary 1"
-	icon_state = "sec_prison"
-
-/area/security/brig/solitaryB
-	name = "\improper Security - Solitary 2"
+	name = "\improper Security - Solitary"
 	icon_state = "sec_prison"
 
 /area/security/brig/prison_break()
@@ -809,13 +802,17 @@ area/rnd/test_area
 	name = "\improper Toxins Test Area"
 	icon_state = "toxtest"
 
-/area/server
+/area/rnd/server
 	name = "\improper Research Server Room"
 	icon_state = "server"
 
 /area/rnd/electrical_engineering
 	name = "\improper Electrical Engineering Lab"
 	icon_state = "toxlab"
+
+/area/rnd/breakroom
+	name = "\improper Research Break Room"
+	icon_state = "research"
 
 //Storage
 
@@ -853,10 +850,6 @@ area/rnd/test_area
 //Misc
 
 // Telecommunications Satellite
-
-/area/tcommsat/entrance
-	name = "\improper Telecoms Teleporter"
-	icon_state = "tcomsatentrance"
 
 /area/turret_protected/tcomsat
 	name = "\improper Telecoms Satellite"
