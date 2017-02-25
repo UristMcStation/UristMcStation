@@ -57,6 +57,7 @@
 
 /area/shuttle/constructionsite/station
 	name = "\improper Construction Site Shuttle"
+	base_turf = /turf/space
 
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
@@ -92,10 +93,10 @@
 	name = "\improper Alien Shuttle Mine"
 	requires_power = 1
 
-/area/shuttle/arrival
+/area/shuttle/arrivals
 	name = "\improper Arrival Shuttle"
 
-/area/shuttle/arrival/station
+/area/shuttle/arrivals/station
 	icon_state = "shuttle"
 
 /area/shuttle/escape
@@ -329,33 +330,7 @@
 /area/skipjack_station/mining
 	name = "south of mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/floor/asteroid
-
-// SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
-
-/area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
-	name = "Command Substation"
-
-/area/maintenance/substation/engineering // Probably will be connected to engineering SMES room, as wires cannot be crossed properly without them sharing powernets.
-	name = "Engineering Substation"
-
-/area/maintenance/substation/medical // Medbay
-	name = "Medical Substation"
-
-/area/maintenance/substation/research // Research
-	name = "Research Substation"
-
-/area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
-	name = "Civilian East Substation"
-
-/area/maintenance/substation/civilian_west // Cargo, PTS, locker room, probably arrivals, ...)
-	name = "Civilian West Substation"
-
-/area/maintenance/substation/security // Security, Brig, Permabrig, etc.
-	name = "Security Substation"
-
-/area/maintenance/substation/atmospherics
-	name = "Atmospherics Substation"
+	base_turf = /turf/simulated/jungle/clear
 
 // Maintenance
 
@@ -454,74 +429,6 @@
 		'sound/effects/wind/wind_3_1.ogg',
 	)
 
-/area/maintenance/sub/relay_station
-	name = "\improper Sublevel Maintenance - Relay Station"
-	icon_state = "blue2"
-	turf_initializer = null
-
-/area/maintenance/sub/fore
-	name = "\improper Sublevel Maintenance - Fore"
-	icon_state = "sub_maint_fore"
-
-/area/maintenance/sub/aft
-	name = "\improper Sublevel Maintenance - Aft"
-	icon_state = "sub_maint_aft"
-
-/area/maintenance/sub/port
-	name = "\improper Sublevel Maintenance - Port"
-	icon_state = "sub_maint_port"
-
-/area/maintenance/sub/starboard
-	name = "\improper Sublevel Maintenance - Starboard"
-	icon_state = "sub_maint_starboard"
-
-/area/maintenance/sub/central
-	name = "\improper Sublevel Maintenance - Central"
-	icon_state = "sub_maint_central"
-
-/area/maintenance/sub/command
-	name = "\improper Sublevel Maintenance - Command"
-	icon_state = "sub_maint_command"
-	turf_initializer = null
-
-/////////////
-//ELEVATORS//
-/////////////
-/area/turbolift/security_station
-	name = "Station - By Security"
-	lift_announce_str = "Arriving at the station level, by the Security department."
-
-/area/turbolift/security_maintenance
-	name = "Maintenance - Below Security"
-	lift_announce_str = "Arriving at the maintenance level, below the Security department."
-	base_turf = /turf/simulated/floor/plating
-
-/area/turbolift/research_station
-	name = "Station - By Research"
-	lift_announce_str = "Arriving at the station level, by the R&D department."
-
-/area/turbolift/research_maintenance
-	name = "Maintenance - Below Research"
-	lift_announce_str = "Arriving at the maintenance level, below the R&D department."
-	base_turf = /turf/simulated/floor/plating
-
-/area/turbolift/engineering_station
-	name = "Station - By Engineering"
-	lift_announce_str = "Arriving at the station level, by the Engineering department."
-
-/area/turbolift/engineering_maintenance
-	name = "Maintenance - Below Engineering"
-	lift_announce_str = "Arriving at the maintenance level, below the Engineering department."
-	base_turf = /turf/simulated/floor/plating
-
-/area/turbolift/cargo_station
-	name = "Station - By Cargo"
-	lift_announce_str = "Arriving at the station level, by the Cargo department."
-
-/area/turbolift/cargo_maintenance
-	name = "Maintenance - Below Cargo"
-	lift_announce_str = "Arriving at the maintenance level, below the Cargo department."
-	base_turf = /turf/simulated/floor/plating
 // Hallway
 
 /area/hallway/primary/
@@ -670,9 +577,6 @@
 /area/engineering/workshop
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
-
-/area/engineering/sublevel_access
-	name = "\improper Engineering Sublevel Access"
 
 // Medbay
 
@@ -931,7 +835,7 @@ area/rnd/test_area
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
-	base_turf = /turf/simulated/floor/asteroid
+	base_turf = /turf/simulated/jungle/clear
 
 //AI
 
