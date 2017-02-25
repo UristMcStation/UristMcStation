@@ -121,7 +121,7 @@
 		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/gun(src)
+		new /obj/item/weapon/gun/projectile/sec/wood(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/head/beret/sec/corporate/hos(src)
@@ -204,6 +204,7 @@
 		new /obj/item/clothing/head/soft/sec/corp(src)
 		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/weapon/gun/energy/taser(src)
+		new /obj/item/weapon/gun/projectile/sec(src)
 		return
 
 
