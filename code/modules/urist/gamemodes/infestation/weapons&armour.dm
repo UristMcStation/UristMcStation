@@ -464,7 +464,7 @@
 	damage = 60
 	stun = 1.5
 	weaken = 1.5
-	penetrating = 5
+	penetrating = 3
 	armor_penetration = 60
 
 /obj/item/ammo_magazine/a132x108mm/stripper

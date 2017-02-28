@@ -27,10 +27,12 @@
 		src << "<span class='warning'>You require at least [required_blood] units of usable blood to do that!</span>"
 		return 0
 	//chapel check
-	if(istype(loc.loc, /area/chapel))
-		if(!fullpower)
-			src << "<span class='warning'>Your powers are useless on this holy ground.</span>"
-			return 0
+	if(istype(loc, /turf))
+		var/turf/T = loc
+		if(T.holy)
+			if(!fullpower)
+				src << "<span class='warning'>Your powers are useless on this holy ground.</span>"
+				return 0
 	return 1
 
 /mob/proc/vampire_affected(datum/mind/M)
@@ -95,7 +97,7 @@
 
 /proc/vampire_canregen(var/datum/mind/V)
 	var/mob/living/carbon/human/H = V.current
-	if((V.vampire.torpor) && (istype(H.loc, /obj/structure/closet/coffin)))
+	if(V.vampire.torpor && (istype(H.loc, /obj/structure/closet/coffin) || istype(H.loc, /obj/structure/morgue)))
 		if(H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
 			return 1
 		for(var/obj/item/organ/I in H.internal_organs)
@@ -156,7 +158,7 @@
 /client/proc/vampire_rejuvinate()
 	set category = "Vampire"
 	set name = "Rejuvenate "
-	set desc= "Flush your system with spare blood to remove any incapacitating effects. Heals more powerful vampires."
+	set desc= "Flush your system with spare blood to remove any incapacitating effects. Heals more powerful vampires slightly."
 	var/datum/mind/M = usr.mind
 	if(!M) return
 	if(M.current.vampire_power(0, 1))

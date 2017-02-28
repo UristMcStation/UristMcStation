@@ -136,6 +136,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-seccold"
+	item_state = "rig0-seccold"
 	//item_color = "seccold"
 	urist_only = 1
 
@@ -154,6 +155,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-engicold"
+	item_state = "rig0-engicold"
 	//item_color = "engicold"
 	urist_only = 1
 
@@ -172,7 +174,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-atmocold"
-	item_state = "atmo_cold"
+	item_state = "rig0-atmocold"
 	//item_color = "atmocold"
 	urist_only = 1
 
@@ -192,6 +194,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-minecold"
+	item_state = "rig0-minecold"
 	//item_color = "minecold"
 	urist_only = 1
 

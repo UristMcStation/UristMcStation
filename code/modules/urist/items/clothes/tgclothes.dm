@@ -168,6 +168,8 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	desc = "A fancy hat made just for the HoP"
 	icon_state = "hopcap"
 	item_state = "hopcap"
+	flags_inv = 0
+	body_parts_covered = 0
 
 /obj/item/clothing/head/helmet/urist/sombrero
 	icon_override = 'icons/uristmob/head.dmi'

@@ -265,3 +265,25 @@
 			uniform.attach_accessory(null, gear)
 		else
 			qdel(gear)
+
+/decl/hierarchy/outfit/lactera/soldier
+	name = "Lactera Soldier"
+	uniform = /obj/item/clothing/under/lactera
+	shoes = /obj/item/clothing/shoes/magboots/lactera
+	glasses = /obj/item/clothing/glasses/night
+	suit = /obj/item/clothing/suit/lactera/officer
+	belt = /obj/item/weapon/gun/energy/lactera/a1
+	r_hand = /obj/item/weapon/gun/energy/lactera/a3
+	r_pocket = /obj/item/weapon/grenade/aliengrenade
+	l_pocket = /obj/item/weapon/plastique/alienexplosive
+
+/decl/hierarchy/outfit/lactera/officer
+	name = "Lactera Officer"
+	uniform = /obj/item/clothing/under/lactera
+	shoes = /obj/item/clothing/shoes/magboots/lactera
+	glasses = /obj/item/clothing/glasses/night
+	suit = /obj/item/clothing/suit/lactera/regular
+	belt = /obj/item/weapon/gun/energy/lactera/a1
+	r_hand = /obj/item/weapon/gun/energy/lactera/a2
+	r_pocket = /obj/item/weapon/grenade/aliengrenade
+	l_pocket = /obj/item/weapon/plastique/alienexplosive
