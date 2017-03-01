@@ -10,6 +10,8 @@ var/const/NETWORK_URIST               = "Urist"
 			return access_research
 		if(NETWORK_TELECOM)
 			return access_heads
+		if(NETWORK_URIST)
+			return
 	return get_shared_network_access(network) || ..()
 
 /datum/map/glloydstation

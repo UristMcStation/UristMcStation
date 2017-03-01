@@ -116,7 +116,7 @@
 	locked = 1
 
 	eject_wait = 1
-	spawn(30)
+	spawn(300)
 		eject_wait = 0
 
 	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src, R.dna.species)

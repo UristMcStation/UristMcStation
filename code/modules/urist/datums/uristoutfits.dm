@@ -111,6 +111,10 @@
 	suit = /obj/item/clothing/suit/wizrobe/urist/necro
 	shoes = /obj/item/clothing/shoes/sandal/marisa
 
+/* World War 13 */
+/decl/hierarchy/outfit/wwii
+	name = "Naked, 1941-style" //just to shut Travis up
+
 /decl/hierarchy/outfit/wwii/germanrifleman
 	name = "German Rifleman"
 	head = /obj/item/clothing/head/helmet/urist/wwii/germanhelm

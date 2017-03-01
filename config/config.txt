@@ -289,21 +289,6 @@ REQ_CULT_GHOSTWRITER 6
 ## Sets the number of available character slots
 CHARACTER_SLOTS 10
 
-## Uncomment to use overmap system for zlevel travel
-#USE_OVERMAP
-
-## Defines which Z-levels the station exists on. 
-STATION_LEVELS 1
-
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle
-ADMIN_LEVELS 2
-
-## Defines which Z-levels which, for example, a Code Red announcement may affect
-CONTACT_LEVELS 1;5;7
-
-## Defines all Z-levels a character can typically reach
-PLAYER_LEVELS 1;3;4;5;6;7
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 120
 
@@ -375,9 +360,6 @@ GENERATE_ASTEROID
 ## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
 #AGGRESSIVE_CHANGELOG
 
-SHOW_MENTORS
-SHOW_MODS
-
 ## Uncomment to enable organ decay outside of a body or storage item.
 ORGANS_CAN_DECAY
 
@@ -389,10 +371,6 @@ ORGANS_CAN_DECAY
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and - 
 # DEFAULT_LANGUAGE_PREFIXES , # -
-
-## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
-## Defaults to 'title' if left unset.
-LOBBY_SCREENS urist
 
 ## Uncomment this line to announce shuttle dock announcements to the main IRC channel, if MAIN_IRC has also been setup.
 # ANNOUNCE_SHUTTLE_DOCK_TO_IRC
