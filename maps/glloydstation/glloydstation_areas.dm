@@ -354,10 +354,6 @@
 	name = "\improper Cargo Maintenance"
 	icon_state = "maint_cargo"
 
-/area/maintenance/engi_engine
-	name = "\improper Engine Maintenance"
-	icon_state = "maint_engine"
-
 /area/maintenance/engi_shuttle
 	name = "\improper Engineering Shuttle Access"
 	icon_state = "maint_e_shuttle"
@@ -385,10 +381,6 @@
 /area/maintenance/medbay
 	name = "\improper Medbay Maintenance"
 	icon_state = "maint_medbay"
-
-/area/maintenance/research_port
-	name = "\improper Research Maintenance - Port"
-	icon_state = "maint_research_port"
 
 /area/maintenance/research_shuttle
 	name = "\improper Research Shuttle Dock Maintenance"
@@ -471,26 +463,6 @@
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 
-/area/hallway/secondary/entry/pods
-	name = "\improper Arrival Shuttle Hallway - Escape Pods"
-	icon_state = "entry_pods"
-
-/area/hallway/secondary/entry/fore
-	name = "\improper Arrival Shuttle Hallway - Fore"
-	icon_state = "entry_1"
-
-/area/hallway/secondary/entry/port
-	name = "\improper Arrival Shuttle Hallway - Port"
-	icon_state = "entry_2"
-
-/area/hallway/secondary/entry/starboard
-	name = "\improper Arrival Shuttle Hallway - Starboard"
-	icon_state = "entry_3"
-
-/area/hallway/secondary/entry/aft
-	name = "\improper Arrival Shuttle Hallway - Aft"
-	icon_state = "entry_4"
-
 // Command
 
 /area/crew_quarters/captain
@@ -522,11 +494,6 @@
 	name = "\improper Engineering Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
-
-/area/crew_quarters/sleep/bedrooms
-	name = "\improper Dormitory Bedroom One"
-	icon_state = "Sleep"
-	sound_env = SMALL_SOFTFLOOR
 
 /area/crew_quarters/locker/locker_toilet
 	name = "\improper Locker Toilets"
@@ -639,39 +606,13 @@
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
-//Medbay is a large area, these additional areas help level out APC load.
-/area/medical/medbay2
-	name = "\improper Medbay Hallway - Starboard"
-	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay3
-	name = "\improper Medbay Hallway - Fore"
-	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay4
-	name = "\improper Medbay Hallway - Aft"
-	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
 /area/medical/reception
 	name = "\improper Medbay Reception"
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
-/area/medical/psych
-	name = "\improper Psych Room"
-	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/crew_quarters/medbreak
-	name = "\improper Break Room"
-	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/ward
-	name = "\improper Recovery Ward"
+/area/medical/patient_wing
+	name = "\improper Patient Wing"
 	icon_state = "patients"
 
 /area/medical/patient_a
@@ -685,13 +626,6 @@
 /area/medical/patient_c
 	name = "\improper Isolation C"
 	icon_state = "patients"
-
-/area/medical/patient_wing
-	name = "\improper Patient Wing"
-	icon_state = "patients"
-
-/area/medical/patient_wing/washroom
-	name = "\improper Patient Wing Washroom"
 
 /area/medical/surgeryobs
 	name = "\improper Operation Observation Room"
@@ -711,10 +645,6 @@
 	name = "\improper Security Office"
 	icon_state = "security"
 
-/area/security/meeting
-	name = "\improper Security Meeting Room"
-	icon_state = "security"
-
 /area/security/lobby
 	name = "\improper Security Lobby"
 	icon_state = "security"
@@ -723,10 +653,6 @@
 	name = "\improper Security - Interrogation"
 	icon_state = "brig"
 
-/area/security/brig/solitaryA
-	name = "\improper Security - Solitary"
-	icon_state = "sec_prison"
-
 /area/security/brig/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
 		temp_closet.locked = 0
@@ -734,14 +660,6 @@
 	for(var/obj/machinery/door_timer/temp_timer in src)
 		temp_timer.releasetime = 1
 	..()
-
-/area/security/prison/restroom
-	name = "\improper Security - Prison Wing Restroom"
-	icon_state = "sec_prison"
-
-/area/security/prison/dorm
-	name = "\improper Security - Prison Wing Dormitory"
-	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
@@ -754,10 +672,6 @@
 /area/security/warden
 	name = "\improper Security - Warden's Office"
 	icon_state = "Warden"
-
-/area/security/tactical
-	name = "\improper Security - Tactical Equipment"
-	icon_state = "Tactical"
 
 /area/security/vacantoffice
 	name = "\improper Vacant Office"
@@ -833,37 +747,6 @@ area/rnd/test_area
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
 	base_turf = /turf/simulated/jungle/clear
-
-//AI
-
-/area/turret_protected/ai_server_room
-	name = "Messaging Server Room"
-	icon_state = "ai_server"
-	sound_env = SMALL_ENCLOSED
-
-/area/turret_protected/tcomsat/port
-	name = "\improper Telecoms Satellite - Port"
-
-/area/turret_protected/tcomsat/starboard
-	name = "\improper Telecoms Satellite - Starboard"
-
-//Misc
-
-// Telecommunications Satellite
-
-/area/turret_protected/tcomsat
-	name = "\improper Telecoms Satellite"
-	icon_state = "tcomsatlob"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomfoyer
-	name = "\improper Telecoms Foyer"
-	icon_state = "tcomsatentrance"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/tcommsat/powercontrol
-	name = "\improper Telecommunications Power Control"
-	icon_state = "tcomsatwest"
 
 /*******
 * Moon *
@@ -1008,18 +891,9 @@ area/rnd/test_area
 	name = "Fore Port Maintenance - 1"
 	icon_state = "fpmaint"
 
-/area/maintenance/fpmaint2
-	name = "Fore Port Maintenance - 2"
-	icon_state = "fpmaint"
-
 /area/maintenance/fsmaint
 	name = "Fore Starboard Maintenance - 1"
 	icon_state = "fsmaint"
-
-/area/maintenance/fsmaint2
-	name = "Fore Starboard Maintenance - 2"
-	icon_state = "fsmaint"
-
 
 /area/maintenance/asmaint
 	name = "Aft Starboard Maintenance"
@@ -1044,10 +918,6 @@ area/rnd/test_area
 /area/maintenance/maintcentral
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
-
-/area/maintenance/arrivals
-	name = "Arrivals Maintenance"
-	icon_state = "maint_arrivals"
 
 /area/maintenance/bar
 	name = "Bar Maintenance"
@@ -1109,10 +979,6 @@ area/rnd/test_area
 	name = "Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
-/area/maintenance/storage
-	name = "Atmospherics"
-	icon_state = "green"
-
 /area/hallway/primary/
 	sound_env = LARGE_ENCLOSED
 
@@ -1136,14 +1002,6 @@ area/rnd/test_area
 	name = "\improper Central Primary Hallway"
 	icon_state = "hallC1"
 
-/area/hallway/primary/central_two
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC2"
-
-/area/hallway/primary/central_three
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC3"
-
 /area/hallway/secondary/exit
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
@@ -1152,36 +1010,20 @@ area/rnd/test_area
 	name = "\improper Construction Area"
 	icon_state = "construction"
 
-/area/hallway/secondary/entry/pods
-	name = "\improper Arrival Shuttle Hallway - Escape Pods"
-	icon_state = "entry_pods"
-
-/area/hallway/secondary/entry/fore
-	name = "\improper Arrival Shuttle Hallway - Fore"
-	icon_state = "entry_1"
-
-/area/hallway/secondary/entry/port
-	name = "\improper Arrival Shuttle Hallway - Port"
-	icon_state = "entry_2"
-
-/area/hallway/secondary/entry/starboard
-	name = "\improper Arrival Shuttle Hallway - Starboard"
-	icon_state = "entry_3"
-
-/area/hallway/secondary/entry/aft
-	name = "\improper Arrival Shuttle Hallway - Aft"
-	icon_state = "entry_4"
-
 /area/crew_quarters/courtroom
 	name = "\improper Courtroom"
 	icon_state = "courtroom"
 
-/area/turret_protected/aisat
-	name = "\improper AI Satellite"
+/area/turret_protected/aisat_interior
+	name = "\improper AI Satellite Foyer"
 	icon_state = "ai"
 
-/area/turret_protected/aisat_interior
-	name = "\improper AI Satellite"
+/area/turret_protected/aisat_stationside
+	name = "\improper AI Satellite Station Entrance"
+	icon_state = "ai"
+
+/area/turret_protected/aisat_eva
+	name = "\improper AI Satellite EVA Entrance"
 	icon_state = "ai"
 
 /area/turret_protected/AIsatextFP
@@ -1212,45 +1054,9 @@ area/rnd/test_area
 	name = "\improper AI Main New"
 	icon_state = "storage"
 
-/area/turret_protected/tcomsat
-	name = "\improper Telecoms Satellite"
-	icon_state = "tcomsatlob"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomfoyer
-	name = "\improper Telecoms Foyer"
-	icon_state = "tcomsatentrance"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomwest
-	name = "\improper Telecommunications Satellite West Wing"
-	icon_state = "tcomsatwest"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomeast
-	name = "\improper Telecommunications Satellite East Wing"
-	icon_state = "tcomsateast"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
-
-/area/prison/solitary
-	name = "Solitary Confinement"
-	icon_state = "brig"
-
-/area/prison/cell_block/A
-	name = "Prison Cell Block A"
-	icon_state = "brig"
-
-/area/prison/cell_block/B
-	name = "Prison Cell Block B"
-	icon_state = "brig"
-
-/area/prison/cell_block/C
-	name = "Prison Cell Block C"
-	icon_state = "brig"
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"
@@ -1264,18 +1070,6 @@ area/rnd/test_area
 /area/toxins/server
 	name = "\improper Server Room"
 	icon_state = "server"
-
-/area/storage/auxillary
-	name = "Auxillary Storage"
-	icon_state = "auxstorage"
-
-/area/storage/auxillary/port
-	name = "Port Auxillary Storage"
-	icon_state = "auxstorage"
-
-/area/storage/auxillary/starboard
-	name = "Starboard Auxillary Storage"
-	icon_state = "auxstorage"
 
 /area/djstation
 	name = "\improper Listening Post"
