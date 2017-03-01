@@ -260,7 +260,7 @@
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/medic(user), slot_wear_suit)
 					user.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(user), slot_glasses)
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/ert/medical(user), slot_back)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/weapon/defibrillator/compact/combat(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/fire(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/bodybag/cryobag(user.back), slot_in_backpack)

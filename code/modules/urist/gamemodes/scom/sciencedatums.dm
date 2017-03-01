@@ -89,6 +89,12 @@
 	category = "Medic"
 	resources = 100
 
+/datum/scomscience/recipe/combatdefib
+	name = "combat defibrillator"
+	path = /obj/item/weapon/defibrillator/compact/combat
+	category = "Medic"
+	resources = 400
+
 //general
 
 /datum/scomscience/recipe/pistol

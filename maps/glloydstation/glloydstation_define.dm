@@ -29,6 +29,7 @@
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 
 	evac_controller_type = /datum/evacuation_controller/shuttle
+	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
 /datum/map/glloydstation/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
