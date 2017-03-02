@@ -451,14 +451,6 @@
 	name = "\improper Central Primary Hallway"
 	icon_state = "hallC1"
 
-/area/hallway/primary/central_two
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC2"
-
-/area/hallway/primary/central_three
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC3"
-
 /area/hallway/secondary/exit
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
@@ -693,11 +685,6 @@
 /area/quartermaster/miningdock
 	name = "\improper Cargo Mining Dock"
 	icon_state = "mining"
-
-/area/hydroponics/garden
-	name = "\improper Garden"
-	icon_state = "garden"
-
 
 // Research
 /area/rnd/docking
@@ -1026,34 +1013,6 @@ area/rnd/test_area
 	name = "\improper AI Satellite EVA Entrance"
 	icon_state = "ai"
 
-/area/turret_protected/AIsatextFP
-	name = "\improper AI Sat Ext"
-	icon_state = "storage"
-	luminosity = 1
-	lighting_use_dynamic = 0
-
-/area/turret_protected/AIsatextFS
-	name = "\improper AI Sat Ext"
-	icon_state = "storage"
-	luminosity = 1
-	lighting_use_dynamic = 0
-
-/area/turret_protected/AIsatextAS
-	name = "\improper AI Sat Ext"
-	icon_state = "storage"
-	luminosity = 1
-	lighting_use_dynamic = 0
-
-/area/turret_protected/AIsatextAP
-	name = "\improper AI Sat Ext"
-	icon_state = "storage"
-	luminosity = 1
-	lighting_use_dynamic = 0
-
-/area/turret_protected/NewAIMain
-	name = "\improper AI Main New"
-	icon_state = "storage"
-
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
@@ -1074,10 +1033,6 @@ area/rnd/test_area
 /area/djstation
 	name = "\improper Listening Post"
 	icon_state = "LP"
-
-/area/djstation/solars
-	name = "\improper Listening Post Solars"
-	icon_state = "LPS"
 
 //DERELICT
 
