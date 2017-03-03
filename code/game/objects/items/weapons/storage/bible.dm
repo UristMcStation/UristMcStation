@@ -4,8 +4,8 @@
 	icon_state ="bible"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3
-	max_w_class = 2
+	w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_SMALL
 	max_storage_space = 4
 	var/mob/affecting = null
 	var/deity_name = "Christ"
@@ -39,10 +39,9 @@
 		chaplain = 1
 
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
+	admin_attack_log(src, M, "Used the [src.name] to attack [M.name] ([M.ckey])", "Has been attacked with [src.name] by [user.name] ([user.ckey])", "bible attack")
 
-	log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
+	//log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
 	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
 		user << "<span class='warning'> You don't have the dexterity to do this!</span>"
@@ -97,7 +96,7 @@
 	if(!proximity) return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent("water")) //blesses all the water in the holder
-			user << "<span class='notice'>You bless [A].</span>"
+			to_chat(user, "<span class='notice'>You bless \the [A].</span>") // I wish it was this easy in nethack
 			var/water2holy = A.reagents.get_reagent_amount("water")
 			A.reagents.del_reagent("water")
 			A.reagents.add_reagent("holywater",water2holy)
@@ -105,4 +104,4 @@
 /obj/item/weapon/storage/bible/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
+	return ..()

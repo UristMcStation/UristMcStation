@@ -6,7 +6,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //Welder machete, icons by ShoesandHats, object by Cozarctan
 
 /obj/item/weapon/material/sword/machete
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "machete"
 	desc = "a large blade beloved by sugar farmers and mass murderers"
 	icon = 'icons/urist/items/uristweapons.dmi'

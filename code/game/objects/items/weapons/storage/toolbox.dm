@@ -9,8 +9,8 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEM_SIZE_LARGE
+	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
@@ -24,10 +24,8 @@
 	..()
 	new /obj/item/weapon/crowbar/red(src)
 	new /obj/item/weapon/extinguisher/mini(src)
-	if(prob(50))
-		new /obj/item/device/flashlight(src)
-	else
-		new /obj/item/device/flashlight/flare(src)
+	var/item = pick(list(/obj/item/device/flashlight, /obj/item/device/flashlight/flare,  /obj/item/device/flashlight/glowstick/red))
+	new item(src)
 	new /obj/item/device/radio(src)
 
 /obj/item/weapon/storage/toolbox/mechanical

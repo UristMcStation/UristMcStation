@@ -23,6 +23,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else if(istype(A, /obj/item/weapon/flame))
 		var/obj/item/weapon/flame/F = A
 		return (F.lit)
+	else if(istype(A, /obj/item/clothing/mask/smokable) && !istype(A, /obj/item/clothing/mask/smokable/pipe))
+		var/obj/item/clothing/mask/smokable/S = A
+		return (S.lit)
 	else if(istype(A, /obj/item/device/assembly/igniter))
 		return 1
 	return 0
@@ -37,7 +40,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "match_unlit"
 	var/burnt = 0
 	var/smoketime = 5
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
@@ -85,7 +88,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on
-	var/icon_off
 	var/type_butt = null
 	var/chem_volume = 0
 	var/smoketime = 0
@@ -94,6 +96,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/zippomes = "USER lights NAME with FLAME"
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
+	var/brand
 
 /obj/item/clothing/mask/smokable/New()
 	..()
@@ -116,6 +119,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		else // else just remove some of the reagents
 			reagents.remove_any(REM)
 
+/obj/item/clothing/mask/smokable/update_icon()
+	if(lit && icon_on)
+		icon_state = icon_on
+		item_state = icon_on
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_wear_mask(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
+
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
 		src.lit = 1
@@ -134,13 +150,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return
 		flags &= ~NOREACT // allowing reagents to react after being lit
 		reagents.handle_reactions()
-		icon_state = icon_on
-		item_state = icon_on
-		if(ismob(loc))
-			var/mob/living/M = loc
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+		update_icon()
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
 		set_light(2, 0.25, "#E38F46")
@@ -149,32 +159,27 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
 	var/turf/T = get_turf(src)
 	set_light(0)
+	processing_objects.Remove(src)
 	if (type_butt)
 		var/obj/item/butt = new type_butt(T)
 		transfer_fingerprints_to(butt)
+		butt.color = color
+		if(brand)
+			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
-				M << "<span class='notice'>Your [name] goes out.</span>"
+				to_chat(M, "<span class='notice'>Your [name] goes out.</span>")
 			M.remove_from_mob(src) //un-equip it so the overlays can update
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
-		processing_objects.Remove(src)
 		qdel(src)
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
-				M << "<span class='notice'>Your [name] goes out, and you empty the ash.</span>"
+				to_chat(M, "<span class='notice'>Your [name] goes out, and you empty the ash.</span>")
 			lit = 0
-			icon_state = icon_off
-			item_state = icon_off
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
-		processing_objects.Remove(src)
+		update_icon()
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -209,11 +214,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
-	icon_off = "cigoff"
 	type_butt = /obj/item/weapon/cigbutt
 	chem_volume = 5
 	smoketime = 300
@@ -222,19 +225,66 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	zippomes = "<span class='rose'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
+	brand = "\improper Trans-Stellar Duty-free"
 
 /obj/item/clothing/mask/smokable/cigarette/New()
 	..()
 	reagents.add_reagent("nicotine", 1)
 
+/obj/item/clothing/mask/smokable/update_icon()
+	..()
+	overlays.Cut()
+	if(lit)
+		overlays += overlay_image(icon, "cigon", flags=RESET_COLOR)
+
 /obj/item/clothing/mask/smokable/cigarette/menthol
 	name = "menthol cigarette"
 	desc = "A cigarette with a little minty kick. Well, minty in theory."
+	icon_state = "cigmentol"
+	brand = "\improper Temperamento Menthol"
+	color = "#ddffe8"
+	type_butt = /obj/item/weapon/cigbutt/menthol
+
+/obj/item/weapon/cigbutt/menthol
+	icon_state = "cigbuttmentol"
 
 /obj/item/clothing/mask/smokable/cigarette/menthol/New()
 	..()
 	reagents.add_reagent("nicotine", 1)
 	reagents.add_reagent("menthol", 1)
+
+/obj/item/clothing/mask/smokable/cigarette/luckystars
+	brand = "\improper Lucky Star"
+
+/obj/item/clothing/mask/smokable/cigarette/jerichos
+	name = "rugged cigarette"
+	brand = "\improper Jericho"
+	icon_state = "cigjer"
+	color = "#dcdcdc"
+	type_butt = /obj/item/weapon/cigbutt/jerichos
+
+/obj/item/weapon/cigbutt/jerichos
+	icon_state = "cigbuttjer"
+
+/obj/item/clothing/mask/smokable/cigarette/carcinomas
+	name = "dark cigarette"
+	brand = "\improper Carcinoma Angel"
+	color = "#869286"
+
+/obj/item/clothing/mask/smokable/cigarette/professionals
+	name = "thin cigarette"
+	brand = "\improper Professional"
+	icon_state = "cigpro"
+	type_butt = /obj/item/weapon/cigbutt/professionals
+
+/obj/item/weapon/cigbutt/professionals
+	icon_state = "cigbuttpro"
+
+/obj/item/clothing/mask/smokable/cigarette/killthroat
+	brand = "\improper Acme Co. cigarette"
+
+/obj/item/clothing/mask/smokable/cigarette/dromedaryco
+	brand = "\improper Dromedary Co. cigarette"
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -253,18 +303,28 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(istype(glass)) //you can dip cigarettes into beakers
 		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
 		if(transfered)	//if reagents were transfered, show the message
-			user << "<span class='notice'>You dip \the [src] into \the [glass].</span>"
+			to_chat(user, "<span class='notice'>You dip \the [src] into \the [glass].</span>")
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
-				user << "<span class='notice'>[glass] is empty.</span>"
+				to_chat(user, "<span class='notice'>[glass] is empty.</span>")
 			else
-				user << "<span class='notice'>[src] is full.</span>"
+				to_chat(user, "<span class='notice'>[src] is full.</span>")
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit == 1)
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [src], putting it out instantly.</span>")
 		die(1)
 	return ..()
+
+/obj/item/clothing/mask/smokable/cigarette/get_mob_overlay(mob/user_mob, slot)
+	var/image/res = ..()
+	res.icon_state = item_state
+	if(lit == 1)
+		var/image/ember = overlay_image(res.icon, "cigember", flags=RESET_COLOR)
+		ember.layer = ABOVE_LIGHTING_LAYER
+		ember.plane = LIGHTING_PLANE
+		res.overlays += ember
+	return res
 
 ////////////
 // CIGARS //
@@ -274,7 +334,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A brown roll of tobacco and... well, you're not quite sure. This thing's huge!"
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
-	icon_off = "cigar2off"
 	type_butt = /obj/item/weapon/cigbutt/cigarbutt
 	throw_speed = 0.5
 	item_state = "cigaroff"
@@ -295,14 +354,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "There's little more you could want from a cigar."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
-	icon_off = "cigar2off"
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	name = "premium Havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
-	icon_off = "cigar2off"
 	smoketime = 3000
 	chem_volume = 20
 
@@ -316,7 +373,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 1
 
@@ -344,9 +401,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A pipe, for smoking. Probably made of meershaum or something."
 	icon_state = "pipeoff"
 	item_state = "pipeoff"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	icon_on = "pipeon"  //Note - these are in masks.dmi
-	icon_off = "pipeoff"
 	smoketime = 0
 	chem_volume = 50
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
@@ -378,8 +434,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit == 1)
 		user.visible_message("<span class='notice'>[user] puts out [src].</span>", "<span class='notice'>You put out [src].</span>")
 		lit = 0
-		icon_state = icon_off
-		item_state = icon_off
+		update_icon()
 		processing_objects.Remove(src)
 	else if (smoketime)
 		var/turf/location = get_turf(user)
@@ -398,10 +453,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if (istype(W, /obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = W
 		if (!G.dry)
-			user << "<span class='notice'>[G] must be dried before you stuff it into [src].</span>"
+			to_chat(user, "<span class='notice'>[G] must be dried before you stuff it into [src].</span>")
 			return
 		if (smoketime)
-			user << "<span class='notice'>[src] is already packed.</span>"
+			to_chat(user, "<span class='notice'>[src] is already packed.</span>")
 			return
 		smoketime = 1000
 		if(G.reagents)
@@ -432,7 +487,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cobpipeoff"
 	item_state = "cobpipeoff"
 	icon_on = "cobpipeon"  //Note - these are in masks.dmi
-	icon_off = "cobpipeoff"
 	chem_volume = 35
 
 /////////
@@ -444,7 +498,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	throwforce = 4
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -473,16 +527,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			item_state = "[base_state]on"
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
+				playsound(src.loc, 'sound/items/zippo_open.ogg', 100, 1, -4)
 			else
 				if(prob(95))
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src].</span>")
 				else
-					user << "<span class='warning'>You burn yourself while lighting the lighter.</span>"
+					to_chat(user, "<span class='warning'>You burn yourself while lighting the lighter.</span>")
 					if (user.l_hand == src)
-						user.apply_damage(2,BURN,"l_hand")
+						user.apply_damage(2,BURN,BP_L_HAND)
 					else
-						user.apply_damage(2,BURN,"r_hand")
+						user.apply_damage(2,BURN,BP_R_HAND)
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
+				playsound(src.loc, "light_bic", 100, 1, -4)
 
 			set_light(2)
 			processing_objects.Add(src)
@@ -492,6 +548,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			item_state = "[base_state]"
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing.</span>")
+				playsound(src.loc, 'sound/items/zippo_close.ogg', 100, 1, -4)
 			else
 				user.visible_message("<span class='notice'>[user] quietly shuts off the [src].</span>")
 
@@ -509,7 +566,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		M.IgniteMob()
 
-		if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == "mouth")
+		if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == BP_MOUTH)
 			var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
 			if(M == user)
 				cig.attackby(src, user)

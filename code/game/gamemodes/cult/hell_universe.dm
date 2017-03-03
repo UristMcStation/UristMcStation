@@ -19,7 +19,7 @@ In short:
 	return 1
 	/*
 	if(user)
-		user << "<span class='sinister'>All you hear on the frequency is static and panicked screaming. There will be no shuttle call today.</span>"
+		to_chat(user, "<span class='sinister'>All you hear on the frequency is static and panicked screaming. There will be no shuttle call today.</span>")
 	return 0
 	*/
 
@@ -44,8 +44,6 @@ In short:
 	set background = 1
 	garbage_collector.garbage_collect = 0
 
-	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
-
 	//Separated into separate procs for profiling
 	AreaSet()
 	MiscSet()
@@ -53,11 +51,9 @@ In short:
 	KillMobs()
 	OverlayAndAmbientSet()
 
-	runedec += 9000	//basically removing the rune cap
-
 
 /datum/universal_state/hell/proc/AreaSet()
-	for(var/area/A in all_areas)
+	for(var/area/A)
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
@@ -92,4 +88,4 @@ In short:
 /datum/universal_state/hell/proc/KillMobs()
 	for(var/mob/living/simple_animal/M in mob_list)
 		if(M && !M.client)
-			M.stat = DEAD
+			M.set_stat(DEAD)

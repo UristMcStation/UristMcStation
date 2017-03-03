@@ -20,7 +20,7 @@
 
 // 'basic' language; spoken by default.
 /datum/language/common
-	name = "Galactic Common"
+	name = LANGUAGE_GALCOM
 	desc = "The common galactic tongue."
 	speech_verb = "says"
 	whisper_verb = "whispers"
@@ -62,3 +62,11 @@
 	colour = "rough"
 	key = "3"
 	syllables = list ("gra","ba","ba","breh","bra","rah","dur","ra","ro","gro","go","ber","bar","geh","heh", "gra")
+
+/datum/language/sign
+	name = LANGUAGE_SIGN
+	desc = "A sign language commonly used for those who are deaf or mute."
+	signlang_verb = list("gestures")
+	colour = "say_quote"
+	key = "s"
+	flags = SIGNLANG | NO_STUTTER | NONVERBAL

@@ -59,28 +59,37 @@
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/syndicate/melee/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.force)
+	/*if(O.force)
 		if(prob(80))
 			var/damage = O.force
-			if (O.damtype == HALLOSS)
+			if (O.damtype == PAIN)
 				damage = 0
 			health -= damage
-			visible_message("<span class='danger'> [src] has been attacked with the [O] by [user]. </span>")
+			visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by \the [user].</span>")
 		else
-			visible_message("<span class='danger'> [src] blocks the [O] with its shield! </span>")
+			visible_message("<span class='danger'>\The [src] blocks the [O] with its shield!</span>")
 		//user.do_attack_animation(src)
 	else
-		usr << "\red This weapon is ineffective, it does no damage."
-		visible_message("\red [user] gently taps [src] with the [O]. ")
+		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
+		visible_message("<span class='warning'>\The [user] gently taps \the [src] with \the [O].</span>")*/
+
+	if(prob(20))
+		visible_message("<span class='danger'>\The [src] blocks the [O] with its shield!</span>")
+	else
+		. = ..(O, user)
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj)	return
+	/*if(!Proj)	return
 	if(prob(65))
 		src.health -= Proj.damage
 	else
-		visible_message("\red <B>[src] blocks [Proj] with its shield!</B>")
-	return 0
+		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
+	return 0*/
+	if(prob(35))
+		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
+	else
+		. = ..(Proj)
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space

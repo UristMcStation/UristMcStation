@@ -15,7 +15,7 @@
 	var/id6 = null
 	var/id7 = null
 
-/*	circuit = /obj/item/weapon/circuitboard/merch
+/*	circuit = "/obj/item/weapon/circuitboard/merch"
 
 /obj/item/weapon/circuitboard/trigger/blast
 	name = "\improper Blast Door Computer Circuitboard"
@@ -36,7 +36,7 @@
 					M.close()
 					return
 
-//	circuit = /obj/item/weapon/circuitboard
+//	circuit = "/obj/item/weapon/circuitboard"
 
 /*	var/dat = {"
 <html>

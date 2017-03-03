@@ -5,12 +5,11 @@
 
 /obj/item/organ/external/stump/New(var/mob/living/carbon/holder, var/internal, var/obj/item/organ/external/limb)
 	if(istype(limb))
-		limb_name = limb.limb_name
+		organ_tag = limb.organ_tag
 		body_part = limb.body_part
 		amputation_point = limb.amputation_point
 		joint = limb.joint
 		parent_organ = limb.parent_organ
-		wounds = limb.wounds
 	..(holder, internal)
 	if(istype(limb))
 		max_damage = limb.max_damage

@@ -5,7 +5,7 @@ var/datum/antagonist/mutineer/mutineers
 	role_text = "Mutineer"
 	role_text_plural = "Mutineers"
 	id = MODE_MUTINEER
-	antag_indicator = "mutineer"
+	antag_indicator = "hudmutineer"
 	restricted_jobs = list("Captain")
 
 /datum/antagonist/mutineer/New(var/no_reference)
@@ -15,7 +15,7 @@ var/datum/antagonist/mutineer/mutineers
 
 /datum/antagonist/mutineer/proc/recruit()
 
-/datum/antagonist/mutineer/can_become_antag(var/datum/mind/player)
+/datum/antagonist/mutineer/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(!..())
 		return 0
 	if(!istype(player.current, /mob/living/carbon/human))
@@ -27,7 +27,8 @@ var/datum/antagonist/mutineer/mutineers
 /*
 	var/list/directive_candidates = get_directive_candidates()
 	if(!directive_candidates || directive_candidates.len == 0)
-		world << "<span class='warning'>Mutiny mode aborted: no valid candidates for Directive X.</span>"
+		to_world("<span class='warning'>Mutiny mode aborted: no valid candidates for Directive X.</span>")
+
 		return 0
 
 	head_loyalist = pick(loyalist_candidates)

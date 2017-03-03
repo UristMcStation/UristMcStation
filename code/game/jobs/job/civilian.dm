@@ -1,8 +1,8 @@
 //Food
 /datum/job/bartender
 	title = "Bartender"
-	department = "Civilian"
-	department_flag = CIV
+	department = "Service"
+	department_flag = SRV
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -14,8 +14,8 @@
 
 /datum/job/chef
 	title = "Chef"
-	department = "Civilian"
-	department_flag = CIV
+	department = "Service"
+	department_flag = SRV
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -28,8 +28,8 @@
 
 /datum/job/hydro
 	title = "Gardener"
-	department = "Civilian"
-	department_flag = CIV
+	department = "Service"
+	department_flag = SRV
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
@@ -43,8 +43,8 @@
 //Cargo
 /datum/job/qm
 	title = "Quartermaster"
-	department = "Cargo"
-	department_flag = CIV|CRG
+	department = "Supply"
+	department_flag = SUP
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -59,8 +59,8 @@
 
 /datum/job/cargo_tech
 	title = "Cargo Technician"
-	department = "Cargo"
-	department_flag = CIV|CRG
+	department = "Supply"
+	department_flag = SUP
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -72,8 +72,8 @@
 
 /datum/job/mining
 	title = "Shaft Miner"
-	department = "Cargo"
-	department_flag = CIV
+	department = "Supply"
+	department_flag = SUP
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
@@ -87,8 +87,8 @@
 
 /datum/job/janitor
 	title = "Janitor"
-	department = "Civilian"
-	department_flag = CIV
+	department = "Service"
+	department_flag = SRV
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -96,6 +96,7 @@
 	selection_color = "#515151"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+	alt_titles = list("Custodian","Sanitation Technician")
 	outfit_type = /decl/hierarchy/outfit/job/service/janitor
 
 //More or less assistants
@@ -115,8 +116,8 @@
 
 /datum/job/lawyer
 	title = "Internal Affairs Agent"
-	department = "Civilian"
-	department_flag = CIV
+	department = "Support"
+	department_flag = SPT
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2

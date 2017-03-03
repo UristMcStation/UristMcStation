@@ -3,7 +3,7 @@
 //begin /tg/ weapons
 
 /*/obj/item/weapon/wirerod
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon = 'icons/urist/items/improvised.dmi'
@@ -68,7 +68,7 @@
 
 //spears
 /obj/item/weapon/material/twohanded/spear
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "spearglass0"
 	name = "spear"
@@ -110,7 +110,7 @@
 //quarterstaff
 
 /obj/item/weapon/material/twohanded/quarterstaff
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/improvised.dmi'
 	item_state = "qstaff0"
 	icon_state = "qstaff0"
@@ -125,7 +125,7 @@
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
 
 /obj/item/weapon/material/twohanded/quarterstaff/update_icon()
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "qstaff[wielded]"
 	item_state = "qstaff[wielded]"
@@ -170,7 +170,7 @@
 //scrapper
 
 /obj/item/weapon/shield/riot/scrapper
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "scrapper shield"
 	desc = "A large rectangular shield made out of hastily assembled chuncks of plasteel."
 	icon = 'icons/urist/items/improvised.dmi'
@@ -189,7 +189,7 @@
 	sharp = 1
 	edge = 0
 	w_class = 3
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/weapon/baseballbat/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -222,7 +222,7 @@
 	sharp = 1
 	edge = 1
 	w_class = 2
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	var/parentassembly = /obj/item/weapon/improvised/scissorsassembly
 
 	/*suicide_act(mob/user)
@@ -330,7 +330,7 @@
 	return
 
 /obj/item/weapon/material/twohanded/woodquarterstaff
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/improvised.dmi'
 	item_state = "woodqstaff0"
 	icon_state = "qstaff0"

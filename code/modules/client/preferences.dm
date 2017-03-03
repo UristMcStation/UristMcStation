@@ -1,4 +1,4 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+#define SAVE_RESET -1
 
 var/list/preferences_datums = list()
 
@@ -57,6 +57,8 @@ datum/preferences
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
 
+	var/char_branch	= "None"            // military branch
+	var/char_rank = "None"              // military rank
 		//Mob preview
 	var/icon/preview_icon = null
 
@@ -67,10 +69,9 @@ datum/preferences
 	var/list/job_low    = list() //List of all the things selected for low weight
 
 	//Keeps track of preferrence for not getting any wanted jobs
-	var/alternate_option = 0
+	var/alternate_option = 2
 
 	var/used_skillpoints = 0
-	var/skill_specialization = null
 	var/list/skills = list() // skills can range from 0 to 3
 
 	// maps each organ to either null(intact), "cyborg" or "amputated"
@@ -103,6 +104,10 @@ datum/preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 	var/datum/browser/panel
+
+	var/list/relations
+	var/list/relations_info
+
 
 /datum/preferences/New(client/C)
 	player_setup = new(src)
@@ -182,7 +187,7 @@ datum/preferences
 	if(!user || !user.client)	return
 
 	if(!get_mob_by_key(client_ckey))
-		user << "<span class='danger'>No mob exists for the given client!</span>"
+		to_chat(user, "<span class='danger'>No mob exists for the given client!</span>")
 		close_load_dialog(user)
 		return
 
@@ -192,6 +197,7 @@ datum/preferences
 		dat += "Slot - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
+		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
 
 	else
@@ -216,7 +222,7 @@ datum/preferences
 		if(config.forumurl)
 			user << link(config.forumurl)
 		else
-			user << "<span class='danger'>The forum URL is not set in the server configuration.</span>"
+			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
 	ShowChoices(usr)
 	return 1
@@ -240,6 +246,11 @@ datum/preferences
 		load_character(text2num(href_list["changeslot"]))
 		sanitize_preferences()
 		close_load_dialog(usr)
+	else if(href_list["resetslot"])
+		if("No" == alert("This will reset the current slot. Continue?", "Reset current slot?", "No", "Yes"))
+			return 0
+		load_character(SAVE_RESET)
+		sanitize_preferences()
 	else
 		return 0
 
@@ -290,27 +301,46 @@ datum/preferences
 	character.h_style = h_style
 	character.f_style = f_style
 
-	// Destroy/cyborgize organs
-	for(var/name in organ_data)
+	// Replace any missing limbs.
+	for(var/name in BP_ALL_LIMBS)
+		var/obj/item/organ/external/O = character.organs_by_name[name]
+		if(!O && organ_data[name] != "amputated")
+			var/list/organ_data = character.species.has_limbs[name]
+			if(!islist(organ_data)) continue
+			var/limb_path = organ_data["path"]
+			O = new limb_path(character)
 
+	// Destroy/cyborgize organs and limbs. The order is important for preserving low-level choices for robolimb sprites being overridden.
+	for(var/name in BP_BY_DEPTH)
 		var/status = organ_data[name]
 		var/obj/item/organ/external/O = character.organs_by_name[name]
-		if(O)
-			O.status = 0
-			if(status == "amputated")
-				character.organs_by_name[O.limb_name] = null
-				character.organs -= O
-				if(O.children) // This might need to become recursive.
-					for(var/obj/item/organ/external/child in O.children)
-						character.organs_by_name[child.limb_name] = null
-						character.organs -= child
+		if(!O)
+			continue
+		O.status = 0
+		O.robotic = 0
+		O.model = null
+		if(status == "amputated")
+			character.organs_by_name[O.organ_tag] = null
+			character.organs -= O
+			if(O.children) // This might need to become recursive.
+				for(var/obj/item/organ/external/child in O.children)
+					character.organs_by_name[child.organ_tag] = null
+					character.organs -= child
+		else if(status == "cyborg")
+			if(rlimb_data[name])
+				O.robotize(rlimb_data[name])
+			else
+				O.robotize()
+		else //normal organ
+			O.force_icon = null
+			O.name = initial(O.name)
+			O.desc = initial(O.desc)
 
-			else if(status == "cyborg")
-				if(rlimb_data[name])
-					O.robotize(rlimb_data[name])
-				else
-					O.robotize()
-		else if(!O && !is_preview_copy)
+	if(!is_preview_copy)
+		for(var/name in list(BP_HEART,BP_EYES,BP_BRAIN))
+			var/status = organ_data[name]
+			if(!status)
+				continue
 			var/obj/item/organ/I = character.internal_organs_by_name[name]
 			if(I)
 				if(status == "assisted")
@@ -320,7 +350,6 @@ datum/preferences
 
 	character.all_underwear.Cut()
 	character.all_underwear_metadata.Cut()
-
 	for(var/underwear_category_name in all_underwear)
 		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
 		if(underwear_category)
@@ -330,8 +359,7 @@ datum/preferences
 				character.all_underwear_metadata[underwear_category_name] = all_underwear_metadata[underwear_category_name]
 		else
 			all_underwear -= underwear_category_name
-
-	if(backbag > 4 || backbag < 1)
+	if(backbag > 5 || backbag < 1)
 		backbag = 1 //Same as above
 	character.backbag = backbag
 
@@ -341,6 +369,9 @@ datum/preferences
 	character.update_underwear(0)
 	character.update_hair(0)
 	character.update_icons()
+
+	character.char_branch = mil_branches.get_branch(char_branch)
+	character.char_rank = mil_branches.get_rank(char_branch, char_rank)
 
 	if(is_preview_copy)
 		return
@@ -378,7 +409,7 @@ datum/preferences
 		dat += "<b>Select a character slot to load</b><hr>"
 		var/name
 		for(var/i=1, i<= config.character_slots, i++)
-			S.cd = "/character[i]"
+			S.cd = using_map.character_load_path(S, i)
 			S["real_name"] >> name
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)

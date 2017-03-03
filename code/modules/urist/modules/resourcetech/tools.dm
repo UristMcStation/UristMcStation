@@ -1,7 +1,7 @@
 //tools for carpentry. Hand tools.
 
 /obj/item/weapon/carpentry
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/tools.dmi'
 
 /obj/item/weapon/carpentry/saw

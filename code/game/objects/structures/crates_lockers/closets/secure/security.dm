@@ -35,7 +35,6 @@
 		return
 
 
-
 /obj/structure/closet/secure_closet/hop
 	name = "head of personnel's locker"
 	req_access = list(access_hop)
@@ -87,7 +86,6 @@
 		return
 
 
-
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
 	req_access = list(access_hos)
@@ -105,6 +103,7 @@
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/head/HoS(src)
+		new /obj/item/clothing/head/helmet/nt(src)
 		new /obj/item/clothing/suit/armor/vest/nt(src)
 		new /obj/item/clothing/suit/storage/vest/nt/hos(src)
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
@@ -125,8 +124,8 @@
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/head/beret/sec/corporate/hos(src)
+		new /obj/item/device/holowarrant(src)
 		return
-
 
 
 /obj/structure/closet/secure_closet/warden
@@ -148,6 +147,7 @@
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		if(prob(50))
 			new /obj/item/weapon/storage/backpack/dufflebag/sec(src)
+		new /obj/item/clothing/head/helmet/nt(src)
 		new /obj/item/clothing/suit/armor/vest/nt(src)
 		new /obj/item/clothing/suit/storage/vest/nt/warden(src)
 		new /obj/item/clothing/under/rank/warden(src)
@@ -166,8 +166,8 @@
 		new /obj/item/weapon/gun/energy/gun(src)
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/corporate/warden(src)
+		new /obj/item/device/holowarrant
 		return
-
 
 
 /obj/structure/closet/secure_closet/security
@@ -204,6 +204,7 @@
 		new /obj/item/clothing/head/soft/sec/corp(src)
 		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/weapon/gun/energy/taser(src)
+		new /obj/item/device/holowarrant(src)
 		return
 
 
@@ -237,8 +238,6 @@
 		..()
 		new /obj/item/clothing/accessory/armband/medgreen(src)
 		new /obj/item/device/encryptionkey/headset_med(src)
-		return
-
 
 /obj/structure/closet/secure_closet/detective
 	name = "detective's cabinet"
@@ -272,6 +271,7 @@
 		new /obj/item/clothing/accessory/holster/armpit(src)
 		new /obj/item/weapon/reagent_containers/food/drinks/flask/detflask(src)
 		new /obj/item/weapon/storage/briefcase/crimekit(src)
+		new /obj/item/device/holowarrant(src)
 
 /obj/structure/closet/secure_closet/detective/update_icon()
 	if(broken)
@@ -284,6 +284,7 @@
 				icon_state = icon_closed
 		else
 			icon_state = icon_opened
+
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

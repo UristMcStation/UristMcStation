@@ -35,11 +35,16 @@
 	icon_state = "medgreen"
 
 /obj/item/clothing/accessory/armband/medblue
-	name = "corpsman armband"
+	name = "medical corps armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and blue."
-	icon_state = "medgreen"
+	icon_state = "medblueband"
 
 /obj/item/clothing/accessory/armband/bluegold
 	name = "peacekeeper armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is blue and gold."
 	icon_state = "solblue"
+
+/obj/item/clothing/accessory/armband/whitered
+	name = "\improper NanoTrasen armband"
+	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and red."
+	icon_state = "whitered"

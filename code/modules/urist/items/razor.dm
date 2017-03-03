@@ -63,7 +63,7 @@
 	return 1
 
 /obj/item/weapon/razor
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/urist/items/tgitems.dmi'

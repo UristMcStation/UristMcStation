@@ -5,25 +5,29 @@
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 
 // Invisibility constants.
-#define INVISIBILITY_LIGHTING             20
-#define INVISIBILITY_LEVEL_ONE            35
-#define INVISIBILITY_LEVEL_TWO            45
-#define INVISIBILITY_OBSERVER             60
-#define INVISIBILITY_EYE		          61
+#define INVISIBILITY_LIGHTING    20
+#define INVISIBILITY_LEVEL_ONE   35
+#define INVISIBILITY_LEVEL_TWO   45
+#define INVISIBILITY_OBSERVER    60
+#define INVISIBILITY_EYE         61
+#define INVISIBILITY_SYSTEM      99
 
-#define SEE_INVISIBLE_LIVING              25
+#define SEE_INVISIBLE_LIVING     25
 #define SEE_INVISIBLE_NOLIGHTING 15
-#define SEE_INVISIBLE_LEVEL_ONE           35
-#define SEE_INVISIBLE_LEVEL_TWO           45
-#define SEE_INVISIBLE_CULT		          60
-#define SEE_INVISIBLE_OBSERVER            61
+#define SEE_INVISIBLE_LEVEL_ONE  INVISIBILITY_LEVEL_ONE
+#define SEE_INVISIBLE_LEVEL_TWO  INVISIBILITY_LEVEL_TWO
+#define SEE_INVISIBLE_CULT       INVISIBILITY_OBSERVER
+#define SEE_INVISIBLE_OBSERVER   INVISIBILITY_EYE
+#define SEE_INVISIBLE_SYSTEM     INVISIBILITY_SYSTEM
+
+#define SEE_IN_DARK_DEFAULT 2
 
 #define SEE_INVISIBLE_MINIMUM 5
 #define INVISIBILITY_MAXIMUM 100
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-#define MAX_GEAR_COST 8 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -36,14 +40,6 @@
 #define SPECIALROLE_HUD 8 // AntagHUD image.
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
-
-//	Shuttles.
-
-// These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
-#define SHUTTLE_PREPTIME                300 // 5 minutes = 300 seconds - after this time, the shuttle departs centcom and cannot be recalled.
-#define SHUTTLE_LEAVETIME               180 // 3 minutes = 180 seconds - the duration for which the shuttle will wait at the station after arriving.
-#define SHUTTLE_TRANSIT_DURATION        300 // 5 minutes = 300 seconds - how long it takes for the shuttle to get to the station.
-#define SHUTTLE_TRANSIT_DURATION_RETURN 120 // 2 minutes = 120 seconds - for some reason it takes less time to come back, go figure.
 
 // Shuttle moving status.
 #define SHUTTLE_IDLE      0
@@ -75,16 +71,8 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED 1 //shielded from radiation, clearly
-
-// Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
-#define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
-#define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
-#define LIGHTING_LAYER 11
-#define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
-#define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
-#define SCREEN_LAYER 22			//Mob HUD/effects layer
-#define CINEMA_LAYER 23			//Cinematic, fullscreen effects
+#define AREA_RAD_SHIELDED 1 // shielded from radiation, clearly
+#define AREA_EXTERNAL     2
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -127,15 +115,17 @@
 #define NTNET_SYSTEMCONTROL 4		// Control of various systems, RCon, air alarm control, etc.
 
 // NTNet transfer speeds, used when downloading/uploading a file/program.
-#define NTNETSPEED_LOWSIGNAL 0.1	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
+#define NTNETSPEED_LOWSIGNAL 0.25	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
 #define NTNETSPEED_HIGHSIGNAL 0.5	// GQ/s transfer speed when the device is wirelessly connected and on High signal
 #define NTNETSPEED_ETHERNET 1		// GQ/s transfer speed when the device is using wired connection
+#define NTNETSPEED_DOS_AMPLIFICATION 5	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
 // Program bitflags
-#define PROGRAM_ALL 7
+#define PROGRAM_ALL 15
 #define PROGRAM_CONSOLE 1
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
+#define PROGRAM_TELESCREEN 8
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
@@ -190,3 +180,16 @@
 //Grid for Item Placement
 #define CELLS 8								//Amount of cells per row/column in grid
 #define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
+
+#define WORLD_ICON_SIZE 32
+#define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
+
+//MultiZ directions for ZAS checks.
+#define NORTHUP (NORTH|UP)
+#define EASTUP (EAST|UP)
+#define SOUTHUP (SOUTH|UP)
+#define WESTUP (WEST|UP)
+#define NORTHDOWN (NORTH|DOWN)
+#define EASTDOWN (EAST|DOWN)
+#define SOUTHDOWN (SOUTH|DOWN)
+#define WESTDOWN (WEST|DOWN)

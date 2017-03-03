@@ -24,8 +24,8 @@ var/datum/antagonist/actor/actor
 	if(!..())
 		return
 
-	player.current.show_message("You work for [company_name], tasked with the production and broadcasting of entertainment to all of its assets.")
-	player.current.show_message("Entertain the crew! Try not to disrupt them from their work too much and remind them how great [company_name] is!")
+	player.current.show_message("You work for [using_map.company_name], tasked with the production and broadcasting of entertainment to all of its assets.")
+	player.current.show_message("Entertain the crew! Try not to disrupt them from their work too much and remind them how great [using_map.company_name] is!")
 
 /datum/antagonist/actor/equip(var/mob/living/carbon/human/player)
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/chameleon(src), slot_w_uniform)
@@ -52,9 +52,9 @@ var/datum/antagonist/actor/actor
 
 	if(isghostmind(usr.mind) || isnewplayer(usr))
 		if(actor.current_antagonists.len >= actor.hard_cap)
-			usr << "No more actors may spawn at the current time."
+			to_chat(usr, "No more actors may spawn at the current time.")
 			return
 		actor.create_default(usr)
 		return
 
-	usr << "You must be observing or be a new player to spawn as an actor."
+	to_chat(usr, "You must be observing or be a new player to spawn as an actor.")

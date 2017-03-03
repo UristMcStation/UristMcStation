@@ -27,6 +27,8 @@
 	var/totalFlavor = 0
 	for(var/taste in data)
 		totalFlavor += data[taste]
+	if(!totalFlavor)
+		return
 	for(var/taste in data)
 		if(data[taste]/totalFlavor < 0.1)
 			data -= taste
@@ -304,20 +306,20 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA || alien == IS_MACHINE)
+	if(alien == IS_DIONA)
 		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & (NO_PAIN)))
+		if(!H.can_feel_pain())
 			return
 	if(dose < agony_dose)
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
-			M << discomfort_message
+			to_chat(M, discomfort_message)
 	else
-		M.apply_effect(agony_amount, AGONY, 0)
+		M.apply_effect(agony_amount, PAIN, 0)
 		if(prob(5))
 			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
-			M << "<span class='danger'>You feel like your insides are burning!</span>"
+			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
@@ -343,11 +345,16 @@
 	var/obj/item/eye_protection = null
 	var/obj/item/face_protection = null
 
+	var/effective_strength = 5
+
+	if(alien == IS_SKRELL)	//Larger eyes means bigger targets.
+		effective_strength = 8
+
 	var/list/protection
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
-		if(H.species && (H.species.flags & NO_PAIN))
+		if(!H.can_feel_pain())
 			no_pain = 1 //TODO: living-level can_feel_pain() proc
 	else
 		protection = list(M.wear_mask)
@@ -368,11 +375,11 @@
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
-			M.eye_blurry = max(M.eye_blurry, 15)
-			M.eye_blind = max(M.eye_blind, 5)
+			M.eye_blurry = max(M.eye_blurry, effective_strength * 3)
+			M.eye_blind = max(M.eye_blind, effective_strength)
 		else
-			M.eye_blurry = max(M.eye_blurry, 25)
-			M.eye_blind = max(M.eye_blind, 10)
+			M.eye_blurry = max(M.eye_blurry, effective_strength * 5)
+			M.eye_blind = max(M.eye_blind, effective_strength * 2)
 
 	if(mouth_covered)
 		if(!message)
@@ -387,12 +394,12 @@
 /datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species && (H.species.flags & NO_PAIN))
+		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		M << "<span class='danger'>You feel like your insides are burning!</span>"
+		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
-		M.apply_effect(4, AGONY, 0)
+		M.apply_effect(4, PAIN, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -1864,7 +1871,7 @@
 		M.adjustToxLoss(2 * removed)
 	if(dose > 60 && ishuman(M) && prob(5))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/heart/L = H.internal_organs_by_name["heart"]
+		var/obj/item/organ/internal/heart/L = H.internal_organs_by_name[BP_HEART]
 		if (L && istype(L))
 			if(dose < 120)
 				L.take_damage(10 * removed, 0)
@@ -1905,6 +1912,17 @@
 
 	glass_name = "Screwdriver"
 	glass_desc = "A simple, yet superb mixture of Vodka and orange juice. Just the thing for the tired engineer."
+
+/datum/reagent/ethanol/ships_surgeon
+	name = "Ship's Surgeon"
+	id = "shipssurgeon"
+	description = "Rum and Dr. Gibb. Served ice cold, like the scalpel."
+	taste_description = "black comedy"
+	color = "#524D0F"
+	strength = 15
+
+	glass_name = "ship's surgeon"
+	glass_desc = "Rum qualified for surgical practice by Dr. Gibb. Smooth and steady."
 
 /datum/reagent/ethanol/silencer
 	name = "Silencer"

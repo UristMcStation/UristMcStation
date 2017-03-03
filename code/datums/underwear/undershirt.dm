@@ -8,6 +8,11 @@
 	icon_state = "undershirt"
 	has_color = TRUE
 
+/datum/category_item/underwear/undershirt/shirt_long
+	name = "Long Shirt"
+	icon_state = "undershirt_long"
+	has_color = TRUE
+
 /datum/category_item/underwear/undershirt/tank_top
 	name = "Tank top"
 	icon_state = "tanktop"
@@ -41,6 +46,7 @@
 /datum/category_item/underwear/undershirt/shirt_button
 	name = "Shirt, button down"
 	icon_state = "shirt_long_s"
+	has_color = TRUE
 
 /datum/category_item/underwear/undershirt/shirt_expedition
 	name = "Shirt, Expeditionary Corps"
@@ -91,3 +97,73 @@
 /datum/category_item/underwear/undershirt/shirt_blue_striped
 	name = "Shirt, blue stripes"
 	icon_state = "shirt_stripes_s"
+
+/datum/category_item/underwear/undershirt/longjon
+	name = "Long John Shirt"
+	icon_state = "ljont"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/longstripe_black
+	name = "Longsleeve Striped Shirt, Black"
+	icon_state = "longstripe"
+
+/datum/category_item/underwear/undershirt/longstripe_blue
+	name = "Longsleeve Striped Shirt, Blue"
+	icon_state = "longstripe_blue"
+
+/datum/category_item/underwear/undershirt/blouse_female
+	name = "Women's Dress Shirt"
+	icon_state = "blouse_female_s"
+
+/datum/category_item/underwear/undershirt/undershirt_female
+	name = "Undershirt, Female"
+	icon_state = "undershirt_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/tanktop_female
+	name = "Tanktop, Female"
+	icon_state = "tanktop_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/shortsleeve_female
+	name = "Shortsleeve Shirt, Female"
+	icon_state = "shortsleeve_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/shirt_long_female
+	name = "Button Down Shirt, Female"
+	icon_state = "shirt_long_female_s"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/undershirt_long_female
+	name = "Longsleeve Shirt, Female"
+	icon_state = "undershirt_long_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/turtleneck
+	name = "Turtleneck Sweater"
+	icon_state = "turtleneck_s"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/tanktop_alt_female
+	name = "Tanktop alt, Female"
+	icon_state = "tanktop_alt_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/polo_female
+	name = "Polo, Female"
+	icon_state = "polo_female"
+	has_color = TRUE
+
+/datum/category_item/underwear/undershirt/tank_fleet_female
+	name = "Tank top, Fleet, Female"
+	icon_state = "tank_fleet_female_s"
+
+/datum/category_item/underwear/undershirt/marine_female
+	name = "Shirt, Marine Corps, Female"
+	icon_state = "marine_female_s"
+
+/datum/category_item/underwear/undershirt/expedition_female
+	name = "Shirt, Expeditionary Corps, Female"
+	icon_state = "expedition_female_s"
+	

@@ -1,8 +1,7 @@
 //duffelbags
 
 /obj/item/weapon/storage/backpack/duffel
-	urist_only = 1
-	icon_override = 'icons/uristmob/back.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/back.dmi'
 	item_icons = null
 	item_state_slots = null

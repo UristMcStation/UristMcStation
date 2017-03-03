@@ -1,6 +1,10 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
+
+	plane = TURF_PLANE
+	layer = BASE_TURF_LAYER
+
 	var/holy = 0
 
 	// Initial air contents (in moles)
@@ -38,6 +42,9 @@
 	else
 		luminosity = 1
 
+/turf/proc/initialize()
+	return
+
 /turf/proc/update_icon()
 	return
 
@@ -70,6 +77,13 @@
 	else
 		step(user.pulling, get_dir(user.pulling.loc, src))
 	return 1
+
+turf/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/storage))
+		var/obj/item/weapon/storage/S = W
+		if(S.use_to_pickup && S.collection_mode)
+			S.gather_all(src, user)
+	return ..()
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 
@@ -124,6 +138,11 @@ var/const/enterloopsanity = 100
 
 	if(ismob(A))
 		var/mob/M = A
+		var/mob/living/L = A
+		if(istype(L))
+			if(!(L in radiation_repository.irradiated_mobs))
+				if(src in radiation_repository.irradiated_turfs)
+					radiation_repository.irradiated_mobs.Add(L)
 		if(!M.check_solid_ground())
 			inertial_drift(M)
 			//we'll end up checking solid ground again but we still need to check the other things.
@@ -217,7 +236,7 @@ var/const/enterloopsanity = 100
 		clean_blood()
 		remove_cleanables()
 	else
-		user << "<span class='warning'>\The [source] is too dry to wash that.</span>"
+		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/remove_cleanables()
@@ -227,3 +246,8 @@ var/const/enterloopsanity = 100
 
 /turf/proc/update_blood_overlays()
 	return
+
+/turf/proc/remove_decals()
+	if(decals && decals.len)
+		decals.Cut()
+		decals = null

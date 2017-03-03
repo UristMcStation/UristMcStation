@@ -65,7 +65,8 @@
 					S.visible_message("<span class='notice'> [C] crawls free of the processor!</span>")
 					return
 				for(var/i = 1, i <= C, i++)
-					new S.coretype(loc)
+					var/coreType = S.GetCoreType()
+					new coreType(S.loc)
 					feedback_add_details("slime_core_harvested","[replacetext(S.colour," ","_")]")
 				..()
 			input = /mob/living/carbon/slime
