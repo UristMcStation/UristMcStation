@@ -216,7 +216,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "stool"
 
 /*/obj/item/weapon/stool/urist/wood
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "wood stool"
 	icon_state = "woodstool"
 	item_state = "stool"*/

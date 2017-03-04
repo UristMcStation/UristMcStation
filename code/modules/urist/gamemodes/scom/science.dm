@@ -69,3 +69,7 @@
 	R.updateicon()
 	qdel(src)
 	return
+
+/obj/item/organ/internal/xenos
+	scomtechlvl = 2 //worth about as much as lactera rifles
+	scommoney = 75 //each, so more in total

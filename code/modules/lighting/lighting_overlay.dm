@@ -6,6 +6,7 @@
 
 	icon = LIGHTING_ICON
 	icon_state = "light1"
+	plane = LIGHTING_PLANE
 	layer = LIGHTING_LAYER
 	invisibility = INVISIBILITY_LIGHTING
 	color = "#000000"
@@ -78,19 +79,8 @@
 			else  //No light, set the turf's luminosity to 0 to remove it from view()
 				T.luminosity = 0
 	else
-		warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc][loc ? ", " + loc.type : ""]) in update_overlay() and got pooled!")
+		warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc][loc ? ", [loc.type]" : ""]) in update_overlay() and got pooled!")
 		qdel(src)
-
-/atom/movable/lighting_overlay/ResetVars()
-	loc = null
-
-	lum_r = 0
-	lum_g = 0
-	lum_b = 0
-
-	color = "#000000"
-
-	needs_update = 0
 
 /atom/movable/lighting_overlay/Destroy()
 	lighting_update_overlays -= src
@@ -98,8 +88,14 @@
 	var/turf/T = loc
 	if(istype(T))
 		T.lighting_overlay = null
-	
+
 	..()
 
 /atom/movable/lighting_overlay/forceMove()
 	return 0 //should never move
+
+/atom/movable/lighting_overlay/Move()
+	return 0
+
+/atom/movable/lighting_overlay/throw_at()
+	return 0

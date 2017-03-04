@@ -134,74 +134,69 @@
 	name = "security cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has an additional layer of armor."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-seccold"
+	item_state = "rig0-seccold"
 	//item_color = "seccold"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/space/void/security/cold
 	icon_state = "cryo-security"
 	name = "security cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has an additional layer of armor."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 //Engineering
 /obj/item/clothing/head/helmet/space/void/engineering/cold
 	name = "engineering cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-engicold"
+	item_state = "rig0-engicold"
 	//item_color = "engicold"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/space/void/engineering/cold
 	name = "engineering cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has radiation shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-engineering"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 //Atmospherics
 /obj/item/clothing/head/helmet/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low-pressure environment. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-atmocold"
-	item_state = "atmo_cold"
+	item_state = "rig0-atmocold"
 	//item_color = "atmocold"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/space/void/atmos/cold
 	name = "atmospherics cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "cryo-atmos"
 	item_state = "atmo_coldsuit"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 //Mining
 /obj/item/clothing/head/helmet/space/void/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "rig0-minecold"
+	item_state = "rig0-minecold"
 	//item_color = "minecold"
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/space/void/mining/cold
 	icon_state = "cryo-mining"
 	name = "mining cryo hardsuit"
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has reinforced plating."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 
 //pants
 

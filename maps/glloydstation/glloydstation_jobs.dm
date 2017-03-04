@@ -1,7 +1,8 @@
 
 
 /datum/map/glloydstation
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/qm, /datum/job/cargo_tech,
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/hydro,
+						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/janitor, /datum/job/lawyer, /datum/job/librarian, /datum/job/psychiatrist,
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/ai, /datum/job/cyborg,
@@ -151,7 +152,35 @@
 	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
+//Mostly lifted from torch, tested lightly. Don't uncomment until the docking issues with the shuttle is fixed.
+/*
+/datum/job/trader
+	title = "Trader"
+	department = "Civilian"
+	department_flag = CIV
+	faction = "Station"
+	total_positions = 0 //to be opened by admins when desired AT ROUNDSTART ONLY
+	spawn_positions = 2
+	supervisors = "the invisible hand of the market"
+	selection_color = "#515151"
+	ideal_character_age = 30
+	minimal_player_age = 7
+	create_record = 0
+	outfit_type = /decl/hierarchy/outfit/job/trader
 
+	access = list(access_merchant)
+	minimal_access = list(access_merchant)
+
+/decl/hierarchy/outfit/job/trader
+	name = OUTFIT_JOB_NAME("Trader")
+	uniform = /obj/item/clothing/under/terran/trader
+	suit = /obj/item/clothing/suit/terran/trader
+	head = /obj/item/clothing/head/terran/trader
+	l_ear = /obj/item/device/radio/headset
+	shoes = /obj/item/clothing/shoes/black
+	pda_type = /obj/item/device/pda
+	id_type = /obj/item/weapon/card/id/trader
+*/
 //ids for the jobs
 
 /obj/item/weapon/card/id/civilian/clown
@@ -171,3 +200,10 @@
 	desc = "A card issued to the station's blueshield."
 	icon_state = "centcom"
 	job_access_type = /datum/job/blueshield
+/*
+/obj/item/weapon/card/id/trader
+	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
+	icon_state = "trader"
+	job_access_type = /datum/job/trader
+*/
+

@@ -58,7 +58,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					/obj/item/slime_extract/grey,
 					/obj/item/slime_extract/grey)
 	cost = 20
-	containertype = /obj/structure/closet/crate/secure
+	containertype = "/obj/structure/closet/crate/secure"
 	containername = "Xenobiology supplies crate"
 	access = access_rd
 

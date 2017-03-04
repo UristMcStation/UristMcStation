@@ -35,7 +35,7 @@ var/global/list/home_system_choices = list(
 	)
 
 var/global/list/faction_choices = list(
-	"Terran Confederacy",
+	"Sol Central Government",
 	"New Green Cross",
 	"Vey Med",
 	"Einstein Engines",

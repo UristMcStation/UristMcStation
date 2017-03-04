@@ -46,16 +46,23 @@
 /datum/sprite_accessory/hair
 
 	icon = 'icons/mob/Human_face.dmi'	  // default icon for all hairs
+	var/veryshort						//doesn't need to be hidden by BLOCKHEADHAIR hats/helmets
 
 	bald
 		name = "Bald"
 		icon_state = "bald"
 		gender = MALE
 		species_allowed = list("Human","Unathi")
+		veryshort = 1
 
 	short
 		name = "Short Hair"	  // try to capatilize the names please~
 		icon_state = "hair_a" // you do not need to define _s or _l sub-states, game automatically does this for you
+		veryshort = 1
+
+	twintail
+		name = "Twintail"
+		icon_state = "hair_twintail"
 
 	short2
 		name = "Short Hair 2"
@@ -76,9 +83,56 @@
 		icon_state = "resomi_spiky"
 		species_allowed = list("Resomi")
 
+
+	resomi_hedgehog
+		name = "Resomi Hedgehog"
+		icon_state = "resomi_hedge"
+		species_allowed = list("Resomi")
+
+	resomi_long
+		name = "Resomi Unpruned"
+		icon_state = "resomi_long"
+		species_allowed = list("Resomi")
+
+	resomi_sunburst
+		name = "Resomi Sunburst" // kill me
+		icon_state = "resomi_burst_short"
+		species_allowed = list("Resomi")
+
+	resomi_mohawk
+		name = "Resomi Mohawk"
+		icon_state = "resomi_mohawk"
+		species_allowed = list("Resomi")
+
+	resomi_pointy
+		name = "Resomi Pointy"
+		icon_state = "resomi_pointy"
+		species_allowed = list("Resomi")
+
+	resomi_upright
+		name = "Resomi Upright"
+		icon_state = "resomi_upright"
+		species_allowed = list("Resomi")
+
+	resomi_mane
+		name = "Resomi Mane"
+		icon_state = "resomi_mane"
+		species_allowed = list("Resomi")
+
+	resomi_droopy
+		name = "Resomi Droopy"
+		icon_state = "resomi_droopy"
+		species_allowed = list("Resomi")
+
+	resomi_mushroom
+		name = "Resomi Mushroom"
+		icon_state = "resomi_mushroom"
+		species_allowed = list("Resomi")
+
 	cut
 		name = "Cut Hair"
 		icon_state = "hair_c"
+		veryshort = 1
 
 	flair
 		name = "Flaired Hair"
@@ -88,10 +142,6 @@
 		name = "Shoulder-length Hair"
 		icon_state = "hair_b"
 
-	longalt
-		name = "Shoulder-length Hair Alt"
-		icon_state = "hair_longfringe"
-
 	/*longish
 		name = "Longer Hair"
 		icon_state = "hair_b2"*/
@@ -99,10 +149,6 @@
 	longer
 		name = "Long Hair"
 		icon_state = "hair_vlong"
-
-	longeralt
-		name = "Long Hair Alt"
-		icon_state = "hair_vlongfringe"
 
 	longest
 		name = "Very Long Hair"
@@ -147,10 +193,6 @@
 		icon_state = "hair_ponytail5"
 		gender = FEMALE
 
-	fringetail
-		name = "Fringetail"
-		icon_state = "hair_fringetail"
-
 	sideponytail
 		name = "Side Ponytail"
 		icon_state = "hair_stail"
@@ -168,6 +210,7 @@
 	sleeze
 		name = "Sleeze"
 		icon_state = "hair_sleeze"
+		veryshort = 1
 
 	quiff
 		name = "Quiff"
@@ -208,6 +251,12 @@
 		gender = FEMALE
 		species_allowed = list("Human","Unathi")
 
+	bobcutalt
+		name = "Chin Length Bob"
+		icon_state = "hair_bobcutalt"
+		gender = FEMALE
+		species_allowed = list("Human","Unathi")
+
 	bowl
 		name = "Bowl"
 		icon_state = "hair_bowlcut"
@@ -218,11 +267,13 @@
 		icon_state = "hair_buzzcut"
 		gender = MALE
 		species_allowed = list("Human","Unathi")
+		veryshort = 1
 
 	crew
 		name = "Crewcut"
 		icon_state = "hair_crewcut"
 		gender = MALE
+		veryshort = 1
 
 	combover
 		name = "Combover"
@@ -267,19 +318,26 @@
 	rows
 		name = "Rows"
 		icon_state = "hair_rows1"
+		veryshort = 1
 
 	rows2
 		name = "Rows 2"
 		icon_state = "hair_rows2"
+		veryshort = 1
 
 	sargeant
 		name = "Flat Top"
 		icon_state = "hair_sargeant"
 		gender = MALE
+		veryshort = 1
 
 	emo
 		name = "Emo"
 		icon_state = "hair_emo"
+
+	emo2
+		name = "Emo Alt"
+		icon_state = "hair_emo2"
 
 	longemo
 		name = "Long Emo"
@@ -344,9 +402,14 @@
 		icon_state = "hair_himecut"
 		gender = FEMALE
 
-	braid
-		name = "Floorlength Braid"
-		icon_state = "hair_braid"
+	shorthime
+		name = "Short Hime Cut"
+		icon_state = "hair_shorthime"
+		gender = FEMALE
+
+	grandebraid
+		name = "Grande Braid"
+		icon_state = "hair_grande"
 		gender = FEMALE
 
 	mbraid
@@ -357,6 +420,11 @@
 	braid2
 		name = "Long Braid"
 		icon_state = "hair_hbraid"
+		gender = FEMALE
+
+	braid
+		name = "Floorlength Braid"
+		icon_state = "hair_braid"
 		gender = FEMALE
 
 	odango
@@ -377,11 +445,13 @@
 	skinhead
 		name = "Skinhead"
 		icon_state = "hair_skinhead"
+		veryshort = 1
 
 	balding
 		name = "Balding Hair"
 		icon_state = "hair_e"
 		gender = MALE // turnoff!
+		veryshort = 1
 
 	familyman
 		name = "The Family Man"
@@ -391,6 +461,11 @@
 	mahdrills
 		name = "Drillruru"
 		icon_state = "hair_drillruru"
+		gender = FEMALE
+
+	fringetail
+		name = "Fringetail"
+		icon_state = "hair_fringetail"
 		gender = FEMALE
 
 	dandypomp
@@ -457,7 +532,7 @@
 	bun
 		name = "Low Bun"
 		icon_state = "hair_bun"
-		
+
 	bun2
 		name = "High Bun"
 		icon_state = "hair_bun2"
@@ -466,84 +541,82 @@
 		name = "Double-Bun"
 		icon_state = "hair_doublebun"
 
-	bald
-		name = "Bald"
-		icon_state = "bald"
+	lowfade
+		name = "Low Fade"
+		icon_state = "hair_lowfade"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_pink
-		name = "pink IPC screen"
-		icon_state = "ipc_pink"
-		species_allowed = list("Machine")
+	medfade
+		name = "Medium Fade"
+		icon_state = "hair_medfade"
 
-	icp_screen_red
-		name = "red IPC screen"
-		icon_state = "ipc_red"
-		species_allowed = list("Machine")
+	highfade
+		name = "High Fade"
+		icon_state = "hair_highfade"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_green
-		name = "green IPC screen"
-		icon_state = "ipc_green"
-		species_allowed = list("Machine")
+	baldfade
+		name = "Balding Fade"
+		icon_state = "hair_baldfade"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_blue
-		name = "blue IPC screen"
-		icon_state = "ipc_blue"
-		species_allowed = list("Machine")
+	nofade
+		name = "Regulation Cut"
+		icon_state = "hair_nofade"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_breakout
-		name = "breakout IPC screen"
-		icon_state = "ipc_breakout"
-		species_allowed = list("Machine")
+	trimflat
+		name = "Trimmed Flat Top"
+		icon_state = "hair_trimflat"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_eight
-		name = "eight IPC screen"
-		icon_state = "ipc_eight"
-		species_allowed = list("Machine")
+	shaved
+		name = "Shaved"
+		icon_state = "hair_shaved"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_goggles
-		name = "goggles IPC screen"
-		icon_state = "ipc_goggles"
-		species_allowed = list("Machine")
+	trimmed
+		name = "Trimmed"
+		icon_state = "hair_trimmed"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_heart
-		name = "heart IPC screen"
-		icon_state = "ipc_heart"
-		species_allowed = list("Machine")
+	tightbun
+		name = "Tight Bun"
+		icon_state = "hair_tightbun"
+		gender = FEMALE
+		veryshort = 1
 
-	icp_screen_monoeye
-		name = "monoeye IPC screen"
-		icon_state = "ipc_monoeye"
-		species_allowed = list("Machine")
+	coffeehouse
+		name = "Coffee House Cut"
+		icon_state = "hair_coffeehouse"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_nature
-		name = "nature IPC screen"
-		icon_state = "ipc_nature"
-		species_allowed = list("Machine")
+	undercut
+		name = "Undercut"
+		icon_state = "hair_undercut"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_orange
-		name = "orange IPC screen"
-		icon_state = "ipc_orange"
-		species_allowed = list("Machine")
+	partfade
+		name = "Parted Fade"
+		icon_state = "hair_shavedpart"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_purple
-		name = "purple IPC screen"
-		icon_state = "ipc_purple"
-		species_allowed = list("Machine")
+	hightight
+		name = "High and Tight"
+		icon_state = "hair_hightight"
+		gender = MALE
+		veryshort = 1
 
-	icp_screen_shower
-		name = "shower IPC screen"
-		icon_state = "ipc_shower"
-		species_allowed = list("Machine")
-
-	icp_screen_static
-		name = "static IPC screen"
-		icon_state = "ipc_static"
-		species_allowed = list("Machine")
-
-	icp_screen_yellow
-		name = "yellow IPC screen"
-		icon_state = "ipc_yellow"
-		species_allowed = list("Machine")
 
 /*
 ///////////////////////////////////
@@ -642,6 +715,42 @@
 	fumanchu //old alleged Van Dyke
 		name = "Fu Manchu"
 		icon_state = "facial_vandyke"
+	threeOclock
+		name = "3 O'clock Shadow"
+		icon_state = "facial_3oclock"
+
+	threeOclockstache
+		name = "3 O'clock Shadow and Moustache"
+		icon_state = "facial_3oclockmoustache"
+
+	fiveOclock
+		name = "5 O'clock Shadow"
+		icon_state = "facial_5oclock"
+
+	fiveOclockstache
+		name = "5 O'clock Shadow and Moustache"
+		icon_state = "facial_5oclockmoustache"
+
+	sevenOclock
+		name = "7 O'clock Shadow"
+		icon_state = "facial_7oclock"
+
+	sevenOclockstache
+		name = "7 O'clock Shadow and Moustache"
+		icon_state = "facial_7oclockmoustache"
+
+	mutton
+		name = "Mutton Chops"
+		icon_state = "facial_mutton"
+
+	muttonstache
+		name = "Mutton Chops and Moustache"
+		icon_state = "facial_muttonmus"
+
+	walrus
+		name = "Walrus Moustache"
+		icon_state = "facial_walrus"
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /

@@ -38,8 +38,8 @@ turf/simulated/floor/beach/pool/New()
 	..()
 	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
-//Space! Because fuck /tg/!
-
+/*//Space! Because fuck /tg/!
+transit/east is the same thing now AFAIK
 /turf/space/transit/west // moving to the west
 	icon = 'icons/urist/turf/uristturf.dmi'
 	pushdirection = EAST
@@ -73,7 +73,7 @@ turf/simulated/floor/beach/pool/New()
 	shuttlespace_ew14
 		icon_state = "speedspace_ew_14"
 	shuttlespace_ew15
-		icon_state = "speedspace_ew_15"
+		icon_state = "speedspace_ew_15"*/
 
 //entryscreen for UMcS, done by Glloyd.
 
@@ -228,6 +228,11 @@ turf/simulated/floor/beach/pool/New()
 
 //more baseturf
 /turf/unsimulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
+
+/turf/simulated/floor/snow
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"

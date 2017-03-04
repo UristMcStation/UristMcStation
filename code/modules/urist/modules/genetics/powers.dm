@@ -85,7 +85,7 @@
 
 	activate(var/mob/M, var/connected, var/flags)
 		..()
-		M.add_spell(src.spelltype, "genetic_spell_ready", /obj/screen/movable/spell_master/genetic)
+		M.add_spell(src.spelltype, "genetic_spell_ready")
 		return 1
 
 

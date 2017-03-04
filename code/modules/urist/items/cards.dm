@@ -114,7 +114,7 @@
 	desc = "Deck of cards!"
 	icon = 'icons/urist/items/cards.dmi'
 	icon_state = "deck"
-	can_hold = list(/obj/item/toy/card)
+	can_hold = list("/obj/item/toy/card")
 	var/list/cardsuits = list("Clubs","Diamonds","Spades","Hearts")
 	var/list/cardranks = list("Ace","Jack","Queen","King","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten")
 	storage_slots = 52

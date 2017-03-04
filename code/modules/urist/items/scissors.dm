@@ -10,7 +10,7 @@
 	sharp = 1
 	edge = 1
 	w_class = 2
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/childpart = /obj/item/weapon/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
@@ -45,7 +45,7 @@
 	force = 3
 	edge = 1
 	w_class = 2
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/parentscissor = /obj/item/weapon/scissors
 

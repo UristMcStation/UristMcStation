@@ -28,11 +28,16 @@
 		return
 	return
 
-/obj/effect/portal/New()
+/obj/effect/portal/New(var/start, var/end)
+	..()
+	playsound(src, 'sound/effects/phasein.ogg', 25, 1)
+	target = end
 	spawn(300)
 		qdel(src)
-		return
-	return
+
+/obj/effect/portal/Destroy()
+	target = null
+	. = ..()
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
@@ -47,7 +52,8 @@
 	if (istype(M, /atom/movable))
 		if(prob(failchance)) //oh dear a problem, put em in deep space
 			src.icon_state = "portal1"
-			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
+			var/destination_z = using_map.get_transit_zlevel(z)
+			do_teleport(M, locate(rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE), rand(TRANSITIONEDGE, world.maxy -TRANSITIONEDGE), destination_z), 0)
 		else
 			do_teleport(M, target, 1) ///You will appear adjacent to the beacon
 
