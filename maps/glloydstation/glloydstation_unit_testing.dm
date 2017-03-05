@@ -175,6 +175,7 @@
 		/area/shuttle/event2/l3,
 		/area/shuttle/assault/a1/station,
 		/area/shuttle/assault/a2/station,
+		/area/shuttle/infestation,
 		/area/shuttle/infestation/i1/station,
 		/area/shuttle/infestation/i1/ship,
 		/area/shuttle/infestation/i2/station,
