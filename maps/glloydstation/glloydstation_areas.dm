@@ -714,9 +714,6 @@ area/rnd/test_area
 /area/outpost/mining_main/refinery
 	name = "Mining Outpost Refinery"
 
-/area/outpost/mining_main/west_hall
-	name = "Mining Outpost West Hallway"
-
 // Mining outpost
 /area/outpost/mining_main/maintenance
 	name = "Mining Outpost Maintenance"
@@ -969,10 +966,6 @@ area/rnd/test_area
 /area/derelict/teleporter
 	name = "\improper Derelict Teleporter"
 	icon_state = "teleporter"
-
-/area/derelict/eva
-	name = "Derelict EVA Storage"
-	icon_state = "eva"
 
 /area/derelict/ship
 	name = "\improper Abandoned Ship"
