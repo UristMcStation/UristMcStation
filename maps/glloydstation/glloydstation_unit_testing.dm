@@ -2,22 +2,27 @@
 // Unit test exemptions
 	apc_test_exempt_areas = list(
 		/area/AIsattele = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/construction = NO_SCRUBBER|NO_VENT,
+		/area/construction = 0,
 		/area/constructionsite = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/constructionsite/ai = NO_SCRUBBER|NO_VENT,
 		/area/constructionsite/atmospherics = NO_SCRUBBER,
 		/area/constructionsite/teleporter = NO_SCRUBBER,
+		/area/crew_quarters/party = NO_SCRUBBER|NO_VENT,
+		/area/derelict = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/derelict/ship = NO_SCRUBBER|NO_VENT,
+		/area/djstation = NO_SCRUBBER|NO_VENT,
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
+		/area/engineering/drone_fabrication = NO_SCRUBBER|NO_VENT,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/arrivals = NO_SCRUBBER,
-		/area/maintenance/atmos_control = 0,
+		/area/maintenance/atmos_control = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/auxsolarport = NO_SCRUBBER,
 		/area/maintenance/auxsolarstarboard = NO_SCRUBBER,
 		/area/maintenance/dormitory = NO_SCRUBBER,
 		/area/maintenance/engi_shuttle = NO_SCRUBBER,
 		/area/maintenance/evahallway = NO_SCRUBBER,
+		/area/maintenance/exterior = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance/medbay = NO_SCRUBBER,
 		/area/maintenance/incinerator = NO_SCRUBBER,
 		/area/maintenance/foresolar = NO_SCRUBBER,
@@ -31,8 +36,8 @@
 		/area/outpost/abandoned = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/outpost/mining_main/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/rnd/test_area = NO_SCRUBBER|NO_VENT,
-		/area/rnd/server = 0,
+		/area/rnd/test_area = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/rnd/server = NO_SCRUBBER,
 		/area/shuttle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/skipjack_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/solar = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -41,7 +46,11 @@
 		/area/storage/emergency2 = NO_SCRUBBER|NO_VENT,
 		/area/supply = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/syndicate_station = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/maintenance/exterior = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/tcomsatt/chamber/abandoned = NO_SCRUBBER,
+		/area/tcomsatt/chamber/server = NO_SCRUBBER,
+		/area/tcomsatt/pirate = NO_SCRUBBER|NO_VENT,
+		/area/test_area = 0
+
 	)
 
 	area_coherency_test_exempt_areas = list(
