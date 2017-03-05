@@ -292,10 +292,6 @@
 	icon_state = "north"
 	base_turf = /turf/simulated/floor/asteroid
 
-/area/syndicate_station/arrivals_dock
-	name = "docked with station"
-	icon_state = "shuttle"
-
 /area/syndicate_station/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"

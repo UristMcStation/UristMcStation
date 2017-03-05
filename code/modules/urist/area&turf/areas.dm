@@ -69,14 +69,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/bridge/blueshield
 	name = "\improper Blueshield's Office"
 
-/area/quartermaster/carpenter
-	name = "\improper Carpenter's Workshop"
-	icon_state = "dark128"
-
-/area/quartermaster/hunter
-	name = "\improper Hunter's Workshop"
-	icon_state = "dark160"
-
 /area/shuttle/arrivals/station
 	icon_state = "shuttle"
 	name = "\improper Arrival Shuttle Station"
@@ -134,14 +126,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	icon_state = "tcomsatcham"
 
 //Shuttlessssssss
-
-/area/shuttle/pirate1/centcom
-	name = "\improper Pirate Ship Centcom" //WIP
-	icon_state = "shuttle"
-
-/area/shuttle/pirate1/station
-	name = "\improper Pirate Ship"
-	icon_state = "shuttle"
 
 /area/shuttle/naval1/centcom
 	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers

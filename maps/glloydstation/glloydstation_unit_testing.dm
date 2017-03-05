@@ -114,6 +114,7 @@
 		/area/medical/exam_room,
 		/area/medical/sleeper,
 		/area/medical/virologyaccess,
+		/area/overmap,
 		/area/rescue_base,
 		/area/rescue_base/base,
 		/area/rescue_base/start,
@@ -136,7 +137,6 @@
 		/area/solar/constructionsite,
 		/area/shuttle/,
 		/area/shuttle/outpost,
-		/area/shuttle/pirate1,
 		/area/shuttle/event1/,
 		/area/shuttle/event2/,
 		/area/shuttle/scom/s1/mission,
@@ -185,14 +185,8 @@
 		/area/shuttle/naval1/event1,
 		/area/shuttle/naval1/event2,
 		/area/shuttle/naval1/event3,
-		/area/shuttle/pirate1/centcom,
-		/area/shuttle/pirate1/station,
 		/area/shuttle/outpost/station,
 		/area/shuttle/outpost/jungle,
-		/area/syndicate_station/arrivals_dock,
 		/area/template_noop,
-		/area/overmap,
-		/area/turbolift,
-		/area/quartermaster/carpenter,
-		/area/quartermaster/hunter
+		/area/turbolift
 	)
