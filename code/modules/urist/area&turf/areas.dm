@@ -32,27 +32,15 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Escape Emergency Storage" //Because yolo
 	icon_state = "emergencystorage"
 
-/area/construction/assemblyline
-	name = "\improper Abandoned Assembly Line"
-	icon_state = "ass_line"
-
 /area/crew_quarters/party //needs the crewquarters before it because of gamemode code
  	name = "\improper Party Room"
  	icon_state = "yellow"
-
-/area/security/gaschamber //someday...
-	name = "\improper Gas Chamber"
-	icon_state = "brig"
 
 /area/centcom/scom
 	name = "\improper S-COM Headquarters"
 
 /area/centcom/antag
 	name = "\improper A.N.T.A.G Base"
-
-/area/derelict/satellite
-	name = "\improper Abandoned Satellite"
-	icon_state = "yellow"
 
 /area/medical/lounge
 	name = "\improper Medbay Lounge"

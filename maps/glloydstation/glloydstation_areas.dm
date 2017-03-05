@@ -338,10 +338,6 @@
 	name = "\improper Atmospherics Maintenance"
 	icon_state = "fpmaint"
 
-/area/maintenance/arrivals
-	name = "\improper Arrivals Maintenance"
-	icon_state = "maint_arrivals"
-
 /area/maintenance/bar
 	name = "\improper Bar Maintenance"
 	icon_state = "maint_bar"
@@ -354,10 +350,6 @@
 	name = "\improper Cargo Maintenance"
 	icon_state = "maint_cargo"
 
-/area/maintenance/engi_shuttle
-	name = "\improper Engineering Shuttle Access"
-	icon_state = "maint_e_shuttle"
-
 /area/maintenance/engineering
 	name = "\improper Engineering Maintenance"
 	icon_state = "maint_engineering"
@@ -365,10 +357,6 @@
 /area/maintenance/evahallway
 	name = "\improper EVA Maintenance"
 	icon_state = "maint_eva"
-
-/area/maintenance/dormitory
-	name = "\improper Dormitory Maintenance"
-	icon_state = "maint_dormitory"
 
 /area/maintenance/library
 	name = "\improper Library Maintenance"
@@ -382,21 +370,9 @@
 	name = "\improper Medbay Maintenance"
 	icon_state = "maint_medbay"
 
-/area/maintenance/research_shuttle
-	name = "\improper Research Shuttle Dock Maintenance"
-	icon_state = "maint_research_shuttle"
-
-/area/maintenance/research_starboard
-	name = "\improper Research Maintenance - Starboard"
-	icon_state = "maint_research_starboard"
-
 /area/maintenance/security_port
 	name = "\improper Security Maintenance - Port"
 	icon_state = "maint_security_port"
-
-/area/maintenance/security_starboard
-	name = "\improper Security Maintenance - Starboard"
-	icon_state = "maint_security_starboard"
 
 /area/maintenance/exterior
 	name = "\improper Exterior Reinforcements"
@@ -482,11 +458,6 @@
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
 
-/area/crew_quarters/sleep/engi_wash
-	name = "\improper Engineering Washroom"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
 /area/crew_quarters/locker/locker_toilet
 	name = "\improper Locker Toilets"
 	icon_state = "toilet"
@@ -538,11 +509,10 @@
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
 
-/area/engineering/workshop
-	name = "\improper Engineering Workshop"
-	icon_state = "engineering_workshop"
-
 // Medbay
+/area/medical/storage
+	name = "\improper Medical Storage"
+	icon_state = "medbay" //TODO: placeholder
 
 /area/medical/genetics
 	name = "\improper Genetics Lab"
@@ -637,10 +607,6 @@
 	name = "\improper Security Office"
 	icon_state = "security"
 
-/area/security/lobby
-	name = "\improper Security Lobby"
-	icon_state = "security"
-
 /area/security/brig/interrogation
 	name = "\improper Security - Interrogation"
 	icon_state = "brig"
@@ -685,11 +651,6 @@
 /area/quartermaster/miningdock
 	name = "\improper Cargo Mining Dock"
 	icon_state = "mining"
-
-// Research
-/area/rnd/docking
-	name = "\improper Research Dock"
-	icon_state = "research_dock"
 
 /area/rnd/mixing
 	name = "\improper Toxins Mixing Room"
@@ -744,17 +705,11 @@ area/rnd/test_area
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
 
-/area/outpost/mining_main/east_hall
-	name = "Mining Outpost East Hallway"
-
 /area/outpost/mining_main/eva
 	name = "Mining Outpost EVA storage"
 
 /area/outpost/mining_main/dorms
 	name = "Mining Outpost Dormitory"
-
-/area/outpost/mining_main/medbay
-	name = "Mining Outpost Medical"
 
 /area/outpost/mining_main/refinery
 	name = "Mining Outpost Refinery"
@@ -766,22 +721,10 @@ area/rnd/test_area
 /area/outpost/mining_main/maintenance
 	name = "Mining Outpost Maintenance"
 
-// Small outposts
-/area/outpost/mining_north
-	name = "North Mining Outpost"
-	icon_state = "outpost_mine_north"
-
-/area/outpost/mining_west
-	name = "West Mining Outpost"
-	icon_state = "outpost_mine_west"
-
 // Engineering outpost
 
 /area/outpost/engineering
 	icon_state = "outpost_engine"
-
-/area/outpost/engineering/atmospherics
-	name = "Engineering Outpost Atmospherics"
 
 /area/outpost/engineering/hallway
 	name = "Engineering Outpost Hallway"
@@ -789,14 +732,8 @@ area/rnd/test_area
 /area/outpost/engineering/power
 	name = "Engineering Outpost Power Distribution"
 
-/area/outpost/engineering/telecomms
-	name = "Engineering Outpost Telecommunications"
-
 /area/outpost/engineering/storage
 	name = "Engineering Outpost Storage"
-
-/area/outpost/engineering/meeting
-	name = "Engineering Outpost Meeting Room"
 
 // Research Outpost
 /area/outpost/research
@@ -850,9 +787,6 @@ area/rnd/test_area
 /area/outpost/research/kitchen
 	name = "Research Outpost Kitchen"
 
-/area/outpost/research/disposal
-	name = "Research Outpost Waste Disposal"
-
 
 /area/maintenance/aft
 	name = "Aft Maintenance"
@@ -861,14 +795,6 @@ area/rnd/test_area
 /area/maintenance/fore
 	name = "Fore Maintenance"
 	icon_state = "fmaint"
-
-/area/maintenance/starboard
-	name = "Starboard Maintenance"
-	icon_state = "smaint"
-
-/area/maintenance/port
-	name = "Port Maintenance"
-	icon_state = "pmaint"
 
 /area/maintenance/atmos_control
 	name = "Atmospherics Maintenance"
@@ -885,14 +811,6 @@ area/rnd/test_area
 /area/maintenance/asmaint
 	name = "Aft Starboard Maintenance"
 	icon_state = "asmaint"
-
-/area/maintenance/engi_shuttle
-	name = "Engineering Shuttle Access"
-	icon_state = "maint_e_shuttle"
-
-/area/maintenance/engi_engine
-	name = "Engine Maintenance"
-	icon_state = "maint_engine"
 
 /area/maintenance/asmaint2
 	name = "Science Maintenance"
@@ -926,10 +844,6 @@ area/rnd/test_area
 	name = "\improper EVA Maintenance"
 	icon_state = "maint_eva"
 
-/area/maintenance/dormitory
-	name = "Dormitory Maintenance"
-	icon_state = "maint_dormitory"
-
 /area/maintenance/incinerator
 	name = "\improper Incinerator"
 	icon_state = "disposal"
@@ -946,25 +860,9 @@ area/rnd/test_area
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
 
-/area/maintenance/research_port
-	name = "Research Maintenance - Port"
-	icon_state = "maint_research_port"
-
-/area/maintenance/research_starboard
-	name = "Research Maintenance - Starboard"
-	icon_state = "maint_research_starboard"
-
-/area/maintenance/research_shuttle
-	name = "Research Shuttle Dock Maintenance"
-	icon_state = "maint_research_shuttle"
-
 /area/maintenance/security_port
 	name = "Security Maintenance - Port"
 	icon_state = "maint_security_port"
-
-/area/maintenance/security_starboard
-	name = "Security Maintenance - Starboard"
-	icon_state = "maint_security_starboard"
 
 /area/hallway/primary/
 	sound_env = LARGE_ENCLOSED
@@ -992,10 +890,6 @@ area/rnd/test_area
 /area/hallway/secondary/exit
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
-
-/area/hallway/secondary/construction
-	name = "\improper Construction Area"
-	icon_state = "construction"
 
 /area/crew_quarters/courtroom
 	name = "\improper Courtroom"
@@ -1026,10 +920,6 @@ area/rnd/test_area
 	name = "\improper Telescience Lab"
 	icon_state = "toxmisc"
 
-/area/toxins/server
-	name = "\improper Server Room"
-	icon_state = "server"
-
 /area/djstation
 	name = "\improper Listening Post"
 	icon_state = "LP"
@@ -1052,23 +942,9 @@ area/rnd/test_area
 	name = "\improper Derelict Arrival Centre"
 	icon_state = "yellow"
 
-/area/derelict/storage/equipment
-	name = "Derelict Equipment Storage"
-
-/area/derelict/storage/storage_access
-	name = "Derelict Storage Access"
-
-/area/derelict/storage/engine_storage
-	name = "Derelict Engine Storage"
-	icon_state = "green"
-
 /area/derelict/bridge
 	name = "\improper Derelict Control Room"
 	icon_state = "bridge"
-
-/area/derelict/secret
-	name = "\improper Derelict Secret Room"
-	icon_state = "library"
 
 /area/derelict/bridge/access
 	name = "Derelict Control Room Access"
@@ -1082,17 +958,9 @@ area/rnd/test_area
 	name = "\improper Derelict Solar Control"
 	icon_state = "engine"
 
-/area/derelict/crew_quarters
-	name = "\improper Derelict Crew Quarters"
-	icon_state = "fitness"
-
 /area/derelict/medical
 	name = "Derelict Medbay"
 	icon_state = "medbay"
-
-/area/derelict/medical/morgue
-	name = "\improper Derelict Morgue"
-	icon_state = "morgue"
 
 /area/derelict/medical/chapel
 	name = "\improper Derelict Chapel"
