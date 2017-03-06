@@ -270,12 +270,12 @@
 /obj/item/weapon/storage/box/syndie_kit/fleshsuit
 	name = "H. sapiens Imitation Suit"
 	desc = "Contains a set of clothing to disguise nonhumans as humans: a full-body suit with special tail compartment, and an airtight, stretching mask with a non-resettable voice changer."
-	max_w_class = 3
 
 /obj/item/weapon/storage/box/syndie_kit/fleshsuit/New()
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
+	make_exact_fit()
 
 /obj/effect/landmark/intelspawn
 	icon_state = "x3"
