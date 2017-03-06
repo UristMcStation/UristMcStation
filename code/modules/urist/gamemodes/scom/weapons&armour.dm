@@ -191,6 +191,7 @@
 /obj/item/weapon/storage/box/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	max_w_class = 3
 
 	New()
 		..()

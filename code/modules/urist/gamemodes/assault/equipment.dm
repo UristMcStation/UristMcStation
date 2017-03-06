@@ -248,6 +248,7 @@
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
+	max_w_class = 3
 	startswith = list(/obj/item/weapon/mine/frag = 3)
 
 /obj/effect/mine/proc/explode2(obj)
