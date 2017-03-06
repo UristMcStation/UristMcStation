@@ -3,7 +3,7 @@
 	desc = "A mostly peaceful eyebot"
 	icon = 'icons/urist/events/fallout.dmi'
 	idcheck = 0
-	auto_patrol = 1
+	will_patrol = 1
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/urist
 	name = "bot"

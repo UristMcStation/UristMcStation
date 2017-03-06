@@ -16,7 +16,7 @@
 "p" = (/turf/simulated/floor/wood,/area/jungle)
 "q" = (/obj/machinery/door/unpowered/simple/iron,/turf/simulated/floor/wood,/area/jungle)
 "r" = (/turf/simulated/floor/cult,/area/jungle)
-"s" = (/obj/effect/rune{word1 = "hell"; word2 = "blood"; word3 = "join"},/turf/simulated/floor/cult,/area/jungle)
+"s" = (/turf/simulated/floor/cult,/area/jungle)
 "t" = (/obj/structure/cult/talisman,/obj/effect/gibspawner/human,/obj/effect/landmark/mobcorpse/russian/ranged,/turf/simulated/floor/cult,/area/jungle)
 "u" = (/turf/simulated/jungle/path,/area/jungle)
 "v" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood{tag = "icon-wood-broken3"; icon_state = "wood-broken3"},/area/jungle)

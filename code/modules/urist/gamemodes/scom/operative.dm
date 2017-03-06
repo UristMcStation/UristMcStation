@@ -1,7 +1,7 @@
-#define RANK_SUPPORT 0
 #define RANK_SOLDIER 1
 #define RANK_OFFICER 2
 #define RANK_COMMAND 3
+#define RANK_SUPPORT 4
 
 var/datum/antagonist/scom/scommies
 
@@ -10,6 +10,14 @@ var/datum/antagonist/scom/scommies
 		return 0
 	if(player.mind in scommies.current_antagonists)
 		return 1
+
+/proc/find_scom_ghost(var/mob/player)
+	if(scommies)
+		for(var/mob/observer/ghost/G in player_list)
+			if(G.mind)
+				if((G.mind.current == player) && isscom(G))
+					return G
+	return
 
 /datum/antagonist/scom
 	id = "scomop"
@@ -58,6 +66,7 @@ var/datum/antagonist/scom/scommies
 
 		player.current.real_name = scom_rank + player.current.real_name
 		player.name = player.current.real_name
+		player.current.update_icons()
 
 	return
 

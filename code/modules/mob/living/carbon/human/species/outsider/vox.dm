@@ -4,7 +4,7 @@
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
 	default_language = "Vox-pidgin"
-	language = "Galactic Common"
+	language = LANGUAGE_GALCOM
 	num_alternate_languages = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
@@ -16,7 +16,6 @@
 	dealing with their traders and merchants; those that do rarely enjoy the experience."
 
 	taste_sensitivity = TASTE_DULL
-	health_hud_intensity = 1.5
 
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
@@ -28,7 +27,6 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	eyes = "vox_eyes_s"
 	gluttonous = GLUT_TINY|GLUT_ITEM_NORMAL
 	stomach_capacity = 12
 
@@ -37,7 +35,7 @@
 	siemens_coefficient = 0.2
 
 	flags = NO_SCAN
-	spawn_flags = IS_WHITELISTED | IS_RESTRICTED
+	spawn_flags = SPECIES_IS_WHITELISTED | SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
 	blood_color = "#2299FC"
@@ -49,28 +47,29 @@
 		/mob/living/carbon/human/proc/leap
 		)
 
-	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes,
-		"stack" =    /obj/item/organ/stack/vox
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/vox),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
-	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest),
-		"groin" =  list("path" = /obj/item/organ/external/groin/vox),
-		"head" =   list("path" = /obj/item/organ/external/head),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right),
-		"l_hand" = list("path" = /obj/item/organ/external/hand),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right),
-		"l_foot" = list("path" = /obj/item/organ/external/foot),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
+
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes,
+		BP_STACK =    /obj/item/organ/internal/stack/vox
 		)
 
 	genders = list(NEUTER)
@@ -90,6 +89,7 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
+
 
 /datum/species/vox/pariah
 	name = "Vox Pariah"
@@ -114,18 +114,18 @@
 
 	// Pariahs have no stack.
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/pariah_brain,
-		"eyes" =     /obj/item/organ/eyes
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_BRAIN =    /obj/item/organ/internal/pariah_brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
 		)
-	spawn_flags = IS_WHITELISTED | IS_RESTRICTED
+	spawn_flags = SPECIES_IS_WHITELISTED | SPECIES_IS_RESTRICTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
 	flags = NO_SCAN
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
-/datum/species/vox/pariah/get_bodytype()
+/datum/species/vox/pariah/get_bodytype(var/mob/living/carbon/human/H)
 	return "Vox"
 
 // No combat skills for you.
@@ -151,8 +151,6 @@
 					continue
 				if(target.wear_mask && (target.wear_mask.body_parts_covered & FACE) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
 					continue
-				if(target.species.flags & NO_BREATHE) //dont breathe so why do they smell it.
+				if(!target.should_have_organ(BP_LUNGS)) //dont breathe so why do they smell it.
 					continue
-			M << "<span class='danger'>A terrible stench emanates from \the [H].</span>"
-	if(prob(1) && prob(50)) //0.5% chance
-		H.vomit()
+			to_chat(M, "<span class='danger'>A terrible stench emanates from \the [H].</span>")

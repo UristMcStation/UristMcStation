@@ -6,8 +6,9 @@
 	gloves = /obj/item/clothing/gloves/urist/leather
 	backpack = /obj/item/weapon/storage/backpack/industrial
 	satchel_one = /obj/item/weapon/storage/backpack/satchel_eng
+	messenger_bag = /obj/item/weapon/storage/backpack/messenger/engi
 	pda_slot = slot_l_store
-	flags = OUTFIT_EXTENDED_SURVIVAL
+	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
 /decl/hierarchy/outfit/job/engineering/chief_engineer
 	name = OUTFIT_JOB_NAME("Chief engineer")

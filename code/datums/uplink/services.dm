@@ -7,42 +7,44 @@
 /datum/uplink_item/item/services/fake_ion_storm
 	name = "Ion Storm Announcement"
 	desc = "Interferes with the station's ion sensors."
-	item_cost = 2
+	item_cost = 8
 	path = /obj/item/device/uplink_service/fake_ion_storm
 
 /datum/uplink_item/item/services/suit_sensor_garble
 	name = "Complete Suit Sensor Jamming"
 	desc = "Garbles all suit sensor data for 10 minutes."
-	item_cost = 4
+	item_cost = 16
 	path = /obj/item/device/uplink_service/jamming/garble
 
 /datum/uplink_item/item/services/fake_rad_storm
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors."
-	item_cost = 6
+	item_cost = 24
 	path = /obj/item/device/uplink_service/fake_rad_storm
 
 /datum/uplink_item/item/services/fake_crew_annoncement
 	name = "Crew Arrival Announcement and Records"
 	desc = "Creates a fake crew arrival announcement as well as fake crew records, using your current appearance (including held items!) and worn id card. Prepare well!"
-	item_cost = 8
+	item_cost = 32
 	path = /obj/item/device/uplink_service/fake_crew_announcement
 
 /datum/uplink_item/item/services/suit_sensor_shutdown
 	name = "Complete Suit Sensor Shutdown"
 	desc = "Completely disables all suit sensors for 10 minutes."
-	item_cost = 10
+	item_cost = 40
 	path = /obj/item/device/uplink_service/jamming
 
 /datum/uplink_item/item/services/fake_update_annoncement
-	item_cost = 10
+	item_cost = 40
 	path = /obj/item/device/uplink_service/fake_update_announcement
 
 /datum/uplink_item/item/services/fake_update_annoncement/New()
 	..()
-	name = "[command_name()] Update Announcement"
 	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
-	desc = "Causes a falsified [command_name()] Update."
+
+	spawn(2)
+		name = "[command_name()] Update Announcement"
+		desc = "Causes a falsified [command_name()] Update."
 
 /***************
 * Service Item *
@@ -55,7 +57,7 @@
 /obj/item/device/uplink_service
 	name = "tiny device"
 	desc = "Press button to activate. Can be done once and only once."
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	icon_state = "sflash"
 	var/state = AWAITING_ACTIVATION
 	var/service_label = "Unnamed Service"
@@ -71,15 +73,15 @@
 	if(.)
 		switch(state)
 			if(AWAITING_ACTIVATION)
-				user << "It is labeled '[service_label]' and appears to be awaiting activation."
+				to_chat(user, "It is labeled '[service_label]' and appears to be awaiting activation.")
 			if(CURRENTLY_ACTIVE)
-				user << "It is labeled '[service_label]' and appears to be active."
+				to_chat(user, "It is labeled '[service_label]' and appears to be active.")
 			if(HAS_BEEN_ACTIVATED)
-				user << "It is labeled '[service_label]' and appears to be permanently disabled."
+				to_chat(user, "It is labeled '[service_label]' and appears to be permanently disabled.")
 
 /obj/item/device/uplink_service/attack_self(var/mob/user)
 	if(state != AWAITING_ACTIVATION)
-		user << "<span class='warning'>\The [src] won't activate again.</span>"
+		to_chat(user, "<span class='warning'>\The [src] won't activate again.</span>")
 		return
 	if(!enable())
 		return
@@ -195,6 +197,11 @@
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	var/datum/data/record/random_general_record
 	var/datum/data/record/random_medical_record
+
+	while(null in data_core.general)
+		data_core.general -= null
+		log_error("Found a null entry in data_core.general")
+
 	if(data_core.general.len)
 		random_general_record	= pick(data_core.general)
 		random_medical_record	= find_medical_record("id", random_general_record.fields["id"])

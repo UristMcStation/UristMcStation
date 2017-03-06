@@ -48,11 +48,6 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 	for(var/client/C in clients)
 		if(is_preference_enabled(/datum/client_preference/show_ooc))
 			var/display_name = src.key
-			if(holder)
-				if(holder.fakekey)
-					if(C.holder)
-						display_name = "[holder.fakekey]/([src.key])"
-					else
-						display_name = holder.fakekey
+			var/player_display = holder ? "[display_name]([usr.client.holder.rank])" : display_name
 			if(is_special_character(C.mob) || (C && C.holder && !is_mentor(C))) //Allows both admuns and antags to hear AOOC
-				C << "<font color='[normal_aooc_color]'><span class='ooc'>" + create_text_tag("aooc", "AOOC:", C) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>"
+				to_chat(C, "<font color='[normal_aooc_color]'><span class='ooc'>" + create_text_tag("aooc", "AOOC:", C) + " <EM>[player_display]:</EM> <span class='message'>[msg]</span></span></font>")

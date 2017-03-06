@@ -223,7 +223,7 @@
 "eo" = (/obj/effect/floor_decal/industrial/warning/corner{tag = "icon-warningcorner (NORTH)"; icon_state = "warningcorner"; dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "ep" = (/obj/effect/decal/cleanable/blood,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
 "eq" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/wood,/area/scom/mission/nolighting)
-"er" = (/obj/machinery/computer/prison_shuttle,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
+"er" = (/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "es" = (/obj/structure/closet/crate,/obj/effect/floor_decal/corner/white{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "et" = (/obj/effect/floor_decal/corner/white{dir = 4},/obj/effect/floor_decal/corner/white{dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "eu" = (/obj/item/weapon/circular_saw,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)

@@ -1,6 +1,6 @@
 /datum/language/diona
-	name = LANGUAGE_ROOTSPEAK
-	desc = "A creaking, subvocal language spoken instinctively by the Dionaea. Due to the unique makeup of the average Diona, a phrase of Rootspeak can be a combination of anywhere from one to twelve individual voices and notes."
+	name = LANGUAGE_ROOTLOCAL
+	desc = "A complex language known instinctively by Dionaea, 'spoken' by emitting modulated radio waves. This version uses high frequency waves for quick communication at short ranges."
 	speech_verb = "creaks and rustles"
 	ask_verb = "creaks"
 	exclaim_verb = "rustles"
@@ -13,6 +13,12 @@
 	var/new_name = "[pick(list("To Sleep Beneath","Wind Over","Embrace of","Dreams of","Witnessing","To Walk Beneath","Approaching the"))]"
 	new_name += " [pick(list("the Void","the Sky","Encroaching Night","Planetsong","Starsong","the Wandering Star","the Empty Day","Daybreak","Nightfall","the Rain"))]"
 	return new_name
+
+/datum/language/diona/global
+	name = LANGUAGE_ROOTGLOBAL
+	desc = "A complex language known instinctively by Dionaea, 'spoken' by emitting modulated radio waves. This version uses low frequency waves for slow communication at long ranges."
+	key = "w"
+	flags = RESTRICTED | HIVEMIND
 
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
@@ -34,7 +40,7 @@
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
 
-/datum/language/tajaran
+/*/datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
 	desc = "The traditionally employed tongue of Ahdomai, composed of expressive yowls and chirps. Native to the Tajaran."
 	speech_verb = "mrowls"
@@ -55,7 +61,7 @@
 		new_name += " [pick(list("Hadii","Kaytam","Nazkiin","Zhan-Khazan","Hharar","Njarir'Akhan","Faaira'Nrezi","Rhezar","Mi'dynh","Rrhazkal","Bayan","Al'Manq","Mi'jri","Chur'eech","Sanu'dra","Ii'rka"))]"
 	else
 		new_name += " [..(gender,1)]"
-	return new_name
+	return new_name*/
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
@@ -98,15 +104,18 @@
 
 /datum/language/machine
 	name = LANGUAGE_EAL
-	desc = "A language of encoded tones that allow for IPCs to communicate auditorily between each other in a manner that allows for easier transfer of information."
-	speech_verb = "beeps"
-	ask_verb = "beeps"
-	exclaim_verb = "loudly beeps"
+	desc = "An efficient language of encoded tones developed by synthetics and cyborgs."
+	speech_verb = "whistles"
+	ask_verb = "chirps"
+	exclaim_verb = "whistles loudly"
 	colour = "changeling"
 	key = "6"
-	flags = RESTRICTED | NO_STUTTER
+	flags = NO_STUTTER
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
+
+/datum/language/machine/can_speak_special(var/mob/living/speaker)
+	return speaker.isSynthetic()
 
 /datum/language/machine/get_random_name()
 	if(prob(70))
@@ -192,3 +201,11 @@
 "le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
 "ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
 "his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi")
+/*
+/datum/language/tajsign
+	name = LANGUAGE_SIIK_TAJR
+	desc = "A type of sign language mostly based on tail movements that was used during the Tajaran rebellion."
+	signlang_verb = list("uses their tail to convey", "gestures with their tail", "gestures with their tail elaborately")
+	colour = "tajaran"
+	key = "l"
+	flags = WHITELISTED | SIGNLANG | NO_STUTTER | NONVERBAL*/

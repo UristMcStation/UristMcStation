@@ -10,7 +10,6 @@
 	dock_target_station = "escape_dock"
 	dock_target_offsite = "centcom_dock"
 	transit_direction = NORTH
-	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
 /datum/shuttle/ferry/escape_pod/escape_pod_one
 	name = "Escape Pod 1"
@@ -23,7 +22,6 @@
 	dock_target_station = "escape_pod_1_berth"
 	dock_target_offsite = "escape_pod_1_recovery"
 	transit_direction = NORTH
-	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
 /datum/shuttle/ferry/escape_pod/escape_pod_two
 	name = "Escape Pod 2"
@@ -36,7 +34,6 @@
 	dock_target_station = "escape_pod_2_berth"
 	dock_target_offsite = "escape_pod_2_recovery"
 	transit_direction = NORTH
-	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
 /datum/shuttle/ferry/escape_pod/escape_pod_three
 	name = "Escape Pod 3"
@@ -49,7 +46,6 @@
 	dock_target_station = "escape_pod_3_berth"
 	dock_target_offsite = "escape_pod_3_recovery"
 	transit_direction = EAST
-	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
 /datum/shuttle/ferry/escape_pod/escape_pod_four
 	name = "Escape Pod 4"
@@ -62,7 +58,6 @@
 	dock_target_station = "escape_pod_5_berth"
 	dock_target_offsite = "escape_pod_5_recovery"
 	transit_direction = EAST //should this be WEST? I have no idea.
-	move_time = SHUTTLE_TRANSIT_DURATION_RETURN
 
 /datum/shuttle/ferry/supply/cargo
 	name = "Supply"
@@ -160,8 +155,8 @@
 	announcer = "NDV Icarus"
 
 /datum/shuttle/multi_shuttle/mercenary/New()
-	arrival_message = "Attention, [station_short], you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
-	departure_message = "Your visitors are on their way out of the system, [station_short], burning delta-v like it's nothing. Good riddance."
+	arrival_message = "Attention, [using_map.station_short], you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
+	departure_message = "Your visitors are on their way out of the system, [using_map.station_short], burning delta-v like it's nothing. Good riddance."
 	..()
 
 /datum/shuttle/multi_shuttle/skipjack
@@ -179,8 +174,8 @@
 	announcer = "NDV Icarus"
 
 /datum/shuttle/multi_shuttle/skipjack/New()
-	arrival_message = "Attention, [station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
-	departure_message = "Your guests are pulling away, [station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+	arrival_message = "Attention, [using_map.station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	departure_message = "Your guests are pulling away, [using_map.station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 	..()
 
 /datum/shuttle/multi_shuttle/rescue
@@ -208,8 +203,8 @@
 	announcer = "NDV Icarus"
 
 /datum/shuttle/multi_shuttle/rescue/New()
-	arrival_message = "Attention, [station_short], there's a small patrol craft headed your way, it flashed us Asset Protection codes and we let it pass. You've got guests on the way."
-	departure_message = "[station_short], That Asset Protection vessel is headed back the way it came. Hope they were helpful."
+	arrival_message = "Attention, [using_map.station_short], there's a small patrol craft headed your way, it flashed us Asset Protection codes and we let it pass. You've got guests on the way."
+	departure_message = "[using_map.station_short], That Asset Protection vessel is headed back the way it came. Hope they were helpful."
 	..()
 
 /datum/shuttle/ferry/multidock/specops/ert

@@ -3,6 +3,7 @@
 	name = "plating"
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
+	plane = PLATING_PLANE
 
 /turf/simulated/floor/carpet
 	name = "carpet"
@@ -15,12 +16,26 @@
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "bcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit
+	light_range = 2
+	light_power = 3
+	light_color = COLOR_BLUE
+
+/turf/simulated/floor/bluegrid/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "gcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit/green
+	light_range = 2
+	light_power = 3
+	light_color = COLOR_GREEN
+
+/turf/simulated/floor/greengrid/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/wood
 	name = "wooden floor"
@@ -45,7 +60,7 @@
 	initial_flooring = /decl/flooring/carpet/blue
 
 /turf/simulated/floor/tiled
-	name = "floor"
+	name = "steel floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
@@ -106,12 +121,7 @@
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
-/turf/simulated/floor/tiled/steel
-	name = "steel floor"
-	icon_state = "steel"
-	initial_flooring = /decl/flooring/tiling/steel
-
-/turf/simulated/floor/tiled/steel/airless
+/turf/simulated/floor/tiled/dark/airless
 	oxygen = 0
 	nitrogen = 0
 

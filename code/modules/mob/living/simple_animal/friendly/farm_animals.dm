@@ -12,7 +12,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/goat
 	meat_amount = 4
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -39,7 +39,7 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			src.visible_message("\blue [src] calms down.")
+			src.visible_message("<span class='notice'>[src] calms down.</span>")
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
@@ -77,9 +77,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 	else
 		..()
 //cow
@@ -97,7 +97,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/beef
 	meat_amount = 6
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -117,9 +117,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 	else
 		..()
 
@@ -141,7 +141,7 @@
 											"[src] looks at you pleadingly",
 											"[src] looks at you with a resigned expression.",
 											"[src] seems resigned to its fate.")
-				M << pick(responses)
+				to_chat(M, pick(responses))
 	else
 		..()
 
@@ -158,7 +158,7 @@
 	emote_see = list("pecks at the ground","flaps its tiny wings")
 	speak_chance = 2
 	turns_per_move = 2
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 1
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -199,7 +199,7 @@ var/global/chicken_count = 0
 	emote_see = list("pecks at the ground","flaps its wings viciously")
 	speak_chance = 2
 	turns_per_move = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 2
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -231,14 +231,14 @@ var/global/chicken_count = 0
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
-				user.visible_message("\blue [user] feeds [O] to [name]! It clucks happily.","\blue You feed [O] to [name]! It clucks happily.")
+				user.visible_message("<span class='notice'>[user] feeds [O] to [name]! It clucks happily.</span>","<span class='notice'>You feed [O] to [name]! It clucks happily.</span>")
 				user.drop_item()
 				qdel(O)
 				eggsleft += rand(1, 4)
 			else
-				user << "\blue [name] doesn't seem hungry!"
+				to_chat(user, "<span class='notice'>[name] doesn't seem hungry!</span>")
 		else
-			user << "[name] doesn't seem interested in that."
+			to_chat(user, "[name] doesn't seem interested in that.")
 	else
 		..()
 

@@ -98,7 +98,7 @@
 		return 1
 
 	if(usr == occupant)
-		usr << "<span class='warning'>You can't reach the controls from the inside.</span>"
+		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
 		return
 
 	add_fingerprint(usr)
@@ -126,14 +126,17 @@
 		if(!beaker)
 			beaker = I
 			user.drop_item()
-			I.loc = src
+			I.forceMove(src)
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
-			user << "<span class='warning'>\The [src] has a beaker already.</span>"
+			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
-	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
+	if(!CanMouseDrop(target, user))
+		return
+	if(target.buckled)
+		to_chat(user, "<span class='warning'>Unbuckle the subject before attempting to move them.</span>")
 		return
 	go_in(target, user)
 
@@ -165,7 +168,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		user << "<span class='warning'>\The [src] is already occupied.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 		return
 
 	if(M == user)
@@ -175,13 +178,13 @@
 
 	if(do_after(user, 20, src))
 		if(occupant)
-			user << "<span class='warning'>\The [src] is already occupied.</span>"
+			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 			return
 		M.stop_pulling()
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		M.loc = src
+		M.forceMove(src)
 		update_use_power(2)
 		occupant = M
 		update_icon()
@@ -192,19 +195,19 @@
 	if(occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.loc = loc
+	occupant.dropInto(loc)
 	occupant = null
 	for(var/atom/movable/A in src) // In case an object was dropped inside or something
 		if(A == beaker)
 			continue
-		A.loc = loc
+		A.dropInto(loc)
 	update_use_power(1)
 	update_icon()
 	toggle_filter()
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
-		beaker.loc = loc
+		beaker.dropInto(loc)
 		beaker = null
 		toggle_filter()
 
@@ -216,8 +219,8 @@
 		if(occupant.reagents.get_reagent_amount(chemical) + amount <= 20)
 			use_power(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical, amount)
-			user << "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream."
+			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical)] units of [available_chemicals[chemical]] in their bloodstream.")
 		else
-			user << "The subject has too many chemicals."
+			to_chat(user, "The subject has too many chemicals.")
 	else
-		user << "There's no suitable occupant in \the [src]."
+		to_chat(user, "There's no suitable occupant in \the [src].")

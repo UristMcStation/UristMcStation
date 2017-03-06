@@ -5,7 +5,7 @@ var/datum/antagonist/revolutionary/revs
 	role_text = "Head Revolutionary"
 	role_text_plural = "Revolutionaries"
 	feedback_tag = "rev_objective"
-	antag_indicator = "rev_head"
+	antag_indicator = "hudheadrevolutionary"
 	welcome_text = "Down with the capitalists! Down with the Bourgeoise! This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
@@ -24,11 +24,12 @@ var/datum/antagonist/revolutionary/revs
 	faction_descriptor = "Revolution"
 	faction_verb = /mob/living/proc/convert_to_rev
 	faction_welcome = "Help the cause overturn the ruling class. Do not harm your fellow freedom fighters. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
-	faction_indicator = "rev"
+	faction_indicator = "hudrevolutionary"
 	faction_invisible = 1
 	faction = "revolutionary"
 
-	restricted_jobs = list("Internal Affairs Agent", "AI", "Cyborg","Captain", "Head of Personnel", "Head of Security", "Chief Engineer", "Research Director", "Chief Medical Officer")
+	blacklisted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list("Captain", "Head of Personnel", "Head of Security", "Chief Engineer", "Research Director", "Chief Medical Officer", "Internal Affairs Agent")
 	protected_jobs = list("Security Officer", "Warden", "Detective")
 
 

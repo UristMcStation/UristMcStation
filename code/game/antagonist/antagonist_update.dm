@@ -35,7 +35,7 @@
 	if(src.uristantag)
 		return image('icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
 	else
-		return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator)
+		return image('icons/mob/hud.dmi', loc = other.current, icon_state = indicator)
 
 /datum/antagonist/proc/update_all_icons()
 	if(!antag_indicator)

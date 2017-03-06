@@ -3,7 +3,7 @@
 	role_text = "Changeling"
 	role_text_plural = "Changelings"
 	feedback_tag = "changeling_objective"
-	restricted_jobs = list("AI", "Cyborg")
+	blacklisted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
 	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you absorb them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
@@ -70,7 +70,7 @@
 					var/datum/species/S = all_species[player.current.client.prefs.species]
 					if(S && (S.flags & NO_SCAN))
 						return 0
-					if(player.current.client.prefs.organ_data["torso"] == "cyborg") // Full synthetic.
+					if(player.current.client.prefs.organ_data[BP_CHEST] == "cyborg") // Full synthetic.
 						return 0
 					return 1
  	return 0
