@@ -102,7 +102,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = 5//bulky item
+	w_class = ITEM_SIZE_HUGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -276,6 +276,10 @@
 
 //dress
 /obj/item/clothing/under/dress
+	name = "dress"
+	desc = "A fancy dress."
+	icon_state = "dress_fire"
+	worn_state = "dress_fire"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/dress/dress_fire
@@ -305,6 +309,13 @@
 	icon_state = "dress_pink"
 	item_state = "p_suit"
 	worn_state = "dress_pink"
+
+/obj/item/clothing/under/dress/dress_purple
+	name = "purple dress"
+	desc= "A simple, tight fitting purple dress."
+	icon_state = "tian_dress"
+	item_state = "p_suit"
+	worn_state = "tian_dress"
 
 /obj/item/clothing/under/dress/dress_yellow
 	name = "yellow dress"
@@ -428,10 +439,17 @@
 
 /obj/item/clothing/under/blackjumpskirt
 	name = "black jumpskirt"
-	desc = "A black jumpskirt, Sol size 0."
+	desc = "A black jumpskirt, with a pink undershirt."
 	icon_state = "blackjumpskirt"
 	item_state = "bl_suit"
 	worn_state = "blackjumpskirt"
+
+/obj/item/clothing/under/shortjumpskirt
+	name = "short jumpskirt"
+	desc = "A slimming, short jumpskirt."
+	icon_state = "shortjumpskirt"
+	item_state = "w_suit"
+	worn_state = "shortjumpskirt"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -467,7 +485,7 @@
 	icon_state = "charcoal_suit"
 	item_state = "bl_suit"
 	worn_state = "charcoal_suit"
-	starting_accessories = list(/obj/item/clothing/accessory/navy, /obj/item/clothing/accessory/charcoal_jacket)
+	starting_accessories = list(/obj/item/clothing/accessory/navy, /obj/item/clothing/accessory/toggleable/charcoal_jacket)
 
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
@@ -475,7 +493,7 @@
 	icon_state = "navy_suit"
 	item_state = "bl_suit"
 	worn_state = "navy_suit"
-	starting_accessories = list(/obj/item/clothing/accessory/red, /obj/item/clothing/accessory/navy_jacket)
+	starting_accessories = list(/obj/item/clothing/accessory/red, /obj/item/clothing/accessory/toggleable/navy_jacket)
 
 /obj/item/clothing/under/suit_jacket/burgundy
 	name = "burgundy suit"
@@ -483,7 +501,7 @@
 	icon_state = "burgundy_suit"
 	item_state = "r_suit"
 	worn_state = "burgundy_suit"
-	starting_accessories = list(/obj/item/clothing/accessory/black, /obj/item/clothing/accessory/burgundy_jacket)
+	starting_accessories = list(/obj/item/clothing/accessory/black, /obj/item/clothing/accessory/toggleable/burgundy_jacket)
 
 /obj/item/clothing/under/suit_jacket/checkered
 	name = "checkered suit"
@@ -491,7 +509,7 @@
 	icon_state = "checkered_suit"
 	item_state = "gy_suit"
 	worn_state = "checkered_suit"
-	starting_accessories = list(/obj/item/clothing/accessory/black, /obj/item/clothing/accessory/checkered_jacket)
+	starting_accessories = list(/obj/item/clothing/accessory/black, /obj/item/clothing/accessory/toggleable/checkered_jacket)
 
 /obj/item/clothing/under/suit_jacket/tan
 	name = "tan suit"
@@ -499,7 +517,7 @@
 	icon_state = "tan_suit"
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
-	starting_accessories = list(/obj/item/clothing/accessory/yellow, /obj/item/clothing/accessory/tan_jacket)
+	starting_accessories = list(/obj/item/clothing/accessory/yellow, /obj/item/clothing/accessory/toggleable/tan_jacket)
 
 /obj/item/clothing/under/serviceoveralls
 	name = "workman outfit"
@@ -522,6 +540,13 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
+
+/obj/item/clothing/under/harness
+	name = "gear harness"
+	desc = "How... minimalist."
+	icon_state = "gear_harness"
+	worn_state = "gear_harness"
+	body_parts_covered = 0
 
 /obj/item/clothing/under/pcrc
 	name = "\improper PCRC uniform"
@@ -551,8 +576,8 @@
 /obj/item/clothing/under/confederacy
 	name = "\improper Confederacy uniform"
 	desc = "A military uniform belonging to the Confederacy of Man, an independent human government."
-	icon_state = "pcrc"
-	worn_state = "pcrc"
+	icon_state = "confed"
+	worn_state = "confed"
 
 /obj/item/clothing/under/saare
 	name = "\improper SAARE uniform"
@@ -583,3 +608,37 @@
 	desc = "A jumpsuit belonging to Hephaestus Industries, a Trans-Stellar best known for its arms production."
 	icon_state = "heph"
 	worn_state = "heph"
+
+/obj/item/clothing/under/punpun
+	name = "fancy uniform"
+	desc = "It looks like it was tailored for a monkey."
+	icon_state = "punpun"
+	worn_state = "punpun"
+	species_restricted = list("Monkey")
+	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/uniform.dmi')
+
+/obj/item/clothing/under/punpants
+	name = "monkey pants"
+	desc = "It looks like it was tailored for a monkey."
+	icon_state = "jeansmustang"
+	worn_state = "jeansmustang"
+	species_restricted = list("Monkey")
+	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/uniform.dmi')
+
+/obj/item/clothing/under/rank/psych/turtleneck/sweater
+	desc = "A warm looking sweater and a pair of dark blue slacks."
+	name = "sweater"
+	icon_state = "turtleneck"
+	worn_state = "turtleneck"
+
+/obj/item/clothing/under/utility/expeditionary/monkey
+	name = "adjusted expeditionary uniform"
+	desc = "The utility uniform of the SCG Expeditionary Corps, made from biohazard resistant material. This one has silver trim. It was also mangled to fit a monkey. This better be worth the NJP you'll get for making it."
+	species_restricted = list("Monkey")
+	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/uniform.dmi')
+	starting_accessories = list(/obj/item/clothing/accessory/rank/fleet/officer/wo1_monkey)
+
+/obj/item/clothing/accessory/rank/fleet/officer/wo1_monkey
+	name = "makeshift ranks (WO-1 warrant officer 1)"
+	desc = "Insignia denoting the elusive rank of Warant Officer. Too bad it's obviously fake."
+	icon_state = "fleetrank_officer"

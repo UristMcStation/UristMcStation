@@ -103,12 +103,6 @@
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
 
-	else if(istype(I, /obj/item/stack/tile/floor_steel))
-		var/obj/item/stack/tile/floor_steel/R = I
-		src.overlays = null
-		src.ChangeTurf(/turf/simulated/floor/plating)
-		R.use(1)
-
 /*/turf/simulated/jungle
 	animal_spawn_chance = 1
 	plants_spawn_chance = 40
@@ -519,3 +513,7 @@
 	icon_state = "asteroid"
 	light_range = 0
 	light_power = 0
+
+/turf/simulated/jungle/clear/underground/weather_enable(var/override = 0)
+	if(override)
+		..()

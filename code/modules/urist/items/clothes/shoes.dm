@@ -6,8 +6,7 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 //generic define
 
 /obj/item/clothing/shoes/urist
-	urist_only = 1
-	icon_override = 'icons/uristmob/shoes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/shoes.dmi'
 
 //obviously the guy who made the equipment for engineers never worked a blue collar job in his life. The engineers

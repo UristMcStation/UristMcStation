@@ -36,9 +36,6 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/engineering(src)
 		new /obj/item/weapon/crowbar/brace_jack(src)
-		return
-
-
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
@@ -53,6 +50,7 @@
 
 	New()
 		..()
+		new /obj/item/clothing/gloves/insulated(src)
 		new /obj/item/clothing/gloves/insulated(src)
 		new /obj/item/clothing/gloves/insulated(src)
 		new /obj/item/weapon/storage/toolbox/electrical(src)
@@ -90,6 +88,9 @@
 		new /obj/item/weapon/weldpack(src)
 		new /obj/item/weapon/weldpack(src)
 		new /obj/item/weapon/weldpack(src)
+		new /obj/item/clothing/glasses/welding(src)
+		new /obj/item/clothing/glasses/welding(src)
+		new /obj/item/clothing/glasses/welding(src)
 		return
 
 
@@ -124,7 +125,7 @@
 		new /obj/item/clothing/glasses/meson(src)
 		new /obj/item/weapon/cartridge/engineering(src)
 		new /obj/item/taperoll/engineering(src)
-		return
+
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "technician's locker"
 	req_access = list(access_atmospherics)
@@ -134,7 +135,6 @@
 	icon_opened = "secureatmopen"
 	icon_broken = "secureatmbroken"
 	icon_off = "secureatmoff"
-
 
 	New()
 		..()
@@ -156,4 +156,3 @@
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/weapon/cartridge/atmos(src)
 		new /obj/item/taperoll/atmos(src)
-		return

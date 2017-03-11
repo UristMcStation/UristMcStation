@@ -10,7 +10,7 @@
 //Papercrafts definition
 /obj/item/weapon/papercrafts
 	w_class = 1
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/papercrafts.dmi'
 
 /obj/item/weapon/papercrafts/proc/fold(var/obj/item/weapon/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again

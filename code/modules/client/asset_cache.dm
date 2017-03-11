@@ -89,7 +89,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	if(!unreceived || !unreceived.len)
 		return 0
 	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-		client << "Sending Resources..."
+		to_chat(client, "Sending Resources...")
 	for(var/asset in unreceived)
 		if (asset in asset_cache.cache)
 			client << browse_rsc(asset_cache.cache[asset], asset)
@@ -214,6 +214,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		"nano/css/",
 		"nano/images/",
 		"nano/images/status_icons/",
+		"nano/images/modular_computers/",
 		"nano/js/"
 	)
 	var/list/uncommon_dirs = list(

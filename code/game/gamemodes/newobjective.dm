@@ -177,7 +177,7 @@
 				if(!killobjectives.len)
 					continue
 				var/datum/objective/assassinate/objective = pickweight(killobjectives)
-				world << objective
+				to_world(objective)
 				for(1 to 10)
 					if(objective.points + total_weight <= 100 || !killobjectives.len)
 						break
@@ -1045,7 +1045,7 @@ datum
 					return 20
 			AI
 				steal_target = /obj/structure/AIcore
-				explanation_text = "Steal a finished AI, either by intellicard or stealing the whole construct."
+				explanation_text = "Steal a finished AI, either by inteliCard or stealing the whole construct."
 				weight = 50
 
 				get_points(var/job)

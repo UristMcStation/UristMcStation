@@ -3,9 +3,9 @@
 	desc = "A window."
 	icon = 'icons/obj/structures.dmi'
 	density = 1
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
-	layer = 3.2//Just above doors
+	layer = SIDE_WINDOW_LAYER
 	anchored = 1.0
 	flags = ON_BORDER
 	var/maxhealth = 14.0
@@ -24,25 +24,24 @@
 	. = ..(user)
 
 	if(health == maxhealth)
-		user << "<span class='notice'>It looks fully intact.</span>"
+		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			user << "<span class='notice'>It has a few cracks.</span>"
+			to_chat(user, "<span class='notice'>It has a few cracks.</span>")
 		else if(perc > 0.5)
-			user << "<span class='warning'>It looks slightly damaged.</span>"
+			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
 		else if(perc > 0.25)
-			user << "<span class='warning'>It looks moderately damaged.</span>"
+			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
 		else
-			user << "<span class='danger'>It looks heavily damaged.</span>"
+			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
 	if(silicate)
 		if (silicate < 30)
-			user << "<span class='notice'>It has a thin layer of silicate.</span>"
+			to_chat(user, "<span class='notice'>It has a thin layer of silicate.</span>")
 		else if (silicate < 70)
-			user << "<span class='notice'>It is covered in silicate.</span>"
+			to_chat(user, "<span class='notice'>It is covered in silicate.</span>")
 		else
-			user << "<span class='notice'>There is a thick layer of silicate covering it.</span>"
-
+			to_chat(user, "<span class='notice'>There is a thick layer of silicate covering it.</span>")
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
 
@@ -91,11 +90,11 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+			if(reinf) new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) PoolOrNew(/obj/item/stack/rods, loc)
+		if(reinf) new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
 
@@ -225,22 +224,22 @@
 			state = 3 - state
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>")
+			to_chat(user, (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>"))
 		else if(reinf && state == 0)
 			set_anchored(!anchored)
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (anchored ? "<span class='notice'>You have fastened the frame to the floor.</span>" : "<span class='notice'>You have unfastened the frame from the floor.</span>")
+			to_chat(user, (anchored ? "<span class='notice'>You have fastened the frame to the floor.</span>" : "<span class='notice'>You have unfastened the frame from the floor.</span>"))
 		else if(!reinf)
 			set_anchored(!anchored)
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>")
+			to_chat(user, (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>"))
 	else if(istype(W, /obj/item/weapon/crowbar) && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
-		user << (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>")
+		to_chat(user, (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>"))
 	else if(istype(W, /obj/item/weapon/wrench) && !anchored && (!state || !reinf))
 		if(!glasstype)
-			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
+			to_chat(user, "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>")
 		else
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			visible_message("<span class='notice'>[user] dismantles \the [src].</span>")
@@ -270,7 +269,7 @@
 	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
-	var/def_zone = ran_zone("head", 20)
+	var/def_zone = ran_zone(BP_HEAD, 20)
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
@@ -304,7 +303,7 @@
 		return 0
 
 	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -323,7 +322,7 @@
 		return 0
 
 	if(anchored)
-		usr << "It is fastened to the floor therefore you can't rotate it!"
+		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
 		return 0
 
 	update_nearby_tiles(need_rebuild=1) //Compel updates before
@@ -351,7 +350,7 @@
 
 
 /obj/structure/window/Destroy()
-	density = 0
+	set_density(0)
 	update_nearby_tiles()
 	var/turf/location = loc
 	loc = null
@@ -401,7 +400,9 @@
 	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
 	//this way it will only update full-tile ones
 	overlays.Cut()
+	layer = FULL_WINDOW_LAYER
 	if(!is_fulltile())
+		layer = SIDE_WINDOW_LAYER
 		icon_state = "[basestate]"
 		return
 	var/list/dirs = list()
@@ -481,6 +482,10 @@
 	if (constructed)
 		state = 0
 
+/obj/structure/window/initialize()
+	..()
+	layer = is_full_window() ? FULL_WINDOW_LAYER : SIDE_WINDOW_LAYER
+
 /obj/structure/window/reinforced/full
     dir = 5
     icon_state = "fwindow"
@@ -549,7 +554,7 @@
 	name = "window tint control"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
-	desc = "A remote control switch for polarized windows."
+	desc = "A remote control switch for electrochromic windows."
 	var/range = 7
 
 /obj/machinery/button/windowtint/attack_hand(mob/user as mob)

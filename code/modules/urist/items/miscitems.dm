@@ -1,7 +1,7 @@
 //misc items that need a home
 
 /obj/item/weapon/staff/necrostaff
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "necromancer's staff"
 	desc = "A staff that emits a threatening aura of death."
 	icon = 'icons/urist/items/misc.dmi'
@@ -9,7 +9,7 @@
 	item_state = "necrostaff"
 
 //glowsticks dunno where else to put thiese
-
+/* Bay has'em now too
 /obj/item/device/flashlight/glowstick //this should never be seen
 	name = "glowstick"
 	desc = "A glowstick, provides a small amount of light when it "
@@ -70,23 +70,23 @@
 
 /obj/item/device/flashlight/glowstick/blue
 	light_color = "#0000ff"
-	color = "#0000ff"
+	color = "#0000ff"*/
 
 /obj/item/device/flashlight/glowstick/green
-	light_color = "#00b300"
+	//light_color = "#00b300"
 	color = "#00b300"
 
 /obj/item/device/flashlight/glowstick/purple
-	light_color = "#ac00e6"
+	//light_color = "#ac00e6"
 	color = "#ac00e6"
-
+/*
 /obj/item/device/flashlight/glowstick/orange
 	light_color = "#ff8000"
 	color = "#ff8000"
 
 /obj/item/device/flashlight/glowstick/yellow
 	light_color = "#ffff00"
-	color = "#ffff00"
+	color = "#ffff00"*/
 
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of glowsticks"

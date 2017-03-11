@@ -107,8 +107,7 @@
 
 	BNews = B
 	//get a new station name
-	station_name = null
-	station_name()
+	//var/station_name = station_name()
 	//update our hub status
 	world.update_status()
 	BNews_Game_Start()

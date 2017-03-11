@@ -33,7 +33,7 @@
 		return 0
 
 	switch(zone)
-		if("head", "mouth", "eyes")
+		if(BP_HEAD, BP_MOUTH, BP_EYES)
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2) user.visible_message("<span class='danger'>[user] scratched [target] across \his cheek!</span>")
@@ -73,9 +73,9 @@
 	attack_noun = list("body")
 	damage = 2
 
-/datum/unarmed_attack/slime_glomp/apply_effects()
-	//Todo, maybe have a chance of causing an electrical shock?
-	return
+/datum/unarmed_attack/slime_glomp/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+	..()
+	user.apply_stored_shock_to(target)
 
 /datum/unarmed_attack/stomp/weak
 	attack_verb = list("jumped on")

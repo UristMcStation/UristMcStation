@@ -1,11 +1,10 @@
 /decl/hierarchy/outfit/ANTAG
 	name = "ANTAG Operative"
-	uniform = /obj/item/clothing/under/suit_jacket //change this
-	shoes = /obj/item/clothing/shoes/black
+	uniform = /obj/item/clothing/under/urist/suit_jacket/black{ starting_accessories=list(/obj/item/clothing/accessory/wcoat, /obj/item/clothing/accessory/red) }
+	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/thick
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
-	suit = /obj/item/clothing/suit/wcoat
 	l_pocket = /obj/item/weapon/melee/energy/sword
 	mask = /obj/item/clothing/mask/bandana/bedsheet/red
 
@@ -103,14 +102,18 @@
 	uniform = /obj/item/clothing/under/urist/dresden
 	head = /obj/item/clothing/head/wizard/urist/dresdendora
 	suit = /obj/item/clothing/suit/wizrobe/urist/dresden
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sandal/marisa
 
 /decl/hierarchy/outfit/wizard/necro
 	name = "Wizard - Necromancer"
 	uniform = /obj/item/clothing/under/color/black
 	head = /obj/item/clothing/head/wizard/urist/necro
 	suit = /obj/item/clothing/suit/wizrobe/urist/necro
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/sandal/marisa
+
+/* World War 13 */
+/decl/hierarchy/outfit/wwii
+	name = "Naked, 1941-style" //just to shut Travis up
 
 /decl/hierarchy/outfit/wwii/germanrifleman
 	name = "German Rifleman"
@@ -266,12 +269,12 @@
 		else
 			qdel(gear)
 
-/decl/hierarchy/outfit/lactera/soldier
+/decl/hierarchy/outfit/lactera
 	name = "Lactera Soldier"
 	uniform = /obj/item/clothing/under/lactera
 	shoes = /obj/item/clothing/shoes/magboots/lactera
 	glasses = /obj/item/clothing/glasses/night
-	suit = /obj/item/clothing/suit/lactera/officer
+	suit = /obj/item/clothing/suit/lactera/regular
 	belt = /obj/item/weapon/gun/energy/lactera/a1
 	r_hand = /obj/item/weapon/gun/energy/lactera/a3
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
@@ -282,7 +285,7 @@
 	uniform = /obj/item/clothing/under/lactera
 	shoes = /obj/item/clothing/shoes/magboots/lactera
 	glasses = /obj/item/clothing/glasses/night
-	suit = /obj/item/clothing/suit/lactera/regular
+	suit = /obj/item/clothing/suit/lactera/officer
 	belt = /obj/item/weapon/gun/energy/lactera/a1
 	r_hand = /obj/item/weapon/gun/energy/lactera/a2
 	r_pocket = /obj/item/weapon/grenade/aliengrenade

@@ -305,7 +305,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 					break
 			if(newname)
 				break	//That's a suitable name!
-			src << "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken."
+			to_chat(src, "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken.")
 
 		if(!newname)	//we'll stick with the oldname then
 			return
@@ -413,6 +413,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		creatures[name] = M
 
 	return creatures
+
+/proc/get_follow_targets()
+	return follow_repository.get_follow_targets()
 
 //Orders mobs by type then by name
 /proc/sortmobs()
@@ -596,17 +599,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
 
-//Returns: all the areas in the world
-/proc/return_areas()
-	var/list/area/areas = list()
-	for(var/area/A in world)
-		areas += A
-	return areas
-
-//Returns: all the areas in the world, sorted.
-/proc/return_sorted_areas()
-	return sortAtom(return_areas())
-
 //Takes: Area type as text string or as typepath OR an instance of the area.
 //Returns: A list of all areas of that type in the world.
 /proc/get_areas(var/areatype)
@@ -646,8 +638,8 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	if(!A || !src) return 0
 
-	var/list/turfs_src = get_area_turfs(src.type)
-	var/list/turfs_trg = get_area_turfs(A.type)
+	var/list/turfs_src = get_area_turfs("\ref[src]")
+	var/list/turfs_trg = get_area_turfs("\ref[A]")
 
 	if(!turfs_src.len || !turfs_trg.len) return 0
 
@@ -804,7 +796,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 					for(var/obj/O in T)
 
-						if(!istype(O,/obj))
+						if(!istype(O,/obj) || !O.simulated)
 							continue
 
 						objs += O
@@ -815,18 +807,18 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 
 					for(var/obj/O in newobjs)
-						O.loc = X
+						O.forceMove(X)
 
 					for(var/mob/M in T)
 
-						if(!istype(M,/mob) || isEye(M)) continue // If we need to check for more mobs, I'll add a variable
+						if(!istype(M,/mob) || !M.simulated) continue // If we need to check for more mobs, I'll add a variable
 						mobs += M
 
 					for(var/mob/M in mobs)
 						newmobs += DuplicateObject(M , 1)
 
 					for(var/mob/M in newmobs)
-						M.loc = X
+						M.forceMove(X)
 
 					copiedobjs += newobjs
 					copiedobjs += newmobs
@@ -888,18 +880,18 @@ proc/get_mob_with_client_list()
 
 
 /proc/parse_zone(zone)
-	if(zone == "r_hand") return "right hand"
-	else if (zone == "l_hand") return "left hand"
-	else if (zone == "l_arm") return "left arm"
-	else if (zone == "r_arm") return "right arm"
-	else if (zone == "l_leg") return "left leg"
-	else if (zone == "r_leg") return "right leg"
-	else if (zone == "l_foot") return "left foot"
-	else if (zone == "r_foot") return "right foot"
-	else if (zone == "l_hand") return "left hand"
-	else if (zone == "r_hand") return "right hand"
-	else if (zone == "l_foot") return "left foot"
-	else if (zone == "r_foot") return "right foot"
+	if(zone == BP_R_HAND) return "right hand"
+	else if (zone == BP_L_HAND) return "left hand"
+	else if (zone == BP_L_ARM) return "left arm"
+	else if (zone == BP_R_ARM) return "right arm"
+	else if (zone == BP_L_LEG) return "left leg"
+	else if (zone == BP_R_LEG) return "right leg"
+	else if (zone == BP_L_FOOT) return "left foot"
+	else if (zone == BP_R_FOOT) return "right foot"
+	else if (zone == BP_L_HAND) return "left hand"
+	else if (zone == BP_R_HAND) return "right hand"
+	else if (zone == BP_L_FOOT) return "left foot"
+	else if (zone == BP_R_FOOT) return "right foot"
 	else return zone
 
 /proc/get(atom/loc, type)
@@ -1040,22 +1032,27 @@ proc/is_hot(obj/item/W as obj)
 /obj/item/clothing/mask/smokable/cigarette/can_puncture()
 	return src.lit
 
-/proc/is_surgery_tool(obj/item/W as obj)
-	return (	\
-	istype(W, /obj/item/weapon/scalpel)			||	\
-	istype(W, /obj/item/weapon/hemostat)		||	\
-	istype(W, /obj/item/weapon/retractor)		||	\
-	istype(W, /obj/item/weapon/cautery)			||	\
-	istype(W, /obj/item/weapon/bonegel)			||	\
-	istype(W, /obj/item/weapon/bonesetter)
-	)
-
 //check if mob is lying down on something we can operate him on.
-/proc/can_operate(mob/living/carbon/M)
-	return (M.lying && \
-	locate(/obj/machinery/optable, M.loc) || \
-	(locate(/obj/structure/bed/roller, M.loc) && prob(75)) || \
-	(locate(/obj/structure/table/, M.loc) && prob(66)))
+/proc/can_operate(mob/living/carbon/M, mob/living/carbon/user)
+	var/turf/T = get_turf(M)
+	if(locate(/obj/machinery/optable, T))
+		. = TRUE
+	if(locate(/obj/structure/bed, T))
+		. = TRUE
+	if(locate(/obj/structure/table, T))
+		. = TRUE
+
+	if(M == user)
+		var/hitzone = check_zone(user.zone_sel.selecting)
+		var/list/badzones = list(BP_HEAD)
+		if(user.hand)
+			badzones += BP_L_ARM
+			badzones += BP_L_HAND
+		else
+			badzones += BP_R_ARM
+			badzones += BP_R_HAND
+		if(hitzone in badzones)
+			return FALSE
 
 /proc/reverse_direction(var/dir)
 	switch(dir)
@@ -1084,9 +1081,8 @@ var/list/WALLITEMS = list(
 	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
 	/obj/machinery/status_display, /obj/machinery/requests_console, /obj/machinery/light_switch, /obj/structure/sign,
 	/obj/machinery/newscaster, /obj/machinery/firealarm, /obj/structure/noticeboard,
-	/obj/machinery/computer/security/telescreen,
 	/obj/item/weapon/storage/secure/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
-	/obj/structure/mirror, /obj/structure/fireaxecabinet, /obj/machinery/computer/security/telescreen/entertainment
+	/obj/structure/mirror, /obj/structure/fireaxecabinet
 	)
 /proc/gotwallitem(loc, dir)
 	for(var/obj/O in loc)

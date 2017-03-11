@@ -1,5 +1,11 @@
 var/datum/antagonist/vampire/vamps
 
+/proc/isvampire(var/mob/player)
+	if(!vamps || !player.mind)
+		return 0
+	if(player.mind in vamps.current_antagonists)
+		return 1
+
 /datum/antagonist/vampire
 	id = MODE_VAMPIRE
 	role_text = "Vampire"

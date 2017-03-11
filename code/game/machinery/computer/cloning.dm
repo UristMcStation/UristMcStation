@@ -93,9 +93,9 @@
 	if (istype(W, /obj/item/weapon/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			src.diskette = W
-			user << "You insert [W]."
+			to_chat(user, "You insert \the [W].")
 			src.updateUsrDialog()
 			return
 	else
@@ -293,7 +293,7 @@
 				src.temp = "Load successful."
 			if("eject")
 				if (!isnull(src.diskette))
-					src.diskette.loc = src.loc
+					src.diskette.dropInto(loc)
 					src.diskette = null
 
 	else if (href_list["save_disk"]) //Save to disk!
@@ -351,7 +351,8 @@
 						pod.growclone(C)
 					else
 						var/mob/selected = find_dead_player("[C.ckey]")
-						selected << 'sound/machines/chime.ogg'	//probably not the best sound but I think it's reasonable
+						sound_to(selected, 'sound/machines/chime.ogg')//probably not the best sound but I think it's reasonable
+
 						var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 						if(answer == "Yes" && pod.growclone(C))
 							cloning = 1
@@ -383,13 +384,16 @@
 		if (!subject.has_brain())
 			if(ishuman(subject))
 				var/mob/living/carbon/human/H = subject
-				if(H.species.has_organ["brain"])
+				if(H.should_have_organ(BP_BRAIN))
 					scantemp = "Error: No signs of intelligence detected."
 			else
 				scantemp = "Error: No signs of intelligence detected."
 			return
 		if ((!subject.ckey) || (!subject.client))
 			scantemp = "Error: Mental interface failure."
+			return
+		if(subject.isSynthetic())
+			scantemp = "Error: Subject is not organic."
 			return
 	if (NOCLONE in subject.mutations)
 		scantemp = "Error: Major genetic degradation."

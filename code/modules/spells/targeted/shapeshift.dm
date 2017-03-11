@@ -23,7 +23,7 @@
 	playsound(get_turf(user),cast_sound,50,1)
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
-			user << "[name] can only transform living targets."
+			to_chat(user, "[name] can only transform living targets.")
 			continue
 		if(M.buckled)
 			M.buckled.unbuckle_mob()
@@ -45,7 +45,7 @@
 		else
 			trans.key = M.key
 		var/atom/movable/overlay/effect = new /atom/movable/overlay(get_turf(M))
-		effect.density = 0
+		effect.set_density(0)
 		effect.anchored = 1
 		effect.icon = 'icons/effects/effects.dmi'
 		effect.layer = 3

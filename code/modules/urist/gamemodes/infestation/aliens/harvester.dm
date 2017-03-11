@@ -1,3 +1,4 @@
+//Keep this unticked unless you're Glloyd and unfucked this file
 /mob/living/carbon/harvester
 	name = "Harvester"
 	desc = "What the fuck is that thing?"
@@ -19,11 +20,12 @@
 
 	add_language("Hivemind")
 	add_language("Xenomorph") //Bonus language.
-	internal_organs |= new /obj/item/organ/xenos/hivenode(src)
+	internal_organs |= new /obj/item/organ/internal/xenos/hivenode(src)
 
 	gender = NEUTER
 
-	add_spell(new/spell/aoe_turf/blink)
+	if(mind)
+		add_spell(new/spell/aoe_turf/blink)
 
 	verbs += /mob/living/carbon/harvester/proc/harvester_glare
 	verbs += /mob/living/carbon/harvester/proc/harvester_cloak
@@ -219,7 +221,7 @@
 			handle_paralysed()
 			blinded = 1
 			stat = UNCONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		if(sleeping)
@@ -230,12 +232,12 @@
 			blinded = 1
 			stat = UNCONSCIOUS
 		else if(resting)
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		else
 			stat = CONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-1)
 
 		// Eyes and blindness.

@@ -1,9 +1,8 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	desc = "It paints pipes!"
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "paint_sprayer"
-	item_state = "paint_sprayer"
+	icon = 'icons/obj/device.dmi'
+	icon_state = "pipainter"
+	item_state = "flight"
 	var/list/modes
 	var/mode
 
@@ -18,7 +17,7 @@
 	if(!proximity)
 		return
 
-	if(!istype(A,/obj/machinery/atmospherics/pipe) || istype(A,/obj/machinery/atmospherics/pipe/tank) || istype(A,/obj/machinery/atmospherics/pipe/vent) || istype(A,/obj/machinery/atmospherics/pipe/simple/heat_exchanging) || istype(A,/obj/machinery/atmospherics/pipe/simple/insulated) || !in_range(user, A))
+	if(!istype(A,/obj/machinery/atmospherics/pipe) || istype(A,/obj/machinery/atmospherics/pipe/tank) || istype(A,/obj/machinery/atmospherics/pipe/vent) || istype(A,/obj/machinery/atmospherics/pipe/simple/heat_exchanging) || !in_range(user, A))
 		return
 	var/obj/machinery/atmospherics/pipe/P = A
 
@@ -28,5 +27,5 @@
 	mode = input("Which colour do you want to use?", "Pipe painter", mode) in modes
 
 /obj/item/device/pipe_painter/examine(mob/user)
-	..(user)
-	user << "It is in [mode] mode."
+	. = ..(user)
+	to_chat(user, "It is in [mode] mode.")
