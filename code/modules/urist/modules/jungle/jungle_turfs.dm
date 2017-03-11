@@ -1,9 +1,9 @@
-/turf/simulated/jungle
+/turf/simulated/planet
 	var/animal_spawn_chance = 0
-	var/plants_spawn_chance = 40
-	var/small_trees_chance = 9
+	var/plants_spawn_chance = 0
+	var/small_trees_chance = 0
 	var/large_trees_chance = 0
-	var/reeds_spawn_chance = 10
+	var/reeds_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
@@ -14,13 +14,13 @@
 	light_color = null
 	light_power = 3
 	light_range = 3 //for some reason, range 1 doesn't apply at all.
-	var/bushspawnchance = 35 //let's try it, why not
+	var/bushspawnchance = 0 //let's try it, why not
 	var/animal_spawn_list
 
-/turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
+/turf/simulated/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
-/turf/simulated/jungle/New()
+/turf/simulated/planet/New()
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
 
@@ -59,10 +59,10 @@
 
 	update_light()
 
-/turf/simulated/jungle/ex_act(severity)
+/turf/simulated/planet/ex_act(severity)
 	return
 
-/turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
+/turf/simulated/planet/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
@@ -103,7 +103,7 @@
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
 
-/*/turf/simulated/jungle
+/turf/simulated/planet/jungle
 	animal_spawn_chance = 1
 	plants_spawn_chance = 40
 	small_trees_chance = 9
@@ -119,9 +119,9 @@
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot,
 		/mob/living/carbon/human/monkey
-	)*/
+	)
 
-/turf/simulated/jungle/med
+/turf/simulated/planet/jungle/med
 	large_trees_chance = 1
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
@@ -134,12 +134,12 @@
 		/mob/living/carbon/human/monkey
 		)
 
-/turf/simulated/jungle/thick
+/turf/simulated/planet/jungle/thick
 	large_trees_chance = 5
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 73
-//	animal_spawn_chance = 1
+//	animal_spawn_chance = 5
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -148,7 +148,7 @@
 		)
 
 
-/turf/simulated/jungle/clear
+/turf/simulated/planet/jungle/clear
 	bushspawnchance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0
@@ -156,7 +156,7 @@
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
-///turf/simulated/jungle/clear/New()
+///turf/simulated/planet/jungle/clear/New()
 	//set_light(2)
 
 	/*for(var/obj/structure/bush/B in src)
@@ -166,7 +166,7 @@
 
 	//update_light()
 
-/turf/simulated/jungle/clear/grass1
+/turf/simulated/planet/jungle/clear/grass1
 	bushspawnchance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0
@@ -174,13 +174,13 @@
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
-/turf/simulated/jungle/clear/dark
+/turf/simulated/planet/jungle/clear/dark
 	icon_state = "grass1" //clear
 //	icon_spawn_state = "grass1"
 	luminosity = 0
 	icon_spawn_state = null
 
-/turf/simulated/jungle/path
+/turf/simulated/planet/jungle/path
 	bushspawnchance = 0
 	small_trees_chance = 0
 	name = "wet grass"
@@ -195,21 +195,21 @@
 		)
 
 
-///turf/simulated/jungle/path/New()
+///turf/simulated/planet/jungle/path/New()
 //	..()
 //	for(var/obj/structure/bush/B in src)
 //		qdel(B)
 
-/turf/simulated/jungle/proc/Spread(var/probability, var/prob_loss = 50)
+/turf/simulated/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
 	if(probability <= 0)
 		return
 
 	//world << "<span class='notice'> Spread([probability])</span>"
-	for(var/turf/simulated/jungle/J in orange(1, src))
+	for(var/turf/simulated/planet/jungle/J in orange(1, src))
 		if(!J.bushspawnchance)
 			continue
 
-		var/turf/simulated/jungle/P = null
+		var/turf/simulated/planet/jungle/P = null
 		if(J.type == src.type)
 			P = J
 		else
@@ -218,40 +218,40 @@
 		if(P && prob(probability))
 			P.Spread(probability - prob_loss)
 
-/turf/simulated/jungle/plains
+/turf/simulated/planet/jungle/plains
 	bushspawnchance = 0
 	small_trees_chance = 0
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
-	animal_spawn_chance = 4
+	animal_spawn_chance = 3
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/hostile/snake
 		)
 
-/turf/simulated/jungle/plains/New()
+/turf/simulated/planet/jungle/plains/New()
 	..()
 	if(prob(5))
 		new	/obj/structure/scrap/random
 	else if(prob(2))
 		new /obj/structure/scrap/vehicle
 
-/turf/simulated/jungle/impenetrable
+/turf/simulated/planet/jungle/impenetrable
 	bushspawnchance = 0
 	small_trees_chance = 0
 	large_trees_chance = 7
 	icon_state = "grass_impenetrable" //impenetrable
 	icon_spawn_state = "grass1"
 
-/turf/simulated/jungle/impenetrable/New()
+/turf/simulated/planet/jungle/impenetrable/New()
 		..()
 		var/obj/structure/bush/B = new(src)
 		B.indestructable = 1
 
 //copy paste from asteroid mineral turfs
-/turf/simulated/jungle/rock
+/turf/simulated/planet/jungle/rock
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
@@ -266,34 +266,34 @@
 	light_range = 0
 	light_power = 0
 
-/turf/simulated/jungle/rock/attackby()
+/turf/simulated/planet/jungle/rock/attackby()
 	return
 
-/turf/simulated/jungle/rock/New()
+/turf/simulated/planet/jungle/rock/New()
 	spawn(1)
 		var/turf/T
-		if(!istype(get_step(src, NORTH), /turf/simulated/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
+		if(!istype(get_step(src, NORTH), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
 			T = get_step(src, NORTH)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_s")
-		if(!istype(get_step(src, SOUTH), /turf/simulated/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
+		if(!istype(get_step(src, SOUTH), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
 			T = get_step(src, SOUTH)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
-		if(!istype(get_step(src, EAST), /turf/simulated/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
+		if(!istype(get_step(src, EAST), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
 			T = get_step(src, EAST)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
-		if(!istype(get_step(src, WEST), /turf/simulated/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
+		if(!istype(get_step(src, WEST), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
 			T = get_step(src, WEST)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
 		update_light()
 
-/turf/simulated/jungle/rock/weather_enable()
+/turf/simulated/planet/jungle/rock/weather_enable()
 	return
 
-/turf/simulated/jungle/water
+/turf/simulated/planet/jungle/water
 	bushspawnchance = 0
 	small_trees_chance = 0 //fucking rivers winning the small tree RNG
 	plants_spawn_chance = 0 //until I get a metric for spawning reeds only
@@ -309,7 +309,7 @@
 	var/fishing = 0 //are we fishing
 
 
-/turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
 		if(bridge)
 			user << "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>"
@@ -438,7 +438,7 @@
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
 		return 1
 
-///turf/simulated/jungle/water/New()
+///turf/simulated/planet/jungle/water/New()
 //	..()
 //	for(var/obj/structure/bush/B in src)
 //		qdel(B)
@@ -447,7 +447,7 @@
 //	for(var/obj/structure/jungle_plant/J in src)
 //		qdel(J)
 
-/turf/simulated/jungle/water/Entered(atom/movable/O)
+/turf/simulated/planet/jungle/water/Entered(atom/movable/O)
 	..()
 	if(density) //to account for deep water
 		return
@@ -472,14 +472,14 @@
 				M.apply_damage(rand(3,5), BRUTE, sharp=1)
 
 
-/turf/simulated/jungle/water/deep
+/turf/simulated/planet/jungle/water/deep
 	plants_spawn_chance = 0
 	density = 1
 	reeds_spawn_chance = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
 
-/turf/simulated/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
@@ -492,7 +492,7 @@
 					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
 	return
 
-/turf/simulated/jungle/temple_wall
+/turf/simulated/planet/jungle/temple_wall
 	name = "temple wall"
 	desc = ""
 	density = 1
@@ -500,20 +500,20 @@
 	icon_state = "phoron0"
 	var/mineral = "phoron"
 
-/turf/simulated/jungle/water/edge
+/turf/simulated/planet/jungle/water/edge
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
 	icon_spawn_state = null
 
-/turf/simulated/jungle/clear/underground
+/turf/simulated/planet/jungle/clear/underground
 	name = "dirt"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	light_range = 0
 	light_power = 0
 
-/turf/simulated/jungle/clear/underground/weather_enable(var/override = 0)
+/turf/simulated/planet/jungle/clear/underground/weather_enable(var/override = 0)
 	if(override)
 		..()

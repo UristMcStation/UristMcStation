@@ -330,7 +330,7 @@
 /area/skipjack_station/mining
 	name = "south of mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/jungle/clear
+	base_turf = /turf/simulated/planet/jungle/clear
 
 // Maintenance
 
@@ -733,7 +733,7 @@ area/rnd/test_area
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
-	base_turf = /turf/simulated/jungle/clear
+	base_turf = /turf/simulated/planet/jungle/clear
 
 /*******
 * Moon *

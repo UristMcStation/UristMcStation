@@ -99,11 +99,11 @@
 
 /obj/effect/landmark/animal_spawner/random/jungle/crosstrigger
 	crosstrigger = 1
-	icon_state = "x1"
+	icon_state = "x2"
 
 /obj/effect/landmark/animal_spawner/random/plains/crosstrigger
 	crosstrigger = 1
-	icon_state = "x1"
+	icon_state = "x2"
 
 //huntable animals
 
