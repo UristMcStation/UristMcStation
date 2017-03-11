@@ -479,14 +479,22 @@
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
 
+/turf/simulated/planet/jungle/water/deep/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover,/obj/item/projectile))
+		return 1
+
+	else ..()
+
 /turf/simulated/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
 					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					bridge = 1
 					user.loc = get_turf(src)
 					R.loc = get_turf(src)
+					bridge = 0
 
 				else
 					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"

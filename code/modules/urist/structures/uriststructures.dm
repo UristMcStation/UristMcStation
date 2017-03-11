@@ -364,3 +364,4 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "It's a shitty little improvised raft. Good luck."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "raft-frame"
+	built = 1

@@ -80,7 +80,7 @@
 
 /obj/effect/landmark/animal_spawner/random/jungle
 	name = "jungle animal spawner"
-	x_offset = -6
+	x_offset = -8
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/carbon/human/monkey,
