@@ -55,8 +55,8 @@
 
 /obj/structure/vehicle_frame/motorcycle
 	name = "motorcycle frame"
-	icon = null
-	icon_state = null
+	icon = 'icons/urist/vehicles/bike.dmi'
+	icon_state = "bike_frame"
 	var/buildstate = 0
 
 /obj/structure/vehicle_frame/motorcycle/examine(mob/user)

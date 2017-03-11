@@ -113,6 +113,10 @@
 		/obj/item/weapon/material/shard
 		)
 
+/obj/structure/scrap/vehicle/New()
+	if(prob(25))
+		new /obj/structure/vehicle_frame/motorcycle
+
 /obj/structure/scrap/large
 	name = "large scrap pile"
 	opacity = 1
@@ -154,7 +158,6 @@
 /obj/item/stack/material/plasteel/scrap/New(var/newloc)
 	..(newloc, rand(1,3))
 
-// Placeholder for proper vehicle parts.
 /obj/item/vehicle_part
 	name = "vehicle part"
 	desc = "A part from a vehicle."
