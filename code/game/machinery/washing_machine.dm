@@ -59,6 +59,11 @@
 		var/obj/item/stack/material/wetleather/WL = new(src)
 		WL.amount = HH.amount
 		qdel(HH)
+//we'll keep in the old method, but the main method will be dunking them in the water the planet
+	for(var/obj/item/stack/hide/animalhide/AH in contents)
+		var/obj/item/stack/hide/wet/WL = new(src)
+		WL.amount = AH.amount
+		qdel(AH)
 
 	if( locate(/mob,contents) )
 		state = 7
@@ -110,7 +115,8 @@
 		istype(W,/obj/item/clothing/gloves) || \
 		istype(W,/obj/item/clothing/shoes) || \
 		istype(W,/obj/item/clothing/suit) || \
-		istype(W,/obj/item/weapon/bedsheet))
+		istype(W,/obj/item/weapon/bedsheet) || \
+		istype(W,/obj/item/stack/hide/animalhide))
 
 		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
 		if ( istype(W,/obj/item/clothing/suit/space ) )

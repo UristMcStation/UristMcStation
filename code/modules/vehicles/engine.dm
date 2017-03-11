@@ -1,7 +1,7 @@
 /obj/item/weapon/engine
 	name = "engine"
 	desc = "An engine used to power a small vehicle."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/urist/items/vehicle_parts.dmi'
 	w_class = 5
 	var/stat = 0
 	var/trail_type

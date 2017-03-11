@@ -103,10 +103,10 @@
 	name = "debris pile"
 	parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
 	loot_list = list(
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
+		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
+//		/obj/item/vehicle_part/random,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/scrap,
@@ -124,6 +124,17 @@
 	base_min = 9
 	base_max = 14
 	base_spread = 16
+
+/obj/structure/scrap/random
+	var/scrap_list = list(
+		/obj/structure/scrap,
+		/obj/structure/scrap/large
+		)
+
+/obj/structure/scrap/random/New()
+	var/A = pick(scrap_list)
+	new A(src.loc)
+	qdel(src)
 
 /obj/item/weapon/storage/internal/updating/update_icon()
 	master_item.update_icon()
@@ -150,6 +161,28 @@
 	icon_state = "engine"
 	icon = 'icons/urist/items/vehicle_parts.dmi'
 
-/obj/item/vehicle_part/New()
+/obj/item/vehicle_part/random/New()
 	..()
-	icon_state = pick(icon_states(icon))
+	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric)
+	new part(src.loc)
+	qdel(src)
+
+/obj/item/vehicle_part/battery
+	name = "battery"
+	desc = "A battery for a vehicle."
+	icon_state = "plating"
+
+/obj/item/vehicle_part/transmission
+	name = "transmission"
+	desc = "The transmission for a vehicle."
+	icon_state = "Transmission"
+
+/obj/item/vehicle_part/transmission/New()
+	..()
+	if(prob(50))
+		icon_state = "Transmission 2"
+
+/obj/item/vehicle_part/tire
+	name = "tire"
+	desc = "A tire for a vehicle."
+	icon_state = "tire"

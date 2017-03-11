@@ -131,6 +131,7 @@
 	recipes += new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1)
 //	recipes += new/datum/stack_recipe("easel", /obj/structure/easel, 3, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("wooden rack", /obj/structure/table/rack/wood, 1, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("wood rod", /obj/item/stack/woodrods, 1, 2, 60)
 
 /material/cardboard/generate_recipes()
 	..()

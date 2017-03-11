@@ -34,3 +34,11 @@
 //huntergun
 
 //hunterknife
+
+/obj/item/weapon/material/knife/hunting
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "huntknife"
+	force = 10
+	applies_material_colour = 0
+	name = "hunting knife"
+	desc = "It's a hunting knife. Use it for hunting."

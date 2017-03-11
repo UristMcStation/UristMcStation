@@ -327,3 +327,10 @@ obj/item/clothing/head/princessbow
 	icon_state = "toque"
 	cold_protection = HEAD
 	min_cold_protection_temperature = 243.15
+
+//cowboy hat
+/obj/item/clothing/head/urist/cowboy
+	name = "cowboy hat"
+	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "cowboyhat"

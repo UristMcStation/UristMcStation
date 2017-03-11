@@ -176,7 +176,7 @@
 		new /obj/item/weapon/implantpad(src)
 
 /obj/item/stack/woodrods
-	name = "wood shaft"
+	name = "wood shafts"
 	desc = "Some wood shafts. Can be used for some shit probably."
 	singular_name = "wood shaft"
 	icon = 'icons/urist/items/misc.dmi'
@@ -333,6 +333,7 @@
 	desc = "An improvised torch, used for lighting up dark areas and cosplaying as Indiana Jones."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "torch_unlit"
+	item_state = "torch0"
 	var/burnt = 0
 	var/smoketime = 500
 	w_class = 3.0
@@ -384,6 +385,8 @@
 		attack_verb = list("hit", "burnt", "singed")
 		w_class = 4
 		icon_state = "torch_lit"
+		item_state = "torch1"
+		usr.regenerate_icons()
 
 
 /obj/item/weapon/flame/torch/proc/burn_out()
@@ -392,12 +395,13 @@
 	damtype = "brute"
 	icon_state = "torch_burnt"
 	item_state = "woodrod"
-	name = "burnt match"
-	desc = "A match. This one has seen better days."
+	name = "burnt torch"
+	desc = "A burnt out torch."
 	processing_objects.Remove(src)
 	w_class = 3
 	force = 7
 	attack_verb = list("hit", "bashed", "smacked")
+	usr.regenerate_icons()
 
 /obj/item/weapon/shovel/improvised //make an icon
 	name = "improvised shovel"

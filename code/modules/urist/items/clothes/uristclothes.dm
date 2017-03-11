@@ -938,3 +938,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "Did someone really tape a book to their face?"
 	icon_state = "facebook"
 	item_state = "facebook"
+
+//why is this not storage? Duplicate item, but it makes way more sense as a storage item.
+
+/obj/item/clothing/suit/captunic/capjacket
+	name = "captain's uniform jacket"
+	desc = "A less formal jacket for everyday captain use."
+	icon_state = "capjacket"
+	item_state = "capjacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = 0
+
+
+//leather stuff
+
+/obj/item/clothing/suit/storage/urist/duster
+	name = "duster"
+	desc = "A floor length duster. Perfect for looking like you just rolled into a one-horse town."
+	icon_state = "duster"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)

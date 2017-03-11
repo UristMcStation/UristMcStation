@@ -150,7 +150,7 @@
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
 		if(!istype(J))
 			continue
-		if(!J.bushes_spawn)
+		if(!J.bushspawnchance)
 			continue
 		river_nodes.Add(new /obj/effect/landmark/river_waypoint(J))
 		num_spawned++
@@ -202,7 +202,7 @@
 	num_spawned = 0
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !J.bushes_spawn)
+		if(!J || !J.bushspawnchance)
 			continue
 		new /obj/effect/landmark/temple(J)
 		path_nodes.Add(new /obj/effect/landmark/path_waypoint(J))
@@ -212,7 +212,7 @@
 	num_spawned = 0
 	while(num_spawned < 1)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !J.bushes_spawn)
+		if(!J || !J.bushspawnchance)
 			continue
 		new /obj/effect/jungle_tribe_spawn(J)
 		path_nodes.Add(new /obj/effect/landmark/path_waypoint(J))
@@ -223,7 +223,7 @@
 	num_spawned = 0
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !J.bushes_spawn)
+		if(!J || !J.bushspawnchance)
 			continue
 		path_nodes.Add(new /obj/effect/landmark/path_waypoint(J))
 		num_spawned++
@@ -288,7 +288,7 @@
 	max = rand(3,6)
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !J.bushes_spawn)
+		if(!J || !J.bushspawnchance)
 			continue
 		animal_spawners.Add(new /obj/effect/landmark/animal_spawner/monkey(J))
 		num_spawned++
@@ -298,7 +298,7 @@
 	max = rand(6,12)
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !istype(J) ||  !J.bushes_spawn)
+		if(!J || !istype(J) ||  !J.bushspawnchance)
 			continue
 		animal_spawners.Add(new /obj/effect/landmark/animal_spawner/panther(J))
 		num_spawned++
@@ -308,7 +308,7 @@
 	max = rand(6,12)
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !istype(J) || !J.bushes_spawn)
+		if(!J || !istype(J) || !J.bushspawnchance)
 			continue
 		animal_spawners.Add(new /obj/effect/landmark/animal_spawner/snake(J))
 		num_spawned++
@@ -318,7 +318,7 @@
 	max = rand(3,6)
 	while(num_spawned < max)
 		var/turf/simulated/jungle/J = locate(rand(RANDOM_LOWER_X, RANDOM_UPPER_X), rand(RANDOM_LOWER_Y, RANDOM_UPPER_Y), src.z)
-		if(!J || !istype(J) ||  !J.bushes_spawn)
+		if(!J || !istype(J) ||  !J.bushspawnchance)
 			continue
 		animal_spawners.Add(new /obj/effect/landmark/animal_spawner/parrot(J))
 		num_spawned++
