@@ -62,26 +62,26 @@
 /obj/structure/vehicle_frame/motorcycle/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It has a loose wheel well in place."
-		if(2) user << "It has a wheel mount welded in place."
-		if(3) user << "It has a back tire loosely attached."
-		if(4) user << "It has both tires loosely attached."
-		if(5) user << "It has both tires firmly attached."
-		if(6) user << "It has both tires firmly attached and a transmission loosely in place."
-		if(7) user << "It has both tires firmly attached and a transmission firmly in place."
-		if(8) user << "It has both tires, a transmission and a loosely attached battery."
-		if(9) user << "It has both tires, a transmission and a firmly attached battery."
+		if(1) to_chat(user, "It has a loose wheel well in place.")
+		if(2) to_chat(user, "It has a wheel mount welded in place.")
+		if(3) to_chat(user, "It has a back tire loosely attached.")
+		if(4) to_chat(user, "It has both tires loosely attached.")
+		if(5) to_chat(user, "It has both tires firmly attached.")
+		if(6) to_chat(user, "It has both tires firmly attached and a transmission loosely in place.")
+		if(7) to_chat(user, "It has both tires firmly attached and a transmission firmly in place.")
+		if(8) to_chat(user, "It has both tires, a transmission and a loosely attached battery.")
+		if(9) to_chat(user, "It has both tires, a transmission and a firmly attached battery.")
 
 /obj/structure/vehicle_frame/motorcycle/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W
 			if(R.use(3))
-				user << "<span class='notice'>You assemble a backbone of rods, constructing a crude wheel well.</span>"
+				to_chat(user, "<span class='notice'>You assemble a backbone of rods, constructing a crude wheel well.</span>")
 				buildstate++
 				update_icon()
 			else
-				user << "<span class='notice'>You need at least three rods to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
 			return
 
 	else if(istype(W,/obj/item/weapon/weldingtool))
@@ -90,51 +90,51 @@
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				user << "<span class='notice'>You weld the rods into place.</span>"
+				to_chat(user, "<span class='notice'>You weld the rods into place.</span>")
 			buildstate++
 		return
 
 	else if(istype(W,/obj/item/vehicle_part/tire))
 		if(buildstate == 2)
-			user << "<span class='notice'>You slide a tire into the back wheel mount.</span>"
+			to_chat(user, "<span class='notice'>You slide a tire into the back wheel mount.</span>")
 			buildstate++
 			update_icon()
 			return
 
 		else if(buildstate == 3)
-			user << "<span class='notice'>You slide a tire into the front wheel mount.</span>"
+			to_chat(user, "<span class='notice'>You slide a tire into the front wheel mount.</span>")
 			buildstate++
 			update_icon()
 			return
 
 	else if(istype(W,/obj/item/weapon/wrench))
 		if(buildstate == 4)
-			user << "<span class='notice'>You secure the tires into the motorcycle frame.</span>"
+			to_chat(user, "<span class='notice'>You secure the tires into the motorcycle frame.</span>")
 			buildstate++
 			return
 
 		else if(buildstate == 8)
-			user << "<span class='notice'>You secure the battery into the frame.</span>"
+			to_chat(user, "<span class='notice'>You secure the battery into the frame.</span>")
 			new /obj/vehicle/bike/motorcycle(get_turf(src))
 			qdel(src)
 			return
 
 	else if(istype(W,/obj/item/vehicle_part/transmission))
 		if(buildstate == 5)
-			user << "<span class='notice'>You slide the transmission into the frame.</span>"
+			to_chat(user, "<span class='notice'>You slide the transmission into the frame.</span>")
 			buildstate++
 			update_icon()
 			return
 
 	else if(istype(W,/obj/item/weapon/screwdriver))
 		if(buildstate == 6)
-			user << "<span class='notice'>You secure the transmission into the frame.</span>"
+			to_chat(user, "<span class='notice'>You secure the transmission into the frame.</span>")
 			buildstate++
 			return
 
 	else if(istype(W,/obj/item/vehicle_part/battery))
 		if(buildstate == 7)
-			user << "<span class='notice'>You slide the battery into the frame.</span>"
+			to_chat(user, "<span class='notice'>You slide the battery into the frame.</span>")
 			buildstate++
 			update_icon()
 			return
@@ -181,7 +181,7 @@
 	if(usr.incapacitated()) return
 
 	if(!engine)
-		usr << "<span class='warning'>\The [src] does not have an engine block installed...</span>"
+		to_chat(usr, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
 		return
 
 	if(!on)
@@ -246,7 +246,7 @@
 			var/mob/living/M = load
 			unload(load, dir)
 			if(istype(M))
-				M << "<span class='danger'>You are hurled off \the [src]!</span>"
+				to_chat(M, "<span class='danger'>You are hurled off \the [src]!</span>")
 				M.throw_at(get_edge_target_turf(src,src.dir),rand(1,2), move_delay)
 				spawn(3)
 					if(!M.lying)
@@ -259,7 +259,7 @@
 		if(!M.lying)
 			if(istype(load, /mob/living))
 				var/mob/living/driver = load
-				driver << "<span class='danger'>You collide with \the [M]!</span>"
+				to_chat(driver, "<span class='danger'>You collide with \the [M]!</span>")
 				msg_admin_attack("[driver.name] ([driver.ckey]) hit [M.name] ([M.ckey]) with [src].")
 			visible_message("<span class='danger'>\The [src] knocks \the [M] down!</span>")
 			RunOver(M)
@@ -268,10 +268,10 @@
 
 /obj/vehicle/bike/motorcycle/RunOver(var/mob/living/carbon/human/H)
 	if(istype(load, /mob/living))
-		load << "<span class='danger'>You run \the [H] down!</span>"
-		H << "<span class='danger'>\The [load] runs you down!</span>"
+		to_chat(load, "<span class='danger'>You run \the [H] down!</span>")
+		to_chat(H, "<span class='danger'>\The [load] runs you down!</span>")
 	else
-		H << "<span class='danger'>\The [src] runs you down!</span>"
+		to_chat(H, "<span class='danger'>\The [src] runs you down!</span>")
 	if(istype(H))
 		var/list/parts = list(HEAD, UPPER_TORSO, LOWER_TORSO, ARMS, LEGS)
 		for(var/i = 0, i < rand(1,3), i++)

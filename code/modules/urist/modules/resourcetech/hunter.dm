@@ -64,17 +64,17 @@
 		istype(W, /obj/item/weapon/material/hatchet))
 
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
-		usr.visible_message("<span class='notice'>\The [usr] starts cutting hair off \the [src]</span>", "<span class='notice'>You start cutting the hair off \the [src]</span>", "You hear the sound of a knife rubbing against flesh")
+		user.visible_message("<span class='notice'>\The [user] starts cutting hair off \the [src]</span>", "<span class='notice'>You start cutting the hair off \the [src]</span>", "You hear the sound of a knife rubbing against flesh")
 		if(do_after(user,50))
-			usr << "<span class='notice'>You cut the hair from this [src.singular_name]</span>"
+			to_chat(user, "<span class='notice'>You cut the hair from this [src.singular_name]</span>")
 			//Try locating an exisitng stack on the tile and add to there if possible
-			for(var/obj/item/stack/hide/hairless/HS in usr.loc)
+			for(var/obj/item/stack/hide/hairless/HS in user.loc)
 				if(HS.amount < 10)
 					HS.amount++
 					src.use(1)
 					break
 			//If it gets to here it means it did not find a suitable stack on the tile.
-			var/obj/item/stack/hide/hairless/HS = new(usr.loc)
+			var/obj/item/stack/hide/hairless/HS = new(user.loc)
 			HS.amount = 1
 			src.use(1)
 	else

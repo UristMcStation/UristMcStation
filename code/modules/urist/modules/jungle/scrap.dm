@@ -96,7 +96,7 @@
 		visible_message("<span class='notice'>\The [user] [pick(ways)] \the [src].</span>")
 		shuffle_loot()
 		if(!(loot.contents.len || contents.len > 1))
-			user << "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>"
+			to_chat(user, "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>")
 	..()
 
 /obj/structure/scrap/vehicle
@@ -116,6 +116,7 @@
 /obj/structure/scrap/vehicle/New()
 	if(prob(25))
 		new /obj/structure/vehicle_frame/motorcycle
+	..()
 
 /obj/structure/scrap/large
 	name = "large scrap pile"

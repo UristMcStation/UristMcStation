@@ -109,11 +109,12 @@
 
 /mob/living/simple_animal/hostile/huntable
 	var/hide = 0
+	var.meat = 0
 
 /mob/living/simple_animal/hostile/huntable/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/material/knife) && src.stat == DEAD)
 		if (do_after(user, 60, src))
-			user << "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>"
+			to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
 			new meat_type(src.loc)
 			new meat_type(src.loc)
 			var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide
@@ -122,6 +123,7 @@
 		//meat and hide drop here
 		qdel(src)
 
+	..()
 
 //*********//
 // Panther //

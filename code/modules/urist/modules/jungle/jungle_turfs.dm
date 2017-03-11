@@ -59,6 +59,10 @@
 
 	update_light()
 
+/turf/simulated/planet/initialize()
+	..()
+	weather_enable()
+
 /turf/simulated/planet/ex_act(severity)
 	return
 
