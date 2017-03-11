@@ -439,6 +439,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "overalls"
 
 //scrdest's coats
+/obj/item/clothing/suit/storage/toggle/urist
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
@@ -452,6 +456,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
+
+/obj/item/clothing/suit/storage/urist
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -742,6 +750,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "militarypants"
 	item_state = "militarypants"
 
+/obj/item/clothing/under/pants/urist/leatherpants
+	name = "leather pants"
+	desc = "A pair of leather pants. Look at you, wearing the skin of vanquished creatures."
+	icon_state = "leatherpants"
+	item_state = "leatherpants"
+
 //blackwarden
 
 /obj/item/clothing/suit/urist/armor/warden
@@ -927,7 +941,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //why is this not storage? Duplicate item, but it makes way more sense as a storage item.
 
-/obj/item/clothing/suit/captunic/capjacket
+/obj/item/clothing/suit/storage/capjacket
 	name = "captain's uniform jacket"
 	desc = "A less formal jacket for everyday captain use."
 	icon_state = "capjacket"
@@ -935,12 +949,72 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = 0
 
-
 //leather stuff
 
-/obj/item/clothing/suit/storage/urist/duster
+/obj/item/clothing/suit/storage/urist/coat/duster
 	name = "duster"
 	desc = "A floor length duster. Perfect for looking like you just rolled into a one-horse town."
 	icon_state = "duster"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/urist/coat/leather
+	name = "leather coat"
+	desc = "A thick leather coat."
+	icon_state = "autumn"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+
+//hoodies
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15 //sure?
+	blood_overlay_type = "coat"
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
+	name = "grey hoodie"
+	desc = "A warm, comfortable grey hoodie."
+	icon_state = "grey_hoodie_open"
+	icon_open = "grey_hoodie_open"
+	icon_closed = "grey_hoodie_closed"
+	item_state = "grey_hoodie_open"
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie/black
+	name = "black hoodie"
+	desc = "A warm, comfortable black hoodie."
+	icon_state = "black_hoodie_open"
+	icon_open = "black_hoodie_open"
+	icon_closed = "black_hoodie_closed"
+	item_state = "black_hoodie_open"
+
+//overalls/apron
+
+/obj/item/clothing/suit/storage/urist/overalls
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/suit/storage/urist/overalls/leather
+	name = "leather overalls"
+	desc = "A sturdy pair of leather work overalls with a ton of pockets for storing all sorts of stuff."
+	icon_state = "overalls_acc"
+	item_state = "overalls_acc"
+
+/obj/item/clothing/suit/storage/urist/overalls/electricians
+	name = "electrician's overalls"
+	desc = "A sturdy pair of electrician's work overalls with a ton of pockets for storing all your tools."
+	icon_state = "electrician-overalls"
+	item_state = "electrician-overalls"
+
+/obj/item/clothing/suit/storage/urist/overalls/standard
+	name = "work overalls"
+	desc = "A sturdy pair of work overalls with a ton of pockets for storing all sorts of stuff."
+	icon_state = "emergency-overalls"
+	item_state = "emergency-overalls"
+
+/obj/item/clothing/suit/storage/urist/apron
+	name = "factory worker's apron"
+	desc = "A sturdy leather work apron, with pockets for storing tools."
+	icon_state = "factoryworker-apron"
+	item_state = "factoryworker-apron"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS

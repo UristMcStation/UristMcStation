@@ -7,8 +7,9 @@
 	icon_state = "drying-rack"*/
 
 /obj/machinery/smartfridge/tanningrack
-	name = "\improper Drying Rack"
-	desc = "A machine for drying plants."
+	name = "\improper Tanning Rack"
+	desc = "A machine for tanning hides."
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "drying_rack"
 	icon_on = "drying_rack_on"
 	icon_off = "drying_rack"
@@ -112,7 +113,8 @@
 	recipes += new/datum/stack_recipe("cowboy hat", /obj/item/clothing/head/urist/cowboy, 2, time = 35)
 	recipes += new/datum/stack_recipe("flatcap", /obj/item/clothing/head/flatcap, 2, time = 25)
 	recipes += new/datum/stack_recipe_list("coats", list( \
-		new/datum/stack_recipe("duster", /obj/item/clothing/suit/storage/urist/duster, 5, time = 50), \
+		new/datum/stack_recipe("duster", /obj/item/clothing/suit/storage/urist/coat/duster, 5, time = 50), \
+		new/datum/stack_recipe("leather coar", /obj/item/clothing/suit/storage/urist/coat/leather, 5, time = 50), \
 		new/datum/stack_recipe("black leather jacket", /obj/item/clothing/suit/coat/jacket/leather, 4, time = 45), \
 		new/datum/stack_recipe("alternate black leather jacket", /obj/item/clothing/suit/storage/leather_jacket, 4, time = 45), \
 		new/datum/stack_recipe("Nanotrasen black leather jacket", /obj/item/clothing/suit/storage/leather_jacket/nanotrasen, 4, time = 45), \
@@ -120,4 +122,7 @@
 		new/datum/stack_recipe("brown leather jacket", /obj/item/clothing/suit/storage/toggle/brown_jacket, 4, time = 45), \
 		new/datum/stack_recipe("Nanotrasen brown leather jacket", /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen, 4, time = 45), \
 		))
-	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 35)
+	recipes += new/datum/stack_recipe("leather pants", /obj/item/clothing/under/pants/urist/leatherpants, 2, time = 35)
+	recipes += new/datum/stack_recipe("leather overalls", /obj/item/clothing/suit/storage/urist/overalls/leather, 3, time = 40)
+	recipes += new/datum/stack_recipe("factory worker's apron", /obj/item/clothing/suit/storage/urist/apron, 3, time = 40)
+	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 30)

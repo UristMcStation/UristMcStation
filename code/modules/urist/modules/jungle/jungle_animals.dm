@@ -115,12 +115,10 @@
 	if(istype(I, /obj/item/weapon/material/knife) && src.stat == DEAD)
 		if (do_after(user, 60, src))
 			to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-			new meat_type(src.loc)
-			new meat_type(src.loc)
+			for(var/i, i<=meat, i++)
+				new meat_type(src.loc)
 			var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide
 			AH.amount = hide
-		//need to make new types for wetleather and hairless hide, and then make one with hair.
-		//meat and hide drop here
 		qdel(src)
 
 	..()
