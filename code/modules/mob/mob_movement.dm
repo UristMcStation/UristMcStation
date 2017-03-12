@@ -220,6 +220,11 @@
 
 	if(mob.transforming)	return//This is sota the goto stop mobs from moving var
 
+	if(Process_Grab())	return
+
+	if(!mob.canmove)
+		return
+
 	if(isliving(mob))
 		var/mob/living/L = mob
 		if(L.incorporeal_move)//Move though walls
@@ -242,10 +247,7 @@
 						b.zoom()
 				*/
 
-	if(Process_Grab())	return
 
-	if(!mob.canmove)
-		return
 
 	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
 	//	if(!mob.Allow_Spacemove(0))	return 0
@@ -490,3 +492,23 @@
 	if(Check_Shoegrip())
 		return 0
 	return prob_slip
+
+/client/verb/moveup()
+	set name = ".moveup"
+	set instant = 1
+	Move(get_step(mob, NORTH), NORTH)
+
+/client/verb/movedown()
+	set name = ".movedown"
+	set instant = 1
+	Move(get_step(mob, SOUTH), SOUTH)
+
+/client/verb/moveright()
+	set name = ".moveright"
+	set instant = 1
+	Move(get_step(mob, EAST), EAST)
+
+/client/verb/moveleft()
+	set name = ".moveleft"
+	set instant = 1
+	Move(get_step(mob, WEST), WEST)
