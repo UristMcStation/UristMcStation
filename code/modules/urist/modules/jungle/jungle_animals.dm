@@ -39,7 +39,7 @@
 
 /obj/effect/landmark/animal_spawner/monkey
 	name = "monkey spawner"
-	spawn_type = /mob/living/carbon/human/monkey
+	spawn_type = /mob/living/carbon/human/monkey/jungle
 
 /obj/effect/landmark/animal_spawner/snake
 	name = "snake spawner"
@@ -69,11 +69,12 @@
 		spawn(rand(spawn_time_low,spawn_time_high))
 			spawned_animal.loc = locate(src.x + x_offset, src.y + x_offset, src.z)
 
-/obj/effect/landmark/animal_spawner/random/Crossed(mob/living/simple_animal/M)
+/obj/effect/landmark/animal_spawner/random/Crossed(mob/living/M)
 	if(crosstrigger) //if an animal crosses this thing, they "leave" the map, and then this landmark starts spawning animals
-		qdel(M)
-		processing_objects.Add(src)
-		return
+		if (istype(M, /mob/living/simple_animal) || istype(M, /mob/living/carbon/human/monkey))
+			qdel(M)
+			processing_objects.Add(src)
+			return
 
 	else
 		..()
@@ -83,7 +84,7 @@
 	x_offset = -8
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/carbon/human/monkey,
+		/mob/living/carbon/human/monkey/jungle,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/hostile/huntable/deer
 		)
@@ -93,7 +94,6 @@
 	y_offset = -2
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
-		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/hostile/snake
 		)
 
@@ -109,7 +109,7 @@
 
 /mob/living/simple_animal/hostile/huntable
 	var/hide = 0
-	var.meat = 0
+	var/meat = 0
 
 /mob/living/simple_animal/hostile/huntable/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/material/knife) && src.stat == DEAD)
@@ -117,11 +117,17 @@
 			to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
 			for(var/i, i<=meat, i++)
 				new meat_type(src.loc)
-			var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide
+			var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
 			AH.amount = hide
 		qdel(src)
 
 	..()
+
+//to prevent spam from monkeys being half killed
+
+/mob/living/carbon/human/monkey/jungle/New()
+	..()
+	faction = "hostile"
 
 //*********//
 // Panther //
@@ -148,9 +154,9 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 16
 	melee_damage_upper = 16
-	attacktext = "slashes"
+	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-
+	meat = 2
 	hide = 3
 
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
@@ -208,7 +214,7 @@
 	harm_intent_damage = 2
 	melee_damage_lower = 3
 	melee_damage_upper = 10
-	attacktext = "bites"
+	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
@@ -267,10 +273,11 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "slashes"
+	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
 	hide = 2
+	meat = 2
 
 /mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
 	target = new_target
@@ -315,7 +322,7 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attacktext = "slashes"
+	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-
+	meat = 4
 	hide = 4

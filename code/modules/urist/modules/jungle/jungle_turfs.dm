@@ -54,17 +54,34 @@
 	if(large_trees_chance && prob(large_trees_chance ))
 		new /obj/structure/flora/tree/jungle/large(src)
 	if(animal_spawn_chance && prob(animal_spawn_chance ))
-		var/A = pick(animal_spawn_list)
-		new A(src.loc)
+		if(prob(50)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
+			var/A = pick(animal_spawn_list) //A conservative estimate for possible spawning tiles in the jungle would be 22500, which is very conservative. This means that roughly 225 animals would spawn.
+			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
 
 	update_light()
 
-/turf/simulated/planet/initialize()
-	..()
-	weather_enable()
+///turf/simulated/planet/initialize()
+//	..()
+//	weather_enable()
 
 /turf/simulated/planet/ex_act(severity)
 	return
+
+/turf/simulated/planet/border
+	density = 1
+	opacity = 1
+	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon_state = "border"
+	name = ""
+	desc = ""
+
+/turf/simulated/planet/border/Bumped(M as mob)
+	if (istype(M, /mob/living/simple_animal))
+		var/mob/living/simple_animal/A = M
+		A.loc = get_turf(src)
+	else if (istype(M, /mob/living/carbon/human/monkey))
+		var/mob/living/carbon/human/monkey/A = M
+		A.loc = get_turf(src)
 
 /turf/simulated/planet/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
@@ -118,11 +135,11 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
-	bushspawnchance = 35 //let's try it, why not
+	bushspawnchance = 34 //let's try it, why not
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot,
-		/mob/living/carbon/human/monkey
+		/mob/living/carbon/human/monkey/jungle
 	)
 
 /turf/simulated/planet/jungle/med
@@ -130,12 +147,11 @@
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
 	bushspawnchance = 54
-//	animal_spawn_chance = 3
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot,
-		/mob/living/carbon/human/monkey
+		/mob/living/carbon/human/monkey/jungle
 		)
 
 /turf/simulated/planet/jungle/thick
@@ -143,16 +159,17 @@
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 73
-//	animal_spawn_chance = 5
+	animal_spawn_chance = 2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot,
-		/mob/living/carbon/human/monkey
+		/mob/living/carbon/human/monkey/jungle
 		)
 
 
 /turf/simulated/planet/jungle/clear
+	animal_spawn_chance = 0
 	bushspawnchance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0
@@ -195,7 +212,7 @@
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot,
-		/mob/living/carbon/human/monkey
+		/mob/living/carbon/human/monkey/jungle
 		)
 
 
@@ -228,26 +245,32 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
-	animal_spawn_chance = 3
+	animal_spawn_chance = 2 //hostile wasteland riddled with scrap heaps.
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
-		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/hostile/snake
 		)
 
 /turf/simulated/planet/jungle/plains/New()
 	..()
 	if(prob(5))
-		new	/obj/structure/scrap/random
+		new	/obj/structure/scrap/random(src)
 	else if(prob(2))
-		new /obj/structure/scrap/vehicle
+		new /obj/structure/scrap/vehicle(src)
 
 /turf/simulated/planet/jungle/impenetrable
+	animal_spawn_chance = 0.5 //very low chances. This is mainly just to populate the respawn list
 	bushspawnchance = 0
 	small_trees_chance = 0
 	large_trees_chance = 7
 	icon_state = "grass_impenetrable" //impenetrable
 	icon_spawn_state = "grass1"
+	animal_spawn_list = list(
+		/mob/living/simple_animal/hostile/huntable/panther,
+		/mob/living/simple_animal/hostile/huntable/deer,
+		/mob/living/simple_animal/parrot,
+		/mob/living/carbon/human/monkey/jungle
+		)
 
 /turf/simulated/planet/jungle/impenetrable/New()
 		..()
@@ -259,6 +282,7 @@
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
+	animal_spawn_chance = 0
 	density = 1
 	opacity = 1
 	name = "impassable rock wall"
@@ -298,6 +322,7 @@
 	return
 
 /turf/simulated/planet/jungle/water
+	animal_spawn_chance = 0
 	bushspawnchance = 0
 	small_trees_chance = 0 //fucking rivers winning the small tree RNG
 	plants_spawn_chance = 0 //until I get a metric for spawning reeds only
@@ -316,15 +341,15 @@
 /turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
 		if(bridge)
-			user << "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>"
+			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
 			return
 
 		else if(fishleft && !fishing && !bridge)
 			if(prob(1))
-				user << "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>"
+				to_chat(user, "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>")
 
 			else
-				user << "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>"
+				to_chat(user, "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>")
 
 			var/obj/item/weapon/fishingrod/F = I
 			var/fishtime = (rand(40,140)) //test this shit
@@ -332,13 +357,13 @@
 			fishing = 1
 
 			if (do_after(user, fishtime, src))
-				user << "<span class='notice'>You feel a tug on your line!</span>"
+				to_chat(user, "<span class='notice'>You feel a tug on your line!</span>")
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
 				fishing = 2
 				var/tempfish = fishleft
 				spawn(rand(35,70))
 					if(fishing && fishleft == tempfish)
-						user << "<span class='notice'>Looks like it got away...</span>"
+						to_chat(user, "<span class='notice'>Looks like it got away...</span>")
 						fishing = 0
 						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 
@@ -363,7 +388,7 @@
 			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
 
 		else if(!fishleft && !bridge)
-			user << "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>"
+			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")
 			return
 
 	else if(istype(I, /obj/item/stack/material/wood))
@@ -372,49 +397,49 @@
 			var/obj/item/stack/material/wood/R = I
 
 			if(R.amount >= 3)
-				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
+				to_chat(user, "<span class='notice'>You build a makeshift platform to cross the river safely.</span>")
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 				bridge = 1
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
 			else
-				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
+				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
 	else if(istype(I, /obj/item/stack/material/r_wood))
 		if(!bridge)
 			var/obj/item/stack/material/r_wood/R = I
 
 			if(R.amount >= 3)
-				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
+				to_chat(user, "<span class='notice'>You build a makeshift platform to cross the river safely.</span>")
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
 				bridge = 2
 			else
-				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
+				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
 	else if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
-					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
 					bridge = 1 //simple hack
 					user.loc = get_turf(src)
 					R.loc = get_turf(src)
 					bridge = 0
 
 				else
-					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
+					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 
 	else if(istype(I, /obj/item/weapon/crowbar))
 		if(bridge)
-			user << "<span class='notice'>You begin to disassemble the bridge.</span>"
+			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
 			spawn(rand(15,30))
 				if(get_dist(user,src) < 2)
 					playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 
-					user << "<span class='notice'>You disassemble the bridge.</span>"
+					to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
 
 					src.overlays = null
 
@@ -428,11 +453,11 @@
 
 					bridge = 0
 
-	else if(istype(I, /obj/item/stack/material/animalhide))
-		user << "<span class='notice'>You immerse the hide in the water.</span>"
+	else if(istype(I, /obj/item/stack/hide/animalhide))
+		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
 		if (do_after(user, 30, src))
-			var/obj/item/stack/material/animalhide/AH = I
-			var/obj/item/stack/material/wetleather/WL = new /obj/item/stack/material/wetleather(src.loc)
+			var/obj/item/stack/hide/animalhide/AH = I
+			var/obj/item/stack/hide/wet/WL = new /obj/item/stack/hide/wet(src.loc)
 			WL.amount = AH.amount
 			qdel(AH)
 
@@ -460,20 +485,21 @@
 		return
 
 
-	else if(istype(O, /mob/living/))
-		var/mob/living/M = O
+	else if(istype(O, /mob/living/carbon))
+		var/mob/living/carbon/M = O
 		//slip in the murky water if we try to run through it
 		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
-			M << pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>")
+			to_chat(M, pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>"))
 			M.Stun(2)
 			M.Weaken(1)
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
 		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
-			M << "<span class='notice'> You feel something slithering around your legs.</span>"
+			to_chat(M, "<span class='notice'> You feel something slithering around your legs.</span>")
 			spawn(rand(25,50))
-				M << pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>")
-				M.apply_damage(rand(3,5), BRUTE, sharp=1)
+				var/zone = pick(BP_R_LEG, BP_L_LEG)
+				to_chat(M, pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>"))
+				M.apply_damage(rand(3,5), BRUTE, zone, 0, DAM_SHARP)
 
 
 /turf/simulated/planet/jungle/water/deep
@@ -494,14 +520,14 @@
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
-					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
 					bridge = 1
 					user.loc = get_turf(src)
 					R.loc = get_turf(src)
 					bridge = 0
 
 				else
-					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
+					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 	return
 
 /turf/simulated/planet/jungle/temple_wall

@@ -8,7 +8,7 @@
 	icon = 'icons/urist/structures&machinery/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
 	var/loot_min = 3
-	var/loot_max = 5
+	var/loot_max = 6
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
@@ -21,7 +21,7 @@
 
 	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'
 	var/base_min = 3	//min and max number of random pieces of base icon
-	var/base_max = 5
+	var/base_max = 6
 	var/base_spread = 8	//limits on pixel offsets of base pieces
 
 /obj/structure/scrap/New()
@@ -114,7 +114,7 @@
 		)
 
 /obj/structure/scrap/vehicle/New()
-	if(prob(25))
+	if(prob(40))
 		new /obj/structure/vehicle_frame/motorcycle
 	..()
 
@@ -127,7 +127,7 @@
 	loot_max = 20
 
 	base_min = 9
-	base_max = 14
+	base_max = 15
 	base_spread = 16
 
 /obj/structure/scrap/random

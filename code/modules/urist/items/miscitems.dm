@@ -259,7 +259,7 @@
 	update_icon()
 
 /obj/item/weapon/material/sharpwoodrod
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/items/misc.dmi'
 //	item_state = "sharpwoodrod"
 	icon_state = "sharpwoodrod"
 	name = "sharpened wooden shaft"
@@ -295,7 +295,7 @@
 				finished = new /obj/item/weapon/material/twohanded/woodspear(get_turf(user), tmp_shard.material.name)
 				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
 			if("Makeshift Arrow")
-				finished = new //obj/item/weapon/arrow/improv (get_turf(user), tmp_shard.material.name)
+				finished = new /obj/item/weapon/arrow/improv (get_turf(user), tmp_shard.material.name)
 				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
 
 	else if(istype(I, /obj/item/stack/cable_coil))

@@ -14,7 +14,7 @@
 	if(istype(I, /obj/item/stack/material/r_wood))
 
 		if(busy)
-			user << "<span class='notice'>The [src] is busy, you can't put in wood yet!.</span>"
+			to_chat(user, "<span class='notice'>The [src] is busy, you can't put in wood yet!.</span>")
 			return
 
 		else if(!busy)
@@ -23,7 +23,7 @@
 			sheets = R.amount
 			R.use(R.amount)
 
-			user << "<span class='notice'>You feed the unprocessed wood into the [src].</span>"
+			to_chat(user, "<span class='notice'>You feed the unprocessed wood into the [src].</span>")
 
 			flick("planer_animate",src)
 
@@ -66,7 +66,7 @@
 
 /obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
-		user << "<span class='notice'>You feed the wood into the [src].</span>"
+		to_chat(user, "<span class='notice'>You feed the wood into the [src].</span>")
 
 		flick("paper_anim",src)
 		var/obj/item/stack/material/R = I
@@ -86,7 +86,7 @@
 		user << browse(t, "window=woodprocessor;size=300x300")
 
 	else
-		user << "<span class='notice'>There's no wood stored in the [src]!</span>"
+		to_chat(user, "<span class='notice'>There's no wood stored in the [src]!</span>")
 
 /obj/machinery/carpentry/woodprocessor/Topic(href, href_list)
 	..()
