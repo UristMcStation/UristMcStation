@@ -94,3 +94,8 @@
 	path = /obj/item/weapon/cane/concealed
 	hidden = 1
 	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_762_stripper
+	name = "hunting rifle ammo (7.62mm)"
+	path = /obj/item/ammo_magazine/a762mm/stripper
+	category = "Arms and Ammunition"

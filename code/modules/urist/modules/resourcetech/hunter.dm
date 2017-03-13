@@ -114,7 +114,7 @@
 	recipes += new/datum/stack_recipe("flatcap", /obj/item/clothing/head/flatcap, 2, time = 25)
 	recipes += new/datum/stack_recipe_list("coats", list( \
 		new/datum/stack_recipe("duster", /obj/item/clothing/suit/storage/urist/coat/duster, 5, time = 50), \
-		new/datum/stack_recipe("leather coar", /obj/item/clothing/suit/storage/urist/coat/leather, 5, time = 50), \
+		new/datum/stack_recipe("leather coat", /obj/item/clothing/suit/storage/urist/coat/leather, 5, time = 50), \
 		new/datum/stack_recipe("black leather jacket", /obj/item/clothing/suit/coat/jacket/leather, 4, time = 45), \
 		new/datum/stack_recipe("alternate black leather jacket", /obj/item/clothing/suit/storage/leather_jacket, 4, time = 45), \
 		new/datum/stack_recipe("Nanotrasen black leather jacket", /obj/item/clothing/suit/storage/leather_jacket/nanotrasen, 4, time = 45), \

@@ -424,10 +424,17 @@
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					bridge = 1 //simple hack
-					user.loc = get_turf(src)
-					R.loc = get_turf(src)
-					bridge = 0
+					if (do_after(user, 10, src))
+						for(var/obj/item/O in user.loc)
+							O.loc = get_turf(src)
+
+						for(var/obj/structure/vehicle_frame/motorcycle/M in user.loc)
+							M.loc = get_turf(src)
+
+						bridge = 1 //simple hack
+						user.loc = get_turf(src)
+						R.loc = get_turf(src)
+						bridge = 0
 
 				else
 					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
@@ -521,10 +528,17 @@
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					bridge = 1
-					user.loc = get_turf(src)
-					R.loc = get_turf(src)
-					bridge = 0
+					if (do_after(user, 10, src))
+						for(var/obj/item/O in user.loc)
+							O.loc = get_turf(src)
+
+						for(var/obj/structure/vehicle_frame/motorcycle/M in user.loc)
+							M.loc = get_turf(src)
+
+						bridge = 1
+						user.loc = get_turf(src)
+						R.loc = get_turf(src)
+						bridge = 0
 
 				else
 					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")

@@ -8,7 +8,7 @@
 	icon = 'icons/urist/structures&machinery/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
 	var/loot_min = 3
-	var/loot_max = 6
+	var/loot_max = 5
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
@@ -164,6 +164,7 @@
 	desc = "A part from a vehicle."
 	icon_state = "engine"
 	icon = 'icons/urist/items/vehicle_parts.dmi'
+	w_class = 3
 
 /obj/item/vehicle_part/random/New()
 	..()
@@ -184,9 +185,10 @@
 /obj/item/vehicle_part/transmission/New()
 	..()
 	if(prob(50))
-		icon_state = "Transmission 2"
+		icon_state = "Transmission2"
 
 /obj/item/vehicle_part/tire
 	name = "tire"
 	desc = "A tire for a vehicle."
 	icon_state = "tire"
+	w_class = 4

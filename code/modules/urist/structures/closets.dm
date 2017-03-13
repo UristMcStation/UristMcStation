@@ -17,7 +17,7 @@
 		new /obj/item/weapon/storage/backpack/captain(src)
 		new /obj/item/weapon/storage/backpack/satchel_cap(src)
 		new /obj/item/clothing/suit/captunic(src)
-		new /obj/item/clothing/suit/captunic/capjacket(src)
+		new /obj/item/clothing/suit/storage/capjacket(src)
 		new /obj/item/clothing/under/rank/captain(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/clothing/gloves/captain(src)
@@ -227,3 +227,23 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/gloves/thick(src)
 	return
+
+/obj/structure/closet/secure_closet/hunter
+	name = "hunting gear"
+	req_access = list(access_mining)
+
+/obj/structure/closet/secure_closet/hunter/New()
+	..()
+	sleep(2)
+	if(prob(20))
+		new /obj/item/weapon/gunattachment/scope/huntrifle(src)
+	new /obj/item/weapon/gun/projectile/manualcycle/hunterrifle(src)
+	new /obj/item/ammo_magazine/a762mm/stripper(src)
+	new /obj/item/ammo_magazine/a762mm/stripper(src)
+	new /obj/item/ammo_magazine/a762mm/stripper(src)
+	if(prob(25)) //you get 15 shots, with a chance of 20. Past that, you'll have to go make your own in cargonia.
+		new /obj/item/ammo_magazine/a762mm/stripper(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/weapon/shovel(src)
+	new /obj/item/weapon/material/hatchet(src)
+	new /obj/item/weapon/material/knife/hunting(src)

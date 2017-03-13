@@ -165,7 +165,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/chair/urist/shuttle/New()
 	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
-	armrest.layer = MOB_LAYER + 0.1
+	armrest.plane = ABOVE_HUMAN_PLANE
+	armrest.layer = ABOVE_HUMAN_LAYER
 
 	return ..()
 
@@ -357,11 +358,59 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	density = 0
 	anchored = 0
 	var/built = 0
-	var/buildstage = 0
+	var/buildstate = 0
+
+/obj/structure/raft/attackby(obj/item/W as obj, mob/user as mob)
+	if(!built)
+		if(istype(W,/obj/item/stack/material/wood))
+			if(buildstate == 0)
+				var/obj/item/stack/material/wood/R = W
+				if(R.use(3))
+					to_chat(user, "<span class='notice'>You fill out the frame with more wooden planks.</span>")
+					buildstate++
+					update_icon()
+				else
+					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+				return
+
+			if(buildstate == 2)
+				var/obj/item/stack/material/wood/R = W
+				if(R.use(2))
+					to_chat(user, "<span class='notice'>You fill out the rest of the frame with more wooden planks.</span>")
+					buildstate++
+					update_icon()
+				else
+					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+				return
+
+		else if(istype(W,/obj/item/stack/cable_coil))
+			if(buildstate == 1)
+				var/obj/item/stack/cable_coil/R = W
+				if(R.use(2))
+					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable.</span>")
+					buildstate++
+					update_icon()
+				else
+					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+
+			else if(buildstate == 3)
+				var/obj/item/stack/cable_coil/R = W
+				if(R.use(3))
+					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable, finishing it off.</span>")
+					buildstate++
+					update_icon()
+					built = 1
+				else
+					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+			return
+
+/obj/structure/raft/update_icon()
+	icon_state = "raft_frame[buildstate]"
 
 /obj/structure/raft/built
 	name = "raft"
 	desc = "It's a shitty little improvised raft. Good luck."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "raft-frame"
+	icon_state = "raft-frame4"
 	built = 1
+	buildstate = 4

@@ -111,7 +111,8 @@
 /obj/item/weapon/material/knife/hunting
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "huntknife"
-	force = 10
+	force_divisor = 0.2 // 12 with hardness 60 (steel)
+	thrown_force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
 	applies_material_colour = 0
 	name = "hunting knife"
 	desc = "It's a hunting knife. Use it for hunting."
