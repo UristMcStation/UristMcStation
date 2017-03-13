@@ -40,10 +40,14 @@
 /obj/machinery/smartfridge/tanningrack/proc/dry()
 	for(var/datum/stored_items/I in item_records)
 		for(var/obj/item/stack/hide/hairless/S in I.instances)
-			var/obj/item/stack/material/leather/L = new/obj/item/stack/material/leather(get_turf(src))
-			L.amount = S.amount
-			qdel(S)
-			return
+			if(S.dried >= 30)
+				var/obj/item/stack/material/leather/L = new/obj/item/stack/material/leather(get_turf(src))
+				L.amount = S.amount
+				qdel(S)
+				return
+
+			else
+				S.dried += 1
 
 //hide
 
@@ -83,8 +87,9 @@
 
 /obj/item/stack/hide/hairless
 	name = "hairless hide"
-	icon_state = "sheet-hairless"
+	icon_state = "sheet-hairlesshide"
 	max_amount = 10
+	var/dried = 0
 
 /obj/item/stack/hide/wet
 	name = "wet hide"

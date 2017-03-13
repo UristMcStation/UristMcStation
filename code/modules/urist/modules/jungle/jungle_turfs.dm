@@ -147,6 +147,7 @@
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
 	bushspawnchance = 54
+	animal_spawn_chance = 1.5
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -466,6 +467,8 @@
 			var/obj/item/stack/hide/animalhide/AH = I
 			var/obj/item/stack/hide/wet/WL = new /obj/item/stack/hide/wet(src.loc)
 			WL.amount = AH.amount
+			user.remove_from_mob(AH)
+			user.put_in_hands(WL)
 			qdel(AH)
 
 	var/obj/item/weapon/reagent_containers/RG = I
