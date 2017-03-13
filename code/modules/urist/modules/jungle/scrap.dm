@@ -12,7 +12,7 @@
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
-		/obj/item/stack/material/scrap,
+		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,
 		/obj/item/stack/material/plasteel/scrap,
 		/obj/item/weapon/material/shard,
@@ -109,7 +109,7 @@
 //		/obj/item/vehicle_part/random,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
-		/obj/item/stack/material/scrap,
+		/obj/item/stack/material/steel/scrap,
 		/obj/item/weapon/material/shard
 		)
 
@@ -150,7 +150,7 @@
 /obj/item/stack/material/plastic/scrap/New(var/newloc)
 	..(newloc, rand(5,10))
 
-/obj/item/stack/material/scrap/New(var/newloc)
+/obj/item/stack/material/steel/scrap/New(var/newloc)
 	..(newloc, rand(8,12))
 
 /obj/item/stack/material/glass/scrap/New(var/newloc)

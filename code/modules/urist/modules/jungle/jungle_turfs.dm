@@ -443,23 +443,22 @@
 	else if(istype(I, /obj/item/weapon/crowbar))
 		if(bridge)
 			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
-			spawn(rand(15,30))
-				if(get_dist(user,src) < 2)
-					playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+			if (do_after(user, rand(15,30), src))
+				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 
-					to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
+				to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
 
-					src.overlays = null
+				src.overlays = null
 
-					if(bridge == 1)
-						var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
-						S.amount = 3
+				if(bridge == 1)
+					var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
+					S.amount = 3
 
-					else if(bridge == 2)
-						var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
-						S.amount = 3
+				else if(bridge == 2)
+					var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
+					S.amount = 3
 
-					bridge = 0
+				bridge = 0
 
 	else if(istype(I, /obj/item/stack/hide/animalhide))
 		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
