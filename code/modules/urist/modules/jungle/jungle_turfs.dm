@@ -424,7 +424,7 @@
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					if (do_after(user, 10, src))
+					if (do_after(user, 5, src))
 						for(var/obj/item/O in user.loc)
 							O.loc = get_turf(src)
 
@@ -528,7 +528,7 @@
 			for(var/obj/structure/raft/R in user.loc)
 				if(R.built)
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					if (do_after(user, 10, src))
+					if (do_after(user, 5, src))
 						for(var/obj/item/O in user.loc)
 							O.loc = get_turf(src)
 

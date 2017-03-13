@@ -354,7 +354,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "raft frame"
 	desc = "It's a shitty little improvised raft frame."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "raft-frame"
+	icon_state = "raft_frame0"
 	density = 0
 	anchored = 0
 	var/built = 0
@@ -403,6 +403,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 				else
 					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
 			return
+
+	else if(built)
+		if(istype(W,/obj/item/weapon/wirecutters))
+			to_chat(user, "<span class='notice'>You begin cutting apart the cables holding the raft together.</span>")
+			if (do_after(user, 20, src))
+				var/obj/item/stack/material/wood/R = new /obj/item/stack/material/wood(src.loc)
+				R.amount = 6
+				qdel(src)
+
+	else
+		..()
+
 
 /obj/structure/raft/update_icon()
 	icon_state = "raft_frame[buildstate]"
