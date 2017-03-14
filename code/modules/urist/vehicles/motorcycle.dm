@@ -186,11 +186,11 @@
 
 	if(!on)
 		turn_on()
-		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+//		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
 		playsound(src.loc, start_sound, 100)
 	else
 		turn_off()
-		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+//		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
 
 /obj/vehicle/bike/motorcycle/turn_on()
 	..()

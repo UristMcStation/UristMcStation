@@ -66,22 +66,24 @@
 	if(	istype(W, /obj/item/weapon/material/knife) || \
 		istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || \
 		istype(W, /obj/item/weapon/material/twohanded/fireaxe) || \
-		istype(W, /obj/item/weapon/material/hatchet))
+		istype(W, /obj/item/weapon/material/hatchet) && !busy)
 
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
 		user.visible_message("<span class='notice'>\The [user] starts cutting hair off \the [src]</span>", "<span class='notice'>You start cutting the hair off \the [src]</span>", "You hear the sound of a knife rubbing against flesh")
-		if(do_after(user,50))
+		busy = 1
+		if(do_after(user,10))
 			to_chat(user, "<span class='notice'>You cut the hair from this [src.singular_name]</span>")
 			//Try locating an exisitng stack on the tile and add to there if possible
-			for(var/obj/item/stack/hide/hairless/HS in user.loc)
-				if(HS.amount < 10)
-					HS.amount++
+			for(var/obj/item/stack/hide/hairless/HS in user.loc) //fucking legacy code
+				if(HS.amount != HS.max_amount)
+					HS.amount += 1
 					src.use(1)
 					break
 			//If it gets to here it means it did not find a suitable stack on the tile.
 			var/obj/item/stack/hide/hairless/HS = new(user.loc)
 			HS.amount = 1
 			src.use(1)
+			busy = 0
 	else
 		..()
 
@@ -95,6 +97,7 @@
 	name = "wet hide"
 	icon_state = "sheet-wetleather"
 	max_amount = 10
+	var/busy = 0
 
 /material/leather/generate_recipes()
 	recipes = list()

@@ -35,7 +35,7 @@
 
 /obj/effect/landmark/animal_spawner/parrot
 	name = "parrot spawner"
-	spawn_type = /mob/living/simple_animal/parrot
+	spawn_type = /mob/living/simple_animal/parrot/jungle
 
 /obj/effect/landmark/animal_spawner/monkey
 	name = "monkey spawner"
@@ -85,7 +85,7 @@
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/carbon/human/monkey/jungle,
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/simple_animal/hostile/huntable/deer
 		)
 
@@ -127,6 +127,12 @@
 
 /mob/living/carbon/human/monkey/jungle/New()
 	..()
+	faction = "hostile"
+
+//to prevent spam from parrots, and deer killing parrots
+
+/mob/living/simple_animal/parrot/jungle
+	speak = null
 	faction = "hostile"
 
 //*********//

@@ -138,7 +138,7 @@
 	bushspawnchance = 34 //let's try it, why not
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 	)
 
@@ -151,7 +151,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 		)
 
@@ -164,7 +164,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 		)
 
@@ -212,7 +212,7 @@
 	icon_spawn_state = "grass2"
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 		)
 
@@ -269,7 +269,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot,
+		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 		)
 

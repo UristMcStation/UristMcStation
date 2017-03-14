@@ -11,17 +11,22 @@
 	var/loot_max = 5
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
+		/obj/item/vehicle_part/random,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,
 		/obj/item/stack/material/plasteel/scrap,
 		/obj/item/weapon/material/shard,
-		/obj/item/weapon/material/shard/shrapnel
+		/obj/item/weapon/material/shard/shrapnel,
+		/obj/item/pipe,
+		/obj/item/stack/material/r_wood/scrap,
+		/obj/item/stack/cable_coil/scrap,
+		/obj/item/stack/material/wood/scrap
 		)
 
 	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'
 	var/base_min = 3	//min and max number of random pieces of base icon
-	var/base_max = 6
+	var/base_max = 7
 	var/base_spread = 8	//limits on pixel offsets of base pieces
 
 /obj/structure/scrap/New()
@@ -106,10 +111,11 @@
 		/obj/item/vehicle_part/random,
 		/obj/item/vehicle_part/random,
 		/obj/item/vehicle_part/random,
-//		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
+		/obj/item/pipe,
 		/obj/item/weapon/material/shard
 		)
 
@@ -145,19 +151,28 @@
 	master_item.update_icon()
 
 /obj/item/stack/rods/scrap/New(var/newloc)
-	..(newloc, rand(3,8))
+	..(newloc, rand(1,8))
 
 /obj/item/stack/material/plastic/scrap/New(var/newloc)
-	..(newloc, rand(5,10))
+	..(newloc, rand(1,10))
 
 /obj/item/stack/material/steel/scrap/New(var/newloc)
-	..(newloc, rand(8,12))
+	..(newloc, rand(1,10))
 
 /obj/item/stack/material/glass/scrap/New(var/newloc)
-	..(newloc, rand(5,10))
+	..(newloc, rand(1,10))
 
 /obj/item/stack/material/plasteel/scrap/New(var/newloc)
 	..(newloc, rand(1,3))
+
+/obj/item/stack/material/wood/scrap/New(var/newloc)
+	..(newloc, rand(1,6))
+
+/obj/item/stack/cable_coil/scrap/New()
+	amount = rand(1,6)
+
+/obj/item/stack/material/r_wood/scrap/New()
+	amount = rand(1,8)
 
 /obj/item/vehicle_part
 	name = "vehicle part"
@@ -168,7 +183,7 @@
 
 /obj/item/vehicle_part/random/New()
 	..()
-	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric)
+	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric, /obj/item/vehicle_part/tire)
 	new part(src.loc)
 	qdel(src)
 

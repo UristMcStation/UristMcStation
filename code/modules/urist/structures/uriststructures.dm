@@ -359,6 +359,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	anchored = 0
 	var/built = 0
 	var/buildstate = 0
+	layer = BELOW_OBJ_LAYER
 
 /obj/structure/raft/attackby(obj/item/W as obj, mob/user as mob)
 	if(!built)
@@ -400,6 +401,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					buildstate++
 					update_icon()
 					built = 1
+					name = "raft"
+					desc = "It's a shitty little improvised raft. Good luck."
 				else
 					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
 			return
