@@ -36,7 +36,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return
-	if(istype(W,/obj/item/weapon/material/sharpwoodrod))
+	if(istype(W,/obj/item/weapon/sharpwoodrod))
 		if(open)
 			if(punji == 6)
 				to_chat(user, "<span class='notice'>There are too many sharpened sticks in there.</span>")
@@ -69,7 +69,7 @@
 /obj/structure/pit/attack_hand(var/mob/user as mob)
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
-		new /obj/item/weapon/material/sharpwoodrod(src.loc)
+		new /obj/item/weapon/sharpwoodrod(src.loc)
 		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
 		punji -= 1
 

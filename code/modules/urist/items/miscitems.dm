@@ -199,7 +199,7 @@
 	..()
 	if(W.edge)
 		user << "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>"
-		new /obj/item/weapon/material/sharpwoodrod(user.loc)
+		new /obj/item/weapon/sharpwoodrod(user.loc)
 		src.use(1)
 
 	else if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
@@ -258,7 +258,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/material/sharpwoodrod
+/obj/item/weapon/sharpwoodrod
 	icon = 'icons/urist/items/misc.dmi'
 //	item_state = "sharpwoodrod"
 	icon_state = "sharpwoodrod"
@@ -271,15 +271,16 @@
 	sharp = 1
 
 /obj/item/weapon/material/woodwirerod
-	name = "wired wooden shaft"
+	name = "wired shaft"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
 	item_state = "rods"
 	flags = CONDUCT
-	force = 8
+	force_divisor = 0.55
 	throwforce = 10
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
+	default_material = "wood"
 
 /obj/item/weapon/material/woodwirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -403,7 +404,7 @@
 	attack_verb = list("hit", "bashed", "smacked")
 	usr.regenerate_icons()
 
-/obj/item/weapon/shovel/improvised //make an icon
+/obj/item/weapon/shovel/improvised
 	name = "improvised shovel"
 	desc = "A shitty improvised shovel, watch out though, might break."
 	icon = 'icons/urist/items/improvised.dmi'
@@ -417,7 +418,7 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	edge = 1
 
-/obj/item/weapon/shovel/improvised/afterattack(mob/user as mob) //test this
+/obj/item/weapon/shovel/improvised/afterattack(mob/user as mob)
 	if(prob(5))
 		user << "<span class='notice'>The shovel falls apart in your hands!</span>"
 		new /obj/item/weapon/material/woodwirerod(user.loc)

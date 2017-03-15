@@ -312,11 +312,11 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "woodspearglass0"
 	item_state = "spearglass0"
-	name = "wooden spear"
+	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design. It has a wooden shaft."
 	w_class = 4
 	slot_flags = SLOT_BACK
-	force_divisor = 0.32 //16
+	force_divisor = 0.33 //16
 	unwielded_force_divisor = 0.2 //10
 	throwforce = 18
 	throw_speed = 3
@@ -339,11 +339,12 @@
 	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together."
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_divisor = 0.21 //12.5ish
-	unwielded_force_divisor = 0.13 //7.8
+	force_divisor = 0.8 //12
+	unwielded_force_divisor = 0.5 //7.5
 	throwforce = 8
 	//flags = NOSHIELD
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
+	default_material = "wood"
 
 /obj/item/weapon/material/twohanded/woodquarterstaff/update_icon()
 	item_state = "qstaff[wielded]"
@@ -356,13 +357,14 @@
 	desc = "It's a pole. With an axe tied to it. Okay, why not."
 	w_class = 5
 	slot_flags = SLOT_BACK
-	force_divisor = 0.28 //16.8
-	unwielded_force_divisor = 0.18 //10.5
+	force_divisor = 1.1 //16.5
+	unwielded_force_divisor = 0.7 //10.5
 	throwforce = 8
 	edge = 1
 	sharp = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed","torn")
+	default_material = "wood"
 
 /obj/item/weapon/material/twohanded/imppoleaxe/update_icon()
 	item_state = "spearglass[wielded]"
