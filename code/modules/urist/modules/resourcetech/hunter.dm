@@ -40,10 +40,12 @@
 /obj/machinery/smartfridge/tanningrack/proc/dry()
 	for(var/datum/stored_items/I in item_records)
 		for(var/obj/item/stack/hide/hairless/S in I.instances)
-			if(S.dried >= 30)
-				var/obj/item/stack/material/leather/L = new/obj/item/stack/material/leather(get_turf(src))
+			if(S.dried >= 40)
+				var/obj/item/stack/material/leather/L = new/obj/item/stack/material/leather(src)
 				L.amount = S.amount
 				qdel(S)
+				stock_item(L)
+				nanomanager.update_uis(src)
 				return
 
 			else
@@ -74,7 +76,7 @@
 			user.visible_message("<span class='notice'>\The [user] starts cutting hair off \the [src]</span>", "<span class='notice'>You start cutting the hair off \the [src]</span>", "You hear the sound of a knife rubbing against flesh")
 
 			if(do_after(user,10))
-				to_chat(user, "<span class='notice'>You cut the hair from the hairless hide.</span>")
+				to_chat(user, "<span class='notice'>You cut the hair from the wet animal hide.</span>")
 				//Try locating an exisitng stack on the tile and add to there if possible
 				/*for(var/obj/item/stack/hide/hairless/HS in user.loc) //fucking legacy code
 					if(HS.amount != HS.max_amount)
