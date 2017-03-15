@@ -89,3 +89,23 @@
 	item_state = "skimask"
 	cold_protection = FACE
 	min_cold_protection_temperature = 243.15
+
+/obj/item/clothing/mask/bandana/leather
+	name = "leather mask"
+	desc = "It's a simple leather mask. Hmmm, maybe if you get some glass you could turn this into some impromptu goggles."
+	icon_state = "sandsuit"
+	item_state = "sandsuit"
+	min_cold_protection_temperature = 253.15
+	cold_protection = FACE
+	body_parts_covered = HEAD
+	slot_flags = SLOT_MASK
+
+/obj/item/clothing/mask/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/stack/material/glass))
+		var/obj/item/stack/material/glass/G = I
+		G.use(1)
+		var/obj/item/clothing/glasses/lgoggles/S = new /obj/item/clothing/glasses/lgoggles(src.loc)
+		user.put_in_hands(S)
+		to_chat(user, "<span class='notice'>You wrap the strip of leather around some pieces of glass, forming an improvised pair of goggles.</span>")
+
+	..()

@@ -22,7 +22,7 @@
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/clothing/gloves/captain(src)
 		new /obj/item/clothing/under/dress/dress_cap(src)
-		new /obj/item/clothing/suit/coat/captain(src)
+		new /obj/item/clothing/suit/storage/hooded/wintercoat/captain(src)
 		new /obj/item/clothing/head/caphat/cap(src)
 		new /obj/item/clothing/under/urist/rank/capdressalt(src)
 		return

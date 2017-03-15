@@ -8,37 +8,15 @@
 	icon_state = "coatwinter"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	var/has_hood = 1
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	min_cold_protection_temperature = 243.15
 	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper,/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight/seclite)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
-	var/can_toggle = 1
-
-/*	verb/togglecoat()
-		set name = "Toggle Coat"
-		set category = "Object"
-		set src in usr
-		if(!usr.canmove || usr.stat || usr.restrained())
-			return
-		if(!can_toggle)
-			usr << "This suit cannot be toggled!"
-			return
-		if(src.is_toggled == 2)
-			src.icon_state = initial(icon_state)
-			usr << "You button up your coat."
-			src.is_toggled = 1
-		else
-			src.icon_state += "_open"
-			usr << "You unbutton your coat."
-			src.is_toggled = 2
-		usr.update_inv_wear_suit()*/
 
 /obj/item/clothing/suit/coat/jacket
 	name = "bomber jacket"
 	desc = "Aviators not included."
 	icon_state = "jacket"
-	can_toggle = null
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15
 
@@ -49,7 +27,7 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15
 
-/obj/item/clothing/suit/coat/captain
+/*/obj/item/clothing/suit/coat/captain
 	name = "captain's winter coat"
 	desc = "A coat that protects against the bitter cold."
 	icon_state = "coatcaptain"
@@ -92,7 +70,7 @@
 /obj/item/clothing/suit/coat/security
 	name = "security winter coat"
 	desc = "A coat that protects against the bitter cold."
-	icon_state = "coatsecurity"
+	icon_state = "coatsecurity"*/
 
 /obj/item/clothing/suit/armor/vest/jacket
 	name = "military jacket"

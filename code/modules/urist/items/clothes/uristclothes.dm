@@ -1018,3 +1018,15 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "factoryworker-apron"
 	item_state = "factoryworker-apron"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/suit/storage/hooded/sandsuit
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
+	min_cold_protection_temperature = 253.15
+	armor = list(melee = 18, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
+	icon_state = "sandsuit"
+	item_state = "sandsuit"
+	name = "leather protective suit"
+	desc = "A full-body suit meant to protect against the elements."

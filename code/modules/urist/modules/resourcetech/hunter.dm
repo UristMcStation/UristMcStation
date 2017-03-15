@@ -130,7 +130,9 @@
 		new/datum/stack_recipe("brown leather jacket", /obj/item/clothing/suit/storage/toggle/brown_jacket, 4, time = 45), \
 		new/datum/stack_recipe("Nanotrasen brown leather jacket", /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen, 4, time = 45), \
 		))
+	recipes += new/datum/stack_recipe("leather protective suit", /obj/item/clothing/suit/storage/hooded/sandsuit, 6, time = 60)
 	recipes += new/datum/stack_recipe("leather pants", /obj/item/clothing/under/pants/urist/leatherpants, 2, time = 35)
 	recipes += new/datum/stack_recipe("leather overalls", /obj/item/clothing/suit/storage/urist/overalls/leather, 3, time = 40)
 	recipes += new/datum/stack_recipe("factory worker's apron", /obj/item/clothing/suit/storage/urist/apron, 3, time = 40)
 	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 30)
+	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/bandana/leather, 1, time = 30)
