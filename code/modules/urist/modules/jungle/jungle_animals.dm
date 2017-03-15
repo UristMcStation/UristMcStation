@@ -132,7 +132,7 @@
 //to prevent spam from parrots, and deer killing parrots
 
 /mob/living/simple_animal/parrot/jungle
-	speak = null
+	speak_chance = 0
 	faction = "hostile"
 
 //*********//
