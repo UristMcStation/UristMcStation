@@ -87,6 +87,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/wizard/urist/necro
 	name = "necromancer's hood"
+	icon = 'icons/urist/items/clothes/head.dmi'
 	desc = "A charcoal-black hood worn by the masters of life and death. Simply putting it on sharpens your senses."
 	icon_state = "necrohood"
 	item_state = "necrohood"
@@ -323,3 +324,17 @@ obj/item/clothing/head/princessbow
 	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "cowboyhat"
+
+//hood
+
+/obj/item/clothing/head/winterhood/sandsuit
+	item_icons = URIST_ALL_ONMOBS
+	icon = 'icons/urist/items/clothes/head.dmi'
+	name = "leather hood"
+	desc = "A hood attached to a heavy leather protective suit."
+	icon_state = "sandsuit"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	flags_inv = HIDEEARS | BLOCKHAIR
+	min_cold_protection_temperature = 243.15
+	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)

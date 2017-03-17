@@ -3,6 +3,7 @@
 	name = "paper mask"
 	desc = "A Masquarade Mask made out of paper."
 	icon = 'icons/urist/items/papercrafts.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_override = 'icons/uristmob/glasses.dmi'
 	item_state = "paperMask"
 	icon_state = "paperMask"
@@ -11,7 +12,8 @@
 
 /obj/item/clothing/glasses/lgoggles
 	icon = 'icons/urist/items/clothes/glasses.dmi'
-	icon_override = 'icons/uristmob/glasses.dmi'
+	item_icons = URIST_ALL_ONMOBS
+//	icon_override = 'icons/uristmob/glasses.dmi'
 	icon_state = "sandsuit"
 	item_state = "sandsuit"
 	name = "improvised goggles"

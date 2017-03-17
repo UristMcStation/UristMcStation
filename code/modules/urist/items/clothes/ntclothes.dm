@@ -1,10 +1,11 @@
 //NT STATION CLOTHING. HAHAHA, WE'RE TAKING YOUR ONLY UNIQUE CONTENT
 
 /obj/item/clothing/suit/coat
+	item_icons = URIST_ALL_ONMOBS
 	name = "winter coat"
 	desc = "A coat that protects against the bitter cold."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "coatwinter"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -236,10 +237,11 @@
 //cap carapace
 
 /obj/item/clothing/suit/armor/vest/capcarapace
+	item_icons = URIST_ALL_ONMOBS
 	name = "captain's carapace"
 	desc = "An armored vest reinforced with ceramic plates and pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest, although it does chafe your nipples."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "capcarapace"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO

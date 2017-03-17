@@ -78,8 +78,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
-	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	armor = list(melee = 20, bullet = 15, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 
 /obj/item/clothing/suit/bio_suit/asec/New()
 	..()
@@ -388,8 +387,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "cmo"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo/alt
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "A slightly fancier labcoat sometimes worn by the CMO."
 	icon_state = "cmo_lab_open"
 	icon_open = "cmo_lab_open"
@@ -421,9 +421,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //hooonk bs12
 
 /obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
+	item_icons = URIST_ALL_ONMOBS
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "aeneasrinil_open"
 	icon_open = "aeneasrinil_open"
@@ -1020,10 +1021,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/suit/storage/hooded/sandsuit
+	action_button_name = "Toggle Hood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
-	min_cold_protection_temperature = 253.15
+	min_cold_protection_temperature = 243.15
 	armor = list(melee = 18, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	hoodtype = /obj/item/clothing/head/winterhood/sandsuit
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "sandsuit"
