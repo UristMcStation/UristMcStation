@@ -27,6 +27,7 @@
 
 /obj/vehicle/bike/New()
 	..()
+	layer = MOB_LAYER-1
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)
@@ -197,7 +198,7 @@
 		icon_state = "[bike_icon]_on"
 	else
 		icon_state = "[bike_icon]_off"
-	overlays += image('icons/obj/bike.dmi', "[icon_state]_overlay", MOB_LAYER + 1)
+	overlays += image(src.icon, "[icon_state]_overlay", MOB_LAYER + 1)
 	..()
 
 

@@ -15,10 +15,12 @@
 
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
-		armrest.layer = MOB_LAYER + 0.1
+		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.layer = ABOVE_HUMAN_LAYER
 	else if(couchpart == 2)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
-		armrest.layer = MOB_LAYER + 0.1
+		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.layer = ABOVE_HUMAN_LAYER
 
 	..()
 
@@ -145,7 +147,7 @@
 
 /obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
-		user << "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>"
+		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
 		return
 
 //Putting this here because of stupid flora code -Glloyd //back when i signed things. why did i do this? why am i writing comments now? probably cause i'm a little drunk. but this file hasn't been touched in ages, so fuck it.

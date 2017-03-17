@@ -94,7 +94,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/arrow/improv
 	name = "improvised arrow"
 	desc = "It's a shitty improvised arrow. It has a wooden shaft and a makeshift glass arrowhead."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "improvarrow"
 	item_state = "bolt"
 	throwforce = 7
@@ -106,7 +106,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/arrow/woodarrow
 	name = "arrow"
 	desc = "It's a regular arrow, wooden shaft, metal arrowhead. You get the deal."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "arrow"
 	item_state = "bolt"
 	throwforce = 8

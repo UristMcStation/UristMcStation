@@ -11,17 +11,22 @@
 	var/loot_max = 5
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
+		/obj/item/vehicle_part/random,
 		/obj/item/stack/material/plastic/scrap,
-		/obj/item/stack/material/scrap,
+		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,
 		/obj/item/stack/material/plasteel/scrap,
 		/obj/item/weapon/material/shard,
-		/obj/item/weapon/material/shard/shrapnel
+		/obj/item/weapon/material/shard/shrapnel,
+		/obj/item/pipe,
+		/obj/item/stack/material/r_wood/scrap,
+		/obj/item/stack/cable_coil/scrap,
+		/obj/item/stack/material/wood/scrap
 		)
 
 	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'
 	var/base_min = 3	//min and max number of random pieces of base icon
-	var/base_max = 5
+	var/base_max = 7
 	var/base_spread = 8	//limits on pixel offsets of base pieces
 
 /obj/structure/scrap/New()
@@ -96,22 +101,28 @@
 		visible_message("<span class='notice'>\The [user] [pick(ways)] \the [src].</span>")
 		shuffle_loot()
 		if(!(loot.contents.len || contents.len > 1))
-			user << "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>"
+			to_chat(user, "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>")
 	..()
 
 /obj/structure/scrap/vehicle
 	name = "debris pile"
 	parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
 	loot_list = list(
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
-		/obj/item/vehicle_part,
+		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/random,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
-		/obj/item/stack/material/scrap,
+		/obj/item/stack/material/steel/scrap,
+		/obj/item/pipe,
 		/obj/item/weapon/material/shard
 		)
+
+/obj/structure/scrap/vehicle/New()
+	if(prob(40))
+		new /obj/structure/vehicle_frame/motorcycle
+	..()
 
 /obj/structure/scrap/large
 	name = "large scrap pile"
@@ -122,34 +133,77 @@
 	loot_max = 20
 
 	base_min = 9
-	base_max = 14
+	base_max = 15
 	base_spread = 16
+
+/obj/structure/scrap/random
+	var/scrap_list = list(
+		/obj/structure/scrap,
+		/obj/structure/scrap/large
+		)
+
+/obj/structure/scrap/random/New()
+	var/A = pick(scrap_list)
+	new A(src.loc)
+	qdel(src)
 
 /obj/item/weapon/storage/internal/updating/update_icon()
 	master_item.update_icon()
 
 /obj/item/stack/rods/scrap/New(var/newloc)
-	..(newloc, rand(3,8))
+	..(newloc, rand(1,8))
 
 /obj/item/stack/material/plastic/scrap/New(var/newloc)
-	..(newloc, rand(5,10))
+	..(newloc, rand(1,10))
 
-/obj/item/stack/material/scrap/New(var/newloc)
-	..(newloc, rand(8,12))
+/obj/item/stack/material/steel/scrap/New(var/newloc)
+	..(newloc, rand(1,10))
 
 /obj/item/stack/material/glass/scrap/New(var/newloc)
-	..(newloc, rand(5,10))
+	..(newloc, rand(1,10))
 
 /obj/item/stack/material/plasteel/scrap/New(var/newloc)
 	..(newloc, rand(1,3))
 
-// Placeholder for proper vehicle parts.
+/obj/item/stack/material/wood/scrap/New(var/newloc)
+	..(newloc, rand(1,6))
+
+/obj/item/stack/cable_coil/scrap/New()
+	amount = rand(1,6)
+
+/obj/item/stack/material/r_wood/scrap/New()
+	amount = rand(1,8)
+
 /obj/item/vehicle_part
 	name = "vehicle part"
 	desc = "A part from a vehicle."
 	icon_state = "engine"
 	icon = 'icons/urist/items/vehicle_parts.dmi'
+	w_class = 3
 
-/obj/item/vehicle_part/New()
+/obj/item/vehicle_part/random/New()
 	..()
-	icon_state = pick(icon_states(icon))
+	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric, /obj/item/vehicle_part/tire)
+	new part(src.loc)
+	qdel(src)
+
+/obj/item/vehicle_part/battery
+	name = "battery"
+	desc = "A battery for a vehicle."
+	icon_state = "plating"
+
+/obj/item/vehicle_part/transmission
+	name = "transmission"
+	desc = "The transmission for a vehicle."
+	icon_state = "Transmission"
+
+/obj/item/vehicle_part/transmission/New()
+	..()
+	if(prob(50))
+		icon_state = "Transmission2"
+
+/obj/item/vehicle_part/tire
+	name = "tire"
+	desc = "A tire for a vehicle."
+	icon_state = "tire"
+	w_class = 4
