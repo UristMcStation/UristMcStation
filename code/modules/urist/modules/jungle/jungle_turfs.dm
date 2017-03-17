@@ -338,7 +338,6 @@
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
 
-
 /turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
 		if(bridge)
@@ -423,19 +422,31 @@
 	else if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
-				if(R.built)
+				if(R.built && !R.busy)
+					R.busy = 1
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
 					if (do_after(user, 5, src))
-						for(var/obj/item/O in user.loc)
-							O.loc = get_turf(src)
 
-						for(var/obj/structure/vehicle_frame/motorcycle/M in user.loc)
-							M.loc = get_turf(src)
+						R.do_pulling_stuff(src, user)
 
-						bridge = 1 //simple hack
-						user.loc = get_turf(src)
+						/*for(var/obj/structure/raft/S in user.pulling)
+							S.loc = get_turf(user)
+							S.do_pulling_stuff(src, user)*/
+
 						R.loc = get_turf(src)
+
+						if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
+							var/obj/structure/raft/S = user.pulling
+							if(S.built)
+								S.do_pulling_stuff(get_turf(user), user)
+								S.loc = get_turf(user)
+
+						bridge = 1
+						user.loc = get_turf(src)
+
 						bridge = 0
+
+						R.busy = 0
 
 				else
 					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
@@ -490,11 +501,7 @@
 	if(density) //to account for deep water
 		return
 
-	if(bridge)
-		return
-
-
-	else if(istype(O, /mob/living/carbon))
+	else if(istype(O, /mob/living/carbon) && !bridge)
 		var/mob/living/carbon/M = O
 		//slip in the murky water if we try to run through it
 		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
@@ -528,19 +535,32 @@
 	if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
-				if(R.built)
+				if(R.built && !R.busy)
 					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
+					R.busy = 1
 					if (do_after(user, 5, src))
-						for(var/obj/item/O in user.loc)
-							O.loc = get_turf(src)
 
-						for(var/obj/structure/vehicle_frame/motorcycle/M in user.loc)
-							M.loc = get_turf(src)
+						R.do_pulling_stuff(src, user)
+
+						/*for(var/obj/structure/raft/S in user.pulling)
+							S.loc = get_turf(user)
+							S.do_pulling_stuff(src, user)*/
+
+						R.loc = get_turf(src)
+
+						if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
+							var/obj/structure/raft/S = user.pulling
+							if(S.built)
+
+//								S.forceMove(get_turf(src))
+								S.do_pulling_stuff(user.loc, user)
+								S.loc = get_turf(user)
 
 						bridge = 1
 						user.loc = get_turf(src)
-						R.loc = get_turf(src)
+
 						bridge = 0
+						R.busy = 0
 
 				else
 					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")

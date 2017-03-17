@@ -27,6 +27,7 @@
 
 /obj/vehicle/bike/New()
 	..()
+	layer = MOB_LAYER-1
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)

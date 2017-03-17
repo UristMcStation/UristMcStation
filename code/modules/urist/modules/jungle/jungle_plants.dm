@@ -127,6 +127,7 @@ var/jungle_plants_init = 0
 	icon = 'icons/jungle.dmi'
 	icon_state = "plant1"
 	desc = "Looks like some of that fruit might be edible."
+	anchored = 1
 	var/fruits_left = 3
 	var/fruit_type = -1
 	var/icon/fruit_overlay
@@ -189,6 +190,7 @@ var/jungle_plants_init = 0
 	desc = "A bunch of reeds. This plant typically grows in wet areas."
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "reedbush_1"
+	anchored = 1
 
 /obj/structure/flora/reeds/New()
 	if(prob(25))

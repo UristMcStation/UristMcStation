@@ -321,13 +321,13 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 120
-	health = 120
+	maxHealth = 180
+	health = 180
 	bound_width = 64
 
 	harm_intent_damage = 8
 	melee_damage_lower = 25
-	melee_damage_upper = 25
+	melee_damage_upper = 30
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat = 4
