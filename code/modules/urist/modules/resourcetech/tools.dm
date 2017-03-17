@@ -78,10 +78,17 @@
 		new /obj/item/weapon/gunattachment/scope/huntrifle(user.loc)
 
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/update_icon()
-	if(bolt_open)
-		icon_state = "[initial(icon_state)]_alt"
-	else
-		icon_state = "[initial(icon_state)]"
+	if(scoped)
+		if(bolt_open)
+			icon_state = "scopedrifle_alt"
+		else
+			icon_state = "scopedrifle"
+
+	else if(!scoped)
+		if(bolt_open)
+			icon_state = "huntrifle_alt"
+		else
+			icon_state = "huntrifle"
 
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped
 	name = "scoped hunting rifle"
