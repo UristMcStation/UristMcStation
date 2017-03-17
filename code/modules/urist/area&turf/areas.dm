@@ -266,7 +266,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Security Outpost Shuttle Outpost"
 	icon_state = "shuttle"
 	lighting_use_dynamic = 0
-	base_turf = /turf/simulated/jungle/clear
+	base_turf = /turf/simulated/planet/jungle/clear
 
 /area/outpost/security
 	icon_state = "security"
@@ -290,12 +290,12 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
 
-/area/shuttle/mining/outpost/base_turf = /turf/simulated/jungle/clear
+/area/shuttle/mining/outpost/base_turf = /turf/simulated/planet/jungle/clear
 
-/area/shuttle/research/outpost/base_turf = /turf/simulated/jungle/clear
+/area/shuttle/research/outpost/base_turf = /turf/simulated/planet/jungle/clear
 
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
 
-/area/shuttle/constructionsite/base_turf = /turf/simulated/jungle/clear
+/area/shuttle/constructionsite/base_turf = /turf/simulated/planet/jungle/clear
 
-/area/shuttle/securityoutpost/base_turf = /turf/simulated/jungle/clear
+/area/shuttle/securityoutpost/base_turf = /turf/simulated/planet/jungle/clear

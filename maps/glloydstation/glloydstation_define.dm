@@ -11,13 +11,15 @@
 	company_name  = "NanoTrasen"
 	company_short = "NT"
 
+	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
+
 	station_levels = list(1)
 	admin_levels = list(2)
-	contact_levels = list(1,5,6,8)
-	player_levels = list(1,3,4,5,6,8)
+	contact_levels = list(1,5,6,7)
+	player_levels = list(1,3,4,5,6,7)
 	sealed_levels = list(6)
 	empty_levels = list(6)
-	base_turf_by_z = list("6" = /turf/simulated/floor/asteroid, "8" = /turf/simulated/jungle/clear)
+	base_turf_by_z = list("6" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/planet/jungle/clear)
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %Dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."
