@@ -7809,7 +7809,7 @@
 "cUi" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/engineering)
 "cUj" = (/obj/structure/table/rack{dir = 8; layer = 2.9},/obj/item/weapon/storage/belt/utility,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/weapon/tank/emergency/oxygen/engi,/turf/simulated/floor/tiled,/area/engineering)
 "cUk" = (/obj/structure/closet/firecloset,/turf/simulated/floor/tiled,/area/engineering)
-"cUl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/item/weapon/inflatable_dispenser,/obj/item/weapon/inflatable_dispenser,/obj/structure/table/rack,/turf/simulated/floor/tiled,/area/engineering)
+"cUl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/item/weapon/inflatable_dispenser,/obj/structure/table/rack,/turf/simulated/floor/tiled,/area/engineering)
 "cUm" = (/obj/structure/disposalpipe/segment,/obj/structure/table/standard,/obj/item/device/pipe_painter,/obj/item/device/floor_painter,/turf/simulated/floor/tiled,/area/engineering)
 "cUn" = (/obj/structure/table/standard,/obj/item/weapon/book/manual/engineering_guide,/obj/item/weapon/book/manual/engineering_particle_accelerator{pixel_y = 6},/turf/simulated/floor/tiled,/area/engineering)
 "cUo" = (/obj/structure/table/standard,/obj/item/weapon/book/manual/engineering_hacking{pixel_x = 3; pixel_y = 3},/obj/item/weapon/book/manual/engineering_construction,/turf/simulated/floor/tiled,/area/engineering)
