@@ -321,8 +321,8 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 180
-	health = 180
+	maxHealth = 150
+	health = 150
 	bound_width = 64
 
 	harm_intent_damage = 8
