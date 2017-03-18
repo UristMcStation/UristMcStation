@@ -359,7 +359,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	anchored = 0
 	var/built = 0
 	var/buildstate = 0
-	var/busy = 0
 	layer = BELOW_OBJ_LAYER
 
 /obj/structure/raft/attackby(obj/item/W as obj, mob/user as mob)
@@ -423,13 +422,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft/update_icon()
 	icon_state = "raft_frame[buildstate]"
 
-/obj/structure/raft/proc/do_pulling_stuff(var/turf/T)	//, var/mob/user)
+/obj/structure/raft/proc/do_pulling_stuff(var/turf/T)
 	for(var/obj/item/O in src.loc)
 		O.loc = get_turf(T)
 
 	for(var/obj/structure/M in src.loc)
 		if(!M.anchored)
-			M.loc = get_turf(T)
+			if(M.type != /obj/structure/raft)
+				M.loc = get_turf(T)
 
 	for(var/obj/vehicle/bike/motorcycle/V in src.loc)
 		V.loc = get_turf(T)

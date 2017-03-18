@@ -178,16 +178,6 @@
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
-///turf/simulated/planet/jungle/clear/New()
-	//set_light(2)
-
-	/*for(var/obj/structure/bush/B in src)
-		qdel(B)
-	for(var/obj/structure/flora/F in src)
-		qdel(F)*/
-
-	//update_light()
-
 /turf/simulated/planet/jungle/clear/grass1
 	bushspawnchance = 0
 	plants_spawn_chance = 0
@@ -215,12 +205,6 @@
 		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/carbon/human/monkey/jungle
 		)
-
-
-///turf/simulated/planet/jungle/path/New()
-//	..()
-//	for(var/obj/structure/bush/B in src)
-//		qdel(B)
 
 /turf/simulated/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
 	if(probability <= 0)
@@ -337,6 +321,7 @@
 	var/bridge = 0 //has there been a bridge built?
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
+	var/busy = 0
 
 /turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
@@ -422,34 +407,36 @@
 	else if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
-				if(R.built && !R.busy)
-					R.busy = 1
-					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					if (do_after(user, 5, src))
+				if(!busy)
+					if(R.built)
+						busy = 1
+						to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
+						if (do_after(user, 5, src))
 
-						R.do_pulling_stuff(src, user)
+							R.do_pulling_stuff(src)
 
-						/*for(var/obj/structure/raft/S in user.pulling)
-							S.loc = get_turf(user)
-							S.do_pulling_stuff(src, user)*/
+							R.loc = get_turf(src)
 
-						R.loc = get_turf(src)
+							if(user.pulling)
 
-						if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
-							var/obj/structure/raft/S = user.pulling
-							if(S.built)
-								S.do_pulling_stuff(get_turf(user), user)
-								S.loc = get_turf(user)
+								if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
+									var/obj/structure/raft/S = user.pulling
+									if(S.built)
 
-						bridge = 1
-						user.loc = get_turf(src)
+		//								S.forceMove(get_turf(src))
+										S.do_pulling_stuff(user.loc)
+										S.loc = get_turf(user)
 
-						bridge = 0
+							bridge = 1
+							user.loc = get_turf(src)
 
-						R.busy = 0
+							bridge = 0
+							spawn(12)
+								busy = 0
 
-				else
-					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
+					else if(!R.built)
+						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
+
 
 	else if(istype(I, /obj/item/weapon/crowbar))
 		if(bridge)
@@ -486,15 +473,6 @@
 		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
 		return 1
-
-///turf/simulated/planet/jungle/water/New()
-//	..()
-//	for(var/obj/structure/bush/B in src)
-//		qdel(B)
-//	for(var/obj/structure/flora/tree/jungle/T in src) //fuck you random gen
-//		qdel(T)
-//	for(var/obj/structure/jungle_plant/J in src)
-//		qdel(J)
 
 /turf/simulated/planet/jungle/water/Entered(atom/movable/O)
 	..()
@@ -535,35 +513,35 @@
 	if(istype(I, /obj/item/weapon/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
-				if(R.built && !R.busy)
-					to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-					R.busy = 1
-					if (do_after(user, 5, src))
+				if(!busy)
+					if(R.built)
+						busy = 1
+						to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
+						if (do_after(user, 5, src))
 
-						R.do_pulling_stuff(src, user)
+							R.do_pulling_stuff(src)
 
-						/*for(var/obj/structure/raft/S in user.pulling)
-							S.loc = get_turf(user)
-							S.do_pulling_stuff(src, user)*/
+							R.loc = get_turf(src)
 
-						R.loc = get_turf(src)
+							if(user.pulling)
 
-						if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
-							var/obj/structure/raft/S = user.pulling
-							if(S.built)
+								if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
+									var/obj/structure/raft/S = user.pulling
+									if(S.built)
 
-//								S.forceMove(get_turf(src))
-								S.do_pulling_stuff(user.loc, user)
-								S.loc = get_turf(user)
+		//								S.forceMove(get_turf(src))
+										S.do_pulling_stuff(user.loc)
+										S.loc = get_turf(user)
 
-						bridge = 1
-						user.loc = get_turf(src)
+							bridge = 1
+							user.loc = get_turf(src)
 
-						bridge = 0
-						R.busy = 0
+							bridge = 0
+							spawn(12)
+								busy = 0
 
-				else
-					to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
+					else if(!R.built)
+						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 	return
 
 /turf/simulated/planet/jungle/temple_wall
