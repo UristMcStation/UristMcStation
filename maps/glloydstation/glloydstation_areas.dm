@@ -64,7 +64,7 @@
 
 /area/shuttle/mining/outpost
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/plating
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
@@ -166,7 +166,7 @@
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/plating
 
 
 //SYNDICATES
@@ -732,7 +732,7 @@ area/rnd/test_area
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/plating
 
 /*******
 * Moon *

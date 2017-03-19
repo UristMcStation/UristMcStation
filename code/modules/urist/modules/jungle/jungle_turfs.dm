@@ -125,7 +125,7 @@
 		R.use(1)
 
 /turf/simulated/planet/jungle
-	animal_spawn_chance = 1
+	animal_spawn_chance = 0.8
 	plants_spawn_chance = 40
 	small_trees_chance = 8
 	large_trees_chance = 0
@@ -148,7 +148,7 @@
 	icon_spawn_state = "grass1"
 	bushspawnchance = 50
 	small_trees_chance = 9
-	animal_spawn_chance = 1.2
+	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -242,7 +242,7 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
-	animal_spawn_chance = 2 //hostile wasteland riddled with scrap heaps.
+	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
 		/mob/living/simple_animal/hostile/snake
