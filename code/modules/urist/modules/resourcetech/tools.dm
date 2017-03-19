@@ -80,9 +80,9 @@
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/update_icon()
 	if(scoped)
 		if(bolt_open)
-			icon_state = "scopedrifle_alt"
+			icon_state = "scopedhuntrifle_alt"
 		else
-			icon_state = "scopedrifle"
+			icon_state = "scopedhuntrifle"
 
 	else if(!scoped)
 		if(bolt_open)
@@ -93,9 +93,9 @@
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped
 	name = "scoped hunting rifle"
 	scoped = 1
-	wielded_item_state = "huntrifle2"
-	icon_state = "huntrifle"
-	item_state = "huntrifle"
+	wielded_item_state = "scopedhuntrifle2"
+	icon_state = "scopedhuntrifle"
+	item_state = "scopedhuntrifle"
 
 /obj/item/weapon/gun/projectile/manualcycle/hunterrifle/verb/scope()
 	set category = "Object"

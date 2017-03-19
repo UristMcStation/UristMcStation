@@ -125,7 +125,7 @@
 		R.use(1)
 
 /turf/simulated/planet/jungle
-	animal_spawn_chance = 0.8
+	animal_spawn_chance = 0.7
 	plants_spawn_chance = 40
 	small_trees_chance = 8
 	large_trees_chance = 0
@@ -173,7 +173,7 @@
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 60
-	animal_spawn_chance = 2
+	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -256,7 +256,7 @@
 		new /obj/structure/scrap/vehicle(src)
 
 /turf/simulated/planet/jungle/impenetrable
-	animal_spawn_chance = 0.5 //very low chances. This is mainly just to populate the respawn list
+	animal_spawn_chance = 0.4 //very low chances. This is mainly just to populate the respawn list
 	bushspawnchance = 0
 	small_trees_chance = 0
 	large_trees_chance = 7
