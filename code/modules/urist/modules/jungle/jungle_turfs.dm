@@ -139,7 +139,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
+		/mob/living/simple_animal/monkey
 	)
 
 /turf/simulated/planet/jungle/med
@@ -148,12 +148,11 @@
 	icon_spawn_state = "grass1"
 	bushspawnchance = 50
 	small_trees_chance = 9
-	animal_spawn_chance = 1.5
+	animal_spawn_chance = 1.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
 		)
 
 /turf/simulated/planet/jungle/thick
@@ -163,12 +162,10 @@
 	bushspawnchance = 70
 	plants_spawn_chance = 45
 	small_trees_chance = 10
-	animal_spawn_chance = 2
+	animal_spawn_chance = 1.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
 		)
 
 /turf/simulated/planet/jungle/templatethick //for templates so trees and stuff don't get deleted.
@@ -181,7 +178,7 @@
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
+		/mob/living/simple_animal/monkey
 		)
 
 /turf/simulated/planet/jungle/clear
@@ -215,10 +212,10 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
-	animal_spawn_chance = 1
+	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
+		/mob/living/simple_animal/monkey
 		)
 
 /turf/simulated/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
@@ -269,7 +266,7 @@
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/carbon/human/monkey/jungle
+		/mob/living/simple_animal/monkey
 		)
 
 /turf/simulated/planet/jungle/impenetrable/New()

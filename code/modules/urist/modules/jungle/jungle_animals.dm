@@ -129,6 +129,38 @@
 	..()
 	faction = "hostile"
 
+//to prevent lag from monkey's life()
+
+/mob/living/simple_animal/monkey
+	name = "monkey"
+	desc = "It's a monkey. Seems quite content to lounge around all the time."
+	icon = 'icons/mob/human_races/monkeys/r_monkey.dmi'
+	icon_state = "preview"
+	icon_living = "preview"
+	icon_dead = "preview"
+	mob_size = MOB_SMALL
+	speak_emote = list("chirps")
+	emote_hear = list("chirps")
+	emote_see = list("chirps")
+	maxHealth = 30
+	health = 30
+	speak_chance = 1
+	turns_per_move = 5
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "stomps"
+	friendly = "pokes"
+	var/corpse = /mob/living/carbon/human/monkey
+
+/mob/living/simple_animal/monkey/death()
+	..()
+	if(corpse && ispath(corpse,/mob/living))
+		var/mob/living/corpsemob = corpse
+		new corpsemob(src.loc)
+		qdel(src)
+		corpsemob.set_stat(2)
+
 //to prevent spam from parrots, and deer killing parrots
 
 /mob/living/simple_animal/parrot/jungle
