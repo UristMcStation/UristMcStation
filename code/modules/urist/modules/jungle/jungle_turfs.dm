@@ -127,7 +127,7 @@
 /turf/simulated/planet/jungle
 	animal_spawn_chance = 1
 	plants_spawn_chance = 40
-	small_trees_chance = 9
+	small_trees_chance = 8
 	large_trees_chance = 0
 	reeds_spawn_chance = 10
 	name = "wet grass"
@@ -135,7 +135,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
-	bushspawnchance = 34 //let's try it, why not
+	bushspawnchance = 30 //let's try it, why not
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
@@ -146,7 +146,8 @@
 	large_trees_chance = 1
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
-	bushspawnchance = 54
+	bushspawnchance = 50
+	small_trees_chance = 9
 	animal_spawn_chance = 1.5
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -159,7 +160,9 @@
 	large_trees_chance = 5
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
-	bushspawnchance = 73
+	bushspawnchance = 70
+	plants_spawn_chance = 45
+	small_trees_chance = 10
 	animal_spawn_chance = 2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -168,6 +171,18 @@
 		/mob/living/carbon/human/monkey/jungle
 		)
 
+/turf/simulated/planet/jungle/templatethick //for templates so trees and stuff don't get deleted.
+	large_trees_chance = 2
+	icon_state = "grass3" //3
+	icon_spawn_state = "grass1"
+	bushspawnchance = 60
+	animal_spawn_chance = 2
+	animal_spawn_list = list(
+		/mob/living/simple_animal/hostile/huntable/panther,
+		/mob/living/simple_animal/hostile/huntable/deer,
+		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/carbon/human/monkey/jungle
+		)
 
 /turf/simulated/planet/jungle/clear
 	animal_spawn_chance = 0

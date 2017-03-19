@@ -1,4 +1,4 @@
-"a" = (/turf/simulated/planet/jungle/thick,/area/jungle)
+"a" = (/turf/simulated/planet/jungle/templatethick,/area/jungle)
 "b" = (/obj/item/weapon/storage/secure/briefcase/money,/obj/item/remains/human,/turf/simulated/planet/jungle/path,/area/jungle)
 "c" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/planet/jungle/path,/area/jungle)
 "d" = (/turf/simulated/planet/jungle/path,/area/jungle)

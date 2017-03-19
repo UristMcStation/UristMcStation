@@ -1,4 +1,4 @@
-"a" = (/turf/simulated/planet/jungle/thick,/area/jungle)
+"a" = (/turf/simulated/planet/jungle/templatethick,/area/jungle)
 "b" = (/turf/simulated/planet/jungle/path,/area/jungle)
 "c" = (/turf/simulated/planet/jungle/clear,/area/jungle)
 "d" = (/obj/structure/flora/tree/jungle/small{pixel_x = 0},/turf/simulated/planet/jungle/clear,/area/jungle)
