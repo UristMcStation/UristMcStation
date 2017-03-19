@@ -61,9 +61,9 @@
 	if(istype(I, /obj/item/weapon/gunattachment/scope/huntrifle) && !scoped)
 		to_chat(user, "<span class='notice'>You attach the scope to the rifle.</span>")
 		scoped = 1
-		icon_state = "scopedrifle"
-		item_state = "scopedrifle"
-		wielded_item_state = "scopedrifle2"
+		icon_state = "scopedhuntrifle"
+		item_state = "scopedhuntrifle"
+		wielded_item_state = "scopedhuntrifle2"
 		update_icon()
 		user.remove_from_mob(I)
 		qdel(I)
