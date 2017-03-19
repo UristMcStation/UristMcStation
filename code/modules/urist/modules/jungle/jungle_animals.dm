@@ -138,6 +138,7 @@
 	icon_state = "preview"
 	icon_living = "preview"
 	icon_dead = "preview"
+	faction = "hostile"
 	mob_size = MOB_SMALL
 	speak_emote = list("chirps")
 	emote_hear = list("chirps")
