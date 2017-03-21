@@ -953,55 +953,55 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/urist/USBrigGen
 	name = "US Army Brigadier General Uniform"
 	desc = "A uniform worn by an army commander."
-	icon_state = "Brig General US object"
+	icon_state = "Brig General US"
 	item_state = "Brig General US"
 
 /obj/item/clothing/under/urist/USCol
 	name = "US Army Colonel Uniform"
 	desc = "A uniform worn by an infantry commander."
-	icon_state = "Colonel of Infantry US object"
+	icon_state = "Colonel of Infantry US"
 	item_state = "Colonel of Infantry US"
 
 /obj/item/clothing/under/urist/USPrivate
 	name = "US Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
-	icon_state = "Private Infantry US object"
+	icon_state = "Private Infantry US"
 	item_state = "Private Infantry US"
 
 /obj/item/clothing/under/urist/CSAPrivate
 	name = "CS Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
-	icon_state = "Private Infantry CS object"
+	icon_state = "Private Infantry CS"
 	item_state = "Private Infantry CS"
 
 /obj/item/clothing/under/urist/CSALt
 	name = "CS Army Lieutenant Uniform"
 	desc = "A uniform worn by an infantry commander."
-	icon_state = "Lieutenant CS object"
+	icon_state = "Lieutenant CS"
 	item_state = "Lieutenant CS"
 
 /obj/item/clothing/under/urist/CSAArty
 	name = "CS Army Artilery Captain Uniform"
 	desc = "A uniform worn by an artillery commander."
-	icon_state = "Captain Artillery CS object"
+	icon_state = "Captain Artillery CS"
 	item_state = "Captain Artillery CS"
 
 /obj/item/clothing/under/urist/CSAGeneral
 	name = "CS Army General Uniform"
 	desc = "A uniform worn by an army commander."
-	icon_state = "General CS object"
+	icon_state = "General CS"
 	item_state = "General CS"
 
 /obj/item/clothing/under/urist/BlueCoat
 	name = "Blue Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
-	icon_state = "blue coat uniform object"
+	icon_state = "blue coat uniform"
 	item_state = "blue coat uniform"
 
 /obj/item/clothing/under/urist/RedCoat
 	name = "Red Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
-	icon_state = "red coat uniform object"
+	icon_state = "red coat uniform"
 	item_state = "red coat uniform"
 
 /obj/item/clothing/under/urist/HamiltonClothes
