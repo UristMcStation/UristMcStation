@@ -120,9 +120,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //RS Weapons
 
+/obj/item/weapon/urist/blade
+	sharp = 1
+	edge = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-
-/obj/item/weapon/BronzeDagger
+/obj/item/weapon/urist/blade/bronzedagger
 	name = "Bronze Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -130,14 +134,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "knife"
 	force = 12
 	throwforce = 5
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	w_class = 2.0
-	sharp = 1
-	edge = 1
 
 
-/obj/item/weapon/AddyDagger
+/obj/item/weapon/urist/blade/addydagger
 	name = "Adamantite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -145,14 +145,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "knife"
 	force = 20
 	throwforce = 9
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	w_class = 2.0
-	sharp = 1
-	edge = 1
 
 
-/obj/item/weapon/RuneDagger
+/obj/item/weapon/urist/blade/runedagger
 	name = "Runite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -160,13 +156,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "knife"
 	force = 27
 	throwforce = 15
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	w_class = 2.0
-	sharp = 1
-	edge = 1
 
-/obj/item/weapon/urist/BronzeSword
+/obj/item/weapon/urist/blade/bronzesword
 	name = "Bronze Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -174,36 +166,28 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "claymore"
 	force = 15
 	throwforce = 9
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	w_class = 2.0
-	sharp = 1
-	edge = 1
+	w_class = 4.0
+	slot_flags = SLOT_BELT|SLOT_BACK
 
-/obj/item/weapon/urist/AddySword
+/obj/item/weapon/urist/blade/addysword
 	name = "Adamantite  Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "green sword"
 	item_state = "claymore"
 	force = 30
-	throwforce = 9
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	w_class = 2.0
-	sharp = 1
-	edge = 1
+	throwforce = 15
+	w_class = 4.0
+	slot_flags = SLOT_BELT|SLOT_BACK
 
-/obj/item/weapon/urist/RuneSword
+
+/obj/item/weapon/urist/blade/runesword
 	name = "Runeite Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "blue sword"
 	item_state = "claymore"
 	force = 50
-	throwforce = 9
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	w_class = 2.0
-	sharp = 1
-	edge = 1
+	throwforce = 20
+	w_class = 4.0
+	slot_flags = SLOT_BELT|SLOT_BACK

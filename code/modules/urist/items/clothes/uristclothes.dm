@@ -944,85 +944,85 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Civil War and other uniforms//
 
-/obj/item/clothing/under/urist/USLtGen
+/obj/item/clothing/under/urist/civilwar/usltgen
 	name = "US Army Lieutenant General Uniform"
 	desc = "A uniform worn by an army commander."
 	icon_state = "Lieut General US"
 	item_state = "Lieut_General_US"
 
-/obj/item/clothing/under/urist/USBrigGen
+/obj/item/clothing/under/urist/civilwar/usbriggen
 	name = "US Army Brigadier General Uniform"
 	desc = "A uniform worn by an army commander."
 	icon_state = "Brig General US"
 	item_state = "Brig General US"
 
-/obj/item/clothing/under/urist/USCol
+/obj/item/clothing/under/urist/civilwar/uscol
 	name = "US Army Colonel Uniform"
 	desc = "A uniform worn by an infantry commander."
 	icon_state = "Colonel of Infantry US"
 	item_state = "Colonel of Infantry US"
 
-/obj/item/clothing/under/urist/USPrivate
+/obj/item/clothing/under/urist/civilwar/uspvt
 	name = "US Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
 	icon_state = "Private Infantry US"
 	item_state = "Private Infantry US"
 
-/obj/item/clothing/under/urist/CSAPrivate
+/obj/item/clothing/under/urist/civilwar/csapvt
 	name = "CS Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
 	icon_state = "Private Infantry CS"
 	item_state = "Private Infantry CS"
 
-/obj/item/clothing/under/urist/CSALt
+/obj/item/clothing/under/urist/civilwar/csalt
 	name = "CS Army Lieutenant Uniform"
 	desc = "A uniform worn by an infantry commander."
 	icon_state = "Lieutenant CS"
 	item_state = "Lieutenant CS"
 
-/obj/item/clothing/under/urist/CSAArty
+/obj/item/clothing/under/urist/civilwar/csacpt
 	name = "CS Army Artilery Captain Uniform"
 	desc = "A uniform worn by an artillery commander."
 	icon_state = "Captain Artillery CS"
 	item_state = "Captain Artillery CS"
 
-/obj/item/clothing/under/urist/CSAGeneral
+/obj/item/clothing/under/urist/civilwar/csagen
 	name = "CS Army General Uniform"
 	desc = "A uniform worn by an army commander."
 	icon_state = "General CS"
 	item_state = "General CS"
 
-/obj/item/clothing/under/urist/BlueCoat
+/obj/item/clothing/under/urist/civilwar/bluecoatuni
 	name = "Blue Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
 	icon_state = "blue coat uniform"
 	item_state = "blue coat uniform"
 
-/obj/item/clothing/under/urist/RedCoat
+/obj/item/clothing/under/urist/civilwar/redcoatuni
 	name = "Red Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
 	icon_state = "red coat uniform"
 	item_state = "red coat uniform"
 
-/obj/item/clothing/under/urist/HamiltonClothes
+/obj/item/clothing/under/urist/civilwar/hamiltonclothes
 	name = "Hamilton Clothes"
 	desc = "White slacks paired with a suitable tan button up."
 	icon_state = "hamilton uniform"
 	item_state = "hamilton uniform"
 
-/obj/item/clothing/suit/urist/BlueCoatCoat
+/obj/item/clothing/suit/urist/civilwar/bluecoatcoat
     name = "Blue Infantry Coat"
     desc = "A blue coat worn by soldiers."
     icon_state = "blue coat coat"
     item_state = "blue coat coat"
 
-/obj/item/clothing/suit/urist/RedCoatCoat
+/obj/item/clothing/suit/urist/civilwar/redcoatcoat
     name = "Red Infantry Coat"
     desc = "A red coat worn by soldiers."
     icon_state = "red coat coat"
     item_state = "red coat coat"
 
-/obj/item/clothing/suit/urist/HamiltonCoatCoat
+/obj/item/clothing/suit/urist/civilwar/hamiltoncoat
     name = "Hamilton Coat"
     desc = "A blue coat sporting gold buttons."
     icon_state = "hamiltoncoat"
@@ -1030,7 +1030,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //RS Armor Suits
 
-/obj/item/clothing/suit/urist/armor/BronzeArmor
+/obj/item/clothing/suit/urist/armor/bronzearmor
 	name = "Bronze Armor"
 	desc = "Provides protection."
 	icon_state = "suit_bronze"
@@ -1040,7 +1040,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_flags = THICKMATERIAL
 	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/urist/armor/AddyArmor
+/obj/item/clothing/suit/urist/armor/addyarmor
 	name = "Adamantite Armor"
 	desc = "Provides modest protection."
 	icon_state = "suit_green"
@@ -1051,7 +1051,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_flags = THICKMATERIAL
 
 
-/obj/item/clothing/suit/urist/armor/RuneArmor
+/obj/item/clothing/suit/urist/armor/runearmor
 	name = "Runeite Armor"
 	desc = "Provides excelent protection."
 	icon_state = "suit_blue"

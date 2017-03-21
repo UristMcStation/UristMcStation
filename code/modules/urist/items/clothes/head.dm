@@ -322,67 +322,67 @@ obj/item/clothing/head/princessbow
 
 //Civil War hats
 
-/obj/item/clothing/head/urist/USLTGenHat
+ /obj/item/clothing/head/urist/civilwar/usltgenhat
 	name = "US Army Lieutenant General Hat"
 	desc = "A hat worn by the commander of an army."
 	icon_state = "Lieut General US hat"
 	item_state = "Lieut General US hat"
 
-/obj/item/clothing/head/urist/USBrigGenHat
+ /obj/item/clothing/head/urist/civilwar/usbrighat
 	name = "US Army Brigadier General Hat"
 	desc = "A hat worn by the commander of an army."
 	icon_state = "Brig General US hat"
 	item_state = "Brig General US hat"
 
-/obj/item/clothing/head/urist/USColHat
+ /obj/item/clothing/head/urist/civilwar/uscolhat
 	name = "US Army Colonel Hat"
 	desc = "A hat worn by an infantry officer."
 	icon_state = "Colonel of Infantry US hat"
 	item_state = "Colonel of Infantry US hat"
 
-/obj/item/clothing/head/urist/USPvtHat
+ /obj/item/clothing/head/urist/civilwar/uspvthat
 	name = "US Army Private Hat"
 	desc = "A blue hat worn by an infantryman."
 	icon_state = "Private Infantry US hat"
 	item_state = "Private Infantry US hat"
 
-/obj/item/clothing/head/urist/CSAPvtHat
+ /obj/item/clothing/head/urist/civilwar/csapvthat
 	name = "CS Army Private Hat"
 	desc = "A grey hat worn by an infantryman."
 	icon_state = "Private Infantry CS hat"
 	item_state = "Private Infantry CS hat"
 
-/obj/item/clothing/head/urist/CSAArtyHat
+ /obj/item/clothing/head/urist/civilwar/csaartycpthat
 	name = "Artillery Captain Hat"
 	desc = "A hat worn by an artillery officer."
 	icon_state = "Captain Artillery CS hat"
 	item_state = "Captain Artillery CS hat"
 
-/obj/item/clothing/head/urist/CSAGenHat
+ /obj/item/clothing/head/urist/civilwar/csagenhat
 	name = "CS Army General Hat"
 	desc = "A hat worn by an army commander."
 	icon_state = "General CS hat"
 	item_state = "General CS hat"
 
-/obj/item/clothing/head/urist/BigHeaddress
+ /obj/item/clothing/head/urist/civilwar/fancyheaddress
 	name = "Fancy Headdress"
 	desc = "Geronimo!"
 	icon_state = "headpiece"
 	item_state = "headpiece"
 
-/obj/item/clothing/head/urist/FeatherHat
+ /obj/item/clothing/head/urist/civilwar/featherband
 	name = "Feather Headband"
 	desc = "A headband with a single feather on it."
 	icon_state = "single fether"
 	item_state = "single fether"
 
-/obj/item/clothing/head/urist/Tricorn
+ /obj/item/clothing/head/urist/civilwar/tricorn
 	name = "Tricorn"
 	desc = "A plain tricorn hat."
 	icon_state = "tricorn_hat"
 	item_state = "tricorn_hat"
 
-/obj/item/clothing/head/urist/CSALt
+ /obj/item/clothing/head/urist/civilwar/csalthat
 	name = "CS Army Lieutenant Hat"
 	desc = "A hat worn by an infantry officer."
 	icon_state = "Lieutenant CS hat"
@@ -390,35 +390,35 @@ obj/item/clothing/head/princessbow
 
 // RS Helms
 
-/obj/item/clothing/head/urist/BronzeHelm
+/obj/item/clothing/head/urist/bronzehelm
 	name = "Bronze Full Helm"
 	desc = "A full face helm."
 	icon_state = "helmet_bronze"
 	item_state = "helmet_bronze"
 	item_flags = THICKMATERIAL
 	body_parts_covered = HEAD
-	armor = list(melee = 30, bullet = 5, laser = 20,energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
-/obj/item/clothing/head/urist/AddyHelm
+/obj/item/clothing/head/urist/addyhelm
 	name = "Adamantite Full Helm"
 	desc = "Provides modest protection."
 	icon_state = "helmet_green"
 	item_state = "helmet_green"
 	item_flags = THICKMATERIAL
 	body_parts_covered = HEAD
-	armor = list(melee = 50, bullet = 50, laser = 35,energy = 20, bomb = 30, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 
-/obj/item/clothing/head/urist/RuneHelm
+/obj/item/clothing/head/urist/runehelm
 	name = "Runeite Full Helm"
 	desc = "Provides excelent protection."
 	icon_state = "helmet_blue"
 	item_state = "helmet_blue"
 	item_flags = THICKMATERIAL
 	body_parts_covered = HEAD
-	armor = list(melee = 75, bullet = 75, laser = 50,energy = 35, bomb = 45, bio = 0, rad = 0)
+	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 //cowboy hat
