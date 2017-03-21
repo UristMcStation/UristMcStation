@@ -318,6 +318,109 @@ obj/item/clothing/head/princessbow
 	cold_protection = HEAD
 	min_cold_protection_temperature = 243.15
 
+
+
+//Civil War hats
+
+/obj/item/clothing/head/urist/USLTGenHat
+	name = "US Army Lieutenant General Hat"
+	desc = "A hat worn by the commander of an army."
+	icon_state = "Lieut General US hat"
+	item_state = "Lieut General US hat"
+
+/obj/item/clothing/head/urist/USBrigGenHat
+	name = "US Army Brigadier General Hat"
+	desc = "A hat worn by the commander of an army."
+	icon_state = "Brig General US hat"
+	item_state = "Brig General US hat"
+
+/obj/item/clothing/head/urist/USColHat
+	name = "US Army Colonel Hat"
+	desc = "A hat worn by an infantry officer."
+	icon_state = "Colonel of Infantry US hat"
+	item_state = "Colonel of Infantry US hat"
+
+/obj/item/clothing/head/urist/USPvtHat
+	name = "US Army Private Hat"
+	desc = "A blue hat worn by an infantryman."
+	icon_state = "Private Infantry US hat"
+	item_state = "Private Infantry US hat"
+
+/obj/item/clothing/head/urist/CSAPvtHat
+	name = "CS Army Private Hat"
+	desc = "A grey hat worn by an infantryman."
+	icon_state = "Private Infantry CS hat"
+	item_state = "Private Infantry CS hat"
+
+/obj/item/clothing/head/urist/CSAArtyHat
+	name = "Artillery Captain Hat"
+	desc = "A hat worn by an artillery officer."
+	icon_state = "Captain Artillery CS hat"
+	item_state = "Captain Artillery CS hat"
+
+/obj/item/clothing/head/urist/CSAGenHat
+	name = "CS Army General Hat"
+	desc = "A hat worn by an army commander."
+	icon_state = "General CS hat"
+	item_state = "General CS hat"
+
+/obj/item/clothing/head/urist/BigHeaddress
+	name = "Fancy Headdress"
+	desc = "Geronimo!"
+	icon_state = "headpiece"
+	item_state = "headpiece"
+
+/obj/item/clothing/head/urist/FeatherHat
+	name = "Feather Headband"
+	desc = "A headband with a single feather on it."
+	icon_state = "single fether"
+	item_state = "single fether"
+
+/obj/item/clothing/head/urist/Tricorn
+	name = "Tricorn"
+	desc = "A plain tricorn hat."
+	icon_state = "tricorn_hat"
+	item_state = "tricorn_hat"
+
+/obj/item/clothing/head/urist/CSALt
+	name = "CS Army Lieutenant Hat"
+	desc = "A hat worn by an infantry officer."
+	icon_state = "Lieutenant CS hat"
+	item_state = "Lieutenant CS hat"
+
+// RS Helms
+
+/obj/item/clothing/head/urist/BronzeHelm
+	name = "Bronze Full Helm"
+	desc = "A full face helm."
+	icon_state = "helmet_bronze"
+	item_state = "helmet_bronze"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 30, bullet = 5, laser = 20,energy = 10, bomb = 5, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/AddyHelm
+	name = "Adamantite Full Helm"
+	desc = "Provides modest protection."
+	icon_state = "helmet_green"
+	item_state = "helmet_green"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 50, bullet = 50, laser = 35,energy = 20, bomb = 30, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+
+/obj/item/clothing/head/urist/RuneHelm
+	name = "Runeite Full Helm"
+	desc = "Provides excelent protection."
+	icon_state = "helmet_blue"
+	item_state = "helmet_blue"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 75, bullet = 75, laser = 50,energy = 35, bomb = 45, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
 //cowboy hat
 /obj/item/clothing/head/urist/cowboy
 	name = "cowboy hat"
@@ -338,3 +441,4 @@ obj/item/clothing/head/princessbow
 	flags_inv = HIDEEARS | BLOCKHAIR
 	min_cold_protection_temperature = 243.15
 	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+

@@ -940,6 +940,127 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "facebook"
 	item_state = "facebook"
 
+
+
+//Civil War and other uniforms//
+
+/obj/item/clothing/under/urist/USLtGen
+	name = "US Army Lieutenant General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "Lieut General US"
+	item_state = "Lieut_General_US"
+
+/obj/item/clothing/under/urist/USBrigGen
+	name = "US Army Brigadier General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "Brig General US object"
+	item_state = "Brig General US"
+
+/obj/item/clothing/under/urist/USCol
+	name = "US Army Colonel Uniform"
+	desc = "A uniform worn by an infantry commander."
+	icon_state = "Colonel of Infantry US object"
+	item_state = "Colonel of Infantry US"
+
+/obj/item/clothing/under/urist/USPrivate
+	name = "US Army Private Uniform"
+	desc = "A uniform worn by an infantryman."
+	icon_state = "Private Infantry US object"
+	item_state = "Private Infantry US"
+
+/obj/item/clothing/under/urist/CSAPrivate
+	name = "CS Army Private Uniform"
+	desc = "A uniform worn by an infantryman."
+	icon_state = "Private Infantry CS object"
+	item_state = "Private Infantry CS"
+
+/obj/item/clothing/under/urist/CSALt
+	name = "CS Army Lieutenant Uniform"
+	desc = "A uniform worn by an infantry commander."
+	icon_state = "Lieutenant CS object"
+	item_state = "Lieutenant CS"
+
+/obj/item/clothing/under/urist/CSAArty
+	name = "CS Army Artilery Captain Uniform"
+	desc = "A uniform worn by an artillery commander."
+	icon_state = "Captain Artillery CS object"
+	item_state = "Captain Artillery CS"
+
+/obj/item/clothing/under/urist/CSAGeneral
+	name = "CS Army General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "General CS object"
+	item_state = "General CS"
+
+/obj/item/clothing/under/urist/BlueCoat
+	name = "Blue Coat Infantry Uniform"
+	desc = "A simple uniform worn by infantrymen."
+	icon_state = "blue coat uniform object"
+	item_state = "blue coat uniform"
+
+/obj/item/clothing/under/urist/RedCoat
+	name = "Red Coat Infantry Uniform"
+	desc = "A simple uniform worn by infantrymen."
+	icon_state = "red coat uniform object"
+	item_state = "red coat uniform"
+
+/obj/item/clothing/under/urist/HamiltonClothes
+	name = "Hamilton Clothes"
+	desc = "White slacks paired with a suitable tan button up."
+	icon_state = "hamilton uniform"
+	item_state = "hamilton uniform"
+
+/obj/item/clothing/suit/urist/BlueCoatCoat
+    name = "Blue Infantry Coat"
+    desc = "A blue coat worn by soldiers."
+    icon_state = "blue coat coat"
+    item_state = "blue coat coat"
+
+/obj/item/clothing/suit/urist/RedCoatCoat
+    name = "Red Infantry Coat"
+    desc = "A red coat worn by soldiers."
+    icon_state = "red coat coat"
+    item_state = "red coat coat"
+
+/obj/item/clothing/suit/urist/HamiltonCoatCoat
+    name = "Hamilton Coat"
+    desc = "A blue coat sporting gold buttons."
+    icon_state = "hamiltoncoat"
+    item_state = "hamiltoncoat"
+
+//RS Armor Suits
+
+/obj/item/clothing/suit/urist/armor/BronzeArmor
+	name = "Bronze Armor"
+	desc = "Provides protection."
+	icon_state = "suit_bronze"
+	item_state = "suit_bronze"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	item_flags = THICKMATERIAL
+	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/urist/armor/AddyArmor
+	name = "Adamantite Armor"
+	desc = "Provides modest protection."
+	icon_state = "suit_green"
+	item_state = "suit_green"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL
+
+
+/obj/item/clothing/suit/urist/armor/RuneArmor
+	name = "Runeite Armor"
+	desc = "Provides excelent protection."
+	icon_state = "suit_blue"
+	item_state = "suit_blue"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL
+
 //why is this not storage? Duplicate item, but it makes way more sense as a storage item.
 
 /obj/item/clothing/suit/storage/capjacket
@@ -1033,3 +1154,4 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "sandsuit"
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
+

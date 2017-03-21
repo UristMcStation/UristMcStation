@@ -116,3 +116,94 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	lock_picking_level = 2
 
 ///obj/item/weapon/gun/launcher/crossbow/bow //gonna mess with this
+
+
+//RS Weapons
+
+
+
+/obj/item/weapon/BronzeDagger
+	name = "Bronze Dagger"
+	desc = "Short but pointy."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "bronze dagger"
+	item_state = "knife"
+	force = 12
+	throwforce = 5
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
+
+
+/obj/item/weapon/AddyDagger
+	name = "Adamantite Dagger"
+	desc = "Short but pointy."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "green dagger"
+	item_state = "knife"
+	force = 20
+	throwforce = 9
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
+
+
+/obj/item/weapon/RuneDagger
+	name = "Runite Dagger"
+	desc = "Short but pointy."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "blue dagger"
+	item_state = "knife"
+	force = 27
+	throwforce = 15
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
+
+/obj/item/weapon/urist/BronzeSword
+	name = "Bronze Sword"
+	desc = "A razor sharp sword."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "bronze sword"
+	item_state = "claymore"
+	force = 15
+	throwforce = 9
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
+
+/obj/item/weapon/urist/AddySword
+	name = "Adamantite  Sword"
+	desc = "A razor sharp sword."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "green sword"
+	item_state = "claymore"
+	force = 30
+	throwforce = 9
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
+
+/obj/item/weapon/urist/RuneSword
+	name = "Runeite Sword"
+	desc = "A razor sharp sword."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "blue sword"
+	item_state = "claymore"
+	force = 50
+	throwforce = 9
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	w_class = 2.0
+	sharp = 1
+	edge = 1
