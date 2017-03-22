@@ -99,22 +99,28 @@
 			to_chat(user, "<span class='notice'>You slide a tire into the back wheel mount.</span>")
 			buildstate++
 			update_icon()
+			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			qdel(W)
 			return
 
 		else if(buildstate == 3)
 			to_chat(user, "<span class='notice'>You slide a tire into the front wheel mount.</span>")
 			buildstate++
 			update_icon()
+			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			qdel(W)
 			return
 
 	else if(istype(W,/obj/item/weapon/wrench))
 		if(buildstate == 4)
 			to_chat(user, "<span class='notice'>You secure the tires into the motorcycle frame.</span>")
 			buildstate++
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			return
 
 		else if(buildstate == 8)
 			to_chat(user, "<span class='notice'>You secure the battery into the frame.</span>")
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			new /obj/vehicle/bike/motorcycle(get_turf(src))
 			qdel(src)
 			return
@@ -124,12 +130,15 @@
 			to_chat(user, "<span class='notice'>You slide the transmission into the frame.</span>")
 			buildstate++
 			update_icon()
+			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			qdel(W)
 			return
 
 	else if(istype(W,/obj/item/weapon/screwdriver))
 		if(buildstate == 6)
 			to_chat(user, "<span class='notice'>You secure the transmission into the frame.</span>")
 			buildstate++
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			return
 
 	else if(istype(W,/obj/item/vehicle_part/battery))
@@ -137,6 +146,8 @@
 			to_chat(user, "<span class='notice'>You slide the battery into the frame.</span>")
 			buildstate++
 			update_icon()
+			playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+			qdel(W)
 			return
 
 	else
@@ -151,7 +162,7 @@
 	icon = 'icons/urist/vehicles/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
-
+	bike_icon = "bike"
 	load_item_visible = 1
 	mob_offset_y = 5
 	health = 100

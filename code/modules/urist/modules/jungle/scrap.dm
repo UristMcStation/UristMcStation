@@ -17,11 +17,14 @@
 		/obj/item/stack/material/glass/scrap,
 		/obj/item/stack/material/plasteel/scrap,
 		/obj/item/weapon/material/shard,
+		/obj/item/weapon/material/shard/phoron,
 		/obj/item/weapon/material/shard/shrapnel,
 		/obj/item/pipe,
 		/obj/item/stack/material/r_wood/scrap,
 		/obj/item/stack/cable_coil/scrap,
-		/obj/item/stack/material/wood/scrap
+		/obj/item/stack/material/wood/scrap,
+		/obj/item/trash/tray,
+		/obj/item/weapon/cell/crap/empty,
 		)
 
 	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'
@@ -116,12 +119,13 @@
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/pipe,
-		/obj/item/weapon/material/shard
+		/obj/item/weapon/material/shard,
+		/obj/item/weapon/cell/crap/empty
 		)
 
 /obj/structure/scrap/vehicle/New()
 	if(prob(40))
-		new /obj/structure/vehicle_frame/motorcycle
+		new /obj/structure/vehicle_frame/motorcycle(src.loc)
 	..()
 
 /obj/structure/scrap/large

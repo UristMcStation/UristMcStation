@@ -112,14 +112,35 @@
 	var/meat = 0
 
 /mob/living/simple_animal/hostile/huntable/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/material/knife) && src.stat == DEAD)
-		if (do_after(user, 60, src))
-			to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-			for(var/i, i<=meat, i++)
-				new meat_type(src.loc)
-			var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
-			AH.amount = hide
-		qdel(src)
+	if(istype(I, /obj/item/weapon/material/knife) || istype(I, /obj/item/weapon/material/hatchet))
+		if(src.stat == DEAD)
+			if (do_after(user, 60, src))
+				to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
+				for(var/i, i<=meat, i++)
+					new meat_type(src.loc)
+				var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
+				AH.amount = hide\
+	//			new /obj/effect/gibspawner/generic(src.loc)
+			qdel(src)
+
+	..()
+
+
+/mob/living/simple_animal/huntable
+	var/hide = 0
+	var/meat = 0
+
+/mob/living/simple_animal/huntable/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/weapon/material/knife) || istype(I, /obj/item/weapon/material/hatchet))
+		if(src.stat == DEAD)
+			if (do_after(user, 60, src))
+				to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
+				for(var/i, i<=meat, i++)
+					new meat_type(src.loc)
+				var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
+				AH.amount = hide\
+	//			new /obj/effect/gibspawner/generic(src.loc)
+			qdel(src)
 
 	..()
 
@@ -131,10 +152,10 @@
 
 //to prevent lag from monkey's life()
 
-/mob/living/simple_animal/monkey
+/mob/living/simple_animal/huntable/monkey
 	name = "monkey"
 	desc = "It's a monkey. Seems quite content to lounge around all the time."
-	icon = 'icons/mob/human_races/monkeys/r_monkey.dmi'
+	icon = 'icons/uristmob/monkey.dmi'
 	icon_state = "preview"
 	icon_living = "preview"
 	icon_dead = "preview"
@@ -145,22 +166,15 @@
 	emote_see = list("chirps")
 	maxHealth = 30
 	health = 30
-	speak_chance = 1
+	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
 	friendly = "pokes"
-	var/corpse = /mob/living/carbon/human/monkey
-
-/mob/living/simple_animal/monkey/death()
-	..()
-	if(corpse && ispath(corpse,/mob/living))
-		var/mob/living/corpsemob = corpse
-		new corpsemob(src.loc)
-		qdel(src)
-		corpsemob.set_stat(2)
+	hide = 1
+	meat = 1
 
 //to prevent spam from parrots, and deer killing parrots
 
@@ -187,12 +201,12 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 60
-	health = 60
+	maxHealth = 70
+	health = 70
 
 	harm_intent_damage = 8
-	melee_damage_lower = 16
-	melee_damage_upper = 16
+	melee_damage_lower = 15
+	melee_damage_upper = 20
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat = 2

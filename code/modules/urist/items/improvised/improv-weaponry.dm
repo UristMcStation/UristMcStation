@@ -69,7 +69,7 @@
 //spears
 /obj/item/weapon/material/twohanded/spear
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+//	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "spearglass0"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
@@ -83,6 +83,7 @@
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	edge = 1
 	sharp = 1
+	base_icon = "spearglass"
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod

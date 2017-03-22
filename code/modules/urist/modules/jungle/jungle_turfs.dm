@@ -139,7 +139,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/monkey
+		/mob/living/simple_animal/huntable/monkey
 	)
 
 /turf/simulated/planet/jungle/med
@@ -178,7 +178,7 @@
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/monkey
+		/mob/living/simple_animal/huntable/monkey
 		)
 
 /turf/simulated/planet/jungle/clear
@@ -215,7 +215,7 @@
 	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/monkey
+		/mob/living/simple_animal/huntable/monkey
 		)
 
 /turf/simulated/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
@@ -266,7 +266,7 @@
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/monkey
+		/mob/living/simple_animal/huntable/monkey
 		)
 
 /turf/simulated/planet/jungle/impenetrable/New()
