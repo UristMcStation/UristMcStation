@@ -130,7 +130,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Bronze Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "bronze dagger"
+	icon_state = "bronze_dagger"
 	item_state = "knife"
 	force = 12
 	throwforce = 5
@@ -141,7 +141,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Adamantite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "green dagger"
+	icon_state = "green_dagger"
 	item_state = "knife"
 	force = 20
 	throwforce = 9
@@ -152,7 +152,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Runite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "blue dagger"
+	icon_state = "blue_dagger"
 	item_state = "knife"
 	force = 27
 	throwforce = 15
@@ -162,7 +162,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Bronze Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "bronze sword"
+	icon_state = "bronze_sword"
 	item_state = "claymore"
 	force = 15
 	throwforce = 9
@@ -173,7 +173,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Adamantite  Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "green sword"
+	icon_state = "green_sword"
 	item_state = "claymore"
 	force = 30
 	throwforce = 15
@@ -185,7 +185,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Runeite Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "blue sword"
+	icon_state = "blue_sword"
 	item_state = "claymore"
 	force = 50
 	throwforce = 20

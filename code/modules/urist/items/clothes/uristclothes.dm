@@ -947,80 +947,80 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/urist/civilwar/usltgen
 	name = "US Army Lieutenant General Uniform"
 	desc = "A uniform worn by an army commander."
-	icon_state = "Lieut General US"
+	icon_state = "Lieut_General_US"
 	item_state = "Lieut_General_US"
 
 /obj/item/clothing/under/urist/civilwar/usbriggen
 	name = "US Army Brigadier General Uniform"
 	desc = "A uniform worn by an army commander."
-	icon_state = "Brig General US"
-	item_state = "Brig General US"
+	icon_state = "Brig_General_US"
+	item_state = "Brig_General_US"
 
 /obj/item/clothing/under/urist/civilwar/uscol
 	name = "US Army Colonel Uniform"
 	desc = "A uniform worn by an infantry commander."
-	icon_state = "Colonel of Infantry US"
-	item_state = "Colonel of Infantry US"
+	icon_state = "Colonel_of_Infantry_US"
+	item_state = "Colonel_of_Infantry_US"
 
 /obj/item/clothing/under/urist/civilwar/uspvt
 	name = "US Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
-	icon_state = "Private Infantry US"
-	item_state = "Private Infantry US"
+	icon_state = "Private_Infantry_US"
+	item_state = "Private_Infantry_US"
 
 /obj/item/clothing/under/urist/civilwar/csapvt
 	name = "CS Army Private Uniform"
 	desc = "A uniform worn by an infantryman."
-	icon_state = "Private Infantry CS"
-	item_state = "Private Infantry CS"
+	icon_state = "Private_Infantry_CS"
+	item_state = "Private_Infantry_CS"
 
 /obj/item/clothing/under/urist/civilwar/csalt
 	name = "CS Army Lieutenant Uniform"
 	desc = "A uniform worn by an infantry commander."
-	icon_state = "Lieutenant CS"
-	item_state = "Lieutenant CS"
+	icon_state = "Lieutenant_CS"
+	item_state = "Lieutenant_CS"
 
 /obj/item/clothing/under/urist/civilwar/csacpt
 	name = "CS Army Artilery Captain Uniform"
 	desc = "A uniform worn by an artillery commander."
-	icon_state = "Captain Artillery CS"
-	item_state = "Captain Artillery CS"
+	icon_state = "Captain_Artillery_CS"
+	item_state = "Captain_Artillery_CS"
 
 /obj/item/clothing/under/urist/civilwar/csagen
 	name = "CS Army General Uniform"
 	desc = "A uniform worn by an army commander."
-	icon_state = "General CS"
-	item_state = "General CS"
+	icon_state = "General_CS"
+	item_state = "General_CS"
 
 /obj/item/clothing/under/urist/civilwar/bluecoatuni
 	name = "Blue Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
-	icon_state = "blue coat uniform"
-	item_state = "blue coat uniform"
+	icon_state = "blue_coat_uniform"
+	item_state = "blue_coat_uniform"
 
 /obj/item/clothing/under/urist/civilwar/redcoatuni
 	name = "Red Coat Infantry Uniform"
 	desc = "A simple uniform worn by infantrymen."
-	icon_state = "red coat uniform"
-	item_state = "red coat uniform"
+	icon_state = "red_coat_uniform"
+	item_state = "red_coat_uniform"
 
 /obj/item/clothing/under/urist/civilwar/hamiltonclothes
 	name = "Hamilton Clothes"
 	desc = "White slacks paired with a suitable tan button up."
-	icon_state = "hamilton uniform"
-	item_state = "hamilton uniform"
+	icon_state = "hamilton_uniform"
+	item_state = "hamilton_uniform"
 
-/obj/item/clothing/suit/urist/civilwar/bluecoatcoat
+/obj/item/clothing/suit/urist/civilwar/bluecoatjacket
     name = "Blue Infantry Coat"
     desc = "A blue coat worn by soldiers."
-    icon_state = "blue coat coat"
-    item_state = "blue coat coat"
+    icon_state = "blue_coat_coat"
+    item_state = "blue_coat_coat"
 
-/obj/item/clothing/suit/urist/civilwar/redcoatcoat
+/obj/item/clothing/suit/urist/civilwar/redcoatjacket
     name = "Red Infantry Coat"
     desc = "A red coat worn by soldiers."
-    icon_state = "red coat coat"
-    item_state = "red coat coat"
+    icon_state = "red_coat_coat"
+    item_state = "red_coat_coat"
 
 /obj/item/clothing/suit/urist/civilwar/hamiltoncoat
     name = "Hamilton Coat"

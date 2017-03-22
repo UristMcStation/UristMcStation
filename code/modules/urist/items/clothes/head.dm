@@ -321,76 +321,76 @@ obj/item/clothing/head/princessbow
 
 
 //Civil War hats
-
- /obj/item/clothing/head/urist/civilwar/usltgenhat
+/obj/item/clothing/head/urist/civilwar/usltgenhat
 	name = "US Army Lieutenant General Hat"
 	desc = "A hat worn by the commander of an army."
-	icon_state = "Lieut General US hat"
-	item_state = "Lieut General US hat"
+	icon_state = "Lieut_General_US_hat"
+	item_state = "Lieut_General_US_hat"
 
- /obj/item/clothing/head/urist/civilwar/usbrighat
+/obj/item/clothing/head/urist/civilwar/usbrighat
 	name = "US Army Brigadier General Hat"
 	desc = "A hat worn by the commander of an army."
-	icon_state = "Brig General US hat"
-	item_state = "Brig General US hat"
+	icon_state = "Brig_General_US_hat"
+	item_state = "Brig_General_US_hat"
 
- /obj/item/clothing/head/urist/civilwar/uscolhat
+/obj/item/clothing/head/urist/civilwar/uscolhat
 	name = "US Army Colonel Hat"
 	desc = "A hat worn by an infantry officer."
-	icon_state = "Colonel of Infantry US hat"
-	item_state = "Colonel of Infantry US hat"
+	icon_state = "Colonel_of_Infantry_US_hat"
+	item_state = "Colonel_of_Infantry_US_hat"
 
- /obj/item/clothing/head/urist/civilwar/uspvthat
+/obj/item/clothing/head/urist/civilwar/uspvthat
 	name = "US Army Private Hat"
 	desc = "A blue hat worn by an infantryman."
-	icon_state = "Private Infantry US hat"
-	item_state = "Private Infantry US hat"
+	icon_state = "Private_Infantry_US_hat"
+	item_state = "Private_Infantry_US_hat"
 
- /obj/item/clothing/head/urist/civilwar/csapvthat
+/obj/item/clothing/head/urist/civilwar/csapvthat
 	name = "CS Army Private Hat"
 	desc = "A grey hat worn by an infantryman."
-	icon_state = "Private Infantry CS hat"
-	item_state = "Private Infantry CS hat"
+	icon_state = "Private_Infantry_CS_hat"
+	item_state = "Private_Infantry_CS_hat"
 
- /obj/item/clothing/head/urist/civilwar/csaartycpthat
+/obj/item/clothing/head/urist/civilwar/csaartycpthat
 	name = "Artillery Captain Hat"
 	desc = "A hat worn by an artillery officer."
-	icon_state = "Captain Artillery CS hat"
-	item_state = "Captain Artillery CS hat"
+	icon_state = "Captain_Artillery_CS_hat"
+	item_state = "Captain_Artillery_CS_hat"
 
- /obj/item/clothing/head/urist/civilwar/csagenhat
+/obj/item/clothing/head/urist/civilwar/csagenhat
 	name = "CS Army General Hat"
 	desc = "A hat worn by an army commander."
-	icon_state = "General CS hat"
-	item_state = "General CS hat"
+	icon_state = "General_CS_hat"
+	item_state = "General_CS_hat"
 
- /obj/item/clothing/head/urist/civilwar/fancyheaddress
+/obj/item/clothing/head/urist/civilwar/fancyheaddress
 	name = "Fancy Headdress"
 	desc = "Geronimo!"
 	icon_state = "headpiece"
 	item_state = "headpiece"
 
- /obj/item/clothing/head/urist/civilwar/featherband
+/obj/item/clothing/head/urist/civilwar/featherband
 	name = "Feather Headband"
 	desc = "A headband with a single feather on it."
-	icon_state = "single fether"
-	item_state = "single fether"
+	icon_state = "single_fether"
+	item_state = "single_fether"
 
- /obj/item/clothing/head/urist/civilwar/tricorn
+/obj/item/clothing/head/urist/civilwar/tricorn
 	name = "Tricorn"
 	desc = "A plain tricorn hat."
 	icon_state = "tricorn_hat"
 	item_state = "tricorn_hat"
 
- /obj/item/clothing/head/urist/civilwar/csalthat
+/obj/item/clothing/head/urist/civilwar/csalthat
 	name = "CS Army Lieutenant Hat"
 	desc = "A hat worn by an infantry officer."
-	icon_state = "Lieutenant CS hat"
-	item_state = "Lieutenant CS hat"
+	icon_state = "Lieutenant_CS_hat"
+	item_state = "Lieutenant_CS_hat"
+
 
 // RS Helms
 
-/obj/item/clothing/head/urist/bronzehelm
+/obj/item/clothing/head/urist/armor/bronzehelm
 	name = "Bronze Full Helm"
 	desc = "A full face helm."
 	icon_state = "helmet_bronze"
@@ -400,7 +400,7 @@ obj/item/clothing/head/princessbow
 	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
-/obj/item/clothing/head/urist/addyhelm
+/obj/item/clothing/head/urist/armor/addyhelm
 	name = "Adamantite Full Helm"
 	desc = "Provides modest protection."
 	icon_state = "helmet_green"
@@ -411,7 +411,7 @@ obj/item/clothing/head/princessbow
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 
-/obj/item/clothing/head/urist/runehelm
+/obj/item/clothing/head/urist/armor/runehelm
 	name = "Runeite Full Helm"
 	desc = "Provides excelent protection."
 	icon_state = "helmet_blue"
