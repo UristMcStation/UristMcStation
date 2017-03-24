@@ -25,6 +25,18 @@
 		/obj/item/stack/material/wood/scrap,
 		/obj/item/trash/tray,
 		/obj/item/weapon/cell/crap/empty,
+		/obj/item/weapon/cell/super/empty,
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/weapon/stock_parts/capacitor,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stool,
+		/obj/item/weapon/tape_roll,
+		/obj/item/weapon/table_parts,
+		/obj/item/frame/air_alarm,
+		/obj/item/frame/apc,
+		/obj/item/frame/light,
 		)
 
 	var/parts_icon = 'icons/urist/structures&machinery/scrap/trash.dmi'

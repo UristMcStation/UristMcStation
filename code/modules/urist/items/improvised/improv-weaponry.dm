@@ -326,6 +326,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
+	applies_material_colour = 0
 
 /obj/item/weapon/material/twohanded/woodspear/update_icon()
 	item_state = "spearglass[wielded]"
@@ -346,6 +347,7 @@
 	//flags = NOSHIELD
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
 	default_material = "wood"
+	applies_material_colour = 0
 
 /obj/item/weapon/material/twohanded/woodquarterstaff/update_icon()
 	item_state = "qstaff[wielded]"
@@ -366,6 +368,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed","torn")
 	default_material = "wood"
+	applies_material_colour = 0
 
 /obj/item/weapon/material/twohanded/imppoleaxe/update_icon()
 	item_state = "spearglass[wielded]"

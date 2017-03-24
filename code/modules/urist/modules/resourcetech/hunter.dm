@@ -22,9 +22,10 @@
 	..()
 	if(inoperable())
 		return
-	if(contents.len)
-		dry()
-		update_icon()
+	for(var/datum/stored_items/I in item_records)
+		if(I.instances.len)
+			dry()
+			update_icon()
 
 /obj/machinery/smartfridge/tanningrack/update_icon()
 	overlays.Cut()
@@ -32,17 +33,20 @@
 		icon_state = icon_off
 	else
 		icon_state = icon_on
-	if(contents.len)
-		overlays += "drying_rack_filled"
-		if(!inoperable())
-			overlays += "drying_rack_drying"
+	for(var/datum/stored_items/I in item_records)
+		if(I.instances.len)
+			overlays += "drying_rack_filled"
+			if(!inoperable())
+				overlays += "drying_rack_drying"
 
 /obj/machinery/smartfridge/tanningrack/proc/dry()
 	for(var/datum/stored_items/I in item_records)
 		for(var/obj/item/stack/hide/hairless/S in I.instances)
 			if(S.dried >= 40)
+				S.dried = 0
 				var/obj/item/stack/material/leather/L = new/obj/item/stack/material/leather(src)
 				L.amount = S.amount
+				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
 				nanomanager.update_uis(src)
@@ -50,6 +54,25 @@
 
 			else
 				S.dried += 1
+
+/obj/machinery/smartfridge/tanningrack/New()
+	..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/tanningrack(src)
+	component_parts += new /obj/item/stack/material/wood(src, 4)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
+	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 5)
+
+/obj/machinery/smartfridge/tanningrack/attackby(var/obj/item/I, mob/user as mob)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+
+	..()
 
 //hide
 
