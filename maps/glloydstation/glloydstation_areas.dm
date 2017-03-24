@@ -290,14 +290,11 @@
 /area/syndicate_station/mining
 	name = "northeast of the mining station"
 	icon_state = "north"
-<<<<<<< HEAD
-	base_turf = /turf/simulated/floor/asteroid
-=======
 	base_turf = /turf/simulated/planet/jungle/clear
+
 /area/syndicate_station/arrivals_dock
 	name = "docked with station"
 	icon_state = "shuttle"
->>>>>>> master
 
 /area/syndicate_station/transit
 	name = "\proper bluespace"
