@@ -112,6 +112,7 @@
 	icon_state = "huntriflescope"
 	name = "hunting rifle attachable scope"
 	desc = "A marksman's scope designed to be attached to a hunting rifle."
+	matter = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 500)
 
 //hunterknife
 

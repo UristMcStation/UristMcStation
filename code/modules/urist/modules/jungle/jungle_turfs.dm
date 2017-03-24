@@ -377,8 +377,14 @@
 				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
 			else if(prob(5))
 				F = new/obj/item/clothing/glasses/sunglasses(user.loc)
+			else if(prob(2))
+				if(prob(10))
+					F = new/obj/item/clothing/shoes/jackboots(user.loc)
+				else
+					F = new/obj/item/clothing/shoes/urist/leather(user.loc)
 			else
 				F = new/obj/item/fish(user.loc)
+
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
