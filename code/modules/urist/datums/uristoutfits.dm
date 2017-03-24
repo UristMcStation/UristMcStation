@@ -111,6 +111,12 @@
 	suit = /obj/item/clothing/suit/wizrobe/urist/necro
 	shoes = /obj/item/clothing/shoes/sandal/marisa
 
+//electrician
+
+/decl/hierarchy/outfit/job/engineering/electrician
+	name = OUTFIT_JOB_NAME("Electrician")
+	suit = /obj/item/clothing/suit/storage/urist/overalls/electricians
+
 /* World War 13 */
 /decl/hierarchy/outfit/wwii
 	name = "Naked, 1941-style" //just to shut Travis up

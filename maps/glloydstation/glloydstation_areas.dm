@@ -64,7 +64,7 @@
 
 /area/shuttle/mining/outpost
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/asteroid
+	base_turf = /turf/simulated/floor/plating
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
@@ -166,7 +166,7 @@
 
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/asteroid
+	base_turf = /turf/simulated/floor/plating
 
 
 //SYNDICATES
@@ -235,7 +235,7 @@
 /area/rescue_base/mining
 	name = "northeast of the engineering station"
 	icon_state = "northeast"
-	base_turf = /turf/simulated/floor/asteroid
+	base_turf = /turf/simulated/planet/jungle/clear
 
 /area/rescue_base/arrivals_dock
 	name = "docked with station"
@@ -290,7 +290,14 @@
 /area/syndicate_station/mining
 	name = "northeast of the mining station"
 	icon_state = "north"
+<<<<<<< HEAD
 	base_turf = /turf/simulated/floor/asteroid
+=======
+	base_turf = /turf/simulated/planet/jungle/clear
+/area/syndicate_station/arrivals_dock
+	name = "docked with station"
+	icon_state = "shuttle"
+>>>>>>> master
 
 /area/syndicate_station/transit
 	name = "\proper bluespace"
@@ -326,7 +333,7 @@
 /area/skipjack_station/mining
 	name = "south of mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/jungle/clear
+	base_turf = /turf/simulated/planet/jungle/clear
 
 // Maintenance
 
@@ -690,7 +697,7 @@ area/rnd/test_area
 
 /area/shuttle/constructionsite/site
 	name = "\improper Construction Site Shuttle"
-	base_turf = /turf/simulated/jungle/clear
+	base_turf = /turf/simulated/floor/plating
 
 /*******
 * Moon *

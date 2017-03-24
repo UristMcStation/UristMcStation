@@ -79,3 +79,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	cost = 10
 	containertype = /obj/structure/closet/crate
 	containername = "Replacement maintenance lights"
+
+/decl/hierarchy/supply_pack/operations/hunting_supplies
+	name = "Hunting Supplies"
+	contains = list(/obj/item/weapon/gun/projectile/manualcycle/hunterrifle,
+					/obj/item/ammo_magazine/a762mm/stripper,
+					/obj/item/ammo_magazine/a762mm/stripper,
+					/obj/item/device/flashlight/lantern,
+					/obj/item/weapon/material/hatchet,
+					/obj/item/weapon/material/knife/hunting,
+					/obj/item/weapon/fishingrod,
+					/obj/item/clothing/suit/storage/urist/overalls/leather)
+	cost = 50
+	containertype = "/obj/structure/closet/crate/secure"
+	containername = "Hunting supplies crate"
+	access = access_hop
