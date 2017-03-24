@@ -151,7 +151,7 @@
 
 
 //spears, bay edition
-/*/obj/item/weapon/material/twohanded/spear
+/obj/item/weapon/material/twohanded/spear
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
 	name = "spear"
@@ -169,7 +169,7 @@
 	sharp = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
-	default_material = "glass"*/
+	default_material = "glass"
 
 /obj/item/weapon/material/twohanded/spear/shatter(var/consumed)
 	if(!consumed)

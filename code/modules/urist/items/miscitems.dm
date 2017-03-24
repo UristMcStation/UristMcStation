@@ -176,7 +176,7 @@
 		new /obj/item/weapon/implantpad(src)
 
 /obj/item/stack/woodrods
-	name = "wood shafts"
+	name = "wood shaft"
 	desc = "Some wood shafts. Can be used for some shit probably."
 	singular_name = "wood shaft"
 	icon = 'icons/urist/items/misc.dmi'
@@ -199,7 +199,7 @@
 	..()
 	if(W.edge)
 		user << "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>"
-		new /obj/item/weapon/sharpwoodrod(user.loc)
+		new /obj/item/weapon/material/sharpwoodrod(user.loc)
 		src.use(1)
 
 	else if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
@@ -258,8 +258,8 @@
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/sharpwoodrod
-	icon = 'icons/urist/items/misc.dmi'
+/obj/item/weapon/material/sharpwoodrod
+	icon = 'icons/urist/items/improvised.dmi'
 //	item_state = "sharpwoodrod"
 	icon_state = "sharpwoodrod"
 	name = "sharpened wooden shaft"
@@ -271,16 +271,15 @@
 	sharp = 1
 
 /obj/item/weapon/material/woodwirerod
-	name = "wired shaft"
+	name = "wired wooden shaft"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
 	item_state = "rods"
 	flags = CONDUCT
-	force_divisor = 0.55
+	force = 8
 	throwforce = 10
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
-	default_material = "wood"
 
 /obj/item/weapon/material/woodwirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -296,7 +295,7 @@
 				finished = new /obj/item/weapon/material/twohanded/woodspear(get_turf(user), tmp_shard.material.name)
 				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
 			if("Makeshift Arrow")
-				finished = new /obj/item/weapon/arrow/improv (get_turf(user), tmp_shard.material.name)
+				finished = new //obj/item/weapon/arrow/improv (get_turf(user), tmp_shard.material.name)
 				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
 
 	else if(istype(I, /obj/item/stack/cable_coil))
@@ -334,7 +333,6 @@
 	desc = "An improvised torch, used for lighting up dark areas and cosplaying as Indiana Jones."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "torch_unlit"
-	item_state = "torch0"
 	var/burnt = 0
 	var/smoketime = 500
 	w_class = 3.0
@@ -386,8 +384,6 @@
 		attack_verb = list("hit", "burnt", "singed")
 		w_class = 4
 		icon_state = "torch_lit"
-		item_state = "torch1"
-		usr.regenerate_icons()
 
 
 /obj/item/weapon/flame/torch/proc/burn_out()
@@ -396,15 +392,14 @@
 	damtype = "brute"
 	icon_state = "torch_burnt"
 	item_state = "woodrod"
-	name = "burnt torch"
-	desc = "A burnt out torch."
+	name = "burnt match"
+	desc = "A match. This one has seen better days."
 	processing_objects.Remove(src)
 	w_class = 3
 	force = 7
 	attack_verb = list("hit", "bashed", "smacked")
-	usr.regenerate_icons()
 
-/obj/item/weapon/shovel/improvised
+/obj/item/weapon/shovel/improvised //make an icon
 	name = "improvised shovel"
 	desc = "A shitty improvised shovel, watch out though, might break."
 	icon = 'icons/urist/items/improvised.dmi'
@@ -418,7 +413,7 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	edge = 1
 
-/obj/item/weapon/shovel/improvised/afterattack(mob/user as mob)
+/obj/item/weapon/shovel/improvised/afterattack(mob/user as mob) //test this
 	if(prob(5))
 		user << "<span class='notice'>The shovel falls apart in your hands!</span>"
 		new /obj/item/weapon/material/woodwirerod(user.loc)

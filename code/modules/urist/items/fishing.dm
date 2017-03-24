@@ -15,8 +15,7 @@
 	name = "improvised fishing rod"
 	desc = "An improvised fishing rod made out of a wooden shaft and some cable. It's alright for fishing, probably. You can try to fish with it, dumbass."
 	icon_state = "impfishingrod"
-	item_state = "impfishingrod"
-	fishingpower = 1.3 //maybe make this longer, I dunno
+	fishingpower = 1.25 //maybe make this longer, I dunno
 
 /obj/item/fish
 	name = "fish"

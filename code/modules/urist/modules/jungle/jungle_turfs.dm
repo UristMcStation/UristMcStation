@@ -1,9 +1,10 @@
-/turf/simulated/planet
-	var/animal_spawn_chance = 0
-	var/plants_spawn_chance = 0
-	var/small_trees_chance = 0
-	var/large_trees_chance = 0
-	var/reeds_spawn_chance = 0
+/turf/simulated/jungle
+	var/bushes_spawn = 1
+	var/plants_spawn = 1
+	var/small_trees = 1
+	var/large_trees_low = 0
+	var/large_trees_high = 0
+	var/reeds_spawn = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
@@ -12,19 +13,18 @@
 //	luminosity = 3
 	var/farmed = 0
 	light_color = null
-	light_power = 3
-	light_range = 3 //for some reason, range 1 doesn't apply at all.
-	var/bushspawnchance = 0 //let's try it, why not
-	var/animal_spawn_list
+	light_power = 2
+	light_range = 2 //for some reason, range 1 doesn't apply at all.
+	var/bushspawnchance = 35 //let's try it, why not
 
-/turf/simulated/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
+/turf/simulated/jungle/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
-/turf/simulated/planet/New()
+/turf/simulated/jungle/New()
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
 
-	if(plants_spawn_chance && prob(plants_spawn_chance))
+	if(plants_spawn && prob(40))
 		if(prob(90))
 			var/image/I
 			if(prob(35))
@@ -45,45 +45,23 @@
 			var/obj/structure/jungle_plant/J = new(src)
 			J.pixel_x = rand(-6,6)
 			J.pixel_y = rand(-6,6)
-	if(reeds_spawn_chance && prob(reeds_spawn_chance))
+	if(reeds_spawn && prob(10))
 		new /obj/structure/flora/reeds(src)
-	if(bushspawnchance && prob(bushspawnchance))
+	if(bushes_spawn && prob(bushspawnchance))
 		new /obj/structure/bush(src)
-	if(small_trees_chance && prob(small_trees_chance)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
+	else if(small_trees && prob(9)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
 		new /obj/structure/flora/tree/jungle/small(src)
-	if(large_trees_chance && prob(large_trees_chance ))
+	else if(large_trees_low && prob(1))
 		new /obj/structure/flora/tree/jungle/large(src)
-	if(animal_spawn_chance && prob(animal_spawn_chance ))
-		if(prob(50)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
-			var/A = pick(animal_spawn_list) //A conservative estimate for possible spawning tiles in the jungle would be 22500, which is very conservative. This means that roughly 225 animals would spawn.
-			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
+	else if(large_trees_high && prob(4)) //1 in ten? //noooooope
+		new /obj/structure/flora/tree/jungle/large(src)
 
 	update_light()
 
-///turf/simulated/planet/initialize()
-//	..()
-//	weather_enable()
-
-/turf/simulated/planet/ex_act(severity)
+/turf/simulated/jungle/ex_act(severity)
 	return
 
-/turf/simulated/planet/border
-	density = 1
-	opacity = 1
-	icon = 'icons/urist/turf/scomturfs.dmi'
-	icon_state = "border"
-	name = ""
-	desc = ""
-
-/turf/simulated/planet/border/Bumped(M as mob)
-	if (istype(M, /mob/living/simple_animal))
-		var/mob/living/simple_animal/A = M
-		A.loc = get_turf(src)
-	else if (istype(M, /mob/living/carbon/human/monkey))
-		var/mob/living/carbon/human/monkey/A = M
-		A.loc = get_turf(src)
-
-/turf/simulated/planet/attackby(var/obj/item/I as obj, mob/user as mob)
+/turf/simulated/jungle/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
@@ -124,110 +102,74 @@
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
 
-/turf/simulated/planet/jungle
-	animal_spawn_chance = 0.7
-	plants_spawn_chance = 40
-	small_trees_chance = 8
-	large_trees_chance = 0
-	reeds_spawn_chance = 10
-	name = "wet grass"
-	desc = "Thick, long wet grass"
-	icon = 'icons/jungle.dmi'
-	icon_state = "grass1"
-	icon_spawn_state = "grass1"
-	bushspawnchance = 30 //let's try it, why not
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/huntable/monkey
-	)
-
-/turf/simulated/planet/jungle/med
-	large_trees_chance = 1
+/turf/simulated/jungle/med
+	large_trees_low = 1
 	icon_state = "grass4" //4
 	icon_spawn_state = "grass1"
-	bushspawnchance = 50
-	small_trees_chance = 9
-	animal_spawn_chance = 1
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
-		)
+	bushspawnchance = 54
 
-/turf/simulated/planet/jungle/thick
-	large_trees_chance = 5
+/turf/simulated/jungle/thick
+	large_trees_high = 1
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
-	bushspawnchance = 70
-	plants_spawn_chance = 45
-	small_trees_chance = 10
-	animal_spawn_chance = 1.2
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/simple_animal/hostile/huntable/deer,
-		)
+	bushspawnchance = 73
 
-/turf/simulated/planet/jungle/templatethick //for templates so trees and stuff don't get deleted.
-	large_trees_chance = 2
-	icon_state = "grass3" //3
-	icon_spawn_state = "grass1"
-	bushspawnchance = 60
-	animal_spawn_chance = 1
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/huntable/monkey
-		)
-
-/turf/simulated/planet/jungle/clear
-	animal_spawn_chance = 0
-	bushspawnchance = 0
-	plants_spawn_chance = 0
-	small_trees_chance = 0
+/turf/simulated/jungle/clear
+	bushes_spawn = 0
+	plants_spawn = 0
+	small_trees = 0
 	icon_state = "grass3" //clear
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
-/turf/simulated/planet/jungle/clear/grass1
-	bushspawnchance = 0
-	plants_spawn_chance = 0
-	small_trees_chance = 0
+/turf/simulated/jungle/clear/New()
+	//set_light(2)
+
+	for(var/obj/structure/bush/B in src)
+		qdel(B)
+	for(var/obj/structure/flora/F in src)
+		qdel(F)
+
+	update_light()
+
+/turf/simulated/jungle/clear/grass1
+	bushes_spawn = 0
+	plants_spawn = 0
+	small_trees = 0
 	icon_state = "grass1" //clear
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
 
-/turf/simulated/planet/jungle/clear/dark
+/turf/simulated/jungle/clear/dark
 	icon_state = "grass1" //clear
 //	icon_spawn_state = "grass1"
 	luminosity = 0
 	icon_spawn_state = null
 
-/turf/simulated/planet/jungle/path
-	bushspawnchance = 0
-	small_trees_chance = 0
+/turf/simulated/jungle/path
+	bushes_spawn = 0
+	small_trees = 0
 	name = "wet grass"
 	desc = "thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
-	animal_spawn_chance = 0.2
-	animal_spawn_list = list(
-		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/huntable/monkey
-		)
 
-/turf/simulated/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
+/turf/simulated/jungle/path/New()
+	..()
+	for(var/obj/structure/bush/B in src)
+		qdel(B)
+
+/turf/simulated/jungle/proc/Spread(var/probability, var/prob_loss = 50)
 	if(probability <= 0)
 		return
 
 	//world << "<span class='notice'> Spread([probability])</span>"
-	for(var/turf/simulated/planet/jungle/J in orange(1, src))
-		if(!J.bushspawnchance)
+	for(var/turf/simulated/jungle/J in orange(1, src))
+		if(!J.bushes_spawn)
 			continue
 
-		var/turf/simulated/planet/jungle/P = null
+		var/turf/simulated/jungle/P = null
 		if(J.type == src.type)
 			P = J
 		else
@@ -236,50 +178,24 @@
 		if(P && prob(probability))
 			P.Spread(probability - prob_loss)
 
-/turf/simulated/planet/jungle/plains
-	bushspawnchance = 0
-	small_trees_chance = 0
-	icon = 'icons/urist/events/train.dmi'
-	icon_state = "g"
-	icon_spawn_state = "g"
-	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/bear,
-		/mob/living/simple_animal/hostile/snake
-		)
-
-/turf/simulated/planet/jungle/plains/New()
-	..()
-	if(prob(5))
-		new	/obj/structure/scrap/random(src)
-	else if(prob(2))
-		new /obj/structure/scrap/vehicle(src)
-
-/turf/simulated/planet/jungle/impenetrable
-	animal_spawn_chance = 0.4 //very low chances. This is mainly just to populate the respawn list
-	bushspawnchance = 0
-	small_trees_chance = 0
-	large_trees_chance = 7
+/turf/simulated/jungle/impenetrable
+	bushes_spawn = 0
+	small_trees = 0
+	large_trees_high = 1
+	large_trees_low = 1
 	icon_state = "grass_impenetrable" //impenetrable
 	icon_spawn_state = "grass1"
-	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
-		/mob/living/simple_animal/huntable/monkey
-		)
 
-/turf/simulated/planet/jungle/impenetrable/New()
+/turf/simulated/jungle/impenetrable/New()
 		..()
 		var/obj/structure/bush/B = new(src)
 		B.indestructable = 1
 
 //copy paste from asteroid mineral turfs
-/turf/simulated/planet/jungle/rock
-	bushspawnchance = 0
-	small_trees_chance = 0
-	plants_spawn_chance = 0
-	animal_spawn_chance = 0
+/turf/simulated/jungle/rock
+	bushes_spawn = 0
+	small_trees = 0
+	plants_spawn = 0
 	density = 1
 	opacity = 1
 	name = "impassable rock wall"
@@ -291,39 +207,38 @@
 	light_range = 0
 	light_power = 0
 
-/turf/simulated/planet/jungle/rock/attackby()
+/turf/simulated/jungle/rock/attackby()
 	return
 
-/turf/simulated/planet/jungle/rock/New()
+/turf/simulated/jungle/rock/New()
 	spawn(1)
 		var/turf/T
-		if(!istype(get_step(src, NORTH), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
+		if(!istype(get_step(src, NORTH), /turf/simulated/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
 			T = get_step(src, NORTH)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_s")
-		if(!istype(get_step(src, SOUTH), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
+		if(!istype(get_step(src, SOUTH), /turf/simulated/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
 			T = get_step(src, SOUTH)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
-		if(!istype(get_step(src, EAST), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
+		if(!istype(get_step(src, EAST), /turf/simulated/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
 			T = get_step(src, EAST)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
-		if(!istype(get_step(src, WEST), /turf/simulated/planet/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
+		if(!istype(get_step(src, WEST), /turf/simulated/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
 			T = get_step(src, WEST)
 			if (T)
 				T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
 		update_light()
 
-/turf/simulated/planet/jungle/rock/weather_enable()
+/turf/simulated/jungle/rock/weather_enable()
 	return
 
-/turf/simulated/planet/jungle/water
-	animal_spawn_chance = 0
-	bushspawnchance = 0
-	small_trees_chance = 0 //fucking rivers winning the small tree RNG
-	plants_spawn_chance = 0 //until I get a metric for spawning reeds only
-	reeds_spawn_chance = 15 //get dem reeds boi
+/turf/simulated/jungle/water
+	bushes_spawn = 0
+	small_trees = 0 //fucking rivers winning the small tree RNG
+	plants_spawn = 0 //until I get a metric for spawning reeds only
+	reeds_spawn = 1 //get dem reeds boi
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
@@ -333,20 +248,20 @@
 	var/bridge = 0 //has there been a bridge built?
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
-	var/busy = 0
 
-/turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
+
+/turf/simulated/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))
 		if(bridge)
-			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
+			user << "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>"
 			return
 
 		else if(fishleft && !fishing && !bridge)
 			if(prob(1))
-				to_chat(user, "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>")
+				user << "<span class='notice'>Cast away, it's time to catch some fucking fish, because why the fuck not.</span>"
 
 			else
-				to_chat(user, "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>")
+				user << "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>"
 
 			var/obj/item/weapon/fishingrod/F = I
 			var/fishtime = (rand(40,140)) //test this shit
@@ -354,13 +269,13 @@
 			fishing = 1
 
 			if (do_after(user, fishtime, src))
-				to_chat(user, "<span class='notice'>You feel a tug on your line!</span>")
+				user << "<span class='notice'>You feel a tug on your line!</span>"
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
 				fishing = 2
 				var/tempfish = fishleft
 				spawn(rand(35,70))
 					if(fishing && fishleft == tempfish)
-						to_chat(user, "<span class='notice'>Looks like it got away...</span>")
+						user << "<span class='notice'>Looks like it got away...</span>"
 						fishing = 0
 						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 
@@ -377,21 +292,15 @@
 				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
 			else if(prob(5))
 				F = new/obj/item/clothing/glasses/sunglasses(user.loc)
-			else if(prob(2))
-				if(prob(10))
-					F = new/obj/item/clothing/shoes/jackboots(user.loc)
-				else
-					F = new/obj/item/clothing/shoes/urist/leather(user.loc)
 			else
 				F = new/obj/item/fish(user.loc)
-
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
 			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
 
 		else if(!fishleft && !bridge)
-			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")
+			user << "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>"
 			return
 
 	else if(istype(I, /obj/item/stack/material/wood))
@@ -400,91 +309,61 @@
 			var/obj/item/stack/material/wood/R = I
 
 			if(R.amount >= 3)
-				to_chat(user, "<span class='notice'>You build a makeshift platform to cross the river safely.</span>")
+				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 				bridge = 1
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
 			else
-				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
+				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
 
 	else if(istype(I, /obj/item/stack/material/r_wood))
 		if(!bridge)
 			var/obj/item/stack/material/r_wood/R = I
 
 			if(R.amount >= 3)
-				to_chat(user, "<span class='notice'>You build a makeshift platform to cross the river safely.</span>")
+				user << "<span class='notice'>You build a makeshift platform to cross the river safely.</span>"
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 
 				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
 				bridge = 2
 			else
-				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
+				user << "<span class='notice'>You do not have enough wood to build a bridge.</span>"
 
-	else if(istype(I, /obj/item/weapon/paddle))
-		if(!bridge)
-			for(var/obj/structure/raft/R in user.loc)
-				if(!busy)
-					if(R.built)
-						busy = 1
-						to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-						if (do_after(user, 5, src))
-
-							R.do_pulling_stuff(src)
-
-							R.loc = get_turf(src)
-
-							if(user.pulling)
-
-								if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
-									var/obj/structure/raft/S = user.pulling
-									if(S.built)
-
-		//								S.forceMove(get_turf(src))
-										S.do_pulling_stuff(user.loc)
-										S.loc = get_turf(user)
-
-							bridge = 1
-							user.loc = get_turf(src)
-
-							bridge = 0
-							spawn(12)
-								busy = 0
-
-					else if(!R.built)
-						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 
 
 	else if(istype(I, /obj/item/weapon/crowbar))
 		if(bridge)
-			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
-			if (do_after(user, rand(15,30), src))
-				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+			user << "<span class='notice'>You begin to disassemble the bridge.</span>"
+			spawn(rand(15,30))
+				if(get_dist(user,src) < 2)
+					playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 
-				to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
+					user << "<span class='notice'>You disassemble the bridge.</span>"
 
-				src.overlays = null
+					src.overlays = null
 
-				if(bridge == 1)
-					var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
-					S.amount = 3
+					if(bridge == 1)
+						var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
+						S.amount = 3
 
-				else if(bridge == 2)
-					var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
-					S.amount = 3
+					else if(bridge == 2)
+						var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
+						S.amount = 3
 
-				bridge = 0
+					bridge = 0
 
-	else if(istype(I, /obj/item/stack/hide/animalhide))
-		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
-		if (do_after(user, 30, src))
-			var/obj/item/stack/hide/animalhide/AH = I
-			var/obj/item/stack/hide/wet/WL = new /obj/item/stack/hide/wet(src.loc)
-			WL.amount = AH.amount
-			user.remove_from_mob(AH)
-			user.put_in_hands(WL)
-			qdel(AH)
+	else if(istype(I, /obj/item/weapon/paddle))
+		if(!bridge)
+			for(var/obj/structure/raft/R in user.loc)
+				if(R.built)
+					user << "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>"
+					user.loc = get_turf(src)
+					R.loc = get_turf(src)
+
+				else
+					user << "<span class='notice'>You dip your paddle into the water. Okay.</span>"
 
 	var/obj/item/weapon/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
@@ -492,77 +371,51 @@
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
 		return 1
 
-/turf/simulated/planet/jungle/water/Entered(atom/movable/O)
+/turf/simulated/jungle/water/New()
+	..()
+	for(var/obj/structure/bush/B in src)
+		qdel(B)
+	for(var/obj/structure/flora/tree/jungle/T in src) //fuck you random gen
+		qdel(T)
+	for(var/obj/structure/jungle_plant/J in src)
+		qdel(J)
+
+/turf/simulated/jungle/water/Entered(atom/movable/O)
 	..()
 	if(density) //to account for deep water
 		return
 
-	else if(istype(O, /mob/living/carbon) && !bridge)
-		var/mob/living/carbon/M = O
+	if(bridge)
+		return
+
+
+	else if(istype(O, /mob/living/))
+		var/mob/living/M = O
 		//slip in the murky water if we try to run through it
 		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
-			to_chat(M, pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>"))
+			M << pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>")
 			M.Stun(2)
 			M.Weaken(1)
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
 		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
-			to_chat(M, "<span class='notice'> You feel something slithering around your legs.</span>")
+			M << "<span class='notice'> You feel something slithering around your legs.</span>"
 			spawn(rand(25,50))
-				var/zone = pick(BP_R_LEG, BP_L_LEG)
-				to_chat(M, pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>"))
-				M.apply_damage(rand(3,5), BRUTE, zone, 0, DAM_SHARP)
+				M << pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>")
+				M.apply_damage(rand(3,5), BRUTE, sharp=1)
 
 
-/turf/simulated/planet/jungle/water/deep
-	plants_spawn_chance = 0
+/turf/simulated/jungle/water/deep
+	plants_spawn = 0
 	density = 1
-	reeds_spawn_chance = 0 //too deep for reeds
+	reeds_spawn = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
 
-/turf/simulated/planet/jungle/water/deep/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover,/obj/item/projectile))
-		return 1
-
-	else ..()
-
-/turf/simulated/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/paddle))
-		if(!bridge)
-			for(var/obj/structure/raft/R in user.loc)
-				if(!busy)
-					if(R.built)
-						busy = 1
-						to_chat(user, "<span class='notice'>You stroke your paddle through the water, pulling yourself and your raft forward.</span>")
-						if (do_after(user, 5, src))
-
-							R.do_pulling_stuff(src)
-
-							R.loc = get_turf(src)
-
-							if(user.pulling)
-
-								if(user.pulling.type == /obj/structure/raft || user.pulling.type == /obj/structure/raft/built)
-									var/obj/structure/raft/S = user.pulling
-									if(S.built)
-
-		//								S.forceMove(get_turf(src))
-										S.do_pulling_stuff(user.loc)
-										S.loc = get_turf(user)
-
-							bridge = 1
-							user.loc = get_turf(src)
-
-							bridge = 0
-							spawn(12)
-								busy = 0
-
-					else if(!R.built)
-						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
+/turf/simulated/jungle/water/deep/attackby()
 	return
 
-/turf/simulated/planet/jungle/temple_wall
+/turf/simulated/jungle/temple_wall
 	name = "temple wall"
 	desc = ""
 	density = 1
@@ -570,20 +423,20 @@
 	icon_state = "phoron0"
 	var/mineral = "phoron"
 
-/turf/simulated/planet/jungle/water/edge
+/turf/simulated/jungle/water/edge
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
 	icon_spawn_state = null
 
-/turf/simulated/planet/jungle/clear/underground
+/turf/simulated/jungle/clear/underground
 	name = "dirt"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	light_range = 0
 	light_power = 0
 
-/turf/simulated/planet/jungle/clear/underground/weather_enable(var/override = 0)
+/turf/simulated/jungle/clear/underground/weather_enable(var/override = 0)
 	if(override)
 		..()

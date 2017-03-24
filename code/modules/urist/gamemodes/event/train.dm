@@ -91,14 +91,14 @@ var/list/eventwarp3 = list()
 	name = "conductor's uniform"
 	desc = "An outfit worn by a train conductor"
 	icon = 'icons/urist/events/train.dmi'
-//	icon_override = 'icons/urist/events/train.dmi'
+	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman"
 
 /obj/item/clothing/head/urist/conductor
 	name = "conductor's hat"
 	desc = "A hat worn by a train conductor"
 	icon = 'icons/urist/events/train.dmi'
-//	icon_override = 'icons/urist/events/train.dmi'
+	icon_override = 'icons/urist/events/train.dmi'
 	icon_state = "trainman2"
 
 //hurt me good

@@ -172,25 +172,6 @@
 				qdel(S)
 			return
 
-/obj/machinery/smartfridge/drying_rack/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/drying_rack(src)
-	component_parts += new /obj/item/stack/material/wood(src, 4)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
-/obj/machinery/smartfridge/drying_rack/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
-
-	..()
-
 /obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
 		return

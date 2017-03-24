@@ -111,9 +111,6 @@
 		/obj/item/weapon/material/butterfly,
 	)
 
-
-/obj/item/clothing/accessory/storage/knifeharness/full/New() //fucking Bay
-	..()
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 
