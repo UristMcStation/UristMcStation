@@ -1,4 +1,4 @@
-/obj/vehicle/bike/
+/obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
 	icon = 'icons/obj/bike.dmi'
@@ -27,6 +27,8 @@
 
 /obj/vehicle/bike/New()
 	..()
+	layer = ABOVE_OBJ_LAYER
+	plane = ABOVE_OBJ_PLANE
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)
@@ -197,7 +199,10 @@
 		icon_state = "[bike_icon]_on"
 	else
 		icon_state = "[bike_icon]_off"
-	overlays += image('icons/obj/bike.dmi', "[icon_state]_overlay", MOB_LAYER + 1)
+	var/image/I = new(src.icon, "[icon_state]_overlay")
+	I.layer = ABOVE_HUMAN_LAYER
+	I.plane = ABOVE_HUMAN_PLANE
+	overlays += I
 	..()
 
 

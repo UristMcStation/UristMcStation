@@ -78,8 +78,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
-	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	armor = list(melee = 20, bullet = 15, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 
 /obj/item/clothing/suit/bio_suit/asec/New()
 	..()
@@ -388,8 +387,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "cmo"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo/alt
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "A slightly fancier labcoat sometimes worn by the CMO."
 	icon_state = "cmo_lab_open"
 	icon_open = "cmo_lab_open"
@@ -421,9 +421,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //hooonk bs12
 
 /obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
+	item_icons = URIST_ALL_ONMOBS
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
-	icon_override = 'icons/uristmob/clothes.dmi'
+//	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "aeneasrinil_open"
 	icon_open = "aeneasrinil_open"
@@ -439,6 +440,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "overalls"
 
 //scrdest's coats
+/obj/item/clothing/suit/storage/toggle/urist
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
@@ -452,6 +457,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
+
+/obj/item/clothing/suit/storage/urist
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -742,6 +751,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "militarypants"
 	item_state = "militarypants"
 
+/obj/item/clothing/under/pants/urist/leatherpants
+	name = "leather pants"
+	desc = "A pair of leather pants. Look at you, wearing the skin of vanquished creatures."
+	icon_state = "leatherpants"
+	item_state = "leatherpants"
+
 //blackwarden
 
 /obj/item/clothing/suit/urist/armor/warden
@@ -924,3 +939,219 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "Did someone really tape a book to their face?"
 	icon_state = "facebook"
 	item_state = "facebook"
+
+
+
+//Civil War and other uniforms//
+
+/obj/item/clothing/under/urist/civilwar/usltgen
+	name = "US Army Lieutenant General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "Lieut_General_US"
+	item_state = "Lieut_General_US"
+
+/obj/item/clothing/under/urist/civilwar/usbriggen
+	name = "US Army Brigadier General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "Brig_General_US"
+	item_state = "Brig_General_US"
+
+/obj/item/clothing/under/urist/civilwar/uscol
+	name = "US Army Colonel Uniform"
+	desc = "A uniform worn by an infantry commander."
+	icon_state = "Colonel_of_Infantry_US"
+	item_state = "Colonel_of_Infantry_US"
+
+/obj/item/clothing/under/urist/civilwar/uspvt
+	name = "US Army Private Uniform"
+	desc = "A uniform worn by an infantryman."
+	icon_state = "Private_Infantry_US"
+	item_state = "Private_Infantry_US"
+
+/obj/item/clothing/under/urist/civilwar/csapvt
+	name = "CS Army Private Uniform"
+	desc = "A uniform worn by an infantryman."
+	icon_state = "Private_Infantry_CS"
+	item_state = "Private_Infantry_CS"
+
+/obj/item/clothing/under/urist/civilwar/csalt
+	name = "CS Army Lieutenant Uniform"
+	desc = "A uniform worn by an infantry commander."
+	icon_state = "Lieutenant_CS"
+	item_state = "Lieutenant_CS"
+
+/obj/item/clothing/under/urist/civilwar/csacpt
+	name = "CS Army Artilery Captain Uniform"
+	desc = "A uniform worn by an artillery commander."
+	icon_state = "Captain_Artillery_CS"
+	item_state = "Captain_Artillery_CS"
+
+/obj/item/clothing/under/urist/civilwar/csagen
+	name = "CS Army General Uniform"
+	desc = "A uniform worn by an army commander."
+	icon_state = "General_CS"
+	item_state = "General_CS"
+
+/obj/item/clothing/under/urist/civilwar/bluecoatuni
+	name = "Blue Coat Infantry Uniform"
+	desc = "A simple uniform worn by infantrymen."
+	icon_state = "blue_coat_uniform"
+	item_state = "blue_coat_uniform"
+
+/obj/item/clothing/under/urist/civilwar/redcoatuni
+	name = "Red Coat Infantry Uniform"
+	desc = "A simple uniform worn by infantrymen."
+	icon_state = "red_coat_uniform"
+	item_state = "red_coat_uniform"
+
+/obj/item/clothing/under/urist/civilwar/hamiltonclothes
+	name = "Hamilton Clothes"
+	desc = "White slacks paired with a suitable tan button up."
+	icon_state = "hamilton_uniform"
+	item_state = "hamilton_uniform"
+
+/obj/item/clothing/suit/urist/civilwar/bluecoatjacket
+    name = "Blue Infantry Coat"
+    desc = "A blue coat worn by soldiers."
+    icon_state = "blue_coat_coat"
+    item_state = "blue_coat_coat"
+
+/obj/item/clothing/suit/urist/civilwar/redcoatjacket
+    name = "Red Infantry Coat"
+    desc = "A red coat worn by soldiers."
+    icon_state = "red_coat_coat"
+    item_state = "red_coat_coat"
+
+/obj/item/clothing/suit/urist/civilwar/hamiltoncoat
+    name = "Hamilton Coat"
+    desc = "A blue coat sporting gold buttons."
+    icon_state = "hamiltoncoat"
+    item_state = "hamiltoncoat"
+
+//RS Armor Suits
+
+/obj/item/clothing/suit/urist/armor/bronzearmor
+	name = "Bronze Armor"
+	desc = "Provides protection."
+	icon_state = "suit_bronze"
+	item_state = "suit_bronze"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	item_flags = THICKMATERIAL
+	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/urist/armor/addyarmor
+	name = "Adamantite Armor"
+	desc = "Provides modest protection."
+	icon_state = "suit_green"
+	item_state = "suit_green"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL
+
+
+/obj/item/clothing/suit/urist/armor/runearmor
+	name = "Runeite Armor"
+	desc = "Provides excelent protection."
+	icon_state = "suit_blue"
+	item_state = "suit_blue"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
+	item_flags = THICKMATERIAL
+
+//why is this not storage? Duplicate item, but it makes way more sense as a storage item.
+
+/obj/item/clothing/suit/storage/capjacket
+	name = "captain's uniform jacket"
+	desc = "A less formal jacket for everyday captain use."
+	icon_state = "capjacket"
+	item_state = "capjacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = 0
+
+//leather stuff
+
+/obj/item/clothing/suit/storage/urist/coat/duster
+	name = "duster"
+	desc = "A floor length duster. Perfect for looking like you just rolled into a one-horse town."
+	icon_state = "duster"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/urist/coat/leather
+	name = "leather coat"
+	desc = "A thick leather coat."
+	icon_state = "autumn"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+
+//hoodies
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 263.15 //sure?
+	blood_overlay_type = "coat"
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
+	name = "grey hoodie"
+	desc = "A warm, comfortable grey hoodie."
+	icon_state = "grey_hoodie_open"
+	icon_open = "grey_hoodie_open"
+	icon_closed = "grey_hoodie_closed"
+	item_state = "grey_hoodie_open"
+
+/obj/item/clothing/suit/storage/toggle/urist/hoodie/black
+	name = "black hoodie"
+	desc = "A warm, comfortable black hoodie."
+	icon_state = "black_hoodie_open"
+	icon_open = "black_hoodie_open"
+	icon_closed = "black_hoodie_closed"
+	item_state = "black_hoodie_open"
+
+//overalls/apron
+
+/obj/item/clothing/suit/storage/urist/overalls
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/suit/storage/urist/overalls/leather
+	name = "leather overalls"
+	desc = "A sturdy pair of leather work overalls with a ton of pockets for storing all sorts of stuff."
+	icon_state = "overalls_acc"
+	item_state = "overalls_acc"
+
+/obj/item/clothing/suit/storage/urist/overalls/electricians
+	name = "electrician's overalls"
+	desc = "A sturdy pair of electrician's work overalls with a ton of pockets for storing all your tools."
+	icon_state = "electrician-overalls"
+	item_state = "electrician-overalls"
+
+/obj/item/clothing/suit/storage/urist/overalls/standard
+	name = "work overalls"
+	desc = "A sturdy pair of work overalls with a ton of pockets for storing all sorts of stuff."
+	icon_state = "emergency-overalls"
+	item_state = "emergency-overalls"
+
+/obj/item/clothing/suit/storage/urist/apron
+	name = "factory worker's apron"
+	desc = "A sturdy leather work apron, with pockets for storing tools."
+	icon_state = "factoryworker-apron"
+	item_state = "factoryworker-apron"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/suit/storage/hooded/sandsuit
+	action_button_name = "Toggle Hood"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
+	min_cold_protection_temperature = 243.15
+	armor = list(melee = 18, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	hoodtype = /obj/item/clothing/head/winterhood/sandsuit
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
+	icon_state = "sandsuit"
+	item_state = "sandsuit"
+	name = "leather protective suit"
+	desc = "A full-body suit meant to protect against the elements."
+

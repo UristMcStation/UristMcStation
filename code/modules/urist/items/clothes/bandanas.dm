@@ -4,8 +4,9 @@
 //bandana
 
 /obj/item/clothing/mask/bandana
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
+//	icon_override = 'icons/uristmob/mask.dmi'
 	item_state = "greenbandana"
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
