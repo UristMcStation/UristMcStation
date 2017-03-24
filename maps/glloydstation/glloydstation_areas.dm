@@ -292,10 +292,6 @@
 	icon_state = "north"
 	base_turf = /turf/simulated/planet/jungle/clear
 
-/area/syndicate_station/arrivals_dock
-	name = "docked with station"
-	icon_state = "shuttle"
-
 /area/syndicate_station/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"
@@ -512,7 +508,7 @@
 // Medbay
 /area/medical/storage
 	name = "\improper Medical Storage"
-	icon_state = "medbay" //TODO: placeholder
+	icon_state = "medbay4"
 
 /area/medical/genetics
 	name = "\improper Genetics Lab"
