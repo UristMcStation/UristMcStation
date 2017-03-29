@@ -752,6 +752,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "militarypants"
 
 /obj/item/clothing/under/pants/urist/leatherpants
+	icon = 'icons/urist/items/clothes/clothes.dmi'
 	name = "leather pants"
 	desc = "A pair of leather pants. Look at you, wearing the skin of vanquished creatures."
 	icon_state = "leatherpants"
