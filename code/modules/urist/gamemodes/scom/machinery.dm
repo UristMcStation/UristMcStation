@@ -236,7 +236,7 @@
 					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
-					new /obj/item/weapon/storage/box/lmgammo(src.loc)
+					new /obj/item/weapon/storage/box/large/lmgammo(src.loc)
 
 					for (var/obj/item/weapon/card/id/W in user)
 						if(W.assignment == "S-COM Operative")

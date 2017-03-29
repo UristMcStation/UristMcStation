@@ -49,7 +49,7 @@
 		/obj/item/weapon/gunattachment/scope/a18 = 10,
 		//grenades and mines,
 		/obj/item/weapon/storage/box/anforgrenade = 10,
-		/obj/item/weapon/storage/box/mines = 3
+		/obj/item/weapon/storage/box/large/mines = 3
 		)
 	contraband = list(
 		/obj/item/weapon/storage/box/flashshells = 5,

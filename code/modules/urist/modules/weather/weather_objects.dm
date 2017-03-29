@@ -1,8 +1,5 @@
 /* weather objects, handle weather effects together with a controller and weathertypes */
 
-/* fuck it, let's store that in a global until the controller wakes the fuck up for now */
-/var/global/list/pending_weathers = list()
-
 /obj/effect/spawner/weatherspawn
 	icon_state = "splash"
 

@@ -55,24 +55,23 @@
 
 		else if(!stump)
 			user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
-			spawn(rand(15,30))
-				if(get_dist(user,src) < 2)
-					user << "<span class='notice'> You clear away [src].</span>"
+			if (do_after(user, rand(15,30), src))
+				user << "<span class='notice'> You clear away [src].</span>"
 //					var/obj/item/stack/material/wood/W = new(src.loc) //was fun for testing, but no longer.
 //					W.amount = rand(3,15)
-					if(prob(50))
+				if(prob(50))
 //						icon_state = "stump[rand(1,2)]" //time to resprite stumps.
-						name = "cleared foliage"
-						desc = "There used to be dense undergrowth here."
-						density = 0
-						opacity = 0 //so we don't get any opaque stumps from thick bushes
-						stump = 1
-						pixel_x = rand(-6,6)
-						pixel_y = rand(-6,6)
-						icon_state = "[icon_state]-stump"
+					name = "cleared foliage"
+					desc = "There used to be dense undergrowth here."
+					density = 0
+					opacity = 0 //so we don't get any opaque stumps from thick bushes
+					stump = 1
+					pixel_x = rand(-6,6)
+					pixel_y = rand(-6,6)
+					icon_state = "[icon_state]-stump"
 
-					else
-						qdel(src)
+				else
+					qdel(src)
 
 /obj/structure/bush/do_climb(var/mob/living/user)
 	if (!can_climb(user))
@@ -128,6 +127,7 @@ var/jungle_plants_init = 0
 	icon = 'icons/jungle.dmi'
 	icon_state = "plant1"
 	desc = "Looks like some of that fruit might be edible."
+	anchored = 1
 	var/fruits_left = 3
 	var/fruit_type = -1
 	var/icon/fruit_overlay
@@ -190,6 +190,7 @@ var/jungle_plants_init = 0
 	desc = "A bunch of reeds. This plant typically grows in wet areas."
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "reedbush_1"
+	anchored = 1
 
 /obj/structure/flora/reeds/New()
 	if(prob(25))

@@ -34,7 +34,7 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "water4"
 
-turf/simulated/floor/beach/pool/New()
+/turf/simulated/floor/beach/pool/New()
 	..()
 	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 

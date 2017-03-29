@@ -115,3 +115,47 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Mule"
 	desc = "The QuarterMaster's turtle. Look out for bites!"
 
+/*holds a random chem for animal venom
+  should be used WITH copy=1 on transfer */
+/obj/item/venom_sac
+	name = "venom sac"
+	desc = "A sac something evolved to store venom in."
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "roro core"
+	var/chem_type_amt = 3 //should def it probably; max chem types
+
+	//blacklist; warning: extended on creation for typesof access!
+	var/list/banned_chems = list(
+		"adminordrazine",
+		"oxyphoron",
+		"holy_water",
+		"hell_water",
+		"nutriment"
+		)
+
+//pretty basic random chem picker; blacklist overriden and picks from 1 to argument chem types
+/obj/item/venom_sac/proc/generate_venom(var/maxchems = 3)
+	var/list/mix = list()
+	var/new_chem = null
+	var/max_chemtypes = rand(1, maxchems)
+
+	while (mix.len < max_chemtypes)
+		new_chem = pick(chemical_reagents_list)
+		if(new_chem in banned_chems)
+			new_chem = null
+		mix += new_chem
+
+	for(var/ingredient in mix)
+		if(!(src.reagents))
+			src.create_reagents(chem_type_amt * 15)
+		src.reagents.add_reagent(ingredient, 10, null, 0)
+
+/obj/item/venom_sac/New()
+	..()
+
+	banned_chems += typesof(/datum/reagent/drink)
+	banned_chems += typesof(/datum/reagent/crayon_dust)
+
+	if(!reagents)
+		create_reagents(chem_type_amt * 10)
+	generate_venom(chem_type_amt)

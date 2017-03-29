@@ -22,6 +22,14 @@
 	var/gibs_ready = 0
 	var/obj/crayon
 
+/obj/machinery/washing_machine/New()
+	..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/washing_machine(src)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 5)
+	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
+
 /obj/machinery/washing_machine/Destroy()
 	qdel(crayon)
 	crayon = null
@@ -59,6 +67,11 @@
 		var/obj/item/stack/material/wetleather/WL = new(src)
 		WL.amount = HH.amount
 		qdel(HH)
+//we'll keep in the old method, but the main method will be dunking them in the water the planet
+	for(var/obj/item/stack/hide/animalhide/AH in contents)
+		var/obj/item/stack/hide/wet/WL = new(src)
+		WL.amount = AH.amount
+		qdel(AH)
 
 	if( locate(/mob,contents) )
 		state = 7
@@ -80,7 +93,15 @@
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
 
-/obj/machinery/washing_machine/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/washing_machine/attackby(obj/item/W as obj, mob/user as mob)
+	if(state in list(1,2))
+		if(default_deconstruction_screwdriver(user, W))
+			return
+		if(default_deconstruction_crowbar(user, W))
+			return
+		if(default_part_replacement(user, W))
+			return
+
 	if(istype(W,/obj/item/weapon/pen/crayon) || istype(W,/obj/item/weapon/stamp))
 		if( state in list(	1, 3, 6 ) )
 			if(!crayon)
@@ -107,7 +128,8 @@
 		istype(W,/obj/item/clothing/gloves) || \
 		istype(W,/obj/item/clothing/shoes) || \
 		istype(W,/obj/item/clothing/suit) || \
-		istype(W,/obj/item/weapon/bedsheet))
+		istype(W,/obj/item/weapon/bedsheet) || \
+		istype(W,/obj/item/stack/hide/animalhide))
 
 		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
 		if ( istype(W,/obj/item/clothing/suit/space ) )

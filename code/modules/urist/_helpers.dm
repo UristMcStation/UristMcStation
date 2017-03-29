@@ -179,12 +179,12 @@ rough example of the "cone" made by the 3 dirs checked
        \
         \
 B --><-- A
-        /
-       /
+		7
+       7
       <
      >
-    /
-   /
+    7
+   7
  B
 
 */
