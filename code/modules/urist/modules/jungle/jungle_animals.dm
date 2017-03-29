@@ -286,9 +286,12 @@
 
 /mob/living/simple_animal/hostile/snake/AttackingTarget()
 	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		L.apply_damage(rand(3,12), TOX)
+	if(istype(target, /mob/living/carbon))
+		var/mob/living/carbon/L = target
+		bite(L)
+
+/mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)
+	L.apply_damage(rand(3,12), TOX)
 
 /mob/living/simple_animal/hostile/snake/AttackTarget()
 	..()
@@ -297,6 +300,24 @@
 		if(stalk_tick_delay <= 0)
 			src.loc = get_step_towards(src, target)
 			stalk_tick_delay = 3
+
+/mob/living/simple_animal/hostile/snake/randvenom
+	icon_state = "snake_brown"
+	icon_living = "snake_brown"
+	icon_dead = "snake_brown_dead"
+	desc = "A sinuously coiled, venomous looking reptile. This one looks rather exotic."
+	melee_damage_upper = 5
+	var/bite_vol = 5
+	var/obj/item/venom_sac/venomsac
+
+/mob/living/simple_animal/hostile/snake/randvenom/New()
+	..()
+	if(!venomsac)
+		venomsac = new /obj/item/venom_sac(src)
+
+/mob/living/simple_animal/hostile/snake/randvenom/bite(var/mob/living/L)
+	if(L && venomsac)
+		venomsac.reagents.trans_to_mob(L, bite_vol, CHEM_BLOOD, copy=1)
 
 //******//
 // Deer //
