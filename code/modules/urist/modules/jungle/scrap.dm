@@ -136,7 +136,7 @@
 		)
 
 /obj/structure/scrap/vehicle/New()
-	if(prob(40))
+	if(prob(25))
 		new /obj/structure/vehicle_frame/motorcycle(src.loc)
 	..()
 

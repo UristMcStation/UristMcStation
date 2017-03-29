@@ -125,9 +125,9 @@
 		R.use(1)
 
 /turf/simulated/planet/jungle
-	animal_spawn_chance = 0.7
+	animal_spawn_chance = 0.75
 	plants_spawn_chance = 40
-	small_trees_chance = 8
+	small_trees_chance = 7.5
 	large_trees_chance = 0
 	reeds_spawn_chance = 10
 	name = "wet grass"
@@ -252,7 +252,7 @@
 	..()
 	if(prob(5))
 		new	/obj/structure/scrap/random(src)
-	else if(prob(2))
+	else if(prob(1))
 		new /obj/structure/scrap/vehicle(src)
 
 /turf/simulated/planet/jungle/impenetrable

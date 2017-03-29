@@ -82,6 +82,7 @@
 /obj/effect/landmark/animal_spawner/random/jungle
 	name = "jungle animal spawner"
 	x_offset = -8
+	crosstrigger = 1
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/carbon/human/monkey/jungle,
@@ -94,7 +95,7 @@
 	y_offset = -2
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
-		/mob/living/simple_animal/hostile/snake
+		/mob/living/simple_animal/hostile/snake/randvenom/green
 		)
 
 /obj/effect/landmark/animal_spawner/random/jungle/crosstrigger
@@ -109,14 +110,13 @@
 
 /mob/living/simple_animal/hostile/huntable
 	var/hide = 0
-	var/meat = 0
 
 /mob/living/simple_animal/hostile/huntable/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/material/knife) || istype(I, /obj/item/weapon/material/hatchet))
 		if(src.stat == DEAD)
 			if (do_after(user, 60, src))
 				to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-				for(var/i, i<=meat, i++)
+				for(var/i, i<=meat_amount, i++)
 					new meat_type(src.loc)
 				var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
 				AH.amount = hide\
@@ -128,21 +128,17 @@
 
 /mob/living/simple_animal/huntable
 	var/hide = 0
-	var/meat = 0
 
-/mob/living/simple_animal/huntable/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/material/knife) || istype(I, /obj/item/weapon/material/hatchet))
-		if(src.stat == DEAD)
-			if (do_after(user, 60, src))
-				to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-				for(var/i, i<=meat, i++)
-					new meat_type(src.loc)
-				var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
-				AH.amount = hide\
-	//			new /obj/effect/gibspawner/generic(src.loc)
-			qdel(src)
-
-	..()
+/mob/living/simple_animal/huntable/harvest(var/mob/user)
+	if (do_after(user, 60, src))
+		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
+		for(var/i, i<=meat_amount, i++)
+			new meat_type(src.loc)
+		var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
+		AH.amount = hide
+		new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+//		new /obj/effect/gibspawner/generic(src.loc)
+	qdel(src)
 
 //to prevent spam from monkeys being half killed
 
@@ -174,7 +170,7 @@
 	response_harm   = "stomps"
 	friendly = "pokes"
 	hide = 1
-	meat = 1
+	meat_amount = 1
 
 //to prevent spam from parrots, and deer killing parrots
 
@@ -201,16 +197,16 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 70
-	health = 70
+	maxHealth = 75
+	health = 75
 
 	harm_intent_damage = 8
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-	meat = 2
-	hide = 3
+	meat_amount = 2
+	hide = 4
 
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
 	var/stalk_tick_delay = 3
@@ -319,6 +315,11 @@
 	if(L && venomsac)
 		venomsac.reagents.trans_to_mob(L, bite_vol, CHEM_BLOOD, copy=1)
 
+/mob/living/simple_animal/hostile/snake/randvenom/green //so they blend into the plain's turf
+	icon_state = "snake_green"
+	icon_living = "snake_green"
+	icon_dead = "snake_green_dead"
+
 //******//
 // Deer //
 //******//
@@ -347,11 +348,11 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "slashed"
+	attacktext = "gored" //antlers
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
-	hide = 2
-	meat = 2
+	hide = 3
+	meat_amount = 2
 
 /mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
 	target = new_target
@@ -376,7 +377,7 @@
 
 /mob/living/simple_animal/hostile/huntable/bear
 	name = "bear"
-	desc = "A big scary brown bear, probably best to stay aay"
+	desc = "A big scary brown bear, probably best to stay away"
 	icon = 'icons/uristmob/64x64_mobs.dmi'
 	icon_state = "bigbear"
 	icon_living = "bigbear"
@@ -398,5 +399,5 @@
 	melee_damage_upper = 30
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-	meat = 4
-	hide = 4
+	meat_amount = 4
+	hide = 6 //seems like a more fair reward at 6
