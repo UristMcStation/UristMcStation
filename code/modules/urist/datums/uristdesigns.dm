@@ -9,8 +9,43 @@ datum/design/plasmapistol
 	name = "Phoron Pistol"
 	desc = "Weaponized phoron... Scary."
 	id = "plasmapistol"
-	req_tech = list("combat" = 4, "materials" = 4, "plasmatech" = 3, "magnets" = 2)
+	req_tech = list("combat" = 4, "materials" = 4, "plasmatech" = 4, "magnets" = 2)
 	build_type = PROTOLATHE
 	materials = list("$silver" = 1000, "$metal" = 4000, "$uranium" = 1000, "$glass" = 500, "$gold" = 500, "$plasma" = 500)
 	build_path = /obj/item/weapon/gun/energy/plasmapistol
-	sort_string = "XAAAA"
+	sort_string = "URSTA"
+
+/datum/design/circuit/tanningrack
+	name = "tanning rack"
+	id = "tanning rack"
+	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/weapon/circuitboard/tanningrack
+	sort_string = "URSTB"
+
+/datum/design/circuit/carpentryplaner
+	name = "wood processor"
+	id = "wood processor"
+	req_tech = list(TECH_ENGINEERING = 1)
+	build_path = /obj/item/weapon/circuitboard/carpentryplaner
+	sort_string = "URSTC"
+
+/datum/design/circuit/woodprocessor
+	name = "pulp and paper processor"
+	id = "pulp and paper processor"
+	req_tech = list(TECH_ENGINEERING = 1)
+	build_path = /obj/item/weapon/circuitboard/woodprocessor
+	sort_string = "URSTD"
+
+/datum/design/circuit/drying_rack
+	name = "drying rack"
+	id = "drying rack"
+	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/weapon/circuitboard/drying_rack
+	sort_string = "URSTE"
+
+/datum/design/circuit/washing_machine
+	name = "washing machine"
+	id = "washing machine"
+	req_tech = list(TECH_ENGINEERING = 1)
+	build_path = /obj/item/weapon/circuitboard/washing_machine
+	sort_string = "URSTF"

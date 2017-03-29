@@ -23,7 +23,7 @@
 							/obj/item/weapon/stock_parts/manipulator = 1)
 
 /obj/item/weapon/circuitboard/woodprocessor
-	name = T_BOARD("wood processor")
+	name = T_BOARD("pulp and paper processor")
 	build_path = /obj/machinery/carpentry/woodprocessor
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -34,7 +34,7 @@
 							/obj/item/weapon/stock_parts/matter_bin = 1)
 
 /obj/item/weapon/circuitboard/drying_rack
-	name = T_BOARD("tanning rack")
+	name = T_BOARD("drying rack")
 	build_path = /obj/machinery/smartfridge/drying_rack
 	board_type = "machine"
 	origin_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
@@ -44,7 +44,7 @@
 							/obj/item/stack/cable_coil = 5,
 							/obj/item/weapon/stock_parts/console_screen = 1)
 
-/obj/item/weapon/circuitboard/washingmachine
+/obj/item/weapon/circuitboard/washing_machine
 	name = T_BOARD("washing machine")
 	build_path = /obj/machinery/washing_machine
 	board_type = "machine"
