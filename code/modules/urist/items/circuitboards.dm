@@ -43,3 +43,13 @@
 							/obj/item/stack/material/wood = 4,
 							/obj/item/stack/cable_coil = 5,
 							/obj/item/weapon/stock_parts/console_screen = 1)
+
+/obj/item/weapon/circuitboard/washingmachine
+	name = T_BOARD("washing machine")
+	build_path = /obj/machinery/washing_machine
+	board_type = "machine"
+	origin_tech = list(TECH_ENGINEERING = 1)
+	req_components = list(
+							/obj/item/stack/cable_coil = 5,
+							/obj/item/weapon/stock_parts/capacitor = 1,
+							/obj/item/weapon/reagent_containers/glass/beaker = 1)
