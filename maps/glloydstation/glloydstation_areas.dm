@@ -777,10 +777,6 @@ area/rnd/test_area
 /area/outpost/research/anomaly_analysis
 	name = "Research Outpost Anomaly Analysis"
 
-/area/outpost/research/kitchen
-	name = "Research Outpost Kitchen"
-
-
 /area/maintenance/aft
 	name = "Aft Maintenance"
 	icon_state = "amaint"
