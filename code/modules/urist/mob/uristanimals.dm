@@ -122,39 +122,51 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sac something evolved to store venom in."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "roro core"
+	flags = OPENCONTAINER
 	var/chem_type_amt = 3 //should def it probably; max chem types
 
-	//blacklist; warning: extended on creation for typesof access!
+	//blacklist for subtypes!
 	var/list/banned_chems = list(
-		"adminordrazine",
-		"oxyphoron",
-		"holy_water",
-		"hell_water",
-		"nutriment"
+		/datum/reagent/adminordrazine,
+		/datum/reagent/toxin/phoron/oxygen,
+		/datum/reagent/water,
+		/datum/reagent/antibodies,
+		/datum/reagent/nutriment,
+		/datum/reagent/drink,
+		/datum/reagent/peridaxon,
+		/datum/reagent/crayon_dust
 		)
+
+	//exceptions to the above in case you have a subtype you do want
+	var/list/ban_excepted = list()
 
 //pretty basic random chem picker; blacklist overriden and picks from 1 to argument chem types
 /obj/item/venom_sac/proc/generate_venom(var/maxchems = 3)
 	var/list/mix = list()
 	var/new_chem = null
 	var/max_chemtypes = rand(1, maxchems)
+	var/list/blacklist = list() //actual utility list
+
+	for(var/Reagent in chemical_reagents_list)
+		for(var/Banned in banned_chems) //O(n^2), bleh, couldn't think of anything else
+			if(istype(Reagent, Banned))
+				if(!(Reagent in ban_excepted))
+					blacklist += Reagent
 
 	while (mix.len < max_chemtypes)
 		new_chem = pick(chemical_reagents_list)
-		if(new_chem in banned_chems)
+		if(new_chem in blacklist)
 			new_chem = null
-		mix += new_chem
+		else
+			mix += new_chem
 
 	for(var/ingredient in mix)
 		if(!(src.reagents))
 			src.create_reagents(chem_type_amt * 15)
-		src.reagents.add_reagent(ingredient, 10, null, 0)
+		src.reagents.add_reagent(ingredient, 10, safety = 1)
 
 /obj/item/venom_sac/New()
 	..()
-
-	banned_chems += typesof(/datum/reagent/drink)
-	banned_chems += typesof(/datum/reagent/crayon_dust)
 
 	if(!reagents)
 		create_reagents(chem_type_amt * 10)
