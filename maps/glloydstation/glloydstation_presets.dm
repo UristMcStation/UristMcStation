@@ -78,3 +78,7 @@ var/const/NETWORK_URIST               = "Urist"
 
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
+
+// EMP proof
+/obj/machinery/camera/emp_proof/engine
+	network = list(NETWORK_ENGINE)
