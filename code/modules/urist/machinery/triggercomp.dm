@@ -15,7 +15,7 @@
 	var/id6 = null
 	var/id7 = null
 
-/*	circuit = "/obj/item/weapon/circuitboard/merch"
+/*	circuit = /obj/item/weapon/circuitboard/merch
 
 /obj/item/weapon/circuitboard/trigger/blast
 	name = "\improper Blast Door Computer Circuitboard"
@@ -35,49 +35,6 @@
 				spawn(0)
 					M.close()
 					return
-
-//	circuit = "/obj/item/weapon/circuitboard"
-
-/*	var/dat = {"
-<html>
-	<head>
-		<title>[command_name()] Merchandise</title>
-		<style type="text/css">
-* {
-	font-family:sans-serif;
-	font-size:x-small;
-}
-html {
-	background:#333;
-	color:#999;
-}
-
-a {
-	color:#cfcfcf;
-	text-decoration:none;
-	font-weight:bold;
-}
-
-a:hover {
-	color:#ffffff;
-}
-tr {
-	background:#303030;
-	border-radius:6px;
-	margin-bottom:0.5em;
-	border-bottom:1px solid black;
-}
-tr:nth-child(even) {
-	background:#3f3f3f;
-}
-
-td.cost {
-	font-size:20pt;
-	font-weight:bold;
-}
-
-		</style>
-	</head>*/
 
 /obj/machinery/computer/trigger/blast/attack_hand(mob/user as mob)
 	if(..())

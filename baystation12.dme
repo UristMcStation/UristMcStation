@@ -2281,7 +2281,6 @@
 #include "code\modules\urist\modules\genetics\disabilities.dm"
 #include "code\modules\urist\modules\genetics\powers.dm"
 #include "code\modules\urist\modules\genetics\vgpowers.dm"
-#include "code\modules\urist\modules\jungle\jungle.dm"
 #include "code\modules\urist\modules\jungle\jungle_animals.dm"
 #include "code\modules\urist\modules\jungle\jungle_areas.dm"
 #include "code\modules\urist\modules\jungle\jungle_plants.dm"

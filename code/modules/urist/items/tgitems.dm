@@ -81,7 +81,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
-	can_hold = list("/obj/item/weapon/book", "/obj/item/weapon/spellbook") //No bibles, consistent with bookcase
+	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
 
@@ -271,7 +271,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 
