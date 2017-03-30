@@ -7,8 +7,8 @@
 	icon_state = "small"
 	icon = 'icons/urist/structures&machinery/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
-	var/loot_min = 3
-	var/loot_max = 5
+	var/loot_min = 2
+	var/loot_max = 6
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
 		/obj/item/vehicle_part/random,
@@ -117,6 +117,22 @@
 		shuffle_loot()
 		if(!(loot.contents.len || contents.len > 1))
 			to_chat(user, "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>")
+
+	if(istype(W,/obj/item/weapon/weldingtool))
+		if(!(loot.contents.len || contents.len > 1))
+			var/obj/item/weapon/weldingtool/WT = W
+			if (WT.remove_fuel(0,user))
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("[user.name] starts to disassemble the scrap pile.", \
+					"You start to disassemble the scrap pile.", \
+					"You hear welding")
+				if (do_after(user,30,src))
+					if(!src || !WT.isOn()) return
+					to_chat(user, "You weld [src] to the floor.")
+			else
+				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+		else
+			to_chat(user, "<span class='warning'>There's too much stuff inside the scrap pile to disassemble it! Try digging it out with a shovel.</span>")
 	..()
 
 /obj/structure/scrap/vehicle
@@ -145,8 +161,8 @@
 	opacity = 1
 	density = 1
 	icon_state = "big"
-	loot_min = 10
-	loot_max = 20
+	loot_min = 7
+	loot_max = 15
 
 	base_min = 9
 	base_max = 15

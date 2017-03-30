@@ -15,7 +15,7 @@
 	var/edit = 1
 	var/repeat = 0
 
-obj/item/device/guitar/proc/playnote(var/note as text)
+/obj/item/device/guitar/proc/playnote(var/note as text)
 	//world << "Note: [note]"
 	var/soundfile
 	/*BYOND loads resource files at compile time if they are ''. This means you can't really manipulate them dynamically.

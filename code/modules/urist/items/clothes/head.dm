@@ -118,7 +118,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //princess bow
 
-obj/item/clothing/head/princessbow
+/obj/item/clothing/head/princessbow
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/head.dmi'
 	name = "princess bow"

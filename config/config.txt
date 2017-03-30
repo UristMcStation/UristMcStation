@@ -339,7 +339,7 @@ ALIEN_EGGS_ALLOWED
 #DISABLE_RESPAWN
 
 ## Respawn delay in minutes before one may respawn as a crew member.
-#RESPAWN_DELAY 20
+RESPAWN_DELAY 20
 
 ## Uncomment to use a dynamic mission difficulty system for SCOM.
 SCOM_DYNAMIC_DIFFICULTY
