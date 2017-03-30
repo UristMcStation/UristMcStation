@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation Structures*****
+/*										*****New space to put all UristMcStation Structures*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry.I may or may not move couches and flora here. -Glloyd*/
 

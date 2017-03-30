@@ -41,7 +41,8 @@
 		/area/outpost/research/eva = NO_SCRUBBER,
 		/area/outpost/mining_main = NO_SCRUBBER,
 		/area/outpost/security = NO_SCRUBBER,
-//		/area/outpost/security =
+		/area/outpost/engineering = NO_SCRUBBER,
+		/area/outpost/engineering/power = NO_SCRUBBER|NO_VENT,
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/server = NO_SCRUBBER,

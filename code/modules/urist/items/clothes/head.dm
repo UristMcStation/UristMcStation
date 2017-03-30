@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation On-Head Clothing*****
+/*										*****New space to put all UristMcStation On-Head Clothing*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/head.dmi'
 and on_mob icon_override sprites go to 'icons/uristmob/head.dmi' Put anything that isn't a child of clothing/head/helmet under clothing/head/urist
