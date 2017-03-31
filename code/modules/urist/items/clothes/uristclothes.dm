@@ -1156,3 +1156,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 
+/obj/item/clothing/under/urist/cowboy
+	name = "cowboy's outfit"
+	desc = "A simple buttoned shirt paired with a leather vest and pants. A classic cowboy's outfit."
+	icon_state = "cowboy"
+	item_state = "cowboy"
+
+/obj/item/clothing/suit/urist/poncho
+	name = "poncho"
+	desc = "A simple poncho, the kind that could've been worn by a gunslinger in the Wild West."
+	icon_state = "poncho"
+	item_state = "poncho"

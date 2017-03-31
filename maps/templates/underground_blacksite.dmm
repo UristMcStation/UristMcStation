@@ -8,7 +8,7 @@
 "ah" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "ai" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/mob/living/simple_animal/hostile/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "aj" = (/obj/structure/crematorium,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ak" = (/obj/structure/pit/closed/grave,/turf/simulated/floor/asteroid,/area/mine/unexplored)
+"ak" = (/obj/structure/pit/closed/grave/random,/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "al" = (/obj/machinery/door/airlock/centcom{name = "Holding Cell"; opacity = 1; req_access = list(101)},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "am" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "an" = (/obj/structure/table/rack,/turf/simulated/floor/asteroid,/area/mine/unexplored)

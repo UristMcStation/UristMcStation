@@ -428,6 +428,12 @@ to avoid worrying about the sprites -Glloyd*/
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "cowboyhat"
 
+/obj/item/clothing/head/urist/cowboy2
+	name = "brown cowboy hat"
+	desc = "It's a brown cowboy hat with a flat top. Perfect for rounding out the gunslinger aesthetic."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "cowboyhat2"
+
 //hood
 
 /obj/item/clothing/head/winterhood/sandsuit

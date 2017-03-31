@@ -153,7 +153,7 @@
 	name = "grave"
 	icon_state = "pit0"
 
-/obj/structure/pit/closed/grave/initialize()
+/obj/structure/pit/closed/grave/random/initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
 	var/obj/item/remains/human/bones = new(C)
@@ -166,7 +166,7 @@
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/suit/poncho/colored
 		)
 	loot = pick(suits)
 	new loot(C)
@@ -199,6 +199,22 @@
 
 	var/obj/structure/gravemarker/random/R = new(src.loc)
 	R.generate()
+	..()
+
+/obj/structure/pit/closed/grave/spaghettiwestern/initialize()
+	var/obj/structure/closet/coffin/C = new(src.loc)
+
+	var/obj/item/remains/human/bones = new(C)
+	bones.layer = MOB_LAYER
+
+	new /obj/item/clothing/head/urist/cowboy2(C)
+	new /obj/item/clothing/under/urist/cowboy(C)
+	new /obj/item/clothing/suit/urist/poncho(C)
+	new /obj/item/clothing/accessory/holster/hip(C)
+	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
+
+	var/obj/structure/gravemarker/cross/R = new(src.loc)
+	R.message = "Here lies a man who had no name. Died fighting for a fistful of dollars." //memes
 	..()
 
 /obj/structure/gravemarker

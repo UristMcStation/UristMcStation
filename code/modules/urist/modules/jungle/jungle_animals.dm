@@ -347,7 +347,7 @@
 	attacktext = "gored" //antlers
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
-	hide = 3
+	hide = 4
 	meat_amount = 2
 
 /mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
@@ -396,4 +396,4 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat_amount = 4
-	hide = 6 //seems like a more fair reward at 6
+	hide = 7 //seems like a more fair reward at 7
