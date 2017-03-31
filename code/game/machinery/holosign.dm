@@ -4,7 +4,7 @@
 	desc = "Small wall-mounted holographic projector."
 	icon = 'icons/obj/holosign.dmi'
 	icon_state = "sign_off"
-	layer = ABOVE_OBJ_LAYER
+	layer = ABOVE_DOOR_LAYER
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 70
@@ -49,7 +49,9 @@
 	name = "holosign switch"
 	desc = "A remote control switch for holosign."
 	icon = 'icons/obj/power.dmi'
-	icon_state = "crema_switch"
+	icon_state = "light0"
+
+/obj/machinery/button/holosign/update_icon()
 
 /obj/machinery/button/holosign/attack_hand(mob/user as mob)
 	if(..())
