@@ -7,10 +7,10 @@
 
 
 /obj/item/weapon/book/manual/engineering_construction
-	name = "Station Repairs and Construction"
+	name = "Repairs and Construction"
 	icon_state ="bookEngineering"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
-	title = "Station Repairs and Construction"
+	title = "Repairs and Construction"
 
 /obj/item/weapon/book/manual/engineering_construction/New()
 	..()
@@ -1300,7 +1300,7 @@
 					<li>If you have modified it manually, is absolutely everything sealed perfectly?</li>
 					<li>Do you either have shoes on under the suit, or magnetic boots on over it?</li>
 					<li>Do you have a mask on and internals on the suit or your back?</li>
-					<li>Do you have a way to communicate with the station in case something goes wrong?</li>
+					<li>Do you have a way to communicate with your fellow crew in case something goes wrong?</li>
 					<li>Do you have a second person watching if this is a training session?</li><BR>
 				</ul>
 
