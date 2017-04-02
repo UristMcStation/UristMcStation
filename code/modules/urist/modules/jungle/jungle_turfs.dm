@@ -250,10 +250,17 @@
 
 /turf/simulated/planet/jungle/plains/New()
 	..()
-	if(prob(5))
+	if(prob(4))
 		new	/obj/structure/scrap/random(src)
 	else if(prob(1))
 		new /obj/structure/scrap/vehicle(src)
+
+/turf/simulated/planet/jungle/clear/plains
+	icon = 'icons/urist/events/train.dmi'
+	icon_state = "g"
+	icon_spawn_state = "g"
+	animal_spawn_chance = 0
+
 
 /turf/simulated/planet/jungle/impenetrable
 	animal_spawn_chance = 0.4 //very low chances. This is mainly just to populate the respawn list
@@ -334,6 +341,10 @@
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
 	var/busy = 0
+
+/turf/simulated/planet/jungle/water/New()
+	..()
+	fishleft = rand(1,6)
 
 /turf/simulated/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/fishingrod))

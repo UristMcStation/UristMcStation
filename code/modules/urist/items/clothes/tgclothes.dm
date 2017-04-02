@@ -1,4 +1,4 @@
- /*										*****New space to put all /tg/station Clothing Ports*****
+/*										*****New space to put all /tg/station Clothing Ports*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/uristclothes.dmi'
 or 'icons/urist/items/tgitems.dmi'

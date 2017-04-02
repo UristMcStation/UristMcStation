@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation On-Head Clothing*****
+/*										*****New space to put all UristMcStation On-Head Clothing*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/head.dmi'
 and on_mob icon_override sprites go to 'icons/uristmob/head.dmi' Put anything that isn't a child of clothing/head/helmet under clothing/head/urist
@@ -118,7 +118,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //princess bow
 
-obj/item/clothing/head/princessbow
+/obj/item/clothing/head/princessbow
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/head.dmi'
 	name = "princess bow"
@@ -427,6 +427,12 @@ obj/item/clothing/head/princessbow
 	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "cowboyhat"
+
+/obj/item/clothing/head/urist/cowboy2
+	name = "brown cowboy hat"
+	desc = "It's a brown cowboy hat with a flat top. Perfect for rounding out the gunslinger aesthetic."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "cowboyhat2"
 
 //hood
 

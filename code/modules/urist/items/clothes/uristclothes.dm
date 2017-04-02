@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation Clothing (clothing/suit and clothing/under. I may split them up anyways)*****
+/*										*****New space to put all UristMcStation Clothing (clothing/suit and clothing/under. I may split them up anyways)*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/clothes.dmi'
 All UMcS clothing will now go here, to prevent unecessary .dm's. I mean, how much clothes do we need anyways... -Glloyd //haha, i got that one right.
@@ -1156,3 +1156,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 
+/obj/item/clothing/under/urist/cowboy
+	name = "cowboy's outfit"
+	desc = "A simple buttoned shirt paired with a leather vest and pants. A classic cowboy's outfit."
+	icon_state = "cowboy"
+	item_state = "cowboy"
+
+/obj/item/clothing/suit/urist/poncho
+	name = "poncho"
+	desc = "A simple poncho, the kind that could've been worn by a gunslinger in the Wild West."
+	icon_state = "poncho"
+	item_state = "poncho"

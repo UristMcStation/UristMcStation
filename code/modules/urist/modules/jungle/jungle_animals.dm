@@ -111,20 +111,16 @@
 /mob/living/simple_animal/hostile/huntable
 	var/hide = 0
 
-/mob/living/simple_animal/hostile/huntable/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/material/knife) || istype(I, /obj/item/weapon/material/hatchet))
-		if(src.stat == DEAD)
-			if (do_after(user, 60, src))
-				to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-				for(var/i, i<=meat_amount, i++)
-					new meat_type(src.loc)
-				var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
-				AH.amount = hide\
-	//			new /obj/effect/gibspawner/generic(src.loc)
-			qdel(src)
-
-	..()
-
+/mob/living/simple_animal/hostile/huntable/harvest(var/mob/user)
+	if (do_after(user, 60, src))
+		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
+		for(var/i, i<=meat_amount, i++)
+			new meat_type(src.loc)
+		var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
+		AH.amount = hide
+		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+//		new /obj/effect/gibspawner/generic(src.loc)
+	qdel(src)
 
 /mob/living/simple_animal/huntable
 	var/hide = 0
@@ -136,7 +132,7 @@
 			new meat_type(src.loc)
 		var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
 		AH.amount = hide
-		new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 //		new /obj/effect/gibspawner/generic(src.loc)
 	qdel(src)
 
@@ -259,7 +255,7 @@
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 25
 	health = 25
-
+	vision_range = 5 //balancing snakes so they don't slither all the way across the plains to kill you.
 	harm_intent_damage = 2
 	melee_damage_lower = 3
 	melee_damage_upper = 10
@@ -361,7 +357,7 @@
 	attacktext = "gored" //antlers
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
-	hide = 3
+	hide = 4
 	meat_amount = 2
 
 /mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
@@ -410,4 +406,4 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat_amount = 4
-	hide = 6 //seems like a more fair reward at 6
+	hide = 7 //seems like a more fair reward at 7
