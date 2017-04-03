@@ -1,5 +1,7 @@
 #if !defined(USING_MAP_DATUM)
 
+	#include "../../code/modules/urist/area&turf/areas.dm"
+
 	#include "glloydstation_areas.dm"
 	#include "glloydstation_shuttles.dm"
 	#include "glloydstation_unit_testing.dm"
