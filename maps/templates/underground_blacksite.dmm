@@ -2,11 +2,11 @@
 "ab" = (/obj/structure/sign/warning/secure_area,/turf/simulated/wall/r_wall,/area/mine/unexplored)
 "ac" = (/turf/simulated/wall/r_wall,/area/mine/unexplored)
 "ad" = (/turf/simulated/floor/asteroid,/area/mine/unexplored)
-"ae" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/obj/random/junk,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"af" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/mob/living/simple_animal/hostile/scom/civ/civvie,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ag" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/obj/random/contraband,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ah" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ai" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{on_open_network = 0},/mob/living/simple_animal/hostile/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"ae" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{c_tag = "Blacksite Cell 1"; on_open_network = 0},/obj/random/junk,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"af" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{c_tag = "Blacksite Cell 2"; on_open_network = 0},/mob/living/simple_animal/hostile/scom/civ/civvie,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"ag" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{c_tag = "Blacksite Cell 3"; on_open_network = 0},/obj/random/contraband,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"ah" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{c_tag = "Blacksite Cell 4"; on_open_network = 0},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"ai" = (/obj/structure/bed,/obj/machinery/flasher{id = ""; pixel_x = -28},/obj/machinery/camera{c_tag = "Blacksite Cell 5"; on_open_network = 0},/mob/living/simple_animal/hostile/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "aj" = (/obj/structure/crematorium,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "ak" = (/obj/structure/pit/closed/grave/random,/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "al" = (/obj/machinery/door/airlock/centcom{name = "Holding Cell"; opacity = 1; req_access = list(101)},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
@@ -14,12 +14,12 @@
 "an" = (/obj/structure/table/rack,/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "ao" = (/obj/structure/closet/secure_closet/brig,/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "ap" = (/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aq" = (/obj/machinery/camera{on_open_network = 0},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
+"aq" = (/obj/machinery/camera{c_tag = "Blacksite Monitoring 2"; on_open_network = 0},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "ar" = (/obj/machinery/button/crematorium{pixel_y = 24},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "as" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "at" = (/obj/machinery/light{brightness_power = 4; brightness_range = 10; dir = 8; icon_state = "tube1"},/obj/structure/closet/secure_closet/brig,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "au" = (/turf/simulated/floor/tiled,/area/mine/unexplored)
-"av" = (/obj/effect/wingrille_spawn/reinforced/polarized/full,/turf/simulated/floor/tiled,/area/mine/unexplored)
+"av" = (/obj/effect/wingrille_spawn/reinforced/polarized/full,/turf/simulated/floor/plating,/area/mine/unexplored)
 "aw" = (/obj/effect/floor_decal/corner/blue{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/machinery/teleport/hub,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "ax" = (/turf/simulated/wall,/area/mine/unexplored)
 "ay" = (/obj/structure/table/steel_reinforced,/obj/item/weapon/storage/box/donut,/turf/simulated/floor/tiled,/area/mine/unexplored)
@@ -30,16 +30,16 @@
 "aD" = (/obj/structure/bed/chair/office/dark{dir = 4},/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aE" = (/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aF" = (/obj/structure/table/steel_reinforced,/obj/item/weapon/storage/box/bodybags,/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aG" = (/obj/machinery/camera{c_tag = "Central Primary Hallway Garden Southwest"; dir = 4; network = list("Exodus")},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/mine/unexplored)
+"aG" = (/obj/machinery/camera{c_tag = "Blacksite Entrance"; dir = 4; network = list("Exodus")},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aH" = (/obj/structure/closet/secure_closet/brig,/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aI" = (/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
-"aJ" = (/obj/machinery/camera{c_tag = "Virology Airlock"; dir = 1; network = list("Exodus")},/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
+"aJ" = (/obj/machinery/camera{c_tag = "Blacksite Monitoring"; dir = 1; network = list("Exodus")},/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aK" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aL" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aM" = (/obj/structure/filingcabinet/chestdrawer,/turf/simulated/floor/carpet,/area/mine/unexplored)
 "aN" = (/turf/simulated/floor/carpet,/area/mine/unexplored)
 "aO" = (/obj/structure/table/gamblingtable,/obj/item/weapon/storage/fancy/cigar,/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aP" = (/obj/effect/wingrille_spawn/reinforced/polarized/full,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
+"aP" = (/obj/machinery/camera{c_tag = "Blacksite Lobby"; dir = 1; network = list("Exodus")},/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aQ" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aR" = (/obj/structure/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/structure/mirror{dir = 4; pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aS" = (/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
@@ -50,7 +50,7 @@
 "aX" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aY" = (/obj/structure/table/steel_reinforced,/obj/item/clothing/glasses/sunglasses/blindfold,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aZ" = (/obj/structure/bed/chair{dir = 8},/obj/effect/gibspawner/human,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"ba" = (/obj/machinery/camera{c_tag = "Locker Room South"; dir = 8; network = list("Exodus")},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
+"ba" = (/obj/machinery/camera{c_tag = "Blacksight Interrogation"; dir = 8; network = list("Exodus")},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "bb" = (/obj/structure/table/glass,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bc" = (/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bd" = (/obj/structure/table/glass,/obj/random/tool,/obj/random/tool,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
@@ -61,6 +61,7 @@
 "bi" = (/obj/structure/table/glass,/obj/random/loot,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bj" = (/obj/structure/table/glass,/obj/random/handgun,/obj/random/handgun,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bk" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/asteroid,/area/mine/unexplored)
+"bl" = (/obj/machinery/camera{c_tag = "Blacksite Lobby 2"; on_open_network = 0},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/mine/unexplored)
 
 (1,1,1) = {"
 aaabacacacacacacacacabacacacacacacacacabaa
@@ -68,15 +69,15 @@ abacadadadadadadadadadadadadadadadadadacab
 acadadadacacacacacacacacacacacacacadadadac
 acadadadacaeacafacagacahacaiacajacadadadac
 acadakacacalacalacalacalacalacamacacanadac
-acadakacaoapaqapapapapapapapaqaparacabasac
+acadakacaoapaqapapapapapapapblaparacabasac
 acadakacatauavavavauauawaxauayazaAabaBauac
 abadakacaCauasaDavauauawaxauaDazauasaEauab
 acadakacatauavavavauauawaxauaFazaAacaGauac
-acadacacaHaIaIaJaIaIaIaIaJaIaIaIaIacabasac
+acadacacaHaIaIaJaIaIaIaIaPaIaIaIaIacabasac
 acadacaxaxaKaxaxaxaxaLaxaxaxaxaKaxacanadac
-acadacaxaMaNaOaPaQaQaQaQaQaxaRaSaTacacadac
-acadacaxaUaVaWaPaQaXaYaZbaaxbbbcbdacacadac
-acadacacaMbebfaPaQaQaQbgaQaxbhbibjacacadac
+acadacaxaMaNaOavaQaQaQaQaQaxaRaSaTacacadac
+acadacaxaUaVaWavaQaXaYaZbaaxbbbcbdacacadac
+acadacacaMbebfavaQaQaQbgaQaxbhbibjacacadac
 acadadacacaxaxaxaxaxaxaxaxaxaxaxacacadadac
 acadadadacacacacacacacacacacacacacadadadac
 abacadadadadadadadadadadadadadadadadadacab

@@ -69,6 +69,9 @@ var/const/NETWORK_URIST               = "Urist"
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
 
+/obj/machinery/camera/motion/urist
+	network = list(NETWORK_URIST)
+
 // X-ray
 /obj/machinery/camera/xray/medbay
 	network = list(NETWORK_MEDICAL)
@@ -78,3 +81,6 @@ var/const/NETWORK_URIST               = "Urist"
 
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
+
+/obj/machinery/camera/xray/prison
+	network = list(NETWORK_PRISON)
