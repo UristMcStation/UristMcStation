@@ -756,7 +756,16 @@
 					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 5,
 					/obj/item/weapon/storage/fancy/cigarettes/professionals = 5,
 					/obj/item/weapon/storage/box/matches = 10,
-					/obj/item/weapon/flame/lighter/random = 4)
+					/obj/item/weapon/flame/lighter/random = 4,
+					/obj/item/clothing/mask/smokable/ecig/util = 2,
+					///obj/item/clothing/mask/smokable/ecig/deluxe = 2,
+					/obj/item/clothing/mask/smokable/ecig/simple = 2,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/high_nicotine = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 10)
 	contraband = list(/obj/item/weapon/flame/lighter/zippo = 4)
 	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5)
 	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 15,
@@ -766,7 +775,16 @@
 					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 21,
 					/obj/item/weapon/storage/fancy/cigarettes/professionals = 23,
 					/obj/item/weapon/storage/box/matches = 1,
-					/obj/item/weapon/flame/lighter/random = 2)
+					/obj/item/weapon/flame/lighter/random = 2,
+					/obj/item/clothing/mask/smokable/ecig/util = 100,
+					///obj/item/clothing/mask/smokable/ecig/deluxe = 300,
+					/obj/item/clothing/mask/smokable/ecig/simple = 150,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine = 10,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/high_nicotine = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 12,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 12,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 12,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 12)
 
 
 /obj/machinery/vending/medical
@@ -851,7 +869,7 @@
 					/obj/item/seeds/cabbageseed = 3,/obj/item/seeds/grapeseed = 3,/obj/item/seeds/pumpkinseed = 3,/obj/item/seeds/cherryseed = 3,/obj/item/seeds/plastiseed = 3,/obj/item/seeds/riceseed = 3,/obj/item/seeds/lavenderseed = 3)
 	contraband = list(/obj/item/seeds/amanitamycelium = 2,/obj/item/seeds/glowshroom = 2,/obj/item/seeds/libertymycelium = 2,/obj/item/seeds/mtearseed = 2,
 					  /obj/item/seeds/nettleseed = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/reishimycelium = 2,/obj/item/seeds/shandseed = 2,)
-	premium = list(/obj/item/toy/waterflower = 1)
+	premium = list(/obj/item/weapon/reagent_containers/spray/waterflower = 1)
 
 /**
  *  Populate hydroseeds product_records
@@ -949,7 +967,7 @@
 //This one's from bay12
 /obj/machinery/vending/engineering
 	name = "Robco Tool Maker"
-	desc = "Everything you need for do-it-yourself station repair."
+	desc = "Everything you need for do-it-yourself repair."
 	icon_state = "engi"
 	icon_deny = "engi-deny"
 	req_one_access = list(access_atmospherics,access_engine_equip)
