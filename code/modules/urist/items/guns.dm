@@ -37,7 +37,7 @@
 	caliber = "9mm"
 	silenced = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = "/obj/item/ammo_casing/c9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
 	load_method = 2
 
 //BANG BANG BANG, BANG BANG
@@ -100,7 +100,7 @@ the sprite and make my own projectile -Glloyd*/
 	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
-	cell_type = "/obj/item/weapon/cell/crap"
+	cell_type = /obj/item/weapon/cell/crap
 
 /*	suicide_act(mob/user)
 		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"

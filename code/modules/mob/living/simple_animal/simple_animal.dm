@@ -259,7 +259,7 @@
 			to_chat(user, "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>")
 		return
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/knife/butch))
+		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/hatchet))
 			harvest(user)
 	else
 		if(!O.force)

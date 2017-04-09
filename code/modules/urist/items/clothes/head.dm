@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation On-Head Clothing*****
+/*										*****New space to put all UristMcStation On-Head Clothing*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/head.dmi'
 and on_mob icon_override sprites go to 'icons/uristmob/head.dmi' Put anything that isn't a child of clothing/head/helmet under clothing/head/urist
@@ -87,6 +87,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/wizard/urist/necro
 	name = "necromancer's hood"
+	icon = 'icons/urist/items/clothes/head.dmi'
 	desc = "A charcoal-black hood worn by the masters of life and death. Simply putting it on sharpens your senses."
 	icon_state = "necrohood"
 	item_state = "necrohood"
@@ -117,7 +118,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //princess bow
 
-obj/item/clothing/head/princessbow
+/obj/item/clothing/head/princessbow
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/head.dmi'
 	name = "princess bow"
@@ -316,3 +317,134 @@ obj/item/clothing/head/princessbow
 	icon_state = "toque"
 	cold_protection = HEAD
 	min_cold_protection_temperature = 243.15
+
+
+
+//Civil War hats
+/obj/item/clothing/head/urist/civilwar/usltgenhat
+	name = "US Army Lieutenant General Hat"
+	desc = "A hat worn by the commander of an army."
+	icon_state = "Lieut_General_US_hat"
+	item_state = "Lieut_General_US_hat"
+
+/obj/item/clothing/head/urist/civilwar/usbrighat
+	name = "US Army Brigadier General Hat"
+	desc = "A hat worn by the commander of an army."
+	icon_state = "Brig_General_US_hat"
+	item_state = "Brig_General_US_hat"
+
+/obj/item/clothing/head/urist/civilwar/uscolhat
+	name = "US Army Colonel Hat"
+	desc = "A hat worn by an infantry officer."
+	icon_state = "Colonel_of_Infantry_US_hat"
+	item_state = "Colonel_of_Infantry_US_hat"
+
+/obj/item/clothing/head/urist/civilwar/uspvthat
+	name = "US Army Private Hat"
+	desc = "A blue hat worn by an infantryman."
+	icon_state = "Private_Infantry_US_hat"
+	item_state = "Private_Infantry_US_hat"
+
+/obj/item/clothing/head/urist/civilwar/csapvthat
+	name = "CS Army Private Hat"
+	desc = "A grey hat worn by an infantryman."
+	icon_state = "Private_Infantry_CS_hat"
+	item_state = "Private_Infantry_CS_hat"
+
+/obj/item/clothing/head/urist/civilwar/csaartycpthat
+	name = "Artillery Captain Hat"
+	desc = "A hat worn by an artillery officer."
+	icon_state = "Captain_Artillery_CS_hat"
+	item_state = "Captain_Artillery_CS_hat"
+
+/obj/item/clothing/head/urist/civilwar/csagenhat
+	name = "CS Army General Hat"
+	desc = "A hat worn by an army commander."
+	icon_state = "General_CS_hat"
+	item_state = "General_CS_hat"
+
+/obj/item/clothing/head/urist/civilwar/fancyheaddress
+	name = "Fancy Headdress"
+	desc = "Geronimo!"
+	icon_state = "headpiece"
+	item_state = "headpiece"
+
+/obj/item/clothing/head/urist/civilwar/featherband
+	name = "Feather Headband"
+	desc = "A headband with a single feather on it."
+	icon_state = "single_fether"
+	item_state = "single_fether"
+
+/obj/item/clothing/head/urist/civilwar/tricorn
+	name = "Tricorn"
+	desc = "A plain tricorn hat."
+	icon_state = "tricorn_hat"
+	item_state = "tricorn_hat"
+
+/obj/item/clothing/head/urist/civilwar/csalthat
+	name = "CS Army Lieutenant Hat"
+	desc = "A hat worn by an infantry officer."
+	icon_state = "Lieutenant_CS_hat"
+	item_state = "Lieutenant_CS_hat"
+
+
+// RS Helms
+
+/obj/item/clothing/head/urist/armor/bronzehelm
+	name = "Bronze Full Helm"
+	desc = "A full face helm."
+	icon_state = "helmet_bronze"
+	item_state = "helmet_bronze"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/armor/addyhelm
+	name = "Adamantite Full Helm"
+	desc = "Provides modest protection."
+	icon_state = "helmet_green"
+	item_state = "helmet_green"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+
+/obj/item/clothing/head/urist/armor/runehelm
+	name = "Runeite Full Helm"
+	desc = "Provides excelent protection."
+	icon_state = "helmet_blue"
+	item_state = "helmet_blue"
+	item_flags = THICKMATERIAL
+	body_parts_covered = HEAD
+	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+//cowboy hat
+/obj/item/clothing/head/urist/cowboy
+	name = "cowboy hat"
+	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "cowboyhat"
+
+/obj/item/clothing/head/urist/cowboy2
+	name = "brown cowboy hat"
+	desc = "It's a brown cowboy hat with a flat top. Perfect for rounding out the gunslinger aesthetic."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "cowboyhat2"
+
+//hood
+
+/obj/item/clothing/head/winterhood/sandsuit
+	item_icons = URIST_ALL_ONMOBS
+	icon = 'icons/urist/items/clothes/head.dmi'
+	name = "leather hood"
+	desc = "A hood attached to a heavy leather protective suit."
+	icon_state = "sandsuit"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	flags_inv = HIDEEARS | BLOCKHAIR
+	min_cold_protection_temperature = 243.15
+	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+

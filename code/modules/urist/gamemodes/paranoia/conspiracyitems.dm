@@ -275,6 +275,7 @@
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
+	make_exact_fit()
 
 /obj/effect/landmark/intelspawn
 	icon_state = "x3"

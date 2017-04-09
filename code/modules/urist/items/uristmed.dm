@@ -31,9 +31,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 		/obj/item/device/healthanalyzer
 		)
 
-	New()
-		..()
-		icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
+/obj/item/weapon/storage/firstaid/rad/New()
+	..()
+	icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv
 	name = "advanced autoinjector"
@@ -41,6 +41,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "radinjector"
 	item_state = "autoinjector"
+	volume = 20
+	amount_per_transfer_from_this = 20
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv/New()
 	..()
@@ -56,11 +58,14 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "radinjector"
 	item_state = "autoinjector"
+	volume = 20
+	amount_per_transfer_from_this = 20
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/admin/New()
 	..()
 	reagents.add_reagent("adminordrazine", 5)
 	reagents.add_reagent("tramadol", 5)
+	reagents.add_reagent("dexalinp", 5)
 	update_icon()
 	return
 
