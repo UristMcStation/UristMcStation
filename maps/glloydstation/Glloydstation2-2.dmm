@@ -2316,7 +2316,7 @@
 "aSB" = (/obj/machinery/clonepod,/obj/effect/floor_decal/corner/green{dir = 9},/obj/effect/floor_decal/industrial/warning/cee{tag = "icon-warningcee (WEST)"; icon_state = "warningcee"; dir = 8},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
 "aSC" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6; icon_state = "intact"; tag = "icon-intact-f (SOUTHEAST)"},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
 "aSD" = (/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4; icon_state = "map"; tag = "icon-manifold-f (EAST)"},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
-"aSE" = (/obj/effect/floor_decal/corner/green{dir = 6},/obj/structure/table/standard,/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
+"aSE" = (/obj/effect/floor_decal/corner/green{dir = 6},/obj/structure/bed/roller,/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
 "aSF" = (/obj/effect/floor_decal/spline/plain{dir = 1},/turf/unsimulated/floor{icon_state = "white"},/area/centcom/scom)
 "aSG" = (/obj/effect/wingrille_spawn/reinforced/crescent,/turf/simulated/floor/airless,/area/shuttle/syndicate_elite/mothership)
 "aSH" = (/mob/living/simple_animal/hostile/creature{name = "Experiment 35b"},/turf/unsimulated/floor{tag = "icon-lava"; name = "plating"; icon_state = "lava"},/area/wizard_station)
