@@ -12,7 +12,7 @@
 /obj/structure/pit/attackby(obj/item/weapon/W, mob/user)
 	if( istype(W,/obj/item/weapon/shovel) )
 		if(punji)
-			user << "<span class='notice'>Remove the sharpened sticks before filling it up.</span>"
+			to_chat(user, "<span class='notice'>Remove the sharpened sticks before filling it up.</span>")
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
 		if( do_after(user, 50) )
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
@@ -21,11 +21,11 @@
 			else
 				open()
 		else
-			user << "<span class='notice'>You stop shoveling.</span>"
+			to_chat(user, "<span class='notice'>You stop shoveling.</span>")
 		return
 	if (!open && istype(W,/obj/item/stack/material/wood))
 		if(locate(/obj/structure/gravemarker) in src.loc)
-			user << "<span class='notice'>There's already a grave marker here.</span>"
+			to_chat(user, "<span class='notice'>There's already a grave marker here.</span>")
 		else
 			visible_message("<span class='notice'>\The [user] starts making a grave marker on top of \the [src]</span>")
 			if( do_after(user, 50) )
@@ -34,16 +34,17 @@
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
 			else
-				user << "<span class='notice'>You stop making a grave marker.</span>"
+				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return
-	if(istype(W,/obj/item/weapon/material/sharpwoodrod))
+	if(istype(W,/obj/item/weapon/sharpwoodrod))
 		if(open)
 			if(punji == 6)
+				to_chat(user, "<span class='notice'>There are too many sharpened sticks in there.</span>")
 				return
 			else
-				user << "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>"
+				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
+				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
 	..()
 
 /obj/structure/pit/update_icon()
@@ -56,23 +57,25 @@
 	if(punji)
 		if(istype(O, /mob/living/))
 			var/mob/living/M = O
-			M << "You step into the pit and hurt yourself on the sharpened sticks within!"
+			to_chat(M, "You step into the pit and hurt yourself on the sharpened sticks within!")
 			var/punjidamage = rand(2,5) //maximum damage of 30 with 6 sticks (this probably needs balancing)
 			punjidamage *= punji
-			M.apply_damage(punjidamage, BRUTE, sharp=1)
+			var/zone = pick(BP_R_LEG, BP_L_LEG, BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM)
+			M.apply_damage(punjidamage, BRUTE, zone, 0, DAM_SHARP)
 			M.Stun(punji) //stunned for more with more sticks. doesn't make a huge different, but w/e
 			M.Weaken(punji)
 
 
 /obj/structure/pit/attack_hand(var/mob/user as mob)
 	if(punji)
-		user << "You yank out one of the sharpened sticks from the pit."
+		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
+		new /obj/item/weapon/sharpwoodrod(src.loc)
+		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
 		punji -= 1
-		new /obj/item/weapon/material/sharpwoodrod(src.loc)
 
 /obj/structure/pit/examine()
 	if(punji)
-		usr << "[desc] There are [punji] sharpened sticks in the pit. Be careful."
+		to_chat(usr, "[desc] There are [punji] sharpened sticks in the pit. Be careful.")
 	else
 		..()
 
@@ -106,14 +109,14 @@
 		return
 
 //	escapee.setClickCooldown(100)
-	escapee << "<span class='warning'>You start digging your way out of \the [src] (this will take about [breakout_time] minute\s)</span>"
+	to_chat(escapee, "<span class='warning'>You start digging your way out of \the [src] (this will take about [breakout_time] minute\s)</span>")
 	visible_message("<span class='danger'>Something is scratching its way out of \the [src]!</span>")
 
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/weapons/bite.ogg', 100, 1)
 
 		if(!do_after(escapee, 50))
-			escapee << "<span class='warning'>You have stopped digging.</span>"
+			to_chat(escapee, "<span class='warning'>You have stopped digging.</span>")
 			return
 		if(!escapee || escapee.stat || escapee.loc != src)
 			return
@@ -121,9 +124,9 @@
 			return
 
 		if(i == 6*breakout_time)
-			escapee << "<span class='warning'>Halfway there...</span>"
+			to_chat(escapee, "<span class='warning'>Halfway there...</span>")
 
-	escapee << "<span class='warning'>You successfuly dig yourself out!</span>"
+	to_chat(escapee, "<span class='warning'>You successfuly dig yourself out!</span>")
 	visible_message("<span class='danger'>\the [escapee] emerges from \the [src]!</span>")
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
@@ -150,7 +153,7 @@
 	name = "grave"
 	icon_state = "pit0"
 
-/obj/structure/pit/closed/grave/initialize()
+/obj/structure/pit/closed/grave/random/initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
 	var/obj/item/remains/human/bones = new(C)
@@ -163,7 +166,7 @@
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
-		/obj/item/clothing/suit/poncho
+		/obj/item/clothing/suit/poncho/colored
 		)
 	loot = pick(suits)
 	new loot(C)
@@ -196,6 +199,22 @@
 
 	var/obj/structure/gravemarker/random/R = new(src.loc)
 	R.generate()
+	..()
+
+/obj/structure/pit/closed/grave/spaghettiwestern/initialize()
+	var/obj/structure/closet/coffin/C = new(src.loc)
+
+	var/obj/item/remains/human/bones = new(C)
+	bones.layer = MOB_LAYER
+
+	new /obj/item/clothing/head/urist/cowboy2(C)
+	new /obj/item/clothing/under/urist/cowboy(C)
+	new /obj/item/clothing/suit/urist/poncho(C)
+	new /obj/item/clothing/accessory/holster/hip(C)
+	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
+
+	var/obj/structure/gravemarker/cross/R = new(src.loc)
+	R.message = "Here lies a man who had no name. Died fighting for a fistful of dollars." //memes
 	..()
 
 /obj/structure/gravemarker

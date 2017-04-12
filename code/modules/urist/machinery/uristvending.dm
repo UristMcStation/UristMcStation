@@ -1,4 +1,4 @@
- /*										*****New space to put all UMcS Vending Machines*****
+/*										*****New space to put all UMcS Vending Machines*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/structures&machinery/machinery.dmi' -Glloyd													*/
 

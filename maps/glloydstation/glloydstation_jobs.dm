@@ -19,8 +19,8 @@
 	department = "Cargo"
 	department_flag = CIV
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 5
+	spawn_positions = 5
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#515151"
 	economic_modifier = 5
@@ -31,13 +31,19 @@
 		"Drill Technician" = /decl/hierarchy/outfit/job/cargo/mining,
 		"Prospector" = /decl/hierarchy/outfit/job/cargo/mining,
 		"Lumberjack" = /decl/hierarchy/outfit/job/cargo/mining/woodsman,
-		//"Hunter" = /decl/hierarchy/outfit/job/cargo/mining/woodsman
+		"Hunter" = /decl/hierarchy/outfit/job/cargo/mining/hunter,
 		"Carpenter" = /decl/hierarchy/outfit/job/cargo/mining/woodsman)
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining/tech
 
 /decl/hierarchy/outfit/job/cargo/mining/woodsman
 	name = OUTFIT_JOB_NAME("Carpenter")
 	uniform = /obj/item/clothing/under/urist/rank/carpenter
+	head = /obj/item/clothing/head/urist/toque
+
+/decl/hierarchy/outfit/job/cargo/mining/hunter
+	name = OUTFIT_JOB_NAME("Hunter")
+	uniform = /obj/item/clothing/under/urist/casual/suspenders
+	suit = /obj/item/clothing/suit/storage/urist/overalls/leather
 	head = /obj/item/clothing/head/urist/toque
 
 /decl/hierarchy/outfit/job/cargo/mining/tech

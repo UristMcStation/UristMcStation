@@ -1,4 +1,4 @@
- /*										*****New space to put all Urist Mcstation Vanity items*****
+/*										*****New space to put all Urist Mcstation Vanity items*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd*/
 

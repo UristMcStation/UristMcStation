@@ -1,4 +1,4 @@
-// /tg/ port
+//tg port
 
 /obj/item/weapon/airlock_painter
 	name = "airlock painter"

@@ -17,7 +17,7 @@
 		pass("All shuttles are named.")
 	return 1
 
-/datum/unit_test/shuttle/shuttles_shall_use_mapped_areas
+/*/datum/unit_test/shuttle/shuttles_shall_use_mapped_areas
 	name = "SHUTTLE - Shuttles shall use mapped areas"
 
 /datum/unit_test/shuttle/shuttles_shall_use_mapped_areas/start_test()
@@ -62,9 +62,9 @@
 	else
 		pass("All shuttles had proper areas.")
 
-	return 1
+	return 1*/
 
-/datum/unit_test/shuttle/shuttles_shall_use_equally_sized_areas
+/*/datum/unit_test/shuttle/shuttles_shall_use_equally_sized_areas
 	name = "SHUTTLE - Shuttles shall use equally sized areas"
 
 /datum/unit_test/shuttle/shuttles_shall_use_equally_sized_areas/start_test()
@@ -93,7 +93,7 @@
 	else
 		pass("All shuttles had proper area sizes.")
 
-	return 1
+	return 1*/
 
 /datum/unit_test/shuttle/shuttles_shall_use_unique_areas
 	name = "SHUTTLE - Shuttles shall use unique areas"

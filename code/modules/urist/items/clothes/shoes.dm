@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation Shoes and Boots!*****
+/*										*****New space to put all UristMcStation Shoes and Boots!*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/shoes.dmi' and on- mob
 icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothing/shoes/urist to avoid worrying about the sprites -Glloyd*/
@@ -26,6 +26,8 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	can_hold_knife = 1
+
 
 /obj/item/clothing/shoes/urist/leather/New()
 	..()

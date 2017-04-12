@@ -379,6 +379,7 @@
 	max_ammo = 5
 	multiple_sprites = 1
 	mag_type = SPEEDLOADER
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 
 /obj/item/ammo_magazine/a762mm/svt40mag
 	name = "SVT-40 magazine (7.62mm)"

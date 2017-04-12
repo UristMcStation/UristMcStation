@@ -372,12 +372,14 @@
 					/obj/item/weapon/light/tube/large = 4,
 					/obj/item/weapon/light/bulb = 5)
 
+/*
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of mixed glowsticks"
 	icon_state = "box"
 	startswith = list(/obj/item/device/flashlight/glowstick = 1, /obj/item/device/flashlight/glowstick/red = 1,
 					/obj/item/device/flashlight/glowstick/blue = 1, /obj/item/device/flashlight/glowstick/orange = 1,
 					/obj/item/device/flashlight/glowstick/yellow = 1, /obj/item/device/flashlight/glowstick/random = 1)
+*/
 
 /obj/item/weapon/storage/box/freezer
 	name = "portable freezer"

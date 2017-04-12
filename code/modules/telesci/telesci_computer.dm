@@ -48,18 +48,6 @@
 /obj/machinery/computer/telescience/proc/link_telepad()
 	telepad = locate() in range(src, 7)
 
-/obj/machinery/computer/telescience/update_icon()
-	if(stat & BROKEN)
-		icon_state = "telescib"
-	else
-		if(stat & NOPOWER)
-			src.icon_state = "teleport0"
-			stat |= NOPOWER
-		else
-			icon_state = initial(icon_state)
-			stat &= ~NOPOWER
-
-
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(crystals.len >= power_options.len)

@@ -12,10 +12,8 @@ env:
     - TEST=CODE
     - TEST=WEB
     - TEST=MAP MAP_PATH=example
-    - TEST=MAP MAP_PATH=exodus
-    - TEST=MAP MAP_PATH=torch
+    - TEST=MAP MAP_PATH=glloydstation
     - TEST=MAP MAP_PATH=overmap_example
-    - MAP_PATH=glloydstation
 
 cache:
   directories:

@@ -26,7 +26,7 @@
 	fire_sound = 'sound/weapons/pulse.ogg'
 	charge_cost = 150
 	projectile_type = /obj/item/projectile/beam/pulse/light
-	cell_type = "/obj/item/weapon/cell/super"
+	cell_type = /obj/item/weapon/cell/super
 	w_class = 2.0
 
 	firemodes = list(
@@ -47,7 +47,7 @@
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
-	cell_type = "/obj/item/weapon/cell/super"
+	cell_type = /obj/item/weapon/cell/super
 	w_class = 4.0
 	one_hand_penalty = 8
 
@@ -84,7 +84,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
 	caliber = "a762"
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -118,7 +118,7 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = /obj/item/ammo_casing/a762
 	mag_type = MAGAZINE
 	caliber = "a762"
 
@@ -127,7 +127,7 @@
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	max_ammo = 10
 	mag_type = MAGAZINE
 	multiple_sprites = 1
@@ -137,7 +137,7 @@
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = "/obj/item/ammo_casing/a762/sniper"
+	ammo_type = /obj/item/ammo_casing/a762/sniper
 	mag_type = MAGAZINE
 	initial_ammo = 0
 
@@ -188,7 +188,7 @@
 		new /obj/item/ammo_magazine/a762mm(src)
 		new /obj/item/ammo_magazine/a762mm(src)
 
-/obj/item/weapon/storage/box/lmgammo
+/obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 

@@ -4,11 +4,13 @@
 	name = "DO NOT USE THIS, THIS IS ONLY AN OVERLAY!"
 	icon = 'icons/urist/weather.dmi'
 	icon_state = ""
+	appearance_flags = RESET_COLOR | RESET_ALPHA
 	color = null
 	alpha = 255
 	mouse_opacity = 0
 	anchored = 1
-	layer = 9 //so it's at the tree level
+	layer = EFFECTS_LAYER
+	plane = WEATHER_PLANE
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
@@ -125,12 +127,12 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 
 /* direct damage weathers */
 /obj/weathertype/sandstorm
-	icon = 'icons/urist/96x96.dmi'
+	//icon = 'icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32
 	color = "#fff0c9"
-	alpha = 128
+	alpha = 175
 
 /obj/weathertype/sandstorm/GetWeatherEffect(var/turf/T)
 	..(T)
@@ -153,12 +155,12 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = null
 
 /obj/weathertype/fog
-	icon = 'icons/urist/96x96.dmi'
+	//icon = 'icons/urist/96x96.dmi'
 	icon_state = "fog"
 	pixel_x = -32
 	pixel_y = -32
 	color = "#ffffff"
-	alpha = 128
+	alpha = 200
 
 /* error indicator weather, abuss at own peril */
 /obj/weathertype/error

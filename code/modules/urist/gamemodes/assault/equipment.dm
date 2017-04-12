@@ -244,7 +244,7 @@
 	spawn(35)
 		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 
-/obj/item/weapon/storage/box/mines
+/obj/item/weapon/storage/box/large/mines
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"

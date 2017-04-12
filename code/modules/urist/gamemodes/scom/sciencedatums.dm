@@ -65,7 +65,7 @@
 
 /datum/scomscience/recipe/l6sawammo
 	name = "light machine gun ammo"
-	path = /obj/item/weapon/storage/box/lmgammo
+	path = /obj/item/weapon/storage/box/large/lmgammo
 	category = "Heavy"
 	resources = 100
 
