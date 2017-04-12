@@ -110,7 +110,7 @@
 	shoes = /obj/item/clothing/shoes/clown_shoes
 	backpack_contents = list(/obj/item/weapon/reagent_containers/food/snacks/grown/banana = 1, /obj/item/weapon/bikehorn = 1,
 		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
-		/obj/item/toy/waterflower = 1)
+		/obj/item/weapon/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/weapon/storage/backpack/clown
 	pda_type = /obj/item/device/pda/clown
 	id_type = /obj/item/weapon/card/id/civilian/clown

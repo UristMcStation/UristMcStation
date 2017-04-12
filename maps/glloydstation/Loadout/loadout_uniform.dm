@@ -133,7 +133,7 @@
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
-	path = /obj/item/clothing/under/pants/white
+	path = /obj/item/clothing/under/formal_pants
 
 /datum/gear/uniform/pants/New()
 	..()

@@ -56,7 +56,7 @@
 	icon_state = "kar98"
 	item_state = "rifle2"
 	w_class = 5
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
 	caliber = "7.92x57mm"
@@ -103,7 +103,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a792x57mm/g43mag
 	allowed_magazines = list(/obj/item/ammo_magazine/a792x57mm/g43mag,/obj/item/ammo_magazine/a792x57mm/stripper)
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
@@ -137,14 +137,14 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a792x33mm
 	allowed_magazines = list(/obj/item/ammo_magazine/a792x33mm)
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, requires_two_hands = 5, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, one_hand_penalty = 5, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/stg44/update_icon()
@@ -189,11 +189,11 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/mp40
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/mp40)
-	requires_two_hands = 1
+	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
-		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/mp40/update_icon()
@@ -258,14 +258,14 @@
 	max_shells = 250
 	magazine_type = /obj/item/ammo_magazine/a792x57mm/mg42
 	allowed_magazines = list(/obj/item/ammo_magazine/a792x57mm/mg42)
-	requires_two_hands = 6
+	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
 	caliber = "7.92x57mm"
 	load_method = MAGAZINE
 	slot_flags = SLOT_BACK
 	firemodes = list(
-		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/mg42/update_icon()
@@ -361,7 +361,7 @@
 	icon_state = "mosin"
 	item_state = "rifle2" //maybe change this
 	w_class = 5
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
 	caliber = "a762"
@@ -402,7 +402,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/svt40mag
 	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/svt40mag)
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
@@ -428,14 +428,14 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/barmag
 	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/barmag)
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, requires_two_hands = 4, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, requires_two_hands = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/bar/update_icon()
@@ -469,11 +469,11 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm/ppsh
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/ppsh)
-	requires_two_hands = 1
+	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
-		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, requires_two_hands = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, requires_two_hands = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=4, fire_delay=null, move_delay=6, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/ppsh/update_icon()
@@ -563,11 +563,11 @@
 	magazine_type = /obj/item/ammo_magazine/a762mm/degtyaryov
 	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/degtyaryov)
 	wielded_item_state = "genericLMG-wielded"
-	requires_two_hands = 6
+	one_hand_penalty = 6
 	max_shells = 60
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=12, requires_two_hands=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, move_delay=15, requires_two_hands=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="short bursts",	burst=5, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
 /obj/item/weapon/gun/projectile/automatic/degtyaryov/update_icon()
