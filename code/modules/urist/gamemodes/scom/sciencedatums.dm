@@ -209,7 +209,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medicarmort2
 	name = "advanced medic armour"
-	path = /obj/item/weapon/rig/medical
+	path = /obj/item/weapon/rig/medical/equipped
 	category = "Medic"
 	scomtechlvl = 3
 	hidden = 1
