@@ -438,3 +438,9 @@
 	w_class = 4
 	matter = list("wood" = 600)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
+
+/obj/item/device/radio/medical
+	name = "emergency medical radio"
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "medradio"
+	frequency = MED_I_FREQ

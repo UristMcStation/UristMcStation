@@ -32,7 +32,6 @@
 		/area/maintenance/foresolar = NO_SCRUBBER,
 		/area/maintenance/portsolar = NO_SCRUBBER,
 		/area/maintenance/starboardsolar = NO_SCRUBBER,
-		/area/medical/cryo = NO_SCRUBBER|NO_VENT,
 		/area/mine/explored = NO_SCRUBBER|NO_VENT,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/outpost/abandoned = NO_SCRUBBER|NO_VENT|NO_APC,
