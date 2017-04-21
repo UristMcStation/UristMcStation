@@ -1166,7 +1166,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "poncho"
 	desc = "A simple poncho, the kind that could've been worn by a gunslinger in the Wild West."
 	icon_state = "poncho"
-	item_state = "poncho"	item_state = "facebook"
+	item_state = "poncho"
 
 /* Bay restores */
 /obj/item/clothing/accessory/armband/science
