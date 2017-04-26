@@ -564,6 +564,11 @@
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
+/area/medical/medbay2
+	name = "\improper Medbay Hallway - Starboard"
+	icon_state = "medbay2"
+	ambience = list('sound/ambience/signal.ogg')
+
 /area/medical/reception
 	name = "\improper Medbay Reception"
 	icon_state = "medbay"
@@ -591,6 +596,10 @@
 
 /area/medical/surgeryprep
 	name = "\improper Pre-Op Prep Room"
+	icon_state = "surgery"
+
+/area/medical/surgery2
+	name = "\improper Operating Theatre 2"
 	icon_state = "surgery"
 
 /area/medical/cryo
