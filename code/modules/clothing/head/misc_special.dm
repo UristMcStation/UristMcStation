@@ -32,8 +32,6 @@
 	tint = TINT_HEAVY
 
 /obj/item/clothing/head/welding/attack_self()
-	if(!base_state)
-		base_state = icon_state
 	toggle()
 
 
@@ -41,6 +39,9 @@
 	set category = "Object"
 	set name = "Adjust welding mask"
 	set src in usr
+
+	if(!base_state)
+		base_state = icon_state
 
 	if(usr.canmove && !usr.stat && !usr.restrained())
 		if(src.up)
