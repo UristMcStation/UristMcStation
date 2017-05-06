@@ -126,4 +126,5 @@
 			src.icon_state = src.icon_locked
 			src.registered_name = null
 			src.desc = "It's a secure locker for personnel. The first card swiped gains control."
+			src.name = "personal closet"
 	return
