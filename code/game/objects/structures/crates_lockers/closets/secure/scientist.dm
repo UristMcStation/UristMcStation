@@ -1,5 +1,6 @@
 /obj/structure/closet/secure_closet/scientist
 	name = "scientist's locker"
+	icon = 'icons/urist/restored/closet.dmi'
 	req_one_access = list(access_tox,access_tox_storage)
 	icon_state = "secureres1"
 	icon_closed = "secureres"
@@ -25,6 +26,7 @@
 
 /obj/structure/closet/secure_closet/xenobio
 	name = "xenobiologist's locker"
+	icon = 'icons/urist/restored/closet.dmi'
 	req_access = list(access_xenobiology)
 	icon_state = "secureres1"
 	icon_closed = "secureres"
@@ -53,6 +55,7 @@
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
+	icon = 'icons/urist/restored/closet.dmi'
 	req_access = list(access_rd)
 	icon_state = "rdsecure1"
 	icon_closed = "rdsecure"
@@ -77,7 +80,6 @@
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/clipboard(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat/rd(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"

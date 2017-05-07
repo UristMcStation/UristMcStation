@@ -27,11 +27,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/scientist
-	name = "\improper NanoTrasen smock and pants"
-	desc = "A fashionable tunic and pair of trousers made from patented biohazard-resistant synthetic fabrics. The colors denote the wearer as a member of NanoTrasen."
-	icon_state = "ntsmock"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
+	name = "scientist's jumpsuit"
+	icon_state = "science"
 	item_state = "w_suit"
-	worn_state = "ntsmock"
+	worn_state = "sciencewhite"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 

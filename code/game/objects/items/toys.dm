@@ -571,6 +571,7 @@
 
 /obj/item/toy/figure/miner
 	name = "Shaft Miner action figure"
+	icon = 'icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Shaft Miner action figure."
 	icon_state = "miner"
 
@@ -586,6 +587,7 @@
 
 /obj/item/toy/figure/rd
 	name = "Research Director action figure"
+	icon = 'icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Research Director action figure."
 	icon_state = "rd"
 
@@ -596,6 +598,7 @@
 
 /obj/item/toy/figure/scientist
 	name = "Scientist action figure"
+	icon = 'icons/urist/restored/toy.dmi'
 	desc = "A \"Space Life\" brand Scientist action figure."
 	icon_state = "scientist"
 

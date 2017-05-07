@@ -20,7 +20,6 @@
 		/obj/item/clothing/under/rank/research_director/dress_rd,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/suit/storage/toggle/labcoat/science,
-		/obj/item/clothing/suit/storage/toggle/labcoat/rd,
 		/obj/item/weapon/cartridge/rd,
 		/obj/item/clothing/shoes/white,
 		/obj/item/clothing/gloves/latex,

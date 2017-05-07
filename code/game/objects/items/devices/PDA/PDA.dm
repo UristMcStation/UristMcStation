@@ -98,6 +98,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ttone = "slip"
 
 /obj/item/device/pda/science
+	icon = 'icons/urist/restored/pda.dmi'
 	default_cartridge = /obj/item/weapon/cartridge/signal/science
 	icon_state = "pda-tox"
 	ttone = "boom"
