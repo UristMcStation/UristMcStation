@@ -1,4 +1,4 @@
- /*										*****New space to put all Urist Mcstation Vanity items*****
+/*										*****New space to put all Urist Mcstation Vanity items*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. -Glloyd*/
 
@@ -56,7 +56,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //nanotrasen shiiiiit for the nt vending machine
 
 /obj/item/weapon/crowbar/nanotrasen //nt crowbar
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Nanotrasen crowbar"
 	desc = "A crowbar in the Nanotrasen colours."
 	icon = 'icons/urist/items/tools.dmi'
@@ -98,15 +98,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
+	can_hold = list("/obj/item/clothing/mask/smokable/cigarette")
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 //watches
 
 /obj/item/clothing/accessory/watch
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/ties.dmi'
-	icon_override = 'icons/uristmob/ties.dmi'
 
 /obj/item/clothing/accessory/watch/wrist
 	name = "wrist watch"
@@ -144,7 +143,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/vanity/doll
 	icon = 'icons/urist/items/misc.dmi'
 	w_class = 2
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 
 /obj/item/weapon/vanity/doll/unathi/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] hugs [src], [src] hisses! How cute! </span>",\

@@ -26,9 +26,11 @@ var/list/holder_mob_icon_cache = list()
 	processing_objects.Add(src)
 
 /obj/item/weapon/holder/Destroy()
+	for(var/atom/movable/AM in src)
+		AM.forceMove(get_turf(src))
 	last_holder = null
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 /obj/item/weapon/holder/process()
 	update_state()
@@ -54,13 +56,13 @@ var/list/holder_mob_icon_cache = list()
 			register_all_movement(loc, M)
 
 	last_holder = loc
-	
+
 /obj/item/weapon/holder/onDropInto(var/atom/movable/AM)
 	if(ismob(loc))   // Bypass our holding mob and drop directly to its loc
 		return loc.loc
 	return ..()
 
-/obj/item/weapon/holder/GetID()
+/obj/item/weapon/holder/GetIdCard()
 	for(var/mob/M in contents)
 		var/obj/item/I = M.GetIdCard()
 		if(I)
@@ -68,18 +70,18 @@ var/list/holder_mob_icon_cache = list()
 	return null
 
 /obj/item/weapon/holder/GetAccess()
-	var/obj/item/I = GetID()
+	var/obj/item/I = GetIdCard()
 	return I ? I.GetAccess() : ..()
 
 /obj/item/weapon/holder/attack_self()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
-		
+
 /obj/item/weapon/holder/attack(mob/target, mob/user)
 	// Devour on click on self with holder
 	if(target == user && istype(user,/mob/living/carbon))
 		var/mob/living/carbon/M = user
-		
+
 		for(var/mob/victim in src.contents)
 			M.devour(victim)
 
@@ -112,7 +114,7 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 
 /obj/item/weapon/holder/mouse
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 
 /obj/item/weapon/holder/borer
 	origin_tech = list(TECH_BIO = 6)
@@ -124,7 +126,7 @@ var/list/holder_mob_icon_cache = list()
 //Mob procs and vars for scooping up
 /mob/living/var/holder_type
 
-/mob/living/proc/get_scooped(var/mob/living/carbon/grabber, var/self_grab)
+/mob/living/proc/get_scooped(var/mob/living/carbon/human/grabber, var/self_grab)
 
 	if(!holder_type || buckled || pinned.len)
 		return
@@ -138,24 +140,38 @@ var/list/holder_mob_icon_cache = list()
 
 	if(self_grab)
 		if(!grabber.equip_to_slot_if_possible(H, slot_back, del_on_fail=0, disable_warning=1))
-			src << "<span class='warning'>You can't climb onto [grabber]!</span>"
+			to_chat(src, "<span class='warning'>You can't climb onto [grabber]!</span>")
 			return
 
-		grabber << "<span class='notice'>\The [src] clambers onto you!</span>"
-		src << "<span class='notice'>You climb up onto \the [grabber]!</span>"
+		to_chat(grabber, "<span class='notice'>\The [src] clambers onto you!</span>")
+		to_chat(src, "<span class='notice'>You climb up onto \the [grabber]!</span>")
 	else
 		if(!grabber.put_in_hands(H))
-			grabber << "<span class='warning'>Your hands are full!</span>"
+			to_chat(grabber, "<span class='warning'>Your hands are full!</span>")
 			return
 
-		grabber << "<span class='notice'>You scoop up \the [src]!</span>"
-		src << "<span class='notice'>\The [grabber] scoops you up!</span>"
+		to_chat(grabber, "<span class='notice'>You scoop up \the [src]!</span>")
+		to_chat(src, "<span class='notice'>\The [grabber] scoops you up!</span>")
 
 	src.forceMove(H)
 
 	grabber.status_flags |= PASSEMOTES
 	H.sync(src)
 	return H
+
+/mob/living/MouseDrop(var/mob/living/carbon/human/over_object)
+	if(istype(over_object) && Adjacent(over_object) && (usr == src || usr == over_object) && over_object.a_intent == I_HELP)
+		if(!scoop_check(over_object))
+			return
+		get_scooped(over_object, (usr == src))
+		return
+	return ..()
+
+/mob/living/proc/scoop_check(var/mob/living/scooper)
+	return 1
+
+/mob/living/carbon/human/scoop_check(var/mob/living/scooper)
+	return (scooper.mob_size > src.mob_size && a_intent == I_HELP)
 
 /obj/item/weapon/holder/human
 	icon = 'icons/mob/holder_complex.dmi'
@@ -170,7 +186,7 @@ var/list/holder_mob_icon_cache = list()
 		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
 		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
 		var/eye_colour =  rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
-		var/species_name = lowertext(owner.species.get_bodytype())
+		var/species_name = lowertext(owner.species.get_bodytype(owner))
 
 		for(var/cache_entry in generate_for_slots)
 			var/cache_key = "[owner.species]-[cache_entry]-[skin_colour]-[hair_colour]"

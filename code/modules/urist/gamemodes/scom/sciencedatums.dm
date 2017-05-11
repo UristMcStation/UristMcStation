@@ -65,7 +65,7 @@
 
 /datum/scomscience/recipe/l6sawammo
 	name = "light machine gun ammo"
-	path = /obj/item/weapon/storage/box/lmgammo
+	path = /obj/item/weapon/storage/box/large/lmgammo
 	category = "Heavy"
 	resources = 100
 
@@ -88,6 +88,12 @@
 	path = /obj/item/weapon/storage/firstaid/adv
 	category = "Medic"
 	resources = 100
+
+/datum/scomscience/recipe/combatdefib
+	name = "combat defibrillator"
+	path = /obj/item/weapon/defibrillator/compact/combat/loaded
+	category = "Medic"
+	resources = 400
 
 //general
 
@@ -203,7 +209,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medicarmort2
 	name = "advanced medic armour"
-	path = /obj/item/weapon/rig/medical
+	path = /obj/item/weapon/rig/medical/equipped
 	category = "Medic"
 	scomtechlvl = 3
 	hidden = 1

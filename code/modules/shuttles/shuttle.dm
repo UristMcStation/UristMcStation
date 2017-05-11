@@ -15,8 +15,12 @@
 	var/flags = SHUTTLE_FLAGS_PROCESS
 	var/category = /datum/shuttle
 
-/datum/shuttle/New()
+	var/ceiling_type = /turf/unsimulated/floor/shuttle_ceiling
+
+/datum/shuttle/New(_name)
 	..()
+	if(_name)
+		src.name = _name
 	if(src.name in shuttle_controller.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	shuttle_controller.shuttles[src.name] = src
@@ -54,7 +58,8 @@
 		moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
-	//world << "shuttle/long_jump: departing=[departing], destination=[destination], interim=[interim], travel_time=[travel_time]"
+//	log_debug("shuttle/long_jump: departing=[departing], destination=[destination], interim=[interim], travel_time=[travel_time]")
+
 	if(moving_status != SHUTTLE_IDLE) return
 
 	//it would be cool to play a sound here
@@ -102,13 +107,13 @@
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump() or long_jump()
 /datum/shuttle/proc/move(var/area/origin, var/area/destination, var/direction=null)
 
-	//world << "move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination]."
-
-	//world << "area_coming_from: [origin]"
-	//world << "destination: [destination]"
+//	log_debug("move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination].")
+//	log_degug("area_coming_from: [origin]")
+//	log_debug("destination: [destination]")
 
 	if(origin == destination)
-		//world << "cancelling move, shuttle will overlap."
+//		log_debug("cancelling move, shuttle will overlap.")
+
 		return
 
 	if (docking_controller && !docking_controller.undocked())
@@ -128,22 +133,37 @@
 			if(AM.simulated)
 				AM.Move(D)
 
-	var/turf/T
 	for(var/mob/living/bug in destination)
-		T = get_turf(bug)
+		var/turf/T = get_turf(bug)
 		if(!T || T.is_solid_structure())
 			bug.gib()
 
+	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
+	var/turf/some_dest_turf = locate() in destination
+	if (HasAbove(some_dest_turf.z))
+		for (var/turf/TD in dstturfs)
+			var/turf/TA = GetAbove(TD)
+			if (TA && istype(TA, get_base_turf_by_area(TA)))
+				TA.ChangeTurf(ceiling_type, 1, 1)
+
 	origin.move_contents_to(destination, direction=direction)
+
+	// if there was a zlevel above our origin, erase our ceiling now we're gone
+	var/turf/some_origin_turf = locate() in origin
+	if (HasAbove(some_origin_turf.z))
+		for (var/turf/TO in origin)
+			var/turf/TA = GetAbove(TO)
+			if (TA && istype(TA, ceiling_type))
+				TA.ChangeTurf(get_base_turf_by_area(TA), 1, 1)
 
 	for(var/mob/M in destination)
 		if(M.client)
 			spawn(0)
 				if(M.buckled)
-					M << "\red Sudden acceleration presses you into your chair!"
+					to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
 					shake_camera(M, 3, 1)
 				else
-					M << "\red The floor lurches beneath you!"
+					to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
 					shake_camera(M, 10, 1)
 		if(istype(M, /mob/living/carbon))
 			if(!M.buckled)

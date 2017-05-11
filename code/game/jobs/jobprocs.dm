@@ -1,4 +1,5 @@
-
+/mob/living/carbon/human
+	var/miming = 0
 
 //TODO: put these somewhere else
 /client/proc/mimewall()

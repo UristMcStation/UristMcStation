@@ -1,4 +1,9 @@
+#define WEATHER_PLANE ABOVE_HUMAN_PLANE+3
+
 var/datum/controller/process/weather/weatherProcess
+
+/* fuck it, let's store that in a global until the controller wakes the fuck up for now */
+/var/global/list/pending_weathers = list()
 
 //weather controller - handles weather changes
 /datum/controller/process/weather
@@ -122,6 +127,7 @@ var/datum/controller/process/weather/weatherProcess
 				else if(ispath(j))
 					world.log << "Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!"
 			WTu.update_weather_icon()
+			SCHECK
 
 
 /datum/controller/process/weather/proc/inflict_effects()

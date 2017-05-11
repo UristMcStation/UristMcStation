@@ -30,9 +30,9 @@
 // Vox space gear (vaccuum suit, low pressure armour)
 // Can't be equipped by any other species due to bone structure and vox cybernetics.
 /obj/item/clothing/suit/space/vox
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(melee = 60, bullet = 50, laser = 40,energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.6
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -43,7 +43,7 @@
 	slowdown_per_slot[slot_wear_suit] = 2
 
 /obj/item/clothing/head/helmet/space/vox
-	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(melee = 60, bullet = 50, laser = 40, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.6
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = 0
@@ -130,21 +130,21 @@
 		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
-		user << "You relax your deathgrip on the flooring."
+		to_chat(user, "You relax your deathgrip on the flooring.")
 	else
 		//make sure these can only be used when equipped.
 		if(!ishuman(user))
 			return
 		var/mob/living/carbon/human/H = user
 		if (H.shoes != src)
-			user << "You will have to put on the [src] before you can do that."
+			to_chat(user, "You will have to put on the [src] before you can do that.")
 			return
 
 		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
-		user << "You dig your claws deeply into the flooring, bracing yourself."
-		user << "It would be hard to take off the [src] without relaxing your grip first."
+		to_chat(user, "You dig your claws deeply into the flooring, bracing yourself.")
+		to_chat(user, "It would be hard to take off the [src] without relaxing your grip first.")
 	user.update_action_buttons()
 
 //In case they somehow come off while enabled.
@@ -157,6 +157,7 @@
 		canremove = 1
 
 /obj/item/clothing/shoes/magboots/vox/examine(mob/user)
-	..(user)
+	. = ..(user)
 	if (magpulse)
-		user << "It would be hard to take these off without relaxing your grip first." //theoretically this message should only be seen by the wearer when the claws are equipped.
+		to_chat(user, "It would be hard to take these off without relaxing your grip first.")//theoretically this message should only be seen by the wearer when the claws are equipped.
+

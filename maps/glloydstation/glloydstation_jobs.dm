@@ -19,8 +19,8 @@
 	department = "Cargo"
 	department_flag = CIV
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 5
+	spawn_positions = 5
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#515151"
 	economic_modifier = 5
@@ -31,13 +31,19 @@
 		"Drill Technician" = /decl/hierarchy/outfit/job/cargo/mining,
 		"Prospector" = /decl/hierarchy/outfit/job/cargo/mining,
 		"Lumberjack" = /decl/hierarchy/outfit/job/cargo/mining/woodsman,
-		//"Hunter" = /decl/hierarchy/outfit/job/cargo/mining/woodsman
+		"Hunter" = /decl/hierarchy/outfit/job/cargo/mining/hunter,
 		"Carpenter" = /decl/hierarchy/outfit/job/cargo/mining/woodsman)
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining/tech
 
 /decl/hierarchy/outfit/job/cargo/mining/woodsman
 	name = OUTFIT_JOB_NAME("Carpenter")
 	uniform = /obj/item/clothing/under/urist/rank/carpenter
+	head = /obj/item/clothing/head/urist/toque
+
+/decl/hierarchy/outfit/job/cargo/mining/hunter
+	name = OUTFIT_JOB_NAME("Hunter")
+	uniform = /obj/item/clothing/under/urist/casual/suspenders
+	suit = /obj/item/clothing/suit/storage/urist/overalls/leather
 	head = /obj/item/clothing/head/urist/toque
 
 /decl/hierarchy/outfit/job/cargo/mining/tech
@@ -152,7 +158,35 @@
 	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
+//Mostly lifted from torch, tested lightly. Don't uncomment until the docking issues with the shuttle is fixed.
+/*
+/datum/job/trader
+	title = "Trader"
+	department = "Civilian"
+	department_flag = CIV
+	faction = "Station"
+	total_positions = 0 //to be opened by admins when desired AT ROUNDSTART ONLY
+	spawn_positions = 2
+	supervisors = "the invisible hand of the market"
+	selection_color = "#515151"
+	ideal_character_age = 30
+	minimal_player_age = 7
+	create_record = 0
+	outfit_type = /decl/hierarchy/outfit/job/trader
 
+	access = list(access_merchant)
+	minimal_access = list(access_merchant)
+
+/decl/hierarchy/outfit/job/trader
+	name = OUTFIT_JOB_NAME("Trader")
+	uniform = /obj/item/clothing/under/terran/trader
+	suit = /obj/item/clothing/suit/terran/trader
+	head = /obj/item/clothing/head/terran/trader
+	l_ear = /obj/item/device/radio/headset
+	shoes = /obj/item/clothing/shoes/black
+	pda_type = /obj/item/device/pda
+	id_type = /obj/item/weapon/card/id/trader
+*/
 //ids for the jobs
 
 /obj/item/weapon/card/id/civilian/clown
@@ -172,3 +206,10 @@
 	desc = "A card issued to the station's blueshield."
 	icon_state = "centcom"
 	job_access_type = /datum/job/blueshield
+/*
+/obj/item/weapon/card/id/trader
+	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
+	icon_state = "trader"
+	job_access_type = /datum/job/trader
+*/
+

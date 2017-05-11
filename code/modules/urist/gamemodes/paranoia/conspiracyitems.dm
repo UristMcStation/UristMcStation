@@ -165,7 +165,7 @@
 /obj/item/device/inteluplink/update_icon()
 	overlays.Cut()
 	if(open)
-		icon_state = "adv-laptop"
+		icon_state = "laptop"
 		light_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
@@ -239,8 +239,7 @@
 	name = "executive suit"
 	desc = "REGULAR HUMAN suit. Nothing to see here, fellow human."
 	item_state = "jensensuit"
-	urist_only = 1
-	icon_override = 'icons/uristmob/clothes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "fleshsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|FEET|HANDS
@@ -276,7 +275,7 @@
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
 	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
-	make_exact_fit() //oversized box I guess
+	make_exact_fit()
 
 /obj/effect/landmark/intelspawn
 	icon_state = "x3"

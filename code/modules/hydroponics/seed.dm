@@ -113,7 +113,7 @@
 		return
 
 
-	if(!target_limb) target_limb = pick("l_foot","r_foot","l_leg","r_leg","l_hand","r_hand","l_arm", "r_arm","head","chest","groin")
+	if(!target_limb) target_limb = pick(BP_ALL_LIMBS)
 	var/blocked = target.run_armor_check(target_limb, "melee")
 	if(blocked >= 100)
 		return
@@ -123,20 +123,21 @@
 	var/has_edge = 0
 	if(get_trait(TRAIT_CARNIVOROUS) >= 2)
 		if(affecting)
-			target << "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>"
+			to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>")
 		else
-			target << "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>"
+			to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>")
 		damage = max(5, round(15*get_trait(TRAIT_POTENCY)/100, 1))
 		has_edge = prob(get_trait(TRAIT_POTENCY)/2)
 	else
 		if(affecting)
-			target << "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>"
+			to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>")
 		else
-			target << "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>"
+			to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>")
 		damage = max(1, round(5*get_trait(TRAIT_POTENCY)/100, 1))
 		has_edge = prob(get_trait(TRAIT_POTENCY)/5)
 
-	target.apply_damage(damage, BRUTE, target_limb, blocked, "Thorns", sharp=1, edge=has_edge)
+	var/damage_flags = DAM_SHARP|(has_edge? DAM_EDGE : 0)
+	target.apply_damage(damage, BRUTE, target_limb, blocked, "Thorns", damage_flags)
 
 // Adds reagents to a target.
 /datum/seed/proc/do_sting(var/mob/living/carbon/human/target, var/obj/item/fruit)
@@ -153,7 +154,7 @@
 
 		if(!body_coverage)
 			return
-		target << "<span class='danger'>You are stung by \the [fruit]!</span>"
+		to_chat(target, "<span class='danger'>You are stung by \the [fruit]!</span>")
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
@@ -675,10 +676,9 @@
 		return
 
 	if(!force_amount && get_trait(TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) user << "<span class='danger'>You fail to harvest anything useful.</span>"
+		if(istype(user)) to_chat(user, "<span class='danger'>You fail to harvest anything useful.</span>")
 	else
-		if(istype(user)) user << "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name]."
-
+		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 		//This may be a new line. Update the global if it is.
 		if(name == "new line" || !(name in plant_controller.seeds))
 			uid = plant_controller.seeds.len + 1

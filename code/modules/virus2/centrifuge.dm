@@ -1,6 +1,6 @@
 /obj/machinery/computer/centrifuge
 	name = "isolation centrifuge"
-	desc = "Used to separate things with different weight. Spin 'em round, round, right round."
+	desc = "Used to separate things with different weights. Spin 'em round, round, right round."
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "centrifuge"
 	var/curing
@@ -15,7 +15,7 @@
 
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
 		if(sample)
-			user << "\The [src] is already loaded."
+			to_chat(user, "\The [src] is already loaded.")
 			return
 
 		sample = O

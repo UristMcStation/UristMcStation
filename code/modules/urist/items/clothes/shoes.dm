@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation Shoes and Boots!*****
+/*										*****New space to put all UristMcStation Shoes and Boots!*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/shoes.dmi' and on- mob
 icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothing/shoes/urist to avoid worrying about the sprites -Glloyd*/
@@ -6,8 +6,7 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 //generic define
 
 /obj/item/clothing/shoes/urist
-	urist_only = 1
-	icon_override = 'icons/uristmob/shoes.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/shoes.dmi'
 
 //obviously the guy who made the equipment for engineers never worked a blue collar job in his life. The engineers
@@ -18,7 +17,7 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	name = "leather boots"
 	icon_state = "leather"
 	permeability_coefficient = 0.05
-	flags = NOSLIP
+	item_flags = NOSLIP
 	species_restricted = null
 	siemens_coefficient = 0.6
 	armor = list(melee = 50, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 10, rad = 0)
@@ -27,6 +26,8 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+	can_hold_knife = 1
+
 
 /obj/item/clothing/shoes/urist/leather/New()
 	..()

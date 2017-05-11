@@ -31,11 +31,11 @@
 	containername = "\improper Stok crate"
 
 /decl/hierarchy/supply_pack/hydroponics/lisa
-	name = "Corgi Crate"
+	name = "Corgi crate"
 	contains = list()
 	cost = 50
 	containertype = /obj/structure/largecrate/animal/corgi
-	containername = "\improper Corgi Crate"
+	containername = "\improper Corgi crate"
 
 /decl/hierarchy/supply_pack/hydroponics/hydroponics // -- Skie
 	name = "Hydroponics Supply Crate"
@@ -57,23 +57,39 @@
 //farm animals - useless and annoying, but potentially a good source of food
 /decl/hierarchy/supply_pack/hydroponics/cow
 	name = "Cow crate"
-	cost = 30
+	cost = 80
 	containertype = /obj/structure/largecrate/animal/cow
 	containername = "\improper Cow crate"
 	access = access_hydroponics
 
 /decl/hierarchy/supply_pack/hydroponics/goat
 	name = "Goat crate"
-	cost = 25
+	cost = 75
 	containertype = /obj/structure/largecrate/animal/goat
 	containername = "\improper Goat crate"
 	access = access_hydroponics
 
 /decl/hierarchy/supply_pack/hydroponics/chicken
 	name = "Chicken crate"
-	cost = 20
+	cost = 70
 	containertype = /obj/structure/largecrate/animal/chick
 	containername = "\improper Chicken crate"
+	access = access_hydroponics
+
+/decl/hierarchy/supply_pack/hydroponics/hydroponics // -- Skie
+	name = "Hydroponics Supply Crate"
+	contains = list(/obj/item/weapon/reagent_containers/spray/plantbgone = 4,
+					/obj/item/weapon/reagent_containers/glass/bottle/ammonia = 2,
+					/obj/item/weapon/material/hatchet,
+					/obj/item/weapon/material/minihoe,
+					/obj/item/device/analyzer/plant_analyzer,
+					/obj/item/clothing/gloves/thick/botany,
+					/obj/item/clothing/suit/apron,
+					/obj/item/weapon/material/minihoe,
+					/obj/item/weapon/storage/box/botanydisk
+					)
+	cost = 15
+	containername = "\improper Hydroponics crate"
 	access = access_hydroponics
 
 /decl/hierarchy/supply_pack/hydroponics/seeds

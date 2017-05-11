@@ -1,7 +1,7 @@
 //we're using pre-existing stuff for the most part, but here's some stuff to complete the three tiers
 
 /obj/item/weapon/gun/energy/sniperrifle/pulse
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
 	icon = 'icons/urist/items/guns.dmi'
@@ -16,7 +16,7 @@
 	requires_two_hands = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
 	icon = 'icons/urist/items/guns.dmi'
@@ -37,7 +37,7 @@
 
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
 	icon = 'icons/urist/items/guns.dmi'
@@ -55,7 +55,7 @@
 	user << "<span class='warning'>[src.name] only has one setting.</span>"
 
 /obj/item/weapon/gun/energy/laser/pistol
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/guns.dmi'
@@ -65,7 +65,7 @@
 	projectile_type = /obj/item/projectile/beam/light
 
 /obj/item/weapon/gun/energy/laser/rifle
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
 	icon = 'icons/urist/items/guns.dmi'
@@ -76,7 +76,7 @@
 	requires_two_hands = 4
 
 /obj/item/weapon/gun/projectile/sniper
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "semi automatic sniper"
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"
@@ -171,38 +171,43 @@
 /obj/item/weapon/storage/box/c20ammo
 	name = "box of c20r ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_magazine/a10mm = 3)
 
 	New()
 		..()
-		make_exact_fit()
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of sniper ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_magazine/a762mm = 3)
 
 	New()
 		..()
-		make_exact_fit()
+		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762mm(src)
 
-/obj/item/weapon/storage/box/lmgammo
+/obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_magazine/box/a762 = 3)
 
 	New()
 		..()
-		make_exact_fit()
+		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/a762(src)
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_magazine/c45m = 4)
 
 	New()
 		..()
-		make_exact_fit()
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

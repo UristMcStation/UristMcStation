@@ -24,7 +24,7 @@
 	icon_state = "cellconsole"
 
 /obj/item/weapon/gun/energy/lactera
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
 	icon_state = "alienrifle"
@@ -40,7 +40,6 @@
 	fire_delay = 1 //rapid fire
 	max_shots = 8
 	self_recharge = 1
-	urist_only = 1
 	var/inertstate = /obj/item/scom/aliengun
 
 /obj/item/weapon/gun/energy/lactera/update_icon()
@@ -245,15 +244,11 @@
 	spawn(35)
 		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 
-/obj/item/weapon/storage/box/mines
+/obj/item/weapon/storage/box/large/mines
 	name = "box of frag mines (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
 	icon_state = "flashbang"
 	startswith = list(/obj/item/weapon/mine/frag = 3)
-
-/obj/item/weapon/storage/box/mines/New()
-	..()
-	make_exact_fit()
 
 /obj/effect/mine/proc/explode2(obj)
 	/* oldcode, pre-fragification -scr

@@ -48,7 +48,7 @@
 //gr guns
 
 /obj/item/weapon/gun/projectile/manualcycle/kar98
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Kar 98k"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "The standard bolt action rifle of the Wehrmacht. Chambered in 7.92×57mm."
@@ -90,7 +90,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/g43
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper Gewehr 43"
 	desc = "The standard semi-automatic rifle of the Wehrmacht, chambered in 7.92x57mm. Holds 10 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -124,7 +124,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
 
 /obj/item/weapon/gun/projectile/automatic/stg44
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper StG 44"
 	desc = "The standard assault rifle of the Wehrmacht. Holds 30 rounds of 7.92x33mm."
 	icon = 'icons/urist/items/guns.dmi'
@@ -176,7 +176,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
 
 /obj/item/weapon/gun/projectile/automatic/mp40
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "MP 40"
 	desc = "The standard sub-machinegun of the Wehrmacht. Only fires in short and long bursts. Takes magazines of 32 9mm rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -249,7 +249,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/mg42
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "MG 42"
 	desc = "The general-purpose machinegun of the Wehrmacht, perfect for support and suppresive fire. Holds 250 rounds of "
 	icon = 'icons/urist/items/guns.dmi'
@@ -353,7 +353,7 @@
 //guns //making the different calibres for germany was stupid. I'm just going to collapse the 7.62×38mmR, 7.62×54mmR and 7.62×25mm Tokarev into just 7.62mm. They're all going to use the same projectile anyways, so fuck it
 
 /obj/item/weapon/gun/projectile/manualcycle/mosinnagant
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Mosin-Nagant"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "The standard bolt action rifle of the Red Army. The glorious Soviet Moist Nugget is chambered in 7.62 and holds 5 rounds, fed by a stripper clip."
@@ -379,6 +379,7 @@
 	max_ammo = 5
 	multiple_sprites = 1
 	mag_type = SPEEDLOADER
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 
 /obj/item/ammo_magazine/a762mm/svt40mag
 	name = "SVT-40 magazine (7.62mm)"
@@ -389,7 +390,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/svt40
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper SVT-40"
 	desc = "The standard semi-automatic rifle of the Red Army, chambered in 7.62. Holds 10 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -415,7 +416,7 @@
 	return
 
 /obj/item/weapon/gun/projectile/automatic/bar
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper M1918 BAR"
 	desc = "The M1918 Browning Automatic Rifle, a US Army support LMG. Chambered in 30-06, it holds 20 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -456,7 +457,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/ppsh
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "PPSh-41"
 	desc = "The standard sub-machinegun of the Red Army. Only fires in short and long bursts. Takes drum magazines of 71 7.62x25mm rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -549,7 +550,7 @@
 	multiple_sprites = 1
 
 /obj/item/weapon/gun/projectile/automatic/degtyaryov
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Degtyaryov machine gun"
 	desc = "The standard light machinegun of the Red Army. Only fires in short and long bursts. Takes pan magazines of 60 7.62mm rounds."
 	icon = 'icons/urist/items/guns.dmi'

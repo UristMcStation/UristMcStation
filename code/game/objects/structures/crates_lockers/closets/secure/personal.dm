@@ -66,11 +66,11 @@
 			src.MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet
 		user.drop_item()
 		if (W) W.forceMove(src.loc)
-	else if(W.GetID())
-		var/obj/item/weapon/card/id/I = W.GetID()
+	else if(W.GetIdCard())
+		var/obj/item/weapon/card/id/I = W.GetIdCard()
 
 		if(src.broken)
-			user << "<span class='warning'>It appears to be broken.</span>"
+			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
 			return
 		if(!I || !I.registered_name)	return
 		if(src.allowed(user) || !src.registered_name || (istype(I) && (src.registered_name == I.registered_name)))
@@ -82,8 +82,9 @@
 			if(!src.registered_name)
 				src.registered_name = I.registered_name
 				src.desc = "Owned by [I.registered_name]."
+				src.name = "[I.registered_name]'s locker."
 		else
-			user << "<span class='warning'>Access Denied</span>"
+			to_chat(user, "<span class='warning'>Access Denied</span>")
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [W]!", "You hear metal being sliced and sparks flying."))
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
@@ -92,9 +93,9 @@
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
 	else
-		user << "<span class='warning'>Access Denied</span>"
+		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return
-	
+
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)
 	if(!broken)
 		broken = 1
@@ -102,7 +103,7 @@
 		desc = "It appears to be broken."
 		icon_state = src.icon_broken
 		if(visual_feedback)
-			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")	
+			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()
@@ -114,9 +115,9 @@
 	if(ishuman(usr))
 		src.add_fingerprint(usr)
 		if (src.locked || !src.registered_name)
-			usr << "<span class='warning'>You need to unlock it first.</span>"
+			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")
 		else if (src.broken)
-			usr << "<span class='warning'>It appears to be broken.</span>"
+			to_chat(usr, "<span class='warning'>It appears to be broken.</span>")
 		else
 			if (src.opened)
 				if(!src.close())
@@ -125,4 +126,5 @@
 			src.icon_state = src.icon_locked
 			src.registered_name = null
 			src.desc = "It's a secure locker for personnel. The first card swiped gains control."
+			src.name = "personal closet"
 	return

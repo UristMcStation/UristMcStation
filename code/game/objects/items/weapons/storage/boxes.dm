@@ -30,8 +30,8 @@
 /obj/item/weapon/storage/box/large
 	name = "large box"
 	icon_state = "largebox"
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEM_SIZE_LARGE
+	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 
 // BubbleWrap - A box can be folded up to make card
@@ -54,7 +54,7 @@
 	if ( !found )	// User is too far away
 		return
 	// Now make the cardboard
-	user << "<span class='notice'>You fold [src] flat.</span>"
+	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
 	if(ispath(foldable, /obj/item/stack))
 		var/stack_amt = max(2**(w_class - 3), 1)
 		new src.foldable(get_turf(src), stack_amt)
@@ -79,10 +79,11 @@
 					/obj/item/weapon/tank/emergency/oxygen/engi = 1)
 
 /obj/item/weapon/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains white gloves."
+	name = "box of sterile gloves"
+	desc = "Contains sterile gloves."
 	icon_state = "latex"
-	startswith = list(/obj/item/clothing/gloves/latex = 7)
+	startswith = list(/obj/item/clothing/gloves/latex = 5,
+					/obj/item/clothing/gloves/latex/nitrile = 2)
 
 /obj/item/weapon/storage/box/masks
 	name = "box of sterile masks"
@@ -197,6 +198,12 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/weapon/grenade/anti_photon = 5)
 
+/obj/item/weapon/storage/box/supermatters
+	name = "box of supermatter grenades"
+	desc = "A box containing 5 highly experimental supermatter grenades."
+	icon_state = "radbox"
+	startswith = list(/obj/item/weapon/grenade/supermatter = 5)
+
 /obj/item/weapon/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
@@ -213,8 +220,6 @@
 	startswith = list(/obj/item/weapon/implantcase/chem = 5,
 					/obj/item/weapon/implanter = 1,
 					/obj/item/weapon/implantpad = 1)
-
-
 
 /obj/item/weapon/storage/box/rxglasses
 	name = "box of prescription glasses"
@@ -318,7 +323,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/weapon/flame/match)
 	startswith = list(/obj/item/weapon/flame/match = 10)
@@ -365,6 +370,15 @@
 	startswith = list(/obj/item/weapon/light/tube = 14,
 					/obj/item/weapon/light/bulb = 7)
 
+/*
+/obj/item/weapon/storage/box/glowsticks
+	name = "box of mixed glowsticks"
+	icon_state = "box"
+	startswith = list(/obj/item/device/flashlight/glowstick = 1, /obj/item/device/flashlight/glowstick/red = 1,
+					/obj/item/device/flashlight/glowstick/blue = 1, /obj/item/device/flashlight/glowstick/orange = 1,
+					/obj/item/device/flashlight/glowstick/yellow = 1, /obj/item/device/flashlight/glowstick/random = 1)
+*/
+
 /obj/item/weapon/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
@@ -372,8 +386,8 @@
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	foldable = null
-	max_w_class = 3
-	w_class = 5
+	max_w_class = ITEM_SIZE_NORMAL
+	w_class = ITEM_SIZE_HUGE
 	can_hold = list(/obj/item/organ, /obj/item/weapon/reagent_containers/food, /obj/item/weapon/reagent_containers/glass)
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
@@ -409,3 +423,9 @@
 				/obj/item/weapon/reagent_containers/food/snacks/checker/rook/red = 2,
 				/obj/item/weapon/reagent_containers/food/snacks/checker/queen/red = 1,
 				/obj/item/weapon/reagent_containers/food/snacks/checker/king/red = 1)
+
+
+/obj/item/weapon/storage/box/headset
+	name = "box of spare headsets"
+	desc = "A box full of headsets."
+	startswith = list(/obj/item/device/radio/headset = 7)

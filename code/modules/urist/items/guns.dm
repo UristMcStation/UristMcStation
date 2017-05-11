@@ -1,7 +1,7 @@
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
 /obj/item/weapon/gun/energy/gun/small
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/items/guns.dmi'
@@ -26,7 +26,7 @@
 //umbrella gun
 
 /obj/item/weapon/gun/projectile/umbrellagun
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Umbrella"
 	desc = "An umbrella with a small hole at the end, doesn't seem to open."
 	icon = 'icons/urist/items/guns.dmi'
@@ -43,7 +43,7 @@
 //BANG BANG BANG, BANG BANG
 
 /obj/item/weapon/gag/BANG
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/urist/items/guns.dmi'
 	icon = 'icons/urist/items/guns.dmi'
 	name = "BANG gun"
@@ -54,7 +54,7 @@
 	w_class = 2
 
 /obj/item/weapon/gag/BANG/attack_self(mob/user as mob)
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	icon_override = 'icons/urist/items/guns.dmi'
 	icon = 'icons/urist/items/guns.dmi'
 	on = !on
@@ -88,7 +88,7 @@ The point is that theirs is closer to the X-COM plasma pistol, despite the fact 
 the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/energy/plasmapistol
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "phoron pistol"
 	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
 	icon = 'icons/urist/items/guns.dmi'
@@ -117,7 +117,7 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/weapon/gun/projectile/silenced/knight
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Knight .45"
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
@@ -141,7 +141,7 @@ the sprite and make my own projectile -Glloyd*/
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/weapon/gun/projectile/revolver/detective/deckard
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
 	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
 	//what do you know, it was restored-ish in revolver.dm
@@ -162,7 +162,7 @@ the sprite and make my own projectile -Glloyd*/
 //NamERT
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
 	desc = "The general-purpose machinegun and the main firearm for the Machinegunner. Chambered in 7.62mm , it is fed through a 75-round belt. Fires in short and long bursts, perfect for support and suppresive fire."
 	icon = 'icons/urist/items/guns.dmi'
@@ -189,7 +189,7 @@ the sprite and make my own projectile -Glloyd*/
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m14
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper M14 Rifle"
 	desc = "A selective-fire rifle for when you need more stopping power. Has a 15-round magazine of 7.62mm. Unlike the M16s that have the ability to fire in bursts or semi-auto, the M14 can only fire in either long bursts or semi-auto."
 	icon = 'icons/urist/items/guns.dmi'
@@ -200,7 +200,7 @@ the sprite and make my own projectile -Glloyd*/
 	caliber = "a762"
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = "/obj/item/ammo_casing/a762"
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762mm/m14
@@ -230,7 +230,7 @@ the sprite and make my own projectile -Glloyd*/
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/m16
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper M16 Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle."
 	icon = 'icons/urist/items/guns.dmi'
@@ -323,7 +323,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "ithaca"
 
 /obj/item/weapon/gun/projectile/automatic/m3
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "M3 Grease Gun"
 	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 .45 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -399,7 +399,7 @@ the sprite and make my own projectile -Glloyd*/
 
 //adminfuckery gun slash proof of concept
 /obj/item/weapon/gun/projectile/automatic/shotmachinegun
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Shotmachinegun"
 	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
 	icon = 'icons/urist/items/guns.dmi'
@@ -680,7 +680,7 @@ the sprite and make my own projectile -Glloyd*/
 */
 
 /obj/item/weapon/gun/projectile/manualcycle/mosinnagant
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "Mosin-Nagant"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "The standard bolt action rifle of the Red Army. The glorious Soviet Moist Nugget is chambered in 7.62 and holds 5 rounds, fed by a stripper clip."

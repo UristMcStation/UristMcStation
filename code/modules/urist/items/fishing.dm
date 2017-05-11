@@ -1,5 +1,5 @@
 /obj/item/weapon/fishingrod
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "fishing rod"
 	desc = "A standard fishing rod. It's good for fishing. You fish with it, dumbass."
 	icon = 'icons/urist/items/tools.dmi'
@@ -15,7 +15,8 @@
 	name = "improvised fishing rod"
 	desc = "An improvised fishing rod made out of a wooden shaft and some cable. It's alright for fishing, probably. You can try to fish with it, dumbass."
 	icon_state = "impfishingrod"
-	fishingpower = 1.25 //maybe make this longer, I dunno
+	item_state = "impfishingrod"
+	fishingpower = 1.3 //maybe make this longer, I dunno
 
 /obj/item/fish
 	name = "fish"

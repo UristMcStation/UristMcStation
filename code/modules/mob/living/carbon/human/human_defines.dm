@@ -1,4 +1,6 @@
 /mob/living/carbon/human
+	plane = HUMAN_PLANE
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -58,7 +60,6 @@
 	var/obj/item/s_store = null
 
 	var/used_skillpoints = 0
-	var/skill_specialization = null
 	var/list/skills = list()
 
 	var/icon/stand_icon = null
@@ -78,7 +79,9 @@
 
 	var/list/flavor_texts = list()
 	var/gunshot_residue
-	var/pulling_punches // Are you trying not to hurt your opponent?
+	var/pulling_punches    // Are you trying not to hurt your opponent?
+	var/full_prosthetic    // We are a robutt.
+	var/robolimb_count = 0 // Number of robot limbs.
 
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
@@ -90,6 +93,7 @@
 	var/equipment_vision_flags				// Extra vision flags from equipped items
 	var/equipment_see_invis					// Max see invibility level granted by equipped items
 	var/equipment_prescription				// Eye prescription granted by equipped items
+	var/equipment_light_protection
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/med_record = ""
@@ -97,5 +101,10 @@
 	var/gen_record = ""
 	var/exploit_record = ""
 
+	var/datum/mil_branch/char_branch = null
+	var/datum/mil_rank/char_rank = null
+
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
-	var/miming = 0
+	var/cloaked // If set, mob will only render its inhands, no other icons will be shown.
+
+	var/obj/machinery/machine_visual //machine that is currently applying visual effects to this mob. Only used for camera monitors currently.

@@ -1,4 +1,4 @@
-/obj/vehicle/bike/
+/obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
 	icon = 'icons/obj/bike.dmi'
@@ -27,6 +27,8 @@
 
 /obj/vehicle/bike/New()
 	..()
+	layer = ABOVE_OBJ_LAYER
+	plane = ABOVE_OBJ_PLANE
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)
@@ -35,12 +37,12 @@
 
 /obj/vehicle/bike/verb/toggle()
 	set name = "Toggle Engine"
-	set category = "Vehicle"
+	set category = "Object"
 	set src in view(0)
 
 	if(usr.incapacitated()) return
 	if(!engine)
-		usr << "<span class='warning'>\The [src] does not have an engine block installed...</span>"
+		to_chat(usr, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
 		return
 
 	if(!on)
@@ -50,7 +52,7 @@
 
 /obj/vehicle/bike/verb/kickstand()
 	set name = "Toggle Kickstand"
-	set category = "Vehicle"
+	set category = "Object"
 	set src in view(0)
 
 	if(usr.incapacitated()) return
@@ -59,7 +61,7 @@
 		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.")
 	else
 		if(istype(src.loc,/turf/space))
-			usr << "<span class='warning'> You don't think kickstands work in space...</span>"
+			to_chat(usr, "<span class='warning'> You don't think kickstands work in space...</span>")
 			return
 		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.")
 		if(pulledby)
@@ -109,7 +111,7 @@
 	if(open)
 		if(istype(W, /obj/item/weapon/engine))
 			if(engine)
-				user << "<span class='warning'>There is already an engine block in \the [src].</span>"
+				to_chat(user, "<span class='warning'>There is already an engine block in \the [src].</span>")
 				return 1
 			user.visible_message("<span class='warning'>\The [user] installs \the [W] into \the [src].</span>")
 			load_engine(W)
@@ -117,20 +119,20 @@
 		else if(engine && engine.attackby(W,user))
 			return 1
 		else if(istype(W, /obj/item/weapon/crowbar) && engine)
-			user << "You pop out \the [engine] from \the [src]."
+			to_chat(user, "You pop out \the [engine] from \the [src].")
 			unload_engine()
 			return 1
 	return ..()
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'> You were unable to load \the [C] onto \the [src].</span>"
+		to_chat(user, "<span class='warning'> You were unable to load \the [C] onto \the [src].</span>")
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
-		user << "You unbuckle yourself from \the [src]"
+		to_chat(user, "You unbuckle yourself from \the [src]")
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
@@ -197,7 +199,10 @@
 		icon_state = "[bike_icon]_on"
 	else
 		icon_state = "[bike_icon]_off"
-	overlays += image('icons/obj/bike.dmi', "[icon_state]_overlay", MOB_LAYER + 1)
+	var/image/I = new(src.icon, "[icon_state]_overlay")
+	I.layer = ABOVE_HUMAN_LAYER
+	I.plane = ABOVE_HUMAN_PLANE
+	overlays += I
 	..()
 
 

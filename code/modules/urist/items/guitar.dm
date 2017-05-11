@@ -6,7 +6,7 @@
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "guitar"
 	item_state = "guitar"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	force = 10
 	attack_verb = list("played metal on", "serenaded", "crashed", "smashed")
 	var/datum/song/song
@@ -15,7 +15,7 @@
 	var/edit = 1
 	var/repeat = 0
 
-obj/item/device/guitar/proc/playnote(var/note as text)
+/obj/item/device/guitar/proc/playnote(var/note as text)
 	//world << "Note: [note]"
 	var/soundfile
 	/*BYOND loads resource files at compile time if they are ''. This means you can't really manipulate them dynamically.

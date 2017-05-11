@@ -106,8 +106,7 @@
 		M.regenerate_icons()
 
 /obj/item/clothing/head/soft/anfor
-	urist_only = 1
-	icon_override = 'icons/uristmob/head.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR NCO cap"
 	desc = "A cap worn by ANFOR NCOs. Doesn't offer all that much protection, but DAMN does it look good. Hey, you can flip it around too. Your corpse will look good for sure."
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -132,10 +131,9 @@
 	slowdown_per_slot[slot_wear_suit] = 1
 
 /obj/item/clothing/head/helmet/space/void/anfor
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 	name = "ANFOR marine voidsuit helmet"
 	desc = "A comfortable voidsuit helmet used by ANFOR marines. Features cranial armor and eight-channel surround sound."
-	icon_override = 'icons/uristmob/head.dmi'
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-anforeva"
 	armor = list(melee = 50, bullet = 80, laser = 35, energy = 25, bomb = 50, bio = 100, rad = 10)
@@ -145,7 +143,7 @@
 //Weapons
 
 /obj/item/weapon/gun/projectile/automatic/a22
-	urist_only = 1
+	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
 	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
 	icon = 'icons/urist/items/guns.dmi'
@@ -191,7 +189,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/a18
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
 	icon = 'icons/urist/items/guns.dmi'
@@ -356,7 +354,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/automatic/asmg
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
 	desc = "The standard submachine gun of the ANFOR Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
 	icon = 'icons/urist/items/guns.dmi'
@@ -406,7 +404,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "A41"
 	item_state = "A41"
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	requires_two_hands = 3
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
@@ -430,7 +428,7 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/a50
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "A50 Heavy Rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
@@ -464,7 +462,7 @@
 	damage = 60
 	stun = 1.5
 	weaken = 1.5
-	penetrating = 5
+	penetrating = 3
 	armor_penetration = 60
 
 /obj/item/ammo_magazine/a132x108mm/stripper

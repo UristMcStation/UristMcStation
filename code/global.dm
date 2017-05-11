@@ -5,7 +5,6 @@
 
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
-var/global/list/all_areas                = list()
 var/global/list/machines                 = list()
 var/global/list/processing_objects       = list()
 var/global/list/processing_power_items   = list()
@@ -33,13 +32,6 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
 var/diary               = null
 var/href_logfile        = null
-var/station_name        = "Urist McStation"
-var/station_short       = "UMcS"
-var/const/dock_name     = "N.A.S. Crescent"
-var/const/boss_name     = "Central Command"
-var/const/boss_short    = "Centcomm"
-var/const/company_name  = "NanoTrasen"
-var/const/company_short = "NT"
 var/game_version        = "Baystation12"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 544)
@@ -100,9 +92,6 @@ var/list/adminlog  = list()
 var/list/powernets = list()
 
 var/Debug2 = 0
-var/datum/debug/debugobj
-
-var/datum/moduletypes/mods = new()
 
 var/gravity_is_on = 1
 
@@ -185,6 +174,6 @@ var/static/list/scarySounds = list(
 var/max_explosion_range = 14
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
-var/global/obj/item/device/radio/intercom/global_announcer = new(null)
+var/global/obj/item/device/radio/intercom/global_announcer = new /obj/item/device/radio/intercom{channels=list("Engineering")}(null)
 
 var/list/station_departments = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")

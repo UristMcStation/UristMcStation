@@ -4,6 +4,9 @@
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
+
+	if (!default_language && species_language)
+		default_language = all_languages[species_language]
 	..()
 
 /mob/living/carbon/Life()
@@ -56,10 +59,9 @@
 				var/d = rand(round(I.force / 4), I.force)
 				if(istype(src, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = src
-					var/obj/item/organ/external/organ = H.get_organ("chest")
+					var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
 					if (istype(organ))
-						if(organ.take_damage(d, 0))
-							H.UpdateDamageIcon()
+						organ.take_damage(d, 0)
 					H.updatehealth()
 				else
 					src.take_organ_damage(d)
@@ -79,18 +81,18 @@
 		M.loc = src.loc
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
-				N.show_message(text("\red <B>[M] bursts out of [src]!</B>"), 2)
+				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
 	if(!istype(M, /mob/living/carbon)) return
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (H.hand)
-			temp = H.organs_by_name["l_hand"]
+			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			H << "\red You can't use your [temp.name]"
+			to_chat(H, "<span class='warning'>You can't use your [temp.name]</span>")
 			return
 
 	return
@@ -101,22 +103,32 @@
 	if (shock_damage<1)
 		return 0
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+	stun_effect_act(agony_amount=shock_damage, def_zone=def_zone)
+	apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+
 	playsound(loc, "sparks", 50, 1, -1)
 	if (shock_damage > 15)
 		src.visible_message(
-			"\red [src] was shocked by the [source]!", \
-			"\red <B>You feel a powerful shock course through your body!</B>", \
-			"\red You hear a heavy electrical crack." \
+			"<span class='warning'>[src] was electrocuted[source ? " by the [source]" : ""]!</span>", \
+			"<span class='danger'>You feel a powerful shock course through your body!</span>", \
+			"<span class='warning'>You hear a heavy electrical crack.</span>" \
 		)
-		Stun(10)//This should work for now, more is really silly and makes you lay there forever
-		Weaken(10)
 	else
 		src.visible_message(
-			"\red [src] was mildly shocked by the [source].", \
-			"\red You feel a mild shock course through your body.", \
-			"\red You hear a light zapping." \
+			"<span class='warning'>[src] was shocked[source ? " by the [source]" : ""].</span>", \
+			"<span class='warning'>You feel a shock course through your body.</span>", \
+			"<span class='warning'>You hear a zapping sound.</span>" \
 		)
+
+	switch(shock_damage)
+		if(16 to 20)
+			Stun(2)
+		if(21 to 25)
+			Weaken(2)
+		if(26 to 25)
+			Weaken(5)
+		if(31 to INFINITY)
+			Weaken(10) //This should work for now, more is really silly and makes you lay there forever
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(5, 1, loc)
@@ -156,19 +168,19 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message( \
-				text("\blue [src] examines [].",src.gender==MALE?"himself":"herself"), \
-				"\blue You check yourself for injuries." \
+				text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
+				"<span class='notice'>You check yourself for injuries.</span>" \
 				)
 
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
 				var/burndamage = org.burn_dam
-				if(halloss > 0)
+				if(getHalLoss() > 0)
 					if(prob(30))
-						brutedamage += halloss
+						brutedamage += getHalLoss()
 					if(prob(30))
-						burndamage += halloss
+						burndamage += getHalLoss()
 				switch(brutedamage)
 					if(1 to 20)
 						status += "bruised"
@@ -327,12 +339,9 @@
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
-				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
-				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
-
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
+				var/start_T_descriptor = "<font color='#6b5d00'>[start_T] \[[start_T.x],[start_T.y],[start_T.z]\] ([start_T.loc])</font>"
+				var/end_T_descriptor = "<font color='#6b4400'>[start_T] \[[end_T.x],[end_T.y],[end_T.z]\] ([end_T.loc])</font>"
+				admin_attack_log(usr, M, "Threw the victim from [start_T_descriptor] to [end_T_descriptor].", "Was from [start_T_descriptor] to [end_T_descriptor].", "threw, from [start_T_descriptor] to [end_T_descriptor], ")
 
 	src.drop_from_inventory(item)
 	if(!item || !isturf(item.loc))
@@ -382,10 +391,6 @@
 		update_inv_handcuffed()
 		if(buckled && buckled.buckle_require_restraints)
 			buckled.unbuckle_mob()
-
-	else if (W == legcuffed)
-		legcuffed = null
-		update_inv_legcuffed()
 	else
 	 ..()
 
@@ -396,7 +401,7 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		usr << "\red You are already sleeping"
+		to_chat(usr, "<span class='warning'>You are already sleeping</span>")
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		usr.sleeping = 20 //Short nap
@@ -412,7 +417,7 @@
 	if(buckled)
 		return 0
 	stop_pulling()
-	src << "<span class='warning'>You slipped on [slipped_on]!</span>"
+	to_chat(src, "<span class='warning'>You slipped on [slipped_on]!</span>")
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
 	Weaken(Floor(stun_duration/2))
@@ -425,7 +430,7 @@
 		chem_effects[effect] = magnitude
 
 /mob/living/carbon/get_default_language()
-	if(default_language)
+	if(default_language && can_speak(default_language))
 		return default_language
 
 	if(!species)
@@ -469,3 +474,13 @@
 			src.visible_message("<span class='warning'>\The [src] regurgitates \the [AM]!</span>")
 			return loc
 	return ..()
+/mob/living/carbon/proc/should_have_organ(var/organ_check)
+	return 0
+
+/mob/living/carbon/proc/can_feel_pain(var/check_organ)
+	if(isSynthetic())
+		return 0
+	return !(species.flags & NO_PAIN)
+
+/mob/living/carbon/proc/get_adjusted_metabolism(metabolism)
+	return metabolism

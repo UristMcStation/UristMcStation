@@ -1,4 +1,4 @@
- /*										*****New space to put all /tg/station small item ports*****
+/*										*****New space to put all /tg/station small item ports*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/tgitems.dmi'
 Please only put items here that don't have a huge definition - Glloyd																*/
@@ -6,7 +6,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 //seclite flashlight
 
 /obj/item/device/flashlight/seclite
-	urist_only = 1
+	item_icons = DEF_URIST_INHANDS
 	name = "seclite"
 	desc = "A robust flashlight used by security."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -271,7 +271,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 
@@ -362,7 +361,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "A roll of dried plant matter wrapped in thin paper."
 	icon_state = "spliffoff"
 	icon_on = "spliffon"
-	icon_off = "spliffoff"
 	type_butt = /obj/item/weapon/cigbutt/roach
 	throw_speed = 0.5
 	item_state = "spliffoff"

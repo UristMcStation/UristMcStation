@@ -32,21 +32,21 @@
 	if(!usr || usr.stat || usr.lying)	return
 
 	if(scan)
-		usr << "You remove \the [scan] from \the [src]."
-		scan.loc = get_turf(src)
+		to_chat(usr, "You remove \the [scan] from \the [src].")
+		scan.dropInto(loc)
 		if(!usr.get_active_hand() && istype(usr,/mob/living/carbon/human))
 			usr.put_in_hands(scan)
 		scan = null
 	else
-		usr << "There is nothing to remove from the console."
+		to_chat(usr, "There is nothing to remove from the console.")
 	return
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
 	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		usr.drop_item()
-		O.loc = src
+		O.forceMove(src)
 		scan = O
-		user << "You insert [O]."
+		to_chat(user, "You insert [O].")
 	..()
 
 /obj/machinery/computer/secure_data/attack_ai(mob/user as mob)
@@ -59,8 +59,8 @@
 	ui_interact(user)
 
 /obj/machinery/computer/secure_data/ui_interact(user)
-	if (src.z > 6)
-		user << "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!"
+	if (!isPlayerLevel(z))
+		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 	var/dat
 
@@ -247,12 +247,12 @@ What a mess.*/
 					if(istype(usr,/mob/living/carbon/human) && !usr.get_active_hand())
 						usr.put_in_hands(scan)
 					else
-						scan.loc = get_turf(src)
+						scan.dropInto(loc)
 					scan = null
 				else
 					var/obj/item/I = usr.get_active_hand()
 					if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
-						I.loc = src
+						I.dropInto(src)
 						scan = I
 
 			if("Log Out")
@@ -484,7 +484,7 @@ What a mess.*/
 							active2.fields["ma_crim_d"] = t1
 					if("notes")
 						if (istype(active2, /datum/data/record))
-							var/t1 = sanitize(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null)  as message, extra = 0)
+							var/t1 = sanitize(input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]), null)  as message, extra = 0, max_length = MAX_PAPER_MESSAGE_LEN)
 							if (!t1 || active2 != a2)
 								return
 							active2.fields["notes"] = t1

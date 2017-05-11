@@ -1,4 +1,4 @@
- /*										*****New space to put all UristMcStation Gloves!*****
+/*										*****New space to put all UristMcStation Gloves!*****
 
 Please keep it tidy, by which I mean put comments describing the item before the entry. Icons go to 'icons/urist/items/clothes/gloves.dmi' and on- mob
 icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to clothing/gloves/urist to avoid worrying about the sprites.-Glloyd*/
@@ -6,8 +6,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 //generic define
 
 /obj/item/clothing/gloves/urist
-	urist_only = 1
-	icon_override = 'icons/uristmob/gloves.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/gloves.dmi'
 
 //cunts. fucking alien cunts.

@@ -22,16 +22,19 @@
 			user.visible_message("<span class='notice'>\The [user] applied some [src] on [R]'s damaged areas.</span>",\
 				"<span class='notice'>You apply some [src] at [R]'s damaged areas.</span>")
 		else
-			user << "<span class='notice'>All [R]'s systems are nominal.</span>"
+			to_chat(user, "<span class='notice'>All [R]'s systems are nominal.</span>")
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/S = H.get_organ(user.zone_sel.selecting)
 
+		if(!S)
+			to_chat(user, "<span class='warning'>\The [M] is missing that body part.</span>")
+
 		if(S.open >= 2)
 			if (S && (S.robotic >= ORGAN_ROBOT))
 				if(!S.get_damage())
-					user << "<span class='notice'>Nothing to fix here.</span>"
+					to_chat(user, "<span class='notice'>Nothing to fix here.</span>")
 				else if(can_use(1))
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					S.heal_damage(15, 15, robo_repair = 1)

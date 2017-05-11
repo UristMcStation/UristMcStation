@@ -62,9 +62,11 @@ var/list/GPS_list = list()
 			attack_self(usr)
 
 /obj/item/device/gps/science
+	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-s"
 	gpstag = "SCI0"
 
 /obj/item/device/gps/engineering
+	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-e"
 	gpstag = "ENG0"

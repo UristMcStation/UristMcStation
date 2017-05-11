@@ -4,7 +4,7 @@ proc/infection_check(var/mob/living/carbon/M, var/vector = "Airborne")
 		return 0
 
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && H.species.virus_immune)
+	if(istype(H) && H.species.get_virus_immune(H))
 		return 0
 
 	var/protection = M.getarmor(null, "bio")	//gets the full body bio armour value, weighted by body part coverage.
@@ -87,9 +87,9 @@ proc/airborne_can_reach(turf/source, turf/target)
 	if(!disease.affected_species.len)
 		return
 
-	if (!(M.species.get_bodytype() in disease.affected_species))
+	if (!(M.species.get_bodytype(M) in disease.affected_species))
 		if (forced)
-			disease.affected_species[1] = M.species.get_bodytype()
+			disease.affected_species[1] = M.species.get_bodytype(M)
 		else
 			return //not compatible with this species
 
@@ -106,7 +106,7 @@ proc/airborne_can_reach(turf/source, turf/target)
 //Infects mob M with disease D
 /proc/infect_mob(var/mob/living/carbon/M, var/datum/disease2/disease/D)
 	infect_virus2(M,D,1)
-	M.hud_updateflag |= 1 << STATUS_HUD
+	to_chat(M.hud_updateflag |= 1, STATUS_HUD)
 
 //Infects mob M with random lesser disease, if he doesn't have one
 /proc/infect_mob_random_lesser(var/mob/living/carbon/M)
