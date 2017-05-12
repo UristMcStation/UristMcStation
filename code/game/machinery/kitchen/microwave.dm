@@ -97,6 +97,20 @@
 				src.broken = 0 // just to be sure
 				src.icon_state = "mw"
 				src.flags = OPENCONTAINER
+		if(istype(O, /obj/item/weapon/soap))
+			user.visible_message( \
+				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
+				"<span class='notice'>You start to clean the microwave.</span>" \
+			)
+			if (do_after(user, 20, src))
+				user.visible_message( \
+					"<span class='notice'>\The [user] has cleaned the microwave.</span>", \
+					"<span class='notice'>You have cleaned the microwave.</span>" \
+				)
+				src.dirty = 0 
+				src.broken = 0 
+				src.icon_state = "mw"
+				src.flags = OPENCONTAINER
 		else //Otherwise bad luck!!
 			to_chat(user, "<span class='warning'>It's dirty!</span>")
 			return 1
