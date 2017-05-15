@@ -83,7 +83,7 @@
 			to_chat(user, "<span class='warning'>It's broken!</span>")
 			return 1
 	else if(src.dirty==100) // The microwave is all dirty so can't be used!
-		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner)) // If they're trying to clean it then let them
+		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap))
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
 				"<span class='notice'>You start to clean the microwave.</span>" \
@@ -95,20 +95,6 @@
 				)
 				src.dirty = 0 // It's clean!
 				src.broken = 0 // just to be sure
-				src.icon_state = "mw"
-				src.flags = OPENCONTAINER
-		if(istype(O, /obj/item/weapon/soap))
-			user.visible_message( \
-				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
-				"<span class='notice'>You start to clean the microwave.</span>" \
-			)
-			if (do_after(user, 20, src))
-				user.visible_message( \
-					"<span class='notice'>\The [user] has cleaned the microwave.</span>", \
-					"<span class='notice'>You have cleaned the microwave.</span>" \
-				)
-				src.dirty = 0 
-				src.broken = 0 
 				src.icon_state = "mw"
 				src.flags = OPENCONTAINER
 		else //Otherwise bad luck!!
