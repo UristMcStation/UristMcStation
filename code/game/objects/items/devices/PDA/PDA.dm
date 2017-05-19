@@ -139,6 +139,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	icon_state = "pda-cmo"
 
 /obj/item/device/pda/heads/rd
+	icon = 'icons/urist/restored/pda.dmi'
 	default_cartridge = /obj/item/weapon/cartridge/rd
 	icon_state = "pda-rd"
 
