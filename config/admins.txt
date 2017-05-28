@@ -5,6 +5,7 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
+rockwithagun - Host
 kg333 - Host
 vactor - Host 
 glloyd - Head Admin
