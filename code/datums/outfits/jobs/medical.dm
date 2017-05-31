@@ -77,7 +77,6 @@
 	r_pocket = /obj/item/device/flashlight/pen
 	satchel_one = /obj/item/weapon/storage/backpack/satchel_gen
 	id_type = /obj/item/weapon/card/id/medical/geneticist
-	pda_type = /obj/item/device/pda/geneticist
 
 /decl/hierarchy/outfit/job/medical/psychiatrist
 	name = OUTFIT_JOB_NAME("Psychiatrist")
