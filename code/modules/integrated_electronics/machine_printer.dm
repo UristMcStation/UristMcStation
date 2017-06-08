@@ -1,14 +1,16 @@
 var/list/integrated_circuit_blacklist = list(/obj/item/integrated_circuit, /obj/item/integrated_circuit/arithmetic, /obj/item/integrated_circuit/converter,
 										/obj/item/integrated_circuit/filter, /obj/item/integrated_circuit/filter/ref, /obj/item/integrated_circuit/input,
 										/obj/item/integrated_circuit/output, /obj/item/integrated_circuit/manipulation, /obj/item/integrated_circuit/sensor,
-										/obj/item/integrated_circuit/time, /obj/item/integrated_circuit/manipulation/grenade/frag)
+										/obj/item/integrated_circuit/time, /obj/item/integrated_circuit/manipulation/grenade/frag, /obj/item/integrated_circuit/manipulation/locomotion)
 
 /obj/machinery/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A large machine made to print tiny things out of metal."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "integrated"
-	var/metal = 100
+	density = 1
+	anchored = 1
+	var/metal = 0
 	var/maxMetal = 100
 	var/metal_mult = 0.5
 	use_power = 1
@@ -34,12 +36,25 @@ var/list/integrated_circuit_blacklist = list(/obj/item/integrated_circuit, /obj/
 	if(istype(O,/obj/item/stack/material))
 		var/obj/item/stack/material/stack = O
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
-			var/num = max(0,round(input("How many sheets do you want to add?") as num))
-			if(stack.use(num))
-				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
-				metal += num
-				updateUsrDialog()
-				return 1
+			var/num = min(maxMetal - metal, stack.amount)
+			if(do_after(usr, 16, src))
+				if(stack.use(num))
+					to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
+					metal += num
+					updateUsrDialog()
+					return 1
+	if(default_deconstruction_screwdriver(user, O))
+		new /obj/item/stack/material/steel(get_turf(loc), metal)
+		metal = 0
+		return
+	if(default_deconstruction_crowbar(user, O))
+		return
+	if(istype(O,/obj/item/integrated_circuit))
+		to_chat(user, "<span class='notice'>You insert the circuit into [src]. </span>")
+		user.unEquip(O)
+		qdel(O)
+		metal = min(metal+1,maxMetal)
+		return 1
 	return ..()
 
 /obj/machinery/integrated_circuit_printer/attack_hand(var/mob/user)

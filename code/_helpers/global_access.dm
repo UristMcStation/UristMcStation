@@ -113,14 +113,6 @@
 			return global.acting_rank_prefixes;
 		if("active_diseases")
 			return global.active_diseases;
-		if("activeauth")
-			return global.activeauth;
-		if("activecharges")
-			return global.activecharges;
-		if("activename")
-			return global.activename;
-		if("activetype")
-			return global.activetype;
 		if("actor")
 			return global.actor;
 		if("additional_antag_types")
@@ -205,10 +197,10 @@
 			return global.allCasters;
 		if("allConsoles")
 			return global.allConsoles;
-		if("all_antag_spawnpoints")
-			return global.all_antag_spawnpoints;
-		if("all_antag_types")
-			return global.all_antag_types;
+		if("all_antag_spawnpoints_")
+			return global.all_antag_spawnpoints_;
+		if("all_antag_types_")
+			return global.all_antag_types_;
 		if("all_languages")
 			return global.all_languages;
 		if("all_maps")
@@ -241,8 +233,8 @@
 			return global.announced_news_types;
 		if("antag_add_finished")
 			return global.antag_add_finished;
-		if("antag_names_to_ids")
-			return global.antag_names_to_ids;
+		if("antag_names_to_ids_")
+			return global.antag_names_to_ids_;
 		if("appearance_manager")
 			return global.appearance_manager;
 		if("area_repository")
@@ -623,6 +615,8 @@
 			return global.ghost_traps;
 		if("global_announcer")
 			return global.global_announcer;
+		if("global_headset")
+			return global.global_headset;
 		if("global_hud")
 			return global.global_hud;
 		if("global_huds")
@@ -689,6 +683,8 @@
 			return global.init;
 		if("initialization_stage")
 			return global.initialization_stage;
+		if("integrated_circuit_blacklist")
+			return global.integrated_circuit_blacklist;
 		if("intents")
 			return global.intents;
 		if("interactive_state")
@@ -1059,6 +1055,8 @@
 			return global.recentmessages;
 		if("reg_dna")
 			return global.reg_dna;
+		if("registered_macros_by_ckey_")
+			return global.registered_macros_by_ckey_;
 		if("religion_choices")
 			return global.religion_choices;
 		if("religion_name")
@@ -1173,6 +1171,8 @@
 			return global.solar_gen_rate;
 		if("solars_list")
 			return global.solars_list;
+		if("sound_player")
+			return global.sound_player;
 		if("sounds_cache")
 			return global.sounds_cache;
 		if("spacevines_spawned")
@@ -1231,8 +1231,6 @@
 			return global.stool_cache;
 		if("stored_shock_by_ref")
 			return global.stored_shock_by_ref;
-		if("storedwarrant")
-			return global.storedwarrant;
 		if("string_part_flags")
 			return global.string_part_flags;
 		if("string_slot_flags")
@@ -1455,7 +1453,7 @@
 			return global.z_state;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1570,14 +1568,6 @@
 			global.acting_rank_prefixes=newval;
 		if("active_diseases")
 			global.active_diseases=newval;
-		if("activeauth")
-			global.activeauth=newval;
-		if("activecharges")
-			global.activecharges=newval;
-		if("activename")
-			global.activename=newval;
-		if("activetype")
-			global.activetype=newval;
 		if("actor")
 			global.actor=newval;
 		if("additional_antag_types")
@@ -1662,10 +1652,10 @@
 			global.allCasters=newval;
 		if("allConsoles")
 			global.allConsoles=newval;
-		if("all_antag_spawnpoints")
-			global.all_antag_spawnpoints=newval;
-		if("all_antag_types")
-			global.all_antag_types=newval;
+		if("all_antag_spawnpoints_")
+			global.all_antag_spawnpoints_=newval;
+		if("all_antag_types_")
+			global.all_antag_types_=newval;
 		if("all_languages")
 			global.all_languages=newval;
 		if("all_maps")
@@ -1698,8 +1688,8 @@
 			global.announced_news_types=newval;
 		if("antag_add_finished")
 			global.antag_add_finished=newval;
-		if("antag_names_to_ids")
-			global.antag_names_to_ids=newval;
+		if("antag_names_to_ids_")
+			global.antag_names_to_ids_=newval;
 		if("appearance_manager")
 			global.appearance_manager=newval;
 		if("area_repository")
@@ -2080,6 +2070,8 @@
 			global.ghost_traps=newval;
 		if("global_announcer")
 			global.global_announcer=newval;
+		if("global_headset")
+			global.global_headset=newval;
 		if("global_hud")
 			global.global_hud=newval;
 		if("global_huds")
@@ -2146,6 +2138,8 @@
 			global.init=newval;
 		if("initialization_stage")
 			global.initialization_stage=newval;
+		if("integrated_circuit_blacklist")
+			global.integrated_circuit_blacklist=newval;
 		if("intents")
 			global.intents=newval;
 		if("interactive_state")
@@ -2516,6 +2510,8 @@
 			global.recentmessages=newval;
 		if("reg_dna")
 			global.reg_dna=newval;
+		if("registered_macros_by_ckey_")
+			global.registered_macros_by_ckey_=newval;
 		if("religion_choices")
 			global.religion_choices=newval;
 		if("religion_name")
@@ -2630,6 +2626,8 @@
 			global.solar_gen_rate=newval;
 		if("solars_list")
 			global.solars_list=newval;
+		if("sound_player")
+			global.sound_player=newval;
 		if("sounds_cache")
 			global.sounds_cache=newval;
 		if("spacevines_spawned")
@@ -2688,8 +2686,6 @@
 			global.stool_cache=newval;
 		if("stored_shock_by_ref")
 			global.stored_shock_by_ref=newval;
-		if("storedwarrant")
-			global.storedwarrant=newval;
 		if("string_part_flags")
 			global.string_part_flags=newval;
 		if("string_slot_flags")
@@ -2912,7 +2908,7 @@
 			global.z_state=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2970,10 +2966,6 @@
 	"account_hack_attempted",
 	"acting_rank_prefixes",
 	"active_diseases",
-	"activeauth",
-	"activecharges",
-	"activename",
-	"activetype",
 	"actor",
 	"additional_antag_types",
 	"adjectives",
@@ -3016,8 +3008,8 @@
 	"alien_whitelist",
 	"allCasters",
 	"allConsoles",
-	"all_antag_spawnpoints",
-	"all_antag_types",
+	"all_antag_spawnpoints_",
+	"all_antag_types_",
 	"all_languages",
 	"all_maps",
 	"all_money_accounts",
@@ -3034,7 +3026,7 @@
 	"alphabet_uppercase",
 	"announced_news_types",
 	"antag_add_finished",
-	"antag_names_to_ids",
+	"antag_names_to_ids_",
 	"appearance_manager",
 	"area_repository",
 	"artefact_feedback",
@@ -3225,6 +3217,7 @@
 	"ghost_sightless_images",
 	"ghost_traps",
 	"global_announcer",
+	"global_headset",
 	"global_hud",
 	"global_huds",
 	"global_listen_count",
@@ -3258,6 +3251,7 @@
 	"inactive_keys",
 	"init",
 	"initialization_stage",
+	"integrated_circuit_blacklist",
 	"intents",
 	"interactive_state",
 	"intercom_range_display_status",
@@ -3443,6 +3437,7 @@
 	"random_useful_",
 	"recentmessages",
 	"reg_dna",
+	"registered_macros_by_ckey_",
 	"religion_choices",
 	"religion_name",
 	"renegades",
@@ -3500,6 +3495,7 @@
 	"slot_flags_enumeration",
 	"solar_gen_rate",
 	"solars_list",
+	"sound_player",
 	"sounds_cache",
 	"spacevines_spawned",
 	"spark_sound",
@@ -3529,7 +3525,6 @@
 	"status_icons_to_colour",
 	"stool_cache",
 	"stored_shock_by_ref",
-	"storedwarrant",
 	"string_part_flags",
 	"string_slot_flags",
 	"sun",
