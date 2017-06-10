@@ -168,6 +168,15 @@
 	icon_state = "shuttle"
 	base_turf = /turf/simulated/floor/plating
 
+/area/shuttle/planet
+	name = "\improper Planet Outpost Shuttle"
+
+/area/shuttle/planet/station
+	icon_state = "shuttle"
+
+/area/shuttle/planet/outpost
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/plating
 
 //SYNDICATES
 
@@ -711,6 +720,7 @@ area/rnd/test_area
 
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
+	base_turf = /turf/simulated/planet/jungle/clear
 
 /area/outpost/mining_main/eva
 	name = "Mining Outpost EVA storage"
@@ -724,6 +734,12 @@ area/rnd/test_area
 // Mining outpost
 /area/outpost/mining_main/maintenance
 	name = "Mining Outpost Maintenance"
+
+/area/outpost/mining_main/hallway
+	name = "Mining Outpost Hallway"
+
+/area/outpost/mining_main/medbay
+	name = "Mining Outpost Medbay"
 
 // Engineering outpost
 

@@ -133,7 +133,6 @@
 		/area/security/range,
 		/area/solar/constructionsite,
 		/area/shuttle/,
-		/area/shuttle/outpost,
 		/area/shuttle/event1/,
 		/area/shuttle/event2/,
 		/area/shuttle/scom/s1/mission,
@@ -185,8 +184,6 @@
 		/area/shuttle/naval1/event1,
 		/area/shuttle/naval1/event2,
 		/area/shuttle/naval1/event3,
-		/area/shuttle/outpost/station,
-		/area/shuttle/outpost/jungle,
 		/area/template_noop,
 		/area/turbolift
 	)

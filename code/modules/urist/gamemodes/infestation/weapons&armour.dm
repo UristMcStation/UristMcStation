@@ -459,11 +459,11 @@
 
 /obj/item/projectile/bullet/rifle/a132x108mm
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
-	damage = 60
-	stun = 1.5
-	weaken = 1.5
-	penetrating = 3
-	armor_penetration = 60
+	damage = 50
+	stun = 1
+	weaken = 1
+	penetrating = 2
+	armor_penetration = 50
 
 /obj/item/ammo_magazine/a132x108mm/stripper
 	name = "stripper clip (13.2x108m)"

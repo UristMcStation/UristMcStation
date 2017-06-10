@@ -1,0 +1,42 @@
+"a" = (/turf/simulated/planet/jungle/path,/area/space)
+"b" = (/turf/simulated/planet/jungle/path,/area/jungle)
+"c" = (/obj/effect/mine/frag,/turf/simulated/planet/jungle/path,/area/jungle)
+"d" = (/obj/structure/barricade,/turf/simulated/planet/jungle/path,/area/jungle)
+"e" = (/turf/simulated/planet/jungle/clear,/area/jungle)
+"f" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/refinery)
+"g" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"h" = (/obj/effect/mine/frag,/turf/simulated/planet/jungle/clear,/area/jungle)
+"i" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"j" = (/obj/machinery/light{brightness_power = 4; brightness_range = 10; dir = 1},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"k" = (/obj/structure/barricade,/turf/simulated/planet/jungle/clear,/area/jungle)
+"l" = (/obj/machinery/light{brightness_power = 5; brightness_range = 10; dir = 8},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"m" = (/obj/machinery/door/airlock/multi_tile/glass,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"n" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"o" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/hallway)
+"p" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"q" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"r" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"s" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"t" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"u" = (/obj/structure/assaultshieldgen,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"v" = (/obj/structure/assaultshieldgen,/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"w" = (/turf/simulated/wall/r_wall,/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+bbcccccccccccccccbbb
+bbcddddddddddddddcee
+ebcdffggfggfggffdhee
+eecdfiiiiiijiiifdhee
+eehkfliiiiiiiiifkhef
+ehhkfiiifmifiiifkhef
+kkkkfnfffiifffnfkkkf
+oofffffjiiiiifffffff
+opiiiiiiiiiiiiiijiif
+qpiiiiiiffffiiiiiiir
+osiiiiiiriirtiiiiiif
+oofffffffuvfffffffff
+eeeeeebewwwweeeeeeef
+"}
