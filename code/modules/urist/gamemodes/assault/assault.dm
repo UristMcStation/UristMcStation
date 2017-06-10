@@ -33,7 +33,7 @@ var/global/remaininggens = 6
 			L.Load()
 
 	for(var/obj/machinery/computer/shuttle_control/S in machines)
-		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security")
+		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security" || S.shuttle_tag == "Planet")
 			new /obj/structure/computerframe(S.loc)
 			qdel(S)
 

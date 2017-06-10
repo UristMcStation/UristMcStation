@@ -44,7 +44,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=src.layer += 0.1)
+				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7)
 				qdel(W)
 				user.regenerate_icons()
 	..()
@@ -137,12 +137,12 @@
 	punji = 6
 
 /obj/structure/pit/punji6/New()
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=src.layer += 0.1)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=src.layer += 0.1)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=src.layer += 0.1)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=src.layer += 0.1)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=src.layer += 0.1)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=src.layer += 0.1)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7)
 
 /obj/structure/pit/closed
 	name = "mound"

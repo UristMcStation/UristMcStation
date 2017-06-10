@@ -50,17 +50,17 @@
 "aX" = (/obj/machinery/door/airlock/medical,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aY" = (/obj/machinery/clonepod,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aZ" = (/obj/machinery/camera/network/mining{c_tag = "Outpost Medbay"; dir = 1; icon_state = "camera"},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"ba" = (/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bb" = (/obj/machinery/vending/medical{req_access = newlist()},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bc" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/obj/machinery/light{brightness_power = 5; brightness_range = 10; dir = 8},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
-"bd" = (/obj/machinery/deployable/barrier,/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
-"be" = (/obj/item/device/radio/intercom{broadcasting = 0; dir = 1; listening = 1; name = "Station Intercom (General)"; pixel_x = -6; pixel_y = -28},/obj/machinery/light,/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
-"bf" = (/obj/structure/table/standard,/obj/machinery/recharger{pixel_y = 4},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
-"bg" = (/obj/structure/table/standard,/obj/item/weapon/hemostat,/obj/item/weapon/retractor,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bh" = (/obj/machinery/computer/operating,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bi" = (/obj/machinery/door/airlock/security{name = "Security Outpost Storage"; req_access = list(1)},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
-"bj" = (/obj/structure/table/standard,/obj/item/weapon/surgicaldrill,/obj/item/weapon/reagent_containers/spray/sterilizine,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bk" = (/obj/machinery/camera/network/mining{c_tag = "Outpost Operating Theatre"; dir = 1; icon_state = "camera"},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"ba" = (/obj/machinery/vending/medical{req_access = newlist()},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bb" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/obj/machinery/light{brightness_power = 5; brightness_range = 10; dir = 8},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
+"bc" = (/obj/machinery/deployable/barrier,/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
+"bd" = (/obj/item/device/radio/intercom{broadcasting = 0; dir = 1; listening = 1; name = "Station Intercom (General)"; pixel_x = -6; pixel_y = -28},/obj/machinery/light,/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
+"be" = (/obj/structure/table/standard,/obj/machinery/recharger{pixel_y = 4},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
+"bf" = (/obj/structure/table/standard,/obj/item/weapon/hemostat,/obj/item/weapon/retractor,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bg" = (/obj/machinery/computer/operating,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bh" = (/obj/machinery/door/airlock/security{name = "Security Outpost Storage"; req_access = list(1)},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
+"bi" = (/obj/structure/table/standard,/obj/item/weapon/surgicaldrill,/obj/item/weapon/reagent_containers/spray/sterilizine,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bj" = (/obj/machinery/camera/network/mining{c_tag = "Outpost Operating Theatre"; dir = 1; icon_state = "camera"},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bk" = (/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bl" = (/turf/simulated/wall/r_wall,/area/outpost/security/hallway)
 "bm" = (/obj/effect/floor_decal/corner/red/three_quarters{tag = "icon-corner_white_three_quarters (WEST)"; icon_state = "corner_white_three_quarters"; dir = 8},/obj/machinery/computer/cloning,/turf/simulated/floor/tiled,/area/outpost/security/hallway)
 "bn" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
@@ -145,15 +145,15 @@ aaabacadaeafagahahabaiajaiajaiakalamanakalaoapapaqaqaqaqaqaq
 abababababababararabasasasasasatauauauauavabawaxaqayazaAaBaC
 asaDaEaFauaGasauauasaHauaIaJasaKauauauauaLabawaxaqaMaMaMaMaM
 asaNauauauauasaOauauauauauaPasaQauauauauaRabawaSaqaTaMaMaMaU
-asaVauaWauauaXauauauauauauaYasauauaZbaaubbabbcaxaqbdaMaMbebf
-asbgaubhauauasauauauauauauauauauauabababababawaxaqaqbibiaqaq
-asbjbkbaaubaasauauauauauauauauauaublbmbnboblawbpbnbnbqbqbrbs
-asasasasaXasasbtbubaaubvbwbxauaubyblbzbqbqapawbqbqbqbqbAbBbs
+asaVauaWauauaXauauauauauauaYasauauaZauaubaabbbaxaqbcaMaMbdbe
+asbfaubgauauasauauauauauauauauauauabababababawaxaqaqbhbhaqaq
+asbibjbkaubkasauauauauauauauauauaublbmbnboblawbpbnbnbqbqbrbs
+asasasasaXasasbtbubkaubvbwbxauaubyblbzbqbqapawbqbqbqbqbAbBbs
 asaDaEaFauaGasasasasasasasasbCbCabblbDbEbFblbGbHbIbJbKblblbs
 asaNauauauauasbLbMbNbLbOasauauauaublblapblblbPbPblbQblblaabR
 asaVauaWauauaXbSbTbUbVaubWauauauauauauauaublbXbYbZcaaaaaaaaa
-asbgaubhauauascbcccdceaubWauauauaucfauauaublbXcgchcaaaaaaaaa
-asbjbkbaaubaascicjauckclasasauauauababababcmcncnblcocaaaaacp
+asbfaubgauauascbcccdceaubWauauauaucfauauaublbXcgchcaaaaaaaaa
+asbibjbkaubkascicjauckclasasauauauababababcmcncnblcocaaaaacp
 asasasasasasasasasasasasascqauauauaLabaacrcscscscscsctaaaacu
 aaaaaaaaaaaaaaaaaaaaaaaaabcvauauaucwabaacxcycycycycyczaaaacA
 aaaaaaaaaaaaaaaaaaaaaaaaabcBauauaucCabaacxcycycycycyczaaaacA
