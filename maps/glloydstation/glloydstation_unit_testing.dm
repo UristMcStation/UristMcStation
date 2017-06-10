@@ -41,7 +41,7 @@
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/server = NO_SCRUBBER,
-		/area/rnd/storage = NO_SCRUBBER|NO_VENT,
+		/area/rnd/storage = NO_SCRUBBER,
 		/area/shuttle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/skipjack_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/solar = NO_SCRUBBER|NO_VENT|NO_APC,
