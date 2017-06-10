@@ -15,7 +15,7 @@
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
 		/area/engineering/drone_fabrication = NO_SCRUBBER,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/jungle = NO_SCRUBBER,
+		/area/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/aft = NO_SCRUBBER,
 		/area/maintenance/asmaint = NO_SCRUBBER,
@@ -38,10 +38,6 @@
 		/area/outpost/mining_main/eva = NO_SCRUBBER,
 		/area/outpost/mining_main/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/outpost/research/eva = NO_SCRUBBER,
-		/area/outpost/mining_main = NO_SCRUBBER,
-		/area/outpost/security = NO_SCRUBBER,
-		/area/outpost/engineering = NO_SCRUBBER,
-		/area/outpost/engineering/power = NO_SCRUBBER|NO_VENT,
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/server = NO_SCRUBBER,
@@ -72,7 +68,8 @@
 			/area/maintenance/exterior,
 			/area/awaymission/maze,
 			/area/maintenance/incinerator,
-			/area/beach
+			/area/beach,
+			/area/jungle
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -185,5 +182,8 @@
 		/area/shuttle/naval1/event2,
 		/area/shuttle/naval1/event3,
 		/area/template_noop,
-		/area/turbolift
+		/area/turbolift,
+		/area/outpost/engineering/storage,
+		/area/outpost/mining_main/maintenance,
+		/area/outpost/security/lounge
 	)
