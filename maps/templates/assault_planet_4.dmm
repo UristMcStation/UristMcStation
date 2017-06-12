@@ -4,7 +4,7 @@
 "d" = (/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/obj/structure/table/standard/flipped/e,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "e" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "f" = (/obj/structure/table/standard/flipped/e,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
-"g" = (/obj/item/stack/rods{amount = 50},/turf/simulated/floor/tiled,/area/space)
+"g" = (/obj/item/stack/rods{amount = 50},/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "h" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "i" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/obj/structure/table/standard/flipped/e,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "j" = (/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
