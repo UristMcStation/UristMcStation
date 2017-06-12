@@ -80,6 +80,9 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/paleblue/three_quarters
 	icon_state = "corner_white_three_quarters"
 
+/obj/effect/floor_decal/corner/paleblue/full
+	icon_state = "corner_white_full"
+
 /obj/effect/floor_decal/corner/green
 	name = "green corner"
 	color = COLOR_GREEN_GRAY
@@ -89,6 +92,9 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/green/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/green/full
+	icon_state = "corner_white_full"
 
 /obj/effect/floor_decal/corner/lime
 	name = "lime corner"
