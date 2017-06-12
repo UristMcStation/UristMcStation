@@ -380,6 +380,23 @@
 	else if (mess)
 		icon_state = "pod_g"
 
+//Upgraded parts for mapping
+
+/obj/machinery/clonepod/advanced/New()
+	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
+	..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
+	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 2)
+
+	RefreshParts()
+	update_icon()
+
 //Health Tracker Implant
 
 /obj/item/weapon/implant/health
