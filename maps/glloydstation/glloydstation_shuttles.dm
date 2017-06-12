@@ -250,5 +250,5 @@
 	dock_target_offsite = "outpost_planet_dock"
 
 /obj/machinery/computer/shuttle_control/planet
-	name = "mining elevator console"
+	name = "planet shuttle console"
 	shuttle_tag = "Planet"
