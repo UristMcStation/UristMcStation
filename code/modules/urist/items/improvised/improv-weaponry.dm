@@ -95,7 +95,7 @@
 	throwforce = 5
 	stunforce = 0
 	agonyforce = 60	//same force as a stunbaton, but uses way more charge.
-	hitcost = 2500
+	hitcost = 20
 	slot_flags = null
 
 /obj/item/weapon/melee/baton/cattleprod/update_icon()

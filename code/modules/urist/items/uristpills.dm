@@ -172,6 +172,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		..()
 		reagents.add_reagent("bicaridine", 45)
 
+/obj/item/weapon/reagent_containers/pill/clonefix
+	name = "Clone fix pill"
+	desc = "Repairs possible cloning faults."
+	icon_state = "pill7"
+	New()
+		..()
+		reagents.add_reagent("alkysine", 10)
+		reagents.add_reagent("ryetalyn", 1)
+
 //Now pill bottle time
 
 /obj/item/weapon/storage/pill_bottle/citalopram
@@ -202,3 +211,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		/obj/item/weapon/reagent_containers/pill/exspaceacillin = 3,
 		/obj/item/weapon/reagent_containers/pill/exbicaridine = 3
 		)
+
+/obj/item/weapon/storage/pill_bottle/clonefix
+	name = "bottle of clonefix pills"
+	desc = "Contains pills to repair cloning defaults."
+	startswith = list(/obj/item/weapon/reagent_containers/pill/clonefix = 7)
