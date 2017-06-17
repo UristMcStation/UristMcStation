@@ -9,7 +9,7 @@
 						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/chaplain,
 						/datum/job/rd, /datum/job/scientist, /datum/job/geneticist, /datum/job/roboticist, /datum/job/mining,
-						/datum/job/blueshield, /datum/job/mime, /datum/job/clown
+						/datum/job/blueshield, /datum/job/mime, /datum/job/clown, /datum/job/merchant
 						)
 
 //Resource Technician et al
@@ -158,10 +158,9 @@
 	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
-//Mostly lifted from torch, tested lightly. Don't uncomment until the docking issues with the shuttle is fixed.
-/*
-/datum/job/trader
-	title = "Trader"
+
+/datum/job/merchant
+	title = "Merchant"
 	department = "Civilian"
 	department_flag = CIV
 	faction = "Station"
@@ -172,10 +171,19 @@
 	ideal_character_age = 30
 	minimal_player_age = 7
 	create_record = 0
-	outfit_type = /decl/hierarchy/outfit/job/trader
-
+	outfit_type = /decl/hierarchy/outfit/job/merchant
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
+	alt_titles = list(
+	"Trader" = /decl/hierarchy/outfit/job/trader)
+
+/decl/hierarchy/outfit/job/merchant
+	name = OUTFIT_JOB_NAME("Merchant")
+	uniform = /obj/item/clothing/under/color/black
+	l_ear = /obj/item/device/radio/headset
+	shoes = /obj/item/clothing/shoes/black
+	pda_type = /obj/item/device/pda
+	id_type = /obj/item/weapon/card/id/merchant
 
 /decl/hierarchy/outfit/job/trader
 	name = OUTFIT_JOB_NAME("Trader")
@@ -185,8 +193,8 @@
 	l_ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/device/pda
-	id_type = /obj/item/weapon/card/id/trader
-*/
+	id_type = /obj/item/weapon/card/id/merchant
+
 //ids for the jobs
 
 /obj/item/weapon/card/id/civilian/clown
@@ -206,10 +214,10 @@
 	desc = "A card issued to the station's blueshield."
 	icon_state = "centcom"
 	job_access_type = /datum/job/blueshield
-/*
-/obj/item/weapon/card/id/trader
+
+/obj/item/weapon/card/id/merchant
 	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
 	icon_state = "trader"
-	job_access_type = /datum/job/trader
-*/
+	job_access_type = /datum/job/merchant
+
 

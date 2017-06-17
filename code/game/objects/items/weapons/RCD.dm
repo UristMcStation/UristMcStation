@@ -141,7 +141,7 @@
 
 
 /obj/item/weapon/rcd/mounted/useResource(var/amount, var/mob/user)
-	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RCD can.
+	var/cost = amount*24 //so that a rig with default powercell can build ~1.5x the stuff a fully-loaded RCD can.
 	if(istype(loc,/obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
 		if(module.holder && module.holder.cell)

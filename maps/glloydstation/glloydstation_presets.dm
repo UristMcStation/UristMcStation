@@ -84,3 +84,7 @@ var/const/NETWORK_URIST               = "Urist"
 
 /obj/machinery/camera/xray/prison
 	network = list(NETWORK_PRISON)
+
+//emp proof
+/obj/machinery/camera/emp_proof/engine
+	network = list(NETWORK_ENGINE)

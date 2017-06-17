@@ -13,7 +13,7 @@
 "am" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "an" = (/obj/structure/boulder,/obj/effect/decal/cleanable/cobweb2,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "ao" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"ap" = (/obj/machinery/light{active_power_usage = 0; dir = 1; icon_state = "tube1"; on = 1; tag = "icon-tube1 (WEST)"; use_power = 0},/turf/simulated/floor/tiled/dark,/area/space)
+"ap" = (/obj/machinery/light{active_power_usage = 0; dir = 1; icon_state = "tube1"; on = 1; tag = "icon-tube1 (WEST)"; use_power = 0},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aq" = (/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "ar" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/floor_decal/chapel{tag = "icon-chapel (NORTH)"; icon_state = "chapel"; dir = 1},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "as" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/effect/decal/cleanable/ash,/obj/item/weapon/spike,/obj/effect/floor_decal/chapel,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)

@@ -27,7 +27,7 @@
 "A" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{dir = 2; name = "Trading Post Desk"},/obj/item/weapon/scissors,/obj/item/weapon/rollingpaper,/obj/item/ammo_magazine/c38,/turf/simulated/floor/tiled,/area/template_noop)
 "B" = (/obj/machinery/door/airlock/maintenance{req_access = list(12)},/turf/simulated/floor/plating,/area/template_noop)
 "C" = (/obj/machinery/button/remote/blast_door{id = "TradingPost"; name = "Trading Post Door Control"; pixel_x = -28},/turf/simulated/floor/tiled,/area/template_noop)
-"D" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/storage/box/mines,/turf/simulated/floor/tiled,/area/template_noop)
+"D" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/storage/box/large/mines,/turf/simulated/floor/tiled,/area/template_noop)
 "E" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/hemostat,/obj/item/weapon/cell/high,/turf/simulated/floor/tiled,/area/template_noop)
 "F" = (/obj/item/weapon/shiv,/obj/item/weapon/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
 "G" = (/obj/item/weapon/caution,/turf/simulated/floor/tiled,/area/template_noop)

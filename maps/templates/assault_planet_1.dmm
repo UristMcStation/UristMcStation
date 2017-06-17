@@ -1,0 +1,41 @@
+"a" = (/turf/simulated/planet/jungle/path,/area/jungle)
+"b" = (/obj/effect/mine/frag,/turf/simulated/planet/jungle/path,/area/jungle)
+"c" = (/obj/structure/barricade,/turf/simulated/planet/jungle/path,/area/jungle)
+"d" = (/turf/simulated/planet/jungle/clear,/area/jungle)
+"e" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/refinery)
+"f" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"g" = (/obj/effect/mine/frag,/turf/simulated/planet/jungle/clear,/area/jungle)
+"h" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"i" = (/obj/machinery/light{brightness_power = 4; brightness_range = 10; dir = 1},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"j" = (/obj/structure/barricade,/turf/simulated/planet/jungle/clear,/area/jungle)
+"k" = (/obj/machinery/light{brightness_power = 5; brightness_range = 10; dir = 8},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"l" = (/obj/machinery/door/airlock/multi_tile/glass,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"m" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"n" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/hallway)
+"o" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"p" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"q" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"r" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"s" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"t" = (/obj/structure/assaultshieldgen,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"u" = (/obj/structure/assaultshieldgen,/obj/machinery/light,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
+"v" = (/turf/simulated/wall/r_wall,/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aabbbbbbbbbbbbbbbaaa
+aabccccccccccccccbdd
+dabceeffeffeffeecgdd
+ddbcehhhhhhihhhecgdd
+ddgjekhhhhhhhhhejgde
+dggjehhhelhehhhejgde
+jjjjemeeehheeemejjje
+nneeeeeihhhhheeeeeee
+nohhhhhhhhhhhhhhihhe
+pohhhhhheeeehhhhhhhq
+nrhhhhhhqhhqshhhhhhe
+nneeeeeeetueeeeeeeee
+ddddddadvvvvddddddde
+"}

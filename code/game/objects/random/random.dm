@@ -1065,8 +1065,7 @@ something, make sure it's not in one of the other lists.*/
 					/obj/item/weapon/rig/light/hacker,\
 					/obj/item/weapon/rig/light/stealth,\
 					/obj/item/weapon/rig/light,\
-					/obj/item/weapon/rig/unathi,\
-					/obj/item/weapon/rig/unathi/fancy)
+					/obj/item/weapon/rig/unathi)
 
 /*
 	Selects one spawn point out of a group of points with the same ID and asks it to generate its items

@@ -10,6 +10,8 @@ var/global/remaininggens = 6
 	var/aliensurvivors = 0
 	votable = 0 //WEW
 	auto_recall_shuttle = 1
+	var/maptype = 0 //0 = station, 1 = planet
+	var/defencearea = "the station"
 
 /datum/game_mode/assault/announce()
 	world << "<B>The current game mode is - Assault!</B>"
@@ -18,18 +20,20 @@ var/global/remaininggens = 6
 
 /datum/game_mode/assault/pre_setup()
 	world << "<span class='warning'> Setting up Assault, this may take a minute or two.</span>"
-
+	if(maptype == 1)
+		defencearea = "the planet"
 	return 1
 
 /datum/game_mode/assault/post_setup()
 
 	respawntime = 100 //ten second respawn time, instant action
 
-	for(var/obj/effect/template_loader/gamemode/L in world) //disabling this for now because fuck dealing with the runtimes. i'll just manually spawnt hem for the test
-		L.Load()
+	for(var/obj/effect/template_loader/gamemode/assault/L in world)
+		if(maptype == L.maptype)
+			L.Load()
 
 	for(var/obj/machinery/computer/shuttle_control/S in machines)
-		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security")
+		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security" || S.shuttle_tag == "Planet")
 			new /obj/structure/computerframe(S.loc)
 			qdel(S)
 
@@ -91,11 +95,11 @@ var/global/remaininggens = 6
 	//		else
 	//			return
 	spawn(300)
-		command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Your station is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
+		command_announcement.Announce("ATTENTION URIST MCSTATION: As you are well aware, large alien forces are en route. They've broken through ANFOR defences, and while they are weakened, they still pose a severe threat to Nyx. Thus, [defencearea] is the last chance to head off this attack so reinforcements can get here. It's up to you and your complement of marines to stop them. Good luck, don't let them destroy your shield generators in the centre of your station.", "ANFOR Nyx Command")
 		spawn(600)
 			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
 			sleep(rand(2000,2400))
-			command_announcement.Announce("ATTENTION URIST MCSTATION: We're detecting multiple ships pulling into orbit of your station. Looks like they're here. We'll do our best to take out as many as we can, but expect hostile contacts imminently.", "ANFOR Nyx Command")
+			command_announcement.Announce("ATTENTION URIST MCSTATION: We're detecting multiple ships pulling into orbit of [defencearea]. Looks like they're here. We'll do our best to take out as many as we can, but expect hostile contacts imminently.", "ANFOR Nyx Command")
 			for(var/obj/machinery/computer/shuttle_control/assault/A in machines)
 				A.readytogo = 1 //it's go time bois
 

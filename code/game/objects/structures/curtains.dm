@@ -2,7 +2,7 @@
 	name = "curtain"
 	icon = 'icons/obj/curtain.dmi'
 	icon_state = "closed"
-	plane = OBJ_PLANE
+	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_WINDOW_LAYER
 	opacity = 1
 	density = 0

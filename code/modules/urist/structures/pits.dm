@@ -44,7 +44,9 @@
 			else
 				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
+				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7)
+				qdel(W)
+				user.regenerate_icons()
 	..()
 
 /obj/structure/pit/update_icon()
@@ -70,7 +72,7 @@
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/weapon/sharpwoodrod(src.loc)
-		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=2.1)
+		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]")
 		punji -= 1
 
 /obj/structure/pit/examine()
@@ -130,6 +132,17 @@
 	visible_message("<span class='danger'>\the [escapee] emerges from \the [src]!</span>")
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
+
+/obj/structure/pit/punji6
+	punji = 6
+
+/obj/structure/pit/punji6/New()
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7)
+	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7)
 
 /obj/structure/pit/closed
 	name = "mound"

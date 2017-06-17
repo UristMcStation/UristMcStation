@@ -82,6 +82,7 @@
 			if(!src.registered_name)
 				src.registered_name = I.registered_name
 				src.desc = "Owned by [I.registered_name]."
+				src.name = "[I.registered_name]'s locker."
 		else
 			to_chat(user, "<span class='warning'>Access Denied</span>")
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
@@ -94,7 +95,7 @@
 	else
 		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return
-	
+
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)
 	if(!broken)
 		broken = 1
@@ -102,7 +103,7 @@
 		desc = "It appears to be broken."
 		icon_state = src.icon_broken
 		if(visual_feedback)
-			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")	
+			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()
@@ -125,4 +126,5 @@
 			src.icon_state = src.icon_locked
 			src.registered_name = null
 			src.desc = "It's a secure locker for personnel. The first card swiped gains control."
+			src.name = "personal closet"
 	return

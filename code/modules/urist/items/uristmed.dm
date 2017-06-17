@@ -35,6 +35,28 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	..()
 	icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
 
+/obj/item/weapon/storage/firstaid/tactical
+	name = "tactical medicine kit"
+	desc = "Contains experimental medicine and advanced tools."
+	icon = 'icons/urist/items/misc.dmi'
+	item_icons = URIST_ALL_ONMOBS
+	icon_state = "tactical"
+	item_state = "tactical"
+	max_storage_space = 20
+
+	startswith = list(
+		/obj/item/device/healthanalyzer,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/weapon/storage/pill_bottle/bloodloss,
+		/obj/item/weapon/storage/pill_bottle/peridaxon,
+		/obj/item/weapon/storage/pill_bottle/emergency,
+		/obj/item/weapon/reagent_containers/glass/beaker/stabilization,
+		/obj/item/weapon/reagent_containers/glass/beaker/brute,
+		/obj/item/weapon/reagent_containers/glass/beaker/burns,
+		/obj/item/weapon/reagent_containers/glass/beaker/radiation,
+		/obj/item/weapon/reagent_containers/glass/beaker/painkiller,
+		)
+
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv
 	name = "advanced autoinjector"
 	desc = "An advanced autoinjector, containing a number of helpful chemicals."
@@ -90,3 +112,56 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/adv = 5,
 		/obj/item/bodybag/cryobag
 		)
+
+//Tactical medicine
+
+/obj/item/weapon/reagent_containers/glass/beaker/stabilization
+	name = "Stabilization mix"
+	desc = "Inaprovaline | Dexalin Plus 1|1"
+
+/obj/item/weapon/reagent_containers/glass/beaker/stabilization/New()
+	..()
+	reagents.add_reagent("inaprovaline", 30)
+	reagents.add_reagent("dexalinp", 30)
+	update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/brute
+	name = "Brute treatment mix"
+	desc = "Bicaridine | Tricordrazine 3|1"
+
+/obj/item/weapon/reagent_containers/glass/beaker/brute/New()
+	..()
+	reagents.add_reagent("bicaridine", 45)
+	reagents.add_reagent("tricordrazine", 15)
+	update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/burns
+	name = "Burn treatment mix"
+	desc = "Kelotane | Dermaline 1|1"
+
+/obj/item/weapon/reagent_containers/glass/beaker/burns/New()
+	..()
+	reagents.add_reagent("kelotane", 30)
+	reagents.add_reagent("dermaline", 30)
+	update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/radiation
+	name = "Radiation treatment mix"
+	desc = "Arithrazine | Hyronalin | Dylovene 2|1|1"
+
+/obj/item/weapon/reagent_containers/glass/beaker/radiation/New()
+	..()
+	reagents.add_reagent("arithrazine", 30)
+	reagents.add_reagent("hyronalin", 15)
+	reagents.add_reagent("anti_toxin", 15)
+	update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/painkiller
+	name = "Painkillers"
+	desc = "Oxycodone | Dexalin Plus 3|1"
+
+/obj/item/weapon/reagent_containers/glass/beaker/painkiller/New()
+	..()
+	reagents.add_reagent("oxycodone", 45)
+	reagents.add_reagent("dexalinp", 15)
+	update_icon()

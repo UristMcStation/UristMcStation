@@ -50,7 +50,7 @@ var/list/datum/map_template/underground_templates = list()
 
 		turfs += B
 
-		for(var/obj/W in B) //disabling this for now until i devise a better system, just gonna qdel jungle stuff until templates get expanded
+		for(var/obj/W in B)
 			if(istype(W,/obj/machinery/atmospherics) || istype(W,/obj/machinery/atm) || istype(W,/obj/machinery/power/apc) || istype(W,/obj/machinery/alarm) || istype(W,/obj/machinery/firealarm) || istype(W,/obj/structure/cable))
 				continue
 			qdel(W)
@@ -113,7 +113,7 @@ var/list/datum/map_template/underground_templates = list()
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
 
 	for(var/obj/effect/template_loader/E in world)
-		if(E.gamemode == 1)
+		if(E.gamemode)
 			continue
 		E.Load()
 
@@ -201,7 +201,6 @@ var/list/datum/map_template/underground_templates = list()
 /obj/effect/template_loader/gamemode
 	var/mapfile = null
 	invisibility = 101
-	gamemode = 1
 
 /obj/effect/template_loader/gamemode/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
 
@@ -216,3 +215,7 @@ var/list/datum/map_template/underground_templates = list()
 
 	qdel(src)
 
+
+/obj/effect/template_loader/gamemode/assault
+	var/maptype = 0
+	gamemode = "assault"
