@@ -116,6 +116,7 @@
 /decl/hierarchy/outfit/job/engineering/electrician
 	name = OUTFIT_JOB_NAME("Electrician")
 	suit = /obj/item/clothing/suit/storage/urist/overalls/electricians
+	id_type = /obj/item/weapon/card/id/engineering
 
 /* World War 13 */
 /decl/hierarchy/outfit/wwii

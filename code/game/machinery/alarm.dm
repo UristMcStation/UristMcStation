@@ -660,6 +660,7 @@
 					return 1
 
 				if( "power",
+					"direction",
 					"adjust_external_pressure",
 					"checks",
 					"o2_scrub",
