@@ -168,6 +168,15 @@
 	icon_state = "shuttle"
 	base_turf = /turf/simulated/floor/plating
 
+/area/shuttle/planet
+	name = "\improper Planet Outpost Shuttle"
+
+/area/shuttle/planet/station
+	icon_state = "shuttle"
+
+/area/shuttle/planet/outpost
+	icon_state = "shuttle2"
+	base_turf = /turf/simulated/floor/plating
 
 //SYNDICATES
 
@@ -176,6 +185,7 @@
 	icon_state = "syndie-ship"
 	requires_power = 0
 	lighting_use_dynamic = 0
+	flags = AREA_RAD_SHIELDED
 
 /area/syndicate_mothership/ninja
 	name = "\improper Ninja Base"
@@ -301,6 +311,7 @@
 	name = "\improper Skipjack"
 	icon_state = "yellow"
 	requires_power = 0
+	flags = AREA_RAD_SHIELDED
 
 /area/skipjack_station/transit
 	name = "\proper bluespace"
@@ -564,6 +575,11 @@
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
+/area/medical/medbay2
+	name = "\improper Medbay Hallway - Starboard"
+	icon_state = "medbay2"
+	ambience = list('sound/ambience/signal.ogg')
+
 /area/medical/reception
 	name = "\improper Medbay Reception"
 	icon_state = "medbay"
@@ -591,6 +607,10 @@
 
 /area/medical/surgeryprep
 	name = "\improper Pre-Op Prep Room"
+	icon_state = "surgery"
+
+/area/medical/surgery2
+	name = "\improper Operating Theatre 2"
 	icon_state = "surgery"
 
 /area/medical/cryo
@@ -700,6 +720,7 @@ area/rnd/test_area
 
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
+	base_turf = /turf/simulated/planet/jungle/clear
 
 /area/outpost/mining_main/eva
 	name = "Mining Outpost EVA storage"
@@ -713,6 +734,12 @@ area/rnd/test_area
 // Mining outpost
 /area/outpost/mining_main/maintenance
 	name = "Mining Outpost Maintenance"
+
+/area/outpost/mining_main/hallway
+	name = "Mining Outpost Hallway"
+
+/area/outpost/mining_main/medbay
+	name = "Mining Outpost Medbay"
 
 // Engineering outpost
 

@@ -1,15 +1,5 @@
 //AREAS FOR THE JUNGLE
 
-//shuttle
-
-/area/shuttle/outpost/jungle
-	name = "\improper Outpost Shuttle Jungle"
-	icon_state = "shuttle"
-
-/area/shuttle/outpost/station
-	name = "\improper Outpost Shuttle"
-	icon_state = "shuttle"
-
 //regular jungle
 
 /area/jungle

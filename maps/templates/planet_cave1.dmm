@@ -3,7 +3,7 @@
 "c" = (/turf/simulated/planet/jungle/clear/underground,/area/jungle)
 "d" = (/obj/effect/spider,/turf/simulated/planet/jungle/clear/underground,/area/jungle)
 "e" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/planet/jungle/clear/underground,/area/jungle)
-"f" = (/obj/effect/landmark/loot_spawn/low,/turf/simulated/planet/jungle/clear/underground,/area/jungle)
+"f" = (/obj/random/loot,/obj/structure/closet/crate,/obj/random/maintenance/clean,/obj/random/maintenance/clean,/turf/simulated/planet/jungle/clear/underground,/area/jungle)
 "g" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/planet/jungle/clear/underground,/area/jungle)
 
 (1,1,1) = {"
@@ -15,7 +15,7 @@ aabbcccccccccbb
 abbdccccbccccbb
 abcccccbbbcccbb
 abcbbcbbbccccbb
-abcebbbbfcccbba
+abcebbbbccccbba
 abbeeebbbfcbbaa
 aabbbebbbbbbaaa
 aaabbgbbbbbaaaa

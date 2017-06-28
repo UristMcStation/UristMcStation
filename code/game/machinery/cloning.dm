@@ -116,7 +116,7 @@
 	locked = 1
 
 	eject_wait = 1
-	spawn(300)
+	spawn(30)
 		eject_wait = 0
 
 	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src, R.dna.species)
@@ -127,7 +127,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
+	H.adjustCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
@@ -379,6 +379,23 @@
 		icon_state = "pod_1"
 	else if (mess)
 		icon_state = "pod_g"
+
+//Upgraded parts for mapping
+
+/obj/machinery/clonepod/advanced/New()
+	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
+	..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
+	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 2)
+
+	RefreshParts()
+	update_icon()
 
 //Health Tracker Implant
 

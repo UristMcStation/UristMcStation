@@ -2,7 +2,6 @@
 // Unit test exemptions
 	apc_test_exempt_areas = list(
 		/area/AIsattele = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/constructionsite = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/constructionsite/ai = NO_SCRUBBER|NO_VENT,
 		/area/constructionsite/atmospherics = NO_SCRUBBER,
 		/area/constructionsite/teleporter = NO_SCRUBBER,
@@ -14,7 +13,7 @@
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
 		/area/engineering/drone_fabrication = NO_SCRUBBER,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/jungle = NO_SCRUBBER,
+		/area/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/aft = NO_SCRUBBER,
 		/area/maintenance/asmaint = NO_SCRUBBER,
@@ -31,21 +30,16 @@
 		/area/maintenance/foresolar = NO_SCRUBBER,
 		/area/maintenance/portsolar = NO_SCRUBBER,
 		/area/maintenance/starboardsolar = NO_SCRUBBER,
-		/area/medical/cryo = NO_SCRUBBER|NO_VENT,
 		/area/mine/explored = NO_SCRUBBER|NO_VENT,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/outpost/abandoned = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/outpost/mining_main/eva = NO_SCRUBBER,
 		/area/outpost/mining_main/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/outpost/research/eva = NO_SCRUBBER,
-		/area/outpost/mining_main = NO_SCRUBBER,
-		/area/outpost/security = NO_SCRUBBER,
-		/area/outpost/engineering = NO_SCRUBBER,
-		/area/outpost/engineering/power = NO_SCRUBBER|NO_VENT,
 		/area/rescue_base = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rnd/server = NO_SCRUBBER,
-		/area/rnd/storage = NO_SCRUBBER|NO_VENT,
+		/area/rnd/storage = NO_SCRUBBER,
 		/area/shuttle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/skipjack_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/solar = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -72,7 +66,8 @@
 			/area/maintenance/exterior,
 			/area/awaymission/maze,
 			/area/maintenance/incinerator,
-			/area/beach
+			/area/beach,
+			/area/jungle
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -133,7 +128,6 @@
 		/area/security/range,
 		/area/solar/constructionsite,
 		/area/shuttle/,
-		/area/shuttle/outpost,
 		/area/shuttle/event1/,
 		/area/shuttle/event2/,
 		/area/shuttle/scom/s1/mission,
@@ -185,8 +179,9 @@
 		/area/shuttle/naval1/event1,
 		/area/shuttle/naval1/event2,
 		/area/shuttle/naval1/event3,
-		/area/shuttle/outpost/station,
-		/area/shuttle/outpost/jungle,
 		/area/template_noop,
-		/area/turbolift
+		/area/turbolift,
+		/area/outpost/engineering/storage,
+		/area/outpost/mining_main/maintenance,
+		/area/outpost/security/lounge
 	)

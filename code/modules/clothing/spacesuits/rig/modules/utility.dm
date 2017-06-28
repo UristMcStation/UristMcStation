@@ -96,8 +96,10 @@
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RCD"
-	use_power_cost = 100 KILOWATTS // Matter fabrication is a very energy-demanding process.
+	use_power_cost = 10 KILOWATTS // Matter fabrication is a very energy-demanding process.
+
 	origin_tech = list(TECH_MATERIAL = 6, TECH_MAGNET = 5, TECH_ENGINEERING = 7)
+
 	device_type = /obj/item/weapon/rcd/mounted
 
 /obj/item/rig_module/device/New()

@@ -238,3 +238,17 @@
 	docking_controller_tag = "security_shuttle"
 	dock_target_station = "security_dock_airlock"
 	dock_target_offsite = "secdock_airlock"
+
+/datum/shuttle/ferry/planet
+	name = "Planet"
+	location = 0
+	warmup_time = 10
+	area_offsite = /area/shuttle/planet/outpost
+	area_station = /area/shuttle/planet/station
+	docking_controller_tag = "planet_shuttle"
+	dock_target_station = "station_planet_dock"
+	dock_target_offsite = "outpost_planet_dock"
+
+/obj/machinery/computer/shuttle_control/planet
+	name = "planet shuttle console"
+	shuttle_tag = "Planet"

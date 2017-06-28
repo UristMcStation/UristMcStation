@@ -11,10 +11,11 @@
 
 /obj/structure/window/attack_ghost(mob/observer/ghost/user as mob)
 	. = ..()
-	playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
-	user.visible_message("Something knocks on the [src.name].",
-							"You knock on the [src.name].",
-							"You hear a knocking sound.")
+	if(round_is_spooky())
+		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
+		user.visible_message("Something knocks on the [src.name].",
+								"You knock on the [src.name].",
+								"You hear a knocking sound.")
 
 /mob/living/carbon/attack_ghost(mob/observer/ghost/user as mob)
 	. = ..()
