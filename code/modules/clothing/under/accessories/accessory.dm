@@ -11,8 +11,8 @@
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/list/mob_overlay = list()
 	var/overlay_state = null
-	var/list/accessory_icons = list(slot_w_uniform_str = 'icons/mob/ties.dmi')
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ties.dmi') // for species where human variants do not fit
+	var/list/accessory_icons = list(slot_w_uniform_str = 'icons/mob/ties.dmi', slot_wear_suit_str = 'icons/mob/ties.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ties.dmi') // for species where human variants do not fit
 	var/list/on_rolled = list()	//used when jumpsuit sleevels are rolled ("rolled" entry) or it's rolled down ("down"). Set to "none" to hide in those states.
 
 /obj/item/clothing/accessory/Destroy()
@@ -186,6 +186,7 @@
 	name = "medal"
 	desc = "A simple medal."
 	icon_state = "bronze"
+	slot = "medal"
 
 /obj/item/clothing/accessory/medal/iron
 	name = "iron medal"
@@ -291,6 +292,7 @@
 	name = "ribbon"
 	desc = "A simple military decoration."
 	icon_state = "ribbon_marksman"
+	slot = "medal"
 
 /obj/item/clothing/accessory/ribbon/marksman
 	name = "marksmanship ribbon"
@@ -357,6 +359,11 @@
 	name = "officer's qualification pin"
 	desc = "A golden pin denoting some special qualification."
 	icon_state = "fleetpin_officer"
+
+/obj/item/clothing/accessory/speciality/pilot
+	name = "pilot's qualification pin"
+	desc = "An iron pin denoting the qualification to fly in the SGDF."
+	icon_state = "pin_pilot"
 
 //Ranks
 /obj/item/clothing/accessory/rank
@@ -594,3 +601,60 @@
 	name = "scarf"
 	desc = "A stylish scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks."
 	icon_state = "whitescarf"
+
+//Bowties
+/obj/item/clothing/accessory/bowtie
+	var/icon_tied
+/obj/item/clothing/accessory/bowtie/New()
+	icon_tied = icon_tied || icon_state
+	..()
+
+/obj/item/clothing/accessory/bowtie/on_attached(obj/item/clothing/under/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/bowtie/verb/toggle
+
+/obj/item/clothing/accessory/bowtie/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/bowtie/verb/toggle
+	..()
+
+/obj/item/clothing/accessory/bowtie/verb/toggle()
+	set name = "Toggle Bowtie"
+	set category = "Object"
+	set src in usr
+
+	if(usr.incapacitated())
+		return 0
+
+	var/obj/item/clothing/accessory/bowtie/H = null
+	if (istype(src, /obj/item/clothing/accessory/bowtie))
+		H = src
+	else
+		H = locate() in src
+
+	if(H)
+		H.do_toggle(usr)
+
+/obj/item/clothing/accessory/bowtie/proc/do_toggle(user)
+	if(icon_state == icon_tied)
+		to_chat(usr, "You untie [src].")
+	else
+		to_chat(usr, "You tie [src].")
+
+	update_icon()
+
+/obj/item/clothing/accessory/bowtie/update_icon()
+	if(icon_state == icon_tied)
+		icon_state = "[icon_tied]_untied"
+	else
+		icon_state = icon_tied
+
+/obj/item/clothing/accessory/bowtie/color
+	name = "bowtie"
+	desc = "A neosilk hand-tied bowtie."
+	icon_state = "bowtie"
+
+/obj/item/clothing/accessory/bowtie/ugly
+	name = "horrible bowtie"
+	desc = "A neosilk hand-tied bowtie. This one is disgusting."
+	icon_state = "bowtie_ugly"

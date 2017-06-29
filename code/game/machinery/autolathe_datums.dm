@@ -148,7 +148,7 @@
 	category = "General"
 
 /datum/autolathe/recipe/radio_bounced
-	name = "station bounced radio"
+	name = "shortwave radio"
 	path = /obj/item/device/radio/off
 	category = "General"
 
@@ -340,6 +340,11 @@
 	name = "proximity sensor"
 	path = /obj/item/device/assembly/prox_sensor
 	category = "Devices and Components"
+
+/datum/autolathe/recipe/tube/large
+	name = "spotlight tube"
+	path = /obj/item/weapon/light/tube/large
+	category = "General"
 
 /datum/autolathe/recipe/tube
 	name = "light tube"

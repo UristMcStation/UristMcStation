@@ -3,6 +3,7 @@
 	#include "torch_areas.dm"
 	#include "torch_elevator.dm"
 	#include "torch_holodecks.dm"
+	#include "torch_overmap.dm"
 	#include "torch_presets.dm"
 	#include "torch_ranks.dm"
 	#include "torch_shuttles.dm"
@@ -68,6 +69,7 @@
 	#include "../../code/modules/lobby_music/endless_space.dm"
 	#include "../../code/modules/lobby_music/dilbert.dm"
 	#include "../../code/modules/lobby_music/space_oddity.dm"
+	#include "../../code/modules/lobby_music/Torch.dm"
 
 	#define USING_MAP_DATUM /datum/map/torch
 

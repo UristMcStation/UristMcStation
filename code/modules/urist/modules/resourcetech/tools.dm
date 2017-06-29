@@ -42,7 +42,7 @@
 	icon_state = "huntrifle"
 	item_state = "huntrifle"
 	w_class = 5
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
 	caliber = "a762"
