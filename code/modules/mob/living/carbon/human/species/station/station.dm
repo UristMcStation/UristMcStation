@@ -21,6 +21,55 @@
 /datum/species/human/get_bodytype(var/mob/living/carbon/human/H)
 	return SPECIES_HUMAN
 
+/datum/species/human/handle_npc(var/mob/living/carbon/human/H)
+	if(H.stat != CONSCIOUS)
+		return
+
+	if(H.get_shock() && H.shock_stage < 40 && prob(3))
+		H.emote(pick("moan","groan"))
+
+	if(H.shock_stage > 10 && prob(3))
+		H.emote(pick("cry","whimper"))
+
+	if(H.shock_stage >= 40 && prob(3))
+		H.emote("scream")
+
+	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
+		H.custom_emote("thrashes in agony")
+
+	if(!H.restrained() && H.shock_stage < 40 && prob(3))
+		var/maxdam = 0
+		var/obj/item/organ/external/damaged_organ = null
+		for(var/obj/item/organ/external/E in H.organs)
+			if(!E.can_feel_pain()) continue
+			var/dam = E.get_damage()
+			// make the choice of the organ depend on damage,
+			// but also sometimes use one of the less damaged ones
+			if(dam > maxdam && (maxdam == 0 || prob(50)) )
+				damaged_organ = E
+				maxdam = dam
+		var/datum/gender/T = gender_datums[H.get_gender()]
+		if(damaged_organ)
+			if(damaged_organ.status & ORGAN_BLEEDING)
+				H.custom_emote("clutches [T.his] [damaged_organ.name], trying to stop the blood.")
+			else if(damaged_organ.status & ORGAN_BROKEN)
+				H.custom_emote("holds [T.his] [damaged_organ.name] carefully.")
+			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
+				H.custom_emote("blows on [T.his] [damaged_organ.name] carefully.")
+			else
+				H.custom_emote("rubs [T.his] [damaged_organ.name] carefully.")
+
+		for(var/obj/item/organ/I in H.internal_organs)
+			if((I.status & ORGAN_DEAD) || I.robotic >= ORGAN_ROBOT) continue
+			if(I.damage > 2) if(prob(2))
+				var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
+				H.custom_emote("clutches [T.his] [parent.name]!")
+
+/datum/species/human/get_ssd(var/mob/living/carbon/human/H)
+	if(H.stat == CONSCIOUS)
+		return "staring blankly, not reacting to your presence"
+	return ..()
+
 /datum/species/unathi
 	name = SPECIES_UNATHI
 	name_plural = SPECIES_UNATHI
@@ -143,6 +192,7 @@
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/tajblind(H),slot_glasses)
 
 /datum/species/skrell
 	name = SPECIES_SKRELL
@@ -215,6 +265,7 @@
 	name_language = LANGUAGE_ROOTLOCAL
 	spawns_with_stack = 0
 	health_hud_intensity = 2
+	hunger_factor = 3
 
 	min_age = 1
 	max_age = 300
@@ -251,7 +302,8 @@
 		)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/diona_split_nymph
+		/mob/living/carbon/human/proc/diona_split_nymph,
+		/mob/living/carbon/human/proc/diona_heal_toggle
 		)
 
 	warning_low_pressure = 50
@@ -277,6 +329,18 @@
 	reagent_tag = IS_DIONA
 	genders = list(PLURAL)
 
+#define DIONA_LIMB_DEATH_COUNT 9
+/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
+	var/lost_limb_count = has_limbs.len - H.organs.len
+	if(lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
+		return TRUE
+	for(var/thing in H.bad_external_organs)
+		var/obj/item/organ/external/E = thing
+		if(E && E.is_stump())
+			lost_limb_count++
+	return (lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
+#undef DIONA_LIMB_DEATH_COUNT
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -294,24 +358,16 @@
 	return ..()
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H)
-	H.diona_split_into_nymphs(0)
-
-	var/mob/living/carbon/alien/diona/S = new(get_turf(H))
-
-	if(H.mind)
-		H.mind.transfer_to(S)
 
 	if(H.isSynthetic())
+		var/mob/living/carbon/alien/diona/S = new(get_turf(H))
+
+		if(H.mind)
+			H.mind.transfer_to(S)
 		H.visible_message("<span class='danger'>\The [H] collapses into parts, revealing a solitary diona nymph at the core.</span>")
 		return
-
-	for(var/mob/living/carbon/alien/diona/D in H.contents)
-		if(D.client)
-			D.forceMove(get_turf(H))
-		else
-			qdel(D)
-
-	H.visible_message("<span class='danger'>\The [H] splits apart with a wet slithering noise!</span>")
+	else
+		H.diona_split_nymph()
 
 /datum/species/diona/get_blood_name()
 	return "sap"

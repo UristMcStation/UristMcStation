@@ -16,3 +16,9 @@
 	light_strength = 4
 	max_damage = 300
 	broken_damage = 150
+	flags = OBJ_CLIMBABLE
+
+/obj/item/modular_computer/console/CouldUseTopic(var/mob/user)
+	..()
+	if(istype(user, /mob/living/carbon))
+		playsound(src, "keyboard", 40)

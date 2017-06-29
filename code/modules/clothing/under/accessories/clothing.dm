@@ -9,6 +9,65 @@
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 
+/obj/item/clothing/accessory/nt_tunic
+	name = "\improper NanoTrasen tunic"
+	desc = "A fashionable tunic that NanoTrasen gives to its lab workers."
+	icon_state = "nttunic"
+
+/obj/item/clothing/accessory/nt_tunic/exec
+	name = "\improper NanoTrasen executive tunic"
+	icon_state = "nttunicblack"
+
+/obj/item/clothing/accessory/dashiki
+	name = "black dashiki"
+	desc = "An ornately embroidered pullover garmant sporting a v-shaped collar. This one is green and black."
+	icon_state = "dashiki"
+
+/obj/item/clothing/accessory/dashiki/red
+	name = "red dashiki"
+	desc = "An ornately embroidered pullover garmant sporting a v-shaped collar. This one is red."
+	icon_state = "dashikired"
+
+/obj/item/clothing/accessory/dashiki/blue
+	name = "blue dashiki"
+	desc = "An ornately embroidered pullover garmant sporting a v-shaped collar. This one is blue."
+	icon_state = "dashikiblue"
+
+/obj/item/clothing/accessory/thawb
+	name = "thawb"
+	desc = "A white, ankle-length robe designed to be cool in hot climates."
+	icon_state = "thawb"
+
+/obj/item/clothing/accessory/sherwani
+	name = "sherwani"
+	desc = "A long, coat-like frock with fancy embroidery on the cuffs and collar."
+	icon_state = "sherwani"
+
+/obj/item/clothing/accessory/qipao
+	name = "qipao"
+	desc = "A tight-fitting blouse with intricate designs of flowers embroidered on it."
+	icon_state = "qipao"
+
+/obj/item/clothing/accessory/sweater
+	name = "turtleneck sweater"
+	desc = "A stylish sweater to keep you warm on those cold days."
+	icon_state = "sweater"
+
+/obj/item/clothing/accessory/ubac
+	name = "black ubac"
+	desc = "A flexible, close-fitting shirt with camouflage sleeves designed to be worn under combat equipment. This one is black."
+	icon_state = "ubacblack"
+
+/obj/item/clothing/accessory/ubac/tan
+	name = "tan ubac"
+	desc = "A flexible, close-fitting shirt with camouflage sleeves designed to be worn under combat equipment. This one is tan."
+	icon_state = "ubactan"
+
+/obj/item/clothing/accessory/ubac/green
+	name = "green ubac"
+	desc = "A flexible, close-fitting shirt with camouflage sleeves designed to be worn under combat equipment. This one is green."
+	icon_state = "ubacgreen"
+
 /obj/item/clothing/accessory/toggleable
 	var/icon_closed
 /obj/item/clothing/accessory/toggleable/New()
@@ -87,6 +146,11 @@
 	desc = "Lucky suit jacket."
 	icon_state = "checkered_jacket"
 
+/obj/item/clothing/accessory/toggleable/nanotrasen_jacket
+	name = "\improper NanoTrasen suit jacket"
+	desc = "A jacket that NanoTrasen has its executives wear."
+	icon_state = "nt_jacket"
+
 /obj/item/clothing/accessory/toggleable/hawaii
 	name = "flower-pattern shirt"
 	desc = "You probably need some welder googles to look at this."
@@ -98,6 +162,11 @@
 
 /obj/item/clothing/accessory/toggleable/hawaii/random
 	name = "flower-pattern shirt"
+
+/obj/item/clothing/accessory/toggleable/zhongshan
+	name = "zhongshan suit jacket"
+	desc = "A stylish Chinese tunic suit jacket."
+	icon_state = "zhongshan"
 
 /obj/item/clothing/accessory/toggleable/hawaii/random/New()
 	..()
@@ -188,3 +257,8 @@
 	if(buttoned)
 		icon_state += "b"
 	update_clothing_icon()
+
+/obj/item/clothing/accessory/tangzhuang
+	name = "tangzhuang jacket"
+	desc = "A traditional Chinese coat tied together with straight, symmetrical knots."
+	icon_state = "tangzhuang"  //This was originally intended to have the ability to roll sleeves. I can't into code. Will be done later (hopefully.)

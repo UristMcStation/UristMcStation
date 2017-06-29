@@ -161,7 +161,7 @@
 
 	var/dir
 
-	if(!O.may_edit_var(usr, variable))
+	if(!O.may_edit_var(usr, objectvar))
 		return
 
 	if(isnull(variable))
@@ -635,9 +635,11 @@
 			var_value = text2num(var_value)
 		if(!is_num_predicate(var_value, client))
 			return
-		var/x = AM.x
-		var/y = AM.y
-		var/z = AM.z
+
+		// We set the default to 1,1,1 when at 0,0,0 (i.e. any non-turf location) to mimic the standard BYOND behaviour when adjusting x,y,z directly
+		var/x = AM.x || 1
+		var/y = AM.y || 1
+		var/z = AM.z || 1
 		switch(variable)
 			if("x")
 				x = var_value
@@ -661,11 +663,6 @@
 	handled_type = /atom
 	handled_vars = list("dir" = /atom/proc/set_dir)
 	predicates = list(/proc/is_dir_predicate)
-
-/decl/vv_set_handler/rad_handler
-	handled_type = /atom
-	handled_vars = list("rad_power" = /atom/proc/update_radiation)
-	predicates = list(/proc/is_num_predicate)
 
 /decl/vv_set_handler/ghost_appearance_handler
 	handled_type = /mob/observer/ghost

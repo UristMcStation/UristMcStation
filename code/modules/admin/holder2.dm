@@ -104,11 +104,14 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 		//qdel(holder)
 	return 1
 
-/client/Stat()
+/mob/Stat()
 	. = ..()
-	var/stealth_status = is_stealthed()
-	if(usr && stealth_status && statpanel("Status"))
-		stat("Stealth", "Engaged [holder.stealthy_ == STEALTH_AUTO ? "(Auto)" : "(Manual)"]")
+	if(!client)
+		return
+
+	var/stealth_status = client.is_stealthed()
+	if(stealth_status && statpanel("Status"))
+		stat("Stealth", "Engaged [client.holder.stealthy_ == STEALTH_AUTO ? "(Auto)" : "(Manual)"]")
 
 /client/proc/is_stealthed()
 	if(!holder)
@@ -116,7 +119,7 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 
 	// If someone has been AFK since round-start or longer, stealth them
 	// BYOND keeps track of inactivity between rounds as long as it's not a full stop/start.
-	if(holder.stealthy_ == STEALTH_OFF && inactivity >= world.time)
+	if(holder.stealthy_ == STEALTH_OFF && ((inactivity >= world.time) || (config.autostealth && inactivity >= MinutesToTicks(config.autostealth))))
 		holder.stealthy_ = STEALTH_AUTO
 	else if(holder.stealthy_ == STEALTH_AUTO && inactivity < world.time)
 		// And if someone has been set to auto-stealth and returns, unstealth them

@@ -12,7 +12,7 @@
 	var/list/mob_overlay = list()
 	var/overlay_state = null
 	var/list/accessory_icons = list(slot_w_uniform_str = 'icons/mob/ties.dmi', slot_wear_suit_str = 'icons/mob/ties.dmi')
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ties.dmi') // for species where human variants do not fit
+	sprite_sheets = list() // for species where human variants do not fit
 	var/list/on_rolled = list()	//used when jumpsuit sleevels are rolled ("rolled" entry) or it's rolled down ("down"). Set to "none" to hide in those states.
 
 /obj/item/clothing/accessory/Destroy()
@@ -125,6 +125,11 @@
 /obj/item/clothing/accessory/brown
 	name = "brown tie"
 	icon_state = "browntie"
+
+/obj/item/clothing/accessory/nt
+	name = "\improper NanoTrasen tie with a clip"
+	desc = "A neosilk clip-on tie. This one has a clip on it that proudly bears 'NT' on it."
+	icon_state = "ntcliptie"
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"

@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+WORLD_LOG_COUNT=47
 ANGLE_BRACKET_COUNT=1526
+
+FAILED=0
 
 shopt -s globstar
 num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting 28)"; [ $num -eq 28 ] || exit 1
@@ -13,6 +16,8 @@ num=`grep -E '"/mob' **/*.dm | wc -l`; echo "$num /mob text paths (expecting 2 o
 num=`grep -E '"/obj' **/*.dm | wc -l`; echo "$num /obj text paths (expecting 31 or less)"; [ $num -le 31 ] || exit 1
 num=`grep -E '"/turf' **/*.dm | wc -l`; echo "$num /turf text paths (expecting 8 or less)"; [ $num -le 8 ] || exit 1
 num=`grep -E 'world<<|world[[:space:]]<<' **/*.dm | wc -l`; echo "$num world<< uses (expecting 84 or less)"; [ $num -le 84 ] || exit 1
-num=`grep -E 'world.log<<|world.log[[:space:]]<<' **/*.dm | wc -l`; echo "$num world.log<< uses (expecting 61 or less)"; [ $num -le 61 ] || exit 1
-num=`grep -P '(?<!<)<<(?!<)' **/*.dm | wc -l`; echo "$num << uses (expecting ${ANGLE_BRACKET_COUNT} or less)"; [ $num -le ${ANGLE_BRACKET_COUNT} ] || exit 1
+num=`grep -E 'world.log<<|world.log[[:space:]]<<' **/*.dm | wc -l`; echo "$num world.log<< uses (expecting ${WORLD_LOG_COUNT} or less)"; [ $num -le ${WORLD_LOG_COUNT} ] || FAILED=1
 num=`find ./html/changelogs -not -name "*.yml" | wc -l`; echo "$num non-yml files (expecting exactly 2)"; [ $num -eq 2 ] || exit 1
+num=`grep -P '(?<!<)<<(?!<)' **/*.dm | wc -l`; echo "$num << uses (expecting ${ANGLE_BRACKET_COUNT} or less)"; [ $num -le ${ANGLE_BRACKET_COUNT} ] || exit 1
+
+[[ $FAILED -eq 1 ]] && exit 1 || exit 0

@@ -28,7 +28,7 @@ datum/preferences
 	var/real_name						//our character's name
 	var/be_random_name = 0				//whether we are a random name every round
 	var/age = 30						//age of character
-	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
+	var/spawnpoint = "Default" 			//where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
 	var/h_style = "Bald"				//Hair type
@@ -50,7 +50,9 @@ datum/preferences
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() //Kanguage prefix keys
-	var/list/gear						//Custom/fluff item loadout.
+	var/list/gear						//Left in for Legacy reasons, will no longer save.
+	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/gear_slot = 1					//The current gear save slot
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
@@ -88,6 +90,7 @@ datum/preferences
 	var/sec_record = ""
 	var/gen_record = ""
 	var/exploit_record = ""
+	var/memory = ""
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
@@ -336,7 +339,8 @@ datum/preferences
 			O.force_icon = null
 			O.name = initial(O.name)
 			O.desc = initial(O.desc)
-
+	//For species that don't care about your silly prefs
+	character.species.handle_limbs_setup(character)
 	if(!is_preview_copy)
 		for(var/name in list(BP_HEART,BP_EYES,BP_BRAIN))
 			var/status = organ_data[name]
@@ -399,7 +403,7 @@ datum/preferences
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
-	
+
 	if(!character.isSynthetic())
 		character.nutrition = rand(140,360)
 
