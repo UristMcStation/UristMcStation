@@ -64,7 +64,7 @@
 	sort_category = "Xenowear"
 	whitelisted = list(SPECIES_SKRELL)
 	flags = GEAR_HAS_COLOR_SELECTION
-
+/* TODO: Teshari
 /datum/gear/uniform/resomi
 	display_name = "smock, grey (Resomi)"
 	path = /obj/item/clothing/under/resomi
@@ -97,7 +97,7 @@
 /datum/gear/uniform/resomi/science
 	display_name = "uniform, Science (Resomi)"
 	path = /obj/item/clothing/under/resomi/science
-
+*/
 /datum/gear/uniform/harness
 	display_name = "gear harness (Full Body Prosthetic, Diona)"
 	path = /obj/item/clothing/under/harness

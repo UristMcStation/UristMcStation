@@ -863,7 +863,7 @@
 "qE" = (/turf/simulated/floor/wood,/area/outpost/mining_main/refinery)
 "qF" = (/obj/machinery/conveyor_switch{id = "planet_carpentry"},/turf/simulated/floor/wood,/area/outpost/mining_main/refinery)
 "qG" = (/obj/structure/window/reinforced{dir = 1; health = 1e+006},/obj/structure/closet/secure_closet/hunter,/obj/structure/window/reinforced,/obj/machinery/door/window/westleft{req_access = list(48)},/turf/simulated/floor/wood,/area/outpost/mining_main/refinery)
-"qH" = (/obj/structure/table/standard,/obj/machinery/light{brightness_power = 4; brightness_range = 9; dir = 8; icon_state = "tube1"},/obj/item/weapon/reagent_containers/food/condiment/peppermill{pixel_x = 3},/obj/item/weapon/reagent_containers/food/condiment/saltshaker{pixel_x = -3; pixel_y = 0},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
+"qH" = (/obj/structure/table/standard,/obj/machinery/light{brightness_power = 4; brightness_range = 9; dir = 8; icon_state = "tube1"},/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{pixel_x = 3},/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{pixel_x = -3; pixel_y = 0},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qI" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qJ" = (/obj/machinery/door/airlock{id_tag = "miningdorm3"; name = "Room 5"},/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)
 "qK" = (/obj/machinery/door/airlock{id_tag = "secplanetdorm7"; name = "Room 6"},/turf/simulated/floor/plating,/area/outpost/mining_main/dorms)

@@ -1,5 +1,4 @@
 /area/shuttle/assault
-	lighting_use_dynamic = 0
 
 /area/shuttle/assault/a1/station
 	name = "\improper Alien Shuttle"

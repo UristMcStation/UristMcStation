@@ -117,7 +117,7 @@
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
 				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
-			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
+			H.shock_stage += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood

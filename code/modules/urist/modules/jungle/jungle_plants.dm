@@ -12,7 +12,7 @@
 	layer = 3.2
 	var/indestructable = 0
 	var/stump = 0
-	climbable = 1
+	flags = OBJ_CLIMBABLE
 
 /obj/structure/bush/New()
 
