@@ -1,3 +1,6 @@
+/area/space
+	novents = 1
+
 /area/shuttle/merchant
 	icon_state = "shuttlegrn"
 
