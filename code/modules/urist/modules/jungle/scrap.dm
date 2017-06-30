@@ -128,7 +128,11 @@
 					"You hear welding")
 				if (do_after(user,30,src))
 					if(!src || !WT.isOn()) return
-					to_chat(user, "You weld [src] to the floor.")
+					new /obj/item/stack/material/steel(src.loc)
+					new /obj/item/stack/material/plastic(src.loc)
+					new /obj/item/weapon/material/shard(src.loc)
+					qdel(src)
+					to_chat(user, "You disassemble the scrap pile.")
 			else
 				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 		else
