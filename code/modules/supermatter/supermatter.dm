@@ -230,6 +230,10 @@
 		if((damage > emergency_point) && !public_alert)
 			global_announcer.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
+			for(var/mob/M in player_list)
+				var/turf/T = get_turf(M)
+				if(T && (T.z in using_map.station_levels) && !istype(M,/mob/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/ambience/matteralarm.ogg')
 		else if(safe_warned && public_alert)
 			global_announcer.autosay(alert_msg, "Supermatter Monitor")
 			public_alert = 0
@@ -397,6 +401,10 @@
 
 
 /obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+	if(istype(W, /obj/item/weapon/tape_roll))
+		to_chat(user, "You repair some of the damage to \the [src] with \the [W].")
+		damage = max(damage -10, 0)
+
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")

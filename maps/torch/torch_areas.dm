@@ -1,4 +1,8 @@
 /datum/map/torch
+
+	base_floor_type = /turf/simulated/floor/reinforced/airless
+	base_floor_area = /area/maintenance/exterior
+
 	post_round_safe_areas = list (
 		/area/centcom,
 		/area/shuttle/escape/centcom,
@@ -479,6 +483,9 @@
 	lighting_use_dynamic = 1
 	flags = AREA_RAD_SHIELDED
 
+/area/calypso_hangar/is_shuttle_locked()
+	return "Calypso"
+
 /area/calypso_hangar/start
 	name = "\improper Calypso"
 	icon_state = "shuttlered"
@@ -530,6 +537,9 @@
 	requires_power = 1
 	lighting_use_dynamic = 1
 	flags = AREA_RAD_SHIELDED
+
+/area/aquila_hangar/is_shuttle_locked()
+	return "Aquila"
 
 /area/aquila_hangar/start
 	name = "\improper SEV Aquila"
@@ -583,6 +593,8 @@
 	lighting_use_dynamic = 1
 	flags = AREA_RAD_SHIELDED
 
+/area/guppy_hangar/is_shuttle_locked()
+	return "Guppy"
 
 /area/guppy_hangar/start
 	name = "\improper Guppy"
@@ -616,6 +628,11 @@
 /area/guppy_hangar/mining
 	name = "mining site"
 	icon_state = "shuttlered"
+
+/area/guppy_hangar/away
+	name = "away site"
+	icon_state = "shuttlered"
+	base_turf = /turf/simulated/floor/asteroid
 
 /area/guppy_hangar/transit
 	name = "transit"
@@ -1364,3 +1381,22 @@
 /area/aux_eva
 	name = "\improper Auxiliary EVA Storage"
 	icon_state = "eva"
+
+/area/thruster
+	icon_state = "thruster"
+
+/area/thruster/d1port
+	name = "\improper First Deck Port Nacelle"
+
+/area/thruster/d1starboard
+	name = "\improper First Deck Starboard Nacelle"
+
+/area/thruster/d3port
+	name = "\improper Third Deck Port Nacelle"
+
+/area/thruster/d3starboard
+	name = "\improper Third Deck Starboard Nacelle"
+
+/area/engineering/fuelbay
+	name = "\improper Fuel Bay"
+	icon_state = "engineering"

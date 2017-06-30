@@ -18,7 +18,7 @@
 		slot_r_hand_str = "backpack",
 		)
 	sprite_sheets = list(
-		"Resomi" = 'icons/mob/species/resomi/back.dmi'
+		SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi'
 		)
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
@@ -110,7 +110,7 @@
 
 /obj/item/weapon/storage/backpack/industrial
 	name = "industrial backpack"
-	desc = "It's a tough backpack for the daily grind of station life."
+	desc = "It's a tough backpack for the daily grind of industrial life."
 	icon_state = "engiepack"
 	item_state_slots = null
 
@@ -199,8 +199,8 @@
  */
 
 /obj/item/weapon/storage/backpack/satchel
-	name = "leather satchel"
-	desc = "It's a very fancy satchel made with fine leather."
+	name = "brown leather satchel"
+	desc = "It's a very fancy satchel made with fine brown leather."
 	icon_state = "satchel"
 
 /obj/item/weapon/storage/backpack/satchel/withwallet
@@ -273,6 +273,11 @@
 		slot_l_hand_str = "satchel-cap",
 		slot_r_hand_str = "satchel-cap",
 		)
+
+/obj/item/weapon/storage/backpack/satchel_black
+	name = "black leather satchel"
+	desc = "It's a very fancy satchel made with fine black leather."
+	icon_state = "satchel_black"
 
 //ERT backpacks.
 /obj/item/weapon/storage/backpack/ert

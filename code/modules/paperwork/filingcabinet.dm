@@ -16,6 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	flags = OBJ_ANCHORABLE
 	var/list/can_hold = list(
 		/obj/item/weapon/paper,
 		/obj/item/weapon/folder,
@@ -48,10 +49,6 @@
 		sleep(5)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(istype(P, /obj/item/weapon/wrench))
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-		anchored = !anchored
-		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 	else if(istype(P, /obj/item/weapon/screwdriver))
 		if(secure)
 			user << "<span class='warning'>You can't see anywhere to unscrew that!</span>"
@@ -66,6 +63,8 @@
 			qdel(src)
 	else
 		to_chat(user, "<span class='notice'>You can't put [P] in [src]!</span>")
+	..()
+	return
 
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)

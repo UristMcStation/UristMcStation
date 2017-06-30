@@ -13,7 +13,7 @@
 	charge_cost = 250
 	fire_delay = 35
 	w_class = 3.0
-	requires_two_hands = 8
+	one_hand_penalty = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/pistol
 	item_icons = DEF_URIST_INHANDS
@@ -49,7 +49,7 @@
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
 	cell_type = /obj/item/weapon/cell/super
 	w_class = 4.0
-	requires_two_hands = 8
+	one_hand_penalty = 8
 
 /obj/item/weapon/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] only has one setting.</span>"
@@ -73,7 +73,7 @@
 	item_state = "lrifle"
 	w_class = 3.0
 	projectile_type = /obj/item/projectile/beam //maybe change this
-	requires_two_hands = 4
+	one_hand_penalty = 4
 
 /obj/item/weapon/gun/projectile/sniper
 	item_icons = DEF_URIST_INHANDS
@@ -95,7 +95,7 @@
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
-	requires_two_hands = 8
+	one_hand_penalty = 8
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
 

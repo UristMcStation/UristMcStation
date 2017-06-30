@@ -417,10 +417,6 @@
 	name = "\improper Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
-/area/maintenance/exterior
-	name = "\improper Exterior Reinforcements"
-	icon_state = "maint_security_starboard"
-
 // Dank Maintenance
 /area/maintenance/sub
 	turf_initializer = /decl/turf_initializer/maintenance/heavy
@@ -1071,3 +1067,7 @@ area/rnd/test_area
 
 /area/outpost/research/disposal
 	name = "Research Outpost Waste Disposal"
+
+/area/construction
+	name = "\improper Engineering Construction Area"
+	icon_state = "yellow"

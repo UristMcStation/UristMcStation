@@ -1,5 +1,5 @@
 /datum/species/machine
-	name = "Machine"
+	name = SPECIES_IPC
 	name_plural = "machines"
 
 	blurb = "Positronic intelligence really took off in the 26th century, and it is not uncommon to see independant, free-willed \
@@ -38,7 +38,7 @@
 	passive_temp_gain = 5  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	flags = NO_SCAN | NO_PAIN | NO_POISON
-	spawn_flags = SPECIES_IS_RESTRICTED | SPECIES_NO_FBP_CONSTRUCTION
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_NO_FBP_CONSTRUCTION
 	appearance_flags = HAS_UNDERWEAR //IPCs can wear undies too :(
 
 	blood_color = "#1F181F"

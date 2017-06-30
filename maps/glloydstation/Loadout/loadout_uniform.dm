@@ -133,13 +133,13 @@
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
-	path = /obj/item/clothing/under/pants/white
+	path = /obj/item/clothing/under/formal_pants
 
 /datum/gear/uniform/pants/New()
 	..()
 	var/list/pants = list()
-	for(var/pant in typesof(/obj/item/clothing/under/pants))
-		var/obj/item/clothing/under/pants/pant_type = pant
+	for(var/pant in subtypesof(/obj/item/clothing/under/pants/urist))
+		var/obj/item/clothing/under/pants/urist/pant_type = pant
 		pants[initial(pant_type.name)] = pant_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pants))
 

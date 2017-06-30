@@ -35,6 +35,11 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
+/obj/item/clothing/under/rank/scientist/executive
+	name = "\improper NanoTrasen executive smock and pants"
+	desc = "A fashionable tunic and pair of trousers made from expensive biohazard-resistant fabrics. The colors denote the wearer as a member of NanoTrasen's higher-ups."
+	icon_state = "ntsmockexec"
+	worn_state = "ntsmockexec"
 
 /obj/item/clothing/under/rank/chemist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a chemist rank stripe on it."
