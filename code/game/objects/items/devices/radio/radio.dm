@@ -750,6 +750,10 @@ var/global/list/default_medbay_channels = list(
 	canhear_range = 0
 	channels=list("Engineering","Security", "Medical", "Command")
 
+/obj/item/device/radio/announcer/Destroy()
+	crash_with("attempt to delete a [src.type] detected, and prevented.")
+	return 1
+
 /obj/item/device/radio/announcer/initialize()
 	..()
 	loc = locate(1,1,using_map.contact_levels.len ? using_map.contact_levels[1] : 1)
@@ -771,3 +775,8 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/New()
 	..()
 	internal_channels = default_medbay_channels.Copy()
+
+/obj/item/device/radio/CouldUseTopic(var/mob/user)
+	..()
+	if(istype(user, /mob/living/carbon))
+		playsound(src, "button", 10)

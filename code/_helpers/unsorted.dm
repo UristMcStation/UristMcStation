@@ -429,6 +429,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/silicon/robot/M in sortmob)
 		moblist.Add(M)
+	for(var/mob/living/deity/M in sortmob)
+		moblist.Add(M)
 	for(var/mob/living/carbon/human/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/carbon/brain/M in sortmob)
@@ -825,7 +827,7 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 
 //					var/area/AR = X.loc
 
-//					if(AR.lighting_use_dynamic)
+//					if(AR.dynamic_lighting)
 //						X.opacity = !X.opacity
 //						X.sd_SetOpacity(!X.opacity)			//TODO: rewrite this code so it's not messed by lighting ~Carn
 
@@ -1040,6 +1042,8 @@ proc/is_hot(obj/item/W as obj)
 	if(locate(/obj/structure/bed, T))
 		. = TRUE
 	if(locate(/obj/structure/table, T))
+		. = TRUE
+	if(locate(/obj/effect/rune/, T))
 		. = TRUE
 
 	if(M == user)

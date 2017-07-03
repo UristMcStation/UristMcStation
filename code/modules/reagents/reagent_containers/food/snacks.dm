@@ -190,8 +190,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/Destroy()
 	if(contents)
 		for(var/atom/movable/something in contents)
-			something.loc = get_turf(src)
-	..()
+			something.dropInto(loc)
+	. = ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
@@ -821,7 +821,7 @@
 		..()
 		reagents.add_reagent("protein", 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/monkeyburger
+/obj/item/weapon/reagent_containers/food/snacks/plainburger
 	name = "burger"
 	desc = "The cornerstone of every nutritious breakfast."
 	icon_state = "hburger"
@@ -994,6 +994,18 @@
 		..()
 		bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/pancakes
+	name = "pancakes"
+	desc = "Pancakes with blueberries, delicious."
+	icon_state = "pancakes"
+	trash = /obj/item/trash/plate
+	center_of_mass = "x=15;y=11"
+	nutriment_desc = list("pancake" = 8)
+	nutriment_amt = 8
+	New()
+		..()
+		bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/eggplantparm
 	name = "Eggplant Parmigiana"
 	desc = "The only good recipe for eggplant."
@@ -1118,20 +1130,7 @@
 		bitesize = 2
 
 
-/obj/item/weapon/reagent_containers/food/snacks/human/kabob
-	name = "-kabob"
-	icon_state = "kabob"
-	desc = "A human meat, on a stick."
-	trash = /obj/item/stack/rods
-	filling_color = "#A85340"
-	center_of_mass = "x=17;y=15"
-
-	New()
-		..()
-		reagents.add_reagent("protein", 8)
-		bitesize = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/monkeykabob
+/obj/item/weapon/reagent_containers/food/snacks/meatkabob
 	name = "Meat-kabob"
 	icon_state = "kabob"
 	desc = "Delicious meat, on a stick."
@@ -1459,12 +1458,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/vegetablesoup
 	name = "Vegetable soup"
-	desc = "A true vegan meal." //TODO
+	desc = "A highly nutritious blend of vegetative goodness. Guaranteed to leave you with a, er, \"souped-up\" sense of wellbeing."
 	icon_state = "vegetablesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
 	center_of_mass = "x=16;y=8"
-	nutriment_desc = list("carot" = 2, "corn" = 2, "eggplant" = 2, "potato" = 2)
+	nutriment_desc = list("carrot" = 2, "corn" = 2, "eggplant" = 2, "potato" = 2)
 	nutriment_amt = 8
 	New()
 		..()
@@ -1473,7 +1472,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/nettlesoup
 	name = "Nettle soup"
-	desc = "To think, the botanist would've beat you to death with one of these."
+	desc = "A mean, green, calorically lean dish derived from a poisonous plant. It has a rather acidic bite to its taste."
 	icon_state = "nettlesoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
@@ -2044,6 +2043,18 @@
 	New()
 		..()
 		bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/threebread
+	name = "Three Bread"
+	desc = "Is such a thing even possible?"
+	icon_state = "threebread"
+	filling_color = "#DBCC9A"
+	center_of_mass = "x=15;y=12"
+	nutriment_desc = list("sourness" = 2, "bread" = 3)
+	nutriment_amt = 3
+	New()
+		..()
+		bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/jellysandwich
 	name = "Jelly Sandwich"
@@ -3096,14 +3107,14 @@
 /obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	// Bun + meatball = burger
 	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/meatball))
-		new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
+		new /obj/item/weapon/reagent_containers/food/snacks/plainburger(src)
 		to_chat(user, "You make a burger.")
 		qdel(W)
 		qdel(src)
 
 	// Bun + cutlet = hamburger
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
-		new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
+		new /obj/item/weapon/reagent_containers/food/snacks/plainburger(src)
 		to_chat(user, "You make a burger.")
 		qdel(W)
 		qdel(src)
@@ -3116,7 +3127,7 @@
 		qdel(src)
 
 // Burger + cheese wedge = cheeseburger
-/obj/item/weapon/reagent_containers/food/snacks/monkeyburger/attackby(obj/item/weapon/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
+/obj/item/weapon/reagent_containers/food/snacks/plainburger/attackby(obj/item/weapon/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
 	if(istype(W))// && !istype(src,/obj/item/weapon/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/weapon/reagent_containers/food/snacks/cheeseburger(src)
 		to_chat(user, "You make a cheeseburger.")

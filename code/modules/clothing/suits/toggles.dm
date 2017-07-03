@@ -102,7 +102,9 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
+	icon = 'icons/urist/restored/suits.dmi'
 	icon_state = "coatscience"
+	item_icons = URIST_ALL_ONMOBS
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
@@ -124,5 +126,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	name = "mining winter coat"
+	icon = 'icons/urist/restored/suits.dmi'
 	icon_state = "coatminer"
+	item_icons = URIST_ALL_ONMOBS
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

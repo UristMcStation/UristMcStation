@@ -92,16 +92,9 @@
 	damage = 30
 	icon_state = "toxin"
 
-/mob/living/simple_animal/hostile/alien/death()
-	..()
-	if(corpse && ispath(corpse,/mob/living))
-		var/mob/living/corpsemob = corpse
-		new corpsemob(src.loc)
-		qdel(src)
-		corpsemob.set_stat(2)
-	else
-		visible_message("[src] lets out a waning guttural screech, green blood bubbling from its maw...")
-		playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
+/mob/living/simple_animal/hostile/alien/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw...", show_dead_message)
+	playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
 
 // Xenoarch aliens.
 /mob/living/simple_animal/hostile/samak

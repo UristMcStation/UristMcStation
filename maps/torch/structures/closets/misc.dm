@@ -46,6 +46,7 @@
 		/obj/item/device/taperecorder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/weapon/storage/secure/briefcase,
+		/obj/item/device/radio/headset/headset_com,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/under/rank/internalaffairs/plain/solgov,
 		/obj/item/clothing/suit/storage/toggle/internalaffairs/plain,
@@ -89,11 +90,18 @@
 	req_one_access = list(access_armory,access_heads)
 
 	will_contain = list(
-		/obj/item/weapon/gun/energy/gun = 4
+		/obj/item/weapon/gun/energy/gun = 3
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small
 	name = "personal sidearm cabinet"
 	will_contain = list(
-		/obj/item/weapon/gun/energy/gun/small = 6
+		/obj/item/weapon/gun/energy/gun/small = 4
+	)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/combined
+	name = "combined sidearm cabinet"
+	will_contain = list(
+		/obj/item/weapon/gun/energy/gun/small = 2,
+		/obj/item/weapon/gun/energy/gun = 3
 	)

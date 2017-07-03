@@ -127,7 +127,7 @@
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
-					if(!deleted(object))
+					if(!object) //TODO: Fix whatever this was doing.
 						object.initialize()
 
 			world.log << "S-COM Maps loaded."

@@ -86,16 +86,18 @@
 
 /obj/machinery/uniform_vendor/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
-	var/obj/item/weapon/card/id/I = W.GetIdCard()
-	if(I && !ID)
-		to_chat(user, "<span class='notice'>You slide [I.registered_name]'s ID into \the [src]!</span>")
-		ID = I
-		user.drop_from_inventory(I,src)
+	if(istype(W, /obj/item/weapon/clothingbag))
+		to_chat(user, "<span class='notice'>You put [W] into \the [src] recycling slot.</span>")
+		qdel(W)
+		return
 
-	if(istype(I, /obj/item/weapon/clothingbag))
-		to_chat(user, "<span class='notice'>You put [I] into \the [src] recycling slot.</span>")
-		qdel(I)
-
+	if(!istype(W, /obj/item/weapon/card/id))
+		to_chat(user, "<span class='notice'>You must use your ID card!</span>")
+		return
+	if(!ID)
+		to_chat(user, "<span class='notice'>You slide \the [W] into \the [src]!</span>")
+		ID = W
+		user.drop_from_inventory(W,src)
 
 /*	Outfit structures
 	branch
@@ -190,25 +192,3 @@
 	else if (selected_outfit.len)
 		var/obj/item/clothing/C = selected_outfit[1]
 		new C(get_turf(src))
-
-
-
-/obj/item/weapon/clothingbag
-	name = "clothing bag"
-	desc = "A cheap plastic bag that contains a fresh set of clothes."
-	icon = 'icons/obj/trash.dmi'
-	icon_state = "trashbag3"
-
-	var/icon_used = "trashbag0"
-	var/opened = 0
-
-/obj/item/weapon/clothingbag/attack_self(mob/user as mob)
-	if(!opened)
-		user.visible_message("<span class='notice'>\The [user] tears open \the [src.name]!</span>", "<span class='notice'>You tear open \the [src.name]!</span>")
-		opened = 1
-		icon_state = icon_used
-		for(var/obj/item in contents)
-			item.forceMove(get_turf(src))
-	else
-		to_chat(user, "<span class='warning'>\The [src.name] is already ripped open and is now completely useless!</span>")
-

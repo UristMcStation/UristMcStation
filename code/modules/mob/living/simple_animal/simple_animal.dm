@@ -302,18 +302,12 @@
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
 
-/mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	if(simplify_dead_icon)
-		var/matrix/M = matrix() //shamelessly stolen from human update_icons
-		M.Turn(90)
-		M.Translate(1,-6)
-		src.transform = M
-	else
-		icon_state = icon_dead
+/mob/living/simple_animal/death(gibbed, deathmessage = "dies!", show_dead_message)
+	icon_state = icon_dead
 	density = 0
 	adjustBruteLoss(maxHealth) //Make sure dey dead.
 	walk_to(src,0)
-	return ..(gibbed,deathmessage)
+	return ..(gibbed,deathmessage,show_dead_message)
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)

@@ -234,9 +234,9 @@
 		M.current << "<span class='warning'> They seem to be unaffected.</span>"
 		return
 	var/datum/disease2/disease/shutdown = new /datum/disease2/disease
-	var/datum/disease2/effectholder/holder = new /datum/disease2/effectholder
+	var/datum/disease2/effect/holder = new /datum/disease2/effect
 	var/datum/disease2/effect/organs/vampire/O = new /datum/disease2/effect/organs/vampire
-	holder.effect += O
+	holder += O
 	holder.chance = 10
 	shutdown.infectionchance = 100
 	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))

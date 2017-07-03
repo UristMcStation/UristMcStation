@@ -15,6 +15,8 @@
 	var/light_range_on = 2
 	var/light_power_on = 1
 	var/overlay_layer
+	flags = OBJ_CLIMBABLE
+	clicksound = "keyboard"
 
 /obj/machinery/computer/New()
 	overlay_layer = layer
