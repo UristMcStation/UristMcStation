@@ -34,7 +34,6 @@
 	worn_state = "sciencewhite"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
-	starting_accessories = list(/obj/item/clothing/accessory/nt_tunic)
 
 /obj/item/clothing/under/rank/scientist/executive
 	name = "\improper NanoTrasen executive polo and pants"

@@ -449,7 +449,9 @@
 /obj/item/clothing/suit/poncho/roles/science
 	name = "science poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	icon = 'icons/urist/restored/suits.dmi'
 	icon_state = "sciponcho"
+	item_icons = URIST_ALL_ONMOBS
 	item_state = "sciponcho"
 
 /obj/item/clothing/suit/poncho/roles/cargo

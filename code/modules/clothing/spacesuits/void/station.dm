@@ -36,7 +36,9 @@
 /obj/item/clothing/head/helmet/space/void/mining
 	name = "mining voidsuit helmet"
 	desc = "A scuffed voidsuit helmet with a boosted communication system and reinforced armor plating."
+	icon = 'icons/urist/restored/hats.dmi'
 	icon_state = "rig0-mining"
+	item_icons = URIST_ALL_ONMOBS
 	item_state = "mining_helm"
 	item_state_slots = list(
 		slot_l_hand_str = "mining_helm",
@@ -49,6 +51,8 @@
 	icon_state = "rig-mining"
 	name = "mining voidsuit"
 	desc = "A grimy, decently armored voidsuit with purple blazes and extra insulation."
+	icon = 'icons/urist/restored/suits.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	item_state_slots = list(
 		slot_l_hand_str = "mining_voidsuit",
 		slot_r_hand_str = "mining_voidsuit",
