@@ -6,6 +6,7 @@
 /area
 	var/global/global_uid = 0
 	var/uid
+	var/novents = 0 //to bypass the vent ambience check
 
 /area/New()
 	icon_state = ""
@@ -272,7 +273,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	var/turf/T = get_turf(L)
 	var/hum = 0
-	if(!L.ear_deaf)
+	if(!L.ear_deaf || !src.novents)
 		for(var/obj/machinery/atmospherics/unary/vent_pump/vent in src)
 			if(vent.can_pump())
 				hum = 1
