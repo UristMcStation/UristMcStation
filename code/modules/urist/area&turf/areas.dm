@@ -91,25 +91,22 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 //awaymap shit
 
-/area/awaymission/snowventure
-	name = "\improper Snowy Plains"
+/area/awaymission
 	icon_state = "away"
 	requires_power = 0
+	dynamic_lighting = 0
+
+/area/awaymission/snowventure
+	name = "\improper Snowy Plains"
 
 /area/awaymission/acerdemy
 	name = "\improper Institutional Acadamy"
-	icon_state = "away"
-	requires_power = 0
 
 /area/awaymission/maze
 	name = "\improper Maze"
-	icon_state = "away"
-	requires_power = 0
 
 /area/awaymission/train
 	name = "\improper Train Station"
-	icon_state = "away"
-	requires_power = 0
 
 //fixing tcomms
 
@@ -144,6 +141,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	icon_state = "shuttle"
 
 /area/shuttle/naval1
+	dynamic_lighting = 0
 
 //don't hate me because I'm beautiful
 
@@ -156,6 +154,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	icon_state = "shuttle"
 	requires_power = 1
 	luminosity = 0
+	dynamic_lighting = 1
 
 //snow train. the hackyness is off the charts
 
@@ -164,6 +163,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	icon_state = "away1"
 	requires_power = 1
 	luminosity = 0
+	dynamic_lighting = 1
 
 //centcahm
 
@@ -174,6 +174,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event1
 	icon_state = "shuttle"
+	dynamic_lighting = 0
 
 /area/shuttle/event1/l1
 	name = "\improper Event 1 - 1 "
@@ -186,6 +187,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event2
 	icon_state = "shuttle"
+	dynamic_lighting = 0
 
 /area/shuttle/event2/l1
 	name = "\improper Event 2 - 1 "
@@ -199,6 +201,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 //elevators
 
 /area/shuttle/elevator
+	dynamic_lighting = 0
 
 /area/shuttle/elevator/mining/surface
 	name = "\improper Mining Elevator"
@@ -218,14 +221,16 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 //security outpost
 
+/area/shuttle/securityoutpost
+	icon_state = "shuttle"
+	dynamic_lighting = 0
+
 /area/shuttle/securityoutpost/station
 	name = "\improper Security Outpost Shuttle Station"
-	icon_state = "shuttle"
 	base_turf = /turf/space
 
 /area/shuttle/securityoutpost/outpost
 	name = "\improper Security Outpost Shuttle Outpost"
-	icon_state = "shuttle"
 	base_turf = /turf/simulated/planet/jungle/clear
 
 /area/outpost/security

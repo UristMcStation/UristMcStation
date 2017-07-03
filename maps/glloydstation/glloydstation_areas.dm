@@ -184,6 +184,7 @@
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
+	dynamic_lighting = 0
 	flags = AREA_RAD_SHIELDED
 
 /area/syndicate_mothership/ninja
@@ -200,11 +201,13 @@
 	name = "\improper Response Team Base"
 	icon_state = "yellow"
 	requires_power = 0
+	dynamic_lighting = 1
 	flags = AREA_RAD_SHIELDED
 
 /area/rescue_base/base
 	name = "\improper Barracks"
 	icon_state = "yellow"
+	dynamic_lighting = 0
 
 /area/rescue_base/start
 	name = "\improper Response Team Base"

@@ -4,14 +4,17 @@
 	icon_state = "away"
 
 /area/scom/mission/lighting
+	dynamic_lighting = 1
 	icon_state = "away1"
 	luminosity = 0
 
 /area/scom/mission/lighting/New() //wtf
 	..()
+	dynamic_lighting = 1
 	luminosity = 0
 
 /area/scom/mission/nolighting
+	dynamic_lighting = 0
 	icon_state = "away2"
 
 /turf/unsimulated/wall/urist/other
@@ -48,6 +51,7 @@
 	name = "\improper S-COM shuttle"
 	icon_state = "shuttle"
 	requires_power = 0
+	dynamic_lighting = 0
 	base_turf = /turf/unsimulated/floor/plating
 
 /area/shuttle/scom/s1/base //todo, maybe make a mission var here to reduce this path spam
