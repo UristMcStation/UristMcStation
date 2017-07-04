@@ -305,7 +305,7 @@ proc/snowtraintime()
 
 /turf/unsimulated/wall/other/transparent
 	opacity = 0
-
+/*
 /datum/shuttle/ferry/train
 	category = /datum/shuttle/ferry/train
 	name = "Train"
@@ -314,3 +314,4 @@ proc/snowtraintime()
 	move_time = 22000
 	area_offsite = /area/shuttle/train/stop
 	area_station = /area/shuttle/train/go
+*/

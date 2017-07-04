@@ -128,7 +128,7 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/ai_hologram_set,
 	/client/proc/load_event_map,
 	/client/proc/warpallplayers,
-	/client/proc/delaymissions,
+//	/client/proc/delaymissions,
 	/client/proc/remaininglacterachange,
 	/client/proc/roll_dices
 	)
