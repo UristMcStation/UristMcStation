@@ -15,7 +15,7 @@
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
 */
-	#include "../shared/exodus_torch/_include.dm"
+	#include "skyestation-1.dmm"
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"
@@ -29,6 +29,6 @@
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn A map has already been included, ignoring Glloydstation
+	#warn A map has already been included, ignoring TBD
 
 #endif
