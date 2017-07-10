@@ -1,4 +1,5 @@
 // Escape shuttle and pods
+/*
 /datum/shuttle/ferry/emergency/centcom
 	name = "Escape"
 	location = 1
@@ -252,3 +253,4 @@
 /obj/machinery/computer/shuttle_control/planet
 	name = "planet shuttle console"
 	shuttle_tag = "Planet"
+*/
