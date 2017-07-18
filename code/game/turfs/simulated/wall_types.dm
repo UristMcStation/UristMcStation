@@ -6,7 +6,10 @@
 	icon_state = "rgeneric"
 /turf/simulated/wall/ocp_wall/New(var/newloc)
 	..(newloc, "osmium-carbide plasteel", "osmium-carbide plasteel")
-
+/turf/simulated/wall/r_titanium
+	icon_state = "rgeneric"
+/turf/simulated/wall/r_titanium/New(var/newloc)
+	..(newloc,"titanium", "titanium")
 
 
 

@@ -1,6 +1,6 @@
 #if !defined(USING_MAP_DATUM)
 
-	#include "skyestation_areas.dm"
+	#include "wyrm_areas.dm"
 	#include "skyestation_shuttles.dm"
 	#include "skyestation_jobs.dm"
 /*
@@ -16,8 +16,9 @@
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
 */
-	#include "skyestation-1.dmm"
-	#include "skyestation-2.dmm"
+
+	#include "wyrm-1.dmm"
+	#include "wyrm-2.dmm"
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"

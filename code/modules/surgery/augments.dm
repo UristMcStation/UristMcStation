@@ -53,7 +53,9 @@
 		affected.fracture()
 		controller.take_damage(10)
 		target.custom_pain("<span class = 'danger'>Unbearable pain is felt as metal connections are ripped out from inside your body!</span>",100, affecting = affected)
+	playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	controller.change_controller(target,null)
+	affected.implants |= controller
 	controller.dropInto(target.loc)
 
 /datum/surgery_step/augmentation/detach_controller/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -71,8 +73,8 @@
 /datum/surgery_step/augmentation/attach_controller
 	allowed_tools = list(/obj/item/organ/internal/cybernetic/controller = 100)
 
-	min_duration = 300
-	max_duration = 320
+	min_duration = 240
+	max_duration = 260
 
 /datum/surgery_step/augmentation/attach_controller/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -81,11 +83,14 @@
 /datum/surgery_step/augmentation/attach_controller/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
 /datum/surgery_step/augmentation/attach_controller/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/affected = target.get_organ(target_zone)
-	var/obj/item/organ/internal/cybernetic/controller/controller
-	user.drop_item()
-	tool.loc = affected
-	controller.change_controller(target,tool)
+	var/obj/item/organ/internal/cybernetic/controller/I = tool
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(istype(I))
+		I.change_controller(target,tool)
+		user.remove_from_mob(I)
+		I.forceMove(target)
+		affected.implants |= I
+		I.replaced(target, affected)
 
 /datum/surgery_step/augmentation/attach_controller/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class = 'danger'>[user] misaligns \the [tool] causing its connectors to puncture into [target]!</span>", \
@@ -94,7 +99,7 @@
 	affected.take_damage(15,0,DAM_SHARP)
 	if(prob(5))
 		tool.visible_message("[tool] pings as it begins to start up, and <span class = 'danger'>embeds itself into [target]!</span>")
-		target.embed(tool,target_zone)
+		target.embed(tool,affected)
 
 //////////////////////////////////////////////////////////////////
 //					AUGMENTATION INTERACTION					//

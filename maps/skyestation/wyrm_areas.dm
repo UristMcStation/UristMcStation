@@ -1,0 +1,213 @@
+//Order is as follows Hallways, Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance
+
+//////////////////////////////////////
+//			HALLWAYS				//
+//////////////////////////////////////
+
+/area/hallway/primary/fore
+	name = "\improper Fore Primary Hallway"
+	icon_state = "hallF"
+
+/area/hallway/primary/aft
+	name = "\improper Aft Primary Hallway"
+	icon_state = "hallA"
+
+/area/hallway/primary/central
+	name = "\improper Central Primary Hallway"
+	icon_state = "hallC1"
+
+//////////////////////////////////////
+//			COMMAND					//
+//////////////////////////////////////
+
+/area/command
+	icon_state = "blueold"
+
+/area/command/bridge
+	name = "\improper Bridge"
+
+/area/command/hop
+	name = "\improper Head of Personnel Office"
+
+/area/command/captain
+	name = "\improper Captain's Office"
+
+/area/command/meeting
+	name = "\improper Meeting Room"
+
+/area/command/ce
+	name = "\improper Chief Engineer's Office"
+
+/area/command/aiupload
+	name = "\improper AI Upload"
+
+/area/command/aicore
+	name = "\improper AI Core"
+
+/area/command/aiuploadfoyer
+	name = "\improper AI Upload Foyer"
+
+/area/command/aiatmos
+	name = "\improper AI Atmospherics"
+
+/area/command/aicomputer
+	name = "\improper AI Data Room" //???
+
+//////////////////////////////////////
+//			CIVILIAN				//
+//////////////////////////////////////
+
+/area/civilian
+	icon_state = "green"
+
+/area/civilian/cryo1
+	name = "\improper Primary Cryogenic Storage"
+
+/area/civilian/cryo2
+	name = "\improper Secondary Cryogenic Storage"
+
+/area/civilian/bar
+	name = "\improper Bar"
+
+/area/civilian/freezer
+	name = "\improper Kitchen Freezer"
+
+/area/civilian/hydro
+	name = "Hydroponics"
+
+//////////////////////////////////////
+//			SECURITY				//
+//////////////////////////////////////
+
+/area/security
+	icon_state = "security"
+
+/area/security/entrance
+	name = "\improper Brig Entrance"
+
+/area/security/warden
+	name = "\improper Warden's Office"
+
+/area/security/armory
+	name = "\improper Armory"
+
+/area/security/locker
+	name = "\improper Security Locker Room"
+
+/area/security/forenics
+	name = "\improper Forensics Lab"
+
+/area/security/evidence
+	name = "\improper Evidence Storage"
+
+//////////////////////////////////////
+//			SCIENCE					//
+//////////////////////////////////////
+
+/area/science
+	icon_state = "research"
+
+/area/science/entrance
+	name = "\improper Science Wing Entrance"
+
+/area/science/robotics
+	name = "\improper Robotics Lab"
+
+/area/science/rnd
+	name = "\improper Research and Development Lab"
+
+/area/science/hallway
+	name = "\improper Science Wing Hallway"
+
+/area/science/xenobio
+	name = "\improper Xenobiology Wing"
+
+//////////////////////////////////////
+//			ENGINEERING				//
+//////////////////////////////////////
+
+/area/engineering
+	icon_state = "yellow"
+
+/area/engineering/lobby
+	name = "\improper Engineering Lobby"
+
+/area/engineering/locker
+	name = "\improper Engineering Storage"
+
+/area/engineering/atmos
+	name = "\improper Atmospherics"
+
+/area/engineering/atmosmon
+	name = "\improper Atmosphereics Monitoring"
+
+/area/engineering/engine
+	name = "\improper Engine Core"
+	icon_state = "engine"
+
+/area/engineering/externalmaint
+	name = "\improper External Engine Maintenance"
+	icon_state = "engine"
+
+/area/engineering/smes
+	name = "\improper SMES Room"
+
+/area/engineering/securestorage
+	name = "\improper Secure Storage"
+
+//////////////////////////////////////
+//			MEDICAL					//
+//////////////////////////////////////
+
+/area/medical
+	icon_state = "bluenew"
+
+/area/medical/lobby
+	name = "\improper Medical Lobby"
+
+/area/medical/treatment
+	name = "\improper Medical Treatment Center"
+
+/area/medical/morgue
+	name = "\improper Morgue"
+
+/area/medical/storage
+	name = "\improper Medical Storage"
+
+/area/medical/chemistry
+	name = "\improper Chemistry Lab"
+
+/area/medical/surgery
+	name = "\improper Surgery Bay"
+
+//////////////////////////////////////
+//			CARGO					//
+//////////////////////////////////////
+
+//////////////////////////////////////
+//			MAINTENANCE				//
+//////////////////////////////////////
+
+/area/maintenance/primary/fs
+	name = "\improper Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/primary/fp
+	name = "\improper Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/primary/sec
+	name = "\improper Security Maintenance"
+	icon_state = "maint_security_starboard"
+
+/area/maintenance/primary/med
+	name = "\improper Medical Maintenance"
+	icon_state = "maint_medical"
+
+/area/maintenance/primary/engs
+	name = "\improper Engineering Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/primary/engp
+	name = "\improper Engineering Port Maintenance"
+	icon_state = "maint_engineering"
