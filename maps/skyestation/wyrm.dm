@@ -1,11 +1,11 @@
 #if !defined(USING_MAP_DATUM)
 
 	#include "wyrm_areas.dm"
-	#include "skyestation_shuttles.dm"
-	#include "skyestation_jobs.dm"
+	#include "wyrm_shuttles.dm"
+	#include "wyrm_jobs.dm"
 /*
-	#include "skyestation_presets.dm"
-	#include "skyestation_holodecks.dm"
+	#include "wyrm_presets.dm"
+	#include "wyrm_holodecks.dm"
 */
 /*
 	#include "loadout/loadout_accessories.dm"
@@ -27,7 +27,7 @@
 	#include "../../code/modules/lobby_music/dilbert.dm"
 	#include "../../code/modules/lobby_music/space_oddity.dm"
 
-	#define USING_MAP_DATUM /datum/map/skyestation
+	#define USING_MAP_DATUM /datum/map/wyrm
 	#define URISTCODE 1
 
 #elif !defined(MAP_OVERRIDE)

@@ -53,6 +53,9 @@
 /area/command/aicomputer
 	name = "\improper AI Data Room" //???
 
+/area/command/eva
+	name = "\improper EVA"
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
@@ -73,7 +76,10 @@
 	name = "\improper Kitchen Freezer"
 
 /area/civilian/hydro
-	name = "Hydroponics"
+	name = "\improper Hydroponics"
+
+/area/civilian/holodeck
+	name = "\improper Holodeck"
 
 //////////////////////////////////////
 //			SECURITY				//
@@ -183,6 +189,15 @@
 //////////////////////////////////////
 //			CARGO					//
 //////////////////////////////////////
+
+/area/cargo
+	icon_state = "yellow"
+
+/area/cargo/desk
+	name = "\improper Cargo Office"
+
+/area/cargo/storage
+	name = "\improper Cargo Storage"
 
 //////////////////////////////////////
 //			MAINTENANCE				//

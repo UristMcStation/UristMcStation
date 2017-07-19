@@ -1,20 +1,20 @@
-/datum/map/skyestation
-	name = "TBD"
-	full_name = "TBD"
-	path = "skyestation"
+/datum/map/wyrm
+	name = "Wyrm"
+	full_name = "ISC Wyrm"
+	path = "wyrm"
 	flags = MAP_HAS_BRANCH
 
 	lobby_icon = 'maps/torch/icons/lobby.dmi'
 
-	overmap_size = 40
-	overmap_event_areas = 12
+	overmap_size = 60
+	overmap_event_areas = 35
 //	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
-	station_name  = "TBD"
-	station_short = "TBD"
+	station_name  = "ISC Wyrm"
+	station_short = "Wyrm"
 	dock_name     = "TBD"
 	boss_name     = "TBD"
 	boss_short    = "TBD"
@@ -65,4 +65,4 @@
 			welcome_text += "[count] <b>[result]\s</b><br />"
 
 	post_comm_message("TBD Sensor Readings", welcome_text)
-	minor_announcement.Announce(message = "New [using_map.company_name] Update available at all communication consoles.")
+	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
