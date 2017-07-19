@@ -275,7 +275,7 @@
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
 	if(environment_smash && prob(break_stuff_probability))
 		EscapeConfinement()
-		for(var/dir in cardinal)
+		for(var/dir in GLOB.cardinal)
 			var/turf/T = get_step(src, dir)
 			if(istype(T, /turf/simulated/wall) && T.Adjacent(src))
 				T.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

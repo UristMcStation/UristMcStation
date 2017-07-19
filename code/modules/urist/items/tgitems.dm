@@ -140,7 +140,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	var/cowsleft = 20
 
 /obj/effect/rend/cow/New()
-	processing_objects.Add(src)
+	GLOB.processing_objects.Add(src)
 	return
 
 /obj/effect/rend/cow/process()

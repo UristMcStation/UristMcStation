@@ -149,7 +149,7 @@
 	desc = "Some things are better left buried."
 	open = 0
 
-/obj/structure/pit/closed/initialize()
+/obj/structure/pit/closed/Initialize()
 	..()
 	close()
 
@@ -166,7 +166,7 @@
 	name = "grave"
 	icon_state = "pit0"
 
-/obj/structure/pit/closed/grave/random/initialize()
+/obj/structure/pit/closed/grave/random/Initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
 	var/obj/item/remains/human/bones = new(C)
@@ -214,7 +214,7 @@
 	R.generate()
 	..()
 
-/obj/structure/pit/closed/grave/spaghettiwestern/initialize()
+/obj/structure/pit/closed/grave/spaghettiwestern/Initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)
 
 	var/obj/item/remains/human/bones = new(C)
@@ -247,7 +247,7 @@
 	..()
 	usr << message
 
-/obj/structure/gravemarker/random/initialize()
+/obj/structure/gravemarker/random/Initialize()
 	generate()
 	..()
 

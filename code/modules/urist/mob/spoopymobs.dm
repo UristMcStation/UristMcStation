@@ -286,10 +286,10 @@
 	density = 1
 
 /obj/effect/haunter/New()
-	processing_objects.Add(src)
+	GLOB.processing_objects.Add(src)
 
 /obj/effect/haunter/Destroy()
-	processing_objects.Remove(src)
+	GLOB.processing_objects.Remove(src)
 	return ..()
 
 /obj/effect/haunter/process()
@@ -312,7 +312,7 @@
 			if(prob(5))
 				src.loc = null
 	else
-		processing_objects.Remove(src)
+		GLOB.processing_objects.Remove(src)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
@@ -474,7 +474,7 @@
 /mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
 	var/attempts = 3
 	while(!(stalkee))
-		stalkee = pick(player_list)
+		stalkee = pick(GLOB.player_list)
 		attempts--
 		var/recheck = 0
 		if(stalkee)

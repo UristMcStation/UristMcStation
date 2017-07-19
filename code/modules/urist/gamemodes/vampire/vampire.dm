@@ -227,8 +227,8 @@
 //	var/mob/living/carbon/M = src
 
 	for(var/i = 1 to 20)
-		ax += sun.dx
-		ay += sun.dy
+		ax += GLOB.sun.dx
+		ay += GLOB.sun.dy
 
 		var/turf/T = locate( round(ax,0.5),round(ay,0.5),z)
 

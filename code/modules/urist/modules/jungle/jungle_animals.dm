@@ -14,7 +14,7 @@
 		new new_type(get_turf(src))
 		qdel(src)
 
-	processing_objects.Add(src)
+	GLOB.processing_objects.Add(src)
 	spawned_animal = new spawn_type(get_turf(src))
 
 /obj/effect/landmark/animal_spawner/process()
@@ -26,7 +26,7 @@
 			spawned_animal.loc = locate(src.x + rand(-12,12), src.y + rand(-12,12), src.z)
 
 /obj/effect/landmark/animal_spawner/Destroy()
-	processing_objects.Remove(src)
+	GLOB.processing_objects.Remove(src)
 	..()
 
 /obj/effect/landmark/animal_spawner/panther
@@ -56,7 +56,7 @@
 		return
 
 	else
-		processing_objects.Add(src)
+		GLOB.processing_objects.Add(src)
 		spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(get_turf(src))
 
@@ -73,7 +73,7 @@
 	if(crosstrigger) //if an animal crosses this thing, they "leave" the map, and then this landmark starts spawning animals
 		if (istype(M, /mob/living/simple_animal) || istype(M, /mob/living/carbon/human/monkey))
 			qdel(M)
-			processing_objects.Add(src)
+			GLOB.processing_objects.Add(src)
 			return
 
 	else

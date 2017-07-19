@@ -43,7 +43,7 @@ var/list/spawntypes = list()
 	..()
 	turfs = GLOB.latejoin
 
-/*/datum/spawnpoint/gateway
+/datum/spawnpoint/gateway
 	display_name = "Gateway"
 	msg = "has completed translation from offsite gateway"
 

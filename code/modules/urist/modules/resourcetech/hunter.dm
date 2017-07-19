@@ -49,7 +49,7 @@
 				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
-				nanomanager.update_uis(src)
+				GLOB.nanomanager.update_uis(src)
 				return
 
 			else

@@ -45,7 +45,7 @@ var/global/normal_aooc_color = "#FF3333" //Screw british speling of color. COLOR
 
 	log_ooc("[mob.name]/[key]/AOOC : [msg]")
 
-	for(var/client/C in clients)
+	for(var/client/C in GLOB.clients)
 		if(is_preference_enabled(/datum/client_preference/show_ooc))
 			var/display_name = src.key
 			var/player_display = holder ? "[display_name]([usr.client.holder.rank])" : display_name

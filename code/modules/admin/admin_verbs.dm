@@ -817,13 +817,13 @@ var/list/admin_verbs_mentor = list(
 //	feedback_add_details("admin_verb","MP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
-/client/proc/editappear(mob/living/carbon/human/M as mob in mob_list)
+/client/proc/editappear(mob/living/carbon/human/M as mob in GLOB.mob_list)
 	set name = "Edit Appearance"
 	set category = "Fun"
 
 	if(!check_rights(R_FUN))	return
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
+	M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")

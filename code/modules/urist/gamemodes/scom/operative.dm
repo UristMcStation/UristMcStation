@@ -13,7 +13,7 @@ var/datum/antagonist/scom/scommies
 
 /proc/find_scom_ghost(var/mob/player)
 	if(scommies)
-		for(var/mob/observer/ghost/G in player_list)
+		for(var/mob/observer/ghost/G in GLOB.player_list)
 			if(G.mind)
 				if((G.mind.current == player) && isscom(G))
 					return G

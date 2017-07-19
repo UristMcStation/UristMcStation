@@ -37,7 +37,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
 	world << "<span class='danger'> Setting up S-COM, please be patient. This may take a minute or two.</span>"
 
-	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
+	for(var/mob/living/L in GLOB.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		qdel(L)
 
 	if(!scommapsloaded) //necessary incase an admin fucks something up.
@@ -45,7 +45,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	config.allow_random_events = 0 //nooooope
 
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/new_player/player in GLOB.player_list)
 		if((player.client)&&(player.ready))
 			SCOMplayerC++
 	//world << "<span class='danger'> [SCOMplayerC] players counted.</span>"
