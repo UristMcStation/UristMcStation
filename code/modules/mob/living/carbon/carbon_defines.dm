@@ -30,3 +30,6 @@
 	//the second is the message in question.
 	var/last_taste_time = 0
 	var/last_taste_text = ""
+
+	//Used for Manhonkan Project
+	var/honkitude = 0

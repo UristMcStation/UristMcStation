@@ -297,6 +297,9 @@
 /datum/reagent/ethanol/manhattan_proj
 	value = 0.2
 
+/datum/reagent/ethanol/manhonkan_proj
+	value = 0.3
+
 /datum/reagent/ethanol/manly_dorf
 	value = 0.13
 

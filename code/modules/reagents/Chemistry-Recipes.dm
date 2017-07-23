@@ -1887,6 +1887,13 @@
 	required_reagents = list("manhattan" = 10, "uranium" = 1)
 	result_amount = 10
 
+/datum/chemical_reaction/manhonkan_proj
+	name = "Manhonkan Project"
+	id = "manhonkan_proj"
+	result = "manhonkan_proj"
+	required_reagents = list("manhattan_proj" = 1, "banana" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/vodka_tonic
 	name = "Vodka and Tonic"
 	id = "vodkatonic"

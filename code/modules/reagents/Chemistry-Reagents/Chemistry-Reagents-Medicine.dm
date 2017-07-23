@@ -370,6 +370,7 @@
 	M.drowsyness = 0
 	M.stuttering = 0
 	M.confused = 0
+	M.honkitude = 0
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
 			if(istype(R, /datum/reagent/ethanol))

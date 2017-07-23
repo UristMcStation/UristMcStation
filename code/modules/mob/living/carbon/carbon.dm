@@ -49,6 +49,19 @@
 		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
 			germ_level++
 
+	//Replicates clownshoes
+	//"honkitude" is both a boolean for whether or not to honk
+	//And a timer for how often
+	if(src.honkitude > 0)
+		if(src.m_intent == "run")
+			if(src.honkitude >= 3)
+				src.honkitude = 1
+				playsound(src, "clownstep", 50, 1) // this will get annoying very fast.
+			else
+				src.honkitude = src.honkitude + 1
+		else
+			playsound(src, "clownstep", 20, 1)
+
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
 	if((user in src.stomach_contents) && istype(user))
 		if(user.last_special <= world.time)

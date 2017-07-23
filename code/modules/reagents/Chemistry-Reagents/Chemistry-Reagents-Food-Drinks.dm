@@ -1072,6 +1072,10 @@
 	glass_name = "nothing"
 	glass_desc = "Absolutely nothing."
 
+/datum/reagent/drink/nothing/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.honkitude = 0
+
 /* Alcohol */
 
 // Basic
@@ -1778,6 +1782,23 @@
 
 	glass_name = "Manhattan Project"
 	glass_desc = "A scientist's drink of choice, for pondering ways to blow stuff up."
+
+/datum/reagent/ethanol/manhonkan_proj
+	name = "Manhonkan Project"
+	id = "manhonkan_proj"
+	description = "Forsake your gods, for they have forsaken you."
+	taste_description = "pure, undistilled honkery"
+	color = "#C15D00"
+	strength = 10
+	druggy = 30
+
+	glass_name = "Manhonkan Project"
+	glass_desc = "Forsake your gods, for they have forsaken you."
+
+/datum/reagent/ethanol/manhonkan_proj/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.honkitude = 1
+
 
 /datum/reagent/ethanol/manly_dorf
 	name = "The Manly Dorf"
