@@ -3,6 +3,8 @@
 	#include "wyrm_areas.dm"
 	#include "wyrm_shuttles.dm"
 	#include "wyrm_jobs.dm"
+	#include "wyrm_overmap.dm"
+	#include "wyrm_shuttles.dm"
 /*
 	#include "wyrm_presets.dm"
 	#include "wyrm_holodecks.dm"
@@ -19,6 +21,7 @@
 
 	#include "wyrm-1.dmm"
 	#include "wyrm-2.dmm"
+	#include "wyrm-3.dmm"
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"
@@ -32,6 +35,6 @@
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn A map has already been included, ignoring TBD
+	#warn A map has already been included, ignoring Wyrm
 
 #endif

@@ -36,13 +36,13 @@
 
 	id_hud_icons = 'maps/torch/icons/assignment_hud.dmi'
 
-/datum/map/skyestation/setup_map()
+/datum/map/wyrm/setup_map()
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
 
-/datum/map/skyestation/send_welcome()
-	var/welcome_text = "<center><br /><font size = 3><b>TBD</b> Sensor Readings:</font><hr />"
+/datum/map/wyrm/send_welcome()
+	var/welcome_text = "<center><br /><font size = 3><b>ISC Wyrm</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"
 	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
@@ -64,5 +64,5 @@
 		else
 			welcome_text += "[count] <b>[result]\s</b><br />"
 
-	post_comm_message("TBD Sensor Readings", welcome_text)
+	post_comm_message("ISC Wyrm Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")

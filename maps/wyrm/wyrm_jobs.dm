@@ -1,13 +1,12 @@
-/datum/map/skyestation
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/hydro,
+/datum/map/wyrm
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/bartender,
 						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/janitor, /datum/job/lawyer, /datum/job/librarian, /datum/job/psychiatrist,
-						/datum/job/chief_engineer, /datum/job/engineer,
-						/datum/job/ai, /datum/job/cyborg,
-						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
-						/datum/job/cmo, /datum/job/doctor, /datum/job/chaplain,
+						/datum/job/janitor, /datum/job/chief_engineer, /datum/job/engineer,
+						/datum/job/hos, /datum/job/warden, /datum/job/officer,
+						/datum/job/cmo, /datum/job/doctor,
 						/datum/job/rd, /datum/job/scientist, /datum/job/mining,
-						/datum/job/mime, /datum/job/clown, /datum/job/merchant
+						/datum/job/mime, /datum/job/clown, /datum/job/merchant,
+						/datum/job/ai, /datum/job/cyborg
 						)
 
 //Mime

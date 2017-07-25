@@ -128,6 +128,15 @@
 /area/science/xenobio
 	name = "\improper Xenobiology Wing"
 
+/area/science/xenoarch
+	name = "\improper Xenoarcheology Lab"
+
+/area/science/prep
+	name = "\improper Research Locker Room"
+
+/area/science/shuttleprep
+	name = "\improper Hatchling Preperation Room"
+
 //////////////////////////////////////
 //			ENGINEERING				//
 //////////////////////////////////////
@@ -158,8 +167,14 @@
 /area/engineering/smes
 	name = "\improper SMES Room"
 
+/area/engineering/subsmes
+	name = "\improper Sub Deck SMES Room"
+
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
+
+/area/engineering/techstorage
+	name = "\improper Tech Storage"
 
 /area/engineering/tcomms
 	name = "\improper Telecommunications Server"
@@ -193,17 +208,25 @@
 	name = "\improper Surgery Bay"
 
 //////////////////////////////////////
-//			CARGO					//
+//			LOGISTICS				//
 //////////////////////////////////////
 
-/area/cargo
+/area/logistics
 	icon_state = "yellow"
 
-/area/cargo/desk
-	name = "\improper Cargo Office"
+/area/logistics/desk
+	name = "\improper Logistics Office"
 
-/area/cargo/storage
-	name = "\improper Cargo Storage"
+/area/logistics/storage
+	name = "\improper Logistics Storage"
+
+/area/logistics/loading
+	name = "\improper Loading Bay"
+
+/area/supply/dock
+	name = "Supply Shuttle"
+	icon_state = "shuttle3"
+	requires_power = 0
 
 //////////////////////////////////////
 //			MAINTENANCE				//
@@ -232,3 +255,11 @@
 /area/maintenance/primary/engp
 	name = "\improper Engineering Port Maintenance"
 	icon_state = "maint_engineering"
+
+/area/maintenance/sub/fore
+	name = "\improper Fore Sub Deck Maintenance"
+	icon_state = "fmaint"
+
+/area/maintenance/sub/aft
+	name = "\improper Aft Sub Deck Maintenance"
+	icon_state = "amaint"
