@@ -161,6 +161,12 @@
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
 
+/area/engineering/tcomms
+	name = "\improper Telecommunications Server"
+
+/area/engineering/extsubmaint
+	name = "\improper External Sub Deck Engine Maintenance"
+
 //////////////////////////////////////
 //			MEDICAL					//
 //////////////////////////////////////

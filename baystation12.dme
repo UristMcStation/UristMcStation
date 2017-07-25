@@ -2584,6 +2584,7 @@
 #include "maps\skyestation\wyrm_define.dm"
 #include "maps\skyestation\wyrm_overmap.dm"
 #include "maps\skyestation\items\synth.dm"
+#include "maps\skyestation\items\clothing\suit.dm"
 #include "maps\skyestation\obj\synth.dm"
 #include "maps\torch\torch_define.dm"
 #include "maps\~mapsystem\map_preferences.dm"

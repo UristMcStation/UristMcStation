@@ -79,6 +79,8 @@ var/list/possible_cable_coil_colours
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
+/obj/structure/cable/fadeblue
+	color = "#4f637d"
 /obj/structure/cable/New()
 	..()
 
