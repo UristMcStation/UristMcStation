@@ -19,6 +19,8 @@ var/list/points_of_interest = list()
 	var/known = 1		//shows up on nav computers automatically
 	var/in_space = 1	//can be accessed via lucky EVA
 
+	var/random_start = TRUE
+
 /obj/effect/overmap/Initialize()
 	if(!GLOB.using_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
@@ -31,11 +33,12 @@ var/list/points_of_interest = list()
 	for(var/zlevel in map_z)
 		map_sectors["[zlevel]"] = src
 
-	start_x = start_x || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
-	start_y = start_y || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
+	if(random_start)
+		start_x = start_x || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
+		start_y = start_y || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
 
-	forceMove(locate(start_x, start_y, GLOB.using_map.overmap_z))
-	testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+		forceMove(locate(start_x, start_y, GLOB.using_map.overmap_z))
+		testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
 
 	GLOB.using_map.player_levels |= map_z
 

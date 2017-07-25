@@ -8,3 +8,7 @@
 	vessel_mass = 10
 	fore_dir = WEST
 	owner_type = /obj/effect/overmap/ship/wyrm
+
+/obj/machinery/computer/helm/subship/hatchling
+	name = "Hatchling Sublight Control"
+	subship = "Hatchling"
