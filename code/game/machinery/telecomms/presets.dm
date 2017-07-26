@@ -60,11 +60,11 @@
 
 /obj/machinery/telecomms/relay/preset/wyrm_prim
 	id = "Primary Deck Relay"
-	autolinkers = list("p_relay", "s_relay")
+	autolinkers = list( "prim_relay")
 
 /obj/machinery/telecomms/relay/preset/wyrm_sub
 	id = "Sub Deck Relay"
-	autolinkers = list("s_relay")
+	autolinkers = list("sub_relay")
 
 //HUB
 
@@ -81,6 +81,12 @@
 	produces_heat = 0
 	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
 	 "centcomm", "receiverCent", "broadcasterCent")
+
+/obj/machinery/telecomms/hub/preset/wyrm
+	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
+	light_color = "#66ccff"
+	light_power = 2
+	light_range = 5
 
 //Receivers
 
@@ -153,7 +159,7 @@
 	id = "Main Bus"
 	network = "tcommsat"
 	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
-	autolinkers = list("processorWyrm", "serverWyrm", "receiverWyrm", "p_relay", "s_relay")
+	autolinkers = list("processorWyrm", "busWyrm")
 
 //Processors
 

@@ -179,6 +179,9 @@
 /area/engineering/tcomms
 	name = "\improper Telecommunications Server"
 
+/area/engineering/tcommsmon
+	name = "\improper Telecommunication Monitoring Room"
+
 /area/engineering/extsubmaint
 	name = "\improper External Sub Deck Engine Maintenance"
 

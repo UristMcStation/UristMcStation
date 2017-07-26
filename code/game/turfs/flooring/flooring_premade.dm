@@ -24,6 +24,11 @@
 	oxygen = 0
 	nitrogen = 0
 
+/turf/simulated/floor/bluegrid/server
+	oxygen = 0
+	nitrogen = MOLES_N2STANDARD
+	temperature = 80
+
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -178,6 +183,11 @@
 
 /turf/simulated/floor/greengrid/nitrogen
 	oxygen = 0
+
+/turf/simulated/floor/tiled/white/server
+	oxygen = 0
+	nitrogen = MOLES_N2STANDARD
+	temperature = 80
 
 /turf/simulated/floor/tiled/white/airless
 	name = "airless floor"
