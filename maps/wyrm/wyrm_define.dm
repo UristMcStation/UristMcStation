@@ -6,6 +6,12 @@
 
 	lobby_icon = 'maps/torch/icons/lobby.dmi'
 
+	station_levels = list(1,2)
+	contact_levels = list(1,2)
+	player_levels = list(1,2)
+	admin_levels = list(3)
+	empty_levels = list(6)
+	accessible_z_levels = list("1"=1,"2"=1)
 	overmap_size = 60
 	overmap_event_areas = 35
 //	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
@@ -16,12 +22,12 @@
 	station_name  = "ISC Wyrm"
 	station_short = "Wyrm"
 	dock_name     = "TBD"
-	boss_name     = "TBD"
-	boss_short    = "TBD"
-	company_name  = "TBD"
-	company_short = "TBD"
+	boss_name     = "Automated Announcement System"
+	boss_short    = "AAS"
+	company_name  = "Automated Announcement System"
+	company_short = "AAS"
 
-	map_admin_faxes = list("TBD")
+	map_admin_faxes = list("Automated Announcement System")
 
 	//These should probably be moved into the evac controller...
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
@@ -33,8 +39,6 @@
 
 	default_law_type = /datum/ai_laws/solgov
 	use_overmap = 1
-
-	id_hud_icons = 'maps/torch/icons/assignment_hud.dmi'
 
 /datum/map/wyrm/setup_map()
 	..()

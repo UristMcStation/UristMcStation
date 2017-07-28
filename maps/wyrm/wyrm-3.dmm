@@ -1,20 +1,22 @@
 "a" = (/turf/space,/area/space)
 "b" = (/turf/simulated/wall/r_wall,/area/space)
 "c" = (/turf/simulated/floor/reinforced,/area/space)
-"d" = (/turf/simulated/floor/reinforced,/turf/simulated/shuttle/wall/corner/smoothwhite/nw,/area/supply/dock)
-"e" = (/turf/simulated/shuttle/wall,/area/supply/dock)
-"f" = (/obj/machinery/door/blast/shutters/open{tag = "icon-shutter1"; icon_state = "shutter1"; dir = 2},/turf/simulated/floor/tiled,/area/supply/dock)
-"g" = (/turf/simulated/floor/reinforced,/turf/simulated/shuttle/wall/corner/smoothwhite/ne,/area/supply/dock)
-"h" = (/turf/simulated/floor/tiled,/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/se,/area/supply/dock)
-"i" = (/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled,/area/supply/dock)
-"j" = (/turf/simulated/floor/tiled,/area/supply/dock)
-"k" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion (EAST)"; icon_state = "propulsion"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/supply/dock)
-"l" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/telecomms/relay,/turf/simulated/floor/tiled,/area/supply/dock)
-"m" = (/obj/effect/shuttle_landmark/supply/centcom,/turf/simulated/floor/tiled,/area/supply/dock)
-"n" = (/turf/simulated/floor/reinforced,/turf/simulated/shuttle/wall/corner/smoothwhite/sw,/area/supply/dock)
-"o" = (/turf/simulated/floor/tiled,/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/ne,/area/supply/dock)
-"p" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/supply/dock)
-"q" = (/turf/simulated/floor/reinforced,/turf/simulated/shuttle/wall/corner/smoothwhite/se,/area/supply/dock)
+"d" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{dir = 4; icon_state = "swall_re"},/area/supply/dock)
+"e" = (/obj/machinery/button/remote/blast_door{id = "supplyshuttle"; name = "Loading Shutter Control"},/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall"},/area/supply/dock)
+"f" = (/obj/machinery/door/blast/shutters/open{tag = "icon-shutter1"; icon_state = "shutter1"; dir = 2},/turf/simulated/floor/tiled/white,/area/supply/dock)
+"g" = (/obj/machinery/button/remote/blast_door{id = "supplyshuttle"; name = "Loading Shutter Control"},/turf/simulated/shuttle/wall{dir = 4; icon_state = "swall"},/area/supply/dock)
+"h" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{icon_state = "swall_re"},/area/supply/dock)
+"i" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/ne{dir = 8; icon_state = "swall_w"},/area/supply/dock)
+"j" = (/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/white,/area/supply/dock)
+"k" = (/turf/simulated/floor/tiled/white,/area/supply/dock)
+"l" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion (EAST)"; icon_state = "propulsion"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/supply/dock)
+"m" = (/turf/simulated/shuttle/wall{icon_state = "swall_straight"},/area/supply/dock)
+"n" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/telecomms/relay,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"o" = (/obj/effect/shuttle_landmark/supply/centcom,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"p" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{dir = 1; icon_state = "swall_re"},/area/supply/dock)
+"q" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/ne{icon_state = "swall_w"},/area/supply/dock)
+"r" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"s" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{dir = 8; icon_state = "swall_re"},/area/supply/dock)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -265,11 +267,11 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bccccccccccbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bccdefffegcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bcdhijjjikcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bceljjmjjkcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bcnopjjjpkcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bccnefffeqcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bccdefffghcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bcdijkkkjlcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bcmnkkokklcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bcpqrkkkrlcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bccpefffgscbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bccccccccccbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

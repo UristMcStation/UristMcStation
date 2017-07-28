@@ -6,11 +6,11 @@
 	flags = AREA_RAD_SHIELDED
 
 /area/turbolift/freightmain
-	name = "\improper main deck"
+	name = "Main Deck"
 	base_turf = /turf/simulated/open
 
 /area/turbolift/freightsub
-	name = "\improper sub deck"
+	name = "Sub Deck"
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/supply/drone

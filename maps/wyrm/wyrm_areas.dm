@@ -144,17 +144,23 @@
 /area/engineering
 	icon_state = "yellow"
 
+/area/engineering/tool
+	name = "\improper Public Workshop"
+
 /area/engineering/lobby
-	name = "\improper Engineering Lobby"
+	name = "\improper Engineering"
 
 /area/engineering/locker
 	name = "\improper Engineering Storage"
+
+/area/engineering/rustmon
+	name = "\improper Fusion Core Monitoring Room"
 
 /area/engineering/atmos
 	name = "\improper Atmospherics"
 
 /area/engineering/atmosmon
-	name = "\improper Atmosphereics Monitoring"
+	name = "\improper Atmospherics Monitoring"
 
 /area/engineering/engine
 	name = "\improper Engine Core"
@@ -208,7 +214,10 @@
 	name = "\improper Chemistry Lab"
 
 /area/medical/surgery
-	name = "\improper Surgery Bay"
+	name = "\improper Operating Theatre"
+
+/area/medical/virology
+	name = "\improper Virology Lab"
 
 //////////////////////////////////////
 //			LOGISTICS				//

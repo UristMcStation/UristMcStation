@@ -9,7 +9,7 @@
 	#include "wyrm_presets.dm"
 	#include "wyrm_holodecks.dm"
 */
-/*
+
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
 	#include "loadout/loadout_head.dm"
@@ -17,7 +17,7 @@
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
-*/
+
 
 	#include "wyrm-1.dmm"
 	#include "wyrm-2.dmm"

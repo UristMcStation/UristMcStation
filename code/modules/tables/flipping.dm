@@ -116,3 +116,14 @@
 	update_icon()
 
 	return 1
+
+/obj/structure/table/flipped/railing
+	name = "guard railing"
+	desc = "Some railing to keep you from a painful death."
+	icon = 'maps/wyrm/icons/railing.dmi'
+	icon_state = "0,5"
+	health = 30
+	flipped = TRUE
+
+/obj/structure/table/flipped/do_put()
+	return

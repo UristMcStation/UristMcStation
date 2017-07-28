@@ -12,6 +12,7 @@
 
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_MIXER
 	var/list/mixing_inputs
+	var/target_pressure = MAX_PUMP_PRESSURE
 
 	//for mapping
 	var/node1_concentration = 0.5
@@ -73,6 +74,9 @@
 	last_flow_rate = 0
 
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
+		return
+
+	if(network3.volume >= target_pressure)
 		return
 
 	//Figure out the amount of moles to transfer
