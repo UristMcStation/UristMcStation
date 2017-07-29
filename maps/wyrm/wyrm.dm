@@ -5,10 +5,9 @@
 	#include "wyrm_jobs.dm"
 	#include "wyrm_overmap.dm"
 	#include "wyrm_shuttles.dm"
-/*
 	#include "wyrm_presets.dm"
 	#include "wyrm_holodecks.dm"
-*/
+
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"

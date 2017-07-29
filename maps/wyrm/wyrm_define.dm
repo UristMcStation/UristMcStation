@@ -22,9 +22,9 @@
 	station_name  = "ISC Wyrm"
 	station_short = "Wyrm"
 	dock_name     = "TBD"
-	boss_name     = "Automated Announcement System"
+	boss_name     = "Automated Announcement Systems"
 	boss_short    = "AAS"
-	company_name  = "Automated Announcement System"
+	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
 
 	map_admin_faxes = list("Automated Announcement System")

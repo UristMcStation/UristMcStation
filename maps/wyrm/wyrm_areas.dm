@@ -275,3 +275,20 @@
 /area/maintenance/sub/aft
 	name = "\improper Aft Sub Deck Maintenance"
 	icon_state = "amaint"
+
+//////////////////////////////////////
+//			HOLODECK				//
+//////////////////////////////////////
+
+/area/holodeck
+	name = "\improper Holodeck"
+	icon_state = "Holodeck"
+	dynamic_lighting = 0
+	sound_env = LARGE_ENCLOSED
+
+/area/holodeck/source_battle_arena
+	name = "\improper Holodeck - Battle Arena"
+	sound_env = ARENA
+
+/area/holodeck/source_plating
+	name = "\improper Holodeck - Off"
