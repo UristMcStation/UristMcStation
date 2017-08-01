@@ -208,7 +208,7 @@
 	the secrets of their empire to their allies."
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SKRELLIAN)
-	name_language = null
+	name_language = LANGUAGE_SKRELLIAN
 	health_hud_intensity = 1.75
 
 	min_age = 19

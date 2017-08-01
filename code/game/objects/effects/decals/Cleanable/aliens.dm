@@ -31,3 +31,14 @@
 
 /obj/effect/decal/cleanable/blood/xtracks
 	basecolor = "#05EE05"
+
+//Close enough
+
+/obj/effect/decal/cleanable/blood/skrell
+	basecolor = "#1D2CBF"
+
+/obj/effect/decal/cleanable/blood/unathi
+	basecolor = "#f24b2e"
+
+/obj/effect/decal/cleanable/blood/teshari
+	basecolor = "#D514F7"

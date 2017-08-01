@@ -82,3 +82,15 @@
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Shaft Miner")
+
+/datum/gear/suit/labcorp
+	display_name = "corporate labcoats"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/wardt
+
+/datum/gear/suit/labcorp/New()
+	..()
+	var/list/labcoats = list()
+	for(var/lab in subtypesof(/obj/item/clothing/suit/storage/toggle/labcoat/corp))
+		var/obj/item/clothing/suit/storage/toggle/labcoat/corp/lab_type = lab
+		labcoats[initial(lab_type.name)] = lab_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(labcoats))

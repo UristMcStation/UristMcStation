@@ -9,5 +9,6 @@ maps/RandomZLevels/beach.dmm
 maps/RandomZLevels/maze1.dmm
 maps/RandomZLevels/negastation.dmm
 
+maps/wyrm/templates/crystalmines.dmm
 
 

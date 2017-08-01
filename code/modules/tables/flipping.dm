@@ -117,13 +117,21 @@
 
 	return 1
 
-/obj/structure/table/flipped/railing
+/obj/structure/railing
 	name = "guard railing"
 	desc = "Some railing to keep you from a painful death."
 	icon = 'maps/wyrm/icons/railing.dmi'
 	icon_state = "0,5"
-	health = 30
-	flipped = TRUE
+	anchored = TRUE
+	flags = OBJ_CLIMBABLE
 
-/obj/structure/table/flipped/do_put()
-	return
+/obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group || (height==0)) return 1
+	if(istype(mover,/obj/item/projectile))
+		return 1
+	if(mover.loc == loc && get_dir(loc,target) == GLOB.reverse_dir[dir])
+		return 0
+	if(get_dir(loc, target) == dir)
+		return 0
+	else
+		return 1

@@ -2,6 +2,7 @@
 
 /obj/structure/closet/secure_closet/miner
 	name = "miner's equipment"
+	icon = 'icons/urist/restored/closet.dmi'
 	icon_state = "miningsec1"
 	icon_closed = "miningsec"
 	icon_locked = "miningsec1"

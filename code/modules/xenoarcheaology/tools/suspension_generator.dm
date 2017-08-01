@@ -15,6 +15,11 @@
 	..()
 	src.cell = new /obj/item/weapon/cell/high(src)
 
+/obj/machinery/suspension_gen/empty/New()
+	..()
+	if(cell)
+		src.cell = null
+
 /obj/machinery/suspension_gen/process()
 	set background = 1
 	if(suspension_field)

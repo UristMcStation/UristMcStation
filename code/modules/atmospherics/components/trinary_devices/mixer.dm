@@ -76,7 +76,7 @@
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
 
-	if(network3.volume >= target_pressure)
+	if(air3.return_pressure() >= target_pressure)
 		return
 
 	//Figure out the amount of moles to transfer

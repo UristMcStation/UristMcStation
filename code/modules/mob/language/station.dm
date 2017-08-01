@@ -74,6 +74,11 @@
 	flags = WHITELISTED
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 
+/datum/language/skrell/get_random_name()
+	var/new_name
+	new_name = capitalize(pick("Xar","Quil","Qur'qa","Zirqa","Kol'xa","Zel","Qaraza")) + " " + capitalize(pick("Qala","Zeraka","Zaq'qa","Xer'za","Ve'qa"))
+	return new_name
+
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
 	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."

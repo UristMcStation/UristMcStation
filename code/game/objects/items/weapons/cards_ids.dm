@@ -433,3 +433,10 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card issued to Merchants, indicating their right to sell and buy goods."
 	icon_state = "trader"
 	access = list(access_merchant)
+
+//Fake IDs for non-station/ship crew
+
+/obj/item/weapon/card/id/fake/cargo
+	name = "identification card"
+	desc = "A card issued to cargo staff."
+	icon_state = "cargo"
