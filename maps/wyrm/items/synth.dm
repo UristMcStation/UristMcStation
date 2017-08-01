@@ -1,14 +1,14 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/synth
 	name = "\improper Mysterious Coat"
 	desc = "It's a long labcoat with a number of inlays."
-	icon = 'maps/skyestation/icons/synth.dmi'
+	icon = 'maps/wyrm/icons/synth.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "synthcoat"
 
 /obj/item/clothing/suit/armor/synth
 	name = "makeshift iron body armor"
 	desc = "Some iron plates have been welded together to form some basic protection."
-	icon = 'maps/skyestation/icons/synth.dmi'
+	icon = 'maps/wyrm/icons/synth.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "syntharmor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
