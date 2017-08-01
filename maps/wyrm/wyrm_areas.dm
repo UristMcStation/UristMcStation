@@ -182,6 +182,9 @@
 /area/engineering/techstorage
 	name = "\improper Tech Storage"
 
+/area/engineering/stech
+	name = "\improper Secure Tech Storage"
+
 /area/engineering/tcomms
 	name = "\improper Telecommunications Server"
 
@@ -292,3 +295,18 @@
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+// GENERIC MINING AREAS
+
+/area/mine
+	icon_state = "mining"
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	sound_env = ASTEROID
+
+/area/mine/explored
+	name = "Mine"
+	icon_state = "explored"
+
+/area/mine/unexplored
+	name = "Mine"
+	icon_state = "unexplored"

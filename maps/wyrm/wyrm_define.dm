@@ -12,7 +12,7 @@
 	admin_levels = list(3)
 	empty_levels = list(6)
 	accessible_z_levels = list("1"=1,"2"=1)
-	overmap_size = 60
+	overmap_size = 40
 	overmap_event_areas = 35
 //	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
 
@@ -70,3 +70,8 @@
 
 	post_comm_message("ISC Wyrm Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
+
+/datum/map/wyrm/perform_map_generation()
+	new /datum/random_map/automata/cave_system(null,1,1,1,world.maxx,world.maxy) // Create the mining Z-level.
+	new /datum/random_map/noise/ore(null,1,1,1,64, 64)             // Create the mining ore distribution map.
+	return 1
