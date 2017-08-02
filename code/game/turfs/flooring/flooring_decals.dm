@@ -112,6 +112,19 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/fadeblue/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/fadegreen
+	name = "faded green corner"
+	color = "#6b8254"
+
+/obj/effect/floor_decal/corner/fadegreen/faddiagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/fadegreen/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/fadegreen/full
+	icon_state = "corner_white_full"
+
 /obj/effect/floor_decal/corner/green
 	name = "green corner"
 	color = COLOR_GREEN_GRAY

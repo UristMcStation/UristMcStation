@@ -21,6 +21,8 @@
 	#include "wyrm-1.dmm"
 	#include "wyrm-2.dmm"
 	#include "wyrm-3.dmm"
+	#include "wyrm-4.dmm"
+
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"

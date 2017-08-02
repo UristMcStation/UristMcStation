@@ -207,6 +207,14 @@
 		new /obj/item/device/holowarrant(src)
 		return
 
+/obj/structure/closet/secure_closet/fake/security
+	name = "security officer's locker"
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
 
 /obj/structure/closet/secure_closet/security/cargo
 

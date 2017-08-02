@@ -335,7 +335,7 @@
 		user.visible_message("<span class='notice'>\The [user] patches [damage_desc] on \his [src.name] with [tool].</span>")
 	else
 		user.visible_message("<span class='notice'>\The [user] patches [damage_desc] on [owner]'s [src.name] with [tool].</span>")
-
+	owner.regenerate_icons()
 	return 1
 
 

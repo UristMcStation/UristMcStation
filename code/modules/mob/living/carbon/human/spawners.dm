@@ -1,4 +1,3 @@
-#define DAMAGE_ALL_LIMBS "dam_all"
 
 /obj/effect/spawner/carbon/human
 	var/species = SPECIES_HUMAN
@@ -59,13 +58,12 @@
 		O.equip(H)
 
 	if(killed)
-		var/obj/item/organ/internal/B = H.internal_organs_by_name["Brain"]
-		B.damage = 200
+		H.setBrainLoss(200)
 
 	if(damage)
-		if(damage[DAMAGE_ALL_LIMBS])
-			for(var/obj/item/organ/external/O in H.organs)
-				O.take_damage(damage[DAMAGE_ALL_LIMBS])
+		if(damage["damage_all"])
+			for(var/obj/item/organ/external/O in H.organs_by_name)
+				O.take_damage(damage["damage_all"])
 		else
 			for(var/limb in damage)
 				var/obj/item/organ/external/O = H.organs_by_name[limb]
@@ -80,7 +78,7 @@
 
 /obj/effect/spawner/carbon/human/grayson/miner/crystal
 	killed = TRUE
-	damage = list(DAMAGE_ALL_LIMBS = 35)
+	damage = list("damage_all" = 25)
 
 /obj/effect/spawner/carbon/human/grayson/miner/brokenarm
 	damage = list("r_arm" = 35)
@@ -139,5 +137,3 @@
 
 /obj/effect/spawner/carbon/human/machine
 //	species = SPECIES_MACHINE
-
-#undef DAMAGE_ALL_ORGANS
