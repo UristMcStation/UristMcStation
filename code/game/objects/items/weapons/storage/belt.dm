@@ -116,6 +116,10 @@
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
+/obj/item/weapon/storage/belt/medical/classic
+	icon = 'icons/urist/items/clothes/belt.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/weapon/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."

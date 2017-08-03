@@ -260,7 +260,7 @@ proc/get_wound_severity(var/damage_ratio, var/vital = 0)
 			if(vital)
 				degree = "critical"
 			else
-				degree = "irreparable"
+				degree = "catastrophic"
 
 	return degree
 
