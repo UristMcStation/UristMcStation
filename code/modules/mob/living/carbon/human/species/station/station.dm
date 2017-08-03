@@ -114,6 +114,7 @@
 	base_color = "#066000"
 	blood_color = "#f24b2e"
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	heat_discomfort_level = 295
 	heat_discomfort_strings = list(
@@ -180,6 +181,8 @@
 	blood_color = "#862A51"
 
 	reagent_tag = IS_TAJARA
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
 	heat_discomfort_level = 292
 	heat_discomfort_strings = list(

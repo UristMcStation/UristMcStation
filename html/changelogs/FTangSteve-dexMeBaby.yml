@@ -22,7 +22,7 @@
 #################################
 
 # Your name.  
-author: Hubblenaut
+author: FTangSteve
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -33,4 +33,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "If a cycling airlock is already near the target pressure, pressing the buttons will toggle the doors instead of making it reenter the cycle process."
+  - bugfix: "Fixes bug that stopped wounds from healing."
+  - bugfix: "Fixes bug that made brains not take damage from low blood unless they already had damage."
+  - bugfix: "Fixes bug that made moderate blood loss damage your brain until death."
+  - tweak: "Makes the irreparable point twice the limb cutoff threshold instead of equal to it."
+  - tweak: "Prevents vital external organs from being irreparable, instead they go to critical."
+  - tweak: "Updates advanced scanners with new wound severity levels."
+  - tweak: "Smooths the dexalin and dexalin plus effectiveness curves."
