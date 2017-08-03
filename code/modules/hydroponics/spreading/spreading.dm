@@ -307,4 +307,4 @@
 		die_off()
 
 /obj/effect/plant/proc/is_mature()
-	return (health >= (max_health/3) && world.time > mature_time)
+	return (health >= (max_health/3) && world.time > (mature_time*0.65))
