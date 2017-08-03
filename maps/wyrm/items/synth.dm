@@ -22,24 +22,22 @@
 	icon = 'maps/wyrm/icons/corporate.dmi'
 	item_icons = URIST_ALL_ONMOBS
 
-/obj/item/clothing/under/corp
-	icon = 'maps/wyrm/icons/corporate.dmi'
-	item_icons = URIST_ALL_ONMOBS
-
 /obj/item/clothing/suit/storage/toggle/labcoat/corp/wardt
 	name = "\improper Ward-Takahashi labcoat"
 	desc = "A labcoat decorated with the logo of Ward-Takahashi GMB."
 	icon_state = "wardt_lab"
 	icon_open = "wardt_lab"
 	icon_closed = "wardt_lab_closed"
-/*
-/obj/item/clothing/under/corp/veymed
+
+/obj/item/clothing/under/rank/medical/veymed
 	name = "\improper Vey-Med scrubs"
+	icon = 'maps/wyrm/icons/corporate.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "veymed_scrubs"
+	worn_state = "veymed_scrubs"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
 	name = "\improper Vey-Med labcoat"
 	icon_state = "veymed_lab"
 	icon_open = "veymed_lab"
 	icon_closed = "veymed_lab_closed"
-*/
