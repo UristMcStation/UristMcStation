@@ -296,7 +296,9 @@
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
 
-// GENERIC MINING AREAS
+//////////////////////////////////////
+//			AWAY MISSION			//
+//////////////////////////////////////
 
 /area/mine
 	icon_state = "mining"
@@ -310,3 +312,6 @@
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
+
+/area/away/abandoned
+	name = "\improper Abandoned Facility"

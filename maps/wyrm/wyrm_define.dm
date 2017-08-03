@@ -2,7 +2,6 @@
 	name = "Wyrm"
 	full_name = "ISC Wyrm"
 	path = "wyrm"
-	flags = MAP_HAS_BRANCH
 
 	lobby_icon = 'maps/torch/icons/lobby.dmi'
 
@@ -10,10 +9,10 @@
 	contact_levels = list(1,2)
 	player_levels = list(1,2)
 	admin_levels = list(3)
-	empty_levels = list(6)
-	accessible_z_levels = list("1"=1,"2"=1)
+	empty_levels = list(4)
+	accessible_z_levels = list("1"=5,"2"=5,"4"=50)
 	overmap_size = 40
-	overmap_event_areas = 35
+	overmap_event_areas = 30
 //	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")

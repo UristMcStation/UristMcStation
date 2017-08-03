@@ -165,7 +165,7 @@
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/corporate
-	display_name = "corporate uniforms"
+	display_name = "corporate uniform selection"
 	path = /obj/item/clothing/under/mbill
 
 /datum/gear/uniform/corporate/New()

@@ -84,7 +84,7 @@
 	allowed_roles = list("Shaft Miner")
 
 /datum/gear/suit/labcorp
-	display_name = "corporate labcoats"
+	display_name = "corporate labcoat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/wardt
 
 /datum/gear/suit/labcorp/New()

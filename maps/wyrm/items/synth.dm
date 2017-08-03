@@ -32,7 +32,7 @@
 	icon_state = "wardt_lab"
 	icon_open = "wardt_lab"
 	icon_closed = "wardt_lab_closed"
-
+/*
 /obj/item/clothing/under/corp/veymed
 	name = "\improper Vey-Med scrubs"
 	icon_state = "veymed_scrubs"
@@ -42,3 +42,4 @@
 	icon_state = "veymed_lab"
 	icon_open = "veymed_lab"
 	icon_closed = "veymed_lab_closed"
+*/

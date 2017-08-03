@@ -4,29 +4,25 @@
 "d" = (/turf/unsimulated/wall,/area/space)
 "e" = (/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_plating)
 "f" = (/turf/unsimulated/floor{icon_state = "reinforced"},/area/space)
-"g" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_re"; dir = 4; icon_state = "swall_re"},/area/supply/dock)
+"g" = (/turf/simulated/shuttle/wall{dir = 4; icon_state = "swall_re"},/area/supply/dock)
 "h" = (/obj/machinery/button/remote/blast_door{id = "supplyshuttle"; name = "Loading Shutter Control"},/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall"},/area/supply/dock)
 "i" = (/obj/machinery/door/blast/shutters/open{tag = "icon-shutter1"; icon_state = "shutter1"; dir = 2},/turf/simulated/floor/tiled/white,/area/supply/dock)
 "j" = (/obj/machinery/button/remote/blast_door{id = "supplyshuttle"; name = "Loading Shutter Control"},/turf/simulated/shuttle/wall{dir = 4; icon_state = "swall"},/area/supply/dock)
-"k" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_re"; icon_state = "swall_re"},/area/supply/dock)
-"l" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_w"; dir = 8; icon_state = "swall_w"},/area/supply/dock)
+"k" = (/turf/simulated/shuttle/wall{icon_state = "swall_re"},/area/supply/dock)
+"l" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall_w"},/area/supply/dock)
 "m" = (/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/white,/area/supply/dock)
 "n" = (/turf/simulated/floor/tiled/white,/area/supply/dock)
 "o" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion (EAST)"; icon_state = "propulsion"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/supply/dock)
 "p" = (/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
 "q" = (/turf/simulated/shuttle/wall{icon_state = "swall_straight"},/area/supply/dock)
-"r" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/telecomms/relay,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"r" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/showcase{icon_state = "relay"; name = "Shuttle Remote Control Relay"},/turf/simulated/floor/tiled/white,/area/supply/dock)
 "s" = (/obj/effect/shuttle_landmark/supply/centcom,/turf/simulated/floor/tiled/white,/area/supply/dock)
-"t" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_re"; dir = 1; icon_state = "swall_re"},/area/supply/dock)
-"u" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_w"; icon_state = "swall_w"},/area/supply/dock)
+"t" = (/turf/simulated/shuttle/wall{dir = 1; icon_state = "swall_re"},/area/supply/dock)
+"u" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_w"},/area/supply/dock)
 "v" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/supply/dock)
-"w" = (/turf/simulated/shuttle/wall/corner/smoothwhite/ne{corner_overlay_state = "swall_re"; dir = 8; icon_state = "swall_re"},/area/supply/dock)
-"x" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/red,/obj/structure/window/reinforced/holowindow{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
-"y" = (/obj/structure/window/reinforced/holowindow{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
-"z" = (/obj/machinery/door/window/holowindoor{tag = "icon-left (NORTH)"; icon_state = "left"; dir = 1},/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
-"A" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/green,/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
-"B" = (/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
-"C" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/red,/turf/simulated/floor/holofloor/tiled/dark,/area/holodeck/source_battle_arena)
+"w" = (/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall_re"},/area/supply/dock)
+"x" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
+"y" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -281,7 +277,7 @@ dffghiiijkfdadddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dfglmnnnmofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dfqrnnsnnofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dftuvnnnvofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dffthiiijwfdadxyzyxdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dffffffffffdadABBBCdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dffthiiijwfdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dffffffffffdadxpppydaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ddddddddddddadddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

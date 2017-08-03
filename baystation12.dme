@@ -2586,6 +2586,7 @@
 #include "maps\glloydstation\glloydstation_define.dm"
 #include "maps\overmap_example\overmap_example_define.dm"
 #include "maps\RandomZLevels\maze1.dm"
+#include "maps\shared\exodus_torch\_include.dm"
 #include "maps\torch\torch_define.dm"
 #include "maps\wyrm\wyrm.dm"
 #include "maps\wyrm\wyrm_define.dm"

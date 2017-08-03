@@ -1,40 +1,39 @@
-var/const/NETWORK_SUBWYRM		= "Maintenance Deck"
-var/const/NETWORK_PRISON		= "Prison"
-var/const/NETWORK_TELECOM		= "Tcomsat"
-var/const/NETWORK_PRIMWYRM		= "Wyrm"
-/*
-/datum/map/glloydstation/get_network_access(var/network)
-	switch(network)
-		if(NETWORK_RESEARCH_OUTPOST)
-			return access_research
-		if(NETWORK_TELECOM)
-			return access_heads
-		if(NETWORK_WYRM)
-			return
-	return get_shared_network_access(network) || ..()
+var/const/NETWORK_SUBWYRM		= "Sub Deck"
+var/const/NETWORK_PRIMWYRM		= "Primary Deck"
+var/const/NETWORK_COMMAND		= "Command"
+var/const/NETWORK_ENGINE		= "Engine"
+var/const/NETWORK_HATCHLING		= "Hatchling"
 
-/datum/map/glloydstation
+/datum/map/wyrm/get_network_access(var/network)
+	switch(network)
+		if(NETWORK_COMMAND)
+			return access_heads
+		if(NETWORK_ENGINE)
+			return access_engine
+		if(NETWORK_SUBWYRM)
+			return access_engine_equip
+		if(NETWORK_PRIMWYRM)
+			return access_security
+	return ..()
+
+/datum/map/wyrm
 	station_networks = list(
-		NETWORK_WYRM,
+		NETWORK_SUBWYRM,
+		NETWORK_PRIMWYRM,
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,
 		NETWORK_ENGINEERING,
-		NETWORK_ENGINEERING_OUTPOST,
-		NETWORK_MAINTENANCE,
 		NETWORK_MEDICAL,
-		NETWORK_MINE,
 		NETWORK_RESEARCH,
-		NETWORK_RESEARCH_OUTPOST,
 		NETWORK_ROBOTS,
-		NETWORK_PRISON,
 		NETWORK_SECURITY,
 		NETWORK_ALARM_ATMOS,
 		NETWORK_ALARM_CAMERA,
 		NETWORK_ALARM_FIRE,
 		NETWORK_ALARM_MOTION,
 		NETWORK_ALARM_POWER,
-		NETWORK_THUNDER,
-		NETWORK_TELECOM
+		NETWORK_HATCHLING,
+		NETWORK_THUNDER
 	)
 
 //
@@ -46,30 +45,21 @@ var/const/NETWORK_PRIMWYRM		= "Wyrm"
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/network/urist
-	network = list(NETWORK_URIST)
+/obj/machinery/camera/network/primdeck
+	network = list(NETWORK_PRIMWYRM)
 
-/obj/machinery/camera/network/maintenance
-	network = list(NETWORK_MAINTENANCE)
-
-/obj/machinery/camera/network/prison
-	network = list(NETWORK_PRISON)
+/obj/machinery/camera/network/subdeck
+	network = list(NETWORK_SUBWYRM)
 
 /obj/machinery/camera/network/research
 	network = list(NETWORK_RESEARCH)
 
-/obj/machinery/camera/network/research_outpost
-	network = list(NETWORK_RESEARCH_OUTPOST)
-
-/obj/machinery/camera/network/telecom
-	network = list(NETWORK_TELECOM)
+/obj/machinery/camera/network/hatchling
+	network = list(NETWORK_HATCHLING)
 
 // Motion
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
-
-/obj/machinery/camera/motion/urist
-	network = list(NETWORK_URIST)
 
 // X-ray
 /obj/machinery/camera/xray/medbay
@@ -81,10 +71,6 @@ var/const/NETWORK_PRIMWYRM		= "Wyrm"
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
 
-/obj/machinery/camera/xray/prison
-	network = list(NETWORK_PRISON)
-
 //emp proof
 /obj/machinery/camera/emp_proof/engine
 	network = list(NETWORK_ENGINE)
-*/
