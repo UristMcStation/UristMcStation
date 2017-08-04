@@ -81,6 +81,14 @@
 /area/civilian/holodeck
 	name = "\improper Holodeck"
 
+/area/civilian/personal
+	name = "\improper Personal Storage"
+	flags = AREA_RAD_SHIELDED
+
+/area/civilian/dorms
+	name = "\improper Dormitory"
+	flags = AREA_RAD_SHIELDED
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////

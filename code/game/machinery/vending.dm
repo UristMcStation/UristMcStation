@@ -823,6 +823,10 @@
 	contraband = list(/obj/item/weapon/reagent_containers/pill/tox = 3,/obj/item/weapon/reagent_containers/pill/stox = 4,/obj/item/weapon/reagent_containers/pill/antitox = 6)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
+/obj/machinery/vending/medical/wall
+	icon_state = "wallmed"
+	icon_deny = "wallmed-deny"
+	density = 0
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
