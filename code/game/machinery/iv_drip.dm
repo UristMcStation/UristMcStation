@@ -2,7 +2,6 @@
 	name = "\improper IV drip"
 	icon = 'icons/urist/iv_drip.dmi'
 	anchored = 0
-	density = 1
 
 
 /obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null

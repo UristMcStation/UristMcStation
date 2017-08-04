@@ -293,6 +293,10 @@
 	name = "\improper Holodeck - Battle Arena"
 	sound_env = ARENA
 
+/area/holodeck/source_surgery
+	name = "\improper Holodeck - Surgery Simulation"
+	requires_power = 0
+
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
 

@@ -14,15 +14,29 @@
 "n" = (/turf/simulated/floor/tiled/white,/area/supply/dock)
 "o" = (/obj/structure/shuttle/engine/propulsion{tag = "icon-propulsion (EAST)"; icon_state = "propulsion"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/supply/dock)
 "p" = (/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
-"q" = (/turf/simulated/shuttle/wall{icon_state = "swall_straight"},/area/supply/dock)
-"r" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/showcase{icon_state = "relay"; name = "Shuttle Remote Control Relay"},/turf/simulated/floor/tiled/white,/area/supply/dock)
-"s" = (/obj/effect/shuttle_landmark/supply/centcom,/turf/simulated/floor/tiled/white,/area/supply/dock)
-"t" = (/turf/simulated/shuttle/wall{dir = 1; icon_state = "swall_re"},/area/supply/dock)
-"u" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_w"},/area/supply/dock)
-"v" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/supply/dock)
-"w" = (/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall_re"},/area/supply/dock)
-"x" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
-"y" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
+"q" = (/obj/structure/table/glass,/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (WEST)"; icon_state = "corner_white_three_quarters"; dir = 8},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"r" = (/obj/machinery/optable,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"s" = (/obj/machinery/computer/operating,/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"t" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (EAST)"; icon_state = "corner_white"; dir = 4},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"u" = (/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (NORTH)"; icon_state = "corner_white_three_quarters"; dir = 1},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"v" = (/turf/simulated/shuttle/wall{icon_state = "swall_straight"},/area/supply/dock)
+"w" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/showcase{icon_state = "relay"; name = "Shuttle Remote Control Relay"},/turf/simulated/floor/tiled/white,/area/supply/dock)
+"x" = (/obj/effect/shuttle_landmark/supply/centcom,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"y" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"z" = (/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"A" = (/turf/simulated/shuttle/wall{dir = 1; icon_state = "swall_re"},/area/supply/dock)
+"B" = (/obj/structure/window/reinforced{dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_w"},/area/supply/dock)
+"C" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/supply/dock)
+"D" = (/obj/structure/table/glass,/obj/item/clothing/mask/surgical,/obj/item/clothing/mask/surgical,/obj/item/clothing/gloves/latex,/obj/item/clothing/gloves/latex,/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"E" = (/turf/simulated/shuttle/wall{dir = 8; icon_state = "swall_re"},/area/supply/dock)
+"F" = (/obj/structure/table/rack,/obj/item/clothing/head/surgery/blue,/obj/item/clothing/head/surgery/black,/obj/item/clothing/head/surgery/green,/obj/item/clothing/head/surgery/navyblue,/obj/item/clothing/head/surgery/purple,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"G" = (/obj/machinery/optable,/obj/effect/floor_decal/corner/paleblue,/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"H" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/obj/item/weapon/holo/esword/green,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
+"I" = (/obj/structure/table/rack/holorack,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/obj/item/weapon/holo/esword/red,/turf/simulated/floor/holofloor/reinforced,/area/holodeck/source_battle_arena)
+"J" = (/obj/structure/table/rack,/obj/item/clothing/under/rank/medical/blue,/obj/item/clothing/under/rank/medical/black,/obj/item/clothing/under/rank/medical/green,/obj/item/clothing/under/rank/medical/navyblue,/obj/item/clothing/under/rank/medical/purple,/obj/effect/floor_decal/corner/paleblue/three_quarters,/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"K" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"L" = (/obj/effect/floor_decal/corner/paleblue,/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
+"M" = (/obj/structure/table/glass,/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (EAST)"; icon_state = "corner_white_three_quarters"; dir = 4},/turf/simulated/floor/holofloor/tiled/white,/area/holodeck/source_surgery)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -273,11 +287,11 @@ aaaaaaaaaaaaadeeeeedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaadeeeeedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ddddddddddddadeeeeedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dffffffffffdadddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dffghiiijkfdadddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dfglmnnnmofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dfqrnnsnnofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dftuvnnnvofdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dffthiiijwfdadpppppdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dffffffffffdadxpppydaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-ddddddddddddadddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dffghiiijkfdaddddddddddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dfglmnnnmofdadpppppddqrstudaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dfvwnnxnnofdadpppppddyzzztdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dfABCnnnCofdadpppppddDzzzsdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dffAhiiijEfdadpppppddFzzzGdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dffffffffffdadHpppIddJKzLMdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ddddddddddddaddddddddddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
