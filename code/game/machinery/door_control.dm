@@ -199,3 +199,70 @@
 		icon_state = "launcherbtt"
 	else
 		icon_state = "launcheract"
+
+/*
+	Generic radio control for just about anything
+*/
+
+/obj/machinery/button/remote/generic
+	var/list/radio_data
+	var/filter
+	var/freq
+	var/datum/radio_frequency/radio_connection
+
+/obj/machinery/button/remote/generic/New()
+	..()
+	spawn(10)
+		if(radio_controller)
+			radio_connection = radio_controller.add_object(src, freq, filter)
+
+/obj/machinery/button/remote/generic/trigger()
+	if(!radio_connection)
+		return 0
+
+	var/datum/signal/signal = new
+	signal.transmission_method = 1
+	signal.source = src
+
+	for(var/new_data in radio_data)
+		signal.data[new_data] = radio_data[new_data]
+
+	radio_connection.post_signal(src, signal, filter)
+
+/obj/machinery/button/remote/generic/regulator
+	radio_data = list("sigtype" = "command", "tag" = "changeme", "power_toggle")
+	filter = RADIO_ATMOSIA
+
+/*
+	Chromatic lighting
+*/
+
+/obj/machinery/button/remote/chromatic
+	name = "chromatic light control"
+	var/freq = 1343
+	var/id_tag
+	var/datum/radio_frequency/radio_connection
+
+/obj/machinery/button/remote/chromatic/New()
+	..()
+	spawn(10)
+		if(radio_controller)
+			radio_connection = radio_controller.add_object(src, freq, RADIO_CHROMATIC)
+
+/obj/machinery/button/remote/chromatic/trigger(mob/user)
+	if(!radio_connection)
+		return 0
+
+	var/color = input(user, "Choose a new light color:", "Chromatic Light", rgb(255,255,255)) as color|null
+
+	if(!color)
+		return 0
+
+	var/datum/signal/signal = new
+	signal.transmission_method = 1
+	signal.source = src
+
+	signal.data["color"] = color
+	signal.data["tag"] = id_tag
+
+	radio_connection.post_signal(src, signal, RADIO_CHROMATIC)

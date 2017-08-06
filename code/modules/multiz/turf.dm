@@ -116,3 +116,4 @@
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return 1
+

@@ -104,9 +104,9 @@
 
 	if(caste_colors)
 		var/caste = pick(caste_colors)
-		caste[1] += rand(-3,3)
-		caste[2] += rand(-3,3)
-		caste[3] += rand(-3,3)
+		caste[1] += rand(-5,5)
+		caste[2] += rand(-5,5)
+		caste[3] += rand(-5,5)
 		skin_color = list(caste[1],caste[2],caste[3])
 		hair_color = list(caste[1],caste[2],caste[3])
 	..()

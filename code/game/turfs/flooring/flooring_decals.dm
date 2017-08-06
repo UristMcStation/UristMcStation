@@ -485,3 +485,14 @@ var/list/floor_decals = list()
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor"
 
+/obj/effect/floor_decal/highlight
+	name = "white highlight"
+	icon_state = "outline_white"
+
+/obj/effect/floor_decal/highlight/red
+	name = "red highlight"
+	color = COLOR_RED_GRAY
+
+/obj/effect/floor_decal/highlight/yellow
+	name = "yellow highlight"
+	color = COLOR_BROWN

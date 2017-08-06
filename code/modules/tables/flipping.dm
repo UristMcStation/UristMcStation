@@ -129,7 +129,7 @@
 	if(air_group || (height==0)) return 1
 	if(istype(mover,/obj/item/projectile))
 		return 1
-	if(mover.loc == loc && get_dir(loc,target) == GLOB.reverse_dir[dir])
+	if(mover.loc == loc && get_dir(loc,target) == dir)
 		return 0
 	if(get_dir(loc, target) == dir)
 		return 0

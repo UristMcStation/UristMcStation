@@ -216,3 +216,9 @@
 	new type(src.loc)
 
 	qdel(src)
+
+/obj/effect/spawner/welderbomb/New()
+	var/obj/structure/reagent_dispensers/fueltank/F = new(loc)
+	var/obj/item/device/assembly_holder/prox_igniter/I = new(F)
+	F.modded = TRUE
+	F.rig = I

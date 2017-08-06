@@ -110,3 +110,9 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	icon_closed = "secgearcrate"
 	trap = /obj/item/weapon/grenade/frag/high_yield
 	trap_delete_on_open = 1
+
+/obj/structure/closet/crate/secure/boobytrapped/weapon/random/New()
+	if(prob(50))
+		trap = null
+		trap_delete_on_open = 0
+	..()

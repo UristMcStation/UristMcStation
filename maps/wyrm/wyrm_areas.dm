@@ -327,3 +327,11 @@
 
 /area/away/abandoned
 	name = "\improper Abandoned Facility"
+
+/area/away/forgotten
+	name = "\improper Contact Light"
+	has_gravity = 0
+
+/area/away/shipremains
+	name = "\improper Unknown"
+	has_gravity = 0

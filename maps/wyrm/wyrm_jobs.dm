@@ -1,15 +1,19 @@
 /datum/map/wyrm
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/bartender,
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop,
+						/datum/job/bartender, /datum/job/janitor,
 						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/janitor, /datum/job/chief_engineer, /datum/job/engineer,
+						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/warden, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor,
-						/datum/job/rd, /datum/job/scientist, /datum/job/mining,
+						/datum/job/rd, /datum/job/scientist,
 						/datum/job/mime, /datum/job/clown, /datum/job/merchant,
 						/datum/job/ai, /datum/job/cyborg
 						)
 
 //Mime
+
+/datum/job/cargo_tech
+	alt_titles = list("Resource Technician")
 
 /datum/job/mime
 	title = "Mime"

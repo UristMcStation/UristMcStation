@@ -139,33 +139,3 @@
 		if(signal.data["color"])
 			brightness_color = signal.data["color"]
 			update()
-
-/obj/machinery/button/remote/chromatic
-	name = "chromatic light control"
-	var/freq = 1343
-	var/id_tag
-	var/datum/radio_frequency/radio_connection
-
-/obj/machinery/button/remote/chromatic/New()
-	..()
-	spawn(10)
-		if(radio_controller)
-			radio_connection = radio_controller.add_object(src, freq, RADIO_CHROMATIC)
-
-/obj/machinery/button/remote/chromatic/trigger(mob/user)
-	var/color = input(user, "Choose a new light color:", "Chromatic Light", rgb(255,255,255)) as color|null
-	if(color)
-		send_signal(color)
-
-/obj/machinery/button/remote/chromatic/proc/send_signal(var/color)
-	if(!radio_connection)
-		return 0
-
-	var/datum/signal/signal = new
-	signal.transmission_method = 1
-	signal.source = src
-
-	signal.data["color"] = color
-	signal.data["tag"] = id_tag
-
-	radio_connection.post_signal(src, signal, RADIO_CHROMATIC)

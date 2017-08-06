@@ -1,4 +1,31 @@
-proc/createRandomZlevel()
+#define AWAY_POINTS 45
+
+/proc/createRandomZlevel()
+	var/list/missions = getRandomAwayMissions()
+	var/remaining = AWAY_POINTS
+	admin_notice("<span class='danger'>Attempting to load away missions...</span>", R_DEBUG)
+	while(remaining)
+		var/randaway = pick(missions)
+		var/datum/away_mission/possible_away = new randaway
+		if(remaining - possible_away.value)
+			var/file = file(possible_away.map_path)
+			if(isfile(file))
+				maploader.load_map(file)
+				possible_away.perform_setup()
+				remaining -= possible_away.value
+		missions -= randaway
+		if(!missions.len)
+			remaining = 0
+	admin_notice("<span class='danger'>Away mission(s) loaded.</span>", R_DEBUG)
+
+/proc/getRandomAwayMissions()
+	var/list/possible_aways = subtypesof(/datum/away_mission)
+	for(var/datum/away_mission/away in possible_aways)
+		if(!away.random_start)
+			possible_aways -= away
+	return possible_aways
+
+/*
 	if(GLOB.awaydestinations.len)	//crude, but it saves another var!
 		return
 
@@ -56,7 +83,7 @@ proc/createRandomZlevel()
 	else
 		admin_notice("<span class='danger'>No away missions found.</span>", R_DEBUG)
 		return
-
+*/
 /proc/generateMapList(filename)
 	var/list/potentialMaps = list()
 	var/list/Lines = file2list(filename)

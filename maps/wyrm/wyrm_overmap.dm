@@ -105,3 +105,15 @@
 /obj/effect/shuttle_landmark/random
 	name = "Unknown Navpoint"
 	landmark_tag = "random_away"
+
+/obj/effect/overmap/sector/distress
+	name = "distress signal"
+	desc = "Emergency signal detected. No further data avaliable."
+	icon_state = "event"
+	restricted_waypoints = list(
+		"Hatchling" = list("distress_signal")
+	)
+
+/obj/effect/shuttle_landmark/distress
+	name = "Unknown Navpoint"
+	landmark_tag = "distress_signal"
