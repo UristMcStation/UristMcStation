@@ -126,12 +126,15 @@
 	flags = OBJ_CLIMBABLE
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0)) return TRUE
 	if(istype(mover,/obj/item/projectile))
-		return 1
-	if(mover.loc == loc && get_dir(loc,target) == dir)
-		return 0
+		return TRUE
 	if(get_dir(loc, target) == dir)
-		return 0
+		return FALSE
 	else
-		return 1
+		return TRUE
+
+/obj/structure/railing/CheckExit(atom/movable/O as mob|obj, target as turf)
+	if (get_dir(loc, target) == dir)
+		return FALSE
+	return TRUE

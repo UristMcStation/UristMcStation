@@ -246,7 +246,8 @@ obj/machinery/atmospherics/trinary/filter/m_filter/New()
 /obj/machinery/atmospherics/trinary/filter/m_filter/Initialize()
 	. = ..()
 	set_frequency(frequency)
-            
+	use_power = TRUE
+
 /obj/machinery/atmospherics/trinary/filter/m_filter/atmos_init()
 	..()
 

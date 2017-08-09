@@ -144,6 +144,8 @@
 
 /obj/machinery/organ_printer/robot/print_organ(var/choice)
 	var/obj/item/organ/O = ..()
+	var/datum/dna/dna = new
+	O.set_dna(dna)
 	O.robotize()
 	O.status |= ORGAN_CUT_AWAY  // robotize() resets status to 0
 	visible_message("<span class='info'>\The [src] churns for a moment, then spits out \a [O].</span>")

@@ -22,3 +22,18 @@
 
 			new loot_path(get_turf(src))
 	return INITIALIZE_HINT_QDEL
+
+/obj/effect/closet_loader //Map loader messes up closets
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "x2"
+
+/obj/effect/closet_loader/New()
+	var/turf/T = get_turf(loc)
+	var/obj/structure/closet/C = locate() in T
+	if(!C)
+		qdel(src)
+	for(var/obj/O in T.contents)
+		if(!O.simulated || O.density)
+			continue
+		O.forceMove(C)
+	qdel(src)

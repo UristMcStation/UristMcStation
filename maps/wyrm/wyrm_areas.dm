@@ -287,6 +287,10 @@
 	name = "\improper Aft Sub Deck Maintenance"
 	icon_state = "amaint"
 
+/area/maintenance/drone
+	name = "\improper Maintenance Drone Production"
+	icon_state = "maint_engineering"
+
 //////////////////////////////////////
 //			HOLODECK				//
 //////////////////////////////////////

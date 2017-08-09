@@ -583,6 +583,7 @@
 	desc = "A jumpsuit belonging to Ward-Takahashi, a Trans-Stellar in the consumer goods market."
 	icon_state = "wardt"
 	worn_state = "wardt"
+	starting_accessories = list(/obj/item/clothing/accessory/armband/wardt)
 
 /obj/item/clothing/under/mbill
 	name = "\improper Major Bill's uniform"

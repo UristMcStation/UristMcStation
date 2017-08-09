@@ -262,10 +262,10 @@
 	var/ex = (ux+lift_size_x)
 	var/ey = (uy+lift_size_y)
 	var/ez = (uz+(depth-1))
-	/*
+
 	var/control_x = ex + 1
-	var/control_y = uy
-	*/
+	var/control_y = uy -1
+
 	var/int_panel_x = ux + Floor(lift_size_x/2)
 	var/int_panel_y = ey
 
@@ -287,13 +287,12 @@
 
 				if(tx >= ux && tx <= ex && ty >= uy && ty <= ey)
 					floor_turfs += checking
-		/*
+
 		var/turf/placing = locate(control_x, control_y, cz)
-		var/obj/structure/lift/button/panel_ext = new(placing, lift)
+		var/obj/structure/lift/button/railing/panel_ext = new(placing, lift)
 		panel_ext.floor = cfloor
-		panel_ext.set_dir(udir)
 		cfloor.ext_panel = panel_ext
-		*/
+
 		var/area_path = areas_to_use[az]
 		for(var/thing in floor_turfs)
 			new area_path(thing)

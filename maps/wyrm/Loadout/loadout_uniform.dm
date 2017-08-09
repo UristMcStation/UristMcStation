@@ -179,5 +179,4 @@
 	corps["ward-takahashi uniform"] = /obj/item/clothing/under/wardt
 	corps["grayson uniform"] = /obj/item/clothing/under/grayson
 	corps["focal point uniform"] = /obj/item/clothing/under/focal
-	corps["vey-med scrubs"] = /obj/item/clothing/under/rank/medical/veymed
 	gear_tweaks += new/datum/gear_tweak/path(corps)

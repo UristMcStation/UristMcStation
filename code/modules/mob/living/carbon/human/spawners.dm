@@ -95,13 +95,6 @@
 	var/list/caste_colors
 
 /obj/effect/spawner/carbon/human/skrell/New()
-	if(!new_gender)
-		new_gender = pick("male","female")
-		if(new_gender == "female")
-			hair_style = "Skrell Female Tentacles"
-		else
-			hair_style = "Skrell Male Tentacles"
-
 	if(caste_colors)
 		var/caste = pick(caste_colors)
 		caste[1] += rand(-5,5)
@@ -117,11 +110,15 @@
 /obj/effect/spawner/carbon/human/skrell/malish
 	caste_colors = list(1 = list(0, 153, 255), 2 = list(51, 153, 102), 3 = list(128, 128, 0))
 
+/obj/effect/spawner/carbon/human/skrell/malish/veymed
+	clothing = /decl/hierarchy/outfit/veymed
+
 /obj/effect/spawner/carbon/human/skrell/kanin
 	caste_colors = list(1 = list(153, 102, 0), 2 = list(153, 0, 0), 3 = list(128, 128, 0), 4 = list(0, 0, 0))
 
 /obj/effect/spawner/carbon/human/skrell/talum //Worst caste
 	caste_colors = list(1 = list(102, 0, 255), 2 = list(51, 102, 255), 3 = list(153, 0, 204), 4 = list(150, 150, 150))
+
 
 //Unathi clans
 

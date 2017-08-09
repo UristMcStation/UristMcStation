@@ -1,15 +1,12 @@
 var/const/NETWORK_SUBWYRM		= "Sub Deck"
 var/const/NETWORK_PRIMWYRM		= "Primary Deck"
 var/const/NETWORK_COMMAND		= "Command"
-var/const/NETWORK_ENGINE		= "Engine"
 var/const/NETWORK_HATCHLING		= "Hatchling"
 
 /datum/map/wyrm/get_network_access(var/network)
 	switch(network)
 		if(NETWORK_COMMAND)
 			return access_heads
-		if(NETWORK_ENGINE)
-			return access_engine
 		if(NETWORK_SUBWYRM)
 			return access_engine_equip
 		if(NETWORK_PRIMWYRM)
@@ -24,6 +21,7 @@ var/const/NETWORK_HATCHLING		= "Hatchling"
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
 		NETWORK_RESEARCH,
+		NETWORK_MINE,
 		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
 		NETWORK_ALARM_ATMOS,
@@ -61,15 +59,5 @@ var/const/NETWORK_HATCHLING		= "Hatchling"
 	network = list(NETWORK_COMMAND)
 
 // X-ray
-/obj/machinery/camera/xray/medbay
-	network = list(NETWORK_MEDICAL)
-
-/obj/machinery/camera/xray/research
-	network = list(NETWORK_RESEARCH)
-
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
-
-//emp proof
-/obj/machinery/camera/emp_proof/engine
-	network = list(NETWORK_ENGINE)

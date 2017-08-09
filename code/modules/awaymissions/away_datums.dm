@@ -27,3 +27,8 @@
 	value = 20
 	random_start = TRUE
 	init_areas = list(/area/away/abandoned)
+
+/datum/away_mission/hell
+	map_path = "maps/RandomZLevels/negastation.dmm"
+	value = 20
+	random_start = TRUE

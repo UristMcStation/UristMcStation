@@ -117,3 +117,15 @@
 /obj/effect/shuttle_landmark/distress
 	name = "Unknown Navpoint"
 	landmark_tag = "distress_signal"
+
+/obj/effect/overmap/sector/asteroid
+	name = "mineral field"
+	desc = "Mineral field detected."
+	icon_state = "sector"
+	restricted_waypoints = list(
+		"Hatchling" = list("asteroid_away")
+	)
+
+/obj/effect/shuttle_landmark/asteroid
+	name = "Unknown Navpoint"
+	landmark_tag = "asteroid_away"

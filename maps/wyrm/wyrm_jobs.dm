@@ -1,43 +1,25 @@
 /datum/map/wyrm
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop,
-						/datum/job/bartender, /datum/job/janitor,
 						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/chief_engineer, /datum/job/engineer,
-						/datum/job/hos, /datum/job/warden, /datum/job/officer,
-						/datum/job/cmo, /datum/job/doctor,
+						/datum/job/engineer,
+						/datum/job/hos, /datum/job/officer,
+						/datum/job/doctor,
 						/datum/job/rd, /datum/job/scientist,
-						/datum/job/mime, /datum/job/clown, /datum/job/merchant,
+						/datum/job/merchant,
 						/datum/job/ai, /datum/job/cyborg
 						)
 
-//Mime
-
+/datum/job/assistant
+	alt_titles = list(
+	"Technical Assistant","Medical Intern","Research Assistant", "Bartender", "Chef", "Janitor", "Botanist",
+	"Clown" = /decl/hierarchy/outfit/job/clown,
+	"Mime" = /decl/hierarchy/outfit/job/mime
+	)
 /datum/job/cargo_tech
 	alt_titles = list("Resource Technician")
 
-/datum/job/mime
-	title = "Mime"
-	department = "Civilian"
-	department_flag = CIV
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	selection_color = "#515151"
-	economic_modifier = 1
-	access = list(access_maint_tunnels, access_mime, access_theatre)
-	minimal_access = list(access_mime, access_theatre)
-	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/mime
-
-/datum/job/mime/equip(var/mob/living/carbon/human/H)
-	. = ..()
-	if(.)
-		H.miming = 1
-		H.verbs += /client/proc/mimespeak
-		H.verbs += /client/proc/mimewall
-		H.mind.special_verbs += /client/proc/mimespeak
-		H.mind.special_verbs += /client/proc/mimewall
+/datum/job/officer
+	alt_titles = list("Detective")
 
 /decl/hierarchy/outfit/job/mime
 	name = OUTFIT_JOB_NAME("Mime")
@@ -49,28 +31,6 @@
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/device/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
-
-//Clown :^)
-
-/datum/job/clown
-	title = "Clown"
-	department = "Civilian"
-	department_flag = CIV
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of personnel"
-	selection_color = "#515151"
-	economic_modifier = 1
-	access = list(access_maint_tunnels, access_clown, access_theatre)
-	minimal_access = list(access_clown, access_theatre)
-	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/clown
-
-/datum/job/clown/equip(var/mob/living/carbon/human/H)
-	. = ..()
-	if(.)
-		H.mutations.Add(CLUMSY)
 
 /decl/hierarchy/outfit/job/clown
 	name = OUTFIT_JOB_NAME("Clown")
@@ -122,15 +82,15 @@
 
 /obj/item/weapon/card/id/civilian/clown
 	name = "identification card"
-	desc = "A card issued to the station's clown."
+	desc = "A card issued to the ship's clown."
 	icon_state = "clown"
-	job_access_type = /datum/job/clown
+	job_access_type = /datum/job/assistant
 
 /obj/item/weapon/card/id/civilian/mime
 	name = "identification card"
-	desc = "A card issued to the station's mime."
+	desc = "A card issued to the ship's mime."
 	icon_state = "mime"
-	job_access_type = /datum/job/mime
+	job_access_type = /datum/job/assistant
 
 /obj/item/weapon/card/id/merchant
 	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
