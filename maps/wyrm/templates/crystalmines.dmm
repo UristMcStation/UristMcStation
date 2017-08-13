@@ -148,7 +148,7 @@
 "cR" = (/obj/machinery/artifact,/turf/simulated/floor/asteroid,/area/mine/explored)
 "cS" = (/obj/effect/spawner/carbon/human/grayson/miner/brokenarm{killed = 1},/obj/structure/bed/nice,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
 "cT" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
-"cU" = (/obj/effect/shuttle_landmark/random,/turf/space,/area/space)
+"cU" = (/obj/effect/shuttle_landmark/asteroid,/turf/space,/area/space)
 "cV" = (/obj/effect/decal/cleanable/blood,/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
 "cW" = (/turf/space,/area/mine/explored)
 "cX" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/asteroid,/area/mine/explored)
@@ -156,7 +156,7 @@
 "cZ" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
 "da" = (/obj/machinery/artifact,/turf/simulated/floor/plating,/area/mine/explored)
 "db" = (/obj/machinery/suspension_gen/empty{icon_state = "suspension2"; dir = 8},/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dc" = (/obj/effect/overmap/sector/random,/turf/space,/area/space)
+"dc" = (/obj/effect/overmap/sector/asteroid,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab

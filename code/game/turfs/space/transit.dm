@@ -35,6 +35,7 @@
 	icon_state = "speedspace_ns_[transit_state]"
 
 /turf/space/transit/east // moving to the east
+	icon_state = "speedspace_ew_1"
 	pushdirection = WEST
 	var/static/list/phase_shift_by_y
 

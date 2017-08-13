@@ -1,13 +1,16 @@
 /datum/map/wyrm
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop,
 						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/engineer,
+						/datum/job/chief_engineer/seniorengi, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/doctor,
 						/datum/job/rd, /datum/job/scientist,
 						/datum/job/merchant,
 						/datum/job/ai, /datum/job/cyborg
 						)
+
+/datum/job/chief_engineer/seniorengi
+	title = "Senior Engineer"
 
 /datum/job/assistant
 	alt_titles = list(
