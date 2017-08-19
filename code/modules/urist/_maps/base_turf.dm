@@ -43,6 +43,6 @@ proc/get_base_turf_by_area(var/turf/T)
 
 ///area/syndicate_station/start/base_turf = /turf/unsimulated/snow //need a snow turf
 
-/area/syndicate_station/mining/base_turf = /turf/simulated/planet/jungle/clear
+/area/syndicate_station/mining/base_turf = /turf/simulated/floor/plating/planet/jungle/clear
 
-/area/skipjack_station/mining/base_turf = /turf/simulated/planet/jungle/clear
+/area/skipjack_station/mining/base_turf = /turf/simulated/floor/plating/planet/jungle/clear

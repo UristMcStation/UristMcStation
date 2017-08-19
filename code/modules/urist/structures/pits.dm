@@ -8,6 +8,7 @@
 	anchored = 1
 	var/open = 1
 	var/punji = 0
+	var/animal_safe
 
 /obj/structure/pit/attackby(obj/item/weapon/W, mob/user)
 	if( istype(W,/obj/item/weapon/shovel) )
@@ -57,13 +58,13 @@
 
 /obj/structure/pit/Crossed(O as mob)
 	if(punji)
-		if(istype(O, /mob/living/))
+		if(istype(O, /mob/living) && !(animal_safe && istype(O, /mob/living/simple_animal)))
 			var/mob/living/M = O
-			to_chat(M, "You step into the pit and hurt yourself on the sharpened sticks within!")
+			M.visible_message("[M] falls into the pit and impales themselves on sharpened sticks!", \
+			"You step into the pit and hurt yourself on the sharpened sticks within!")
 			var/punjidamage = rand(2,5) //maximum damage of 30 with 6 sticks (this probably needs balancing)
 			punjidamage *= punji
-			var/zone = pick(BP_R_LEG, BP_L_LEG, BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM)
-			M.apply_damage(punjidamage, BRUTE, zone, 0, DAM_SHARP)
+			M.adjustBruteLoss(punjidamage)
 			M.Stun(punji) //stunned for more with more sticks. doesn't make a huge different, but w/e
 			M.Weaken(punji)
 
@@ -144,14 +145,22 @@
 	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7)
 	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7)
 
+/obj/structure/pit/punji6/hidden
+	icon_state = "hiddentrap"
+	layer = 3.8
+	animal_safe = TRUE
+
+/obj/structure/pit/punji6/hidden/dull
+	icon_state = "hiddentrapdull"
+
 /obj/structure/pit/closed
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = 0
 
 /obj/structure/pit/closed/Initialize()
-	..()
 	close()
+	. = ..()
 
 //invisible until unearthed first
 /obj/structure/pit/closed/hidden
@@ -228,7 +237,7 @@
 
 	var/obj/structure/gravemarker/cross/R = new(src.loc)
 	R.message = "Here lies a man who had no name. Died fighting for a fistful of dollars." //memes
-	..()
+	. = ..()
 
 /obj/structure/gravemarker
 	name = "grave marker"
