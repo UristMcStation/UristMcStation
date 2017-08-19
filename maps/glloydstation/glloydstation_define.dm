@@ -19,7 +19,7 @@
 	player_levels = list(1,3,4,5,6,7)
 	sealed_levels = list(6)
 	empty_levels = list(6)
-	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/planet/jungle/clear)
+	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/floor/plating/planet/jungle/clear)
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %Dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."

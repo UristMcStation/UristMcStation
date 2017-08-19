@@ -44,6 +44,14 @@
 	backpack = /obj/item/weapon/storage/backpack/virology
 	satchel_one = /obj/item/weapon/storage/backpack/satchel_vir
 
+/decl/hierarchy/outfit/job/medical/doctor/chemist
+	name = OUTFIT_JOB_NAME("Doctor - Chemist")
+	uniform = /obj/item/clothing/under/rank/chemist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
+	backpack = /obj/item/weapon/storage/backpack/chemistry
+	satchel_one = /obj/item/weapon/storage/backpack/satchel_chem
+	pda_type = /obj/item/device/pda/chemist
+
 /decl/hierarchy/outfit/job/medical/doctor/nurse
 	name = OUTFIT_JOB_NAME("Nurse")
 	suit = null

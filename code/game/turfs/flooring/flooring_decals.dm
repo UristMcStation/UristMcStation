@@ -496,3 +496,10 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/highlight/yellow
 	name = "yellow highlight"
 	color = COLOR_BROWN
+
+/obj/effect/floor_decal/grass
+	name = "grass"
+	icon_state = "grass"
+
+/obj/effect/floor_decal/grass/dull
+	icon_state = "dullgrass"

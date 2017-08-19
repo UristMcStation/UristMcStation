@@ -3,30 +3,27 @@
 	var/map_path              // String form of the actual .dmm
 	var/value                 // A value that represents the amount of content and/or loot1
 	var/random_start = FALSE  // Determines if it's a possible mission at roundstart
-	var/list/init_areas       // Areas that need Initialize() called
 
-/datum/away_mission/proc/perform_setup() //Anything you want to happen right after it's loaded
-/* //This did /NOT/ end well
-	if(init_areas)
-		for(var/area/init_area in init_areas)
-			var/area/located = locate(init_area) in world
-			for(var/atom/thing in located)
-				if(!thing.initialized)
-					thing.Initialize()
-*/
+/datum/away_mission/proc/perform_setup()
+	for(var/x = 1 to 255)
+		for(var/y = 1 to 255)
+			for(var/atom/A in get_turf(locate(x,y,world.maxz)))
+				if(!A.initialized)
+					SSatoms.InitAtom(A)
+
 //Actual away missions go down here
+
+//Also, attempts to load stuff like the jungle planet will be met with death and runtimes
 
 /datum/away_mission/tradership
 	map_path = "maps/wyrm/templates/tradership.dmm"
 	value = 20
 	random_start = TRUE
-	init_areas = list(/area/away/forgotten, /area/away/shipremains)
 
 /datum/away_mission/crystalcaves
 	map_path = "maps/wyrm/templates/crystalmines.dmm"
 	value = 20
 	random_start = TRUE
-	init_areas = list(/area/away/abandoned)
 
 /datum/away_mission/hell
 	map_path = "maps/RandomZLevels/negastation.dmm"

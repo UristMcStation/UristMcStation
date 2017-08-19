@@ -8,6 +8,7 @@
 		var/randaway = pick(missions)
 		var/datum/away_mission/possible_away = new randaway
 		if(remaining - possible_away.value)
+			remaining -= possible_away.value
 			var/file = file(possible_away.map_path)
 			if(isfile(file))
 				maploader.load_map(file)

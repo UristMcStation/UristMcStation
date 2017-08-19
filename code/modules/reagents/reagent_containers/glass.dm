@@ -212,6 +212,36 @@
 		reagents.add_reagent("water", 60)
 		update_icon()
 
+/obj/item/weapon/reagent_containers/glass/beaker/sugar
+	New()
+		..()
+		reagents.add_reagent("sugar", 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/mercury
+	New()
+		..()
+		reagents.add_reagent("mercury", 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/lithium
+	New()
+		..()
+		reagents.add_reagent("lithium", 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/acetone
+	New()
+		..()
+		reagents.add_reagent("acetone", 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/ethanol
+	New()
+		..()
+		reagents.add_reagent("ethanol", 60)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/glass/bucket
 	desc = "It's a bucket."
 	name = "bucket"

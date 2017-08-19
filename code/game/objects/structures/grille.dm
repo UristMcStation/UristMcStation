@@ -217,6 +217,7 @@
 	attack_animation(user)
 	health -= damage
 	spawn(1) healthcheck()
+	shock(user, 70)
 	return 1
 
 // Used in mapping to avoid
