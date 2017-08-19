@@ -207,7 +207,7 @@ var/list/admin_verbs_debug = list(
 	/datum/admins/proc/capture_map,
 	/datum/admins/proc/view_runtimes,
 	/client/proc/map_template_load,
-	/client/proc/map_template_upload
+	/client/proc/map_template_upload,
 	/client/proc/cmd_analyse_health_context,
 	/client/proc/cmd_analyse_health_panel
 	)

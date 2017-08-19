@@ -66,7 +66,7 @@
 	R.module = new /obj/item/weapon/robot_module/security/combat/(src)
 	R.modtype = "Combat"
 //	R.module_sprites["Combat Android"] = "droid-combat"
-	R.updateicon()
+	R.update_icon()
 	qdel(src)
 	return
 
