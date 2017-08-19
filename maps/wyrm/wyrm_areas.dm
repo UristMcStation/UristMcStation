@@ -202,6 +202,9 @@
 /area/engineering/extsubmaint
 	name = "\improper External Sub Deck Engine Maintenance"
 
+/area/engineering/teg
+	name = "\improper TEG Room"
+
 //////////////////////////////////////
 //			MEDICAL					//
 //////////////////////////////////////
@@ -291,6 +294,9 @@
 	name = "\improper Maintenance Drone Production"
 	icon_state = "maint_engineering"
 
+/area/maintenance/construction
+	name = "\improper Construction Room"
+
 //////////////////////////////////////
 //			HOLODECK				//
 //////////////////////////////////////
@@ -339,3 +345,30 @@
 /area/away/shipremains
 	name = "\improper Unknown"
 	has_gravity = 0
+
+/area/jungle/southruins
+
+/area/jungle/northruins
+
+/area/jungle/southwild
+	dynamic_lighting = FALSE
+
+/area/jungle/northwild
+	dynamic_lighting = FALSE
+
+/area/jungle/northeastwild
+	dynamic_lighting = FALSE
+
+/area/jungle/southeastwild
+	dynamic_lighting = FALSE
+
+/area/jungle/river
+	dynamic_lighting = FALSE
+
+/area/jungle/plains
+	dynamic_lighting = FALSE
+
+/area/jungle/shack
+	name = "\improper Makeshift Building"
+
+/area/jungle/shuttle

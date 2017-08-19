@@ -129,3 +129,16 @@
 /obj/effect/shuttle_landmark/asteroid
 	name = "Unknown Navpoint"
 	landmark_tag = "asteroid_away"
+
+/obj/effect/overmap/sector/planet
+	name = "Jungle Planetoid"
+	desc = "Biological scans report non-manifest lifeforms."
+	icon_state = "planet"
+	restricted_waypoints = list(
+		"Hatchling" = list("planet_away")
+	)
+
+/obj/effect/shuttle_landmark/planet
+	name = "Jungle Landing Site"
+	landmark_tag = "planet_away"
+	base_area = /area/jungle/shuttle

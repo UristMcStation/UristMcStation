@@ -1,7 +1,8 @@
 /datum/map/wyrm
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop,
+						/datum/job/bartender, /datum/job/janitor,
 						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/chief_engineer/seniorengi, /datum/job/engineer,
+						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/doctor,
 						/datum/job/rd, /datum/job/scientist,
@@ -9,20 +10,30 @@
 						/datum/job/ai, /datum/job/cyborg
 						)
 
-/datum/job/chief_engineer/seniorengi
+/datum/job/chief_engineer
 	title = "Senior Engineer"
 
 /datum/job/assistant
 	alt_titles = list(
-	"Technical Assistant","Medical Intern","Research Assistant", "Bartender", "Chef", "Janitor", "Botanist",
+	"Technical Assistant","Medical Intern","Research Assistant", "Chef", "Botanist",
 	"Clown" = /decl/hierarchy/outfit/job/clown,
 	"Mime" = /decl/hierarchy/outfit/job/mime
 	)
+
 /datum/job/cargo_tech
 	alt_titles = list("Resource Technician")
 
 /datum/job/officer
 	alt_titles = list("Detective")
+
+/datum/job/doctor
+	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
+		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
+		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician)
+
+/datum/job/scientist
+	alt_titles = list("Xenobiologist", "Xenoarcheologist", "Xenobotanist", "Anomalist",
+		"Roboticist" = /decl/hierarchy/outfit/job/science/roboticist)
 
 /decl/hierarchy/outfit/job/mime
 	name = OUTFIT_JOB_NAME("Mime")
@@ -58,7 +69,7 @@
 	selection_color = "#515151"
 	ideal_character_age = 30
 	minimal_player_age = 7
-	create_record = 0
+//	create_record = 0
 	outfit_type = /decl/hierarchy/outfit/job/merchant
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
