@@ -190,7 +190,7 @@
 			switch(blood_volume)
 
 				if(BLOOD_VOLUME_SAFE to INFINITY)
-					if((damage%damage_threshold_value)>=1 || (damage && owner.chem_effects[CE_BRAIN_REGEN]))
+					if((damage%damage_threshold_value)>=1 || (damage && damage > 0 && owner.chem_effects[CE_BRAIN_REGEN]))
 						damage--
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))

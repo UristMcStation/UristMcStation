@@ -43,7 +43,7 @@
 		return 100
 	else if(is_broken())
 		result = max(oxygen_deprivation, round(species.total_health * 0.5))
-	else if(is_damaged())
+	else if(is_bruised())
 		result = max(oxygen_deprivation, round(species.total_health * 0.25))
 	return round((result/species.total_health)*100)
 
