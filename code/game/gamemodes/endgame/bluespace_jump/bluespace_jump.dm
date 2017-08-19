@@ -82,6 +82,7 @@
 		qdel(src)
 		return
 	daddy = ndaddy
+	set_dir(daddy.dir)
 	appearance = daddy.appearance
 	GLOB.moved_event.register(daddy, src,/obj/effect/bluegoast/proc/mirror)
 	GLOB.destroyed_event.register(daddy, src, /datum/proc/qdel_self)

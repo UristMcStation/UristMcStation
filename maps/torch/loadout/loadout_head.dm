@@ -33,7 +33,7 @@
 /datum/gear/head/whitentberet
 	display_name = "beret, NanoTrasen security"
 	path = /obj/item/clothing/head/beret/guard
-	allowed_roles = list("Security Guard")
+	allowed_roles = list(/datum/job/guard)
 
 /datum/gear/head/cap
 	allowed_roles = NON_MILITARY_ROLES

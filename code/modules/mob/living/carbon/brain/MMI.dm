@@ -49,7 +49,10 @@
 	if(istype(O,/obj/item/organ/internal/brain) && !brainmob) //Time to stick a brain in it --NEO
 
 		var/obj/item/organ/internal/brain/B = O
-		if(!B.brainmob || !B.can_use_mmi)
+		if(B.damage >= B.max_damage)
+			to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
+			return
+		else if(!B.brainmob || !B.can_use_mmi)
 			to_chat(user, "<span class='notice'>This brain is completely useless to you.</span>")
 			return
 
