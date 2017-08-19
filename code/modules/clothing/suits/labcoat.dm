@@ -64,6 +64,21 @@
 	icon_open = "labcoat_tox_open"
 	icon_closed = "labcoat_tox"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/nt
+	name = "\improper NanoTrasen labcoat"
+	desc = "A suit that protects against minor chemical spills. Has a red stripe on the shoulder and red trim on the sleeves, denoting it as a NanoTrasen labcoat."
+	icon_state = "labcoat_nt_open"
+	icon_open = "labcoat_nt_open"
+	icon_closed = "labcoat_nt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/rd
+	name = "research director's labcoat"
+	desc = "A full-body labcoat covered in red and black designs, denoting it as a NanoTrasen management coat. Judging by the amount of designs on it, it is only to be worn by the most enthusiastic of NanoTrasen employees."
+	icon_state = "labcoat_rd_open"
+	icon_open = "labcoat_rd_open"
+	icon_closed = "labcoat_rd"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
 /obj/item/clothing/suit/storage/toggle/labcoat/blue
 	name = "blue-edged labcoat"
 	desc = "A suit that protects against minor chemical spills. This one has blue trim."

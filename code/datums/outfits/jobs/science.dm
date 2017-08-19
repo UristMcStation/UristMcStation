@@ -34,7 +34,7 @@
 	uniform = /obj/item/clothing/under/rank/roboticist
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/weapon/storage/belt/robotics/full
-	id_type = /obj/item/weapon/card/id/science/roboticist
+	id_type = /obj/item/weapon/card/id/science
 	pda_slot = slot_r_store
 	pda_type = /obj/item/device/pda/roboticist
 	backpack = /obj/item/weapon/storage/backpack/urist/robo

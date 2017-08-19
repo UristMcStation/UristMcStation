@@ -5,18 +5,21 @@
 	var/new_gender
 	var/hair_style           // Regular name
 	var/list/skin_color      // RGB
-	var/list/tone
+	var/list/tone            // 0-255 multiple leads to randomized
 	var/list/eye_color       // RGB
 	var/list/hair_color      // RGB
 	var/clothing             // /decl/hierarchy/outfit
-	var/rank
-	var/assignment
-	var/killed
-	var/list/damage
+	var/rank                 // Outfit rank
+	var/assignment           // Outfit assignment
+	var/killed               // Brain dead on spawn
+	var/list/damage          // Use BP defines = damage
+	var/post_setup           // Do everything except qdel self
+
+	var/mob/living/carbon/human/H
 
 /obj/effect/spawner/carbon/human/New()
 	..()
-	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src.loc)
+	H = new /mob/living/carbon/human(src.loc)
 	var/datum/species/real_species = all_species[species]
 	H.set_species(species)
 
@@ -69,7 +72,8 @@
 				var/obj/item/organ/external/O = H.organs_by_name[limb]
 				O.take_damage(damage[limb])
 
-	qdel(src)
+	if(!post_setup)
+		qdel(src)
 
 //Humans
 
@@ -82,6 +86,27 @@
 
 /obj/effect/spawner/carbon/human/grayson/miner/brokenarm
 	damage = list("r_arm" = 35)
+
+/obj/effect/spawner/carbon/human/virus
+	post_setup = TRUE
+
+/obj/effect/spawner/carbon/human/virus/New()
+	..()
+	var/datum/disease2/disease/V = new /datum/disease2/disease
+	V.makerandom(VIRUS_ENGINEERED)
+	infect_virus2(H,V,1)
+	qdel(src)
+
+//Nanotrasen
+
+/obj/effect/spawner/carbon/human/virus/ntsci
+	clothing = /decl/hierarchy/outfit/nanotrasensci
+
+/obj/effect/spawner/carbon/human/nt
+	clothing = /decl/hierarchy/outfit/nanotrasensci
+
+/obj/effect/spawner/carbon/human/nt/exec
+	clothing = /decl/hierarchy/outfit/nanotrasensci/exec
 
 //Vox
 
@@ -133,4 +158,4 @@
 //IPCs/Synths
 
 /obj/effect/spawner/carbon/human/machine
-//	species = SPECIES_MACHINE
+//	species = SPECIES_IPC
