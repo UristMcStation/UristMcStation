@@ -236,6 +236,16 @@
 
 	reagent_tag = IS_SKRELL
 
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_APPENDIX = /obj/item/organ/internal/appendix,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell
+		)
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
