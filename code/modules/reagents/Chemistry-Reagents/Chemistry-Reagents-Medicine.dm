@@ -571,7 +571,7 @@
 	reagent_state = LIQUID
 	color = "#181818"
 	metabolism = REM * 0.002
-	overdose = 5
+	overdose = 10
 	scannable = 1
 	data = 0
 
@@ -589,8 +589,9 @@
 			to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
 
 /datum/reagent/nicotine/overdose(var/mob/living/carbon/M, var/alien)
-	..()
 	M.add_chemical_effect(CE_PULSE, 2)
+	if(M.mind && !M.mind.assigned_role == "Security Officer")
+		..()
 
 /datum/reagent/menthol
 	name = "Menthol"
