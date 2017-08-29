@@ -380,3 +380,132 @@
 /obj/item/integrated_circuit/manipulation/ai/Destroy()
 	unload_ai()
 	return ..()
+
+/obj/item/integrated_circuit/manipulation/arm
+	name = "robotic arm assembly"
+	desc = "A small robotic arm that can handle just about anything."
+	extended_desc = "To use the assembly attach an item or leave it empty to act as a hand.\
+					If there are multiple objects in its target direction it will randomly pick one unless on precision mode.\
+					The list of valid commands are: 1: Use on direction, 2: Drop current item, 3: Pickup randomly from direction, 4: Target the precision target ref.\
+					Valid intent options are 1: Help, 2: Disarm, 3: Grab, 4: Harm."
+	size = 5
+	complexity = 10
+	cooldown_per_use = 1 SECOND
+	inputs = list("target direction", "target mode", "precision target", "intent selector")
+	outputs = list()
+	activators = list("activate")
+	var/mob/fake_mob
+	var/obj/item/holding
+
+/obj/item/integrated_circuit/manipulation/arm/New()
+	..()
+	fake_mob = new /mob/living/silicon/robotic_arm(src)
+
+/obj/item/integrated_circuit/manipulation/arm/Destroy()
+	qdel(fake_mob)
+	unload_item()
+	..()
+
+/obj/item/integrated_circuit/manipulation/arm/attackby(var/obj/item/I, var/mob/user)
+	load_item(I, user)
+
+/obj/item/integrated_circuit/manipulation/arm/attack_self(user)
+	unload_item(user)
+
+/obj/item/integrated_circuit/manipulation/arm/proc/load_item(var/obj/item/I, var/mob/user)
+	if(I.anchored || I.density)	return
+	if(user)
+		user.drop_item()
+		user.visible_message("[user] loads [user == fake_mob ? "itself" : src] with \the [I].", "You load [src] with \the [I].")
+	I.forceMove(src)
+	holding = I
+
+/obj/item/integrated_circuit/manipulation/arm/proc/unload_item(var/mob/user)
+	if(!holding)	return
+	holding.forceMove(get_turf(src))
+	if(user)
+		user.put_in_hands(holding)
+	holding = null
+
+/obj/item/integrated_circuit/manipulation/arm/do_work()
+	var/command = get_pin_data(IC_INPUT, 2)
+	if(!isnum(command))	return
+	command = Clamp(command, 1, 4)
+	switch(command)
+		if(1)
+			var/targets = get_direction_contents()
+			var/simulated_targets = list()
+			for(var/atom/A in targets)
+				if(!A.simulated)	continue
+				simulated_targets += A
+			do_attack(pick(simulated_targets))
+
+		if(2)
+			unload_item()
+			return
+
+		if(3)
+			var/targets = get_direction_contents()
+			var/item_targets = list()
+			for(var/obj/item/I in targets)
+				item_targets += I
+			load_item(pick(item_targets), fake_mob)
+			return
+
+		if(4)
+			var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+			if(A)
+				do_attack(A)
+
+/obj/item/integrated_circuit/manipulation/arm/on_data_written()
+	var/intent = get_pin_data(IC_INPUT, 4)
+	if(isnum(intent))
+		intent = Clamp(intent, 1, 4)
+		fake_mob.a_intent = intent
+
+/obj/item/integrated_circuit/manipulation/arm/proc/get_direction_contents()
+	var/direction = get_pin_data(IC_INPUT, 1)
+	var/turf/cur_turf = get_turf(src)
+	var/turf/T
+
+	if(isnum(direction) && (!direction || (direction in GLOB.cardinal)))
+		T = get_step(cur_turf, direction) || cur_turf
+	else
+		T = get_step(cur_turf, dir) || cur_turf
+
+	var/list/targets = list()
+	for(var/atom/A in T.contents)
+		if(!A.simulated)
+			continue
+		targets += A
+
+	if(targets.len == 0)
+		targets += T
+
+	return targets
+
+/obj/item/integrated_circuit/manipulation/arm/proc/do_attack(var/atom/A)
+	if(!holding)
+		A.attack_hand(fake_mob)
+		return
+	if(istype(holding, /obj/item/weapon/gun))
+		var/obj/item/weapon/gun/G = holding
+		var/direction = get_pin_data(IC_INPUT, 1)
+		var/turf/T
+		switch(direction) //Probably an easier way to do this
+			if(NORTH)
+				T = locate(A.x, A.y + 7, A.z)
+			if(SOUTH)
+				T = locate(A.x, A.y - 7, A.z)
+			if(EAST)
+				T = locate(A.x + 7, A.y, A.z)
+			if(WEST)
+				T = locate(A.x - 7, A.y, A.z)
+		if(G.simple_fire(T, fake_mob))	return //I will regret this
+	if(istype(holding, /obj/item/weapon))
+		holding.attack(A, fake_mob)
+		return
+	A.attackby(holding, fake_mob)
+
+/mob/living/silicon/robotic_arm
+	name = "\improper robotic arm"

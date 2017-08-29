@@ -441,3 +441,20 @@
 	if(new_mode)
 		to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
 
+//I'm tired of trying to force guns to fire
+
+/obj/item/weapon/gun/proc/simple_fire(var/atom/target, var/mob/user)
+	if(target == user)
+		return
+
+	var/obj/item/projectile/P = consume_next_projectile(user)
+	if(!P)
+		handle_click_empty(user)
+		return
+	P.launch(target)
+	play_fire_sound(user, P)
+	user.visible_message(
+		"<span class='danger'>\The [user] fires \the [src]!</span>",
+		"<span class='warning'>You fire \the [src]!</span>",
+		"You hear a [fire_sound_text]!"
+		)
