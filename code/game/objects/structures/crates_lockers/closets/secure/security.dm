@@ -183,6 +183,7 @@
 		/obj/item/clothing/under/rank/security/corp,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/device/holowarrant,
+		/obj/item/device/flashlight/seclite
 	)
 
 /obj/structure/closet/secure_closet/security/cargo/WillContain()
