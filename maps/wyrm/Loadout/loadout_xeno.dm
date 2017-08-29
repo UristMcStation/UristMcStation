@@ -80,6 +80,10 @@
 	path = /obj/item/clothing/under/resomi/white
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/uniform/resomi/dress
+	display_name = "dress, fancy (Teshari)"
+	path = /obj/item/clothing/under/resomi/dress
+
 /datum/gear/uniform/resomi/eng
 	display_name = "uniform, Engineering (Teshari)"
 	path = /obj/item/clothing/under/resomi/yellow

@@ -151,6 +151,7 @@
 	density = 0
 	opacity = 0
 	anchored = 1
+	plane = ABOVE_TURF_PLANE
 
 	Initialize()
 		for(var/turf/turf in locs)

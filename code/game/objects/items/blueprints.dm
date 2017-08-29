@@ -95,7 +95,7 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 	return A
 
 /obj/item/blueprints/proc/get_area_type(var/area/A = get_area())
-	if(istype(A, /area/space) || istype(A, /area/jungle))
+	if(istype(A, /area/space) || istype(A, /area/jungle) || istype(A, /area/exoplanet))
 		return AREA_SPACE
 	var/list/SPECIALS = list(
 		/area/shuttle
