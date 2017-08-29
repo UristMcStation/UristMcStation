@@ -93,3 +93,16 @@
 		var/obj/item/clothing/suit/storage/toggle/labcoat/corp/lab_type = lab
 		labcoats[initial(lab_type.name)] = lab_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(labcoats))
+
+/datum/gear/suit/trenchcoat
+	display_name = "trenchcoat selection"
+	path = /obj/item/clothing/suit/storage/det_trench
+	cost = 3
+
+/datum/gear/suit/trenchcoat/New()
+	..()
+	var/trenchcoats = list()
+	trenchcoats["trenchcoat, brown"] = /obj/item/clothing/suit/storage/det_trench
+	trenchcoats["trenchcoat, grey"] = /obj/item/clothing/suit/storage/det_trench/grey
+	trenchcoats["coat, duster"] = /obj/item/clothing/suit/leathercoat
+	gear_tweaks += new/datum/gear_tweak/path(trenchcoats)

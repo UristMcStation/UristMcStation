@@ -129,3 +129,18 @@
 /datum/gear/accessory/locket
 	display_name = "locket"
 	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/badge
+	display_name = "badge selection"
+	path = /obj/item/clothing/accessory/badge/old
+	cost = 2
+	allowed_roles = list(/datum/job/officer, /datum/job/hos)
+
+/datum/gear/accessory/badge/New()
+	..()
+	var/list/badges = list()
+	badges["faded badge"] = /obj/item/clothing/accessory/badge/old
+	badges["holobadge"] = /obj/item/clothing/accessory/badge/holo
+	badges["holobadge-cord"] = /obj/item/clothing/accessory/badge/holo/cord
+	badges["marshal's badge"] = /obj/item/clothing/accessory/badge/marshal
+	gear_tweaks += new/datum/gear_tweak/path(badges)
