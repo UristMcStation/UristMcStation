@@ -1,15 +1,12 @@
+//TODO: datum to decl
 
 /datum/away_mission
 	var/map_path              // String form of the actual .dmm
-	var/value                 // A value that represents the amount of content and/or loot1
+	var/value                 // A value that represents the amount of content and/or loot to determine how many aways should be loaded
 	var/random_start = FALSE  // Determines if it's a possible mission at roundstart
 
 /datum/away_mission/proc/perform_setup()
-	for(var/x = 1 to 255)
-		for(var/y = 1 to 255)
-			for(var/atom/A in get_turf(locate(x,y,world.maxz)))
-				if(!A.initialized)
-					SSatoms.InitAtom(A)
+	return
 
 //Actual away missions go down here
 
@@ -28,4 +25,9 @@
 /datum/away_mission/hell
 	map_path = "maps/RandomZLevels/negastation.dmm"
 	value = 20
+	random_start = TRUE
+
+/datum/away_mission/snowcult
+	map_path = "maps/wyrm/templates/snowcult.dmm"
+	value = 1
 	random_start = TRUE

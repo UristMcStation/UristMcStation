@@ -6,7 +6,7 @@
 	admin_notice("<span class='danger'>Attempting to load away missions...</span>", R_DEBUG)
 	while(remaining)
 		var/randaway = pick(missions)
-		var/datum/away_mission/possible_away = new randaway
+		var/datum/away_mission/possible_away = new randaway //TODO: datum to decl
 		if(remaining - possible_away.value)
 			remaining -= possible_away.value
 			var/file = file(possible_away.map_path)
