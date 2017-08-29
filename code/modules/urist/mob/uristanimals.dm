@@ -141,14 +141,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/max_chemtypes = rand(1, maxchems)
 	var/list/blacklist = list() //actual utility list
 
-	for(var/Reagent in chemical_reagents_list)
+	for(var/Reagent in GLOB.chemical_reagents_list)
 		for(var/Banned in banned_chems) //O(n^2), bleh, couldn't think of anything else
 			if(istype(Reagent, Banned))
 				if(!(Reagent in ban_excepted))
 					blacklist += Reagent
 
 	while (mix.len < max_chemtypes)
-		new_chem = pick(chemical_reagents_list)
+		new_chem = pick(GLOB.chemical_reagents_list)
 		if(new_chem in blacklist)
 			new_chem = null
 		else

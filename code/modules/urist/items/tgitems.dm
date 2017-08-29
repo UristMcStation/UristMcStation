@@ -247,10 +247,10 @@ Please only put items here that don't have a huge definition - Glloyd											
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent("condensedcapsaicin", 25)
-		B1.reagents.add_reagent("potassium", 25)
-		B2.reagents.add_reagent("phosphorus", 25)
-		B2.reagents.add_reagent("sugar", 25)
+		B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
+		B1.reagents.add_reagent(/datum/reagent/potassium, 25)
+		B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
+		B2.reagents.add_reagent(/datum/reagent/sugar, 25)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -302,7 +302,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/fancy/cigarettes/urist/syndicate/New()
 	..()
 	for(var/i = 1 to storage_slots)
-		reagents.add_reagent("doctorsdelight",15)
+		reagents.add_reagent(/datum/reagent/drink/doctor_delight,15)
 
 /obj/item/weapon/storage/fancy/cigarettes/urist/midori
 	name = "midori tabako packet"
@@ -319,10 +319,10 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim/New()
 	..()
 	for(var/i = 1 to storage_slots)
-		reagents.add_reagent("lipozine",4)
-		reagents.add_reagent("ammonia",2)
-		reagents.add_reagent("plantbgone",1)
-		reagents.add_reagent("toxin",1.5)
+		reagents.add_reagent(/datum/reagent/lipozine,4)
+		reagents.add_reagent(/datum/reagent/ammonia,2)
+		reagents.add_reagent(/datum/reagent/toxin/plantbgone,1)
+		reagents.add_reagent(/datum/reagent/toxin,1.5)
 
 // Smuggler's satchel from /tg/.
 

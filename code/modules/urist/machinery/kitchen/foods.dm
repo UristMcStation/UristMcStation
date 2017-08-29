@@ -61,7 +61,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 8)
+		reagents.add_reagent(/datum/reagent/nutriment, 8)
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/pizza
 	name = "personal pizza"
@@ -390,8 +390,8 @@
         icon_state = "icecream_cone"
         New()
                 ..()
-                reagents.add_reagent("nutriment", 1)
-                reagents.add_reagent("sugar",1)
+                reagents.add_reagent(/datum/reagent/nutriment, 1)
+                reagents.add_reagent(/datum/reagent/sugar,1)
                 bitesize = 1
                 update_icon()
 
@@ -408,9 +408,9 @@
         volume = 500
         New()
                 ..()
-                reagents.add_reagent("nutriment", 2)
-                reagents.add_reagent("sugar",6)
-                reagents.add_reagent("ice",2)
+                reagents.add_reagent(/datum/reagent/nutriment, 2)
+                reagents.add_reagent(/datum/reagent/sugar,6)
+                reagents.add_reagent(/datum/reagent/drink/ice,2)
                 bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup
@@ -420,9 +420,9 @@
         volume = 500
         New()
                 ..()
-                reagents.add_reagent("nutriment", 4)
-                reagents.add_reagent("sugar",8)
-                reagents.add_reagent("ice",2)
+                reagents.add_reagent(/datum/reagent/nutriment, 4)
+                reagents.add_reagent(/datum/reagent/sugar,8)
+                reagents.add_reagent(/datum/reagent/drink/ice,2)
                 bitesize = 6
 
 //cereals
@@ -435,7 +435,7 @@
 	bitesize = 2
 	New()
 		..()
-		reagents.add_reagent("nutriment", 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
 
@@ -448,7 +448,7 @@
 	deepfried = 1
 	New()
 		..()
-		reagents.add_reagent("nutriment", 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //////////////
 //STILL SHIT//
@@ -608,6 +608,6 @@
 	var/nutrition = R.get_reagent_amount("nutriment")
 	var/sweetness = R.get_reagent_amount("sugar")
 	var/boozeamt = max(((nutrition * 10) + (sweetness * 20)), 10)
-	R.remove_reagent("nutriment", nutrition)
-	R.remove_reagent("sugar", sweetness)
+	R.remove_reagent(/datum/reagent/nutriment, nutrition)
+	R.remove_reagent(/datum/reagent/sugar, sweetness)
 	R.add_reagent(boozetype, boozeamt)

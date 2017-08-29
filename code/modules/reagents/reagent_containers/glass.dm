@@ -203,43 +203,43 @@
 /obj/item/weapon/reagent_containers/glass/beaker/fuel
 	New()
 		..()
-		reagents.add_reagent("fuel", 60)
+		reagents.add_reagent(/datum/reagent/fuel, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/water
 	New()
 		..()
-		reagents.add_reagent("water", 60)
+		reagents.add_reagent(/datum/reagent/water, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sugar
 	New()
 		..()
-		reagents.add_reagent("sugar", 60)
+		reagents.add_reagent(/datum/reagent/sugar, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/mercury
 	New()
 		..()
-		reagents.add_reagent("mercury", 60)
+		reagents.add_reagent(/datum/reagent/mercury, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/lithium
 	New()
 		..()
-		reagents.add_reagent("lithium", 60)
+		reagents.add_reagent(/datum/reagent/lithium, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/acetone
 	New()
 		..()
-		reagents.add_reagent("acetone", 60)
+		reagents.add_reagent(/datum/reagent/acetone, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/ethanol
 	New()
 		..()
-		reagents.add_reagent("ethanol", 60)
+		reagents.add_reagent(/datum/reagent/ethanol, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket

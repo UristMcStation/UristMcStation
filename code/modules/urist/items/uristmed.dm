@@ -13,9 +13,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad/New()
 	..()
-	reagents.remove_reagent("inaprovaline", 5)
-	reagents.add_reagent("hyronalin", 3)
-	reagents.add_reagent("anti_toxin", 2)
+	reagents.remove_reagent(/datum/reagent/inaprovaline, 5)
+	reagents.add_reagent(/datum/reagent/hyronalin, 3)
+	reagents.add_reagent(/datum/reagent/dylovene, 2)
 	update_icon()
 	return
 
@@ -68,9 +68,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv/New()
 	..()
-	reagents.add_reagent("tricordrazine", 5)
-	reagents.add_reagent("tramadol", 5)
-	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+	reagents.add_reagent(/datum/reagent/tramadol, 5)
+	reagents.add_reagent(/datum/reagent/dexalinp, 5)
 	update_icon()
 	return
 
@@ -85,9 +85,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/admin/New()
 	..()
-	reagents.add_reagent("adminordrazine", 5)
-	reagents.add_reagent("tramadol", 5)
-	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent(/datum/reagent/adminordrazine, 5)
+	reagents.add_reagent(/datum/reagent/tramadol, 5)
+	reagents.add_reagent(/datum/reagent/dexalinp, 5)
 	update_icon()
 	return
 
@@ -121,8 +121,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/stabilization/New()
 	..()
-	reagents.add_reagent("inaprovaline", 30)
-	reagents.add_reagent("dexalinp", 30)
+	reagents.add_reagent(/datum/reagent/inaprovaline, 30)
+	reagents.add_reagent(/datum/reagent/dexalinp, 30)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute
@@ -131,8 +131,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute/New()
 	..()
-	reagents.add_reagent("bicaridine", 45)
-	reagents.add_reagent("tricordrazine", 15)
+	reagents.add_reagent(/datum/reagent/bicaridine, 45)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 15)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns
@@ -141,8 +141,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns/New()
 	..()
-	reagents.add_reagent("kelotane", 30)
-	reagents.add_reagent("dermaline", 30)
+	reagents.add_reagent(/datum/reagent/kelotane, 30)
+	reagents.add_reagent(/datum/reagent/dermaline, 30)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation
@@ -151,9 +151,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation/New()
 	..()
-	reagents.add_reagent("arithrazine", 30)
-	reagents.add_reagent("hyronalin", 15)
-	reagents.add_reagent("anti_toxin", 15)
+	reagents.add_reagent(/datum/reagent/arithrazine, 30)
+	reagents.add_reagent(/datum/reagent/hyronalin, 15)
+	reagents.add_reagent(/datum/reagent/dylovene, 15)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller
@@ -162,6 +162,6 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller/New()
 	..()
-	reagents.add_reagent("oxycodone", 45)
-	reagents.add_reagent("dexalinp", 15)
+	reagents.add_reagent(/datum/reagent/oxycodone, 45)
+	reagents.add_reagent(/datum/reagent/dexalinp, 15)
 	update_icon()

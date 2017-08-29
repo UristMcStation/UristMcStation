@@ -116,18 +116,18 @@
 			src.mind.vampire.bloodusable += (blood)
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
-				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
+				V.vessel.add_reagent(/datum/reagent/blood, blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 			H.shock_stage += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
 			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
-				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
+				V.vessel.add_reagent(/datum/reagent/blood, blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 		if(bloodtotal != src.mind.vampire.bloodtotal)
 			src << "<span class='notice'>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] left to use" : "."]</span>"
 		check_vampire_upgrade(mind)
-		H.vessel.remove_reagent("blood",25)
+		H.vessel.remove_reagent(/datum/reagent/blood,25)
 
 	src.mind.vampire.draining = null
 	src << "<span class='notice'> You stop draining [H.name] of blood.</span>"

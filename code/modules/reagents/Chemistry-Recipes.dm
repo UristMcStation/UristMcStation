@@ -612,7 +612,7 @@
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas(/datum/reagent/toxin/phoron, created_volume, 400+T0C)
 		spawn (0) target_tile.hotspot_expose(700, 400)
-	holder.del_reagent("napalm")
+//	holder.del_reagent(/datum/reagent/napalm)
 
 /datum/chemical_reaction/chemsmoke
 	name = "Chemsmoke"
