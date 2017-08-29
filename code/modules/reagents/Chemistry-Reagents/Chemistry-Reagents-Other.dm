@@ -371,3 +371,10 @@
 
 /datum/reagent/luminol/touch_mob(var/mob/living/L)
 	L.reveal_blood()
+
+/datum/reagent/cash
+	name = "Liquid Cash"
+	description = "Liquified cash, why would you do this."
+	taste_description = "pure capitalism"
+	reagent_state = LIQUID
+	color = "#60A584"
