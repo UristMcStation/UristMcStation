@@ -39,8 +39,8 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
 /turf/simulated/floor/plating/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
+
 /*//Space! Because fuck /tg/!
 transit/east is the same thing now AFAIK
 /turf/space/transit/west // moving to the west

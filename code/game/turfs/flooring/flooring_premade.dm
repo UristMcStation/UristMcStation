@@ -24,8 +24,7 @@
 	initial_gas = null
 
 /turf/simulated/floor/bluegrid/server
-	oxygen = 0
-	nitrogen = MOLES_N2STANDARD
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 	temperature = 80
 
 /turf/simulated/floor/greengrid
@@ -117,6 +116,11 @@
 /turf/simulated/floor/cult/cultify()
 	return
 
+/turf/simulated/floor/stone
+	name = "stone tiles"
+	icon = 'icons/turf/flooring/cult.dmi'
+	icon_state = "greycult"
+
 /turf/simulated/floor/tiled/dark
 	name = "dark floor"
 	icon_state = "dark"
@@ -171,8 +175,7 @@
 	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/white/server
-	oxygen = 0
-	nitrogen = MOLES_N2STANDARD
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 	temperature = 80
 
 /turf/simulated/floor/tiled/white/airless

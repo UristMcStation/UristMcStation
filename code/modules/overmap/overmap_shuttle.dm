@@ -51,10 +51,3 @@ var/list/sector_shuttles = list()
 	if(!next_location)
 		return "None"
 	return "[waypoint_sector(next_location)] - [next_location]"
-
-/datum/shuttle/autodock/overmap/subship
-	var/obj/effect/overmap/ship/subship/subship
-/*
-/datum/shuttle/autodock/overmap/subship/get_possible_destinations()
-	if(subship.docked)
-*/
