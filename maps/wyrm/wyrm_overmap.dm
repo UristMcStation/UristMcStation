@@ -14,6 +14,13 @@
 	dynamic_lighting = 1
 	flags = AREA_RAD_SHIELDED
 
+/area/rescue/start
+	name = "\improper Rescue Pod"
+	icon_state = "shuttlered"
+	requires_power = 1
+	dynamic_lighting = 1
+	flags = AREA_RAD_SHIELDED
+
 /area/lanius/start
 	name = "\improper Aura"
 	icon_state = "shuttlered"
@@ -36,7 +43,8 @@
 		"wyrm_sub_aft"
 	)
 	restricted_waypoints = list(
-		"Hatchling" = list("wyrm_docked_hatchling")
+		"Hatchling" = list("wyrm_docked_hatchling"),
+		"Rescue Pod" = list("wyrm_docked_rescue")
 	)
 
 /obj/effect/shuttle_landmark/wyrm/primary/fore
@@ -83,6 +91,10 @@
 	name = "Pod Control"
 	shuttle_tag = "Escape Pod"
 
+/obj/machinery/computer/shuttle_control/explore/rescue
+	name = "Rescue Pod Control"
+	shuttle_tag = "Rescue Pod"
+
 /datum/shuttle/autodock/overmap/hatchling
 	name = "Hatchling"
 	move_time = 90
@@ -107,6 +119,13 @@
 	landmark_transition = "nav_transit_pod"
 	waypoint_offsite = "nav_escaped_pod"
 
+/datum/shuttle/autodock/ferry/overmap/rescue
+	name = "Rescue Pod"
+	move_time = 30
+	shuttle_area = /area/rescue/start
+	current_location = "wyrm_docked_rescue"
+	landmark_transition = "nav_transit_rescue"
+
 /obj/effect/shuttle_landmark/pod/docked
 	name = "Docking Port"
 	landmark_tag = "nav_docked_pod"
@@ -114,6 +133,10 @@
 /obj/effect/shuttle_landmark/wyrm/docked/hatchling
 	name = "Docking Port"
 	landmark_tag = "wyrm_docked_hatchling"
+
+/obj/effect/shuttle_landmark/wyrm/docked/rescue
+	name = "Docking Port"
+	landmark_tag = "wyrm_docked_rescue"
 
 /obj/effect/shuttle_landmark/pod/transit
 	name = "In transit"
@@ -126,6 +149,10 @@
 /obj/effect/shuttle_landmark/wyrm/transit/lanius
 	name = "In transit"
 	landmark_tag = "nav_transit_lanius"
+
+/obj/effect/shuttle_landmark/wyrm/transit/rescue
+	name = "In transit"
+	landmark_tag = "nav_transit_rescue"
 
 /obj/effect/shuttle_landmark/pod/escaped
 	name = "Escaped"
