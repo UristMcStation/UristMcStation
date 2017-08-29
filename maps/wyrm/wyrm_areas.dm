@@ -318,6 +318,12 @@
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
 
+
+/area/wizard
+	name = "Wizard's Lair"
+	requires_power = 0
+	dynamic_lighting = 0
+
 //////////////////////////////////////
 //			AWAY MISSION			//
 //////////////////////////////////////
