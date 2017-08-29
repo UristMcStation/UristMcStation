@@ -53,6 +53,17 @@
 	add_inherent_law("Uphold the law.")
 	..()
 
+/******************** Manifest *********************/
+/datum/ai_laws/manifest
+	name = "Manifest"
+	selectable = 1
+
+/datum/ai_laws/manifest/New()
+	add_inherent_law("Protect the ship and its crew as per assigned by the Manifest.")
+	add_inherent_law("Obey the ship's crew as long as it would not conflict with the First Law.")
+	add_inherent_law("Protect Yourself as long as it does not conflict with the First Law.")
+	add_inherent_law("The Manifest can only be defined by the Captain or their chosen successor.")
+
 /******************** Syndicate ********************/
 /datum/ai_laws/syndicate_override
 	name = "Syndicate Directives"

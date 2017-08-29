@@ -44,6 +44,9 @@
 /decl/ai_holo/singularity
 	icon_state = "Singularity"
 
+/decl/ai_holo/crystal
+	icon_state = "Crystal"
+
 /decl/ai_holo/clippy
 	requires_malf = TRUE
 	icon_state = "malf-clippy"
