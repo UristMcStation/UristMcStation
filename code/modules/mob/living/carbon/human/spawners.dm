@@ -64,13 +64,17 @@
 		H.setBrainLoss(200)
 
 	if(damage)
-		if(damage["damage_all"])
-			for(var/obj/item/organ/external/O in H.organs_by_name)
-				O.take_damage(damage["damage_all"])
+		if(damage["damage_all_brute"] || damage["damage_all_burn"])
+			H.take_overall_damage(damage["damage_all_brute"], damage["damage_all_burn"])
 		else
 			for(var/limb in damage)
 				var/obj/item/organ/external/O = H.organs_by_name[limb]
 				O.take_damage(damage[limb])
+
+	var/turf/T = get_turf(src)
+	var/obj/structure/bed/B = locate() in T.contents
+	if(B in T.contents)
+		B.buckle_mob(H)
 
 	if(!post_setup)
 		qdel(src)
@@ -82,7 +86,7 @@
 
 /obj/effect/spawner/carbon/human/grayson/miner/crystal
 	killed = TRUE
-	damage = list("damage_all" = 25)
+	damage = list("damage_all_brute" = 50, "damage_all_burn" = 0)
 
 /obj/effect/spawner/carbon/human/grayson/miner/brokenarm
 	damage = list("r_arm" = 35)
@@ -102,11 +106,21 @@
 /obj/effect/spawner/carbon/human/virus/ntsci
 	clothing = /decl/hierarchy/outfit/nanotrasensci
 
+
 /obj/effect/spawner/carbon/human/nt
 	clothing = /decl/hierarchy/outfit/nanotrasensci
 
+/obj/effect/spawner/carbon/human/nt/hurt
+	damage = list("damage_all_brute" = 50, "damage_all_burn" = 50)
+
+/obj/effect/spawner/carbon/human/nt/hurt/loot
+	clothing = /decl/hierarchy/outfit/nanotrasensci/loot
+
 /obj/effect/spawner/carbon/human/nt/exec
 	clothing = /decl/hierarchy/outfit/nanotrasensci/exec
+
+/obj/effect/spawner/carbon/human/nt/exec/armed
+	clothing = /decl/hierarchy/outfit/nanotrasensci/exec/armed
 
 //Vox
 
