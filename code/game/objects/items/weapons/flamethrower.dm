@@ -56,7 +56,7 @@
 	return
 
 /obj/item/weapon/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
+//	if(!proximity) return
 	// Make sure our user is still holding us
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
@@ -164,7 +164,6 @@
 //Called from turf.dm turf/dblclick
 /obj/item/weapon/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)	return
-	operating = 1
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break
@@ -174,9 +173,7 @@
 		if(previousturf && LinkBlocked(previousturf, T))
 			break
 		ignite_turf(T)
-		sleep(1)
 	previousturf = null
-	operating = 0
 	for(var/mob/M in viewers(1, loc))
 		if((M.client && M.machine == src))
 			attack_self(M)
@@ -186,7 +183,8 @@
 /obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
 	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
 	//Transfer 5% of current tank air contents to turf
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
+	if(ptank.air_contents.get_total_moles() < (0.2 * (throw_amount/100)))	return
+	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove(0.2 * (throw_amount/100))
 	//air_transfer.toxins = air_transfer.toxins * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
 	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"],get_dir(loc,target))
 	air_transfer.gas["phoron"] = 0

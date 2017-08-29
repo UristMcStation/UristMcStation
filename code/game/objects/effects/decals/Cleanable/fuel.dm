@@ -39,7 +39,7 @@
 		New(newLoc, amt = 1, d = 0)
 			set_dir(d) //Setting this direction means you won't get torched by your own flamethrower.
 			..()
-
+/*
 		Spread()
 			//The spread for flamethrower fuel is much more precise, to create a wide fire pattern.
 			if(amount < 0.1) return
@@ -52,10 +52,10 @@
 					continue
 				if(O.CanPass(null, S, 0, 0) && S.CanPass(null, O, 0, 0))
 					new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(O,amount*0.25,d)
-					O.hotspot_expose((T20C*2) + 380,500) //Light flamethrower fuel on fire immediately.
+					O.hotspot_expose((T20C*2) + 400,500) //Light flamethrower fuel on fire immediately.
 
 			amount *= 0.25
-
+*/
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize()
 	var/has_spread = 0
