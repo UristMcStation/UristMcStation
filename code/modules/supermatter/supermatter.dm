@@ -449,6 +449,13 @@
 		to_chat(user, "You repair some of the damage to \the [src] with \the [W].")
 		damage = max(damage -10, 0)
 
+	if(istype(W, /obj/item/weapon/veilrender)) //Sure, why not all of them
+		var/obj/item/weapon/veilrender/V = W
+		V.charged = 1
+		V.visible_message("\icon[V] \The [V] begins to glow and hum as [user] touches \the [src] with it.",\
+		"You feel a vibration and see \the [V] glow as you touch \the [V] to \the [src].")
+		return
+
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")

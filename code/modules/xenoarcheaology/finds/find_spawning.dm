@@ -3,9 +3,13 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano01"
 	var/find_type = 0
+	var/preset_item_type
 
 /obj/item/weapon/archaeological_find/New(loc, var/new_item_type)
 	..()
+	if(preset_item_type)
+		find_type = preset_item_type
+		return
 	if(new_item_type)
 		find_type = new_item_type
 	else

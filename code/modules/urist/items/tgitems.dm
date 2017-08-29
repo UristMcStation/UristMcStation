@@ -95,6 +95,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 10
 	w_class = 3
 	var/charged = 1
+	var/rend_type = /obj/effect/rend
 
 
 /obj/effect/rend
@@ -105,35 +106,14 @@ Please only put items here that don't have a huge definition - Glloyd											
 	density = 1
 	unacidable = 1
 	anchored = 1.0
-
+	var/spawn_type = /obj/singularity/narsie/wizard
 
 /obj/effect/rend/New()
 	spawn(50)
-		new /obj/singularity/narsie/wizard(get_turf(src))
+		new spawn_type(loc)
 		qdel(src)
 		return
 	return
-
-
-/obj/item/weapon/veilrender/attack_self(mob/user as mob)
-	if(charged == 1)
-		new /obj/effect/rend(get_turf(usr))
-		charged = 0
-		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to reality itself!</span>")
-	else
-		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>"
-
-/obj/item/weapon/veilrender/vealrender
-	name = "veal render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
-
-/obj/item/weapon/veilrender/vealrender/attack_self(mob/user as mob)
-	if(charged)
-		new /obj/effect/rend/cow(get_turf(usr))
-		charged = 0
-		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to hunger itself!</span>")
-	else
-		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant.</span>"
 
 /obj/effect/rend/cow
 	desc = "Reverberates with the sound of ten thousand moos."
@@ -157,6 +137,27 @@ Please only put items here that don't have a huge definition - Glloyd											
 			qdel(src)
 		return
 	..()
+
+/obj/effect/rend/sm
+	spawn_type = /mob/living/simple_animal/hostile/smshard
+
+/obj/item/weapon/veilrender/attack_self(mob/user as mob)
+	if(charged)
+		new rend_type(get_turf(usr))
+		charged = 0
+		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to reality itself!</span>")
+	else
+		to_chat(user, "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>")
+
+/obj/item/weapon/veilrender/vealrender
+	name = "veal render"
+	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
+	rend_type = /obj/effect/rend/cow
+
+/obj/item/weapon/veilrender/sm
+	name = "glowing blade"
+	desc = "An odd blade with a pale yellow glow. <span class='danger'>It strains your eyes to look at.</span>"
+	rend_type = /obj/effect/rend/sm
 
 //Medals. Noone uses them, but I like them, so fuck you all.
 
