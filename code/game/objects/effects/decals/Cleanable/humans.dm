@@ -248,3 +248,7 @@ var/global/list/image/splatter_cache=list()
 	..()
 	spawn(DRYING_TIME * 2)
 		dry=1
+
+/obj/effect/decal/cleanable/blood/edge
+	icon_state = "bloodsquare"
+	random_icon_states = null

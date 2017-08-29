@@ -60,14 +60,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space bats need no air to fly in.
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 //ARANEUS. Squee?

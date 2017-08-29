@@ -179,7 +179,6 @@
 		)
 
 /obj/structure/scrap/random/Initialize()
-	. = ..()
 	var/A = pick(scrap_list)
 	new A(src.loc)
 	return INITIALIZE_HINT_QDEL

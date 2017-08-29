@@ -221,7 +221,7 @@
 
 	var/obj/structure/gravemarker/random/R = new(src.loc)
 	R.generate()
-	..()
+	. = ..()
 
 /obj/structure/pit/closed/grave/spaghettiwestern/Initialize()
 	var/obj/structure/closet/coffin/C = new(src.loc)

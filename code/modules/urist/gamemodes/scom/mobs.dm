@@ -34,14 +34,8 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	icon = 'icons/uristmob/scommobs.dmi'
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	faction = "alien" //luv u corai. scom 5eva	//rip in peace corai
 	var/weapon1

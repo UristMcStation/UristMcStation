@@ -314,3 +314,16 @@
 
 /obj/item/stack/material/glass/phoronrglass/ten
 	amount = 10
+
+/obj/item/stack/material/aliumium
+	name = "alien alloy"
+	desc = "A chunk of material with odd properties."
+	icon_state = "sheet-metal"
+	default_type = "alien alloy"
+
+/obj/item/stack/material/aliumium/Initialize()
+	. = ..()
+	color = material.icon_colour
+
+/obj/item/stack/material/aliumium/ten
+	amount = 10

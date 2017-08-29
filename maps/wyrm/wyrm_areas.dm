@@ -350,6 +350,8 @@
 
 /area/jungle/northruins
 
+/area/jungle/southeastruins
+
 /area/jungle/southwild
 	dynamic_lighting = FALSE
 

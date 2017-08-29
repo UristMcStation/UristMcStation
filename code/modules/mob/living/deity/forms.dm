@@ -95,3 +95,16 @@ Each plays slightly different and has different challenges/benefits
 /datum/god_form/wizard/take_charge(var/mob/living/user, var/charge)
 	linked_god.adjust_power(max(round(charge/100), 1),silent = 1)
 	return 1
+
+/datum/god_form/shattered
+	name = "The Shattered"
+	info = {"The Shattered Collection of True Power, may its power be brought together for the transmutation.
+	<b>Benefits:</b><br>
+		<font color='blue'>+Power is gained through material sacrifices.<br>
+		+Ability to enduce transformation in followers to provide benefits.</font><br>
+		<b>Drawbacks:</b><br>
+			<font color='red'>-Transformations can be costly, and materials can be difficult to acquire.</font>
+		"}
+	desc = "A being of immense power, shattered."
+
+		//TODO: Finish this

@@ -10,7 +10,7 @@
 "j" = (/obj/structure/curtain/black{pixel_y = 32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/cult,/area/jungle)
 "k" = (/obj/structure/curtain/black,/turf/simulated/floor/cult,/area/jungle)
 "l" = (/obj/structure/table/woodentable,/obj/item/weapon/book/tome,/obj/item/weapon/veilrender{charged = 0},/obj/item/weapon/flame/candle,/turf/simulated/floor/cult,/area/jungle)
-"m" = (/turf/simulated/wall/wood,/turf/simulated/wall/cult,/area/jungle)
+"m" = (/turf/simulated/wall/cult,/area/jungle)
 "n" = (/obj/structure/sink/puddle{desc = "A puddle of slightly reddish water."},/turf/simulated/floor/plating/planet/jungle/path,/area/jungle)
 "o" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor/wood,/area/jungle)
 "p" = (/turf/simulated/floor/wood,/area/jungle)
@@ -25,10 +25,11 @@
 "y" = (/obj/structure/curtain/black{pixel_y = -32},/obj/machinery/light/small/red{tag = "icon-firelight1 (WEST)"; icon_state = "firelight1"; dir = 8},/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/simulated/floor/cult,/area/jungle)
 "z" = (/obj/structure/curtain/black{pixel_y = -32},/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (EAST)"; icon_state = "wooden_chair"; dir = 4},/turf/simulated/floor/cult,/area/jungle)
 "A" = (/obj/structure/table/woodentable,/obj/item/clothing/suit/chaplain_hoodie,/obj/item/bodybag,/obj/item/bodybag,/obj/item/bodybag,/obj/item/weapon/flame/candle,/obj/item/weapon/storage/backpack/cultpack,/turf/simulated/floor/cult,/area/jungle)
-"B" = (/turf/simulated/floor/plating/planet/jungle/clear,/area/jungle)
-"C" = (/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
-"D" = (/obj/item/weapon/shovel,/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
-"E" = (/obj/item/remains/human,/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
+"B" = (/turf/simulated/wall/wood,/turf/simulated/wall/cult,/area/jungle)
+"C" = (/turf/simulated/floor/plating/planet/jungle/clear,/area/jungle)
+"D" = (/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
+"E" = (/obj/item/weapon/shovel,/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
+"F" = (/obj/item/remains/human,/turf/simulated/floor/plating/planet/jungle/clear/grass1{desc = "A patch of dirt."; icon = 'icons/turf/floors.dmi'; icon_state = "asteroid"; name = "wet dirt"},/area/jungle)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaa
@@ -36,14 +37,14 @@ aaaaaaaaaaaaaaaaaa
 aabbcbbbcbcbcbbbaa
 aabdefgbhijijklmba
 anbopppqrrrrrkrsba
-atupvwxbyizizkAmba
+atupvwxbyizizkABba
 atbbcbbbcbcbcbbbaa
 ataaaaaaaaaaaaaaaa
 ataaattttaaaaaaaaa
 attatttattaatttaaa
-aBttttaaattttttaaa
-aaBBaaaaattttataaa
-aCCCCaaaaaaaaataaa
-aCCDEaaaaaaaatttaa
+aCttttaaattttttaaa
+aaCCaaaaattttataaa
+aDDDDaaaaaaaaataaa
+aDDEFaaaaaaaatttaa
 aaaaaaaaaaaaatttaa
 "}

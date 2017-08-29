@@ -21,14 +21,8 @@
 	attacktext = "punched"
 	a_intent = "harm"
 	ranged = 1
-	min_oxy = 5
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 1
-	min_co2 = 0
-	max_co2 = 5
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = list("oxygen" = 5)
+	max_gas = null
 	unsuitable_atoms_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
