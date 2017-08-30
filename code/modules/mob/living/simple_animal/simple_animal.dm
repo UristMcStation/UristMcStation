@@ -126,6 +126,8 @@
 	var/atmos_suitable = 1
 
 	var/atom/A = loc
+	if(!loc)
+		return 1
 	var/datum/gas_mixture/environment = A.return_air()
 
 	if(environment)
