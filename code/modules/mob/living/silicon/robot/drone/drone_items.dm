@@ -26,6 +26,7 @@
 		/obj/item/integrated_circuit,
 		/obj/item/device/integrated_electronics,
 		/obj/item/device/electronic_assembly
+		/obj/item/weapon/fuel_assembly
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
