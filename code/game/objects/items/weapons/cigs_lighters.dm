@@ -630,7 +630,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/weapon/flame/lighter/process()
 	if(reagents.has_reagent(/datum/reagent/fuel))
-		if(ismob(loc) && prob(10) && reagents.get_reagent_amount("fuel") < 1)
+		if(ismob(loc) && prob(10) && reagents.get_reagent_amount(/datum/reagent/fuel) < 1)
 			to_chat(loc, "<span class='warning'>[src]'s flame flickers.</span>")
 			set_light(0)
 			spawn(4)
