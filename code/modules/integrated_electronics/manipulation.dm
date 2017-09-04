@@ -427,7 +427,7 @@
 		user.put_in_hands(holding)
 	holding = null
 
-/obj/item/integrated_circuit/manipulation/arm/do_work()
+/obj/item/integrated_circuit/manipulation/arm/do_work(var/activation_pin)
 	var/command = get_pin_data(IC_INPUT, 2)
 	if(!isnum(command))	return
 	command = Clamp(command, 1, 4)

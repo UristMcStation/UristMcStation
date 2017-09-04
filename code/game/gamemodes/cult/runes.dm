@@ -5,6 +5,7 @@
 	icon = 'icons/effects/uristrunes.dmi'
 	icon_state = "blank"
 	unacidable = 1
+	flags = OBJ_SURGICAL
 	plane = ABOVE_TURF_PLANE
 	layer = RUNE_LAYER
 
@@ -411,7 +412,7 @@
 	if(victim)
 		to_chat(user, "<span class='warning'>You are already sarcificing \the [victim] on this rune.</span>")
 		return
-	if(cultists.len < 3)
+	if(cultists.len <= 3)
 		to_chat(user, "<span class='warning'>You need three cultists around this rune to make it work.</span>")
 		return fizzle(user)
 	var/turf/T = get_turf(src)

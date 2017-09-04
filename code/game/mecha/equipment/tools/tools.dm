@@ -90,6 +90,11 @@
 		occupant_message("<span class='danger'>You start to drill \the [target]</span>")
 		var/T = chassis.loc
 		var/C = target.loc	//why are these backwards? we may never know -Pete
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/organ/external/E = H.organs_by_name[BP_CHEST]
+			E.take_damage(25)
+			return 1
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				if(istype(target, /turf/simulated/wall))

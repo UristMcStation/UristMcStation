@@ -6,6 +6,7 @@
 	requires_power = 1
 	dynamic_lighting = 1
 	flags = AREA_RAD_SHIELDED
+	base_turf = /turf/simulated/floor/plating/airless
 
 /area/hatchling/start
 	name = "\improper Hatchling"
@@ -119,7 +120,7 @@
 	landmark_transition = "nav_transit_pod"
 	waypoint_offsite = "nav_escaped_pod"
 
-/datum/shuttle/autodock/ferry/overmap/rescue
+/datum/shuttle/autodock/overmap/rescue
 	name = "Rescue Pod"
 	move_time = 30
 	shuttle_area = /area/rescue/start

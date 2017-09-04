@@ -30,6 +30,15 @@
 	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
+/obj/machinery/drone_fabricator/blob
+	fabricator_tag = "Simulation"
+	drone_type = /mob/living/silicon/robot/drone/construction/holo
+
+/obj/machinery/drone_fabricator/blob/create_drone(var/client/player) //Just needs to be simple
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	new_drone.transfer_personality(player)
+	return new_drone
+
 /obj/machinery/drone_fabricator/New()
 	..()
 

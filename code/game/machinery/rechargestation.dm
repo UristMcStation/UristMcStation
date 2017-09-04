@@ -272,3 +272,19 @@
 	set src in oview(1)
 
 	go_in(usr)
+
+/obj/machinery/recharge_station/maxed/New()
+	..()
+
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/recharge_station(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor/super(src)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor/super(src)
+	component_parts += new /obj/item/weapon/cell/hyper(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 5)
+
+	RefreshParts()
+
+	update_icon()

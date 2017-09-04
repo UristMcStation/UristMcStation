@@ -138,6 +138,7 @@
 	punji = 6
 
 /obj/structure/pit/punji6/New()
+	..()
 	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7)
 	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7)
 	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7)

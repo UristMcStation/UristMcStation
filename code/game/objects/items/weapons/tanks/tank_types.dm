@@ -169,7 +169,7 @@
 
 /obj/item/weapon/tank/aliether
 	name = "strange tank"
-	desc = "A tank of oxygen."
+	desc = "A tank of unknown gas."
 	icon_state = "oxygen_f"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 

@@ -114,7 +114,6 @@ var/jungle_plants_init = 0
 /obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit
 	name = "jungle fruit"
 	desc = "It smells weird and looks off."
-	icon = 'icons/jungle.dmi'
 	icon_state = "orange"
 //	potency = 1
 

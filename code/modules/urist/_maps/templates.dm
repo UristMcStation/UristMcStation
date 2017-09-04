@@ -43,14 +43,14 @@ var/list/datum/map_template/underground_templates = list()
 	if(T.y+height > world.maxy)
 		return
 
+	var/B = block(T,locate(T.x+width-1, T.y+height-1, T.z))
 
+	for(var/L in B)
+		var/turf/turf = L
 
-	for(var/L in block(T,locate(T.x+width-1, T.y+height-1, T.z)))
-		var/turf/B = L
+		turfs += turf
 
-		turfs += B
-
-		for(var/obj/W in B)
+		for(var/obj/W in turf)
 			if(istype(W,/obj/machinery/atmospherics) || istype(W,/obj/machinery/atm) || istype(W,/obj/machinery/power/apc) || istype(W,/obj/machinery/alarm) || istype(W,/obj/machinery/firealarm) || istype(W,/obj/structure/cable))
 				continue
 			qdel(W)
@@ -85,7 +85,11 @@ var/list/datum/map_template/underground_templates = list()
 	SSair.setup_template_machinery(atmos_machines)*/
 
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
-
+/* MATRIXCOMMENT
+/datum/map_template/matrix/load(turf/T, centered = FALSE)
+	..(T, centered)
+	return locate(/obj/structure/matrix/portal) in B
+*/
 /datum/map_template/proc/get_file()
 	if(mapfile)
 		return mapfile
@@ -219,3 +223,20 @@ var/list/datum/map_template/underground_templates = list()
 /obj/effect/template_loader/gamemode/assault
 	var/maptype = 0
 	gamemode = "assault"
+/* MATRIXCOMMENT
+/obj/effect/template_loader/matrix/Initialize()
+	GLOB.SSmatrix.init_matrix_memory(src)
+	. = ..()
+
+/obj/effect/template_loader/matrix/Load(var/security_rating = LOW_SEC, datum/map_template/template = null)
+	switch(security_rating)
+		if(LOW_SEC)
+			template = safepick(low_matrix_templates)
+		if(MED_SEC)
+			template = safepick(med_matrix_templates)
+		if(HIGH_SEC)
+			template = safepick(high_matrix_templates)
+	if(!template)
+		return
+	return template.load(get_turf(src),centered = TRUE)
+*/

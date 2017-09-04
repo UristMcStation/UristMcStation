@@ -995,14 +995,10 @@ proc/is_hot(obj/item/W as obj)
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M, mob/living/carbon/user)
 	var/turf/T = get_turf(M)
-	if(locate(/obj/machinery/optable, T))
-		. = TRUE
-	if(locate(/obj/structure/bed, T))
-		. = TRUE
-	if(locate(/obj/structure/table, T))
-		. = TRUE
-	if(locate(/obj/effect/rune/, T))
-		. = TRUE
+	for(var/obj/O in T.contents)
+		if(O.flags & OBJ_SURGICAL)
+			. = TRUE
+			break
 
 	if(M == user)
 		var/hitzone = check_zone(user.zone_sel.selecting)

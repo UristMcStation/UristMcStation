@@ -61,6 +61,7 @@
 		user.drop_from_inventory(H)
 		H.forceMove(src)
 		update_verbs()
+		return TRUE
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
 /obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0, var/critical = 0)

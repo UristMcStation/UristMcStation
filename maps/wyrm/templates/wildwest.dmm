@@ -1,4 +1,4 @@
-"aa" = (/turf/simulated/planet/jungle/rock,/area/space)
+"aa" = (/turf/space,/area/space)
 "ab" = (/turf/simulated/floor/beach/sand/desert,/area/space)
 "ac" = (/obj/effect/decal/remains,/turf/simulated/floor/beach/sand/desert,/area/space)
 "ad" = (/obj/structure/pit,/turf/simulated/floor/beach/sand/desert,/area/space)

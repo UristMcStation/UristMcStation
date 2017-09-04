@@ -60,7 +60,7 @@
 
 /obj/machinery/telecomms/relay/preset/wyrm_prim
 	id = "Primary Deck Relay"
-	autolinkers = list( "prim_relay")
+	autolinkers = list("prim_relay")
 
 /obj/machinery/telecomms/relay/preset/wyrm_sub
 	id = "Sub Deck Relay"

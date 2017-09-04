@@ -22,7 +22,10 @@
 		/obj/item/weapon/tank,
 		/obj/item/weapon/circuitboard,
 		/obj/item/weapon/smes_coil,
-		/obj/item/weapon/computer_hardware
+		/obj/item/weapon/computer_hardware,
+		/obj/item/integrated_circuit,
+		/obj/item/device/integrated_electronics,
+		/obj/item/device/electronic_assembly
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.

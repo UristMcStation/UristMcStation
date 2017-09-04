@@ -1,0 +1,6 @@
+{
+  "cmd": "dm.exe",
+  "args": [ "C:/Users/Nax/UristMcStation/baystation12.dme" ],
+  "sh": false,
+  "cwd": "C:/Standalone/BYOND/bin"
+}

@@ -447,3 +447,9 @@ update_flag
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
 	return 1
+
+/obj/machinery/portable_atmospherics/canister/aliether/New()
+	..()
+	src.air_contents.adjust_gas("aliether", MolesForPressure())
+	src.update_icon()
+	return 1

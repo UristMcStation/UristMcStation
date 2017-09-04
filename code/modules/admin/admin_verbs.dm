@@ -825,8 +825,6 @@ var/list/admin_verbs_mentor = list(
 
 	if(!check_rights(R_FUN))	return
 
-	M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
-
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
 		return
@@ -883,6 +881,7 @@ var/list/admin_verbs_mentor = list(
 		else
 			M.gender = NEUTER
 
+	M.force_update_limbs()
 	M.update_hair()
 	M.update_body()
 	M.check_dna(M)

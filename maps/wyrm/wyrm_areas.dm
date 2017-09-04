@@ -298,7 +298,7 @@
 	name = "\improper Construction Room"
 
 //////////////////////////////////////
-//			HOLODECK				//
+//			Z-LEVEL 3/ADMIN			//
 //////////////////////////////////////
 
 /area/holodeck
@@ -318,6 +318,10 @@
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
 
+/area/drone_test
+	name = "\improper Biohazard Simulation Arena"
+	requires_power = 0
+	dynamic_lighting = 0
 
 /area/wizard
 	name = "Wizard's Lair"

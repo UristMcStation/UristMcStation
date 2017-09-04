@@ -67,6 +67,10 @@
 		var/turf/simulated/wall/SW = T
 		SW.take_damage(80)
 		return
+	var/obj/effect/shield/S = locate() in T
+	if(S)
+		S.take_damage(50, SHIELD_DAMTYPE_PHYSICAL)
+		return
 	var/obj/structure/girder/G = locate() in T
 	if(G)
 		if(prob(40))
@@ -106,6 +110,10 @@
 	if(CA)
 		CA.take_damage(30)
 		return
+	var/obj/structure/showcase/blob_hazard/BH = locate() in T
+	if(BH)
+		BH.take_damage(25)
+		return
 
 	// Above things, we destroy completely and thus can use locate. Mobs are different.
 	for(var/mob/living/L in T)
@@ -121,6 +129,7 @@
 		new expandType(T, min(health, 30))
 
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
+	if(!dirs)	return
 	regen()
 	sleep(4)
 	var/pushDir = pick(dirs)

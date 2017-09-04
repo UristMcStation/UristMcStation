@@ -1,5 +1,6 @@
 
 /obj/effect/spawner/carbon/human
+	invisibility = 0
 	var/species = SPECIES_HUMAN
 	var/new_name
 	var/new_gender

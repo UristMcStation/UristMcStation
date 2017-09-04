@@ -75,6 +75,61 @@
 	else
 		icon_state = "doorctrl2"
 
+/obj/machinery/button/alternate/biohazard
+	var/blob_active
+
+/obj/machinery/button/alternate/biohazard/activate(mob/living/user, var/override)
+	if((input(user, "The simulation is currently [blob_active ? "active" : "offline"], confirm command?", "Toggle simulation") in list("Yes","No")) == "Yes" || (!user && override))
+		visible_message("[src] buzzes: [blob_active ? "Resetting" : "Activating"] biohazard simulation.")
+		var/turf/T = get_turf(src)
+		var/area/A = T.loc
+		if(!istype(A))	return
+		if(blob_active)
+			var/BL = block(locate(52, 31, 3),locate(84,59,3)) //
+			for(var/turf/BT in BL)
+				for(var/obj/effect/blob/B in BT.contents)
+					qdel(B)
+		else
+			for(var/obj/effect/spawner/S in A.contents)
+				S.activate()
+
+		blob_active = !blob_active
+
+/obj/effect/spawner
+	invisibility = 101
+
+/obj/effect/spawner/proc/activate()
+	return
+
+/obj/effect/spawner/holo_blob/activate()
+	new /obj/effect/blob/core(get_turf(src))
+
+/obj/effect/spawner/holo_shields
+	var/time = 4 MINUTES
+
+/obj/effect/spawner/holo_shields/activate()
+	new /obj/structure/holo_shield(get_turf(src), T = time)
+
+/obj/structure/holo_shield
+	name = "simulated shield"
+	desc = "A shield programmed to automatically lower itself after a time."
+	icon = 'icons/obj/machines/shielding.dmi'
+	icon_state = "shield_normal"
+	dir = WEST
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/holo_shield/New(var/T)
+	..()
+	spawn(T)
+		qdel(src)
+
+/obj/structure/holo_shield/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(get_dir(loc, target) == dir)
+		return FALSE
+	else
+		return TRUE
+
 //Toggle button with two states (on and off) and calls seperate procs for each state
 /obj/machinery/button/toggle/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))

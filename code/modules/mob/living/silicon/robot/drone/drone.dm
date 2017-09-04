@@ -116,7 +116,7 @@ var/list/mob_hat_cache = list()
 	module_type = /obj/item/weapon/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
-	can_pull_size = ITEM_SIZE_HUGE
+	can_pull_size = ITEM_SIZE_NO_CONTAINER
 	can_pull_mobs = MOB_PULL_SAME
 
 /mob/living/silicon/robot/drone/New()
@@ -372,3 +372,19 @@ var/list/mob_hat_cache = list()
 		if(D.key && D.client)
 			drones++
 	return drones >= config.max_maint_drones
+
+/mob/living/silicon/robot/drone/construction
+	mob_bump_flag = HUMAN
+	mob_push_flags = ~HEAVY
+	mob_swap_flags = ~HEAVY
+
+/mob/living/silicon/robot/drone/construction/holo/init()
+	..()
+	flavor_text = "It's a holographic construction drone designed to test biological hazard simulations."
+
+/mob/living/silicon/robot/drone/construction/holo/welcome_drone()
+	to_chat(src, "<b>Welcome to the biohazard response assessment simulation, we at \[REDACTED\] are interested in your result.</b><br>")
+	to_chat(src, "<b>Your goal is to ensure a simulation of \[REDACTED\] is not destroyed by the biohazard. You'll find this to your east.</b><br>")
+	to_chat(src, "<b>You've been provided simulations of most modern machinery that could be used to help in biohazard situations. Find these in these south of your fabriactor.</b><br>")
+	to_chat(src, "<b>Provided a simulation isn't currently in progress you may start one with the button to the east of your fabriactor.</b><br>")
+	to_chat(src, "<b>Although power to most objects in this simulation isn't required you'll find a simulated highly advanced power source that represents the installation's engine.</b><br>")
