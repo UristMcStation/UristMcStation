@@ -41,6 +41,7 @@
 			return species.total_health
 	return 0
 
+//Straight pain values, not affected by painkillers etc
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
@@ -377,7 +378,7 @@ This function restores all organs.
 	if(blocked)
 		damage *= blocked_mult(blocked)
 
-	if(damage > 15)
+	if(damage > 15 && prob(damage*4))
 		make_adrenaline(round(damage/10))
 	var/datum/wound/created_wound
 	damageoverlaytemp = 20
@@ -405,12 +406,8 @@ This function restores all organs.
 		return 0
 
 	var/traumatic_shock = getHalLoss()                 // Pain.
-	traumatic_shock += (0.5 * src.getToxLoss())        // Organ failure.
-	traumatic_shock += (0.5 * src.getCloneLoss())      // Genetic decay.
-	traumatic_shock -= src.chem_effects[CE_PAINKILLER] // TODO: check what is actually stored here.
+	traumatic_shock -= chem_effects[CE_PAINKILLER] // TODO: check what is actually stored here.
 
-	if(slurring)                                       // Drunk.
-		traumatic_shock *= 0.75
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.5
 
