@@ -86,7 +86,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI)
 	name_language = LANGUAGE_UNATHI
-	health_hud_intensity = 2
+	health_hud_intensity = 1.25
 
 	min_age = 18
 	max_age = 260
@@ -212,7 +212,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_SKRELLIAN
-	health_hud_intensity = 1.75
+	health_hud_intensity = 1.25
 
 	min_age = 19
 	max_age = 90

@@ -6,7 +6,7 @@
 	var/new_gender
 	var/hair_style           // Regular name
 	var/list/skin_color      // RGB
-	var/list/tone            // 0-255 multiple leads to randomized
+	var/list/tone            // 0-255, multiple leads to randomized
 	var/list/eye_color       // RGB
 	var/list/hair_color      // RGB
 	var/clothing             // /decl/hierarchy/outfit
@@ -18,9 +18,9 @@
 
 	var/mob/living/carbon/human/H
 
-/obj/effect/spawner/carbon/human/New()
-	..()
-	H = new /mob/living/carbon/human(src.loc)
+/obj/effect/spawner/carbon/human/Initialize()
+	. = ..()
+	H = new /mob/living/carbon/human(loc)
 	var/datum/species/real_species = all_species[species]
 	H.set_species(species)
 
@@ -95,8 +95,8 @@
 /obj/effect/spawner/carbon/human/virus
 	post_setup = TRUE
 
-/obj/effect/spawner/carbon/human/virus/New()
-	..()
+/obj/effect/spawner/carbon/human/virus/Initialize()
+	. = ..()
 	var/datum/disease2/disease/V = new /datum/disease2/disease
 	V.makerandom(VIRUS_ENGINEERED)
 	infect_virus2(H,V,1)
@@ -146,7 +146,7 @@
 	species = SPECIES_SKRELL
 	var/list/caste_colors
 
-/obj/effect/spawner/carbon/human/skrell/New()
+/obj/effect/spawner/carbon/human/skrell/Initialize()
 	if(caste_colors)
 		var/caste = pick(caste_colors)
 		caste[1] += rand(-5,5)
@@ -154,7 +154,7 @@
 		caste[3] += rand(-5,5)
 		skin_color = list(caste[1],caste[2],caste[3])
 		hair_color = list(caste[1],caste[2],caste[3])
-	..()
+	. = ..()
 
 /obj/effect/spawner/carbon/human/skrell/katish
 	caste_colors = list(1 = list(51, 153, 51))
@@ -188,6 +188,3 @@
 	species = SPECIES_DIONA
 
 //IPCs/Synths
-
-/obj/effect/spawner/carbon/human/machine
-//	species = SPECIES_IPC
