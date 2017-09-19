@@ -97,24 +97,17 @@ They sell generic supplies and ask for generic supplies.
 	origin = "Manifacturing Beacon"
 
 	possible_trading_items = list(/obj/structure/AIcore             = TRADER_THIS_TYPE,
-								/obj/structure/girder               = TRADER_THIS_TYPE,
-								/obj/structure/grille               = TRADER_THIS_TYPE,
-								/obj/structure/mopbucket            = TRADER_THIS_TYPE,
+								/obj/machinery/chemical_dispenser/ert = TRADER_THIS_TYPE,
+								/obj/machinery/cablelayer           = TRADER_THIS_TYPE,
+								/obj/machinery/chem_master          = TRADER_THIS_TYPE,
 								/obj/structure/ore_box              = TRADER_THIS_TYPE,
-								/obj/structure/coatrack             = TRADER_THIS_TYPE,
-								/obj/structure/bookcase             = TRADER_THIS_TYPE,
 								/obj/item/bee_pack                  = TRADER_THIS_TYPE,
 								/obj/item/bee_smoker                = TRADER_THIS_TYPE,
 								/obj/item/beehive_assembly          = TRADER_THIS_TYPE,
 								/obj/item/glass_jar                 = TRADER_THIS_TYPE,
 								/obj/item/honey_frame               = TRADER_THIS_TYPE,
-								/obj/item/target                    = TRADER_ALL,
 								/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
 								/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
 								/obj/structure/safe                 = TRADER_THIS_TYPE,
 								/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
-								/obj/structure/sign                 = TRADER_SUBTYPES_ONLY,
-								/obj/structure/sign/double          = TRADER_BLACKLIST_ALL,
-								/obj/structure/sign/goldenplaque    = TRADER_BLACKLIST_ALL,
-								/obj/structure/sign/poster          = TRADER_BLACKLIST
 								)

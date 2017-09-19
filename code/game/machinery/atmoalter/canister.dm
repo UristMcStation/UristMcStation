@@ -55,6 +55,9 @@
 	canister_color = "red"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/boron
+	name = "\improper Canister: \[Boron\]"
+	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/phoron
 	name = "\improper Canister \[Phoron\]"
@@ -384,6 +387,12 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/hydrogen/New()
 	..()
 	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.update_icon()
+	return 1
+
+/obj/machinery/portable_atmospherics/canister/boron/New()
+	..()
+	src.air_contents.adjust_gas("boron", MolesForPressure())
 	src.update_icon()
 	return 1
 
