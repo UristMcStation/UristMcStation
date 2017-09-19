@@ -261,10 +261,6 @@
 					new_objective:target = M.mind
 					new_objective.explanation_text = "[objective_type] [M.real_name], the [M.mind.special_role ? M.mind:special_role : M.mind:assigned_role]."
 
-			if ("prevent")
-				new_objective = new /datum/objective/block
-				new_objective.owner = src
-
 			if ("hijack")
 				new_objective = new /datum/objective/hijack
 				new_objective.owner = src
