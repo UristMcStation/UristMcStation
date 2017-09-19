@@ -206,3 +206,9 @@
 #define EFFECT_CONTINUE 0 	// Keep processing.
 #define EFFECT_HALT 1		// Stop processing, but don't qdel.
 #define EFFECT_DESTROY 2	// qdel.
+#define RAD_LEVEL_LOW 0.5 // Around the level at which radiation starts to become harmful
+#define RAD_LEVEL_MODERATE 5
+#define RAD_LEVEL_HIGH 25
+#define RAD_LEVEL_VERY_HIGH 75
+
+#define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.

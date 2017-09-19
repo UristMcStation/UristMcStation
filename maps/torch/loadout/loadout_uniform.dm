@@ -120,10 +120,14 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(skirts))
 
 /datum/gear/uniform/casual_pants
-    allowed_roles = SEMIFORMAL_ROLES
+	display_name = "casual pants selection"
+	path = /obj/item/clothing/under/casual_pants
+	allowed_roles = SEMIFORMAL_ROLES
 
 /datum/gear/uniform/formal_pants
-    allowed_roles = FORMAL_ROLES
+	display_name = "formal pants selection"
+	path = /obj/item/clothing/under/formal_pants
+	allowed_roles = FORMAL_ROLES
 
 /datum/gear/uniform/shorts
 	allowed_roles = RESTRICTED_ROLES
