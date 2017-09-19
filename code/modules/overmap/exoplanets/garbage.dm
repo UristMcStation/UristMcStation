@@ -46,9 +46,8 @@
 /datum/random_map/noise/exoplanet/garbage/get_additional_spawns(var/value, var/turf/T)
 	..()
 	var/v = noise2value(value)
-	if(v > 5)
+	if(v > 5 && istype(T, /turf/simulated/floor/exoplanet/desert))
 		T.icon_state = "desert[v-1]"
-		new/obj/structure/rubble/house(T)
 	else
 		if(prob(2))
 			new/obj/structure/rubble/war(T)

@@ -29,7 +29,7 @@
 	var/pillsprite = "1"
 	var/client/has_sprites = list()
 	var/max_pill_count = 20
-	flags = OPENCONTAINER
+	flags = OPENCONTAINER|OBJ_ANCHORABLE
 
 /obj/machinery/chem_master/New()
 	..()
@@ -72,7 +72,8 @@
 		B.loc = src
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	return
+	else
+		..(B, user)
 
 /obj/machinery/chem_master/Topic(href, href_list, state)
 	if(..())

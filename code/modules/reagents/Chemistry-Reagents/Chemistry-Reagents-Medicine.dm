@@ -359,6 +359,7 @@
 	reagent_state = SOLID
 	color = "#605048"
 	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -667,3 +668,42 @@
 	if(volume >= 5 && M.is_asystole())
 		remove_self(5)
 		M.resuscitate()
+
+
+//you probably shouldn't be reading this, these are sekrit wyrmcode recipes
+
+/datum/reagent/tridezatane
+	name = "Tridezatane"
+	description = "An experimental and unstable antibiotic designed to completely erradicate viral infections. Side effects may include cardiac arrest."
+	taste_description = "freezing bitterness"
+	reagent_state = LIQUID
+	color = "#dddddd"
+	scannable = 1
+	overdose = 1
+	metabolism = 0.1
+
+/datum/reagent/tridezatane/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	for(var/ID in M.virus2)
+		var/datum/disease2/disease/V = M.virus2[ID]
+		M.antibodies |= V.antigen
+	if(!M.is_asystole() && prob(5))
+		M.add_chemical_effect(CE_NOPULSE, 1)
+
+/datum/reagent/latrazine
+	name = "Latrazine"
+	description = "ERR: Database entry null. Analysis reports possible harmful neural effects."
+	reagent_state = LIQUID
+	color = "#be46ff"
+	scannable = 1
+	overdose = 10
+	metabolism = 0.05
+
+/datum/reagent/latrazine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	var/obj/item/organ/external/E = pick(M.bad_external_organs)
+	if(E.status & ORGAN_BROKEN)
+		E.status &= ~ORGAN_BROKEN
+		M.custom_pain("You suddenly feel EXCRUCIATING pain as your [E.name] <i>SNAPS</i> back into place.", 120, 1, E)
+
+	if(prob(5) && M.hallucination < 10)
+		to_chat(M, "<span class = 'danger'>Your vision of reality suddenly snaps!</span>")
+		M.hallucination = max(M.hallucination, 30)

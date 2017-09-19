@@ -192,12 +192,17 @@
 	var/list/big_flora_types = list()
 	var/list/plantcolors = list("RANDOM")
 
+	var/min_templates = 1
+	var/max_templates = 2
+	var/template_loaders = list()
+
 /datum/random_map/noise/exoplanet/New()
 	target_turf_type = world.turf
 	planetary_area = new planetary_area()
 	water_level = rand(water_level_min,water_level_max)
 	generate_flora()
 	..()
+	load_templates(/obj/effect/template_loader/housing)
 
 /datum/random_map/noise/exoplanet/proc/noise2value(var/value)
     return min(9,max(0,round((value/cell_range)*10)))
@@ -267,6 +272,16 @@
 	else
 		new /obj/effect/plant(T, pick(small_flora_types), start_matured = 1)
 
+/datum/random_map/noise/exoplanet/proc/load_templates()
+	for(var/i = 1 to rand(min_templates,max_templates))
+		var/tx = rand(9, world.maxx - 9)
+		var/ty = rand(9, world.maxy - 9)
+		var/turf/T = locate(tx,ty,world.maxz)
+		if(T)
+			var/template = pick(template_loaders)
+			var/obj/effect/template_loader/TL = new template(T)
+			TL.Load()
+
 /turf/simulated/floor/exoplanet
 	name = "space land"
 	icon = 'icons/turf/desert.dmi'
@@ -309,6 +324,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	movement_delay = 2
 	mudpit = 1

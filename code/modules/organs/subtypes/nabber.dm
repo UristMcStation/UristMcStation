@@ -110,7 +110,8 @@
 /obj/item/organ/internal/lungs/nabber/handle_failed_breath()
 	var/mob/living/carbon/human/H = owner
 
-	H.adjustOxyLoss(HUMAN_MAX_OXYLOSS * H.breath_fail_ratio)
+	var/obj/item/organ/internal/lungs/nabber/T = owner.internal_organs_by_name[BP_TRACH]
+	H.adjustOxyLoss(HUMAN_MAX_OXYLOSS * T.breath_fail_ratio)
 
 	if(breath_fail_ratio < 0.25 && owner.chem_effects[CE_OXYGENATED])
 		H.oxygen_alert = 0

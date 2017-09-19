@@ -240,3 +240,7 @@ var/list/datum/map_template/underground_templates = list()
 		return
 	return template.load(get_turf(src),centered = TRUE)
 */
+
+/obj/effect/template_loader/volcanic
+
+/obj/effect/template_loader/housing

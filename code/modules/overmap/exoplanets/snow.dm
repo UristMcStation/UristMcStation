@@ -25,6 +25,7 @@
 	planetary_area = /area/exoplanet/snow
 	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/beast/samak, /mob/living/simple_animal/hostile/retaliate/beast/diyaab, /mob/living/simple_animal/hostile/retaliate/beast/shantak)
 	plantcolors = list("#D0FEF5","#93E1D8","#93E1D8", "#B2ABBF", "#3590F3", "#4B4E6D")
+	template_loaders = list(/obj/effect/template_loader/volcanic, /obj/effect/template_loader/housing)
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')

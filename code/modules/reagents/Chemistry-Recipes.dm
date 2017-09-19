@@ -1969,3 +1969,17 @@
 	result = /datum/reagent/antidexafen
 	required_reagents = list(/datum/reagent/paracetamol = 1, /datum/reagent/carbon = 1)
 	result_amount = 2
+
+//secret recipes
+
+/datum/chemical_reaction/tridezatane
+	name = "Tridezatane"
+	result = /datum/reagent/tridezatane
+	required_reagents = list(/datum/reagent/toxin/potassium_chlorophoride = 1, /datum/reagent/radium = 1, /datum/reagent/spaceacillin = 1)
+	result_amount = 0.1
+
+/datum/chemical_reaction/latrazine
+	name = "Latrazine"
+	result = /datum/reagent/latrazine
+	required_reagents = list(/datum/reagent/rezadone = 1, /datum/reagent/toxin/phoron/oxygen = 1)
+	result_amount = 2

@@ -32,42 +32,42 @@
 "aF" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
 "aG" = (/obj/item/weapon/material/shard,/turf/simulated/floor/plating/airless,/area/away/abandoned)
 "aH" = (/obj/machinery/suit_storage_unit/mining,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"aI" = (/turf/simulated/wall/alium,/area/mine/explored)
-"aJ" = (/obj/item/weapon/material/shard,/turf/space,/area/space)
-"aK" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 1},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
-"aL" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
-"aM" = (/obj/item/frame/fire_alarm,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"aN" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"aO" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"aP" = (/obj/machinery/door/airlock/science,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"aQ" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"aR" = (/obj/structure/bed/alien,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"aS" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
-"aT" = (/obj/machinery/crystal_static/pink,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"aU" = (/mob/living/bot/medbot{emagged = 1},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"aV" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"aW" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"aX" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"aY" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"aZ" = (/obj/structure/table/rack,/obj/item/weapon/pickaxe/drill,/obj/item/weapon/pickaxe/drill,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"ba" = (/obj/structure/table/rack,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"bb" = (/obj/item/weapon/storage/ore,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"bc" = (/obj/structure/table/glass/phoron,/obj/random/drinkbottle,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bd" = (/obj/machinery/crystal_static/pink,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"be" = (/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bf" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1; species = "Skrell"},/obj/effect/decal/cleanable/blood/skrell,/obj/structure/bed/chair,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bg" = (/obj/effect/spawner/carbon/human/grayson/miner{damage = list("damage_all_brute" = 0, "damage_all_burn" = 200); killed = 1},/obj/structure/bed/chair,/obj/effect/decal/cleanable/liquid_fuel,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bh" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/obj/structure/bed/chair,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bi" = (/obj/machinery/crystal_static/cyan,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bj" = (/turf/simulated/wall,/area/mine/explored)
-"bk" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
-"bl" = (/obj/machinery/door/airlock/glass_external,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"bm" = (/obj/machinery/portable_atmospherics/hydroponics,/obj/effect/floor_decal/corner/fadegreen/full,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"bn" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"bo" = (/obj/item/stack/rods,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"bp" = (/obj/structure/girder,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"bq" = (/obj/structure/bed/alien,/obj/structure/boulder,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"br" = (/obj/structure/boulder,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
+"aI" = (/obj/item/weapon/material/shard,/turf/space,/area/space)
+"aJ" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 1},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
+"aK" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
+"aL" = (/obj/item/frame/fire_alarm,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"aM" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"aN" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"aO" = (/obj/machinery/door/airlock/science,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"aP" = (/obj/machinery/light{icon_state = "tube1"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"aQ" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
+"aR" = (/obj/machinery/crystal_static/pink,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"aS" = (/mob/living/bot/medbot{emagged = 1},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"aT" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"aU" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"aV" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"aW" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"aX" = (/obj/structure/table/rack,/obj/item/weapon/pickaxe/drill,/obj/item/weapon/pickaxe/drill,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"aY" = (/obj/structure/table/rack,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"aZ" = (/obj/item/weapon/storage/ore,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"ba" = (/obj/structure/table/glass/phoron,/obj/random/drinkbottle,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bb" = (/obj/machinery/crystal_static/pink,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bc" = (/obj/item/weapon/tank/aliether,/obj/item/weapon/tank/aliether,/obj/random/masks,/obj/random/masks,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bd" = (/obj/structure/table/reinforced,/obj/item/weapon/archaeological_find,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"be" = (/obj/item/weapon/archaeological_find,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bf" = (/obj/item/device/analyzer,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bg" = (/obj/structure/window/reinforced,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"bh" = (/turf/simulated/wall,/area/mine/explored)
+"bi" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bj" = (/obj/machinery/door/airlock/glass_external,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"bk" = (/obj/machinery/portable_atmospherics/hydroponics,/obj/effect/floor_decal/corner/fadegreen/full,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bl" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bm" = (/obj/item/stack/rods,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bn" = (/obj/structure/girder,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"bo" = (/obj/item/stack/rods,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bp" = (/obj/structure/boulder,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bq" = (/obj/machinery/door/window/eastleft{req_access = list(101)},/obj/effect/floor_decal/industrial/hatch/yellow,/obj/machinery/door/window/westright{req_access = list(101)},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"br" = (/mob/living/carbon/alien/diona,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/away/abandoned)
 "bs" = (/turf/simulated/mineral,/area/space)
 "bt" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 9},/obj/item/stack/rods,/turf/simulated/floor/plating/airless,/area/mine/explored)
 "bu" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 1},/obj/structure/closet/crate/secure/loot,/turf/simulated/floor/plating/airless,/area/mine/explored)
@@ -80,119 +80,121 @@
 "bB" = (/obj/effect/decal/cleanable/blood,/turf/simulated/wall,/area/away/abandoned)
 "bC" = (/obj/item/frame/light{icon_state = "tube-construct-item"; dir = 1},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
 "bD" = (/obj/item/device/radio/intercom{frequency = 1343; name = "intercom"; pixel_y = 22},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"bE" = (/obj/structure/boulder,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bF" = (/obj/effect/decal/cleanable/blood/oil,/mob/living/silicon/robot/drone,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bG" = (/obj/machinery/computer/drone_control,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bH" = (/mob/living/silicon/robot/drone,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bI" = (/obj/structure/table/glass/phoron,/obj/structure/window/phoronreinforced{dir = 8},/obj/random/contraband,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bJ" = (/obj/structure/table/glass/phoron,/obj/item/weapon/archaeological_find{preset_item_type = 27},/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bK" = (/obj/structure/table/glass/phoron,/obj/random/powercell,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bL" = (/obj/structure/table/glass/phoron,/obj/item/organ/internal/cell,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bM" = (/obj/structure/table/glass/phoron,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bN" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"bO" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate,/obj/random/material,/obj/random/material,/obj/random/material,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"bP" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/obj/structure/closet/crate/medical,/obj/random/medical,/obj/random/medical,/obj/random/firstaid,/obj/item/weapon/storage/firstaid/tactical,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"bQ" = (/obj/structure/table/glass/phoron,/obj/item/weapon/archaeological_find,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bR" = (/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bS" = (/obj/structure/table/glass/phoron,/obj/structure/window/phoronreinforced{dir = 8},/obj/random/ammo,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bT" = (/obj/effect/decal/cleanable/blood/skrell,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bU" = (/obj/machinery/crystal_static,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"bV" = (/obj/structure/window/reinforced,/turf/space,/area/space)
-"bW" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"bX" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 4},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"bY" = (/obj/structure/girder,/turf/simulated/floor/asteroid,/area/mine/explored)
-"bZ" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating,/area/away/abandoned)
-"ca" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cb" = (/obj/structure/boulder,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cc" = (/obj/effect/floor_decal/corner/fadegreen,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cd" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"ce" = (/obj/structure/girder,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"cf" = (/obj/structure/table/glass/phoron,/obj/item/weapon/archaeological_find,/obj/item/weapon/archaeological_find,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cg" = (/obj/machinery/porta_turret/stationary,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"ch" = (/turf/simulated/mineral/random/high_chance,/area/space)
-"ci" = (/obj/machinery/door/airlock/glass_external,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cj" = (/obj/structure/door_assembly/door_assembly_ext,/turf/simulated/floor/asteroid,/area/mine/explored)
-"ck" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cl" = (/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cm" = (/obj/structure/filingcabinet/chestdrawer{anchored = 0},/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cn" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"co" = (/obj/item/frame/light,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cp" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cq" = (/obj/item/device/radio/intercom{dir = 1; frequency = 1343; name = "intercom"; pixel_y = -22},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cr" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cs" = (/turf/simulated/floor/fixed/alium,/area/mine/explored)
-"ct" = (/obj/effect/wingrille_spawn/reinforced_phoron/full,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cu" = (/obj/item/weapon/surgicaldrill/alien,/obj/item/weapon/scalpel/alien,/obj/structure/table/glass/phoron,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cv" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/space,/area/space)
-"cw" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cx" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cy" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cz" = (/obj/machinery/door/blast/regular,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"cA" = (/obj/machinery/door/blast/regular/open,/obj/structure/largecrate,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"cB" = (/obj/machinery/door/airlock/engineering,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"cC" = (/turf/simulated/floor/grass,/area/away/abandoned)
-"cD" = (/obj/structure/window/phoronreinforced{dir = 8},/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cE" = (/obj/item/weapon/cautery/alien,/obj/item/weapon/hemostat/alien,/obj/structure/table/glass/phoron,/obj/item/organ/internal/heart/vox,/obj/item/organ/internal/lungs/vox,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cF" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cG" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cH" = (/obj/structure/table/reinforced,/obj/item/device/flashlight/maglight,/obj/item/device/radio{frequency = 1343},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cI" = (/obj/effect/floor_decal/spline/fancy/wood/cee{icon_state = "spline_fancy_cee"; dir = 1},/turf/simulated/floor/asteroid,/area/away/abandoned)
-"cJ" = (/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"cK" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/brflowers,/turf/simulated/floor/grass,/area/away/abandoned)
-"cL" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/mob/living/silicon/robot/drone,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"cM" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/item/frame/apc,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"cN" = (/obj/structure/table/reinforced,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/module/power_control,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"cO" = (/obj/machinery/door/airlock/glass{req_access = list(201)},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cP" = (/mob/living/simple_animal/hostile/shantak,/turf/simulated/floor/grass,/area/away/abandoned)
-"cQ" = (/obj/item/weapon/tank/aliether,/obj/item/weapon/tank/aliether,/obj/random/masks,/obj/random/masks,/obj/structure/table/glass/phoron,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cR" = (/obj/structure/window/phoronreinforced{dir = 8},/obj/structure/table/glass/phoron,/obj/random/firstaid,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cS" = (/obj/machinery/optable,/obj/item/organ/internal/heart,/obj/effect/decal/cleanable/blood,/obj/item/organ/internal/liver,/obj/item/organ/internal/kidneys/vox,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cT" = (/obj/item/weapon/circular_saw/alien,/obj/item/weapon/retractor/alien,/obj/structure/table/glass/phoron,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"cU" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 10},/obj/item/weapon/material/shard,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cV" = (/obj/effect/floor_decal/industrial/warning/dust,/obj/structure/window/reinforced,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cW" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 6},/obj/structure/window/reinforced,/obj/structure/closet/crate/secure,/obj/random/loot,/obj/random/loot,/turf/simulated/floor/plating/airless,/area/mine/explored)
-"cX" = (/obj/structure/bed/chair/office/dark{dir = 4},/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cY" = (/obj/structure/table/reinforced,/obj/machinery/button/remote/blast_door,/obj/random/projectile,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"cZ" = (/obj/structure/window/reinforced{dir = 4},/obj/effect/floor_decal/spline/fancy/wood{icon_state = "spline_fancy"; dir = 4},/obj/effect/floor_decal/spline/fancy/wood{icon_state = "spline_fancy"; dir = 8},/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"da" = (/obj/item/stack/rods,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"db" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dc" = (/obj/machinery/atmospherics/unary/vent_pump{icon_state = "map_vent"; dir = 1},/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dd" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/grass,/area/away/abandoned)
-"de" = (/obj/effect/floor_decal/industrial/outline/yellow,/mob/living/silicon/robot/drone,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"df" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dg" = (/obj/structure/computerframe,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"bE" = (/obj/structure/window/reinforced,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bF" = (/obj/structure/window/reinforced,/obj/item/weapon/material/shard,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bG" = (/obj/structure/boulder,/obj/machinery/door/airlock/science,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bH" = (/obj/structure/boulder,/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"bI" = (/obj/effect/decal/cleanable/blood/oil,/mob/living/silicon/robot/drone,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"bJ" = (/obj/machinery/computer/drone_control,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bK" = (/mob/living/silicon/robot/drone,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bL" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bM" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"bN" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate,/obj/random/material,/obj/random/material,/obj/random/material,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"bO" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/obj/structure/closet/crate/medical,/obj/random/medical,/obj/random/medical,/obj/random/firstaid,/obj/item/weapon/storage/firstaid/tactical,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"bP" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"bQ" = (/obj/structure/bed/chair/office/light{dir = 1},/turf/simulated/floor/asteroid,/area/away/abandoned)
+"bR" = (/obj/effect/floor_decal/industrial/hatch/yellow,/obj/machinery/door/window/eastleft{req_access = list(101)},/obj/machinery/door/window/westright{req_access = list(101)},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bS" = (/obj/structure/window/reinforced,/turf/space,/area/space)
+"bT" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"bU" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 4},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"bV" = (/obj/structure/girder,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bW" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating,/area/away/abandoned)
+"bX" = (/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bY" = (/obj/effect/floor_decal/corner/fadegreen,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"bZ" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"ca" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cb" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"cc" = (/turf/simulated/mineral/random/high_chance,/area/space)
+"cd" = (/obj/machinery/door/airlock/glass_external,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"ce" = (/obj/structure/door_assembly/door_assembly_ext,/turf/simulated/floor/asteroid,/area/mine/explored)
+"cf" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cg" = (/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"ch" = (/obj/structure/filingcabinet/chestdrawer{anchored = 0},/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"ci" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cj" = (/obj/item/frame/light,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"ck" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cl" = (/obj/item/device/radio/intercom{dir = 1; frequency = 1343; name = "intercom"; pixel_y = -22},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cm" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cn" = (/obj/item/weapon/material/shard,/obj/item/stack/rods,/turf/simulated/floor/asteroid,/area/mine/explored)
+"co" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
+"cp" = (/obj/machinery/door/airlock/science,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cq" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cr" = (/obj/structure/girder,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cs" = (/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/turf/space,/area/space)
+"ct" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cu" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cv" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cw" = (/obj/machinery/door/blast/regular,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cx" = (/obj/machinery/door/blast/regular/open,/obj/structure/largecrate,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cy" = (/obj/machinery/door/airlock/engineering,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cz" = (/turf/simulated/floor/grass,/area/away/abandoned)
+"cA" = (/obj/structure/bed/chair/office/light{dir = 4},/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"cB" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"cC" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cD" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cE" = (/obj/structure/closet/secure_closet{name = "uniforms"; req_access = list(101)},/obj/item/clothing/under/grayson,/obj/item/clothing/under/grayson,/obj/item/device/radio/headset,/obj/item/device/radio/headset,/obj/item/weapon/storage/backpack,/obj/item/weapon/storage/backpack/dufflebag,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cF" = (/obj/structure/table/reinforced,/obj/item/device/flashlight/maglight,/obj/item/device/radio{frequency = 1343},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cG" = (/obj/effect/floor_decal/spline/fancy/wood/cee{icon_state = "spline_fancy_cee"; dir = 1},/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cH" = (/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cI" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/brflowers,/turf/simulated/floor/grass,/area/away/abandoned)
+"cJ" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/mob/living/silicon/robot/drone,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cK" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/item/frame/apc,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cL" = (/obj/structure/table/reinforced,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/module/power_control,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cM" = (/obj/machinery/door/airlock/glass{req_access = list(201)},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cN" = (/mob/living/simple_animal/hostile/retaliate/beast/shantak,/turf/simulated/floor/grass,/area/away/abandoned)
+"cO" = (/obj/structure/table/glass,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cP" = (/obj/machinery/artifact_scanpad,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cQ" = (/obj/machinery/artifact_analyser,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"cR" = (/obj/structure/table/reinforced,/obj/item/device/mmi,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"cS" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 10},/obj/item/weapon/material/shard,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cT" = (/obj/effect/floor_decal/industrial/warning/dust,/obj/structure/window/reinforced,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cU" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 6},/obj/structure/window/reinforced,/obj/structure/closet/crate/secure,/obj/random/loot,/obj/random/loot,/turf/simulated/floor/plating/airless,/area/mine/explored)
+"cV" = (/obj/structure/bed/chair/office/dark{dir = 4},/obj/effect/decal/cleanable/generic,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cW" = (/obj/structure/table/reinforced,/obj/machinery/button/remote/blast_door,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"cX" = (/obj/structure/window/reinforced{dir = 4},/obj/effect/floor_decal/spline/fancy/wood{icon_state = "spline_fancy"; dir = 4},/obj/effect/floor_decal/spline/fancy/wood{icon_state = "spline_fancy"; dir = 8},/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"cY" = (/obj/item/stack/rods,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"cZ" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"da" = (/obj/machinery/atmospherics/unary/vent_pump{icon_state = "map_vent"; dir = 1},/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"db" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/grass,/area/away/abandoned)
+"dc" = (/obj/effect/floor_decal/industrial/outline/yellow,/mob/living/silicon/robot/drone,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dd" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"de" = (/obj/structure/frame/computer,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"df" = (/obj/structure/table/glass,/obj/item/weapon/folder/nt,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"dg" = (/obj/structure/bed/chair/comfy/black{tag = "icon-comfychair_preview (WEST)"; icon_state = "comfychair_preview"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
 "dh" = (/obj/machinery/crystal_static/cyan,/turf/simulated/floor/asteroid,/area/mine/explored)
-"di" = (/obj/item/device/radio/intercom{dir = 1; frequency = 1343; name = "intercom"; pixel_y = -22},/obj/structure/computerframe,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"dj" = (/obj/structure/computerframe,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
-"dk" = (/obj/structure/window/reinforced{dir = 4},/obj/effect/floor_decal/spline/fancy/wood/cee,/obj/machinery/crystal_static/cyan,/turf/simulated/floor/asteroid,/area/away/abandoned)
-"dl" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dm" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/grass,/area/away/abandoned)
-"dn" = (/obj/machinery/recharge_station,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"do" = (/obj/random/junk,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dp" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dq" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dr" = (/obj/machinery/light,/turf/simulated/floor/grass,/area/away/abandoned)
-"ds" = (/obj/machinery/door/blast/regular/open,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"dt" = (/obj/machinery/door/blast/regular/open,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"du" = (/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/mine/explored)
-"dv" = (/turf/simulated/mineral/random,/area/space)
-"dw" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dx" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dy" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dz" = (/obj/effect/decal/mecha_wreckage/ripley,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dA" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dB" = (/obj/machinery/artifact,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dC" = (/obj/effect/spawner/carbon/human/grayson/miner/brokenarm{killed = 1},/obj/structure/bed/nice,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dD" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dE" = (/obj/effect/shuttle_landmark/asteroid,/turf/space,/area/space)
-"dF" = (/obj/effect/decal/cleanable/blood,/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dG" = (/turf/space,/area/mine/explored)
-"dH" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dI" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dJ" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
-"dK" = (/obj/machinery/artifact,/turf/simulated/floor/plating,/area/mine/explored)
-"dL" = (/obj/machinery/suspension_gen/empty{icon_state = "suspension2"; dir = 8},/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dM" = (/obj/effect/overmap/sector/asteroid,/turf/space,/area/space)
+"di" = (/obj/structure/closet/secure_closet/guncabinet,/obj/random/projectile,/obj/random/projectile,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"dj" = (/obj/item/device/radio/intercom{dir = 1; frequency = 1343; name = "intercom"; pixel_y = -22},/obj/structure/frame/computer,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"dk" = (/obj/structure/frame/computer,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"dl" = (/obj/structure/window/reinforced{dir = 4},/obj/effect/floor_decal/spline/fancy/wood/cee,/obj/machinery/crystal_static/cyan,/turf/simulated/floor/asteroid,/area/away/abandoned)
+"dm" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dn" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/grass,/area/away/abandoned)
+"do" = (/obj/machinery/recharge_station,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dp" = (/obj/random/junk,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dq" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dr" = (/obj/effect/floor_decal/corner/fadegreen{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"ds" = (/obj/machinery/light,/turf/simulated/floor/grass,/area/away/abandoned)
+"dt" = (/obj/machinery/porta_turret/stationary,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"du" = (/obj/machinery/door/blast/regular/open,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dv" = (/obj/machinery/door/blast/regular/open,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/plating/airless,/area/away/abandoned)
+"dw" = (/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"dx" = (/turf/simulated/mineral/random,/area/space)
+"dy" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dz" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
+"dA" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
+"dB" = (/obj/effect/decal/mecha_wreckage/ripley,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dC" = (/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dD" = (/obj/machinery/artifact,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dE" = (/obj/effect/spawner/carbon/human/grayson/miner/brokenarm{killed = 1},/obj/structure/bed/nice,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dF" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dG" = (/obj/effect/shuttle_landmark/asteroid,/turf/space,/area/space)
+"dH" = (/obj/effect/decal/cleanable/blood,/obj/effect/spawner/carbon/human/grayson/miner{killed = 1},/turf/simulated/floor/asteroid,/area/mine/explored)
+"dI" = (/turf/space,/area/mine/explored)
+"dJ" = (/obj/effect/floor_decal/industrial/warning/dust/corner,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dK" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/floor_decal/industrial/warning/dust,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dL" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
+"dM" = (/obj/machinery/artifact,/turf/simulated/floor/plating,/area/mine/explored)
+"dN" = (/obj/machinery/suspension_gen/empty{icon_state = "suspension2"; dir = 8},/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/turf/simulated/floor/asteroid,/area/mine/explored)
+"dO" = (/obj/effect/overmap/sector/asteroid,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab
@@ -231,25 +233,25 @@ aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacaaaaaaananaaacacacacacacacacacaoaoaoaoaoapapapapaoaoapapapapapapacacacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaqacacafaaaaaaaaananacacacacacacacacaoaoaoarasatauauavawapaoaxapayazazaAapacacacacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaaaaaaaaananahahacacacaoaoaoaoaBaBasasaCasataBaBaDauaBapazazazaEapacacacacacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaaaaacahananahahacaoaoaoasataBaxaBaCaCaCaCaFaCataDaBaGazazazataHapahacacaIaIacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaJaaaaaaacacacacahaKaLahahahapaMaBasataBaNataCaCataCaCaOaCaPaBatapaQazaNaBapahahacaIaRacacacacacacacaIaIaIaIaIaIaIaIaIacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacahahahaSapapapaTaCatatatasaCaUaCaCaCaVaCaWaXaYazapaZbabbaBapahahacaIbcbdacacacacacacaIbebfbebgbebhbiaIacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaJaabjbjbjacacahahahbkblatblaCaCaOatasasaDaCaCasbmbmbmataGbnboapapbpaBapapahahacaIbqbraRaIacaIaIaIaIbebebebebebebeaIacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaabtbubvbjacahahahahaSapapapaCbwaCaCatataDaCbxatatbybzbAbBboazbCbDazaBazapahahacaIaIbraIaIbEbFbGbHbHbIbJbKbLbJbMbeaIacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaaaabNbObPbjacahahahahahahahapapapapapapapapapapapapapapapapazazazazatavatbBahaiacaIbQbRbebebebebebebebSbebTbebUbebeaIacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaabVbWanbXbYahahahahahahahahbZazazbDazazazcaazazazazazazazcbazcccdcdataBaBceahaiaiaIcfbebebebebebUbebebebebebebebecgaIacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbschbsbsbsbsbsbsbsbsbschbschbsbsbsbsbsbsbsaaaaaaaaaaaaaaciananancjahahahahahahahahbZazazataxckclclcmcncoazazazcpcqazcrbZbZbZbZbZapahahaiaIaIcsaIctctctbebebebebecuaIaIaIaIaIacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbschchchbsbschchchbsbschchbsbschbsbsbsbsbsbsbsaaaaaaaaaaaaaacvcwancxbjacakahahahahahahapapcyapapbpczczcAapapbBapcBapapaQcrbZcCcCcCcCapagahacaIbJbebebecgctbebebecDbecEaIacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabschchbsbsbsbsbsbsbsbsbsbschchbsbsbschchchchchchchbsbschchbsbsbschchbsbschchbsbsbsbsaaaaaaaaaaaaaacFancGbjacacahahahahahahapazazcHbZcIaGatcJcKapcLcMatcNapazazcOcCcCcCcPapahahacaIcQbebdbebectbebebicRcScTaIacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbschchchchchchchchchchchchchchchchchchbsbsbsbsbsbschchbsbschchchbschchchbsbsbsbsbsaaaaaaaaaaaaaacUcVcWbjacacacahahahaiaiapaQcXcYbZcZdadbdcddapdedfatdgapaBcrbZcCcCcCcCapahahacaIaIaIaIaIaIaIaIbeaIaIaIaIaIacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbschchbschchchchchchbsbsbsbsbschchbsbsbschchbsbschchbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaabjbjaeaeacacdhahaiacapazdidjbZdkatdlatdmapdndndodpapaTdqbZcCcPdrcCapahacacacacacacacacaIcgbecgaIacacacacacacacacacacaeacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbschchchchchchbsbsbsbsbsbsbsbschbsbschchchbschchbsbsbsbsbsbsbsaaaqaaaaaaaaaaaaaaaaaaaeacacaeacacacaiacacapapapapapapdsdtdsbBapapapapapapaoaoapapapapapapahahahacacacacacacaIbidubeacacacacacacacacacacaeaeacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbschchchbsbschchbsbsbsbsbsbsbschchbsbsbschchchchchchchbsbsbsbsbsaaaaaaaadvaaaaaaaaaaaaaaaeaeacaeacacacacacaidwahahahdxaLaKaLaLaLdyahahalacacacacacacacacacacacacahagahacacacacahahajahaIacacacacacaeaeaeaeacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbschchchchbschchbsbsbsbsbsbsbsbschchbsbschchchchchchchbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaJacaeaeaeacacacacacacaeacahahahahagahahahahahacacacacacacacacacacacacacacacacagaiacaiaiahdzahahacacacacaeaeaeacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabschchchbsbschchchbsbsbsbsbsbsbsbsbsbschchchchchchchbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaeaeacacacacacacaeaeacacahahagahahahahahahahahacacacacacacacacacacacacacacacaiacacaiagagdAahdhacacaeaeacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaachbsbsbsbschchbsbsbsbsbsbsbschchchchchchchchbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaqaaacacaeaeacacacacacaeaeaeahahahahacahahahahahagahahacacacacacacacacacacacacacacacacaeaeaedhahahahacacaeacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbschchchchchchchchchchbschchchbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacahahahahahahahahahakacacacahahahahahaiaiaiahacacacacacacacacacacacaeaeaeacacacacacacacaeaeacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbschchbsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahahahahahagahahacacacacacacacacalacaiaiagahahalacacacacacacacacaeaeacacacacacacacacacaeacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaaaaacahananahahacaoaoaoasataBaxaBaCaCaCaCaFaCataDaBaGazazazataHapahacacapapaoaoaoacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaIaaaaaaacacacacahaJaKahahahapaLaBasataBaMataCaCataCaCaNaCaOaBatapaPazaMaBapahahacapazaoaoaoacacacacapapapapapapaoapapacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacahahahaQapapapaRaCatatatasaCaSaCaCaCaTaCaUaVaWazapaXaYaZaBapahahacapbabbaoaoacacacacapbcbdbebfaRbgbgapacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaIaabhbhbhacacahahahbibjatbjaCaCaNatasasaDaCaCasbkbkbkataGblbmapapbnaBapapahahboapbpbpazapaoapapapapaCaCaCaCaCbqbrapacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaabtbubvbhacahahahahaQapapapaCbwaCaCatataDaCbxatatbybzbAbBbmazbCbDazaBazapbEbFacapapbGapapbHbIbJbKbKaCaCaCaCaCbLbLapacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaaaabMbNbObhacahahahahahahahapapapapapapapapapapapapapapapapazazazazatavatbPaBauauasataCaCaCaCaBbQaCaCaCaCaCaCaBbRbrapacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaabSbTanbUbVahahahahahahahahbWazazbDazazazbXazazazazazazazbpazbYbZbZataBaBaBatauauaoaCaCaCaCaCaCaxaCaCaCaCaCaCaxcacbapacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsccbsbsbsbsbsbsbsbsbsccbsccbsbsbsbsbsbsbsaaaaaaaaaaaaaacdanananceahahahahahahahahbWazazataxcfcgcgchcicjazazazckclazcmbWbWbWbWbWapcncoaiapapcpapcqcqcqaBaCaCaCaCbdapapcrapapacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsbsbsbsbsbsbsccccccbsbsccccccbsbsccccbsbsccbsbsbsbsbsbsbsaaaaaaaaaaaaaacsctancubhacakahahahahahahapapcvapapbncwcwcxapapbBapcyapapaPcmbWczczczczapagcnacapazazazazazcqaCaCaCaCcAcBapacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsccccbsbsbsbsbsbsbsbsbsbsccccbsbsbsccccccccccccccbsbsccccbsbsbsccccbsbsccccbsbsbsbsaaaaaaaaaaaaaacCancDbhacacahahahahahahapcEazcFbWcGaGatcHcIapcJcKatcLapazazcMczczczcNapahahacapazazaRcOazcqaCaCavcPcQcRapacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsccccccccccccccccccccccccccccccccccccbsbsbsbsbsbsccccbsbsccccccbsccccccbsbsbsbsbsaaaaaaaaaaaaaacScTcUbhacacacahahahaiaiapaPcVcWbWcXcYcZdadbapdcddatdeapaBcmbWczczczczapahahacapaBaBaudfdgapapaCapcrapapapacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsbsccccbsccccccccccccbsbsbsbsbsccccbsbsbsccccbsbsccccbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaabhbhaeaeacacdhahaiacapdidjdkbWdlatdmatdnapdododpdqapaRdrbWczcNdsczapahacacapcraoaoaoaoapdtaCdtapacacacacacacacacacacaeacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsccccccccccccbsbsbsbsbsbsbsbsccbsbsccccccbsccccbsbsbsbsbsbsbsaaaqaaaaaaaaaaaaaaaaaaaeacacaeacacacaiacacapapapapapapdudvdubBapapapapapapaoaoapapapapapapahahahacacacacacacapavdwaCaoacacacacacacacacacaeaeacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsccccccbsbsccccbsbsbsbsbsbsbsccccbsbsbsccccccccccccccbsbsbsbsbsaaaaaaaadxaaaaaaaaaaaaaaaeaeacaeacacacacacaidyahahahdzaKaJaKaKaKdAahahalacacacacacacacacacacacacahagahacacacacahahajahbhacacacacacaeaeaeaeacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsccccccccbsccccbsbsbsbsbsbsbsbsccccbsbsccccccccccccccbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaIacaeaeaeacacacacacacaeacahahahahagahahahahahahacacacacacacacacacacacacacacacagaiacaiaiahdBahahacacacacaeaeaeacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsccccccbsbsccccccbsbsbsbsbsbsbsbsbsbsccccccccccccccbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaeaeacacacacacacaeaeacacahahagahahahahahahahahacacacacacacacacacacacacacacacaiacacaiagagdCahdhacacaeaeacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccbsbsbsbsccccbsbsbsbsbsbsbsccccccccccccccccbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaqaaacacaeaeacacacacacaeaeaeahahahahacahahahahahagahahacacacacacacacacacacacacacacacacaeaeaedhahahahacacaeacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsccccccccccccccccccccbsccccccbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacahahahahahahahahahakacacacahahahahahaiaiaiahacacacacacacacacacacacaeaeaeacacacacacacacaeaeacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsccccbsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahahahahahagahahacacacacacacacacalacaiaiagahahalacacacacacacacacaeaeacacacacacacacacacaeacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahahahacacacacacacacacacacacacacacacacacahahahahahacacacacacacacacaeacacacacacacacacacacaeacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahacacacacacacacacacacacacacacacacacacacahahahahahacacacacacacacacaeaeacacacacacacacacacaeacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahahacacacacacacacacacacacacacacacacacacacahahahahahahacacacacacacacacaeaeacacacacacacacacacaeacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
@@ -267,15 +269,15 @@ aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacahahahacacacacacaeaeacaeaeaeacacacacacacacacacacacacacacaeahahahahahahacacacacacacacacacacacacacacacacacacacacacacacacacacacacaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacahahahacacacaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeacacaeaeahahahahahahacacacacacacahahalacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaaaaacacacacahahahacacaeaeaeaeacacacacacacaeaeaeaeacacacacacaeaeaeaeacacahahahahahahacacacacdhahahahacacacacacacacacacacacacacacacacacacacaaaabsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaaaaacacacacahahacacacaeaeaeaeaeaeaeacacacacacacaeaeaeaeacacacaeaeacacacacahahahahahacacacacahahdBahahacacacacacacacacacacacacacacacacacacaaaabsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaaaaacacacacahahacacacaeaeaeaeaeaeaeacacacacacacaeaeaeaeacacacaeaeacacacacahahahahahacacacacahahdDahahacacacacacacacacacacacacacacacacacacaaaabsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaaaaaaacacacacahahacaeaeaeaeacacacaeacaeaeaeaeaeaeaeacacaeaeaeacaeacacacacacahahahahahahacacacahahahahahacacacacacacacacacacacacacacacacacacaaaabsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaaaaaaacacacahahahacaeacaeaeaeaeaeaeacacacacacacacacacacacacaeaeaeacacacacacacahahahahahahacacacacdhahahalacacacacacacacacacacacacacacacacacaaaabsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaaaaacacacacahahahacaeacaeaeaeacacacacacacahahahacacacacacacacaeaeaeacacacacacacahahahahahahacacacacacahacacacacacacacacacacacacacacacacacacaabsbsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaaaaaaacacacacahahacacaeaeaeaeacacacacahahahahahahahahahahahacacacacaeaeaeacacacacahahahahahahahacacacacacacacacacacacacacacacacacacacacacacacaaaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacahahakacacacacacacahahahacacacacacacacacacahahacacacacacaeaeacacacacahahahahahahahahahacacacacacacacacacacacacacacacacacacacacacaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacahahacacacacacahahahacacacacahdCahahacacacahahahahacacacacacacacacacahahahahahacacacahahahahacacacacacacacacacacacacacacacacacacaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacahahahacacaiahacacacaeahahahdDahahahacacacacahahahahacacacacacacacacahahahahahacacacahahahahahahacacacacacacacacacacacacacacacaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaeaeacacacacahahahakahahacacacaeahahahaeagdDakacacacacacacacahahacacacacacacacahahahacahahacacacacahahacahahalacacacacacacacacacacacacacaaaabsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacahahacacacacacahahahacacacacahdEahahacacacahahahahacacacacacacacacacahahahahahacacacahahahahacacacacacacacacacacacacacacacacacacaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacahahahacacaiahacacacaeahahahdFahahahacacacacahahahahacacacacacacacacahahahahahacacacahahahahahahacacacacacacacacacacacacacacacaabsbsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaeaeacacacacahahahakahahacacacaeahahahaeagdFakacacacacacacacahahacacacacacacacahahahacahahacacacacahahacahahalacacacacacacacacacacacacacaaaabsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaeacacacacacacahahahahahahacacacdhahahahahahacacacacacacacacacahacacacacacacacahahacacahahahacacacacahahahahahahacacacacacacacacacacacacacaabsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaeaeacacacacacacacahahahahahacacacacahahahahahahahacacacacacacacahacacacacacacacahahahacacahahacacacacacacacahahahahahahacacacacahahalacahahaabsbsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaeacacacacacacacacacacahahahahacacacacahahalacaiahahalacacacacacahacacacacacacacahahacacacacahahacacacacacacacacacahahahahahahahahahahahahacaaaabsbsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
@@ -304,12 +306,12 @@ aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacaaacaaacacacacacaaaaaa
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahacacaaaaaaaeacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacahahakacacaaaaaeaeacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacahahahacacaaaaaeaeaeacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahahacacaaaaaeaeaeacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahahacacaaaaaeaeaeacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacakahahahacaaaaaeaeacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahahahdFahdGaaaaaeacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacahahdHdIdJakacaaaaaeacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahaSdKdLahacaaaaaeaeacacaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahdxaLdyahacaaaaaeaeacacaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahahahdHahdIaaaaaeacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacahahdJdKdLakacaaaaaeacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahaQdMdNahacaaaaaeaeacacaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacahdzaKdAahacaaaaaeaeacacaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacakahahacacaaaaaeaeacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacaaaaaaaeacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 aaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacaaaaaaaaaeaaaaaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
@@ -344,5 +346,5 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadM
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadO
 "}

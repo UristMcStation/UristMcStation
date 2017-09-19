@@ -55,3 +55,11 @@
 
 	desc = "Contains [english_list(names)]."
 	update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/tridezatane/New()
+	..()
+	reagents.add_reagent(/datum/reagent/tridezatane, 5)
+
+/obj/item/weapon/reagent_containers/glass/beaker/vial/latrazine/New()
+	..()
+	reagents.add_reagent(/datum/reagent/latrazine, 5)

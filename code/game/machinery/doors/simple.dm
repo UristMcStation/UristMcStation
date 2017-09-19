@@ -244,3 +244,6 @@
 
 /obj/machinery/door/unpowered/simple/alium/New(var/newloc,var/material_name,var/complexity)
 	..(newloc, "alien alloy", complexity)
+
+/obj/machinery/door/unpowered/simple/biomass/New(var/newloc,var/material_name,var/complexity)
+	..(newloc, "biomass", complexity)

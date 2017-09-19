@@ -10,7 +10,7 @@
 
 	layer = 5
 	anchored = 1 //prevents weather from being /draggable/
-	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
+	mouse_opacity = 2 //doesn't need to be clickable and is less of an annoyance for players
 	var/weather_safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
 	var/weather_dynamic = 1 //if 1, changes periodically

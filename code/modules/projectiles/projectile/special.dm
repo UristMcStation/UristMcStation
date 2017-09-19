@@ -67,7 +67,7 @@
 				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
-				for(var/mob/M in range(10, src))
+				for(var/mob/M in range(20, src))
 					if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 						shake_camera(M, 3, 1)
 				qdel(src)
