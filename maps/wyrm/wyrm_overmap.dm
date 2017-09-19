@@ -96,6 +96,9 @@
 	name = "Rescue Pod Control"
 	shuttle_tag = "Rescue Pod"
 
+/obj/machinery/computer/shuttle_control/explore/admin
+	shuttle_tag = "CHANGE_ME"
+
 /datum/shuttle/autodock/overmap/hatchling
 	name = "Hatchling"
 	move_time = 90
@@ -227,3 +230,16 @@
 	name = "Jungle Landing Site"
 	landmark_tag = "planet_away"
 	base_area = /area/jungle/shuttle
+
+/obj/effect/shuttle_landmark/diona
+	name = "Unknown Navpoint"
+	landmark_tag = "diona_away"
+	base_area = /area/away/dionaship
+	base_turf = /turf/simulated/floor/diona
+
+/obj/effect/overmap/sector/diona
+	name = "Unknown Biomass Structure"
+	desc = "Scans report unknown polymer materials in addition t- ERR: Malformed data packets received //SCN_DAT_END 0x00."
+	generic_waypoints = list(
+		"diona_away"
+	)

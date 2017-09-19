@@ -128,6 +128,18 @@
 /obj/effect/spawner/carbon/human/vox
 	species = SPECIES_VOX
 
+/obj/effect/spawner/carbon/human/vox/robed
+	clothing = /decl/hierarchy/outfit/vox/robes
+
+/obj/effect/spawner/carbon/human/vox/medic
+	clothing = /decl/hierarchy/outfit/vox/medic
+
+/obj/effect/spawner/carbon/human/vox/stealth
+	clothing = /decl/hierarchy/outfit/vox/stealth
+
+/obj/effect/spawner/carbon/human/vox/assault
+	clothing = /decl/hierarchy/outfit/vox/assault
+
 //Skrell castes
 
 /obj/effect/spawner/carbon/human/skrell
@@ -169,6 +181,11 @@
 
 /obj/effect/spawner/carbon/human/teshari
 	species = SPECIES_RESOMI
+
+//Diona
+
+/obj/effect/spawner/carbon/human/diona
+	species = SPECIES_DIONA
 
 //IPCs/Synths
 
