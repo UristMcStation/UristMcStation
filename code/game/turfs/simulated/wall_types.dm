@@ -77,3 +77,10 @@
 	if(prob(explosion_resistance))
 		return
 	..()
+
+/turf/simulated/wall/biomass
+	icon_state = "diona"
+	floor_type = /turf/simulated/floor/diona
+
+/turf/simulated/wall/biomass/New(var/newloc)
+	..(newloc,"biomass")

@@ -13,6 +13,7 @@
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0      // Dionaea do not need to speak to people other than other dionaea.
+	faction = "diona"
 
 	can_pull_size = ITEM_SIZE_SMALL
 	can_pull_mobs = MOB_PULL_SMALLER

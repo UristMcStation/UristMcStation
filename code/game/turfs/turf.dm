@@ -27,6 +27,8 @@
 
 	var/movement_delay
 
+	var/passive_temp = 0 //How much should we adjust the person's temperature just by standing on this?
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)

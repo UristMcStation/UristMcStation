@@ -34,7 +34,7 @@ var/global/remaininggens = 6
 
 	for(var/obj/machinery/computer/shuttle_control/S in GLOB.machines)
 		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security" || S.shuttle_tag == "Planet")
-			new /obj/structure/computerframe(S.loc)
+			new /obj/structure/frame/computer(S.loc)
 			qdel(S)
 
 	for(var/obj/structure/reagent_dispensers/fueltank/S in world) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.

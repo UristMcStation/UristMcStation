@@ -173,6 +173,8 @@
 /obj/structure/bed/alien/New(var/newloc)
 	..(newloc,"resin")
 
+/obj/structure/bed/alien/diona/New(var/newloc)
+	..(newloc,"biomass")
 /*
  * Roller beds
  */

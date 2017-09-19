@@ -50,6 +50,29 @@ var/list/floor_decals = list()
 	icon_state = "corner_white"
 	alpha = 229
 
+/obj/effect/floor_decal/corner/clean
+	icon_state = "corner_white_clean"
+
+/obj/effect/floor_decal/corner/shuttle
+	icon_state = "corner_white_shuttle"
+
+/obj/effect/floor_decal/corner/shuttle/black
+	name = "black corner"
+	color = "#333333"
+
+/obj/effect/floor_decal/corner/clean/black
+	name = "black corner"
+	color = "#333333"
+
+/obj/effect/floor_decal/corner/clean/black/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/black/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/black/full
+	icon_state = "corner_white_full_clean"
+
 /obj/effect/floor_decal/corner/black
 	name = "black corner"
 	color = "#333333"
@@ -63,6 +86,16 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/black/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/clean/blue
+	name = "blue corner"
+	color = COLOR_BLUE_GRAY
+
+/obj/effect/floor_decal/corner/clean/blue/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/blue/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
 /obj/effect/floor_decal/corner/blue
 	name = "blue corner"
 	color = COLOR_BLUE_GRAY
@@ -72,6 +105,19 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/blue/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/clean/paleblue
+	name = "pale blue corner"
+	color = COLOR_PALE_BLUE_GRAY
+
+/obj/effect/floor_decal/corner/clean/paleblue/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/paleblue/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/paleblue/full
+	icon_state = "corner_white_full_clean"
 
 /obj/effect/floor_decal/corner/paleblue
 	name = "pale blue corner"
@@ -99,6 +145,10 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/darkblue/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/shuttle/fadeblue
+	name = "faded blue corner"
+	color = "#4f637d"
+
 /obj/effect/floor_decal/corner/fadeblue
 	name = "faded blue corner"
 	color = "#4f637d"
@@ -111,6 +161,10 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/fadeblue/full
 	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/shuttle/fadegreen
+	name = "faded green corner"
+	color = "#6b8254"
 
 /obj/effect/floor_decal/corner/fadegreen
 	name = "faded green corner"
@@ -125,6 +179,23 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/fadegreen/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/clean/green
+	name = "green corner"
+	color = COLOR_GREEN_GRAY
+
+/obj/effect/floor_decal/corner/clean/green/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/green/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/green/full
+	icon_state = "corner_white_full_clean"
+
+/obj/effect/floor_decal/corner/shuttle/green
+	name = "green corner"
+	color = COLOR_GREEN_GRAY
+
 /obj/effect/floor_decal/corner/green
 	name = "green corner"
 	color = COLOR_GREEN_GRAY
@@ -138,6 +209,16 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/green/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/clean/lime
+	name = "lime corner"
+	color = COLOR_PALE_GREEN_GRAY
+
+/obj/effect/floor_decal/corner/clean/lime/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/lime/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
 /obj/effect/floor_decal/corner/lime
 	name = "lime corner"
 	color = COLOR_PALE_GREEN_GRAY
@@ -147,6 +228,10 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/lime/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/shuttle/yellow
+	name = "yellow corner"
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
@@ -170,6 +255,19 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/beige/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/clean/red
+	name = "red corner"
+	color = COLOR_RED_GRAY
+
+/obj/effect/floor_decal/corner/clean/red/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/red/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/red/full
+	icon_state = "corner_white_full_clean"
 
 /obj/effect/floor_decal/corner/red
 	name = "red corner"
@@ -219,6 +317,26 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/mauve/full
 	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/clean/orange
+	name = "orange corner"
+	color = COLOR_DARK_ORANGE
+
+/obj/effect/floor_decal/corner/clean/orange/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/orange/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/orange
+	name = "orange corner"
+	color = COLOR_DARK_ORANGE
+
+/obj/effect/floor_decal/corner/clean/orange/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/orange/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
 
 /obj/effect/floor_decal/corner/orange
 	name = "orange corner"

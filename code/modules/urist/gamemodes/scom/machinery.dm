@@ -332,7 +332,7 @@
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
 			A.forceMove(destination)
-			new /obj/effect/sparks(destination)
+			single_spark(destination)
 
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"
