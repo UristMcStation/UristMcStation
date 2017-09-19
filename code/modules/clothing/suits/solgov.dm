@@ -155,7 +155,7 @@
 	//item_state = "labcoat"
 	icon_open = "whitedress_open"
 	icon_closed = "whitedress"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	valid_accessory_slots = list(ACCESSORY_SLOT_MEDAL,ACCESSORY_SLOT_RANK)
 
 /obj/item/clothing/suit/storage/toggle/dress/fleet
@@ -169,7 +169,7 @@
 	//item_state = "labcoat"
 	icon_open = "whitedress_com_open"
 	icon_closed = "whitedress_com"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 
 /obj/item/clothing/suit/dress/marine
 	name = "marine dress jacket"

@@ -16,7 +16,7 @@
 	desc = "An armored vest that protects against some damage."
 	icon_state = "armor"
 	//item_state = "armor"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	heat_protection = UPPER_TORSO|LOWER_TORSO
@@ -59,7 +59,7 @@
 	desc = "An armored vest with heavy padding to protect against melee attacks."
 	icon_state = "riotvest"
 	//item_state = "armor"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	w_class = ITEM_SIZE_NORMAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -87,7 +87,7 @@
 	desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
 	icon_state = "bulletproofvest"
 	//item_state = "armor"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	w_class = ITEM_SIZE_NORMAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -115,7 +115,7 @@
 	desc = "A vest that excels in protecting the wearer against energy projectiles."
 	icon_state = "reflectvest"
 	//item_state = "armor_reflec"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	w_class = ITEM_SIZE_NORMAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
@@ -148,7 +148,7 @@
 	desc = "An armored jacket used in special operations."
 	icon_state = "detective"
 	//item_state = "det_suit"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -160,7 +160,7 @@
 	desc = "An armored vest with a detective's badge on it."
 	icon_state = "detective-armor"
 	//item_state = "armor"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
@@ -173,7 +173,7 @@
 	var/active = 0.0
 	icon_state = "reactiveoff"
 	item_state = "reactiveoff"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/reactive/New()

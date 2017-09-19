@@ -7,7 +7,7 @@
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 //	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "coatwinter"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	min_cold_protection_temperature = 243.15

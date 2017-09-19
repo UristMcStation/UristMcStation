@@ -48,7 +48,7 @@
 		user.visible_message("[user] detaches \the cybernetic controller from [target]'s [affected.robotic ? "data cords" : "spinal column"].", \
 		"You detach \the cybernetic controller from [target]'s [affected.robotic ? "data cords" : "spinal column"].")
 	else //For when you really need to 'disable' your prisoners
-		user.visible_message("<span class = 'danger'>[user] brutally rip [target]'s controller out of them with \the [tool]!</span>", \
+		user.visible_message("<span class = 'danger'>[user] brutally rips [target]'s controller out of them with \the [tool]!</span>", \
 			"<span class = 'danger'>You devastatingly tear [target]'s controller out of them with your [tool]!</span>")
 		affected.fracture()
 		controller.take_damage(10)
