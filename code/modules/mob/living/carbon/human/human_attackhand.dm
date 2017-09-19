@@ -347,7 +347,7 @@
 		return 0
 
 	if(organ.applied_pressure)
-		var/message = "<span class='warning'>[ismob(organ.applied_pressure)? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [user == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
+		var/message = "<span class='warning'>[ismob(organ.applied_pressure) ? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [user == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
 		to_chat(user, message)
 		return 0
 
@@ -355,17 +355,40 @@
 		user.visible_message("\The [user] starts applying pressure to \his [organ.name]!", "You start applying pressure to your [organ.name]!")
 	else
 		user.visible_message("\The [user] starts applying pressure to [src]'s [organ.name]!", "You start applying pressure to [src]'s [organ.name]!")
-	spawn(0)
-		organ.applied_pressure = user
 
-		//apply pressure as long as they stay still and keep grabbing
-		do_mob(user, src, INFINITY, target_zone, progress = 0)
-
-		organ.applied_pressure = null
-
-		if(user == src)
-			user.visible_message("\The [user] stops applying pressure to \his [organ.name]!", "You stop applying pressure to your [organ.name]!")
-		else
-			user.visible_message("\The [user] stops applying pressure to [src]'s [organ.name]!", "You stop applying pressure to [src]'s [organ.name]!")
+	put_in_active_hand(new /obj/item/pressure(src, user, organ))
 
 	return 1
+
+/obj/item/pressure //could this be a grab? probably. does it matter? probably not
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "pressure"
+	var/obj/item/organ/external/applied
+	var/mob/living/carbon/human/H
+
+/obj/item/pressure/New(var/newloc, var/mob/user, var/obj/item/organ/external/O)
+	..(newloc)
+	if(!O || !user || !O.owner)
+		qdel(src)
+	O.applied_pressure = user
+	applied = O
+	H = O.owner
+	name = "\proper[H == loc ? "[H.gender == "male" ? "his" : "her"]" : "[O.owner.name]'s"] [O.name]" //this will end as expected
+	if(H != loc)
+		GLOB.processing_objects.Add(src)
+
+/obj/item/pressure/process()
+	if(!Adjacent(H))
+		if(!QDELETED(src))
+			qdel(src)
+
+/obj/item/pressure/Destroy()
+	GLOB.processing_objects.Remove(src)
+	H.visible_message("<span class = 'notice'>\The [H] stops applying pressure to \his [applied.name]!", "You stop applying pressure to your [applied.name]!</span>")
+	applied.applied_pressure = null
+	. = ..()
+
+/obj/item/pressure/dropped()
+	..()
+	if(!QDELETED(src))
+		qdel(src)
