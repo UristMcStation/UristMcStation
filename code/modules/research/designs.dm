@@ -1142,6 +1142,27 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/roboprinter
 	sort_string = "FAGAM"
 
+/datum/design/circuit/bodyscanner
+	name = "body scanner"
+	id = "bodyscanner"
+	req_tech = list(TECH_BIO = 5)
+	build_path = /obj/item/weapon/circuitboard/body_scanner
+	sort_string = "FAGAN"
+
+/datum/design/circuit/bodyscannerconsole
+	name = "body scanner console"
+	id = "bodyscannerconsole"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/scanner_console
+	sort_string = "FAGAO"
+
+/datum/design/circuit/sleeper
+	name = "sleeper"
+	id = "sleeper"
+	req_tech = list(TECH_BIO = 4)
+	build_path = /obj/item/weapon/circuitboard/sleeper
+	sort_string = "FAGAT"
+
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
 	id = "teleconsole"

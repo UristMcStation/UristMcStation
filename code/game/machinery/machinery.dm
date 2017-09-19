@@ -364,3 +364,7 @@ Class Procs:
 	..()
 	if(clicksound && istype(user, /mob/living/carbon))
 		playsound(src, clicksound, clickvol)
+
+/obj/machinery/proc/build_default_parts(var/obj/item/weapon/circuitboard/CB)
+	var/obj/item/weapon/circuitboard/C = new CB(src)
+	C.apply_default_parts(src)

@@ -35,3 +35,20 @@
 	if (istype(M, build_path))
 		return 1
 	return 0
+
+/obj/item/weapon/circuitboard/proc/apply_default_parts(var/obj/machinery/M)
+	if(!istype(M))
+		return
+	if(!req_components)
+		return
+	M.component_parts = list()
+	for(var/comp_path in req_components)
+		var/comp_amt = req_components[comp_path]
+		if(!comp_amt)
+			continue
+
+		if(ispath(comp_path, /obj/item/stack))
+			M.component_parts += new comp_path(contain_parts ? M : null, comp_amt)
+		else
+			for(var/i in 1 to comp_amt)
+				M.component_parts += new comp_path(contain_parts ? M : null)

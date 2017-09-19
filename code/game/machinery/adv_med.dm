@@ -14,6 +14,10 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
+/obj/machinery/bodyscanner/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/body_scanner)
+
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
 		return
@@ -36,34 +40,29 @@
 	set category = "Object"
 	set name = "Enter Body Scanner"
 
-	if (usr.stat != 0)
+	if(usr.stat != 0)
 		return
-	if (src.occupant)
+	if(src.occupant)
 		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
 		return
-	if (usr.abiotic())
+	if(usr.abiotic())
 		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 	usr.forceMove(src)
-	src.occupant = usr
+	occupant = usr
 	update_use_power(2)
-	src.icon_state = "body_scanner_1"
-	for(var/obj/O in src)
-		//O = null
-		qdel(O)
-		//Foreach goto(124)
-	src.add_fingerprint(usr)
+	icon_state = "body_scanner_1"
+	add_fingerprint(usr)
 	return
 
 /obj/machinery/bodyscanner/proc/go_out()
-	if ((!( src.occupant ) || src.locked))
+	if(!(occupant) || locked)
 		return
 	for(var/obj/O in src)
 		O.dropInto(loc)
-		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
@@ -73,7 +72,17 @@
 	src.icon_state = "body_scanner_0"
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
+/obj/machinery/bodyscanner/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(default_deconstruction_screwdriver(user, O))
+		go_out()
+	if(default_deconstruction_crowbar(user, O))
+		go_out()
+		return
+
+	if(!istype(O, /obj/item/grab/normal))
+		return ..(O, user)
+
+	var/obj/item/grab/normal/G = O
 	if (!ismob(G.affecting))
 		return
 	if (src.occupant)
@@ -87,8 +96,6 @@
 	src.occupant = M
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
-	for(var/obj/O in src)
-		O.forceMove(loc)
 	src.add_fingerprint(user)
 	qdel(G)
 
@@ -115,8 +122,6 @@
 	src.occupant = M
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
-	for(var/obj/O in src)
-		O.forceMove(loc)
 	src.add_fingerprint(user)
 
 /obj/machinery/bodyscanner/ex_act(severity)
@@ -181,16 +186,23 @@
 	name = "Body Scanner Console"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "body_scannerconsole"
-	density = 1
+	density = 0
 	anchored = 1
 
 
-/obj/machinery/body_scanconsole/New()
-	..()
-	spawn( 5 )
-		src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
-		return
-	return
+/obj/machinery/body_scanconsole/Initialize()
+	. = ..()
+	locate_scanner()
+	build_default_parts(/obj/item/weapon/circuitboard/scanner_console)
+
+/obj/machinery/body_scanconsole/proc/locate_scanner()
+	for(var/D in GLOB.cardinal)
+		var/turf/T = get_step(src, D)
+		var/obj/machinery/bodyscanner = locate() in T.contents
+		if(bodyscanner)
+			connected = bodyscanner
+			return TRUE
+	return FALSE
 
 /*
 
@@ -246,6 +258,18 @@
 	user << browse(dat, "window=scanconsole;size=430x600")
 	return
 
+/obj/machinery/body_scanconsole/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(istype(I, /obj/item/device/multitool))
+		if(locate_scanner())
+			to_chat(user, "\The [src] pings as it connects to \the [connected]")
+		else
+			to_chat(user, "\The [src] buzzes as it fails to connect to a scanner.")
+		return
+	return attack_hand(user)
 
 /obj/machinery/body_scanconsole/Topic(href, href_list)
 	if (..())

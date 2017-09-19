@@ -130,7 +130,7 @@
 "cz" = (/obj/machinery/light,/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/away/forgotten)
 "cA" = (/turf/simulated/floor/plating/airless{color = "#bebed2"},/area/away/forgotten)
 "cB" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/item/device/assembly_holder/prox_igniter,/obj/structure/reagent_dispensers/fueltank{modded = 1},/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (NORTHWEST)"; icon_state = "corner_white_clean"; dir = 9},/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)
-"cC" = (/obj/structure/frame/computer,/obj/structure/window/reinforced{color = "#fafa4b"; dir = 1; icon_state = "rwindow"},/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)
+"cC" = (/obj/machinery/computer,/obj/structure/window/reinforced{color = "#fafa4b"; dir = 1; icon_state = "rwindow"},/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)
 "cD" = (/obj/item/modular_computer/console/preset/medical,/obj/structure/window/reinforced{color = "#fafa4b"; dir = 1; icon_state = "rwindow"},/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)
 "cE" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/floor_decal/corner/clean/green/three_quarters,/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)
 "cF" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (WEST)"; icon_state = "corner_white_clean"; dir = 8},/turf/simulated/floor/tiled{color = "#cccccc"},/area/away/forgotten)

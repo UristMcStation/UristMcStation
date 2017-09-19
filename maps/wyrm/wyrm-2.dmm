@@ -1262,7 +1262,7 @@
 "yn" = (/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/obj/machinery/hologram/holopad,/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/tiled,/area/engineering/atmos)
 "yo" = (/obj/machinery/atmospherics/pipe/simple/visible/red,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/turf/simulated/floor/tiled,/area/engineering/atmos)
 "yp" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/atmospherics/pipe/simple/visible/blue,/turf/simulated/floor/tiled,/area/engineering/atmos)
-"yq" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/atmospherics/pipe/cap/visible{icon_state = "cap"; dir = 4},/obj/structure/frame{dir = 4},/turf/simulated/floor/tiled,/area/engineering/atmos)
+"yq" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/atmospherics/pipe/cap/visible{icon_state = "cap"; dir = 4},/obj/machinery/constructable_frame{dir = 4},/turf/simulated/floor/tiled,/area/engineering/atmos)
 "yr" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 1; level = 2},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; pixel_x = 0},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/tiled,/area/engineering/atmos)
 "ys" = (/obj/machinery/atmospherics/binary/pump/high_power{icon_state = "map_off"; dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/turf/simulated/floor/tiled,/area/engineering/atmos)
 "yt" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/turf/simulated/floor/tiled,/area/engineering/atmos)

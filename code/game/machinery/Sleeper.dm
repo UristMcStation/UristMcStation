@@ -12,6 +12,7 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/pump
+	var/max_amount = 20
 
 	use_power = 1
 	idle_power_usage = 15
@@ -20,7 +21,20 @@
 /obj/machinery/sleeper/Initialize()
 	. = ..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
+
 	update_icon()
+
+/obj/machinery/sleeper/RefreshParts()
+	var/obj/item/weapon/stock_parts/matter_bin/M = locate() in component_parts
+	max_amount = M.rating * 20
+	var/techlevel
+	for(var/obj/item/weapon/stock_parts/manipulator/MN in component_parts)
+		techlevel += MN.rating
+	if(techlevel >= 3)
+		available_chemicals += list("Antidexafin" = /datum/reagent/antidexafen)
+	if(techlevel >= 4)
+		available_chemicals += list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
 
 /obj/machinery/sleeper/process()
 	if(stat & (NOPOWER|BROKEN))
@@ -64,7 +78,7 @@
 		var/list/reagent = list()
 		reagent["name"] = T
 		if(occupant && occupant.reagents)
-			reagent["amount"] = occupant.reagents.get_reagent_amount(T)
+			reagent["amount"] = occupant.reagents.get_reagent_amount(available_chemicals[T])
 		reagents += list(reagent)
 	data["reagents"] = reagents.Copy()
 
@@ -122,6 +136,14 @@
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
 	add_fingerprint(user)
+	if(default_deconstruction_screwdriver(user, I))
+		go_out()
+		return
+	if(default_deconstruction_crowbar(user, I))
+		go_out()
+		return
+	if(default_part_replacement(user, I))
+		return
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
@@ -208,7 +230,7 @@
 	occupant.dropInto(loc)
 	occupant = null
 	for(var/atom/movable/A in src) // In case an object was dropped inside or something
-		if(A == beaker)
+		if(A == beaker || A in component_parts)
 			continue
 		A.dropInto(loc)
 	update_use_power(1)
@@ -228,7 +250,7 @@
 
 	var/chemical_type = available_chemicals[chemical_name]
 	if(occupant && occupant.reagents)
-		if(occupant.reagents.get_reagent_amount(chemical_type) + amount <= 20)
+		if(occupant.reagents.get_reagent_amount(chemical_type) + amount <= max_amount)
 			use_power(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical_type, amount)
 			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical_type)] unit\s of [chemical_name] in their bloodstream.")
