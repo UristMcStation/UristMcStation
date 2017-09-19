@@ -20,10 +20,10 @@
 /datum/medical_effect/proc/on_life(mob/living/carbon/human/H, strength)
 	return
 
-/datum/medical_effect/proc/cure(mob/living/carbon/human/H)
+/datum/medical_effect/proc/can_cure(mob/living/carbon/human/H)
 	for(var/R in cures)
 		if(H.reagents.has_reagent(R))
-			if (cure_message)
+			if(cure_message)
 				to_chat(H, "<span class='notice'>[cure_message]</span>")
 			return 1
 	return 0
@@ -33,50 +33,35 @@
 // ===========
 /mob/living/carbon/human/var/list/datum/medical_effect/side_effects = list()
 /mob/proc/add_side_effect(name, strength = 0)
-/mob/living/carbon/human/add_side_effect(name, strength = 0)
-	for(var/datum/medical_effect/M in src.side_effects)
-		if(M.name == name)
+/mob/living/carbon/human/add_side_effect(var/datum/medical_effect/ME, strength = 0)
+	for(var/datum/medical_effect/M in side_effects)
+		if(M.name == ME.name)
 			M.strength = max(M.strength, 10)
-			M.start = life_tick
 			return
 
-
-	var/T = side_effects[name]
-	if (!T)
-		return
-
-	var/datum/medical_effect/M = new T
-	if(M.name == name)
-		M.strength = strength
-		M.start = life_tick
-		side_effects += M
+	ME.strength = strength
+	ME.start = life_tick
+	side_effects += ME
 
 /mob/living/carbon/human/proc/handle_medical_side_effects()
 	//Going to handle those things only every few ticks.
 	if(life_tick % 15 != 0)
 		return 0
 
-	var/list/L = typesof(/datum/medical_effect)-/datum/medical_effect
+	var/list/L = subtypesof(/datum/medical_effect)
 	for(var/T in L)
 		var/datum/medical_effect/M = new T
-		if (M.manifest(src))
-			src.add_side_effect(M.name)
+		if(M.manifest(src))
+			add_side_effect(M)
 
-	// One full cycle(in terms of strength) every 10 minutes
-	for (var/datum/medical_effect/M in side_effects)
-		if (!M) continue
-		var/strength_percent = sin((life_tick - M.start) / 2)
-
-		// Only do anything if the effect is currently strong enough
-		if(strength_percent >= 0.4)
-			if (M.cure(src) || M.strength > 50)
-				side_effects -= M
-				M = null
-			else
-				if(life_tick % 45 == 0)
-					M.on_life(src, strength_percent*M.strength)
-				// Effect slowly growing stronger
-				M.strength+=0.08
+	for(var/datum/medical_effect/M in side_effects)
+		if(M.can_cure(src))
+			side_effects -= M
+			QDEL_NULL(M)
+		else
+			M.on_life(src, M.strength)
+			// Effect slowly growing stronger
+			M.strength += 0.5
 
 // HEADACHE
 // ========
@@ -101,7 +86,7 @@
 // ===========
 /datum/medical_effect/bad_stomach
 	name = "Bad Stomach"
-	triggers = list(/datum/reagent/kelotane = 30, /datum/reagent/dermaline = 15)
+	triggers = list(/datum/reagent/kelotane = 20, /datum/reagent/dermaline = 15)
 	cures = list(/datum/reagent/dylovene)
 	cure_message = "Your stomach feels a little better now..."
 
@@ -118,7 +103,7 @@
 // ======
 /datum/medical_effect/cramps
 	name = "Cramps"
-	triggers = list(/datum/reagent/dylovene = 30, /datum/reagent/tramadol = 15)
+	triggers = list(/datum/reagent/dylovene = 20, /datum/reagent/tramadol = 15)
 	cures = list(/datum/reagent/inaprovaline)
 	cure_message = "The cramps let up..."
 
