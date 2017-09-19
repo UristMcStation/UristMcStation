@@ -9,6 +9,8 @@
 	if(speaker)
 		target = speaker
 		visible_message("<span class = 'danger'>[src] screeches at [speaker]!</span>")
+	if(!client)
+		MoveToTarget()
 	..()
 
 /mob/living/simple_animal/hostile/sound/PickTarget(var/list/visible)
@@ -26,5 +28,5 @@
 	if(!moved.len)
 		return
 	var/youmessedup = pick(moved)
-	visible_message("<span class = 'danger'>[src] screeches at [youmessedup]!</span>")
+	visible_message("<span class = 'danger'><font size = 3>[src] screeches at [youmessedup]!</font></span>")
 	return pick(moved)

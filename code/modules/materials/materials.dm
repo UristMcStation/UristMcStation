@@ -366,6 +366,7 @@ var/list/name_to_material
 	integrity = 600
 	icon_base = "diona"
 	icon_reinf = "noreinf"
+	door_icon_base = "biomass"
 	hitsound = 'sound/effects/attackblob.ogg'
 	conductive = 0
 

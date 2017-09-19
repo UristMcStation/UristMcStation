@@ -198,9 +198,9 @@
 /obj/machinery/body_scanconsole/proc/locate_scanner()
 	for(var/D in GLOB.cardinal)
 		var/turf/T = get_step(src, D)
-		var/obj/machinery/bodyscanner = locate() in T.contents
-		if(bodyscanner)
-			connected = bodyscanner
+		var/obj/machinery/bodyscanner/B = locate() in T.contents
+		if(B)
+			connected = B
 			return TRUE
 	return FALSE
 

@@ -9,14 +9,13 @@
 	maxHealth = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	attacktext = "mauls"
+	attacktext = "mauled"
 	attack_sound = 'sound/weapons/slash.ogg'
 	faction = "diona"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 	move_to_delay = 40
-	aggro_vision_range = 4
 	idle_vision_range = 4
 
 /mob/living/simple_animal/hostile/sound/insanediona/death()

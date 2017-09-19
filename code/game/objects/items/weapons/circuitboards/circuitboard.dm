@@ -52,3 +52,4 @@
 		else
 			for(var/i in 1 to comp_amt)
 				M.component_parts += new comp_path(contain_parts ? M : null)
+	M.component_parts += src
