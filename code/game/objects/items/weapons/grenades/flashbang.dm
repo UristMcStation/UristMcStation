@@ -21,7 +21,7 @@
 			B.health -= damage
 			B.update_icon()
 
-		new/obj/effect/sparks(src.loc)
+		single_spark(src.loc)
 		new/obj/effect/effect/smoke/illumination(src.loc, 5, range=30, power=30, color="#FFFFFF")
 		qdel(src)
 		return

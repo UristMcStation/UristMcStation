@@ -393,8 +393,6 @@
 			return global.default_onmob_icons;
 		if("default_pai_software")
 			return global.default_pai_software;
-		if("defer_powernet_rebuild")
-			return global.defer_powernet_rebuild;
 		if("deity")
 			return global.deity;
 		if("delta_index")
@@ -1211,7 +1209,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-		
+
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1606,8 +1604,6 @@
 			global.default_onmob_icons=newval;
 		if("default_pai_software")
 			global.default_pai_software=newval;
-		if("defer_powernet_rebuild")
-			global.defer_powernet_rebuild=newval;
 		if("deity")
 			global.deity=newval;
 		if("delta_index")
@@ -2424,7 +2420,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-		
+
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2622,7 +2618,6 @@
 	"default_mobloc",
 	"default_onmob_icons",
 	"default_pai_software",
-	"defer_powernet_rebuild",
 	"deity",
 	"delta_index",
 	"department_accounts",

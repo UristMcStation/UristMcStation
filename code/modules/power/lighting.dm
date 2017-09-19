@@ -42,7 +42,6 @@ var/global/list/light_type_cache = list()
 		if(istype(fixture, /obj/machinery/light))
 			fixture_type = fixture.type
 		fixture.transfer_fingerprints_to(src)
-		stage = 2
 
 	update_icon()
 
@@ -159,7 +158,7 @@ var/global/list/light_type_cache = list()
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect_system/sparks/spark_system
 
 	//default lighting - these are obtained from light_type
 	var/brightness_range
@@ -192,7 +191,7 @@ var/global/list/light_type_cache = list()
 /obj/machinery/light/New(atom/newloc, obj/machinery/light_construct/construct = null)
 	..(newloc)
 
-	s.set_up(1, 1, src)
+	spark_system = bind_spark(src, 3)
 
 	if(construct)
 		status = LIGHT_EMPTY
@@ -210,7 +209,6 @@ var/global/list/light_type_cache = list()
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
-	QDEL_NULL(s)
 	if(A)
 		on = 0
 //		A.update_lights()
@@ -405,9 +403,7 @@ var/global/list/light_type_cache = list()
 
 		to_chat(user, "You stick \the [W] into the light socket!")
 		if(powered() && (W.flags & CONDUCT))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -510,10 +506,10 @@ var/global/list/light_type_cache = list()
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 	status = LIGHT_BROKEN
 	update()
+	CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)

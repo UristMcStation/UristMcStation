@@ -24,11 +24,11 @@
 	name = "lighting"
 
 	schedule_interval = 0 // run as fast as you possibly can
-	sleep_interval = 10 
+	sleep_interval = 10
 	create_all_lighting_overlays()
 	lighting_overlays_initialised = TRUE
 
-	// Pre-process lighting once before the round starts. Wait 30 seconds so the away mission has time to load.
+	// Pre-process lighting once before the round starts. Wait 10 seconds so the away mission has time to load.
 	spawn(300)
 		doWork(1)
 
