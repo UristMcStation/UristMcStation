@@ -1,3 +1,8 @@
+/*
+So, this is a shadowrun-y matrix system where the maps are generated in runtime, and the only thing that can't be changed in the matrix is loaded programs.
+It also happens to be in a single file since chances are I'll be the only one to ever read this.
+If for some insane reason you want to port this or wonder what all these undocumented functions are feel free to ask me what the hell I was thinking on discord Naxodile#3411
+*/
 #define MTRX_ATK 1
 #define MTRX_SLZ 2
 #define MTRX_PROC 3
@@ -6,76 +11,215 @@
 /obj/item/modular_computer/cyberdeck
 	name = "cyberdeck"
 	desc = "A portable computer used to access the matrix."
-	icon = 'icons/obj/modular_cyberdeck.dmi'
-	icon_state = "cyberdeck"
-	icon_state_unpowered = "cyberdeck-dead"
+//	icon = 'icons/obj/modular_cyberdeck.dmi'
+//	icon_state = "cyberdeck"
+//	icon_state_unpowered = "cyberdeck-dead"
 	icon_state_menu = "menu"
+	hardware_flag = PROGRAM_CONSOLE
 	max_hardware_size = 3
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_HUGE
 	light_strength = 2
 	slot_flags = SLOT_BACK
 
-	var/matrix_stats[4]
+	var/mob/living/matrix_user
+	var/list/matrix_stats[4] //Sorted according to defines
+	var/list/matrix_sorted //Sorted highest to lowest
+	var/list/loaded_programs = list()
 
 //config settings
 	var/matrix_name
-	var/matrix_icon = "person"
+	var/matrix_icon
+
+/obj/item/modular_computer/cyberdeck/New()
+	..()
+	refresh_stats()
+
+
+/obj/item/modular_computer/cyberdeck/preset/New()
+	processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(src)
+	tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(src)
+	hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/advanced(src)
+	network_card = new/obj/item/weapon/computer_hardware/network_card/advanced(src)
+	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	battery_module = new/obj/item/weapon/computer_hardware/battery_module/advanced(src)
+	battery_module.charge_to_full()
+
+	new/obj/item/weapon/computer_hardware/proxy(src)
+	new/obj/item/weapon/computer_hardware/firewall(src)
+	refresh_stats()
+
+	hard_drive.store_file(new/datum/computer_file/program/matrix(src))
+	hard_drive.store_file(new/datum/computer_file/matrix_software/junk(src))
+
+/obj/item/modular_computer/cyberdeck/attack
+/obj/item/modular_computer/cyberdeck/defense
+/obj/item/modular_computer/cyberdeck/support
 
 /obj/item/modular_computer/cyberdeck/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
 	if(!..())	return
 	if(!H.matrix_stat)	return
 
-	matrix_stats[H.matrix_stat] = H.origin_tech[TECH_DATA]
+	refresh_stats()
+
+/obj/item/modular_computer/cyberdeck/proc/refresh_stats()
+	for(var/obj/item/weapon/computer_hardware/H in contents)
+		if(H.matrix_stat)
+			matrix_stats[H.matrix_stat] = H.origin_tech[TECH_DATA]
+	matrix_sorted = sortTim(matrix_stats)
+
+
+/obj/item/modular_computer/cyberdeck/proc/get_max_programs()
+	return matrix_stats[MTRX_PROC] * 2 //Possibly remove the multiplier
+
+/obj/item/modular_computer/cyberdeck/proc/get_corruption()
+	. = 0
+	for(var/obj/item/weapon/computer_hardware/H in contents)
+		if(!H.matrix_stat)
+			continue
+		. += H.damage
+
+/obj/item/modular_computer/cyberdeck/proc/attempt_connect(mob/user)
+	var/area/A = get_area(src)
+	if(!A.node)
+		return
+	to_chat(user, "<span class='notice'>Now entering [A.node]</span>")
+//	new /mob/matrix/player(A.node.gateway, src, user)
+
+/obj/item/modular_computer/cyberdeck/proc/switch_program(var/prog)
+	if(loaded_programs.len + 1 < get_max_programs())
+		if(prog in loaded_programs) //I'm sure there's bitwise magic for this, but it gets used pretty rarely
+			loaded_programs -= prog
+		else
+			loaded_programs += prog
+			return TRUE
+
+/datum/computer_file/program/matrix
+	filetype = "MTRX"
+	filename = "M_Ctrl_Diag"
+	filedesc = "Matrix Control and Diagnostics"
+	size = 32
+	available_on_ntnet = FALSE
+
+	nanomodule_path = /datum/nano_module/program/matrix_control
+
+/datum/nano_module/program/matrix_control
+	name = "Matrix Control"
+	var/obj/item/modular_computer/cyberdeck/C
+
+/datum/nano_module/program/matrix_control/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+	..()
+	var/list/data = host.initial_data()
+
+	var/area/A = get_area(user)
+	if(A.node)
+		data["node"] = A.node.name
+		data["sec_level"] = A.node.security_rating
+	if(istype(host, /obj/item/modular_computer/cyberdeck))
+		C = host
+		var/list/progs = list()
+		for(var/datum/computer_file/matrix_software/S in C.hard_drive.stored_files)
+			if(S in C.loaded_programs)
+				progs += list(list("filename" = S.filename,"loaded" = TRUE))
+			else
+				progs += list(list("filename" = S.filename,"loaded" = FALSE))
+		data["programs"] = progs
+		data["loaded_programs"] = C.loaded_programs.len
+		data["max_programs"] = C.get_max_programs()
+		data["corruption"] = C.get_corruption()
+		data["config_name"] = C.matrix_name
+		data["config_icon"] = C.matrix_icon
+	else //Somehow?
+		data["loaded_programs"] = 0
+		data["max_programs"] = 0
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "matrixportal.tmpl", "Matrix Control", 940, 260, state = state)
+		ui.auto_update_layout = 1
+		ui.set_initial_data(data)
+		ui.open()
+
+/datum/nano_module/program/matrix_control/Topic(href, href_list)
+	if(..())
+		return 1
+	if(href_list["switch_prog"])
+		C.switch_program(C.hard_drive.find_file_by_name(href_list["switch_prog"]))
+		return 1
+	if(href_list["connect"])
+		C.attempt_connect(usr)
+		return 1
+	if(href_list["config_name"])
+		C.matrix_name = input(usr, "Input a new matrix name.","Matrix name","") as text|null
+		return 1
+	if(href_list["config_icon"]) //I'm not actually sure how to check for 32x32, but I highly doubt anyone on my server would attempt it
+		to_chat(usr, "Please input a .dmi file with only one icon that's 32x32")
+		var/I = input(usr, "Upload a matrix icon.","Matrix icon") as icon|null
+		if(!isicon(I))
+			return 1
+		C.matrix_icon = I
+		return 1
 
 /mob/matrix
-	var/obj/item/device/cyberdeck/cyberdeck
+	var/obj/item/modular_computer/cyberdeck/cyberdeck
 	var/matrix_stats[4]
 	var/matrix_effects
 
 /mob/matrix/proc/shatter()
-	flick('maps/wyrm/icons/matrix_shatter.dmi',src)
-	qdel(src)
+//	flick('maps/wyrm/icons/matrix_shatter.dmi',src) //todo: image of triangles shattering
 
 /mob/matrix/proc/get_matrix_effect(var/datum/matrix_effect/M)
-	for(M in matrix_effects)
-		return M
+	for(var/E in matrix_effects)
+		if(istype(E,M))
+			return E
 
 /datum/matrix_effect/link_lock
 
 /mob/matrix/player
 		name = "Matrix Icon" //Get the name from the cyberdeck config
-		desc = "A matrix persona representing an enitity."
+		desc = "A matrix persona representing an entity."
 
 		var/mob/owner_mob
 
 		var/forced_logoff = -1 //not the best place
 
 /mob/matrix/player/Destroy()
+	GLOB.matrix_mob_list -= src
 	jack_out()
 	shatter()
 	..()
 
-/mob/matrix/player/New(var/obj/item/device/cyberdeck/C, var/mob/owner)
+/mob/matrix/player/New(var/obj/item/modular_computer/cyberdeck/C, var/mob/owner)
 	if(!istype(C))
 		qdel(src)
 
 	cyberdeck = C
-	var/stats = C.matrix_stats
-	for(var/i=1;i<stats.len,i++)
+	var/list/stats = C.matrix_stats
+	for(var/i = 1; i<stats.len, i++)
 		matrix_stats[i] = stats[i]
 
 	if(owner)
 		initialize_matrix(owner)
-	. = ..()
+	..()
+
+/mob/matrix/player/Life()
+	..()
 
 /mob/matrix/player/proc/initialize_matrix(var/mob/owner)
 	owner_mob = owner
 	ckey = owner.ckey
+	owner.ckey = "@[ckey]"
 	GLOB.matrix_mob_list += src
-	if(!C.matrix_name)
+
+	if(!cyberdeck.matrix_name)
 		name = owner_mob.name
 	else
-		name = C.matrix_name
+		name = cyberdeck.matrix_name
+
+	if(cyberdeck.matrix_icon)
+		icon = cyberdeck.matrix_icon
+	else
+		getHologramIcon()
+
 
 /mob/matrix/player/proc/attempt_jack_out()
 	if(forced_logoff)
@@ -102,29 +246,39 @@
 	if(forced)
 		if(ishuman(owner_mob))
 			var/mob/living/carbon/human/H = owner_mob
-			H.adjustStunned(10)
-			H.adjustWeakened(20)
+			H.AdjustStunned(10)
+			H.AdjustWeakened(20)
 	owner_mob.ckey = ckey
-	shatter()
+	qdel(src)
 
-/mob/living/simple_animal/matrix/ice
+/mob/living/simple_animal/hostile/matrix/ice
 	name = "\improper Intrusion Countermeasure"
 	desc = "It's either your best friend or is about to kill you."
+	wander = FALSE
 
-	var/area/matrix/matrix_node
+	var/datum/matrix_node/N
+	var/obj/item/modular_computer/cyberdeck/cyberdeck
 
-/mob/matrix/ice/Initialize()
-	var/turf/T = get_turf(src)
-	var/area/A = T.loc
-	if(istype(A, /area/matrix))
-		matrix_node = A
-		matrix_node.init_ice(src)
-		for(var/i=1;i<4,i++)
-			matrix_stats[i] = matrix_node.security_rating * 2
+//Just make these different projectiles
+/mob/living/simple_animal/hostile/matrix/ice/grey
+
+/mob/living/simple_animal/hostile/matrix/ice/black
+
+/mob/living/simple_animal/hostile/matrix/ice/Initialize()
+	var/area/A = get_area(src)
+	N = A.node
+	var/strength
+	if(istype(N))
+		N.init_ice(src)
+		strength = N.security_rating * 2
+	else
+		strength = 1
+	for(var/i = 1; i<4, i++)
+		cyberdeck.matrix_stats[i] = strength
 	. = ..()
 
-/mob/living/simple_animal/matrix/ice/Destroy()
-	matrix_node.ice_death(src)
+/mob/living/simple_animal/hostile/matrix/ice/Destroy()
+	N.ice_death(src)
 	..()
 
 //Determines number of response ICE
@@ -134,77 +288,92 @@
 #define ALERT_EMERGENCY 3 //Extra security for the node
 
 //Areas are essentially nodes for the matrix
-/area/matrix
+
+/area
+	var/datum/matrix_node/node //A sort of "does this have connectivity"
+
+/datum/matrix_node
+	var/name = "Matrix Node"
 	var/security_rating = LOW_SEC
 	var/matrix_alert
 
+	var/list/ice_spawns
 	var/ice_list
 	var/dead_ice
 
 	var/list/ice_classes
 	var/next_ice_class
 
-/area/matrix/Initialize()
-	. = ..()
-	ice_classes = list(/obj/item/device/cyberdeck/attack,/obj/item/device/cyberdeck/attack,/obj/item/device/cyberdeck/defense,/obj/item/device/cyberdeck/support)
+/datum/matrix_node/New()
+	..()
+	ice_classes = list(/obj/item/modular_computer/cyberdeck/attack,/obj/item/modular_computer/cyberdeck/attack, \
+										/obj/item/modular_computer/cyberdeck/defense,/obj/item/modular_computer/cyberdeck/support)
 
-/area/matrix/med
+/datum/matrix_node/med
 	security_rating = MED_SEC
 
-/area/matrix/high
+/datum/matrix_node/high
 	security_rating = HIGH_SEC
 
-/area/matrix/proc/init_ice(var/mob/living/simple_animal/matrix/ice/I)
+/datum/matrix_node/proc/init_ice(var/mob/living/simple_animal/hostile/matrix/ice/I)
 	ice_list += I
-	I.cyberdeck = new ice_classes[next_ice_class]()
-	I.cyberdeck.forceMove(I) //byond complains about this otherwise
+	I.cyberdeck = new ice_classes[next_ice_class](src) //I'm not even sure
 	next_ice_class++
 	if(next_ice_class >= ice_classes.len)
 		next_ice_class = 1
 
-/area/matrix/proc/ice_death(var/mob/living/simple_animal/matrix/ice/I)
+/datum/matrix_node/proc/ice_death(var/mob/living/simple_animal/hostile/matrix/ice/I)
 	ice_list -= I
 	dead_ice++
 	death_response(get_turf(I), determine_alert_response())
 
-/area/matrix/proc/determine_alert_response()
+/datum/matrix_node/proc/determine_alert_response()
 	return (round(dead_ice*security_rating/2,1))
 
-/area/matrix/proc/death_response(var/turf/T, var/response_level)
+/datum/matrix_node/proc/death_response(var/turf/T, var/response_level)
 	var/list/aval_ice = ice_list
 	if(aval_ice.len >= 2)
 		matrix_lockdown()
 	for(var/i=1;i<response_level,i++)
-		var/mob/matrix/ice/I = pick(aval_ice)
-		I.investigate(T)
+		var/mob/living/simple_animal/hostile/matrix/ice/I = pick(aval_ice)
+		I.Goto(T)
 		aval_ice -= I
 
-/area/matrix/proc/matrix_lockdown()
+/datum/matrix_node/proc/matrix_lockdown()
 	matrix_alert = ALERT_EMERGENCY
 
-	for(var/obj/structure/matrix/datastore/D in datastores)
+	for(var/obj/structure/matrix/datastore/D in SSmatrix.datastores)
 		D.lockdown()
 
-	var/mob/matrix/ice/response_team
+	var/mob/living/simple_animal/hostile/matrix/ice/response_team
 	switch(security_rating)
 		if(MED_SEC)
-			response_team = /mob/matrix/ice/grey
+			response_team = /mob/living/simple_animal/hostile/matrix/ice/grey
 		if(HIGH_SEC)
-			response_team = /mob/matrix/ice/black
+			response_team = /mob/living/simple_animal/hostile/matrix/ice/black
 
 	for(var/obj/ice_spawn in ice_spawns)
 		new response_team(get_turf(ice_spawn))
-	for(var/mob/matrix/ice/I in ice_list)
 
-/datum/matrix_software
+/datum/computer_file/matrix_software
 	var/stat_type = MTRX_PROC //Remember to change this per software
-	var/disk_size = 10
 
-/datum/matrix_software/proc/activate()
-	return
+//Just for testing really
+/datum/computer_file/matrix_software/junk/New()
+	..()
+	filename = "[pick("financial report","mineral data scan","soil fertility page","401k record","administrative morality report","corporate employee satisfaction estimate")]  #[rand(1,999)]"
 
-/datum/matrix_software/processing/activate()
-	GLOB.processing_software |= src
+/obj/structure/matrix/portal
 
-/datum/matrix_software/processing/proc/process()
-	return
+/obj/structure/matrix/datastore
+	name = "data storage"
+	icon_state = "datastore"
+
+	var/locked
+
+/obj/structure/matrix/datastore/Initialize()
+	. = ..()
+	SSmatrix.datastores += src
+
+/obj/structure/matrix/datastore/proc/lockdown()
+	locked = TRUE
