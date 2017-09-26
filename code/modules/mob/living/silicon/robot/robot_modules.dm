@@ -834,8 +834,18 @@ var/global/list/robot_modules = list(
 	languages = list()
 
 /obj/item/weapon/robot_module/drone/construction/New()
-	src.modules += new /obj/item/weapon/rcd/borg(src)
+	modules += new /obj/item/weapon/rcd/borg(src)
 	..()
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
+	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(2000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(1000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	synths += metal
+	synths += glass
+	synths += wood
+	synths += plastic
+	synths += wire
 
 /obj/item/weapon/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules

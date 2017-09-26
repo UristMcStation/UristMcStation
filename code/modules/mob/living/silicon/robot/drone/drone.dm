@@ -78,6 +78,8 @@ var/list/mob_hat_cache = list()
 		return
 	if(AreConnectedZLevels(old_loc.z, new_loc.z))
 		return
+	if(controlling_ai)
+		return
 
 	// None of the tests passed, good bye
 	self_destruct()
@@ -383,7 +385,7 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/construction/init()
 	..()
-	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
+	flavor_text = "It's a bulky construction drone stamped with a Ward-Takahashi Robotics Division glyph."
 
 /proc/too_many_active_drones()
 	var/drones = 0

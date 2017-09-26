@@ -32,9 +32,9 @@
 	for(var/obj/item/weapon/stock_parts/manipulator/MN in component_parts)
 		techlevel += MN.rating
 	if(techlevel >= 3)
-		available_chemicals += list("Antidexafin" = /datum/reagent/antidexafen)
+		available_chemicals |= list("Antidexafin" = /datum/reagent/antidexafen)
 	if(techlevel >= 4)
-		available_chemicals += list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
+		available_chemicals |= list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
 
 /obj/machinery/sleeper/process()
 	if(stat & (NOPOWER|BROKEN))

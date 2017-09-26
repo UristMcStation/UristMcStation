@@ -1308,24 +1308,38 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/rcon_console
 	sort_string = "JAAAC"
 
-/datum/design/circuit/dronecontrol
-	name = "drone control console"
-	id = "dronecontrol"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/weapon/circuitboard/drone_control
-	sort_string = "JAAAD"
-
 /datum/design/circuit/powermonitor
 	name = "power monitoring console"
 	id = "powermonitor"
 	build_path = /obj/item/weapon/circuitboard/powermonitor
-	sort_string = "JAAAE"
+	sort_string = "JAAAD"
 
 /datum/design/circuit/solarcontrol
 	name = "solar control console"
 	id = "solarcontrol"
 	build_path = /obj/item/weapon/circuitboard/solar_control
+	sort_string = "JAAAE"
+
+/datum/design/circuit/dronecontrol
+	name = "drone control console"
+	id = "dronecontrol"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/drone_control
 	sort_string = "JAAAF"
+
+/datum/design/circuit/dronefab
+	name = "drone fabricator"
+	id = "dronefab"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
+	build_path = /obj/item/weapon/circuitboard/drone_fab
+	sort_string = "JAAAG"
+
+/datum/design/circuit/advdronefab
+	name = "advanced drone fabricator"
+	id = "advdronefab"
+	req_tech = list(TECH_DATA = 7, TECH_ENGINEERING = 6)
+	build_path = /obj/item/weapon/circuitboard/adv_drone_fab
+	sort_string = "JAAAH"
 
 /datum/design/circuit/pacman
 	name = "PACMAN-type generator"

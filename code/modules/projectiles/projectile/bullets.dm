@@ -170,7 +170,6 @@
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	damage = 13
 	pellets = 6
-	range_step = 1
 	spread_step = 10
 
 /* "Rifle" rounds */

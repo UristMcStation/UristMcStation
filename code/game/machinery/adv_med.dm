@@ -62,6 +62,8 @@
 	if(!(occupant) || locked)
 		return
 	for(var/obj/O in src)
+		if(O in component_parts)
+			continue
 		O.dropInto(loc)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
@@ -75,10 +77,12 @@
 /obj/machinery/bodyscanner/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
 		go_out()
+		return
 	if(default_deconstruction_crowbar(user, O))
 		go_out()
 		return
-
+	if(default_part_replacement(user, O))
+		return
 	if(!istype(O, /obj/item/grab/normal))
 		return ..(O, user)
 

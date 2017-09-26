@@ -502,7 +502,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			return "Metrics not ready"
 
 		return GLOB.prometheus_metrics.collect()
-		
+
 
 /world/Reboot(var/reason)
 	/*spawn(0)

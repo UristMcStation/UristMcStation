@@ -390,5 +390,6 @@
 
 /obj/item/pressure/dropped()
 	..()
+	applied.applied_pressure = null //just in case
 	if(!QDELETED(src))
 		qdel(src)

@@ -47,7 +47,7 @@
 	if(!actors)
 		actors += pick("alien humanoid","amorphic blob","short, hairy being","rodent-like creature","robot","primate","reptilian alien","unidentifiable object","statue","starship","unusual devices","structure")
 		actors += pick("alien humanoids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")
-	
+
 	var/engravings = "[pick("Engraved","Carved","Etched")] on the item is [pick("an image of","a frieze of","a depiction of")] a \
 	[pick(actors[1])] \
 	[pick("surrounded by","being held aloft by","being struck by","being examined by","communicating with")] \
@@ -89,7 +89,7 @@
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
-				
+
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_map()
 
@@ -150,7 +150,7 @@
 			newgases -= "phoron"
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= "aliether"
-		
+
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/gasnum = rand(1,4)
 		for(var/i = 1 to gasnum) //swapping gases wholesale. don't try at home
@@ -160,7 +160,7 @@
 				part = total_moles
 			atmosphere.gas[ng] += part
 			total_moles = max(total_moles - part, 0)
-		
+
 	atmosphere.temperature = T20C + rand(-10, 10)
 	var/factor = max(rand(60,140)/100, 0.6)
 	atmosphere.multiply(factor)
@@ -194,7 +194,7 @@
 
 	var/min_templates = 1
 	var/max_templates = 2
-	var/template_loaders = list()
+	var/list/template_loaders = list()
 
 /datum/random_map/noise/exoplanet/New()
 	target_turf_type = world.turf
@@ -273,6 +273,8 @@
 		new /obj/effect/plant(T, pick(small_flora_types), start_matured = 1)
 
 /datum/random_map/noise/exoplanet/proc/load_templates()
+	if(!template_loaders.len)
+		return
 	for(var/i = 1 to rand(min_templates,max_templates))
 		var/tx = rand(9, world.maxx - 9)
 		var/ty = rand(9, world.maxy - 9)

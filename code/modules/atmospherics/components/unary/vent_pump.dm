@@ -89,6 +89,10 @@
 	power_channel = EQUIP
 	power_rating = 15000	//15 kW ~ 20 HP
 
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/on
+	use_power = 1
+	icon_state = "map_vent_out"
+
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/New()
 	..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
@@ -239,6 +243,9 @@
 		"power_draw" = last_power_draw,
 		"flow_rate" = last_flow_rate,
 	)
+
+	if(!initial_loc)
+		initial_loc = get_area(src)
 
 	if(!initial_loc.air_vent_names[id_tag])
 		var/new_name = "[initial_loc.name] Vent Pump #[initial_loc.air_vent_names.len+1]"

@@ -1,19 +1,18 @@
 "a" = (/turf/template_noop,/area/template_noop)
 "b" = (/turf/simulated/wall/wood,/area/template_noop)
 "c" = (/obj/structure/table/woodentable,/turf/template_noop,/area/template_noop)
-"d" = (/obj/item/weapon/tank/emergency/oxygen/double,/obj/item/weapon/tank/emergency/oxygen/double,/obj/item/weapon/tank/emergency/oxygen/double,/obj/structure/table/woodentable,/turf/template_noop,/area/template_noop)
-"e" = (/obj/machinery/door/unpowered/simple/wood,/turf/template_noop,/area/template_noop)
-"f" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/template_noop,/area/template_noop)
+"d" = (/obj/machinery/door/unpowered/simple/wood,/turf/template_noop,/area/template_noop)
+"e" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/template_noop,/area/template_noop)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
 abbbbbaaaaaaabbbbbaa
 abaacbaaaaaabbaaabba
 abaacbaaaaaabaaaaaba
-abaadbaaaaaabaaaaaba
-abbebbaaaaaabaaaaaba
+abaacbaaaaaabaaaaaba
+abbdbbaaaaaabaaaaaba
 aaaaaaaaaaaabbaaabba
-aaaaaaaaaaaaabbebbaa
+aaaaaaaaaaaaabbdbbaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
@@ -21,9 +20,9 @@ aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaabbebbaaaaa
-afffafffaabcaabaaaaa
+aaaaaaaaaabbdbbaaaaa
+aeeeaeeeaabcaabaaaaa
 aaaaaaaaaabcaabaaaaa
-afffafffaabbbbbaaaaa
+aeeeaeeeaabbbbbaaaaa
 aaaaaaaaaaaaaaaaaaaa
 "}

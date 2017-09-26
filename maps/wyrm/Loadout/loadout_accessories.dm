@@ -144,3 +144,16 @@
 	badges["holobadge-cord"] = /obj/item/clothing/accessory/badge/holo/cord
 	badges["marshal's badge"] = /obj/item/clothing/accessory/badge/marshal
 	gear_tweaks += new/datum/gear_tweak/path(badges)
+
+/datum/gear/accessory/flower_crown
+	display_name = "flower crown selection"
+	path = /obj/item/clothing/ears/flower/poppy
+
+/datum/gear/accessory/flower_crown/New()
+	..()
+	..()
+	var/list/flowers = list()
+	for(var/flower in subtypesof(/obj/item/clothing/ears/flower))
+		var/obj/item/clothing/ears/flower/flower_type = flower
+		flowers[initial(flower_type.name)] = flower_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(flowers))

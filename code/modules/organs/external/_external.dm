@@ -236,6 +236,7 @@
 		return
 
 	dislocated = 1
+	add_pain(40)
 	if(owner)
 		owner.verbs |= /mob/living/carbon/human/proc/undislocate
 
@@ -629,8 +630,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		// slow healing
 		var/heal_amt = 0
 
-		if(owner.stat == UNCONSCIOUS)
-			heal_amt += 1.5
+		if(owner.sleeping)
+			heal_amt += 1
+			if(owner.buckled) //we'll assume resting
+				heal_amt += 0.5
 		// if damage >= 50 AFTER treatment then it's probably too severe to heal within the timeframe of a round.
 		else if(W.can_autoheal() && W.wound_damage() < 50)
 			heal_amt += 0.5

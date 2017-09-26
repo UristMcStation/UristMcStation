@@ -56,9 +56,15 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/shuttle
 	icon_state = "corner_white_shuttle"
 
+/obj/effect/floor_decal/corner/shuttle/alt
+	icon_state = "corner_white_shuttle_alt"
+
 /obj/effect/floor_decal/corner/shuttle/black
 	name = "black corner"
 	color = "#333333"
+
+/obj/effect/floor_decal/corner/shuttle/black/alt
+	icon_state = "corner_white_shuttle_alt"
 
 /obj/effect/floor_decal/corner/clean/black
 	name = "black corner"
@@ -149,6 +155,9 @@ var/list/floor_decals = list()
 	name = "faded blue corner"
 	color = "#4f637d"
 
+/obj/effect/floor_decal/corner/shuttle/fadeblue/alt
+	icon_state = "corner_white_shuttle_alt"
+
 /obj/effect/floor_decal/corner/fadeblue
 	name = "faded blue corner"
 	color = "#4f637d"
@@ -165,6 +174,9 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/shuttle/fadegreen
 	name = "faded green corner"
 	color = "#6b8254"
+
+/obj/effect/floor_decal/corner/shuttle/fadegreen/alt
+	icon_state = "corner_white_shuttle_alt"
 
 /obj/effect/floor_decal/corner/fadegreen
 	name = "faded green corner"
@@ -233,6 +245,9 @@ var/list/floor_decals = list()
 	name = "yellow corner"
 	color = COLOR_BROWN
 
+/obj/effect/floor_decal/corner/shuttle/yellow/alt
+	icon_state = "corner_white_shuttle_alt"
+
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
 	color = COLOR_BROWN
@@ -255,6 +270,13 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/beige/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/shuttle/red
+	name = "red corner"
+	color = COLOR_RED_GRAY
+
+/obj/effect/floor_decal/corner/shuttle/red/alt
+	icon_state = "corner_white_shuttle_alt"
 
 /obj/effect/floor_decal/corner/clean/red
 	name = "red corner"
@@ -621,3 +643,12 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/grass/dull
 	icon_state = "dullgrass"
+
+/obj/effect/floor_decal/rust
+	icon_state = "part_rusted1"
+
+/obj/effect/floor_decal/rust/medium
+	icon_state = "part_rusted2"
+
+/obj/effect/floor_decal/rust/high
+	icon_state = "part_rusted3"

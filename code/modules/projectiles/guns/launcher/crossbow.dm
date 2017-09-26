@@ -63,6 +63,11 @@
 	var/release_speed = 5                   // Speed per unit of tension.
 	var/obj/item/weapon/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
+	var/powered = TRUE											// Do we allow cells to be used?
+
+/obj/item/weapon/gun/launcher/crossbow/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
 
 /obj/item/weapon/gun/launcher/crossbow/update_release_force()
 	release_force = tension*release_speed
@@ -153,6 +158,9 @@
 				superheat_rod(user)
 			return
 
+	if(!powered)
+		..()
+
 	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
 			user.drop_item()
@@ -187,12 +195,13 @@
 	cell.use(500)
 
 /obj/item/weapon/gun/launcher/crossbow/update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(tension > 1)
-		icon_state = "crossbow-drawn"
+		icon_state = "[bis.base_icon_state]-drawn"
 	else if(bolt)
-		icon_state = "crossbow-nocked"
+		icon_state = "[bis.base_icon_state]-nocked"
 	else
-		icon_state = "crossbow"
+		icon_state = "[bis.base_icon_state]"
 
 
 // Crossbow construction.

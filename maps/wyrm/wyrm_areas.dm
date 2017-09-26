@@ -298,7 +298,7 @@
 	name = "\improper Construction Room"
 
 //////////////////////////////////////
-//			Z-LEVEL 3/ADMIN			//
+//			Z-LEVEL 3 / ADMIN		//
 //////////////////////////////////////
 
 /area/holodeck
@@ -314,6 +314,12 @@
 /area/holodeck/source_surgery
 	name = "\improper Holodeck - Surgery Simulation"
 	requires_power = 0
+
+/area/holodeck/source_beach
+	name = "\improper Holodeck - Beach Simulation"
+
+/area/holodeck/source_winter
+	name = "\improper Holodeck - Winter Simulation"
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"

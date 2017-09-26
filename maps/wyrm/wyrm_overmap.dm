@@ -162,6 +162,8 @@
 	name = "Escaped"
 	landmark_tag = "nav_escaped_pod"
 
+// completely 'normal' mining away
+
 /obj/effect/overmap/sector/cluster
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
@@ -189,6 +191,8 @@
 	name = "Unknown Navpoint"
 	landmark_tag = "random_away"
 
+// RoR reference
+
 /obj/effect/overmap/sector/distress
 	name = "distress signal"
 	desc = "Emergency signal detected. No further data avaliable."
@@ -206,6 +210,8 @@
 	name = "Unknown Navpoint"
 	landmark_tag = "contact_light_lanius"
 
+// illegal mining colony & maint drone takeover
+
 /obj/effect/overmap/sector/asteroid
 	name = "mineral field"
 	desc = "Mineral field detected."
@@ -218,8 +224,10 @@
 	name = "Unknown Navpoint"
 	landmark_tag = "asteroid_away"
 
+// glloydstation jungle
+
 /obj/effect/overmap/sector/planet
-	name = "Rainforest Exoplanet"
+	name = "rainforest exoplanet"
 	desc = "Biological scans report non-manifest lifeforms."
 	icon_state = "planet"
 	generic_waypoints = list(
@@ -231,6 +239,8 @@
 	landmark_tag = "planet_away"
 	base_area = /area/jungle/shuttle
 
+// Diona takeover away
+
 /obj/effect/shuttle_landmark/diona
 	name = "Unknown Navpoint"
 	landmark_tag = "diona_away"
@@ -238,8 +248,26 @@
 	base_turf = /turf/simulated/floor/diona
 
 /obj/effect/overmap/sector/diona
-	name = "Unknown Biomass Structure"
+	name = "unknown biomass structure"
 	desc = "Scans report unknown polymer materials in addition t- ERR: Malformed data packets received //SCN_DAT_END 0x00."
 	generic_waypoints = list(
 		"diona_away"
+	)
+
+// 'Refueling' away
+
+/area/away/refueling
+	name = "\improper Refueling Station"
+
+/obj/effect/shuttle_landmark/refueling
+	name = "Docking Bay"
+	landmark_tag = "docking_bay"
+	base_area = /area/away/refueling
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/overmap/sector/refueling
+	name = "refueling station"
+	desc = ""
+	generic_waypoints = list(
+		"docking_bay"
 	)

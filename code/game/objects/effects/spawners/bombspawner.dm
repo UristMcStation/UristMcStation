@@ -222,3 +222,13 @@
 	var/obj/item/device/assembly_holder/prox_igniter/I = new(F)
 	F.modded = TRUE
 	F.rig = I
+
+//the other type of bomb spawner for use in mapping to make more accurate destroyed places
+/obj/effect/spawner/bomb_simulator
+	var/_high = 0
+	var/_med = 0
+	var/_low = 0
+
+/obj/effect/spawner/bomb_simulator/Initialize()
+	. = ..()
+	explosion(loc,_high,_med,_low)

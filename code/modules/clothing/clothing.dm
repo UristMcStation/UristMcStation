@@ -173,6 +173,43 @@
 
 	update_clothing_icon()
 
+/obj/item/clothing/ears/flower
+	name = "flower crown"
+	desc = "A crown of flowers. You're not sure how it never decays."
+	icon = 'icons/urist/items/misc.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
+/obj/item/clothing/ears/flower/Initialize()
+	. = ..()
+	name = "[icon_state] [name]"
+
+/obj/item/clothing/ears/flower/poppy
+	icon_state = "poppy"
+
+/obj/item/clothing/ears/flower/sunflower
+	icon_state = "sunflower"
+
+/obj/item/clothing/ears/flower/moonflower
+	icon_state = "moonflower"
+
+/obj/item/clothing/ears/flower/novaflower
+	icon_state = "novaflower"
+
+/obj/item/clothing/ears/flower/ambrosiavulgaris
+	icon_state = "ambrosia vulgaris"
+
+/obj/item/clothing/ears/flower/ambrosiadeus
+	icon_state = "ambrosia deus"
+
+/obj/item/clothing/ears/flower/ambrosia_gaia
+	icon_state = "ambrosia gaia"
+
+/obj/item/clothing/ears/flower/lily
+	icon_state = "lily"
+
+/obj/item/clothing/ears/flower/geranium
+	icon_state = "geranium"
+
 ///////////////////////////////////////////////////////////////////////
 //Glasses
 /*

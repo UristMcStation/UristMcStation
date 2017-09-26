@@ -699,3 +699,12 @@ the sprite and make my own projectile -Glloyd*/
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+/*
+/obj/item/weapon/gun/projectile/
+	name = ""
+	desc = ""
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = ""
+	caliber = "c45m"
+	ammo_type = /obj/item/ammo_casing/c45m
+*/

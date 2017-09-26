@@ -34,13 +34,22 @@
 	fabricator_tag = "Simulation"
 	drone_type = /mob/living/silicon/robot/drone/construction/holo
 
+/obj/machinery/drone_fabricator/construction
+	fabricator_tag = "Station - Construction"
+	drone_type = /mob/living/silicon/robot/drone/construction
+
 /obj/machinery/drone_fabricator/blob/create_drone(var/client/player) //Just needs to be simple
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
 	new_drone.transfer_personality(player)
 	return new_drone
 
-/obj/machinery/drone_fabricator/New()
-	..()
+/obj/machinery/drone_fabricator/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/drone_fab)
+
+/obj/machinery/drone_fabricator/construction/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
 
 /obj/machinery/drone_fabricator/power_change()
 	..()
@@ -95,6 +104,13 @@
 		new_drone.transfer_personality(player)
 
 	return new_drone
+
+/obj/machinery/drone_fabricator/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	..(I, user)
 
 /mob/observer/ghost/verb/join_as_drone()
 	set category = "Ghost"

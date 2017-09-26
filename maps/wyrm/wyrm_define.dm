@@ -14,7 +14,6 @@
 	overmap_size = 30
 	overmap_event_areas = 25
 //	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
-	base_turf_by_z = list("5" = /turf/simulated/floor/plating/planet/jungle/clear)
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"

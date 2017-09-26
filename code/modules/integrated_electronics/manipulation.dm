@@ -387,19 +387,19 @@
 	extended_desc = "To use the assembly attach an item or leave it empty to act as a hand.\
 					Valid directions are \'South\' = 1, \'North\' = 2, \'East\' = 4, \'West\' = 8 \
 					If there are multiple objects in its target direction it will randomly pick one unless on precision mode.\
-					Valid intent options are 1: Help, 2: Disarm, 3: Grab, 4: Harm."
+					Valid intent options are \'Help\' = 1, \'Disarm\' = 2, \'Grab\' = 3 \'Harm\' = 4"
 	size = 5
 	complexity = 10
 	cooldown_per_use = 1 SECOND
 	inputs = list("target direction", "precision target", "intent selector")
 	outputs = list()
 	activators = list("use on direction","drop item","pickup item","precision use")
-	var/mob/fake_mob
+	var/mob/living/carbon/human/fake_mob
 	var/obj/item/holding
 
 /obj/item/integrated_circuit/manipulation/arm/New()
 	..()
-	fake_mob = new /mob/living/silicon/robotic_arm(src)
+	fake_mob = new /mob/living/carbon/human/robotic_arm(src)
 
 /obj/item/integrated_circuit/manipulation/arm/Destroy()
 	qdel(fake_mob)
@@ -505,5 +505,8 @@
 		return
 	A.attackby(holding, fake_mob)
 
-/mob/living/silicon/robotic_arm
+/mob/living/carbon/human/robotic_arm //this definitely makes sense
 	name = "\improper robotic arm"
+
+/mob/living/carbon/human/robotic_arm/ssd_check()
+	return FALSE

@@ -14,20 +14,31 @@
 
 /datum/away_mission/tradership
 	map_path = "maps/wyrm/templates/tradership.dmm"
-	value = 20
+	value = 10
 	random_start = TRUE
 
 /datum/away_mission/crystalcaves
 	map_path = "maps/wyrm/templates/crystalmines.dmm"
-	value = 20
+	value = 15
 	random_start = TRUE
-
+/*
 /datum/away_mission/hell
 	map_path = "maps/RandomZLevels/negastation.dmm"
-	value = 20
+	value = 25
 	random_start = TRUE
 
 /datum/away_mission/snowcult
 	map_path = "maps/wyrm/templates/snowcult.dmm"
-	value = 1
+	value = 20
 	random_start = TRUE
+
+/datum/away_mission/dionaland
+	map_path = "maps/wyrm/templates/dionaland.dmm"
+	value = 25
+	random_start = TRUE
+
+/datum/away_mission/refueling
+	map_path = "maps/wyrm/templates/refuelingstation.dmm"
+	value = 10
+	random_start = TRUE
+*/

@@ -83,6 +83,8 @@
 	switch(handle_casings)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.loc = get_turf(src)
+			chambered.pixel_x = rand(-chambered.randpixel, chambered.randpixel)
+			chambered.pixel_y = rand(-chambered.randpixel, chambered.randpixel)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -170,6 +172,8 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.loc = T
+					C.pixel_x = rand(-C.randpixel,C.randpixel)
+					C.pixel_y = rand(-C.randpixel,C.randpixel)
 					count++
 				loaded.Cut()
 			if(count)

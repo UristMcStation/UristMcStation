@@ -115,7 +115,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	edge = 0
 	lock_picking_level = 2
 
-///obj/item/weapon/gun/launcher/crossbow/bow //gonna mess with this
+/obj/item/weapon/gun/launcher/crossbow/bow
+	name = "wooden bow"
+	desc = "The age old design for when you don't want to get hit."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "bow"
+	item_icons = DEF_URIST_INHANDS
+	powered = FALSE
 
 
 //RS Weapons
