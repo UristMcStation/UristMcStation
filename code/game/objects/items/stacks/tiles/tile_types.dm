@@ -21,6 +21,8 @@
 		if(do_after(user, 30, src))
 			to_chat(user, "<span class = 'notice'>You sharpen \the [src]'s edges to a sharp point.</span>")
 			throwforce = 15
+			return
+	..()
 
 /*
  * Grass

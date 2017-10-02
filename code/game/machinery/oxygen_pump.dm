@@ -35,7 +35,7 @@
 		qdel(tank)
 	if(breather)
 		breather.remove_from_mob(contained)
-		src.visible_message("<span class='notice'>The mask rapidly retracts just before /the [src] is destroyed!</span>")
+		visible_message("<span class='notice'>The mask rapidly retracts just before \the [src] is destroyed!</span>")
 	qdel(contained)
 	contained = null
 	breather = null
@@ -117,11 +117,11 @@
 		to_chat(user, "<span class='warning'>Please close \the maintenance hatch first!</span>")
 		return
 	if(!Adjacent(target))
-		to_chat(user, "<span class='warning'>Please close stay close to /the [src].</span>")
+		to_chat(user, "<span class='warning'>\The [src] retracts the mask back into itself.</span>")
 		return
 	//when there is a breather:
 	if(breather && target != breather)
-		to_chat(user, "<span class='warning'>\The pump is already in use</span>")
+		to_chat(user, "<span class='warning'>\The pump is already in use.</span>")
 		return
 	//Checking if breather is still valid
 	if(target == breather && target.wear_mask != contained)

@@ -39,7 +39,7 @@
 
 /obj/machinery/atmospherics/unary/engine
 	name = "engine nozzle"
-	desc = "Simple thermal nozzle, uses heated gast to propell the ship."
+	desc = "A simple thermal nozzle, uses heated gas to generate thrust."
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	use_power = 0

@@ -368,6 +368,7 @@
 
 /area/away/dionaship
 	name = "\improper Unknown Signature"
+	ambience = list('sound/ambience/biomass.ogg')
 	requires_power = 0
 	base_turf = /turf/simulated/floor/diona
 

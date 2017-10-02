@@ -784,7 +784,7 @@ other types of metals and chemistry for reagents).
 	id = "synth_carp"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000)
-//	build_path = /mob/living/simple_animal/controllable/synthcarp
+	build_path = /mob/living/simple_animal/hostile/commanded/synthcarp
 	sort_string = "VAEBA"
 
 /datum/design/item/binaryencrypt
