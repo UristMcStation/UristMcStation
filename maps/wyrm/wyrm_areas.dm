@@ -89,6 +89,10 @@
 	name = "\improper Dormitory"
 	flags = AREA_RAD_SHIELDED
 
+/area/civilian/lounge
+	name = "\improper Lounge"
+	flags = AREA_RAD_SHIELDED
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////

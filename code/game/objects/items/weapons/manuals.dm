@@ -151,7 +151,7 @@
 
 /obj/item/weapon/book/manual/rust_engine
 	name = "R-UST Operating Manual"
-	icon_state = "bookSupermatter"
+	icon_state = "bookMagazine"
 	author = "Cindy Crawfish"
 	title = "R-UST Operating Manual"
 

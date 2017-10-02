@@ -603,14 +603,14 @@ var/list/turret_icons
 	return
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+	set waitfor = FALSE
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
 		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 			return
 		last_fired = 1
-		spawn()
-			sleep(shot_delay)
-			last_fired = 0
+		sleep(shot_delay)
+		last_fired = 0
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)

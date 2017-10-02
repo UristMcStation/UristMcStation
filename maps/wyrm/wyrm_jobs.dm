@@ -29,7 +29,9 @@
 /datum/job/doctor
 	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
 		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
-		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician)
+		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
+		"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist
+		)
 
 /datum/job/scientist
 	alt_titles = list("Xenobiologist", "Xenoarcheologist", "Xenobotanist", "Anomalist",
