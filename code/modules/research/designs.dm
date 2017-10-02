@@ -778,6 +778,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/backpack/holding
 	sort_string = "VAEAA"
 
+/datum/design/item/synthcarp
+	name = "C.A.R.P. Unit" //Controllable Agressive Reactionary Protection
+	desc = "A synthetic reproduction of a space carp designed to act as personal protection."
+	id = "synth_carp"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000)
+//	build_path = /mob/living/simple_animal/controllable/synthcarp
+	sort_string = "VAEBA"
+
 /datum/design/item/binaryencrypt
 	name = "Binary encryption key"
 	desc = "Allows for deciphering the binary channel on-the-fly."
