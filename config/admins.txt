@@ -8,6 +8,8 @@
 Nyxodile - Host
 glloyd - Head Admin
 CoraiUnki - Game Master
+Acemuto10 - Game Master
+Zty8212000 - Game Master
 
 Scrdest - Coder
 
@@ -26,8 +28,6 @@ hanspanda - Inactive Admin
 Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
 Stefender - Inactive Admin
-Acemuto10 - Inactive Admin
-Zty8212000 - Inactive Admin
 Lyeos - Retired Admin
 Nienhaus2 - Retired Admin
 #Electronics
