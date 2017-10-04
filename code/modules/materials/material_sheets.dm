@@ -119,6 +119,14 @@
 /obj/item/stack/material/uranium/ten
 	amount = 10
 
+/obj/item/stack/material/uranium/u235
+	name = "uranium-235"
+	icon_state = "sheet-uranium"
+	default_type = "enriched uranium"
+
+/obj/item/stack/material/uranium/u235/ten
+	amount = 10
+
 /obj/item/stack/material/phoron
 	name = "solid phoron"
 	icon_state = "sheet-phoron"

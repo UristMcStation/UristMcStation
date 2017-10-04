@@ -73,6 +73,7 @@ var/list/name_to_material
 	var/sheet_singular_name = "sheet"
 	var/sheet_plural_name = "sheets"
 	var/is_fusion_fuel
+	var/is_fission_fuel
 
 	// Shards/tables/structures
 	var/shard_type = SHARD_SHRAPNEL       // Path of debris object.
@@ -245,6 +246,14 @@ var/list/name_to_material
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
+	is_fission_fuel = TRUE
+
+/material/uranium/u235
+	name = "enriched uranium"
+	stack_type = /obj/item/stack/material/uranium/u235
+	radioactivity = 22 //vaguely enough for research reactors
+	icon_colour = "#00ac00"
+	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 5)
 
 /material/diamond
 	name = "diamond"

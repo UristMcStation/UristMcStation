@@ -4,6 +4,7 @@
 	icon_state = "fuel_assembly"
 	layer = 4
 
+	var/material/material_real
 	var/material_name
 
 	var/percent_depleted = 1
@@ -26,6 +27,7 @@
 		desc = "A fuel rod for a fusion reactor. This one is made from [material.use_name]."
 		fuel_colour = material.icon_colour
 		fuel_type = material.use_name
+		material_real = material
 		if(material.radioactivity)
 			radioactivity = material.radioactivity
 			desc += " It is warm to the touch."
