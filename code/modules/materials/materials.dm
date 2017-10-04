@@ -74,6 +74,7 @@ var/list/name_to_material
 	var/sheet_plural_name = "sheets"
 	var/is_fusion_fuel
 	var/is_fission_fuel
+	var/reactive_percent
 
 	// Shards/tables/structures
 	var/shard_type = SHARD_SHRAPNEL       // Path of debris object.
