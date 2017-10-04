@@ -785,6 +785,21 @@ var/list/name_to_material
 /material/aliumium/place_dismantled_girder(var/turf/target, var/material/reinf_material)
 	return
 
+//Used for nuclear fission reactors
+/material/concrete
+	name = "concrete"
+	integrity = 400
+	melting_point = 10000 //spess concrete is magical
+	icon_colour = "#bab5ab"
+	weight = 100 //Its one purpose
+	conductive = FALSE
+
+/material/concrete/place_dismantled_product(var/turf/target)
+	return
+
+/material/concrete/place_dismantled_girder(var/turf/target, var/material/reinf_material)
+	return
+
 //TODO PLACEHOLDERS:
 /material/leather
 	name = "leather"

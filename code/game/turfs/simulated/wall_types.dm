@@ -84,3 +84,6 @@
 
 /turf/simulated/wall/biomass/New(var/newloc)
 	..(newloc,"biomass")
+
+/turf/simulated/wall/concrete/New(var/newloc)
+	..(newloc,"concrete")

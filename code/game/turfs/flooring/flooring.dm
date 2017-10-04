@@ -118,6 +118,14 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_freezer
 
+/decl/flooring/tiling/concrete
+	name = "concrete floor"
+	desc = "How utilitarian."
+	icon_base = "concrete"
+	has_damage_range = null
+	flags = TURF_REMOVE_CROWBAR
+	build_type = /obj/item/stack/tile/floor_concrete
+
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."

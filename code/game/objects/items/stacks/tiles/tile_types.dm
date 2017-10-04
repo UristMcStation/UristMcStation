@@ -117,6 +117,16 @@
 /obj/item/stack/tile/floor_freezer/fifty
 	amount = 50
 
+/obj/item/stack/tile/floor_concrete
+	name = "concrete floor tile"
+	singular_name = "concrete floor tile"
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "tile_concrete"
+	matter = list("concrete" = 937.5)
+
+/obj/item/stack/tile/floor_concrete/fifty
+	amount = 50
+
 /obj/item/stack/tile/floor/cyborg
 	name = "floor tile synthesizer"
 	desc = "A device that makes floor tiles."

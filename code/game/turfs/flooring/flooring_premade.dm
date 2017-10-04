@@ -137,6 +137,11 @@
 	icon_state = "freezer"
 	initial_flooring = /decl/flooring/tiling/freezer
 
+/turf/simulated/floor/tiled/concrete
+	name = "concrete tiles"
+	icon_state = "concrete"
+	initial_flooring = /decl/flooring/tiling/concrete
+
 /turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
