@@ -128,11 +128,9 @@
 	var/id_tag = 1
 	var/freq = 1343
 
-/obj/machinery/light/chromatic/New()
-	..()
-	spawn(10)
-		if(radio_controller)
-			radio_controller.add_object(src, freq, RADIO_CHROMATIC)
+/obj/machinery/light/chromatic/Initialize()
+	. = ..()
+	radio_controller.add_object(src, freq, RADIO_CHROMATIC)
 
 /obj/machinery/light/chromatic/receive_signal(datum/signal/signal, receive_method, receive_param)
 	if(signal.data["tag"] == id_tag)

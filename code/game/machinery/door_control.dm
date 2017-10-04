@@ -244,10 +244,8 @@
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/button/remote/chromatic/New()
-	..()
-	spawn(10)
-		if(radio_controller)
-			radio_connection = radio_controller.add_object(src, freq, RADIO_CHROMATIC)
+	. = ..()
+	radio_connection = radio_controller.add_object(src, freq, RADIO_CHROMATIC)
 
 /obj/machinery/button/remote/chromatic/trigger(mob/user)
 	if(!radio_connection)
