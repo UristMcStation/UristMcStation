@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	flags = OBJ_CLIMBABLE
+	flags = OBJ_CLIMBABLE|OBJ_SURGICAL
 	layer = TABLE_LAYER
 	throwpass = 1
 	var/flipped = 0

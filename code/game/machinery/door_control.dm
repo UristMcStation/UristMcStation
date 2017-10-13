@@ -210,11 +210,10 @@
 	var/freq
 	var/datum/radio_frequency/radio_connection
 
-/obj/machinery/button/remote/generic/New()
-	..()
-	spawn(10)
-		if(radio_controller)
-			radio_connection = radio_controller.add_object(src, freq, filter)
+/obj/machinery/button/remote/generic/Initialize()
+	. = ..()
+	if(freq && filter)
+		radio_connection = radio_controller.add_object(src, freq, filter)
 
 /obj/machinery/button/remote/generic/trigger()
 	if(!radio_connection)
@@ -243,7 +242,7 @@
 	var/id_tag
 	var/datum/radio_frequency/radio_connection
 
-/obj/machinery/button/remote/chromatic/New()
+/obj/machinery/button/remote/chromatic/Initialize()
 	. = ..()
 	radio_connection = radio_controller.add_object(src, freq, RADIO_CHROMATIC)
 

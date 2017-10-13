@@ -24,7 +24,7 @@
 	new /mob/living/carbon/alien/diona(get_turf(src))
 	new /mob/living/carbon/alien/diona(get_turf(src))
 	new /mob/living/carbon/alien/diona(get_turf(src))
-	..()
+	qdel(src)
 
 /mob/living/simple_animal/hostile/sound/insanediona/AttackTarget()
 	if(!..())

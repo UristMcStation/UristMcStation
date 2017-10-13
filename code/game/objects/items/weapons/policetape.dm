@@ -36,6 +36,7 @@ var/list/tape_roll_applications = list()
 	var/crumpled = 0
 	var/tape_dir = 0
 	var/icon_base = "tape"
+	var/mapped = FALSE
 
 /obj/item/tape/update_icon()
 	//Possible directional bitflags: 0 (AIRLOCK), 1 (NORTH), 2 (SOUTH), 4 (EAST), 8 (WEST), 3 (VERTICAL), 12 (HORIZONTAL)
@@ -52,6 +53,8 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/New()
 	..()
+	if(mapped)
+		update_icon()
 	if(!hazard_overlays)
 		hazard_overlays = list()
 		hazard_overlays["[NORTH]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "N")

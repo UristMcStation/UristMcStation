@@ -1,6 +1,6 @@
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/gun/small
+/obj/item/weapon/gun/energy/gun/tiny
 	item_icons = DEF_URIST_INHANDS
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."

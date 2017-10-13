@@ -338,72 +338,6 @@
 	requires_power = 0
 	dynamic_lighting = 0
 
-//////////////////////////////////////
-//			AWAY MISSION			//
-//////////////////////////////////////
-
-/area/mine
-	icon_state = "mining"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
-	sound_env = ASTEROID
-
-/area/mine/explored
-	name = "Mine"
-	icon_state = "explored"
-
-/area/mine/unexplored
-	name = "Mine"
-	icon_state = "unexplored"
-
-/area/away/abandoned
-	name = "\improper Abandoned Facility"
-
-/area/away/forgotten
-	name = "\improper Contact Light"
-	has_gravity = 0
-
-/area/away/shipremains
-	name = "\improper Unknown"
-	has_gravity = 0
-
-/area/away/dionaship
-	name = "\improper Unknown Signature"
-	ambience = list('sound/ambience/biomass.ogg')
-	requires_power = 0
-	base_turf = /turf/simulated/floor/diona
-
-/area/away/crashedvox
-	name = "\improper Rakaheti"
-
-/area/jungle/southruins
-
-/area/jungle/northruins
-
-/area/jungle/southeastruins
-
-/area/jungle/southwild
-	dynamic_lighting = FALSE
-
-/area/jungle/northwild
-	dynamic_lighting = FALSE
-
-/area/jungle/northeastwild
-	dynamic_lighting = FALSE
-
-/area/jungle/southeastwild
-	dynamic_lighting = FALSE
-
-/area/jungle/river
-	dynamic_lighting = FALSE
-
-/area/jungle/plains
-	dynamic_lighting = FALSE
-
-/area/jungle/shack
-	name = "\improper Makeshift Building"
-
-/area/jungle/shuttle
-
 // ACTORS GUILD
 /area/acting
 	name = "\improper Centcom Acting Guild"
@@ -450,3 +384,72 @@
 
 /area/merchant_station
 	name = "\improper Merchant Station"
+
+//////////////////////////////////////
+//			AWAY MISSION			//
+//////////////////////////////////////
+
+/area/mine
+	icon_state = "mining"
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	sound_env = ASTEROID
+
+/area/mine/explored
+	name = "Mine"
+	icon_state = "explored"
+
+/area/mine/unexplored
+	name = "Mine"
+	icon_state = "unexplored"
+
+/area/away/abandoned
+	name = "\improper Abandoned Facility"
+
+/area/away/forgotten
+	name = "\improper Contact Light"
+	has_gravity = 0
+
+/area/away/shipremains
+	name = "\improper Unknown"
+	has_gravity = 0
+
+/area/away/dionaship
+	name = "\improper Unknown Signature"
+	ambience = list('sound/ambience/biomass.ogg')
+	requires_power = 0
+	base_turf = /turf/simulated/floor/diona
+
+/area/away/crashedvox
+	name = "\improper Rakaheti"
+
+/area/away/virolabs
+	name = "\improper Virology Labratory"
+
+/area/jungle/southruins
+
+/area/jungle/northruins
+
+/area/jungle/southeastruins
+
+/area/jungle/southwild
+	dynamic_lighting = FALSE
+
+/area/jungle/northwild
+	dynamic_lighting = FALSE
+
+/area/jungle/northeastwild
+	dynamic_lighting = FALSE
+
+/area/jungle/southeastwild
+	dynamic_lighting = FALSE
+
+/area/jungle/river
+	dynamic_lighting = FALSE
+
+/area/jungle/plains
+	dynamic_lighting = FALSE
+
+/area/jungle/shack
+	name = "\improper Makeshift Building"
+
+/area/jungle/shuttle

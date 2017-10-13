@@ -61,12 +61,13 @@
 	var/shuttle_restricted //name of the shuttle, null for generic waypoint
 
 /obj/effect/shuttle_landmark/automatic/New()
-	tag = landmark_tag+"-[x]-[y]"
 	..()
+	tag = landmark_tag+"-[x]-[y]"
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	. = ..()
 	base_area = get_area(src)
+	base_turf = get_turf(src)
 	if(!GLOB.using_map.use_overmap)
 		return
 	var/obj/effect/overmap/O = map_sectors["[z]"]
