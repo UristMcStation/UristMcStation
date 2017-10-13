@@ -50,7 +50,7 @@ proc/infection_chance(var/mob/living/carbon/M, var/vector = "Airborne")
 
 	var/protection = M.getarmor(null, "bio")	//gets the full body bio armour value, weighted by body part coverage.
 
-	if (vector == "Airborne")	//for airborne infections face-covering items give non-weighted protection value.
+	if (vector == "Proximity" || vector == "Airborne")	//for airborne infections face-covering items give non-weighted protection value.
 		if(M.internal)
 			return 1
 		protection = max(protection, M.getarmor(FACE, "bio"))
@@ -120,7 +120,7 @@ proc/infection_chance(var/mob/living/carbon/M, var/vector = "Airborne")
 /proc/dprob(var/p)
 	return(prob(sqrt(p)) && prob(sqrt(p)))
 
-/mob/living/carbon/proc/spread_disease_to(var/mob/living/carbon/victim, var/vector = "Airborne")
+/mob/living/carbon/proc/spread_disease_to(var/mob/living/carbon/victim, var/vector = "Proximity")
 	if (src == victim)
 		return "retardation"
 
@@ -134,7 +134,7 @@ proc/infection_chance(var/mob/living/carbon/M, var/vector = "Airborne")
 			//It's hard to get other people sick if you're in an airtight suit.
 			if(!infection_spreading_check(src, V.spreadtype)) continue
 
-			if (vector == "Airborne")
+			if (vector == "Proximity")
 				if(airborne_can_reach(get_turf(src), get_turf(victim)))
 //					log_debug("In range, infecting")
 					infect_virus2(victim,V)

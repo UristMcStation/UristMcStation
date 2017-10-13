@@ -14,6 +14,8 @@
 
 	//List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
 	var/list/graphic = list()
+	//List of airborne viruses to kill people with. Handled by lung's handle_breath().
+	var/list/viruses = list()
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
 	volume = _volume
@@ -103,6 +105,8 @@
 		for(var/g in giver.gas)
 			gas[g] += giver.gas[g]
 
+	viruses |= giver.viruses
+
 	update_values()
 
 // Used to equalize the mixture between two zones before sleeping an edge.
@@ -124,6 +128,9 @@
 	if(our_heatcap + share_heatcap)
 		temperature = ((temperature * our_heatcap) + (sharer.temperature * share_heatcap)) / (our_heatcap + share_heatcap)
 	sharer.temperature = temperature
+
+	viruses |= sharer.viruses
+	sharer.viruses |= viruses
 
 	update_values()
 	sharer.update_values()
@@ -297,6 +304,7 @@
 /datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample)
 	gas = sample.gas.Copy()
 	temperature = sample.temperature
+	viruses |= sample.viruses
 
 	update_values()
 

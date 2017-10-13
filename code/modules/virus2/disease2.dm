@@ -1,7 +1,7 @@
 /datum/disease2/disease
 	var/infectionchance = 70
 	var/speed = 1
-	var/spreadtype = "Contact" // Can also be "Airborne"
+	var/spreadtype = "Contact" // Can also be "Proximity" or "Airborne"
 	var/stage = 1
 	var/dead = 0
 	var/clicks = 0
@@ -27,12 +27,17 @@
 	switch(severity)
 		if(1,2)
 			infectionchance = rand(10,20)
-		else
+		if(3,4)
 			infectionchance = rand(60,90)
+		else
+			infectionchance = 100
 
-	antigen = list(pick(ALL_ANTIGENS))
-	antigen |= pick(ALL_ANTIGENS)
-	spreadtype = prob(70) ? "Airborne" : "Contact"
+	if(severity < 5)
+		antigen = list(pick(ALL_ANTIGENS))
+		antigen |= pick(ALL_ANTIGENS)
+		spreadtype = prob(70) ? prob(20) ? "Airbrone" : "Proximity" : "Contact"
+	else //Unique virus, we're wanting this to be deadly
+		spreadtype = "Airborne"
 
 	if(all_species.len)
 		affected_species = get_infectable_species()

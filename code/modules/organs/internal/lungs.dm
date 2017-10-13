@@ -214,6 +214,18 @@
 
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
 
+	// Deal with any airborne viruses
+	for(var/V in breath.viruses)
+		if(istype(breath.viruses[V], /datum/disease2/disease))
+			var/datum/disease2/disease/V2 = breath.viruses[V]
+			infect_virus2(owner, V2, 1)
+
+	for(var/D1 in owner.virus2)
+		if(istype(owner.virus2[D1], /datum/disease2/disease))
+			var/datum/disease2/disease/D2 = owner.virus2[D1]
+			if(D2.spreadtype == "Airborne")
+				breath.viruses |= owner.virus2
+
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
 	if(failed_breath)

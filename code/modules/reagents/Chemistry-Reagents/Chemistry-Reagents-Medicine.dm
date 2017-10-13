@@ -453,6 +453,12 @@
 		I.was_bloodied = null
 	for(var/obj/effect/decal/cleanable/blood/B in T)
 		qdel(B)
+	if(T.air)
+		T.air.viruses = list()
+	if(istype(T, /turf/simulated))
+		var/turf/simulated/S = T
+		if(S.zone && S.zone.contents.len < 21)
+			S.zone.air.viruses = list()
 
 /datum/reagent/leporazine
 	name = "Leporazine"

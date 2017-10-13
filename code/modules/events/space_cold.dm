@@ -10,7 +10,7 @@ datum/event/space_cold/start()
 	var/datum/disease2/disease/sniffle = new
 	sniffle.max_stage = 3
 	sniffle.makerandom(1)
-	sniffle.spreadtype = "Airborne"
+	sniffle.spreadtype = "Proximity"
 
 	var/victims = min(rand(1,3), candidates.len)
 	while(victims)
