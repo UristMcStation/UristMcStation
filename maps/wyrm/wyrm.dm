@@ -10,6 +10,7 @@
 
 
 	#include "loadout/loadout_accessories.dm"
+	#include "loadout/loadout_accessories2.dm"
 	#include "loadout/loadout_eyes.dm"
 	#include "loadout/loadout_head.dm"
 	#include "loadout/loadout_shoes.dm"
