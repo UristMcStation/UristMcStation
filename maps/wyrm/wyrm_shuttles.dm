@@ -33,6 +33,7 @@
 
 /area/shuttle/merchant/home
 	name = "\improper Merchant Ship"
+	icon_state = "shuttle"
 
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant"
@@ -50,4 +51,4 @@
 /obj/effect/shuttle_landmark/merchant/out
 	name = "Docking Bay"
 	landmark_tag = "nav_merchant_out"
-	docking_controller = "merchant_shuttle_station_dock"
+	docking_controller = "lounge_dock"
