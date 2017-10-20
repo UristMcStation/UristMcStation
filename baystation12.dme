@@ -2638,6 +2638,8 @@
 #include "maps\wyrm\items\clothing\corporate.dm"
 #include "maps\wyrm\obj\alien.dm"
 #include "maps\wyrm\obj\synthcomputer.dm"
+#include "maps\wyrm\templates\dionaland.dmm"
+#include "maps\wyrm\templates\refuelingstation.dmm"
 #include "maps\wyrm\turf\generic.dm"
 #include "maps\wyrm\turf\matrix.dm"
 #include "maps\~mapsystem\map_preferences.dm"
