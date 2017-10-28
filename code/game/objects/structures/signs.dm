@@ -376,6 +376,10 @@
 	name = "\improper Infirmary"
 	icon_state = "direction_infirm"
 
+/obj/structure/sign/directions/virology
+	name = "\improper Virology"
+	icon_state = "direction_viro"
+
 /obj/structure/sign/directions/examroom
 	name = "\improper Exam Room"
 	icon_state = "examroom"

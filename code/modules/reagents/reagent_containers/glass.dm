@@ -242,6 +242,12 @@
 		reagents.add_reagent(/datum/reagent/ethanol, 60)
 		update_icon()
 
+/obj/item/weapon/reagent_containers/glass/beaker/radium
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/radium, 60)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/glass/bucket
 	desc = "It's a bucket."
 	name = "bucket"

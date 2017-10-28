@@ -103,6 +103,49 @@ proc/random_skin_tone()
 		else				. = rand(-185,34)
 	return min(max( .+rand(-25, 25), -185),34)
 
+/proc/random_hair_color()
+	var/list/rgb[3]
+	var/col = pick("blonde", "black", "chestnut", "copper", "brown", "wheat", "old", "punk")
+	switch(col)
+		if("blonde")
+			rgb[1] = 255
+			rgb[2] = 255
+			rgb[3] = 0
+		if("black")
+			rgb[1] = 0
+			rgb[2] = 0
+			rgb[3] = 0
+		if("chestnut")
+			rgb[1] = 153
+			rgb[2] = 102
+			rgb[3] = 51
+		if("copper")
+			rgb[1] = 255
+			rgb[2] = 153
+			rgb[3] = 0
+		if("brown")
+			rgb[1] = 102
+			rgb[2] = 51
+			rgb[3] = 0
+		if("wheat")
+			rgb[1] = 255
+			rgb[2] = 255
+			rgb[3] = 153
+		if("old")
+			rgb[1] = rand (100, 255)
+			rgb[2] = rgb[1]
+			rgb[3] = rgb[1]
+		if("punk")
+			rgb[1] = rand (0, 255)
+			rgb[2] = rand (0, 255)
+			rgb[3] = rand (0, 255)
+
+	rgb[1] = max(min(rgb[1] + rand (-25, 25), 255), 0)
+	rgb[2] = max(min(rgb[2] + rand (-25, 25), 255), 0)
+	rgb[3] = max(min(rgb[3] + rand (-25, 25), 255), 0)
+
+	return rgb
+
 proc/skintone2racedescription(tone)
 	switch (tone)
 		if(30 to INFINITY)		return "albino"

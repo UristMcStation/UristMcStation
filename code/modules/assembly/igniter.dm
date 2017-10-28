@@ -9,6 +9,10 @@
 	wires = WIRE_RECEIVE
 	var/datum/effect_system/sparks/spark_system
 
+/obj/item/device/assembly/igniter/Destroy()
+	spark_system = null
+	. = ..()
+
 /obj/item/device/assembly/igniter/activate()
 	if(!..())	return 0//Cooldown check
 

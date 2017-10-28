@@ -36,7 +36,6 @@
 	if(weapon2)
 		new weapon2 (src.loc)
 	qdel(src)
-	return
 
 ///////////////Sword and shield////////////
 

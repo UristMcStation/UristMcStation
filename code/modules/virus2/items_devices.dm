@@ -47,11 +47,12 @@
 
 /obj/item/weapon/virusdish/random
 	name = "virus sample"
+	var/severity = 3
 
 /obj/item/weapon/virusdish/random/New()
 	..()
 	src.virus2 = new /datum/disease2/disease
-	src.virus2.makerandom()
+	src.virus2.makerandom(severity)
 	growth = rand(5, 50)
 
 /obj/item/weapon/virusdish/attackby(var/obj/item/weapon/W as obj,var/mob/living/carbon/user as mob)

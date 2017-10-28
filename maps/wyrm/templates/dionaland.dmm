@@ -48,20 +48,20 @@
 "aV" = (/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "aW" = (/obj/random/loot,/obj/structure/closet/crate,/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHEAST)"; icon_state = "corner_white_shuttle"; dir = 6},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHWEST)"; icon_state = "corner_white_shuttle"; dir = 9},/obj/random/loot,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "aX" = (/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHEAST)"; icon_state = "corner_white_shuttle"; dir = 6},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"aY" = (/mob/living/simple_animal/hostile/armalis/armored,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"aY" = (/obj/random/loot,/obj/structure/closet/crate,/obj/random/loot,/turf/simulated/floor/diona,/area/away/dionaship)
 "aZ" = (/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHEAST)"; icon_state = "corner_white_shuttle"; dir = 6},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHWEST)"; icon_state = "corner_white_shuttle"; dir = 9},/obj/effect/floor_decal/industrial/warning/corner,/obj/effect/floor_decal/industrial/warning/corner{tag = "icon-warningcorner (EAST)"; icon_state = "warningcorner"; dir = 4},/obj/effect/floor_decal/industrial/warning/corner{tag = "icon-warningcorner (NORTH)"; icon_state = "warningcorner"; dir = 1},/obj/effect/floor_decal/industrial/warning/corner{tag = "icon-warningcorner (WEST)"; icon_state = "warningcorner"; dir = 8},/obj/structure/closet/crate/secure/large/phoron{pixel_x = 4},/obj/item/weapon/reagent_containers/glass/beaker/vial/tridezatane,/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"ba" = (/obj/random/loot,/obj/structure/closet/crate,/obj/random/loot,/turf/simulated/floor/diona,/area/away/crashedvox)
+"ba" = (/obj/machinery/porta_turret/stationary,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "bb" = (/obj/effect/floor_decal/corner/shuttle/yellow,/obj/machinery/door/unpowered/simple/biomass,/turf/simulated/floor/diona,/area/away/crashedvox)
 "bc" = (/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "bd" = (/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (WEST)"; icon_state = "corner_white_shuttle"; dir = 8},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "be" = (/obj/effect/floor_decal/corner/shuttle/yellow,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bf" = (/obj/machinery/porta_turret/stationary,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bg" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/turf/simulated/floor/diona,/area/away/dionaship)
-"bh" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/obj/machinery/bodyscanner{tag = "icon-body_scanner_0 (WEST)"; icon_state = "body_scanner_0"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bi" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/obj/machinery/body_scanconsole{tag = "icon-body_scannerconsole (WEST)"; icon_state = "body_scannerconsole"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bj" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bk" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/paper/dionaresearch1,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bl" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bf" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/turf/simulated/floor/diona,/area/away/dionaship)
+"bg" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/obj/machinery/bodyscanner{tag = "icon-body_scanner_0 (WEST)"; icon_state = "body_scanner_0"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bh" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/obj/machinery/body_scanconsole{tag = "icon-body_scannerconsole (WEST)"; icon_state = "body_scannerconsole"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bi" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bj" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/item/weapon/reagent_containers/glass/beaker/vial/random,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/paper/dionaresearch1,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bk" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bl" = (/obj/machinery/door/airlock/hatch{locked = 1; secured_wires = 1},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "bm" = (/turf/simulated/wall/biomass{light_color = "#9fd733"; light_power = 2; light_range = 3},/area/away/crashedvox)
 "bn" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (NORTH)"; icon_state = "corner_white_clean"; dir = 1},/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "bo" = (/mob/living/carbon/alien/diona,/turf/simulated/floor/tiled/white,/area/away/dionaship)
@@ -76,26 +76,26 @@
 "bx" = (/obj/machinery/body_scanconsole{tag = "icon-body_scannerconsole (WEST)"; icon_state = "body_scannerconsole"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "by" = (/obj/effect/floor_decal/corner/clean/paleblue{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "bz" = (/obj/machinery/computer,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bA" = (/obj/machinery/door/airlock/glass_medical{name = "Medical Research Lab"},/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bB" = (/mob/living/simple_animal/hostile/sound/insanediona,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bC" = (/obj/item/modular_computer/console/preset/engineering,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bD" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (WEST)"; icon_state = "shuttlechair"; dir = 8},/mob/living/simple_animal/hostile/armalis/armored,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bE" = (/obj/effect/floor_decal/corner/shuttle/green,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bF" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bG" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (WEST)"; icon_state = "corner_white_shuttle"; dir = 8},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bH" = (/obj/effect/floor_decal/corner/shuttle/fadeblue,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bI" = (/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"bJ" = (/obj/machinery/sleeper{tag = "icon-sleeper_0 (EAST)"; icon_state = "sleeper_0"; dir = 4},/obj/effect/floor_decal/corner/clean/paleblue/full,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bK" = (/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (WEST)"; icon_state = "corner_white_clean"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bL" = (/obj/effect/floor_decal/corner/clean/paleblue,/obj/item/weapon/reagent_containers/glass/beaker/bluespace,/obj/structure/table/glass,/turf/simulated/floor/diona,/area/away/dionaship)
-"bM" = (/obj/machinery/door/unpowered/simple/biomass,/turf/simulated/floor/diona,/area/away/crashedvox)
-"bN" = (/turf/simulated/wall/biomass,/area/away/crashedvox)
-"bO" = (/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/structure/bedsheetbin,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bP" = (/obj/machinery/door/window/northleft,/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bQ" = (/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced{tag = "icon-rwindow (EAST)"; icon_state = "rwindow"; dir = 4},/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/mob/living/carbon/alien/diona,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bR" = (/obj/effect/floor_decal/corner/clean/paleblue,/obj/machinery/chemical_dispenser/ert,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"bS" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0},/turf/simulated/floor/diona,/area/away/dionaship)
-"bT" = (/mob/living/carbon/alien/diona,/turf/simulated/floor/diona,/area/away/crashedvox)
+"bA" = (/mob/living/simple_animal/hostile/armalis/armored,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bB" = (/obj/machinery/door/airlock/glass_medical{name = "Medical Research Lab"},/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bC" = (/mob/living/simple_animal/hostile/sound/insanediona,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bD" = (/obj/item/modular_computer/console/preset/engineering,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bE" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (WEST)"; icon_state = "shuttlechair"; dir = 8},/mob/living/simple_animal/hostile/armalis/armored,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bF" = (/obj/effect/floor_decal/corner/shuttle/green,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bG" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bH" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (WEST)"; icon_state = "corner_white_shuttle"; dir = 8},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bI" = (/obj/effect/floor_decal/corner/shuttle/fadeblue,/mob/living/simple_animal/hostile/armalis/armored,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bJ" = (/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
+"bK" = (/obj/machinery/sleeper{tag = "icon-sleeper_0 (EAST)"; icon_state = "sleeper_0"; dir = 4},/obj/effect/floor_decal/corner/clean/paleblue/full,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bL" = (/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (WEST)"; icon_state = "corner_white_clean"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bM" = (/obj/effect/floor_decal/corner/clean/paleblue,/obj/item/weapon/reagent_containers/glass/beaker/bluespace,/obj/structure/table/glass,/turf/simulated/floor/diona,/area/away/dionaship)
+"bN" = (/obj/machinery/door/unpowered/simple/biomass,/turf/simulated/floor/diona,/area/away/crashedvox)
+"bO" = (/turf/simulated/wall/biomass,/area/away/crashedvox)
+"bP" = (/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/obj/structure/table/glass,/obj/structure/bedsheetbin,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bQ" = (/obj/machinery/door/window/northleft,/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bR" = (/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced{tag = "icon-rwindow (EAST)"; icon_state = "rwindow"; dir = 4},/obj/effect/floor_decal/corner/clean/green{tag = "icon-corner_white_clean (EAST)"; icon_state = "corner_white_clean"; dir = 4},/mob/living/carbon/alien/diona,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bS" = (/obj/effect/floor_decal/corner/clean/paleblue,/obj/machinery/chemical_dispenser/ert,/turf/simulated/floor/tiled/white,/area/away/dionaship)
+"bT" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; mapped_damage = 60},/turf/simulated/floor/diona,/area/away/dionaship)
 "bU" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "bV" = (/obj/effect/floor_decal/corner/shuttle/green{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/obj/machinery/iv_drip,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "bW" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/medical,/turf/simulated/floor/tiled/white,/area/away/dionaship)
@@ -109,11 +109,11 @@
 "ce" = (/turf/simulated/floor/shuttle/black,/area/away/dionaship)
 "cf" = (/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/diona,/area/away/crashedvox)
 "cg" = (/obj/structure/table/steel,/obj/item/weapon/storage/pill_bottle/zoom,/obj/item/weapon/storage/pill_bottle/bicaridine,/turf/simulated/floor/diona,/area/away/crashedvox)
-"ch" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 4; icon_state = "emitter"; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
-"ci" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 8; icon_state = "emitter"; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
+"ch" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 4; icon_state = "emitter"; mapped_damage = 60; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
+"ci" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 8; icon_state = "emitter"; mapped_damage = 60; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
 "cj" = (/obj/machinery/power/port_gen/pacman/mrs,/turf/simulated/floor/diona,/area/away/dionaship)
 "ck" = (/obj/machinery/power/terminal,/obj/structure/cable,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
-"cl" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 8; icon_state = "emitter"; tag = "icon-emitter (WEST)"},/turf/simulated/floor/diona,/area/away/dionaship)
+"cl" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 8; icon_state = "emitter"; mapped_damage = 60; tag = "icon-emitter (WEST)"},/turf/simulated/floor/diona,/area/away/dionaship)
 "cm" = (/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (NORTHWEST)"; icon_state = "corner_white_shuttle"; dir = 9},/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "cn" = (/obj/structure/cable{d2 = 2; icon_state = "0-2"},/obj/machinery/power/smes/buildable,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "co" = (/turf/simulated/shuttle/wall{tag = "icon-gwall_space (WEST)"; icon_state = "gwall_space"; dir = 8},/area/away/dionaship)
@@ -121,7 +121,7 @@
 "cq" = (/obj/machinery/disease2/incubator,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cr" = (/obj/machinery/disease2/diseaseanalyser,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cs" = (/obj/structure/table/glass,/obj/item/weapon/paper/dionaresearch1,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"ct" = (/obj/machinery/cryopod{tag = "icon-body_scanner_0 (EAST)"; icon_state = "body_scanner_0"; dir = 4},/turf/simulated/floor/diona,/area/away/crashedvox)
+"ct" = (/obj/machinery/cryopod{tag = "icon-body_scanner_0 (EAST)"; icon_state = "body_scanner_0"; dir = 4},/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (SOUTHEAST)"; icon_state = "corner_white_shuttle"; dir = 6},/obj/effect/floor_decal/corner/shuttle/fadeblue{tag = "icon-corner_white_shuttle (NORTHWEST)"; icon_state = "corner_white_shuttle"; dir = 9},/turf/simulated/floor/diona,/area/away/crashedvox)
 "cu" = (/obj/machinery/power/shield_generator,/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHEAST)"; icon_state = "corner_white_shuttle"; dir = 5},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (NORTHWEST)"; icon_state = "corner_white_shuttle"; dir = 9},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHEAST)"; icon_state = "corner_white_shuttle"; dir = 6},/obj/effect/floor_decal/corner/shuttle/yellow{tag = "icon-corner_white_shuttle (SOUTHWEST)"; icon_state = "corner_white_shuttle"; dir = 10},/obj/structure/cable,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "cv" = (/obj/structure/shuttle/engine/propulsion/burst/left{tag = "icon-burst_l (WEST)"; icon_state = "burst_l"; dir = 8},/turf/space,/area/away/dionaship)
 "cw" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (EAST)"; icon_state = "shuttlechair"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/shuttle/red,/area/away/dionaship)
@@ -136,14 +136,14 @@
 "cF" = (/mob/living/carbon/alien/diona,/turf/simulated/floor/shuttle/black,/area/away/crashedvox)
 "cG" = (/obj/structure/shuttle/engine/propulsion/burst/right{tag = "icon-burst_r (WEST)"; icon_state = "burst_r"; dir = 8},/turf/space,/area/away/dionaship)
 "cH" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (EAST)"; icon_state = "shuttlechair"; dir = 4},/obj/structure/window/reinforced{dir = 8},/mob/living/simple_animal/hostile/syndicate/ranged/space,/turf/simulated/floor/shuttle/red,/area/away/dionaship)
-"cI" = (/obj/item/weapon/gun/projectile/heavysniper,/obj/structure/table/rack,/turf/simulated/floor/shuttle/red,/area/away/dionaship)
+"cI" = (/obj/item/weapon/gun/projectile/heavysniper,/obj/structure/table/rack,/obj/item/weapon/shield/energy,/obj/item/weapon/melee/energy/sword,/turf/simulated/floor/shuttle/red,/area/away/dionaship)
 "cJ" = (/turf/simulated/shuttle/wall{tag = "icon-gwall_floor (WEST)"; icon_state = "gwall_floor"; dir = 8},/area/away/dionaship)
 "cK" = (/turf/simulated/shuttle/wall{tag = "icon-gwall_space"; icon_state = "gwall_space"},/area/away/dionaship)
 "cL" = (/obj/item/weapon/paper/dionaresearch3,/obj/structure/table/glass,/turf/simulated/floor/diona,/area/away/dionaship)
 "cM" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/ce,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cN" = (/obj/effect/spawner/carbon/human/diona{killed = 1},/obj/structure/bed/nice,/turf/simulated/floor/diona,/area/away/dionaship)
 "cO" = (/mob/living/carbon/alien/diona,/turf/simulated/floor/shuttle/black,/area/away/dionaship)
-"cP" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 1; icon_state = "emitter"; tag = "icon-emitter (WEST)"},/turf/simulated/floor/diona,/area/away/dionaship)
+"cP" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 1; icon_state = "emitter"; mapped_damage = 60; tag = "icon-emitter (WEST)"},/turf/simulated/floor/diona,/area/away/dionaship)
 "cQ" = (/obj/machinery/disease2/isolator,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cR" = (/obj/structure/table/glass,/obj/item/weapon/paper_bin,/obj/item/weapon/pen,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cS" = (/obj/machinery/computer/centrifuge,/turf/simulated/floor/tiled/white,/area/away/dionaship)
@@ -155,7 +155,7 @@
 "cY" = (/obj/structure/bed/chair/office/light{tag = "icon-officechair_white_preview (WEST)"; icon_state = "officechair_white_preview"; dir = 8},/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "cZ" = (/obj/structure/table/glass,/obj/item/weapon/folder/white,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "da" = (/obj/structure/table/glass,/obj/item/weapon/storage/lockbox/vials,/turf/simulated/floor/tiled/white,/area/away/dionaship)
-"db" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 1; icon_state = "emitter"; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
+"db" = (/obj/machinery/power/emitter/anchored{active = 1; active_power_usage = 0; dir = 1; icon_state = "emitter"; mapped_damage = 60; tag = "icon-emitter (WEST)"},/turf/simulated/floor/shuttle/black,/area/away/dionaship)
 "dc" = (/obj/machinery/computer/diseasesplicer,/turf/simulated/floor/tiled/white,/area/away/dionaship)
 "dd" = (/obj/effect/spawner/carbon/human/diona,/obj/structure/bed/nice,/turf/simulated/floor/diona,/area/away/dionaship)
 "de" = (/obj/machinery/computer/curer,/turf/simulated/floor/tiled/white,/area/away/dionaship)
@@ -205,28 +205,28 @@ aaaaaaaaaaaaabababababacacacacacacacacacacacacacacacadahadabacabababacacacacabab
 aaaaaaaaaaabababababacacacacacabadahadabababacacacacacacacababababacacacacacababababacacacacacacacacacabacacacacababacacacacacacacacacacacababababacacacacacacacacacacaNaNabadabababababababaTaKaKababaa
 aaaaaaaaaaababababacacacacacababacacacacababacacacacaeacacabababacacacacacababababacacacacacacacacacacadacacacacabababacacacacacacacacaeacacabababababacacacacacacacaNaNababababababababaUaKaKaKaKababaa
 aaaaaaaaabababababacacacacacababacacacacabababadacacacacabababacacacacacabababadacacacacacacacacacacacacacacacacacabababacacacacacacacacacacacacababababacacacacacaNaNabababababababaEaKaKaKaKaKabababab
-aaaaaaababaaabababacacacacababacacacacacacababacacaVacacababacacacacacacadabacahacacacacacacacacacacacacacacacacacacababadacacacacacacacacacacacacabababababacacacababababababaKaWaXaEaKaKaYaKaKabababab
+aaaaaaababaaabababacacacacababacacacacacacababacacaVacacababacacacacacacadabacahacacacacacacacacacacacacacacacacacacababadacacacacacacacacacacacacabababababacacacababababababaKaWaXaEaKaKaKaKaKabababab
 aaaaaaabaaaaabababacacababababacacacacacababacaVacacacabababacacacacacacacacacadacacacacacadacacacacacacacacacacacacabababababacacacacacacacacacacacacababababaNababababaKaKaKaKaKaXaEaKaKaKaKaKabababaa
-aaaaaaaaaaaaababababababababacacacacacabababacacaVaVacababababacacacacacacacacabacacacacacabacacacaeacacacacacacacacacabababababababababacacacacacacacacababababababaZaKaKaKaWaKaWaKaEaKaKaKaKababababaa
-aaaaaaaaabababababababacacacacacacabababajadajaVaVaVajajajababacacacacacacacacababacacacacababacacacacacacacacacacacacacababababababababacacacacacabababababaEbabbbcbcbdaKbebcbcbdaKaEaKbfaKaKababababaa
-aaaaaaaaababababababacacacacacacacabababajbgbhbiaVaVbjbkajababacacacacacacacacacababacacacabababacacacadacacacacacacacacabababacacacacababacacacaEaEaEaEaEaEaEaEaEaEaEaEblaEaEaEaEaEaEaEaEblbmababababaa
+aaaaaaaaaaaaababababababababacacacacacabababacacaVaVacababababacacacacacacacacabacacacacacabacacacaeacacacacacacacacacabababababababababacacacacacacacacababaYacababaZaKaKaKaWaKaWaKaEaKbaaKaKababababaa
+aaaaaaaaabababababababacacacacacacabababajadajaVaVaVajajajababacacacacacacacacababacacacacababacacacacacacacacacacacacacababababababababacacacacacababababacaIaIbbbcbcbdaKbebcbcbdaKaEaKaKaKaKababababaa
+aaaaaaaaababababababacacacacacacacabababajbfbgbhaVaVbibjajababacacacacacacacacacababacacacabababacacacadacacacacacacacacabababacacacacababacacacaEaEaEaEaEaEaEaEaEaEaEaEbkaEaEaEaEaEaEaEaEblbmababababaa
 aaaaaaaaababababababacacacacacacacacacadajbnaVboaVaVaVbpajacababadacaeacacacacacabababacacabababacacacababacacacacacacacadacacacacacacacababacaEaEbqbrbsaEbtbubvbvbvbvaKaKbubvbvbvbvaKaKaKaKaKabababaaaa
-aaaaaaaaaaaaababababacacacacacacacaVacaVajbnbwbxaVboaVbyajaVacaVacacacacacacacacabababacacacababababacababacacacacacacacahacacacacacaNaNaNadahaEbzbsaKaKblaKaKaKaKaKaKaKaKaYaKaKaKaKaKaKaKaKaKabababaaaa
-aaaaaaaaaaabababababacacacacacaVacacacaVbAaVaVaVbBaVaVaVbAaVacacacacacacacacacababababacacacacababababababacacacacacacacadacacacacacacacacacacaEaEbCaKbDaEbtaKaKaKaKaKaKaKbEbFaKbFbGbHbIaKbIadabababaaaa
-aaaaaaaaaaabababababacacacacacacacaVacacajbJbKbKbKaVaVbLadabababacacacacacabababababababacacacacacabababacacacacacacacacababacacaeacacacacacacacaEaEaEaEaEaEaEaEbmbMbmaEaEaEaEblaEaEaEaEblaEbNabababaaaa
-aaaaaaaaababababababacacacacacacaVacacadajbObPbQbKaVbobRajabababacacababababababacacabababaeacacababadacacacacacacacacacacababacacacacabababacacbSacbSabababaEbNbNaIbTbNaEbUbUaIbUbVaEaKaKaKbmabaaabaaaa
-aaaaaaaaababaaabababacacacacacacacacababajbWaVbXbKbYbZcaajabababababababababababacacacababacacabababacacacacacacacacacacacacababacacadababababacacacacacabababababababababaIaKaKaIcbaEaKaKaIbNabaaaaaaaa
-aaaaaaaaabaaaaabababacacacacacacacabababajajajajbAadajajajabababababababacacacacacacacacababacababacacacaeacacacacabadacacacacababababababacababacacacacacbSadababababababccaIaIaKcdaEaKaKaIbmababaaaaaa
+aaaaaaaaaaaaababababacacacacacacacaVacaVajbnbwbxaVboaVbyajaVacaVacacacacacacacacabababacacacababababacababacacacacacacacahacacacacacaNaNaNadahaEbzbsaKaKbkaKaKaKaKaKaKaKaKbAaKaKaKaKaKaKaKaKaKabababaaaa
+aaaaaaaaaaabababababacacacacacaVacacacaVbBaVaVaVbCaVaVaVbBaVacacacacacacacacacababababacacacacababababababacacacacacacacadacacacacacacacacacacaEaEbDaKbEaEbtaKaKaKaKaKaKaKbFbGaKbGbHbIbJaKbJadabababaaaa
+aaaaaaaaaaabababababacacacacacacacaVacacajbKbLbLbLaVaVbMadabababacacacacacabababababababacacacacacabababacacacacacacacacababacacaeacacacacacacacaEaEaEaEaEaEaEaEbmbNbmaEaEaEaEbkaEaEaEaEbkaEbOabababaaaa
+aaaaaaaaababababababacacacacacacaVacacadajbPbQbRbLaVbobSajabababacacababababababacacabababaeacacababadacacacacacacacacacacababacacacacabababacacbTacbTabababaEbOaIaIaIbOaEbUbUaIbUbVaEaKaKaKbmabaaabaaaa
+aaaaaaaaababaaabababacacacacacacacacababajbWaVbXbLbYbZcaajabababababababababababacacacababacacabababacacacacacacacacacacacacababacacadababababacacacacacabababababacacababaIaKaKaIcbaEaKaKaIbOabaaaaaaaa
+aaaaaaaaabaaaaabababacacacacacacacabababajajajajbBadajajajabababababababacacacacacacacacababacababacacacaeacacacacabadacacacacababababababacababacacacacacbTadababababababccaIaIaKcdaEaKaKaIbmababaaaaaa
 aaaaaaaaaaaaababababacacacacacacabababababababaVaVabababababababababacacacacacazacacacacababababacacacacacacacabababacacacacacacababababaNceacadacacacacacacacacaNaNaNaNababaIaIcfcgaEaKaIaKaIabababaaaa
 aaaaaaaaaaababababacacacacaeacacacababababababadahadababababababacacacacacacacacacacabababababababababacacabababababacacaeacacababacceabaNchceceacacacacacacacaccecececiababababababaEaKaKaIaKadababaaaa
 aaaaaaaaabababababacacacacacacacacacabababababacacacacababababacacacacacacacacacacabababababababababababababababacacacacacacacabacacceceaNaNceceacacacacacacacacaccececeababababababaEaKaKaKaIabababaaaa
 aaaaaaaaababababababacacacacacacacacacababababacacacacacacacacacacacacacacacadababababababababababababababababacacacacacacacababacaccececeaNaNchceacacacacacacacacacceciababababababaEaKaKaKaIcjababaaaa
-aaaaaaaaababababacabadahadacacacacacababababacacacacacacacacacacacacacacacabababababababababababababababababadacacacacacaNahadacacacaccececeaNadacacacadacacacacacaeacaNaNabbNbNaEaEaEaKaKckaEababababaa
-aaaaaaaaababababacacacacabababacacababababacacacaeacacacacacacaNaNacabababababababaVaVababababababababababababadacababaNaNacacacacacaNchceacceceacacacacacacacacacacacclaNabbNbNcmaKaKaKaKcnaEababababaa
-aaaaaacocpcpadabacaeacacacacababababababacacacacacacacacacacacaNababababababcqcrcsaVacacacabababababababababababababababaNabacacacacadabacceceacacacacacacacacacacacacabababbNctcmaIaKaIaKcuaEabababaaaa
-aaaaaacvcwcxcyczcpacacacacacababababababacacacacacacacacacacacacabababababaVaVcAaVabacacacacacabababababababababababababababacacacacaNababchacacacacacacacacacacceciaNabababaEctcmaIaYaKaIaIaEabababaaaa
-aaaaaacBcCcDcDcDcEacacacacababababababababacacacacacadabacacacacababababaVaVaVaVacabacacacacacacacabababababababababababababacacacacaNaNababceacacacacacacacacceceadaNabababaEaEbNbmaIcFaIbNaEababaaaaaa
-aaaaaacGcHcxcIcJcpacacacabababababababababacacacacacacababacacadabababacacacacacacababacacacacababababacacacababababababadacacacacaeacaNaNabchacceacacacacacceciabaNaNabacacacaEaEbNaEaEaEbNbNababaaaaaa
+aaaaaaaaababababacabadahadacacacacacababababacacacacacacacacacacacacacacacabababababababababababababababababadacacacacacaNahadacacacaccececeaNadacacacadacacacacacaeacaNaNabbObOaEaEaEaKaKckaEababababaa
+aaaaaaaaababababacacacacabababacacababababacacacaeacacacacacacaNaNacabababababababaVaVababababababababababababadacababaNaNacacacacacaNchceacceceacacacacacacacacacacacclaNabbObOcmaKaKaKaKcnaEababababaa
+aaaaaacocpcpadabacaeacacacacababababababacacacacacacacacacacacaNababababababcqcrcsaVacacacabababababababababababababababaNabacacacacadabacceceacacacacacacacacacacacacabababbOctcmaIaKaIaKcuaEabababaaaa
+aaaaaacvcwcxcyczcpacacacacacababababababacacacacacacacacacacacacabababababaVaVcAaVabacacacacacabababababababababababababababacacacacaNababchacacacacacacacacacacceciaNabababaEctcmaIbAaKaIaIaEabababaaaa
+aaaaaacBcCcDcDcDcEacacacacababababababababacacacacacadabacacacacababababaVaVaVaVacabacacacacacacacabababababababababababababacacacacaNaNababceacacacacacacacacceceadaNabababaEaEbObmaIcFaIbOaEababaaaaaa
+aaaaaacGcHcxcIcJcpacacacabababababababababacacacacacacababacacadabababacacacacacacababacacacacababababacacacababababababadacacacacaeacaNaNabchacceacacacacacceciabaNaNabacacacaEaEbOaEaEaEbObOababaaaaaa
 aaaaaacKcpcpcpabacacababababababababacabababacacacacacacababacabababacacacacacacacacabacacaVababaVabacacacacacacacabababababacacacacacacaNaNaNacaccececeacceacaNaNaNabacacacacacacabadacacababababaaaaaa
 aaaaaaaaabababacacabababajajababababacacabababacacacacacacabababababacacacacacacacaeababaVaVabaVaVacacacacacacacacadcLacabababacacacacacadababacceceaccececeacabababacacacacacacacacacacababababaaaaaaaa
 aaaaaaaaabababababababaVcMajabababacacacacabababadacacacacacacabababacaeazacacacacacacadaVaVaVadaVaVaVacacacacacacahaccNacababacacacacacabababcecececOcececPabababacacacacacacacacacababababababaaaaaaaa

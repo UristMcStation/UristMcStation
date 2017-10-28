@@ -327,6 +327,19 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/purple/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/clean/purple
+	name = "purple corner"
+	color = COLOR_PURPLE_GRAY
+
+/obj/effect/floor_decal/corner/clean/purple/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/purple/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/purple/full
+	icon_state = "corner_white_full_clean"
+
 /obj/effect/floor_decal/corner/mauve
 	name = "mauve corner"
 	color = COLOR_PALE_PURPLE_GRAY
@@ -412,6 +425,19 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/corner/darkgrey/three_quarters
 	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/clean/gold
+	name = "gold corner"
+	color = "#f2af00"
+
+/obj/effect/floor_decal/corner/clean/gold/diagonal
+	icon_state = "corner_white_diagonal_clean"
+
+/obj/effect/floor_decal/corner/clean/gold/three_quarters
+	icon_state = "corner_white_three_quarters_clean"
+
+/obj/effect/floor_decal/corner/clean/gold/full
+	icon_state = "corner_white_full_clean"
 
 /obj/effect/floor_decal/spline/plain
 	name = "spline - plain"

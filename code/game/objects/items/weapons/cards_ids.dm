@@ -440,3 +440,14 @@ var/const/NO_EMAG_ACT = -50
 	name = "identification card"
 	desc = "A card issued to cargo staff."
 	icon_state = "cargo"
+	access = list(201)
+
+/obj/item/weapon/card/id/fake/veymed
+	name = "identification card"
+	desc = "A card issued to medical staff."
+	icon_state = "green"
+	access = list(202)
+
+/obj/item/weapon/card/id/fake/veymed/head
+	icon_state = "greenGold"
+	access = list(202,212)

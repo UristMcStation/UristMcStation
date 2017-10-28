@@ -27,6 +27,7 @@
 	var/shot_number = 0
 	var/state = 0
 	var/locked = 0
+	var/mapped_damage
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
@@ -143,7 +144,10 @@
 
 		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
 		playsound(src.loc, A.fire_sound, 25, 1)
-		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
+		if(mapped_damage)
+			A.damage = mapped_damage
+		else
+			A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch( get_step(src.loc, src.dir) )
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)

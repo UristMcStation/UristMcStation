@@ -24,6 +24,10 @@
 	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
+/mob/living/bot/medbot/emagged
+	emagged = TRUE
+	treatment_emag = /datum/reagent/space_drugs
+
 /mob/living/bot/medbot/handleIdle()
 	if(vocal && prob(1))
 		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
