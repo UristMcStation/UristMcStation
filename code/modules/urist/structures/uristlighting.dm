@@ -122,8 +122,6 @@
 	light_color = "#fcfcb6"
 	light_power = 1
 	light_range = 127
-	bound_height = 224
-	bound_width = 224
 
 /obj/machinery/light/chromatic
 	name = "chromatic light"
