@@ -10,7 +10,7 @@
 /datum/access/bar
 	access_type = ACCESS_TYPE_NONE
 
-/datum/access_janitor
+/datum/access/janitor
 	access_type = ACCESS_TYPE_NONE
 
 /datum/access/crematorium

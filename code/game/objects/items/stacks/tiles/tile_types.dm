@@ -16,11 +16,11 @@
 	max_amount = 100
 
 /obj/item/stack/tile/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(is_sharp(I) && throwforce < 15)
+	if(is_sharp(I) && throwforce < 20)
 		to_chat(user, "<span class = 'notice'>You begin to sharpen \the [src] with \the [I].</span>")
 		if(do_after(user, 30, src))
 			to_chat(user, "<span class = 'notice'>You sharpen \the [src]'s edges to a sharp point.</span>")
-			throwforce = 15
+			throwforce = 20
 			return
 	..()
 
