@@ -1,5 +1,5 @@
 /datum/category_item/underwear/undershirt/wyrm
-	icon = 'icons/mob/WyrmUndershirts.dmi'
+	icon = 'icons/uristmob/Wyrm/WyrmUndershirts.dmi'
 
 /datum/category_item/underwear/undershirt/wyrm/alien
 	name = "Shirt, Alien"

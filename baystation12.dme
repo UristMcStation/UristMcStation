@@ -2423,6 +2423,7 @@
 #include "code\modules\urist\items\clothes\shoes.dm"
 #include "code\modules\urist\items\clothes\tgclothes.dm"
 #include "code\modules\urist\items\clothes\uristclothes.dm"
+#include "code\modules\urist\items\clothes\uristloadout.dm"
 #include "code\modules\urist\items\improvised\ghettobomb.dm"
 #include "code\modules\urist\items\improvised\improv-armour.dm"
 #include "code\modules\urist\items\improvised\improv-weaponry.dm"
