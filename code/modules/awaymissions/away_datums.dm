@@ -10,8 +10,6 @@
 
 //Actual away missions go down here
 
-//Also, attempts to load stuff like the jungle planet will be met with death and runtimes
-
 /datum/away_mission/tradership
 	map_path = "maps/wyrm/templates/tradership.dmm"
 	value = 10
@@ -21,7 +19,7 @@
 	map_path = "maps/wyrm/templates/crystalmines.dmm"
 	value = 15
 	random_start = TRUE
-/*
+
 /datum/away_mission/hell
 	map_path = "maps/RandomZLevels/negastation.dmm"
 	value = 25
@@ -41,4 +39,3 @@
 	map_path = "maps/wyrm/templates/refuelingstation.dmm"
 	value = 10
 	random_start = TRUE
-*/

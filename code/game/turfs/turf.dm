@@ -31,10 +31,12 @@
 
 /turf/New()
 	..()
+/*
 	for(var/atom/movable/AM as mob|obj in src)
 		spawn( 0 )
 			src.Entered(AM)
 			return
+*/
 //	turfs |= src
 
 	if(dynamic_lighting)

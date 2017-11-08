@@ -1,7 +1,8 @@
 /mob/living/simple_animal/hostile/sound
 	var/list/last_saw
 	var/list/alert_message = list("screeches at")
-	var/list/alert_sound = list()
+	var/list/alert_sound
+	var/next_alert
 
 /mob/living/simple_animal/hostile/sound/Initialize()
 	. = ..()
@@ -38,8 +39,10 @@
 
 /mob/living/simple_animal/hostile/sound/proc/alerted(var/mob/detected)
 	if(islist(alert_message) && alert_message.len)
-		var/message = pick(alert_message)
-		visible_message("<span class = 'danger'><font size = 4>[src] [message] [detected]!</font></span>")
+		if(next_alert > world.time)
+			var/message = pick(alert_message)
+			visible_message("<span class = 'danger'><font size = 3>[src] [message] [detected]!</font></span>")
+			next_alert = world.time + 15 SECONDS
 	if(islist(alert_sound) && alert_sound.len)
 		var/sound = pick(alert_sound)
 		playsound(src, sound, 100, 1)

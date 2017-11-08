@@ -68,6 +68,7 @@
 	if(src.contents)
 		for(var/obj/O in src.contents)
 			drop_from_inventory(O)
+	. = ..()
 
 /mob/living/simple_animal/hostile/urist/zombie/generic
 	plague = 0

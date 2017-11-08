@@ -137,3 +137,7 @@
 		if(signal.data["color"])
 			brightness_color = signal.data["color"]
 			update()
+
+/obj/machinery/light/broken/Initialize()
+	. = ..()
+	broken()

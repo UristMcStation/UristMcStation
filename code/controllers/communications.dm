@@ -206,6 +206,7 @@ var/const/RADIO_SECBOT = "radio_secbot"
 var/const/RADIO_MULEBOT = "radio_mulebot"
 var/const/RADIO_MAGNETS = "radio_magnet"
 var/const/RADIO_CHROMATIC = "radio_chromatic"
+var/const/RADIO_CHEM_VENT = "radio_chemvent"
 
 var/global/datum/controller/radio/radio_controller
 

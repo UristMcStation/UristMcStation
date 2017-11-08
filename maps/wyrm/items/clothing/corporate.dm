@@ -18,6 +18,13 @@
 	icon_closed = "veymed_lab_closed"
 	starting_accessories = list(/obj/item/clothing/accessory/armband/veymed)
 
+/obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed/head
+	name = "project director's labcoat"
+	desc = "A sterile white labcoat with gilded seams and cufflinks."
+	icon_state = "veymed_head_lab"
+	icon_open = "veymed_head_lab"
+	icon_closed = "veymed_head_lab_closed"
+
 /obj/item/clothing/accessory/armband/veymed
 	name = "Vey-Med armband"
 	desc = "An armband, sometimes worn by employees of Vey-Med. This one is gold and green."

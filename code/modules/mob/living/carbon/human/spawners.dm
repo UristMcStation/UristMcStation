@@ -6,14 +6,15 @@
 	var/new_gender
 	var/hair_style           // Regular name
 	var/list/skin_color      // RGB
-	var/list/tone            // 0-255, multiple leads to randomized
+	var/list/tone = "RAND"   // 0-255, multiple leads to randomized
 	var/list/eye_color       // RGB
-	var/list/hair_color      // RGB
+	var/list/hair_color = "RAND" // RGB
 	var/clothing             // /decl/hierarchy/outfit
 	var/rank                 // Outfit rank
 	var/assignment           // Outfit assignment
 	var/killed               // Brain dead on spawn
 	var/list/damage          // Use BP defines = damage
+	var/list/viruses         // Enter severities of 1-5 to add a new virus
 	var/post_setup           // Do everything except qdel self
 
 	var/mob/living/carbon/human/H
@@ -42,12 +43,13 @@
 	else
 		H.real_name = real_species.get_random_name(H.gender)
 
-	if(tone)
-		if(tone.len > 1)
+	if(tone && !skin_color)
+		if(tone == "RAND")
+			H.change_skin_tone(random_skin_tone())
+		else if(islist(tone) && tone.len >= 1)
 			var/rand_tone = pick(tone)
 			H.change_skin_tone(rand_tone)
-		else
-			H.change_skin_tone(tone)
+
 	else if(skin_color) //TODO: Three-dimensional array for random alien skin coloring
 		H.change_skin_color(skin_color[1],skin_color[2],skin_color[3])
 
@@ -55,7 +57,11 @@
 		H.change_eye_color(eye_color[1],eye_color[2],eye_color[3])
 
 	if(hair_color)
-		H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
+		if(hair_color == "RAND")
+			hair_color = random_hair_color()
+		else
+			H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
+			H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])
 
 	if(clothing)
 		var/decl/hierarchy/outfit/O = outfit_by_type(clothing)
@@ -70,7 +76,23 @@
 		else
 			for(var/limb in damage)
 				var/obj/item/organ/external/O = H.organs_by_name[limb]
-				O.take_damage(damage[limb])
+				if(O)
+					O.take_damage(damage[limb])
+
+		if(damage["impale"] && ispath(damage["impale"]))
+			var/turf/T = H.near_wall(dir,2)
+			var/obj/item/weapon/arrow/rod/R = new(H)
+
+			if(T)
+				H.loc = T
+				H.anchored = 1
+				H.pinned += R
+
+	if(viruses)
+		for(var/V in viruses)
+			var/datum/disease2/disease/D = new /datum/disease2/disease
+			D.makerandom(V)
+			infect_virus2(H,D,1)
 
 	var/turf/T = get_turf(src)
 	var/obj/structure/bed/B = locate() in T.contents
@@ -94,19 +116,25 @@
 
 /obj/effect/spawner/carbon/human/virus
 	post_setup = TRUE
+	var/severity = 3
 
 /obj/effect/spawner/carbon/human/virus/Initialize()
 	. = ..()
 	var/datum/disease2/disease/V = new /datum/disease2/disease
-	V.makerandom(VIRUS_ENGINEERED)
+	V.makerandom(severity)
 	infect_virus2(H,V,1)
 	qdel(src)
+
+/obj/effect/spawner/carbon/human/pcrc
+	clothing = /decl/hierarchy/outfit/pcrc
+
+/obj/effect/spawner/carbon/human/patient
+	clothing = /decl/hierarchy/outfit/patient
 
 //Nanotrasen
 
 /obj/effect/spawner/carbon/human/virus/ntsci
 	clothing = /decl/hierarchy/outfit/nanotrasensci
-
 
 /obj/effect/spawner/carbon/human/nt
 	clothing = /decl/hierarchy/outfit/nanotrasensci
@@ -127,6 +155,7 @@
 
 /obj/effect/spawner/carbon/human/vox
 	species = SPECIES_VOX
+	hair_color = list()
 
 /obj/effect/spawner/carbon/human/vox/robed
 	clothing = /decl/hierarchy/outfit/vox/robes
@@ -149,9 +178,9 @@
 /obj/effect/spawner/carbon/human/skrell/Initialize()
 	if(caste_colors)
 		var/caste = pick(caste_colors)
-		caste[1] += rand(-5,5)
-		caste[2] += rand(-5,5)
-		caste[3] += rand(-5,5)
+		caste[1] += rand(-7,7)
+		caste[2] += rand(-7,7)
+		caste[3] += rand(-7,7)
 		skin_color = list(caste[1],caste[2],caste[3])
 		hair_color = list(caste[1],caste[2],caste[3])
 	. = ..()
@@ -164,6 +193,9 @@
 
 /obj/effect/spawner/carbon/human/skrell/malish/veymed
 	clothing = /decl/hierarchy/outfit/veymed
+
+/obj/effect/spawner/carbon/human/skrell/malish/veymed/head
+	clothing = /decl/hierarchy/outfit/veymed/head
 
 /obj/effect/spawner/carbon/human/skrell/kanin
 	caste_colors = list(1 = list(153, 102, 0), 2 = list(153, 0, 0), 3 = list(128, 128, 0), 4 = list(0, 0, 0))

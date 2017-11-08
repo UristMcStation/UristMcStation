@@ -63,7 +63,6 @@
 	id = access_genetics
 	desc = "Genetics Lab"
 	region = ACCESS_REGION_MEDBAY
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_engine = 10
 /datum/access/engine
@@ -112,7 +111,6 @@
 	id = access_teleporter
 	desc = "Teleporter"
 	region = ACCESS_REGION_COMMAND
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_eva = 18
 /datum/access/eva
@@ -143,7 +141,6 @@
 	id = access_chapel_office
 	desc = "Chapel Office"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_tech_storage = 23
 /datum/access/tech_storage
@@ -162,28 +159,24 @@
 	id = access_bar
 	desc = "Bar"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_janitor = 26
 /datum/access/janitor
 	id = access_janitor
 	desc = "Custodial Closet"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_crematorium = 27
 /datum/access/crematorium
 	id = access_crematorium
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_kitchen = 28
 /datum/access/kitchen
 	id = access_kitchen
 	desc = "Kitchen"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_robotics = 29
 /datum/access/robotics
@@ -220,14 +213,12 @@
 	id = access_cargo_bot
 	desc = "Cargo Bot Delivery"
 	region = ACCESS_REGION_SUPPLY
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_hydroponics = 35
 /datum/access/hydroponics
 	id = access_hydroponics
 	desc = "Hydroponics"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_manufacturing = 36
 /datum/access/manufacturing
@@ -240,14 +231,12 @@
 	id = access_library
 	desc = "Library"
 	region = ACCESS_REGION_GENERAL
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_lawyer = 38
 /datum/access/lawyer
 	id = access_lawyer
 	desc = "Internal Affairs"
 	region = ACCESS_REGION_COMMAND
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_virology = 39
 /datum/access/virology
@@ -260,7 +249,6 @@
 	id = access_cmo
 	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_COMMAND
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_qm = 41
 /datum/access/qm
@@ -306,7 +294,7 @@
 /var/const/access_mailsorting = 50
 /datum/access/mailsorting
 	id = access_mailsorting
-	desc = "Logistics Office"
+	desc = "Cargo Office"
 	region = ACCESS_REGION_SUPPLY
 
 // /var/const/free_access_id = 51
@@ -317,7 +305,6 @@
 	id = access_heads_vault
 	desc = "Main Vault"
 	region = ACCESS_REGION_COMMAND
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_mining_station = 54
 /datum/access/mining_station
@@ -334,7 +321,7 @@
 /var/const/access_ce = 56
 /datum/access/ce
 	id = access_ce
-	desc = "Senior Engineer"
+	desc = "Chief Engineer"
 	region = ACCESS_REGION_ENGINEERING
 
 /var/const/access_hop = 57
@@ -372,7 +359,6 @@
 	id = access_gateway
 	desc = "Gateway"
 	region = ACCESS_REGION_COMMAND
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_sec_doors = 63 // Security front doors
 /datum/access/sec_doors
@@ -385,7 +371,6 @@
 	id = access_psychiatrist
 	desc = "Psychiatrist's Office"
 	region = ACCESS_REGION_MEDBAY
-	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_xenoarch = 65
 /datum/access/xenoarch

@@ -7,7 +7,7 @@
 	#include "wyrm_shuttles.dm"
 	#include "wyrm_presets.dm"
 	#include "wyrm_holodecks.dm"
-
+	#include "wyrm_datum_access.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_accessories2.dm"

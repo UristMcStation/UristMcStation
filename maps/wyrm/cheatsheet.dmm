@@ -1,62 +1,76 @@
-"a" = (/turf/simulated/floor/plating,/area/space)
-"b" = (/turf/simulated/floor/tiled/freezer,/area/space)
-"c" = (/turf/simulated/floor/tiled,/area/space)
-"d" = (/obj/structure/cable/orange{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
-"e" = (/obj/structure/cable/orange{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/space)
-"f" = (/obj/structure/cable/orange{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/plating,/area/space)
-"g" = (/obj/structure/cable/orange{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/space)
-"h" = (/turf/simulated/floor/tiled/white,/area/space)
-"i" = (/turf/simulated/floor/tiled/dark,/area/space)
-"j" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (SOUTHEAST)"; icon_state = "intact-scrubbers"; dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (SOUTHEAST)"; icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/space)
-"k" = (/obj/machinery/atmospherics/pipe/simple/hidden{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (SOUTHWEST)"; icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (SOUTHWEST)"; icon_state = "intact-supply"; dir = 10},/turf/simulated/floor/plating,/area/space)
-"l" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (SOUTHEAST)"; icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (SOUTHEAST)"; icon_state = "intact-supply"; dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (SOUTHEAST)"; icon_state = "intact-scrubbers"; dir = 6},/turf/simulated/floor/plating,/area/space)
-"m" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (SOUTHWEST)"; icon_state = "intact-supply"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (SOUTHWEST)"; icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/floor/plating,/area/space)
-"n" = (/obj/structure/cable/orange{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/space)
-"o" = (/obj/structure/cable/orange{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
-"p" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/turf/simulated/floor/plating,/area/space)
-"q" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (NORTHEAST)"; icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHEAST)"; icon_state = "intact-supply"; dir = 5},/turf/simulated/floor/plating,/area/space)
-"r" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (NORTHWEST)"; icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/turf/simulated/floor/plating,/area/space)
-"s" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTHEAST)"; icon_state = "intact-supply"; dir = 5},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (NORTHEAST)"; icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/space)
-"t" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (NORTHWEST)"; icon_state = "intact"; dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (NORTHWEST)"; icon_state = "intact-scrubbers"; dir = 9},/turf/simulated/floor/plating,/area/space)
-"u" = (/obj/structure/cable/orange{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
-"v" = (/obj/structure/cable/orange{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/space)
-"w" = (/obj/machinery/atmospherics/pipe/manifold/visible/supply,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible,/turf/simulated/floor/plating,/area/space)
-"x" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/space)
-"y" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (EAST)"; icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (EAST)"; icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/space)
-"z" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTH)"; icon_state = "intact-supply"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/turf/simulated/floor/plating,/area/space)
-"A" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (EAST)"; icon_state = "intact-supply"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (EAST)"; icon_state = "intact-scrubbers"; dir = 4},/turf/simulated/floor/plating,/area/space)
-"B" = (/obj/structure/cable/orange,/turf/simulated/floor/plating,/area/space)
-"C" = (/obj/structure/cable/orange{d1 = 0; d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/space)
-"D" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
-"E" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/space)
-"F" = (/obj/item/device/radio/intercom{dir = 4; icon_state = "intercom"; pixel_x = -23; tag = "icon-intercom (EAST)"},/obj/item/device/radio/intercom{dir = 1; icon_state = "intercom"; pixel_y = -22; tag = "icon-intercom (NORTH)"},/obj/item/device/radio/intercom{dir = 8; icon_state = "intercom"; pixel_x = 23; tag = "icon-intercom (WEST)"},/obj/item/device/radio/intercom{pixel_y = 22},/turf/simulated/floor/plating,/area/space)
-"G" = (/obj/machinery/firealarm{pixel_x = -24},/obj/machinery/firealarm{pixel_x = 24},/obj/machinery/firealarm{pixel_y = -24},/obj/machinery/firealarm{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
-"H" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
-"I" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/space)
-"J" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
-"K" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
-"L" = (/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
-"M" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor/plating,/area/space)
-"N" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -24; tag = "icon-alarm0 (EAST)"},/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -24; tag = "icon-alarm0 (NORTH)"},/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24; tag = "icon-alarm0 (WEST)"},/obj/machinery/alarm{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
-"O" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 23},/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/machinery/power/apc{name = "south bump"; pixel_y = -22},/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/turf/simulated/floor/plating,/area/space)
-"P" = (/obj/machinery/light_switch{pixel_y = -24},/obj/machinery/light_switch{pixel_x = 22},/obj/machinery/light_switch{pixel_x = -22},/obj/machinery/light_switch{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
-"Q" = (/obj/structure/cable,/turf/simulated/floor/plating,/area/space)
-"R" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/space)
+"aa" = (/turf/simulated/floor/plating,/area/space)
+"ab" = (/turf/simulated/floor/tiled/freezer,/area/space)
+"ac" = (/turf/simulated/floor/tiled,/area/space)
+"ad" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (NORTH)"; icon_state = "intact"; dir = 1},/turf/simulated/floor/plating,/area/space)
+"ae" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (WEST)"; icon_state = "intact"; dir = 8},/turf/simulated/floor/plating,/area/space)
+"af" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (NORTH)"; icon_state = "intact"; dir = 1},/turf/simulated/floor/plating,/area/space)
+"ag" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (WEST)"; icon_state = "intact"; dir = 8},/turf/simulated/floor/plating,/area/space)
+"ah" = (/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,/turf/simulated/floor/plating,/area/space)
+"ai" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (SOUTHEAST)"; icon_state = "intact"; dir = 6},/turf/simulated/floor/plating,/area/space)
+"aj" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/turf/simulated/floor/plating,/area/space)
+"ak" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (SOUTHEAST)"; icon_state = "intact"; dir = 6},/turf/simulated/floor/plating,/area/space)
+"al" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/turf/simulated/floor/plating,/area/space)
+"am" = (/obj/structure/cable/orange{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
+"an" = (/obj/structure/cable/orange{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/space)
+"ao" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel,/turf/simulated/floor/plating,/area/space)
+"ap" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/turf/simulated/floor/plating,/area/space)
+"aq" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{tag = "icon-intact (NORTHWEST)"; icon_state = "intact"; dir = 9},/turf/simulated/floor/plating,/area/space)
+"ar" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/turf/simulated/floor/plating,/area/space)
+"as" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{tag = "icon-intact (NORTHWEST)"; icon_state = "intact"; dir = 9},/turf/simulated/floor/plating,/area/space)
+"at" = (/obj/structure/cable/orange{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor/plating,/area/space)
+"au" = (/obj/structure/cable/orange{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/space)
+"av" = (/turf/simulated/floor/tiled/white,/area/space)
+"aw" = (/turf/simulated/floor/tiled/dark,/area/space)
+"ax" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (SOUTHEAST)"; icon_state = "intact-scrubbers"; dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (SOUTHEAST)"; icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/space)
+"ay" = (/obj/machinery/atmospherics/pipe/simple/hidden{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (SOUTHWEST)"; icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (SOUTHWEST)"; icon_state = "intact-supply"; dir = 10},/turf/simulated/floor/plating,/area/space)
+"az" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (SOUTHEAST)"; icon_state = "intact"; dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (SOUTHEAST)"; icon_state = "intact-supply"; dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (SOUTHEAST)"; icon_state = "intact-scrubbers"; dir = 6},/turf/simulated/floor/plating,/area/space)
+"aA" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (SOUTHWEST)"; icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (SOUTHWEST)"; icon_state = "intact-supply"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (SOUTHWEST)"; icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/floor/plating,/area/space)
+"aB" = (/obj/structure/cable/orange{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/space)
+"aC" = (/obj/structure/cable/orange{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
+"aD" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/turf/simulated/floor/plating,/area/space)
+"aE" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (NORTHEAST)"; icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHEAST)"; icon_state = "intact-supply"; dir = 5},/turf/simulated/floor/plating,/area/space)
+"aF" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (NORTHWEST)"; icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/turf/simulated/floor/plating,/area/space)
+"aG" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTHEAST)"; icon_state = "intact-supply"; dir = 5},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (NORTHEAST)"; icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/space)
+"aH" = (/obj/machinery/atmospherics/pipe/simple/visible{tag = "icon-intact (NORTHWEST)"; icon_state = "intact"; dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (NORTHWEST)"; icon_state = "intact-scrubbers"; dir = 9},/turf/simulated/floor/plating,/area/space)
+"aI" = (/obj/structure/cable/orange{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
+"aJ" = (/obj/structure/cable/orange{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/space)
+"aK" = (/obj/machinery/atmospherics/pipe/manifold/visible/supply,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible,/turf/simulated/floor/plating,/area/space)
+"aL" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/plating,/area/space)
+"aM" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (EAST)"; icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (EAST)"; icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/space)
+"aN" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (NORTH)"; icon_state = "intact-supply"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/turf/simulated/floor/plating,/area/space)
+"aO" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{tag = "icon-intact-supply (EAST)"; icon_state = "intact-supply"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{tag = "icon-intact-scrubbers (EAST)"; icon_state = "intact-scrubbers"; dir = 4},/turf/simulated/floor/plating,/area/space)
+"aP" = (/obj/structure/cable/orange,/turf/simulated/floor/plating,/area/space)
+"aQ" = (/obj/structure/cable/orange{d1 = 0; d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/space)
+"aR" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
+"aS" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/space)
+"aT" = (/obj/item/device/radio/intercom{dir = 4; icon_state = "intercom"; pixel_x = -23; tag = "icon-intercom (EAST)"},/obj/item/device/radio/intercom{dir = 1; icon_state = "intercom"; pixel_y = -22; tag = "icon-intercom (NORTH)"},/obj/item/device/radio/intercom{dir = 8; icon_state = "intercom"; pixel_x = 23; tag = "icon-intercom (WEST)"},/obj/item/device/radio/intercom{pixel_y = 22},/turf/simulated/floor/plating,/area/space)
+"aU" = (/obj/machinery/firealarm{pixel_x = -24},/obj/machinery/firealarm{pixel_x = 24},/obj/machinery/firealarm{pixel_y = -24},/obj/machinery/firealarm{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
+"aV" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
+"aW" = (/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/space)
+"aX" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
+"aY" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/turf/simulated/floor/plating,/area/space)
+"aZ" = (/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
+"ba" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor/plating,/area/space)
+"bb" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -24; tag = "icon-alarm0 (EAST)"},/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -24; tag = "icon-alarm0 (NORTH)"},/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24; tag = "icon-alarm0 (WEST)"},/obj/machinery/alarm{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
+"bc" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 23},/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/machinery/power/apc{name = "south bump"; pixel_y = -22},/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/turf/simulated/floor/plating,/area/space)
+"bd" = (/obj/machinery/light_switch{pixel_y = -24},/obj/machinery/light_switch{pixel_x = 22},/obj/machinery/light_switch{pixel_x = -22},/obj/machinery/light_switch{pixel_y = 24},/turf/simulated/floor/plating,/area/space)
+"be" = (/obj/structure/cable,/turf/simulated/floor/plating,/area/space)
+"bf" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/space)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaa
-aabbbcccaaaaaaa
-aabbbcccaaaaaaa
-debbbcccaaaaaaa
-fghhhiiiaajklma
-nohhhiiiapqrsta
-uvhhhiiiawxyzAa
-BCaaaaaaaaaaaaa
-DEaFaaGaaaaaaaa
-HIaaaaaaaaaaaaa
-JKaaaaaaaaaaaaa
-LMaNaaOaaPaaaaa
-QRaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabababacacacaaaaadaeafagaa
+aaaaabababacacacaaahaiajakalaa
+amanabababacacacaaaoapaqarasaa
+atauavavavawawawaaaaaxayazaAaa
+aBaCavavavawawawaaaDaEaFaGaHaa
+aIaJavavavawawawaaaKaLaMaNaOaa
+aPaQaaaaaaaaaaaaaaaaaaaaaaaaaa
+aRaSaaaTaaaaaUaaaaaaaaaaaaaaaa
+aVaWaaaaaaaaaaaaaaaaaaaaaaaaaa
+aXaYaaaaaaaaaaaaaaaaaaaaaaaaaa
+aZbaaabbaaaabcaaaabdaaaaaaaaaa
+bebfaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
