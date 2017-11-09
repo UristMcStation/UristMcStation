@@ -134,7 +134,7 @@
 /obj/effect/shuttle_landmark/research/planet
 	name = "Planet Base - Research"
 	landmark_tag = "pbase_research"
-	docking_controller = "research_outpost_airlock"
+	docking_controller = "research_outpost_dock"
 	base_area = /area/jungle
 	base_turf = /turf/simulated/floor/plating
 
