@@ -8,7 +8,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "area"
 	luminosity = 1
-	base_turf = /turf/simulated/floor/plating/planet/jungle/clear/grass1
+	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
 
 /area/jungle/explored
 	icon_state = "area2"
@@ -23,4 +23,4 @@
 /area/jungleoutpost
 	name = "\improper Jungle Outpost"
 	icon_state = "away"
-	base_turf = /turf/simulated/floor/plating/planet/jungle/clear/grass1
+	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
