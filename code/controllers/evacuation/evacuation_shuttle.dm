@@ -83,8 +83,6 @@
 			shuttle.launch()
 			shuttle_launch_time = null
 		return
-	else if(state == EVAC_IN_TRANSIT)
-		return
 	return ..()
 
 /datum/evacuation_controller/shuttle/can_cancel()
