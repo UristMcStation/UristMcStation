@@ -12,6 +12,7 @@
 /obj/effect/shuttle_landmark/escape/centcom
 	name = "Centcom - Escape"
 	landmark_tag = "centcom_esacpe_port"
+	docking_controller = "centcom_dock"
 
 /obj/effect/shuttle_landmark/escape/transition
 	name = "Transition - Escape"
@@ -20,7 +21,7 @@
 /obj/effect/shuttle_landmark/escape/station
 	name = "Station - Escape"
 	landmark_tag = "station_escape_port"
-	special_dock_targets = list("escape_dock_south_airlock","escape_dock_north_airlock")
+	docking_controller = "escape_dock"
 
 /datum/shuttle/autodock/ferry/escape_pod/escape_pod_one
 	name = "Escape Pod 1"
