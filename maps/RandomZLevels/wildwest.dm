@@ -10,7 +10,7 @@
 
 /datum/away_mission/wildwest
 	map_path = "maps/RandomZlevels/wildwest.dmm"
-	value = 15
+	value = 30
 	random_start = TRUE
 
 /obj/effect/overmap/sector/wild_west
