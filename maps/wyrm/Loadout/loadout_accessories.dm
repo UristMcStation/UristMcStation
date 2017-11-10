@@ -158,7 +158,7 @@
 		flowers[initial(flower_type.name)] = flower_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(flowers))
 
-	/datum/gear/accessory/ubac
+/datum/gear/accessory/ubac
 	display_name = "ubac selection"
 	path = /obj/item/clothing/accessory/ubac
 
