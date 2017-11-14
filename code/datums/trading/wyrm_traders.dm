@@ -26,7 +26,6 @@
 								/obj/item/weapon/cell/mecha             = TRADER_BLACKLIST,
 								/obj/item/weapon/cell/apc               = TRADER_BLACKLIST,
 								/obj/item/weapon/cell/slime             = TRADER_BLACKLIST,
-								/obj/item/weapon/cell/infinite          = TRADER_BLACKLIST,
 								/obj/item/weapon/smes_coil              = TRADER_ALL,
 								/obj/item/weapon/storage/part_replacer  = TRADER_THIS_TYPE)
 
@@ -57,7 +56,6 @@
 								/obj/machinery/vending/hydronutrients              = TRADER_THIS_TYPE,
 								/obj/machinery/portable_atmospherics/hydroponics   = TRADER_THIS_TYPE,
 								/obj/item/weapon/gun/energy/floragun               = TRADER_THIS_TYPE,
-								/obj/item/weapon/watertank                         = TRADER_THIS_TYPE,
 								/obj/item/device/analyzer/plant_analyzer           = TRADER_THIS_TYPE,
 								/obj/structure/reagent_dispensers/watertank        = TRADER_THIS_TYPE,
 								/obj/structure/closet/crate/hydroponics/prespawned = TRADER_THIS_TYPE,

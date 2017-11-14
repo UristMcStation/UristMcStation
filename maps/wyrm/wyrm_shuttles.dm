@@ -33,7 +33,6 @@
 
 /area/shuttle/merchant/home
 	name = "\improper Merchant Ship"
-	icon_state = "shuttle"
 
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant"
