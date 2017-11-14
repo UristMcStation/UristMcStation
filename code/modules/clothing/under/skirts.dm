@@ -31,7 +31,7 @@
 	icon_state = "skirt_short_red"
 	worn_state = "skirt_short_red"
 
-No need for these, colourable one is in code/modules/urist/items/clothes/uristloadout.dm */
+No need for these, colourable one is in code/modules/urist/items/clothes/uristclothes.dm */
 
 /obj/item/clothing/under/skirt/swept
 	name = "swept skirt"
