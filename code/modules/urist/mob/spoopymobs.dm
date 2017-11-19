@@ -2,10 +2,9 @@
 	name = "zombie"
 	desc = "Dead man walking - and hungry for your flesh."
 	speak_emote = list("groans")
-	icon = 'icons/mob/human.dmi'
-	icon_state = "husk_s"
-	icon_living = "husk_s"
-	icon_dead = ""
+	icon_state = "zombie_s"
+	icon_living = "zombie_s"
+	icon_dead = "zombie_d"
 	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
@@ -82,7 +81,7 @@
 	regen = 1
 	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
-/mob/living/simple_animal/hostile/urist/zombie/regenplague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
+/mob/living/simple_animal/hostile/urist/zombie/regen/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
 	desc = "A bloodthirsty and brain-hungry corpse revived by an unknown infectious pathogen with extreme regenerative abilities."
 	stat_attack = 2
 	regen = 1
@@ -194,7 +193,7 @@
 	return
 
 /mob/living/simple_animal/hostile/scom/civ/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
-	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regenplague
+	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regen/plague
 
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
@@ -250,6 +249,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "skeltal"
 	icon_living = "skeltal"
+	icon_dead = "skeltal_d"
 	faction = "undead"
 	health = 40 //not much keeping them in one piece
 	resistance = 10 //but not much to hit either unless you use a heavy object

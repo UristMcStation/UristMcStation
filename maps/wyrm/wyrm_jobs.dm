@@ -65,13 +65,14 @@
 	department = "Civilian"
 	department_flag = CIV
 	faction = "Station"
-	total_positions = 0 //to be opened by admins when desired AT ROUNDSTART ONLY
+	total_positions = 1
 	spawn_positions = 2
 	supervisors = "the invisible hand of the market"
 	selection_color = "#515151"
 	ideal_character_age = 30
 	minimal_player_age = 7
-//	create_record = 0
+	create_record = 0
+	latejoin_at_spawnpoints = 1
 	outfit_type = /decl/hierarchy/outfit/job/merchant
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)

@@ -4,7 +4,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
-	icon_dead = ""
+	icon_dead = null
 	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 5
@@ -60,6 +60,7 @@
 /mob/living/simple_animal/hostile/urist/ntagent
 	icon_state = "agent"
 	icon_living = "agent"
+	icon_dead = "agentdead"
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
