@@ -63,3 +63,51 @@
 
 /mob/living/carbon/human/blank/ssd_check()
 	return FALSE
+
+/mob/living/carbon/human/blankUnathi/New(var/new_loc)  //cancercopypasta, because just defining new() for subtypes isn't working! -Vak
+	..(new_loc, SPECIES_UNATHI)
+
+/mob/living/carbon/human/blankUnathi/Initialize(var/new_loc)
+	. = ..()
+	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
+	fully_replace_character_name("Subject [number]")
+	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
+	outfit.equip(src)
+	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
+	if(F)
+		F.name = "[F.name] ([number])"
+
+/mob/living/carbon/human/blankUnathi/ssd_check()
+	return FALSE
+
+/mob/living/carbon/human/blankSkrell/New(var/new_loc)
+	..(new_loc, SPECIES_SKRELL)
+
+/mob/living/carbon/human/blankSkrell/Initialize(var/new_loc)
+	. = ..()
+	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
+	fully_replace_character_name("Subject [number]")
+	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
+	outfit.equip(src)
+	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
+	if(F)
+		F.name = "[F.name] ([number])"
+
+/mob/living/carbon/human/blankSkrell/ssd_check()
+	return FALSE
+
+/mob/living/carbon/human/blankResomi/New(var/new_loc)
+	..(new_loc, SPECIES_RESOMI)
+
+/mob/living/carbon/human/blankResomi/Initialize(var/new_loc)
+	. = ..()
+	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
+	fully_replace_character_name("Subject [number]")
+	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
+	outfit.equip(src)
+	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
+	if(F)
+		F.name = "[F.name] ([number])"
+
+/mob/living/carbon/human/blankResomi/ssd_check()
+	return FALSE
