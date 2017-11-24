@@ -107,11 +107,11 @@
 			return 0
 		bloodtotal = src.mind.vampire.bloodtotal
 		bloodusable = src.mind.vampire.bloodusable
-		if(!H.vessel.get_reagent_amount("blood"))
+		if(!H.vessel.get_reagent_amount(/datum/reagent/blood))
 			src << "<span class='warning'> They've got no blood left to give.</span>"
 			break
 		if(H.stat < 2) //alive
-			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
+			blood = min(10, H.vessel.get_reagent_amount(/datum/reagent/blood))// if they have less than 10 blood, give them the remnant else they get 10 blood
 			src.mind.vampire.bloodtotal += (blood)
 			src.mind.vampire.bloodusable += (blood)
 			if(istype(src.mind.current, /mob/living/carbon/human))
@@ -119,7 +119,7 @@
 				V.vessel.add_reagent(/datum/reagent/blood, blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 			H.shock_stage += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
-			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
+			blood = min(5, H.vessel.get_reagent_amount(/datum/reagent/blood))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
