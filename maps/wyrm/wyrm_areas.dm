@@ -325,6 +325,9 @@
 /area/holodeck/source_winter
 	name = "\improper Holodeck - Winter Simulation"
 
+/area/holodeck/source_chapel
+	name = "\improper Holodeck - Chapel"
+
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
 
