@@ -43,6 +43,8 @@
 /datum/shuttle/autodock/ferry/elevator
 	category = /datum/shuttle/autodock/ferry/elevator
 	name = "some elevator"
+	sound_takeoff = null
+	sound_landing = null
 	var/id = null
 
 /datum/shuttle/autodock/ferry/elevator/arrived()

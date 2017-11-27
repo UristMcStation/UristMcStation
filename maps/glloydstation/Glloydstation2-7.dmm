@@ -816,7 +816,7 @@
 "pJ" = (/turf/simulated/floor/carpet,/area/outpost/mining_main/dorms)
 "pK" = (/obj/machinery/door/airlock{id_tag = "miningdorm1"; name = "Room 1"},/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)
 "pL" = (/obj/machinery/door/airlock{id_tag = "secplanetdorm8"; name = "Room 2"},/turf/simulated/floor/plating,/area/outpost/mining_main/dorms)
-"pM" = (/obj/effect/shuttle_landmark/planet/station,/turf/simulated/floor/plating,/area/jungle)
+"pM" = (/obj/effect/shuttle_landmark/planet/planet,/turf/simulated/floor/plating,/area/jungle)
 "pN" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
 "pO" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)
 "pP" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/tiled,/area/outpost/mining_main/refinery)

@@ -35,7 +35,7 @@
 
 /obj/effect/shuttle_landmark/pod_1/station
 	name = "Escape Pod 1 - Station"
-	landmark_tag = "escape_1_docked"
+	landmark_tag = "escape_pod_1_docked"
 	docking_controller = "escape_pod_1_berth"
 
 /obj/effect/shuttle_landmark/pod_1/transition
@@ -59,7 +59,7 @@
 
 /obj/effect/shuttle_landmark/pod_2/station
 	name = "Escape Pod 2 - Station"
-	landmark_tag = "escape_2_docked"
+	landmark_tag = "escape_pod_2_docked"
 	docking_controller = "escape_pod_2_berth"
 
 /obj/effect/shuttle_landmark/pod_2/transition
@@ -83,7 +83,7 @@
 
 /obj/effect/shuttle_landmark/pod_3/station
 	name = "Escape Pod 3 - Station"
-	landmark_tag = "escape_3_docked"
+	landmark_tag = "escape_pod_3_docked"
 	docking_controller = "escape_pod_3_berth"
 
 /obj/effect/shuttle_landmark/pod_3/transition
@@ -107,7 +107,7 @@
 
 /obj/effect/shuttle_landmark/pod_5/station
 	name = "Escape Pod 5 - Station"
-	landmark_tag = "escape_5_docked"
+	landmark_tag = "escape_pod_5_docked"
 	docking_controller = "escape_pod_5_berth"
 
 /obj/effect/shuttle_landmark/pod_5/transition
@@ -194,13 +194,14 @@
 /obj/effect/shuttle_landmark/research/planet
 	name = "Planet Base - Research"
 	landmark_tag = "pbase_research"
-	docking_controller = "research_outpost_airlock"
+	docking_controller = "research_outpost_dock"
 	base_area = /area/jungle
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/security
 	name = "Security"
 	warmup_time = 10
+	shuttle_area = /area/shuttle/securityoutpost/station
 	dock_target = "security_shuttle"
 	waypoint_station = "security_dock_airlock"
 	waypoint_offsite = "secdock_airlock"
@@ -208,6 +209,7 @@
 /obj/effect/shuttle_landmark/security/station
 	name = "Station - Security Port"
 	landmark_tag = "security_dock_airlock"
+	docking_controller = "security_dock_airlock"
 
 /obj/effect/shuttle_landmark/security/planet
 	name = "Planet Base - Security"
@@ -219,6 +221,7 @@
 /datum/shuttle/autodock/ferry/planet
 	name = "Planet"
 	warmup_time = 10
+	shuttle_area = /area/shuttle/planet/station
 	dock_target = "planet_shuttle"
 	waypoint_station = "station_planet_dock"
 	waypoint_offsite = "outpost_planet_dock"
@@ -230,25 +233,50 @@
 /obj/effect/shuttle_landmark/planet/station
 	name = "Station - Public Shuttle"
 	landmark_tag = "station_planet_dock"
+	docking_controller = "station_planet_dock"
 
 /obj/effect/shuttle_landmark/planet/planet
 	name = "Planet - Public"
 	landmark_tag = "outpost_planet_dock"
+	docking_controller = "outpost_planet_dock"
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/jungle
 
 // Centcom shuttles
 
 /datum/shuttle/autodock/ferry/centcom_arrivals
 	name = "Arrivals"
 	warmup_time = 5
+	move_time = 15
 	shuttle_area = /area/shuttle/arrivals/centcom
 	dock_target = "arrival_shuttle"
-	waypoint_station = "arrivals_station"
-	waypoint_offsite = "arrivals_centcom"
+	waypoint_station = "arrivals_centcom"
+	landmark_transition = "arrivals_transit"
+	waypoint_offsite = "arrivals_station"
+
+/datum/shuttle/ferry/arrivals/proc/AnnounceArrival()
+	if (ticker.current_state == GAME_STATE_PLAYING)
+		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
+		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
+		qdel(a)
+
+
+/datum/shuttle/ferry/arrivals/arrived()
+	if(location == 0)
+		AnnounceArrival()
+		sleep(200) //20 seconds give or take some lag.
+		launch()
+
+	return
 
 /obj/effect/shuttle_landmark/centcom/arrivals/centcom
 	name = "Centcom Arrivals"
 	landmark_tag = "arrivals_centcom"
-	docking_controller = "transit_dock"
+	docking_controller = "centcom_arrival_dock"
+
+/obj/effect/shuttle_landmark/centcom/arrivals/transit
+	name = "In Transition"
+	landmark_tag = "arrivals_transit"
 
 /obj/effect/shuttle_landmark/centcom/arrivals/station
 	name = "Station Arrivals"
@@ -404,7 +432,7 @@
 	name = "Down on the Planet"
 	landmark_tag = "merc_ship_planet"
 	base_area = /area/jungle
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
@@ -449,6 +477,8 @@
 /obj/effect/shuttle_landmark/raider_skipjack/planetside
 	name = "Planetside"
 	landmark_tag = "raider_planetside"
+	base_area = /area/jungle
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /*/datum/shuttle/multi_shuttle/rescue
 	name = "Rescue"

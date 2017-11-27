@@ -9,7 +9,6 @@
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
-	dynamic_lighting = 0 //Use jungle/clear turfs for 'sunlight'
 	var/icon_spawn_state = "grass1"
 	var/farmed = 0
 	var/bushspawnchance = 0 //let's try it, why not
@@ -217,6 +216,8 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
+	light_power = 2
+	light_range = 2
 	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
