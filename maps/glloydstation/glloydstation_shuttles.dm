@@ -11,7 +11,7 @@
 
 /obj/effect/shuttle_landmark/escape/centcom
 	name = "Centcom - Escape"
-	landmark_tag = "centcom_esacpe_port"
+	landmark_tag = "centcom_escape_port"
 	docking_controller = "centcom_dock"
 
 /obj/effect/shuttle_landmark/escape/transition
@@ -209,12 +209,12 @@
 /obj/effect/shuttle_landmark/security/station
 	name = "Station - Security Port"
 	landmark_tag = "security_dock_airlock"
-	docking_controller = "security_dock_airlock"
+	docking_controller = "security_docking_station"
 
 /obj/effect/shuttle_landmark/security/planet
 	name = "Planet Base - Security"
 	landmark_tag = "secdock_airlock"
-	docking_controller = "secdock_airlock"
+	docking_controller = "security_docking_planet"
 	base_area = /area/jungle
 	base_turf = /turf/simulated/floor/plating
 
@@ -223,8 +223,8 @@
 	warmup_time = 10
 	shuttle_area = /area/shuttle/planet/station
 	dock_target = "planet_shuttle"
-	waypoint_station = "station_planet_dock"
-	waypoint_offsite = "outpost_planet_dock"
+	waypoint_station = "public_planet_shuttle_station"
+	waypoint_offsite = "public_planet_shuttle_planet"
 
 /obj/machinery/computer/shuttle_control/planet
 	name = "planet shuttle console"
@@ -232,12 +232,12 @@
 
 /obj/effect/shuttle_landmark/planet/station
 	name = "Station - Public Shuttle"
-	landmark_tag = "station_planet_dock"
+	landmark_tag = "public_planet_shuttle_station"
 	docking_controller = "station_planet_dock"
 
 /obj/effect/shuttle_landmark/planet/planet
 	name = "Planet - Public"
-	landmark_tag = "outpost_planet_dock"
+	landmark_tag = "public_planet_shuttle_planet"
 	docking_controller = "outpost_planet_dock"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/jungle
@@ -254,15 +254,15 @@
 	landmark_transition = "arrivals_transit"
 	waypoint_offsite = "arrivals_station"
 
-/datum/shuttle/ferry/arrivals/proc/AnnounceArrival()
+/datum/shuttle/autodock/ferry/centcom_arrivals/proc/AnnounceArrival()
 	if (ticker.current_state == GAME_STATE_PLAYING)
 		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
 		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
 		qdel(a)
 
 
-/datum/shuttle/ferry/arrivals/arrived()
-	if(location == 0)
+/datum/shuttle/autodock/ferry/centcom_arrivals/arrived()
+	if(location == 1)
 		AnnounceArrival()
 		sleep(200) //20 seconds give or take some lag.
 		launch()
@@ -301,7 +301,7 @@
 /obj/effect/shuttle_landmark/centcom/transport/station
 	name = "Transport - Station"
 	landmark_tag = "centcom_shuttle_dock_airlock"
-	docking_controller = "centcom_shuttle_station"
+	docking_controller = "centcom_transport_station"
 
 /datum/shuttle/autodock/ferry/administration
 	name = "Administration"
@@ -320,6 +320,28 @@
 /obj/effect/shuttle_landmark/centcom/admin/station
 	name = "Administration - Station"
 	landmark_tag = "admin_shuttle_dock_airlock"
+
+// Typically unused Naval Shuttle
+
+/datum/shuttle/autodock/ferry/naval
+	name = "Naval"
+	warmup_time = 10
+	shuttle_area = /area/shuttle/naval1/centcom
+//	dock_target = "naval_shuttle"
+	waypoint_station = "naval_shuttle_centcom"
+	waypoint_offsite = "naval_shuttle_urist"
+
+/obj/effect/shuttle_landmark/centcom/naval/centcom
+	name = "Naval Shuttle - Centcom"
+	landmark_tag = "naval_shuttle_centcom"
+
+/obj/effect/shuttle_landmark/centcom/naval/station
+	name = "Naval Shuttle - Station"
+	landmark_tag = "naval_shuttle_urist"
+
+/obj/machinery/computer/shuttle_control/naval_shuttle
+	name = "naval shuttle console"
+	shuttle_tag = "Naval"
 
 // I don't even know, some alien ship that's unused
 
@@ -360,11 +382,12 @@
 /obj/effect/shuttle_landmark/specops/start
 	name = "Home Base"
 	landmark_tag = "specops_centcom_dock"
-	docking_controller = "specops_centcom_dock"
+	docking_controller = "centcom_ert_dock"
 
 /obj/effect/shuttle_landmark/specops/station
 	name = "Urist McStation Dock"
 	landmark_tag = "specops_dock_airlock"
+
 
 // Antag Multi-target ships
 
@@ -438,7 +461,7 @@
 	name = "Skipjack"
 	warmup_time = 0
 	destinations = list(
-		"pirate_base",
+		"raider_start_point",
 		"raider_NE_urist",
 		"raider_NW_urist",
 		"raider_SE_urist",
@@ -446,7 +469,9 @@
 		"raider_planetside"
 		)
 	shuttle_area = /area/skipjack_station/start
-	home_waypoint = "pirate_base"
+	home_waypoint = "raider_start_point"
+	current_location = "raider_start_point"
+	landmark_transition = "raider_in_transit"
 	announcer = "NDV Icarus"
 
 /datum/shuttle/autodock/multi/antag/skipjack/New()
@@ -456,7 +481,11 @@
 
 /obj/effect/shuttle_landmark/raider_skipjack/start
 	name = "Raider Base"
-	landmark_tag = "pirate_base"
+	landmark_tag = "raider_start_point"
+
+/obj/effect/shuttle_landmark/raider_skipjack/transit
+	name = "In Transit"
+	landmark_tag = "raider_in_transit"
 
 /obj/effect/shuttle_landmark/raider_skipjack/NE_solars
 	name = "Northeast Solars"
@@ -508,12 +537,3 @@
 	arrival_message = "Attention, [using_map.station_short], there's a small patrol craft headed your way, it flashed us Asset Protection codes and we let it pass. You've got guests on the way."
 	departure_message = "[using_map.station_short], That Asset Protection vessel is headed back the way it came. Hope they were helpful."
 	..()*/
-
-// Typically unused Naval Shuttle
-
-/datum/shuttle/autodock/ferry/naval
-	name = "Naval"
-	warmup_time = 10
-//	dock_target = "naval_shuttle"
-//	waypoint_station = "naval_shuttle_dock_airlock"
-//	waypoint_offsite = "naval_shuttle_bay"
