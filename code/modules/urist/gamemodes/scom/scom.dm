@@ -74,7 +74,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	else
 		missiondiff = 2
 		scom_lowpop_scale = 1
-/*
+
 /datum/game_mode/scom/post_setup()
 	world << "<span class='danger'> Setting up science...</span>"
 	populate_scomscience_recipes()
@@ -89,12 +89,12 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	spawn(2400)
 		command_announcement.Announce("Launching shuttles in one minute.", "S-COM Shuttle Control")
 		spawn(600)
-			for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+			for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 				C.launch()
 
 /datum/game_mode/scom/process()
 	SCOMplayercount = 0
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.client && H.stat != DEAD && isscom(H))
 			SCOMplayercount += 1
 	if(SCOMplayercount == 0 && declared == 0 && prob(5))
@@ -113,7 +113,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in mob_list)
+		for(var/mob/living/simple_animal/hostile/M in GLOB.mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
@@ -124,11 +124,11 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 			if(config.SCOM_dynamic_difficulty)
 				update_dyndifficulty()
 			spawn(1200)
-				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
 					spawn(300)
 						declared = 0
-*/
+
 
 datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
@@ -161,7 +161,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 /obj/structure/scom/fuckitall/ex_act()
 	return
-/*
+
 /obj/structure/scom/fuckitall/attack_hand(mob/user as mob)
 	var/want = input("Start the self destruct countdown? You will have 3 minutes to escape.", "Your Choice", "Cancel") in list ("Cancel", "Yes")
 	switch(want)
@@ -172,10 +172,10 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			sploded = 1
 			command_announcement.Announce("We're launching the shuttles in two minutes and fourty five seconds. I don't think we need to say it twice, get the fuck out of there.", "S-COM Mission Command")
 			spawn(1650)
-				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
 				spawn(250) //long enough to luanch both shuttles
-					for(var/mob/living/M in mob_list)
+					for(var/mob/living/M in GLOB.mob_list)
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
@@ -185,7 +185,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 					world << "<span class='danger'> The mothership has been destroyed!</span>"
 					sleep(50)
 					sploded = 2
-*/
+
 /obj/effect/landmark/scom/bomb
 	icon_state = "grabbed1"
 	invisibility = 101
@@ -194,7 +194,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
 		explosion(src.loc, 1, 2, 3, 4)
-/*
+
 /client/proc/delaymissions()
 
 	set name = "Delay SCOM Missions"
@@ -204,7 +204,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
-	for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+	for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 		if(!C.missiondelayed)
 			C.missiondelayed = 1
 			message_admins("[key_name(usr)] has delayed the mission timer.")
@@ -215,7 +215,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			command_announcement.Announce("Shuttles will be launched in one minute.", "S-COM Shuttle Command")
 			spawn(600)
 				C.launch()
-*/
+
 /client/proc/toggle_dyndiff()
 
 	set name = "Toggle Dynamic Difficulty"
