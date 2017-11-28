@@ -2391,6 +2391,7 @@
 #include "code\modules\urist\gamemodes\scom\scom.dm"
 #include "code\modules\urist\gamemodes\scom\scomoutfits.dm"
 #include "code\modules\urist\gamemodes\scom\scomtime.dm"
+#include "code\modules\urist\gamemodes\scom\shuttles.dm"
 #include "code\modules\urist\gamemodes\scom\turfs&areas.dm"
 #include "code\modules\urist\gamemodes\scom\weapons&armour.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire.dm"
