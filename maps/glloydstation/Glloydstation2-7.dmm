@@ -87,7 +87,7 @@
 "bI" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/plating,/area/outpost/research/chemistry)
 "bJ" = (/obj/structure/closet/hydrant{pixel_x = 0; pixel_y = 32},/turf/simulated/floor/plating,/area/outpost/research/chemistry)
 "bK" = (/obj/structure/table/standard,/obj/item/weapon/cell,/obj/item/stack/cable_coil/random,/obj/item/stack/cable_coil/random,/obj/machinery/light/small{dir = 1},/obj/item/device/analyzer/plant_analyzer,/turf/simulated/floor/plating,/area/outpost/research/chemistry)
-"bL" = (/obj/machinery/vending/hydroseeds,/obj/effect/floor_decal/corner/lime{dir = 1},/turf/simulated/floor/tiled/white,/area/outpost/research/chemistry)
+"bL" = (/obj/effect/floor_decal/corner/lime{dir = 1},/obj/machinery/seed_storage/xenobotany,/turf/simulated/floor/tiled/white,/area/outpost/research/chemistry)
 "bM" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/portable_atmospherics/hydroponics{closed_system = 1; name = "isolation tray"},/turf/simulated/floor/tiled/white,/area/outpost/research/chemistry)
 "bN" = (/obj/machinery/seed_extractor,/obj/machinery/light{brightness_range = 9; dir = 4},/obj/effect/floor_decal/corner/lime,/turf/simulated/floor/tiled/white,/area/outpost/research/chemistry)
 "bO" = (/turf/simulated/wall/r_wall,/area/outpost/research/hallway)
