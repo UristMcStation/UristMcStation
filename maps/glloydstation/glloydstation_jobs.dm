@@ -83,6 +83,7 @@
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
+	backpack_contents = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/weapon/pen/crayon/mime = 1)
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/device/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
