@@ -64,7 +64,7 @@
 	sort_category = "Xenowear"
 	whitelisted = list(SPECIES_SKRELL)
 	flags = GEAR_HAS_COLOR_SELECTION
-/* TODO: Teshari
+
 /datum/gear/uniform/resomi
 	display_name = "smock, grey (Resomi)"
 	path = /obj/item/clothing/under/resomi
@@ -80,15 +80,23 @@
 	path = /obj/item/clothing/under/resomi/white
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/uniform/resomi/dress
+	display_name = "dress, fancy (Teshari)"
+	path = /obj/item/clothing/under/resomi/dress
+
+/datum/gear/uniform/resomi/formal
+	display_name = "formal uniform (Teshari)"
+	path = /obj/item/clothing/under/resomi/formal
+
 /datum/gear/uniform/resomi/eng
 	display_name = "uniform, Engineering (Resomi)"
 	path = /obj/item/clothing/under/resomi/yellow
-	allowed_roles = list("Chief Engineer","Station Engineer","Atmospherics Technician")
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer)
 
 /datum/gear/uniform/resomi/sec
 	display_name = "uniform, Security (Resomi)"
 	path = /obj/item/clothing/under/resomi/red
-	allowed_roles = list("Security Officer","Head of Security","Warden","Detective")
+	allowed_roles = list(/datum/job/officer, /datum/job/hos, /datum/job/warden, /datum/job/detective)
 
 /datum/gear/uniform/resomi/med
 	display_name = "uniform, Medical (Resomi)"
@@ -97,7 +105,7 @@
 /datum/gear/uniform/resomi/science
 	display_name = "uniform, Science (Resomi)"
 	path = /obj/item/clothing/under/resomi/science
-*/
+
 /datum/gear/uniform/harness
 	display_name = "gear harness (Full Body Prosthetic, Diona)"
 	path = /obj/item/clothing/under/harness

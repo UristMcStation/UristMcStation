@@ -42,7 +42,7 @@
 				src.registered_name = I.registered_name
 				src.name += " ([I.registered_name])"
 				src.desc = "Owned by [I.registered_name]."
-				src.name = "[I.registered_name]'s locker."
+				src.name = "[I.registered_name]'s locker"
 		else
 			to_chat(user, "<span class='warning'>Access Denied</span>")
 	else
