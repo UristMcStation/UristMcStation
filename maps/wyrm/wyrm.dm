@@ -31,6 +31,9 @@
 	#include "../../code/modules/lobby_music/dilbert.dm"
 	#include "../../code/modules/lobby_music/space_oddity.dm"
 
+
+	#include "../../code/controllers/subsystems/awayloader.dm"
+
 	#define USING_MAP_DATUM /datum/map/wyrm
 	#define URISTCODE 1
 
