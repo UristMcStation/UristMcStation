@@ -1,3 +1,6 @@
+/datum/category_item/underwear/top
+	icon = 'icons/mob/underwearTop.dmi'
+
 /datum/category_item/underwear/top/none
 	name = "None"
 	always_last = TRUE

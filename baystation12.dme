@@ -325,7 +325,6 @@
 #include "code\datums\underwear\top.dm"
 #include "code\datums\underwear\undershirt.dm"
 #include "code\datums\underwear\underwear.dm"
-#include "code\datums\underwear\WyrmUndershirts.dm"
 #include "code\datums\uplink\ammunition.dm"
 #include "code\datums\uplink\badassery.dm"
 #include "code\datums\uplink\devices and tools.dm"
