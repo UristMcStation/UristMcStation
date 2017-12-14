@@ -137,6 +137,7 @@
 /obj/effect/shuttle_landmark/supply/station
 	name = "Cargo Bay"
 	landmark_tag = "station_cargo_bay"
+	docking_controller = "cargo_bay"
 
 // Assorted planet shuttles
 

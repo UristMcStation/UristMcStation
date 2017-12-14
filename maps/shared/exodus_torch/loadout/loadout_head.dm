@@ -10,7 +10,7 @@
 	bandanas["pirate bandana"] = /obj/item/clothing/head/bandana
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
 
-/datum/gear/head/beret
+/datum/gear/head/beret/colored
 	display_name = "beret, colored"
 	description = "A simple, solid color beret. This one has no emblems or insignia on it."
 	path = /obj/item/clothing/head/beret/plaincolor
