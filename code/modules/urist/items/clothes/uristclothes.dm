@@ -437,6 +437,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "aeneasrinil_open"
 	icon_open = "aeneasrinil_open"
 	icon_closed = "aeneasrinil"
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 //for the carpenter
 

@@ -1359,7 +1359,6 @@
 	desc = "A custom built revolver, based off the semi-popular Detective Special model."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "leamas-empty"
-	ammo_type = /obj/item/ammo_magazine/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/detective/fluff/callum_leamas/update_icon()
 	..()

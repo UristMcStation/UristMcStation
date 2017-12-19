@@ -133,6 +133,9 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
+	dynamic_lighting = 1
+	light_power = 1
+	light_range = 1.5
 	bushspawnchance = 30 //let's try it, why not
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -147,6 +150,8 @@
 	bushspawnchance = 50
 	small_trees_chance = 9
 	trap_spawn_chance = 1
+	dynamic_lighting = 1
+	light_power = 1
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -162,6 +167,8 @@
 	plants_spawn_chance = 45
 	small_trees_chance = 10
 	trap_spawn_chance = 2
+	dynamic_lighting = 1
+	light_power = 0.5
 	animal_spawn_chance = 1.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -173,6 +180,8 @@
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 60
+	dynamic_lighting = 1
+	light_power = 0.5
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -192,7 +201,6 @@
 	icon_spawn_state = null
 	dynamic_lighting = 1
 	light_power = 2
-	light_range = 2
 
 /turf/simulated/floor/planet/jungle/clear/grass1
 	bushspawnchance = 0
@@ -217,7 +225,6 @@
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
 	light_power = 2
-	light_range = 2
 	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
@@ -248,6 +255,8 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
+	light_power = 2
+	light_range = 2
 	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
@@ -275,6 +284,8 @@
 	large_trees_chance = 7
 	icon_state = "grass_impenetrable" //impenetrable
 	icon_spawn_state = "grass1"
+	light_power = 0
+	light_range = 0
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -355,6 +366,8 @@
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
+	light_power = 2
+	light_range = 2
 	var/bridge = 0 //has there been a bridge built?
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
@@ -604,7 +617,7 @@
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
-	icon_spawn_state = null
+	icon_spawn_state = "test"
 
 /turf/simulated/floor/planet/jungle/clear/underground
 	name = "dirt"
