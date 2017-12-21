@@ -33,7 +33,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack = 75,  /obj/item/weapon/storage/backpack/satchel_norm = 25)),
 		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 25),
-		/obj/item/clothing/under/rank/cargotech,
+		/obj/item/clothing/under/rank/cargo,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/headset_cargo,
 		/obj/item/clothing/gloves/thick,

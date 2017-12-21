@@ -19,7 +19,7 @@
 	return
 
 /obj/structure/closet/secure_closet/personal/cabinet
-	icon_state = "cabinetdetective"
+	icon_state = "cabinetdetective_locked"
 	icon_closed = "cabinetdetective"
 	icon_locked = "cabinetdetective_locked"
 	icon_opened = "cabinetdetective_open"
