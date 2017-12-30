@@ -1,4 +1,4 @@
-"aa" = (/turf/simulated/floor/plating/planet/jungle/rock,/area/away/wildwest)
+"aa" = (/turf/simulated/floor/planet/jungle/rock,/area/away/wildwest)
 "ab" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; dir = 4; icon_state = "beach"; opacity = 1; tag = "border"},/area/away/wildwest)
 "ac" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; opacity = 1},/area/away/wildwest)
 "ad" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; dir = 8; icon_state = "beach"; opacity = 1; tag = "border"},/area/away/wildwest)
@@ -215,7 +215,7 @@
 "eg" = (/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
 "eh" = (/obj/random/drinkbottle,/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
 "ei" = (/obj/structure/vehicle_frame/motorcycle,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
-"ej" = (/obj/effect/overmap/sector/wild_west,/turf/simulated/floor/plating/planet/jungle/rock,/area/away/wildwest)
+"ej" = (/obj/effect/overmap/sector/wild_west,/turf/simulated/floor/planet/jungle/rock,/area/away/wildwest)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
