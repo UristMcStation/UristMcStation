@@ -410,7 +410,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	if(!(usr)) //BS12 EDIT
 		return
-	if(usr.incapacitated(INCAPACITATION_DISABLED) || usr.stat || usr.restrained() || !Adjacent(usr))
+	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
 		return
 	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
 		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
