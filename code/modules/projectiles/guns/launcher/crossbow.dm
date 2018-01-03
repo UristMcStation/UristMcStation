@@ -64,6 +64,7 @@
 	var/obj/item/weapon/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
 	var/powered = TRUE											// Do we allow cells to be used?
+	var/draw_time = 2.5 SECONDS
 
 /obj/item/weapon/gun/launcher/crossbow/Initialize()
 	. = ..()
@@ -113,7 +114,7 @@
 	tension = 1
 
 	while(bolt && tension && loc == current_user)
-		if(!do_after(user, 25, src)) //crossbow strings don't just magically pull back on their own.
+		if(!do_after(user, draw_time, src)) //crossbow strings don't just magically pull back on their own.
 			user.visible_message("[usr] stops drawing and relaxes the string of [src].","<span class='warning'>You stop drawing back and relax the string of [src].</span>")
 			tension = 0
 			update_icon()
