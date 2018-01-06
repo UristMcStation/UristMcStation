@@ -24,6 +24,13 @@
 	#include "wyrm-4.dmm"
 
 
+	#include "../randomzlevels/derelict/derelict.dm"
+	#include "../randomzlevels/lost_supply_base/lost_supply_base.dm"
+	#include "../randomzlevels/marooned/marooned.dm"
+	#include "../randomzlevels/mining/mining.dm"
+	#include "../randomzlevels/wildwest/wildwest.dm"
+
+
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"
 	#include "../../code/modules/lobby_music/clouds_of_fire.dm"
