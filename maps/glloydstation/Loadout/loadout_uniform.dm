@@ -168,3 +168,20 @@
 	display_name = "sweater"
 	path = /obj/item/clothing/under/rank/psych/turtleneck/sweater
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/corporate
+	display_name = "corporate uniform selection"
+	path = /obj/item/clothing/under/mbill
+
+/datum/gear/uniform/corporate/New()
+	..()
+	var/corps = list()
+	corps["major bill's shipping uniform"] = /obj/item/clothing/under/mbill
+	corps["SAARE uniform"] = /obj/item/clothing/under/saare
+	corps["aether atmospherics uniform"] = /obj/item/clothing/under/aether
+	corps["hephaestus uniform"] = /obj/item/clothing/under/hephaestus
+	corps["PCRC uniform"] = /obj/item/clothing/under/pcrc
+	corps["ward-takahashi uniform"] = /obj/item/clothing/under/wardt
+	corps["grayson uniform"] = /obj/item/clothing/under/grayson
+	corps["focal point uniform"] = /obj/item/clothing/under/focal
+	gear_tweaks += new/datum/gear_tweak/path(corps)
