@@ -1,5 +1,5 @@
 /datum/map/wyrm
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/bodyguard,
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield,
 						/datum/job/bartender, /datum/job/janitor,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
@@ -114,7 +114,7 @@
 	icon_state = "trader"
 	job_access_type = /datum/job/merchant
 
-/datum/job/bodyguard
+/datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
 	faction = "Station"
@@ -164,4 +164,4 @@
 	name = "identification card"
 	desc = "A card issued to those crazy enough to put their life on the line for the Heads of Staff."
 	icon_state = "centcom"
-	job_access_type = /datum/job/bodyguard
+	job_access_type = /datum/job/blueshield

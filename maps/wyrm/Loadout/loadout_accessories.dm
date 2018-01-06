@@ -46,7 +46,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster
-	allowed_roles = list(/datum/job/captain, /datum/job/hop, /datum/job/officer, /datum/job/hos)
+	allowed_roles = list(/datum/job/captain, /datum/job/hop, /datum/job/officer, /datum/job/hos, /datum/job/blueshield)
 
 /datum/gear/accessory/holster/New()
 	..()
