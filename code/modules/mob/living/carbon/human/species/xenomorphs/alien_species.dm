@@ -218,7 +218,7 @@
 	name = "Xenophage Hunter"
 	weeds_plasma_rate = 5
 	caste_name = "hunter"
-	slowdown = -2
+	slowdown = -0.1
 	total_health = 300
 	base_color = "#001a33"
 
