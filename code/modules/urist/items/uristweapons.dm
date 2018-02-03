@@ -122,6 +122,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "bow"
 	item_icons = DEF_URIST_INHANDS
 	powered = FALSE
+	draw_time = 10
 
 
 //RS Weapons

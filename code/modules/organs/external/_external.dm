@@ -630,7 +630,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		// slow healing
 		var/heal_amt = 0
 
-		if(owner.sleeping)
+		if(owner.sleeping && !W.is_surgical())
 			heal_amt += 1
 			if(owner.buckled) //we'll assume resting
 				heal_amt += 0.5
