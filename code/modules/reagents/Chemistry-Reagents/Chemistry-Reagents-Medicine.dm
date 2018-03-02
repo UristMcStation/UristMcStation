@@ -656,7 +656,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	scannable = 1
-	overdose = 10
+	overdose = 0
 	metabolism = 0.1
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)

@@ -1122,7 +1122,7 @@ CIRCUITS BELOW
 	id = "operating"
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
-/*
+
 /datum/design/circuit/scan_console
 	name = "DNA machine"
 	id = "scan_console"
@@ -1156,7 +1156,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
 	build_path = /obj/item/weapon/circuitboard/clonescanner
 	sort_string = "FAGAG"
-*/
+
 /datum/design/circuit/resleever
 	name = "neural lace resleever"
 	id = "resleever"

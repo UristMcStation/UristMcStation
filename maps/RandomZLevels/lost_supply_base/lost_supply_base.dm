@@ -12,7 +12,7 @@
 
 /obj/effect/overmap/sector/lost_supply_base
 	name = "Abandoned supply base"
-	desc = "This looks like abandoned and heavy damaged supply station."
+	desc = "Scanners read a heavilly damaged and depowered supply station."
 	icon_state = "object"
 	known = 0
 
@@ -38,3 +38,15 @@
 /obj/effect/shuttle_landmark/nav_lost_supply_base/navantag
 	name = "Abandoned Supply Base Navpoint #4"
 	landmark_tag = "nav_lost_supply_base_antag"
+
+/decl/hierarchy/outfit/job/engineering/engineer/nopda
+	name = OUTFIT_JOB_NAME("Engineer (No PDA)")
+	pda_type = null
+
+/obj/effect/spawner/carbon/human/supplybase/engineer
+	clothing = /decl/hierarchy/outfit/job/engineering/engineer/nopda
+	killed = TRUE
+	damage = list ("damage_all_brute" = 20)
+
+/obj/effect/spawner/carbon/human/supplybase/engineer/headsplode
+	damage = list("head" = 80)

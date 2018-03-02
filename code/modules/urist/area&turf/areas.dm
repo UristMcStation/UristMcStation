@@ -28,6 +28,21 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Heads of Staff Dorms"
 	icon_state = "head_quarters"
 
+/area/crew_quarters/heads_dorms/CE
+	name = "\improper Chief Engineer Dorm"
+
+/area/crew_quarters/heads_dorms/CMO
+	name = "\improper Chief Medical Officer Dorm"
+
+/area/crew_quarters/heads_dorms/HoP
+	name = "\improper Head of Personnel Dorm"
+
+/area/crew_quarters/heads_dorms/HoS
+	name = "\improper Head of Security Dorm"
+
+/area/crew_quarters/heads_dorms/RD
+	name = "\improper Research Director Dorm"
+
 /area/storage/emergency3
 	name = "\improper Escape Emergency Storage" //Because yolo
 	icon_state = "emergencystorage"
