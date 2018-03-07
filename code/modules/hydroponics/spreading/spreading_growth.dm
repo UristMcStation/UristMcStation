@@ -72,6 +72,23 @@
 			return
 
 	var/turf/simulated/T = get_turf(src)
+	if(istype(T))
+		health -= seed.handle_environment(T,T.return_air(),null,1)
+	if(health < max_health)
+		health += rand(3,5)
+		refresh_icon()
+	if(health > max_health)
+		health = max_health
+	if(health == max_health && !plant)
+		plant = new(T,seed)
+		plant.dir = src.dir
+		plant.transform = src.transform
+		plant.age = seed.get_trait(TRAIT_MATURATION)-1
+		plant.update_icon()
+		if(growth_type==0) //Vines do not become invisible.
+			set_invisibility(INVISIBILITY_MAXIMUM)
+		else
+			plant.layer = layer + 0.1
 
 	if(grow)
 		// Handle life.

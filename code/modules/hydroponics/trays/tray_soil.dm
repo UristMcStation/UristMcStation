@@ -61,5 +61,5 @@
 	// Check if we're masking a decal that needs to be visible again.
 	for(var/obj/effect/vine/plant in get_turf(src))
 		if(plant.invisibility == INVISIBILITY_MAXIMUM)
-			plant.invisibility = initial(plant.invisibility)
+			plant.set_invisibility(initial(plant.invisibility))
 	. = ..()

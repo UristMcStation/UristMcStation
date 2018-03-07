@@ -149,7 +149,7 @@
 		src.attack_self(M)
 
 /obj/proc/hide(var/hide)
-	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
+	set_invisibility(hide ? INVISIBILITY_MAXIMUM : initial(invisibility))
 
 /obj/proc/hides_under_flooring()
 	return level == 1
