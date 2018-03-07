@@ -44,6 +44,7 @@
 #define MODE_TRAITOR "traitor"
 #define MODE_DEITY "deity"
 #define MODE_GODCULTIST "god cultist"
+#define MODE_SCOM_GD "scom operative"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 130
 

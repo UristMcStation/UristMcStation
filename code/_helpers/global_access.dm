@@ -119,8 +119,6 @@
 			return global._client_preferences_by_key;
 		if("_client_preferences_by_type")
 			return global._client_preferences_by_type;
-		if("_preloader")
-			return global._preloader;
 		if("account_hack_attempted")
 			return global.account_hack_attempted;
 		if("acting_rank_prefixes")
@@ -1322,8 +1320,6 @@
 			global._client_preferences_by_key=newval;
 		if("_client_preferences_by_type")
 			global._client_preferences_by_type=newval;
-		if("_preloader")
-			global._preloader=newval;
 		if("account_hack_attempted")
 			global.account_hack_attempted=newval;
 		if("acting_rank_prefixes")
@@ -2465,7 +2461,6 @@
 	"_client_preferences",
 	"_client_preferences_by_key",
 	"_client_preferences_by_type",
-	"_preloader",
 	"account_hack_attempted",
 	"acting_rank_prefixes",
 	"actor",

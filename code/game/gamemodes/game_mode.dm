@@ -194,6 +194,9 @@ var/global/list/additional_antag_types = list()
 			var/datum/event_container/EMajor = GLOB.event_manager.event_containers[EVENT_LEVEL_MAJOR]
 			EMajor.delay_modifier = event_delay_mod_major
 
+/datum/game_mode/proc/on_selection()
+	return
+
 /datum/game_mode/proc/pre_setup()
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
