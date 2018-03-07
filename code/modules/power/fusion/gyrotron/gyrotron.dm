@@ -28,7 +28,7 @@ var/list/gyrotrons = list()
 	return ..()
 
 /obj/machinery/power/emitter/gyrotron/Process()
-	active_power_usage = mega_energy * GYRO_POWER
+	active_power_usage = mega_energy * 50000
 	. = ..()
 
 /obj/machinery/power/emitter/gyrotron/get_rand_burst_delay()

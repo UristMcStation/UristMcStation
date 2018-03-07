@@ -119,10 +119,6 @@
 		if(isfile(file))
 			maploader.load_map(file)
 
-			for(var/x = 1 to world.maxx)
-				for(var/y = 1 to world.maxy)
-					turfs += locate(x,y,world.maxz)
-
 			world << "<span class='warning'> Initializing S-COM map objects...</span>"
 
 			for(var/area/scom/mission/scom_area in world)

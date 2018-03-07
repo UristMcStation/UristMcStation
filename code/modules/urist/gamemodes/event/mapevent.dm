@@ -52,10 +52,6 @@
 			maploader.load_map(file)
 			world << "<span class='danger'> Event Map loaded.</span>"
 
-			for(var/x = 1 to world.maxx)
-				for(var/y = 1 to world.maxy)
-					turfs += locate(x,y,world.maxz)
-
 		else
 			src << "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>"
 

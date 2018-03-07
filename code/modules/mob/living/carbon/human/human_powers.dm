@@ -307,9 +307,6 @@
 	if(l_hand) unEquip(l_hand)
 	if(r_hand) unEquip(r_hand)
 
-	// So there's a progress bar if you're not cloaked and there isn't one if you are cloaked.
-	var/hidden = cloaked
-
 	if(do_after(src, 30))
 		hidden = is_cloaked()
 		pulling_punches = !pulling_punches
