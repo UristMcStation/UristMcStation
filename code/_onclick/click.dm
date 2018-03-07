@@ -61,17 +61,13 @@
 		CtrlClickOn(A)
 		return 1
 
-	if(stat || paralysis || stunned) //weakened
+	if(stat || paralysis || stunned || weakened)
 		return
 
 	face_atom(A) // change direction to face what you clicked on
 
 	if(!canClick()) // in the year 2000...
 		return
-
-	if(lying && istype(A, /turf) && !istype(A, /turf/space))
-		if(!get_active_hand())//Should make getting up stairs easier.
-			crawl(A)
 
 	if(istype(loc, /obj/mecha))
 		if(!locate(/turf) in list(A, A.loc)) // Prevents inventory from being drilled
@@ -448,19 +444,3 @@ var/const/CLICK_HANDLER_ALL                  = (~0)
 	click_handler = new new_click_handler_type(src)
 	click_handler.Enter()
 	click_handlers.Push(click_handler)
-
-//Ported from interbay and cleaned up a bit
-/mob/proc/crawl(var/atom/A)
-	if((status_flags & FAKEDEATH) || restrained() || pulledby)
-		return
-	if(!istype(loc, /turf))
-		return
-	if(crawling)
-		return
-	crawling = 1
-	if(do_after(src, 2 SECONDS, incapacitation_flags = INCAPACITATION_STUNNED))
-		var/d = get_dir(src,A)
-		if(Move(get_step(src,d)))
-			set_dir(d)
-			visible_message("<span class = 'danger'><b>[src]</b> crawls across the floor!</span>","<span class = 'danger'>You crawl forward!</span>")
-	crawling = 0

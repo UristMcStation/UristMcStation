@@ -65,6 +65,7 @@
 	var/obj/item/weapon/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
 	var/powered = TRUE											// Do we allow cells to be used?
+	var/draw_time = 2.5 SECONDS
 
 /obj/item/weapon/gun/launcher/crossbow/Initialize()
 	. = ..()

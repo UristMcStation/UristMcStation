@@ -8,7 +8,7 @@
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/chaplain,
-						/datum/job/rd, /datum/job/scientist, /datum/job/geneticist, /datum/job/roboticist, /datum/job/mining,
+						/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/mining,  //RIP Geneticists, you're illegal now. - Vak
 						/datum/job/blueshield, /datum/job/mime, /datum/job/clown, /datum/job/merchant
 						)
 
@@ -83,6 +83,7 @@
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
+	backpack_contents = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/weapon/pen/crayon/mime = 1)
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/device/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
@@ -165,7 +166,7 @@
 	department_flag = CIV
 	faction = "Station"
 	total_positions = 0 //to be opened by admins when desired AT ROUNDSTART ONLY
-	spawn_positions = 2
+	spawn_positions = 0
 	supervisors = "the invisible hand of the market"
 	selection_color = "#515151"
 	ideal_character_age = 30

@@ -271,7 +271,7 @@
 /area/syndicate_station/start
 	name = "\improper Mercenary Forward Operating Base"
 	icon_state = "yellow"
-
+/*
 /area/syndicate_station/southwest
 	name = "south-west of SS13"
 	icon_state = "southwest"
@@ -309,13 +309,13 @@
 	name = "\proper bluespace"
 	icon_state = "shuttle"
 	base_turf = /turf/space/transit/north
-
+*/
 /area/skipjack_station
 	name = "\improper Skipjack"
 	icon_state = "yellow"
 	requires_power = 0
 	flags = AREA_RAD_SHIELDED
-
+/*
 /area/skipjack_station/transit
 	name = "\proper bluespace"
 	icon_state = "shuttle"
@@ -340,7 +340,8 @@
 /area/skipjack_station/mining
 	name = "south of mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/floor/planet/jungle/clear
+	base_turf = /turf/simulated/floor/planet/jungle/clear //These have been rendered useless by new shuttle code, leaving here for reference -Vak
+*/
 
 // Maintenance
 
@@ -525,7 +526,7 @@
 	icon_state = "medbay4"
 
 /area/medical/genetics
-	name = "\improper Genetics Lab"
+	name = "\improper Derelicted Lab"
 	icon_state = "genetics"
 
 /area/medical/genetics_cloning

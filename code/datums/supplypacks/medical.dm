@@ -263,7 +263,31 @@
 /decl/hierarchy/supply_pack/medical/blanks
 	num_contained = 4
 	contains = list(/mob/living/carbon/human/blank)
-	name = "\improper Blank Clones Crate"
+	name = "\improper Human Blank Clones Crate"
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/biohazard
+	containername = "\improper biohazard crate"
+
+/decl/hierarchy/supply_pack/medical/Unathiblanks  //MORE CANCER COPYPASTA, BECAUSE SUBTYPES STILL AREN'T WORKING -Vak
+	num_contained = 4
+	contains = list(/mob/living/carbon/human/blankUnathi)
+	name = "\improper Unathi Blank Clones Crate"
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/biohazard
+	containername = "\improper biohazard crate"
+
+/decl/hierarchy/supply_pack/medical/Skrellblanks
+	num_contained = 4
+	contains = list(/mob/living/carbon/human/blankSkrell)
+	name = "\improper Skrell Blank Clones Crate"
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/biohazard
+	containername = "\improper biohazard crate"
+
+/decl/hierarchy/supply_pack/medical/Resomiblanks
+	num_contained = 4
+	contains = list(/mob/living/carbon/human/blankResomi)
+	name = "\improper Teshari Blank Clones Crate"
 	cost = 200
 	containertype = /obj/structure/closet/crate/secure/biohazard
 	containername = "\improper biohazard crate"

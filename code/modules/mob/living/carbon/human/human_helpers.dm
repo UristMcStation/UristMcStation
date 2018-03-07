@@ -141,36 +141,37 @@
 	set desc = "Allows you to listen in to movement and noises around you."
 	set category = "IC"
 
+	var/turf/T1 = get_turf(src)
 	if(incapacitated())
 		to_chat(src, "<span class='warning'>You need to recover before you can use this ability.</span>")
 		return
 	if(world.time < next_sonar_ping)
 		to_chat(src, "<span class='warning'>You need another moment to focus.</span>")
 		return
-	if(is_deaf() || is_below_sound_pressure(get_turf(src)))
+	if(is_deaf() || is_below_sound_pressure(T1))
 		to_chat(src, "<span class='warning'>You are for all intents and purposes currently deaf!</span>")
 		return
-	next_sonar_ping += 10 SECONDS
+	next_sonar_ping = world.time + 10 SECONDS
 	var/heard_something = FALSE
 	to_chat(src, "<span class='notice'>You take a moment to listen in to your environment...</span>")
-	for(var/mob/living/L in range(client.view, src))
-		var/turf/T = get_turf(L)
-		if(!T || L == src || L.stat == DEAD || is_below_sound_pressure(T))
+	for(var/mob/living/L in range(client.view, T1))
+		var/turf/T2 = get_turf(L)
+		if(!T2 || L == src || L.stat == DEAD || is_below_sound_pressure(T2))
 			continue
 		heard_something = TRUE
-		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
+		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T1)
 		ping_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		ping_image.layer = BEAM_PROJECTILE_LAYER
-		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
-		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
+		ping_image.pixel_x = (T2.x - T1.x) * WORLD_ICON_SIZE
+		ping_image.pixel_y = (T2.y - T1.y) * WORLD_ICON_SIZE
 		show_image(src, ping_image)
 		spawn(8)
 			qdel(ping_image)
 		var/feedback = list("<span class='notice'>There are noises of movement ")
-		var/direction = get_dir(src, L)
+		var/direction = get_dir(T1, L)
 		if(direction)
 			feedback += "towards the [dir2text(direction)], "
-			switch(get_dist(src, L) / client.view)
+			switch(get_dist(T1, L) / client.view)
 				if(0 to 0.2)
 					feedback += "very close by."
 				if(0.2 to 0.4)

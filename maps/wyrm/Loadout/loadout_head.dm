@@ -50,3 +50,7 @@
 
 /datum/gear/head/welding
 	allowed_roles = list(/datum/job/scientist, /datum/job/rd, /datum/job/engineer, /datum/job/chief_engineer)
+
+/datum/gear/head/barber
+	display_name = "boater hat"
+	path = /obj/item/clothing/head/urist/barber

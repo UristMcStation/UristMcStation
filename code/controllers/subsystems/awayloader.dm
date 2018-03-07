@@ -1,4 +1,3 @@
-/*
 SUBSYSTEM_DEF(awaymissions)
 	name = "Away Missions"
 	init_order = INIT_ORDER_MAPPING
@@ -7,4 +6,3 @@ SUBSYSTEM_DEF(awaymissions)
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	createRandomZlevel()
 	return ..()
-*/

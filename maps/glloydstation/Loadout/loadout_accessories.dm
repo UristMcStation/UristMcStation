@@ -46,7 +46,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective","Blueshield")
+	allowed_roles = list(/datum/job/captain, /datum/job/hop, /datum/job/officer, /datum/job/warden, /datum/job/hos, /datum/job/detective, /datum/job/blueshield)
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -72,37 +72,37 @@
 /datum/gear/accessory/stethoscope
 	display_name = "stethoscope (medical)"
 	path = /obj/item/clothing/accessory/stethoscope
-	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor")
+	allowed_roles = list(/datum/job/doctor,/datum/job/cmo)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer")
+	allowed_roles = list(/datum/job/engineer,/datum/job/chief_engineer)
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor")
+	allowed_roles = list(/datum/job/cmo,/datum/job/doctor)
 
 /datum/gear/accessory/brown_drop_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/drop_pouches/brown
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer")
+	allowed_roles = list(/datum/job/engineer,/datum/job/chief_engineer)
 
 /datum/gear/accessory/black_drop_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/drop_pouches/black
-	allowed_roles = list("Security Officer","Head of Security","Warden")
+	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
 
 /datum/gear/accessory/white_drop_pouches
 	display_name = "drop pouches, medical"
 	path =/obj/item/clothing/accessory/storage/drop_pouches/white
-	allowed_roles = list("Paramedic","Chief Medical Officer","Medical Doctor")
+	allowed_roles = list(/datum/job/cmo,/datum/job/doctor)
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -129,3 +129,40 @@
 /datum/gear/accessory/locket
 	display_name = "locket"
 	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/ubac
+	display_name = "ubac selection"
+	path = /obj/item/clothing/accessory/ubac
+
+/datum/gear/accessory/ubac/New()
+	..()
+	var/ubac = list()
+	ubac["black ubac"] = /obj/item/clothing/accessory/ubac
+	ubac["tan ubac"] = /obj/item/clothing/accessory/ubac/tan
+	ubac["green ubac"] = /obj/item/clothing/accessory/ubac/green
+	gear_tweaks += new/datum/gear_tweak/path(ubac)
+
+/datum/gear/accessory/dashiki
+	display_name = "dashiki selection"
+	path = /obj/item/clothing/accessory/dashiki
+
+/datum/gear/accessory/dashiki/New()
+	..()
+	var/dashiki = list()
+	dashiki["black dashiki"] = /obj/item/clothing/accessory/dashiki
+	dashiki["red dashiki"] = /obj/item/clothing/accessory/dashiki/red
+	dashiki["blue dashiki"] = /obj/item/clothing/accessory/dashiki/blue
+	gear_tweaks += new/datum/gear_tweak/path(dashiki)
+
+/datum/gear/accessory/colourtop
+	display_name = "colourable tops selection"
+	path = /obj/item/clothing/accessory/sweater
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/colourtop/New()
+	..()
+	var/colourtop = list()
+	colourtop["turtleneck sweater"] = /obj/item/clothing/accessory/sweater
+	colourtop["qipao"] = /obj/item/clothing/accessory/qipao
+	colourtop["sherwani"] = /obj/item/clothing/accessory/sherwani
+	gear_tweaks += new/datum/gear_tweak/path(colourtop)

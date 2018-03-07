@@ -21,6 +21,11 @@
 	name = T_BOARD("medical records console")
 	build_path = /obj/machinery/computer/med_data
 
+/obj/item/weapon/circuitboard/scan_consolenew
+	name = T_BOARD("DNA machine")
+	build_path = /obj/machinery/computer/scan_consolenew
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4) //You're a crime now, genetics -Vak
+
 /obj/item/weapon/circuitboard/teleporter
 	name = T_BOARD("teleporter control console")
 	build_path = /obj/machinery/computer/teleporter
@@ -51,6 +56,11 @@
 	name = T_BOARD("drone control console")
 	build_path = /obj/machinery/computer/drone_control
 	origin_tech = list(TECH_DATA = 3)
+
+/obj/item/weapon/circuitboard/cloning
+	name = T_BOARD("cloning control console")
+	build_path = /obj/machinery/computer/cloning
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)
 
 /obj/item/weapon/circuitboard/arcade/battle
 	name = T_BOARD("battle arcade machine")

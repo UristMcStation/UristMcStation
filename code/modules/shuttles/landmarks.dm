@@ -67,7 +67,8 @@
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	. = ..()
 	base_area = get_area(src)
-	base_turf = get_turf(src)
+	var/turf/T = get_turf(src)
+	base_turf = T.type
 	if(!GLOB.using_map.use_overmap)
 		return
 	var/obj/effect/overmap/O = map_sectors["[z]"]

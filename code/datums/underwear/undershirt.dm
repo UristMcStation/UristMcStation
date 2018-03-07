@@ -1,3 +1,6 @@
+/datum/category_item/underwear/undershirt
+	icon = 'icons/mob/underwearUndershirt.dmi'
+
 /datum/category_item/underwear/undershirt/none
 	is_default = TRUE
 	name = "None"

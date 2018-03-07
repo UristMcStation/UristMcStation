@@ -12,7 +12,7 @@
 	desc = "A skirt that is a khaki color."
 	icon_state = "skirt_khaki"
 	worn_state = "skirt_khaki"
-
+/*
 /obj/item/clothing/under/skirt/black
 	name = "short black skirt"
 	desc = "A skirt that is a shiny black."
@@ -30,6 +30,8 @@
 	desc = "A skirt that is a shiny red."
 	icon_state = "skirt_short_red"
 	worn_state = "skirt_short_red"
+
+No need for these, colourable one is in code/modules/urist/items/clothes/uristclothes.dm */
 
 /obj/item/clothing/under/skirt/swept
 	name = "swept skirt"

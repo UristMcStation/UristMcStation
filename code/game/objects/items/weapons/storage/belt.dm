@@ -92,6 +92,7 @@
 	item_state = "medical"
 	can_hold = list(
 		/obj/item/device/healthanalyzer,
+		/obj/item/weapon/dnainjector,
 		/obj/item/weapon/reagent_containers/dropper,
 		/obj/item/weapon/reagent_containers/glass/beaker,
 		/obj/item/weapon/reagent_containers/glass/bottle,

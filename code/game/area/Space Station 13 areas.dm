@@ -180,6 +180,7 @@ area/space/atmosalert()
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
 	base_turf = /turf/space
+	icon_state = "shuttle"
 
 /*
 * Special Areas

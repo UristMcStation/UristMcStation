@@ -1,0 +1,346 @@
+"aa" = (/turf/simulated/floor/planet/jungle/rock,/area/away/wildwest)
+"ab" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; dir = 4; icon_state = "beach"; opacity = 1; tag = "border"},/area/away/wildwest)
+"ac" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; opacity = 1},/area/away/wildwest)
+"ad" = (/turf/simulated/floor/exoplanet/water/shallow{blocks_air = 1; density = 1; dir = 8; icon_state = "beach"; opacity = 1; tag = "border"},/area/away/wildwest)
+"ae" = (/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"af" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (EAST)"; icon_state = "beach"; dir = 4},/area/away/wildwest)
+"ag" = (/turf/simulated/floor/exoplanet/water/shallow,/area/away/wildwest)
+"ah" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (WEST)"; icon_state = "beach"; dir = 8},/area/away/wildwest)
+"ai" = (/turf/simulated/floor/exoplanet/water/shallow{icon_state = "beachcorner"},/area/away/wildwest)
+"aj" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (SOUTHEAST)"; icon_state = "beach"; dir = 6},/area/away/wildwest)
+"ak" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (SOUTHWEST)"; icon_state = "beach"; dir = 10},/area/away/wildwest)
+"al" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beachcorner (NORTH)"; icon_state = "beachcorner"; dir = 1},/area/away/wildwest)
+"am" = (/obj/effect/shuttle_landmark/wild_west,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"an" = (/obj/effect/decal/remains,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"ao" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beachcorner (WEST)"; icon_state = "beachcorner"; dir = 8},/area/away/wildwest)
+"ap" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (NORTHEAST)"; icon_state = "beach"; dir = 5},/area/away/wildwest)
+"aq" = (/obj/structure/pit,/obj/effect/mine/frag,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"ar" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"as" = (/mob/living/simple_animal/hostile/urist/ntagent,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"at" = (/obj/structure/pit/punji6,/obj/effect/mine/frag,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"au" = (/obj/structure/scrap/random,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"av" = (/turf/simulated/wall/wood,/area/away/wildwest)
+"aw" = (/obj/item/weapon/shovel,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"ax" = (/turf/simulated/floor/plating,/area/away/wildwest)
+"ay" = (/turf/simulated/floor/wood,/area/away/wildwest)
+"az" = (/obj/item/weapon/shovel,/turf/simulated/floor/wood,/area/away/wildwest)
+"aA" = (/obj/item/clothing/accessory/locket,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"aB" = (/obj/structure/undies_wardrobe,/turf/simulated/floor/wood,/area/away/wildwest)
+"aC" = (/obj/structure/bed/padded,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{tag = "icon-bulb1 (NORTH)"; icon_state = "bulb1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"aD" = (/obj/structure/closet/cabinet,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"aE" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aF" = (/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/away/wildwest)
+"aG" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aH" = (/obj/item/weapon/deck/cards,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aI" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aJ" = (/obj/structure/bed/chair/wood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aK" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aL" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"aM" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood,/area/away/wildwest)
+"aN" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aO" = (/obj/structure/table/woodentable,/obj/random/junk,/obj/effect/decal/cleanable/dirt,/obj/machinery/light{tag = "icon-tube1 (EAST)"; icon_state = "tube1"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"aP" = (/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"aQ" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aR" = (/obj/random/junk,/obj/item/vehicle_part/battery,/turf/simulated/floor/wood,/area/away/wildwest)
+"aS" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"aT" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"aU" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"aV" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/away/wildwest)
+"aW" = (/obj/structure/closet/cabinet,/turf/simulated/floor/wood,/area/away/wildwest)
+"aX" = (/obj/structure/bed/padded,/obj/random/junk,/obj/machinery/light/small,/turf/simulated/floor/wood,/area/away/wildwest)
+"aY" = (/obj/structure/coatrack,/turf/simulated/floor/wood,/area/away/wildwest)
+"aZ" = (/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"ba" = (/obj/structure/pit,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"bb" = (/turf/simulated/wall/r_wall,/area/away/wildwest)
+"bc" = (/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"bd" = (/obj/structure/bed/padded,/turf/simulated/floor/wood,/area/away/wildwest)
+"be" = (/obj/machinery/light/small{tag = "icon-bulb1 (NORTH)"; icon_state = "bulb1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"bf" = (/obj/structure/barricade,/turf/simulated/floor/wood,/area/away/wildwest)
+"bg" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{tag = "icon-bulb1 (NORTH)"; icon_state = "bulb1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"bh" = (/obj/structure/bed/padded,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/regen/plague,/turf/simulated/floor/wood,/area/away/wildwest)
+"bi" = (/obj/random/coin,/turf/simulated/floor/wood,/area/away/wildwest)
+"bj" = (/obj/random/cash,/obj/random/snack,/obj/item/stack/material/silver/ten,/turf/simulated/floor/wood,/area/away/wildwest)
+"bk" = (/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"bl" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"bm" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/wood,/area/away/wildwest)
+"bn" = (/obj/item/weapon/material/shard/phoron,/turf/simulated/floor/wood,/area/away/wildwest)
+"bo" = (/obj/item/clothing/ring/seal/mason,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"bp" = (/obj/structure/bed/chair/comfy/red,/obj/effect/decal/remains,/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"bq" = (/obj/item/clothing/accessory/holster/waist,/turf/simulated/floor/wood,/area/away/wildwest)
+"br" = (/obj/structure/bed/chair/office/dark{dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"bs" = (/obj/random/cash,/obj/random/cash,/obj/random/coin,/obj/random/coin,/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"bt" = (/obj/random/cash,/obj/random/coin,/obj/item/stack/material/gold/ten,/turf/simulated/floor/wood,/area/away/wildwest)
+"bu" = (/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"bv" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (NORTHWEST)"; icon_state = "beach"; dir = 9},/area/away/wildwest)
+"bw" = (/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beachcorner (EAST)"; icon_state = "beachcorner"; dir = 4},/area/away/wildwest)
+"bx" = (/obj/structure/grille,/turf/simulated/floor/wood,/area/away/wildwest)
+"by" = (/obj/effect/decal/cleanable/blood,/turf/simulated/wall/r_wall,/area/away/wildwest)
+"bz" = (/obj/effect/decal/cleanable/blood,/turf/simulated/wall/wood,/area/away/wildwest)
+"bA" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/head/cowboy_hat,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/hos/jensen,/obj/item/weapon/gun/projectile/revolver,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/obj/item/weapon/storage/lunchbox/heart/filled,/turf/simulated/floor/wood,/area/away/wildwest)
+"bB" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest/jacket,/obj/item/clothing/head/urist/cowboy,/obj/item/weapon/gun/projectile/revolver/detective,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/turf/simulated/floor/wood,/area/away/wildwest)
+"bC" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/head/cowboy_hat,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest,/obj/item/weapon/gun/projectile/revolver/mateba,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/turf/simulated/floor/wood,/area/away/wildwest)
+"bD" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/old,/obj/item/clothing/head/fedora,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest/old,/obj/item/weapon/gun/projectile/colt/detective,/obj/item/weapon/gun/projectile/bhp9mm,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"bE" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/automatic/m14,/obj/item/weapon/gun/projectile/automatic/m14,/obj/item/ammo_magazine/a762mm/m14,/obj/item/ammo_magazine/a762mm/m14,/obj/item/ammo_magazine/a762mm/m14,/turf/simulated/floor/wood,/area/away/wildwest)
+"bF" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,/obj/item/weapon/storage/box/flashshells,/turf/simulated/floor/wood,/area/away/wildwest)
+"bG" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca,/obj/item/weapon/material/hatchet/tacknife,/obj/item/weapon/material/hatchet/tacknife,/obj/item/weapon/material/hatchet/tacknife,/obj/structure/window/reinforced/full,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"bH" = (/obj/random/cash,/obj/random/cash,/obj/random/coin,/obj/random/coin,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"bI" = (/obj/random/cash,/obj/item/stack/material/diamond,/turf/simulated/floor/wood,/area/away/wildwest)
+"bJ" = (/obj/random/cash,/obj/random/coin,/turf/simulated/floor/wood,/area/away/wildwest)
+"bK" = (/obj/machinery/door/unpowered/simple/wood,/obj/random/obstruction,/turf/simulated/floor/wood,/area/away/wildwest)
+"bL" = (/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/exoplanet/water/shallow{tag = "icon-beach (EAST)"; icon_state = "beach"; dir = 4},/area/away/wildwest)
+"bM" = (/obj/structure/table/standard/flipped/w,/turf/simulated/floor/wood,/area/away/wildwest)
+"bN" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"bO" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"bP" = (/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/away/wildwest)
+"bQ" = (/obj/machinery/door/unpowered/simple/iron,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"bR" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/away/wildwest)
+"bS" = (/obj/item/weapon/storage/belt/urist/bandolier,/turf/simulated/floor/wood,/area/away/wildwest)
+"bT" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/random/junk,/obj/item/vehicle_part/tire,/turf/simulated/floor/wood,/area/away/wildwest)
+"bU" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/urist/cram,/obj/random/junk,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"bV" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/random/junk,/obj/item/weapon/storage/lunchbox/syndicate,/turf/simulated/floor/wood,/area/away/wildwest)
+"bW" = (/obj/structure/table/rack/wood,/obj/random/action_figure,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"bX" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/wood,/area/away/wildwest)
+"bY" = (/obj/structure/table/standard/flipped/s,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"bZ" = (/obj/effect/decal/cleanable/blood,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"ca" = (/obj/random/junk,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"cb" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"cc" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/storage/bandolier,/obj/item/clothing/accessory/storage/bandolier,/turf/simulated/floor/wood,/area/away/wildwest)
+"cd" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/weapon/gun/projectile/manualcycle/mosinnagant,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"ce" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/launcher/crossbow,/obj/item/weapon/gun/projectile/pirate,/obj/item/stack/material/steel/fifty,/turf/simulated/floor/wood,/area/away/wildwest)
+"cf" = (/obj/structure/table/rack/wood,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/weapon/storage/box/shotgunammo,/obj/item/weapon/storage/box/shotgunammo,/obj/structure/window/reinforced/full,/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"cg" = (/obj/structure/table/rack/wood,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/weapon/storage/box/shotgunshells,/obj/item/weapon/storage/box/shotgunshells,/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/away/wildwest)
+"ch" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/automatic/m16,/obj/item/ammo_magazine/a556/m16,/obj/item/ammo_magazine/a556/m16,/obj/item/ammo_magazine/a556/m16,/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/away/wildwest)
+"ci" = (/obj/structure/table/rack/wood,/obj/random/snack,/obj/item/weapon/storage/box/frags,/turf/simulated/floor/wood,/area/away/wildwest)
+"cj" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/syndi_cakes,/obj/random/junk,/obj/random/toy,/obj/effect/decal/cleanable/blood,/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"ck" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/urist/dapples,/obj/item/trash/urist/dapples,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"cl" = (/obj/structure/table/rack/wood,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/obj/random/junk,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"cm" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cn" = (/obj/structure/table/woodentable,/obj/random/toolbox,/turf/simulated/floor/wood,/area/away/wildwest)
+"co" = (/obj/item/clothing/accessory/watch/pocket,/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains,/obj/machinery/light{tag = "icon-tube1 (EAST)"; icon_state = "tube1"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"cp" = (/obj/machinery/light,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"cq" = (/obj/structure/coatrack,/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"cr" = (/obj/structure/table/rack/wood,/obj/random/smokes,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"cs" = (/obj/structure/table/woodentable,/obj/random/plushie,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"ct" = (/obj/structure/table/woodentable,/turf/simulated/floor/wood,/area/away/wildwest)
+"cu" = (/turf/simulated/wall/cult,/area/away/wildwest)
+"cv" = (/obj/structure/grille/broken,/obj/machinery/door/unpowered/simple/wood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cw" = (/obj/structure/table/rack/wood,/obj/item/device/flashlight/glowstick/random,/obj/item/device/flashlight/glowstick/random,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"cx" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/item/vehicle_part/tire,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cy" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/blamco,/obj/item/trash/urist/fancycakes,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"cz" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/blamco,/obj/item/trash/urist/blamco,/obj/random/junk,/obj/random/snack,/turf/simulated/floor/wood,/area/away/wildwest)
+"cA" = (/obj/structure/pit/closed/grave/random,/obj/structure/gravemarker/random,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"cB" = (/obj/structure/pit/closed/grave/spaghettiwestern,/obj/structure/gravemarker/random,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"cC" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small/emergency{tag = "icon-bulb1 (NORTH)"; icon_state = "bulb1"; dir = 1},/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"cD" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cE" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/cultist{faction = "undead"},/turf/simulated/floor/wood,/area/away/wildwest)
+"cF" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small/emergency{tag = "icon-bulb1 (NORTH)"; icon_state = "bulb1"; dir = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"cG" = (/obj/structure/curtain/black{name = "worn curtain"; pixel_x = 32},/turf/simulated/floor/wood,/area/away/wildwest)
+"cH" = (/obj/structure/barricade,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cI" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cJ" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/skeleton,/turf/simulated/floor/wood,/area/away/wildwest)
+"cK" = (/obj/item/trash/candle,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cL" = (/obj/item/clothing/head/chaplain_hood,/obj/effect/decal/remains,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cM" = (/obj/structure/table/woodentable,/obj/item/trash/candle,/obj/item/weapon/material/knife/ritual,/obj/item/weapon/material/scythe,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cN" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cO" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cP" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cQ" = (/obj/structure/grille/cult,/turf/simulated/floor/wood,/area/away/wildwest)
+"cR" = (/obj/structure/barricade,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"cS" = (/obj/random/junk,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"cT" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/skeleton,/turf/simulated/floor/wood,/area/away/wildwest)
+"cU" = (/obj/item/trash/candle,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/away/wildwest)
+"cV" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small/emergency,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/away/wildwest)
+"cW" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/cultist{faction = "undead"},/turf/simulated/floor/wood,/area/away/wildwest)
+"cX" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"cY" = (/obj/machinery/light/small/emergency,/turf/simulated/floor/wood,/area/away/wildwest)
+"cZ" = (/obj/effect/decal/cleanable/dirt,/obj/structure/curtain/black{name = "worn curtain"; pixel_x = 32},/turf/simulated/floor/wood,/area/away/wildwest)
+"da" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"db" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"dc" = (/obj/structure/scrap/random,/obj/item/vehicle_part/transmission,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"dd" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"de" = (/obj/item/clothing/under/urist/civilwar/uscol,/obj/item/clothing/head/urist/civilwar/uscolhat,/obj/item/weapon/gun/projectile/revolver/capgun,/obj/effect/decal/remains,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"df" = (/obj/item/clothing/under/urist/civilwar/csalt,/obj/item/clothing/head/urist/civilwar/csalthat,/obj/item/weapon/gun/projectile/revolver/detective,/obj/effect/decal/remains,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"dg" = (/obj/structure/sign/redcross,/turf/simulated/wall/wood,/area/away/wildwest)
+"dh" = (/obj/structure/closet/coffin,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"di" = (/obj/structure/sign/urist/barber,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"dj" = (/obj/item/weapon/storage/firstaid/empty,/turf/simulated/floor/wood,/area/away/wildwest)
+"dk" = (/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/away/wildwest)
+"dl" = (/obj/item/weapon/storage/firstaid/tactical,/turf/simulated/floor/wood,/area/away/wildwest)
+"dm" = (/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/wood,/area/away/wildwest)
+"dn" = (/obj/item/weapon/storage/firstaid/combat,/turf/simulated/floor/wood,/area/away/wildwest)
+"do" = (/obj/structure/mirror{desc = "An old, dusty, cracked mirror, you can't make out much in it."; dir = 4; icon_state = "mirror_broke"; name = "shattered mirror"; pixel_x = -32; pixel_y = 0; shattered = 1},/turf/simulated/floor/wood,/area/away/wildwest)
+"dp" = (/obj/structure/bed/chair/urist/barber,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"dq" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/away/wildwest)
+"dr" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light{tag = "icon-tube1 (EAST)"; icon_state = "tube1"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"ds" = (/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/exoplanet/water/shallow,/area/away/wildwest)
+"dt" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/wood,/area/away/wildwest)
+"du" = (/obj/structure/barricade,/obj/machinery/door/unpowered/simple/wood/saloon,/turf/simulated/floor/wood,/area/away/wildwest)
+"dv" = (/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/away/wildwest)
+"dw" = (/obj/structure/window/reinforced/full,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"dx" = (/obj/item/clothing/head/urist/barber,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/remains,/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"dy" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"dz" = (/obj/item/weapon/material/shard{icon_state = "medium"},/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/away/wildwest)
+"dA" = (/obj/structure/bed/padded,/obj/machinery/light/small{tag = "icon-bulb1 (EAST)"; icon_state = "bulb1"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"dB" = (/obj/structure/table/woodentable,/obj/random/drinkbottle,/turf/simulated/floor/wood,/area/away/wildwest)
+"dC" = (/obj/structure/table/standard/flipped/e,/turf/simulated/floor/wood,/area/away/wildwest)
+"dD" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"dE" = (/obj/structure/bed/chair/wood,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/spawner/carbon/human/wildwest/poncho,/turf/simulated/floor/wood,/area/away/wildwest)
+"dF" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/away/wildwest)
+"dG" = (/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/wood,/area/away/wildwest)
+"dH" = (/obj/structure/table/woodentable,/obj/random/junk,/turf/simulated/floor/wood,/area/away/wildwest)
+"dI" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"dJ" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"dK" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 4},/obj/effect/spawner/carbon/human/wildwest/cowboy,/turf/simulated/floor/wood,/area/away/wildwest)
+"dL" = (/obj/structure/table/gamblingtable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"dM" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/spawner/carbon/human/wildwest/banker,/turf/simulated/floor/wood,/area/away/wildwest)
+"dN" = (/obj/machinery/light{tag = "icon-tube1 (EAST)"; icon_state = "tube1"; dir = 4},/turf/simulated/floor/wood,/area/away/wildwest)
+"dO" = (/obj/effect/decal/cleanable/blood,/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"dP" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 1},/obj/effect/decal/cleanable/dirt,/obj/effect/spawner/carbon/human/wildwest/saloongirl,/turf/simulated/floor/wood,/area/away/wildwest)
+"dQ" = (/obj/structure/table/standard/flipped/s,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
+"dR" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/machinery/light,/turf/simulated/floor/wood,/area/away/wildwest)
+"dS" = (/obj/machinery/light,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/away/wildwest)
+"dT" = (/obj/effect/decal/cleanable/blood,/obj/structure/barricade,/turf/simulated/floor/wood,/area/away/wildwest)
+"dU" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small,/turf/simulated/floor/wood,/area/away/wildwest)
+"dV" = (/obj/machinery/light/small,/turf/simulated/floor/wood,/area/away/wildwest)
+"dW" = (/obj/machinery/light{tag = "icon-tube1 (WEST)"; icon_state = "tube1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"dX" = (/obj/item/weapon/circular_saw,/mob/living/simple_animal/hostile/urist/zombie/regen/plague,/turf/simulated/floor/wood,/area/away/wildwest)
+"dY" = (/obj/structure/table/standard/flipped/n,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/away/wildwest)
+"dZ" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/wood,/area/away/wildwest)
+"ea" = (/obj/structure/closet/cabinet,/obj/item/weapon/engine/thermal,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"eb" = (/obj/structure/undies_wardrobe,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"ec" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/storage/det_trench,/obj/item/instrument/guitar,/turf/simulated/floor/wood,/area/away/wildwest)
+"ed" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/storage/service/marine/command,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"ee" = (/obj/structure/undies_wardrobe,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"ef" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{tag = "icon-bulb1 (WEST)"; icon_state = "bulb1"; dir = 8},/turf/simulated/floor/wood,/area/away/wildwest)
+"eg" = (/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"eh" = (/obj/random/drinkbottle,/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/away/wildwest)
+"ei" = (/obj/structure/vehicle_frame/motorcycle,/turf/simulated/floor/exoplanet/desert,/area/away/wildwest)
+"ej" = (/obj/effect/overmap/sector/wild_west,/turf/simulated/floor/planet/jungle/rock,/area/away/wildwest)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaiajagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaiajagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaiajagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeanaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaearaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeasaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeasaeaeaeaeaeaeaeaeaeaeaeaeaeaeaearaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeataeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagahaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaearaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaearaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaeaeaeaeaeavaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeataeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeawaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaxaeaeaeaxaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaxaxaxaeaeaxaeaeaeaeaeaeaeaeaeataeaeaearaeaeasaeaeaeaeaqaeaeaeaeaeaeaeaearaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeataeaeaeaeaeaeaeaeaeaeaeaearaeaeavaeayaeaxazaxaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeataeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeayayayayaxaeaeataeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeataeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaxaeaeayayaxayaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaAaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeataeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeararaeaeaeaeaeaeaeaeaeaeaxavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaeaeaeavavaeaeaeaeaeaeavavavavavavavavavaeaeaeaeaeaeaeaeavavavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaearaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeavaBaCavaDayayaEavaeaeaeaeaeaeaeaeaFaEaGaHaEaIaEavaeaeaeaeaeaeaeaeaeaeaeaeaeawaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayaEavayaEaEayavaeaeaeaqaeaeaeaeavaEaGaJaEaEaKavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayavavaLaKaEayaMaeaeaeaeaeaeaeaeaMaNaEaOavavayavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayayaPaGaEayayavaeaeaeaeaeaeaeaeavaEaNaQavaRaPavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaEaEaSaTaUayayavaeaeaearaeaeaeaeaVaEaEaWavaXaBavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaPaEaEaIayayaYavaeaeaeaeaeaeaeaeavavavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaZaeaeaeafagagagagagahaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavavavaFaFaFavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaZaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaebaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaZaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaeaeaeaeavavaeaeaeaebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaebcaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavavavavavavavavavavavavavavavavaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaxaeaeaeaeaeavaeaeaeaebbbdbeaybfaybfaEbgbhbbbdbeayayaybbavavavavavavavavavavavavavavavavavavaeaeaeaeavbibjbkaMayayayaPayayayayaPayavaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeblaeaybkaybmaeaeaeaeaebbaybnaybbaybbboaGaIbbayaybnbbaybbavaybkaybpaybqbrbbbbbbbbbbbbbbbbbbavaeaeaeaeavbsbtbiavaybuayayayayaPbuayayavaeaeaeaeaeaeaeaeaeaeafagagagagbvbwaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeblaxaybmayaxaeaeaeaeaebbbbbbbbbbaybbbbbbbbbbbbbbbbbbbxbybzayayayayayaybrbbbAbBbCbDbEbFbGbbavaeaeaeaebzbHbIbJavavavavavavavavavavbKavaeaeaeaeaeaeaeaeaeaebLagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaxaeaeaybmaeaeaeaZaebbayayayayaybkayayayayayayayayayayaybMayaPayaNaEaybybNaEaEbOaEaybPbbavaeaeaeaeavavavavavbPayayayaPayayayayayavaeaeaeaeaeaeaeaeaeaebLagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaeaeaeaeaxbmaeaeaeaeaeaebbayayayaybuayayayayayayaybuayayayaybMayayaEaEayaybQaybRbSayaEbOaybbavaeaeaearaeaeaeaeavbTbUbVbWayaEaNayaPaPavaeaeaeaeaeaeaeaeaeaeaoapagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeblaeaeayaeaeavaeaeaeaebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbavayaybXbYbXaPaybbaybOaEbSbPaEbZbbavaeaZaecaaeaeaeaeavcbayayayaEaEbNbNaTaPavaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeblaeavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayayayayayayaybbcccdcecfcgchcibbavaeaeaebaaeaeaeaeavcjckclcmaEbOaEaEcncoavaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavcpaEbfaEbfaycqbbbbbbbbbbbbbbbbbbavaeaeaeaeaeaeaeaeavcraEaGaGaNaPaybNcsctavaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeavavavavavavavcucuaeaeaeaeaeaeaeaecacaaeaeaZaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavavavavcvavavavavavavavavavavavavavaeaeaeaeaeaeaeaeavcwcxcyczbNayaPayayayavaeaeaeaeaeaeaeaeaeaebcafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaecAaecBaeavaGcCaEcDcEcFcGaFaecaaeaebcaraeaeaeaeaeaeaeaeaeaecaaeaeaeaZaeaeaeaeaeaeaeayayaycHaEbfayayayaEcIcIcIcIcIcIaGaEaEaEaEaEaEaybRaEavaFaFaFaFavaMavaFaFaFavaeaeaeaeaeaeaeaeaeaeaiajagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaecAaecBaebaaecuaGaEaEcDcJcKaEbzaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeayaeaeaeaeaebcaeaeaeaeaEayayayayayayayayayayayayaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaecAaecBaecucLcMcNcNcOcPcKcQayaybkayayayayayayayayayauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaecRaeaeaeaecScaaeaeaeayaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeayaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaebaaecBaecAaeavaEaEaEcTcTcUaIavaeaeaeaeaeaeaeaeaeaeaEbRayayayaybNayayaeaeaeaeaebaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaebPaeaeaeaeaeaecaaeaeaeaeaeaeaeaeayaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaecBaebaaecAaecuaEcVaEcWcXcYcZaFaeaeaeaeaearaeaecaaeaeaedadbaedadaaeayaeaeaeaZaeaeaeaedcaeaeaeaeaecaaeaecaaeaeaeaecaayayayayayayayayayayayayayayayayayaecacaaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeavavavcuavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeddaEaedeaeaeaeaeaedfaeaeaeaeaeaecaaeaecaaeaeaeaeaeayavavaFavdgaMdgavaFavavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaedhaeaeaeaeaeaeaeaeaeaeaeaecaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeayaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaebaaeaeaeaeaeaeayavaybkdidjaydkaydkayavdldmdmdnavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeayayayayayayayayayayayayayayayayayayayayaybkaPayayavdodpaNaEdqaEaEaydravaybOaGaGavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagdsagagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaebzavdtaFaFavduavaFdvdwbzavavavavavavavavaeaeaeaeaeaeaeaeaeaeaeavaydxayayaPdkaEdkayavaEaEdyayavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavavavavaMavdzavavaebcaeaeaeaeaeavayayctayaPayaYayaEaEaEayaPayayayayayavaeaeaeaeaecaaeaeaeaeaeavavavavavavavavayavavayavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaBdAavayayayayavaeaeaeaeaeaeaeavdkbRdBayayayaEaEaydCaEaGdDaGdEayaPayavaeaeaeaeaeaeaeaeaeaeaeavayayaydFavayaEayayavayaydGaEavaeaeaeaeaeaeaZaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayayavayaSdHdIavaeaeaeaeaeaeaeavdJaEctayaPbRaNaEbRaEaEaPaydKdLdMaydNavaeaeaeaeaeaeaeaeaeaeaeavdObZayayavaLaEayayavayaEdqaIavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayavavayayayayavaeaeaZaeaeaeaeavaEayayayaPaEbRaPayaPayaPayaydPayayayavaeaeaebaaeaeaeaeaeaeaeavaybNdQbNayaEaGbkayayaEaGdqdravaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaedhaeaeaeavayayayayayayayaFaeaeaeaeaeaeaeavaybPctaydRayaQaEbRaybXayaydSayayaPayavaeaeaeaeaeaeauaeaeaeaeavavavavavavayaGayayaEaEayayayavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayayaPaPbNayayaFaeaeaeaeaeauaeavavavavavavavavavavavavavavavavavavayavaeaeaeaeaeaeaeaeaeaeaeavdkayaybNdTayaEayayavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayaPayayayayaYavaeaeaeaeaeaeaeavaydUaEaEaEaEaEdUaPayaydUaEaEaEaEdVayavaeaeaeaeaeaeaeaeaeaeaeavdWdFdXayavaEbkbNaIaIaEaEaEayavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayayaybuayayaWavaeaeaeaeaeaeaeavavavavavayavavavavavavavavavayavavavavaeaeaeaeaeaeaeaeaeaeaeavaydYbNbNavayayaEdZaIaEdyaEayavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeavavavavavavavavavaeaeaeaeaeaeaeaveaaCebavayavebaCecavedaCeeavaEavefegaFaeaeaeaeaeaeaeaeaeaeaeavavavavavavavavavavavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavayaEayaMayaMaEayayavaEaEaEaMaEaMehaEavaeaeaeaeaeaeaebaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeavaFavavavavavavaFavavavaFavavavavavavavaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeeiaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaoapagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagbvbwaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagbvbwaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagakalaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeafagagagagahaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaej
+"}
