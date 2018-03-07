@@ -44,6 +44,7 @@
 #define LANGUAGE_SIGN "Sign Language"
 #define LANGUAGE_INDEPENDENT "Independent"
 #define LANGUAGE_NABBER "Serpentid"
+#define LANGUAGE_BOGANI "Bogani"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
@@ -56,3 +57,7 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define ALT_TRANSMIT 512 // Language is not based on vision or sound (Todo: add this into the say code and use it for the rootspeak languages)
+
+// Skin Defines
+#define SKIN_NORMAL 0
+#define SKIN_THREAT 1

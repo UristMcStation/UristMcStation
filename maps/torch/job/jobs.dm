@@ -48,6 +48,9 @@
 		/datum/mil_rank/fleet/o6
 	)
 
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/card_mod,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/hop
 	title = "Executive Officer"
@@ -90,6 +93,11 @@
 			            access_medical_equip, access_solgov_crew, access_robotics_engineering, access_emergency_armory, access_gun, access_calypso, access_guppy,
 			            access_seneng, access_senmed, access_senadv, access_hangar, access_guppy_helm, access_aquila)
 
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/card_mod,
+							 /datum/computer_file/program/camera_monitor)
+
+
 
 /datum/job/rd
 	title = "Research Director"
@@ -110,6 +118,9 @@
 						access_RC_announce, access_keycard_auth, access_xenoarch, access_nanotrasen, access_sec_guard,
 						access_calypso, access_guppy, access_hangar, access_petrov, access_petrov_helm, access_guppy_helm)
 
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/aidiag,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/cmo
 	title = "Chief Medical Officer"
@@ -138,6 +149,10 @@
 			            access_chapel_office, access_crematorium, access_chemistry, access_virology,
 			            access_cmo, access_surgery, access_RC_announce, access_keycard_auth, access_psychiatrist,
 			            access_medical_equip, access_solgov_crew, access_senmed)
+
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/chief_engineer
 	title = "Chief Engineer"
@@ -171,6 +186,15 @@
 			            access_network, access_ce, access_RC_announce, access_keycard_auth, access_tcomsat,
 			            access_solgov_crew, access_robotics_engineering, access_seneng, access_hangar, access_robotics)
 
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/ntnetmonitor,
+							 /datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/atmos_control,
+							 /datum/computer_file/program/rcon_console,
+							 /datum/computer_file/program/camera_monitor)
+
 /datum/job/hos
 	title = "Chief of Security"
 	supervisors = "the Commanding Officer and the Executive Officer"
@@ -202,6 +226,10 @@
 			            access_teleporter, access_eva, access_heads,
 			            access_hos, access_RC_announce, access_keycard_auth, access_sec_doors,
 			            access_solgov_crew, access_gun)
+
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/digitalwarrant,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/liaison
 	title = "NanoTrasen Liaison"
@@ -283,6 +311,8 @@
 			            access_kitchen, access_cargo, access_RC_announce, access_keycard_auth, access_guppy_helm,
 			            access_solgov_crew, access_gun, access_calypso, access_guppy, access_senadv, access_hangar)
 
+	software_on_spawn = list(/datum/computer_file/program/camera_monitor)
+
 /datum/job/bridgeofficer
 	title = "Bridge Officer"
 	department = "Support"
@@ -313,6 +343,13 @@
 	minimal_access = list(access_security, access_medical, access_engine, access_maint_tunnels, access_emergency_storage,
 			            access_heads, access_janitor, access_kitchen, access_cargo, access_RC_announce, access_keycard_auth,
 			            access_solgov_crew)
+
+	software_on_spawn = list(/datum/computer_file/program/comm,
+							 /datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/solgov_pilot
 	title = "SolGov Pilot"
@@ -379,6 +416,12 @@
 			            access_teleporter, access_eva, access_tech_storage, access_atmospherics, access_janitor, access_construction,
 			            access_tcomsat, access_solgov_crew, access_seneng)
 
+	software_on_spawn = list(/datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/atmos_control,
+							 /datum/computer_file/program/rcon_console,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/engineer
 	title = "Engineer"
@@ -420,6 +463,12 @@
 			            access_teleporter, access_eva, access_tech_storage, access_atmospherics, access_janitor, access_construction,
 			            access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/atmos_control,
+							 /datum/computer_file/program/rcon_console,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/engineer_contractor
 	title = "Maintenance Assistant"
@@ -439,9 +488,16 @@
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
 
-	access = list(access_maint_tunnels, access_engine, access_engine_equip, access_emergency_storage, access_janitor, access_construction, access_solgov_crew)
-	minimal_access = list(access_maint_tunnels, access_engine, access_engine_equip, access_emergency_storage, access_janitor, access_construction, access_solgov_crew)
+	access = list(access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
+			            access_teleporter, access_eva, access_tech_storage, access_atmospherics, access_janitor, access_construction,
+			            access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/atmos_control,
+							 /datum/computer_file/program/rcon_console,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -492,9 +548,10 @@
 	access = list(access_security, access_brig, access_armory, access_forensics_lockers,
 			            access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_eva, access_sec_doors, access_solgov_crew, access_gun)
-	minimal_access = list(access_security, access_brig, access_armory, access_forensics_lockers,
-			            access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_eva, access_sec_doors, access_solgov_crew, access_gun)
+	minimal_access = list()
+
+	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/detective
 	title = "Forensic Technician"
@@ -527,6 +584,8 @@
 			            access_maint_tunnels, access_emergency_storage,
 			            access_sec_doors, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/officer
 	title = "Master at Arms"
@@ -561,6 +620,8 @@
 						access_external_airlocks, access_emergency_storage,
 			            access_eva, access_sec_doors, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/senior_doctor
 	title = "Physician"
@@ -594,6 +655,8 @@
 			            access_crematorium, access_chemistry, access_surgery,
 			            access_medical_equip, access_solgov_crew, access_senmed)
 
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/doctor
 	title = "Corpsman"
@@ -624,6 +687,8 @@
 	minimal_access = list(access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_eva, access_surgery, access_medical_equip, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/doctor_contractor
 	title = "Medical Contractor"
@@ -648,6 +713,8 @@
 	access = list(access_medical, access_morgue, access_crematorium, access_virology, access_surgery, access_medical_equip, access_solgov_crew)
 	minimal_access = list(access_medical, access_morgue, access_crematorium, access_virology, access_surgery, access_medical_equip, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/chemist
 	title = "Chemist"
@@ -663,6 +730,9 @@
 
 	access = list(access_medical, access_medical_equip, access_chemistry)
 	minimal_access = list(access_medical, access_medical_equip, access_chemistry)
+
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/psychiatrist
 	title = "Counselor"
@@ -689,6 +759,8 @@
 	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_psychiatrist, access_solgov_crew)
 	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_psychiatrist, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							 /datum/computer_file/program/camera_monitor)
 
 /datum/job/qm
 	title = "Deck Officer"
@@ -722,6 +794,7 @@
 	minimal_access = list(access_maint_tunnels, access_heads, access_emergency_storage, access_tech_storage,  access_cargo, access_guppy_helm,
 						access_cargo_bot, access_qm, access_mailsorting, access_solgov_crew, access_calypso, access_guppy, access_hangar)
 
+	software_on_spawn = list(/datum/computer_file/program/supply)
 
 /datum/job/cargo_tech
 	title = "Deck Technician"
@@ -752,6 +825,7 @@
 	minimal_access = list(access_maint_tunnels, access_emergency_storage, access_cargo, access_guppy_helm,
 						access_cargo_bot, access_mailsorting, access_solgov_crew, access_calypso, access_guppy, access_hangar)
 
+	software_on_spawn = list(/datum/computer_file/program/supply)
 
 /datum/job/cargo_contractor
 	title = "Supply Assistant"
@@ -770,6 +844,7 @@
 	access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting, access_hangar, access_guppy, access_guppy_helm, access_solgov_crew)
 	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting, access_hangar, access_guppy, access_guppy_helm, access_solgov_crew)
 
+	software_on_spawn = list(/datum/computer_file/program/supply)
 
 /datum/job/janitor
 	title = "Sanitation Technician"

@@ -13,12 +13,15 @@
 	recipes += new/datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]")
 
 	if(integrity>50)
+		recipes += new/datum/stack_recipe("[display_name] chair", /obj/structure/bed/chair, one_per_turf = 1, on_floor = 1, supplied_material = "[name]") //NOTE: the wood material has it's own special chair recipe
+
+	if(integrity>=50)
 		recipes += new/datum/stack_recipe("[display_name] door", /obj/machinery/door/unpowered/simple, 10, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] barricade", /obj/structure/barricade, 5, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] stool", /obj/item/weapon/stool, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] bar stool", /obj/item/weapon/stool/bar, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] chair", /obj/structure/bed/chair, one_per_turf = 1, on_floor = 1, supplied_material = "[name]") //NOTE: the wood material has it's own special chair recipe
-		recipes += new/datum/stack_recipe("[display_name] bed", /obj/structure/bed/nice, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
+		recipes += new/datum/stack_recipe("[display_name] bed", /obj/structure/bed, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] lock",/obj/item/weapon/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 
 	if(hardness>50)
@@ -144,6 +147,7 @@
 	recipes += new/datum/stack_recipe("paddle", /obj/item/weapon/paddle, 3, time = 20, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("wood rod", /obj/item/stack/woodrods, 1, 2, 60)
 	recipes += new/datum/stack_recipe("wooden bow", /obj/item/weapon/gun/launcher/crossbow/bow, 5, time = 40, on_floor = 1)
+	recipes += new/datum/stack_recipe("stick", /obj/item/weapon/material/stick, 1)
 
 
 /material/cardboard/generate_recipes()

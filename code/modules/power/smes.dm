@@ -141,7 +141,7 @@
 /obj/machinery/power/smes/proc/remove_charge(var/amount)
 	charge -= amount*CELLRATE
 
-/obj/machinery/power/smes/process()
+/obj/machinery/power/smes/Process()
 	if(stat & BROKEN)	return
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--
@@ -321,6 +321,7 @@
 				break
 		if(!term)
 			to_chat(user, "<span class='warning'>There is no terminal on this tile.</span>")
+			building_terminal = 0
 			return 0
 		var/turf/tempTDir = get_turf(term)
 		if (istype(tempTDir))

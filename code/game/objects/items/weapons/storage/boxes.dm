@@ -67,16 +67,28 @@
 	foldable = null //special form fitted boxes should not be foldable.
 
 /obj/item/weapon/storage/box/survival/
+	icon_state = "survival"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
-					/obj/item/weapon/tank/emergency/oxygen = 1)
+					/obj/item/weapon/tank/emergency/oxygen = 1,
+					/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1,
+					/obj/item/device/flashlight/glowstick = 1,
+					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
 /obj/item/weapon/storage/box/vox/
+	icon_state = "survival"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
-					/obj/item/weapon/tank/emergency/nitrogen = 1)
+					/obj/item/weapon/tank/emergency/nitrogen = 1,
+					/obj/item/device/flashlight/glowstick = 1,
+					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
 /obj/item/weapon/storage/box/engineer/
+	icon_state = "survival"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
-					/obj/item/weapon/tank/emergency/oxygen/engi = 1)
+					/obj/item/weapon/tank/emergency/oxygen/engi = 1,
+					/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1,
+					/obj/item/weapon/reagent_containers/hypospray/autoinjector/detox = 1,
+					/obj/item/device/flashlight/glowstick = 1,
+					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
 /obj/item/weapon/storage/box/gloves
 	name = "box of sterile gloves"
@@ -149,6 +161,10 @@
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	startswith = list(/obj/item/ammo_casing/a145 = 7)
+
+/obj/item/weapon/storage/box/sniperammo/apds
+	name = "box of 14.5mm APDS shells"
+	startswith = list(/obj/item/ammo_casing/a145/apds = 3)
 
 /obj/item/weapon/storage/box/flashbangs
 	name = "box of flashbangs"
@@ -330,7 +346,7 @@
 			W.lit = 1
 			W.damtype = "burn"
 			W.icon_state = "match_lit"
-			GLOB.processing_objects.Add(W)
+			START_PROCESSING(SSobj, W)
 		W.update_icon()
 		return
 
@@ -387,6 +403,11 @@
 					/obj/item/device/flashlight/glowstick/yellow = 1, /obj/item/device/flashlight/glowstick/random = 1)
 */
 
+/obj/item/weapon/storage/box/greenglowsticks
+	name = "box of green glowsticks"
+	icon_state = "box"
+	startswith = list(/obj/item/device/flashlight/glowstick = 6)
+
 /obj/item/weapon/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
@@ -440,11 +461,6 @@
 
 //Spare Armbands
 
-/obj/item/weapon/storage/box/armband
-	name = "box of spare military police armbands"
-	desc = "A box full of security armbands. For use in emergencies when provisional security personnel are needed."
-	startswith = list(/obj/item/clothing/accessory/armband/mp = 5)
-
 /obj/item/weapon/storage/box/armband/engine
 	name = "box of spare engineering armbands"
 	desc = "A box full of engineering armbands. For use in emergencies when provisional engineering peronnel are needed."
@@ -454,3 +470,12 @@
 	name = "box of spare medical armbands"
 	desc = "A box full of medical armbands. For use in emergencies when provisional medical personnel are needed."
 	startswith = list(/obj/item/clothing/accessory/armband/med = 5)
+
+/obj/item/weapon/storage/box/imprinting
+	name = "box of education implants"
+	desc = "A box full of neural implants for on-job training."
+	startswith = list(
+		/obj/item/weapon/implanter,
+		/obj/item/weapon/implantpad,
+		/obj/item/weapon/implantcase/imprinting = 3
+		)

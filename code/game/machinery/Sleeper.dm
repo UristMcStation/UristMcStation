@@ -36,7 +36,7 @@
 	if(techlevel >= 4)
 		available_chemicals |= list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
 
-/obj/machinery/sleeper/process()
+/obj/machinery/sleeper/Process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 

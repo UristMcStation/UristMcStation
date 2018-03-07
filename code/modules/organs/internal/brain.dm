@@ -134,7 +134,7 @@
 /obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
 	return (get_current_damage_threshold() > threshold)
 
-/obj/item/organ/internal/brain/process()
+/obj/item/organ/internal/brain/Process()
 
 	if(owner)
 

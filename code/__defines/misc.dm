@@ -27,7 +27,6 @@
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -60,6 +59,7 @@
 #define MAX_LNAME_LEN         64
 #define MAX_NAME_LEN          26
 #define MAX_DESC_LEN          128
+#define MAX_TEXTFILE_LENGTH 128000		// 512GQ file
 
 // Event defines.
 #define EVENT_LEVEL_MUNDANE  1
@@ -213,3 +213,12 @@
 #define RAD_LEVEL_VERY_HIGH 75
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
+
+#define LEGACY_RECORD_STRUCTURE(X, Y) GLOBAL_LIST_EMPTY(##X);/datum/computer_file/data/##Y/var/list/fields[0];/datum/computer_file/data/##Y/New(){..();GLOB.##X.Add(src);}/datum/computer_file/data/##Y/Destroy(){..();GLOB.##X.Remove(src);}
+
+#define EDIT_SHORTTEXT 1	// Short (single line) text input field
+#define EDIT_LONGTEXT 2		// Long (multi line, papercode tag formattable) text input field
+#define EDIT_NUMERIC 3		// Single-line number input field
+#define EDIT_LIST 4			// Option select dialog
+
+#define REC_FIELD(KEY) 		/record_field/##KEY

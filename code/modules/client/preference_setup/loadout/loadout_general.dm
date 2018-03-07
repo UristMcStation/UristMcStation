@@ -49,10 +49,7 @@
 /datum/gear/coffeecup
 	display_name = "coffee cup"
 	path = /obj/item/weapon/reagent_containers/food/drinks/coffeecup
-
-/datum/gear/coffeecup/New()
-	..()
-	gear_tweaks += new/datum/gear_tweak/path(/obj/item/weapon/reagent_containers/food/drinks/coffeecup)
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/boot_knife
 	display_name = "boot knife"
@@ -96,12 +93,7 @@
 	plushes["farwa plush"] = /obj/item/toy/plushie/farwa
 	gear_tweaks += new /datum/gear_tweak/path(plushes)
 
-/datum/gear/cahwhite
-	display_name = "Cards Against The Galaxy (white deck)"
-	path = /obj/item/weapon/deck/cah
-	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the white deck."
-
-/datum/gear/cahblack
-	display_name = "Cards Against The Galaxy (black deck)"
-	path = /obj/item/weapon/deck/cah/black
-	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the black deck."
+/datum/gear/workvisa
+	display_name = "work visa"
+	description = "A work visa issued by the Sol Central Government for the purpose of work."
+	path = /obj/item/weapon/paper/workvisa

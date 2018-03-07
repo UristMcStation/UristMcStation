@@ -36,8 +36,8 @@
 	<head><style>
 		.manifest {border-collapse:collapse;}
 		.manifest td, th {border:1px solid [monochrome?"black":"[OOC?"black; background-color:#272727; color:white":"#DEF; background-color:white; color:black"]"]; padding:.25em}
-		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: [OOC?"#40628A":"#48C"]; color:white"]}
-		.manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: [OOC?"#013D3B;":"#488;"]"] }
+		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: [OOC?"#40628a":"#48C"]; color:white"]}
+		.manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: [OOC?"#013D3b;":"#488;"]"] }
 		.manifest td:first-child {text-align:right}
 		.manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: [OOC?"#373737; color:white":"#DEF"]"]}
 	</style></head>
@@ -105,10 +105,10 @@
 			misc[name] = rank
 
 	// Synthetics don't have actual records, so we will pull them from here.
-	for(var/mob/living/silicon/ai/ai in GLOB.mob_list)
+	for(var/mob/living/silicon/ai/ai in SSmobs.mob_list)
 		bot[ai.name] = "Artificial Intelligence"
 
-	for(var/mob/living/silicon/robot/robot in GLOB.mob_list)
+	for(var/mob/living/silicon/robot/robot in SSmobs.mob_list)
 		// No combat/syndicate cyborgs, no drones.
 		if(robot.module && robot.module.hide_on_manifest)
 			continue

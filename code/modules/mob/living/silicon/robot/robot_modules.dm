@@ -58,8 +58,8 @@ var/global/list/robot_modules = list(
 	add_subsystems(R)
 	apply_status_flags(R)
 
-	if(R.radio)
-		R.radio.recalculateChannels()
+	if(R.silicon_radio)
+		R.silicon_radio.recalculateChannels()
 
 	R.set_module_sprites(sprites)
 	R.choose_icon(R.module_sprites.len + 1, R.module_sprites)
@@ -73,8 +73,8 @@ var/global/list/robot_modules = list(
 	remove_subsystems(R)
 	remove_status_flags(R)
 
-	if(R.radio)
-		R.radio.recalculateChannels()
+	if(R.silicon_radio)
+		R.silicon_radio.recalculateChannels()
 	R.choose_icon(0, R.set_module_sprites(list("Default" = "robot")))
 
 /obj/item/weapon/robot_module/Destroy()
@@ -561,9 +561,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/service(src)
 	src.emag = new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
 
-	var/datum/reagents/R = new/datum/reagents(50)
-	src.emag.reagents = R
-	R.my_atom = src.emag
+	var/datum/reagents/R = src.emag.create_reagents(50)
 	R.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 	..()

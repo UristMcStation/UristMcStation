@@ -528,6 +528,7 @@
 	shuttle_area = /area/calypso_hangar/start
 	current_location = "nav_hangar_calypso"
 	landmark_transition = "nav_transit_calypso"
+	range = 1
 
 /obj/effect/shuttle_landmark/torch/hangar/calypso
 	name = "Calypso Hangar"
@@ -606,6 +607,7 @@
 	current_location = "nav_hangar_aquila"
 	landmark_transition = "nav_transit_aquila"
 	dock_target = "aquila_shuttle"
+	range = 2
 
 /obj/effect/shuttle_landmark/torch/hangar/aquila
 	name = "Aquila Hangar"

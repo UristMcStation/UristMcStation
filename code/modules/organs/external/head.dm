@@ -14,6 +14,7 @@
 	gendered_icon = 1
 	encased = "skull"
 	artery_name = "cartoid artery"
+	cavity_name = "cranial"
 
 	var/can_intake_reagents = 1
 	var/eye_icon = "eyes_s"
@@ -95,7 +96,7 @@
 		var/style = owner.h_style
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[style]
 		if(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR))
-			if(!hair_style.veryshort)
+			if(!(hair_style.flags & VERY_SHORT))
 				hair_style = hair_styles_list["Short Hair"]
 		if(hair_style && (species.get_bodytype(owner) in hair_style.species_allowed))
 			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")

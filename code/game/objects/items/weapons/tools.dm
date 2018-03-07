@@ -22,6 +22,7 @@
 	description_antag = "Not only is this handy tool good for making off with machines, but it even makes a weapon in a pinch!"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrench"
+	item_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 5.0
@@ -32,6 +33,8 @@
 	center_of_mass = "x=17;y=16"
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+/obj/item/weapon/wrench/New()
+	icon_state = "wrench[pick("","_red","_black")]"
 
 /*
  * Screwdriver
@@ -171,15 +174,13 @@
 
 /obj/item/weapon/weldingtool/New()
 //	var/random_fuel = min(rand(10,20),max_fuel)
-	var/datum/reagents/R = new/datum/reagents(max_fuel)
-	reagents = R
-	R.my_atom = src
-	R.add_reagent(/datum/reagent/fuel, max_fuel)
+	create_reagents(max_fuel)
+	reagents.add_reagent(/datum/reagent/fuel, max_fuel)
 	..()
 
 /obj/item/weapon/weldingtool/Destroy()
 	if(welding)
-		GLOB.processing_objects -= src
+		STOP_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/item/weapon/weldingtool/examine(mob/user)
@@ -225,7 +226,7 @@
 	return
 
 
-/obj/item/weapon/weldingtool/process()
+/obj/item/weapon/weldingtool/Process()
 	if(welding)
 		if(!remove_fuel(0.05))
 			setWelding(0)
@@ -325,14 +326,14 @@
 			src.damtype = "fire"
 			welding = 1
 			update_icon()
-			GLOB.processing_objects |= src
+			START_PROCESSING(SSobj, src)
 		else
 			if(M)
 				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 			return
 	//Otherwise
 	else if(!set_welding && welding)
-		GLOB.processing_objects -= src
+		STOP_PROCESSING(SSobj, src)
 		if(M)
 			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)

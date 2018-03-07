@@ -55,11 +55,16 @@ var/list/ai_verbs_default = list(
 	var/list/connected_robots = list()
 	var/aiRestorePowerRoutine = 0
 	var/viewalerts = 0
-	var/icon/holo_icon//Default is assigned when AI is created.
+	var/icon/holo_icon//Blue hologram. Face is assigned when AI is created.
+	var/icon/holo_icon_longrange //Yellow hologram.
 	var/holo_icon_malf = FALSE // for new hologram system
 	var/obj/item/device/pda/ai/aiPDA = null
 	var/obj/item/device/multitool/aiMulti = null
-	var/obj/item/device/radio/headset/heads/ai_integrated/aiRadio = null
+
+	silicon_camera = /obj/item/device/camera/siliconcam/ai_camera
+	silicon_radio = /obj/item/device/radio/headset/heads/ai_integrated
+	var/obj/item/device/radio/headset/heads/ai_integrated/ai_radio
+
 	var/camera_light_on = 0	//Defines if the AI toggled the light on the camera it's looking through.
 	var/datum/trackable/track = null
 	var/last_announcement = ""
@@ -128,20 +133,16 @@ var/list/ai_verbs_default = list(
 	anchored = 1
 	canmove = 0
 	set_density(1)
-	loc = loc
 
-	holo_icon = getHologramIcon(icon('icons/mob/hologram.dmi',"Default"))
+	holo_icon = getHologramIcon(icon('icons/mob/hologram.dmi',"Face"))
+	holo_icon_longrange = getHologramIcon(icon('icons/mob/hologram.dmi',"Face"), hologram_color = HOLOPAD_LONG_RANGE)
 
 	if(istype(L, /datum/ai_laws))
 		laws = L
 
 	aiMulti = new(src)
-	aiRadio = new(src)
-	common_radio = aiRadio
-	aiRadio.myAi = src
-	additional_law_channels["Holopad"] = ":h"
 
-	aiCamera = new/obj/item/device/camera/siliconcam/ai_camera(src)
+	additional_law_channels["Holopad"] = ":h"
 
 	if (istype(loc, /turf))
 		add_ai_verbs(src)
@@ -183,6 +184,8 @@ var/list/ai_verbs_default = list(
 
 	ai_list += src
 	..()
+	ai_radio = silicon_radio
+	ai_radio.myAi = src
 
 /mob/living/silicon/ai/proc/on_mob_init()
 	to_chat(src, "<B>You are playing the [station_name()]'s AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
@@ -193,11 +196,11 @@ var/list/ai_verbs_default = list(
 	to_chat(src, "For department channels, use the following say commands:")
 
 	var/radio_text = ""
-	for(var/i = 1 to common_radio.channels.len)
-		var/channel = common_radio.channels[i]
+	for(var/i = 1 to silicon_radio.channels.len)
+		var/channel = silicon_radio.channels[i]
 		var/key = get_radio_key_from_channel(channel)
 		radio_text += "[key] - [channel]"
-		if(i != common_radio.channels.len)
+		if(i != silicon_radio.channels.len)
 			radio_text += ", "
 
 	to_chat(src, radio_text)
@@ -211,18 +214,22 @@ var/list/ai_verbs_default = list(
 	eyeobj.possess(src)
 
 /mob/living/silicon/ai/Destroy()
-	ai_list -= src
+	for(var/robot in connected_robots)
+		var/mob/living/silicon/robot/S = robot
+		S.connected_ai = null
+	connected_robots.Cut()
 
-	. = ..()
+	ai_list -= src
+	ai_radio = null
 
 	QDEL_NULL(announcement)
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(psupply)
 	QDEL_NULL(aiPDA)
 	QDEL_NULL(aiMulti)
-	QDEL_NULL(aiRadio)
-	QDEL_NULL(aiCamera)
 	hack = null
+
+	. = ..()
 
 /mob/living/silicon/ai/proc/setup_icon()
 	if(LAZYACCESS(custom_ai_icons_by_ckey_and_name, "[ckey][real_name]"))
@@ -277,7 +284,6 @@ var/list/ai_verbs_default = list(
 	if(aiPDA)
 		aiPDA.set_owner_rank_job(pickedName, "AI")
 
-	GLOB.data_core.ResetPDAManifest()
 	setup_icon()
 
 /mob/living/silicon/ai/proc/pick_icon()
@@ -425,7 +431,7 @@ var/list/ai_verbs_default = list(
 				to_chat(src, "<span class='notice'>Unable to locate the holopad.</span>")
 
 	if (href_list["track"])
-		var/mob/target = locate(href_list["track"]) in GLOB.mob_list
+		var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
 		var/mob/living/carbon/human/H = target
 
 		if(!istype(H) || (html_decode(href_list["trackname"]) == H.get_visible_name()) || (html_decode(href_list["trackname"]) == H.get_id_name()))
@@ -532,15 +538,17 @@ var/list/ai_verbs_default = list(
 
 		var/personnel_list[] = list()
 
-		for(var/datum/data/record/t in GLOB.data_core.locked)//Look in data core locked.
-			personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
+		for(var/datum/computer_file/crew_record/t in GLOB.all_crew_records)//Look in data core locked.
+			personnel_list["[t.get_name()]: [t.get_rank()]"] = t.photo_front//Pull names, rank, and image.
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list
 			var/icon/character_icon = personnel_list[input]
 			if(character_icon)
 				qdel(holo_icon)//Clear old icon so we're not storing it in memory.
+				qdel(holo_icon_longrange)
 				holo_icon = getHologramIcon(icon(character_icon))
+				holo_icon_longrange = getHologramIcon(icon(character_icon), hologram_color = HOLOPAD_LONG_RANGE)
 		else
 			alert("No suitable records found. Aborting.")
 
@@ -554,7 +562,9 @@ var/list/ai_verbs_default = list(
 		var/decl/ai_holo/choice = input("Please select a hologram:") as null|anything in hologramsAICanUse
 		if(choice)
 			qdel(holo_icon)
+			qdel(holo_icon_longrange)
 			holo_icon = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.icon_colorize)
+			holo_icon_longrange = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.icon_colorize, hologram_color = HOLOPAD_LONG_RANGE)
 			holo_icon_malf = choice.requires_malf
 	return
 
@@ -638,8 +648,8 @@ var/list/ai_verbs_default = list(
 		return
 
 	to_chat(src, "Accessing Subspace Transceiver control...")
-	if (src.aiRadio)
-		src.aiRadio.interact(src)
+	if (src.silicon_radio)
+		src.silicon_radio.interact(src)
 
 /mob/living/silicon/ai/proc/sensor_mode()
 	set name = "Set Sensor Augmentation"
@@ -671,7 +681,7 @@ var/list/ai_verbs_default = list(
 	if((flags & AI_CHECK_WIRELESS) && src.control_disabled)
 		if(feedback) to_chat(src, "<span class='warning'>Wireless control is disabled!</span>")
 		return 1
-	if((flags & AI_CHECK_RADIO) && src.aiRadio.disabledAi)
+	if((flags & AI_CHECK_RADIO) && src.ai_radio.disabledAi)
 		if(feedback) to_chat(src, "<span class='warning'>System Error - Transceiver Disabled!</span>")
 		return 1
 	return 0

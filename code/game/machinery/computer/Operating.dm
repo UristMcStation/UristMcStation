@@ -73,6 +73,6 @@
 	return
 
 
-/obj/machinery/computer/operating/process()
+/obj/machinery/computer/operating/Process()
 	if(..())
 		updateDialog()

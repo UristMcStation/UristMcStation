@@ -15,12 +15,15 @@
 
 /obj/structure/closet/secure_closet/CO/WillContain()
 	return list(
-		/obj/item/clothing/suit/storage/vest/solgov/command,
+		/obj/item/clothing/suit/armor/pcarrier/medium/command,
 		/obj/item/weapon/cartridge/captain,
 		/obj/item/clothing/head/helmet/solgov/command,
 		/obj/item/device/radio/headset/heads/torchcaptain,
 		/obj/item/clothing/glasses/sunglasses,
-		/obj/item/weapon/gun/energy/gun,
+		/obj/item/weapon/gun/projectile/revolver/webley/captain,
+		/obj/item/ammo_magazine/c44,
+		/obj/item/ammo_magazine/c44,
+		/obj/item/ammo_magazine/c44/rubber,
 		/obj/item/clothing/accessory/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
@@ -47,10 +50,13 @@
 	return list(
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/weapon/cartridge/hop,
-		/obj/item/clothing/suit/storage/vest/solgov/command,
+		/obj/item/clothing/suit/armor/pcarrier/medium/command,
 		/obj/item/clothing/head/helmet/solgov/command,
 		/obj/item/device/radio/headset/heads/torchxo,
-		/obj/item/weapon/gun/energy/gun,
+		/obj/item/weapon/gun/projectile/revolver/webley,
+		/obj/item/ammo_magazine/c44,
+		/obj/item/ammo_magazine/c44,
+		/obj/item/ammo_magazine/c44/rubber,
 		/obj/item/clothing/accessory/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
@@ -63,7 +69,8 @@
 		/obj/item/device/holowarrant,
 		/obj/item/weapon/folder/blue,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel_cap)),
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/captain, /obj/item/weapon/storage/backpack/messenger/com))
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/captain, /obj/item/weapon/storage/backpack/messenger/com)),
+		/obj/item/weapon/storage/box/imprinting
 	)
 
 /obj/structure/closet/secure_closet/sea
@@ -80,7 +87,7 @@
 	return list(
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/weapon/cartridge/hop,
-		/obj/item/clothing/suit/storage/vest/solgov/command,
+		/obj/item/clothing/suit/armor/pcarrier/medium/command,
 		/obj/item/clothing/head/helmet/solgov/command,
 		/obj/item/device/radio/headset/heads/torchxo,
 		/obj/item/weapon/gun/energy/gun,
@@ -97,7 +104,7 @@
 
 /obj/structure/closet/secure_closet/bridgeofficer
 	name = "bridge officer's locker"
-	req_access = list(19)
+	req_access = list(access_heads)
 	icon_state = "sol1"
 	icon_closed = "sol"
 	icon_locked = "sol1"
@@ -110,7 +117,7 @@
 		/obj/item/device/radio,
 		/obj/item/weapon/pen,
 		/obj/item/device/tape/random,
-		/obj/item/clothing/suit/storage/vest/solgov/command,
+		/obj/item/clothing/suit/armor/pcarrier/medium/command,
 		/obj/item/clothing/accessory/holster/thigh,
 		/obj/item/device/taperecorder,
 		/obj/item/device/flash,

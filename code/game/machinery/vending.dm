@@ -504,7 +504,7 @@
 
 	GLOB.nanomanager.update_uis(src)
 
-/obj/machinery/vending/process()
+/obj/machinery/vending/Process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -772,41 +772,48 @@
 	vend_delay = 34
 	icon_state = "cigs"
 	products = list(/obj/item/weapon/storage/fancy/cigarettes = 5,
-					/obj/item/weapon/storage/fancy/cigarettes/luckystars = 5,
-					/obj/item/weapon/storage/fancy/cigarettes/jerichos = 5,
-					/obj/item/weapon/storage/fancy/cigarettes/menthols = 5,
-					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 5,
-					/obj/item/weapon/storage/fancy/cigarettes/professionals = 5,
+					/obj/item/weapon/storage/fancy/cigarettes/luckystars = 2,
+					/obj/item/weapon/storage/fancy/cigarettes/jerichos = 2,
+					/obj/item/weapon/storage/fancy/cigarettes/menthols = 2,
+					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 2,
+					/obj/item/weapon/storage/fancy/cigarettes/professionals = 2,
 					/obj/item/weapon/storage/box/matches = 10,
 					/obj/item/weapon/flame/lighter/random = 4,
-					/obj/item/clothing/mask/smokable/ecig/util = 2,
-					///obj/item/clothing/mask/smokable/ecig/deluxe = 2,
-					/obj/item/clothing/mask/smokable/ecig/simple = 2,
+					/obj/item/clothing/mask/smokable/ecig/simple = 10,
+					/obj/item/clothing/mask/smokable/ecig/util = 5,
+					/obj/item/clothing/mask/smokable/ecig/deluxe = 1,
 					/obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine = 10,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/high_nicotine = 10,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 10,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 10,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 10,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 10)
+					/obj/item/weapon/reagent_containers/ecig_cartridge/high_nicotine = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/lemonlime = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/coffee = 5,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/blanknico = 2)
 	contraband = list(/obj/item/weapon/flame/lighter/zippo = 4)
 	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5)
-	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 15,
-					/obj/item/weapon/storage/fancy/cigarettes/luckystars = 17,
-					/obj/item/weapon/storage/fancy/cigarettes/jerichos = 22,
-					/obj/item/weapon/storage/fancy/cigarettes/menthols = 18,
-					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 21,
-					/obj/item/weapon/storage/fancy/cigarettes/professionals = 23,
-					/obj/item/weapon/storage/box/matches = 1,
-					/obj/item/weapon/flame/lighter/random = 2,
+
+	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 45,
+					/obj/item/weapon/storage/fancy/cigarettes/luckystars = 50,
+					/obj/item/weapon/storage/fancy/cigarettes/jerichos = 65,
+					/obj/item/weapon/storage/fancy/cigarettes/menthols = 55,
+					/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 65,
+					/obj/item/weapon/storage/fancy/cigarettes/professionals = 70,
+					/obj/item/weapon/storage/box/matches = 2,
+					/obj/item/weapon/flame/lighter/random = 5,
+					/obj/item/clothing/mask/smokable/ecig/simple = 50,
 					/obj/item/clothing/mask/smokable/ecig/util = 100,
-					///obj/item/clothing/mask/smokable/ecig/deluxe = 300,
-					/obj/item/clothing/mask/smokable/ecig/simple = 150,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine = 10,
+					/obj/item/clothing/mask/smokable/ecig/deluxe = 250,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/med_nicotine = 15,
 					/obj/item/weapon/reagent_containers/ecig_cartridge/high_nicotine = 15,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 12,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 12,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 12,
-					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 12)
+					/obj/item/weapon/reagent_containers/ecig_cartridge/orange = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/mint = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/watermelon = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/grape = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/lemonlime = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/coffee = 15,
+					/obj/item/weapon/reagent_containers/ecig_cartridge/blanknico = 15)
 
 
 /obj/machinery/vending/medical
@@ -820,8 +827,10 @@
 					/obj/item/weapon/reagent_containers/glass/bottle/stoxin = 4,/obj/item/weapon/reagent_containers/glass/bottle/toxin = 4,
 					/obj/item/weapon/reagent_containers/syringe/antiviral = 4,/obj/item/weapon/reagent_containers/syringe = 12,
 					/obj/item/device/healthanalyzer = 5,/obj/item/weapon/reagent_containers/glass/beaker = 4, /obj/item/weapon/reagent_containers/dropper = 2,
-					/obj/item/stack/medical/advanced/bruise_pack = 3, /obj/item/stack/medical/advanced/ointment = 3, /obj/item/stack/medical/splint = 2)
-	contraband = list(/obj/item/weapon/reagent_containers/pill/tox = 3,/obj/item/weapon/reagent_containers/pill/stox = 4,/obj/item/weapon/reagent_containers/pill/antitox = 6)
+					/obj/item/stack/medical/advanced/bruise_pack = 3, /obj/item/stack/medical/advanced/ointment = 3, /obj/item/stack/medical/splint = 2,
+					/obj/item/weapon/reagent_containers/hypospray/autoinjector/pain = 4)
+	contraband = list(/obj/item/weapon/reagent_containers/pill/tox = 3,/obj/item/weapon/reagent_containers/pill/stox = 4,/obj/item/weapon/reagent_containers/pill/antitox = 6,
+					/obj/item/weapon/reagent_containers/hypospray/autoinjector/combatpain = 2)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 /obj/machinery/vending/medical/wall
@@ -856,7 +865,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	products = list(/obj/item/weapon/reagent_containers/hypospray/autoinjector = 5,/obj/item/weapon/reagent_containers/syringe/antitoxin = 1,/obj/item/stack/medical/bruise_pack = 3,
 					/obj/item/stack/medical/ointment =3)
-	contraband = list(/obj/item/weapon/reagent_containers/pill/tox = 3)
+	contraband = list(/obj/item/weapon/reagent_containers/pill/tox = 3, /obj/item/weapon/reagent_containers/hypospray/autoinjector/pain = 2)
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -866,7 +875,7 @@
 	icon_deny = "sec-deny"
 	req_access = list(access_security)
 	products = list(/obj/item/weapon/handcuffs = 8,/obj/item/weapon/grenade/flashbang = 4,/obj/item/weapon/grenade/chem_grenade/teargas = 4,/obj/item/device/flash = 5,
-					/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,/obj/item/weapon/storage/box/evidence = 6,/obj/item/clothing/accessory/badge/security = 6)
+					/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,/obj/item/weapon/storage/box/evidence = 6)
 	contraband = list(/obj/item/clothing/glasses/sunglasses = 2,/obj/item/weapon/storage/box/donut = 2)
 
 /obj/machinery/vending/hydronutrients

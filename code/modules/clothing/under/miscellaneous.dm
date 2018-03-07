@@ -598,7 +598,7 @@
 
 /obj/item/clothing/under/saare
 	name = "\improper SAARE uniform"
-	desc = "A dress uniform belonging to Stealth Assault Enterprises, a minor private military corporation."
+	desc = "A uniform belonging to Strategic Assault and Asset Retention Enterprises, a minor private military corporation."
 	icon_state = "saare"
 	worn_state = "saare"
 
@@ -659,3 +659,44 @@
 	name = "makeshift ranks (WO-1 warrant officer 1)"
 	desc = "Insignia denoting the elusive rank of Warant Officer. Too bad it's obviously fake."
 	icon_state = "fleetrank_officer"
+
+/obj/item/clothing/under/savage_hunter
+	name = "savage hunter's hides"
+	desc = "Makeshift hides bound together with the sinew, packwax, and leather of some alien creature."
+	icon_state = "hunterhide"
+	item_state = "hunter"
+	worn_state = "hunter"
+	body_parts_covered = LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/savage_hunter/female
+	name = "savage huntress's hides"
+	desc = "Makeshift hides bound together with the sinew, packwax, and leather of some alien creature. Includes a chestwrap so as not to leave one topless."
+	worn_state = "huntress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/wetsuit
+	name = "tactical wetsuit"
+	desc = "For when you want to scuba dive your way into an enemy base but still want to show off a little skin."
+	icon_state = "wetsuit"
+	item_state = "wetsuit"
+	worn_state = "wetsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/hazard
+	name = "hazard jumpsuit"
+	desc = "A high visibility jumpsuit made from heat and radiation resistant materials."
+	icon_state = "hazard"
+	item_state = "engi_suit"
+	worn_state = "hazard"
+	siemens_coefficient = 0.8
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 20, bio = 0, rad = 20)
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/under/sterile
+	name = "sterile jumpsuit"
+	desc = "A sterile white jumpsuit with medical markings. Protects against all manner of biohazards."
+	icon_state = "sterile"
+	item_state = "w_suit"
+	worn_state = "sterile"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)

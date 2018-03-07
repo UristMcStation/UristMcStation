@@ -38,8 +38,8 @@
 	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
-	blood_color = "#2299FC"
-	flesh_color = "#808D11"
+	blood_color = "#2299fc"
+	flesh_color = "#808d11"
 
 	reagent_tag = IS_VOX
 
@@ -90,3 +90,7 @@
 		H.internal = H.r_hand
 	if(H.internals)
 		H.internals.icon_state = "internal1"
+
+/datum/species/vox/disfigure_msg(var/mob/living/carbon/human/H)
+	var/datum/gender/T = gender_datums[H.get_gender()]
+	return "<span class='danger'>[T.His] beak is chipped! [T.He] [T.is] not even recognizable.</span>\n" //Pretty birds.

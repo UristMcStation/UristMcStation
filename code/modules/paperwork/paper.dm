@@ -442,22 +442,11 @@
 	name = "holodeck disclaimer"
 	info = "Bruises sustained in the holodeck can be healed simply by sleeping."
 
-/obj/item/weapon/paper/dionaresearch1
-	name = "biological experimentation paper #1"
-	info = "We've just started and things are already going well! <br>The tests on mice have returned successful with <b>full</b> motor control returned."
+/obj/item/weapon/paper/workvisa
+	name = "Sol Work Visa"
+	info = "<center><b><large>Work Visa of the Sol Central Government</large></b></center><br><center><img src = sollogo.png><br><br><i><small>Issued on behalf of the Secretary-General.</small></i></center><hr><BR>This paper hereby permits the carrier to travel unhindered through Sol territories, colonies, and space for the purpose of work and labor."
+	desc = "A flimsy piece of laminated cardboard issued by the Sol Central Government."
 
-/obj/item/weapon/paper/dionaresearch2
-	name = "biological experimentation paper #2"
-	info = "As per usual those worthless bureaucrats haven't delivered our blanks for large scale testing, never the less testing has continued with only minor side effects."
-
-/obj/item/weapon/paper/dionaresearch3
-	name = "biological experimentation paper #3"
-	info = "Damn it all, I knew it couldn't be this easy. The test subject is nolonger responding to any stimuli, and central is on us for a progress report sunday."
-
-/obj/item/weapon/paper/dionaresearch4
-	name = "biological experimentation paper #4"
-	info = "Andrea is gone, those fucking goons from central wanted a demonstration so damn badly she used it on herself.<br> Let's see if they like it when <i>they're</i> the one's being tested."
-
-/obj/item/weapon/paper/dionaresearch5
-	name = "biological experimentation paper #5"
-	info = "To anyone who finds this, for your own sake leave now, there was nothing good found here, only <b>death</b>."
+/obj/item/weapon/paper/workvisa/New()
+	..()
+	icon_state = "workvisa" //Has to be here or it'll assume default paper sprites.

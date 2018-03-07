@@ -41,7 +41,7 @@
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_NO_FBP_CONSTRUCTION
 	appearance_flags = HAS_UNDERWEAR //IPCs can wear undies too :(
 
-	blood_color = "#1F181F"
+	blood_color = "#1f181f"
 	flesh_color = "#575757"
 	virus_immune = 1
 
@@ -95,3 +95,7 @@
 
 /datum/species/machine/get_blood_name()
 	return "oil"
+
+/datum/species/machine/disfigure_msg(var/mob/living/carbon/human/H)
+	var/datum/gender/T = gender_datums[H.get_gender()]
+	return "<span class='danger'>[T.His] monitor is completely busted!</span>\n"

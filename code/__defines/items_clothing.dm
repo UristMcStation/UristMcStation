@@ -23,11 +23,18 @@
 #define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
 
 #define ACCESSORY_SLOT_UTILITY  "Utility"
+#define ACCESSORY_SLOT_HOLSTER  "Holster"
 #define ACCESSORY_SLOT_ARMBAND  "Armband"
 #define ACCESSORY_SLOT_RANK     "Rank"
+#define ACCESSORY_SLOT_DEPT		"Department"
 #define ACCESSORY_SLOT_DECOR    "Decor"
 #define ACCESSORY_SLOT_MEDAL    "Medal"
 #define ACCESSORY_SLOT_INSIGNIA "Insignia"
+#define ACCESSORY_SLOT_ARMOR_C  "Chest armor"
+#define ACCESSORY_SLOT_ARMOR_A  "Arm armor"
+#define ACCESSORY_SLOT_ARMOR_L  "Leg armor"
+#define ACCESSORY_SLOT_ARMOR_S  "Armor storage"
+#define ACCESSORY_SLOT_ARMOR_M  "Misc armor"
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
@@ -204,6 +211,10 @@
 #define SUIT_NO_SENSORS 0
 #define SUIT_HAS_SENSORS 1
 #define SUIT_LOCKED_SENSORS 2
+
+// Hair Flags
+#define VERY_SHORT 0x1
+#define HAIR_TRIPPABLE 0x2
 
 // Storage
 

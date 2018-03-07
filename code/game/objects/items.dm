@@ -306,7 +306,8 @@ var/list/global/slot_flags_enumeration = list(
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
+//set force to ignore blocking overwear and occupied slots
+/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0, force = 0)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -326,14 +327,15 @@ var/list/global/slot_flags_enumeration = list(
 		if(!(req_flags & slot_flags))
 			return 0
 
-	//Next check that the slot is free
-	if(H.get_equipped_item(slot))
-		return 0
+	if(!force)
+		//Next check that the slot is free
+		if(H.get_equipped_item(slot))
+			return 0
 
-	//Next check if the slot is accessible.
-	var/mob/_user = disable_warning? null : H
-	if(!H.slot_is_accessible(slot, src, _user))
-		return 0
+		//Next check if the slot is accessible.
+		var/mob/_user = disable_warning? null : H
+		if(!H.slot_is_accessible(slot, src, _user))
+			return 0
 
 	//Lastly, check special rules for the desired slot.
 	switch(slot)
@@ -382,14 +384,15 @@ var/list/global/slot_flags_enumeration = list(
 			if(!allow)
 				return 0
 		if(slot_tie)
-			if(!H.w_uniform && (slot_w_uniform in mob_equip))
+			if((!H.w_uniform && (slot_w_uniform in mob_equip)) && (!H.wear_suit && (slot_wear_suit in mob_equip)))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, "<span class='warning'>You need something you can attach \the [src] to.</span>")
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(uniform.accessories.len && !uniform.can_attach_accessory(src))
+			var/obj/item/clothing/suit/suit = H.wear_suit
+			if((uniform && !uniform.can_attach_accessory(src)) && (suit && !suit.can_attach_accessory(src)))
 				if (!disable_warning)
-					to_chat(H, "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>")
+					to_chat(H, "<span class='warning'>You can not equip \the [src].</span>")
 				return 0
 	return 1
 

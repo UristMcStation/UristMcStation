@@ -16,7 +16,7 @@ var/global/list/image/splatter_cache=list()
 	var/base_icon = 'icons/effects/blood.dmi'
 	var/list/viruses = list()
 	blood_DNA = list()
-	var/basecolor="#A10808" // Color when wet.
+	var/basecolor=COLOR_BLOOD_HUMAN // Color when wet.
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
@@ -32,14 +32,14 @@ var/global/list/image/splatter_cache=list()
 	if(invisibility != 100)
 		invisibility = 100
 		amount = 0
-		GLOB.processing_objects -= src
+		STOP_PROCESSING(SSobj, src)
 	..(ignore=1)
 
 /obj/effect/decal/cleanable/blood/hide()
 	return
 
 /obj/effect/decal/cleanable/blood/Destroy()
-	GLOB.processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/effect/decal/cleanable/blood/Initialize()
@@ -55,9 +55,9 @@ var/global/list/image/splatter_cache=list()
 						blood_DNA |= B.blood_DNA.Copy()
 					qdel(B)
 	drytime = world.time + DRYING_TIME * (amount+1)
-	GLOB.processing_objects += src
+	START_PROCESSING(SSobj, src)
 
-/obj/effect/decal/cleanable/blood/process()
+/obj/effect/decal/cleanable/blood/Process()
 	if(world.time > drytime)
 		dry()
 
@@ -117,7 +117,7 @@ var/global/list/image/splatter_cache=list()
 	desc = drydesc
 	color = adjust_brightness(color, -50)
 	amount = 0
-	GLOB.processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
@@ -148,11 +148,11 @@ var/global/list/image/splatter_cache=list()
 	icon_state = "1"
 	random_icon_states = list("1","2","3","4","5")
 	amount = 0
-	var/list/drips = list()
+	var/list/drips
 
-/obj/effect/decal/cleanable/blood/drip/New()
-	..()
-	drips |= icon_state
+/obj/effect/decal/cleanable/blood/drip/Initialize()
+	. = ..()
+	drips = list(icon_state)
 
 /obj/effect/decal/cleanable/blood/writing
 	icon_state = "tracks"
@@ -164,7 +164,7 @@ var/global/list/image/splatter_cache=list()
 
 /obj/effect/decal/cleanable/blood/writing/New()
 	..()
-	if(random_icon_states.len)
+	if(LAZYLEN(random_icon_states))
 		for(var/obj/effect/decal/cleanable/blood/writing/W in loc)
 			random_icon_states.Remove(W.icon_state)
 		icon_state = pick(random_icon_states)
@@ -184,7 +184,7 @@ var/global/list/image/splatter_cache=list()
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gibbl5"
 	random_icon_states = list("gib1", "gib2", "gib3", "gib5", "gib6")
-	var/fleshcolor = "#FFFFFF"
+	var/fleshcolor = "#ffffff"
 
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
 
@@ -236,7 +236,6 @@ var/global/list/image/splatter_cache=list()
 	anchored = 1
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
-	random_icon_states = list("mucus")
 
 	var/list/datum/disease2/disease/virus2 = list()
 	var/dry=0 // Keeps the lag down

@@ -20,7 +20,7 @@
 	if(cell)
 		src.cell = null
 
-/obj/machinery/suspension_gen/process()
+/obj/machinery/suspension_gen/Process()
 	set background = 1
 	if(suspension_field)
 		cell.use(power_use * CELLRATE)

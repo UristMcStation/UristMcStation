@@ -13,6 +13,17 @@
 	projectile_type = /obj/item/projectile/temp
 	cell_type = /obj/item/weapon/cell/high
 
+
+/obj/item/weapon/gun/energy/temperature/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+
+/obj/item/weapon/gun/energy/temperature/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
+
+
 /obj/item/weapon/gun/energy/temperature/attack_self(mob/living/user as mob)
 	user.set_machine(src)
 	var/temp_text = ""
@@ -47,10 +58,21 @@
 	update_cost()
 	add_fingerprint(usr)
 
-/obj/item/weapon/gun/energy/temperature/proc/update_cost()
-	switch(current_temperature)
-		if(1 to 100) charge_cost = 25
-		if(101 to 250) charge_cost = 10
-		if(251 to 300) charge_cost = 5
-		if(301 to 400) charge_cost = 10
-		if(401 to 500) charge_cost = 25
+
+/obj/item/weapon/gun/energy/temperature/Process()
+	switch(temperature)
+		if(0 to 100) charge_cost = 100
+		if(100 to 250) charge_cost = 50
+		if(251 to 300) charge_cost = 10
+		if(301 to 400) charge_cost = 50
+		if(401 to 500) charge_cost = 100
+
+	if(current_temperature != temperature)
+		var/difference = abs(current_temperature - temperature)
+		if(difference >= 10)
+			if(current_temperature < temperature)
+				temperature -= 10
+			else
+				temperature += 10
+		else
+			temperature = current_temperature

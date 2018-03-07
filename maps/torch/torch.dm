@@ -10,6 +10,9 @@
 	#include "torch_shuttles.dm"
 	#include "torch_unit_testing.dm"
 	#include "torch_gamemodes.dm"
+	#include "torch_antagonism.dm"
+	#include "torch_npcs.dm"
+	#include "torch_security_state.dm"
 
 	#include "datums/uniforms.dm"
 	#include "datums/uniforms_expedition.dm"
@@ -17,13 +20,20 @@
 	#include "datums/uniforms_marine.dm"
 
 	#include "items/cards_ids.dm"
-	#include "items/clothing.dm"
 	#include "items/encryption_keys.dm"
 	#include "items/headsets.dm"
 	#include "items/machinery.dm"
 	#include "items/manuals.dm"
 	#include "items/stamps.dm"
 	#include "items/uniform_vendor.dm"
+
+	#include "items/clothing/clothing.dm"
+	#include "items/clothing/solgov-accessory.dm"
+	#include "items/clothing/solgov-armor.dm"
+	#include "items/clothing/solgov-feet.dm"
+	#include "items/clothing/solgov-head.dm"
+	#include "items/clothing/solgov-suit.dm"
+	#include "items/clothing/solgov-under.dm"
 
 	#include "job/access.dm"
 	#include "job/jobs.dm"
@@ -64,6 +74,7 @@
 	#include "torch-9.dmm"
 	#include "torch-10.dmm"
 	#include "torch-11.dmm"
+	#include "../away/bearcat/bearcat.dm"
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"

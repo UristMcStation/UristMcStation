@@ -303,12 +303,6 @@
 	desc = "A synthetic armor vest. This one is marked with the crest of NanoTrasen."
 	icon_state = "ntvest"
 
-
-/obj/item/clothing/suit/armor/vest/solgov
-	name = "\improper Sol Central Government armored vest"
-	desc = "A synthetic armor vest. This one is marked with the crest of the Sol Central Government."
-	icon_state = "solvest"
-
 /obj/item/clothing/suit/armor/vest/detective
 	name = "brown armored vest"
 	desc = "An synthetic armor vest colored in a vintage brown."
@@ -354,21 +348,6 @@
 	desc = "A synthetic armor vest with COMMANDER printed in gold lettering on the chest. This one has added webbing and ballistic plates."
 	icon_state = "comwebvest"
 
-/obj/item/clothing/suit/storage/vest/solgov
-	name = "\improper Sol Central Government heavy armored vest"
-	desc = "A synthetic armor vest with PEACEKEEPER printed in distinctive blue lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "solwebvest"
-
-/obj/item/clothing/suit/storage/vest/solgov/security
-	name = "master at arms heavy armored vest"
-	desc = "A synthetic armor vest with MASTER AT ARMS printed in silver lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "secwebvest"
-
-/obj/item/clothing/suit/storage/vest/solgov/command
-	name = "command heavy armored vest"
-	desc = "A synthetic armor vest with SOL CENTRAL GOVERNMENT printed in gold lettering on the chest. This one has added webbing and ballistic plates."
-	icon_state = "comwebvest"
-
 /obj/item/clothing/suit/storage/vest/pcrc
 	name = "contractor heavy armored vest"
 	desc = "A synthetic armor vest with PRIVATE SECURITY printed in cyan lettering on the chest. This one has added webbing and ballistic plates."
@@ -390,6 +369,56 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS //now covers legs with new sprite
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS
+
+//Modular plate carriers
+/obj/item/clothing/suit/armor/pcarrier
+	name = "plate carrier"
+	desc = "A lightweight black plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon = 'icons/obj/clothing/modular_armor.dmi'
+	item_icons = list(slot_wear_suit_str = 'icons/mob/modular_armor.dmi')
+	icon_state = "pcarrier"
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_C, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S, ACCESSORY_SLOT_ARMOR_M)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_C, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	blood_overlay_type = "armor"
+
+/obj/item/clothing/suit/armor/pcarrier/light
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate)
+
+/obj/item/clothing/suit/armor/pcarrier/light/nt
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate, /obj/item/clothing/accessory/armor/tag/nt)
+
+/obj/item/clothing/suit/armor/pcarrier/medium
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches)
+
+/obj/item/clothing/suit/armor/pcarrier/medium/nt
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nt)
+
+/obj/item/clothing/suit/armor/pcarrier/blue
+	name = "blue plate carrier"
+	desc = "A lightweight blue plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon_state = "pcarrier_blue"
+
+/obj/item/clothing/suit/armor/pcarrier/green
+	name = "green plate carrier"
+	desc = "A lightweight green plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon_state = "pcarrier_green"
+
+/obj/item/clothing/suit/armor/pcarrier/navy
+	name = "navy plate carrier"
+	desc = "A lightweight navy blue plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon_state = "pcarrier_navy"
+
+/obj/item/clothing/suit/armor/pcarrier/tan
+	name = "tan plate carrier"
+	desc = "A lightweight tan plate carrier vest. It can be equipped with armor plates, but provides no protection of its own."
+	icon_state = "pcarrier_tan"
+
+/obj/item/clothing/suit/armor/pcarrier/tan/tactical
+	name = "tactical plate carrier"
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/tactical, /obj/item/clothing/accessory/storage/pouches/large/tan)
+
+/obj/item/clothing/suit/armor/pcarrier/merc
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/merc, /obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large)
 
 
 //All of the armor below is mostly unused

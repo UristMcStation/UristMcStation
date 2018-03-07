@@ -23,7 +23,7 @@
 
 	if(wear_mask)
 		skipface |= wear_mask.flags_inv & HIDEFACE
-	
+
 	//no accuately spotting headsets from across the room.
 	if(get_dist(user, src) > 3)
 		skipears = 1
@@ -196,6 +196,15 @@
 		else if(jitteriness >= 100)
 			msg += "<span class='warning'>[T.He] [T.is] twitching ever so slightly.</span>\n"
 
+	//Disfigured face
+	if(!skipface) //Disfigurement only matters for the head currently.
+		var/obj/item/organ/external/head/E = get_organ(BP_HEAD)
+		if(E && E.disfigured) //Check to see if we even have a head and if the head's disfigured.
+			if(E.species) //Check to make sure we have a species
+				msg += E.species.disfigure_msg(src)
+			else //Just in case they lack a species for whatever reason.
+				msg += "<span class='warning'>[T.His] face is horribly mangled!</span>\n"
+
 	//splints
 	for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM))
 		var/obj/item/organ/external/o = get_organ(organ)
@@ -224,7 +233,7 @@
 						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
 
 	if(fire_stacks)
-		msg += "[T.He] [T.is] covered in some liquid.\n"
+		msg += "[T.He] looks flammable.\n"
 	if(on_fire)
 		msg += "<span class='warning'>[T.He] [T.is] on fire!.</span>\n"
 
@@ -252,7 +261,7 @@
 		wound_flavor_text[E.name] = ""
 
 		if(E.applied_pressure == src)
-			applying_pressure = "<span class='info'>[T.He] is applying pressure to [T.his] [E.name].</span><br>"
+			applying_pressure = "<span class='info'>[T.He] [T.is] applying pressure to [T.his] [E.name].</span><br>"
 
 		var/obj/item/clothing/hidden
 		var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
@@ -312,14 +321,12 @@
 			perpname = name
 
 		if(perpname)
-			for (var/datum/data/record/E in GLOB.data_core.general)
-				if(E.fields["name"] == perpname)
-					for (var/datum/data/record/R in GLOB.data_core.security)
-						if(R.fields["id"] == E.fields["id"])
-							criminal = R.fields["criminal"]
+			var/datum/computer_file/crew_record/R = get_crewmember_record(perpname)
+			if(R)
+				criminal = R.get_criminalStatus()
 
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
-			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>  <a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>\n"
+			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>\n"
 
 	if(hasHUD(user,"medical"))
 		var/perpname = "wot"
@@ -334,14 +341,12 @@
 		else
 			perpname = src.name
 
-		for (var/datum/data/record/E in GLOB.data_core.general)
-			if (E.fields["name"] == perpname)
-				for (var/datum/data/record/R in GLOB.data_core.general)
-					if (R.fields["id"] == E.fields["id"])
-						medical = R.fields["p_stat"]
+		var/datum/computer_file/crew_record/R = get_crewmember_record(perpname)
+		if(R)
+			medical = R.get_status()
 
 		msg += "<span class = 'deptradio'>Physical status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
-		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>\n"
+		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a>\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
@@ -362,9 +367,17 @@
 		var/mob/living/carbon/human/H = M
 		switch(hudtype)
 			if("security")
-				return istype(H.glasses, /obj/item/clothing/glasses/hud/security) || istype(H.glasses, /obj/item/clothing/glasses/sunglasses/sechud)
+				if(istype(H.glasses,/obj/item/clothing/glasses))
+					var/obj/item/clothing/glasses/G = H.glasses
+					return istype(G.hud, /obj/item/clothing/glasses/hud/security) || istype(G, /obj/item/clothing/glasses/hud/security)
+				else
+					return FALSE
 			if("medical")
-				return istype(H.glasses, /obj/item/clothing/glasses/hud/health)
+				if(istype(H.glasses,/obj/item/clothing/glasses))
+					var/obj/item/clothing/glasses/G = H.glasses
+					return istype(G.hud, /obj/item/clothing/glasses/hud/health) || istype(G, /obj/item/clothing/glasses/hud/health)
+				else
+					return FALSE
 			else
 				return 0
 	else if(istype(M, /mob/living/silicon/robot))

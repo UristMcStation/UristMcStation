@@ -141,7 +141,7 @@
 	if (!master_is_operating())
 		elect_master()
 
-/obj/machinery/alarm/process()
+/obj/machinery/alarm/Process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -313,15 +313,15 @@
 	switch(icon_level)
 		if (0)
 			icon_state = "alarm0"
-			new_color = "#03A728"
+			new_color = COLOR_LIME
 		if (1)
 			icon_state = "alarm2" //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
 			icon_state = "alarm1"
-			new_color = "#DA0205"
+			new_color = COLOR_RED_LIGHT
 
-	set_light(l_range = 2, l_power = 0.5, l_color = new_color)
+	set_light(l_range = 2, l_power = 0.6, l_color = new_color)
 
 /obj/machinery/alarm/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -975,7 +975,7 @@ FIRE ALARM
 	src.alarm()
 	return
 
-/obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/machinery/firealarm/Process()//Note: this processing was mostly phased out due to other code, and only runs when needed
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -986,14 +986,12 @@ FIRE ALARM
 			src.alarm()
 			src.time = 0
 			src.timing = 0
-			GLOB.processing_objects.Remove(src)
+			STOP_PROCESSING(SSmachines, src)
 		src.updateDialog()
 	last_process = world.timeofday
 
 	if(locate(/obj/fire) in loc)
 		alarm()
-
-	return
 
 /obj/machinery/firealarm/attack_hand(mob/user as mob)
 	if(user.stat || stat & (NOPOWER|BROKEN))
@@ -1021,7 +1019,7 @@ FIRE ALARM
 			d2 = text("<A href='?src=\ref[];time=1'>Initiate Time Lock</A>", src)
 		var/second = round(src.time) % 60
 		var/minute = (round(src.time) - second) / 60
-		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current security level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
+		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current alert level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
 		user << browse(dat, "window=firealarm")
 		onclose(user, "firealarm")
 	else
@@ -1058,7 +1056,7 @@ FIRE ALARM
 		else if (href_list["time"])
 			src.timing = text2num(href_list["time"])
 			last_process = world.timeofday
-			GLOB.processing_objects.Add(src)
+			START_PROCESSING(SSmachines, src)
 		else if (href_list["tp"])
 			var/tp = text2num(href_list["tp"])
 			src.time += tp

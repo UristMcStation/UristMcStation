@@ -109,15 +109,13 @@
 	if(stored_matter < products[choice][2])
 		visible_message("<span class='notice'>\The [src] displays a warning: 'Not enough matter. [stored_matter] stored and [products[choice][2]] needed.'</span>")
 		return 0
-
 	return 1
 
 /obj/machinery/organ_printer/proc/print_organ(var/choice)
 	var/new_organ = products[choice][1]
-	var/obj/item/organ/result = new new_organ(get_turf(src))
-	result.status |= ORGAN_CUT_AWAY
-
-	return result
+	var/obj/item/organ/O = new new_organ(get_turf(src))
+	O.status |= ORGAN_CUT_AWAY
+	return O
 // END GENERIC PRINTER
 
 // ROBOT ORGAN PRINTER
@@ -174,9 +172,17 @@
 	name = "bioprinter"
 	desc = "It's a machine that prints replacement organs."
 	icon_state = "bioprinter"
-
-	var/amount_per_slab = 50
+	var/list/amount_list = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat = 50,
+		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet = 15
+		)
 	var/loaded_dna //Blood sample for DNA hashing.
+
+/obj/machinery/organ_printer/flesh/can_print(var/choice)
+	. = ..()
+	if(!loaded_dna || !loaded_dna["donor"])
+		visible_message("<span class='info'>\The [src] displays a warning: 'No DNA saved. Insert a blood sample.'</span>")
+		return 0
 
 /obj/machinery/organ_printer/flesh/mapped/Initialize()
 	. = ..()
@@ -205,7 +211,13 @@
 /obj/machinery/organ_printer/flesh/print_organ(var/choice)
 
 	var/obj/item/organ/O = ..()
-	var/mob/living/carbon/C = loaded_dna["donor"]
+	var/weakref/W = loaded_dna["donor"]
+	var/mob/living/carbon/C = W.resolve()
+	if(C)
+		O.set_dna(C.dna)
+		if(O.species)
+			// This is a very hacky way of doing of what organ/New() does if it has an owner
+			O.w_class = max(O.w_class + mob_size_difference(O.species.mob_size, MOB_MEDIUM), 1)
 
 	O.set_dna(C.dna)
 

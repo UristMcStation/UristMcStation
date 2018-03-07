@@ -1,5 +1,6 @@
 /obj/effect/overmap/sector/exoplanet
 	name = "exoplanet"
+	icon_state = "globe"
 	var/list/seeds = list()
 	var/list/animals = list()
 	var/animalcount
@@ -14,6 +15,11 @@
 	var/landmark_type = /obj/effect/shuttle_landmark/automatic
 
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
+	var/list/species = list() //list of names to use for simple animals
+
+
+	var/max_features = 2
+	var/list/possible_features //pre-defined list of features to pick from, will use all types otherwise
 
 
 /obj/effect/overmap/sector/exoplanet/New()
@@ -38,20 +44,20 @@
 	spawn()
 		generate_atmosphere()
 		generate_map()
+		generate_features()
 		generate_landing()
 		update_biome()
-		GLOB.processing_objects += src
+		START_PROCESSING(SSobj, src)
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/sector/exoplanet/proc/get_engravings()
-	if(!actors)
-		actors += pick("alien humanoid","amorphic blob","short, hairy being","rodent-like creature","robot","primate","reptilian alien","unidentifiable object","statue","starship","unusual devices","structure")
+	if(!actors.len)
+		actors += pick("alien humanoid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")
 		actors += pick("alien humanoids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")
 
-	var/engravings = "[pick("Engraved","Carved","Etched")] on the item is [pick("an image of","a frieze of","a depiction of")] a \
-	[pick(actors[1])] \
+	var/engravings = "[actors[1]] \
 	[pick("surrounded by","being held aloft by","being struck by","being examined by","communicating with")] \
-	[pick(actors[2])]"
+	[actors[2]]"
 	if(prob(50))
 		engravings += ", [pick("they seem to be enjoying themselves","they seem extremely angry","they look pensive","they are making gestures of supplication","the scene is one of subtle horror","the scene conveys a sense of desperation","the scene is completely bizarre")]"
 	engravings += "."
@@ -60,13 +66,12 @@
 //Not that it should ever get deleted but just in case
 /obj/effect/overmap/sector/exoplanet/Destroy()
 		. = ..()
-		GLOB.processing_objects -= src
+		STOP_PROCESSING(SSobj, src)
 
-/obj/effect/overmap/sector/exoplanet/process()
-	var/list/dead = list()
-	for(var/mob/M in animals)
-		if(M.stat == DEAD)
-			dead += M
+/obj/effect/overmap/sector/exoplanet/Process()
+	if(animals.len < 0.5*max_animal_count && !repopulating)
+		repopulating = 1
+		max_animal_count = round(max_animal_count * 0.5)
 	for(var/zlevel in map_z)
 		if(dead.len > 0.5*animalcount)
 			for(var/i = 1 to round(dead.len - 0.5*animalcount))
@@ -84,7 +89,7 @@
 			if(istype(T) && T.zone && T.zone.contents.len > (world.maxx*world.maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
 				Z = T.zone
 				break
-		if(!Z.fire_tiles.len && !atmosphere.compare(Z.air)) //let fire die out first if there is one
+		if(Z && !Z.fire_tiles.len && !atmosphere.compare(Z.air)) //let fire die out first if there is one
 			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
@@ -92,6 +97,30 @@
 
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_map()
+
+/obj/effect/overmap/sector/exoplanet/proc/generate_features()
+	if(!possible_features)
+		possible_features = subtypesof(/datum/random_map/feature)
+	for(var/F in possible_features)
+		var/datum/random_map/feature/FT = F
+		if(initial(FT.unique) && map_count[initial(FT.descriptor)])
+			possible_features -= F
+		if(initial(FT.limit_x) + 2 * TRANSITIONEDGE > world.maxx)
+			possible_features -= F
+		if(initial(FT.limit_y) + 2 * TRANSITIONEDGE > world.maxy)
+			possible_features -= F
+
+	max_features = rand(0,max_features)
+	for(var/zlevel in map_z)
+		for(var/i = 1 to max_features)
+			if(!possible_features.len)
+				return
+			var/datum/random_map/feature/F = pick(possible_features)
+			var/tx = rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE - initial(F.limit_x))
+			var/ty = rand(TRANSITIONEDGE, world.maxy - TRANSITIONEDGE - initial(F.limit_y))
+			var/turf/T = locate(tx,ty,zlevel)
+			if(T)
+				F = new F(null,tx,ty,zlevel)
 
 /obj/effect/overmap/sector/exoplanet/proc/get_biostuff(var/datum/random_map/noise/exoplanet/random_map)
 	seeds += random_map.small_flora_types
@@ -103,28 +132,31 @@
 	animalcount = animals.len
 
 /obj/effect/overmap/sector/exoplanet/proc/update_biome()
-	for(var/gas in atmosphere.gas)
-		breathgas[gas] = round(0.4*atmosphere.gas[gas])
-	var/list/badgases = gas_data.gases.Copy()
-	badgases -= atmosphere.gas
-	badgas = pick(badgases)
 	for(var/datum/seed/S in seeds)
-		S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
-		S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
-		S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
-		S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
-		S.set_trait(TRAIT_SPREAD, 0)
-		if(S.exude_gasses)
-			S.exude_gasses -= badgas
-		if(S.consume_gasses)
-			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
-		if(atmosphere.get_gas("phoron"))
-			S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(7,15))
+		adapt_seed(S)
 
 	for(var/mob/living/simple_animal/A in animals)
 		adapt_animal(A)
 
+/obj/effect/overmap/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
+	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
+	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
+	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
+	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
+	if(S.exude_gasses)
+		S.exude_gasses -= badgas
+	if(S.consume_gasses)
+		S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
+	for(var/g in atmosphere.gas)
+		if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
+			S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+
 /obj/effect/overmap/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
+	if(species[A.type])
+		A.name = species[A.type]
+	else 
+		A.name = "alien creature"
+		A.verbs |= /mob/living/simple_animal/proc/name_species
 	A.minbodytemp = atmosphere.temperature - 20
 	A.maxbodytemp = atmosphere.temperature + 30
 	A.bodytemperature = (A.maxbodytemp+A.minbodytemp)/2
@@ -133,6 +165,16 @@
 	if(A.max_gas)
 		A.max_gas = list()
 		A.max_gas[badgas] = 5
+
+/obj/effect/overmap/sector/exoplanet/proc/get_random_species_name()
+	return pick("nol","shan","can","fel","xor")+pick("a","e","o","t","ar")+pick("ian","oid","ac","ese","inian","rd")
+
+/obj/effect/overmap/sector/exoplanet/proc/rename_species(type, newname)
+	species[type] = newname
+	for(var/mob/living/simple_animal/A in animals)
+		if(istype(A,type))
+			A.name = newname
+			A.verbs -= /mob/living/simple_animal/proc/name_species
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_landing()
 	var/turf/T = locate(rand(20, maxx-20), rand(20, maxy - 10),map_z[map_z.len])
@@ -166,6 +208,36 @@
 	var/factor = max(rand(60,140)/100, 0.6)
 	atmosphere.multiply(factor)
 
+	//Set up gases for living things
+	for(var/gas in atmosphere.gas)
+		breathgas[gas] = round(0.4*atmosphere.gas[gas])
+	var/list/badgases = gas_data.gases.Copy()
+	badgases -= atmosphere.gas
+	badgas = pick(badgases)
+
+/obj/effect/overmap/sector/exoplanet/proc/process_map_edge(atom/movable/A)
+	var/new_x
+	var/new_y
+	if(A.x <= TRANSITIONEDGE)
+		new_x = world.maxx - TRANSITIONEDGE - 2
+		new_y = rand(TRANSITIONEDGE + 2, world.maxy - TRANSITIONEDGE - 2)
+
+	else if (A.x >= (world.maxx - TRANSITIONEDGE + 1))
+		new_x = TRANSITIONEDGE + 1
+		new_y = rand(TRANSITIONEDGE + 2, world.maxy - TRANSITIONEDGE - 2)
+
+	else if (A.y <= TRANSITIONEDGE)
+		new_y = world.maxy - TRANSITIONEDGE -2
+		new_x = rand(TRANSITIONEDGE + 2, world.maxx - TRANSITIONEDGE - 2)
+
+	else if (A.y >= (world.maxy - TRANSITIONEDGE + 1))
+		new_y = TRANSITIONEDGE + 1
+		new_x = rand(TRANSITIONEDGE + 2, world.maxx - TRANSITIONEDGE - 2)
+
+	var/turf/T = locate(new_x, new_y, A.z)
+	if(T)
+		A.forceMove(T)
+
 /area/exoplanet
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
@@ -183,6 +255,9 @@
 	var/land_type = /turf/simulated/floor
 	var/water_type
 
+	//intended x*y size, used to adjust spawn probs
+	var/intended_x = 150
+	var/intended_y = 150
 	var/large_flora_prob = 60
 	var/flora_prob = 60
 	var/fauna_prob = 2
@@ -202,6 +277,12 @@
 	planetary_area = new planetary_area()
 	water_level = rand(water_level_min,water_level_max)
 	generate_flora()
+
+	//automagically adjust probs for bigger maps to help with lag
+	var/size_mod = intended_x / world.maxx * intended_y / world.maxy
+	flora_prob *= size_mod
+	large_flora_prob *= size_mod
+	fauna_prob *= size_mod
 	..()
 	load_templates(/obj/effect/template_loader/housing)
 
@@ -257,21 +338,28 @@
 		else if(carnivore_prob < 20)
 			S.set_trait(TRAIT_CARNIVOROUS,1)
 		small_flora_types += S
-	for(var/i = 1 to flora_diversity)
-		var/datum/seed/S = new()
-		S.randomize()
-		S.set_trait(TRAIT_PRODUCT_ICON,"alien[rand(1,5)]")
-		S.set_trait(TRAIT_PLANT_ICON,"tree5")
-		S.set_trait(TRAIT_SPREAD,0)
-		S.set_trait(TRAIT_HARVEST_REPEAT,1)
-		S.chems["woodpulp"] = 1
-		big_flora_types += S
+	if(large_flora_prob)
+		var/tree_diversity = max(1,flora_diversity/2)
+		for(var/i = 1 to tree_diversity)
+			var/datum/seed/S = new()
+			S.randomize()
+			S.set_trait(TRAIT_PRODUCT_ICON,"alien[rand(1,5)]")
+			S.set_trait(TRAIT_PLANT_ICON,"tree")
+			S.set_trait(TRAIT_SPREAD,0)
+			S.set_trait(TRAIT_HARVEST_REPEAT,1)
+			S.set_trait(TRAIT_LARGE,1)
+			var/color = pick(plantcolors)
+			if(color == "RANDOM")
+				color = get_random_colour(0,75,190)
+			S.set_trait(TRAIT_LEAVES_COLOUR,color)
+			S.chems["woodpulp"] = 1
+			big_flora_types += S
 
 /datum/random_map/noise/exoplanet/proc/spawn_flora(var/turf/T, var/big)
 	if(big)
-		new /obj/effect/plant(T, pick(big_flora_types), start_matured = 1)
+		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
 	else
-		new /obj/effect/plant(T, pick(small_flora_types), start_matured = 1)
+		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(small_flora_types), 1)
 
 /datum/random_map/noise/exoplanet/proc/load_templates()
 	if(!template_loaders.len)

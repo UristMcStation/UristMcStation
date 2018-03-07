@@ -2,7 +2,10 @@
 	name = "SEV Torch"
 	fore_dir = WEST
 	vessel_mass = 800
-	default_delay = 12 SECONDS
+	default_delay = 20 SECONDS
+	speed_mod = 5 SECONDS
+	start_x = 4
+	start_y = 5
 
 	restricted_waypoints = list(
 		"Calypso" = list("nav_hangar_calypso"), 	//can't have random shuttles popping inside the ship
@@ -52,6 +55,9 @@
 		"nav_cluster_6",
 		"nav_cluster_7"
 	)
+	start_x = 4
+	start_y = 5
+	known = 0
 
 /obj/effect/shuttle_landmark/cluster/guppy
 	name = "Asteroid Navpoint #1"
@@ -89,6 +95,7 @@
 	name = "debris field"
 	desc = "A large field of miscellanious debris."
 	icon_state = "object"
+	known = 0
 
 //	landing_areas = list(/area/aquila_hangar/salvage, /area/calypso_hangar/salvage, /area/guppy_hangar/salvage)
 	generic_waypoints = list(
@@ -142,6 +149,7 @@
 		"nav_away_6",
 		"nav_away_7"
 	)
+	known = 0
 
 /obj/effect/shuttle_landmark/away
 	base_area = /area/mine/explored

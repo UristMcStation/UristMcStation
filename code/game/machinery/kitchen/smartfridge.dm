@@ -138,7 +138,7 @@
 			return 1
 	return 0
 
-/obj/machinery/smartfridge/drying_rack/process()
+/obj/machinery/smartfridge/drying_rack/Process()
 	..()
 	if(inoperable())
 		return
@@ -164,7 +164,7 @@
 			if(S.dried_type == S.type)
 				S.dry = 1
 				S.name = "dried [S.name]"
-				S.color = "#AAAAAA"
+				S.color = "#aaaaaa"
 				stock_item(S)
 			else
 				var/D = S.dried_type
@@ -191,7 +191,7 @@
 
 	..()
 
-/obj/machinery/smartfridge/process()
+/obj/machinery/smartfridge/Process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(src.seconds_electrified > 0)
