@@ -213,7 +213,7 @@
 "le", "me", "nd", "ne", "ng", "nt", "on", "or", "ou", "re", "se", "st", "te", "th", "ti", "to",
 "ve", "wa", "all", "and", "are", "but", "ent", "era", "ere", "eve", "for", "had", "hat", "hen", "her", "hin",
 "his", "ing", "ion", "ith", "not", "ome", "oul", "our", "sho", "ted", "ter", "tha", "the", "thi")
-/*
+
 /datum/language/tajsign
 	name = LANGUAGE_SIIK_TAJR
 	desc = "A type of sign language mostly based on tail movements that was used during the Tajaran rebellion."
