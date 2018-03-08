@@ -739,8 +739,6 @@
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
-		if(icontype in custom_cover)
-			panelprefix = icontype
 		if(wiresexposed)
 			overlays += "[panelprefix]-openpanel +w"
 		else if(cell)

@@ -205,6 +205,35 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+/obj/item/organ/external/head/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	eye_icon = "skrell_eyes_s"
+
+/obj/item/organ/internal/brain/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_brain"
+
+/obj/item/organ/internal/eyes/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_eyes"
+
+/obj/item/organ/internal/heart/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_heart-on"
+	dead_icon = "skrell_heart-off"
+
+/obj/item/organ/internal/kidneys/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_kidneys"
+
+/obj/item/organ/internal/liver/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_liver"
+
+/obj/item/organ/internal/lungs/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_lungs"
+
 /datum/species/diona
 	name = SPECIES_DIONA
 	name_plural = "Dionaea"

@@ -16,7 +16,7 @@
 	can_buckle = 1
 	buckle_dir = SOUTH
 	buckle_lying = 1
-	flags = OBJ_SURGICAL
+	obj_flags = OBJ_FLAG_SURGICAL
 	var/material/material
 	var/material/padding_material
 	var/base_icon = "bed"

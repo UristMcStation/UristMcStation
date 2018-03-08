@@ -323,7 +323,6 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/cmd_admin_subtle_message, // send an message to somebody as a 'voice in their head',
-	/client/verb/aooc,
 	/datum/admins/proc/sendFax
 
 )
@@ -810,7 +809,7 @@ var/list/admin_verbs_mentor = list(
 //	feedback_add_details("admin_verb","MP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
-/client/proc/editappear(mob/living/carbon/human/M as mob in GLOB.mob_list)
+/client/proc/editappear(mob/living/carbon/human/M as mob in SSmobs.mob_list)
 	set name = "Edit Appearance"
 	set category = "Fun"
 

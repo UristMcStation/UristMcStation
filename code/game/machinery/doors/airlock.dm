@@ -1291,6 +1291,7 @@ About the new airlock wires panel:
 	if(brace)
 		to_chat(usr, "\The [brace] is installed on \the [src], preventing it from opening.")
 		to_chat(usr, brace.examine_health())
+
 //CopyPasta'd from /tg/ by TGameCo
 /obj/machinery/door/airlock/proc/change_paintjob(obj/item/C as obj, mob/user as mob)
 	var/obj/item/weapon/airlock_painter/W
@@ -1299,6 +1300,77 @@ About the new airlock wires panel:
 	else
 		user << "If you see this, it means airlock/change_paintjob() was called with something other than an airlock painter. Check your code!"
 		return
+
+	if(glass == 1)
+		//These airlocks have a glass version.
+		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining")
+		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
+		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
+		switch(paintjob)
+			if("Default")
+				icon = 'icons/obj/doors/Doorglass.dmi'
+				heat_proof = 0
+			if("Engineering")
+				icon = 'icons/obj/doors/Doorengglass.dmi'
+				heat_proof = 0
+			if("Atmospherics")
+				icon = 'icons/obj/doors/Dooratmoglass.dmi'
+				heat_proof = 0
+			if("Security")
+				icon = 'icons/obj/doors/Doorsecglass.dmi'
+				heat_proof = 0
+			if("Command")
+				icon = 'icons/obj/doors/Doorcomglass.dmi'
+				heat_proof = 0
+			if("Medical")
+				icon = 'icons/obj/doors/Doormedglass.dmi'
+				heat_proof = 0
+			if("Research")
+				icon = 'icons/obj/doors/Doorresearchglass.dmi'
+				heat_proof = 1
+			if("Mining")
+				icon = 'icons/obj/doors/Doorminingglass.dmi'
+				heat_proof = 0
+	else
+		//These airlocks have a regular version.
+		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining", "Maintenance", "External", "High Security")
+		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
+		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
+		switch(paintjob)
+			if("Default")
+				icon = 'icons/obj/doors/Doorint.dmi'
+				heat_proof = 0
+			if("Engineering")
+				icon = 'icons/obj/doors/Dooreng.dmi'
+				heat_proof = 0
+			if("Atmospherics")
+				icon = 'icons/obj/doors/Dooratmo.dmi'
+				heat_proof = 0
+			if("Security")
+				icon = 'icons/obj/doors/Doorsec.dmi'
+				heat_proof = 0
+			if("Command")
+				icon = 'icons/obj/doors/Doorcom.dmi'
+				heat_proof = 0
+			if("Medical")
+				icon = 'icons/obj/doors/Doormed.dmi'
+				heat_proof = 0
+			if("Research")
+				icon = 'icons/obj/doors/Doorresearch.dmi'
+				heat_proof = 0
+			if("Mining")
+				icon = 'icons/obj/doors/Doormining.dmi'
+				heat_proof = 0
+			if("Maintenance")
+				icon = 'icons/obj/doors/Doormaint.dmi'
+				heat_proof = 0
+			if("External")
+				icon = 'icons/obj/doors/Doorext.dmi'
+				heat_proof = 0
+			if("High Security")
+				icon = 'icons/obj/doors/hightechsecurity.dmi'
+				heat_proof = 0
+	update_icon()
 
 /obj/machinery/door/airlock/autoname
 	name = "hatch"

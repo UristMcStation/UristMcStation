@@ -372,7 +372,7 @@
 			"You hear welding.")
 		return 1
 
-	if(ismultitool(W))
+	if(isMultitool(W))
 		broadcast_status()
 		to_chat(user, "<span class='notice'>A [name == "Air Vent" ? "red" : "green"] light appears on \the [src] as it broadcasts atmospheric data.</span>")
 		flick("broadcast", src)

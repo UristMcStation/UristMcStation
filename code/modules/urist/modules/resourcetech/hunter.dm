@@ -18,7 +18,7 @@
 	if(istype(O, /obj/item/stack/hide/hairless))
 		return 1
 
-/obj/machinery/smartfridge/tanningrack/process()
+/obj/machinery/smartfridge/tanningrack/Process()
 	..()
 	if(inoperable())
 		return

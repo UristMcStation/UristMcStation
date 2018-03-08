@@ -205,11 +205,11 @@
 
 /obj/vehicle/bike/motorcycle/turn_on()
 	..()
-	GLOB.processing_objects |= src
+	START_PROCESSING(SSobj, src)
 
 /obj/vehicle/bike/motorcycle/turn_off()
 	..()
-	GLOB.processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 
 /*/obj/vehicle/bike/motorcycle/Move(var/turf/destination)
 	if(kickstand) return
@@ -289,7 +289,7 @@
 			H.apply_damage((rand(1,5)), BRUTE, pick(parts))
 
 
-/obj/vehicle/bike/motorcycle/process()
+/obj/vehicle/bike/motorcycle/Process()
 	if(on)
 		if(moved && cur_move_speed < max_move_speed)
 			cur_move_speed++

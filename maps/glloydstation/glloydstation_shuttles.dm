@@ -395,7 +395,7 @@
 /datum/shuttle/autodock/multi/antag/mercenary
 	name = "Mercenary"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"merc_ship_start",
 		"merc_NW_urist",
 		"merc_N_urist",
@@ -461,7 +461,7 @@
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"raider_start_point",
 		"raider_NE_urist",
 		"raider_NW_urist",

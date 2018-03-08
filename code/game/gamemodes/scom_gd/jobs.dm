@@ -10,7 +10,6 @@
 	title = "Captain"
 	department = "Command"
 	department_flag = COM
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "SCOM High Command"

@@ -65,6 +65,8 @@
 	// contained in a cage
 	var/in_stasis = 0
 
+	var/simplify_dead_icon
+
 /mob/living/simple_animal/Life()
 	..()
 	if(!living_observers_present(GetConnectedZlevels(z)))

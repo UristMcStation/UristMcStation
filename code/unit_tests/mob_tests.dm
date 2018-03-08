@@ -529,7 +529,7 @@ datum/unit_test/mob_damage/machine/clone
 datum/unit_test/mob_damage/machine/halloss
 	name = "MOB: IPC Halloss Damage Check"
 	damagetype = PAIN
-	expected_vulnerability = IMMUNE*/
+	expected_vulnerability = IMMUNE
 
 
 // ==============================================================================

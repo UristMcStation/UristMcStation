@@ -9,13 +9,10 @@
 /obj/machinery/light/small/red
 	icon_state = "firelight1"
 	construct_type = /obj/machinery/light/small
-	brightness_range = 6
-	brightness_power = 1
 	active_power_usage = 2
 	name = "Maintenance light fixture"
 	desc = "A small, low-power lighting fixture used for maintenance lighting."
 	light_type = /obj/item/weapon/light/bulb/red
-	brightness_color = "#B12525"
 
 /obj/machinery/light/small/red/New()
 	..()
@@ -33,7 +30,7 @@
 
 //cold, blue tint; feedback was good on putting it in Medbay
 /obj/machinery/light/coldtint
-	brightness_color = "#B0DCEA"
+	light_type = /obj/item/weapon/light/tube/tinted/coldtint
 
 /obj/item/weapon/light/tube/tinted
 	name = "light tube (tinted)"
@@ -50,7 +47,7 @@
 
 //super warm tint (color literally stolen from candles), for the Bar
 /obj/machinery/light/warmtint
-	brightness_color = "#E09D37"
+	light_type = /obj/item/weapon/light/tube/tinted/warmtint
 
 /obj/item/weapon/light/tube/tinted/warmtint
 	name = "light tube (incandescent)"
@@ -62,7 +59,7 @@
 
 //green tint
 /obj/machinery/light/greentint
-	brightness_color = "#A8FFB1"
+	light_type = /obj/item/weapon/light/tube/tinted/greentint
 
 /obj/item/weapon/light/tube/tinted/greentint
 	name = "light tube (green)"
@@ -90,7 +87,7 @@
 	brightness_on = 3
 	light_color = "#E09D37"
 	w_class = 4
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	light_range = 6
 
 	on = 0
@@ -135,8 +132,8 @@
 /obj/machinery/light/chromatic/receive_signal(datum/signal/signal, receive_method, receive_param)
 	if(signal.data["tag"] == id_tag)
 		if(signal.data["color"])
-			brightness_color = signal.data["color"]
-			update()
+			lightbulb.brightness_color = signal.data["color"]
+			update_icon()
 
 /obj/machinery/light/broken/Initialize()
 	. = ..()

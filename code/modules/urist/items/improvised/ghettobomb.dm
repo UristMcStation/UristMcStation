@@ -23,7 +23,7 @@
 	item_state = "flashbang"
 	throw_speed = 4
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	var/assembled = 0
 	active = 1

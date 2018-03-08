@@ -25,7 +25,7 @@
 	return
 
 /obj/machinery/computer/trigger/blast/proc/trigger()
-	for(var/obj/machinery/door/blast/M in GLOB.machines)
+	for(var/obj/machinery/door/blast/M in SSmachines.machinery)
 		if(M.id == src.id)
 			if(M.density)
 				spawn(0)

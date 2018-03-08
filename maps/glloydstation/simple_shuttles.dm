@@ -48,7 +48,7 @@
 	var/id = null
 
 /datum/shuttle/autodock/ferry/elevator/arrived()
-	for(var/obj/machinery/door/blast/M in GLOB.machines)
+	for(var/obj/machinery/door/blast/M in SSmachines.machinery)
 		if(M.id == src.id)
 			if(M.density)
 				spawn(0)

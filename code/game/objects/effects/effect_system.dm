@@ -89,15 +89,70 @@ steam.start() -- spawns the effect
 // will always spawn at the items location.
 /////////////////////////////////////////////
 
+/obj/effect/sparks
+	name = "sparks"
+	icon_state = "sparks"
+	icon = 'icons/effects/effects.dmi'
+	var/amount = 6.0
+	anchored = 1.0
+	mouse_opacity = 0
+
+/obj/effect/sparks/New()
+	..()
+	playsound(src.loc, "sparks", 100, 1)
+	var/turf/T = src.loc
+	if (istype(T, /turf))
+		T.hotspot_expose(1000,100)
+
+/obj/effect/sparks/Initialize()
+	. = ..()
+	// Scheduled tasks caused serious performance issues when being qdel()ed.
+	// Replaced with spawn() until performance of scheduled tasks is improved.
+	//schedule_task_in(5 SECONDS, /proc/qdel, list(src))
+	spawn(50)
+		qdel(src)
+
+/obj/effect/sparks/Destroy()
+	var/turf/T = src.loc
+	if (istype(T, /turf))
+		T.hotspot_expose(1000,100)
+	return ..()
+
+/obj/effect/sparks/Move()
+	..()
+	var/turf/T = src.loc
+	if (istype(T, /turf))
+		T.hotspot_expose(1000,100)
+
 /datum/effect/effect/system/spark_spread
-	var/datum/effect_system/sparks/S
 
-/datum/effect/effect/system/spark_spread/set_up(n = 3, c = 0, loca)
-	var/l = get_turf(loca)
-	S = bind_spark(l, n, c ? GLOB.cardinal : GLOB.alldirs)
+	set_up(n = 3, c = 0, loca)
+		if(n > 10)
+			n = 10
+		number = n
+		cardinals = c
+		if(istype(loca, /turf/))
+			location = loca
+		else
+			location = get_turf(loca)
 
-/datum/effect/effect/system/spark_spread/start()
-	S.queue()
+	start()
+		var/i = 0
+		for(i=0, i<src.number, i++)
+			spawn(0)
+				if(holder)
+					src.location = get_turf(holder)
+				var/obj/effect/sparks/sparks = new /obj/effect/sparks(location)
+				var/direction
+				if(src.cardinals)
+					direction = pick(GLOB.cardinal)
+				else
+					direction = pick(GLOB.alldirs)
+				for(i=0, i<pick(1,2,3), i++)
+					sleep(5)
+					step(sparks,direction)
+
+
 
 /////////////////////////////////////////////
 //// SMOKE SYSTEMS

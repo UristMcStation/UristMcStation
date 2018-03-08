@@ -5,7 +5,7 @@
 	icon = 'icons/effects/uristrunes.dmi'
 	icon_state = "blank"
 	unacidable = 1
-	flags = OBJ_SURGICAL
+	obj_flags = OBJ_FLAG_SURGICAL
 	plane = ABOVE_TURF_PLANE
 	layer = RUNE_LAYER
 

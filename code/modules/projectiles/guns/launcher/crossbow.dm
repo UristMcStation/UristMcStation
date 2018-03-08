@@ -58,7 +58,6 @@
 	slot_flags = SLOT_BACK
 
 	var/obj/item/bolt
-	var/draw_time
 	var/tension = 0                         // Current draw on the bow.
 	var/max_tension = 5                     // Highest possible tension.
 	var/release_speed = 5                   // Speed per unit of tension.

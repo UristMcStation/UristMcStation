@@ -45,8 +45,8 @@
 /mob/living/simple_animal/hostile/vagrant/bullet_act(var/obj/item/projectile/Proj)
 	var/oldhealth = health
 	. = ..()
-	if((target_mob != Proj.firer) && health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT)) //Respond to being shot at
-		target_mob = Proj.firer
+	if((target != Proj.firer) && health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT)) //Respond to being shot at
+		target = Proj.firer
 		turns_per_move = 2
 		MoveToTarget()
 

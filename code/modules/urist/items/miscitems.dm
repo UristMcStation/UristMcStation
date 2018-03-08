@@ -275,7 +275,7 @@
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force_divisor = 0.55
 	throwforce = 10
 	w_class = 3
@@ -347,7 +347,7 @@
 	smoketime = rand(500, 600)
 	..()
 
-/obj/item/weapon/flame/torch/process()
+/obj/item/weapon/flame/torch/Process()
 	if(isliving(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
@@ -382,7 +382,7 @@
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
-		GLOB.processing_objects.Add(src)
+		START_PROCESSING(SSobj, src)
 		attack_verb = list("hit", "burnt", "singed")
 		w_class = 4
 		icon_state = "torch_lit"
@@ -398,7 +398,7 @@
 	item_state = "woodrod"
 	name = "burnt torch"
 	desc = "A burnt out torch."
-	GLOB.processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	w_class = 3
 	force = 7
 	attack_verb = list("hit", "bashed", "smacked")

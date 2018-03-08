@@ -32,7 +32,6 @@
 
 /obj/machinery/drone_fabricator/blob
 	fabricator_tag = "Simulation"
-	drone_type = /mob/living/silicon/robot/drone/construction/holo
 
 /obj/machinery/drone_fabricator/construction
 	fabricator_tag = "Station - Construction"

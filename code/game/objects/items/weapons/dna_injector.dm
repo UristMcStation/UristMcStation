@@ -126,7 +126,7 @@
 
 	// Used by admin log.
 	var/injected_with_monkey = ""
-	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == MONKEYBLOCK) : GetState(MONKEYBLOCK)))
+	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == GLOB.MONKEYBLOCK) : GetState(GLOB.MONKEYBLOCK)))
 		injected_with_monkey = " <span class='danger'>(MONKEY)</span>"
 	admin_attack_log(user, M, "Injected using \the [src]", "Has been injected with \the [src]", "used \the [src][injected_with_monkey] to inject into")
 
@@ -403,7 +403,7 @@
 	value = 0x001
 	//block = GLOB.GLOB.1
 	New()
-		block = GLOB.GLOB.GLASSESBLOCK
+		block = GLOB.GLASSESBLOCK
 		..()
 
 /obj/item/weapon/dnainjector/glassesmut

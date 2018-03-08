@@ -786,6 +786,6 @@
 		E.status &= ~ORGAN_BROKEN
 		M.custom_pain("You suddenly feel EXCRUCIATING pain as your [E.name] <i>SNAPS</i> back into place.", 120, 1, E)
 
-	if(prob(5) && M.hallucination < 10)
+	if(prob(5) && M.hallucination_duration < 10)
 		to_chat(M, "<span class = 'danger'><font size = 3>Your vision of reality suddenly snaps!</font></span>")
-		M.hallucination = max(M.hallucination, 240)
+		M.adjust_hallucination(240)

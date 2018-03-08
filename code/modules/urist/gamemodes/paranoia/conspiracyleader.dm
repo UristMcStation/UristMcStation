@@ -107,21 +107,30 @@ var/datum/antagonist/agent/agents
 	var/loc = ""
 	var/obj/item/R = locate() //Hide the uplink in a PDA if available, otherwise radio
 
-	if(agent_mob.client.prefs.uplinklocation == "Headset")
+	var/list/priority_order
+	if(agent_mob.client && agent_mob.client.prefs)
+		priority_order = agent_mob.client.prefs.uplink_sources
+
+	if(!priority_order || !priority_order.len)
+		priority_order = list()
+		for(var/entry in GLOB.default_uplink_source_priority)
+			priority_order += decls_repository.get_decl(entry)
+
+	if(priority_order[1] == "Headset")
 		R = locate(/obj/item/device/radio) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/pda) in agent_mob.contents
 			agent_mob << "Could not locate a Radio, installing in PDA instead!"
 		if (!R)
 			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
-	else if(agent_mob.client.prefs.uplinklocation == "PDA")
+	else if(priority_order[1] == "PDA")
 		R = locate(/obj/item/device/pda) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
 			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
 		if(!R)
 			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
-	else if(agent_mob.client.prefs.uplinklocation == "None")
+	else if(priority_order[1] == "None")
 		agent_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
 		R = null
 	else

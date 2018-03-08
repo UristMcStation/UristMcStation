@@ -13,7 +13,7 @@
 
 /decl/hierarchy/outfit/veymed
 	name = "Vey-Med Doctor"
-	uniform = /obj/item/clothing/under/rank/medical/green
+	uniform = /obj/item/clothing/under/rank/medical/scrubs/green
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
 	shoes = /obj/item/clothing/shoes/white
 	suit_store = /obj/item/device/healthanalyzer

@@ -25,8 +25,8 @@
 	var/starting_crystals = 3
 	var/list/crystals = list()
 
-/obj/machinery/computer/telescience/New()
-	..()
+/obj/machinery/computer/telescience/Initialize()
+	. = ..()
 	link_telepad()
 	recalibrate()
 

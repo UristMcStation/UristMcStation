@@ -365,3 +365,7 @@ Class Procs:
 	. = ..(user)
 	if(component_parts && hasHUD(user, "science"))
 		display_parts(user)
+
+/obj/machinery/proc/build_default_parts(var/obj/item/weapon/circuitboard/CB)
+	var/obj/item/weapon/circuitboard/C = new CB(src)
+	C.apply_default_parts(src)

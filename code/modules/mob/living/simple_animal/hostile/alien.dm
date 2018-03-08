@@ -69,7 +69,6 @@
 	projectilesound = 'sound/weapons/pierce.ogg'
 	rapid = 2
 	status_flags = 0
-	corpse = /mob/living/carbon/human/xqueen
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
@@ -80,7 +79,6 @@
 	move_to_delay = 4
 	maxHealth = 400
 	health = 400
-	corpse = null
 
 /obj/item/projectile/neurotox
 	damage = 30

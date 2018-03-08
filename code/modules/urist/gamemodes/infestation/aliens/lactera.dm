@@ -113,7 +113,7 @@
 	brute_mod = 1.6
 	burn_mod = 1
 
-	flags = NO_SCAN | NO_PAIN | NO_POISON
+	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON
 	spawn_flags = SPECIES_IS_RESTRICTED
 
 	reagent_tag = IS_XENOS

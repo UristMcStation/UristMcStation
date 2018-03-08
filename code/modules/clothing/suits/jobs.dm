@@ -214,3 +214,22 @@
 	icon_state = "suspenders"
 	blood_overlay_type = "armorblood" //it's the less thing that I can put here
 	body_parts_covered = 0
+
+//Lawer
+/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
+	name = "Blue Suit Jacket"
+	desc = "A snappy dress jacket."
+	icon_state = "suitjacket_blue_open"
+	item_state = "suitjacket_blue_open"
+	icon_open = "suitjacket_blue_open"
+	icon_closed = "suitjacket_blue"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/lawyer/purpjacket
+	name = "Purple Suit Jacket"
+	desc = "A snappy dress jacket."
+	icon_state = "suitjacket_purp"
+	item_state = "suitjacket_purp"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|ARMS

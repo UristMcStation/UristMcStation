@@ -27,7 +27,7 @@
 		src.icon_state = initial(icon_state)
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		permeability_coefficient = initial(permeability_coefficient)
-		flags = initial(flags)
+		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
 		usr << "You push down [src]."
 		src.is_flipped = 1
@@ -36,7 +36,7 @@
 		usr << "You push up [src]."
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
-		flags = null
+		obj_flags = null
 		flags_inv = null
 		src.is_flipped = 2
 	usr.update_inv_wear_mask()
@@ -73,7 +73,7 @@
 		src.icon_state = initial(icon_state)
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		permeability_coefficient = initial(permeability_coefficient)
-		flags = initial(flags)
+		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
 		usr << "You unroll [src]."
 		src.is_rolled = 1
@@ -82,7 +82,7 @@
 		usr << "You roll up [src]."
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
-		flags = null
+		obj_flags = null
 		flags_inv = null
 		src.is_rolled = 2
 	usr.update_inv_wear_mask()

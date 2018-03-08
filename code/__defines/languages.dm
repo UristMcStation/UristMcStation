@@ -16,6 +16,7 @@
 #define LANGUAGE_NABBER "Serpentid"
 #define LANGUAGE_SPACER "Spacer"
 #define LANGUAGE_BOGANI "Bogani"
+#define LANGUAGE_RESOMI "Schechi"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.

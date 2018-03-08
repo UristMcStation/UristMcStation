@@ -180,7 +180,7 @@
 /obj/machinery/light/New(atom/newloc, obj/machinery/light_construct/construct = null)
 	..(newloc)
 
-	spark_system = bind_spark(src, 3)
+	s.set_up(1, 1, src)
 
 	if(construct)
 		construct_type = construct.type

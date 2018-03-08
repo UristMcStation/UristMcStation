@@ -954,12 +954,6 @@ var/global/list/common_tools = list(
 
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M, mob/living/carbon/user)
-	var/turf/T = get_turf(M)
-	for(var/obj/O in T.contents)
-		if(O.flags & OBJ_SURGICAL)
-			. = TRUE
-			break
-
 	if(M == user)
 		var/hitzone = check_zone(user.zone_sel.selecting)
 		var/list/badzones = list(BP_HEAD)
@@ -971,6 +965,12 @@ var/global/list/common_tools = list(
 			badzones += BP_R_HAND
 		if(hitzone in badzones)
 			return FALSE
+
+	var/turf/T = get_turf(M)
+	for(var/obj/O in T.contents)
+		if(O.obj_flags & OBJ_FLAG_SURGICAL)
+			. = TRUE
+			break
 
 /proc/reverse_direction(var/dir)
 	switch(dir)
@@ -1074,7 +1074,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	simulated = 0
 
 	see_in_dark = 1e6
-	
+
 	virtual_mob = null
 
 	virtual_mob = null

@@ -524,12 +524,10 @@
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	..()
-    
+
 /obj/item/device/radio/proc/recalculateChannels()
     return
 
-/obj/item/device/radio/proc/recalculateChannels()
-	return
 
 ///////////////////////////////
 //////////Borg Radios//////////

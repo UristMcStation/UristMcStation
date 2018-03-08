@@ -51,3 +51,25 @@
 	name = "\improper NanoTrasen merit medal"
 	desc = "An iron medal awarded to NanoTrasen employees for merit."
 	icon_state = "iron_nt"
+
+//SolGov medals
+
+/obj/item/clothing/accessory/medal/silver/sword
+	name = "combat action medal"
+	desc = "A silver medal awarded to members of the SCG for honorable service while under enemy fire."
+	icon_state = "silver_sword"
+
+/obj/item/clothing/accessory/medal/gold/star
+	name = "gold star medal"
+	desc = "A gold star awarded to members of the SCG for acts of heroism in a combat zone."
+	icon_state = "gold_star"
+
+/obj/item/clothing/accessory/medal/gold/sun
+	name = "solar service medal"
+	desc = "A gold medal awarded to members of the SCG by the Secretary General for significant contributions to the Sol Central Government."
+	icon_state = "gold_sun"
+
+/obj/item/clothing/accessory/medal/gold/crest
+	name = "solar honor medal"
+	desc = "A gold medal awarded to members of the Defense Forces by the Secretary General for personal acts of valor and heroism above and beyond the call of duty."
+	icon_state = "gold_crest"

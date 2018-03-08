@@ -26,7 +26,7 @@
 		health = 100
 
 /obj/structure/showcase/blob_hazard/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(iswelder(W))
+	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		to_chat(user, "<span class = 'notice'You begin to repair \the [src].</span>")
 		if(do_after(user, 10 SECONDS))

@@ -43,7 +43,6 @@
 
 	forceMove(locate(start_x, start_y, GLOB.using_map.overmap_z))
 	testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
-	points_of_interest += name
 
 	GLOB.using_map.player_levels |= map_z
 
@@ -53,7 +52,7 @@
 	if(base)
 		GLOB.using_map.station_levels |= map_z
 		GLOB.using_map.contact_levels |= map_z
-	
+
 
 	//handle automatic waypoints that spawned before us
 	for(var/obj/effect/shuttle_landmark/automatic/L in world)

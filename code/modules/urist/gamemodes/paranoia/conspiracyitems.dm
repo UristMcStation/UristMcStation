@@ -247,7 +247,7 @@
 
 //the mask for the full kit, straight out of the Uncanny Valley
 
-/obj/item/clothing/mask/gas/voice/fleshmask
+/obj/item/clothing/mask/chameleon/voice/fleshmask
 	icon = 'icons/urist/items/clothes/masks.dmi'
 	icon_override = 'icons/uristmob/mask.dmi'
 	name = "ugly green collar (?)" //for examining wearers
@@ -256,10 +256,10 @@
 	icon_state = "fleshmask"
 	body_parts_covered = FACE|HEAD
 	flags_inv = HIDEEARS|HIDEFACE
-	flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
+	obj_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | BLOCKHAIR
 	var/usedonce = 0 //can only set voice once, to prevent being superior to voice changer at the same cost
 
-/obj/item/clothing/mask/gas/voice/fleshmask/Set_Voice(name as text)
+/obj/item/clothing/mask/chameleon/voice/fleshmask/Set_Voice(name as text)
 	if(usedonce)
 		usr << "<span class='notice'>The modulator in the [src] cannot be reset!</span>"
 		return
@@ -274,7 +274,7 @@
 /obj/item/weapon/storage/box/syndie_kit/fleshsuit/New()
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
-	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
+	new /obj/item/clothing/mask/chameleon/voice/fleshmask(src)
 	make_exact_fit()
 
 /obj/effect/landmark/intelspawn

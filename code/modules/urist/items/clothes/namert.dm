@@ -45,7 +45,7 @@
 	icon_state = "namboots"
 	item_state = "namboots"
 	permeability_coefficient = 0.05
-	flags = NOSLIP
+	item_flags = ITEM_FLAG_NOSLIP
 	species_restricted = null
 	siemens_coefficient = 0.6
 	armor = list(melee = 50, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 10, rad = 0)

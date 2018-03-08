@@ -39,12 +39,12 @@
 /obj/effect/forcefield/mime/New()
 	..()
 	last_process = world.time
-	GLOB.processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
 
-/obj/effect/forcefield/mime/process()
+/obj/effect/forcefield/mime/Process()
 	timeleft -= (world.time - last_process)
 	if(timeleft <= 0)
-		GLOB.processing_objects.Remove(src)
+		STOP_PROCESSING(SSobj, src)
 		qdel(src)
 
 ///////////////////////////////

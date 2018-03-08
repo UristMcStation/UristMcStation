@@ -268,14 +268,15 @@
 	icon_state = "ghost-narsie"
 	density = 1
 
-/obj/effect/haunter/New()
-	GLOB.processing_objects.Add(src)
+/obj/effect/haunter/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
 /obj/effect/haunter/Destroy()
-	GLOB.processing_objects.Remove(src)
-	return ..()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
 
-/obj/effect/haunter/process()
+/obj/effect/haunter/Process()
 	if(src.loc)
 		src.loc = get_turf(pick(orange(1,src)))
 		var/mob/living/carbon/M = locate() in src.loc
@@ -295,7 +296,7 @@
 			if(prob(5))
 				src.loc = null
 	else
-		GLOB.processing_objects.Remove(src)
+		STOP_PROCESSING(SSobj, src)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph

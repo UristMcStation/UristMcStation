@@ -14,7 +14,7 @@
 	..()
 	for(var/direction in GLOB.cardinal)
 		for(var/obj/O in get_step(src, direction))
-			if((O.flags & OBJ_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
+			if((O.obj_flags & OBJ_FLAG_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
 				watching = O
 				return
 

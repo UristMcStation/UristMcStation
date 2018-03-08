@@ -30,7 +30,7 @@
 	var/FIRETIME = 1 //tenths of seconds
 	density = 1
 	anchored = 0
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	var/health = 500
 
 /obj/structure/emplacement/AT
@@ -61,7 +61,7 @@
 	..()
 	update_rows()
 
-/obj/structure/emplacement/process()
+/obj/structure/emplacement/Process()
 	var/mob/living/carbon/human/U
 	for(var/mob/living/carbon/human/H in range(0, src))
 		if(H)
@@ -79,7 +79,7 @@
 	sleep(1)
 /obj/structure/emplacement/New()
 	..()
-	GLOB.processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
 
 /obj/structure/emplacement/proc/shoot(var/turf/T)
 	if(ammo <= 0)
@@ -133,7 +133,7 @@
 				ammo = ammo - 1
 				spawn()
 					if(B)
-						B.process()
+						B.Process()
 				nextshot = world.time + FIRETIME
 
 
