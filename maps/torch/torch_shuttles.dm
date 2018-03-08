@@ -90,6 +90,7 @@
 	shuttle_area = /area/shuttle/escape_pod10/station
 	number = 10
 /obj/effect/shuttle_landmark/escape_pod/start/pod10
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 10
 /obj/effect/shuttle_landmark/escape_pod/out/pod10
 	number = 10
@@ -101,6 +102,7 @@
 	shuttle_area = /area/shuttle/escape_pod11/station
 	number = 11
 /obj/effect/shuttle_landmark/escape_pod/start/pod11
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 11
 /obj/effect/shuttle_landmark/escape_pod/out/pod11
 	number = 11
@@ -113,6 +115,7 @@
 	shuttle_area = /area/shuttle/escape_pod12/station
 	number = 12
 /obj/effect/shuttle_landmark/escape_pod/start/pod12
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 12
 /obj/effect/shuttle_landmark/escape_pod/out/pod12
 	number = 12
@@ -123,6 +126,7 @@
 	shuttle_area = /area/shuttle/escape_pod13/station
 	number = 13
 /obj/effect/shuttle_landmark/escape_pod/start/pod13
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 13
 /obj/effect/shuttle_landmark/escape_pod/out/pod13
 	number = 13
@@ -133,6 +137,7 @@
 	shuttle_area = /area/shuttle/escape_pod14/station
 	number = 14
 /obj/effect/shuttle_landmark/escape_pod/start/pod14
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 14
 /obj/effect/shuttle_landmark/escape_pod/out/pod14
 	number = 14
@@ -143,6 +148,7 @@
 	shuttle_area = /area/shuttle/escape_pod15/station
 	number = 15
 /obj/effect/shuttle_landmark/escape_pod/start/pod15
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 15
 /obj/effect/shuttle_landmark/escape_pod/out/pod15
 	number = 15
@@ -153,6 +159,7 @@
 	shuttle_area = /area/shuttle/escape_pod16/station
 	number = 16
 /obj/effect/shuttle_landmark/escape_pod/start/pod16
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 16
 /obj/effect/shuttle_landmark/escape_pod/out/pod16
 	number = 16
@@ -163,6 +170,7 @@
 	shuttle_area = /area/shuttle/escape_pod17/station
 	number = 17
 /obj/effect/shuttle_landmark/escape_pod/start/pod17
+	base_turf = /turf/simulated/floor/reinforced/airless
 	number = 17
 /obj/effect/shuttle_landmark/escape_pod/out/pod17
 	number = 17
@@ -175,7 +183,7 @@
 	name = "Petrov"
 	warmup_time = 10
 	shuttle_area = list(/area/shuttle/petrov/ship,/area/shuttle/petrov/cell1,/area/shuttle/petrov/cell2,/area/shuttle/petrov/cell3)
-	dock_target = "petrov_shuttle"
+	dock_target = "petrov_shuttle_airlock"
 	waypoint_station = "nav_petrov_start"
 	waypoint_offsite = "nav_petrov_out"
 
@@ -192,7 +200,7 @@
 /datum/shuttle/autodock/multi/antag/ninja
 	name = "Ninja"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"nav_ninja_deck1",
 		"nav_ninja_deck2",
 		"nav_ninja_deck3",
@@ -201,7 +209,14 @@
 		"nav_away_6",
 		"nav_derelict_5",
 		"nav_cluster_6",
-		"nav_ninja_start"
+		"nav_ninja_start",
+		"nav_lost_supply_base_antag",
+		"nav_marooned_antag",
+		"nav_smugglers_antag",
+		"nav_magshield_antag",
+		"nav_casino_antag",
+		"nav_yacht_antag",
+		"nav_slavers_base_antag",
 		)
 	shuttle_area = /area/ninja_dojo/start
 	current_location = "nav_ninja_start"
@@ -307,7 +322,7 @@
 /datum/shuttle/autodock/multi/antag/mercenary
 	name = "Mercenary"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"nav_merc_deck1",
 		"nav_merc_deck2",
 		"nav_merc_deck3",
@@ -317,7 +332,14 @@
 		"nav_derelict_6",
 		"nav_cluster_5",
 		"nav_merc_dock",
-		"nav_merc_start"
+		"nav_merc_start",
+		"nav_lost_supply_base_antag",
+		"nav_marooned_antag",
+		"nav_smugglers_antag",
+		"nav_magshield_antag",
+		"nav_casino_antag",
+		"nav_yacht_antag",
+		"nav_slavers_base_antag",
 		)
 	shuttle_area = /area/syndicate_station/start
 	dock_target = "merc_shuttle"
@@ -367,7 +389,7 @@
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"nav_skipjack_deck1",
 		"nav_skipjack_deck2",
 		"nav_skipjack_deck3",
@@ -377,7 +399,14 @@
 		"nav_derelict_7",
 		"nav_cluster_7",
 		"nav_skipjack_dock",
-		"nav_skipjack_start"
+		"nav_skipjack_start",
+		"nav_lost_supply_base_antag",
+		"nav_marooned_antag",
+		"nav_smugglers_antag",
+		"nav_magshield_antag",
+		"nav_casino_antag",
+		"nav_yacht_antag",
+		"nav_slavers_base_antag",
 		)
 	shuttle_area =  /area/skipjack_station/start
 	dock_target = "skipjack_shuttle"
@@ -427,7 +456,7 @@
 /datum/shuttle/autodock/multi/antag/rescue
 	name = "Rescue"
 	warmup_time = 0
-	destinations = list(
+	destination_tags = list(
 		"nav_ert_deck1",
 		"nav_ert_deck2",
 		"nav_ert_deck3",
@@ -437,7 +466,14 @@
 		"nav_derelict_4",
 		"nav_cluster_4",
 		"nav_ert_dock",
-		"nav_ert_start"
+		"nav_ert_start",
+		"nav_lost_supply_base_antag",
+		"nav_marooned_antag",
+		"nav_smugglers_antag",
+		"nav_magshield_antag",
+		"nav_casino_antag",
+		"nav_yacht_antag",
+		"nav_slavers_base_antag",
 		)
 	shuttle_area = /area/rescue_base/start
 	dock_target = "rescue_shuttle"
@@ -522,41 +558,43 @@
 	base_area = /area/quartermaster/hangar
 	base_turf = /turf/simulated/floor/plating
 
-/datum/shuttle/autodock/overmap/calypso
-	name = "Calypso"
+/datum/shuttle/autodock/overmap/exploration_shuttle
+	name = "Charon"
 	move_time = 90
-	shuttle_area = /area/calypso_hangar/start
+	shuttle_area = list(/area/exploration_shuttle/cockpit, /area/exploration_shuttle/atmos, /area/exploration_shuttle/power, /area/exploration_shuttle/crew, /area/exploration_shuttle/cargo, /area/exploration_shuttle/airlock)
+	dock_target = "calypso_shuttle"
 	current_location = "nav_hangar_calypso"
 	landmark_transition = "nav_transit_calypso"
 	range = 1
+	fuel_consumption = 4
 
-/obj/effect/shuttle_landmark/torch/hangar/calypso
-	name = "Calypso Hangar"
+/obj/effect/shuttle_landmark/torch/hangar/exploration_shuttle
+	name = "Charon Hangar"
 	landmark_tag = "nav_hangar_calypso"
 	base_area = /area/quartermaster/hangar
 	base_turf = /turf/simulated/floor/plating
 
-/obj/effect/shuttle_landmark/torch/deck1/calypso
+/obj/effect/shuttle_landmark/torch/deck1/exploration_shuttle
 	name = "Space near Deck Four"
 	landmark_tag = "nav_deck1_calypso"
 
-/obj/effect/shuttle_landmark/torch/deck2/calypso
+/obj/effect/shuttle_landmark/torch/deck2/exploration_shuttle
 	name = "Space near Deck Three"
 	landmark_tag = "nav_deck2_calypso"
 
-/obj/effect/shuttle_landmark/torch/deck3/calypso
+/obj/effect/shuttle_landmark/torch/deck3/exploration_shuttle
 	name = "Space near Deck Two"
 	landmark_tag = "nav_deck3_calypso"
 
-/obj/effect/shuttle_landmark/torch/deck4/calypso
+/obj/effect/shuttle_landmark/torch/deck4/exploration_shuttle
 	name = "Space near Deck One"
 	landmark_tag = "nav_deck4_calypso"
 
-/obj/effect/shuttle_landmark/torch/deck5/calypso
+/obj/effect/shuttle_landmark/torch/deck5/exploration_shuttle
 	name = "Space near Bridge"
 	landmark_tag = "nav_bridge_calypso"
 
-/obj/effect/shuttle_landmark/torch/transit/calypso
+/obj/effect/shuttle_landmark/torch/transit/exploration_shuttle
 	name = "In transit"
 	landmark_tag = "nav_transit_calypso"
 
@@ -565,10 +603,12 @@
 	warmup_time = 5
 	move_time = 30
 	shuttle_area = /area/guppy_hangar/start
+	dock_target ="guppy_shuttle"
 	current_location = "nav_hangar_guppy"
 	landmark_transition = "nav_transit_guppy"
 	sound_takeoff = 'sound/effects/rocket.ogg'
 	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	fuel_consumption = 2
 
 /obj/effect/shuttle_landmark/torch/hangar/guppy
 	name = "Guppy Hangar"

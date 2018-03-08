@@ -23,6 +23,8 @@ var/list/gear_datums = list()
 		var/datum/gear/G = geartype
 		if(initial(G.category) == geartype)
 			continue
+		if(GLOB.using_map.loadout_blacklist && (geartype in GLOB.using_map.loadout_blacklist))
+			continue
 
 		var/use_name = initial(G.display_name)
 		var/use_category = initial(G.sort_category)
@@ -43,6 +45,7 @@ var/list/gear_datums = list()
 	name = "Loadout"
 	sort_order = 1
 	var/current_tab = "General"
+	var/hide_unavailable_gear = 0
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	from_file(S["gear_list"], pref.gear_list)
@@ -158,42 +161,51 @@ var/list/gear_datums = list()
 			var/datum/job/J = job_master.occupations_by_title[job_title]
 			if(J)
 				dd_insertObjectList(jobs, J)
-
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in valid_gear_choices()))
 			continue
+		var/list/entry = list()
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear_list[pref.gear_slot])
-		. += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=\ref[src];toggle_gear=[html_encode(G.display_name)]'>[G.display_name]</a></td>"
-		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2>[G.description]</font>"
+		entry += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=\ref[src];toggle_gear=[html_encode(G.display_name)]'>[G.display_name]</a></td>"
+		entry += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
+		entry += "<td><font size=2>[G.get_description(get_gear_metadata(G,1))]</font>"
+		var/allowed = 1
 		if(G.allowed_roles)
-			. += "<br><i>"
+			var/good_job = 0
+			var/bad_job = 0
+			entry += "<br><i>"
 			var/ind = 0
 			for(var/datum/job/J in jobs)
 				++ind
 				if(ind > 1)
-					. += ", "
+					entry += ", "
 				if(J.type in G.allowed_roles)
-					. += "<font color=55cc55>[J.title]</font>"
+					entry += "<font color=55cc55>[J.title]</font>"
+					good_job = 1
 				else
-					. += "<font color=cc5555>[J.title]</font>"
-			. += "</i>"
-		.+= "</tr>"
+					entry += "<font color=cc5555>[J.title]</font>"
+					bad_job = 1
+			allowed = good_job || !bad_job
+			entry += "</i>"
+		entry += "</tr>"
 		if(ticked)
-			. += "<tr><td colspan=3>"
+			entry += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			. += "</td></tr>"
+				entry += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			entry += "</td></tr>"
+		if(!hide_unavailable_gear || allowed || ticked)
+			. += entry
 	. += "</table>"
 	. = jointext(.,null)
 
-/datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G)
+/datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G, var/readonly)
 	var/list/gear = pref.gear_list[pref.gear_slot]
 	. = gear[G.display_name]
 	if(!.)
 		. = list()
-		gear[G.display_name] = .
+		if(!readonly)
+			gear[G.display_name] = .
 
 /datum/category_item/player_setup_item/loadout/proc/get_tweak_metadata(var/datum/gear/G, var/datum/gear_tweak/tweak)
 	var/list/metadata = get_gear_metadata(G)
@@ -246,6 +258,9 @@ var/list/gear_datums = list()
 		var/list/gear = pref.gear_list[pref.gear_slot]
 		gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+	if(href_list["toggle_hiding"])
+		hide_unavailable_gear = !hide_unavailable_gear
+		return TOPIC_REFRESH
 	return ..()
 
 /datum/category_item/player_setup_item/loadout/update_setup(var/savefile/preferences, var/savefile/character)
@@ -285,14 +300,22 @@ var/list/gear_datums = list()
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 
 /datum/gear/New()
-	..()
+	if(FLAGS_EQUALS(flags, GEAR_HAS_TYPE_SELECTION|GEAR_HAS_SUBTYPE_SELECTION))
+		CRASH("May not have both type and subtype selection tweaks")
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += gear_tweak_free_color_choice()
 	if(flags & GEAR_HAS_TYPE_SELECTION)
-		gear_tweaks += new/datum/gear_tweak/path(path)
+		gear_tweaks += new/datum/gear_tweak/path/type(path)
+	if(flags & GEAR_HAS_SUBTYPE_SELECTION)
+		gear_tweaks += new/datum/gear_tweak/path/subtype(path)
+		
+/datum/gear/proc/get_description(var/metadata)
+	. = description
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		. = gt.tweak_description(., metadata["[gt]"])
 
 /datum/gear_data
 	var/path
@@ -331,7 +354,6 @@ var/list/gear_datums = list()
 	else if(H.put_in_hands(item))
 		to_chat(H, "<span class='notice'>Placing \the [item] in your hands!</span>")
 	else
-		to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
-		to_chat(H, "<span class='notice'>Dropping \the [item] on the ground!</span>")
+		to_chat(H, "<span class='danger'>Dropping \the [item] on the ground!</span>")
 		item.forceMove(get_turf(H))
 		item.add_fingerprint(H)

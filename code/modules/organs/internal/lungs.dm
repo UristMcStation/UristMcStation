@@ -157,7 +157,7 @@
 	else
 		breath_fail_ratio = 0
 
-	owner.oxygen_alert = failed_inhale
+	owner.oxygen_alert = failed_inhale * 2
 
 	var/inhaled_gas_used = inhaling/6
 	breath.adjust_gas(breath_type, -inhaled_gas_used, update = 0) //update afterwards
@@ -266,7 +266,7 @@
 	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_failed_breath + 2 MINUTES)
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
-	owner.oxygen_alert = max(owner.oxygen_alert, 1)
+	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
 	// Hot air hurts :(
@@ -283,7 +283,10 @@
 				else
 					damage = COLD_GAS_DAMAGE_LEVEL_1
 
-			owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+			if(prob(20))
+				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+			else
+				src.damage += damage
 			owner.fire_alert = 1
 		else if(breath.temperature >= species.heat_level_1)
 			if(prob(20))
@@ -297,7 +300,10 @@
 				else
 					damage = HEAT_GAS_DAMAGE_LEVEL_3
 
-			owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+			if(prob(20))
+				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+			else
+				src.damage += damage
 			owner.fire_alert = 2
 
 		//breathing in hot/cold air also heats/cools you a bit
@@ -319,3 +325,29 @@
 		species.get_environment_discomfort(owner,"heat")
 	else if(breath.temperature <= species.cold_discomfort_level)
 		species.get_environment_discomfort(owner,"cold")
+
+/obj/item/organ/internal/lungs/listen()
+	if(owner.failed_last_breath || !active_breathing)
+		return "no respiration"
+
+	if(robotic == ORGAN_ROBOT)
+		if(is_bruised())
+			return "malfunctioning fans"
+		else
+			return "air flowing"
+
+	. = list()
+	if(is_bruised())
+		. += "[pick("wheezing", "gurgling")] sounds"
+
+	var/list/breathtype = list()
+	if(get_oxygen_deprivation() > 50)
+		breathtype += pick("straining","labored")
+	if(owner.shock_stage > 50)
+		breathtype += pick("shallow and rapid")
+	if(!breathtype.len)
+		breathtype += "healthy"
+	
+	. += "[english_list(breathtype)] breathing"
+
+	return english_list(.)

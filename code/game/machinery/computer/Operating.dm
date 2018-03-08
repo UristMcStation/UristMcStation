@@ -19,14 +19,13 @@
 				return
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
-	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	interact(user)
 
 
 /obj/machinery/computer/operating/attack_hand(mob/user)
-	add_fingerprint(user)
+	..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	interact(user)
@@ -64,15 +63,6 @@
 	user << browse(dat, "window=op")
 	onclose(user, "op")
 
-
-/obj/machinery/computer/operating/Topic(href, href_list)
-	if(..())
-		return 1
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
-	return
-
-
 /obj/machinery/computer/operating/Process()
 	if(..())
-		updateDialog()
+		src.updateDialog()

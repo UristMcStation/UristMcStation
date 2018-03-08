@@ -77,6 +77,7 @@ var/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
 	can_eat = 1
 	unavailable_at_fab = 1
+	restricted_to = list(SPECIES_HUMAN, SPECIES_IPC)
 
 /datum/robolimb/zenghu/industrial
 	company = "Zeng-Hu Ind."
@@ -153,6 +154,7 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
+	restricted_to = list(SPECIES_HUMAN)
 
 /datum/robolimb/resomi
 	company = "Small prosthetic"

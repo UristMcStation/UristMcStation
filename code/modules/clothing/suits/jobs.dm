@@ -95,7 +95,7 @@
 	icon_state = "detective"
 	//item_state = "det_suit"
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
-	blood_overlay_type = "coatblood"
+	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
@@ -152,38 +152,27 @@
 	icon_state = "hazard_g"
 
 //Lawyer
-/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
-	name = "Blue Suit Jacket"
+/obj/item/clothing/suit/storage/toggle/suit
+	name = "suit jacket"
 	desc = "A snappy dress jacket."
-	icon_state = "suitjacket_blue_open"
-	item_state = "suitjacket_blue_open"
-	icon_open = "suitjacket_blue_open"
-	icon_closed = "suitjacket_blue"
-	blood_overlay_type = "coatblood"
+	icon_state = "suitjacket_open"
+	item_state = "suitjacket_open"
+	icon_open = "suitjacket_open"
+	icon_closed = "suitjacket"
+	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/lawyer/purpjacket
-	name = "Purple Suit Jacket"
-	desc = "A snappy dress jacket."
-	icon_state = "suitjacket_purp"
-	item_state = "suitjacket_purp"
-	blood_overlay_type = "coatblood"
-	body_parts_covered = UPPER_TORSO|ARMS
+/obj/item/clothing/suit/storage/toggle/suit/blue
+	name = "blue suit jacket"
+	color = "#00326e"
 
-//Internal Affairs
-/obj/item/clothing/suit/storage/toggle/internalaffairs
-	name = "Internal Affairs Jacket"
-	desc = "A smooth black jacket."
-	icon_state = "ia_jacket_open"
-	item_state = "ia_jacket"
-	icon_open = "ia_jacket_open"
-	icon_closed = "ia_jacket"
-	blood_overlay_type = "coatblood"
-	body_parts_covered = UPPER_TORSO|ARMS
+/obj/item/clothing/suit/storage/toggle/suit/purple
+	name = "purple suit jacket"
+	color = "#6c316c"
 
-/obj/item/clothing/suit/storage/toggle/internalaffairs/plain
+/obj/item/clothing/suit/storage/toggle/suit/black
 	name = "black suit jacket"
-	desc = "A smooth black suit jacket."
+	color = "#1f1f1f"
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket

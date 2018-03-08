@@ -45,6 +45,12 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 
 // Basic power production reactions.
 // This is not necessarily realistic, but it makes a basic failure more spectacular.
+/decl/fusion_reaction/hydrogen_hydrogen
+	p_react = "hydrogen"
+	s_react = "hydrogen"
+	energy_consumption = 1
+	energy_production = 2
+	products = list("helium" = 1)
 
 /decl/fusion_reaction/deuterium_deuterium
 	p_react = "deuterium"
@@ -156,12 +162,3 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	energy_production = 15
 	radiation = 0.5
 	instability = 0.5
-
-/decl/fusion_reaction/boron_hydrogen
-  p_react = "boron"
-  s_react = "hydrogen"
-  minimum_energy_level = 10000
-  energy_consumption = 0
-  energy_production = 20
-  radiation = 2
-  instability = 1

@@ -38,6 +38,9 @@
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt, var/tar = src, var/ddir)
 	if(remove_blood(amt))
+		if(bloodstr.total_volume)
+			var/chem_share = round(0.3 * amt * (bloodstr.total_volume/vessel.total_volume), 0.01)
+			bloodstr.remove_any(chem_share * bloodstr.total_volume)
 		blood_splatter(tar, src, (ddir && ddir>0), spray_dir = ddir)
 		return amt
 	return 0
@@ -153,12 +156,8 @@
 		reagents.update_total()
 		return
 
-	var/datum/reagent/blood/our = get_blood(vessel)
-
-	if (!injected || !our)
-		return
-	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) )
-		reagents.add_reagent(/datum/reagent/toxin,amount * 0.5)
+	if(blood_incompatible(injected.data["blood_type"], injected.data["species"]))
+		reagents.add_reagent(/datum/reagent/toxin, amount * 0.5)
 		reagents.update_total()
 	else
 		vessel.add_reagent(/datum/reagent/blood, amount, injected.data)
@@ -175,17 +174,15 @@
 					return D
 	return res
 
-proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
-	if(!donor || !receiver) return 0
-
-	if(donor_species && receiver_species)
-		if(donor_species != receiver_species)
+/mob/living/carbon/human/proc/blood_incompatible(blood_type, blood_species)
+	if(blood_species && species.name)
+		if(blood_species != species.name)
 			return 1
 
-	var/donor_antigen = copytext(donor,1,lentext(donor))
-	var/receiver_antigen = copytext(receiver,1,lentext(receiver))
-	var/donor_rh = (findtext(donor,"+")>0)
-	var/receiver_rh = (findtext(receiver,"+")>0)
+	var/donor_antigen = copytext(blood_type, 1, lentext(blood_type))
+	var/receiver_antigen = copytext(dna.b_type, 1, lentext(dna.b_type))
+	var/donor_rh = (findtext(blood_type, "+") > 0)
+	var/receiver_rh = (findtext(dna.b_type, "+") > 0)
 
 	if(donor_rh && !receiver_rh) return 1
 	switch(receiver_antigen)
@@ -197,6 +194,16 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 			if(donor_antigen != "O") return 1
 		//AB is a universal receiver.
 	return 0
+
+/mob/living/carbon/human/proc/regenerate_blood(amount)
+	var/blood_volume_raw = vessel.get_reagent_amount(/datum/reagent/blood)
+	amount = max(0,min(amount, species.blood_volume - blood_volume_raw))
+	if(amount)
+		var/datum/reagent/blood/B = get_blood(vessel)
+		if(istype(B))
+			B.volume += amount
+			vessel.update_total()
+	return amount
 
 proc/blood_splatter(var/target,var/datum/reagent/blood/source,var/large,var/spray_dir)
 
@@ -277,6 +284,10 @@ proc/blood_splatter(var/target,var/datum/reagent/blood/source,var/large,var/spra
 		blood_volume *= max(0.3, (1-(heart.damage / heart.max_damage))) * pulse_mod
 	return min(blood_volume, 100)
 
+//Whether the species needs blood to carry oxygen. Used in get_blood_oxygenation and may be expanded based on blood rather than species in the future.
+/mob/living/carbon/human/proc/blood_carries_oxygen()
+	return species.blood_oxy
+
 //Percentage of maximum blood volume, affected by the condition of circulation organs, affected by the oxygen loss. What ultimately matters for brain
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
@@ -286,6 +297,9 @@ proc/blood_splatter(var/target,var/datum/reagent/blood/source,var/large,var/spra
 
 	if(!need_breathe())
 		return blood_volume
+
+	if(!blood_carries_oxygen())
+		blood_volume = 100
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(maxHealth/2))
 	var/oxygenated_mult = 0

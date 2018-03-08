@@ -829,7 +829,7 @@ About the new airlock wires panel:
 	var/cut_verb
 	var/cut_sound
 
-	if(istype(item,/obj/item/weapon/weldingtool))
+	if(isWelder(item))
 		var/obj/item/weapon/weldingtool/WT = item
 		if(!WT.isOn())
 			return 0
@@ -838,7 +838,7 @@ About the new airlock wires panel:
 			return 0
 		cut_verb = "cutting"
 		cut_sound = 'sound/items/Welder.ogg'
-	else if(istype(item,/obj/item/weapon/pickaxe/plasmacutter))
+	else if(istype(item,/obj/item/weapon/gun/energy/plasmacutter)) //They could probably just shoot them out, but who cares!
 		cut_verb = "cutting"
 		cut_sound = 'sound/items/Welder.ogg'
 		cut_delay *= 0.66
@@ -890,14 +890,12 @@ About the new airlock wires panel:
 			"<span class='notice'>\The [user] begins [cut_verb] through [src]'s bolts.</span>",
 			"<span class='notice'>You begin [cut_verb] through the door bolts.</span>"
 			)
-		to_chat(usr, "You begin [cut_verb] through the door bolts.")
 		playsound(src, cut_sound, 100, 1)
 		if (do_after(user, cut_delay, src))
 			user.visible_message(
 				"<span class='notice'>\The [user] severs the door bolts, unlocking [src].</span>",
 				"<span class='notice'>You sever the door bolts, unlocking the door.</span>"
 				)
-			to_chat(user, "You sever the door bolts, unlocking the door.")
 			src.lock_cut_state = BOLTS_CUT
 			src.unlock(1) //force it
 		return 1
@@ -932,14 +930,12 @@ About the new airlock wires panel:
 	if(istype(C, /obj/item/taperoll))
 		return
 
-	src.add_fingerprint(user)
-
 	if (!repairing && (stat & BROKEN) && src.locked) //bolted and broken
 		if (!cut_bolts(C,user))
 			..()
 		return
 
-	if(!repairing && (istype(C, /obj/item/weapon/weldingtool) && !( src.operating > 0 ) && src.density))
+	if(!repairing && isWelder(C) && !( src.operating > 0 ) && src.density)
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0,user))
 			if(!src.welded)
@@ -951,7 +947,7 @@ About the new airlock wires panel:
 			return
 		else
 			return
-	else if(istype(C, /obj/item/weapon/screwdriver))
+	else if(isScrewdriver(C))
 		if (src.p_open)
 			if (stat & BROKEN)
 				to_chat(usr, "<span class='warning'>The panel is broken and cannot be closed.</span>")
@@ -960,16 +956,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(istype(C, /obj/item/weapon/wirecutters))
+	else if(isWirecutter(C))
 		return src.attack_hand(user)
-	else if(istype(C, /obj/item/device/multitool))
+	else if(isMultitool(C))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && istype(C, /obj/item/weapon/crowbar))
+	else if(!repairing && isCrowbar(C))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && !src.locked)) && !brace)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
@@ -1197,9 +1193,9 @@ About the new airlock wires panel:
 
 		//get the name from the assembly
 		if(assembly.created_name)
-			name = assembly.created_name
+			SetName(assembly.created_name)
 		else
-			name = "[istext(assembly.glass) ? "[assembly.glass] airlock" : assembly.base_name]"
+			SetName("[istext(assembly.glass) ? "[assembly.glass] airlock" : assembly.base_name]")
 
 		//get the dir from the assembly
 		set_dir(assembly.dir)
@@ -1303,80 +1299,6 @@ About the new airlock wires panel:
 	else
 		user << "If you see this, it means airlock/change_paintjob() was called with something other than an airlock painter. Check your code!"
 		return
-
-	if(!W.can_use(user))
-		return
-
-	if(glass == 1)
-		//These airlocks have a glass version.
-		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining")
-		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
-		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
-		switch(paintjob)
-			if("Default")
-				icon = 'icons/obj/doors/Doorglass.dmi'
-				heat_proof = 0
-			if("Engineering")
-				icon = 'icons/obj/doors/Doorengglass.dmi'
-				heat_proof = 0
-			if("Atmospherics")
-				icon = 'icons/obj/doors/Dooratmoglass.dmi'
-				heat_proof = 0
-			if("Security")
-				icon = 'icons/obj/doors/Doorsecglass.dmi'
-				heat_proof = 0
-			if("Command")
-				icon = 'icons/obj/doors/Doorcomglass.dmi'
-				heat_proof = 0
-			if("Medical")
-				icon = 'icons/obj/doors/Doormedglass.dmi'
-				heat_proof = 0
-			if("Research")
-				icon = 'icons/obj/doors/Doorresearchglass.dmi'
-				heat_proof = 1
-			if("Mining")
-				icon = 'icons/obj/doors/Doorminingglass.dmi'
-				heat_proof = 0
-	else
-		//These airlocks have a regular version.
-		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining", "Maintenance", "External", "High Security")
-		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
-		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
-		switch(paintjob)
-			if("Default")
-				icon = 'icons/obj/doors/Doorint.dmi'
-				heat_proof = 0
-			if("Engineering")
-				icon = 'icons/obj/doors/Dooreng.dmi'
-				heat_proof = 0
-			if("Atmospherics")
-				icon = 'icons/obj/doors/Dooratmo.dmi'
-				heat_proof = 0
-			if("Security")
-				icon = 'icons/obj/doors/Doorsec.dmi'
-				heat_proof = 0
-			if("Command")
-				icon = 'icons/obj/doors/Doorcom.dmi'
-				heat_proof = 0
-			if("Medical")
-				icon = 'icons/obj/doors/Doormed.dmi'
-				heat_proof = 0
-			if("Research")
-				icon = 'icons/obj/doors/Doorresearch.dmi'
-				heat_proof = 0
-			if("Mining")
-				icon = 'icons/obj/doors/Doormining.dmi'
-				heat_proof = 0
-			if("Maintenance")
-				icon = 'icons/obj/doors/Doormaint.dmi'
-				heat_proof = 0
-			if("External")
-				icon = 'icons/obj/doors/Doorext.dmi'
-				heat_proof = 0
-			if("High Security")
-				icon = 'icons/obj/doors/hightechsecurity.dmi'
-				heat_proof = 0
-	update_icon()
 
 /obj/machinery/door/airlock/autoname
 	name = "hatch"

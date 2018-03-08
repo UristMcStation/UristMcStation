@@ -26,7 +26,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	//Secondary variables
 	var/scanmode = 0 //1 is medical scanner, 2 is forensics, 3 is reagent scanner.
 	var/fon = 0 //Is the flashlight function on?
-	var/f_lum = 2 //Luminosity for the flashlight function
+	var/f_lum = 3 //Luminosity for the flashlight function
 	var/message_silent = 0 //To beep or not to beep, that is the question
 	var/news_silent = 1 //To beep or not to beep, that is the question.  The answer is No.
 	var/toff = 0 //If 1, messenger disabled
@@ -222,6 +222,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	default_cartridge = /obj/item/weapon/cartridge/chemistry
 	icon_state = "pda-chem"
 
+/obj/item/device/pda/geneticist
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	icon_state = "pda-gene"
+
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai
 	icon_state = "NONE"
@@ -237,7 +241,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		ownrank = newrank
 	else
 		ownrank = ownjob
-	name = newname + " (" + ownjob + ")"
+	SetName(newname + " (" + ownjob + ")")
 
 
 //AI verb and proc for sending PDA messages.
@@ -335,6 +339,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		return 1
 	else
 		return 0
+
+/obj/item/device/pda/proc/toggle_light()
+	if(can_use())
+		if(fon)
+			fon = 0
+			set_light(0)
+		else
+			fon = 1
+			set_light(f_lum)
 
 /obj/item/device/pda/GetAccess()
 	if(id)
@@ -473,15 +486,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				var/o2_level = environment.gas["oxygen"]/total_moles
 				var/n2_level = environment.gas["nitrogen"]/total_moles
 				var/co2_level = environment.gas["carbon_dioxide"]/total_moles
-				var/phoron_level = environment.gas["phoron"]/total_moles
-				var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
+				var/unknown_level =  1-(o2_level+n2_level+co2_level)
 				data["aircontents"] = list(\
 					"pressure" = "[round(pressure,0.1)]",\
 					"nitrogen" = "[round(n2_level*100,0.1)]",\
 					"oxygen" = "[round(o2_level*100,0.1)]",\
 					"carbon_dioxide" = "[round(co2_level*100,0.1)]",\
-					"phoron" = "[round(phoron_level*100,0.01)]",\
-					"other" = "[round(unknown_level, 0.01)]",\
+					"other" = "[round(unknown_level*100,0.01)]",\
 					"temp" = "[round(environment.temperature-T0C,0.1)]",\
 					"reading" = 1\
 					)
@@ -584,7 +595,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			ui.close()
 		return 0
 
-	add_fingerprint(U)
 	U.set_machine(src)
 
 	switch(href_list["choice"])
@@ -638,12 +648,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 //MAIN FUNCTIONS===================================
 
 		if("Light")
-			if(fon)
-				fon = 0
-				set_light(0)
-			else
-				fon = 1
-				set_light(f_lum)
+			toggle_light()
 		if("Medical Scan")
 			if(scanmode == 1)
 				scanmode = 0
@@ -957,6 +962,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(Adjacent(usr))
 		verb_remove_id()
 
+/obj/item/device/pda/CtrlAltClick()
+	toggle_light()
+
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(!istype(P))
 		to_chat(U, "<span class='notice'>ERROR: This user does not accept messages.</span>")
@@ -1004,10 +1012,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			tempmessage[P] = t
 			return
 
-		tnote.Add(list(list("sent" = 1, "owner" = "[P.owner]", "job" = "[P.ownjob]", "message" = "[t]", "target" = "\ref[P]")))
-		P.tnote.Add(list(list("sent" = 0, "owner" = "[owner]", "job" = "[ownjob]", "message" = "[t]", "target" = "\ref[src]")))
+		tnote.Add(list(list("sent" = 1, "owner" = "[P.owner]", "job" = "[P.ownjob]", "message" = "[t]", "timestamp" = stationtime2text(), "target" = "\ref[P]")))
+		P.tnote.Add(list(list("sent" = 0, "owner" = "[owner]", "job" = "[ownjob]", "message" = "[t]", "timestamp" = stationtime2text(), "target" = "\ref[src]")))
 		for(var/mob/M in GLOB.player_list)
-			if(M.stat == DEAD && M.is_preference_enabled(/datum/client_preference/ghost_ears)) // src.client is so that ghosts don't have to listen to mice
+			if(M.stat == DEAD && M.get_preference_value(/datum/client_preference/ghost_ears) == GLOB.PREF_ALL_SPEECH) // src.client is so that ghosts don't have to listen to mice
 				if(istype(M, /mob/new_player))
 					continue
 				M.show_message("<span class='game say'>PDA Message - <span class='name'>[owner]</span> -> <span class='name'>[P.owner]</span>: <span class='message'>[t]</span></span>")
@@ -1207,7 +1215,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			return
 		if(!owner)
 			set_owner_rank_job(idcard.registered_name, idcard.rank, idcard.assignment)
-			name = "PDA-[owner] ([ownjob])"
+			SetName("PDA-[owner] ([ownjob])")
 			to_chat(user, "<span class='notice'>Card scanned.</span>")
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
@@ -1388,7 +1396,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		var/name = P.owner
 		if (name in names)
 			namecounts[name]++
-			name = text("[name] ([namecounts[name]])")
+			SetName(text("[name] ([namecounts[name]])"))
 		else
 			names.Add(name)
 			namecounts[name] = 1

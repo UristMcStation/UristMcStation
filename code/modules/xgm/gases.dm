@@ -157,10 +157,3 @@
 
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.020	// kg/mol
-
-/decl/xgm_gas/boron
-	id = "boron"
-	name = "Boron-11"
-	specific_heat = 20	// J/(mol*K)
-	molar_mass = 0.011	// kg/mol
-	flags = XGM_GAS_FUSION_FUEL

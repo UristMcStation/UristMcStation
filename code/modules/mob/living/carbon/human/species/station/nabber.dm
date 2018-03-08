@@ -10,7 +10,7 @@
 
 	language = LANGUAGE_NABBER
 	default_language = LANGUAGE_NABBER
-	assisted_langs = list(LANGUAGE_GALCOM, LANGUAGE_TRADEBAND, LANGUAGE_GUTTER, LANGUAGE_UNATHI, LANGUAGE_SIIK_MAAS, LANGUAGE_SKRELLIAN, LANGUAGE_SOL_COMMON, LANGUAGE_EAL, LANGUAGE_INDEPENDENT)
+	assisted_langs = list(LANGUAGE_GALCOM, LANGUAGE_LUNAR, LANGUAGE_GUTTER, LANGUAGE_UNATHI, LANGUAGE_SIIK_MAAS, LANGUAGE_SKRELLIAN, LANGUAGE_SOL_COMMON, LANGUAGE_EAL, LANGUAGE_INDEPENDENT, LANGUAGE_SPACER)
 	additional_langs = list(LANGUAGE_GALCOM)
 	name_language = LANGUAGE_NABBER
 	min_age = 8
@@ -22,16 +22,22 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 
-	body_temperature = T0C + 5
+	body_temperature = null
 
 	blood_color = "#525252"
 	flesh_color = "#525252"
+	blood_oxy = 0
 
 	reagent_tag = IS_NABBER
 
-	icon_template = 'icons/mob/human_races/r_nabber_template.dmi'
+	icon_template = 'icons/mob/human_races/r_template_tall.dmi'
 	icobase = 'icons/mob/human_races/r_nabber.dmi'
 	deform = 'icons/mob/human_races/r_nabber.dmi'
+
+	eye_icon = "eyes_nabber"
+	eye_icon_location = 'icons/mob/nabber_face.dmi'
+
+	limb_blend = ICON_MULTIPLY
 
 	blood_mask = 'icons/mob/human_races/masks/blood_nabber.dmi'
 
@@ -41,11 +47,12 @@
 	slowdown = -0.5
 	rarity_value = 4
 	hud_type = /datum/hud_data/nabber
-	total_health = 150
+	total_health = 200
 	brute_mod = 0.85
 	burn_mod =  1.35
 	gluttonous = GLUT_SMALLER
 	mob_size = MOB_LARGE
+	strength = STR_HIGH
 	breath_pressure = 25
 	blood_volume = 840
 	spawns_with_stack = 0
@@ -54,9 +61,13 @@
 	heat_level_2 = 440 //Default 400
 	heat_level_3 = 800 //Default 1000
 
-	flags = NO_SLIP | CAN_NAB | NO_BLOCK | NO_MINOR_CUT
-	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR
-	spawn_flags = SPECIES_IS_RESTRICTED | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
+	species_flags = SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_CAN_NAB | SPECIES_FLAG_NO_BLOCK | SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NEED_DIRECT_ABSORB
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_SKIN_TONE_NORMAL | HAS_BASE_SKIN_COLOURS
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_NO_LACE
+
+	bump_flag = HEAVY
+	push_flags = ALLMOBS
+	swap_flags = ALLMOBS
 
 	breathing_organ = BP_TRACH
 
@@ -88,6 +99,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/nabber)
 		)
 
+	base_skin_colours = list(
+		"Grey"   = "",
+		"Green"  = "_green"
+	)
+
 	unarmed_types = list(/datum/unarmed_attack/nabber)
 
 	inherent_verbs = list(
@@ -97,22 +113,26 @@
 		/mob/living/carbon/human/proc/threat_display
 		)
 
+	equip_adjust = list(
+		slot_back_str = list(NORTH = list("x" = 0, "y" = 7), EAST = list("x" = 0, "y" = 8), SOUTH = list("x" = 0, "y" = 8), WEST = list("x" = 0, "y" = 8))
+			)
+
 /datum/species/nabber/get_eyes(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/eyes/nabber/O = H.internal_organs_by_name[BP_EYES]
 	if(!O || !istype(O))
 		return
-
-	var/image/eye_overlay = eye_overlays["[O.eyes_shielded] [rgb(O.eye_colour[1], O.eye_colour[2], O.eye_colour[3])]"]
+	var/store_string = "[O.eyes_shielded] [H.is_cloaked()] [rgb(O.eye_colour[1], O.eye_colour[2], O.eye_colour[3])]"
+	var/image/eye_overlay = eye_overlays[store_string]
 	if(!eye_overlay)
+		var/icon/I = new('icons/mob/nabber_face.dmi', "eyes_nabber")
+		I.Blend(rgb(O.eye_colour[1], O.eye_colour[2], O.eye_colour[3]), ICON_ADD)
 		if(O.eyes_shielded)
-			eye_overlay = image('icons/mob/nabber_face.dmi', "eyes_nabber_shielded")
-		else
-			var/icon/I = new('icons/mob/nabber_face.dmi', "eyes_nabber")
-			I.Blend(rgb(O.eye_colour[1], O.eye_colour[2], O.eye_colour[3]), ICON_ADD)
-			eye_overlay = image(I)
-		eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		eye_overlay.layer = EYE_GLOW_LAYER
-		eye_overlays["[O.eyes_shielded] [rgb(O.eye_colour[1], O.eye_colour[2], O.eye_colour[3])]"] = eye_overlay
+			I.Blend(rgb(125, 125, 125), ICON_MULTIPLY)
+		eye_overlay = image(I)
+		if(H.is_cloaked())
+			eye_overlay.alpha = 100
+
+		eye_overlays[store_string] = eye_overlay
 	return(eye_overlay)
 
 /datum/species/nabber/get_blood_name()

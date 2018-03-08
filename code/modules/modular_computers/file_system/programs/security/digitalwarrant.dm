@@ -8,18 +8,19 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 	extended_desc = "Official NTsec program for creation and handling of warrants."
 	size = 8
 	program_icon_state = "warrant"
+	program_key_state = "security_key"
 	program_menu_icon = "star"
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access = access_security
 	usage_flags = PROGRAM_ALL
-	nanomodule_path = /datum/nano_module/program/digitalwarrant/
+	nanomodule_path = /datum/nano_module/digitalwarrant/
 
-/datum/nano_module/program/digitalwarrant/
+/datum/nano_module/digitalwarrant/
 	name = "Warrant Assistant"
 	var/datum/computer_file/data/warrant/activewarrant
 
-/datum/nano_module/program/digitalwarrant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/digitalwarrant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 	if(activewarrant)
@@ -59,7 +60,7 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/program/digitalwarrant/Topic(href, href_list)
+/datum/nano_module/digitalwarrant/Topic(href, href_list)
 	if(..())
 		return 1
 

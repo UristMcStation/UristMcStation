@@ -50,6 +50,7 @@
 		return
 	for(var/t in organs)
 		qdel(t)
+	QDEL_NULL_LIST(worn_underwear)
 	return ..(move)
 
 /mob/living/carbon/AIize()
@@ -110,6 +111,7 @@
 /mob/living/carbon/human/proc/Robotize()
 	if (transforming)
 		return
+	QDEL_NULL_LIST(worn_underwear)
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
@@ -138,7 +140,7 @@
 	O.job = "Cyborg"
 	if(O.mind.assigned_role == "Cyborg")
 		if(O.mind.role_alt_title == "Android")
-			O.mmi = new /obj/item/device/mmi/digital/posibrain(O)
+			O.mmi = new /obj/item/organ/internal/posibrain(O)
 		else if(O.mind.role_alt_title == "Robot")
 			O.mmi = new /obj/item/device/mmi/digital/robot(O)
 		else

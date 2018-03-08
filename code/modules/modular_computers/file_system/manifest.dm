@@ -8,6 +8,7 @@
 		list("names" = list(), "header" = "Medical", "flag" = MED),
 		list("names" = list(), "header" = "Engineering", "flag" = ENG),
 		list("names" = list(), "header" = "Supply", "flag" = SUP),
+		list("names" = list(), "header" = "Exploration", "flag" = EXP),
 		list("names" = list(), "header" = "Service", "flag" = SRV),
 		list("names" = list(), "header" = "Civilian", "flag" = CIV),
 		list("names" = list(), "header" = "Miscellaneous", "flag" = MSC),

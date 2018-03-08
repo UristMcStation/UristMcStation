@@ -6,7 +6,8 @@
 	anchored = 1
 	w_class = ITEM_SIZE_HUGE
 	canhear_range = 2
-	flags = CONDUCT | NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = ABOVE_WINDOW_LAYER
 	var/number = 0
 	var/last_tick //used to delay the powercheck
@@ -146,19 +147,18 @@
 /obj/item/device/radio/intercom/locked
 	var/locked_frequency
 
-/obj/item/device/radio/intercom/locked/set_frequency(var/frequency)
-	if(frequency == locked_frequency)
-		..(locked_frequency)
+/obj/item/device/radio/intercom/locked/set_frequency()
+	..(locked_frequency)
 
 /obj/item/device/radio/intercom/locked/list_channels()
 	return ""
 
 /obj/item/device/radio/intercom/locked/ai_private
 	name = "\improper AI intercom"
-	frequency = AI_FREQ
+	locked_frequency = AI_FREQ
 	broadcasting = 1
 	listening = 1
 
 /obj/item/device/radio/intercom/locked/confessional
 	name = "confessional intercom"
-	frequency = 1480
+	locked_frequency = 1480

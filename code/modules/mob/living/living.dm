@@ -49,7 +49,8 @@ default behaviour is:
 			return 1
 		if(mob_bump_flag & context_flags)
 			return 1
-		return 0
+		else
+			return ((a_intent == I_HELP && swapped.a_intent == I_HELP) && swapped.can_move_mob(src, swapping, 1))
 
 /mob/living/canface()
 	if(stat)
@@ -117,6 +118,12 @@ default behaviour is:
 				now_pushing = 0
 				return
 			tmob.LAssailant = src
+		if(isobj(AM) && !AM.anchored)
+			var/obj/I = AM
+			if(!can_pull_size || can_pull_size < I.w_class)
+				to_chat(src, "<span class='warning'>It won't budge!</span>")
+				now_pushing = 0
+				return
 
 		now_pushing = 0
 		spawn(0)
@@ -744,3 +751,23 @@ default behaviour is:
 		layer = HIDING_MOB_LAYER
 	else
 		..()
+
+/mob/living/update_icons()
+	if(auras)
+		overlays |= auras
+
+/mob/living/proc/add_aura(var/obj/aura/aura)
+	LAZYDISTINCTADD(auras,aura)
+	update_icons()
+	return 1
+
+/mob/living/proc/remove_aura(var/obj/aura/aura)
+	LAZYREMOVE(auras,aura)
+	update_icons()
+	return 1
+
+/mob/living/Destroy()
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+	return ..()

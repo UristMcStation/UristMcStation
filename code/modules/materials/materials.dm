@@ -88,6 +88,8 @@ var/list/name_to_material
 	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/icon_reinf = "reinf_metal"                       // Overlay used
+	var/table_icon_base = "metal"
+	var/table_reinf = "reinf_metal"
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 
 	// Attributes
@@ -242,12 +244,12 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/uranium
 	radioactivity = 12
 	icon_base = "stone"
+	door_icon_base = "stone"
+	table_icon_base = "stone"
 	icon_reinf = "reinf_stone"
 	icon_colour = "#007a00"
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
-	door_icon_base = "stone"
-	is_fission_fuel = TRUE
 
 /material/uranium/u235
 	name = "enriched uranium"
@@ -301,6 +303,7 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/phoron
 	ignition_point = PHORON_MINIMUM_BURN_TEMPERATURE
 	icon_base = "stone"
+	table_icon_base = "stone"
 	icon_colour = "#e37108"
 	shard_type = SHARD_SHARD
 	hardness = 30
@@ -339,6 +342,7 @@ var/list/name_to_material
 	name = "sandstone"
 	stack_type = /obj/item/stack/material/sandstone
 	icon_base = "stone"
+	table_icon_base = "stone"
 	icon_reinf = "reinf_stone"
 	icon_colour = "#d9c179"
 	shard_type = SHARD_STONE_PIECE
@@ -451,6 +455,7 @@ var/list/name_to_material
 	brute_armor = 1
 	burn_armor = 2
 	door_icon_base = "stone"
+	table_icon_base = "solid"
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
@@ -678,7 +683,7 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/wood
 	icon_colour = "#824b28"
 	integrity = 50
-	icon_base = "wood"
+	icon_base = "solid"
 	table_icon_base = "solid"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
@@ -745,15 +750,9 @@ var/list/name_to_material
 /material/cult/place_dismantled_girder(var/turf/target)
 	new /obj/structure/girder/cult(target)
 
-/material/cult/place_dismantled_product(var/turf/target)
-	new /obj/effect/decal/cleanable/blood(target)
-
 /material/cult/reinf
 	name = "cult2"
-	display_name = "human remains"
-
-/material/cult/reinf/place_dismantled_product(var/turf/target)
-	new /obj/item/remains/human(target)
+	display_name = "runic inscriptions"
 
 /material/resin
 	name = "resin"
@@ -793,21 +792,6 @@ var/list/name_to_material
 	..()
 
 /material/aliumium/place_dismantled_girder(var/turf/target, var/material/reinf_material)
-	return
-
-//Used for nuclear fission reactors
-/material/concrete
-	name = "concrete"
-	integrity = 400
-	melting_point = 10000 //spess concrete is magical
-	icon_colour = "#bab5ab"
-	weight = 100 //Its one purpose
-	conductive = FALSE
-
-/material/concrete/place_dismantled_product(var/turf/target)
-	return
-
-/material/concrete/place_dismantled_girder(var/turf/target, var/material/reinf_material)
 	return
 
 //TODO PLACEHOLDERS:

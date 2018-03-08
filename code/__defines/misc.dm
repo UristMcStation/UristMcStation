@@ -1,8 +1,10 @@
 #define DEBUG
 // Turf-only flags.
-#define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NORUINS 2
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
+#define RUIN_MAP_EDGE_PAD 15
 
 // Invisibility constants.
 #define INVISIBILITY_LIGHTING    20
@@ -72,8 +74,8 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define AREA_RAD_SHIELDED 1 // shielded from radiation, clearly
-#define AREA_EXTERNAL     2 // External as in exposed to space, not outside in a nice, green, forest
+#define AREA_FLAG_RAD_SHIELDED 1 // shielded from radiation, clearly
+#define AREA_FLAG_EXTERNAL     2 // External as in exposed to space, not outside in a nice, green, forest
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -98,10 +100,6 @@
 #define SHARD_STONE_PIECE "piece"
 #define SHARD_SPLINTER "splinters"
 #define SHARD_NONE ""
-
-#define OBJ_ANCHORABLE 0x1
-#define OBJ_CLIMBABLE 0x2
-#define OBJ_SURGICAL 0x4
 
 #define MATERIAL_UNMELTABLE 0x1
 #define MATERIAL_BRITTLE    0x2
@@ -203,10 +201,6 @@
 //Error handler defines
 #define ERROR_USEFUL_LEN 2
 
-// Effect Systems.
-#define EFFECT_CONTINUE 0 	// Keep processing.
-#define EFFECT_HALT 1		// Stop processing, but don't qdel.
-#define EFFECT_DESTROY 2	// qdel.
 #define RAD_LEVEL_LOW 0.5 // Around the level at which radiation starts to become harmful
 #define RAD_LEVEL_MODERATE 5
 #define RAD_LEVEL_HIGH 25
@@ -222,3 +216,6 @@
 #define EDIT_LIST 4			// Option select dialog
 
 #define REC_FIELD(KEY) 		/record_field/##KEY
+
+#define SUPPLY_SECURITY_ELEVATED 1
+#define SUPPLY_SECURITY_HIGH 2

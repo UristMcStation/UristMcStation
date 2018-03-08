@@ -27,7 +27,7 @@
 	status_flags = CANPUSH
 	minbodytemp = 0
 	heat_damage_per_tick = 20
-	var/corpse = /mob/living/carbon/human/xdrone
+	can_escape = 1
 
 
 /mob/living/simple_animal/hostile/alien/drone
@@ -38,7 +38,7 @@
 	health = 60
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	corpse = /mob/living/carbon/human/xdrone
+	can_escape = 0
 
 /mob/living/simple_animal/hostile/alien/sentinel
 	name = "alien sentinel"
@@ -51,7 +51,7 @@
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
-	corpse = /mob/living/carbon/human/xsentinel
+	can_escape = 0
 
 
 /mob/living/simple_animal/hostile/alien/queen
@@ -89,4 +89,3 @@
 /mob/living/simple_animal/hostile/alien/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw...", show_dead_message)
 	playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
-	qdel(src)

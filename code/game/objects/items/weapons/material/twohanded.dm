@@ -32,11 +32,9 @@
 	if(istype(M) && M.can_wield_item(src) && is_held_twohanded(M))
 		wielded = 1
 		force = force_wielded
-		name = "[base_name] (wielded)"
 	else
 		wielded = 0
 		force = force_unwielded
-		name = "[base_name]"
 	update_icon()
 	..()
 

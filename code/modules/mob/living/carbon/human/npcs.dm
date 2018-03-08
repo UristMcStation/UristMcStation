@@ -14,21 +14,6 @@
 			C = new/obj/item/clothing/head/collectable/petehat(src)
 			equip_to_appropriate_slot(C)
 
-/obj/random_multi/single_item/punitelly
-	name = "Multi Point - Warrant Officer Punitelli"
-	id = "Punitelli"
-	item_path = /mob/living/carbon/human/monkey/punitelli
-
-/mob/living/carbon/human/monkey/punitelli/New()
-	..()
-	name = "Warrant Officer Punitelli"
-	real_name = name
-	var/obj/item/clothing/C
-	C = new /obj/item/clothing/under/utility/expeditionary/monkey(src)
-	equip_to_appropriate_slot(C)
-	put_in_hands(new /obj/item/weapon/clipboard)
-	equip_to_appropriate_slot(new /obj/item/clothing/mask/smokable/cigarette/jerichos)
-
 /decl/hierarchy/outfit/blank_subject
 	name = "Test Subject"
 	uniform = /obj/item/clothing/under/color/white
@@ -38,6 +23,7 @@
 	suit = /obj/item/clothing/suit/straight_jacket
 
 /decl/hierarchy/outfit/blank_subject/post_equip(mob/living/carbon/human/H)
+	..()
 	var/obj/item/clothing/under/color/white/C = locate() in H
 	if(C)
 		C.has_sensor  = SUIT_LOCKED_SENSORS
@@ -46,7 +32,7 @@
 /mob/living/carbon/human/blank/New(var/new_loc)
 	..(new_loc, "Vat-Grown Human")
 
-/mob/living/carbon/human/blank/Initialize(var/new_loc)
+/mob/living/carbon/human/blank/Initialize()
 	. = ..()
 	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
 	fully_replace_character_name("Subject [number]")
@@ -54,55 +40,7 @@
 	outfit.equip(src)
 	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
 	if(F)
-		F.name = "[F.name] ([number])"
+		F.SetName("[F.name] ([number])")
 
 /mob/living/carbon/human/blank/ssd_check()
-	return FALSE
-
-/mob/living/carbon/human/blankUnathi/New(var/new_loc)  //cancercopypasta, because just defining new() for subtypes isn't working! -Vak
-	..(new_loc, SPECIES_UNATHI)
-
-/mob/living/carbon/human/blankUnathi/Initialize(var/new_loc)
-	. = ..()
-	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
-	fully_replace_character_name("Subject [number]")
-	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
-	outfit.equip(src)
-	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
-	if(F)
-		F.name = "[F.name] ([number])"
-
-/mob/living/carbon/human/blankUnathi/ssd_check()
-	return FALSE
-
-/mob/living/carbon/human/blankSkrell/New(var/new_loc)
-	..(new_loc, SPECIES_SKRELL)
-
-/mob/living/carbon/human/blankSkrell/Initialize(var/new_loc)
-	. = ..()
-	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
-	fully_replace_character_name("Subject [number]")
-	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
-	outfit.equip(src)
-	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
-	if(F)
-		F.name = "[F.name] ([number])"
-
-/mob/living/carbon/human/blankSkrell/ssd_check()
-	return FALSE
-
-/mob/living/carbon/human/blankResomi/New(var/new_loc)
-	..(new_loc, SPECIES_RESOMI)
-
-/mob/living/carbon/human/blankResomi/Initialize(var/new_loc)
-	. = ..()
-	var/number = "[pick(possible_changeling_IDs)]-[rand(1,30)]"
-	fully_replace_character_name("Subject [number]")
-	var/decl/hierarchy/outfit/outfit = outfit_by_type(/decl/hierarchy/outfit/blank_subject)
-	outfit.equip(src)
-	var/obj/item/clothing/head/helmet/facecover/F = locate() in src
-	if(F)
-		F.name = "[F.name] ([number])"
-
-/mob/living/carbon/human/blankResomi/ssd_check()
 	return FALSE

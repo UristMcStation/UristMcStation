@@ -251,7 +251,7 @@
 
 	//n_name = copytext(n_name, 1, 32)
 	if(( get_dist(user,paper) <= 1  && user.stat == 0))
-		paper.name = "paper[(n_name ? text("- '[n_name]'") : null)]"
+		paper.SetName("paper[(n_name ? text("- '[n_name]'") : null)]")
 	add_fingerprint(user)
 	return
 
@@ -404,3 +404,8 @@
 
 	to_chat(user, "You fail to pick up \the [A] with \the [src]")
 	return
+
+/obj/item/weapon/reagent_containers/spray/cleaner/drone
+	name = "space cleaner"
+	desc = "BLAM!-brand non-foaming space cleaner!"
+	volume = 150

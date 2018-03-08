@@ -67,26 +67,35 @@
 	foldable = null //special form fitted boxes should not be foldable.
 
 /obj/item/weapon/storage/box/survival/
+	name = "crew survival kit"
+	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and white stripe indicate this one contains oxygen."
 	icon_state = "survival"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
 					/obj/item/weapon/tank/emergency/oxygen = 1,
 					/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/glowstick = 1,
 					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
 /obj/item/weapon/storage/box/vox/
-	icon_state = "survival"
+	name = "vox survival kit"
+	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and black stripe indicate this one contains nitrogen."
+	icon_state = "survivalvox"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
 					/obj/item/weapon/tank/emergency/nitrogen = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/glowstick = 1,
 					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
 /obj/item/weapon/storage/box/engineer/
-	icon_state = "survival"
+	name = "engineer survival kit"
+	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and orange stripe indicate this one as the engineering variant."
+	icon_state = "survivaleng"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
 					/obj/item/weapon/tank/emergency/oxygen/engi = 1,
 					/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1,
 					/obj/item/weapon/reagent_containers/hypospray/autoinjector/detox = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/glowstick = 1,
 					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
 
@@ -296,6 +305,12 @@
 	icon_state = "id"
 	startswith = list(/obj/item/weapon/card/id = 7)
 
+/obj/item/weapon/storage/box/large/ids
+	name = "box of spare IDs"
+	desc = "Has so, so many empty IDs."
+	icon_state = "id_large"
+	startswith = list(/obj/item/weapon/card/id = 14)
+
 /obj/item/weapon/storage/box/seccarts
 	name = "box of spare R.O.B.U.S.T. Cartridges"
 	desc = "A box full of R.O.B.U.S.T. Cartridges, used by Security."
@@ -314,6 +329,9 @@
 	icon_state = "mousetraps"
 	startswith = list(/obj/item/device/assembly/mousetrap = 6)
 	
+/obj/item/weapon/storage/box/mousetraps/empty
+	startswith = null
+
 /obj/item/weapon/storage/box/mousetraps/empty
 	startswith = null
 
@@ -347,6 +365,8 @@
 			W.damtype = "burn"
 			W.icon_state = "match_lit"
 			START_PROCESSING(SSobj, W)
+			playsound(src.loc, 'sound/items/match.ogg', 60, 1, -4)
+			user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
 		W.update_icon()
 		return
 
@@ -375,12 +395,18 @@
 /obj/item/weapon/storage/box/lights/bulbs/empty
 	startswith = null
 
+/obj/item/weapon/storage/box/lights/bulbs/empty
+	startswith = null
+
 /obj/item/weapon/storage/box/lights/tubes
 	name = "box of replacement tubes"
 	icon_state = "lighttube"
 	startswith = list(/obj/item/weapon/light/tube = 17,
 					/obj/item/weapon/light/tube/large = 4)
 					
+/obj/item/weapon/storage/box/lights/tubes/empty
+	startswith = null
+
 /obj/item/weapon/storage/box/lights/tubes/empty
 	startswith = null
 
@@ -394,7 +420,9 @@
 /obj/item/weapon/storage/box/lights/mixed/empty
 	startswith = null
 
-/*
+/obj/item/weapon/storage/box/lights/mixed/empty
+	startswith = null
+
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of mixed glowsticks"
 	icon_state = "box"

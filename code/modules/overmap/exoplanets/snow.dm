@@ -40,14 +40,6 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
 
-/turf/simulated/floor/exoplanet/ice/Entered(atom/A, atom/OL)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.m_intent == "run" && prob(75))
-			H.forceMove(get_step(H,pick(GLOB.cardinal)))
-			H.visible_message("<span class = 'notice'>[H] slips on \the [src]!</span>", "<span class = 'notice'>You slip on \the [src]!.</span>")
-	..(A, OL)
-
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'

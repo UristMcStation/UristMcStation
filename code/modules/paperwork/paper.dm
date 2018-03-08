@@ -41,7 +41,7 @@
 
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)
-		name = title
+		SetName(title)
 	info = html_encode(text)
 	info = parsepencode(text)
 	update_icon()
@@ -89,7 +89,7 @@
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/weapon/photo/rename()
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name = n_name
+		SetName(n_name)
 		add_fingerprint(usr)
 
 /obj/item/weapon/paper/attack_self(mob/living/user as mob)
@@ -339,9 +339,9 @@
 				return
 		var/obj/item/weapon/paper_bundle/B = new(src.loc)
 		if (name != "paper")
-			B.name = name
+			B.SetName(name)
 		else if (P.name != "paper" && P.name != "photo")
-			B.name = P.name
+			B.SetName(P.name)
 
 		user.drop_from_inventory(P)
 		user.drop_from_inventory(src)
@@ -405,6 +405,11 @@
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
+
+	else if(istype(P, /obj/item/weapon/paper_bundle))
+		var/obj/item/weapon/paper_bundle/attacking_bundle = P
+		attacking_bundle.insert_sheet_at(user, (attacking_bundle.pages.len)+1, src)
+		attacking_bundle.update_icon()
 
 	add_fingerprint(user)
 	return

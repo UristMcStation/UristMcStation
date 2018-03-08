@@ -4,7 +4,7 @@
 	role_text_plural = "Changelings"
 	feedback_tag = "changeling_objective"
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg)
-	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/hos) 
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/hos)
 	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you absorb them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudchangeling"
@@ -62,13 +62,13 @@
 				var/mob/living/carbon/human/H = player.current
 				if(H.isSynthetic())
 					return 0
-				if(H.species.flags & NO_SCAN)
+				if(H.species.species_flags & SPECIES_FLAG_NO_SCAN)
 					return 0
 				return 1
 			else if(isnewplayer(player.current))
 				if(player.current.client && player.current.client.prefs)
 					var/datum/species/S = all_species[player.current.client.prefs.species]
-					if(S && (S.flags & NO_SCAN))
+					if(S && (S.species_flags & SPECIES_FLAG_NO_SCAN))
 						return 0
 					if(player.current.client.prefs.organ_data[BP_CHEST] == "cyborg") // Full synthetic.
 						return 0

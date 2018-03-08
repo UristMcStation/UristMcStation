@@ -18,7 +18,8 @@
 	var/g_eyes = 0
 	var/b_eyes = 0
 
-	var/s_tone = 0	//Skin tone
+	var/s_tone = 0  //Skin tone
+	var/s_base = "" //Skin base
 
 	//Skin colour
 	var/r_skin = 0
@@ -34,9 +35,9 @@
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
 
-	var/list/all_underwear = list()
-	var/list/all_underwear_metadata = list()
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
+	var/list/worn_underwear = list()
+
+	var/datum/backpack_setup/backpack_setup
 
 	// General information
 	var/home_system = ""

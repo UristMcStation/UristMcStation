@@ -6,6 +6,7 @@
 	var/totalPlayers = 0		 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
 	var/datum/browser/panel
+	var/show_invalid_jobs = 0
 	universal_speak = 1
 
 	invisibility = 101
@@ -144,7 +145,7 @@
 			if(client.prefs.be_random_name)
 				client.prefs.real_name = random_name(client.prefs.gender)
 			observer.real_name = client.prefs.real_name
-			observer.name = observer.real_name
+			observer.SetName(observer.real_name)
 			if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
 				observer.verbs -= /mob/observer/ghost/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
 			observer.key = key
@@ -241,6 +242,10 @@
 			src.poll_player(pollid)
 		return
 
+	if(href_list["invalid_jobs"])
+		show_invalid_jobs = !show_invalid_jobs
+		LateChoices()
+
 	if(href_list["votepollid"] && href_list["votetype"])
 		var/pollid = text2num(href_list["votepollid"])
 		var/votetype = href_list["votetype"]
@@ -319,11 +324,12 @@
 	if(job.latejoin_at_spawnpoints)
 		var/obj/S = job_master.get_roundstart_spawnpoint(job.title)
 		spawn_turf = get_turf(S)
+	var/radlevel = radiation_repository.get_rads_at_turf(spawn_turf)
 	var/airstatus = IsTurfAtmosUnsafe(spawn_turf)
-	if(airstatus)
-		var/reply = alert(usr, "Warning. Your selected spawn location seems to have unfavorable atmospheric conditions. \
-		You may die shortly after spawning. It is possible to select different spawn point via character preferences. \
-		Spawn anyway? More information: [airstatus]", "Atmosphere warning", "Abort", "Spawn anyway")
+	if(airstatus || radlevel > 0 )
+		var/reply = alert(usr, "Warning. Your selected spawn location seems to have unfavorable conditions. \
+		You may die shortly after spawning. \
+		Spawn anyway? More information: [airstatus] Radiation: [radlevel] Bq", "Atmosphere warning", "Abort", "Spawn anyway")
 		if(reply == "Abort")
 			return 0
 		else
@@ -413,6 +419,8 @@
 			dat += "<font color='red'>The [station_name()] is currently undergoing crew transfer procedures.</font><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
+	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
+	dat += "<table>"
 	for(var/datum/job/job in job_master.occupations)
 		if(job && IsJobAvailable(job))
 			if(job.minimum_character_age && (client.prefs.age < job.minimum_character_age))
@@ -424,12 +432,13 @@
 				active++
 
 			if(job.is_restricted(client.prefs))
-				dat += "<a style='text-decoration: line-through' href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+				if(show_invalid_jobs)
+					dat += "<tr><td><a style='text-decoration: line-through' href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title]</a></td><td>[job.current_positions]</td><td>(Active: [active])</td></tr>"
 			else
-				dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+				dat += "<tr><td><a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title]</a></td><td>[job.current_positions]</td><td>(Active: [active])</td></tr>"
 
-	dat += "</center>"
-	src << browse(jointext(dat, null), "window=latechoices;size=300x640;can_close=1")
+	dat += "</table></center>"
+	src << browse(jointext(dat, null), "window=latechoices;size=450x640;can_close=1")
 
 /mob/new_player/proc/create_character(var/turf/spawn_turf)
 	spawning = 1
@@ -450,6 +459,9 @@
 			spawning = 0 //abort
 			return null
 		new_character = new(spawn_turf, chosen_species.name)
+		if(chosen_species.has_organ[BP_POSIBRAIN] && client && client.prefs.is_shackled)
+			var/obj/item/organ/internal/posibrain/B = new_character.internal_organs_by_name[BP_POSIBRAIN]
+			if(B)	B.shackle(client.prefs.get_lawset())
 
 	if(!new_character)
 		new_character = new(spawn_turf)
@@ -489,7 +501,7 @@
 			mind.gen_relations_info = client.prefs.relations_info["general"]
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
-	new_character.name = real_name
+	new_character.SetName(real_name)
 	new_character.dna.ready_dna(new_character)
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()

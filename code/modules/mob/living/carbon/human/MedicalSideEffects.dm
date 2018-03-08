@@ -86,7 +86,7 @@
 // ===========
 /datum/medical_effect/bad_stomach
 	name = "Bad Stomach"
-	triggers = list(/datum/reagent/kelotane = 20, /datum/reagent/dermaline = 15)
+	triggers = list(/datum/reagent/kelotane = 30, /datum/reagent/dermaline = 15)
 	cures = list(/datum/reagent/dylovene)
 	cure_message = "Your stomach feels a little better now..."
 
@@ -103,7 +103,7 @@
 // ======
 /datum/medical_effect/cramps
 	name = "Cramps"
-	triggers = list(/datum/reagent/dylovene = 20, /datum/reagent/tramadol = 15)
+	triggers = list(/datum/reagent/dylovene = 30, /datum/reagent/tramadol = 15)
 	cures = list(/datum/reagent/inaprovaline)
 	cure_message = "The cramps let up..."
 
