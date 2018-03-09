@@ -32,6 +32,9 @@
 /obj/item/clothing/head/helmet/nt/guard
 	starting_accessories = list(/obj/item/clothing/accessory/armor/helmcover/nt)
 
+/obj/item/clothing/head/helmet/nt/tactical
+	starting_accessories = list(/obj/item/clothing/accessory/armor/helmcover/green)
+
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
 	desc = "A tan helmet made from advanced ceramic. Comfortable and robust."

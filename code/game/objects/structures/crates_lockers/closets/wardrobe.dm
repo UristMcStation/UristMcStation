@@ -401,17 +401,20 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/wardrobe/tactical/New()
-	..()
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/tacgoggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/tactical(src)
-	new /obj/item/clothing/gloves/tactical(src)
-	return
+/obj/structure/closet/wardrobe/tactical/WillContain()
+	return list(
+		/obj/item/clothing/suit/armor/pcarrier/green,
+		/obj/item/clothing/accessory/armorplate/medium,
+		/obj/item/clothing/under/tactical,
+		/obj/item/clothing/head/helmet/nt/tactical,
+		/obj/item/clothing/accessory/armguards/green,
+		/obj/item/clothing/accessory/legguards/green,
+		/obj/item/clothing/mask/balaclava/tactical,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
+		/obj/item/weapon/storage/belt/security/tactical,
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/gloves/thick
+	)
 
 /obj/structure/closet/wardrobe/suit
 	name = "formal clothing locker"

@@ -179,6 +179,7 @@
 		)
 
 /obj/structure/scrap/random/Initialize()
+	. = ..()
 	var/A = pick(scrap_list)
 	new A(src.loc)
 	return INITIALIZE_HINT_QDEL
@@ -217,11 +218,11 @@
 	icon = 'icons/urist/items/vehicle_parts.dmi'
 	w_class = 3
 
-/obj/item/vehicle_part/random/New()
-	..()
+/obj/item/vehicle_part/random/Initialize()
+	. = ..()
 	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric, /obj/item/vehicle_part/tire)
 	new part(src.loc)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/vehicle_part/battery
 	name = "battery"

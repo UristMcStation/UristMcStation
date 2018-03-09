@@ -67,6 +67,12 @@
 	var/list/valid_colors = list("#c20c00", "#0227f7", "#6262ff", "#454545", "#009900", "#e17291")
 	gear_tweaks = list(new/datum/gear_tweak/color(valid_colors))
 
+/datum/gear/suit/lab_veymed_skrell
+	display_name = "Vey-Med labcoat"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
+	sort_category = "Xenowear"
+	whitelisted = list(SPECIES_SKRELL)
+
 // IPC clothing
 /datum/gear/mask/ipc_monitor
 	display_name = "display monitor (IPC)"
@@ -97,52 +103,6 @@
 /datum/gear/shoes/wrk_toeless
 	display_name = "toeless workboots"
 	path = /obj/item/clothing/shoes/workboots/toeless
-	sort_category = "Xenowear"
-
-// Taj clothing
-/datum/gear/eyes/medical/tajblind
-	display_name = "medical veil (Tajara)"
-	path = /obj/item/clothing/glasses/hud/health/tajblind
-	whitelisted = list(SPECIES_TAJARA)
-	sort_category = "Xenowear"
-
-/datum/gear/eyes/meson/tajblind
-	display_name = "industrial veil (Tajara)"
-	path = /obj/item/clothing/glasses/meson/prescription/tajblind
-	whitelisted = list(SPECIES_TAJARA)
-	sort_category = "Xenowear"
-
-/datum/gear/eyes/security/tajblind
-	display_name = "sleek veil (Tajara)"
-	path = /obj/item/clothing/glasses/sunglasses/sechud/tajblind
-	whitelisted = list(SPECIES_TAJARA)
-	sort_category = "Xenowear"
-
-/datum/gear/shoes/caligae
-	display_name = "caligae (Tajara)"
-	path = /obj/item/clothing/shoes/sandal/tajaran/caligae
-	whitelisted = list(SPECIES_TAJARA)
-	sort_category = "Xenowear"
-
-/datum/gear/shoes/caligae/New()
-	..()
-	var/caligae = list()
-	caligae["no sock"] = /obj/item/clothing/shoes/sandal/tajaran/caligae
-	caligae["black sock"] = /obj/item/clothing/shoes/sandal/tajaran/caligae/black
-	caligae["grey sock"] = /obj/item/clothing/shoes/sandal/tajaran/caligae/grey
-	caligae["white sock"] = /obj/item/clothing/shoes/sandal/tajaran/caligae/white
-	gear_tweaks += new/datum/gear_tweak/path(caligae)
-
-/datum/gear/head/zhan_scarf
-	display_name = "Zhan headscarf (Tajara)"
-	path = /obj/item/clothing/head/tajaran/scarf
-	whitelisted = list(SPECIES_TAJARA)
-	sort_category = "Xenowear"
-
-/datum/gear/accessory/capes
-	display_name = "shoulder capes (Tajara)"
-	path = /obj/item/clothing/accessory/shouldercape
-	whitelisted = list(SPECIES_TAJARA)
 	sort_category = "Xenowear"
 
 /datum/gear/accessory/capes/New()

@@ -28,6 +28,7 @@
 	..()
 	helmet = new /obj/item/clothing/head/helmet/space/void/bogani
 	boots = new /obj/item/clothing/shoes/magboots
+	tank = new /obj/item/weapon/tank/chlorine
 
 /obj/item/clothing/head/helmet/space/void/bogani/advanced
 	name = "advanced strange hardsuit helmet"
@@ -45,6 +46,7 @@
 	..()
 	helmet = new /obj/item/clothing/head/helmet/space/void/bogani/advanced
 	boots = new /obj/item/clothing/shoes/magboots
+	tank = new /obj/item/weapon/tank/chlorine
 
 /obj/item/clothing/suit/space/void/bogani/armored
 	name = "strange armored hardsuit"
@@ -56,6 +58,7 @@
 	..()
 	helmet = new /obj/item/clothing/head/helmet/space/void/bogani
 	boots = new /obj/item/clothing/shoes/magboots
+	tank = new /obj/item/weapon/tank/chlorine
 
 /obj/item/clothing/suit/space/void/bogani/ultimate
 	name = "strange advanced armored hardsuit"
@@ -67,3 +70,4 @@
 	..()
 	helmet = new /obj/item/clothing/head/helmet/space/void/bogani/advanced
 	boots = new /obj/item/clothing/shoes/magboots
+	tank = new /obj/item/weapon/tank/chlorine

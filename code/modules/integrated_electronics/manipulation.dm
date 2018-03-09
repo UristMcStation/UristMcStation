@@ -403,6 +403,7 @@
 /obj/item/integrated_circuit/manipulation/arm/New()
 	..()
 	fake_mob = new /mob/living/carbon/human/robotic_arm(src)
+	fake_mob.real_name = "robotic arm"
 
 /obj/item/integrated_circuit/manipulation/arm/Destroy()
 	qdel(fake_mob)
@@ -508,8 +509,8 @@
 		return
 	A.attackby(holding, fake_mob)
 
-/mob/living/carbon/human/robotic_arm //this definitely makes sense
-	name = "\improper robotic arm"
+/mob/living/carbon/human/robotic_arm/say()
+	return
 
 /mob/living/carbon/human/robotic_arm/ssd_check()
 	return FALSE

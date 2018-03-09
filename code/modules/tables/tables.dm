@@ -6,6 +6,7 @@
 	density = 1
 	anchored = 1
 	atom_flags = ATOM_FLAG_CLIMBABLE
+	obj_flags = OBJ_FLAG_SURGICAL
 	layer = TABLE_LAYER
 	throwpass = 1
 	var/flipped = 0

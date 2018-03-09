@@ -82,6 +82,7 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/handcuffs(src)
 		new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
+		new /obj/item/clothing/suit/armor/pcarrier/medium(src)
 		return
 
 //Emergency suits locker
@@ -208,25 +209,20 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/wardrobe/tactical/New()
-	..()
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	return
+/obj/structure/closet/wardrobe/tactical/double/WillContain()
+	return list(
+		/obj/item/clothing/suit/armor/pcarrier/green = 2,
+		/obj/item/clothing/accessory/armorplate/medium = 2,
+		/obj/item/clothing/under/tactical = 2,
+		/obj/item/clothing/head/helmet/nt/tactical = 2,
+		/obj/item/clothing/accessory/armguards/green = 2,
+		/obj/item/clothing/accessory/legguards/green = 2,
+		/obj/item/clothing/mask/balaclava/tactical = 2,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
+		/obj/item/weapon/storage/belt/security/tactical = 2,
+		/obj/item/clothing/shoes/jackboots = 2,
+		/obj/item/clothing/gloves/thick = 2,
+	)
 
 /obj/structure/closet/secure_closet/hunter
 	name = "hunting gear"

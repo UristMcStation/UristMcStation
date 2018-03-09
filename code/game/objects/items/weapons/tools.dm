@@ -34,7 +34,11 @@
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
 /obj/item/weapon/wrench/Initialize()
-	icon_state = "wrench[pick("","_red","_black")]"
+	if(prob(25))
+		icon = 'icons/urist/items/tools.dmi'
+		icon_state = "wrench"
+	else
+		icon_state = "wrench[pick("","_red","_black")]"
 	. = ..()
 
 /*

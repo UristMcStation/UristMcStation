@@ -13,7 +13,7 @@
 		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/nanotrasen.dmi',
 		)
 
-/obj/item/clothing/under/rank/scientist
+/obj/item/clothing/under/rank/scientist/nt
 	name = "\improper NanoTrasen polo and pants"
 	desc = "A fashionable polo and pair of trousers made from patented biohazard-resistant synthetic fabrics. The colors denote the wearer as a member of NanoTrasen."
 	icon_state = "ntsmock"
@@ -32,7 +32,11 @@
 	desc = "A fashionable polo and pair of trousers made from expensive biohazard-resistant fabrics. The colors denote the wearer as a member of NanoTrasen's higher-ups."
 	icon_state = "ntsmockexec"
 	worn_state = "ntsmockexec"
+	item_icons = list(slot_w_uniform_str = 'icons/mob/onmob/nanotrasen.dmi')
 	starting_accessories = list(/obj/item/clothing/accessory/nt_tunic/exec)
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/nanotrasen.dmi',
+		)
 
 /obj/item/clothing/under/rank/ntwork
 	name = "\improper NanoTrasen coveralls"

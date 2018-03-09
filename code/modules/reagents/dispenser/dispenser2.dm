@@ -2,6 +2,7 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
+	layer = BELOW_OBJ_LAYER //Beakers were appearing below it
 	clicksound = "button"
 	clickvol = 20
 

@@ -251,6 +251,10 @@
 #define CORPSE_CAN_REENTER_AND_RESPAWN 2
 
 #define SPECIES_HUMAN       "Human"
+#define SPECIES_GRAV_HUMAN  "Grav-Adapted Human"
+#define SPECIES_SPACE_HUMAN "Space-Adapted Human"
+#define SPECIES_VAT_HUMAN   "Vat-Grown Human"
+#define SPECIES_ALL_HUMAN   list(SPECIES_HUMAN,SPECIES_VAT_HUMAN,SPECIES_SPACE_HUMAN,SPECIES_GRAV_HUMAN)
 #define SPECIES_TAJARA      "Tajara"
 #define SPECIES_DIONA       "Diona"
 #define SPECIES_VOX         "Vox"

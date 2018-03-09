@@ -28,9 +28,13 @@
 /obj/item/clothing/accessory/armband/veymed
 	name = "Vey-Med armband"
 	desc = "An armband, sometimes worn by employees of Vey-Med. This one is gold and green."
+	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_state = "veymed"
+	accessory_icons = list(slot_w_uniform_str = 'icons/uristmob/ties.dmi', slot_wear_suit_str = 'icons/uristmob/ties.dmi')
 
 /obj/item/clothing/accessory/armband/wardt
 	name = "Ward-Takahashi armband"
 	desc = "An armband, sometimes worn by employees of Ward-Takahashi. This one is white and orange."
+	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_state = "wardt"
+	accessory_icons = list(slot_w_uniform_str = 'icons/uristmob/ties.dmi', slot_wear_suit_str = 'icons/uristmob/ties.dmi')

@@ -26,7 +26,7 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
 
-	slowdown = -0.1
+	slowdown = -0.5
 	total_health = 150
 	brute_mod = 1.35
 	burn_mod =  1.35

@@ -67,6 +67,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(ntawards)
 
 //have to break up armbands to restrict access
+/*
 /datum/gear/accessory/armband_security
 	display_name = "security armband"
 	path = /obj/item/clothing/accessory/armband
@@ -96,3 +97,4 @@
 /datum/gear/accessory/armband_nt
 	display_name = "NanoTrasen armband"
 	path = /obj/item/clothing/accessory/armband/whitered
+*/

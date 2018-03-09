@@ -35,7 +35,7 @@
 	desc = "A tank with an N2O/O2 gas mix."
 	icon_state = "anesthetic"
 	item_state = "an_tank"
-	starting_pressure = list("oxygen" = 3*ONE_ATMOSPHERE*O2STANDARD, "sleeping_agent" = 3*ONE_ATMOSPHERE*N2STANDARD) 
+	starting_pressure = list("oxygen" = 3*ONE_ATMOSPHERE*O2STANDARD, "sleeping_agent" = 3*ONE_ATMOSPHERE*N2STANDARD)
 
 /*
  * Air
@@ -44,7 +44,7 @@
 	name = "air tank"
 	desc = "Mixed anyone?"
 	icon_state = "oxygen"
-	starting_pressure = list("oxygen" = 6*ONE_ATMOSPHERE*O2STANDARD, "nitrogen" = 6*ONE_ATMOSPHERE*N2STANDARD) 
+	starting_pressure = list("oxygen" = 6*ONE_ATMOSPHERE*O2STANDARD, "nitrogen" = 6*ONE_ATMOSPHERE*N2STANDARD)
 
 /*
  * Phoron
@@ -79,6 +79,19 @@
 		F.ptank = src
 		user.remove_from_mob(src)
 		forceMove(F)
+
+/*
+ * Chlorine
+ */
+/obj/item/weapon/tank/chlorine
+	name = "chlorine tank"
+	desc = "Contains chlorine. Warning: toxic."
+	icon_state = "oxygen_f"
+	gauge_icon = null
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	slot_flags = null
+	starting_pressure = list("chlorine" = 3*ONE_ATMOSPHERE)
+
 
 /*
  * Emergency Oxygen

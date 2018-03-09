@@ -152,12 +152,6 @@
 /obj/item/weapon/material/ashtray/wood/New(var/newloc)
 	..(newloc, "wood")
 
-/obj/item/weapon/wrench/New()
-	..()
-
-	if(prob(50))
-		icon = 'icons/urist/items/tools.dmi'
-
 //for the blueshield
 
 /obj/item/weapon/storage/box/deathimp

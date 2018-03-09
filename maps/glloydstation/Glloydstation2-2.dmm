@@ -1417,7 +1417,7 @@
 "aBm" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "escape_shuttle_hatch"; locked = 1; name = "Shuttle Hatch"},/obj/machinery/mech_sensor{pixel_x = 24},/turf/simulated/floor/shuttle/black,/area/shuttle/escape/centcom)
 "aBn" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/space,/area/shuttle/escape/centcom)
 "aBo" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 2},/area/shuttle/escape/centcom)
-"aBp" = (/obj/machinery/door/airlock/external{name = "Escape Airlock"; req_access = list(2)},/obj/machinery/mech_sensor{pixel_x = 24},/turf/space,/area/shuttle/escape/centcom)
+"aBp" = (/obj/machinery/door/airlock/external{name = "Escape Airlock"; req_access = list(2)},/obj/machinery/mech_sensor{pixel_x = 24},/turf/simulated/floor/shuttle/red,/area/shuttle/escape/centcom)
 "aBq" = (/turf/unsimulated/floor{icon_state = "plating"; name = "plating"},/turf/simulated/shuttle/wall/corner/smoothwhite/sw,/area/shuttle/transport1/centcom)
 "aBr" = (/turf/unsimulated/floor{icon_state = "plating"; name = "plating"},/turf/simulated/shuttle/wall/corner/smoothwhite/se,/area/shuttle/transport1/centcom)
 "aBs" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 2},/area/shuttle/transport1/centcom)

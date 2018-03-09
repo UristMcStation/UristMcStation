@@ -10,10 +10,6 @@ var/list/datum/map_template/underground_templates = list()
 	invisibility = 0
 	var/gamemode = 0
 
-/*/obj/effect/template_loader/New()
-	..()
-	Load()	*/
-
 /obj/effect/template_loader/proc/Load()
 	return
 
