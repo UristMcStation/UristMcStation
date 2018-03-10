@@ -36,10 +36,10 @@
 
 	face_atom(A) // change direction to face what you clicked on
 
-	if(aiCamera.in_camera_mode)
-		aiCamera.camera_mode_off()
+	if(silicon_camera.in_camera_mode)
+		silicon_camera.camera_mode_off()
 		if(is_component_functioning("camera"))
-			aiCamera.captureimage(A, usr)
+			silicon_camera.captureimage(A, usr)
 		else
 			to_chat(src, "<span class='userdanger'>Your camera isn't functional.</span>")
 		return
@@ -142,13 +142,13 @@
 	return
 
 /obj/machinery/door/airlock/BorgAltClick() // Eletrifies doors. Forwards to AI code.
-	AIAltClick()
+	AICtrlAltClick()
 
 /obj/machinery/turretid/BorgAltClick() //turret lethal on/off. Forwards to AI code.
 	AIAltClick()
 
-/obj/machinery/teleport/station/BorgAltClick()
-	testfire()
+/obj/machinery/atmospherics/binary/pump/BorgAltClick()
+	return AltClick()
 
 /*
 	As with AI, these are not used in click code,

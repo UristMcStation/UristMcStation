@@ -64,7 +64,6 @@
 	title = "Merchant"
 	department = "Civilian"
 	department_flag = CIV
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 2
 	supervisors = "the invisible hand of the market"

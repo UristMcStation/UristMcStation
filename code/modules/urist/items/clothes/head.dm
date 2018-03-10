@@ -32,7 +32,7 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
-	flags = STOPPRESSUREDAMAGE
+	obj_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
 	cold_protection = HEAD
 	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
 
@@ -401,7 +401,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "A full face helm."
 	icon_state = "helmet_bronze"
 	item_state = "helmet_bronze"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
@@ -411,7 +411,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "Provides modest protection."
 	icon_state = "helmet_green"
 	item_state = "helmet_green"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
@@ -422,7 +422,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "Provides excelent protection."
 	icon_state = "helmet_blue"
 	item_state = "helmet_blue"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR

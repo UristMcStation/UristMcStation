@@ -158,7 +158,7 @@
 		for(var/obj/effect/landmark/L in world)
 			if(L.name == "Marauder Exit")
 				var/obj/effect/portal/P = new(L.loc)
-				P.invisibility = 101//So it is not seen by anyone.
+				P.set_invisibility(101)//So it is not seen by anyone.
 				P.failchance = 0//So it has no fail chance when teleporting.
 				P.target = pick(spawn_marauder)//Where the marauder will arrive.
 				spawn_marauder.Remove(P.target)
@@ -198,17 +198,3 @@
 						M.close()
 		special_ops.readyreset()//Reset firealarm after the team launched.
 	//End Marauder launchpad.
-
-/obj/machinery/light/small/readylight
-	brightness_range = 5
-	brightness_power = 1
-	brightness_color = "#DA0205"
-	var/state = 0
-
-/obj/machinery/light/small/readylight/proc/set_state(var/new_state)
-	state = new_state
-	if(state)
-		brightness_color = "00FF00"
-	else
-		brightness_color = initial(brightness_color)
-	update()

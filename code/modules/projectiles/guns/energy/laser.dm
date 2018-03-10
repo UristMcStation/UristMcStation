@@ -7,6 +7,7 @@
 	w_class = ITEM_SIZE_LARGE
 	force = 10
 	one_hand_penalty = 2
+	accuracy = 2
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
@@ -20,7 +21,31 @@
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
+	icon_state = "laserp"
 	projectile_type = /obj/item/projectile/beam/practice
+	charge_cost = 10 //How much energy is needed to fire.
+
+/obj/item/weapon/gun/energy/laser/practice/proc/hacked()
+	return projectile_type != /obj/item/projectile/beam/practice
+
+/obj/item/weapon/gun/energy/laser/practice/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+	if(hacked())
+		return NO_EMAG_ACT
+	to_chat(user, "<span class='warning'>You disable the safeties on [src] and crank the output to the lethal levels.</span>")
+	desc += " Its safeties are disabled and output is set to dangerous levels."
+	projectile_type = /obj/item/projectile/beam/midlaser
+	charge_cost = 20
+	max_shots = rand(3,6) //will melt down after those
+	return 1
+
+/obj/item/weapon/gun/energy/laser/practice/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
+	..()
+	if(hacked())
+		max_shots--
+		if(!max_shots) //uh hoh gig is up
+			to_chat(user, "<span class='danger'>\The [src] sizzles in your hands, acrid smoke rising from the firing end!</span>")
+			desc += " The optical pathway is melted and useless."
+			projectile_type = null
 
 obj/item/weapon/gun/energy/retro
 	name = "retro laser"
@@ -60,6 +85,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 6
 	accuracy = 2
 	fire_delay = 20
+	wielded_item_state = "gun_wielded"
 
 /obj/item/weapon/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
@@ -81,12 +107,15 @@ obj/item/weapon/gun/energy/retro
 	w_class = ITEM_SIZE_LARGE
 	charge_cost = 15
 	max_shots = 10
+	wielded_item_state = "gun_wielded"
+	combustion = 0
 
 /obj/item/weapon/gun/energy/xray/pistol
 	name = "x-ray laser gun"
 	icon_state = "oldxray"
 	item_state = "oldxray"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	projectile_type = /obj/item/projectile/beam/xray
 	one_hand_penalty = 1
 	w_class = ITEM_SIZE_NORMAL
@@ -108,6 +137,7 @@ obj/item/weapon/gun/energy/retro
 	w_class = ITEM_SIZE_HUGE
 	accuracy = -2 //shooting at the hip
 	scoped_accuracy = 0
+	wielded_item_state = "gun_wielded"
 
 /obj/item/weapon/gun/energy/sniperrifle/update_icon()
 	..()

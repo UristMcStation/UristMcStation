@@ -17,7 +17,7 @@
 	var/loading = 0 // Nice loading text
 
 /obj/machinery/computer/cloning/Initialize()
-	..()
+	. = ..()
 	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(/proc/is_operable))
 	updatemodules()
 
@@ -398,7 +398,7 @@
 	if (NOCLONE in subject.mutations)
 		scantemp = "Error: Major genetic degradation."
 		return
-	if (subject.species && subject.species.flags & NO_SCAN)
+	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)
 		scantemp = "Error: Incompatible species."
 		return
 	if (subject.ckey && !isnull(find_record(subject.ckey)))

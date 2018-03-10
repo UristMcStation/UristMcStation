@@ -6,15 +6,6 @@
 	sort_category = "Suits and Overwear"
 	cost = 2
 
-/datum/gear/suit/blue_labcoat
-	display_name = "blue-edged labcoat"
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/blue
-
-/datum/gear/suit/overalls
-	display_name = "overalls"
-	path = /obj/item/clothing/suit/apron/overalls
-	cost = 1
-
 /datum/gear/suit/roles/poncho/security
 	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer)
 
@@ -29,16 +20,6 @@
 
 /datum/gear/suit/roles/poncho/cargo
 	allowed_roles = list(/datum/job/qm,/datum/job/cargo_tech)
-
-/datum/gear/suit/roles/surgical_apron
-	display_name = "surgical apron"
-	path = /obj/item/clothing/suit/surgicalapron
-	allowed_roles = list(/datum/job/doctor,/datum/job/cmo)
-
-/datum/gear/suit/unathi_robe
-	display_name = "roughspun robe"
-	path = /obj/item/clothing/suit/unathi/robe
-	cost = 1
 
 /datum/gear/suit/wintercoat/captain
 	display_name = "winter coat, captain"

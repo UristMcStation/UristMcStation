@@ -29,7 +29,7 @@ var/list/mob_hat_cache = list()
 	universal_speak = 0
 	universal_understand = 1
 	gender = NEUTER
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	braintype = "Drone"
 	lawupdate = 0
 	density = 1
@@ -37,6 +37,7 @@ var/list/mob_hat_cache = list()
 	integrated_light_power = 3
 	local_transmit = 1
 	possession_candidate = 1
+	speed = -1
 
 	can_pull_size = ITEM_SIZE_NORMAL
 	can_pull_mobs = MOB_PULL_SMALLER
@@ -49,6 +50,8 @@ var/list/mob_hat_cache = list()
 	mob_size = MOB_MEDIUM // Small mobs can't open doors, it's a huge pain for drones.
 
 	laws = /datum/ai_laws/drone
+
+	silicon_camera = /obj/item/device/camera/siliconcam/drone_camera
 
 	//Used for self-mailing.
 	var/mail_destination = ""
@@ -143,7 +146,6 @@ var/list/mob_hat_cache = list()
 	update_icon()
 
 /mob/living/silicon/robot/drone/init()
-	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
 	if(!module) module = new module_type(src)
 
@@ -154,14 +156,14 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/fully_replace_character_name(pickedName as text)
 	// Would prefer to call the grandparent proc but this isn't possible, so..
 	real_name = pickedName
-	name = real_name
+	SetName(real_name)
 
 /mob/living/silicon/robot/drone/updatename()
 	if(controlling_ai)
 		real_name = "remote drone ([controlling_ai.name])"
 	else
 		real_name = "[initial(name)] ([random_id(type,100,999)])"
-	name = real_name
+	SetName(real_name)
 
 /mob/living/silicon/robot/drone/update_icon()
 
@@ -207,7 +209,7 @@ var/list/mob_hat_cache = list()
 		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return
 
-	else if (istype(W, /obj/item/weapon/crowbar))
+	else if(isCrowbar(W))
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
 		return
 
@@ -408,19 +410,3 @@ var/list/mob_hat_cache = list()
 	if(!controlling_ai)
 		return ..()
 	controlling_ai.open_subsystem(/datum/nano_module/law_manager)
-
-/mob/living/silicon/robot/drone/construction
-	mob_bump_flag = HUMAN
-	mob_push_flags = ~HEAVY
-	mob_swap_flags = ~HEAVY
-
-/mob/living/silicon/robot/drone/construction/holo/init()
-	..()
-	flavor_text = "It's a holographic construction drone designed to test biological hazard simulations."
-
-/mob/living/silicon/robot/drone/construction/holo/welcome_drone()
-	to_chat(src, "<b>Welcome to the biohazard response assessment simulation, we at \[REDACTED\] are interested in your result.</b><br>")
-	to_chat(src, "<b>Your goal is to ensure a simulation of \[REDACTED\] is not destroyed by the biohazard. You'll find this to your east.</b><br>")
-	to_chat(src, "<b>You've been provided simulations of most modern machinery that could be used to help in biohazard situations. Find these in these south of your fabriactor.</b><br>")
-	to_chat(src, "<b>Provided a simulation isn't currently in progress you may start one with the button to the east of your fabriactor.</b><br>")
-	to_chat(src, "<b>Although power to most objects in this simulation isn't required you'll find a simulated highly advanced power source that represents the installation's engine.</b><br>")

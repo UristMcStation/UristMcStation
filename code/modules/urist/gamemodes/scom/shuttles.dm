@@ -39,7 +39,7 @@
 
 			else if(C.location == 1)
 
-				for(var/mob/living/simple_animal/hostile/M in GLOB.mob_list)
+				for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
 					if(!M.stat && M.faction != "neutral")
 						user << "<span class='notice'>There are still aliens left alive!</span>"
 						return
@@ -173,7 +173,7 @@
 					if(C.z != 0 || (isobj(C.loc) && C.loc.z != 2)) //being in stuff sets coords to 0, so rechecks for holder
 						var/obj/machinery/scom/teleporter2/destination
 						var/list/all_destinations = list()
-						for(var/obj/machinery/scom/teleporter2/T in GLOB.machines)
+						for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)
 							all_destinations += T
 						if(all_destinations.len)
 							destination = pick(all_destinations)

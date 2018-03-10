@@ -4,7 +4,7 @@
 	icon = 'icons/mob/critter.dmi'
 	icon_state = "smshard"
 	icon_living = "smshard"
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	health = 300
 	maxHealth = 300
 	melee_damage_lower = 30

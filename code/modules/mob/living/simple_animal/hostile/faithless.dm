@@ -24,7 +24,8 @@
 	minbodytemp = 0
 	speed = 4
 
-	faction = "alien"
+	faction = "faithless"
+	supernatural = 1
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1

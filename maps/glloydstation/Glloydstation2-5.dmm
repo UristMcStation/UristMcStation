@@ -1,5 +1,5 @@
 "aa" = (/turf/unsimulated/wall/urist/other/border,/area/space)
-"ab" = (/obj/effect/step_trigger/teleporter/urist{affect_ghosts = 1; teleport_z = 6},/turf/unsimulated/wall/urist/other/border,/area/space)
+"ab" = (/obj/effect/step_trigger/teleporter{affect_ghosts = 1; teleport_z = 6},/turf/unsimulated/wall/urist/other/border,/area/space)
 "ac" = (/turf/simulated/floor/planet/jungle/rock,/area/space)
 "ad" = (/turf/unsimulated/mask,/area/mine/unexplored)
 "ae" = (/turf/simulated/floor/asteroid,/area/mine/unexplored)
@@ -116,7 +116,7 @@
 "cl" = (/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/floor_decal/corner/mauve{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/turf/simulated/floor/tiled,/area/outpost/research/eva)
 "cm" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/turf/simulated/floor/tiled,/area/outpost/research/eva)
 "cn" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/effect/floor_decal/corner/mauve{tag = "icon-corner_white (EAST)"; icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled,/area/outpost/research/eva)
-"co" = (/obj/structure/closet/excavation,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/obj/effect/floor_decal/corner/mauve{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/obj/machinery/light{brightness_power = 4; brightness_range = 10; dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/outpost/research/eva)
+"co" = (/obj/structure/closet/excavation,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTH)"; icon_state = "corner_white"; dir = 1},/obj/effect/floor_decal/corner/mauve{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/outpost/research/eva)
 "cp" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{color = "#4444FF"; dir = 4},/turf/simulated/floor/tiled,/area/outpost/research/eva)
 "cq" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/effect/floor_decal/corner/beige,/obj/effect/floor_decal/corner/mauve{tag = "icon-corner_white (EAST)"; icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled,/area/outpost/research/eva)
 "cr" = (/obj/machinery/door/airlock/glass_mining{name = "Equipment storage"; req_access = list(65)},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/outpost/research/eva)
@@ -256,7 +256,7 @@
 "eV" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/obj/effect/floor_decal/corner/beige,/turf/simulated/floor/tiled,/area/outpost/mining_main/eva)
 "eW" = (/obj/machinery/portable_atmospherics/canister/air/airlock{start_pressure = 6000},/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/effect/floor_decal/corner/beige,/turf/simulated/floor/tiled,/area/outpost/mining_main/eva)
 "eX" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0; tag = ""},/obj/machinery/camera/network/mining{c_tag = "Mining Airlock External"; dir = 4; icon_state = "camera"},/turf/simulated/floor/plating,/area/mine/explored)
-"eY" = (/obj/machinery/light{brightness_range = 9; dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
+"eY" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/asteroid,/area/mine/explored)
 "eZ" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal,/turf/simulated/wall,/area/outpost/mining_main/eva)
 "fa" = (/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'HIGH VOLTAGE'"; icon_state = "shock"; name = "HIGH VOLTAGE"},/turf/simulated/wall,/area/outpost/mining_main/eva)
 "fb" = (/obj/machinery/door/airlock/maintenance{name = "Mining Station Maintenance"; req_access = list(54)},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor/plating,/area/outpost/mining_main/eva)
@@ -270,8 +270,8 @@
 "fj" = (/obj/machinery/power/port_gen/pacman{anchored = 1},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/outpost/mining_main/eva)
 "fk" = (/obj/machinery/power/terminal{dir = 4},/obj/machinery/light/small,/obj/structure/cable{d2 = 8; icon_state = "0-8"},/turf/simulated/floor/plating,/area/outpost/mining_main/eva)
 "fl" = (/obj/machinery/power/smes/buildable{charge = 5e+006; input_attempt = 1; inputting = 1; output_attempt = 1; output_level = 250000; outputting = 2; RCon_tag = "Mining Underground"},/obj/structure/cable,/turf/simulated/floor/plating,/area/outpost/mining_main/eva)
-"fm" = (/obj/effect/step_trigger/teleporter/urist,/turf/unsimulated/wall/urist/other/border,/area/space)
-"fn" = (/obj/effect/step_trigger/teleporter/urist,/turf/space,/area/space)
+"fm" = (/obj/effect/step_trigger/teleporter,/turf/unsimulated/wall/urist/other/border,/area/space)
+"fn" = (/obj/effect/step_trigger/teleporter,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

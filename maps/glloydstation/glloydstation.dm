@@ -17,8 +17,6 @@
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
 
-	#include "../shared/exodus_torch/_include.dm"
-
 	#include "Glloydstation2-1.dmm"
 	#include "Glloydstation2-2.dmm"
 	#include "Glloydstation2-3.dmm"

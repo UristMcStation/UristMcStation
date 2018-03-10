@@ -162,6 +162,6 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller/New()
 	..()
-	reagents.add_reagent(/datum/reagent/oxycodone, 45)
+	reagents.add_reagent(/datum/reagent/tramadol/oxycodone, 45)
 	reagents.add_reagent(/datum/reagent/dexalinp, 15)
 	update_icon()

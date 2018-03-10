@@ -8,7 +8,7 @@
 	use_power = 1
 	idle_power_usage = 1
 	active_power_usage = 5
-	flags = OBJ_SURGICAL
+	obj_flags = OBJ_FLAG_SURGICAL
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0.0
 
@@ -52,7 +52,7 @@
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
 
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
 		return 1
 	else
 		return 0
@@ -78,7 +78,7 @@
 	icon_state = "table2-idle"
 	return 0
 
-/obj/machinery/optable/process()
+/obj/machinery/optable/Process()
 	check_victim()
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user as mob)

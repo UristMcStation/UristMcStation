@@ -84,22 +84,22 @@
 		var/list/species_facial_hair = list()
 		if(H.gender == MALE)
 			if(H.species)
-				for(var/i in facial_hair_styles_list)
-					var/datum/sprite_accessory/facial_hair/tmp_facial = facial_hair_styles_list[i]
+				for(var/i in GLOB.facial_hair_styles_list)
+					var/datum/sprite_accessory/facial_hair/tmp_facial = GLOB.facial_hair_styles_list[i]
 					if(H.species.name in tmp_facial.species_allowed)
 						species_facial_hair += i
 			else
-				species_facial_hair = facial_hair_styles_list
+				species_facial_hair = GLOB.facial_hair_styles_list
 		var/f_new_style = input(user, "Select a facial hair style", "Grooming")  as null|anything in species_facial_hair
 		//handle normal hair
 		var/list/species_hair = list()
 		if(H.species)
-			for(var/i in hair_styles_list)
-				var/datum/sprite_accessory/hair/tmp_hair = hair_styles_list[i]
+			for(var/i in GLOB.hair_styles_list)
+				var/datum/sprite_accessory/hair/tmp_hair = GLOB.hair_styles_list[i]
 				if(H.species.name in tmp_hair.species_allowed)
 					species_hair += i
 		else
-			species_hair = hair_styles_list
+			species_hair = GLOB.hair_styles_list
 		var/h_new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
 		user.visible_message("[user] starts cutting [M]'s hair!", "You start cutting [M]'s hair!", "You hear the sound of scissors.") //arguments for this are: 1. what others see 2. what the user sees 3. what blind people hear. --Fixed grammar, (TGameCo)
 		if(do_after(user, 50)) //this is the part that adds a delay. delay is in deciseconds. --Made it 5 seconds, because hair isn't cut in one second in real life, and I want at least a little bit longer time, (TGameCo)

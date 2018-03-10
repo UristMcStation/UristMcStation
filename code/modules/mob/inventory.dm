@@ -21,10 +21,11 @@
 //set del_on_fail to have it delete W if it fails to equip
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
-/mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = 0, disable_warning = 0, redraw_mob = 1)
+//set force to replace items in the slot and ignore blocking overwear
+/mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = 0, disable_warning = 0, redraw_mob = 1, force = 0)
 	if(!istype(W)) return 0
 
-	if(!W.mob_can_equip(src, slot, disable_warning))
+	if(!W.mob_can_equip(src, slot, disable_warning, force))
 		if(del_on_fail)
 			qdel(W)
 		else
@@ -44,6 +45,12 @@
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
 /mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
 	return equip_to_slot_if_possible(W, slot, 1, 1, 0)
+
+/mob/proc/equip_to_slot_or_store_or_drop(obj/item/W as obj, slot)
+	var/store = equip_to_slot_if_possible(W, slot, 0, 1, 0)
+	if(!store)
+		return equip_to_storage_or_drop(W)
+	return store
 
 //The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
 var/list/slot_equipment_priority = list( \
@@ -93,6 +100,12 @@ var/list/slot_equipment_priority = list( \
 		if(S.can_be_inserted(newitem, null, 1))
 			newitem.forceMove(S)
 			return S
+
+/mob/proc/equip_to_storage_or_drop(obj/item/newitem)
+	var/stored = equip_to_storage(newitem)
+	if(!stored && newitem)
+		newitem.forceMove(loc)
+	return stored
 
 //These procs handle putting s tuff in your hand. It's probably best to use these rather than setting l_hand = ...etc
 //as they handle all relevant stuff like adding it to the player's screen and updating their overlays.
@@ -245,14 +258,36 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/get_equipped_items(var/include_carried = 0)
 	. = list()
-	if(slot_back) . += back
-	if(slot_wear_mask) . += wear_mask
+	if(back)      . += back
+	if(wear_mask) . += wear_mask
 
 	if(include_carried)
-		if(slot_l_hand) . += l_hand
-		if(slot_r_hand) . += r_hand
+		if(l_hand) . += l_hand
+		if(r_hand) . += r_hand
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/entry in get_equipped_items(include_carried))
 		drop_from_inventory(entry)
 		qdel(entry)
+
+// Returns all currently covered body parts
+/mob/proc/get_covered_body_parts()
+	. = 0
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		. |= I.body_parts_covered
+
+// Returns the first item which covers any given body part
+/mob/proc/get_covering_equipped_item(var/body_parts)
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		if(I.body_parts_covered & body_parts)
+			return I
+
+// Returns all items which covers any given body part
+/mob/proc/get_covering_equipped_items(var/body_parts)
+	. = list()
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		if(I.body_parts_covered & body_parts)
+			. += I

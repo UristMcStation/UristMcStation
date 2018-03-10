@@ -336,11 +336,11 @@
 	..()
 	new /obj/item/clothing/under/rank/medical(src)
 	new /obj/item/clothing/under/rank/medical(src)
-	new /obj/item/clothing/under/rank/medical/blue(src)
-	new /obj/item/clothing/under/rank/medical/green(src)
-	new /obj/item/clothing/under/rank/medical/purple(src)
-	new /obj/item/clothing/under/rank/medical/black(src)
-	new /obj/item/clothing/under/rank/medical/navyblue(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/blue(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/green(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/purple(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/black(src)
+	new /obj/item/clothing/under/rank/medical/scrubs/navyblue(src)
 	new /obj/item/clothing/head/surgery/navyblue(src)
 	new /obj/item/clothing/head/surgery/purple(src)
 	new /obj/item/clothing/head/surgery/blue(src)
@@ -401,17 +401,20 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/wardrobe/tactical/New()
-	..()
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/tacgoggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/tactical(src)
-	new /obj/item/clothing/gloves/tactical(src)
-	return
+/obj/structure/closet/wardrobe/tactical/WillContain()
+	return list(
+		/obj/item/clothing/suit/armor/pcarrier/green,
+		/obj/item/clothing/accessory/armorplate/medium,
+		/obj/item/clothing/under/tactical,
+		/obj/item/clothing/head/helmet/nt/tactical,
+		/obj/item/clothing/accessory/armguards/green,
+		/obj/item/clothing/accessory/legguards/green,
+		/obj/item/clothing/mask/balaclava/tactical,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
+		/obj/item/weapon/storage/belt/security/tactical,
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/gloves/thick
+	)
 
 /obj/structure/closet/wardrobe/suit
 	name = "formal clothing locker"
@@ -432,15 +435,15 @@
 	new /obj/item/clothing/under/suit_jacket/red(src)
 	new /obj/item/clothing/under/scratch(src)
 	new /obj/item/clothing/under/rank/internalaffairs/plain(src)
-	new /obj/item/clothing/suit/storage/toggle/internalaffairs/plain(src)
+	new /obj/item/clothing/suit/storage/toggle/suit/black(src)
 	new /obj/item/clothing/under/assistantformal(src)
 	new /obj/item/clothing/under/lawyer/female(src)
 	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
 	new /obj/item/clothing/under/lawyer/bluesuit(src)
-	new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(src)
+	new /obj/item/clothing/suit/storage/toggle/suit/blue(src)
 	new /obj/item/clothing/under/lawyer/purpsuit(src)
-	new /obj/item/clothing/suit/storage/lawyer/purpjacket(src)
+	new /obj/item/clothing/suit/storage/toggle/suit/purple(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/laceup(src)
 
@@ -453,8 +456,8 @@
 	..()
 	new /obj/item/clothing/under/rank/internalaffairs(src)
 	new /obj/item/clothing/under/rank/internalaffairs(src)
-	new /obj/item/clothing/suit/storage/toggle/internalaffairs(src)
-	new /obj/item/clothing/suit/storage/toggle/internalaffairs(src)
+	new /obj/item/clothing/suit/storage/toggle/suit/black(src)
+	new /obj/item/clothing/suit/storage/toggle/suit/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/glasses/sunglasses/big(src)

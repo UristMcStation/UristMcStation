@@ -18,7 +18,6 @@
 	title = "Resource Technician"
 	department = "Cargo"
 	department_flag = CIV
-	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the quartermaster and the head of personnel"
@@ -56,7 +55,6 @@
 	title = "Mime"
 	department = "Civilian"
 	department_flag = CIV
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -94,7 +92,6 @@
 	title = "Clown"
 	department = "Civilian"
 	department_flag = CIV
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -125,7 +122,6 @@
 /datum/job/blueshield
 	title = "Blueshield"
 	department_flag = SEC|COM
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "whichever head you protect. Remember, you are NOT security. Ultimately, you report to Nanotrasen, but if unavailable, defer to the Captain."
@@ -155,8 +151,6 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/blueshield
 	pda_type = /obj/item/device/pda/heads/hop
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
 
@@ -164,7 +158,6 @@
 	title = "Merchant"
 	department = "Civilian"
 	department_flag = CIV
-	faction = "Station"
 	total_positions = 0 //to be opened by admins when desired AT ROUNDSTART ONLY
 	spawn_positions = 0
 	supervisors = "the invisible hand of the market"

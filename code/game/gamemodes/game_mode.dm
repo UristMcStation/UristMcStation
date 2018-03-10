@@ -194,6 +194,9 @@ var/global/list/additional_antag_types = list()
 			var/datum/event_container/EMajor = GLOB.event_manager.event_containers[EVENT_LEVEL_MAJOR]
 			EMajor.delay_modifier = event_delay_mod_major
 
+/datum/game_mode/proc/on_selection()
+	return
+
 /datum/game_mode/proc/pre_setup()
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
@@ -383,7 +386,7 @@ var/global/list/additional_antag_types = list()
 				continue
 			if(istype(player, /mob/new_player))
 				continue
-			if(!role || (role in player.client.prefs.be_special_role) || (role in player.client.prefs.sometimes_be_special_role))
+			if(!role || (role in player.client.prefs.be_special_role) || (!(role in player.client.prefs.be_special_role) && !(role in player.client.prefs.never_be_special_role)))
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
 	else
@@ -454,7 +457,7 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 proc/display_roundstart_logout_report()
 	var/msg = "<span class='notice'><b>Roundstart logout report</b>\n\n"
-	for(var/mob/living/L in GLOB.mob_list)
+	for(var/mob/living/L in SSmobs.mob_list)
 
 		if(L.ckey)
 			var/found = 0
@@ -478,7 +481,7 @@ proc/display_roundstart_logout_report()
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/observer/ghost/D in GLOB.mob_list)
+		for(var/mob/observer/ghost/D in SSmobs.mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"
@@ -493,7 +496,7 @@ proc/display_roundstart_logout_report()
 
 	msg += "</span>" // close the span from right at the top
 
-	for(var/mob/M in GLOB.mob_list)
+	for(var/mob/M in SSmobs.mob_list)
 		if(M.client && M.client.holder)
 			to_chat(M, msg)
 proc/get_nt_opposed()

@@ -12,6 +12,7 @@
 	var/list/network = list(NETWORK_EXODUS)
 	var/c_tag = null
 	var/c_tag_order = 999
+	var/number = 0 //camera number in area
 	var/status = 1
 	anchored = 1.0
 	var/invuln = null
@@ -84,6 +85,20 @@
 		ASSERT(src.network.len > 0)
 	..()
 
+/obj/machinery/camera/Initialize()
+	. = ..()
+	if(!c_tag)
+		number = 1
+		var/area/A = get_area(src)
+		if(A)
+			for(var/obj/machinery/camera/C in A)
+				if(C == src) continue
+				if(C.number)
+					number = max(number, C.number+1)
+			c_tag = "[A.name][number == 1 ? "" : " #[number]"]"
+		invalidateCameraCache()
+
+
 /obj/machinery/camera/Destroy()
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
@@ -93,7 +108,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/process()
+/obj/machinery/camera/Process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -114,7 +129,7 @@
 			triggerCameraAlarm()
 			update_icon()
 			update_coverage()
-			GLOB.processing_objects |= src
+			START_PROCESSING(SSmachines, src)
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
 	take_damage(P.get_structure_damage())
@@ -156,7 +171,7 @@
 /obj/machinery/camera/attackby(obj/item/W as obj, mob/living/user as mob)
 	update_coverage()
 	// DECONSTRUCTION
-	if(isscrewdriver(W))
+	if(isScrewdriver(W))
 //		to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
@@ -164,10 +179,10 @@
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-	else if((iswirecutter(W) || ismultitool(W)) && panel_open)
+	else if((isWirecutter(W) || isMultitool(W)) && panel_open)
 		interact(user)
 
-	else if(iswelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
+	else if(isWelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(W, user))
 			if(assembly)
 				assembly.dropInto(loc)
@@ -179,6 +194,7 @@
 				if(stat & BROKEN)
 					assembly.state = 2
 					to_chat(user, "<span class='notice'>You repaired \the [src] frame.</span>")
+					cancelCameraAlarm()
 				else
 					assembly.state = 1
 					to_chat(user, "<span class='notice'>You cut \the [src] free from the wall.</span>")

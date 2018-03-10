@@ -3,7 +3,6 @@
 //regular jungle
 
 /area/jungle
-	novents = 1
 	name = "jungle"
 	icon = 'icons/jungle.dmi'
 	icon_state = "area"

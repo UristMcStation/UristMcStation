@@ -32,7 +32,7 @@ var/global/remaininggens = 6
 		if(maptype == L.maptype)
 			L.Load()
 
-	for(var/obj/machinery/computer/shuttle_control/S in GLOB.machines)
+	for(var/obj/machinery/computer/shuttle_control/S in SSmachines.machinery)
 		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security" || S.shuttle_tag == "Planet")
 			new /obj/machinery/computer(S.loc)
 			qdel(S)
@@ -96,7 +96,7 @@ var/global/remaininggens = 6
 			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
 			sleep(rand(2000,2400))
 			command_announcement.Announce("ATTENTION URIST MCSTATION: We're detecting multiple ships pulling into orbit of [defencearea]. Looks like they're here. We'll do our best to take out as many as we can, but expect hostile contacts imminently.", "ANFOR Nyx Command")
-			for(var/obj/machinery/computer/shuttle_control/assault/A in GLOB.machines)
+			for(var/obj/machinery/computer/shuttle_control/assault/A in SSmachines.machinery)
 				A.readytogo = 1 //it's go time bois
 
 /datum/game_mode/assault/process()

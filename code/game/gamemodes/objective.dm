@@ -449,7 +449,7 @@ datum/objective/steal
 		var/list/all_items = owner.current.get_contents()
 		switch (target_name)
 			if("a functional AI")
-				for(var/mob/living/silicon/ai/ai in GLOB.mob_list)
+				for(var/mob/living/silicon/ai/ai in SSmobs.mob_list)
 					if(ai.stat == DEAD)
 						continue
 					var/turf/T = get_turf(ai)
@@ -786,7 +786,7 @@ datum/objective/heist/salvage
 	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
 
 /datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in GLOB.machines)
+	return (locate(/obj/singularity/narsie/large) in SSmachines.machinery)
 
 /datum/objective/cult/sacrifice
 	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."

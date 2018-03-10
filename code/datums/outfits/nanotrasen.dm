@@ -12,41 +12,34 @@
 	pda_type = /obj/item/device/pda/heads
 
 /decl/hierarchy/outfit/nanotrasen/representative
-	name = "Nanotrasen representative"
+	name = "NanoTrasen Representative"
 	belt = /obj/item/weapon/clipboard
 	id_pda_assignment = "NanoTrasen Navy Representative"
 
 /decl/hierarchy/outfit/nanotrasen/officer
-	name = "Nanotrasen officer"
+	name = "NanoTrasen Officer"
 	head = /obj/item/clothing/head/beret/centcom/officer
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	belt = /obj/item/weapon/gun/energy/gun/small
 	id_pda_assignment = "NanoTrasen Navy Officer"
 
 /decl/hierarchy/outfit/nanotrasen/captain
-	name = "Nanotrasen captain"
+	name = "NanoTrasen Captain"
 	uniform = /obj/item/clothing/under/rank/centcom_captain
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/captain
 	belt = /obj/item/weapon/gun/energy/gun/small
 	id_pda_assignment = "NanoTrasen Navy Captain"
 
-/decl/hierarchy/outfit/nanotrasensci
-	name = "Nanotrasen scientist"
-	uniform = /obj/item/clothing/under/rank/scientist/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/white
-	back = /obj/item/weapon/storage/backpack/nt
-	l_ear = /obj/item/device/radio/headset/headset_sci
-
-/decl/hierarchy/outfit/nanotrasensci/loot
-	backpack_contents = list(/obj/random/material, /obj/random/material, /obj/random/material, /obj/random/loot)
-
-/decl/hierarchy/outfit/nanotrasensci/exec
-	name = "Nanotrasen senior scientist"
-	uniform = /obj/item/clothing/under/rank/scientist/executive
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/rd
-	gloves = /obj/item/clothing/gloves/white
-
-/decl/hierarchy/outfit/nanotrasensci/exec/armed
-	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)
+/decl/hierarchy/outfit/nanotrasen/commander
+	name = "NanoTrasen Commander"
+	head = /obj/item/clothing/head/centhat
+	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
+	shoes = /obj/item/clothing/shoes/swat
+	uniform = /obj/item/clothing/under/rank/centcom_captain
+	suit = /obj/item/clothing/suit/armor/bulletproof
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear =  /obj/item/device/radio/headset/heads/captain
+	glasses = /obj/item/clothing/glasses/eyepatch
+	l_pocket = /obj/item/weapon/flame/lighter/zippo
+	id_pda_assignment = "NanoTrasen Commander"

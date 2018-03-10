@@ -14,19 +14,18 @@
 	..()
 	for(var/direction in GLOB.cardinal)
 		for(var/obj/O in get_step(src, direction))
-			if((O.flags & OBJ_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
+			if((O.obj_flags & OBJ_FLAG_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
 				watching = O
 				return
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
-	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	interact(user)
 
 
 /obj/machinery/computer/operating/attack_hand(mob/user)
-	add_fingerprint(user)
+	..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	interact(user)
@@ -64,15 +63,6 @@
 	user << browse(dat, "window=op")
 	onclose(user, "op")
 
-
-/obj/machinery/computer/operating/Topic(href, href_list)
+/obj/machinery/computer/operating/Process()
 	if(..())
-		return 1
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
-	return
-
-
-/obj/machinery/computer/operating/process()
-	if(..())
-		updateDialog()
+		src.updateDialog()

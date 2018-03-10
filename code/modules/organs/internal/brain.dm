@@ -18,9 +18,10 @@
 	var/mob/living/carbon/brain/brainmob = null
 	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
+	var/healed_threshold = 1
 
 /obj/item/organ/internal/brain/robotize()
-	replace_self_with(/obj/item/organ/internal/mmi_holder/posibrain)
+	replace_self_with(/obj/item/organ/internal/posibrain)
 
 /obj/item/organ/internal/brain/mechassist()
 	replace_self_with(/obj/item/organ/internal/mmi_holder)
@@ -66,7 +67,7 @@
 
 	if(!brainmob)
 		brainmob = new(src)
-		brainmob.name = H.real_name
+		brainmob.SetName(H.real_name)
 		brainmob.real_name = H.real_name
 		brainmob.dna = H.dna.Clone()
 		brainmob.timeofhostdeath = H.timeofdeath
@@ -134,9 +135,16 @@
 /obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
 	return (get_current_damage_threshold() > threshold)
 
-/obj/item/organ/internal/brain/process()
+/obj/item/organ/internal/brain/Process()
 
 	if(owner)
+		if(damage > max_damage / 2 && healed_threshold)
+			spawn()
+				alert(owner, "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
+			healed_threshold = 0
+
+		if(damage < (max_damage / 4))
+			healed_threshold = 1
 
 		if(owner.paralysis < 1) // Skip it if we're already down.
 
@@ -178,7 +186,7 @@
 
 			if(owner.is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 				owner.Paralyse(3)
-			var/can_heal = damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
 			var/damprob
 			//Effects of bloodloss
 			switch(blood_volume)

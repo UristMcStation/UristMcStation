@@ -45,6 +45,12 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 
 // Basic power production reactions.
 // This is not necessarily realistic, but it makes a basic failure more spectacular.
+/decl/fusion_reaction/hydrogen_hydrogen
+	p_react = "hydrogen"
+	s_react = "hydrogen"
+	energy_consumption = 1
+	energy_production = 2
+	products = list("helium" = 1)
 
 /decl/fusion_reaction/deuterium_deuterium
 	p_react = "deuterium"
@@ -132,7 +138,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 		if(T && (holder.z == T.z))
 			if(istype(mob, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = mob
-				H.hallucination += rand(100,150)
+				H.hallucination(rand(100,150), 51)
 
 	for(var/obj/machinery/fusion_fuel_injector/I in range(world.view, origin))
 		if(I.cur_assembly && I.cur_assembly.fuel_type == "supermatter")
@@ -156,12 +162,3 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	energy_production = 15
 	radiation = 0.5
 	instability = 0.5
-
-/decl/fusion_reaction/boron_hydrogen
-  p_react = "boron"
-  s_react = "hydrogen"
-  minimum_energy_level = 10000
-  energy_consumption = 0
-  energy_production = 20
-  radiation = 2
-  instability = 1

@@ -7,9 +7,9 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
-	var/datum/data/record/warrant/active
+	var/datum/computer_file/data/warrant/active
 
 //look at it
 /obj/item/device/holowarrant/examine(mob/user)
@@ -25,16 +25,15 @@
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	active = null
 	var/list/warrants = list()
-	if(!isnull(GLOB.data_core.general))
-		for(var/datum/data/record/warrant/W in GLOB.data_core.warrants)
-			if(!W.archived)
-				warrants += W.fields["namewarrant"]
+	for(var/datum/computer_file/data/warrant/W in GLOB.all_warrants)
+		if(!W.archived)
+			warrants += W.fields["namewarrant"]
 	if(warrants.len == 0)
 		to_chat(user,"<span class='notice'>There are no warrants available</span>")
 		return
 	var/temp
 	temp = input(user, "Which warrant would you like to load?") as null|anything in warrants
-	for(var/datum/data/record/warrant/W in GLOB.data_core.warrants)
+	for(var/datum/computer_file/data/warrant/W in GLOB.all_warrants)
 		if(W.fields["namewarrant"] == temp)
 			active = W
 	update_icon()
@@ -42,20 +41,22 @@
 /obj/item/device/holowarrant/attackby(obj/item/weapon/W, mob/user)
 	if(active)
 		var/obj/item/weapon/card/id/I = W.GetIdCard()
-		if(I)
+		if(I && (access_security in I.access))
 			var/choice = alert(user, "Would you like to authorize this warrant?","Warrant authorization","Yes","No")
 			if(choice == "Yes")
 				active.fields["auth"] = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
 			user.visible_message("<span class='notice'>You swipe \the [I] through the [src].</span>", \
 					"<span class='notice'>[user] swipes \the [I] through the [src].</span>")
 			broadcast_security_hud_message("\A [active.fields["arrestsearch"]] warrant for <b>[active.fields["namewarrant"]]</b> has been authorized by [I.assignment ? I.assignment+" " : ""][I.registered_name].", src)
-			return 1
+		else
+			to_chat(user, "<span class='notice'>A red \"Access Denied\" light blinks on \the [src]</span>")
+		return 1
 	..()
 
 //hit other people with it
 /obj/item/device/holowarrant/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	user.visible_message("<span class='notice'>You show the warrant to [M].</span>", \
-			"<span class='notice'>[user] holds up a warrant projector and shows the contents to [M].</span>")
+	user.visible_message("<span class='notice'>[user] holds up a warrant projector and shows the contents to [M].</span>", \
+			"<span class='notice'>You show the warrant to [M].</span>")
 	M.examinate(src)
 
 /obj/item/device/holowarrant/update_icon()
@@ -70,7 +71,7 @@
 	if(active.fields["arrestsearch"] == "arrest")
 		var/output = {"
 		<HTML><HEAD><TITLE>[active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#FFFFFF'><center><large><b>Sol Central Government Colonial Marshal Bureau</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>Sol Central Government Colonial Marshal Bureau</b></large></br>
 		in the jurisdiction of the</br>
 		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>
 		</br>
@@ -88,7 +89,7 @@
 	if(active.fields["arrestsearch"] ==  "search")
 		var/output= {"
 		<HTML><HEAD><TITLE>Search Warrant: [active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#FFFFFF'><center>in the jurisdiction of the</br>
+		<BODY bgcolor='#ffffff'><center>in the jurisdiction of the</br>
 		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>
 		</br>
 		<b>SEARCH WARRANT</b></center></br>

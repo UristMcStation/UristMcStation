@@ -6,65 +6,6 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear"
 
-//Skrell Chains
-/datum/gear/ears/skrell/chains
-	display_name = "headtail chain selection (Skrell)"
-	path = /obj/item/clothing/ears/skrell/chain
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-
-/datum/gear/ears/skrell/chains/New()
-	..()
-	var/list/chaintypes = list()
-	for(var/chain_style in typesof(/obj/item/clothing/ears/skrell/chain) - /obj/item/clothing/ears/skrell/colored/chain)
-		var/obj/item/clothing/ears/skrell/chain/chain = chain_style
-		chaintypes[initial(chain.name)] = chain
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(chaintypes))
-
-/datum/gear/ears/skrell/colored/chain
-	display_name = "colored headtail chain (Skrell)"
-	path = /obj/item/clothing/ears/skrell/colored/chain
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-	flags = GEAR_HAS_COLOR_SELECTION
-
-//Skrell Bands
-/datum/gear/ears/skrell/bands
-	display_name = "headtail band selection (Skrell)"
-	path = /obj/item/clothing/ears/skrell/band
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-
-/datum/gear/ears/skrell/bands/New()
-	..()
-	var/list/bandtypes = list()
-	for(var/band_style in typesof(/obj/item/clothing/ears/skrell/band) - /obj/item/clothing/ears/skrell/colored/band)
-		var/obj/item/clothing/ears/skrell/band/band = band_style
-		bandtypes[initial(band.name)] = band
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(bandtypes))
-
-/datum/gear/ears/skrell/colored/band
-	display_name = "colored headtail bands (Skrell)"
-	path = /obj/item/clothing/ears/skrell/colored/band
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-	flags = GEAR_HAS_COLOR_SELECTION
-
-//Skrell Cloth
-/datum/gear/ears/skrell/cloth/male
-	display_name = "male colored headtail cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_male
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-	flags = GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/ears/skrell/cloth/female
-	display_name = "female colored headtail cloth (Skrell)"
-	path = /obj/item/clothing/ears/skrell/cloth_female
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_SKRELL)
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/resomi
 	display_name = "smock, grey (Teshari)"
 	path = /obj/item/clothing/under/resomi

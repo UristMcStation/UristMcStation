@@ -153,9 +153,9 @@
 /obj/item/projectile/beam/sniper/pulse
 	icon_state = "u_laser"
 	damage = 70
-	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
-	tracer_type = /obj/effect/projectile/laser_pulse/tracer
-	impact_type = /obj/effect/projectile/laser_pulse/impact
+	muzzle_type = /obj/effect/projectile/laser/pulse/muzzle
+	tracer_type = /obj/effect/projectile/laser/pulse/tracer
+	impact_type = /obj/effect/projectile/laser/pulse/impact
 
 /obj/item/projectile/beam/pulse/heavy/h2
 	damage = 70

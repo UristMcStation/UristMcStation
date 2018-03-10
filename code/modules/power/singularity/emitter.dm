@@ -103,7 +103,7 @@
 /obj/machinery/power/emitter/emp_act(var/severity)
 	return 1
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/Process()
 	if(stat & (BROKEN))
 		return
 	if(src.state != 2 || (!powernet && active_power_usage))
@@ -152,7 +152,7 @@
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(isWrench(W))
 		if(active)
 			to_chat(user, "Turn off [src] first.")
 			return
@@ -175,7 +175,7 @@
 				to_chat(user, "<span class='warning'>\The [src] needs to be unwelded from the floor.</span>")
 		return
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(active)
 			to_chat(user, "Turn off [src] first.")

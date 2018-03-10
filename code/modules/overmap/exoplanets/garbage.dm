@@ -1,6 +1,7 @@
 /obj/effect/overmap/sector/exoplanet/garbage
 	name = "settled exoplanet"
 	desc = "An arid exoplanet with artificial structures detected on the surface."
+	color = "#a5a18b"
 
 /obj/effect/overmap/sector/exoplanet/garbage/generate_map()
 	if(prob(50))
@@ -36,7 +37,7 @@
 	smoothing_iterations = 4
 	land_type = /turf/simulated/floor/exoplanet/desert
 	planetary_area = /area/exoplanet/garbage
-	plantcolors = list("#EFDD6F","#7B4A12","#E49135","#BA6222","#5C755E","#120309")
+	plantcolors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#120309")
 
 	flora_prob = 1
 	large_flora_prob = 0
@@ -47,8 +48,8 @@
 /datum/random_map/noise/exoplanet/garbage/get_additional_spawns(var/value, var/turf/T)
 	..()
 	var/v = noise2value(value)
-	if(v > 5 && istype(T, /turf/simulated/floor/exoplanet/desert))
-		T.icon_state = "desert[v-1]"
+	if(v > 5)
+		new/obj/structure/rubble/house(T)
 	else
 		if(prob(2))
 			new/obj/structure/rubble/war(T)

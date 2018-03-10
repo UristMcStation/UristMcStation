@@ -10,7 +10,7 @@
 "aj" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 2},/area/derelict/ship)
 "ak" = (/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"; dir = 4},/turf/space,/area/derelict/ship)
 "al" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 4},/area/derelict/ship)
-"am" = (/obj/machinery/computer/med_data,/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/derelict/ship)
+"am" = (/obj/item/modular_computer/laptop/preset/records,/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/derelict/ship)
 "an" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/regular{pixel_x = 6; pixel_y = -5},/turf/simulated/shuttle/floor{icon_state = "floor3"},/area/derelict/ship)
 "ao" = (/turf/simulated/shuttle/wall{icon_state = "swall15"; dir = 2},/area/derelict/ship)
 "ap" = (/turf/simulated/floor/plating,/turf/simulated/shuttle/wall{tag = "icon-swall_c (WEST)"; icon_state = "swall_c"; dir = 8},/area/derelict/ship)

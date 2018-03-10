@@ -1,5 +1,4 @@
 /mob/living/carbon/human/gib()
-
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
 		if(istype(loc,/turf))
@@ -55,7 +54,7 @@
 		if(B.host_brain.ckey)
 			ckey = B.host_brain.ckey
 			B.host_brain.ckey = null
-			B.host_brain.name = "host brain"
+			B.host_brain.SetName("host brain")
 			B.host_brain.real_name = "host brain"
 
 		verbs -= /mob/living/carbon/proc/release_control

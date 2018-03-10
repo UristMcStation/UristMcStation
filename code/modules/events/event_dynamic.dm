@@ -55,7 +55,7 @@ var/list/event_last_fired = list()
 
 
 	possibleEvents[/datum/event/carp_migration] = 20 + 10 * active_with_role["Engineer"]
-	possibleEvents[/datum/event/brand_intelligence] = 20 + 25 * active_with_role["Janitor"]
+	possibleEvents[/datum/event/brand_intelligence] = 10 + 10 * active_with_role["Janitor"]
 
 	possibleEvents[/datum/event/rogue_drone] = 5 + 25 * active_with_role["Engineer"] + 25 * active_with_role["Security"]
 	possibleEvents[/datum/event/infestation] = 100 + 100 * active_with_role["Janitor"]
@@ -204,16 +204,16 @@ var/list/event_last_fired = list()
 				else if(istype(R.module, /obj/item/weapon/robot_module/research))
 					active_with_role["Scientist"]++
 
-		if(M.mind.assigned_role in engineering_positions)
+		if(M.mind.assigned_role in GLOB.engineering_positions)
 			active_with_role["Engineer"]++
 
-		if(M.mind.assigned_role in medical_positions)
+		if(M.mind.assigned_role in GLOB.medical_positions)
 			active_with_role["Medical"]++
 
-		if(M.mind.assigned_role in security_positions)
+		if(M.mind.assigned_role in GLOB.security_positions)
 			active_with_role["Security"]++
 
-		if(M.mind.assigned_role in science_positions)
+		if(M.mind.assigned_role in GLOB.science_positions)
 			active_with_role["Scientist"]++
 
 		if(M.mind.assigned_role == "AI")

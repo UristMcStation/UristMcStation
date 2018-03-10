@@ -23,12 +23,12 @@
 	if(!istype(start))
 		to_chat(src, "<span class='notice'>You are unable to move from here.</span>")
 		return 0
-		
+
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(!destination)
 		to_chat(src, "<span class='notice'>There is nothing of interest in this direction.</span>")
 		return 0
-	
+
 	if(!start.CanZPass(src, direction))
 		to_chat(src, "<span class='warning'>\The [start] is in the way.</span>")
 		return 0
@@ -42,17 +42,45 @@
 		return 0
 
 	for(var/atom/A in destination)
-		if(!A.CanPass(src, start, 1.5, 0))
+		if(!A.CanMoveOnto(src, start, 1.5, direction))
 			to_chat(src, "<span class='warning'>\The [A] blocks you.</span>")
 			return 0
-	Move(destination)
+
+	if(direction == UP && area.has_gravity() && can_fall(FALSE, destination))
+		to_chat(src, "<span class='warning'>You see nothing to hold on to.</span>")
+		return 0
+
+	forceMove(destination)
 	return 1
+
+
+/atom/proc/CanMoveOnto(atom/movable/mover, turf/target, height=1.5, direction = 0)
+	//Purpose: Determines if the object can move through this
+	//Uses regular limitations plus whatever we think is an exception for the purpose of
+	//moving up and down z levles
+	return CanPass(mover, target, height, 0) || (direction == DOWN && (atom_flags & ATOM_FLAG_CLIMBABLE))
 
 /mob/proc/can_overcome_gravity()
 	return FALSE
 
 /mob/living/carbon/human/can_overcome_gravity()
-	return species && species.can_overcome_gravity(src)
+	//First do species check
+	if(species && species.can_overcome_gravity(src))
+		return 1
+	else
+		for(var/atom/a in src.loc)
+			if(a.atom_flags & ATOM_FLAG_CLIMBABLE)
+				return 1
+
+		//Last check, list of items that could plausibly be used to climb but aren't climbable themselves
+		var/list/objects_to_stand_on = list(
+				/obj/item/weapon/stool,
+				/obj/structure/bed,
+			)
+		for(var/type in objects_to_stand_on)
+			if(locate(type) in src.loc)
+				return 1
+	return 0
 
 /mob/observer/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
@@ -124,20 +152,28 @@
 		handle_fall(below)
 
 //For children to override
-/atom/movable/proc/can_fall()
-	if(anchored)
+/atom/movable/proc/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = src.loc)
+	if(!simulated)
 		return FALSE
 
-	if(locate(/obj/structure/lattice, loc))
+	if(anchored && !anchor_bypass)
 		return FALSE
 
-	// See if something prevents us from falling.
-	var/turf/below = GetBelow(src)
-	for(var/atom/A in below)
-		if(!A.CanPass(src, src.loc))
+	//Override will make checks from different location used for prediction
+	if(location_override)
+		if(locate(/obj/structure/lattice, location_override) || locate(/obj/structure/catwalk, location_override))
 			return FALSE
 
+		var/turf/below = GetBelow(location_override)
+		for(var/atom/A in below)
+			if(!A.CanPass(src, location_override))
+				return FALSE
+
+
 	return TRUE
+
+/obj/can_fall()
+	return ..(anchor_fall)
 
 /obj/effect/can_fall()
 	return FALSE
@@ -162,7 +198,7 @@
 		return species.can_fall(src)
 
 /atom/movable/proc/handle_fall(var/turf/landing)
-	Move(landing)
+	forceMove(landing)
 	if(locate(/obj/structure/stairs) in landing)
 		return 1
 	else
@@ -173,6 +209,20 @@
 		visible_message("\The [src] falls from the deck above through \the [landing]!", "You hear a whoosh of displaced air.")
 	else
 		visible_message("\The [src] falls from the deck above and slams into \the [landing]!", "You hear something slam into the deck.")
+		if(fall_damage())
+			for(var/mob/living/M in landing.contents)
+				visible_message("\The [src] hits \the [M.name]!")
+				M.take_overall_damage(fall_damage())
+
+/atom/movable/proc/fall_damage()
+	return 0
+
+/obj/fall_damage()
+	if(w_class == ITEM_SIZE_TINY)
+		return 0
+	if(w_class == ITEM_SIZE_NO_CONTAINER)
+		return 100
+	return base_storage_cost(w_class)
 
 /mob/living/carbon/human/handle_fall_effect(var/turf/landing)
 	if(species && species.handle_fall_special(src, landing))

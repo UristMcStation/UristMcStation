@@ -71,11 +71,11 @@
 /datum/gear/uniform/scrubs/New()
 	..()
 	var/scrubcolor = list()
-	scrubcolor["black scrubs"] = /obj/item/clothing/under/rank/medical/black
-	scrubcolor["blue scrubs"] = /obj/item/clothing/under/rank/medical/blue
-	scrubcolor["green scrubs"] = /obj/item/clothing/under/rank/medical/green
-	scrubcolor["navy blue scrubs"] = /obj/item/clothing/under/rank/medical/navyblue
-	scrubcolor["purple scrubs"] = /obj/item/clothing/under/rank/medical/purple
+	scrubcolor["black scrubs"] = /obj/item/clothing/under/rank/medical/scrub/black
+	scrubcolor["blue scrubs"] = /obj/item/clothing/under/rank/medical/scrub/blue
+	scrubcolor["green scrubs"] = /obj/item/clothing/under/rank/medical/scrub/green
+	scrubcolor["navy blue scrubs"] = /obj/item/clothing/under/rank/medical/scrub/navyblue
+	scrubcolor["purple scrubs"] = /obj/item/clothing/under/rank/medical/scrub/purple
 	gear_tweaks += new/datum/gear_tweak/path(scrubcolor)
 
 /datum/gear/uniform/dress

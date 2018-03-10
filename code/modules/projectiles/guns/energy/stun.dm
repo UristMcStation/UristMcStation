@@ -5,6 +5,7 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	max_shots = 5
 	projectile_type = /obj/item/projectile/beam/stun
+	combustion = 0
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun),
@@ -20,7 +21,8 @@
 	one_hand_penalty = 3
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 8
-	max_shots = 10
+	max_shots = 12
+	accuracy = 1
 	projectile_type = /obj/item/projectile/beam/stun/heavy
 	wielded_item_state = "tasercarbine-wielded"
 
@@ -47,11 +49,12 @@
 	item_state = "stunrevolver"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
-	max_shots = 8
+	max_shots = 6
+	combustion = 0
 
 /obj/item/weapon/gun/energy/stunrevolver/rifle
 	name = "stun rifle"
-	desc = "A LAEP38 Thor, a vastly oversized variant of the LAEP20 Zeus. Fires overcharged electrodes."
+	desc = "A LAEP38 Thor, a vastly oversized variant of the LAEP20 Zeus. Fires overcharged electrodes to take down hostile armored targets without harming them too much."
 	icon_state = "stunrifle"
 	item_state = "stunrifle"
 	w_class = ITEM_SIZE_HUGE
@@ -59,7 +62,8 @@
 	one_hand_penalty = 6
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 10
-	max_shots = 12
+	max_shots = 10
+	accuracy = 1
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	wielded_item_state = "stunrifle-wielded"
 
@@ -78,6 +82,7 @@
 	max_shots = 8
 	self_recharge = 1
 	charge_meter = 0
+	combustion = 0
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
@@ -102,3 +107,4 @@
 	fire_delay = 20
 	max_shots = 4
 	projectile_type = /obj/item/projectile/energy/plasmastun
+	combustion = 0

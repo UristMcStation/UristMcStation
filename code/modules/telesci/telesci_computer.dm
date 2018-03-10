@@ -25,11 +25,6 @@
 	var/starting_crystals = 3
 	var/list/crystals = list()
 
-/obj/machinery/computer/telescience/New()
-	..()
-	link_telepad()
-	recalibrate()
-
 /obj/machinery/computer/telescience/Destroy()
 	eject()
 	..()
@@ -39,8 +34,9 @@
 	usr << "There are [crystals.len] bluespace crystals in the crystal ports."
 
 /obj/machinery/computer/telescience/Initialize()
-	..()
+	. = ..()
 	link_telepad()
+	recalibrate()
 	for(var/i = 1; i <= starting_crystals; i++)
 		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
 	power = power_options[1]

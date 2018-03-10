@@ -14,8 +14,8 @@ var/list/holder_mob_icon_cache = list()
 
 	origin_tech = null
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_holder.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_holder.dmi',
+		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_holder.dmi',
+		slot_r_hand_str = 'icons/mob/onmob/items/righthand_holder.dmi',
 		)
 	pixel_y = 8
 
@@ -23,7 +23,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/weapon/holder/New()
 	..()
-	GLOB.processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
 
 /obj/item/weapon/holder/proc/destroy_all()
 	for(var/atom/movable/AM in src)
@@ -34,10 +34,10 @@ var/list/holder_mob_icon_cache = list()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(get_turf(src))
 	last_holder = null
-	GLOB.processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/weapon/holder/process()
+/obj/item/weapon/holder/Process()
 	update_state()
 
 /obj/item/weapon/holder/dropped()

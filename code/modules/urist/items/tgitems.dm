@@ -119,11 +119,15 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "Reverberates with the sound of ten thousand moos."
 	var/cowsleft = 20
 
-/obj/effect/rend/cow/New()
-	GLOB.processing_objects.Add(src)
-	return
+/obj/effect/rend/cow/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
-/obj/effect/rend/cow/process()
+/obj/effect/rend/cow/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	..()
+
+/obj/effect/rend/cow/Process()
 	if(locate(/mob) in loc) return
 	new /mob/living/simple_animal/cow(loc)
 	cowsleft--

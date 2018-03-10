@@ -11,7 +11,7 @@
 
 	origin_tech = "engineering=1"
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 
 	var/obj/item/device/toner/ink = null

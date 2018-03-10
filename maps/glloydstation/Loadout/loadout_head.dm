@@ -4,10 +4,6 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
-/datum/gear/head/beret
-	display_name = "beret, red"
-	path = /obj/item/clothing/head/beret
-
 /datum/gear/head/beret/bsec
 	display_name = "beret, navy (officer)"
 	path = /obj/item/clothing/head/beret/sec/navy/officer
@@ -46,11 +42,6 @@
 	display_name = "cap, corporate security"
 	path = /obj/item/clothing/head/soft/sec/corp
 	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden, /datum/job/detective)
-
-/datum/gear/head/zhan_scarf
-	display_name = "Zhan headscarf"
-	path = /obj/item/clothing/head/tajaran/scarf
-	whitelisted = "Tajara"
 
 /datum/gear/head/welding
 	allowed_roles = list(/datum/job/roboticist,/datum/job/engineer,/datum/job/chief_engineer)

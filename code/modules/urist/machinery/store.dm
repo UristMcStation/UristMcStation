@@ -40,7 +40,7 @@ var/global/datum/store/centcomm_store=new
 	T.target_name = "[command_name()] Merchandising"
 	T.purpose = "Purchase of [item.name]"
 	T.amount = -amount
-	T.date = current_date_string
+	T.date = stationdate2text()
 	T.time = stationtime2text()
 	T.source_terminal = "\[CLASSIFIED\] Terminal #[rand(111,333)]"
 	mind.initial_account.transaction_log.Add(T)

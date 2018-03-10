@@ -16,7 +16,12 @@
 	gluttonous = GLUT_TINY
 
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE_NORMAL | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
+
+	sexybits_location = BP_GROIN
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
 
 /datum/species/human/get_bodytype(var/mob/living/carbon/human/H)
 	return SPECIES_HUMAN
@@ -70,71 +75,6 @@
 		return "staring blankly, not reacting to your presence"
 	return ..()
 
-/datum/species/unathi
-	name = SPECIES_UNATHI
-	name_plural = SPECIES_UNATHI
-	icobase = 'icons/mob/human_races/r_lizard.dmi'
-	deform = 'icons/mob/human_races/r_def_lizard.dmi'
-	tail = "sogtail"
-	tail_animation = 'icons/mob/species/unathi/tail.dmi'
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/tail, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
-	primitive_form = "Stok"
-	darksight = 3
-	gluttonous = GLUT_TINY
-	slowdown = 0.5
-	brute_mod = 0.8
-	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_UNATHI)
-	name_language = LANGUAGE_UNATHI
-	health_hud_intensity = 1.25
-
-	min_age = 18
-	max_age = 260
-
-	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the \
-	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, radioactive \
-	desert planet, they mostly hold ideals of honesty, virtue, martial combat and bravery above all \
-	else, frequently even their own lives. They prefer warmer temperatures than most species and \
-	their native tongue is a heavy hissing laungage called Sinta'Unathi."
-
-	cold_level_1 = 280 //Default 260 - Lower is better
-	cold_level_2 = 220 //Default 200
-	cold_level_3 = 130 //Default 120
-
-	heat_level_1 = 420 //Default 360 - Higher is better
-	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 1000
-
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-
-	flesh_color = "#34AF10"
-
-	reagent_tag = IS_UNATHI
-	base_color = "#066000"
-	blood_color = "#f24b2e"
-
-	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
-
-	heat_discomfort_level = 295
-	heat_discomfort_strings = list(
-		"You feel soothingly warm.",
-		"You feel the heat sink into your bones.",
-		"You feel warm enough to take a nap."
-		)
-
-	cold_discomfort_level = 292
-	cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You feel sluggish and cold.",
-		"Your scales bristle against the cold."
-		)
-	breathing_sound = 'sound/voice/lizard.ogg'
-
-/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
-	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
-
 /datum/species/tajaran
 	name = SPECIES_TAJARA
 	name_plural = "Tajaran"
@@ -150,18 +90,20 @@
 	burn_mod =  10.15
 	gluttonous = GLUT_TINY
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR)
+	additional_langs = list(LANGUAGE_SIIK_MAAS)
 	name_language = LANGUAGE_SIIK_MAAS
 	health_hud_intensity = 1.75
 
-	min_age = 17
-	max_age = 80
+	min_age = 19
+	max_age = 140
 
-	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Ahdomai in the \
-	S'randarr system. They have been brought up into the space age by the Humans and Skrell, and have been \
-	influenced heavily by their long history of Slavemaster rule. They have a structured, clan-influenced way \
-	of family and politics. They prefer colder environments, and speak a variety of languages, mostly Siik'Maas, \
-	using unique inflections their mouths form."
+	blurb = "The Tajaran are a species of furred mammalian bipeds hailing from the chilly planet of Ahdomai \
+	in the Zamsiin-lr system. They are a naturally superstitious species, with the new generations growing up with tales \
+	of the heroic struggles of their forebears against the Overseers. This spirit has led them forward to the \
+	reconstruction and advancement of their society to what they are today. Their pride for the struggles they \
+	went through is heavily tied to their spiritual beliefs. Recent discoveries have jumpstarted the progression \
+	of highly advanced cybernetic technology, causing a culture shock within Tajaran society."
 
 	cold_level_1 = 200 //Default 260
 	cold_level_2 = 140 //Default 200
@@ -176,9 +118,9 @@
 	spawn_flags = SPECIES_IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
-	flesh_color = "#AFA59E"
+	flesh_color = "#afa59e"
 	base_color = "#333333"
-	blood_color = "#862A51"
+	blood_color = "#862a51"
 
 	reagent_tag = IS_TAJARA
 
@@ -192,6 +134,8 @@
 		)
 	cold_discomfort_level = 275
 
+	sexybits_location = BP_GROIN
+
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
@@ -202,6 +146,7 @@
 	name_plural = SPECIES_SKRELL
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
+	eye_icon = "skrell_eyes_s"
 	primitive_form = "Neaera"
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	blurb = "An amphibious species, Skrell come from the star system known as Qerr'Vallis, which translates to 'Star of \
@@ -222,8 +167,8 @@
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR
 
-	flesh_color = "#8CD7A3"
-	blood_color = "#1D2CBF"
+	flesh_color = "#8cd7a3"
+	blood_color = "#1d2cbf"
 	base_color = "#006666"
 
 	cold_level_1 = 280 //Default 260 - Lower is better
@@ -249,7 +194,7 @@
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -259,6 +204,35 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
+
+/obj/item/organ/external/head/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	eye_icon = "skrell_eyes_s"
+
+/obj/item/organ/internal/brain/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_brain"
+
+/obj/item/organ/internal/eyes/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_eyes"
+
+/obj/item/organ/internal/heart/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_heart-on"
+	dead_icon = "skrell_heart-off"
+
+/obj/item/organ/internal/kidneys/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_kidneys"
+
+/obj/item/organ/internal/liver/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_liver"
+
+/obj/item/organ/internal/lungs/skrell
+	icon = 'icons/urist/restored/surgery.dmi'
+	icon_state = "skrell_lungs"
 
 /datum/species/diona
 	name = SPECIES_DIONA
@@ -274,6 +248,7 @@
 	siemens_coefficient = 0.3
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 2
+	strength = STR_VHIGH
 	secondary_langs = list(LANGUAGE_ROOTGLOBAL)
 	name_language = LANGUAGE_ROOTLOCAL
 	spawns_with_stack = 0
@@ -332,12 +307,12 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	flags = NO_SCAN | IS_PLANT | NO_PAIN | NO_SLIP
+	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_IS_PLANT | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP
 	appearance_flags = 0
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_NO_LACE
 
 	blood_color = "#004400"
-	flesh_color = "#907E4A"
+	flesh_color = "#907e4a"
 
 	reagent_tag = IS_DIONA
 	genders = list(PLURAL)
@@ -361,10 +336,10 @@
 	return 0
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
-	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
-	else
+	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
+	else
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -384,3 +359,50 @@
 
 /datum/species/diona/get_blood_name()
 	return "sap"
+
+/datum/species/diona/handle_environment_special(var/mob/living/carbon/human/H)
+	if(H.InStasis() || H.stat == DEAD)
+		return
+	if(H.nutrition < 10)
+		H.take_overall_damage(2,0)
+	else if (H.innate_heal)
+		// Heals normal damage.
+		if(H.getBruteLoss())
+			H.adjustBruteLoss(-4)
+			H.nutrition -= 2
+		if(H.getFireLoss())
+			H.adjustFireLoss(-4)
+			H.nutrition -= 2
+
+		if(prob(10) && H.nutrition > 200 && !H.getBruteLoss() && !H.getFireLoss())
+			var/obj/item/organ/external/head/D = H.organs_by_name["head"]
+			if (D.disfigured)
+				D.disfigured = 0
+				H.nutrition -= 20
+
+		for(var/obj/item/organ/I in H.internal_organs)
+			if(I.damage > 0)
+				I.damage = max(I.damage - 2, 0)
+				H.nutrition -= 2
+				if (prob(5))
+					to_chat(H, "<span class='warning'>You sense your nymphs shifting internally to regenerate your [I.name]...</span>")
+
+		if (prob(10) && H.nutrition > 70)
+			for(var/limb_type in has_limbs)
+				var/obj/item/organ/external/E = H.organs_by_name[limb_type]
+				if(E && !E.is_usable())
+					E.removed()
+					qdel(E)
+					E = null
+				if(!E)
+					var/list/organ_data = has_limbs[limb_type]
+					var/limb_path = organ_data["path"]
+					var/obj/item/organ/O = new limb_path(H)
+					organ_data["descriptor"] = O.name
+					to_chat(H, "<span class='warning'>Some of your nymphs split and hurry to reform your [O.name].</span>")
+					H.nutrition -= 60
+					H.update_body()
+				else
+					for(var/datum/wound/W in E.wounds)
+						if (W.wound_damage() == 0 && prob(50))
+							E.wounds -= W

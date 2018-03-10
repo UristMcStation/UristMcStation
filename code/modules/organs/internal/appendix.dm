@@ -9,9 +9,9 @@
 	..()
 	if(inflamed)
 		icon_state = "appendixinflamed"
-		name = "inflamed appendix"
+		SetName("inflamed appendix")
 
-/obj/item/organ/internal/appendix/process()
+/obj/item/organ/internal/appendix/Process()
 	..()
 	if(inflamed && owner)
 		inflamed++

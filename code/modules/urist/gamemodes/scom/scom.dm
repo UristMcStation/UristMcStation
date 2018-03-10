@@ -37,7 +37,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
 	world << "<span class='danger'> Setting up S-COM, please be patient. This may take a minute or two.</span>"
 
-	for(var/mob/living/L in GLOB.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
+	for(var/mob/living/L in SSmobs.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		qdel(L)
 
 	if(!scommapsloaded) //necessary incase an admin fucks something up.
@@ -113,7 +113,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in GLOB.mob_list)
+		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
@@ -175,7 +175,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
 				spawn(250) //long enough to luanch both shuttles
-					for(var/mob/living/M in GLOB.mob_list)
+					for(var/mob/living/M in SSmobs.mob_list)
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL

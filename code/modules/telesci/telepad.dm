@@ -68,7 +68,7 @@
 	desc = "Use this to send crates and closets to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "rcs"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 10.0
 	throwforce = 10.0
 	throw_speed = 1
@@ -84,15 +84,17 @@
 
 /obj/item/weapon/rcs/New()
 	..()
-	GLOB.processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
+
 /obj/item/weapon/rcs/examine()
 	desc = "Use this to send crates and closets to cargo telepads. There are [rcharges] charges left."
 	..()
 
 /obj/item/weapon/rcs/Destroy()
-	GLOB.processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	..()
-/obj/item/weapon/rcs/process()
+
+/obj/item/weapon/rcs/Process()
 	if(rcharges > 10)
 		rcharges = 10
 	if(last_charge == 0)
