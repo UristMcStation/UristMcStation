@@ -144,6 +144,7 @@
 	name = "asset protection beret"
 	desc = "A navy blue beret adorned with the crest of corporate asset protection. For asset protection agents that are more inclined towards style than safety."
 	icon_state = "beret_corporate_navy"
+	armor = list(melee = 20, bullet = 20, laser = 20,energy = 10, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "asset protection command beret"

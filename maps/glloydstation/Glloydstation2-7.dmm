@@ -876,7 +876,7 @@
 "qR" = (/obj/machinery/computer/shuttle_control/elevator/mining,/turf/simulated/floor/tiled,/area/shuttle/elevator/mining/surface)
 "qS" = (/obj/structure/table/standard,/obj/machinery/microwave{pixel_y = 6},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qT" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
-"qU" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
+"qU" = (/obj/structure/table/standard,/obj/effect/overmap/sector/uristplanet,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qV" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qW" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "qX" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)

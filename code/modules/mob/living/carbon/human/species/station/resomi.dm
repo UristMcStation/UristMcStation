@@ -26,12 +26,13 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
 
-	slowdown = -0.5
+	slowdown = -0.1
 	total_health = 150
 	brute_mod = 1.35
 	burn_mod =  1.35
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
+	strength = STR_HIGH
 	holder_type = /obj/item/weapon/holder/human
 	light_sensitive = 6
 	gluttonous = GLUT_TINY
