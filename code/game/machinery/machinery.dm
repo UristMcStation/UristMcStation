@@ -363,7 +363,7 @@ Class Procs:
 
 /obj/machinery/examine(mob/user)
 	. = ..(user)
-	if(component_parts && hasHUD(user, "science"))
+	if(component_parts && hasHUD(user, HUD_SCIENCE))
 		display_parts(user)
 
 /obj/machinery/proc/build_default_parts(var/obj/item/weapon/circuitboard/CB)
