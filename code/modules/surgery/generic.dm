@@ -39,8 +39,8 @@
 	/obj/item/weapon/melee/energy/sword = 5
 	)
 	priority = 2
-	min_duration = 90
-	max_duration = 110
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /datum/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -77,8 +77,8 @@
 	/obj/item/weapon/scalpel/manager = 100
 	)
 	priority = 2
-	min_duration = 80
-	max_duration = 120
+	min_duration = 4 SECONDS
+	max_duration = 6 SECONDS
 
 /datum/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -118,8 +118,8 @@
 	/obj/item/weapon/material/shard = 50, 		\
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 4.5 SECONDS
+	max_duration = 5.5 SECONDS
 
 /datum/surgery_step/generic/cut_open/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -162,8 +162,8 @@
 	/obj/item/device/assembly/mousetrap = 20
 	)
 
-	min_duration = 40
-	max_duration = 60
+	min_duration = 3 SECONDS
+	max_duration = 4 SECONDS
 
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -245,8 +245,8 @@
 	/obj/item/weapon/weldingtool = 25
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 6 SECONDS
+	max_duration = 7 SECONDS
 
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 

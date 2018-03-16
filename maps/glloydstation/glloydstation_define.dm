@@ -22,10 +22,6 @@
 	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/floor/planet/jungle/clear)
 	accessible_z_levels = list("1"=15, "3"=15, "4"=25)
 
-	use_overmap = TRUE
-	overmap_event_areas = 17
-	away_site_budget = 2
-
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %Dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."
 	shuttle_called_message = "A crew transfer to %Dock_name% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA%"

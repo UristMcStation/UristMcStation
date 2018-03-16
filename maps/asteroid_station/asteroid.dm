@@ -3,10 +3,7 @@
 	#include "asteroid_areas.dm"
 	#include "asteroid_shuttles.dm"
 	#include "asteroid_jobs.dm"
-	#include "asteroid_overmap.dm"
 	#include "asteroid_shuttles.dm"
-	#include "asteroid_presets.dm"
-	#include "asteroid_datum_access.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"

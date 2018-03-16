@@ -48,6 +48,11 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
+/turf/simulated/floor/wood/broken/Initialize()
+	. = ..()
+	if(prob(75))
+		icon_state = "wood_broken[rand(0,6)]"
+
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'

@@ -135,7 +135,7 @@
 		return 0
 	if(!species)
 		return 0
-	
+
 	if(bodytemperature > species.cold_level_1)
 		return 0
 	else if(bodytemperature > species.cold_level_2)
@@ -181,7 +181,7 @@
 		ping_image.pixel_x = (T2.x - T1.x) * WORLD_ICON_SIZE
 		ping_image.pixel_y = (T2.y - T1.y) * WORLD_ICON_SIZE
 		show_image(src, ping_image)
-		spawn(8)
+		spawn(5)
 			qdel(ping_image)
 		var/feedback = list("<span class='notice'>There are noises of movement ")
 		var/direction = get_dir(T1, L)
