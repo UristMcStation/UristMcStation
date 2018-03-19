@@ -1,4 +1,4 @@
-#define ARMED_ROLES list(/datum/job/captain, /datum/job/hop, /datum/job/officer, /datum/job/warden, /datum/job/hos, /datum/job/detective, /datum/job/blueshield)
+#define ARMED_ROLES list(/datum/job/captain, /datum/job/hop, /datum/job/officer, /datum/job/warden, /datum/job/hos, /datum/job/detective)
 
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"

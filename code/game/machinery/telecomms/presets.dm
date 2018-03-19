@@ -69,6 +69,18 @@
 	id = "Sub Deck Relay"
 	autolinkers = list("sub_relay")
 
+/obj/machinery/telecomms/relay/preset/department_level
+	id = "Departmental Level Relay"
+	autolinkers = list("dep_relay")
+
+/obj/machinery/telecomms/relay/preset/construction_level
+	id = "Construction Level Relay"
+	autolinkers = list("con_relay")
+
+/obj/machinery/telecomms/relay/preset/supply_level
+	id = "Supply Level Relay"
+	autolinkers = list("sup_relay")
+
 //HUB
 
 /obj/machinery/telecomms/hub/preset

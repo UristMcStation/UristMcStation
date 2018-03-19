@@ -22,6 +22,7 @@
 /obj/machinery/sleeper/Initialize()
 	. = ..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
 	update_icon()
 
 /obj/machinery/sleeper/Process()
@@ -101,7 +102,7 @@
 		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
 		return STATUS_CLOSE
 	return ..()
-	    
+
 /obj/machinery/sleeper/OnTopic(user, href_list)
 	if(href_list["eject"])
 		go_out()
