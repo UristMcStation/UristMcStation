@@ -194,16 +194,6 @@
 
 	reagent_tag = IS_SKRELL
 
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart/skrell,
-		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
-		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_APPENDIX = /obj/item/organ/internal/appendix,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
-		)
-
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -217,35 +207,6 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
-
-/obj/item/organ/external/head/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	eye_icon = "skrell_eyes_s"
-
-/obj/item/organ/internal/brain/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_brain"
-
-/obj/item/organ/internal/eyes/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_eyes"
-
-/obj/item/organ/internal/heart/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_heart-on"
-	dead_icon = "skrell_heart-off"
-
-/obj/item/organ/internal/kidneys/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_kidneys"
-
-/obj/item/organ/internal/liver/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_liver"
-
-/obj/item/organ/internal/lungs/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_lungs"
 
 /datum/species/diona
 	name = SPECIES_DIONA

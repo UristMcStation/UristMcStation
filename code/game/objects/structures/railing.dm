@@ -42,8 +42,27 @@
 		R.update_icon()
 	. = ..()
 
+/obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(!mover)
+		return TRUE
 
-//32 ? 4 - ? ??? ?? ??????
+	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
+		return TRUE
+
+	if (locate(/obj/structure/table) in get_turf(mover))
+		return TRUE
+
+	if(get_dir(loc, target) == dir)
+		return !density
+	else
+		return TRUE
+
+/obj/structure/railing/CheckExit(atom/movable/O as mob|obj, target as turf)
+	if(istype(O) && O.checkpass(PASS_FLAG_TABLE))
+		return 1
+	if(get_dir(O.loc, target) == dir)
+		return 0
+	return 1
 
 /obj/structure/railing/examine(mob/user)
 	. = ..()
@@ -233,10 +252,6 @@
 	if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
 		if(istype(G.current_grab, /datum/grab/normal/aggressive))
-			var/obj/occupied = turf_is_crowded()
-			if(occupied)
-				user << "<span class='danger'>There's \a [occupied] in the way.</span>"
-				return
 			if (get_dist(G.affecting,src)<2)
 				G.affecting.forceMove(get_step(src, src.dir))
 				visible_message("<span class='danger'>[G.assailant] throws [G.affecting] over \the [src]!</span>")
