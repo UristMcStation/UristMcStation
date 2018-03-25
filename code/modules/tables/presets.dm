@@ -26,9 +26,15 @@
 	reinforced = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/woodentable
-	icon_state = "solid_preview"
+	icon_state = "plain_preview"
 	color = COLOR_BROWN_ORANGE
 	material = "wood"
+
+/obj/structure/table/woodentable_reinforced
+	icon_state = "reinf_preview"
+	color = COLOR_BROWN_ORANGE
+	material = "wood"
+	reinforced = "wood"
 
 /obj/structure/table/gamblingtable
 	icon_state = "gamble_preview"

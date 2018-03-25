@@ -133,6 +133,10 @@
 /obj/effect/spawner/carbon/human/patient
 	clothing = /decl/hierarchy/outfit/patient
 
+/obj/effect/spawner/carbon/human/vaultrich
+	killed = TRUE
+	clothing = /decl/hierarchy/outfit/vaultrich
+
 //Nanotrasen
 
 /obj/effect/spawner/carbon/human/virus/ntsci
@@ -244,3 +248,8 @@
 
 /decl/hierarchy/outfit/nanotrasensci/exec/armed
 	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)
+
+/decl/hierarchy/outfit/vaultrich
+	uniform = /obj/item/clothing/under/det/black
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/white

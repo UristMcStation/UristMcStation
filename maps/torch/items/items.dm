@@ -51,6 +51,12 @@ Torch specific items
 /obj/item/device/pda/pathfinder
 	icon_state = "pda-pathfinder"
 
+/obj/item/device/pda/heads/hop
+	pen = /obj/item/weapon/pen/multi/cmd/xo
+
+/obj/item/device/pda/captain
+	pen = /obj/item/weapon/pen/multi/cmd/co
+
 /***********
 Unique items
 ***********/
@@ -81,7 +87,10 @@ Weapons
 	name = "captain's autorevolver"
 	icon = 'maps/torch/icons/obj/uniques.dmi'
 	icon_state = "mosley"
-	desc = "A shiny Mosley Autococker automatic revolver, with black accents. Marketed as the 'Revolver for the Modern Era'. Uses .44 magnum rounds."
+	desc = "A shiny al-Maliki & Mosley Autococker automatic revolver, with black accents. Marketed as the 'Revolver for the Modern Era'. Uses .44 magnum rounds."
 	fire_delay = 5.7 //Autorevolver. Also synced with the animation
 	fire_anim = "mosley_fire"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+
+/obj/item/weapon/gun/energy/secure/stunrevolver
+	req_access = list(access_sec_guard)

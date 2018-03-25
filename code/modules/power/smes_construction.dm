@@ -41,8 +41,11 @@
 // DEPRECATED
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
+/obj/machinery/power/smes/buildable/outpost_substation
+	cur_coils = 0
+
 /obj/machinery/power/smes/buildable/outpost_substation/New()
-	..(0)
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
 	recalc_coils()
 

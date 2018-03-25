@@ -572,6 +572,7 @@
 					opened = 1
 					update_icon()
 
+	// If the robot is having something inserted which will remain inside it, self-inserting must be handled before exiting to avoid logic errors. Use the handle_selfinsert proc.
 	else if (istype(W, /obj/item/weapon/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 		if(storage)
 			to_chat(user, "You replace \the [storage] with \the [W]")
@@ -582,6 +583,7 @@
 		user.drop_item()
 		storage = W
 		W.forceMove(src)
+		handle_selfinsert(W, user)
 		recalculate_synth_capacities()
 
 	else if (istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
@@ -596,6 +598,7 @@
 			user.drop_item()
 			W.loc = src
 			cell = W
+			handle_selfinsert(W, user) //Just in case.
 			to_chat(user, "You insert the power cell.")
 			C.installed = 1
 			C.wrapped = W
@@ -651,6 +654,7 @@
 				to_chat(usr, "You apply the upgrade to [src]!")
 				usr.drop_item()
 				U.loc = src
+				handle_selfinsert(W, user)
 			else
 				to_chat(usr, "Upgrade error!")
 
@@ -658,6 +662,14 @@
 		if( !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 			spark_system.start()
 		return ..()
+
+/mob/living/silicon/robot/proc/handle_selfinsert(obj/item/W, mob/user)
+	if ((user == src) && istype(get_active_hand(),/obj/item/weapon/gripper))
+		var/obj/item/weapon/gripper/H = get_active_hand()
+		if (W.loc == H) //if this triggers something has gone very wrong, and it's safest to abort
+			return
+		else if (H.wrapped == W)
+			H.wrapped = null
 
 /mob/living/silicon/robot/attack_hand(mob/user)
 
@@ -1110,3 +1122,8 @@
 				to_chat(src, "Hack attempt detected.")
 			return 1
 		return
+
+/mob/living/silicon/robot/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
+	..()
+	if ((incapacitation_flags & INCAPACITATION_FORCELYING) && (lockcharge))
+		return 1

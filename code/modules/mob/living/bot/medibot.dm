@@ -1,10 +1,10 @@
 /mob/living/bot/medbot
-	name = "Medbot"
+	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
+	icon = 'icons/mob/bot/medibot.dmi'
 	icon_state = "medibot0"
 	req_one_access = list(access_medical, access_robotics)
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
-
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 
 	//AI vars
@@ -24,13 +24,9 @@
 	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
-/mob/living/bot/medbot/emagged
-	emagged = TRUE
-	treatment_emag = /datum/reagent/space_drugs
-
 /mob/living/bot/medbot/handleIdle()
 	if(vocal && prob(1))
-		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of medbay is this? Everyone's dropping like dead flies.", "Delicious!")
+		var/message = pick("Radar, put a mask on!", "There's always a catch, and it's the best there is.", "I knew it, I should've been a plastic surgeon.", "What kind of infirmary is this? Everyone's dropping like dead flies.", "Delicious!")
 		say(message)
 
 /mob/living/bot/medbot/handleAdjacentTarget()
@@ -92,7 +88,7 @@
 /mob/living/bot/medbot/update_icons()
 	overlays.Cut()
 	if(skin)
-		overlays += image('icons/obj/aibots.dmi', "medskin_[skin]")
+		overlays += image('icons/mob/bot/medibot_skins.dmi', "medskin_[skin]")
 	if(busy)
 		icon_state = "medibots"
 	else
@@ -266,13 +262,8 @@
 		return
 
 	var/obj/item/weapon/firstaid_arm_assembly/A = new /obj/item/weapon/firstaid_arm_assembly
-	if(istype(src, /obj/item/weapon/storage/firstaid/fire))
-		A.skin = "ointment"
-	else if(istype(src, /obj/item/weapon/storage/firstaid/toxin))
-		A.skin = "tox"
-	else if(istype(src, /obj/item/weapon/storage/firstaid/o2))
-		A.skin = "o2"
 
+	A.skin = icon_state
 	qdel(S)
 	user.put_in_hands(A)
 	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
@@ -282,18 +273,17 @@
 /obj/item/weapon/firstaid_arm_assembly
 	name = "first aid/robot arm assembly"
 	desc = "A first aid kit with a robot arm permanently grafted to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/bot/medibot.dmi'
 	icon_state = "firstaid_arm"
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	w_class = ITEM_SIZE_NORMAL
 
-/obj/item/weapon/firstaid_arm_assembly/New()
-	..()
-	spawn(5) // Terrible. TODO: fix
-		if(skin)
-			overlays += image('icons/obj/aibots.dmi', "kit_skin_[src.skin]")
+/obj/item/weapon/firstaid_arm_assembly/Initialize()
+	. = ..()
+	if(skin != "firstaid")//Let's not add any unnecessary overlays.
+		overlays += image('icons/mob/bot/medibot_skins.dmi', "kit_skin_[src.skin]")
 
 /obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -313,7 +303,7 @@
 					build_step++
 					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
 					SetName("First aid/robot arm/health analyzer assembly")
-					overlays += image('icons/obj/aibots.dmi', "na_scanner")
+					overlays += image('icons/mob/bot/medibot.dmi', "na_scanner")
 
 			if(1)
 				if(isprox(W))

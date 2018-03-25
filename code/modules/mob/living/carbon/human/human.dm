@@ -432,7 +432,7 @@
 			show_inv(usr)
 
 	if (href_list["criminal"])
-		if(hasHUD(usr,"security"))
+		if(hasHUD(usr, HUD_SECURITY))
 
 			var/modified = 0
 			var/perpname = "wot"
@@ -448,7 +448,7 @@
 			var/datum/computer_file/crew_record/R = get_crewmember_record(perpname)
 			if(R)
 				var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", R.get_criminalStatus()) in GLOB.security_statuses as null|text
-				if(hasHUD(usr, "security") && setcriminal)
+				if(hasHUD(usr, HUD_SECURITY) && setcriminal)
 					R.set_criminalStatus(setcriminal)
 					modified = 1
 
@@ -464,7 +464,7 @@
 			if(!modified)
 				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
 	if (href_list["secrecord"])
-		if(hasHUD(usr,"security"))
+		if(hasHUD(usr, HUD_SECURITY))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -478,7 +478,7 @@
 				perpname = src.name
 			var/datum/computer_file/crew_record/E = get_crewmember_record(perpname)
 			if(E)
-				if(hasHUD(usr,"security"))
+				if(hasHUD(usr, HUD_SECURITY))
 					to_chat(usr, "<b>Name:</b> [E.get_name()]")
 					to_chat(usr, "<b>Criminal Status:</b> [E.get_criminalStatus()]")
 					to_chat(usr, "<b>Details:</b> [pencode2html(E.get_criminalStatus())]")
@@ -487,7 +487,7 @@
 			if(!read)
 				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
 	if (href_list["medical"])
-		if(hasHUD(usr,"medical"))
+		if(hasHUD(usr, HUD_MEDICAL))
 			var/perpname = "wot"
 			var/modified = 0
 
@@ -503,7 +503,7 @@
 			var/datum/computer_file/crew_record/E = get_crewmember_record(perpname)
 			if(E)
 				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", E.get_status()) in GLOB.physical_statuses as null|text
-				if(hasHUD(usr,"medical") && setmedical)
+				if(hasHUD(usr, HUD_MEDICAL) && setmedical)
 					E.set_status(setmedical)
 					modified = 1
 
@@ -518,7 +518,7 @@
 			if(!modified)
 				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
 	if (href_list["medrecord"])
-		if(hasHUD(usr,"medical"))
+		if(hasHUD(usr, HUD_MEDICAL))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -532,7 +532,7 @@
 				perpname = src.name
 			var/datum/computer_file/crew_record/E = get_crewmember_record(perpname)
 			if(E)
-				if(hasHUD(usr,"medical"))
+				if(hasHUD(usr, HUD_MEDICAL))
 					to_chat(usr, "<b>Name:</b> [E.get_name()]")
 					to_chat(usr, "<b>Gender:</b> [E.get_sex()]")
 					to_chat(usr, "<b>Species:</b> [E.get_species()]")
@@ -685,7 +685,8 @@
 					var/turf/location = loc
 					if (istype(location, /turf/simulated))
 						location.add_vomit_floor(src, toxvomit)
-					ingested.remove_any(5)
+					if(ingested)
+						ingested.remove_any(5)
 					nutrition -= 30
 		sleep(350)	//wait 35 seconds before next volley
 		lastpuke = 0

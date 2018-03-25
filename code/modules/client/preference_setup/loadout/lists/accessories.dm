@@ -98,3 +98,8 @@
 	display_name = "NanoTrasen armband"
 	path = /obj/item/clothing/accessory/armband/whitered
 */
+
+/datum/gear/accessory/ftupin
+	display_name = "Free Trade Union pin"
+	path = /obj/item/clothing/accessory/ftupin
+

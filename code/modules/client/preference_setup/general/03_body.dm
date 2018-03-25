@@ -27,7 +27,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/list/rlimb_data
 	var/disabilities = 0
 
-	var/has_cortical_stack = FALSE
+	var/has_cortical_stack = TRUE
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
 
 	var/icon/bgstate = "000"

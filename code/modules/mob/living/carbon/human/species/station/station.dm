@@ -121,7 +121,7 @@
 	flesh_color = "#afa59e"
 	base_color = "#333333"
 	blood_color = "#862a51"
-
+	organs_icon = 'icons/mob/human_races/organs/tajaran.dmi'
 	reagent_tag = IS_TAJARA
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
@@ -162,6 +162,18 @@
 	min_age = 19
 	max_age = 90
 
+	burn_mod = 0.9
+	oxy_mod = 1.3
+	flash_mod = 1.1
+	toxins_mod = 0.8
+	siemens_coefficient = 1.3
+	warning_low_pressure = WARNING_LOW_PRESSURE * 1.4
+	hazard_low_pressure = HAZARD_LOW_PRESSURE * 2
+	warning_high_pressure = WARNING_HIGH_PRESSURE / 0.8125
+	hazard_high_pressure = HAZARD_HIGH_PRESSURE / 0.84615
+
+	body_temperature = null // cold-blooded, implemented the same way nabbers do it
+
 	darksight = 4
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
@@ -170,6 +182,7 @@
 	flesh_color = "#8cd7a3"
 	blood_color = "#1d2cbf"
 	base_color = "#006666"
+	organs_icon = 'icons/mob/human_races/organs/skrell.dmi'
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -180,16 +193,6 @@
 	heat_level_3 = 1100 //Default 1000
 
 	reagent_tag = IS_SKRELL
-
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart/skrell,
-		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
-		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_APPENDIX = /obj/item/organ/internal/appendix,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
-		)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -204,35 +207,6 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
-
-/obj/item/organ/external/head/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	eye_icon = "skrell_eyes_s"
-
-/obj/item/organ/internal/brain/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_brain"
-
-/obj/item/organ/internal/eyes/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_eyes"
-
-/obj/item/organ/internal/heart/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_heart-on"
-	dead_icon = "skrell_heart-off"
-
-/obj/item/organ/internal/kidneys/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_kidneys"
-
-/obj/item/organ/internal/liver/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_liver"
-
-/obj/item/organ/internal/lungs/skrell
-	icon = 'icons/urist/restored/surgery.dmi'
-	icon_state = "skrell_lungs"
 
 /datum/species/diona
 	name = SPECIES_DIONA
