@@ -20,6 +20,8 @@
 	tail_hair = "feathers"
 	reagent_tag = IS_RESOMI
 
+	eye_icon = "eyes_resomi"
+
 	icobase = 'icons/mob/human_races/r_resomi.dmi'
 	deform = 'icons/mob/human_races/r_resomi.dmi'
 	damage_overlays = 'icons/mob/human_races/masks/dam_resomi.dmi'
