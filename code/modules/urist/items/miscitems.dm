@@ -8,6 +8,12 @@
 	icon_state = "necrostaff"
 	item_state = "necrostaff"
 
+/obj/item/weapon/card/id/blueshield
+	name = "identification card"
+	desc = "A card issued to the station's blueshield."
+	icon_state = "centcom"
+	job_access_type = /datum/job/blueshield
+
 //glowsticks dunno where else to put thiese
 /* Bay has'em now too
 /obj/item/device/flashlight/glowstick //this should never be seen

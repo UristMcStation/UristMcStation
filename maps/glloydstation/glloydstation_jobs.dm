@@ -119,41 +119,6 @@
 	pda_type = /obj/item/device/pda/clown
 	id_type = /obj/item/weapon/card/id/civilian/clown
 
-/datum/job/blueshield
-	title = "Blueshield"
-	department_flag = SEC|COM
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "whichever head you protect. Remember, you are NOT security. Ultimately, you report to Nanotrasen, but if unavailable, defer to the Captain."
-	selection_color = "#ddddff"
-	req_admin_notify = 1
-	minimal_player_age = 8
-	economic_modifier = 15
-	outfit_type = /decl/hierarchy/outfit/job/blueshield
-	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
-			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
-	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
-			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
-
-/decl/hierarchy/outfit/job/blueshield
-	name = OUTFIT_JOB_NAME("Blueshield")
-	uniform = /obj/item/clothing/under/rank/centcom
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
-	l_ear = /obj/item/device/radio/headset/heads/hop
-	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/weapon/card/id/blueshield
-	pda_type = /obj/item/device/pda/heads/hop
-	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
-	gloves = /obj/item/clothing/gloves/thick/combat
-
 /datum/job/merchant
 	title = "Merchant"
 	department = "Civilian"
@@ -202,12 +167,6 @@
 	desc = "A card issued to the station's mime."
 	icon_state = "mime"
 	job_access_type = /datum/job/mime
-
-/obj/item/weapon/card/id/blueshield
-	name = "identification card"
-	desc = "A card issued to the station's blueshield."
-	icon_state = "centcom"
-	job_access_type = /datum/job/blueshield
 
 /obj/item/weapon/card/id/merchant
 	desc = "An identification card issued to Merchants, indicating their right to sell and buy goods."
