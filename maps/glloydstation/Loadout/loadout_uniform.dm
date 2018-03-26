@@ -53,11 +53,6 @@
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
 
-/datum/gear/uniform/shortskirt
-	display_name = "short skirt"
-	path = /obj/item/clothing/under/urist/shortskirt
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/formal_pants

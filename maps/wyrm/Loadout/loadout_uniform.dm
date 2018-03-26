@@ -131,11 +131,6 @@
 		skirts[initial(skirt_type.name)] = skirt_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(skirts))
 
-/datum/gear/uniform/shortskirt
-	display_name = "short skirt"
-	path = /obj/item/clothing/under/urist/shortskirt
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/formal_pants
