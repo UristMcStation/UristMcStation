@@ -5,7 +5,7 @@
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	base_turf = /turf/simulated/floor/plating/airless
 
 /area/hatchling/start
@@ -13,21 +13,21 @@
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/rescue/start
 	name = "\improper Rescue Pod"
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/lanius/start
 	name = "\improper Aura"
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /obj/effect/overmap/ship/wyrm
 	name = "ISC Wyrm"

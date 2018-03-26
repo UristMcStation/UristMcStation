@@ -39,6 +39,9 @@
 	use_overmap = 1
 
 	num_exoplanets = 1
+	planet_size = list(129,129)
+
+	away_site_budget = 5
 
 /datum/map/wyrm/setup_map()
 	..()

@@ -83,15 +83,15 @@
 
 /area/civilian/personal
 	name = "\improper Personal Storage"
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/dorms
 	name = "\improper Dormitory"
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/lounge
 	name = "\improper Lounge"
-	flags = AREA_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 //////////////////////////////////////
 //			SECURITY				//

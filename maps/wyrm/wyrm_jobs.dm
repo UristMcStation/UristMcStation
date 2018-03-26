@@ -116,7 +116,6 @@
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "whichever head you're protecting. Remember, you are NOT security. Ultimately, you report to the Captain."
@@ -146,10 +145,12 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/bodyguard
 	pda_type = /obj/item/device/pda/heads/hop
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
+
+/decl/hierarchy/outfit/job/bodyguard/New()
+	..()
+	BACKPACK_OVERRIDE_SECURITY
 
 /obj/item/clothing/under/bodyguard
 	name = "Bodyguard's Uniform"
