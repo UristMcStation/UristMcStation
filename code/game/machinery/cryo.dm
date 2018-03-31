@@ -147,7 +147,7 @@
 	if(user == occupant)
 		return STATUS_CLOSE
 	return ..()
-	    
+
 /obj/machinery/atmospherics/unary/cryo_cell/OnTopic(user, href_list)
 	if(href_list["switchOn"])
 		on = 1
@@ -229,8 +229,7 @@
 			var/heal_brute = occupant.getBruteLoss() ? min(1, 20/occupant.getBruteLoss()) : 0
 			var/heal_fire = occupant.getFireLoss	() ? min(1, 20/occupant.getFireLoss()) : 0
 			occupant.heal_organ_damage(heal_brute,heal_fire)
-		var/has_cryo_medicine = occupant.reagents.has_any_reagent(list(/datum/reagent/cryoxadone, /datum/reagent/clonexadone)) >= REM
-		if(beaker && !has_cryo_medicine)
+		if(beaker)
 			beaker.reagents.trans_to_mob(occupant, REM, CHEM_BLOOD)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
