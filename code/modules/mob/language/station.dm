@@ -112,7 +112,7 @@
 
 /datum/language/resomi
 	name = LANGUAGE_RESOMI
-	desc = "A trilling language spoken by the diminutive Resomi."
+	desc = "A trilling language spoken by the diminutive Teshari."
 	speech_verb = "chirps"
 	ask_verb = "chirrups"
 	exclaim_verb = "trills"
@@ -120,6 +120,7 @@
 	key = "v"
 	flags = WHITELISTED
 	space_chance = 50
+	shorthand = "SCH"
 	syllables = list(
 			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
 			"ce", "re", "me", "se", "ne", "te", "le", "she", "sche", "e", "e",
@@ -220,7 +221,7 @@
 	name = LANGUAGE_SPACER
 	desc = "A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the galaxy."
 	colour = "spacer"
-	key = "v"
+	key = "p"
 	syllables = list ("die", "en", "skei", "van", "son", "der", "aar", "ch", "op", "ruk", "aa", "be", "ne", "het",
  	"ek", "ras", "ver", "zan", "das", "waa", "geb", "vol", "lu", "min", "breh", "rus", "stv", "ee", "goe", "sk",
  	"la", "ver", "we", "ge", "luk", "an", "ar", "at", "es", "et", "bel", "du", "jaa", "ch", "kk", "gh", "ll", "uu", "wat")

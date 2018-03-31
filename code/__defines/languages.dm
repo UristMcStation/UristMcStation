@@ -8,7 +8,7 @@
 #define LANGUAGE_SKRELLIAN "Skrellian"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL "Global Rootspeak"
-#define LANGUAGE_LUNAR "Selenian"
+#define LANGUAGE_LUNAR "Tradeband"
 #define LANGUAGE_GUTTER "Gutter"
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_SIGN "Sign Language"
