@@ -18,8 +18,13 @@ SUBSYSTEM_DEF(skybox)
 
 /datum/controller/subsystem/skybox/Initialize(timeofday)
 	..(timeofday)
-	BGcolor = RANDOM_RGB
-	BGrot = RANDOM_RIGHT_ANGLE
+	if(prob(5))
+		BGstate = "rainbow"
+		BGcolor = null
+		BGrot = RANDOM_RIGHT_ANGLE
+	else
+		BGcolor = RANDOM_RGB
+		BGrot = RANDOM_RIGHT_ANGLE
 
 /datum/controller/subsystem/skybox/Recover()
 	BGrot = SSskybox.BGrot
