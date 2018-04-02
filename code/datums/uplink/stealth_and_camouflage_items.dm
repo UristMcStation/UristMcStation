@@ -43,3 +43,8 @@
 	name = "Smuggler's Satchel"
 	item_cost = 8
 	path = /obj/item/weapon/storage/backpack/satchel_flat
+
+/datum/uplink_item/item/stealth_items/sneakies
+	name = "Sneakies"
+	item_cost = 4
+	path = /obj/item/clothing/shoes/laceup/sneakies

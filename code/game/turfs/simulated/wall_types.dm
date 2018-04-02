@@ -11,6 +11,12 @@
 /turf/simulated/wall/r_titanium/New(var/newloc)
 	..(newloc,"titanium", "titanium")
 
+/turf/simulated/wall/r_wall/hull
+	name = "hull"
+	color = COLOR_HULL
+	paint_color = COLOR_HULL
+
+
 
 
 /turf/simulated/wall/cult
@@ -23,7 +29,7 @@
 	..(newloc, 1)
 
 /turf/simulated/wall/cult/dismantle_wall()
-	cult.remove_cultiness(CULTINESS_PER_TURF)
+	GLOB.cult.remove_cultiness(CULTINESS_PER_TURF)
 	..()
 
 /turf/unsimulated/wall/cult

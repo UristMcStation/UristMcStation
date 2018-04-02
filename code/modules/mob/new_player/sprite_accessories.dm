@@ -312,6 +312,7 @@
 /datum/sprite_accessory/hair/curls
 	name = "Curls"
 	icon_state = "hair_curls"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/afro
 	name = "Afro"
@@ -334,7 +335,7 @@
 /datum/sprite_accessory/hair/rows2
 	name = "Rows 2"
 	icon_state = "hair_rows2"
-	flags = VERY_SHORT
+	flags = VERY_SHORT | HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/sargeant
 	name = "Flat Top"
@@ -450,7 +451,7 @@
 	name = "Floorlength Braid"
 	icon_state = "hair_braid"
 	gender = FEMALE
-	flags = HAIR_TRIPPABLE
+	flags = HAIR_TRIPPABLE | HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/odango
 	name = "Odango"
@@ -562,6 +563,7 @@
 /datum/sprite_accessory/hair/shavedbun
 	name = "Shaved Bun"
 	icon_state = "hair_shavedbun"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/halfshaved
 	name = "Half-Shaved"
@@ -571,10 +573,12 @@
 /datum/sprite_accessory/hair/halfshavedemo
 	name = "Half-Shaved Emo"
 	icon_state = "hair_halfshavedemo"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/longsideemo
 	name = "Long Side Emo"
 	icon_state = "hair_longsideemo"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/bun
 	name = "Low Bun"
@@ -672,16 +676,19 @@
 	name = "Row Bun"
 	icon_state = "hair_rowbun"
 	gender = FEMALE
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/rowdualbraid
 	name = "Row Dual Braid"
 	icon_state = "hair_rowdualtail"
 	gender = FEMALE
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/rowbraid
 	name = "Row Braid"
 	icon_state = "hair_rowbraid"
 	gender = FEMALE
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/regulationmohawk
 	name = "Regulation Mohawk"
@@ -770,6 +777,7 @@
 /datum/sprite_accessory/hair/amazon
 	name = "Amazon"
 	icon_state = "hair_amazon"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/straightlong
 	name = "Straight Long"
@@ -779,6 +787,7 @@
 /datum/sprite_accessory/hair/marysue
 	name = "Mary Sue"
 	icon_state = "hair_marysue"
+	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/messyhair2
 	name = "Messy Hair 2"
@@ -1316,3 +1325,28 @@
 	icon_state = "taj_all"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_TAJARA)
+
+//IPC specific stuff
+/datum/sprite_accessory/marking/bishopoptics
+	name = "Bishop Alt. Optics (IPC)"
+	icon_state = "bishop_alt_optics"
+	body_parts = list(BP_HEAD)
+	species_allowed = list(SPECIES_IPC)
+
+/datum/sprite_accessory/marking/takahashioptics
+	name = "Ward Takahashi Alt. Optics (IPC)"
+	icon_state = "wardtakahashi_alt_optics"
+	body_parts = list(BP_HEAD)
+	species_allowed = list(SPECIES_IPC)
+
+/datum/sprite_accessory/marking/optics/xion
+	name = "Xion Alt. Optics (IPC)"
+	icon_state = "xion_alt_optics"
+	body_parts = list(BP_HEAD)
+	species_allowed = list(SPECIES_IPC)
+
+/datum/sprite_accessory/marking/optics/morpheus
+	name = "Morpheus Optics (IPC)"
+	icon_state = "morpheus_optics"
+	body_parts = list(BP_HEAD)
+	species_allowed = list(SPECIES_IPC)

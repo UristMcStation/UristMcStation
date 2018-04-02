@@ -36,10 +36,10 @@
 				if(!(VAMP_FULL in M.mind.vampire.powers))
 					M << "<span class='warning'>The nullrod's power interferes with your own!</span>"
 					M.mind.vampire.nullified = max(5, M.mind.vampire.nullified + 2)
-	..()
-	if(cult && iscultist(M))
+
+	if(GLOB.cult && iscultist(M))
 		M.visible_message("<span class='notice'>\The [user] waves \the [src] over \the [M]'s head.</span>")
-		cult.offer_uncult(M)
+		GLOB.cult.offer_uncult(M)
 		return
 
 	..()

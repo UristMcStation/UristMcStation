@@ -224,3 +224,8 @@
 #define UNAUTHORIZED      0
 #define AUTHORIZED        1
 #define ALWAYS_AUTHORIZED 2
+
+// wrinkle states for clothes
+#define WRINKLES_DEFAULT	0
+#define WRINKLES_WRINKLY	1
+#define WRINKLES_NONE		2
