@@ -187,6 +187,12 @@
 	icon_state = "concrete"
 	initial_flooring = /decl/flooring/tiling/concrete
 
+/turf/simulated/floor/tiled/sand
+	name = "sand covered tiles"
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon_state = "asteroidfloor"
+	initial_flooring = /decl/flooring/tiling/sand
+
 /turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'

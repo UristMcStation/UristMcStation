@@ -71,7 +71,7 @@ var/list/mining_floors = list()
 		if(update_neighbors && istype(turf_to_check,/turf/simulated/floor/asteroid))
 			var/turf/simulated/floor/asteroid/T = turf_to_check
 			T.updateMineralOverlays()
-		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
+		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor) || istype(turf_to_check,/turf/simulated/open))
 			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(direction, 180))
 			rock_side.turf_decal_layerise()
 			switch(direction)
@@ -429,12 +429,16 @@ var/list/mining_floors = list()
 	var/overlay_detail
 	has_resources = 1
 
+	var/mapped = FALSE
+
 /turf/simulated/floor/asteroid/New()
 	if (!mining_floors["[src.z]"])
 		mining_floors["[src.z]"] = list()
 	mining_floors["[src.z]"] += src
 	if(prob(20))
 		overlay_detail = "asteroid[rand(0,9)]"
+	if(mapped)
+		updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Destroy()
 	if (mining_floors["[src.z]"])

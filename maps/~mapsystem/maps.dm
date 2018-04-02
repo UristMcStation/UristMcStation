@@ -57,6 +57,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/company_short = "BM"
 	var/system_name = "Uncharted System"
 
+	var/has_central_command = TRUE
+
 	var/map_admin_faxes = list()
 
 	var/shuttle_docked_message
@@ -152,6 +154,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		"Agnostic",
 		"Deist"
 		)
+
+	var/obj/machinery/emergency_beacon/active_beacon
 
 /datum/map/New()
 	if(!map_levels)

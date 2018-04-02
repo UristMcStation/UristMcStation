@@ -155,6 +155,11 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_concrete
 
+/decl/flooring/tiling/sand
+	color = ""
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon_base = "asteroidfloor"
+
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."

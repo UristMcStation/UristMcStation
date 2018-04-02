@@ -159,15 +159,15 @@ Class Procs:
 	switch(severity)
 		if(1.0)
 			qdel(src)
-			return
+			return TRUE
 		if(2.0)
 			if (prob(50))
 				qdel(src)
-				return
+				return TRUE
 		if(3.0)
 			if (prob(25))
 				qdel(src)
-				return
+				return TRUE
 		else
 	return
 

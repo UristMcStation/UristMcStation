@@ -3,9 +3,9 @@
 	shuttle_area = /area/station/shuttle/lift
 	warmup_time = 3
 	move_time = 1 SECOND
-	waypoint_station = "nav_asteroid_lift_bottom"
+	waypoint_station = "nav_asteroid_lift_top"
 	landmark_transition = "nav_asteroid_lift_middle"
-	waypoint_offsite = "nav_asteroid_lift_top"
+	waypoint_offsite = "nav_asteroid_lift_bottom"
 	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	ceiling_type = null
@@ -26,7 +26,7 @@
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/mid
-	landmark_tag = "nav_asteroid_lift_top"
+	landmark_tag = "nav_asteroid_lift_middle"
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/bottom

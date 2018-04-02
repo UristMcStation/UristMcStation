@@ -171,6 +171,9 @@
 /obj/machinery/light/small/red
 	light_type = /obj/item/weapon/light/bulb/red
 
+/obj/machinery/light/small/d_green
+	light_type = /obj/item/weapon/light/bulb/d_green
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	desc = "A more robust socket for light tubes that demand more power."
@@ -586,6 +589,10 @@
 	lighting_modes = list(
 		LIGHTMODE_READY = list(l_range = 5, l_power = 1, l_color = "#00ff00"),
 		)
+
+/obj/item/weapon/light/bulb/d_green
+	color = "#4b734b"
+	brightness_color = "#4b734b"
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
 	..()
