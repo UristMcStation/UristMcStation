@@ -53,11 +53,6 @@
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
 
-/datum/gear/uniform/shortskirt
-	display_name = "short skirt"
-	path = /obj/item/clothing/under/urist/shortskirt
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/formal_pants
@@ -69,3 +64,41 @@
 		var/obj/item/clothing/under/pants/urist/pant_type = pant
 		pants[initial(pant_type.name)] = pant_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pants))
+
+/datum/gear/uniform/shorts
+	display_name = "shorts selection"
+	path = /obj/item/clothing/under/shorts/jeans
+
+/datum/gear/uniform/shorts/New()
+	..()
+	var/list/shorts = list()
+	for(var/short in typesof(/obj/item/clothing/under/shorts))
+		var/obj/item/clothing/under/pants/short_type = short
+		shorts[initial(short_type.name)] = short_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorts))
+
+/datum/gear/uniform/tacticool
+	display_name = "tacticool turtleneck"
+	path = /obj/item/clothing/under/syndicate/tacticool
+
+/datum/gear/uniform/turtleneck
+	display_name = "sweater"
+	path = /obj/item/clothing/under/rank/psych/turtleneck/sweater
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/corporate
+	display_name = "corporate uniform selection"
+	path = /obj/item/clothing/under/mbill
+
+/datum/gear/uniform/corporate/New()
+	..()
+	var/corps = list()
+	corps["major bill's shipping uniform"] = /obj/item/clothing/under/mbill
+	corps["SAARE uniform"] = /obj/item/clothing/under/saare
+	corps["aether atmospherics uniform"] = /obj/item/clothing/under/aether
+	corps["hephaestus uniform"] = /obj/item/clothing/under/hephaestus
+	corps["PCRC uniform"] = /obj/item/clothing/under/pcrc
+	corps["ward-takahashi uniform"] = /obj/item/clothing/under/wardt
+	corps["grayson uniform"] = /obj/item/clothing/under/grayson
+	corps["focal point uniform"] = /obj/item/clothing/under/focal
+	gear_tweaks += new/datum/gear_tweak/path(corps)

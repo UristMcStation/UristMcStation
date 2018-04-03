@@ -810,7 +810,7 @@
 /datum/chemical_reaction/potato_juice_paint
 	name = "Potato juice paint"
 	result = /datum/reagent/paint
-	required_reagents = list(/datum/reagent/toxin/plasticide = 1, /datum/reagent/water = 3, "potatojuice" = 5)
+	required_reagents = list(/datum/reagent/toxin/plasticide = 1, /datum/reagent/water = 3, /datum/reagent/drink/juice/potato = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/potato_juice_paint/send_data()

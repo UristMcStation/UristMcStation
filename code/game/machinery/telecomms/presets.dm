@@ -289,8 +289,20 @@
 
 /obj/machinery/telecomms/server/presets/wyrm
 	id = "Wyrm NAT"
-	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
-	autolinkers = list("serverWyrm", "broadcasterWyrm")
+	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
+	channel_tags = list(
+		list(AI_FREQ, "AI Private", "#FF00FF"),
+		list(COMM_FREQ, "Command", "#395A9A"),
+		list(ENG_FREQ, "Engineering", "#A66300"),
+		list(ENT_FREQ, "Entertainment", "#6EAA2C"),
+		list(MED_FREQ, "Medical", "#008160"),
+		list(PUB_FREQ, "Common", "#008000"),
+		list(SCI_FREQ, "Science", "#993399"),
+		list(SEC_FREQ, "Security", "#A30000"),
+		list(SRV_FREQ, "Service", "#6EAA2C"),
+		list(SUP_FREQ, "Supply", "#7F6539")
+	)
+	autolinkers = list("serverWyrm", "busWyrm")
 
 //Broadcasters
 

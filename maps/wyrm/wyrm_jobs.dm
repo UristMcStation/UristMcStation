@@ -1,5 +1,5 @@
 /datum/map/wyrm
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/bodyguard,
+	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield,
 						/datum/job/bartender, /datum/job/janitor,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
@@ -113,10 +113,9 @@
 	icon_state = "trader"
 	job_access_type = /datum/job/merchant
 
-/datum/job/bodyguard
+/datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "whichever head you're protecting. Remember, you are NOT security. Ultimately, you report to the Captain."
@@ -146,10 +145,12 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/bodyguard
 	pda_type = /obj/item/device/pda/heads/hop
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel_one = /obj/item/weapon/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
+
+/decl/hierarchy/outfit/job/bodyguard/New()
+	..()
+	BACKPACK_OVERRIDE_SECURITY
 
 /obj/item/clothing/under/bodyguard
 	name = "Bodyguard's Uniform"
@@ -163,4 +164,4 @@
 	name = "identification card"
 	desc = "A card issued to those crazy enough to put their life on the line for the Heads of Staff."
 	icon_state = "centcom"
-	job_access_type = /datum/job/bodyguard
+	job_access_type = /datum/job/blueshield

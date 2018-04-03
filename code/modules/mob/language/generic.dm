@@ -41,7 +41,7 @@
 // Galactic common languages (systemwide accepted standards).
 /datum/language/lunar
 	name = LANGUAGE_LUNAR
-	desc = "An older language primarily spoken on Earth's only natural satellite, this language is commonly heard from the mouths of aristocracy."
+	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
 	speech_verb = "enunciates"
 	colour = "moon"
 	key = "2"
@@ -54,7 +54,7 @@
 					 "voluptate", "velit", "esse", "cillum", "dolore", "eu", "fugiat", "nulla",
 					 "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non", "proident", "sunt",
 					 "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum")
-	shorthand = "SL"
+	shorthand = "TB"
 
 // Criminal language.
 /datum/language/gutter

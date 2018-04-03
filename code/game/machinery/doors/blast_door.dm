@@ -195,6 +195,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	icon_state = "pdoor0"
 	begins_closed = FALSE
 
 // SUBTYPE: Shutters
@@ -210,4 +211,5 @@
 	close_sound = 'sound/machines/shutters_close.ogg'
 
 /obj/machinery/door/blast/shutters/open
+	icon_state = "shutter0"
 	begins_closed = FALSE

@@ -82,7 +82,7 @@
 	disabled = rand(15, 30)
 	malfunctioning = 1
 	hostile_drone = 1
-	destroy_surroundings = 1
+	//destroy_surroundings = 1
 	projectiletype = initial(projectiletype)
 	walk(src,0)
 

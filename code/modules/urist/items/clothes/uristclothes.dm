@@ -452,6 +452,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/toggle/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
@@ -466,10 +467,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -521,7 +524,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
-	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
+	desc = "A very heavy, very warm belted fur coat made out of furs of an extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?"
 	icon_state = "tajcoat_open"
 
 /obj/item/clothing/suit/storage/urist/coat/journocoat
@@ -1183,12 +1186,3 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
 	icon_state = "rnd"
-
-//Recolourable short skirt, there were 3 hard-coloured ones, and it annoyed me -Vakothu
-
-/obj/item/clothing/under/urist/shortskirt
-	name = "short skirt"
-	desc = "A skirt that barely even reaches your knees."
-	body_parts_covered = LOWER_TORSO
-	icon_state = "shortskirt_colourable"
-	item_state = "shortskirt_colourable"

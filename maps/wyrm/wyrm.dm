@@ -23,6 +23,21 @@
 	#include "wyrm-3.dmm"
 	#include "wyrm-4.dmm"
 
+	#include "../away/mining/mining.dm"
+	#include "../away/derelict/derelict.dm"
+	#include "../away/bearcat/bearcat.dm"
+	#include "../away/lost_supply_base/lost_supply_base.dm"
+	#include "../away/marooned/marooned.dm"
+	#include "../away/smugglers/smugglers.dm"
+	#include "../away/magshield/magshield.dm"
+	#include "../away/casino/casino.dm"
+	#include "../away/yacht/yacht.dm"
+	#include "../away/blueriver/blueriver.dm"
+	#include "../away/slavers/slavers_base.dm"
+	#include "../away/hydro/hydro.dm"
+	#include "../away/mobius_rift/mobius_rift.dm"
+	#include "../away/icarus/icarus.dm"
+	#include "../away/errant_pisces/errant_pisces.dm"
 
 	#include "../../code/modules/lobby_music/chasing_time.dm"
 	#include "../../code/modules/lobby_music/absconditus.dm"
@@ -30,9 +45,6 @@
 	#include "../../code/modules/lobby_music/endless_space.dm"
 	#include "../../code/modules/lobby_music/dilbert.dm"
 	#include "../../code/modules/lobby_music/space_oddity.dm"
-
-
-	#include "../../code/controllers/subsystems/awayloader.dm"
 
 	#define USING_MAP_DATUM /datum/map/wyrm
 	#define URISTCODE 1

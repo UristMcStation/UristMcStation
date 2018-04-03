@@ -5,7 +5,7 @@ GLOBAL_DATUM_INIT(godcult, /datum/antagonist/godcultist, new)
 	role_text = "God Cultist"
 	role_text_plural = "God Cultists"
 	restricted_jobs = list(/datum/job/lawyer, /datum/job/captain, /datum/job/hos)
-	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective)
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/blueshield)
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain)
 	feedback_tag = "godcult_objective"
 	antag_indicator = "hudcultist"
