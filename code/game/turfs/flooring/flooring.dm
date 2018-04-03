@@ -131,6 +131,9 @@ var/list/flooring_types
 /decl/flooring/tiling/white/mono
 	icon_base = "monotile"
 
+/decl/flooring/tiling/white/sand
+	color = "#b2afa6"
+
 /decl/flooring/tiling/dark
 	desc = "How ominous."
 	color = COLOR_DARK_GRAY

@@ -196,7 +196,7 @@
 			state = 3
 			for(var/atom/movable/O in contents)
 				if(!(O in component_parts))
-				O.forceMove(get_turf(src))
+					O.forceMove(get_turf(src))
 			crayon = null
 			state = 1
 		if(5)

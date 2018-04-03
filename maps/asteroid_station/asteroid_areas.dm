@@ -14,6 +14,9 @@
 	lift_floor_label = "Department Level"
 	lift_floor_name = "Department Level"
 
+/area/maintenance
+	icon_state = "maintcentral"
+
 /area/maintenance/lower/elevator
 	name = "Lower Elevator Maintenance"
 /area/maintenance/middle/elevator
@@ -24,8 +27,8 @@
 /area/maintenance/middle/gambling
 	name = "Unregistered Area"
 
-/area/maintenance/middle/elevator
-	name = "Construction Level - Elevator Overlook"
+/area/maintenance/middle/lift
+	name = "Construction Level - Lift Overlook"
 
 /area/maintenance/middle/eastern
 	name = "Construction Level - East Tunnel"
@@ -47,6 +50,9 @@
 
 /area/maintenance/lower/eastern
 	name = "Department Level - East Tunnel"
+
+/area/maintenance/lower/medical
+	name = "Department Level - Medical Tunnel"
 
 /area/maintenance/upper/unbuilt_1
 	name = "Supply Level - Architect's Office"
@@ -80,6 +86,17 @@
 	name = "SRS Archimedes - Arrivals"
 /area/station/derelict/lounge
 	name = "SRS Archimedes - Lounge"
+/area/station/derelict/toxins
+	name = "SRS Archimedes - Research Lab"
+
+/area/station/derelict/housing_arch
+	name = "IHS Dependable - Main Block"
+
+/area/station/derelict/housing_personal
+	name = "IHS Dependable - Architect's Room"
+
+/area/station/derelict/housing_ship
+	name = "ICV Beetle"
 
 /area/station/command
 	icon_state = "bridge"
@@ -159,11 +176,18 @@
 /area/station/engineering/telecomms
 	name = "Telecommunications"
 
+/area/station/engineering/telecom_relay_upper
+	name = "Upper Telecomm Relay"
+/area/station/engineering/telecom_relay_middle
+	name = "Middle Telecomm Relay"
+/area/station/engineering/telecom_relay_lower
+	name = "Lower Telecomm Relay"
+
 /area/station/engineering/armory
 	name = "Engineering Armory"
 
 /area/station/hallway
-	icon_state = "hallc1"
+	icon_state = "hallC1"
 
 /area/station/hallway/arrivals
 	name = "Arrivals Hallway"
@@ -201,6 +225,9 @@
 /area/station/security/arrivals_checkpoint
 	name = "Arrivals Checkpoint"
 
+/area/station/security/arrival_armory
+	name = "Arrival Checkpoint Armory"
+
 /area/station/security/department_deck_checkpoint
 	name = "Primary Department Level Checkpoint"
 
@@ -208,7 +235,7 @@
 	name = "Secondary Department Level Checkpoint"
 
 /area/station/medical
-	icon_state = "medical1"
+	icon_state = "medbay"
 
 /area/station/medical/storage
 	name = "Medical Storage"
@@ -235,7 +262,7 @@
 	name = "Medical Armory"
 
 /area/station/cargo
-	icon_state = "cargo"
+	icon_state = "storage"
 
 /area/station/cargo/front_desk
 	name = "Cargo Front Desk"
@@ -248,6 +275,9 @@
 
 /area/station/cargo/hanger
 	name = "Supply Ship Hanger"
+
+/area/station/eva
+	name = "Supply Level - EVA Storage"
 
 /area/station/arrivals
 	name = "Cryoship"

@@ -321,8 +321,6 @@
 			return global.default_onmob_icons;
 		if("default_pai_software")
 			return global.default_pai_software;
-		if("defer_powernet_rebuild")
-			return global.defer_powernet_rebuild;
 		if("delta_index")
 			return global.delta_index;
 		if("department_accounts")
@@ -1326,8 +1324,6 @@
 			global.default_onmob_icons=newval;
 		if("default_pai_software")
 			global.default_pai_software=newval;
-		if("defer_powernet_rebuild")
-			global.defer_powernet_rebuild=newval;
 		if("delta_index")
 			global.delta_index=newval;
 		if("department_accounts")

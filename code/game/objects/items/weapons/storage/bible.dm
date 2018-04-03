@@ -69,21 +69,13 @@
 			M << "<span class='warning'> The power of [src.deity_name] clears your mind of heresy!</span>"
 			user << "<span class='warning'> You see how [M]'s eyes become clear, the cult no longer holds control over him!</span>"
 			ticker.mode.remove_cultist(M.mind)*/
-		if ((istype(M, /mob/living/carbon/human) && prob(60) && src.stupidreligion==0))
+		if(istype(M, /mob/living/carbon/human) && prob(60))
 			bless(M)
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'> [] heals [] with the power of [src.deity_name]!</span>", user, M), 1)
 			M << "<span class='warning'> May the power of [src.deity_name] compel you to be healed!</span>"
 			playsound(src.loc, "punch", 25, 1, -1)
 		else
-			if(ishuman(M) && !istype(M:head, /obj/item/clothing/head/helmet))
-				switch(src.stupidreligion)
-					if(1)
-						M.adjustBrainLoss(rand(15, 50))
-						M << "<span class='warning'> You feel like your brain rotted slightly.</span>"
-					else
-						M.adjustBrainLoss(10)
-						M << "<span class='warning'> You feel dumber.</span>"
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'>[] beats [] over the head with []!</span>", user, M, src), 1)
 			playsound(src.loc, "punch", 25, 1, -1)
@@ -142,4 +134,3 @@
 						break
 				if(i == 0)
 					icon_changed = 1
-					

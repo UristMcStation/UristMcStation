@@ -2,8 +2,8 @@
 	var/paranoia_parent = /datum/antagonist/agent
 	var/nonselfsum = 0 //how many other conspiracies the mind is a member of. Shouldn't come up, but better safe than sorry.
 	var/own //belongs to the target faction
-	for(var/antag_type in all_antag_types())
-		var/datum/antagonist/antag = all_antag_types()[antag_type]
+	for(var/antag_type in GLOB.all_antag_types_)
+		var/datum/antagonist/antag = GLOB.all_antag_types_[antag_type]
 		if(istype(antag,paranoia_parent))
 			if(istype(antag, conspiracy))
 				if(player in antag.current_antagonists)
@@ -25,7 +25,7 @@
 	return nonselfsum //number of conspiracy factions to strip
 
 /proc/strip_all_other_conspiracies(var/datum/mind/player,var/datum/antagonist/agent/conspiracy)
-	var/list/antaglist = list(all_antag_types())
+	var/list/antaglist = GLOB.all_antag_types_
 	var/paranoia_parent = /datum/antagonist/agent
 	antaglist -= paranoia_parent //kinda hacky, but prevents weirdness
 	for(var/antag_type in antaglist)
@@ -45,7 +45,7 @@
 	if(!player)
 		return
 
-	var/list/antaglist = list(all_antag_types())
+	var/list/antaglist = GLOB.all_antag_types_
 	var/paranoia_parent = /datum/antagonist/agent
 	var/conspiracy_number = 0 //test to prevent cases where someone belongs to more than one and it overwrites, which shouldn't happen
 	var/mob_conspiracy

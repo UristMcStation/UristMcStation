@@ -23,6 +23,7 @@
 	. = ..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
+	component_parts += beaker
 	update_icon()
 
 /obj/machinery/sleeper/Process()
@@ -222,7 +223,7 @@
 	occupant.dropInto(loc)
 	occupant = null
 	for(var/atom/movable/A in src) // In case an object was dropped inside or something
-		if(A == beaker || A in component_parts)
+		if(A in component_parts)
 			continue
 		A.dropInto(loc)
 	update_use_power(1)

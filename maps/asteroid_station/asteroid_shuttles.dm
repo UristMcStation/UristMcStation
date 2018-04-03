@@ -10,6 +10,7 @@
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	ceiling_type = null
 	knockdown = 0
+	location = 0
 
 /obj/machinery/computer/shuttle_control/lift
 	name = "cargo lift controls"
@@ -27,9 +28,11 @@
 
 /obj/effect/shuttle_landmark/lift/mid
 	landmark_tag = "nav_asteroid_lift_middle"
+	base_area = /area/maintenance/middle/lift
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/bottom
 	name = "Department Level"
 	landmark_tag = "nav_asteroid_lift_bottom"
+	base_area = /area/station/cargo/lower_storage
 	base_turf = /turf/simulated/floor/plating

@@ -3,7 +3,7 @@
 	..()
 	if(!H.mind)
 		return
-	var/datum/antagonist/antag = all_antag_types()[MODE_SCOM_GD]
+	var/datum/antagonist/antag = GLOB.all_antag_types_[MODE_SCOM_GD]
 	antag.add_antagonist(H.mind)
 
 /datum/job/scom/captain

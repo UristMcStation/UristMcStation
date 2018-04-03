@@ -50,10 +50,11 @@ GLOBAL_LIST_EMPTY(emergency_responses)
 		if (S.z in GetConnectedZlevels(z))
 			. = TRUE
 			break
-
+/*
 	var/choice
 	if(rand(10))
 		choice = pick(rare_responses)
 	else
 		choice = pick(possible_responses)
-//	for(var/datum/ghosttrap/GT in GLOB.emergency_responses[choice])
+	for(var/datum/ghosttrap/GT in GLOB.emergency_responses[choice])
+*/

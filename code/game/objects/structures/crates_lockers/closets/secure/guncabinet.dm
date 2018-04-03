@@ -10,7 +10,11 @@
 	icon_opened = "base"
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/closet/secure_closet/guncabinet/LateInitialize()
+	..()
 	update_icon()
 
 /obj/structure/closet/secure_closet/guncabinet/toggle()

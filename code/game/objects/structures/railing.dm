@@ -236,6 +236,7 @@
 						G.affecting.forceMove(get_turf(src))
 					G.affecting.Weaken(5)
 					visible_message("<span class='danger'>[G.assailant] throws \the [G.affecting] over \the [src].</span>")
+					qdel(G)
 			else
 				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 			return
