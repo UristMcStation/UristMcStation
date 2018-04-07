@@ -6,10 +6,10 @@
 	station_name  = "Station #6446"
 	station_short = "Station"
 	dock_name     = "N/A"
-	boss_name     = "N/A"
-	boss_short    = "N/A"
-	company_name  = "N/A"
-	company_short = "N/A"
+	boss_name     = "Automated Announcement Systems"
+	boss_short    = "AAS"
+	company_name  = "Automated Announcement Systems"
+	company_short = "AAS"
 
 	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
 

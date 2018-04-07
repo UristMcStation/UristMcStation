@@ -216,11 +216,6 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting, /mob/living/carbon/human))
-			var/obj/occupied = turf_is_crowded()
-			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-				return
-
 			if(G.force_danger())
 				if(user.a_intent == I_HURT)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
@@ -305,7 +300,7 @@
 		return
 
 	if(get_turf(user) == get_turf(src))
-		user.forceMove(get_step(src, src.dir))
+		user.forceMove(get_step(user, src.dir))
 	else
 		user.forceMove(get_turf(src))
 

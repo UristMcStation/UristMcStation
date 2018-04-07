@@ -52,21 +52,19 @@ Single Use Emergency Pouches
 	else
 		icon_state = base_icon
 
-/obj/item/weapon/storage/med_pouch/attack_self(mob/user as mob)
+/obj/item/weapon/storage/med_pouch/proc/break_seal(mob/user as mob)
 	if(!opened)
 		user.visible_message("<span class='notice'>\The [user] tears open [src], breaking the vacuum seal!</span>", "<span class='notice'>You tear open [src], breaking the vacuum seal!</span>")
 		opened = 1
 		max_w_class = ITEM_SIZE_TINY
 		storage_slots = 4
 		update_icon()
-	else
-		to_chat(user, "<span class='notice'>[src] is already ripped open.</span>")
 
 /obj/item/weapon/storage/med_pouch/open(mob/user as mob)
 	if(opened)
 		. = ..()
 	else
-		to_chat(user, "<span class='notice'>[src] needs to be opened before use.</span>")
+		break_seal(user)
 
 /obj/item/weapon/storage/med_pouch/trauma
 	name = "trauma pouch"

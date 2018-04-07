@@ -18,10 +18,10 @@
 		amount_per_transfer_from_this = N
 
 /obj/item/weapon/reagent_containers/New()
-	..()
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
+	..() //Lots of things need reagents in Initialize, don't move this
 
 /obj/item/weapon/reagent_containers/attack_self(mob/user as mob)
 	return

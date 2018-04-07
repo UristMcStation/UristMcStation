@@ -28,3 +28,6 @@ obj/random/mining_gear/spawn_choices()
 /turf/simulated/floor/asteroid/oxygen
 	initial_gas = list("oxygen" = MOLES_CELLSTANDARD)
 	temperature = T20C
+
+/turf/simulated/floor/planet/update_air_properties()
+	. = ..()

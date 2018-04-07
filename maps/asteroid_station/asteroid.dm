@@ -4,6 +4,7 @@
 	#include "asteroid_shuttles.dm"
 	#include "asteroid_jobs.dm"
 	#include "asteroid_shuttles.dm"
+	#include "asteroid_station/asteroid_station.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"

@@ -1,17 +1,18 @@
+
 /area/station/shuttle/lift
 	name = "Freight Lift"
 
 /area/turbolift/supply_level
 	name = "Elevator Power - Supply Level"
-	lift_floor_label = "Supply Level"
+	lift_floor_label = "Level 3"
 	lift_floor_name = "Supply Level"
 /area/turbolift/construction_level
 	name = "Elevator Power - Construction Level"
-	lift_floor_label = "Construction Level"
+	lift_floor_label = "Level 2"
 	lift_floor_name = "Construction Level"
 /area/turbolift/department_level
 	name = "Elevator Power - Department Level"
-	lift_floor_label = "Department Level"
+	lift_floor_label = "Level 1"
 	lift_floor_name = "Department Level"
 
 /area/maintenance
@@ -77,6 +78,7 @@
 
 /area/maintenance/upper/defense
 	name = "Supply Level - Station Defense Control"
+
 /area/station/derelict
 	icon_state = "unexplored"
 
@@ -87,13 +89,20 @@
 /area/station/derelict/lounge
 	name = "SRS Archimedes - Lounge"
 /area/station/derelict/toxins
-	name = "SRS Archimedes - Research Lab"
+	name = "SRS Archimedes - Burn Chamber"
+/area/station/derelict/toxin_store
+	name = "SRS Archimedes - Gas Manipulation Lab"
+/area/station/derelict/solars
+	name = "SRS Archimedes - Solar Farm"
 
 /area/station/derelict/housing_arch
 	name = "IHS Dependable - Main Block"
 
 /area/station/derelict/housing_personal
 	name = "IHS Dependable - Architect's Room"
+
+/area/station/derelict/housing_docking
+	name = "IHS Dependable - Landing Pad"
 
 /area/station/derelict/housing_ship
 	name = "ICV Beetle"
@@ -106,6 +115,9 @@
 
 /area/station/command/meeting_room
 	name = "Meeting Room"
+
+/area/station/command/captain
+	name = "Captain's Office"
 
 /area/station/lab
 	icon_state = "research"
@@ -256,7 +268,7 @@
 	name = "Upper Surgery Theatre"
 
 /area/station/medical/morgue
-	name = "Morgue"
+	name = "Construction Level - Morgue"
 
 /area/station/medical/armory
 	name = "Medical Armory"
@@ -284,24 +296,27 @@
 	icon_state = "cryo"
 
 /area/station/cryogenics
-	name = "Cryogenic Storage"
+	name = "Supply Level - Cryogenic Storage"
 	icon_state = "cryo"
 
 /area/station/dorms
-	name = "Dormatories"
+	name = "Supply Level - Dormatories"
 	icon_state = "invi"
 
 /area/station/panic_room
 	name = "Emergency Operations Storage"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/station/panic_room_guns
 	name = "Emergency Armory"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/station/ai_core
-	name = "A.I. Core"
+	name = "Construction Level - A.I. Core"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/station/ai_upload
-	name = "A.I. Upload"
+	name = "Department Level - A.I. Upload"
 
 /area/station/janitor
 	name = "Janitorial Closet"
@@ -323,3 +338,6 @@
 
 /area/station/bar
 	name = "Department Level - Bar"
+
+/area/station/sensor
+	name = "Supply Level - Sensor Array"

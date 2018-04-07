@@ -30,7 +30,7 @@
 /datum/gear/ears/skrell/chains
 	display_name = "headtail chain selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/chain
-	flags = GEAR_HAS_SUBTYPE_SELECTION
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/ears/skrell/colored/chain
 	display_name = "colored headtail chain, colour select (Skrell)"
@@ -41,7 +41,7 @@
 /datum/gear/ears/skrell/bands
 	display_name = "headtail band selection (Skrell)"
 	path = /obj/item/clothing/ears/skrell/band
-	flags = GEAR_HAS_SUBTYPE_SELECTION
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/ears/skrell/colored/band
 	display_name = "headtail bands, colour select (Skrell)"
