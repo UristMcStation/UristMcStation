@@ -35,26 +35,26 @@ var/datum/antagonist/traitor/traitors
 		traitor.objectives += survive_objective
 	else
 		switch(rand(1,100))
-			if(1 to 22)
+			if(1 to 25)
 				var/datum/objective/assassinate/kill_objective = new
 				kill_objective.owner = traitor
 				kill_objective.find_target()
 				traitor.objectives += kill_objective
-			if(22 to 40)
+			if(26 to 50)
 				var/datum/objective/brig/brig_objective = new
 				brig_objective.owner = traitor
 				brig_objective.find_target()
 				traitor.objectives += brig_objective
-			if(41 to 66)
+			if(51 to 75)
 				var/datum/objective/harm/harm_objective = new
 				harm_objective.owner = traitor
 				harm_objective.find_target()
 				traitor.objectives += harm_objective
-			if(67 to 80)
+/*			if(67 to 80)
 				var/datum/objective/money/money_objective = new
 				money_objective.owner = traitor
 				money_objective.find_target()
-				traitor.objectives += money_objective
+				traitor.objectives += money_objective */
 			else
 				var/datum/objective/steal/steal_objective = new
 				steal_objective.owner = traitor
