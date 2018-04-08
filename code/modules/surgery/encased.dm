@@ -30,8 +30,8 @@
 	/obj/item/weapon/material/hatchet = 75
 	)
 
-	min_duration = 50
-	max_duration = 70
+	min_duration = 5 SECONDS
+	max_duration = 7 SECONDS
 	shock_level = 60
 
 /datum/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

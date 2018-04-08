@@ -803,7 +803,7 @@
 	color = "#be46ff"
 	scannable = 1
 	overdose = 10
-	metabolism = 0.05
+	metabolism = 0.1
 
 /datum/reagent/latrazine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	var/obj/item/organ/external/E = pick(M.bad_external_organs)

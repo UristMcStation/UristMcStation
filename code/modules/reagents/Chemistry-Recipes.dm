@@ -1968,3 +1968,15 @@
 	result = /datum/reagent/nanoblood
 	required_reagents = list(/datum/reagent/dexalinp = 1, /datum/reagent/iron = 1, /datum/reagent/blood = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/tridezatane
+	name = "Tridezatane"
+	result = /datum/reagent/tridezatane
+	required_reagents = list(/datum/reagent/spaceacilline = 3, /datum/reagent/uranium = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/latrazine
+	name = "Latrazine"
+	result = /datum/reagent/latrazine
+	required_reagents = list(/datum/reagent/toxin/phoron = 10, /datum/reagent/peridaxon = 1, /datum/reagent/paroxetine = 1)
+	result_amount = 1

@@ -39,8 +39,8 @@
 	/obj/item/weapon/melee/energy/sword = 5
 	)
 	priority = 2
-	min_duration = 5 SECONDS
-	max_duration = 6 SECONDS
+	min_duration = 2 SECONDS
+	max_duration = 3 SECONDS
 
 /datum/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -77,8 +77,8 @@
 	/obj/item/weapon/scalpel/manager = 100
 	)
 	priority = 2
-	min_duration = 4 SECONDS
-	max_duration = 6 SECONDS
+	min_duration = 2 SECONDS
+	max_duration = 3 SECONDS
 
 /datum/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -120,8 +120,8 @@
 	/obj/item/weapon/material/shard = 50, 		\
 	)
 
-	min_duration = 4.5 SECONDS
-	max_duration = 5.5 SECONDS
+	min_duration = 3.5 SECONDS
+	max_duration = 4.5 SECONDS
 
 /datum/surgery_step/generic/cut_open/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -164,8 +164,8 @@
 	/obj/item/device/assembly/mousetrap = 20
 	)
 
-	min_duration = 3 SECONDS
-	max_duration = 4 SECONDS
+	min_duration = 2 SECONDS
+	max_duration = 3 SECONDS
 
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -205,8 +205,8 @@
 	)
 
 	priority = 1
-	min_duration = 30
-	max_duration = 40
+	min_duration = 2 SECONDS
+	max_duration = 3 SECONDS
 
 /datum/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -243,8 +243,8 @@
 	/obj/item/weapon/weldingtool = 25
 	)
 
-	min_duration = 6 SECONDS
-	max_duration = 7 SECONDS
+	min_duration = 4 SECONDS
+	max_duration = 5 SECONDS
 
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
@@ -299,8 +299,8 @@
 	/obj/item/weapon/material/hatchet = 75
 	)
 
-	min_duration = 110
-	max_duration = 160
+	min_duration = 11 SECONDS
+	max_duration = 16 SECONDS
 
 /datum/surgery_step/generic/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if (target_zone == BP_EYES)	//there are specific steps for eye surgery
