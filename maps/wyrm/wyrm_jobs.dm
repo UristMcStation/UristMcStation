@@ -155,9 +155,9 @@
 /obj/item/clothing/under/bodyguard
 	name = "Bodyguard's Uniform"
 	desc = "A black uniform made from a durable, slightly laser-resistant, fabric."
-	icon_state = "blackutility_crew"
-	item_state = "blackutility_crew"
-	worn_state = "blackutility_crew"
+	icon_state = "combat"
+	item_state = "combat"
+	worn_state = "combat"
 	armor = list(melee = 10, bullet = 0, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/weapon/card/id/bodyguard
