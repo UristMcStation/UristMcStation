@@ -39,12 +39,12 @@
 	#include "../away/icarus/icarus.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
 
-	#include "../../code/modules/lobby_music/chasing_time.dm"
-	#include "../../code/modules/lobby_music/absconditus.dm"
-	#include "../../code/modules/lobby_music/clouds_of_fire.dm"
-	#include "../../code/modules/lobby_music/endless_space.dm"
-	#include "../../code/modules/lobby_music/dilbert.dm"
-	#include "../../code/modules/lobby_music/space_oddity.dm"
+	#include "../../code/datums/music_tracks/chasing_time.dm"
+	#include "../../code/datums/music_tracks/absconditus.dm"
+	#include "../../code/datums/music_tracks/clouds_of_fire.dm"
+	#include "../../code/datums/music_tracks/endless_space.dm"
+	#include "../../code/datums/music_tracks/dilbert.dm"
+	#include "../../code/datums/music_tracks/space_oddity.dm"
 
 	#define USING_MAP_DATUM /datum/map/wyrm
 	#define URISTCODE 1

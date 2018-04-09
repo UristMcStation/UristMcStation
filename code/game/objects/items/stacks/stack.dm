@@ -316,6 +316,8 @@
 				user.put_in_hands(F)
 				src.add_fingerprint(user)
 				F.add_fingerprint(user)
+				if(istype(F,/obj/item/stack/tile))
+					F.throwforce = src.throwforce
 				spawn(0)
 					if (src && usr.machine==src)
 						src.interact(usr)

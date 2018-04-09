@@ -80,7 +80,7 @@
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle with ammunition"
-	item_cost = 68
+	item_cost = 96
 	path = /obj/item/weapon/storage/secure/briefcase/heavysniper
 	antag_costs = list(MODE_PARANOIA = 300)
 

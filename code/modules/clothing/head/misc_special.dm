@@ -31,7 +31,8 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		SPECIES_TAJARA = 'icons/mob/species/tajaran/helmet.dmi'
+		SPECIES_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
 		)
 
 /obj/item/clothing/head/welding/attack_self()

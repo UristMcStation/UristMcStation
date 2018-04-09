@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/magnetic
 	name = "improvised coilgun"
-	desc = "A coilgun hastily thrown together out of a basic frame and advanced power storage components. Is it safe for it to be duct-taped together like that?"
+	desc = "A coilgun hastily thrown together out of a basic frame and advanced power storage components. Is it safely held together with duct tape."
 	icon_state = "coilgun"
 	item_state = "coilgun"
 	icon = 'icons/obj/railgun.dmi'
@@ -12,7 +12,7 @@
 	var/obj/item/weapon/cell/cell                              // Currently installed powercell.
 	var/obj/item/weapon/stock_parts/capacitor/capacitor        // Installed capacitor. Higher rating == faster charge between shots.
 	var/removable_components = TRUE                            // Whether or not the gun can be dismantled.
-	var/gun_unreliable = 15                                    // Percentage chance of detonating in your hands.
+	var/gun_unreliable = 10                                    // Percentage chance of detonating in your hands.
 
 	var/obj/item/loaded                                        // Currently loaded object, for retrieval/unloading.
 	var/load_type = /obj/item/stack/rods                       // Type of stack to load with.

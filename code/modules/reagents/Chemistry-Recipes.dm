@@ -1972,7 +1972,7 @@
 /datum/chemical_reaction/tridezatane
 	name = "Tridezatane"
 	result = /datum/reagent/tridezatane
-	required_reagents = list(/datum/reagent/spaceacilline = 3, /datum/reagent/uranium = 1)
+	required_reagents = list(/datum/reagent/spaceacillin = 3, /datum/reagent/uranium = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/latrazine

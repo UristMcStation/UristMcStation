@@ -25,12 +25,12 @@
 	#include "Glloydstation2-6.dmm"
 	#include "Glloydstation2-7.dmm"
 
-	#include "../../code/modules/lobby_music/chasing_time.dm"
-	#include "../../code/modules/lobby_music/absconditus.dm"
-	#include "../../code/modules/lobby_music/clouds_of_fire.dm"
-	#include "../../code/modules/lobby_music/endless_space.dm"
-	#include "../../code/modules/lobby_music/dilbert.dm"
-	#include "../../code/modules/lobby_music/space_oddity.dm"
+	#include "../../code/datums/music_tracks/chasing_time.dm"
+	#include "../../code/datums/music_tracks/absconditus.dm"
+	#include "../../code/datums/music_tracks/clouds_of_fire.dm"
+	#include "../../code/datums/music_tracks/endless_space.dm"
+	#include "../../code/datums/music_tracks/dilbert.dm"
+	#include "../../code/datums/music_tracks/space_oddity.dm"
 
 	#define USING_MAP_DATUM /datum/map/glloydstation
 	#define URISTCODE 1 //hacky override that tells the compiler that yes, the map is Uristcrap-compatible

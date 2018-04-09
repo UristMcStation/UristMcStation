@@ -9,16 +9,17 @@ Nyxodile - Host
 glloyd - Head Admin
 CoraiUnki - Game Master
 Acemuto10 - Game Master
-Zty8212000 - Game Master
+Gale212 - Game Master
+Lyeos - Game Master
 
 Scrdest - Coder
 
 Licton15 - Moderator
+Vakothu - Moderator
 
-Vakothu - Mentor
 AseaHeru - Mentor
 Mapleguy555 - Mentor
-Gale212 - Mentor
+
 
 androidsfv - Inactive Admin
 USEC_OFFICER - Inactive Admin
@@ -28,6 +29,7 @@ hanspanda - Inactive Admin
 Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
 Stefender - Inactive Admin
-Lyeos - Retired Admin
+Zty8212000 - Inactive Admin
+Acemuto10 - Inactive Admin
 Nienhaus2 - Retired Admin
 #Electronics
