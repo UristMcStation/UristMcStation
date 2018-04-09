@@ -22,17 +22,17 @@
 	#include "asteroid-5.dmm"
 
 
-	#include "../../code/modules/lobby_music/chasing_time.dm"
-	#include "../../code/modules/lobby_music/absconditus.dm"
-	#include "../../code/modules/lobby_music/clouds_of_fire.dm"
-	#include "../../code/modules/lobby_music/endless_space.dm"
-	#include "../../code/modules/lobby_music/dilbert.dm"
-	#include "../../code/modules/lobby_music/space_oddity.dm"
-	#include "../../code/modules/lobby_music/human.dm"
-	#include "../../code/modules/lobby_music/marhaba.dm"
-	#include "../../code/modules/lobby_music/treacherous_voyage.dm"
-	#include "../../code/modules/lobby_music/comet_haley.dm"
-	#include "../../code/modules/lobby_music/lysendraa.dm"
+	#include "../../code/datums/music_tracks/chasing_time.dm"
+	#include "../../code/datums/music_tracks/absconditus.dm"
+	#include "../../code/datums/music_tracks/clouds_of_fire.dm"
+	#include "../../code/datums/music_tracks/endless_space.dm"
+	#include "../../code/datums/music_tracks/dilbert.dm"
+	#include "../../code/datums/music_tracks/space_oddity.dm"
+	#include "../../code/datums/music_tracks/human.dm"
+	#include "../../code/datums/music_tracks/marhaba.dm"
+	#include "../../code/datums/music_tracks/treacherous_voyage.dm"
+	#include "../../code/datums/music_tracks/comet_haley.dm"
+	#include "../../code/datums/music_tracks/lysendraa.dm"
 
 
 	#define USING_MAP_DATUM /datum/map/asteroid

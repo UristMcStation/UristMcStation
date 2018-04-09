@@ -321,6 +321,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	long_range_link = 1
 	netspeed = 40
 	outage_probability = 10
+	light_color = "#66ccff"
+	light_power = 2
+	light_range = 5
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	if(is_freq_listening(signal))
