@@ -17,6 +17,7 @@ var/datum/robolimb/basic_robolimb
 	var/unavailable_at_chargen                           // If set, not available at chargen.
 	var/unavailable_at_fab                               // If set, cannot be fabricated.
 	var/can_eat
+	var/eye_location = 'icons/mob/human_face.dmi'
 	var/use_eye_icon = "eyes_s"
 	var/can_feel_pain
 	var/skintone
@@ -33,6 +34,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/bishop/industrial
 	company = "Bishop Ind."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
+	eye_location = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
 	use_eye_icon = "bishop_eyes_s"
 
 /datum/robolimb/bishop/alt
@@ -56,7 +58,8 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/hephaestus/industrial
 	company = "Hephaestus Ind."
 	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_ind.dmi'
-	use_eye_icon = "heph_eyes_s"
+	eye_location = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_ind.dmi'
+	use_eye_icon = "heph_eyes"
 
 /datum/robolimb/hephaestus/alt
 	company = "Hephaestus Alt."
@@ -82,6 +85,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/zenghu/industrial
 	company = "Zeng-Hu Ind."
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
+	eye_location = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
 	use_eye_icon = "zenghu_eyes_s"
 
 /datum/robolimb/xion
@@ -93,6 +97,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/xion/industrial
 	company = "Xion Ind."
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
+	eye_location = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
 	use_eye_icon = "xion_eyes_s"
 
 /datum/robolimb/xion/alt
