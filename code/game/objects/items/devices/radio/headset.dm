@@ -17,7 +17,7 @@
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
 
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(SPECIES_UNATHI = 'icons/mob/onmob/Unathi/ears.dmi', SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
