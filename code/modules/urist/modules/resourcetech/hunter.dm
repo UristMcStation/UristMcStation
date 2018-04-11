@@ -158,4 +158,4 @@
 	recipes += new/datum/stack_recipe("leather overalls", /obj/item/clothing/suit/storage/urist/overalls/leather, 3, time = 40)
 	recipes += new/datum/stack_recipe("factory worker's apron", /obj/item/clothing/suit/storage/urist/apron, 3, time = 40)
 	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 30)
-	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/bandana/leather, 1, time = 30)
+	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/urist/bandana/leather, 1, time = 30)
