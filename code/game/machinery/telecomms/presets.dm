@@ -99,9 +99,6 @@
 
 /obj/machinery/telecomms/hub/preset/wyrm
 	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
-	light_color = "#66ccff"
-	light_power = 2
-	light_range = 5
 
 //Receivers
 
@@ -288,7 +285,7 @@
 	autolinkers = list("centcomm")
 
 /obj/machinery/telecomms/server/presets/wyrm
-	id = "Wyrm NAT"
+	id = "Wyrm NAS"
 	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
 	channel_tags = list(
 		list(AI_FREQ, "AI Private", "#FF00FF"),
