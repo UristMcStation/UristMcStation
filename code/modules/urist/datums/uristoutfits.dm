@@ -6,7 +6,7 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_pocket = /obj/item/weapon/melee/energy/sword
-	mask = /obj/item/clothing/mask/bandana/bedsheet/red
+	mask = /obj/item/clothing/mask/urist/bandana/bedsheet/red
 
 	id_slot = slot_wear_id
 	id_type = /obj/item/weapon/card/id/syndicate/station_access

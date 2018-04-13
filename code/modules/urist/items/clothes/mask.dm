@@ -90,7 +90,7 @@
 	cold_protection = FACE
 	min_cold_protection_temperature = 243.15
 
-/obj/item/clothing/mask/bandana/leather
+/obj/item/clothing/mask/urist/bandana/leather
 	name = "leather mask"
 	desc = "It's a simple leather mask. Hmmm, maybe if you get some glass you could turn this into some impromptu goggles."
 	icon_state = "sandsuit"
@@ -100,7 +100,7 @@
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 
-/obj/item/clothing/mask/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/urist/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/glass))
 		var/obj/item/stack/material/glass/G = I
 		G.use(1)
