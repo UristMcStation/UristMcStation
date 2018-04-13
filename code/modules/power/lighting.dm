@@ -590,7 +590,7 @@
 
 /obj/item/weapon/light/bulb/d_green
 	color = "#4b734b"
-	brightness_color = "#4b734b"
+	b_colour = "#4b734b"
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
 	..()

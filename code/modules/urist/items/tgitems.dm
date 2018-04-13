@@ -13,7 +13,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "seclite"
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
-	brightness_on = 5 // A little better than the standard flashlight.
+	flashlight_max_bright = 1.2 // A little better than the standard flashlight.
 
 //Fucking powergamers
 
