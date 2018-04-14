@@ -148,7 +148,7 @@
 
 	var/on = 0					// 1 if on, 0 if off
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube		// the type of light item
+	var/light_type = /obj/item/weapon/light/tube/large	// the type of light item
 	var/construct_type = /obj/machinery/light_construct
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
@@ -535,7 +535,7 @@
 	var/rigged = 0		// true if rigged to explode
 	var/broken_chance = 2
 
-	var/b_max_bright = 0.7
+	var/b_max_bright = 1
 	var/b_inner_range = 1
 	var/b_outer_range = 5
 	var/b_curve = 2
