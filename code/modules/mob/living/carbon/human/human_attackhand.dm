@@ -353,6 +353,7 @@
 
 /obj/item/pressure/dropped()
 	..()
+	forceMove(get_turf(src))
 	applied.applied_pressure = null //just in case
 	if(!QDELETED(src))
 		qdel(src)

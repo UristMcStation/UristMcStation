@@ -148,7 +148,7 @@
 
 	var/on = 0					// 1 if on, 0 if off
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube		// the type of light item
+	var/light_type = /obj/item/weapon/light/tube/large	// the type of light item
 	var/construct_type = /obj/machinery/light_construct
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
@@ -224,7 +224,7 @@
 		if(current_mode && (current_mode in lightbulb.lighting_modes))
 			changed = set_light(arglist(lightbulb.lighting_modes[current_mode]))
 		else
-			changed = set_light(lightbulb.b_max_bright, lightbulb.b_inner_range, lightbulb.b_outer_range, 2, lightbulb.b_colour)
+			changed = set_light(lightbulb.b_max_bright, lightbulb.b_inner_range, lightbulb.b_outer_range, lightbulb.b_curve, lightbulb.b_colour)
 
 		if(trigger && changed && get_status() == LIGHT_OK)
 			switch_check()
@@ -535,9 +535,10 @@
 	var/rigged = 0		// true if rigged to explode
 	var/broken_chance = 2
 
-	var/b_max_bright = 0.7
+	var/b_max_bright = 1
 	var/b_inner_range = 1
 	var/b_outer_range = 5
+	var/b_curve = 2
 	var/b_colour = "#fffee0"
 	var/list/lighting_modes = list()
 	var/sound_on
@@ -571,10 +572,11 @@
 	broken_chance = 5
 	matter = list("glass" = 100)
 
-	b_max_bright = 0.2
+	b_max_bright = 0.25
 	b_inner_range = 0.1
 	b_outer_range = 4
-	b_colour = "#a0a080"
+	b_curve = 3.5
+	b_colour = "#fcfcc7"
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_outer_range = 3, l_max_bright = 1, l_color = "#da0205"),
 		)
