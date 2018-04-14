@@ -92,7 +92,7 @@
 	nutriment_factor = 10
 	color = "#ffff00"
 
-/datum/reagent/honey/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/nutriment/honey/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 
 	if(alien == IS_UNATHI)
@@ -1120,7 +1120,7 @@
 	strength = 50
 
 	glass_name = "ale"
-	glass_desc = "A freezing pint of delicious ale"
+	glass_desc = "A freezing container of delicious ale"
 
 /datum/reagent/ethanol/beer
 	name = "Beer"
@@ -1131,7 +1131,11 @@
 	nutriment_factor = 1
 
 	glass_name = "beer"
-	glass_desc = "A freezing pint of beer"
+	glass_desc = "A freezing container of beer"
+
+/datum/reagent/ethanol/beer/good
+
+	taste_description = "beer"
 
 /datum/reagent/ethanol/beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()

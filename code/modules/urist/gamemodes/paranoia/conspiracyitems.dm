@@ -166,7 +166,7 @@
 	overlays.Cut()
 	if(open)
 		icon_state = "laptop"
-		light_range = 3
+		light_outer_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
 			overlays = list(screen)
@@ -176,7 +176,7 @@
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
-		light_range = 0
+		light_outer_range = 0
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 

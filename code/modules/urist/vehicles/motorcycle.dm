@@ -172,8 +172,8 @@
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
 //	debris_path = /obj/structure/scrap/vehicle
-	light_power = 5
-	light_range = 6
+	light_max_bright = 5
+	light_outer_range = 6
 	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
 	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
 	space_speed = 0

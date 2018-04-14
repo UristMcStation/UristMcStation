@@ -204,7 +204,7 @@
 			set_light(0)
 	else
 		if(species.appearance_flags & RADIATION_GLOWS)
-			set_light(max(1,min(10,radiation/10)), max(1,min(20,radiation/20)), species.get_flesh_colour(src))
+			set_light(0.3, 0.1, max(1,min(20,radiation/20)), 2, species.get_flesh_colour(src))
 		// END DOGSHIT SNOWFLAKE
 
 		var/obj/item/organ/internal/diona/nutrients/rad_organ = locate() in internal_organs
@@ -284,7 +284,7 @@
 			src.spread_disease_to(M)
 
 
-/mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
+/mob/living/carbon/human/get_breath_from_internal(volume_needed=STD_BREATH_VOLUME)
 	if(internal)
 
 		var/obj/item/weapon/tank/rig_supply

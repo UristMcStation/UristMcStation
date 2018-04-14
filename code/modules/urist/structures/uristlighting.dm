@@ -24,9 +24,8 @@
 	icon_state = "flight"
 	base_state = "flight"
 	item_state = "contvapour"
-	brightness_range = 6
-	brightness_power = 1
-	brightness_color = "#B12525"
+	b_outer_range = 6
+	b_colour = "#B12525"
 
 //cold, blue tint; feedback was good on putting it in Medbay
 /obj/machinery/light/coldtint
@@ -35,7 +34,7 @@
 /obj/item/weapon/light/tube/tinted
 	name = "light tube (tinted)"
 	desc = "A replacement light tube."
-	brightness_color = "#F0008C" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
+	b_colour = "#F0008C" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
 
 /obj/item/weapon/light/tube/tinted/coldtint
 	name = "light tube (cold-light)"
@@ -43,7 +42,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	brightness_color = "#B0DCEA"
+	b_colour = "#B0DCEA"
 
 //super warm tint (color literally stolen from candles), for the Bar
 /obj/machinery/light/warmtint
@@ -55,7 +54,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	brightness_color = "#E09D37"
+	b_colour = "#E09D37"
 
 //green tint
 /obj/machinery/light/greentint
@@ -67,7 +66,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	brightness_color ="#A8FFB1"
+	b_colour ="#A8FFB1"
 
 /obj/item/weapon/light/tube/tinted/redtint
 	name = "light tube (red)"
@@ -75,7 +74,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	brightness_color ="#B12525"
+	b_colour ="#B12525"
 
 //because the train lamp sprite is nice
 /obj/item/device/flashlight/lamp/lantern
@@ -84,11 +83,10 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "wolfflight"
 	item_state = "lamp"
-	brightness_on = 3
+	flashlight_max_bright = 0.5
 	light_color = "#E09D37"
 	w_class = 4
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	light_range = 6
 
 	on = 0
 
@@ -117,8 +115,8 @@
 	invisibility = 101
 	anchored = 1
 	light_color = "#fcfcb6"
-	light_power = 1
-	light_range = 127
+	light_max_bright = 1
+	light_outer_range = 127
 
 /obj/machinery/light/chromatic
 	name = "chromatic light"
@@ -132,7 +130,7 @@
 /obj/machinery/light/chromatic/receive_signal(datum/signal/signal, receive_method, receive_param)
 	if(signal.data["tag"] == id_tag)
 		if(signal.data["color"])
-			lightbulb.brightness_color = signal.data["color"]
+			lightbulb.b_colour = signal.data["color"]
 			update_icon()
 
 /obj/machinery/light/broken/Initialize()

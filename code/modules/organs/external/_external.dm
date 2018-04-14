@@ -260,7 +260,7 @@
 		return
 
 	dislocated = 1
-	add_pain(40)
+	add_pain(60)
 	if(owner)
 		owner.verbs |= /mob/living/carbon/human/proc/undislocate
 

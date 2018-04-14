@@ -32,7 +32,7 @@ var/datum/robolimb/basic_robolimb
 	unavailable_at_fab = 1
 
 /datum/robolimb/bishop/industrial
-	company = "Bishop Ind."
+	company = "Bishop Industrial Frame"
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
 	eye_location = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
 	use_eye_icon = "bishop_eyes_s"
@@ -56,7 +56,7 @@ var/datum/robolimb/basic_robolimb
 	unavailable_at_fab = 1
 
 /datum/robolimb/hephaestus/industrial
-	company = "Hephaestus Ind."
+	company = "Hephaestus Industrial Frame"
 	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_ind.dmi'
 	eye_location = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_ind.dmi'
 	use_eye_icon = "heph_eyes"
@@ -83,7 +83,7 @@ var/datum/robolimb/basic_robolimb
 	restricted_to = list(SPECIES_HUMAN,SPECIES_VAT_HUMAN,SPECIES_SPACE_HUMAN,SPECIES_GRAV_HUMAN,SPECIES_IPC)
 
 /datum/robolimb/zenghu/industrial
-	company = "Zeng-Hu Ind."
+	company = "Zeng-Hu Research Frame"
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
 	eye_location = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
 	use_eye_icon = "zenghu_eyes_s"
@@ -95,7 +95,7 @@ var/datum/robolimb/basic_robolimb
 	unavailable_at_fab = 1
 
 /datum/robolimb/xion/industrial
-	company = "Xion Ind."
+	company = "Xion Industrial Frame"
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
 	eye_location = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
 	use_eye_icon = "xion_eyes_s"
