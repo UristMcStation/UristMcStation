@@ -58,7 +58,6 @@
 				return
 			var/obj/item/stack/S = C
 			var/decl/flooring/use_flooring = get_flooring_data(S.build_type)
-			world << "[use_flooring.name] selected"
 			if(!use_flooring)
 				return
 			// Do we have enough?

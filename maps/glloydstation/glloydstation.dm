@@ -8,6 +8,7 @@
 	#include "glloydstation_presets.dm"
 	#include "arrivals.dm"
 	#include "simple_shuttles.dm"
+	#include "sprite_changes.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
