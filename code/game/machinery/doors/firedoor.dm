@@ -222,7 +222,7 @@
 		to_chat(user, "<span class='danger'>\The [src] is welded shut!</span>")
 		return
 
-	if(isCrowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe))
+	if(isCrowbar(C) || istype(C,/obj/item/weapon/melee/arm_blade) || istype(C,/obj/item/weapon/material/twohanded/fireaxe))
 		if(operating)
 			return
 
