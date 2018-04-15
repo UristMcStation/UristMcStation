@@ -182,7 +182,7 @@
 /turf/simulated/floor/tiled/white/monotile
 	name = "floor"
 	icon_state = "monotile"
-	initial_flooring = /decl/flooring/tiling/mono
+	initial_flooring = /decl/flooring/tiling/white/mono
 
 /turf/simulated/floor/tiled/monofloor
 	name = "floor"

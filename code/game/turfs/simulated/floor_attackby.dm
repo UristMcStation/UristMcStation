@@ -57,14 +57,8 @@
 					new /obj/structure/catwalk(src)
 				return
 			var/obj/item/stack/S = C
-			var/decl/flooring/use_flooring
-			for(var/flooring_type in flooring_types)
-				var/decl/flooring/F = flooring_types[flooring_type]
-				if(!F.build_type)
-					continue
-				if(ispath(S.type, F.build_type) || ispath(S.build_type, F.build_type))
-					use_flooring = F
-					break
+			var/decl/flooring/use_flooring = get_flooring_data(S.build_type)
+			world << "[use_flooring.name] selected"
 			if(!use_flooring)
 				return
 			// Do we have enough?

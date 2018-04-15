@@ -41,6 +41,7 @@
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
 	origin_tech = list(TECH_BIO = 1)
+	build_type = /decl/flooring/grass
 
 /*
  * Wood
@@ -57,7 +58,7 @@
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/wood
-	build_type = /obj/item/stack/tile/wood
+	build_type = /decl/flooring/wood
 
 /obj/item/stack/tile/floor
 	name = "steel floor tile"
@@ -68,6 +69,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling
 
 /obj/item/stack/tile/mono
 	name = "grey mono tile"
@@ -75,6 +77,7 @@
 	icon_state = "tile"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/mono
 
 /obj/item/stack/tile/grid
 	name = "grey grid tile"
@@ -82,6 +85,7 @@
 	icon_state = "tile_grid"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/new_tile/steel_grid
 
 /obj/item/stack/tile/ridge
 	name = "grey ridge tile"
@@ -89,6 +93,7 @@
 	icon_state = "tile_ridged"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/new_tile/steel_ridged
 
 /obj/item/stack/tile/techgrey
 	name = "grey techfloor tile"
@@ -96,6 +101,7 @@
 	icon_state = "techtile_grey"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/new_tile/techmaint
 
 /obj/item/stack/tile/techgrid
 	name = "grid techfloor tile"
@@ -103,6 +109,7 @@
 	icon_state = "techtile_grid"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/tech/grid
 
 /obj/item/stack/tile/techmaint
 	name = "dark techfloor tile"
@@ -110,12 +117,14 @@
 	icon_state = "techtile_maint"
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/tech
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"
 	singular_name = "white floor tile"
 	icon_state = "tile_white"
 	matter = list("plastic" = 937.5)
+	build_type = /decl/flooring/tiling/white
 
 /obj/item/stack/tile/floor_white/fifty
 	amount = 50
@@ -125,6 +134,7 @@
 	singular_name = "dark floor tile"
 	icon_state = "fr_tile"
 	matter = list("plasteel" = 937.5)
+	build_type = /decl/flooring/tiling/dark
 
 /obj/item/stack/tile/floor_dark/fifty
 	amount = 50
@@ -134,18 +144,9 @@
 	singular_name = "freezer floor tile"
 	icon_state = "tile_freezer"
 	matter = list("plastic" = 937.5)
+	build_type = /decl/flooring/tiling/freezer
 
 /obj/item/stack/tile/floor_freezer/fifty
-	amount = 50
-
-/obj/item/stack/tile/floor_concrete
-	name = "concrete floor tile"
-	singular_name = "concrete floor tile"
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "tile_concrete"
-	matter = list("concrete" = 937.5)
-
-/obj/item/stack/tile/floor_concrete/fifty
 	amount = 50
 
 /obj/item/stack/tile/floor/cyborg
@@ -156,13 +157,14 @@
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/floor
-	build_type = /obj/item/stack/tile/floor
+	build_type = /decl/flooring/tiling
 
 /obj/item/stack/tile/linoleum
 	name = "linoleum"
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
 	icon_state = "tile-linoleum"
+	build_type = /decl/flooring/linoleum
 
 /obj/item/stack/tile/linoleum/fifty
 	amount = 50
@@ -175,6 +177,7 @@
 	singular_name = "brown carpet"
 	desc = "A piece of brown carpet."
 	icon_state = "tile_carpetbrown"
+	build_type = /decl/flooring/carpet
 
 /obj/item/stack/tile/carpet/fifty
 	amount = 50
@@ -184,6 +187,7 @@
 	desc = "A piece of blue and gold carpet."
 	singular_name = "blue carpet"
 	icon_state = "tile_carpetblue"
+	build_type = /decl/flooring/carpet/blue
 
 /obj/item/stack/tile/carpetblue/fifty
 	amount = 50
@@ -193,6 +197,7 @@
 	desc = "A piece of blue and silver carpet."
 	singular_name = "pale blue carpet"
 	icon_state = "tile_carpetblue2"
+	build_type = /decl/flooring/carpet/blue2
 
 /obj/item/stack/tile/carpetblue2/fifty
 	amount = 50
@@ -202,6 +207,7 @@
 	desc = "A piece of purple carpet."
 	singular_name = "purple carpet"
 	icon_state = "tile_carpetpurple"
+	build_type = /decl/flooring/carpet/purple
 
 /obj/item/stack/tile/carpetpurple/fifty
 	amount = 50
@@ -211,6 +217,7 @@
 	desc = "A piece of orange carpet."
 	singular_name = "orange carpet"
 	icon_state = "tile_carpetorange"
+	build_type = /decl/flooring/carpet/orange
 
 /obj/item/stack/tile/carpetorange/fifty
 	amount = 50
@@ -220,6 +227,7 @@
 	desc = "A piece of green carpet."
 	singular_name = "green carpet"
 	icon_state = "tile_carpetgreen"
+	build_type = /decl/flooring/carpet/green
 
 /obj/item/stack/tile/carpetgreen/fifty
 	amount = 50
@@ -229,6 +237,7 @@
 	desc = "A piece of red carpet."
 	singular_name = "red carpet"
 	icon_state = "tile_carpetred"
+	build_type = /decl/flooring/carpet/red
 
 /obj/item/stack/tile/carpetred/fifty
 	amount = 50
