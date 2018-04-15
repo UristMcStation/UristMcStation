@@ -308,3 +308,64 @@
 			qdel(S)
 	..()
 	return 1
+
+/obj/machinery/autolathe/MouseDrop(var/turf/target, src_location, over_location)
+	..()
+	if(istype(target) && Adjacent(target) && Adjacent(usr))
+		for(var/obj/item/O in target) // i copied stuff from attackby(), i am a baaaaad boi
+			if(is_robot_module(O))
+				continue
+
+			//Resources are being loaded.
+			var/obj/item/eating = O
+			if(!eating.matter)
+				to_chat(usr, "\The [eating] does not contain significant amounts of useful materials and cannot be accepted.")
+				continue
+
+			var/filltype = 0       // Used to determine message.
+			var/total_used = 0     // Amount of material used.
+			var/mass_per_sheet = 0 // Amount of material constituting one sheet.
+
+			for(var/material in eating.matter)
+
+				if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
+					continue
+
+				if(stored_material[material] >= storage_capacity[material])
+					continue
+
+				var/total_material = eating.matter[material]
+
+				//If it's a stack, we eat multiple sheets.
+				if(istype(eating,/obj/item/stack))
+					var/obj/item/stack/stack = eating
+					total_material *= stack.get_amount()
+
+				if(stored_material[material] + total_material > storage_capacity[material])
+					total_material = storage_capacity[material] - stored_material[material]
+					filltype = 1
+				else
+					filltype = 2
+
+				stored_material[material] += total_material
+				total_used += total_material
+				mass_per_sheet += eating.matter[material]
+
+			if(!filltype)
+				to_chat(usr, "<span class='notice'>\The [src] is full. Please remove material from the autolathe in order to insert more.</span>")
+				continue
+			else if(filltype == 1)
+				to_chat(usr, "You fill \the [src] to capacity with \the [eating].")
+			else
+				to_chat(usr, "You fill \the [src] with \the [eating].")
+
+			flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+
+			if(istype(eating,/obj/item/stack))
+				var/obj/item/stack/stack = eating
+				stack.use(max(1, round(total_used/mass_per_sheet))) // Always use at least 1 to prevent infinite materials.
+			else
+				qdel(O)
+
+			updateUsrDialog()
+			continue
