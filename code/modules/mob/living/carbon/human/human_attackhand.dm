@@ -326,6 +326,7 @@
 /obj/item/pressure //could this be a grab? probably. does it matter? probably not
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "pressure"
+	was_bloodied = TRUE
 	var/obj/item/organ/external/applied
 	var/mob/living/carbon/human/H
 
@@ -337,8 +338,7 @@
 	applied = O
 	H = O.owner
 	name = "\proper[H == loc ? "[H.gender == "male" ? "his" : "her"]" : "[O.owner.name]'s"] [O.name]" //this will end as expected
-	if(H != loc)
-		START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSobj, src)
 
 /obj/item/pressure/Process()
 	if(!Adjacent(H))
@@ -352,8 +352,6 @@
 	. = ..()
 
 /obj/item/pressure/dropped()
-	..()
-	forceMove(get_turf(src))
+	H.drop_item(get_turf(loc))
 	applied.applied_pressure = null //just in case
-	if(!QDELETED(src))
-		qdel(src)
+	qdel(src)

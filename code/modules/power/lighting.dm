@@ -286,13 +286,13 @@
 	var/fitting = get_fitting_name()
 	switch(get_status())
 		if(LIGHT_OK)
-			to_chat(user, "[desc] It is turned [on? "on" : "off"].")
+			to_chat(user, "It is turned [on? "on" : "off"].")
 		if(LIGHT_EMPTY)
-			to_chat(user, "[desc] The [fitting] has been removed.")
+			to_chat(user, "The [fitting] has been removed.")
 		if(LIGHT_BURNED)
-			to_chat(user, "[desc] The [fitting] is burnt out.")
+			to_chat(user, "The [fitting] is burnt out.")
 		if(LIGHT_BROKEN)
-			to_chat(user, "[desc] The [fitting] has been smashed.")
+			to_chat(user, "The [fitting] has been smashed.")
 
 /obj/machinery/light/proc/get_fitting_name()
 	var/obj/item/weapon/light/L = light_type
@@ -535,7 +535,7 @@
 	var/rigged = 0		// true if rigged to explode
 	var/broken_chance = 2
 
-	var/b_max_bright = 1
+	var/b_max_bright = 0.9
 	var/b_inner_range = 1
 	var/b_outer_range = 5
 	var/b_curve = 2
@@ -561,7 +561,10 @@
 /obj/item/weapon/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
+	b_max_bright = 0.95
+	b_inner_range = 2
 	b_outer_range = 8
+	b_curve = 2.5
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -572,10 +575,10 @@
 	broken_chance = 5
 	matter = list("glass" = 100)
 
-	b_max_bright = 0.7
+	b_max_bright = 0.6
 	b_inner_range = 0.1
 	b_outer_range = 4
-	b_curve = 3.5
+	b_curve = 3
 	b_colour = "#fcfcc7"
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_outer_range = 3, l_max_bright = 1, l_color = "#da0205"),
