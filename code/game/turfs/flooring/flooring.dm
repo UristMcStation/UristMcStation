@@ -7,6 +7,10 @@ var/list/flooring_types
 		flooring_types["[flooring_path]"] = new flooring_path
 	return flooring_types["[flooring_path]"]
 
+/proc/populate_flooring_types()
+	for(var/decl/flooring/F in subtypesof(/decl/flooring))
+		if(!flooring_types["[F]"])
+			flooring_types["[F]"] = new F
 // State values:
 // [icon_base]: initial base icon_state without edges or corners.
 // if has_base_range is set, append 0-has_base_range ie.

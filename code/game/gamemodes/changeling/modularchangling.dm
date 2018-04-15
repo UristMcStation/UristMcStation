@@ -161,6 +161,12 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 7
 	verbpath = /mob/proc/changeling_rapidregen
 
+/datum/power/changeling/arm_blade
+	name = "Arm Blade"
+	desc = "We reform one of our arms into a deadly blade."
+	helptext = "We may retract our armblade by dropping it. Cannot be used while in lesser form."
+	genomecost = 4
+	verbpath = /mob/proc/changeling_arm_blade
 
 
 // Modularchangling, totally stolen from the new player panel.  YAYY

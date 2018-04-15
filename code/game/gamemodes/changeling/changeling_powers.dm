@@ -819,3 +819,102 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	feedback_add_details("changeling_powers","ED")
 	return 1
+
+//This is a generic proc that should be called by other ling weapon procs to equip them.
+/mob/proc/changeling_generic_weapon(var/weapon_type, var/make_sound = 1, var/cost = 20)
+	var/datum/changeling/changeling = changeling_power(cost,1,100)
+	if(!changeling)
+		return
+
+	if(!ishuman(src))
+		return 0
+
+	var/mob/living/carbon/human/M = src
+
+	if(M.l_hand && M.r_hand) //Make sure our hands aren't full.
+		src << "<span class='warning'>Our hands are full.  Drop something first.</span>"
+		return 0
+
+	var/obj/item/weapon/W = new weapon_type(src)
+	src.put_in_hands(W)
+
+	src.mind.changeling.chem_charges -= cost
+	if(make_sound)
+		playsound(src, 'sound/effects/blobattack.ogg', 30, 1)
+	return 1
+
+//Grows a scary, and powerful arm blade.
+/mob/proc/changeling_arm_blade()
+	set category = "Changeling"
+	set name = "Arm Blade (20)"
+
+	if(changeling_generic_weapon(/obj/item/weapon/melee/arm_blade))
+		return 1
+	return 0
+
+/obj/item/weapon/melee/arm_blade
+	name = "arm blade"
+	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	item_icons = URIST_ALL_ONMOBS
+	icon_state = "arm_blade"
+	w_class = 5.0
+	force = 35
+	sharp = 1
+	edge = 1
+	anchored = 1
+	throwforce = 0 //Just to be on the safe side
+	throw_range = 0
+	throw_speed = 0
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	var/mob/living/creator //This is just like ninja swords, needed to make sure dumb shit that removes the sword doesn't make it stay around.
+
+/obj/item/weapon/melee/arm_blade/greater
+	name = "arm greatblade"
+	desc = "A grotesque blade made out of bone and flesh that cleaves through people and armor as a hot knife through butter."
+	armor_penetration = 30
+
+/obj/item/weapon/melee/arm_blade/Initialize(location)
+	. = ..()
+	START_PROCESSING(SSobj,src)
+	if(ismob(loc))
+		creator = loc
+		creator.visible_message(
+			"<span class='warning'>A grotesque blade forms around [loc.name]\'s arm!</span>",
+			"<span class='warning'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
+			"<span class='italics'>You hear organic matter ripping and tearing!</span>"
+			)
+
+/obj/item/weapon/melee/arm_blade/dropped(mob/user)
+	user.visible_message(
+		"<span class='warning'>With a sickening crunch, [creator] reforms their arm blade into an arm!</span>",
+		"<span class='notice'>We assimilate the weapon back into our body.</span>",
+		"<span class='italics'>You hear organic matter ripping and tearing!</span>"
+		)
+	playsound(src, 'sound/effects/blobattack.ogg', 30, 1)
+	spawn(1)
+		if(src)
+			qdel(src)
+
+/obj/item/weapon/melee/arm_blade/Destroy()
+	STOP_PROCESSING(SSobj,src)
+	creator = null
+	. = ..()
+
+//TODO ensure embedded objects call dropped, ensure items unembed themselves when deleted
+/obj/item/weapon/melee/arm_blade/Process()  //Stolen from ninja swords.
+	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+		// Tidy up a bit.
+		if(istype(loc,/mob/living))
+			var/mob/living/carbon/human/host = loc
+			if(istype(host))
+				for(var/obj/item/organ/external/organ in host.organs)
+					for(var/obj/item/O in organ.implants)
+						if(O == src)
+							organ.implants -= src
+			host.pinned -= src
+			host.embedded -= src
+			host.drop_from_inventory(src)
+		spawn(1)
+			if(src)
+				qdel(src)

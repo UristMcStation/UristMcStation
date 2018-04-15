@@ -75,7 +75,7 @@ var/list/eventwarp3 = list()
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "passport"
 
-/obj/item/weapon/claymore/officer
+/obj/item/weapon/officer
 	icon = 'icons/urist/events/train.dmi'
 	name = "ceremonial sword"
 	desc = "A ceremonial sword, as would be worn by an officer. Still damn sharp though."

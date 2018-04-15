@@ -147,7 +147,10 @@
 			attack_hand(user)
 			return
 
-	if(O.loc != user && !(istype(O,/obj/item/stack)))
+	attempt_fill(O,user)
+
+/obj/machinery/autolathe/proc/attempt_fill(var/obj/item/O, var/mob/user)
+	if(!(O.Adjacent(user)))
 		return 0
 
 	if(is_robot_module(O))
@@ -308,3 +311,11 @@
 			qdel(S)
 	..()
 	return 1
+
+/obj/machinery/autolathe/MouseDrop(var/over_location)
+	..()
+	if(!isturf(over_location))
+		over_location = get_turf(over_location)
+	if(Adjacent(over_location) && Adjacent(usr))
+		for(var/obj/item/O in over_location)
+			attempt_fill(O, usr)
