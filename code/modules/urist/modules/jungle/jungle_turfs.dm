@@ -60,6 +60,8 @@
 			if(B) qdel(B)
 			new /obj/structure/pit/punji6/hidden/dull(src)
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi
+
+	light_color = SSskybox.BGcolor
 	. = ..()
 
 /turf/simulated/floor/planet/ex_act(severity)
@@ -121,6 +123,7 @@
 		src.overlays = null
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
+	..()
 
 /turf/simulated/floor/planet/jungle
 	animal_spawn_chance = 0.75
@@ -133,7 +136,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
-	light_max_bright = 0.5
+	light_max_bright = 0.3
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
@@ -152,7 +155,7 @@
 	bushspawnchance = 50
 	small_trees_chance = 9
 	trap_spawn_chance = 1
-	light_max_bright = 0.7
+	light_max_bright = 0.25
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -168,7 +171,7 @@
 	plants_spawn_chance = 45
 	small_trees_chance = 10
 	trap_spawn_chance = 2
-	light_max_bright = 0.4
+	light_max_bright = 0.125
 	animal_spawn_chance = 1.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -180,7 +183,7 @@
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 60
-	light_max_bright = 0.3
+	light_max_bright = 0.125
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -198,7 +201,7 @@
 	icon_state = "grass3" //clear
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
-	light_max_bright = 0.8
+	light_max_bright = 0.4
 
 /turf/simulated/floor/planet/jungle/clear/grass1
 	bushspawnchance = 0
@@ -222,7 +225,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
-	light_max_bright = 0.6
+	light_max_bright = 0.3
 	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
@@ -253,7 +256,7 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
-	light_max_bright = 0.8
+	light_max_bright = 0.5
 	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,

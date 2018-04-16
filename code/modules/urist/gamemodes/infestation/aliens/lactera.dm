@@ -138,7 +138,7 @@
 	has_organ = list(
 		BP_HEART =           /obj/item/organ/internal/heart,
 		BP_BRAIN =           /obj/item/organ/internal/brain/xeno,
-		BP_HIVE =       /obj/item/organ/internal/xenos/hivenode,
+		BP_HIVE =       /obj/item/organ/internal/xeno/hivenode,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 
