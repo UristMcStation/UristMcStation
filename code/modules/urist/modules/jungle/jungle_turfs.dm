@@ -133,9 +133,11 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
 	icon_spawn_state = "grass1"
-	dynamic_lighting = 1
-	light_max_bright = 1
+	light_max_bright = 0.5
+	light_inner_range = 0.1
 	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
 	bushspawnchance = 30 //let's try it, why not
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -150,8 +152,7 @@
 	bushspawnchance = 50
 	small_trees_chance = 9
 	trap_spawn_chance = 1
-	dynamic_lighting = 1
-	light_max_bright = 1
+	light_max_bright = 0.7
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -167,8 +168,7 @@
 	plants_spawn_chance = 45
 	small_trees_chance = 10
 	trap_spawn_chance = 2
-	dynamic_lighting = 1
-	light_max_bright = 0.5
+	light_max_bright = 0.4
 	animal_spawn_chance = 1.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -180,8 +180,7 @@
 	icon_state = "grass3" //3
 	icon_spawn_state = "grass1"
 	bushspawnchance = 60
-	dynamic_lighting = 1
-	light_max_bright = 0.5
+	light_max_bright = 0.3
 	animal_spawn_chance = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
@@ -199,8 +198,7 @@
 	icon_state = "grass3" //clear
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
-	dynamic_lighting = 1
-	light_max_bright = 2
+	light_max_bright = 0.8
 
 /turf/simulated/floor/planet/jungle/clear/grass1
 	bushspawnchance = 0
@@ -224,7 +222,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
-	light_max_bright = 2
+	light_max_bright = 0.6
 	animal_spawn_chance = 0.2
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
@@ -255,8 +253,7 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
-	light_max_bright = 2
-	light_outer_range = 2
+	light_max_bright = 0.8
 	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
@@ -286,6 +283,7 @@
 	icon_spawn_state = "grass1"
 	light_max_bright = 0
 	light_outer_range = 0
+	light_inner_range = 0
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -313,7 +311,6 @@
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null
-	dynamic_lighting = 1
 
 //Rocks fall, you die
 /turf/simulated/floor/planet/jungle/rock/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -366,8 +363,7 @@
 	icon_state = "rivernew"
 //	icon_spawn_state = "rivernew"
 	icon_spawn_state = null
-	light_max_bright = 2
-	light_outer_range = 2
+	light_max_bright = 0.5
 	var/bridge = 0 //has there been a bridge built?
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
