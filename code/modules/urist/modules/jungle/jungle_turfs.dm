@@ -624,6 +624,7 @@
 
 /turf/simulated/floor/planet/jungle/clear/underground
 	name = "dirt"
+	desc = "gritty, rough dirt"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	light_outer_range = 0
