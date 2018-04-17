@@ -143,6 +143,9 @@
 		/mob/living/simple_animal/huntable/monkey
 	)
 
+/turf/simulated/floor/planet/jungle/get_footstep_sound()
+	return safepick(footstep_sounds[FOOTSTEP_GRASS])
+
 /turf/simulated/floor/planet/jungle/med
 	large_trees_chance = 1
 	icon_state = "grass4" //4
@@ -629,3 +632,6 @@
 /turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
 	if(override)
 		..()
+
+/turf/simulated/floor/planet/jungle/clear/underground/get_footstep_sound()
+	return safepick(footstep_sounds[FOOTSTEP_ASTEROID])
