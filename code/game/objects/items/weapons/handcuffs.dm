@@ -41,28 +41,11 @@
 	// only carbons can be handcuffed
 	if(istype(C))
 		if(!C.handcuffed)
-			if (C == user)
-				place_handcuffs(user, user)
-				return
-
-			//check for an aggressive grab (or robutts)
-			if(can_place(C, user))
-				place_handcuffs(C, user)
-			else
-				to_chat(user, "<span class='danger'>You need to have a firm grip on [C] before you can put \the [src] on!</span>")
+			place_handcuffs(C, user)
 		else
 			to_chat(user, "<span class='warning'>\The [C] is already handcuffed!</span>")
 	else
 		..()
-
-/obj/item/weapon/handcuffs/proc/can_place(var/mob/target, var/mob/user)
-	if(user == target || istype(user, /mob/living/silicon/robot) || istype(user, /mob/living/bot))
-		return 1
-	else
-		for (var/obj/item/grab/G in target.grabbed_by)
-			if (G.force_danger())
-				return 1
-	return 0
 
 /obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
@@ -81,10 +64,7 @@
 
 	user.visible_message("<span class='danger'>\The [user] is attempting to put [cuff_type] on \the [H]!</span>")
 
-	if(!do_after(user,30, target))
-		return 0
-
-	if(!can_place(target, user)) // victim may have resisted out of the grab in the meantime
+	if(!do_after(user,3 SECONDS, target))
 		return 0
 
 	admin_attack_log(user, H, "Attempted to handcuff the victim", "Was target of an attempted handcuff", "attempted to handcuff")

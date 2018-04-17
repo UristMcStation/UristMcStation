@@ -9,8 +9,8 @@
 /obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null)
 	if(!owner)
 		return
-	brute = round(brute * brute_mod, 0.1)
-	burn = round(burn * burn_mod, 0.1)
+	brute = round(brute * species.brute_mod, 0.1)
+	burn = round(burn * species.burn_mod, 0.1)
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
