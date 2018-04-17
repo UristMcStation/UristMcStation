@@ -67,9 +67,6 @@
 	if(!do_after(user,3 SECONDS, target))
 		return 0
 
-	if(!can_place(target, user)) // victim may have resisted out of the grab in the meantime
-		return 0
-
 	admin_attack_log(user, H, "Attempted to handcuff the victim", "Was target of an attempted handcuff", "attempted to handcuff")
 	feedback_add_details("handcuffs","H")
 
