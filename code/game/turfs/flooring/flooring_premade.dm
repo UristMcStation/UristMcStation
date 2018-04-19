@@ -194,6 +194,10 @@
 	initial_gas = null
 	temperature = TCMB
 
+/turf/simulated/floor/tiled/white/server
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
+	temperature = 80
+
 /turf/simulated/floor/tiled/freezer
 	name = "tiles"
 	icon_state = "freezer"
