@@ -143,9 +143,7 @@ meteor_act
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
-	var/accuracy_penalty = user.melee_accuracy_mods()
-
-	var/hit_zone = get_zone_with_miss_chance(target_zone, src, accuracy_penalty)
+	var/hit_zone = get_zone_with_miss_chance(target_zone, src)
 
 	if(!hit_zone)
 		visible_message("<span class='danger'>\The [user] misses [src] with \the [I]!</span>")
