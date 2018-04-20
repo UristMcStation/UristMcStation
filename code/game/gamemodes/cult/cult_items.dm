@@ -112,10 +112,3 @@
 /obj/item/clothing/suit/space/cult/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1
-
-/obj/item/clothing/head/helmet/space/cult/sm
-	icon_state = "sm_cult_helmet"
-
-/obj/item/clothing/suit/space/cult/sm
-	icon_state = "sm_cult_armour"
-	flags_inv = HIDEJUMPSUIT
