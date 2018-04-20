@@ -148,7 +148,7 @@
 
 	var/on = 0					// 1 if on, 0 if off
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube/large	// the type of light item
+	var/light_type = /obj/item/weapon/light/tube	// the type of light item
 	var/construct_type = /obj/machinery/light_construct
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
@@ -551,7 +551,7 @@
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 
-	b_outer_range = 5
+	b_outer_range = 7.5
 	b_colour = "#fffee0"
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_outer_range = 4, l_max_bright = 1, l_color = "#da0205"),

@@ -3460,6 +3460,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/bird
 	name = "\improper Chicken's Choice"
 	desc = "Bird seed for Teshari and Livestock, or insane people."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "birdseed"
 	filling_color = "#A66829"
 	center_of_mass = "x=15;y=12"
