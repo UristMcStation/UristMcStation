@@ -182,6 +182,7 @@
 /obj/effect/cleanable/spellbound/attack_hand(var/mob/user)
 	if(last_called > world.time )
 		return
+	to_chat(user, "<span class='notice'>You call out to the spectral plane for assistance!</span>")
 	last_called = world.time + 30 SECONDS
 	var/datum/ghosttrap/G = get_ghost_trap("wizard familiar")
 	for(var/mob/observer/ghost/ghost in GLOB.player_list)
