@@ -352,6 +352,7 @@
 	. = ..()
 
 /obj/item/pressure/dropped()
-	H.drop_item(get_turf(loc))
+	spawn(1)
+		H.drop_item(get_turf(loc))
 	applied.applied_pressure = null //just in case
 	qdel(src)

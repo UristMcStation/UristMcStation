@@ -279,8 +279,16 @@
 /obj/structure/railing/ex_act(severity)
 	qdel(src)
 
+/obj/structure/railing/MouseDrop_T(var/obj/item/thing, var/mob/user)
+	if(get_turf(user) == get_turf(src))
+		do_climb(user)
+	..()
+
 /obj/structure/railing/do_climb(var/mob/living/user)
-	if(!can_climb(user))
+	var/turf/other_side = get_step(src, dir)
+	var/jumping_over = (get_turf(user) == get_turf(src)) && other_side.CanPass(user, other_side)
+	world << "We're [jumping_over ? "jumping" : "climbing"] over"
+	if(!jumping_over && !can_climb(user))
 		return
 
 	user.visible_message("<span class='warning'>\The [user] starts climbing onto \the [src]!</span>")
@@ -290,16 +298,11 @@
 		climbers -= user
 		return
 
-	if(!can_climb(user, post_climb_check=1))
+	if(!jumping_over && !can_climb(user, post_climb_check=1))
 		climbers -= user
 		return
 
-	if(!turf_is_crowded())
-		to_chat(user, "<span class='warning'>You can't climb there, the way is blocked.</span>")
-		climbers -= user
-		return
-
-	if(get_turf(user) == get_turf(src))
+	if(jumping_over)
 		user.forceMove(get_step(user, src.dir))
 	else
 		user.forceMove(get_turf(src))

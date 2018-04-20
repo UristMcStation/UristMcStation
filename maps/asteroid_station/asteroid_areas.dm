@@ -43,6 +43,9 @@
 /area/maintenance/middle/drug
 	name = "Construction Level - Chemistry Lab"
 
+/area/maintenance/middle/atmosmaint
+	name = "Construction Level - Atmospherics' Overlook"
+
 /area/maintenance/lower/western
 	name = "Department Level - West Tunnel"
 
