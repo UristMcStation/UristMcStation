@@ -34,8 +34,9 @@
 	..()
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
-	if(robotic >= ORGAN_ROBOT)
-		pulse = PULSE_NONE	//that's it, you're dead (or your metal heart is), nothing can influence your pulse
+
+	if(robotic >= ORGAN_ROBOT || owner.stat == DEAD)
+		pulse = PULSE_NONE	//that's it, you're dead (in one way or another) nothing can influence your pulse.
 		return
 
 	var/pulse_mod = owner.chem_effects[CE_PULSE]

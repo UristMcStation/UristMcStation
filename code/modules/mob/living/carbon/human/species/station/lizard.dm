@@ -98,13 +98,13 @@
 	//Heals normal damage.
 	if(H.getBruteLoss())
 		H.adjustBruteLoss(-2 * config.organ_regeneration_multiplier)	//Heal brute better than other ouchies.
-		H.nutrition -= 1
+		H.nutrition = max(H.nutrition - 1, 0)
 	if(H.getFireLoss())
 		H.adjustFireLoss(-1 * config.organ_regeneration_multiplier)
-		H.nutrition -= 1
+		H.nutrition = max(H.nutrition - 1, 0)
 	if(H.getToxLoss())
 		H.adjustToxLoss(-1 * config.organ_regeneration_multiplier)
-		H.nutrition -= 1
+		H.nutrition = max(H.nutrition - 1, 0)
 
 	if(prob(5) && H.nutrition > 150 && !H.getBruteLoss() && !H.getFireLoss())
 		var/obj/item/organ/external/head/D = H.organs_by_name["head"]
