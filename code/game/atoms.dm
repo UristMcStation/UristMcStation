@@ -542,3 +542,6 @@ its easier to just keep the beam vertical.
 		do_climb(target)
 	else
 		return ..()
+
+/atom/proc/get_color()
+	return color
