@@ -83,7 +83,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	backpack_contents = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/weapon/pen/crayon/mime = 1)
 	suit = /obj/item/clothing/suit/suspenders
-	pda_type = /obj/item/device/pda/mime
+	pda_type = /obj/item/modular_computer/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
 
 //Clown :^)
@@ -116,7 +116,7 @@
 		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
 		/obj/item/weapon/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/weapon/storage/backpack/clown
-	pda_type = /obj/item/device/pda/clown
+	pda_type = /obj/item/modular_computer/pda/clown
 	id_type = /obj/item/weapon/card/id/civilian/clown
 
 /datum/job/merchant
@@ -141,7 +141,7 @@
 	uniform = /obj/item/clothing/under/color/black
 	l_ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
-	pda_type = /obj/item/device/pda
+	pda_type = /obj/item/modular_computer/pda
 	id_type = /obj/item/weapon/card/id/merchant
 
 /decl/hierarchy/outfit/job/trader
@@ -151,7 +151,7 @@
 	head = /obj/item/clothing/head/terran/trader
 	l_ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
-	pda_type = /obj/item/device/pda
+	pda_type = /obj/item/modular_computer/pda
 	id_type = /obj/item/weapon/card/id/merchant
 
 //ids for the jobs

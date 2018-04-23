@@ -33,7 +33,7 @@
 		eject_id()
 	else
 		..()
-	
+
 // PDA box
 /obj/item/weapon/storage/box/PDAs
 	name = "box of spare PDAs"
@@ -113,3 +113,9 @@
 /obj/item/modular_computer/pda/roboticist
 	icon_state = "pda-robot"
 	icon_state_unpowered = "pda-robot"
+
+/obj/item/modular_computer/pda/chemist
+
+/obj/item/modular_computer/pda/mime
+
+/obj/item/modular_computer/pda/clown

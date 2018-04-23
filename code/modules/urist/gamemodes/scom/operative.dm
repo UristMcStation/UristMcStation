@@ -82,7 +82,7 @@ var/datum/antagonist/scom/scommies
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/device/pda/science(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/modular_computer/pda/science(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(M), slot_wear_suit)
 			create_id("S-COM Researcher", M)

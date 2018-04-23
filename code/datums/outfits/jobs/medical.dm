@@ -50,7 +50,7 @@
 	name = OUTFIT_JOB_NAME("Doctor - Chemist")
 	uniform = /obj/item/clothing/under/rank/chemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
-	pda_type = /obj/item/device/pda/chemist
+	pda_type = /obj/item/modular_computer/pda/chemist
 
 /decl/hierarchy/outfit/job/medical/doctor/nurse
 	name = OUTFIT_JOB_NAME("Nurse")

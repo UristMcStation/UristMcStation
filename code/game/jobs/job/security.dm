@@ -105,6 +105,6 @@
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/blueshield
-	pda_type = /obj/item/device/pda/heads/hop
+	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
