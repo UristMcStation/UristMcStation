@@ -24,10 +24,11 @@
 	capacitor.charge = capacitor.max_charge
 
 	cell = new initial_cell_type(src)
-	if (ispath(loaded))
+	if(ispath(load_type))
 		if(load_sheet_max > 1)
-			loaded = new loaded(src,load_sheet_max)
-		loaded = new loaded
+			loaded = new load_type(src, load_sheet_max)
+		else
+			loaded = new load_type(src)
 	slowdown_per_slot[slot_l_hand] =  slowdown_held
 	slowdown_per_slot[slot_r_hand] =  slowdown_held
 	slowdown_per_slot[slot_back] =    slowdown_worn
