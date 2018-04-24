@@ -164,10 +164,12 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/ammo_magazine/box/a762
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
+	mag_type = MAGAZINE
 
 /obj/item/ammo_magazine/a556
 	caliber = "a556"
 	ammo_type = /obj/item/ammo_casing/a556
+	mag_type = MAGAZINE
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
 	item_icons = DEF_URIST_INHANDS
