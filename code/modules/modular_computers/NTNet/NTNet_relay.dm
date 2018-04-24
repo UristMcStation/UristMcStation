@@ -15,9 +15,18 @@
 
 	// Denial of Service attack variables
 	var/dos_overload = 0		// Amount of DoS "packets" in this relay's buffer
-	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
-	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
+	var/dos_capacity = 300		// Amount of DoS "packets" in buffer required to crash the relay
+	var/dos_dissipate = 2		// Amount of DoS "packets" dissipated over time.
 
+/obj/machinery/ntnet_relay/RefreshParts()
+	var/relative_voltage = 0
+	var/max_open_connections = 0
+	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+		relative_voltage += C.rating
+	for(var/obj/item/weapon/stock_parts/matter_bin/M  in component_parts)
+		max_open_connections += 100 * M.rating
+	dos_dissipate = relative_voltage
+	dos_capacity = max_open_connections
 
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
@@ -95,9 +104,8 @@
 /obj/machinery/ntnet_relay/New()
 	uid = gl_uid
 	gl_uid++
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,15)
-	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
+	build_default_parts(/obj/item/weapon/circuitboard/ntnet_relay)
+	RefreshParts()
 
 	if(ntnet_global)
 		ntnet_global.relays.Add(src)
@@ -116,21 +124,10 @@
 	..()
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(isScrewdriver(W))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		panel_open = !panel_open
-		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance hatch")
+	if(default_deconstruction_screwdriver(user, W))
 		return
-	if(isCrowbar(W))
-		if(!panel_open)
-			to_chat(user, "Open the maintenance panel first.")
-			return
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "You disassemble \the [src]!")
-
-		for(var/atom/movable/A in component_parts)
-			A.forceMove(src.loc)
-		new/obj/machinery/constructable_frame/machine_frame(src.loc)
-		qdel(src)
+	if(default_deconstruction_crowbar(user, W))
 		return
-	..()
+	if(default_part_replacement(user, W))
+		return
+	. = ..()

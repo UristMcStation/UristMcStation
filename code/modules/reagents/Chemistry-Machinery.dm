@@ -31,6 +31,7 @@
 	var/client/has_sprites = list()
 	var/max_pill_count = 20
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_ANCHORABLE
 
 /obj/machinery/chem_master/New()
 	create_reagents(120)
@@ -71,7 +72,8 @@
 		B.loc = src
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	return
+	else
+		. = ..()
 
 /obj/machinery/chem_master/Topic(href, href_list, state)
 	if(..())

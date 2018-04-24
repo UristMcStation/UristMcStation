@@ -1621,13 +1621,6 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
 
-/datum/design/circuit/scan_console
-	name = "DNA machine"
-	id = "scan_console"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
-	build_path = /obj/item/weapon/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
-
 /datum/design/circuit/clonecontrol
 	name = "cloning control console"
 	id = "clonecontrol"

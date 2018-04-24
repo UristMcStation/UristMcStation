@@ -303,6 +303,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = 0
 	body_parts_covered = 0
 	item_state = "policehelm"
+	sprite_sheets = list("Unathi" = 'icons/uristmob/species/unathi/head.dmi')
 
 //First Order
 

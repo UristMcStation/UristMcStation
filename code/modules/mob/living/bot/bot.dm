@@ -76,9 +76,8 @@
 		health = maxHealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getFireLoss() - getBruteLoss()
-	setOxyLoss(0)
-	setToxLoss(0)
+		if(health <= 0)
+			death()
 
 /mob/living/bot/death()
 	explode()
@@ -113,7 +112,22 @@
 			to_chat(user, "<span class='notice'>\The [src] does not need a repair.</span>")
 		return
 	else
-		..()
+		. = ..()
+
+/mob/living/bot/bullet_act(var/obj/item/projectile/P, var/def_zone)
+	if(!P || P.nodamage)
+		return
+
+	var/damage = P.damage
+	if(P.damtype == STUN)
+		damage = (P.damage / 8)
+
+	adjustBruteLoss(damage)
+	. = ..()
+
+/mob/living/bot/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
+	adjustBruteLoss(I.force)
+	. = ..()
 
 /mob/living/bot/attack_ai(var/mob/user)
 	Interact(user)

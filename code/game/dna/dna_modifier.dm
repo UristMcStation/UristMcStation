@@ -255,9 +255,11 @@
 			to_chat(user, "You insert \the [I].")
 			GLOB.nanomanager.update_uis(src) // update all UIs attached to src
 			return
+	else if(isMultitool(I))
+		detect_scanner()
+		return
 	else
-		..()
-	return
+		. = ..()
 
 /obj/machinery/computer/scan_consolenew/ex_act(severity)
 
@@ -274,19 +276,18 @@
 		else
 	return
 
-/obj/machinery/computer/scan_consolenew/New()
-	..()
+/obj/machinery/computer/scan_consolenew/Initialize()
+	. = ..()
 	for(var/i=0;i<3;i++)
 		buffers[i+1]=new /datum/dna2/record
-	spawn(5)
-		for(dir in list(NORTH,EAST,SOUTH,WEST))
-			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-			if(!isnull(connected))
-				break
-		spawn(250)
-			src.injector_ready = 1
-		return
-	return
+	detect_scanner()
+
+/obj/machinery/computer/scan_consolenew/proc/detect_scanner()
+	for(dir in GLOB.cardinal)
+		connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+		if(!isnull(connected))
+			break
+	injector_ready = TRUE
 
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
 	var/list/arr = list()
@@ -304,7 +305,7 @@
 	return 1
 
 /*
-/obj/machinery/computer/scan_consolenew/process() //not really used right now
+/obj/machinery/computer/scan_consolenew/Process() //not really used right now
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (!( src.status )) //remove this
@@ -332,6 +333,10 @@
   * @return nothing
   */
 /obj/machinery/computer/scan_consolenew/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+
+	if(!connected)
+		to_chat(user, "<span class='notice'>No scanner detected, re-link this machine with a multitool.</span>")
+		return
 
 	if(user == connected.occupant || user.stat)
 		return

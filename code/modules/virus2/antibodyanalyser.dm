@@ -12,6 +12,10 @@
 
 	var/obj/item/weapon/reagent_containers/container = null
 
+/obj/machinery/disease2/antibodyanalyser/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/antibodyanalyser)
+	. = ..()
+
 /obj/machinery/disease2/antibodyanalyser/update_icon()
 	if(scanning)
 		icon_state = "analyser_processing"
@@ -25,6 +29,8 @@
 			I.forceMove(src)
 			user.visible_message("[user] adds a sample to \the [src]!", "You add a sample to \the [src]!")
 		return
+	else
+		. = ..()
 
 /obj/machinery/disease2/antibodyanalyser/Process()
 	if(stat & (NOPOWER|BROKEN))

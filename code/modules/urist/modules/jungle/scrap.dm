@@ -57,9 +57,8 @@
 	..()
 
 /obj/structure/scrap/Destroy()
-	qdel(loot)
-	loot = null
-	..()
+	QDEL_NULL(loot)
+	. = ..()
 
 /obj/structure/scrap/proc/shuffle_loot()
 	loot.close_all()

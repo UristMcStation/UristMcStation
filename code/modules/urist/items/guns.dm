@@ -161,6 +161,14 @@ the sprite and make my own projectile -Glloyd*/
 
 //NamERT
 
+/obj/item/ammo_magazine/box/a762
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+
+/obj/item/ammo_magazine/a556
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
 	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
@@ -171,6 +179,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 75
 	allowed_magazines = list(/obj/item/ammo_magazine/box/a762/m60)
 	magazine_type = /obj/item/ammo_magazine/box/a762/m60
+	ammo_type = /obj/item/ammo_casing/a762
 	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
 	caliber = "a762"
@@ -242,7 +251,9 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/m16)
 	magazine_type = /obj/item/ammo_magazine/a556/m16
+	ammo_type = /obj/item/ammo_casing/a556
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"

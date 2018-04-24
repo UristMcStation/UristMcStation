@@ -1,18 +1,22 @@
-/obj/machinery/computer/centrifuge
+/obj/machinery/disease2/centrifuge
 	name = "isolation centrifuge"
 	desc = "Used to separate things with different weights. Spin 'em round, round, right round."
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "centrifuge"
+	density = TRUE
 	var/curing
 	var/isolating
 
 	var/obj/item/weapon/reagent_containers/glass/beaker/vial/sample = null
 	var/datum/disease2/disease/virus2 = null
 
-/obj/machinery/computer/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(isScrewdriver(O))
-		return ..(O,user)
+/obj/machinery/disease2/centrifuge/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/centrifuge)
+	. = ..()
 
+/obj/machinery/disease2/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
+	if(..())
+		return
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
 		if(sample)
 			to_chat(user, "\The [src] is already loaded.")
@@ -27,16 +31,16 @@
 
 	src.attack_hand(user)
 
-/obj/machinery/computer/centrifuge/update_icon()
+/obj/machinery/disease2/centrifuge/update_icon()
 	..()
 	if(! (stat & (BROKEN|NOPOWER)))
 		icon_state = (isolating || curing) ? "centrifuge_moving" : "centrifuge"
 
-/obj/machinery/computer/centrifuge/attack_hand(var/mob/user as mob)
+/obj/machinery/disease2/centrifuge/attack_hand(var/mob/user as mob)
 	if(..()) return
 	ui_interact(user)
 
-/obj/machinery/computer/centrifuge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/disease2/centrifuge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	user.set_machine(src)
 
 	var/data[0]
@@ -77,7 +81,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/centrifuge/Process()
+/obj/machinery/disease2/centrifuge/Process()
 	..()
 	if (stat & (NOPOWER|BROKEN)) return
 
@@ -91,7 +95,7 @@
 		if(isolating == 0)
 			isolate()
 
-/obj/machinery/computer/centrifuge/OnTopic(user, href_list)
+/obj/machinery/disease2/centrifuge/OnTopic(user, href_list)
 	if (href_list["close"])
 		GLOB.nanomanager.close_user_uis(user, src, "main")
 		return TOPIC_HANDLED
@@ -137,7 +141,7 @@
 				sample = null
 			return TOPIC_REFRESH
 
-/obj/machinery/computer/centrifuge/proc/cure()
+/obj/machinery/disease2/centrifuge/proc/cure()
 	if (!sample) return
 	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in sample.reagents.reagent_list
 	if (!B) return
@@ -151,7 +155,7 @@
 	update_icon()
 	ping("\The [src] pings, \"Antibody isolated.\"")
 
-/obj/machinery/computer/centrifuge/proc/isolate()
+/obj/machinery/disease2/centrifuge/proc/isolate()
 	if (!sample) return
 	var/obj/item/weapon/virusdish/dish = new/obj/item/weapon/virusdish(loc)
 	dish.virus2 = virus2
@@ -161,7 +165,7 @@
 	update_icon()
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 
-/obj/machinery/computer/centrifuge/proc/print(var/mob/user)
+/obj/machinery/disease2/centrifuge/proc/print(var/mob/user)
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	P.SetName("paper - Pathology Report")
 	P.info = {"

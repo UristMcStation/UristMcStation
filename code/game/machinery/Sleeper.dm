@@ -14,6 +14,7 @@
 	var/pump
 	var/list/stasis_settings = list(1, 2, 5)
 	var/stasis = 1
+	var/max_amount = 20
 
 	use_power = 1
 	idle_power_usage = 15
@@ -144,8 +145,25 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return
+	else if(default_deconstruction_crowbar(user, I))
+		return
+	else if(default_deconstruction_screwdriver(user, I))
+		return
+	else if(default_part_replacement(user,I))
+		return
 	else
 		..()
+
+/obj/machinery/sleeper/RefreshParts()
+	var/obj/item/weapon/stock_parts/matter_bin/M = locate() in component_parts
+	max_amount = M.rating * 20
+	var/techlevel
+	for(var/obj/item/weapon/stock_parts/manipulator/MN in component_parts)
+		techlevel += MN.rating
+	if(techlevel >= 3)
+		available_chemicals |= list("Antidexafin" = /datum/reagent/antidexafen)
+	if(techlevel >= 4)
+		available_chemicals |= list("Ethylredoxrazine" = /datum/reagent/ethylredoxrazine)
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(!CanMouseDrop(target, user))
@@ -243,7 +261,7 @@
 
 	var/chemical_type = available_chemicals[chemical_name]
 	if(occupant && occupant.reagents)
-		if(occupant.reagents.get_reagent_amount(chemical_type) + amount <= 20)
+		if(occupant.reagents.get_reagent_amount(chemical_type) + amount <= max_amount)
 			use_power(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical_type, amount)
 			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical_type)] unit\s of [chemical_name] in their bloodstream.")

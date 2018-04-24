@@ -10,6 +10,10 @@
 	var/obj/item/weapon/sample = null
 	var/report_num = 0
 
+/obj/machinery/microscope/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/microscope)
+	. = ..()
+
 /obj/machinery/microscope/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(sample)
@@ -23,6 +27,14 @@
 		sample = W
 		update_icon()
 		return
+
+	else if(default_deconstruction_crowbar(user, W))
+		return
+	else if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user,W))
+		return
+	. = ..()
 
 /obj/machinery/microscope/attack_hand(mob/user)
 

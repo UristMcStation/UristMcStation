@@ -870,7 +870,7 @@
 				if(life_tick % 3 == 1)
 					if(!(M.status_flags & GODMODE))
 						M.adjustBruteLoss(5)
-					nutrition += 10
+					nutrition = min(nutrition + 10, 500)
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)

@@ -231,7 +231,7 @@
 						G.affecting.forceMove(get_turf(src))
 					G.affecting.Weaken(5)
 					visible_message("<span class='danger'>[G.assailant] throws \the [G.affecting] over \the [src].</span>")
-					qdel(G)
+				qdel(G)
 			else
 				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 			return
@@ -287,7 +287,6 @@
 /obj/structure/railing/do_climb(var/mob/living/user)
 	var/turf/other_side = get_step(src, dir)
 	var/jumping_over = (get_turf(user) == get_turf(src)) && other_side.CanPass(user, other_side)
-	world << "We're [jumping_over ? "jumping" : "climbing"] over"
 	if(!jumping_over && !can_climb(user))
 		return
 

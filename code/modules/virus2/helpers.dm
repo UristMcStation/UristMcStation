@@ -116,6 +116,12 @@ proc/infection_chance(var/mob/living/carbon/M, var/vector = "Airborne")
 	D.makerandom(VIRUS_COMMON)
 	infect_virus2(M, D, 1)
 
+/proc/infect_mob_random_virus(var/mob/living/carbon/M, var/severity = VIRUS_COMMON)
+	var/datum/disease2/disease/D = new /datum/disease2/disease
+
+	D.makerandom(severity)
+	infect_virus2(M, D, 1)
+
 //Fancy prob() function.
 /proc/dprob(var/p)
 	return(prob(sqrt(p)) && prob(sqrt(p)))

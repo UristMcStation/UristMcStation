@@ -322,7 +322,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	netspeed = 40
 	outage_probability = 10
 	light_color = "#66ccff"
-	light_max_bright = 2
+	light_max_bright = 1
 	light_outer_range = 5
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)

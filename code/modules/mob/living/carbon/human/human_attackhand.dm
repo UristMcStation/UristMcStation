@@ -335,6 +335,7 @@
 	if(!O || !user || !O.owner)
 		qdel(src)
 	O.applied_pressure = user
+	O.arterial_bleed_severity -= 0.5
 	applied = O
 	H = O.owner
 	name = "\proper[H == loc ? "[H.gender == "male" ? "his" : "her"]" : "[O.owner.name]'s"] [O.name]" //this will end as expected
@@ -355,4 +356,5 @@
 	spawn(1)
 		H.drop_item(get_turf(loc))
 	applied.applied_pressure = null //just in case
+	applied.arterial_bleed_severity = initial(applied.arterial_bleed_severity)
 	qdel(src)

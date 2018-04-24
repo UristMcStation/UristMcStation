@@ -164,12 +164,5 @@ var/datum/antagonist/agent/agents
 		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))
-		// generate a passcode if the uplink is hidden in a PDA
-		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
-		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
-		R.hidden_uplink = T
-/*		var/obj/item/modular_computer/pda/P = R
-		P.lock_code = pda_pass
-		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features."
-		agent_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
-*/ //PDAs got made into computers, so this is broken
+		var/decl/uplink_source/pda/uplink_source = new
+		uplink_source.setup_uplink_source(agent_mob, 0)

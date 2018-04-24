@@ -10,6 +10,7 @@
 	available_on_ntnet = 0
 	available_on_syndinet = 1
 	nanomodule_path = /datum/nano_module/program/computer_dos/
+	usage_flags = PROGRAM_ALL
 	var/obj/machinery/ntnet_relay/target = null
 	var/dos_speed = 0
 	var/error = ""

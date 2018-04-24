@@ -15,6 +15,10 @@
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
+/obj/machinery/dnaforensics/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/dnaforensics)
+	. = ..()
+
 /obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
 
 	if(bloodsamp)
@@ -31,6 +35,12 @@
 		src.bloodsamp = swab
 		swab.loc = src
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+	else if(default_deconstruction_crowbar(user, W))
+		return
+	else if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user,W))
+		return
 	else
 		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
 		return

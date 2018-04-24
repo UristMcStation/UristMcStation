@@ -1,5 +1,6 @@
 /datum/computer_file/data/email_account/
 	var/list/inbox = list()
+	var/list/outbox = list()
 	var/list/spam = list()
 	var/list/deleted = list()
 

@@ -14,6 +14,10 @@
 	var/foodsupply = 0
 	var/toxins = 0
 
+/obj/machinery/disease2/incubator/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/incubator)
+	. = ..()
+
 /obj/machinery/disease2/incubator/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/syringe))
 
@@ -45,6 +49,9 @@
 		GLOB.nanomanager.update_uis(src)
 
 		src.attack_hand(user)
+
+	else
+		. = ..()
 
 /obj/machinery/disease2/incubator/attack_hand(mob/user as mob)
 	if(stat & (NOPOWER|BROKEN)) return

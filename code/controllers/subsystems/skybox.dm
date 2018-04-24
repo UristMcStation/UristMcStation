@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(skybox)
 
 		var/BG = image(BGpath, src, "background_[BGstate]")
 		if(BGstate == initial(BGstate)) //Ew.
-			new_color_and_rotation(1.1) //This only allows dyable states anyways. It won't look bad or anything.
+			new_color_and_rotation(1,1) //This only allows dyable states anyways. It won't look bad or anything.
 		P.overlays += BG
 
 		//Checking the subsystem deliberately, just to be safe. Allows the use of stars in universe

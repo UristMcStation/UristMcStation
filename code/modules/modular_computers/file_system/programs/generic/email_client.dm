@@ -228,11 +228,14 @@
 				data["cur_attachment_size"] = current_message.attachment.size
 		else
 			data["label_inbox"] = "Inbox ([current_account.inbox.len])"
+			data["label_outbox"] = "Outbox ([current_account.outbox.len])"
 			data["label_spam"] = "Spam ([current_account.spam.len])"
 			data["label_deleted"] = "Deleted ([current_account.deleted.len])"
 			var/list/message_source
 			if(folder == "Inbox")
 				message_source = current_account.inbox
+			else if(folder == "Outbox")
+				message_source = current_account.outbox
 			else if(folder == "Spam")
 				message_source = current_account.spam
 			else if(folder == "Deleted")
@@ -422,6 +425,7 @@
 			return 1
 		else
 			error = "Email successfully sent."
+			current_account.outbox.Add(message)
 			clear_message()
 			return 1
 
@@ -438,7 +442,7 @@
 		msg_recipient = M.source
 		msg_title = "Re: [M.title]"
 		var/atom/movable/AM = host
-		if(istype(AM))		
+		if(istype(AM))
 			if(ismob(AM.loc))
 				ui_interact(AM.loc)
 		return 1

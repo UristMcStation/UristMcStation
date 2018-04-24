@@ -6,6 +6,7 @@
 	edge = 0
 	armor_penetration = 50
 	atom_flags = ATOM_FLAG_NO_BLOOD
+	obj_flags = OBJ_FLAG_NO_EMBED
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1

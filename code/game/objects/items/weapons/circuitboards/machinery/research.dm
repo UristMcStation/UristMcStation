@@ -69,7 +69,9 @@ obj/item/weapon/circuitboard/rdserver
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 4)
 	req_components = list(
-							/obj/item/stack/cable_coil = 15)
+							/obj/item/stack/cable_coil = 15,
+							/obj/item/weapon/stock_parts/matter_bin = 3,
+							/obj/item/weapon/stock_parts/capacitor = 2)
 
 /obj/item/weapon/circuitboard/integrated_printer
 	name = "Circuit board (Integrated Circuit Printer)"

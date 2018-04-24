@@ -16,6 +16,7 @@ The answer was five and a half years -ZeroBits
 	size = 6
 	requires_ntnet = 1
 	available_on_ntnet = 1
+	usage_flags = PROGRAM_ALL
 
 	nanomodule_path = /datum/nano_module/library
 

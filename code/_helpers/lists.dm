@@ -124,6 +124,7 @@ proc/listclearnulls(list/list)
 
 //Pretends to pick an element based on its weight but really just seems to pick a random element.
 /proc/pickweight(list/L)
+	L = shuffle(L)
 	var/total = 0
 	var/item
 	for (item in L)

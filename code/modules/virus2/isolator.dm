@@ -15,6 +15,10 @@
 	var/datum/computer_file/data/virus_record/entry = null
 	var/obj/item/weapon/reagent_containers/syringe/sample = null
 
+/obj/machinery/disease2/isolator/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/isolater)
+	. = ..()
+
 /obj/machinery/disease2/isolator/update_icon()
 	if (stat & (BROKEN|NOPOWER))
 		icon_state = "isolator"
@@ -28,7 +32,7 @@
 		icon_state = "isolator"
 
 /obj/machinery/disease2/isolator/attackby(var/obj/O as obj, var/mob/user)
-	if(!istype(O,/obj/item/weapon/reagent_containers/syringe)) return
+	if(!istype(O,/obj/item/weapon/reagent_containers/syringe)) return ..()
 	var/obj/item/weapon/reagent_containers/syringe/S = O
 
 	if(sample)
