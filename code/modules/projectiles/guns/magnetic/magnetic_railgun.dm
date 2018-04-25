@@ -9,9 +9,8 @@
 	power_cost = 300
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
-	loaded = /obj/item/weapon/rcd_ammo/large // ~30 shots
+	loaded = /obj/item/weapon/rcd_ammo // 10 shots
 	combustion = 1
-	gun_unreliable = 2
 
 	var/initial_cell_type = /obj/item/weapon/cell/hyper
 	var/initial_capacitor_type = /obj/item/weapon/stock_parts/capacitor/adv // 6-8 shots
@@ -25,11 +24,11 @@
 	capacitor.charge = capacitor.max_charge
 
 	cell = new initial_cell_type(src)
-	if(ispath(load_type))
+	if(ispath(loaded))
 		if(load_sheet_max > 1)
-			loaded = new load_type(src, load_sheet_max)
+			loaded = new loaded(src, load_sheet_max)
 		else
-			loaded = new load_type(src)
+			loaded = new loaded(src)
 	slowdown_per_slot[slot_l_hand] =  slowdown_held
 	slowdown_per_slot[slot_r_hand] =  slowdown_held
 	slowdown_per_slot[slot_back] =    slowdown_worn

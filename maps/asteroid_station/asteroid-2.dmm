@@ -166,7 +166,7 @@
 "dj" = (/turf/simulated/floor/plating,/area/station/medical/unfinished_lab)
 "dk" = (/obj/effect/wingrille_spawn/reinforced,/turf/simulated/floor/plating,/area/station/medical/unfinished_lab)
 "dl" = (/obj/structure/table/standard,/obj/machinery/light/small/red{tag = "icon-firelight1 (NORTH)"; icon_state = "firelight1"; dir = 1},/obj/effect/floor_decal/techfloor{icon_state = "techfloor_edges"; dir = 8},/obj/item/weapon/welder_tank,/obj/item/weapon/welder_tank,/turf/simulated/floor/tiled/techmaint,/area/maintenance/middle/drone)
-"dm" = (/obj/machinery/computer/centrifuge,/turf/simulated/floor/plating,/area/station/medical/unfinished_lab)
+"dm" = (/obj/machinery/disease2/centrifuge,/turf/simulated/floor/plating,/area/station/medical/unfinished_lab)
 "dn" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 5},/turf/simulated/wall/r_wall,/area/station/engineering/atmos)
 "do" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/turf/simulated/floor/asteroid,/area/station/engineering/atmos)
 "dp" = (/obj/machinery/atmospherics/pipe/simple/visible/yellow{icon_state = "intact"; dir = 4},/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating,/area/station/engineering/atmos)
