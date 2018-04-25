@@ -474,3 +474,8 @@ update_flag
 	..()
 	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/chlorine/New()
+	..()
+	src.air_contents.adjust_gas("chlorine", MolesForPressure())
+	src.update_icon()
