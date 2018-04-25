@@ -21,6 +21,10 @@
 /turf/simulated/floor/fixed/set_flooring()
 	return
 
+/turf/simulated/floor/fixed/levelupdate()
+	for(var/obj/O in src)
+		O.hide(O.hides_under_flooring() && src.flooring)
+
 /turf/simulated/floor/fixed/alium
 	name = "alien plating"
 	desc = "This obviously wasn't made for your feet."

@@ -120,7 +120,7 @@
 						if(temp.applied_pressure)
 							if(ishuman(temp.applied_pressure))
 								var/mob/living/carbon/human/H = temp.applied_pressure
-								H.bloody_hands(src, 0)
+								H.bloody_hands(owner, 0)
 							//somehow you can apply pressure to every wound on the organ at the same time
 							//you're slowed down a fair amount, so let's make it pretty effective
 							var/min_eff_damage = max(0, W.damage - 10) / 6 //still want a little bit to drip out, for effect
