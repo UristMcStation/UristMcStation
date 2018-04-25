@@ -126,6 +126,7 @@
 	..()
 
 /turf/simulated/floor/planet/jungle
+	temperature = 305.15 //32C
 	animal_spawn_chance = 0.75
 	plants_spawn_chance = 40
 	small_trees_chance = 7.5
@@ -614,12 +615,11 @@
 	icon_state = "phoron0"
 	mineral = "phoron"
 
-/turf/simulated/floor/planet/jungle/water/edge
+/obj/effect/floor_decal/water_edge
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "test"
-	icon_spawn_state = "test"
 
 /turf/simulated/floor/planet/jungle/clear/underground
 	name = "dirt"

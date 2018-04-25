@@ -324,6 +324,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	light_color = "#66ccff"
 	light_max_bright = 1
 	light_outer_range = 5
+	light_inner_range = 2
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	if(is_freq_listening(signal))
@@ -335,6 +336,12 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			relay_information(signal, /obj/machinery/telecomms/relay, 1)
 			relay_information(signal, /obj/machinery/telecomms/broadcaster, 1) // Send it to a broadcaster.
 
+/obj/machinery/telecomms/hub/update_icon()
+	if(on && !light)
+		set_light(1,2,5,2,"#66ccff")
+	else if(!on)
+		set_light(0)
+	..()
 
 /*
 	The relay idles until it receives information. It then passes on that information

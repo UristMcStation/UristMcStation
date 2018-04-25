@@ -58,7 +58,7 @@
 
 /area/shuttle/constructionsite/station
 	name = "\improper Construction Site Shuttle"
-	base_turf = /turf/space
+	base_turf = null
 
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
@@ -69,6 +69,7 @@
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
+	base_turf = null
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
@@ -161,6 +162,7 @@
 
 /area/shuttle/research
 	name = "\improper Research Shuttle"
+	base_turf = null
 
 /area/shuttle/research/station
 	icon_state = "shuttle2"
@@ -171,6 +173,7 @@
 
 /area/shuttle/planet
 	name = "\improper Planet Outpost Shuttle"
+	base_turf = null
 
 /area/shuttle/planet/station
 	icon_state = "shuttle"

@@ -150,7 +150,7 @@
 	icon = 'icons/uristmob/monkey.dmi'
 	icon_state = "preview"
 	icon_living = "preview"
-	icon_dead = "preview"
+	icon_dead = "preview_dead"
 	faction = "hostile"
 	mob_size = MOB_SMALL
 	speak_emote = list("chirps")

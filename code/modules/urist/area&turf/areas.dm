@@ -242,7 +242,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/securityoutpost/station
 	name = "\improper Security Outpost Shuttle Station"
-	base_turf = /turf/space
+	base_turf = null
 
 /area/shuttle/securityoutpost/outpost
 	name = "\improper Security Outpost Shuttle Outpost"

@@ -198,7 +198,7 @@
 #define VIRUS_COMMON		2	//Common cold, mundane events
 #define VIRUS_ENGINEERED	3
 #define VIRUS_EXOTIC		4	//Usually adminbus only
-#define VIRUS_UNQIUE    5 //For pre-prepared maps or the major event where you expect this level of hell
+#define VIRUS_UNIQUE    5 //For pre-prepared maps or the major event where you expect this level of hell
 
 //Error handler defines
 #define ERROR_USEFUL_LEN 2

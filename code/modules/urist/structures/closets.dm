@@ -193,13 +193,14 @@
 /obj/structure/closet/scom/generic
 	name = "S-COM Closet"
 
-/obj/structure/closet/scom/generic/New()
-	..()
-	new /obj/item/device/radio/headset/syndicate(src)
-	new /obj/item/clothing/under/rank/centcom(src)
-	new /obj/item/clothing/shoes/swat(src)
-	new /obj/item/clothing/gloves/thick/swat(src)
-	new /obj/item/weapon/storage/belt/urist/military/scom(src)
+/obj/structure/closet/scom/generic/WillContain()
+	return list(
+		/obj/item/device/radio/headset/syndicate,
+		/obj/item/clothing/under/rank/centcom,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/gloves/thick/swat,
+		/obj/item/weapon/storage/belt/urist/military/scom
+	)
 
 //for the map
 
@@ -228,18 +229,13 @@
 	name = "hunting gear"
 	req_access = list(access_mining)
 
-/obj/structure/closet/secure_closet/hunter/New()
-	..()
-	sleep(2)
-	if(prob(20))
-		new /obj/item/weapon/gunattachment/scope/huntrifle(src)
-	new /obj/item/weapon/gun/projectile/manualcycle/hunterrifle(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	if(prob(25)) //you get 15 shots, with a chance of 20. Past that, you'll have to go make your own in cargonia.
-		new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/device/flashlight/lantern(src)
-	new /obj/item/weapon/shovel(src)
-	new /obj/item/weapon/material/hatchet(src)
-	new /obj/item/weapon/material/knife/hunting(src)
+/obj/structure/closet/secure_closet/hunter/WillContain()
+	return list(
+		/obj/item/weapon/gunattachment/scope/huntrifle,
+		/obj/item/weapon/gun/projectile/manualcycle/hunterrifle,
+		/obj/item/ammo_magazine/a762mm/stripper = 3,
+		/obj/item/device/flashlight/lantern,
+		/obj/item/weapon/shovel,
+		/obj/item/weapon/material/hatchet,
+		/obj/item/weapon/material/knife/hunting
+	)

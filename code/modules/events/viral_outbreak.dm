@@ -19,7 +19,7 @@ datum/event/viral_outbreak/start()
 	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
 	while(severity > 0 && candidates.len)
-		infect_mob_random_virus(candidates[1],VIRUS_UNQIUE)
+		infect_mob_random_virus(candidates[1],VIRUS_UNIQUE)
 
 		candidates.Remove(candidates[1])
 		severity--
