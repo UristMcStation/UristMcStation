@@ -71,7 +71,7 @@
 	/* now, add new ones */
 	for(var/obj/weathertype/WT in active_weathers)
 		weather_overlays += WT
-		overlays += weather_overlays
+	overlays += weather_overlays
 
 //Handles all weather effects
 /obj/effect/weather/proc/inflictW()

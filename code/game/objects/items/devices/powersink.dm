@@ -10,6 +10,7 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
+	randpixel = 0
 
 	matter = list(DEFAULT_WALL_MATERIAL = 750,"waste" = 750)
 

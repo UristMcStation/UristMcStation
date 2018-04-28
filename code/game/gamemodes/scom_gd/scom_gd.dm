@@ -1,5 +1,5 @@
 /datum/game_mode/scom_gd
-	name = "SCOM Galatic Defense"
+	name = "SCOM Galactic Defense" //And by galactic I mean solar, but that doesn't sound interesting.
 	config_tag = "scom_gd"
 	round_description = "You've been assigned to defend the Ryclies system. Ensure protection of all planets, and yourself."
 	extended_round_description = "The SCOM contigency force has been activated, and you've been conscripted to assist in defense against the alien menace. Attempt to protect all of the planets in your solar system."

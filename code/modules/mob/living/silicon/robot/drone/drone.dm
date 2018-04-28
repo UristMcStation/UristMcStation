@@ -118,6 +118,8 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/construction
 	name = "construction drone"
 	icon_state = "constructiondrone"
+	maxHealth = 100
+	health = 100
 	laws = /datum/ai_laws/construction_drone
 	module_type = /obj/item/weapon/robot_module/drone/construction
 	hat_x_offset = 1
@@ -281,14 +283,14 @@ var/list/mob_hat_cache = list()
 	return 1
 
 //DRONE LIFE/DEATH
-//For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
-		health = 35
+		health = maxHealth
 		set_stat(CONSCIOUS)
 		return
-	health = 35 - (getBruteLoss() + getFireLoss())
-	return
+	health = maxHealth - (getBruteLoss() + getFireLoss())
+	if(!health)
+		death(TRUE)
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.

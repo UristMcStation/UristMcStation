@@ -170,10 +170,10 @@
 	if(!special_check(user))
 		return
 
-	/*if(world.time < next_fire_time)
+	if(world.time < next_fire_time)
 		if (world.time % 3) //to prevent spam
 			to_chat(user, "<span class='warning'>[src] is not ready to fire again!</span>")
-		return*/
+		return
 
 	var/shoot_time = (burst - 1)* burst_delay
 	user.setClickCooldown(shoot_time) //no clicking on things while shooting

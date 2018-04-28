@@ -82,6 +82,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		..()
 		reagents.add_reagent(/datum/reagent/bicaridine, 45)
 
+/obj/item/weapon/reagent_containers/pill/latrazine
+	name = "latrazine pill"
+	desc = "WARNING: Unstable mixture. Do not consume under normal conditions. Only for use in critical non-compound fractures."
+	icon_state = "pill2"
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/latrazine, 5)
+
 /obj/item/weapon/reagent_containers/pill/clonefix
 	name = "Clone fix pill"
 	desc = "Repairs possible cloning faults."
@@ -115,11 +123,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/weapon/storage/pill_bottle/emergency
 	name = "bottle of emergency medication"
-	desc = "<span class='notice'>Not to be used by unqualified personnel!</span>"
+	desc = "<span class='warning'>Not to be used by unqualified personnel!</span>"
 	startswith = list(
 		/obj/item/weapon/reagent_containers/pill/rezadone = 1,
 		/obj/item/weapon/reagent_containers/pill/exspaceacillin = 3,
-		/obj/item/weapon/reagent_containers/pill/exbicaridine = 3
+		/obj/item/weapon/reagent_containers/pill/exbicaridine = 3,
+		/obj/item/weapon/reagent_containers/pill/latrazine = 3
 		)
 
 /obj/item/weapon/storage/pill_bottle/clonefix

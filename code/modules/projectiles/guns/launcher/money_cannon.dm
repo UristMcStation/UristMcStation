@@ -57,7 +57,7 @@
 		return
 
 	// Must launch at least 100 thaler to incur damage.
-	release_force = dispensing / 100
+	release_force = dispensing / 200
 
 /obj/item/weapon/gun/launcher/money/proc/unload_receptacle(mob/user)
 	if(receptacle_value < 1)
@@ -103,7 +103,7 @@
 	return bling
 
 /obj/item/weapon/gun/launcher/money/attack_self(mob/user as mob)
-	src.dispensing = min(input(user, "How many thaler do you want to dispense at a time? (0 to [min(src.receptacle_value,100000)]", "Money Cannon Settings", 20) as num, min(receptacle_value, 100000))
+	src.dispensing = min(input(user, "How many thaler do you want to dispense at a time? (0 to [min(src.receptacle_value,100000)]", "Money Cannon Settings", 20) as num, max(min(receptacle_value, 100000),0))
 
 	to_chat(user, "<span class='notice'>You set [src] to dispense [dispensing] thaler at a time.</span>")
 

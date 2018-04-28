@@ -1,9 +1,9 @@
-var/datum/antagonist/vampire/vamps
+GLOBAL_DATUM_INIT(vamps, /datum/antagonist/vampire, new)
 
 /proc/isvampire(var/mob/player)
-	if(!vamps || !player.mind)
+	if(!GLOB.vamps || !player.mind)
 		return 0
-	if(player.mind in vamps.current_antagonists)
+	if(player.mind in GLOB.vamps.current_antagonists)
 		return 1
 
 /datum/antagonist/vampire
@@ -28,7 +28,7 @@ var/datum/antagonist/vampire/vamps
 
 /datum/antagonist/vampire/New()
 	..()
-	vamps = src
+	GLOB.vamps = src
 
 /datum/antagonist/vampire/update_antag_mob(var/datum/mind/player)
 	..()

@@ -842,14 +842,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 			gore.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
-			victim.organs_by_name[organ_tag] = src
 			for(var/obj/item/organ/I in internal_organs)
 				I.owner = victim
 				I.removed()
 				if(istype(loc,/turf))
 					I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
-			victim.internal_organs_by_name[organ_tag] = null
-			victim.internal_organs_by_name -= organ_tag
+			internal_organs = null //Let's just not take chances
 
 			for(var/obj/item/I in src)
 				I.loc = get_turf(src)

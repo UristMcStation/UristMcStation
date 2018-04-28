@@ -56,10 +56,8 @@
 	if(max_cpu > stored_cpu)
 		var/given = min((max_cpu - stored_cpu), cpu_gained)
 		stored_cpu += given
-		cpu_gained -= given
 
-	cpu_gained = max(0, cpu_gained)
-	if(focus && (cpu_gained > 0))
+	if(focus)
 		focus.process(cpu_gained)
 		if(focus.unlocked)
 			finish_research()

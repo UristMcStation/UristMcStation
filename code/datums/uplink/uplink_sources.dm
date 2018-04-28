@@ -26,7 +26,11 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 	var/pda_pass = "[rand(100,999)] [pick(GLOB.greek_letters)]"
 	var/obj/item/device/uplink/T = new(P, M.mind, amount)
 	P.hidden_uplink = T
-	P.hard_drive.store_file(new /datum/computer_file/program/uplink(pda_pass))
+	var/datum/computer_file/program/uplink/prog = P.hard_drive.find_file_by_name("taxquickly")
+	if(!prog)
+		P.hard_drive.store_file(new /datum/computer_file/program/uplink(pda_pass))
+	else
+		prog.password = pda_pass
 	to_chat(M, "<span class='notice'>A portable object teleportation relay has been installed in your [P.name]. Simply enter the code \"[pda_pass]\" in your new program to unlock its hidden features.</span>")
 	M.mind.store_memory("<B>Uplink passcode:</B> [pda_pass] ([P.name]).")
 

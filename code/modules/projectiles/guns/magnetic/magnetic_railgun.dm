@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BACK
 	loaded = /obj/item/weapon/rcd_ammo // 10 shots
 	combustion = 1
+	fire_delay = 2 SECONDS
 
 	var/initial_cell_type = /obj/item/weapon/cell/hyper
 	var/initial_capacitor_type = /obj/item/weapon/stock_parts/capacitor/adv // 6-8 shots

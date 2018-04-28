@@ -33,8 +33,8 @@
 	if(!mind.vampire)
 		mind.vampire = new /datum/vampire(gender)
 		mind.vampire.owner = src
-	if(!mind in vamps.current_antagonists)
-		vamps.add_antagonist(src.mind)
+	if(!mind in GLOB.vamps.current_antagonists)
+		GLOB.vamps.add_antagonist(src.mind)
 
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_coffinsleep

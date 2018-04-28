@@ -420,7 +420,7 @@
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	if(vamps.add_antagonist(H,1,0,0,1,1))
+	if(GLOB.vamps.add_antagonist(H,1,0,0,1,1))
 		H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
 		src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
 		log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
