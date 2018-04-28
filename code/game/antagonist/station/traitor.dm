@@ -66,7 +66,8 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 /datum/antagonist/traitor/equip(var/mob/living/carbon/human/traitor_mob)
 	if(istype(traitor_mob, /mob/living/silicon)) // this needs to be here because ..() returns false if the mob isn't human
 		if(istype(traitor_mob, /mob/living/silicon/ai))
-			GLOB.malf.add_antagonist(traitor_mob.mind)
+			GLOB.malf.add_antagonist(traitor_mob.mind, do_not_greet = TRUE)
+			GLOB.malf.greet(traitor_mob.mind, TRUE)
 			return 1
 		add_law_zero(traitor_mob)
 		give_intel(traitor_mob)

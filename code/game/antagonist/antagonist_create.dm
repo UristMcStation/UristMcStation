@@ -1,4 +1,4 @@
-/datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+/datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance, var/do_not_greet)
 
 	if(!target)
 		return
@@ -15,7 +15,8 @@
 	update_leader()
 	create_objectives(target)
 	update_icons_added(target)
-	greet(target)
+	if(!do_not_greet)
+		greet(target)
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 

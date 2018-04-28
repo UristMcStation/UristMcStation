@@ -331,6 +331,14 @@
 	name = "yellow glowstick"
 	color = "#fef923"
 
+/obj/item/device/flashlight/flare/glowstick/green
+	name = "green glowstick"
+	color = "#00b300"
+
+/obj/item/device/flashlight/flare/glowstick/purple
+	name = "red glowstick"
+	color = "#ac00e6"
+
 /obj/item/device/flashlight/flare/glowstick/random
 	name = "glowstick"
 	desc = "A party-grade glowstick."

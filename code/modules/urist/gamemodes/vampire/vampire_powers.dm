@@ -86,6 +86,7 @@
 		H << "<span class='notice'>You are now waking up from your sleep.</span>"
 		H.paralysis += 2 //as above
 		H.status_flags &= ~(FAKEDEATH)
+		H.resuscitate()
 		H.update_canmove()
 		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
 
