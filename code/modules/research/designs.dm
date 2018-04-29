@@ -262,13 +262,21 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/cell/hyper
 	sort_string = "DAAAD"
 
+/datum/design/item/powercell/bluespace
+	name = "bluespace"
+	id = "bluespace_cell"
+	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6, TECH_BLUESPACE = 4) //The power tech a Hyper Cell will give, Material and Bluespace Tech requirements of the BoH
+	materials = list(DEFAULT_WALL_MATERIAL = 700, "gold" = 250, "silver" = 250, "glass" = 100)
+	build_path = /obj/item/weapon/cell/bluespace
+	sort_string = "DAAAE"
+
 /datum/design/item/powercell/device/standard
 	name = "basic"
 	id = "device_cell_standard"
 	req_tech = list(TECH_POWER = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 5)
 	build_path = /obj/item/weapon/cell/device/standard
-	sort_string = "DAAAE"
+	sort_string = "DAAAF"
 
 /datum/design/item/powercell/device/high
 	name = "high-capacity"
@@ -277,7 +285,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 6)
 	build_path = /obj/item/weapon/cell/device/high
-	sort_string = "DAAAF"
+	sort_string = "DAAAG"
 
 /datum/design/item/hud
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)

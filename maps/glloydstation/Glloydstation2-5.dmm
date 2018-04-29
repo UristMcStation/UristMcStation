@@ -182,7 +182,7 @@
 "dz" = (/turf/simulated/floor/plating,/area/mine/explored)
 "dA" = (/obj/machinery/mining/drill,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/plating,/area/mine/explored)
 "dB" = (/obj/machinery/light{tag = "icon-tube1 (NORTH)"; icon_state = "tube1"; dir = 1},/turf/simulated/floor/plating,/area/mine/explored)
-"dC" = (/obj/structure/table/reinforced,/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/turf/simulated/floor/plating,/area/mine/explored)
+"dC" = (/obj/structure/table/reinforced,/obj/item/weapon/cell/super,/obj/item/weapon/cell/super,/turf/simulated/floor/plating,/area/mine/explored)
 "dD" = (/obj/machinery/mining/brace,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating,/area/mine/explored)
 "dE" = (/obj/structure/table/reinforced,/obj/machinery/cell_charger,/turf/simulated/floor/plating,/area/mine/explored)
 "dF" = (/turf/simulated/wall,/area/outpost/mining_main/eva)

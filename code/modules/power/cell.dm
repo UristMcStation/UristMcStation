@@ -259,3 +259,16 @@
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 200
 	matter = null
+
+/obj/item/weapon/cell/bluespace //super powerful cell, RnD only
+	name = "bluespace power cell"
+	desc = "Combining the peak of power storage technology with the insights from a Bag of Holding, this amazing cell holds substantially more power then should be possible for one of it's size."
+	icon_state = "icell"
+	origin_tech = list(TECH_POWER = 7, TECH_BLUESPACE = 4)
+	maxcharge = 10000
+	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 80)
+
+/obj/item/weapon/cell/bluespace/old //Same cell as above, for placing in maps, has less origin tech so it's not RnD fodder
+	name = "old bluespace power cell"
+	desc = "This cell seems to hold way more power then should be possible for it's size. It looks almost entirely self-contained, so there's probably not much to be learned from it."
+	origin_tech = list(TECH_POWER = 2, TECH_BLUESPACE = 2)
