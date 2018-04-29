@@ -174,13 +174,16 @@
 /turf/simulated/floor/tiled/dark/airless
 	initial_gas = null
 
+/turf/simulated/floor/tiled/dark/monotile
+	icon_state = "monotile"
+	initial_flooring = /decl/flooring/tiling/dark/mono
+
 /turf/simulated/floor/tiled/white
 	name = "white floor"
 	icon_state = "white"
 	initial_flooring = /decl/flooring/tiling/white
 
 /turf/simulated/floor/tiled/white/monotile
-	name = "floor"
 	icon_state = "monotile"
 	initial_flooring = /decl/flooring/tiling/white/mono
 
