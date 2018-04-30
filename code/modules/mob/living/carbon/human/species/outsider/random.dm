@@ -6,7 +6,7 @@
 
 	species_flags = SPECIES_FLAG_NO_SCAN
 
-	icobase = 'icons/mob/human_races/r_humanoid.dmi' 
+	icobase = 'icons/mob/human_races/r_humanoid.dmi'
 	deform = 'icons/mob/human_races/r_humanoid.dmi'
 	appearance_flags = HAS_SKIN_COLOR
 	limb_blend = ICON_MULTIPLY
@@ -14,6 +14,7 @@
 	default_language = LANGUAGE_ALIUM
 	language = LANGUAGE_ALIUM
 	name_language = LANGUAGE_ALIUM
+	spawn_flags = SPECIES_IS_RESTRICTED
 
 #define RANDOM_COEF(VAR,LO,HI) ##VAR =  round((##VAR*rand(##LO*100, ##HI*100))/100, 0.1)
 /datum/species/alium/New()
@@ -69,7 +70,7 @@
 	hazard_low_pressure += pressure_comfort_shift
 
 	//Misc traits
-	darksight_range = rand(1,8)       
+	darksight_range = rand(1,8)
 	darksight_tint = pick(DARKTINT_NONE,DARKTINT_MODERATE,DARKTINT_GOOD)
 	if(prob(40))
 		genders = list(PLURAL)
