@@ -193,7 +193,7 @@
 		M.current << "<span class='warning'>You try to stare into your own eyes. Oddly, it doesn't work.</span>"
 		return
 
-	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as he stares into [C.name]'s eyes</span>")
+	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as they stare into [C.name]'s eyes</span>")
 	M.current.verbs -= /client/proc/vampire_hypnotise
 	spawn(1800)
 		M.current.verbs += /client/proc/vampire_hypnotise
