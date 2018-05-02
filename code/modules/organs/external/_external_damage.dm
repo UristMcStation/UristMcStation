@@ -27,11 +27,11 @@
 	if(!is_damageable(brute + burn))
 		spillover =  brute_dam + burn_dam + brute - max_damage
 		if(spillover > 0)
-			brute = max(brute - spillover, 0)
+			brute -= spillover
 		else
 			spillover = brute_dam + burn_dam + brute + burn - max_damage
 			if(spillover > 0)
-				burn = max(burn - spillover, 0)
+				burn -= spillover
 
 	owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 	//If limb took enough damage, try to cut or tear it off
@@ -139,9 +139,9 @@
 			break
 
 		// heal brute damage
-		if(W.damage_type == BURN)
+		if(W.damage_type == BURN && (burn_ratio < 1 || vital))
 			burn = W.heal_damage(burn)
-		else
+		else if(brute_ratio < 1 || vital)
 			brute = W.heal_damage(brute)
 
 	if(internal)
