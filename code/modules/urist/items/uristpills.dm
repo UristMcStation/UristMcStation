@@ -104,22 +104,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/weapon/storage/pill_bottle/citalopram
 	name = "bottle of citalopram pills"
 	desc = "Contains pills used to stabilize a patient's mind."
-	startswith = list(/obj/item/weapon/reagent_containers/pill/citalopram = 7)
+	startswith = list(/obj/item/weapon/reagent_containers/pill/citalopram = 14)
 
 /obj/item/weapon/storage/pill_bottle/methylphenidate
 	name = "bottle of methylphenidate pills"
 	desc = "Contains pills used to enhance a patient's concentration."
-	startswith = list(/obj/item/weapon/reagent_containers/pill/methylphenidate = 7)
+	startswith = list(/obj/item/weapon/reagent_containers/pill/methylphenidate = 14)
 
 /obj/item/weapon/storage/pill_bottle/bloodloss
 	name = "bottle of blood restoration pills"
 	desc = "Contains pills to rapidly restore blood."
-	startswith = list(/obj/item/weapon/reagent_containers/pill/bloodloss = 7)
+	startswith = list(/obj/item/weapon/reagent_containers/pill/bloodloss = 14)
 
 /obj/item/weapon/storage/pill_bottle/peridaxon
 	name = "bottle of peridaxon pills"
 	desc = "Contains pills to regenerate organs."
-	startswith = list(/obj/item/weapon/reagent_containers/pill/peridaxon = 7)
+	startswith = list(/obj/item/weapon/reagent_containers/pill/peridaxon = 14)
 
 /obj/item/weapon/storage/pill_bottle/emergency
 	name = "bottle of emergency medication"

@@ -97,18 +97,14 @@
 		var/below_is_open = isopenspace(below)
 		if(below_is_open)
 			underlays = below.underlays
-			overlays += below.overlays
+			overlays = below.overlays
 
 		else
 			var/image/bottom_turf = image(icon = below.icon, icon_state = below.icon_state, dir=below.dir, layer=below.layer)
 			bottom_turf.plane = below.plane + src.plane
 			bottom_turf.color = below.color
 			underlays += bottom_turf
-			for(var/image/I in below.overlays)
-				var/image/temp = I
-				temp.plane = I.plane + src.plane
-				temp.color = I.color
-				overlays += temp
+			underlays += below.overlays
 
 
 		// get objects (not mobs, they are handled by /obj/zshadow)
@@ -116,8 +112,9 @@
 		for(var/obj/O in below)
 			if(O.invisibility) continue // Ignore objects that have any form of invisibility
 			if(O.loc != below) continue // Ignore multi-turf objects not directly below
-			var/image/temp2 = image(O, dir = O.dir, layer = O.layer)
-			temp2.plane = O.plane + src.plane
+			if(abs(O.pixel_y) >= 8 || abs(O.pixel_x) >= 8 && !istype(O, /obj/structure/stairs)) continue // Ignore objects that would be in the wall
+			var/image/temp2 = image(O, dir = O.dir, layer = (OPENSPACE_LAYER_OBJS + (O.plane/100) + below_is_open)) //Need to layer things properly, and stay low enough for the things on top of us
+			temp2.plane = OVER_OPENSPACE_PLANE
 			temp2.color = O.color
 			temp2.overlays += O.overlays
 			// TODO Is pixelx/y needed?

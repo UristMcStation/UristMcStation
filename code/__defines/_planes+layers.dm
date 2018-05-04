@@ -73,7 +73,10 @@ What is the naming convention for planes or layers?
 #define OPENSPACE_PLANE_START -462
 #define OPENSPACE_PLANE_END -22
 #define OPENSPACE_PLANE -463
-#define OVER_OPENSPACE_PLANE -22
+#define OVER_OPENSPACE_PLANE -18
+
+#define OPENSPACE_LAYER_OBJS 2
+#define OPENSPACE_LAYER_MOBS 3
 
 
 #define BELOW_TURF_PLANE             -22 // objects that are below turfs. Useful for asteroid smoothing or other such magic.
@@ -92,7 +95,7 @@ What is the naming convention for planes or layers?
 	#define WIRE_TERMINAL_LAYER  7
 	#define ABOVE_WIRE_LAYER     8
 
-#define TURF_PLANE				-19
+#define TURF_PLANE                    -19
 
 	#define BASE_TURF_LAYER -999
 	#define TURF_DETAIL_LAYER 1
@@ -106,10 +109,13 @@ What is the naming convention for planes or layers?
 	#define EXPOSED_PIPE_LAYER          5
 	#define EXPOSED_WIRE_LAYER          6
 	#define EXPOSED_WIRE_TERMINAL_LAYER 7
-	#define CATWALK_LAYER               8
 	#define BLOOD_LAYER                 9
 	#define MOUSETRAP_LAYER             10
 	#define PLANT_LAYER                 11
+
+#define UNDER_OBJ_PLANE               -17
+
+	#define CATWALK_LAYER               1
 
 #define HIDING_MOB_PLANE              -16 // for hiding mobs like MoMMIs or spiders or whatever, under most objects but over pipes & such.
 

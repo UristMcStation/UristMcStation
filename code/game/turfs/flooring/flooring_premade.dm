@@ -223,6 +223,9 @@
 	icon_state = "techfloor_gray"
 	initial_flooring = /decl/flooring/tiling/tech
 
+/turf/simulated/floor/tiled/techfloor/airless
+	initial_gas = null
+
 /turf/simulated/floor/tiled/monotile
 	name = "floor"
 	icon_state = "steel_monotile"

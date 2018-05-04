@@ -56,11 +56,11 @@
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 
 /obj/structure/displaycase/update_icon()
+	underlays.Cut()
 	if(destroyed)
 		icon_state = "glassboxb"
 	else
 		icon_state = "glassbox"
-		underlays.Cut()
 		for(var/atom/movable/AM in contents)
 			underlays += AM.appearance
 
@@ -74,4 +74,5 @@
 	if(!destroyed)
 		to_chat(usr, text("<span class='warning'>You kick the display case.</span>"))
 		visible_message("<span class='warning'>[usr] kicks the display case.</span>")
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		take_damage(2)

@@ -2,7 +2,6 @@
 	var/mob/zshadow/shadow
 
 /mob/zshadow
-	plane = OVER_OPENSPACE_PLANE
 	name = "shadow"
 	desc = "Z-level shadow"
 	status_flags = GODMODE
@@ -10,6 +9,8 @@
 	unacidable = 1
 	density = 0
 	opacity = 0					// Don't trigger lighting recalcs gah! TODO - consider multi-z lighting.
+	layer = OPENSPACE_LAYER_MOBS
+	plane = OVER_OPENSPACE_PLANE
 	//auto_init = FALSE 			// We do not need to be initialize()d
 	var/mob/owner = null		// What we are a shadow of.
 
@@ -50,13 +51,10 @@
 	return owner.hear_say(message, verb, language, alt_name, italics, speaker, speech_sound, sound_vol)
 
 /mob/zshadow/proc/sync_icon(var/mob/M)
-	var/lay = src.layer
-	var/pln = src.plane
 	appearance = M
-	color = "#848484"
+	layer = OPENSPACE_LAYER_MOBS
+	plane = OVER_OPENSPACE_PLANE
 	dir = M.dir
-	src.layer = lay
-	src.plane = pln
 	if(shadow)
 		shadow.sync_icon(src)
 
