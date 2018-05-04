@@ -643,7 +643,7 @@ var/list/admin_verbs_mentor = list(
 	set name = "Toggle Build Mode Self"
 	set category = "Special Verbs"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_BUILDMODE))
 		return
 
 	var/datum/click_handler/handler = mob.GetClickHandler()

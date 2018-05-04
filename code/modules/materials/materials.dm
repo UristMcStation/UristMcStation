@@ -249,13 +249,6 @@ var/list/name_to_material
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 
-/material/uranium/u235
-	name = "enriched uranium"
-	stack_type = /obj/item/stack/material/uranium/u235
-	radioactivity = 22 //vaguely enough for research reactors
-	icon_colour = "#00ac00"
-	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 5)
-
 /material/diamond
 	name = "diamond"
 	stack_type = /obj/item/stack/material/diamond

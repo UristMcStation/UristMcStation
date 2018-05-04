@@ -31,6 +31,11 @@
 			var/obj/weathertype/WT = i
 			active_weathers[index] = new WT //instantiate all types
 			*/
+
+	var/list/new_weathers = list()
+	for(var/i in active_weathers)
+		new_weathers += new i
+	active_weathers = new_weathers
 	update_icon()
 	..()
 

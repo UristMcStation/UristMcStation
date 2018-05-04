@@ -575,7 +575,7 @@
 	broken_chance = 5
 	matter = list("glass" = 100)
 
-	b_max_bright = 0.6
+	b_max_bright = 0.65
 	b_inner_range = 0.1
 	b_outer_range = 4
 	b_curve = 3

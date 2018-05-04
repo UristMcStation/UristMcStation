@@ -74,6 +74,8 @@ var/list/mining_floors = list()
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor) || istype(turf_to_check,/turf/simulated/open))
 			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(direction, 180))
 			rock_side.turf_decal_layerise()
+			if(istype(turf_to_check, /turf/simulated/open))
+				rock_side.layer = MOB_LAYER + 1
 			switch(direction)
 				if(NORTH)
 					rock_side.pixel_y += world.icon_size
@@ -526,16 +528,18 @@ var/list/mining_floors = list()
 
 	overlays.Cut()
 
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-	for(var/direction in step_overlays)
+	for(var/direction in GLOB.cardinal)
+		var/turf/T = get_step(src, direction)
 
-		if(istype(get_step(src, step_overlays[direction]), /turf/space))
-			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/open))
+			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
 			aster_edge.turf_decal_layerise()
+			if(istype(T, /turf/simulated/open))
+				aster_edge.layer = MOB_LAYER + 1
 			overlays += aster_edge
 
-		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
-			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
+		if(istype(T, /turf/simulated/mineral))
+			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = direction)
 			rock_wall.turf_decal_layerise()
 			overlays += rock_wall
 
@@ -546,11 +550,9 @@ var/list/mining_floors = list()
 		overlays |= floor_decal
 
 	if(update_neighbors)
-		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
-		for(var/direction in all_step_directions)
-			var/turf/simulated/floor/asteroid/A
-			if(istype(get_step(src, direction), /turf/simulated/floor/asteroid))
-				A = get_step(src, direction)
+		for(var/direction in GLOB.alldirs)
+			var/turf/simulated/floor/asteroid/A = get_step(src, direction)
+			if(istype(A))
 				A.updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)

@@ -91,6 +91,7 @@
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
 	icon_living = "skrellorist"
+	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
 	casingtype = /obj/item/ammo_casing/a10mm

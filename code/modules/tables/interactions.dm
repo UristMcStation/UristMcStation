@@ -43,6 +43,9 @@
 	return 1
 
 /obj/structure/table/bullet_act(obj/item/projectile/P)
+	if(!flipped)
+		return 0
+
 	if(!(P.damage_type == BRUTE || P.damage_type == BURN))
 		return 0
 

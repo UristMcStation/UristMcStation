@@ -149,7 +149,7 @@
 	if(!current_account)
 		return 0
 
-	var/list/allmails = current_account.all_emails()
+	var/list/allmails = current_account.inbox
 
 	if(allmails.len > last_message_count)
 		. = 2
@@ -427,7 +427,6 @@
 			return 1
 		else
 			error = "Email successfully sent."
-			current_account.outbox.Add(message)
 			clear_message()
 			return 1
 

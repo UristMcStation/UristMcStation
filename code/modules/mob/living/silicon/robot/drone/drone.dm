@@ -290,7 +290,10 @@ var/list/mob_hat_cache = list()
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	if(!health)
-		death(TRUE)
+		if(!(health + maxHealth))
+			gib()
+			return
+		death()
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.

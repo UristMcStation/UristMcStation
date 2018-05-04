@@ -78,12 +78,10 @@
 
 /obj/machinery/floodlight/attack_hand(mob/user as mob)
 	if(open && cell)
+		cell.dropInto(get_turf(src))
 		if(ishuman(user))
 			if(!user.get_active_hand())
 				user.put_in_hands(cell)
-				cell.loc = user.loc
-		else
-			cell.loc = loc
 
 		cell.add_fingerprint(user)
 		cell.update_icon()
@@ -91,7 +89,7 @@
 		src.cell = null
 		on = 0
 		set_light(0)
-		to_chat(user, "You remove the power cell")
+		to_chat(user, "You remove \the [cell].")
 		update_icon()
 		return
 
@@ -129,12 +127,12 @@
 	if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
-				to_chat(user, "There is a power cell already installed.")
+				to_chat(user, "There's already a [cell] installed.")
 			else
 				user.drop_item()
-				W.loc = src
+				W.forceMove(src)
 				cell = W
-				to_chat(user, "You insert the power cell.")
+				to_chat(user, "You insert \the [W].")
 	update_icon()
 
 /obj/machinery/floodlight/verb/rotate()

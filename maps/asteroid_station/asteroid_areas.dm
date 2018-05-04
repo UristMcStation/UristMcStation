@@ -97,6 +97,10 @@
 	name = "SRS Archimedes - Gas Manipulation Lab"
 /area/station/derelict/solars
 	name = "SRS Archimedes - Solar Farm"
+/area/station/derelict/upper_showcase
+	name = "SRS Archimedes - Upper Showcase Hall"
+/area/station/derelict/lower_showcase
+	name = "SRS Archimedes - Lower Showcase Hall"
 
 /area/station/derelict/housing_arch
 	name = "IHS Dependable - Main Block"
