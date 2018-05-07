@@ -45,7 +45,7 @@
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
 	suit = /obj/item/clothing/suit/suspenders
-	pda_type = /obj/item/device/pda/mime
+	pda_type = /obj/item/modular_computer/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
 
 /decl/hierarchy/outfit/job/clown
@@ -57,7 +57,7 @@
 		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
 		/obj/item/weapon/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/weapon/storage/backpack/clown
-	pda_type = /obj/item/device/pda/clown
+	pda_type = /obj/item/modular_computer/pda/clown
 	id_type = /obj/item/weapon/card/id/civilian/clown
 
 /obj/item/weapon/card/id/civilian/clown
@@ -107,7 +107,7 @@
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/bodyguard
-	pda_type = /obj/item/device/pda/heads/hop
+	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
 

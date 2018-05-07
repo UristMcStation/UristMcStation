@@ -11,8 +11,8 @@ GLOBAL_DATUM_INIT(vamps, /datum/antagonist/vampire, new)
 	role_text = "Vampire"
 	role_text_plural = "Vampires"
 	feedback_tag = "vampire_objective"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain")
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain)
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/hos, /datum/job/blueshield)
 	welcome_text = "To bite someone, target the head and use harm intent with an empty hand. Drink blood to gain new powers. <br>You are weak to holy things and starlight. Don't go into space and avoid the Chaplain, the chapel and, especially, Holy Water."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antag_indicator = "vampire"
