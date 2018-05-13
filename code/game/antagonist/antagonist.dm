@@ -256,6 +256,5 @@
 	for(var/datum/mind/player in pending_antagonists)
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
-		player.special_role = null
 	pending_antagonists.Cut()
 	candidates.Cut()

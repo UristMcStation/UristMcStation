@@ -141,7 +141,7 @@
 		// heal brute damage
 		if(W.damage_type == BURN && (burn_ratio < 1 || vital))
 			burn = W.heal_damage(burn)
-		else if(brute_ratio < 1 || vital)
+		else
 			brute = W.heal_damage(brute)
 
 	if(internal)

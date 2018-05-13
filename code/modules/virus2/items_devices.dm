@@ -59,7 +59,7 @@
 	if(istype(W,/obj/item/weapon/hand_labeler) || istype(W,/obj/item/weapon/reagent_containers/syringe))
 		return
 	..()
-	if(prob(50))
+	if(prob(50) && W.force >= 5)
 		to_chat(user, "<span class='danger'>\The [src] shatters!</span>")
 		if(virus2.infectionchance > 0)
 			for(var/mob/living/carbon/target in view(1, get_turf(src)))
@@ -87,7 +87,7 @@
 	if(istype(W,/obj/item/weapon/hand_labeler) || istype(W,/obj/item/weapon/reagent_containers/syringe))
 		return ..()
 
-	if(prob(50))
+	if(prob(50) && W.force >= 5)
 		to_chat(user, "\The [src] shatters!")
 		qdel(src)
 
