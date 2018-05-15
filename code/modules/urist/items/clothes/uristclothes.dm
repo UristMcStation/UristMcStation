@@ -780,8 +780,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armorblood"
-	//flags =
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium)
 
 /obj/item/clothing/under/urist/blackwarden
 	name = "black Warden's jumpsuit"

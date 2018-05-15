@@ -238,7 +238,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/securityoutpost
 	icon_state = "shuttle"
-	dynamic_lighting = 0
 
 /area/shuttle/securityoutpost/station
 	name = "\improper Security Outpost Shuttle Station"

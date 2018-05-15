@@ -139,7 +139,8 @@
 		/obj/item/weapon/gun/energy/gun,
 		/obj/item/weapon/storage/box/holobadge,
 		/obj/item/clothing/head/beret/sec/corporate/warden,
-		/obj/item/device/holowarrant
+		/obj/item/device/holowarrant,
+		/obj/item/device/flashlight/maglight
 	)
 
 /obj/structure/closet/secure_closet/security
@@ -171,6 +172,7 @@
 		/obj/item/clothing/under/rank/security/corp,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/device/holowarrant,
+		/obj/item/device/flashlight/maglight
 	)
 
 /obj/structure/closet/secure_closet/security/cargo/WillContain()
