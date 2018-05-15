@@ -7,7 +7,7 @@
 	density = 1
 	use_power = 1
 	idle_power_usage = 4
-	active_power_usage = 4000 // 4 Kw. A CT scan machine uses 1-15 kW depending on the model and equipment involved.
+	active_power_usage = 4000 // 4 kW. A CT scan machine uses 1-15 kW depending on the model and equipment involved.
 	req_access = list(access_medical)
 
 	icon_state = "body_scanner_0"
@@ -28,14 +28,7 @@
 
 /obj/machinery/resleever/New()
 	..()
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-	component_parts += new /obj/item/weapon/circuitboard/resleever(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src, 3)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-
-	RefreshParts()
+	build_default_parts(/obj/item/weapon/circuitboard/resleever)
 	update_icon()
 
 /obj/machinery/resleever/Destroy()
