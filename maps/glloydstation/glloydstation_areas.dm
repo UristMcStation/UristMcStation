@@ -527,7 +527,7 @@
 	icon_state = "medbay4"
 
 /area/medical/genetics
-	name = "\improper Derelicted Lab"
+	name = "\improper Genetics Lab"
 	icon_state = "genetics"
 
 /area/medical/genetics_cloning
