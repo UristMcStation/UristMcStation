@@ -23,7 +23,7 @@
 
 //INTEL-DROPPING CODE BEGIN//
 
-/datum/game_mode/paranoia/process()
+/datum/game_mode/paranoia/Process()
 	if(world.time > next_intel_drop)
 		process_intel_drop()
 	..()

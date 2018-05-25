@@ -7,7 +7,7 @@
 	spell_flags = NEEDSCLOTHES
 	invocation = "Forti Gy-Ama!"
 	invocation_type = SpI_SHOUT
-	range = 7
+	range = 1
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 3)
 	cooldown_min = 90 //15 deciseconds reduction per rank
 

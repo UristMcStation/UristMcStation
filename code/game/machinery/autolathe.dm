@@ -314,6 +314,8 @@
 
 /obj/machinery/autolathe/MouseDrop(var/over_location)
 	..()
+	if(!isliving(usr))
+		return
 	if(!isturf(over_location))
 		over_location = get_turf(over_location)
 	if(Adjacent(over_location) && Adjacent(usr))
