@@ -4,6 +4,7 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
+	plane = HIDING_MOB_PLANE
 	w_class = ITEM_SIZE_NO_CONTAINER
 
 	var/icon_closed = "closed"
