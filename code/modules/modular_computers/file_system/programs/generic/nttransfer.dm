@@ -19,7 +19,6 @@ var/global/nttransfer_uid = 0
 	var/list/connected_clients = list()					// List of connected clients.
 	var/datum/computer_file/program/nttransfer/remote	// Client var, specifies who are we downloading from.
 	var/download_completion = 0							// Download progress in GQ
-	var/download_netspeed = 0							// Our connectivity speed in GQ/s
 	var/actual_netspeed = 0								// Displayed in the UI, this is the actual transfer speed.
 	var/unique_token 									// UID of this program
 	var/upload_menu = 0									// Whether we show the program list and upload menu
@@ -30,14 +29,14 @@ var/global/nttransfer_uid = 0
 	..()
 
 /datum/computer_file/program/nttransfer/process_tick()
+	..()
 	// Server mode
-	update_netspeed()
 	if(provided_file)
 		for(var/datum/computer_file/program/nttransfer/C in connected_clients)
 			// Transfer speed is limited by device which uses slower connectivity.
 			// We can have multiple clients downloading at same time, but let's assume we use some sort of multicast transfer
 			// so they can all run on same speed.
-			C.actual_netspeed = min(C.download_netspeed, download_netspeed)
+			C.actual_netspeed = min(C.ntnet_speed, ntnet_speed)
 			C.download_completion += C.actual_netspeed
 			if(C.download_completion >= provided_file.size)
 				C.finish_download()
@@ -54,18 +53,6 @@ var/global/nttransfer_uid = 0
 			P.crash_download("Connection terminated by remote server")
 		downloaded_file = null
 	..(forced)
-
-
-
-/datum/computer_file/program/nttransfer/proc/update_netspeed()
-	download_netspeed = 0
-	switch(ntnet_status)
-		if(1)
-			download_netspeed = NTNETSPEED_LOWSIGNAL
-		if(2)
-			download_netspeed = NTNETSPEED_HIGHSIGNAL
-		if(3)
-			download_netspeed = NTNETSPEED_ETHERNET
 
 // Finishes download and attempts to store the file on HDD
 /datum/computer_file/program/nttransfer/proc/finish_download()
@@ -90,7 +77,7 @@ var/global/nttransfer_uid = 0
 /datum/nano_module/program/computer_nttransfer
 	name = "NTNet P2P Transfer Client"
 
-/datum/nano_module/program/computer_nttransfer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_nttransfer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	if(!program)
 		return
 	var/datum/computer_file/program/nttransfer/PRG = program
@@ -135,7 +122,7 @@ var/global/nttransfer_uid = 0
 			)))
 		data["servers"] = all_servers
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_transfer.tmpl", "NTNet P2P Transfer Client", 575, 700, state = state)
 		ui.auto_update_layout = 1

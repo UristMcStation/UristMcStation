@@ -86,8 +86,6 @@
 
 /obj/structure/closet/firecloset/full/New()
 	..()
-	sleep(4)
-	contents = list()
 
 	new /obj/item/clothing/suit/fire/firefighter(src)
 	new /obj/item/clothing/mask/gas(src)
@@ -213,6 +211,8 @@
 
 /obj/structure/closet/hydrant/New()
 	..()
+	new /obj/item/inflatable/door(src)
+	new /obj/item/inflatable/door(src)
 	new /obj/item/clothing/suit/fire/firefighter(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/device/flashlight(src)
@@ -243,7 +243,8 @@
 	name = "first-aid closet"
 	desc = "It's wall-mounted storage unit for first aid supplies."
 
-	will_contain = list(
+/obj/structure/closet/medical_wall/filled/WillContain()
+	return list(
 		/obj/random/firstaid,
 		/obj/random/medical/lite = 12
 	)

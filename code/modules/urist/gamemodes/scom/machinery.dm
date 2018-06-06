@@ -85,7 +85,7 @@
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
 
-	for(var/obj/machinery/scom/scomscience/S in machines)
+	for(var/obj/machinery/scom/scomscience/S in GLOB.machines)
 		if(S.scomtechlvl < scomtechlvl)
 			S.scomtechlvl = scomtechlvl
 
@@ -158,7 +158,7 @@
 			return
 
 		if(scommoney >= making.resources)
-			for(var/obj/machinery/scom/scomscience/S in machines)
+			for(var/obj/machinery/scom/scomscience/S in GLOB.machines)
 //				if(S.squad == 0) //test this
 //					scommoney = scommoney - making.resources
 
@@ -289,7 +289,7 @@
 							W.assignment = "S-COM Sniper"
 
 			user.regenerate_icons()
-			for(var/obj/machinery/scom/classchanger/CC in machines)
+			for(var/obj/machinery/scom/classchanger/CC in GLOB.machines)
 				CC.already_picked |= user
 
 	else
@@ -321,7 +321,7 @@
 /obj/machinery/scom/teleporter1/proc/get_paired_destination()
 	var/obj/machinery/scom/teleporter2/destination
 	var/list/all_destinations = list()
-	for(var/obj/machinery/scom/teleporter2/T in machines)
+	for(var/obj/machinery/scom/teleporter2/T in GLOB.machines)
 		all_destinations += T
 	if(all_destinations.len)
 		destination = pick(all_destinations)
@@ -332,7 +332,7 @@
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
 			A.forceMove(destination)
-			new /obj/effect/sparks(destination)
+			single_spark(destination)
 
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"

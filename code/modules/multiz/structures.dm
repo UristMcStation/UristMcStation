@@ -16,8 +16,10 @@
 	var/obj/structure/ladder/target_down
 
 	var/const/climb_time = 2 SECONDS
+	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 
-/obj/structure/ladder/initialize()
+/obj/structure/ladder/Initialize()
+	. = ..()
 	// the upper will connect to the lower
 	if(allowed_directions & DOWN) //we only want to do the top one, as it will initialize the ones before it.
 		for(var/obj/structure/ladder/L in GetBelow(src))
@@ -37,10 +39,28 @@
 	return ..()
 
 /obj/structure/ladder/attackby(obj/item/C as obj, mob/user as mob)
-	attack_hand(user)
-	return
+	climb(user)
 
 /obj/structure/ladder/attack_hand(var/mob/M)
+	climb(M)
+
+/obj/structure/ladder/attack_ai(var/mob/M)
+	var/mob/living/silicon/ai/ai = M
+	if(!istype(ai))
+		return
+	var/mob/observer/eye/AIeye = ai.eyeobj
+	if(istype(AIeye))
+		instant_climb(AIeye)
+
+/obj/structure/ladder/attack_robot(var/mob/M)
+	climb(M)
+
+/obj/structure/ladder/proc/instant_climb(var/mob/M)
+	var/target_ladder = getTargetLadder(M)
+	if(target_ladder)
+		M.forceMove(get_turf(target_ladder))
+
+/obj/structure/ladder/proc/climb(var/mob/M)
 	if(!M.may_climb_ladders(src))
 		return
 
@@ -50,6 +70,9 @@
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
+
+	for (var/obj/item/grab/G in M)
+		G.adjust_position()
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
@@ -61,11 +84,11 @@
 
 	if(do_after(M, climb_time, src))
 		climbLadder(M, target_ladder)
+		for (var/obj/item/grab/G in M)
+			G.adjust_position(force = 1)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
-	var/target_ladder = getTargetLadder(M)
-	if(target_ladder)
-		M.forceMove(get_turf(target_ladder))
+	instant_climb(M)
 
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
 	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf) || (target_down && !istype(target_down.loc,/turf))))
@@ -95,6 +118,18 @@
 	if(incapacitated())
 		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
 		return FALSE
+
+	var/carry_count = 0
+	for(var/obj/item/grab/G in src)
+		if(!G.ladder_carry())
+			to_chat(src, "<span class='warning'>You can't carry [G.affecting] up \the [ladder].</span>")
+			return FALSE
+		else
+			carry_count++
+	if(carry_count > 1)
+		to_chat(src, "<span class='warning'>You can't carry more than one person up \the [ladder].</span>")
+		return FALSE
+
 	return TRUE
 
 /mob/observer/ghost/may_climb_ladders(var/ladder)
@@ -106,6 +141,8 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
+	playsound(src, pick(climbsounds), 50)
+	playsound(target_ladder, pick(climbsounds), 50)
 	return M.Move(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
@@ -129,15 +166,17 @@
 	density = 0
 	opacity = 0
 	anchored = 1
+	plane = ABOVE_TURF_PLANE
 
-	initialize()
+	Initialize()
 		for(var/turf/turf in locs)
 			var/turf/simulated/open/above = GetAbove(turf)
 			if(!above)
 				warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
-				return qdel(src)
+				return INITIALIZE_HINT_QDEL
 			if(!istype(above))
 				above.ChangeTurf(/turf/simulated/open)
+		. = ..()
 
 	Uncross(atom/movable/A)
 		if(A.dir == dir)

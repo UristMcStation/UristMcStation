@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Internal Affairs Agent", "Head of Security", "Captain")
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/lawyer, /datum/job/hos)
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 
 /datum/antagonist/traitor/New()
@@ -31,45 +31,38 @@ var/datum/antagonist/traitor/traitors
 		var/datum/objective/survive/survive_objective = new
 		survive_objective.owner = traitor
 		traitor.objectives += survive_objective
-
-		if(prob(10))
-			var/datum/objective/block/block_objective = new
-			block_objective.owner = traitor
-			traitor.objectives += block_objective
 	else
 		switch(rand(1,100))
-			if(1 to 33)
+			if(1 to 22)
 				var/datum/objective/assassinate/kill_objective = new
 				kill_objective.owner = traitor
 				kill_objective.find_target()
 				traitor.objectives += kill_objective
-			if(34 to 50)
+			if(22 to 40)
 				var/datum/objective/brig/brig_objective = new
 				brig_objective.owner = traitor
 				brig_objective.find_target()
 				traitor.objectives += brig_objective
-			if(51 to 66)
+			if(41 to 66)
 				var/datum/objective/harm/harm_objective = new
 				harm_objective.owner = traitor
 				harm_objective.find_target()
 				traitor.objectives += harm_objective
+			if(67 to 80)
+				var/datum/objective/money/money_objective = new
+				money_objective.owner = traitor
+				money_objective.find_target()
+				traitor.objectives += money_objective
 			else
 				var/datum/objective/steal/steal_objective = new
 				steal_objective.owner = traitor
 				steal_objective.find_target()
 				traitor.objectives += steal_objective
-		switch(rand(1,100))
-			if(1 to 100)
-				if (!(locate(/datum/objective/escape) in traitor.objectives))
-					var/datum/objective/escape/escape_objective = new
-					escape_objective.owner = traitor
-					traitor.objectives += escape_objective
-
-			else
-				if (!(locate(/datum/objective/hijack) in traitor.objectives))
-					var/datum/objective/hijack/hijack_objective = new
-					hijack_objective.owner = traitor
-					traitor.objectives += hijack_objective
+		if(rand(100) > 75)
+			if (!(locate(/datum/objective/escape) in traitor.objectives))
+				var/datum/objective/escape/escape_objective = new
+				escape_objective.owner = traitor
+				traitor.objectives += escape_objective
 	return
 
 /datum/antagonist/traitor/equip(var/mob/living/carbon/human/traitor_mob)

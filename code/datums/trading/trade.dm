@@ -43,7 +43,7 @@
 	..()
 	if(name_language)
 		if(name_language == TRADER_DEFAULT_NAME)
-			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
+			name = capitalize(pick(GLOB.first_names_female + GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			var/datum/language/L = all_languages[name_language]
 			if(L)
@@ -158,6 +158,8 @@
 	if(!offer_worth)
 		return TRADER_NOT_ENOUGH
 	var/trading_worth = get_item_value(num)
+	if(!trading_worth)
+		return TRADER_NOT_ENOUGH
 	var/percent = offer_worth/trading_worth
 	if(percent > max(0.9,0.9-disposition/100))
 		return trade(offers, num, location)

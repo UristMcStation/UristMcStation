@@ -12,7 +12,7 @@
 		process_tick = 15
 		. = 0
 		for(var/id in dispense_reagents)
-			var/datum/reagent/R = chemical_reagents_list[id]
+			var/datum/reagent/R = GLOB.chemical_reagents_list[id]
 			if(!R)
 //				crash_with("[src] at [x],[y],[z] failed to find reagent '[id]'!")
 				dispense_reagents -= id
@@ -24,7 +24,7 @@
 				C.reagents.add_reagent(id, to_restore)
 				. = 1
 		if(.)
-			nanomanager.update_uis(src)
+			GLOB.nanomanager.update_uis(src)
 
 /obj/machinery/chemical_dispenser
 	dispense_reagents = list(

@@ -104,6 +104,7 @@
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
 	icon = 'icons/obj/doors/Doorext.dmi'
+	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 
 /obj/machinery/door/airlock/external/bolted
@@ -188,6 +189,29 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
+
+/obj/machinery/door/airlock/glass_external
+	name = "External Airlock"
+	icon = 'icons/obj/doors/Doorextglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_ext
+	glass = 1
+
+/obj/machinery/door/airlock/glass_external/bolted
+	icon_state = "door_locked"
+	locked = 1
+
+/obj/machinery/door/airlock/glass_external/bolted/cycling
+	frequency = 1379
+
+/obj/machinery/door/airlock/glass_external/bolted_open
+	icon_state = "door_open"
+	density = 0
+	locked = 1
+	opacity = 0
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
@@ -306,7 +330,7 @@
 	icon = 'icons/obj/doors/Dooruranium.dmi'
 	mineral = "uranium"
 	var/last_event = 0
-	rad_power = 7.5
+	var/rad_power = 7.5
 
 /obj/machinery/door/airlock/process()
 	if(main_power_lost_until > 0 && world.time >= main_power_lost_until)
@@ -318,6 +342,13 @@
 	else if(electrified_until > 0 && world.time >= electrified_until)
 		electrify(0)
 
+	..()
+
+/obj/machinery/door/airlock/uranium/process()
+	if(world.time > last_event+20)
+		if(prob(50))
+			radiation_repository.radiate(src, rad_power)
+		last_event = world.time
 	..()
 
 /obj/machinery/door/airlock/phoron
@@ -368,6 +399,11 @@
 	explosion_resistance = 20
 	secured_wires = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
+
+/obj/machinery/door/airlock/highsecurity/bolted
+
+	icon_state = "door_locked"
+	locked = 1
 
 /*
 About the new airlock wires panel:
@@ -613,7 +649,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/door/airlock/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/door/airlock/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 
 	data["main_power_loss"]		= round(main_power_lost_until 	> 0 ? max(main_power_lost_until - world.time,	0) / 10 : main_power_lost_until,	1)
@@ -631,7 +667,7 @@ About the new airlock wires panel:
 
 	data["commands"] = commands
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "door_control.tmpl", "Door Controls", 450, 350, state = state)
 		ui.set_initial_data(data)
@@ -868,13 +904,17 @@ About the new airlock wires panel:
 		return brace.attackby(C, user)
 
 	if(!brace && istype(C, /obj/item/weapon/airlock_brace))
+		var/obj/item/weapon/airlock_brace/A = C
 		if(!density)
-			to_chat(user, "You must close \the [src] before installing \the [C]!")
+			to_chat(user, "You must close \the [src] before installing \the [A]!")
+			return
+
+		if((!A.req_access.len && !A.req_one_access) && (alert("\the [A]'s 'Access Not Set' light is flashing. Install it anyway?", "Access not set", "Yes", "No") == "No"))
 			return
 
 		if(do_after(user, 50, src) && density)
-			to_chat(user, "You successfully install \the [C]. \The [src] has been locked.")
-			brace = C
+			to_chat(user, "You successfully install \the [A]. \The [src] has been locked.")
+			brace = A
 			brace.airlock = src
 			user.drop_from_inventory(brace)
 			brace.forceMove(src)
@@ -1162,14 +1202,14 @@ About the new airlock wires panel:
 
 	//wires
 	var/turf/T = get_turf(newloc)
-	if(T && (T.z in using_map.admin_levels))
+	if(T && (T.z in GLOB.using_map.admin_levels))
 		secured_wires = 1
 	if (secured_wires)
 		wires = new/datum/wires/airlock/secure(src)
 	else
 		wires = new/datum/wires/airlock(src)
 
-/obj/machinery/door/airlock/initialize()
+/obj/machinery/door/airlock/Initialize()
 	if(src.closeOtherId != null)
 		for (var/obj/machinery/door/airlock/A in world)
 			if(A.closeOtherId == src.closeOtherId && A != src)
@@ -1182,7 +1222,7 @@ About the new airlock wires panel:
 		brace.airlock = src
 		brace.forceMove(src)
 		update_icon()
-	..()
+	. = ..()
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wires)

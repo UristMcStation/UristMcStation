@@ -27,8 +27,8 @@
 
 	usr.visible_message("<span class='warning'>[usr] flips \the [src]!</span>")
 
-	if(climbable)
-		structure_shaken()
+	if(flags & OBJ_CLIMBABLE)
+		object_shaken()
 
 	return
 
@@ -86,7 +86,7 @@
 	if(dir != NORTH)
 		plane = ABOVE_HUMAN_PLANE
 		layer = ABOVE_HUMAN_LAYER
-	climbable = 0 //flipping tables allows them to be used as makeshift barriers
+	flags &= ~OBJ_CLIMBABLE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
 	flags |= ON_BORDER
 	for(var/D in list(turn(direction, 90), turn(direction, -90)))
@@ -104,8 +104,8 @@
 	verbs +=/obj/structure/table/verb/do_flip
 
 	reset_plane_and_layer()
+	flags |= OBJ_CLIMBABLE
 	flipped = 0
-	climbable = initial(climbable)
 	flags &= ~ON_BORDER
 	for(var/D in list(turn(dir, 90), turn(dir, -90)))
 		var/obj/structure/table/T = locate() in get_step(src.loc,D)
@@ -116,3 +116,26 @@
 	update_icon()
 
 	return 1
+
+/obj/structure/railing
+	name = "guard railing"
+	desc = "Some railing to keep you from a painful death."
+	icon = 'maps/wyrm/icons/railing.dmi'
+	icon_state = "0,5"
+	anchored = TRUE
+	flags = OBJ_CLIMBABLE
+	plane = ABOVE_TURF_PLANE
+
+/obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group || (height==0)) return TRUE
+	if(istype(mover,/obj/item/projectile))
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return FALSE
+	else
+		return TRUE
+
+/obj/structure/railing/CheckExit(atom/movable/O as mob|obj, target as turf)
+	if (get_dir(loc, target) == dir)
+		return FALSE
+	return TRUE

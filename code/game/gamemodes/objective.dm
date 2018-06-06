@@ -127,7 +127,7 @@ datum/objective/anti_revolution/demote
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [using_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [GLOB.using_map.company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -135,7 +135,7 @@ datum/objective/anti_revolution/demote
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [using_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [GLOB.using_map.company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -217,7 +217,7 @@ datum/objective/protect//The opposite of killing a dude.
 
 
 datum/objective/hijack
-	explanation_text = "Hijack a shuttle or pod by escaping alone."
+	explanation_text = "Hijack a pod by escaping alone."
 
 datum/objective/hijack/check_completion()
 	if(!owner.current || owner.current.stat)
@@ -228,10 +228,10 @@ datum/objective/hijack/check_completion()
 		return 0
 
 	var/area/shuttle/shuttle_area = get_area(owner.current)
-	if(!istype(shuttle_area) || !(shuttle_area.z in using_map.admin_levels))
+	if(!istype(shuttle_area) || !(shuttle_area.z in GLOB.using_map.admin_levels))
 		return 0
 
-	for(var/mob/living/player in player_list)
+	for(var/mob/living/player in GLOB.player_list)
 		if(is_type_in_list(player.type, list(/mob/living/silicon/ai, /mob/living/silicon/pai)))
 			continue
 		if (!player.mind || player.mind == owner)
@@ -240,28 +240,6 @@ datum/objective/hijack/check_completion()
 			return 0
 	return 1
 
-
-datum/objective/block
-	explanation_text = "Do not allow any organic lifeforms to escape on the shuttle alive."
-
-
-	check_completion()
-		if(!istype(owner.current, /mob/living/silicon))
-			return 0
-		if(!evacuation_controller.has_evacuated())
-			return 0
-		if(!owner.current)
-			return 0
-		var/area/shuttle = locate(/area/shuttle/escape/centcom)
-		var/protected_mobs[] = list(/mob/living/silicon/ai, /mob/living/silicon/pai, /mob/living/silicon/robot)
-		for(var/mob/living/player in player_list)
-			if(player.type in protected_mobs)	continue
-			if (player.mind)
-				if (player.stat != 2)
-					if (get_turf(player) in shuttle)
-						return 0
-		return 1
-
 datum/objective/silence
 	explanation_text = "Do not allow anyone to escape.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
@@ -269,16 +247,15 @@ datum/objective/silence
 		if(!evacuation_controller.has_evacuated())
 			return 0
 
-		for(var/mob/living/player in player_list)
+		for(var/mob/living/player in GLOB.player_list)
 			if(player == owner.current)
 				continue
 			if(player.mind)
 				if(player.stat != DEAD)
 					var/turf/T = get_turf(player)
-					if(T && is_type_in_list(T.loc, using_map.post_round_safe_areas))
+					if(T && is_type_in_list(T.loc, GLOB.using_map.post_round_safe_areas))
 						return 0
 		return 1
-
 
 datum/objective/escape
 	explanation_text = "Escape on the shuttle or an escape pod alive and free."
@@ -302,7 +279,7 @@ datum/objective/escape
 			return 0
 
 		var/area/check_area = location.loc
-		return check_area && is_type_in_list(check_area, using_map.post_round_safe_areas)
+		return check_area && is_type_in_list(check_area, GLOB.using_map.post_round_safe_areas)
 
 
 
@@ -315,6 +292,7 @@ datum/objective/survive
 		if(issilicon(owner.current) && owner.current != owner.original)
 			return 0
 		return 1
+
 
 // Similar to the anti-rev objective, but for traitors
 datum/objective/brig
@@ -413,35 +391,23 @@ datum/objective/steal
 	var/global/possible_items[] = list(
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
 		"a bluespace rift generator" = /obj/item/integrated_circuit/manipulation/bluespace_rift,
-		"an RCD" = /obj/item/weapon/rcd,
-		"a jetpack" = /obj/item/weapon/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/weapon/aicard,
-		"a pair of magboots" = /obj/item/clothing/shoes/magboots,
 		"the [station_name()] blueprints" = /obj/item/blueprints,
-		"a nasa voidsuit" = /obj/item/clothing/suit/space/void,
-		"28 moles of phoron (full tank)" = /obj/item/weapon/tank,
-		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
 		"a research director's jumpsuit" = /obj/item/clothing/under/rank/research_director,
-		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
-		"a chief medical officer's jumpsuit" = /obj/item/clothing/under/rank/chief_medical_officer,
+		"a senior engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
 		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
-		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
+		"the captain's pinpointer" = /obj/item/weapon/pinpointer
 	)
 
 	var/global/possible_items_special[] = list(
 		/*"nuclear authentication disk" = /obj/item/weapon/disk/nuclear,*///Broken with the change to nuke disk making it respawn on z level change.
-		"nuclear gun" = /obj/item/weapon/gun/energy/gun/nuclear,
+		"advanced energy gun" = /obj/item/weapon/gun/energy/gun/nuclear,
 		"diamond drill" = /obj/item/weapon/pickaxe/diamonddrill,
 		"bag of holding" = /obj/item/weapon/storage/backpack/holding,
-		"hyper-capacity cell" = /obj/item/weapon/cell/hyper,
-		"10 diamonds" = /obj/item/stack/material/diamond,
-		"50 gold bars" = /obj/item/stack/material/gold,
-		"25 refined uranium bars" = /obj/item/stack/material/uranium,
+		"hyper-capacity cell" = /obj/item/weapon/cell/hyper
 	)
 
 
@@ -482,21 +448,12 @@ datum/objective/steal
 		if(!isliving(owner.current))	return 0
 		var/list/all_items = owner.current.get_contents()
 		switch (target_name)
-			if("28 moles of phoron (full tank)","10 diamonds","50 gold bars","25 refined uranium bars")
-				var/target_amount = text2num(target_name)//Non-numbers are ignored.
-				var/found_amount = 0.0//Always starts as zero.
-
-				for(var/obj/item/I in all_items) //Check for phoron tanks
-					if(istype(I, steal_target))
-						found_amount += (target_name=="28 moles of phoron (full tank)" ? (I:air_contents:gas["phoron"]) : (I:amount))
-				return found_amount>=target_amount
-
 			if("a functional AI")
-				for(var/mob/living/silicon/ai/ai in mob_list)
+				for(var/mob/living/silicon/ai/ai in GLOB.mob_list)
 					if(ai.stat == DEAD)
 						continue
 					var/turf/T = get_turf(ai)
-					if(owner.current.contains(ai) || (T && is_type_in_list(T.loc, using_map.post_round_safe_areas)))
+					if(owner.current.contains(ai) || (T && is_type_in_list(T.loc, GLOB.using_map.post_round_safe_areas)))
 						return 1
 			else
 
@@ -504,7 +461,6 @@ datum/objective/steal
 					if(istype(I, steal_target))
 						return 1
 		return 0
-
 
 
 datum/objective/download
@@ -587,11 +543,11 @@ datum/objective/blood
 		if (ticker)
 			var/n_p = 1 //autowin
 			if (ticker.current_state == GAME_STATE_SETTING_UP)
-				for(var/mob/new_player/P in player_list)
+				for(var/mob/new_player/P in GLOB.player_list)
 					if(P.client && P.ready && P.mind!=owner)
 						n_p ++
 			else if (ticker.current_state == GAME_STATE_PLAYING)
-				for(var/mob/living/carbon/human/P in player_list)
+				for(var/mob/living/carbon/human/P in GLOB.player_list)
 					if(P.client && !(P.mind.changeling) && P.mind!=owner)
 						n_p ++
 			target_amount = min(target_amount, n_p)
@@ -794,7 +750,7 @@ datum/objective/heist/salvage
 	return 0
 
 /datum/objective/ninja_highlander
-	explanation_text = "You aspire to be a Grand Master of the Spider Clan. Kill all of your fellow acolytes."
+   explanation_text = "You aspire to be a Grand Master of the Spider Clan. Kill all of your fellow acolytes."
 
 /datum/objective/ninja_highlander/check_completion()
 	if(owner)
@@ -810,7 +766,7 @@ datum/objective/heist/salvage
 
 /datum/objective/cult/survive/New()
 	..()
-	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape on the shuttle to spread their work on an another station."
+	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes survive to spread their work on an another station."
 
 /datum/objective/cult/survive/check_completion()
 	var/acolytes_survived = 0
@@ -819,7 +775,7 @@ datum/objective/heist/salvage
 	for(var/datum/mind/cult_mind in cult.current_antagonists)
 		if (cult_mind.current && cult_mind.current.stat!=2)
 			var/area/A = get_area(cult_mind.current )
-			if ( is_type_in_list(A, using_map.post_round_safe_areas))
+			if ( is_type_in_list(A, GLOB.using_map.post_round_safe_areas))
 				acolytes_survived++
 	if(acolytes_survived >= target_amount)
 		return 0
@@ -830,7 +786,7 @@ datum/objective/heist/salvage
 	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
 
 /datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in machines)
+	return (locate(/obj/singularity/narsie/large) in GLOB.machines)
 
 /datum/objective/cult/sacrifice
 	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."
@@ -838,7 +794,7 @@ datum/objective/heist/salvage
 /datum/objective/cult/sacrifice/find_target()
 	var/list/possible_targets = list()
 	if(!possible_targets.len)
-		for(var/mob/living/carbon/human/player in player_list)
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
 			if(player.mind && !(player.mind in cult))
 				possible_targets += player.mind
 	if(possible_targets.len > 0)
@@ -882,3 +838,18 @@ datum/objective/heist/salvage
 		return 0
 	return rval
 
+/datum/objective/money
+	var/value = 5000
+
+/datum/objective/money/New()
+	value = round(rand(5000,25000),100)
+	explanation_text = "Acquire [value] thalers by the end of the shift through any means possible."
+
+/datum/objective/money/check_completion()
+	var/list/all_items = owner.current.get_contents()
+	var/total_worth = 0
+	for(var/obj/item/weapon/spacecash/sc in all_items)
+		total_worth += sc.worth
+	if(total_worth >= value)
+		return TRUE
+	return FALSE

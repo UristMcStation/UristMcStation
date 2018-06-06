@@ -36,14 +36,8 @@
 	var/exploding = 0
 
 	//Drones aren't affected by atmos.
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 	var/has_loot = 1
@@ -158,7 +152,7 @@
 	walk(src,0)
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/death()
-	..(null,"suddenly breaks apart.")
+	..(null,"suddenly breaks apart.", "You have been destroyed.")
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Destroy()

@@ -15,6 +15,15 @@
 	w_class = ITEM_SIZE_NORMAL
 	max_amount = 100
 
+/obj/item/stack/tile/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(is_sharp(I) && throwforce < 20)
+		to_chat(user, "<span class = 'notice'>You begin to sharpen \the [src] with \the [I].</span>")
+		if(do_after(user, 30, src))
+			to_chat(user, "<span class = 'notice'>You sharpen \the [src]'s edges to a sharp point.</span>")
+			throwforce = 20
+			return
+	..()
+
 /*
  * Grass
  */
@@ -106,6 +115,16 @@
 	matter = list("plastic" = 937.5)
 
 /obj/item/stack/tile/floor_freezer/fifty
+	amount = 50
+
+/obj/item/stack/tile/floor_concrete
+	name = "concrete floor tile"
+	singular_name = "concrete floor tile"
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "tile_concrete"
+	matter = list("concrete" = 937.5)
+
+/obj/item/stack/tile/floor_concrete/fifty
 	amount = 50
 
 /obj/item/stack/tile/floor/cyborg

@@ -622,6 +622,65 @@
 		gender = MALE
 		veryshort = 1
 
+	rowbun
+		name = "Row Bun"
+		icon_state = "hair_rowbun"
+		gender = FEMALE
+
+	rowdualbraid
+		name = "Row Dual Braid"
+		icon_state = "hair_rowdualtail"
+		gender = FEMALE
+
+	rowbraid
+		name = "Row Braid"
+		icon_state = "hair_rowbraid"
+		gender = FEMALE
+
+	regulationmohawk
+		name = "Regulation Mohawk"
+		icon_state = "hair_shavedmohawk"
+		gender = MALE
+		veryshort = 1
+
+	topknot
+		name = "Topknot"
+		icon_state = "hair_topknot"
+		gender = MALE
+
+	ronin
+		name = "Ronin"
+		icon_state = "hair_ronin"
+		gender = MALE
+
+	bowlcut2
+		name = "Bowl2"
+		icon_state = "hair_bowlcut2"
+		gender = MALE
+
+	thinning
+		name = "Thinning"
+		icon_state = "hair_thinning"
+		gender = MALE
+		veryshort = 1
+
+	thinningfront
+		name = "Thinning Front"
+		icon_state = "hair_thinningfront"
+		gender = MALE
+		veryshort = 1
+
+	thinningback
+		name = "Thinning Back"
+		icon_state = "hair_thinningrear"
+		gender = MALE
+		veryshort = 1
+
+	manbun
+		name = "Manbun"
+		icon_state = "hair_manbun"
+		gender = MALE
+
 
 /*
 ///////////////////////////////////
@@ -756,6 +815,14 @@
 		name = "Walrus Moustache"
 		icon_state = "facial_walrus"
 
+	croppedbeard
+		name = "Full Cropped Beard"
+		icon_state = "facial_croppedfullbeard"
+
+	chinless
+		name = "Chinless Beard"
+		icon_state = "facial_chinlessbeard"
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -862,20 +929,36 @@
 		icon_state = "hair_messy"
 		species_allowed = list(SPECIES_TAJARA)
 
-	vox_quills_short
-		name = "Short Vox Quills"
-		icon_state = "vox_shortquills"
+	taj_ears_curls
+		name = "Tajara Curly"
+		icon_state = "hair_curly"
+		species_allowed = list(SPECIES_TAJARA)
+
+	taj_ears_wife
+		name = "Tajara Housewife"
+		icon_state = "hair_wife"
+		species_allowed = list(SPECIES_TAJARA)
+
+	taj_ears_victory
+		name = "Tajara Victory Curls"
+		icon_state = "hair_victory"
+		species_allowed = list(SPECIES_TAJARA)
+
+	taj_ears_bob
+		name = "Tajara Bob"
+		icon_state = "hair_tbob"
+		species_allowed = list(SPECIES_TAJARA)
+
+	taj_ears_fingercurl
+		name = "Tajara Finger Curls"
+		icon_state = "hair_fingerwave"
+		species_allowed = list(SPECIES_TAJARA)
+
+	vox_quills_long
+		name = "Long Vox Quills"
+		icon_state = "vox_longquills"
 		species_allowed = list(SPECIES_VOX)
 
-	vox_quills_kingly
-		name = "Kingly Vox Quills"
-		icon_state = "vox_kingly"
-		species_allowed = list(SPECIES_VOX)
-
-	vox_quills_mohawk
-		name = "Quill Mohawk"
-		icon_state = "vox_mohawk"
-		species_allowed = list(SPECIES_VOX)
 /datum/sprite_accessory/facial_hair
 
 	taj_sideburns

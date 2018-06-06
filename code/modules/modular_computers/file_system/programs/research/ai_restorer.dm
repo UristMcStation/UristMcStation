@@ -42,9 +42,9 @@
 		A.laws.clear_supplied_laws()
 		to_chat(A, "<span class='danger'>Non-core laws reset.</span>")
 		return 1
-	if(href_list["PRG_uploadNTDefault"])
-		A.laws = new/datum/ai_laws/nanotrasen
-		to_chat(A, "<span class='danger'>All laws purged. NT Default lawset uploaded.</span>")
+	if(href_list["PRG_uploadDefault"])
+		A.laws = new GLOB.using_map.default_law_type
+		to_chat(A, "<span class='danger'>All laws purged. Default lawset uploaded.</span>")
 		return 1
 	if(href_list["PRG_addCustomSuppliedLaw"])
 		var/law_to_add = sanitize(input("Please enter a new law for the AI.", "Custom Law Entry"))
@@ -70,7 +70,7 @@
 		A.lying = 0
 		A.switch_from_dead_to_living_mob_list()
 		A.add_ai_verbs()
-		A.updateicon()
+		A.update_icon()
 		var/obj/item/weapon/aicard/AC = A.loc
 		if(AC)
 			AC.update_icon()
@@ -81,7 +81,7 @@
 /datum/nano_module/program/computer_aidiag
 	name = "AI Maintenance Utility"
 
-/datum/nano_module/program/computer_aidiag/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_aidiag/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 	var/mob/living/silicon/ai/A
 	// A shortcut for getting the AI stored inside the computer. The program already does necessary checks.
@@ -107,7 +107,7 @@
 
 		data["ai_laws"] = all_laws
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "aidiag.tmpl", "AI Maintenance Utility", 600, 400, state = state)
 		if(host.update_layout())

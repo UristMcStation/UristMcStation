@@ -5,10 +5,10 @@
 #define STATE_ALERT_LEVEL	5
 /datum/computer_file/program/comm
 	filename = "comm"
-	filedesc = "Command and communications program."
+	filedesc = "Command and Communications Program"
 	program_icon_state = "comm"
 	nanomodule_path = /datum/nano_module/program/comm
-	extended_desc = "Used to effect command and control. Can relay long-range communications. This program can not be run on tablet computers."
+	extended_desc = "Used to command and control. Can relay long-range communications. This program can not be run on tablet computers."
 	required_access = access_heads
 	requires_ntnet = 1
 	size = 12
@@ -23,7 +23,7 @@
 	return temp
 
 /datum/nano_module/program/comm
-	name = "Command and communications program"
+	name = "Command and Communications Program"
 	available_to_ai = TRUE
 	var/current_status = STATE_DEFAULT
 	var/msg_line1 = ""
@@ -38,7 +38,7 @@
 	..()
 	crew_announcement.newscast = 1
 
-/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 
 	var/list/data = host.initial_data()
 
@@ -61,13 +61,20 @@
 	data["state"] = current_status
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_autenthicated(user)
-	data["boss_short"] = using_map.boss_short
-	data["current_security_level"] = security_level
-	data["current_security_level_title"] = num2seclevel(security_level)
+	data["boss_short"] = GLOB.using_map.boss_short
 
-	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
-	data["def_SEC_LEVEL_BLUE"] = SEC_LEVEL_BLUE
-	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
+	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	data["current_security_level_ref"] = any2ref(security_state.current_security_level)
+	data["current_security_level_title"] = security_state.current_security_level.name
+
+	data["cannot_change_security_level"] = !security_state.can_change_security_level()
+	var/list/security_levels = list()
+	for(var/decl/security_level/security_level in security_state.standard_security_levels)
+		var/list/security_setup = list()
+		security_setup["title"] = security_level.name
+		security_setup["ref"] = any2ref(security_level)
+		security_levels[++security_levels.len] = security_setup
+	data["security_levels"] = security_levels
 
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
@@ -87,7 +94,7 @@
 			processed_evac_options[++processed_evac_options.len] = option
 	data["evac_options"] = processed_evac_options
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "communication.tmpl", name, 550, 420, state = state)
 		ui.auto_update_layout = 1
@@ -141,7 +148,7 @@
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-							nanomanager.update_uis(src)
+							GLOB.nanomanager.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 						if(!input || !can_still_topic())
@@ -156,17 +163,17 @@
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-						nanomanager.update_uis(src)
+						GLOB.nanomanager.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
 						return 1
-					var/input = sanitize(input("Please choose a message to transmit to [using_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					var/input = sanitize(input("Please choose a message to transmit to [GLOB.using_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 					if(!input || !can_still_topic())
 						return 1
 					Centcomm_announce(input, usr)
 					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
-					log_say("[key_name(usr)] has made an IA [using_map.boss_short] announcement: [input]")
+					log_say("[key_name(usr)] has made an IA [GLOB.using_map.boss_short] announcement: [input]")
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
@@ -197,31 +204,22 @@
 							msg_line2 = linput
 					if("message")
 						post_status("message", msg_line1, msg_line2)
-					if("alert")
-						post_status("alert", href_list["alert"])
+					if("image")
+						post_status("image", href_list["image"])
 					else
 						post_status(href_list["target"])
 		if("setalert")
 			. = 1
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
-				var/current_level = text2num(href_list["target"])
-				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
-				if(confirm == "Yes" && can_still_topic())
-					var/old_level = security_level
-					if(!current_level) current_level = SEC_LEVEL_GREEN
-					if(current_level < SEC_LEVEL_GREEN) current_level = SEC_LEVEL_GREEN
-					if(current_level > SEC_LEVEL_BLUE) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
-					set_security_level(current_level)
-					if(security_level != old_level)
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
-						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
-						switch(security_level)
-							if(SEC_LEVEL_GREEN)
-								feedback_inc("alert_comms_green",1)
-							if(SEC_LEVEL_BLUE)
-								feedback_inc("alert_comms_blue",1)
+				var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+				var/decl/security_level/target_level = locate(href_list["target"]) in security_state.standard_security_levels
+				if(target_level && security_state.can_switch_to(target_level))
+					var/confirm = alert("Are you sure you want to change alert level to [target_level.name]?", name, "No", "Yes")
+					if(confirm == "Yes" && can_still_topic())
+						if(security_state.set_security_level(target_level))
+							feedback_inc(target_level.type,1)
 			else
-				to_chat(usr, "You press button, but red light flashes and nothing happens.")//This should never happen
+				to_chat(usr, "You press the button, but a red light flashes and nothing happens.") //This should never happen
 
 			current_status = STATE_DEFAULT
 		if("viewmessage")
@@ -242,9 +240,9 @@
 			if(is_autenthicated(user) && ntn_comm)
 				if(program && program.computer && program.computer.nano_printer)
 					if(!program.computer.nano_printer.print_text(current_viewing_message["contents"],current_viewing_message["title"]))
-						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+						to_chat(usr, "<span class='notice'>Hardware Error: Printer was unable to print the selected file.</span>")
 					else
-						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out paper.</span>")
+						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out a paper.</span>")
 
 #undef STATE_DEFAULT
 #undef STATE_MESSAGELIST
@@ -302,7 +300,7 @@ var/last_message_id = 0
 			status_signal.data["msg1"] = data1
 			status_signal.data["msg2"] = data2
 			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]")
-		if("alert")
+		if("image")
 			status_signal.data["picture_state"] = data1
 
 	frequency.post_signal(src, status_signal)
@@ -319,10 +317,10 @@ var/last_message_id = 0
 
 
 /proc/is_relay_online()
-    for(var/obj/machinery/bluespacerelay/M in machines)
-        if(M.stat == 0)
-            return 1
-    return 0
+	for(var/obj/machinery/bluespacerelay/M in GLOB.machines)
+		if(M.stat == 0)
+			return 1
+	return 0
 
 /proc/call_shuttle_proc(var/mob/user, var/emergency)
 	if (!ticker || !evacuation_controller)
@@ -331,12 +329,12 @@ var/last_message_id = 0
 	if(isnull(emergency))
 		emergency = 1
 
-	if(!universe.OnShuttleCall(usr))
+	if(!GLOB.universe.OnShuttleCall(usr))
 		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return
 
 	if(deathsquad.deployed)
-		to_chat(user, "[using_map.boss_short] will not allow an evacuation to take place. Consider all contracts terminated.")
+		to_chat(user, "[GLOB.using_map.boss_short] will not allow an evacuation to take place. Consider all contracts terminated.")
 		return
 
 	if(evacuation_controller.deny)
@@ -361,5 +359,5 @@ var/last_message_id = 0
 	if(.)
 		//delay events in case of an autotransfer
 		var/delay = evacuation_controller.evac_arrival_time - world.time + (2 MINUTES)
-		event_manager.delay_events(EVENT_LEVEL_MODERATE, delay)
-		event_manager.delay_events(EVENT_LEVEL_MAJOR, delay)
+		GLOB.event_manager.delay_events(EVENT_LEVEL_MODERATE, delay)
+		GLOB.event_manager.delay_events(EVENT_LEVEL_MAJOR, delay)

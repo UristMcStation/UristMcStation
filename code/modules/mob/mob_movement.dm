@@ -58,15 +58,16 @@
 				to_chat(usr, "<span class='warning'>This mob type cannot throw items.</span>")
 			return
 		if(NORTHWEST)
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if(!C.get_active_hand())
-					to_chat(usr, "<span class='warning'>You have nothing to drop in your hand.</span>")
-					return
-				drop_item()
-			else
-				to_chat(usr, "<span class='warning'>This mob type cannot drop items.</span>")
-			return
+			mob.hotkey_drop()
+
+/mob/proc/hotkey_drop()
+	to_chat(usr, "<span class='warning'>This mob type cannot drop items.</span>")
+
+/mob/living/carbon/hotkey_drop()
+	if(!get_active_hand())
+		to_chat(usr, "<span class='warning'>You have nothing to drop in your hand.</span>")
+	else
+		drop_item()
 
 //This gets called when you press the delete button.
 /client/verb/delete_key_pressed()
@@ -294,16 +295,10 @@
 				move_delay += 7+config.walk_speed
 		move_delay += mob.movement_delay()
 
-		var/tickcomp = 0 //moved this out here so we can use it for vehicles
-		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
-			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-			move_delay = move_delay + tickcomp
-
 		if(istype(mob.buckled, /obj/vehicle))
 			//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 			//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-			move_delay = world.time + tickcomp
+			move_delay = world.time
 			//drunk driving
 			if(mob.confused && prob(20)) //vehicles tend to keep moving in the same direction
 				direct = turn(direct, pick(90, -90))
@@ -338,38 +333,39 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if(locate(/obj/item/weapon/grab, mob))
-			move_delay = max(move_delay, world.time + 7)
-			var/list/L = mob.ret_grab()
-			if(istype(L, /list))
-				if(L.len == 2)
-					L -= mob
-					var/mob/M = L[1]
-					if(M)
-						if ((get_dist(mob, M) <= 1 || M.loc == mob.loc))
-							var/turf/T = mob.loc
-							. = ..()
-							if (isturf(M.loc))
-								var/diag = get_dir(mob, M)
-								if ((diag - 1) & diag)
-								else
-									diag = null
-								if ((get_dist(mob, M) > 1 || diag))
-									step(M, get_dir(M.loc, T))
-				else
-					for(var/mob/M in L)
-						M.other_mobs = 1
-						if(mob != M)
-							M.animate_movement = 3
-					for(var/mob/M in L)
-						spawn( 0 )
-							step(M, direct)
-							return
-						spawn( 1 )
-							M.other_mobs = null
-							M.animate_movement = 2
-							return
-
+		if(locate(/obj/item/grab, mob))
+			for (var/obj/item/grab/G in mob)
+				move_delay = max(move_delay, world.time + G.grab_slowdown())
+				var/list/L = mob.ret_grab()
+				if(istype(L, /list))
+					if(L.len == 2)
+						L -= mob
+						var/mob/M = L[1]
+						if(M)
+							if ((get_dist(mob, M) <= 1 || M.loc == mob.loc))
+								var/turf/T = mob.loc
+								. = ..()
+								if (isturf(M.loc))
+									var/diag = get_dir(mob, M)
+									if ((diag - 1) & diag)
+									else
+										diag = null
+									if ((get_dist(mob, M) > 1 || diag))
+										step(M, get_dir(M.loc, T))
+					else
+						for(var/mob/M in L)
+							M.other_mobs = 1
+							if(mob != M)
+								M.animate_movement = 3
+						for(var/mob/M in L)
+							spawn( 0 )
+								step(M, direct)
+								return
+							spawn( 1 )
+								M.other_mobs = null
+								M.animate_movement = 2
+								return
+					G.adjust_position()
 		else
 			if(mob.confused)
 				switch(mob.m_intent)
@@ -383,11 +379,11 @@
 							n = get_step(mob, direct)
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in mob)
-			if (G.state == GRAB_NECK)
-				mob.set_dir(reverse_dir[direct])
-			G.adjust_position()
-		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
+		for (var/obj/item/grab/G in mob)
+			if (G.assailant_reverse_facing())
+				mob.set_dir(GLOB.reverse_dir[direct])
+			G.assailant_moved()
+		for (var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0
@@ -493,22 +489,26 @@
 		return 0
 	return prob_slip
 
+#define DO_MOVE(this_dir) var/final_dir = turn(this_dir, -dir2angle(dir)); Move(get_step(mob, final_dir), final_dir);
+
 /client/verb/moveup()
 	set name = ".moveup"
 	set instant = 1
-	Move(get_step(mob, NORTH), NORTH)
+	DO_MOVE(NORTH)
 
 /client/verb/movedown()
 	set name = ".movedown"
 	set instant = 1
-	Move(get_step(mob, SOUTH), SOUTH)
+	DO_MOVE(SOUTH)
 
 /client/verb/moveright()
 	set name = ".moveright"
 	set instant = 1
-	Move(get_step(mob, EAST), EAST)
+	DO_MOVE(EAST)
 
 /client/verb/moveleft()
 	set name = ".moveleft"
 	set instant = 1
-	Move(get_step(mob, WEST), WEST)
+	DO_MOVE(WEST)
+
+#undef DO_MOVE

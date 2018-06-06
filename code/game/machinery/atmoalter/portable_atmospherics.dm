@@ -11,6 +11,7 @@
 
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
+	flags = OBJ_CLIMBABLE
 
 /obj/machinery/portable_atmospherics/New()
 	..()
@@ -21,11 +22,11 @@
 	return 1
 
 /obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-	qdel(holding)
-	..()
+	QDEL_NULL(air_contents)
+	QDEL_NULL(holding)
+	. = ..()
 
-/obj/machinery/portable_atmospherics/initialize()
+/obj/machinery/portable_atmospherics/Initialize()
 	. = ..()
 	spawn()
 		var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
@@ -39,11 +40,6 @@
 		air_contents.react()
 	else
 		update_icon()
-
-/obj/machinery/portable_atmospherics/Destroy()
-	qdel(air_contents)
-
-	..()
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
@@ -134,9 +130,7 @@
 				to_chat(user, "<span class='notice'>Nothing happens.</span>")
 				return
 
-	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
-		A.analyze_gases(src, user)
+	else if (istype(W, /obj/item/device/analyzer))
 		return
 
 	return

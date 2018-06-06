@@ -115,7 +115,7 @@
 	spark_system.set_up(5, 0, src)
 	spark_system.attach(src)
 
-	processing_objects |= src
+	GLOB.processing_objects |= src
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)
@@ -167,7 +167,7 @@
 		if(istype(M))
 			M.drop_from_inventory(piece)
 		qdel(piece)
-	processing_objects -= src
+	GLOB.processing_objects -= src
 	qdel(wires)
 	wires = null
 	qdel(spark_system)
@@ -187,6 +187,7 @@
 		chest.slowdown_per_slot[slot_wear_suit] = (active? online_slowdown : offline_slowdown)
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
+		helmet.update_vision()
 
 /obj/item/weapon/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
@@ -434,7 +435,7 @@
 	cell.use(cost * CELLRATE)
 	return 1
 
-/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = inventory_state)
+/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = GLOB.inventory_state)
 	if(!user)
 		return
 
@@ -502,7 +503,7 @@
 	if(module_list.len)
 		data["modules"] = module_list
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, state = nano_state)
 		ui.set_initial_data(data)
@@ -575,9 +576,11 @@
 
 	if(href_list["toggle_piece"])
 		toggle_piece(href_list["toggle_piece"], usr)
-	else if(href_list["toggle_seals"])
+		return 1
+	if(href_list["toggle_seals"])
 		toggle_seals(usr)
-	else if(href_list["interact_module"])
+		return 1
+	if(href_list["interact_module"])
 
 		var/module_index = text2num(href_list["interact_module"])
 
@@ -594,15 +597,14 @@
 					selected_module = module
 				if("select_charge_type")
 					module.charge_selected = href_list["charge_type"]
-	else if(href_list["toggle_ai_control"])
+		return 1
+	if(href_list["toggle_ai_control"])
 		ai_override_enabled = !ai_override_enabled
 		notify_ai("Synthetic suit control has been [ai_override_enabled ? "enabled" : "disabled"].")
-	else if(href_list["toggle_suit_lock"])
+		return 1
+	if(href_list["toggle_suit_lock"])
 		locked = !locked
-
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-	return 0
+		return 1
 
 /obj/item/weapon/rig/proc/notify_ai(var/message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)
@@ -751,7 +753,7 @@
 			malfunction_delay = max(malfunction_delay, round(30/severity_class))
 
 	//drain some charge
-	if(cell) cell.emp_act(severity_class + 15)
+	if(cell) cell.emp_act(severity_class + 1)
 
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)
@@ -895,7 +897,7 @@
 			wearer.inertia_dir = 0 //If not then we can reset inertia and move
 
 	if(malfunctioning)
-		direction = pick(cardinal)
+		direction = pick(GLOB.cardinal)
 
 	// Inside an object, tell it we moved.
 	if(isobj(wearer.loc) || ismob(wearer.loc))
@@ -919,15 +921,10 @@
 	// AIs are a bit slower than regular and ignore move intent.
 	wearer_move_delay = world.time + ai_controlled_move_delay
 
-	var/tickcomp = 0
-	if(config.Tickcomp)
-		tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-		wearer_move_delay += tickcomp
-
 	if(istype(wearer.buckled, /obj/vehicle))
 		//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 		//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-		wearer_move_delay = world.time + tickcomp
+		wearer_move_delay = world.time
 		return wearer.buckled.relaymove(wearer, direction)
 
 	if(istype(wearer.machine, /obj/machinery))

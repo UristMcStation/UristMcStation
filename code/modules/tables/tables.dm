@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	climbable = 1
+	flags = OBJ_CLIMBABLE|OBJ_SURGICAL
 	layer = TABLE_LAYER
 	throwpass = 1
 	var/flipped = 0
@@ -58,8 +58,8 @@
 		visible_message("<span class='warning'>\The [src] breaks down!</span>")
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
-/obj/structure/table/initialize()
-	..()
+/obj/structure/table/Initialize()
+	. = ..()
 
 	// One table per turf.
 	for(var/obj/structure/table/T in loc)
@@ -83,7 +83,7 @@
 	update_connections(1) // Update tables around us to ignore us (material=null forces no connections)
 	for(var/obj/structure/table/T in oview(src, 1))
 		T.update_icon()
-	..()
+	. = ..()
 
 /obj/structure/table/examine(mob/user)
 	. = ..()
@@ -386,7 +386,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == reverse_dir[D])
+			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
 				blocked_dirs |= D
 				break
 			else
@@ -397,7 +397,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || (W.dir & reverse_dir[D]))
+			if(W.is_fulltile() || (W.dir & GLOB.reverse_dir[D]))
 				blocked_dirs |= D
 				break
 
@@ -428,10 +428,10 @@
 #define CORNER_CLOCKWISE 4
 
 /*
-  turn() is weird:
-    turn(icon, angle) turns icon by angle degrees clockwise
-    turn(matrix, angle) turns matrix by angle degrees clockwise
-    turn(dir, angle) turns dir by angle degrees counter-clockwise
+	turn() is weird:
+		turn(icon, angle) turns icon by angle degrees clockwise
+		turn(matrix, angle) turns matrix by angle degrees clockwise
+		turn(dir, angle) turns dir by angle degrees counter-clockwise
 */
 
 /proc/dirs_to_corner_states(list/dirs)

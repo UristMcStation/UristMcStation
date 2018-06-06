@@ -3,10 +3,13 @@
 	icon_state = "bolt"
 	plane = EFFECTS_BELOW_LIGHTING_PLANE
 	layer = PROJECTILE_LAYER
+	light_power = 1
+	light_range = 2
 
 /obj/effect/projectile/New(var/turf/location)
 	if(istype(location))
 		loc = location
+	update_light()
 
 /obj/effect/projectile/proc/set_transform(var/matrix/M)
 	if(istype(M))
@@ -24,6 +27,7 @@
 /obj/effect/projectile/laser
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	layer = BEAM_PROJECTILE_LAYER
+	light_color = "#c80000"
 
 /obj/effect/projectile/laser/tracer
 	icon_state = "beam"
@@ -37,6 +41,9 @@
 //----------------------------
 // Blue laser beam
 //----------------------------
+/obj/effect/projectile/laser_blue
+	light_color = "#005ac8"
+
 /obj/effect/projectile/laser_blue/tracer
 	icon_state = "beam_blue"
 
@@ -61,6 +68,9 @@
 //----------------------------
 // Xray laser beam
 //----------------------------
+/obj/effect/projectile/xray
+	light_color = "#00c800"
+
 /obj/effect/projectile/xray/tracer
 	icon_state = "xray"
 
@@ -73,6 +83,9 @@
 //----------------------------
 // Heavy laser beam
 //----------------------------
+/obj/effect/projectile/laser_heavy
+	light_color = "#c80000"
+
 /obj/effect/projectile/laser_heavy/tracer
 	icon_state = "beam_heavy"
 
@@ -85,6 +98,9 @@
 //----------------------------
 // Pulse laser beam
 //----------------------------
+/obj/effect/projectile/laser_pulse
+	light_color = "#005ac8"
+
 /obj/effect/projectile/laser_pulse/tracer
 	icon_state = "u_laser"
 
@@ -103,6 +119,9 @@
 //----------------------------
 // Emitter beam
 //----------------------------
+/obj/effect/projectile/emitter
+	light_color = "#61ff00"
+
 /obj/effect/projectile/emitter/tracer
 	icon_state = "emitter"
 
@@ -115,6 +134,9 @@
 //----------------------------
 // Stun beam
 //----------------------------
+/obj/effect/projectile/stun
+	light_color = "#c8c800"
+
 /obj/effect/projectile/stun/tracer
 	icon_state = "stun"
 

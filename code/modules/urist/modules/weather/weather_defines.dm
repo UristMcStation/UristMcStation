@@ -7,7 +7,7 @@
 	appearance_flags = RESET_COLOR | RESET_ALPHA
 	color = null
 	alpha = 255
-	mouse_opacity = 0
+	mouse_opacity = 2
 	anchored = 1
 	layer = EFFECTS_LAYER
 	plane = WEATHER_PLANE

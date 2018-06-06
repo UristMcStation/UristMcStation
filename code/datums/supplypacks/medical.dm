@@ -259,3 +259,11 @@
 	cost = 15
 	containertype = /obj/structure/closet/crate
 	containername = "\improper Sterile equipment crate"
+
+/decl/hierarchy/supply_pack/medical/blanks
+	num_contained = 4
+	contains = list(/mob/living/carbon/human/blank)
+	name = "\improper Blank Clones Crate"
+	cost = 200
+	containertype = /obj/structure/closet/crate/secure/biohazard
+	containername = "\improper biohazard crate"

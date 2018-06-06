@@ -46,7 +46,7 @@
 
 		if(istype(I, /obj/item/weapon/reagent_containers/))
 			var/obj/item/weapon/reagent_containers/food = I
-			food.reagents.add_reagent("nutriment", 10)
+			food.reagents.add_reagent(/datum/reagent/nutriment, 10)
 			food.reagents.trans_to(I, food.reagents.total_volume)
 		I.loc = get_turf(src)
 		I.color = "#A34719"

@@ -1,8 +1,7 @@
 /mob/living/simple_animal/spiderbot
 
-	min_oxy = 0
-	max_tox = 0
-	max_co2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	maxbodytemp = 500
 	mob_size = MOB_SMALL
@@ -61,7 +60,7 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/observer/ghost/G in player_list)
+				for(var/mob/observer/ghost/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
@@ -154,7 +153,7 @@
 	eject_brain()
 	death()
 
-/mob/living/simple_animal/spiderbot/proc/update_icon()
+/mob/living/simple_animal/spiderbot/update_icon()
 	if(mmi)
 		if(positronic)
 			icon_state = "spiderbot-chassis-posi"

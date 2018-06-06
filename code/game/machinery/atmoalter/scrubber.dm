@@ -17,11 +17,20 @@
 	var/minrate = 0
 	var/maxrate = 10 * ONE_ATMOSPHERE
 
-	var/list/scrubbing_gas = list("phoron", "carbon_dioxide", "sleeping_agent")
+	var/list/scrubbing_gas
 
 /obj/machinery/portable_atmospherics/powered/scrubber/New()
 	..()
 	cell = new/obj/item/weapon/cell/apc(src)
+
+/obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
+	. = ..()
+	if(!scrubbing_gas)
+		scrubbing_gas = list()
+		for(var/g in gas_data.gases)
+			if(g != "oxygen" && g != "nitrogen")
+				scrubbing_gas += g
+				
 
 /obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -111,9 +120,9 @@
 	if (holding)
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "portscrubber.tmpl", "Portable Scrubber", 480, 400, state = physical_state)
+		ui = new(user, src, ui_key, "portscrubber.tmpl", "Portable Scrubber", 480, 400, state = GLOB.physical_state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

@@ -778,6 +778,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/backpack/holding
 	sort_string = "VAEAA"
 
+/datum/design/item/synthcarp
+	name = "C.A.R.P. Unit" //Controllable Agressive Reactionary Protection
+	desc = "A synthetic reproduction of a space carp designed to act as personal protection."
+	id = "synth_carp"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000)
+	build_path = /obj/item/synthcarp
+	sort_string = "VAEBA"
+
 /datum/design/item/binaryencrypt
 	name = "Binary encryption key"
 	desc = "Allows for deciphering the binary channel on-the-fly."
@@ -859,7 +868,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 1)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 250, "glass" = 100)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/network_card
 	sort_string = "VBAAG"
 
@@ -869,7 +878,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 200)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/network_card/advanced
 	sort_string = "VBAAH"
 
@@ -879,7 +888,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 3)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 400)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/network_card/wired
 	sort_string = "VBAAI"
 
@@ -890,7 +899,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 1)
 	build_type = IMPRINTER
 	materials = list("glass" = 800)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/hard_drive/portable
 	sort_string = "VBAAJ"
 
@@ -900,7 +909,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 2)
 	build_type = IMPRINTER
 	materials = list("glass" = 1600)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/hard_drive/portable/advanced
 	sort_string = "VBAAK"
 
@@ -910,7 +919,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 4)
 	build_type = IMPRINTER
 	materials = list("glass" = 3200)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/hard_drive/portable/super
 	sort_string = "VBAAL"
 
@@ -1006,7 +1015,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 1600)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/processor_unit
 	sort_string = "VBAAV"
 
@@ -1016,7 +1025,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 800)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/processor_unit/small
 	sort_string = "VBAAW"
 
@@ -1026,7 +1035,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 4)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 6400, glass = 2000)
-	chemicals = list("sacid" = 40)
+	chemicals = list(/datum/reagent/acid = 40)
 	build_path = /obj/item/weapon/computer_hardware/processor_unit/photonic
 	sort_string = "VBAAX"
 
@@ -1036,7 +1045,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 3200, glass = 1000)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/processor_unit/photonic/small
 	sort_string = "VBAAY"
 
@@ -1047,7 +1056,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_POWER = 2, TECH_DATA = 3)
 	build_type = IMPRINTER
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/ai_slot
 	sort_string = "VBAAZ"
 /*
@@ -1058,7 +1067,7 @@ CIRCUITS BELOW
 	build_type = IMPRINTER
 	req_tech = list(TECH_DATA = 2)
 	materials = list("glass" = 2000)
-	chemicals = list("sacid" = 20)
+	chemicals = list(/datum/reagent/acid = 20)
 	time = 5
 
 /datum/design/circuit/AssembleDesignName()
@@ -1114,33 +1123,6 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
 
-/datum/design/circuit/scan_console
-	name = "DNA machine"
-	id = "scan_console"
-	build_path = /obj/item/weapon/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
-
-/datum/design/circuit/clonecontrol
-	name = "cloning control console"
-	id = "clonecontrol"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/weapon/circuitboard/cloning
-	sort_string = "FAGAC"
-
-/datum/design/circuit/clonepod
-	name = "clone pod"
-	id = "clonepod"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/weapon/circuitboard/clonepod
-	sort_string = "FAGAE"
-
-/datum/design/circuit/clonescanner
-	name = "cloning scanner"
-	id = "clonescanner"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/weapon/circuitboard/clonescanner
-	sort_string = "FAGAG"
-
 /datum/design/circuit/resleever
 	name = "neural lace resleever"
 	id = "resleever"
@@ -1168,6 +1150,27 @@ CIRCUITS BELOW
 	req_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/roboprinter
 	sort_string = "FAGAM"
+
+/datum/design/circuit/bodyscanner
+	name = "body scanner"
+	id = "bodyscanner"
+	req_tech = list(TECH_BIO = 5)
+	build_path = /obj/item/weapon/circuitboard/body_scanner
+	sort_string = "FAGAN"
+
+/datum/design/circuit/bodyscannerconsole
+	name = "body scanner console"
+	id = "bodyscannerconsole"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/scanner_console
+	sort_string = "FAGAO"
+
+/datum/design/circuit/sleeper
+	name = "sleeper"
+	id = "sleeper"
+	req_tech = list(TECH_BIO = 4)
+	build_path = /obj/item/weapon/circuitboard/sleeper
+	sort_string = "FAGAT"
 
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
@@ -1314,24 +1317,38 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/rcon_console
 	sort_string = "JAAAC"
 
-/datum/design/circuit/dronecontrol
-	name = "drone control console"
-	id = "dronecontrol"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/weapon/circuitboard/drone_control
-	sort_string = "JAAAD"
-
 /datum/design/circuit/powermonitor
 	name = "power monitoring console"
 	id = "powermonitor"
 	build_path = /obj/item/weapon/circuitboard/powermonitor
-	sort_string = "JAAAE"
+	sort_string = "JAAAD"
 
 /datum/design/circuit/solarcontrol
 	name = "solar control console"
 	id = "solarcontrol"
 	build_path = /obj/item/weapon/circuitboard/solar_control
+	sort_string = "JAAAE"
+
+/datum/design/circuit/dronecontrol
+	name = "drone control console"
+	id = "dronecontrol"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/weapon/circuitboard/drone_control
 	sort_string = "JAAAF"
+
+/datum/design/circuit/dronefab
+	name = "drone fabricator"
+	id = "dronefab"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
+	build_path = /obj/item/weapon/circuitboard/drone_fab
+	sort_string = "JAAAG"
+
+/datum/design/circuit/advdronefab
+	name = "advanced drone fabricator"
+	id = "advdronefab"
+	req_tech = list(TECH_DATA = 7, TECH_ENGINEERING = 6)
+	build_path = /obj/item/weapon/circuitboard/adv_drone_fab
+	sort_string = "JAAAH"
 
 /datum/design/circuit/pacman
 	name = "PACMAN-type generator"
@@ -1390,13 +1407,6 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/airlock_electronics/secure
 	sort_string = "JDAAA"
-
-/datum/design/circuit/supplycomp
-	name = "cargo supply console"
-	id = "supplycomp"
-	req_tech = list(TECH_DATA = 3)
-	build_path = /obj/item/weapon/circuitboard/supplycomp
-	sort_string = "KAAAB"
 
 /datum/design/circuit/biogenerator
 	name = "biogenerator"

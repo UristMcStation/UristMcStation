@@ -194,8 +194,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/crematorium/wifi_receiver
 
-/obj/structure/crematorium/initialize()
-	..()
+/obj/structure/crematorium/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -262,9 +262,9 @@
 	else if (src.locked == 0)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		src.connected = new /obj/structure/c_tray( src.loc )
-		step(src.connected, SOUTH)
+		step(src.connected, dir)
 		src.connected.layer = OBJ_LAYER
-		var/turf/T = get_step(src, SOUTH)
+		var/turf/T = get_step(src, dir)
 		if (T.contents.Find(src.connected))
 			src.connected.connected = src
 			src.icon_state = "crema0"

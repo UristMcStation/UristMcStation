@@ -12,7 +12,7 @@
 	layer = 3.2
 	var/indestructable = 0
 	var/stump = 0
-	climbable = 1
+	flags = OBJ_CLIMBABLE
 
 /obj/structure/bush/New()
 
@@ -114,7 +114,6 @@ var/jungle_plants_init = 0
 /obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit
 	name = "jungle fruit"
 	desc = "It smells weird and looks off."
-	icon = 'icons/jungle.dmi'
 	icon_state = "orange"
 //	potency = 1
 

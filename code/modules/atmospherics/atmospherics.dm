@@ -10,9 +10,6 @@ Pipelines + Other Objects -> Pipe network
 
 */
 /obj/machinery/atmospherics
-
-	auto_init = 0
-
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -33,6 +30,8 @@ Pipelines + Other Objects -> Pipe network
 	var/obj/machinery/atmospherics/node1
 	var/obj/machinery/atmospherics/node2
 
+	var/atmos_initalized = FALSE
+
 /obj/machinery/atmospherics/New()
 	if(!icon_manager)
 		icon_manager = new()
@@ -45,6 +44,9 @@ Pipelines + Other Objects -> Pipe network
 		pipe_color = null
 	..()
 
+/obj/machinery/atmospherics/proc/atmos_init()
+	atmos_initalized = TRUE
+
 /obj/machinery/atmospherics/hide(var/do_hide)
 	if(do_hide && level == 1)
 		plane = ABOVE_PLATING_PLANE
@@ -54,6 +56,8 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
+		return
+	if(istype(A, /obj/item/device/analyzer))
 		return
 	..()
 
@@ -100,8 +104,6 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 /obj/machinery/atmospherics/process()
 	last_flow_rate = 0
 	last_power_draw = 0
-
-	build_network()
 
 /obj/machinery/atmospherics/proc/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	// Check to see if should be added to network. Add self if so and adjust variables appropriately.

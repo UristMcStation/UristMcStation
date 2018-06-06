@@ -136,6 +136,7 @@ Class Procs:
 		//T.dbg(invalid_zone)
 		T.needs_air_update = 0 //Reset the marker so that it will be added to the list.
 		air_master.mark_for_update(T)
+		CHECK_TICK
 
 /zone/proc/add_tile_air(datum/gas_mixture/tile_air)
 	//air.volume += CELL_VOLUME

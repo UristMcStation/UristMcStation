@@ -382,7 +382,7 @@
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
-		processing_objects.Add(src)
+		GLOB.processing_objects.Add(src)
 		attack_verb = list("hit", "burnt", "singed")
 		w_class = 4
 		icon_state = "torch_lit"
@@ -398,7 +398,7 @@
 	item_state = "woodrod"
 	name = "burnt torch"
 	desc = "A burnt out torch."
-	processing_objects.Remove(src)
+	GLOB.processing_objects.Remove(src)
 	w_class = 3
 	force = 7
 	attack_verb = list("hit", "bashed", "smacked")

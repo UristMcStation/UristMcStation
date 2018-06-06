@@ -151,7 +151,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		A.fire_act(air_contents, air_contents.temperature, air_contents.volume)
 
 	//spread
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/simulated/enemy_tile = get_step(my_tile, direction)
 
 		if(istype(enemy_tile))
@@ -188,7 +188,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		qdel(src)
 		return
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 
 	var/datum/gas_mixture/air_contents = loc.return_air()
 	color = fire_color(air_contents.temperature)
@@ -204,7 +204,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 /obj/fire/Destroy()
 	RemoveFire()
 
-	..()
+	. = ..()
 
 /obj/fire/proc/RemoveFire()
 	var/turf/T = loc
@@ -304,8 +304,9 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 		//remove_by_flag() and adjust_gas() handle the group_multiplier for us.
 		remove_by_flag(XGM_GAS_OXIDIZER, used_oxidizers)
-		remove_by_flag(XGM_GAS_FUEL, used_gas_fuel)
-		adjust_gas("carbon_dioxide", used_oxidizers)
+		var/datum/gas_mixture/burned_fuel = remove_by_flag(XGM_GAS_FUEL, used_gas_fuel)
+		for(var/g in burned_fuel.gas)
+			adjust_gas(gas_data.burn_product[g], burned_fuel.gas[g])
 
 		if(zone)
 			zone.remove_liquidfuel(used_liquid_fuel, !check_combustability())
@@ -355,7 +356,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 	. = 0
 	for(var/g in gas)
-		if(gas_data.flags[g] & XGM_GAS_FUEL && QUANTIZE(gas[g] * vsc.fire_consuption_rate) >= 0.005)
+		if(gas_data.flags[g] & XGM_GAS_FUEL && QUANTIZE(gas[g] * vsc.fire_consuption_rate) >= 0.1)
 			. = 1
 			break
 

@@ -30,6 +30,11 @@ var/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
 	unavailable_at_fab = 1
 
+/datum/robolimb/bishop/industrial
+	company = "Bishop Ind."
+	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
+	use_eye_icon = "bishop_eyes_s"
+
 /datum/robolimb/bishop/alt
 	company = "Bishop Alt."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_alt.dmi'
@@ -47,6 +52,11 @@ var/datum/robolimb/basic_robolimb
 	desc = "This limb has a militaristic black and green casing with gold stripes."
 	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_main.dmi'
 	unavailable_at_fab = 1
+
+/datum/robolimb/hephaestus/industrial
+	company = "Hephaestus Ind."
+	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_ind.dmi'
+	use_eye_icon = "heph_eyes_s"
 
 /datum/robolimb/hephaestus/alt
 	company = "Hephaestus Alt."
@@ -68,11 +78,21 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	unavailable_at_fab = 1
 
+/datum/robolimb/zenghu/industrial
+	company = "Zeng-Hu Ind."
+	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
+	use_eye_icon = "zenghu_eyes_s"
+
 /datum/robolimb/xion
 	company = "Xion"
 	desc = "This limb has a minimalist black and red casing."
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
 	unavailable_at_fab = 1
+
+/datum/robolimb/xion/industrial
+	company = "Xion Ind."
+	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
+	use_eye_icon = "xion_eyes_s"
 
 /datum/robolimb/xion/alt
 	company = "Xion Alt."
@@ -133,7 +153,7 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
-	
+
 /datum/robolimb/resomi
 	company = "Small prosthetic"
 	desc = "This prosthetic is small and fit for nonhuman proportions."
@@ -141,4 +161,3 @@ var/datum/robolimb/basic_robolimb
 	restricted_to = list(SPECIES_RESOMI)
 	species_cannot_use = list()
 	applies_to_part = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND)
-	

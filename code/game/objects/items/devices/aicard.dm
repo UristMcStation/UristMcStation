@@ -21,7 +21,7 @@
 
 	ui_interact(user)
 
-/obj/item/weapon/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = inventory_state)
+/obj/item/weapon/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.inventory_state)
 	var/data[0]
 	data["has_ai"] = carded_ai != null
 	if(carded_ai)
@@ -39,7 +39,7 @@
 		data["laws"] = laws
 		data["has_laws"] = laws.len
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "aicard.tmpl", "[name]", 600, 400, state = state)
 		ui.set_initial_data(data)
@@ -97,7 +97,7 @@
 		to_chat(user, "<span class='danger'>Transfer failed:</span> Existing AI found on remote terminal. Remove existing AI to install a new one.")
 		return 0
 
-	if(ai.malfunctioning)
+	if(ai.malfunctioning && ai.uncardable)
 		to_chat(user, "<span class='danger'>ERROR:</span> Remote transfer interface disabled.")
 		return 0
 

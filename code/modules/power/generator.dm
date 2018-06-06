@@ -23,9 +23,18 @@
 	var/effective_gen = 0
 	var/lastgenlev = 0
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/power/generator/New()
 	..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
+	var/dirs
+	if (dir == NORTH || dir == SOUTH)
+		dirs = list(EAST,WEST)
+	else
+		dirs = list(NORTH,SOUTH)
+
+	spark_system = bind_spark(src, 3, dirs)
 	spawn(1)
 		reconnect()
 
@@ -55,7 +64,7 @@
 				circ1 = null
 				circ2 = null
 
-/obj/machinery/power/generator/proc/updateicon()
+/obj/machinery/power/generator/update_icon()
 	if(stat & (NOPOWER|BROKEN))
 		overlays.Cut()
 	else
@@ -112,9 +121,7 @@
 
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark_system.queue()
 		stored_energy *= 0.5
 
 	//Power
@@ -131,7 +138,7 @@
 		genlev = 1
 	if(genlev != lastgenlev)
 		lastgenlev = genlev
-		updateicon()
+		update_icon()
 	add_avail(effective_gen)
 
 /obj/machinery/power/generator/attack_ai(mob/user)
@@ -199,10 +206,10 @@
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "generator.tmpl", "Thermoelectric Generator", 450, 500)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)

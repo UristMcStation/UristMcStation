@@ -73,6 +73,8 @@ var/list/name_to_material
 	var/sheet_singular_name = "sheet"
 	var/sheet_plural_name = "sheets"
 	var/is_fusion_fuel
+	var/is_fission_fuel
+	var/reactive_percent
 
 	// Shards/tables/structures
 	var/shard_type = SHARD_SHRAPNEL       // Path of debris object.
@@ -245,6 +247,14 @@ var/list/name_to_material
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
+	is_fission_fuel = TRUE
+
+/material/uranium/u235
+	name = "enriched uranium"
+	stack_type = /obj/item/stack/material/uranium/u235
+	radioactivity = 22 //vaguely enough for research reactors
+	icon_colour = "#00ac00"
+	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 5)
 
 /material/diamond
 	name = "diamond"
@@ -344,7 +354,7 @@ var/list/name_to_material
 	name = "marble"
 	icon_colour = "#AAAAAA"
 	weight = 26
-	hardness = 100
+	hardness = 60
 	brute_armor = 3
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
 	stack_type = /obj/item/stack/material/marble
@@ -366,6 +376,7 @@ var/list/name_to_material
 	integrity = 600
 	icon_base = "diona"
 	icon_reinf = "noreinf"
+	door_icon_base = "biomass"
 	hitsound = 'sound/effects/attackblob.ogg'
 	conductive = 0
 
@@ -468,7 +479,7 @@ var/list/name_to_material
 		return 1
 
 	// Get data for building windows here.
-	var/list/possible_directions = cardinal.Copy()
+	var/list/possible_directions = GLOB.cardinal.Copy()
 	var/window_count = 0
 	for (var/obj/structure/window/check_window in user.loc)
 		window_count++
@@ -759,6 +770,45 @@ var/list/name_to_material
 	if(istype(M) && locate(/obj/item/organ/internal/xenos/hivenode) in M.internal_organs)
 		return 1
 	return 0
+
+/material/aliumium
+	name = "alien alloy"
+	stack_type = null
+	icon_base = "jaggy"
+	door_icon_base = "metal"
+	icon_reinf = "reinf_metal"
+	hitsound = 'sound/weapons/smash.ogg'
+	sheet_singular_name = "chunk"
+	sheet_plural_name = "chunks"
+
+/material/aliumium/New()
+	icon_base = pick("jaggy","curvy")
+	icon_colour = rgb(rand(10,150),rand(10,150),rand(10,150))
+	explosion_resistance = rand(25,40)
+	brute_armor = rand(10,20)
+	burn_armor = rand(10,20)
+	hardness = rand(15,100)
+	integrity = rand(200,400)
+	melting_point = rand(400,10000)
+	..()
+
+/material/aliumium/place_dismantled_girder(var/turf/target, var/material/reinf_material)
+	return
+
+//Used for nuclear fission reactors
+/material/concrete
+	name = "concrete"
+	integrity = 400
+	melting_point = 10000 //spess concrete is magical
+	icon_colour = "#bab5ab"
+	weight = 100 //Its one purpose
+	conductive = FALSE
+
+/material/concrete/place_dismantled_product(var/turf/target)
+	return
+
+/material/concrete/place_dismantled_girder(var/turf/target, var/material/reinf_material)
+	return
 
 //TODO PLACEHOLDERS:
 /material/leather

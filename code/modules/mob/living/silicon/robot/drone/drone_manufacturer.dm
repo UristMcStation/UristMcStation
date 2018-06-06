@@ -30,8 +30,26 @@
 	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
-/obj/machinery/drone_fabricator/New()
-	..()
+/obj/machinery/drone_fabricator/blob
+	fabricator_tag = "Simulation"
+	drone_type = /mob/living/silicon/robot/drone/construction/holo
+
+/obj/machinery/drone_fabricator/construction
+	fabricator_tag = "Station - Construction"
+	drone_type = /mob/living/silicon/robot/drone/construction
+
+/obj/machinery/drone_fabricator/blob/create_drone(var/client/player) //Just needs to be simple
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	new_drone.transfer_personality(player)
+	return new_drone
+
+/obj/machinery/drone_fabricator/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/drone_fab)
+
+/obj/machinery/drone_fabricator/construction/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
 
 /obj/machinery/drone_fabricator/power_change()
 	..()
@@ -71,20 +89,28 @@
 	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
 		return
 
-	if(!player || !isghost(player.mob))
+	if(player && !isghost(player.mob))
 		return
 
-	announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
 	visible_message("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments.")
 	flick("h_lathe_leave",src)
-
-	time_last_drone = world.time
-	if(player.mob && player.mob.mind) player.mob.mind.reset()
-	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
-	new_drone.transfer_personality(player)
-
 	drone_progress = 0
+	time_last_drone = world.time
+
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	if(player)
+		announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
+		if(player.mob && player.mob.mind) player.mob.mind.reset()
+		new_drone.transfer_personality(player)
+
 	return new_drone
+
+/obj/machinery/drone_fabricator/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	..(I, user)
 
 /mob/observer/ghost/verb/join_as_drone()
 	set category = "Ghost"
@@ -106,13 +132,18 @@
 		to_chat(user, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
 		return
 
+	if(config.use_age_restriction_for_jobs && isnum(user.client.player_age))
+		if(user.client.player_age <= 3)
+			to_chat(user, "<span class='danger'> Your account is not old enough to play as a maintenance drone.</span>")
+			return
+
 	if(!user.MayRespawn(1, DRONE_SPAWN_DELAY))
 		return
 
 	if(!fabricator)
 
 		var/list/all_fabricators = list()
-		for(var/obj/machinery/drone_fabricator/DF in machines)
+		for(var/obj/machinery/drone_fabricator/DF in GLOB.machines)
 			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 				continue
 			all_fabricators[DF.fabricator_tag] = DF
@@ -127,6 +158,7 @@
 		fabricator = all_fabricators[choice]
 
 	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
+		log_and_message_admins("has joined the round as a maintenance drone.")
 		var/mob/drone = fabricator.create_drone(user.client)
 		if(drone)
 			drone.status_flags |= NO_ANTAG

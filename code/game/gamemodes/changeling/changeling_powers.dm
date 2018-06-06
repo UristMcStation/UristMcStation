@@ -15,6 +15,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/purchasedpowers = list()
 	var/mimicing = ""
 
+
 /datum/changeling/New()
 	..()
 	if(possible_changeling_IDs.len)
@@ -144,7 +145,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
-	var/obj/item/weapon/grab/G = src.get_active_hand()
+	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return
@@ -162,7 +163,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
 
-	if(G.state != GRAB_KILL)
+	if(!G.can_absorb())
 		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
 		return
 
@@ -209,6 +210,10 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
 	absorbDNA(newDNA)
+	if(mind && T.mind)
+		mind.store_memory("[T.real_name]'s memories:")
+		mind.store_memory(T.mind.memory)
+		mind.store_memory("<hr>")
 
 	if(T.mind && T.mind.changeling)
 		if(T.mind.changeling.absorbed_dna)
@@ -668,7 +673,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	return 1
 
 //Handles the general sting code to reduce on copypasta (seeming as somebody decided to make SO MANY dumb abilities)
-/mob/proc/changeling_sting(var/required_chems=0, var/verb_path)
+/mob/proc/changeling_sting(var/required_chems=0, var/verb_path, var/loud)
 	var/datum/changeling/changeling = changeling_power(required_chems)
 	if(!changeling)								return
 
@@ -689,8 +694,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	changeling.sting_range = 1
 	src.verbs -= verb_path
 	spawn(10)	src.verbs += verb_path
-
-	to_chat(src, "<span class='notice'>We stealthily sting [T].</span>")
+	if(!loud)
+		to_chat(src, "<span class='notice'>We stealthily sting [T].</span>")
+	else
+		visible_message("<span class='danger'>[src] fires an organic shard into [T]'s chest, puncturing the stinger into their skin!</span>")
 	if(!T.mind || !T.mind.changeling)	return T	//T will be affected by the sting
 	to_chat(T, "<span class='warning'>You feel a tiny prick.</span>")
 	return
@@ -759,60 +766,17 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	feedback_add_details("changeling_powers","PS")
 	return 1
 
-/mob/proc/changeling_transformation_sting()
-	set category = "Changeling"
-	set name = "Transformation sting (40)"
-	set desc="Sting target"
-
-	var/datum/changeling/changeling = changeling_power(40)
-	if(!changeling)	return 0
-
-
-
-	var/list/names = list()
-	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
-		names += "[DNA.name]"
-
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
-	if(!S)	return
-
-	var/datum/absorbed_dna/chosen_dna = changeling.GetDNA(S)
-	if(!chosen_dna)
-		return
-
-	var/mob/living/carbon/human/T = changeling_sting(40,/mob/proc/changeling_transformation_sting)
-	if(!T)	return 0
-	if((HUSK in T.mutations) || (T.species.flags & NO_SCAN))
-		to_chat(src, "<span class='warning'>Our sting appears ineffective against this creature.</span>")
-		return 0
-
-	T.handle_changeling_transform(chosen_dna)
-
-	feedback_add_details("changeling_powers","TS")
-	return 1
-
-/mob/proc/changeling_unfat_sting()
-	set category = "Changeling"
-	set name = "Unfat sting (5)"
-	set desc = "Sting target"
-
-	var/mob/living/carbon/human/T = changeling_sting(5,/mob/proc/changeling_unfat_sting)
-	if(!T)	return 0
-	to_chat(T, "<span class='danger'>you feel a small prick as stomach churns violently and you become to feel skinnier.</span>")
-	T.nutrition -= 100
-	feedback_add_details("changeling_powers","US")
-	return 1
-
 /mob/proc/changeling_DEATHsting()
 	set category = "Changeling"
 	set name = "Death Sting (40)"
 	set desc = "Causes spasms onto death."
+	var/loud = 1
 
-	var/mob/living/carbon/human/T = changeling_sting(40,/mob/proc/changeling_DEATHsting)
+	var/mob/living/carbon/human/T = changeling_sting(40,/mob/proc/changeling_DEATHsting,loud)
 	if(!T)	return 0
 	to_chat(T, "<span class='danger'>You feel a small prick and your chest becomes tight.</span>")
-	T.make_jittery(1000)
-	if(T.reagents)	T.reagents.add_reagent("lexorin", 40)
+	T.make_jittery(400)
+	if(T.reagents)	T.reagents.add_reagent(/datum/reagent/lexorin, 40)
 	feedback_add_details("changeling_powers","DTHS")
 	return 1
 

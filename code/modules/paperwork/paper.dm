@@ -367,7 +367,7 @@
 			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]")
 		return
 
-	else if(istype(P, /obj/item/weapon/stamp))
+	else if(istype(P, /obj/item/weapon/stamp) || istype(P, /obj/item/clothing/ring/seal))
 		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/weapon/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
 			return
 
@@ -401,7 +401,7 @@
 		stamped += P.type
 		overlays += stampoverlay
 
-		to_chat(user, "<span class='notice'>You stamp the paper with your rubber stamp.</span>")
+		to_chat(user, "<span class='notice'>You stamp the paper with your [P.name].</span>")
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
@@ -441,3 +441,23 @@
 /obj/item/weapon/paper/exodus_holodeck
 	name = "holodeck disclaimer"
 	info = "Bruises sustained in the holodeck can be healed simply by sleeping."
+
+/obj/item/weapon/paper/dionaresearch1
+	name = "biological experimentation paper #1"
+	info = "We've just started and things are already going well! <br>The tests on mice have returned successful with <b>full</b> motor control returned."
+
+/obj/item/weapon/paper/dionaresearch2
+	name = "biological experimentation paper #2"
+	info = "As per usual those worthless bureaucrats haven't delivered our blanks for large scale testing, never the less testing has continued with only minor side effects."
+
+/obj/item/weapon/paper/dionaresearch3
+	name = "biological experimentation paper #3"
+	info = "Damn it all, I knew it couldn't be this easy. The test subject is nolonger responding to any stimuli, and central is on us for a progress report sunday."
+
+/obj/item/weapon/paper/dionaresearch4
+	name = "biological experimentation paper #4"
+	info = "Andrea is gone, those fucking goons from central wanted a demonstration so damn badly she used it on herself.<br> Let's see if they like it when <i>they're</i> the one's being tested."
+
+/obj/item/weapon/paper/dionaresearch5
+	name = "biological experimentation paper #5"
+	info = "To anyone who finds this, for your own sake leave now, there was nothing good found here, only <b>death</b>."

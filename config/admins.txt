@@ -5,32 +5,17 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-kg333 - Host
-vactor - Host 
+Nyxodile - Host
 glloyd - Head Admin
-Nienhaus2 - Game Master
-hanspanda - Game Master
 CoraiUnki - Game Master
-#Aedel
-Kydrasz - Game Master
-MisterTeeth - Game Master
-Stefender - Game Master
 Acemuto10 - Game Master
 Zty8212000 - Game Master
-Lyeos - Game Master
 
 Scrdest - Coder
-Nyxodile - Coder
 
 Licton15 - Moderator
-greatorder - Moderator
-andreathesecond - Moderator
-Donuts223 - Moderator
 
-Magnetite - Mentor
-Iceblaster98 - Mentor
 Vakothu - Mentor
-Grant4455 - Mentor
 AseaHeru - Mentor
 Mapleguy555 - Mentor
 Gale212 - Mentor
@@ -39,4 +24,10 @@ androidsfv - Inactive Admin
 USEC_OFFICER - Inactive Admin
 bdthemag - Inactive Admin
 electronics111 - Inactive Admin
+hanspanda - Inactive Admin
+Kydrasz - Inactive Admin
+MisterTeeth - Inactive Admin
+Stefender - Inactive Admin
+Lyeos - Retired Admin
+Nienhaus2 - Retired Admin
 #Electronics

@@ -30,7 +30,8 @@ var/global/list/robot_modules = list(
 		LANGUAGE_SKRELLIAN = 0,
 		LANGUAGE_RESOMI = 0,
 		LANGUAGE_GUTTER = 0,
-		LANGUAGE_SIGN = 0)
+		LANGUAGE_SIGN = 0,
+		LANGUAGE_INDEPDENDENT = 0)
 	var/sprites = list()
 	var/can_be_pushed = 1
 	var/no_slip = 0
@@ -232,7 +233,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/organ(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("pacid", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/acid/polyacid, 250)
 	src.emag.name = "Polyacid spray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -254,7 +255,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/surgeon/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("pacid", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/acid/polyacid, 2 * amount)
 	..()
 
 /obj/item/weapon/robot_module/medical/crisis
@@ -289,7 +290,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("pacid", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/acid/polyacid, 250)
 	src.emag.name = "Polyacid spray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -323,7 +324,7 @@ var/global/list/robot_modules = list(
 
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("pacid", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/acid/polyacid, 2 * amount)
 
 	..()
 
@@ -347,6 +348,7 @@ var/global/list/robot_modules = list(
 					"Spider" = "Spider-Engineering",
 					"Eyebot" = "Eyebot-engineering"
 					)
+	no_slip = 1
 
 /obj/item/weapon/robot_module/engineering/general/New()
 	src.modules += new /obj/item/device/flash(src)
@@ -411,6 +413,11 @@ var/global/list/robot_modules = list(
 	PL.synths = list(plasteel)
 	src.modules += PL
 
+	..()
+
+/obj/item/weapon/robot_module/engineering/general/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+	var/obj/item/device/lightreplacer/LR = locate() in src.modules
+	LR.Charge(R, amount)
 	..()
 
 /obj/item/weapon/robot_module/security
@@ -485,7 +492,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/mop(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("lube", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 	..()
 
@@ -495,7 +502,7 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent("lube", 2 * amount)
+		S.reagents.add_reagent(/datum/reagent/lube, 20 * amount)
 
 /obj/item/weapon/robot_module/clerical
 	name = "service robot module"
@@ -508,7 +515,8 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SKRELLIAN	= 1,
 					LANGUAGE_RESOMI		= 1,
 					LANGUAGE_TRADEBAND	= 1,
-					LANGUAGE_GUTTER		= 1
+					LANGUAGE_GUTTER		= 1,
+					LANGUAGE_INDEPENDENT= 1
 					)
 
 /obj/item/weapon/robot_module/clerical/butler
@@ -556,7 +564,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/R = new/datum/reagents(50)
 	src.emag.reagents = R
 	R.my_atom = src.emag
-	R.add_reagent("beer2", 50)
+	R.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 	..()
 
@@ -597,14 +605,14 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/general/butler/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
 	var/obj/item/weapon/reagent_containers/food/condiment/enzyme/E = locate() in src.modules
-	E.reagents.add_reagent("enzyme", 2 * amount)
+	E.reagents.add_reagent(/datum/reagent/enzyme, 2 * amount)
 	if(src.emag)
 		var/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer/B = src.emag
-		B.reagents.add_reagent("beer2", 2 * amount)
+		B.reagents.add_reagent(/datum/reagent/chloralhydrate/beer2, 2 * amount)
 
 /obj/item/weapon/robot_module/miner
 	name = "miner robot module"
-	channels = list("Supply" = 1)
+	channels = list("Supply" = 1, "Science" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 					"Basic" = "Miner_old",
@@ -660,6 +668,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/card/robot(src)
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/screwdriver(src)
+	src.modules += new /obj/item/weapon/weldingtool/mini(src)
 	src.modules += new /obj/item/weapon/wirecutters(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/scalpel/laser3(src)
@@ -690,7 +699,8 @@ var/global/list/robot_modules = list(
 					LANGUAGE_UNATHI = 0,
 					LANGUAGE_SIIK_TAJR = 0,
 					LANGUAGE_SKRELLIAN = 0,
-					LANGUAGE_GUTTER = 1
+					LANGUAGE_GUTTER = 1,
+					LANGUAGE_INDEPENDENT = 1
 					)
 	sprites = list(
 					"Dread" = "securityrobot",
@@ -824,8 +834,18 @@ var/global/list/robot_modules = list(
 	languages = list()
 
 /obj/item/weapon/robot_module/drone/construction/New()
-	src.modules += new /obj/item/weapon/rcd/borg(src)
+	modules += new /obj/item/weapon/rcd/borg(src)
 	..()
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
+	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(2000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(1000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	synths += metal
+	synths += glass
+	synths += wood
+	synths += plastic
+	synths += wire
 
 /obj/item/weapon/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules

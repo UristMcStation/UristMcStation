@@ -21,14 +21,8 @@
 	attacktext = "punched"
 	a_intent = "harm"
 	ranged = 1
-	min_oxy = 5
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 1
-	min_co2 = 0
-	max_co2 = 5
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = list("oxygen" = 5)
+	max_gas = null
 	unsuitable_atoms_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
@@ -169,7 +163,6 @@
 	attacktext = "brutalized"
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
-	tele_effect = /obj/effect/sparks
 
 /mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')

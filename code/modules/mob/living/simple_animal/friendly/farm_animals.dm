@@ -43,7 +43,7 @@
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent("milk", rand(5, 10))
+				udder.add_reagent(/datum/reagent/drink/milk, rand(5, 10))
 
 		if(locate(/obj/effect/plant) in loc)
 			var/obj/effect/plant/SV = locate() in loc
@@ -75,7 +75,7 @@
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+		var/transfered = udder.trans_type_to(G, /datum/reagent/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
@@ -115,7 +115,7 @@
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+		var/transfered = udder.trans_type_to(G, /datum/reagent/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
@@ -127,7 +127,7 @@
 	. = ..()
 	if(stat == CONSCIOUS)
 		if(udder && prob(5))
-			udder.add_reagent("milk", rand(5, 10))
+			udder.add_reagent(/datum/reagent/drink/milk, rand(5, 10))
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
@@ -222,8 +222,8 @@ var/global/chicken_count = 0
 	pixel_y = rand(0, 10)
 	chicken_count += 1
 
-/mob/living/simple_animal/chicken/death()
-	..()
+/mob/living/simple_animal/chicken/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
 	chicken_count -= 1
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -253,7 +253,7 @@ var/global/chicken_count = 0
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
-			processing_objects.Add(E)
+			GLOB.processing_objects.Add(E)
 
 /obj/item/weapon/reagent_containers/food/snacks/egg/var/amount_grown = 0
 /obj/item/weapon/reagent_containers/food/snacks/egg/process()
@@ -262,7 +262,7 @@ var/global/chicken_count = 0
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
-			processing_objects.Remove(src)
+			GLOB.processing_objects.Remove(src)
 			qdel(src)
 	else
-		processing_objects.Remove(src)
+		GLOB.processing_objects.Remove(src)

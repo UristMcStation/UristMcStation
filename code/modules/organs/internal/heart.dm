@@ -1,9 +1,3 @@
-//Blood levels. These are percentages based on the species blood_volume far.
-var/const/BLOOD_VOLUME_SAFE    = 85
-var/const/BLOOD_VOLUME_OKAY    = 75
-var/const/BLOOD_VOLUME_BAD     = 60
-var/const/BLOOD_VOLUME_SURVIVE = 40
-
 /obj/item/organ/internal/heart
 	name = "heart"
 	icon_state = "heart-on"
@@ -14,6 +8,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 	var/heartbeat = 0
 	var/beat_sound = 'sound/effects/singlebeat.ogg'
 	var/tmp/next_blood_squirt = 0
+	relative_size = 15
+	max_damage = 45
+	var/open
 
 /obj/item/organ/internal/heart/die()
 	if(dead_icon)
@@ -36,17 +33,23 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 	if(owner.stat == DEAD || robotic >= ORGAN_ROBOT)
 		pulse = PULSE_NONE	//that's it, you're dead (or your metal heart is), nothing can influence your pulse
 		return
-	if(owner.life_tick % 5 == 0)//update pulse every 5 life ticks (~1 tick/sec, depending on server load)
+	if(owner.shock_stage >= 120 || owner.getOxyLoss() >= 100 || owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75))) // The heart has stopped due to going into traumatic or cardiovascular shock.
+		if(pulse != PULSE_NONE)
+			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
+			pulse = PULSE_NONE
+	else
 		pulse = PULSE_NORM
-
-		if(round(owner.vessel.get_reagent_amount("blood")) <= BLOOD_VOLUME_BAD)	//how much blood do we have
+		var/pulse_mod = owner.chem_effects[CE_PULSE]
+		if(owner.shock_stage > 30)
+			pulse_mod++
+		if(owner.get_blood_circulation() <= BLOOD_VOLUME_BAD)	//how much blood do we have
 			pulse  = PULSE_THREADY	//not enough :(
 
 		else if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
 			pulse = PULSE_NONE		//pretend that we're dead. unlike actual death, can be inflienced by meds
-			pulse = Clamp(pulse + owner.chem_effects[CE_PULSE], PULSE_NONE, PULSE_2FAST)
+			pulse = Clamp(pulse + pulse_mod, PULSE_NONE, PULSE_2FAST)
 		else
-			pulse = Clamp(pulse + owner.chem_effects[CE_PULSE], PULSE_SLOW, PULSE_2FAST)
+			pulse = Clamp(pulse + pulse_mod, PULSE_SLOW, PULSE_2FAST)
 
 /obj/item/organ/internal/heart/proc/handle_heartbeat()
 	if(pulse >= PULSE_2FAST || owner.shock_stage >= 10 || is_below_sound_pressure(get_turf(owner)))
@@ -82,9 +85,6 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 			var/open_wound
 			if(temp.status & ORGAN_BLEEDING)
 
-				if (temp.open)
-					blood_max += 2  //Yer stomach is cut open
-
 				for(var/datum/wound/W in temp.wounds)
 
 					if(!open_wound && (W.damage_type == CUT || W.damage_type == PIERCE) && W.damage && !W.is_treated())
@@ -96,7 +96,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 								var/mob/living/carbon/human/H = temp.applied_pressure
 								H.bloody_hands(src, 0)
 							//somehow you can apply pressure to every wound on the organ at the same time
-							//you're basically forced to do nothing at all, so let's make it pretty effective
+							//you're slowed down a fair amount, so let's make it pretty effective
 							var/min_eff_damage = max(0, W.damage - 10) / 6 //still want a little bit to drip out, for effect
 							blood_max += max(min_eff_damage, W.damage - 30) / 40
 						else
@@ -109,7 +109,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 						blood_max += bleed_amount
 						do_spray += "the [temp.artery_name] in \the [owner]'s [temp.name]"
 					else
-						owner.vessel.remove_reagent("blood", bleed_amount)
+						owner.vessel.remove_reagent(/datum/reagent/blood, bleed_amount)
 
 		switch(pulse)
 			if(PULSE_SLOW)
@@ -134,3 +134,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 40
 					owner.drip(blood_max, get_turf(owner))
 		else
 			owner.drip(blood_max)
+
+/obj/item/organ/internal/heart/proc/is_working()
+	if(!is_usable())
+		return FALSE
+
+	return pulse > PULSE_NONE || robotic == ORGAN_ROBOT || (owner.status_flags & FAKEDEATH)

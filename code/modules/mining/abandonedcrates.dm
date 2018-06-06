@@ -112,7 +112,7 @@
 		if(92)
 			new/obj/item/weapon/material/sword/katana(src)
 		if(93)
-			new/obj/item/weapon/dnainjector/xraymut(src) // Probably the least OP
+			new/obj/item/weapon/storage/firstaid/combat(src) // Probably the least OP
 		if(94) // Why the hell not
 			new/obj/item/weapon/storage/backpack/clown(src)
 			new/obj/item/clothing/under/rank/clown(src)
@@ -156,10 +156,10 @@
 
 	if(input == null || length(input) != codelen)
 		to_chat(user, "<span class='notice'>You leave the crate alone.</span>")
-	else if(check_input(input))
+	else if(check_input(input) && locked)
 		to_chat(user, "<span class='notice'>The crate unlocks!</span>")
 		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
-		set_locked(0)
+		..()
 	else
 		visible_message("<span class='warning'>A red light on \the [src]'s control panel flashes briefly.</span>")
 		attempts--

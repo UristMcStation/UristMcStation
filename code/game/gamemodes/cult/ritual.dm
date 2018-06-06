@@ -24,11 +24,11 @@
 /obj/item/weapon/book/tome/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || !iscultist(user))
 		return
-	if(A.reagents && A.reagents.has_reagent("holywater"))
+	if(A.reagents && A.reagents.has_reagent(/datum/reagent/water/holywater))
 		to_chat(user, "<span class='notice'>You unbless \the [A].</span>")
-		var/holy2water = A.reagents.get_reagent_amount("holywater")
-		A.reagents.del_reagent("holywater")
-		A.reagents.add_reagent("water", holy2water)
+		var/holy2water = A.reagents.get_reagent_amount(/datum/reagent/water/holywater)
+		A.reagents.del_reagent(/datum/reagent/water/holywater)
+		A.reagents.add_reagent(/datum/reagent/water, holy2water)
 
 /mob/proc/make_rune(var/rune, var/cost = 5, var/tome_required = 0)
 	var/has_tome = 0
@@ -100,7 +100,7 @@
 	return 0
 
 /mob/living/carbon/human/make_rune(var/rune, var/cost, var/tome_required)
-	if(should_have_organ(BP_HEART) && vessel && !vessel.has_reagent("blood", species.blood_volume * 0.7))
+	if(should_have_organ(BP_HEART) && vessel && !vessel.has_reagent(/datum/reagent/blood, species.blood_volume * 0.7))
 		to_chat(src, "<span class='danger'>You are too weak to draw runes.</span>")
 		return
 	..()
@@ -110,7 +110,7 @@
 
 /mob/living/carbon/human/pay_for_rune(var/blood)
 	if(should_have_organ(BP_HEART))
-		vessel.remove_reagent("blood", blood)
+		vessel.remove_reagent(/datum/reagent/blood, blood)
 
 /mob/proc/get_blood_name()
 	return "blood"
@@ -153,9 +153,9 @@ var/list/Tier1Runes = list(
 var/list/Tier2Runes = list(
 	/mob/proc/armor_rune,
 	/mob/proc/offering_rune,
-	/mob/proc/manifest_rune,
 	/mob/proc/drain_rune,
-	/mob/proc/emp_rune
+	/mob/proc/emp_rune,
+	/mob/proc/massdefile_rune
 	)
 
 var/list/Tier3Runes = list(
@@ -206,6 +206,12 @@ var/list/Tier4Runes = list(
 
 	make_rune(/obj/effect/rune/defile, tome_required = 1)
 
+/mob/proc/massdefile_rune()
+	set category = "Cult Magic"
+	set name = "Rune: Mass Defile"
+
+	make_rune(/obj/effect/rune/massdefile, tome_required = 1, cost = 20)
+
 /mob/proc/armor_rune()
 	set category = "Cult Magic"
 	set name = "Rune: Summon Robes"
@@ -218,11 +224,7 @@ var/list/Tier4Runes = list(
 
 	make_rune(/obj/effect/rune/offering, tome_required = 1)
 
-/mob/proc/manifest_rune()
-	set category = "Cult Magic"
-	set name = "Rune: Manifest"
 
-	make_rune(/obj/effect/rune/manifest, cost = 15)
 
 /mob/proc/drain_rune()
 	set category = "Cult Magic"

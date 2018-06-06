@@ -93,7 +93,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "welderapron"
 	item_state = "welderapron"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //Naval Space suit. Or something like that. I don't fucking know.
@@ -160,9 +160,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A tweed jacket worn by the station's psychologist. It looks a tad worn at the elbows."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "tweedjacket"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
 
 	verb/toggle()
 		set name = "Toggle Coat Buttons"
@@ -412,9 +412,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A suit that protects against minor chemical spills."
 	icon_state = "labcoat_open"
 	item_state = "labcoat" //Is this even used for anything?
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
@@ -453,7 +453,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_open = "blackcoat_open"
 	icon_closed = "blackcoat_closed"
 	item_state = "blackcoat_open"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
@@ -469,7 +469,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat_open"
 	item_state = "charcoal_suit"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat
@@ -675,7 +675,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A resistant, tan trenchcoat, typically worn by pre-War generals."
 	icon_state = "autumn"
 	item_state = "autumn"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
 	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -687,7 +687,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "NT deluxe ripoff. You finally have your own coat."
 	icon_state = "blueshieldcoat"
 	item_state = "det_suit"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight,/obj/item/weapon/melee/telebaton)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
@@ -767,7 +767,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "warden_jacket"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	//flags =
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
@@ -868,7 +868,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "fo"
 	item_state = "fo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	flags = THICKMATERIAL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
@@ -880,7 +880,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "trash"
 	item_state = "trash"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	flags = THICKMATERIAL
 
 /obj/item/clothing/suit/urist/armor/trash/blue //Isn't actually good
@@ -1094,7 +1094,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15 //sure?
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 
 /obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
 	name = "grey hoodie"

@@ -13,7 +13,7 @@
 
 // Calculates file size from amount of characters in saved string
 /datum/computer_file/data/proc/calculate_size()
-	size = max(1, round(length(stored_data) / block_size))
+	size = max(1, round(length(stored_data) / block_size, 1))
 
 /datum/computer_file/data/logfile
 	filetype = "LOG"

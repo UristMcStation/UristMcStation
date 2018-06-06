@@ -89,7 +89,7 @@ datum/controller/vote
 
 		//default-vote for everyone who didn't vote
 		if(!config.vote_no_default && choices.len)
-			var/non_voters = (clients.len - total_votes)
+			var/non_voters = (GLOB.clients.len - total_votes)
 			if(non_voters > 0)
 				if(mode == "restart")
 					choices["Continue Playing"] += non_voters
@@ -245,7 +245,7 @@ datum/controller/vote
 										spawn(10)
 											autotransfer()
 				if("map")
-					var/datum/map/M = all_maps[.[1]]
+					var/datum/map/M = GLOB.all_maps[.[1]]
 					fdel("use_map")
 					text2file(M.path, "use_map")
 
@@ -323,7 +323,8 @@ datum/controller/vote
 						if (config.allow_extra_antags && !antag_add_finished)
 							choices.Add("Add Antagonist")
 					else
-						if (get_security_level() == "red" || get_security_level() == "delta")
+						var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+						if (security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level))
 							to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 							return 0
 						if(ticker.current_state <= GAME_STATE_SETTING_UP)
@@ -352,7 +353,7 @@ datum/controller/vote
 				if("map")
 					if(!config.allow_map_switching)
 						return 0
-					for(var/name in all_maps)
+					for(var/name in GLOB.all_maps)
 						choices.Add(name)
 				if("custom")
 					question = sanitizeSafe(input(usr,"What is the vote for?") as text|null)

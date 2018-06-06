@@ -1,0 +1,19 @@
+"a" = (/turf/simulated/planet/jungle/templatethick,/area/jungle)
+"b" = (/turf/simulated/planet/jungle/path,/area/jungle)
+"c" = (/turf/simulated/planet/jungle/clear,/area/jungle)
+"d" = (/obj/structure/flora/tree/jungle/small{pixel_x = 0},/turf/simulated/planet/jungle/clear,/area/jungle)
+"e" = (/obj/item/remains{pixel_x = 16; pixel_y = 8},/turf/simulated/planet/jungle/clear,/area/jungle)
+"f" = (/obj/item/ammo_casing/a357{pixel_x = -4; pixel_y = 5},/obj/item/ammo_casing/a357{pixel_x = 9; pixel_y = 7},/obj/item/ammo_casing/a357,/turf/simulated/planet/jungle/clear,/area/jungle)
+
+(1,1,1) = {"
+aaaaaaaaaa
+aaabbbbaaa
+aabbccbbaa
+abbccccbba
+abccdcccba
+abccecccba
+abbcfccbba
+aabbccbbaa
+aaabbbbaaa
+aaaaaaaaaa
+"}

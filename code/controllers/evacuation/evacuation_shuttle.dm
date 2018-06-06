@@ -17,7 +17,7 @@
 
 	var/departed = 0
 	var/autopilot = 1
-	var/datum/shuttle/ferry/emergency/shuttle // Set in shuttle_emergency.dm
+	var/datum/shuttle/autodock/ferry/emergency/shuttle // Set in shuttle_emergency.dm
 	var/shuttle_launch_time
 
 /datum/evacuation_controller/shuttle/has_evacuated()
@@ -31,13 +31,12 @@
 	if(waiting_to_leave())
 		return
 
-	for (var/datum/shuttle/ferry/escape_pod/pod in escape_pods)
+	for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 		if (!pod.arming_controller || pod.arming_controller.armed)
 			pod.move_time = evac_transit_delay
 			pod.launch(src)
 
 	if(autopilot && shuttle.moving_status == SHUTTLE_IDLE)
-		evac_arrival_time = world.time + (shuttle.move_time*10) + (shuttle.warmup_time*10)
 		shuttle.launch(src)
 	// Announcements, state changes and such are handled by the shuttle itself to prevent desync.
 
@@ -48,7 +47,7 @@
 	. = ..()
 	// Arm the escape pods.
 	if (emergency_evacuation)
-		for (var/datum/shuttle/ferry/escape_pod/pod in escape_pods)
+		for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 			if (pod.arming_controller)
 				pod.arming_controller.arm()
 
@@ -83,8 +82,6 @@
 		if(!isnull(shuttle_launch_time) && world.time > shuttle_launch_time && shuttle.moving_status == SHUTTLE_IDLE)
 			shuttle.launch()
 			shuttle_launch_time = null
-		return
-	else if(state == EVAC_IN_TRANSIT)
 		return
 	return ..()
 

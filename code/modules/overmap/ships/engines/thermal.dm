@@ -8,8 +8,8 @@
 	nozzle = _holder
 
 /datum/ship_engine/thermal/Destroy()
-	..()
 	nozzle = null
+	. = ..()
 
 /datum/ship_engine/thermal/get_status()
 	return nozzle.get_status()
@@ -39,7 +39,7 @@
 
 /obj/machinery/atmospherics/unary/engine
 	name = "engine nozzle"
-	desc = "Simple thermal nozzle, uses heated gast to propell the ship."
+	desc = "A simple thermal nozzle, uses heated gas to generate thrust."
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	use_power = 0
@@ -52,13 +52,13 @@
 	var/thrust_limit = 1	//Value between 1 and 0 to limit the resulting thrust
 	var/moles_per_burn = 10
 
-/obj/machinery/atmospherics/unary/engine/initialize()
-	..()
+/obj/machinery/atmospherics/unary/engine/Initialize()
+	. = ..()
 	controller = new(src)
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
-	..()
-	qdel_null(controller)
+	QDEL_NULL(controller)
+	. = ..()
 
 /obj/machinery/atmospherics/unary/engine/proc/get_status()
 	. = list()

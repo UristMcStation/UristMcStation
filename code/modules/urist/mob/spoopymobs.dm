@@ -14,14 +14,8 @@
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "undead"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	idle_vision_range = 3
 	aggro_vision_range = 15 //fairly easy to evade a single one, but DO NOT PISS THEM OFF
@@ -74,6 +68,7 @@
 	if(src.contents)
 		for(var/obj/O in src.contents)
 			drop_from_inventory(O)
+	. = ..()
 
 /mob/living/simple_animal/hostile/urist/zombie/generic
 	plague = 0
@@ -231,14 +226,8 @@
 	attacktext = "bit"
 	attack_sound = 'sound/items/drink.ogg'
 	faction = "undead"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	ranged = 0
 	simplify_dead_icon = 1
@@ -268,14 +257,8 @@
 	attacktext = "stabbed"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 //a more persistent variant of the shadow wight with a different soundset
@@ -286,10 +269,10 @@
 	density = 1
 
 /obj/effect/haunter/New()
-	processing_objects.Add(src)
+	GLOB.processing_objects.Add(src)
 
 /obj/effect/haunter/Destroy()
-	processing_objects.Remove(src)
+	GLOB.processing_objects.Remove(src)
 	return ..()
 
 /obj/effect/haunter/process()
@@ -312,7 +295,7 @@
 			if(prob(5))
 				src.loc = null
 	else
-		processing_objects.Remove(src)
+		GLOB.processing_objects.Remove(src)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
@@ -474,7 +457,7 @@
 /mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
 	var/attempts = 3
 	while(!(stalkee))
-		stalkee = pick(player_list)
+		stalkee = pick(GLOB.player_list)
 		attempts--
 		var/recheck = 0
 		if(stalkee)

@@ -46,8 +46,8 @@ var/list/gamemode_cache = list()
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
-	var/Ticklag = 0.9
-	var/Tickcomp = 0
+	var/fps = 20
+	var/tick_limit_mc_init = TICK_LIMIT_MC_INIT_DEFAULT	//SSinitialization throttling
 	var/socket_talk	= 0					// use socket_talk to communicate with other processes
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
@@ -77,6 +77,7 @@ var/list/gamemode_cache = list()
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
 
 	var/character_slots = 10				// The number of available character slots
+	var/loadout_slots = 3					// The number of loadout slots per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -100,26 +101,15 @@ var/list/gamemode_cache = list()
 	var/forumurl
 	var/githuburl
 
-	//Alert level description
-	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
-	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
-	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
-	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
-	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
-
 	var/forbid_singulo_possession = 0
 
 	//game_options.txt configs
 
-	var/health_threshold_softcrit = 0
-	var/health_threshold_crit = -50
 	var/health_threshold_dead = -100
 
 	var/organ_health_multiplier = 0.9
 	var/organ_regeneration_multiplier = 0.25
 	var/organs_decay
-	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
@@ -167,6 +157,9 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/comms_password = ""
+	var/ban_comms_password = null
+
+	var/login_export_addr = null
 
 	var/enter_allowed = 1
 
@@ -212,6 +205,8 @@ var/list/gamemode_cache = list()
 	var/SCOM_dynamic_difficulty = 0
 	var/list/language_prefixes = list(",","#","-")//Default language prefixes
 
+	var/allow_chat_markup = 0
+
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = FALSE
 
@@ -222,6 +217,13 @@ var/list/gamemode_cache = list()
 	var/radiation_decay_rate = 1 //How much radiation is reduced by each tick
 	var/radiation_resistance_multiplier = 6.5
 	var/radiation_lower_limit = 0.35 //If the radiation level for a turf would be below this, ignore it.
+
+	var/autostealth = 0 // Staff get automatic stealth after this many minutes
+
+	var/error_cooldown = 600 // The "cooldown" time for each occurrence of a unique error
+	var/error_limit = 50 // How many occurrences before the next will silence them
+	var/error_silence_time = 6000 // How long a unique error will be silenced for
+	var/error_msg_delay = 50 // How long to wait between messaging admins about occurrences of a unique error
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -341,6 +343,10 @@ var/list/gamemode_cache = list()
 
 				if ("log_runtime")
 					config.log_runtime = 1
+					var/newlog = file("data/logs/runtimes/runtime-[time2text(world.realtime, "YYYY-MM-DD")].log")
+					if(runtime_diary != newlog)
+						to_world_log("Now logging runtimes to data/logs/runtimes/runtime-[time2text(world.realtime, "YYYY-MM-DD")].log")
+						runtime_diary = newlog
 
 				if ("generate_asteroid")
 					config.generate_map = 1
@@ -536,24 +542,6 @@ var/list/gamemode_cache = list()
 				if("load_jobs_from_txt")
 					load_jobs_from_txt = 1
 
-				if("alert_red_upto")
-					config.alert_desc_red_upto = value
-
-				if("alert_red_downto")
-					config.alert_desc_red_downto = value
-
-				if("alert_blue_downto")
-					config.alert_desc_blue_downto = value
-
-				if("alert_blue_upto")
-					config.alert_desc_blue_upto = value
-
-				if("alert_green")
-					config.alert_desc_green = value
-
-				if("alert_delta")
-					config.alert_desc_delta = value
-
 				if("forbid_singulo_possession")
 					forbid_singulo_possession = 1
 
@@ -573,7 +561,15 @@ var/list/gamemode_cache = list()
 					irc_bot_export = 1
 
 				if("ticklag")
-					Ticklag = text2num(value)
+					var/ticklag = text2num(value)
+					if(ticklag > 0)
+						fps = 10 / ticklag
+
+				if("fps")
+					fps = text2num(value)
+
+				if("tick_limit_mc_init")
+					tick_limit_mc_init = text2num(value)
 
 				if("allow_antag_hud")
 					config.antag_hud_allowed = 1
@@ -582,9 +578,6 @@ var/list/gamemode_cache = list()
 
 				if("socket_talk")
 					socket_talk = text2num(value)
-
-				if("tickcomp")
-					Tickcomp = 1
 
 				if("humans_need_surnames")
 					humans_need_surnames = 1
@@ -621,6 +614,12 @@ var/list/gamemode_cache = list()
 				if("comms_password")
 					config.comms_password = value
 
+				if("ban_comms_password")
+					config.ban_comms_password = value
+
+				if("login_export_addr")
+					config.login_export_addr = value
+
 				if("irc_bot_host")
 					config.irc_bot_host = value
 
@@ -648,6 +647,9 @@ var/list/gamemode_cache = list()
 
 				if("character_slots")
 					config.character_slots = text2num(value)
+
+				if("loadout_slots")
+					config.loadout_slots = text2num(value)
 
 				if("allow_drone_spawn")
 					config.allow_drone_spawn = text2num(value)
@@ -714,6 +716,9 @@ var/list/gamemode_cache = list()
 					if(values.len > 0)
 						language_prefixes = values
 
+				if("allow_chat_markup")
+					config.allow_chat_markup = TRUE
+
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = TRUE
 
@@ -726,6 +731,22 @@ var/list/gamemode_cache = list()
 				if("wait_for_sigusr1")
 					config.wait_for_sigusr1_reboot = 1
 
+				if("autostealth")
+					config.autostealth = text2num(value)
+
+				if("radiation_lower_limit")
+					radiation_lower_limit = text2num(value)
+
+
+				if("error_cooldown")
+					error_cooldown = text2num(value)
+				if("error_limit")
+					error_limit = text2num(value)
+				if("error_silence_time")
+					error_silence_time = text2num(value)
+				if("error_msg_delay")
+					error_msg_delay = text2num(value)
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -735,10 +756,6 @@ var/list/gamemode_cache = list()
 			value = text2num(value)
 
 			switch(name)
-				if("health_threshold_crit")
-					config.health_threshold_crit = value
-				if("health_threshold_softcrit")
-					config.health_threshold_softcrit = value
 				if("health_threshold_dead")
 					config.health_threshold_dead = value
 				if("revival_pod_plants")
@@ -755,10 +772,6 @@ var/list/gamemode_cache = list()
 					config.organ_damage_spillover_multiplier = value / 100
 				if("organs_can_decay")
 					config.organs_decay = 1
-				if("default_brain_health")
-					config.default_brain_health = text2num(value)
-					if(!config.default_brain_health || config.default_brain_health < 1)
-						config.default_brain_health = initial(config.default_brain_health)
 				if("bones_can_break")
 					config.bones_can_break = value
 				if("limbs_can_break")
@@ -790,6 +803,10 @@ var/list/gamemode_cache = list()
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
+
+	fps = round(fps)
+	if(fps <= 0)
+		fps = initial(fps)
 
 /datum/configuration/proc/loadsql(filename)  // -- TLE
 	var/list/Lines = file2list(filename)
@@ -837,48 +854,6 @@ var/list/gamemode_cache = list()
 			else
 				log_misc("Unknown setting in configuration: '[name]'")
 
-/datum/configuration/proc/loadforumsql(filename)  // -- TLE
-	var/list/Lines = file2list(filename)
-	for(var/t in Lines)
-		if(!t)	continue
-
-		t = trim(t)
-		if (length(t) == 0)
-			continue
-		else if (copytext(t, 1, 2) == "#")
-			continue
-
-		var/pos = findtext(t, " ")
-		var/name = null
-		var/value = null
-
-		if (pos)
-			name = lowertext(copytext(t, 1, pos))
-			value = copytext(t, pos + 1)
-		else
-			name = lowertext(t)
-
-		if (!name)
-			continue
-
-		switch (name)
-			if ("address")
-				forumsqladdress = value
-			if ("port")
-				forumsqlport = value
-			if ("database")
-				forumsqldb = value
-			if ("login")
-				forumsqllogin = value
-			if ("password")
-				forumsqlpass = value
-			if ("activatedgroup")
-				forum_activated_group = value
-			if ("authenticatedgroup")
-				forum_authenticated_group = value
-			else
-				log_misc("Unknown setting in configuration: '[name]'")
-
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
 	// their information, but it is the only way (at least that I know of).
@@ -903,3 +878,9 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+/datum/configuration/proc/load_event(filename)
+	var/event_info = file2text(filename)
+
+	if (event_info)
+		custom_event_msg = event_info

@@ -40,3 +40,9 @@
 	icon = 'icons/urist/structures&machinery/doors/Door2x1research.dmi'
 	opacity = 0
 	glass = 1
+
+/obj/machinery/door/airlock/multi_tile/ror
+	name = "Rusted Airlock"
+	icon = 'maps/wyrm/icons/awaymission.dmi'
+	layer = ABOVE_HUMAN_LAYER
+	plane = ABOVE_HUMAN_PLANE

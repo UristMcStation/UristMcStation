@@ -23,16 +23,17 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/Destroy()
 	rad_collectors -= src
-	..()
+	. = ..()
 
 /obj/machinery/power/rad_collector/process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0
 
-	var/turf/T = get_turf(src)
-	if(T in radiation_repository.irradiated_turfs)
-		receive_pulse((radiation_repository.irradiated_turfs[T] * 5)) //Maths is hard
+	if(P && active)
+		var/rads = radiation_repository.get_rads_at_turf(get_turf(src))
+		if(rads)
+			receive_pulse(rads * 5) //Maths is hard
 
 	if(P)
 		if(P.air_contents.gas["phoron"] == 0)
@@ -78,6 +79,10 @@ var/global/list/rad_collectors = list()
 		if(P)
 			to_chat(user, "<span class='notice'>Remove the phoron tank first.</span>")
 			return 1
+		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
+			if(R != src)
+				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
+				return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \

@@ -75,6 +75,17 @@
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
+/obj/machinery/porta_turret/malf_upgrade(var/mob/living/silicon/ai/user)
+	..()
+	ailock = 0
+	malf_upgraded = 1
+	to_chat(user, "\The [src] has been upgraded. It's damage and rate of fire has been increased. Auto-regeneration system has been enabled. Power usage has increased.")
+	maxhealth = round(initial(maxhealth) * 1.5)
+	shot_delay = round(initial(shot_delay) / 2)
+	auto_repair = 1
+	active_power_usage = round(initial(active_power_usage) * 5)
+	return 1
+
 /obj/machinery/porta_turret/New()
 	..()
 	req_access.Cut()
@@ -214,7 +225,7 @@ var/list/turret_icons
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
 		ui.set_initial_data(data)
@@ -592,14 +603,14 @@ var/list/turret_icons
 	return
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+	set waitfor = FALSE
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
 		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 			return
 		last_fired = 1
-		spawn()
-			sleep(shot_delay)
-			last_fired = 0
+		sleep(shot_delay)
+		last_fired = 0
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
@@ -863,6 +874,8 @@ var/list/turret_icons
 
 /atom/movable/porta_turret_cover
 	icon = 'icons/obj/turrets.dmi'
+
+
 
 
 #undef TURRET_PRIORITY_TARGET

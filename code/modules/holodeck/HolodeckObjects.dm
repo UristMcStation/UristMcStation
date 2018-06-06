@@ -30,6 +30,11 @@
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
+/turf/simulated/floor/holofloor/tiled/white
+	name = "white floor"
+	icon_state = "white"
+	initial_flooring = /decl/flooring/tiling/white
+
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
@@ -79,8 +84,8 @@
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
-	icon_state = "desert"
-	base_icon_state = "desert"
+	icon_state = "desert0"
+	base_icon_state = "desert0"
 
 /turf/simulated/floor/holofloor/beach/coastline
 	name = "coastline"
@@ -126,14 +131,8 @@
 	..()
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
-		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, PAIN)
-			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(!istype(W) || W.flags & NOBLUDGEON) return
 
 	if(istype(W, /obj/item/weapon/screwdriver))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
@@ -287,22 +286,6 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
-		if(G.state<2)
-			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
-			return
-		G.affecting.loc = src.loc
-		G.affecting.Weaken(5)
-		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", 3)
-		qdel(W)
-		return
-	else if (istype(W, /obj/item) && get_dist(src,user)<2)
-		user.drop_item(src.loc)
-		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", 3)
-		return
-
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
@@ -422,12 +405,8 @@
 		environment_smash = initial(environment_smash)
 
 /mob/living/simple_animal/hostile/carp/holodeck/gib()
-	derez() //holograms can't gib
+	death()
 
 /mob/living/simple_animal/hostile/carp/holodeck/death()
-	..()
-	derez()
-
-/mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	..(null, "fades away!", "You have been destroyed.")
 	qdel(src)

@@ -13,6 +13,57 @@
 		/datum/mil_branch/civilian
 	)
 
+	species_to_branch_whitelist = list(
+		/datum/species/diona   = list(/datum/mil_branch/civilian),
+		/datum/species/nabber  = list(/datum/mil_branch/civilian),
+		/datum/species/tajaran = list(/datum/mil_branch/civilian, /datum/mil_branch/expeditionary_corps),
+		/datum/species/skrell  = list(/datum/mil_branch/civilian, /datum/mil_branch/expeditionary_corps),
+		/datum/species/unathi  = list(/datum/mil_branch/civilian),
+		/datum/species/vox     = list()
+	)
+
+	species_to_branch_blacklist = list(
+		/datum/species/machine = list(/datum/mil_branch/marine_corps)
+	)
+
+	species_to_rank_whitelist = list(
+		/datum/species/machine = list(
+			/datum/mil_branch/expeditionary_corps = list(
+				/datum/mil_rank/fleet/e1,
+				/datum/mil_rank/fleet/e2,
+				/datum/mil_rank/fleet/e3,
+				/datum/mil_rank/fleet/e4,
+				/datum/mil_rank/fleet/e5,
+				/datum/mil_rank/fleet/o1
+			),
+			/datum/mil_branch/fleet = list(
+				/datum/mil_rank/fleet/e1,
+				/datum/mil_rank/fleet/e2,
+				/datum/mil_rank/fleet/e3,
+				/datum/mil_rank/fleet/e4,
+				/datum/mil_rank/fleet/e5,
+				/datum/mil_rank/fleet/o1
+			)
+		),
+		/datum/species/tajaran = list(
+			/datum/mil_branch/expeditionary_corps = list(
+				/datum/mil_rank/fleet/e1,
+				/datum/mil_rank/fleet/e2,
+				/datum/mil_rank/fleet/e3,
+				/datum/mil_rank/fleet/e4,
+				/datum/mil_rank/fleet/o1
+			)
+		),
+		/datum/species/skrell = list(
+			/datum/mil_branch/expeditionary_corps = list(
+				/datum/mil_rank/fleet/e1,
+				/datum/mil_rank/fleet/e2,
+				/datum/mil_rank/fleet/e3,
+				/datum/mil_rank/fleet/e4,
+				/datum/mil_rank/fleet/o1
+			)
+		)
+	)
 
 
 /*
@@ -23,6 +74,7 @@
 /datum/mil_branch/expeditionary_corps
 	name = "Expeditionary Corps"
 	name_short = "SCGEC"
+	email_domain = "torch.ec.scg"
 
 	rank_types = list(
 		/datum/mil_rank/fleet/e1,
@@ -79,6 +131,7 @@
 /datum/mil_branch/fleet
 	name = "Fleet"
 	name_short = "SCGF"
+	email_domain = "torch.fleet.mil"
 
 	rank_types = list(
 		/datum/mil_rank/fleet/e1,
@@ -134,6 +187,7 @@
 /datum/mil_branch/marine_corps
 	name = "Marine Corps"
 	name_short = "SCGMC"
+	email_domain = "torch.marine.mil"
 
 	rank_types = list(
 		/datum/mil_rank/marine/e1,
@@ -189,6 +243,7 @@
 /datum/mil_branch/civilian
 	name = "Civilian"
 	name_short = "civ"
+	email_domain = "freemail.nt"
 
 	rank_types = list(
 		/datum/mil_rank/civ/civ,

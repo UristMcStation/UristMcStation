@@ -1,0 +1,300 @@
+"aa" = (/turf/space,/area/space)
+"ab" = (/turf/simulated/floor/beach/sand/desert,/area/space)
+"ac" = (/obj/effect/decal/remains,/turf/simulated/floor/beach/sand/desert,/area/space)
+"ad" = (/obj/structure/pit,/turf/simulated/floor/beach/sand/desert,/area/space)
+"ae" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/beach/sand/desert,/area/space)
+"af" = (/mob/living/simple_animal/hostile/urist/gunman,/turf/simulated/floor/beach/sand/desert,/area/space)
+"ag" = (/obj/structure/pit/punji6,/turf/simulated/floor/beach/sand/desert,/area/space)
+"ah" = (/obj/structure/scrap/random,/turf/simulated/floor/beach/sand/desert,/area/space)
+"ai" = (/turf/simulated/wall/wood,/area/space)
+"aj" = (/turf/simulated/floor/plating,/area/space)
+"ak" = (/turf/simulated/floor/wood,/area/space)
+"al" = (/obj/item/clothing/accessory/locket,/turf/simulated/floor/beach/sand/desert,/area/space)
+"am" = (/obj/structure/undies_wardrobe,/turf/simulated/floor/wood,/area/space)
+"an" = (/obj/structure/bed/padded,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"ao" = (/obj/structure/closet/cabinet,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"ap" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aq" = (/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/space)
+"ar" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"as" = (/obj/item/weapon/deck/cards,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"at" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"au" = (/obj/structure/bed/chair/wood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"av" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aw" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood,/area/space)
+"ax" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"ay" = (/obj/structure/table/woodentable,/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"az" = (/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"aA" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aB" = (/obj/random/junk,/obj/item/vehicle_part/battery,/turf/simulated/floor/wood,/area/space)
+"aC" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 4},/turf/simulated/floor/wood,/area/space)
+"aD" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aE" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"aF" = (/obj/item/weapon/material/shard,/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/space)
+"aG" = (/obj/structure/closet/cabinet,/turf/simulated/floor/wood,/area/space)
+"aH" = (/obj/structure/bed/padded,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"aI" = (/obj/structure/coatrack,/turf/simulated/floor/wood,/area/space)
+"aJ" = (/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/beach/sand/desert,/area/space)
+"aK" = (/turf/simulated/wall/r_wall,/area/space)
+"aL" = (/obj/structure/bed/padded,/turf/simulated/floor/wood,/area/space)
+"aM" = (/obj/structure/barricade,/turf/simulated/floor/wood,/area/space)
+"aN" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aO" = (/obj/structure/bed/padded,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/regenplague,/turf/simulated/floor/wood,/area/space)
+"aP" = (/obj/random/coin,/turf/simulated/floor/wood,/area/space)
+"aQ" = (/obj/random/cash,/obj/random/snack,/obj/item/stack/material/silver/ten,/turf/simulated/floor/wood,/area/space)
+"aR" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/beach/sand/desert,/area/space)
+"aS" = (/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/space)
+"aT" = (/obj/effect/decal/cleanable/ash,/turf/simulated/floor/wood,/area/space)
+"aU" = (/obj/item/weapon/material/shard/phoron,/turf/simulated/floor/wood,/area/space)
+"aV" = (/obj/item/clothing/ring/seal/mason,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"aW" = (/obj/structure/bed/chair/comfy/red,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"aX" = (/obj/item/clothing/accessory/holster/waist,/turf/simulated/floor/wood,/area/space)
+"aY" = (/obj/structure/bed/chair/office/dark{dir = 4},/turf/simulated/floor/wood,/area/space)
+"aZ" = (/obj/random/cash,/obj/random/cash,/obj/random/coin,/obj/random/coin,/turf/simulated/floor/wood,/area/space)
+"ba" = (/obj/random/cash,/obj/random/coin,/obj/item/stack/material/gold/ten,/turf/simulated/floor/wood,/area/space)
+"bb" = (/obj/structure/grille,/turf/simulated/floor/wood,/area/space)
+"bc" = (/obj/effect/decal/cleanable/blood,/turf/simulated/wall/r_wall,/area/space)
+"bd" = (/obj/effect/decal/cleanable/blood,/turf/simulated/wall/wood,/area/space)
+"be" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/head/cowboy_hat,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/hos/jensen,/obj/item/weapon/gun/projectile/revolver,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/obj/item/weapon/storage/lunchbox/heart/filled,/turf/simulated/floor/wood,/area/space)
+"bf" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest/jacket,/obj/item/clothing/head/urist/cowboy,/obj/item/weapon/gun/projectile/revolver/detective,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/turf/simulated/floor/wood,/area/space)
+"bg" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/marshal,/obj/item/clothing/head/cowboy_hat,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest,/obj/item/weapon/gun/projectile/revolver/mateba,/obj/item/ammo_magazine/a357,/obj/item/ammo_magazine/a357,/turf/simulated/floor/wood,/area/space)
+"bh" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/badge/old,/obj/item/clothing/head/fedora,/obj/item/clothing/shoes/combat,/obj/item/clothing/suit/armor/vest/old,/obj/item/weapon/gun/projectile/colt/detective,/obj/item/weapon/gun/projectile/bhp9mm,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/turf/simulated/floor/wood,/area/space)
+"bi" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/automatic/m14,/obj/item/weapon/gun/projectile/automatic/m14,/obj/item/ammo_magazine/a762mm/m14,/obj/item/ammo_magazine/a762mm/m14,/obj/item/ammo_magazine/a762mm/m14,/turf/simulated/floor/wood,/area/space)
+"bj" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/obj/item/weapon/gun/projectile/shotgun/doublebarrel,/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,/obj/item/weapon/storage/box/flashshells,/turf/simulated/floor/wood,/area/space)
+"bk" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca,/obj/item/weapon/material/hatchet/tacknife,/obj/item/weapon/material/hatchet/tacknife,/obj/item/weapon/material/hatchet/tacknife,/obj/structure/window/reinforced/full,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bl" = (/obj/random/cash,/obj/item/stack/material/diamond,/turf/simulated/floor/wood,/area/space)
+"bm" = (/obj/random/cash,/obj/random/coin,/turf/simulated/floor/wood,/area/space)
+"bn" = (/obj/machinery/door/unpowered/simple/wood,/obj/random/obstruction,/turf/simulated/floor/wood,/area/space)
+"bo" = (/obj/structure/table/standard/flipped/w,/turf/simulated/floor/wood,/area/space)
+"bp" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bq" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/space)
+"br" = (/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/space)
+"bs" = (/obj/machinery/door/unpowered/simple/iron,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bt" = (/obj/item/weapon/storage/belt/urist/bandolier,/turf/simulated/floor/wood,/area/space)
+"bu" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/random/junk,/obj/item/vehicle_part/tire,/turf/simulated/floor/wood,/area/space)
+"bv" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/urist/cram,/obj/random/junk,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bw" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/random/junk,/obj/item/weapon/storage/lunchbox/syndicate,/turf/simulated/floor/wood,/area/space)
+"bx" = (/obj/structure/table/rack/wood,/obj/random/action_figure,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"by" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/wood,/area/space)
+"bz" = (/obj/structure/table/standard/flipped/s,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"bA" = (/obj/effect/decal/cleanable/blood,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/space)
+"bB" = (/obj/random/junk,/turf/simulated/floor/beach/sand/desert,/area/space)
+"bC" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"bD" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/storage/bandolier,/obj/item/clothing/accessory/storage/bandolier,/turf/simulated/floor/wood,/area/space)
+"bE" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/weapon/gun/projectile/manualcycle/mosinnagant,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bF" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/launcher/crossbow,/obj/item/weapon/gun/projectile/pirate,/obj/item/stack/material/steel/fifty,/turf/simulated/floor/wood,/area/space)
+"bG" = (/obj/structure/table/rack/wood,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/ammo_casing/shotgun,/obj/item/weapon/storage/box/shotgunammo,/obj/item/weapon/storage/box/shotgunammo,/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/space)
+"bH" = (/obj/structure/table/rack/wood,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/ammo_casing/shotgun/pellet,/obj/item/weapon/storage/box/shotgunshells,/obj/item/weapon/storage/box/shotgunshells,/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/space)
+"bI" = (/obj/structure/table/rack/wood,/obj/item/weapon/gun/projectile/automatic/m16,/obj/item/ammo_magazine/a556/m16,/obj/item/ammo_magazine/a556/m16,/obj/item/ammo_magazine/a556/m16,/obj/structure/window/reinforced/full,/turf/simulated/floor/wood,/area/space)
+"bJ" = (/obj/structure/table/rack/wood,/obj/random/snack,/obj/item/weapon/storage/box/frags,/turf/simulated/floor/wood,/area/space)
+"bK" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/syndi_cakes,/obj/random/junk,/obj/random/toy,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bL" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/urist/dapples,/obj/item/trash/urist/dapples,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"bM" = (/obj/structure/table/rack/wood,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/obj/random/junk,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bN" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"bO" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/space)
+"bP" = (/obj/structure/table/woodentable,/obj/random/toolbox,/turf/simulated/floor/wood,/area/space)
+"bQ" = (/obj/item/clothing/accessory/watch/pocket,/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"bR" = (/obj/structure/table/rack/wood,/obj/random/smokes,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"bS" = (/obj/structure/table/woodentable,/obj/random/plushie,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"bT" = (/obj/structure/table/woodentable,/turf/simulated/floor/wood,/area/space)
+"bU" = (/turf/simulated/wall/cult,/area/space)
+"bV" = (/obj/structure/grille/broken,/obj/machinery/door/unpowered/simple/wood,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"bW" = (/obj/structure/table/rack/wood,/obj/item/device/flashlight/glowstick/random,/obj/item/device/flashlight/glowstick/random,/obj/random/smokes,/obj/random/junk,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"bX" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/item/vehicle_part/tire,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"bY" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/blamco,/obj/item/trash/urist/fancycakes,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"bZ" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/blamco,/obj/item/trash/urist/blamco,/obj/random/junk,/obj/random/snack,/turf/simulated/floor/wood,/area/space)
+"ca" = (/obj/structure/pit/closed/grave/random,/obj/structure/gravemarker/random,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cb" = (/obj/structure/pit/closed/grave/spaghettiwestern,/obj/structure/gravemarker/random,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cc" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cd" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/cultist,/turf/simulated/floor/wood,/area/space)
+"ce" = (/obj/structure/barricade,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cf" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cg" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/skeleton,/turf/simulated/floor/wood,/area/space)
+"ch" = (/obj/item/trash/candle,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"ci" = (/obj/item/clothing/head/chaplain_hood,/obj/effect/decal/remains,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"cj" = (/obj/structure/table/woodentable,/obj/item/trash/candle,/obj/item/weapon/material/knife/ritual,/obj/item/weapon/material/scythe,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"ck" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"cl" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"cm" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"cn" = (/obj/structure/grille/cult,/turf/simulated/floor/wood,/area/space)
+"co" = (/obj/structure/barricade,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cp" = (/obj/random/junk,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cq" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/skeleton,/turf/simulated/floor/wood,/area/space)
+"cr" = (/obj/item/trash/candle,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/cult,/area/space)
+"cs" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/cultist,/turf/simulated/floor/wood,/area/space)
+"ct" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cu" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cv" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cw" = (/obj/structure/scrap/random,/obj/item/vehicle_part/transmission,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cx" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cy" = (/obj/item/clothing/under/urist/civilwar/uscol,/obj/item/clothing/head/urist/civilwar/uscolhat,/obj/item/weapon/gun/projectile/revolver/capgun,/obj/effect/decal/remains,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cz" = (/obj/item/clothing/under/urist/civilwar/csalt,/obj/item/clothing/head/urist/civilwar/csalthat,/obj/item/weapon/gun/projectile/revolver/detective,/obj/effect/decal/remains,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cA" = (/obj/structure/sign/redcross,/turf/simulated/wall/wood,/area/space)
+"cB" = (/obj/structure/closet/coffin,/turf/simulated/floor/beach/sand/desert,/area/space)
+"cC" = (/obj/structure/sign/urist/barber,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cD" = (/obj/item/weapon/storage/firstaid/empty,/turf/simulated/floor/wood,/area/space)
+"cE" = (/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"cF" = (/obj/item/weapon/storage/firstaid/tactical,/turf/simulated/floor/wood,/area/space)
+"cG" = (/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/wood,/area/space)
+"cH" = (/obj/item/weapon/storage/firstaid/combat,/turf/simulated/floor/wood,/area/space)
+"cI" = (/obj/structure/pit,/turf/simulated/floor/wood,/area/space)
+"cJ" = (/obj/structure/mirror/raider,/turf/simulated/wall/wood,/area/space)
+"cK" = (/obj/structure/bed/chair/urist/barber,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cL" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"cM" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/wood,/area/space)
+"cN" = (/obj/structure/barricade,/obj/machinery/door/unpowered/simple/wood/saloon,/turf/simulated/floor/wood,/area/space)
+"cO" = (/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/space)
+"cP" = (/obj/structure/window/reinforced/full,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"cQ" = (/obj/item/clothing/head/urist/barber,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"cR" = (/obj/item/weapon/material/shard{icon_state = "medium"},/obj/item/weapon/material/shard,/turf/simulated/floor/wood,/area/space)
+"cS" = (/obj/structure/table/woodentable,/obj/random/drinkbottle,/turf/simulated/floor/wood,/area/space)
+"cT" = (/obj/structure/table/standard/flipped/e,/turf/simulated/floor/wood,/area/space)
+"cU" = (/obj/structure/bed/chair/wood,/obj/effect/decal/remains,/obj/item/clothing/under/urist/rank/janialt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"cV" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"cW" = (/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/wood,/area/space)
+"cX" = (/obj/structure/table/woodentable,/obj/random/junk,/turf/simulated/floor/wood,/area/space)
+"cY" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/turf/simulated/floor/wood,/area/space)
+"cZ" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 4},/obj/effect/decal/remains,/obj/item/clothing/under/urist/cowboy,/obj/item/weapon/storage/belt/vanity/cowboy,/turf/simulated/floor/wood,/area/space)
+"da" = (/obj/structure/table/gamblingtable,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"db" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 8},/obj/effect/decal/remains,/obj/item/clothing/under/urist/dresden,/turf/simulated/floor/wood,/area/space)
+"dc" = (/obj/effect/decal/cleanable/blood,/mob/living/simple_animal/hostile/urist/zombie/regen,/turf/simulated/floor/wood,/area/space)
+"dd" = (/obj/structure/bed/chair/wood{icon_state = "wooden_chair_preview"; dir = 1},/obj/effect/decal/remains,/obj/item/clothing/under/dress/dress_saloon,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"de" = (/obj/structure/table/standard/flipped/s,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/space)
+"df" = (/obj/item/weapon/circular_saw,/turf/simulated/floor/wood,/area/space)
+"dg" = (/obj/structure/table/standard/flipped/n,/obj/effect/decal/remains,/turf/simulated/floor/wood,/area/space)
+"dh" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/greenglow,/turf/simulated/floor/wood,/area/space)
+"di" = (/obj/structure/closet/cabinet,/obj/item/weapon/engine/thermal,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"dj" = (/obj/structure/undies_wardrobe,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"dk" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/storage/det_trench,/obj/item/instrument/guitar,/turf/simulated/floor/wood,/area/space)
+"dl" = (/obj/structure/closet/cabinet,/obj/item/clothing/suit/storage/service/marine/command,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"dm" = (/obj/structure/undies_wardrobe,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"dn" = (/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"do" = (/obj/random/drinkbottle,/obj/random/drinkbottle,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/wood,/area/space)
+"dp" = (/obj/structure/vehicle_frame/motorcycle,/turf/simulated/floor/beach/sand/desert,/area/space)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababacabababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababacabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababacababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababacabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababadababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaeabababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababadabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababadabababababababababababababababababababababababababababababababababababadabababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababafabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababadabababababababababadabababababababababababababababababababababababababababababafabababababababababababababababaeabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababagabababababababababababababababababababababababababababababababababababababababahababababababababababababababababababababababababababababababababababababababadabababababababababababababababababababababababaa
+aaabababababababababababababababababaeababababababababababababababababababababababababababababababababababababababadabaeababababababababababababadabababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababaiabababababaiababababadababababababababababababababababababababagababababababababababababababababababababababababababababababababababababababababadababababababababababababababaa
+aaababababababababababababababababababababababababababababadababababababababababajabababajabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababajajajababajabababababababababagabababaeababafababababadababababababababaeababababababababababababababababadababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababagababababababababababababaeababaiabakabajakajababababababababababababadababababababababababababababababahabababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababagabababababababababababababababababababababababababababababababakakakakajababagabababababababababababababababababababababababababababababababababababababababagabababababababababababababababababababababababababababababadababababababababaa
+aaabababababababababababababababadababababababababahabababababababababababajababakakajakababababababababababababababababababababababalabababababababababababababababababababababababababababababababababababababababababababagabababababababababababababaa
+aaabababababababababababababababababababababababababababababababaeaeababababababababababajaiababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababaiabababaiaiababababababaiaiaiaiaiaiaiaiaiababababababababaiaiaiaiaiaiaiaiababababababababababababababababababababababababababababababadababababababababababababababababaa
+aaabadabababababababababababababababaeabababababababababababababababababababababababababababahabababababaiamanaiaoakakapaiababababababababaqaparasapatapaiabababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababadababababababababababababababababababababababababababababaiakapaiakapapakaiabababadababababaiaparauapapavaiabababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababahabababababababababababababababababababababababaiakaiaiapavapakawababababababababawaxapayaiaiakaiababababababababababababababababababababababababagababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababahabababababababababababababababababababababababaiakakazarapakakaiababababababababaiapaxaAaiaBazaiabababababababababababadabababababababadabababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababaiapapaCaDaEakakaiabababaeababababaFapapaGaiaHamaiabababababababababababababababababababababababababababababababababababadabababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababaiazapapatakakaIaiababababababababaiaiaiaiaiaiaiaiabababababababababababaJabababababababababababababababadabababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababaiaiaiaqaqaqaiaiaiabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababaJabababababababababababababababababababababababababahabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababadabababababababababababababababababababababababababaJabababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababaiababababaiaiababababaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKabaJababababababababababababababababababababaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiabababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababajabababababaiababababaKaLakakaMakaMapaNaOaKaLakakakakaKaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiababababaiaPaQakawakakakazakakakakazakaiabababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababahababababababababaRabakaSaSaTabababababaKakaUakaKakaKaVarataKakakaUaKakaKaiakakakaWakaXaYaKaKaKaKaKaKaKaKaKaiababababaiaZbaaPaiakakakakakakazakakakaiabababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababaRajakaTakajabababababaKaKaKaKaKakaKaKaKaKaKaKaKaKaKbbbcbdakakakakakakaYaKbebfbgbhbibjbkaKaiababababbdaZblbmaiaiaiaiaiaiaiaiaiaibnaiabababababababaJabababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababajababakaTabababaJabaKakakakakakakakakakakakakakakakakakboakazakaxapakbcbpapapbqapakbraKaiababababaiaiaiaiaiaSakakakazakakakakakaiabababababababaJabababababababababababababababababababababababababababababababaa
+aaababababababababababababababababaiababababajaTababababababaKakakakakakakakakakakakakakakakakakboakakapapakakbsakbqbtakapbqakaKaiabababaeababababaibubvbwbxakapaxakazazaiabababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababaRababakababaiababababaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKaKaiakakbybzbyazakaKakbqapbtbrapbAaKaiabaJabbBababababaibCakakakapapbpbpaDazaiabababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababaRabaiaiabababababababababababababababababababababaiakakakakakakakaKbDbEbFbGbHbIbJaKaiabababadababababaibKbLbMbNapbOapapbPbQaiabababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababababababababababababababababababababababababababaiakapaMapaMakaIaKaKaKaKaKaKaKaKaKaiababababababababaibRapararaxazakbpbSbTaiabababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababaiaiaiaiaiaiaibUbUababababababababbBbBababaJababababaJababababababababababaiaiaiaibVaiaiaiaiaiaiaiaiaiaiaiaiaiababababaJabababaibWbXbYbZbpakazakakakaiabababababababaJabababababababababababababababababababababababababababababababaa
+aaabababababcaabcbabaiarapapcccdapakaqabbBababaJaeababababababababababbBabababaJabaJababababaJakakakceapaMakakakapcfcfcfcfcfcfarapapapapapapakbOapaiaqaqaqaqaiawaiaqaqaqaiabababababababababababababababababababababababababababababababababababababababaa
+aaabababcaabcbabadabbUarapapcccgchapbdababababababahabababababababababababababababababababababababababababababababababababakabaJababaJaJababababapakakakakakakakakakakakakabababababababababababababababababababababababababababababababababababababababaa
+aaabababababcaabcbabbUcicjckckclcmchcnakakaSakakakakakakakakakahabababababababababababababababababababcoababababcpbBabababakabababababababababababababababakababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababadabcbabcaabaiapapapcqcqcrataiababababababababababapbOakakakakbpakakabababababadabababababababababababababababababaSababababababbBababababababababakababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababcbabadabcaabbUapapapcsctakapaqabababababaeababbBabababcucvabcucuabakabababaJababababcwabababababbBababbBababababbBakakakakakakakakakakakakakakakakakabbBbBabababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababaiaiaibUaiaiaiaiaiabababababababababababababababababcxapabcyabababababczababababababbBababbBabababababakaiaiaqaicAawcAaiaqaiaiaiaiaiaiaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababcBababababababababababababbBababababababababababababababababakabababababababababababababababababababababababakaiakakcCcDakcEakcEakaicFcGcGcHaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababahababababababababakakakakakakakakakakakakakakakakakcIakakakaSazakakcJakcKaxapcLapapakapaiakbOararaiababababababababababababababababaJabababababababababababababababababababababababababababababaa
+aaababababababababababababababababababahabababababababababababbdaicMaqaqaicNaiaqcOcPbdaiaiaiaiaiaiaiaiabababababababababababaiakcQakakazcEapcEakaiapapapakaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiaiaiaiawaicRaiaiabaJaJababababaiakakbTakazakaIakapapapakazakakakakakaiabababababbBabababababaiaiaiaiaiaiaiaiakaiaiakaiaiaiaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiamaLaiakakakakaiabababababababaicEbOcSakakakapapakcTaparaNarcUakazakaiabababababababababababaiakakakcVaiakapakakaiakakcWapaiababababababaJabababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiakakaiakaCcXcYaiabababababababaiatapbTakazbOaxapbOapapazakcZdadbakakaiabababababababababababaibpdcakakaiapapakakaiakapcLataiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiakaiaiakakakakaiababaJababababaiapakakakazapbOazakazakazakakddakakakaiabababadabababababababaiakbpdebpakaparaSakakaparcLapaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababcBabababaiakakakakakakakaqabababababababaiakaSbTakcYakaAapbOakbyakakaSakakazakaiababababababahababababaiaiaiaiaiaiakarakakapapakakakaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiakakazazbpakakaqabababababahabaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiakaiabababababababababababaicEakakbpbpakapakakaiaiaiaiaiaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiakazakakakakaIaiabababababababaiakapapapapapapapazakakapapapapapakakaiabababababababababababaiakcVdfakaiapaSbpatatapapapakaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiakakakakakakaGaiabababababababaiaiaiaiaiakaiaiaiaiaiaiaiaiaiakaiaiaiaiabababababababababababaiakdgbpbpaiakakapdhatapapapakaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababaiaiaiaiaiaiaiaiaiabababababababaidiandjaiakaidjandkaidlandmaiapaiapdnaqabababababababababababaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababababababababababaiakapakawakawapakakaiapapapawapawdoapaiabababababababadabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababababababababababaiaqaiaiaiaiaiaiaqaiaiaiaqaiaiaiaiaiaiaiabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababdpababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababahabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaababababababababababababababababababababababababababababababahababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

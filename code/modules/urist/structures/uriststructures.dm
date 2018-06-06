@@ -315,7 +315,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //mapping objects
 
 /obj/structure/table/standard/flipped
-	climbable = 0
+	flags = OBJ_CLIMBABLE
 
 	flipped = 1
 	icon_state = "flip0"

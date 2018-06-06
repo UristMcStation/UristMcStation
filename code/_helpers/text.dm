@@ -23,11 +23,17 @@
  */
 
 //Used for preprocessing entered text
+//Added in an additional check to alert players if input is too long
 /proc/sanitize(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
 	if(!input)
 		return
 
 	if(max_length)
+		//testing shows that just looking for > max_length alone will actually cut off the final character if message is precisely max_length, so >= instead
+		if(length(input) >= max_length)
+			var/overflow = ((length(input)+1) - max_length)
+			to_chat(usr, "<span class='warning'>Your message is too long by [overflow] character\s.</span>")
+			return
 		input = copytext(input,1,max_length)
 
 	if(extra)
@@ -332,6 +338,37 @@ proc/TextPreview(var/string,var/len=40)
 		. += ascii2text(letter)
 	. = jointext(.,null)
 
+// For processing simple markup, similar to what Skype and Discord use.
+// Enabled from a config setting.
+/proc/process_chat_markup(var/message, var/list/ignore_tags = list())
+	if (!config.allow_chat_markup)
+		return message
+
+	if (!message)
+		return ""
+
+	// ---Begin URL caching.
+	var/list/urls = list()
+	var/i = 1
+	while (url_find_lazy.Find(message))
+		urls["\ref[urls]-[i]"] = url_find_lazy.match
+		i++
+
+	for (var/ref in urls)
+		message = replacetextEx(message, urls[ref], ref)
+	// ---End URL caching
+
+	var/regex/tag_markup
+	for (var/tag in (markup_tags - ignore_tags))
+		tag_markup = markup_regex[tag]
+		message = tag_markup.Replace(message, "$2[markup_tags[tag][1]]$3[markup_tags[tag][2]]$5")
+
+	// ---Unload URL cache
+	for (var/ref in urls)
+		message = replacetextEx(message, ref, urls[ref])
+
+	return message
+
 #define starts_with(string, substring) (copytext(string,1,1+length(substring)) == substring)
 
 #define gender2text(gender) capitalize(gender)
@@ -381,3 +418,13 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[solcrest\]", "<img src = sollogo.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
+
+// Random password generator
+/proc/GenerateKey()
+	//Feel free to move to Helpers.
+	var/newKey
+	newKey += pick("the", "if", "of", "as", "in", "a", "you", "from", "to", "an", "too", "little", "snow", "dead", "drunk", "rosebud", "duck", "al", "le")
+	newKey += pick("diamond", "beer", "mushroom", "assistant", "clown", "captain", "twinkie", "security", "nuke", "small", "big", "escape", "yellow", "gloves", "monkey", "engine", "nuclear", "ai")
+	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+	return newKey
+

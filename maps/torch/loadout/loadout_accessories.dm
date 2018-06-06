@@ -19,6 +19,50 @@
 	path = /obj/item/clothing/accessory/wcoat
 	allowed_roles = FORMAL_ROLES
 
+/datum/gear/accessory/zhongshan
+	display_name = "zhongshan jacket"
+	path = /obj/item/clothing/accessory/toggleable/zhongshan
+	allowed_roles = FORMAL_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/dashiki
+	display_name = "dashiki selection"
+	path = /obj/item/clothing/accessory/dashiki
+	allowed_roles = NON_MILITARY_ROLES
+
+/datum/gear/accessory/dashiki/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/dashiki)
+
+/datum/gear/accessory/thawb
+	display_name = "thawb"
+	path = /obj/item/clothing/accessory/thawb
+	allowed_roles = NON_MILITARY_ROLES
+
+/datum/gear/accessory/sherwani
+	display_name = "sherwani"
+	path = /obj/item/clothing/accessory/sherwani
+	allowed_roles = FORMAL_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/qipao
+	display_name = "qipao blouse"
+	path = /obj/item/clothing/accessory/qipao
+	allowed_roles = NON_MILITARY_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sweater
+	display_name = "turtleneck sweater"
+	path = /obj/item/clothing/accessory/sweater
+	allowed_roles = NON_MILITARY_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/tangzhuang
+	display_name = "tangzhuang jacket"
+	path = /obj/item/clothing/accessory/tangzhuang
+	allowed_roles = NON_MILITARY_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/necklace
 	display_name = "necklace"
 	path = /obj/item/clothing/accessory/necklace
@@ -40,6 +84,11 @@
 	path = /obj/item/clothing/accessory/armband
 	allowed_roles = SECURITY_ROLES
 
+/datum/gear/accessory/armband_mp
+	display_name = "military police armband"
+	path = /obj/item/clothing/accessory/armband/mp
+	allowed_roles = list(/datum/job/officer, /datum/job/warden, /datum/job/hos, /datum/job/detective)
+
 /datum/gear/accessory/armband_cargo
 	display_name = "cargo armband"
 	path = /obj/item/clothing/accessory/armband/cargo
@@ -53,12 +102,12 @@
 /datum/gear/accessory/armband_emt
 	display_name = "EMT armband"
 	path = /obj/item/clothing/accessory/armband/medgreen
-	allowed_roles = list("Corpsman", "Medical Contractor")
+	allowed_roles = list(/datum/job/doctor, /datum/job/doctor_contractor)
 
 /datum/gear/accessory/armband_corpsman
 	display_name = "medical corps armband"
 	path = /obj/item/clothing/accessory/armband/medblue
-	allowed_roles = list("Chief Medical Officer", "Physician", "Corpsman")
+	allowed_roles = list(/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor)
 
 /datum/gear/accessory/armband_engineering
 	display_name = "engineering armband"
@@ -68,7 +117,7 @@
 /datum/gear/accessory/armband_hydro
 	display_name = "hydroponics armband"
 	path = /obj/item/clothing/accessory/armband/hydro
-	allowed_roles = list("Research Director", "Scientist", "Research Assistant", "Passenger")
+	allowed_roles = list(/datum/job/rd, /datum/job/scientist, /datum/job/scientist_assistant, /datum/job/assistant)
 
 /datum/gear/accessory/armband_science
 	display_name = "science armband"
@@ -78,7 +127,7 @@
 /datum/gear/accessory/armband_nt
 	display_name = "NanoTrasen armband"
 	path = /obj/item/clothing/accessory/armband/whitered
-	allowed_roles = list("Research Director", "NanoTrasen Liaison", "Senior Researcher", "NanoTrasen Pilot", "Scientist", "Prospector", "Security Guard", "Research Assistant", "Maintenance Assistant", "Roboticist", "Medical Assistant", "Virologist", "Chemist", "Counselor", "Supply Assistant", "Sanitation Technician", "Cook", "Bartender")
+	allowed_roles = list(/datum/job/rd, /datum/job/liaison, /datum/job/senior_scientist, /datum/job/nt_pilot, /datum/job/scientist, /datum/job/mining, /datum/job/guard, /datum/job/scientist_assistant, /datum/job/engineer_contractor, /datum/job/roboticist, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/cargo_contractor, /datum/job/janitor, /datum/job/chef, /datum/job/bartender)
 
 /datum/gear/accessory/armband_solgov
 	display_name = "peacekeeper armband"
@@ -104,6 +153,15 @@
 /datum/gear/accessory/holster/New()
 	..()
 	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/holster)
+
+/datum/gear/accessory/ubac
+	display_name = "ubac selection"
+	path = /obj/item/clothing/accessory/ubac
+	allowed_roles = MILITARY_ROLES
+
+/datum/gear/accessory/ubac/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/ubac)
 
 /datum/gear/accessory/tie
 	display_name = "tie selection"
@@ -134,39 +192,39 @@
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
 	cost = 3
-	allowed_roles = list("Chief Engineer", "Senior Engineer", "Engineer", "Maintenance Assistant", "Roboticist", "Deck Officer", "Deck Technician",
-						"Supply Assistant", "Prospector", "Sanitation Technician", "Research Assistant", "Merchant", "SolGov Pilot", "NanoTrasen Pilot")
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/senior_engineer, /datum/job/engineer, /datum/job/engineer_contractor, /datum/job/roboticist, /datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/cargo_contractor, /datum/job/mining, /datum/job/janitor, /datum/job/scientist_assistant, /datum/job/merchant, /datum/job/solgov_pilot, /datum/job/nt_pilot)
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
 	cost = 3
-	allowed_roles = list("Chief of Security", "Brig Officer", "Forensic Technician", "Master at Arms", "Security Guard", "Merchant")
+	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer, /datum/job/guard, /datum/job/merchant)
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Corpsman", "Medical Contractor", "Merchant")
+	allowed_roles = list(/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_contractor, /datum/job/merchant)
 
 /datum/gear/accessory/brown_drop_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/drop_pouches/brown
 	cost = 3
-	allowed_roles = list("Chief Engineer", "Senior Engineer", "Engineer", "Maintenance Assistant", "Roboticist", "Deck Officer", "Deck Technician",
-						"Supply Assistant", "Prospector", "Sanitation Technician", "Research Assistant", "Merchant")
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/senior_engineer, /datum/job/engineer, /datum/job/engineer_contractor, /datum/job/roboticist, /datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/cargo_contractor, /datum/job/mining, /datum/job/janitor, /datum/job/scientist_assistant, /datum/job/merchant)
 
 /datum/gear/accessory/black_drop_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/drop_pouches/black
 	cost = 3
-	allowed_roles = list("Chief of Security", "Brig Officer", "Forensic Technician", "Master at Arms", "Security Guard", "Merchant")
+	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer, /datum/job/guard, /datum/job/merchant)
 
 /datum/gear/accessory/white_drop_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/drop_pouches/white
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Physician", "Corpsman", "Medical Contractor", "Merchant")
+	allowed_roles = list(/datum/job/cmo, /datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_contractor, /datum/job/merchant)
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"

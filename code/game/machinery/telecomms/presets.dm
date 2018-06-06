@@ -58,6 +58,14 @@
 	produces_heat = 0
 	autolinkers = list("c_relay")
 
+/obj/machinery/telecomms/relay/preset/wyrm_prim
+	id = "Primary Deck Relay"
+	autolinkers = list("prim_relay")
+
+/obj/machinery/telecomms/relay/preset/wyrm_sub
+	id = "Sub Deck Relay"
+	autolinkers = list("sub_relay")
+
 //HUB
 
 /obj/machinery/telecomms/hub/preset
@@ -73,6 +81,12 @@
 	produces_heat = 0
 	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
 	 "centcomm", "receiverCent", "broadcasterCent")
+
+/obj/machinery/telecomms/hub/preset/wyrm
+	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
+	light_color = "#66ccff"
+	light_power = 2
+	light_range = 5
 
 //Receivers
 
@@ -95,6 +109,11 @@
 	autolinkers = list("receiverCent")
 	freq_listening = list(ERT_FREQ, DTH_FREQ)
 
+/obj/machinery/telecomms/receiver/preset_wyrm
+	id = "Wyrm Receiver"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	autolinkers = list("receiverWyrm")
 
 //Buses
 
@@ -136,6 +155,12 @@
 	produces_heat = 0
 	autolinkers = list("processorCent", "centcomm")
 
+/obj/machinery/telecomms/bus/preset_wyrm
+	id = "Main Bus"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	autolinkers = list("processorWyrm", "busWyrm")
+
 //Processors
 
 /obj/machinery/telecomms/processor/preset_one
@@ -163,6 +188,11 @@
 	network = "tcommsat"
 	produces_heat = 0
 	autolinkers = list("processorCent")
+
+/obj/machinery/telecomms/processor/preset_wyrm
+	id = "Main Processor"
+	network = "tcommsat"
+	autolinkers = list("processorWyrm")
 
 //Servers
 
@@ -229,6 +259,10 @@
 	produces_heat = 0
 	autolinkers = list("centcomm")
 
+/obj/machinery/telecomms/server/presets/wyrm
+	id = "Wyrm NAT"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	autolinkers = list("serverWyrm", "broadcasterWyrm")
 
 //Broadcasters
 
@@ -244,3 +278,8 @@
 	network = "tcommsat"
 	produces_heat = 0
 	autolinkers = list("broadcasterCent")
+
+/obj/machinery/telecomms/broadcaster/preset_wyrm
+	id = "Wyrm Broadcaster"
+	network = "tcommsat"
+	autolinkers = list("broadcasterWyrm")

@@ -87,7 +87,7 @@ proc/get_radio_key_from_channel(var/channel)
 	return default_language
 
 /mob/proc/is_muzzled()
-	return 0
+	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
 //Takes a list of the form list(message, verb, whispering) and modifies it as needed
 //Returns 1 if a speech problem was applied, 0 otherwise
@@ -147,6 +147,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
+	message = process_chat_markup(message, list("~", "_"))
+
 	switch(copytext(message,1,2))
 		if("*") return emote(copytext(message,2))
 		if("^") return custom_emote(1, copytext(message,2))
@@ -163,10 +165,10 @@ proc/get_radio_key_from_channel(var/channel)
 	//parse the language code and consume it
 	if(!speaking)
 		speaking = parse_language(message)
-	if(speaking)
-		message = copytext(message,2+length(speaking.key))
-	else
-		speaking = get_default_language()
+		if(speaking)
+			message = copytext(message,2+length(speaking.key))
+		else
+			speaking = get_default_language()
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.

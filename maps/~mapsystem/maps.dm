@@ -1,6 +1,5 @@
-
-var/datum/map/using_map = new USING_MAP_DATUM
-var/list/all_maps = list()
+GLOBAL_DATUM_INIT(using_map, /datum/map, new USING_MAP_DATUM)
+GLOBAL_LIST_EMPTY(all_maps)
 
 var/const/MAP_HAS_BRANCH = 1	//Branch system for occupations, togglable
 var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
@@ -8,15 +7,15 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /hook/startup/proc/initialise_map_list()
 	for(var/type in typesof(/datum/map) - /datum/map)
 		var/datum/map/M
-		if(type == using_map.type)
-			M = using_map
+		if(type == GLOB.using_map.type)
+			M = GLOB.using_map
 			M.setup_map()
 		else
 			M = new type
 		if(!M.path)
 			log_error("Map '[M]' does not have a defined path, not adding to map list!")
 		else
-			all_maps[M.path] = M
+			GLOB.all_maps[M.path] = M
 	return 1
 
 
@@ -35,7 +34,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 
 	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
-
+	var/list/usable_email_tlds = list("freemail.nt")
 	var/base_floor_type = /turf/simulated/floor/airless // The turf type used when generating floors between Z-levels at startup.
 	var/base_floor_area                                 // Replacement area, if a base_floor_type is generated. Leave blank to skip.
 
@@ -58,25 +57,27 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/company_short = "BM"
 	var/system_name = "Uncharted System"
 
+	var/map_admin_faxes = list()
+
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
 	var/shuttle_called_message
 	var/shuttle_recall_message
 	var/emergency_shuttle_docked_message
 	var/emergency_shuttle_leaving_dock
-	var/emergency_shuttle_called_message
 	var/emergency_shuttle_recall_message
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
 	var/list/holodeck_supported_programs = list() // map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
-                                                  // this is in order to support multiple holodeck program listings for different holodecks
+												  // this is in order to support multiple holodeck program listings for different holodecks
 	                                              // second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
 	                                              // as defined in holodeck_programs
 	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
 
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
+	var/default_spawn = "Arrivals Shuttle"
 	var/flags = 0
 	var/evac_controller_type = /datum/evacuation_controller
 	var/use_overmap = 0		//If overmap should be used (including overmap space travel override)
@@ -88,15 +89,14 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/lobby_screens = list()                 // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 	var/lobby_music/lobby_music                     // The track that will play in the lobby screen. Handed in the /setup_map() proc.
 
-	var/list/branch_types  // list of branch datum paths for military branches available on this map
-	var/list/spawn_branch_types  // subset of above for branches a player can spawn in with
-
-	var/default_law_type = /datum/ai_laws/nanotrasen // The default lawset use by synth units, if not overriden by their laws var.
+	var/default_law_type = /datum/ai_laws/nanotrasen  // The default lawset use by synth units, if not overriden by their laws var.
+	var/security_state = /decl/security_state/default // The default security state system to use.
 
 	var/id_hud_icons = 'icons/mob/hud.dmi' // Used by the ID HUD (primarily sechud) overlay.
 
+	var/num_exoplanets = 0
+
 /datum/map/New()
-	..()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
 	if(!allowed_jobs)
@@ -108,12 +108,22 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(lobby_music_tracks.len)
 		lobby_music_type = pick(lobby_music_tracks)
 	lobby_music = new lobby_music_type()
+	world.update_status()
 
 /datum/map/proc/send_welcome()
 	return
 
 /datum/map/proc/perform_map_generation()
 	return
+
+/datum/map/proc/build_exoplanets()
+	if(!use_overmap)
+		return
+
+	for(var/i = 0, i < num_exoplanets, i++)
+		var/exoplanet_type = pick(subtypesof(/obj/effect/overmap/sector/exoplanet))
+		var/obj/effect/overmap/sector/exoplanet/new_planet = new exoplanet_type
+		new_planet.build_level()
 
 // Used to apply various post-compile procedural effects to the map.
 /datum/map/proc/refresh_mining_turfs()
@@ -133,7 +143,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = using_map.accessible_z_levels.Copy()
+	var/list/candidates = GLOB.using_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)

@@ -178,10 +178,10 @@
 		/obj/structure/scrap/large
 		)
 
-/obj/structure/scrap/random/New()
+/obj/structure/scrap/random/Initialize()
 	var/A = pick(scrap_list)
 	new A(src.loc)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/storage/internal/updating/update_icon()
 	master_item.update_icon()

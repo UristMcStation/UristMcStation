@@ -28,6 +28,7 @@
 	set_flooring(get_flooring_data(/decl/flooring/reinforced/cult))
 	cult.add_cultiness(CULTINESS_PER_TURF)
 
+
 /turf/proc/cultify_wall()
 	var/turf/simulated/wall/wall = src
 	if(!istype(wall))

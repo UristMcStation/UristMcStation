@@ -1,13 +1,13 @@
 //BYOND fucking hates this file
 
 /datum/game_mode/scom/proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
-	for(var/mob/living/carbon/human/M in player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
+	for(var/mob/living/carbon/human/M in GLOB.player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 		HandleScomJoinFor(M)
 		world << ("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>")
 
 
 /datum/game_mode/scom/proc/ScomRobotTime() //have to break up the proc because BYOND
-	for(var/mob/living/silicon/S in player_list)
+	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			S.loc = pick(scomspawn3)
 			for(var/obj/item/weapon/cell/cell in S)
@@ -127,8 +127,8 @@
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
-					if(!deleted(object))
-						object.initialize()
+					if(!QDELETED(object))
+						object.Initialize()
 
 			world.log << "S-COM Maps loaded."
 

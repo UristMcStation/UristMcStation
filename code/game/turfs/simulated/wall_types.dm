@@ -6,16 +6,22 @@
 	icon_state = "rgeneric"
 /turf/simulated/wall/ocp_wall/New(var/newloc)
 	..(newloc, "osmium-carbide plasteel", "osmium-carbide plasteel")
-
+/turf/simulated/wall/r_titanium
+	icon_state = "rgeneric"
+/turf/simulated/wall/r_titanium/New(var/newloc)
+	..(newloc,"titanium", "titanium")
 
 
 
 /turf/simulated/wall/cult
 	icon_state = "cult"
+
 /turf/simulated/wall/cult/New(var/newloc, var/reinforce = 0)
 	..(newloc,"cult",reinforce ? "cult2" : null)
+
 /turf/simulated/wall/cult/reinf/New(var/newloc)
 	..(newloc, 1)
+
 /turf/simulated/wall/cult/dismantle_wall()
 	cult.remove_cultiness(CULTINESS_PER_TURF)
 	..()
@@ -59,3 +65,25 @@
 	return
 /turf/simulated/wall/titanium/New(var/newloc)
 	..(newloc,"titanium")
+
+/turf/simulated/wall/alium
+	icon_state = "jaggy"
+	floor_type = /turf/simulated/floor/fixed/alium
+
+/turf/simulated/wall/alium/New(var/newloc)
+	..(newloc,"alien alloy")
+
+/turf/simulated/wall/alium/ex_act(severity)
+	if(prob(explosion_resistance))
+		return
+	..()
+
+/turf/simulated/wall/biomass
+	icon_state = "diona"
+	floor_type = /turf/simulated/floor/diona
+
+/turf/simulated/wall/biomass/New(var/newloc)
+	..(newloc,"biomass")
+
+/turf/simulated/wall/concrete/New(var/newloc)
+	..(newloc,"concrete")

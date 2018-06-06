@@ -30,6 +30,9 @@
 			if(cargo_holder.cargo.len >= cargo_holder.cargo_capacity)
 				occupant_message("<span class='warning'>Not enough room in cargo compartment.</span>")
 				return
+			if(istype(O, /obj/machinery/power/supermatter))
+				occupant_message("<span class='warning'>Warning: Safety systems prevent the loading of [target] into the cargo compartment.</span>")
+				return
 
 			occupant_message("You lift [target] and start to load it into cargo compartment.")
 			chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
@@ -87,6 +90,11 @@
 		occupant_message("<span class='danger'>You start to drill \the [target]</span>")
 		var/T = chassis.loc
 		var/C = target.loc	//why are these backwards? we may never know -Pete
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/organ/external/E = H.organs_by_name[BP_CHEST]
+			E.take_damage(25)
+			return 1
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
 				if(istype(target, /turf/simulated/wall))
@@ -189,7 +197,7 @@
 	New()
 		reagents = new/datum/reagents(max_water)
 		reagents.my_atom = src
-		reagents.add_reagent("water", max_water)
+		reagents.add_reagent(/datum/reagent/water, max_water)
 		..()
 		return
 
@@ -363,7 +371,7 @@
 	var/turf/T = get_turf(target)
 	if(T)
 		if(isAdminLevel(T.z))
-			return		
+			return
 		set_ready_state(0)
 		chassis.use_power(energy_drain)
 		do_teleport(chassis, T, 4)

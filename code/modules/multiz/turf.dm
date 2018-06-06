@@ -27,16 +27,16 @@
 	..()
 	update()
 
-/turf/simulated/open/initialize()
-	..()
+/turf/simulated/open/Initialize()
+	. = ..()
 	update()
 
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
-	turf_changed_event.register(below, src, /turf/simulated/open/update_icon)
+	GLOB.turf_changed_event.register(below, src, /turf/simulated/open/update_icon)
 	var/turf/simulated/T = get_step(src,NORTH)
 	if(T)
-		turf_changed_event.register(T, src, /turf/simulated/open/update_icon)
+		GLOB.turf_changed_event.register(T, src, /turf/simulated/open/update_icon)
 	levelupdate()
 	for(var/atom/movable/A in src)
 		A.fall()
@@ -48,6 +48,11 @@
 /turf/simulated/open/Entered(var/atom/movable/mover)
 	..()
 	mover.fall()
+
+// Called when thrown object lands on this turf.
+/turf/simulated/open/hitby(var/atom/movable/AM, var/speed)
+	. = ..()
+	AM.fall()
 
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
@@ -111,3 +116,4 @@
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return 1
+

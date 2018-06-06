@@ -41,6 +41,14 @@
 	alpha = 77 // 0.3 * 255
 	material = "glass"
 
+/obj/structure/table/glass/phoron
+	material = "rphglass"
+	color = COLOR_PURPLE
+
+/obj/structure/table/phoron
+	icon_state = "plain_preview"
+	material = "phoron"
+
 /obj/structure/table/holotable
 	icon_state = "holo_preview"
 	color = COLOR_OFF_WHITE

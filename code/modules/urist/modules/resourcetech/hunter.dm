@@ -49,7 +49,7 @@
 				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
-				nanomanager.update_uis(src)
+				GLOB.nanomanager.update_uis(src)
 				return
 
 			else
@@ -88,11 +88,7 @@
 //we're skipping curing and going straight to soaking. Skipping liming and going straight to dehairing, and skipping all the stages with the chemicals and just going straight to our tanning rack.
 
 /obj/item/stack/hide/wet/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(	istype(W, /obj/item/weapon/material/knife) || \
-		istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || \
-		istype(W, /obj/item/weapon/material/twohanded/fireaxe) || \
-		istype(W, /obj/item/weapon/material/hatchet))
-
+	if(is_sharp(W))
 		if(!busy)
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
 			busy = 1

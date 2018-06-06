@@ -26,7 +26,7 @@ datum/unit_test/human_breath
 
 
 datum/unit_test/human_breath/start_test()
-	var/turf/T = locate(20,20,1) //TODO:  Find better way.
+	var/turf/T = get_space_turf()
 
 	if(!istype(T, /turf/space))	//If the above isn't a space turf then we force it to find one will most likely pick 1,1,1
 		T = locate(/turf/space)
@@ -95,6 +95,11 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 			loss = M.getToxLoss()
 		if(OXY)
 			loss = M.getOxyLoss()
+			if(istype(M,/mob/living/carbon/human))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name["lungs"]
+				if(L)
+					loss = L.oxygen_deprivation
 		if(CLONE)
 			loss = M.getCloneLoss()
 		if(PAIN)
@@ -132,7 +137,7 @@ datum/unit_test/mob_damage
 datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)
 	var/damage_amount = 5	// Do not raise, if damage >= 10 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage()
-                                // Which makes checks impossible.
+							// Which makes checks impossible.
 
 	if(isnull(test))
 		fail("Check Runtimed in Mob creation")

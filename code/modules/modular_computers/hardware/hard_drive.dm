@@ -8,6 +8,7 @@
 	var/max_capacity = 128
 	var/used_capacity = 0
 	var/list/stored_files = list()		// List of stored files on this drive. DO NOT MODIFY DIRECTLY!
+	matrix_stat = MTRX_PROC
 
 /obj/item/weapon/computer_hardware/hard_drive/advanced
 	name = "advanced hard drive"

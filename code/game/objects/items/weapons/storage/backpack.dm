@@ -119,6 +119,11 @@
 	desc = "It's a light backpack modeled for use in laboratories and other scientific institutions."
 	icon_state = "toxpack"
 
+/obj/item/weapon/storage/backpack/nt
+	name = "\improper NanoTrasen backpack"
+	desc = "It's a light backpack modeled for use in laboratories and other scientific institutions."
+	icon_state = "ntpack"
+
 /obj/item/weapon/storage/backpack/hydroponics
 	name = "herbalist's backpack"
 	desc = "It's a green backpack with many pockets to store plants and tools in."
@@ -251,6 +256,11 @@
 	desc = "Useful for holding research materials."
 	icon_state = "satchel-tox"
 
+/obj/item/weapon/storage/backpack/satchel_nt
+	name = "\improper NanoTrasen satchel"
+	desc = "Useful for holding research materials."
+	icon_state = "satchel-nt"
+
 /obj/item/weapon/storage/backpack/satchel_sec
 	name = "security satchel"
 	desc = "A robust satchel for security related needs."
@@ -340,6 +350,11 @@
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
 	icon_state = "courierbagtox"
+
+/obj/item/weapon/storage/backpack/messenger/nt
+	name = "\improper NanoTrasen messenger bag"
+	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
+	icon_state = "courierbagnt"
 
 /obj/item/weapon/storage/backpack/messenger/com
 	name = "captain's messenger bag"

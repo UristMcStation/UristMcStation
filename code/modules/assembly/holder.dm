@@ -213,10 +213,10 @@
 
 /obj/item/device/assembly_holder/New()
 	..()
-	listening_objects += src
+	GLOB.listening_objects += src
 
 /obj/item/device/assembly_holder/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	return ..()
 
 
@@ -242,7 +242,7 @@
 		tmr.time=5
 		tmr.secured = 1
 		tmr.holder = src
-		processing_objects.Add(tmr)
+		GLOB.processing_objects.Add(tmr)
 		a_left = tmr
 		a_right = ign
 		secured = 1
@@ -284,3 +284,23 @@
 					to_chat(usr, "<span class='notice'>Timer can't be [ntime<=0?"negative":"more than 1000 seconds"].</span>")
 		else
 			to_chat(usr, "<span class='notice'>You cannot do this while [usr.stat?"unconscious/dead":"restrained"].</span>")
+
+/obj/item/device/assembly_holder/prox_igniter
+	name = "proximity igniter"
+
+/obj/item/device/assembly_holder/prox_igniter/New()
+	..()
+	var/obj/item/device/assembly/igniter/I = new(src)
+	var/obj/item/device/assembly/prox_sensor/P = new(src)
+
+	I.secured = TRUE
+	I.holder = src
+
+	P.secured = TRUE
+	P.holder = src
+	P.scanning = TRUE
+
+	a_left = I
+	a_right = P
+	secured = TRUE
+	update_icon()

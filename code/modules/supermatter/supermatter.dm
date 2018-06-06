@@ -49,7 +49,6 @@
 
 	layer = ABOVE_OBJ_LAYER
 
-	rad_power = 1 //So it gets added to the repository
 	var/gasefficency = 0.25
 
 	var/base_icon_state = "darkmatter"
@@ -95,9 +94,60 @@
 
 	var/debug = 0
 
+	var/disable_adminwarn = FALSE
+
+	var/aw_normal = FALSE
+	var/aw_notify = FALSE
+	var/aw_warning = FALSE
+	var/aw_danger = FALSE
+	var/aw_emerg = FALSE
+	var/aw_delam = FALSE
+	var/aw_EPR = FALSE
+
 /obj/machinery/power/supermatter/New()
 	..()
 	uid = gl_uid++
+
+/obj/machinery/power/supermatter/proc/handle_admin_warnings()
+	if(disable_adminwarn)
+		return
+
+	// Generic checks, similar to checks done by supermatter monitor program.
+	aw_normal = status_adminwarn_check(SUPERMATTER_NORMAL, aw_normal, "INFO: Supermatter crystal has been energised.", FALSE)
+	aw_notify = status_adminwarn_check(SUPERMATTER_NOTIFY, aw_notify, "INFO: Supermatter crystal is approaching unsafe operating temperature.", FALSE)
+	aw_warning = status_adminwarn_check(SUPERMATTER_WARNING, aw_warning, "WARN: Supermatter crystal is taking integrity damage!", FALSE)
+	aw_danger = status_adminwarn_check(SUPERMATTER_DANGER, aw_danger, "WARN: Supermatter integrity is below 50%!", TRUE)
+	aw_emerg = status_adminwarn_check(SUPERMATTER_EMERGENCY, aw_emerg, "CRIT: Supermatter integrity is below 25%!", FALSE)
+	aw_delam = status_adminwarn_check(SUPERMATTER_DELAMINATING, aw_delam, "CRIT: Supermatter is delaminating!", TRUE)
+
+	// EPR check. Only runs when supermatter is energised. Triggers when there is very low amount of coolant in the core (less than one standard canister).
+	// This usually means a core breach or deliberate venting.
+	if(get_status() && (get_epr() < 0.5))
+		if(!aw_EPR)
+			log_and_message_admins("WARN: Supermatter EPR value low. Possible core breach detected.")
+		aw_EPR = TRUE
+	else
+		aw_EPR = FALSE
+
+/obj/machinery/power/supermatter/proc/status_adminwarn_check(var/min_status, var/current_state, var/message, var/send_to_irc = FALSE)
+	var/status = get_status()
+	if(status >= min_status)
+		if(!current_state)
+			log_and_message_admins(message)
+			if(send_to_irc)
+				send2adminirc(message)
+		return TRUE
+	else
+		return FALSE
+
+/obj/machinery/power/supermatter/proc/get_epr()
+	var/turf/T = get_turf(src)
+	if(!istype(T))
+		return
+	var/datum/gas_mixture/air = T.return_air()
+	if(!air)
+		return 0
+	return round((air.total_moles / air.group_multiplier) / 23.1, 0.01)
 
 /obj/machinery/power/supermatter/proc/get_status()
 	var/turf/T = get_turf(src)
@@ -139,7 +189,7 @@
 	exploded = 1
 	sleep(pull_time)
 	var/turf/TS = get_turf(src)		// The turf supermatter is on. SM being in a locker, mecha, or other container shouldn't block it's effects that way.
-	if(!TS)
+	if(!istype(TS))
 		return
 
 	var/list/affected_z = GetConnectedZlevels(TS.z)
@@ -148,7 +198,7 @@
 	for(var/z in affected_z)
 		radiation_repository.z_radiate(locate(1, 1, z), DETONATION_RADS, 1)
 
-	for(var/mob/living/mob in living_mob_list_)
+	for(var/mob/living/mob in GLOB.living_mob_list_)
 		var/turf/TM = get_turf(mob)
 		if(!TM)
 			continue
@@ -159,7 +209,7 @@
 		to_chat(mob, "<span class='danger'>An invisible force slams you against the ground!</span>")
 
 	// Effect 2: Z-level wide electrical pulse
-	for(var/obj/machinery/power/apc/A in machines)
+	for(var/obj/machinery/power/apc/A in GLOB.machines)
 		if(!(A.z in affected_z))
 			continue
 
@@ -173,7 +223,7 @@
 		else
 			A.energy_fail(round(DETONATION_SHUTDOWN_APC * random_change))
 
-	for(var/obj/machinery/power/smes/buildable/S in machines)
+	for(var/obj/machinery/power/smes/buildable/S in GLOB.machines)
 		if(!(S.z in affected_z))
 			continue
 		// Causes SMESes to shut down for a bit
@@ -182,7 +232,7 @@
 
 	// Effect 3: Break solar arrays
 
-	for(var/obj/machinery/power/solar/S in machines)
+	for(var/obj/machinery/power/solar/S in GLOB.machines)
 		if(!(S.z in affected_z))
 			continue
 		if(prob(DETONATION_SOLAR_BREAK_CHANCE))
@@ -225,17 +275,17 @@
 	else
 		alert_msg = null
 	if(alert_msg)
-		global_announcer.autosay(alert_msg, "Supermatter Monitor", "Engineering")
+		GLOB.global_announcer.autosay(alert_msg, "Supermatter Monitor", "Engineering")
 		//Public alerts
 		if((damage > emergency_point) && !public_alert)
-			global_announcer.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
+			GLOB.global_announcer.autosay("WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT!", "Supermatter Monitor")
 			public_alert = 1
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				var/turf/T = get_turf(M)
-				if(T && (T.z in using_map.station_levels) && !istype(M,/mob/new_player) && !isdeaf(M))
+				if(T && (T.z in GLOB.using_map.station_levels) && !istype(M,/mob/new_player) && !isdeaf(M))
 					sound_to(M, 'sound/ambience/matteralarm.ogg')
 		else if(safe_warned && public_alert)
-			global_announcer.autosay(alert_msg, "Supermatter Monitor")
+			GLOB.global_announcer.autosay(alert_msg, "Supermatter Monitor")
 			public_alert = 0
 
 
@@ -327,16 +377,10 @@
 		if(!istype(l.glasses, /obj/item/clothing/glasses/meson))
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 
-/*
-	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
-	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
-	for(var/mob/living/l in range(src, round(sqrt(power / 2))))
-		var/radius = max(get_dist(l, src), 1)
-		var/rads = (power / 10) * ( 1 / (radius**2) )
-		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
-*/
-	rad_power = power * 1.5 //Better close those shutters!
+
+	radiation_repository.radiate(src, power * 1.5) //Better close those shutters!
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
+	handle_admin_warnings()
 
 	return 1
 
@@ -392,7 +436,7 @@
 	data["detonating"] = grav_pulling
 	data["energy"] = power
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "supermatter_crystal.tmpl", "Supermatter Crystal", 500, 300)
 		ui.set_initial_data(data)
@@ -404,6 +448,13 @@
 	if(istype(W, /obj/item/weapon/tape_roll))
 		to_chat(user, "You repair some of the damage to \the [src] with \the [W].")
 		damage = max(damage -10, 0)
+
+	if(istype(W, /obj/item/weapon/veilrender)) //Sure, why not all of them
+		var/obj/item/weapon/veilrender/V = W
+		V.charged = 1
+		V.visible_message("\icon[V] \The [V] begins to glow and hum as [user] touches \the [src] with it.",\
+		"You feel a vibration and see \the [V] glow as you touch \the [V] to \the [src].")
+		return
 
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\

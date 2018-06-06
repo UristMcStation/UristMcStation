@@ -8,15 +8,15 @@
 	icon_screen = "crew"
 	circuit = /obj/item/weapon/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
-	var/obj/machinery/optable/table = null
+	var/obj/watching = null
 
 /obj/machinery/computer/operating/New()
 	..()
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		table = locate(/obj/machinery/optable, get_step(src, dir))
-		if (table)
-			table.computer = src
-			break
+	for(var/direction in GLOB.cardinal)
+		for(var/obj/O in get_step(src, direction))
+			if((O.flags & OBJ_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
+				watching = O
+				return
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	add_fingerprint(user)
@@ -33,8 +33,9 @@
 
 
 /obj/machinery/computer/operating/interact(mob/user)
-	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
-		if (!istype(user, /mob/living/silicon))
+	victim = null
+	if(!Adjacent(user) || (stat & (BROKEN|NOPOWER)))
+		if(!istype(user, /mob/living/silicon))
 			user.unset_machine()
 			user << browse(null, "window=op")
 			return
@@ -42,25 +43,19 @@
 	user.set_machine(src)
 	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
 	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
-	if(src.table && (src.table.check_victim()))
-		src.victim = src.table.victim
+	if(istype(watching, /obj/machinery/optable))
+		var/obj/machinery/optable/OT = watching
+		if(OT.victim)
+			victim = OT.victim
+	else if(watching.buckled_mob)
+		victim = watching.buckled_mob
+	if(victim)
 		dat += {"
 <B>Patient Information:</B><BR>
 <BR>
-<B>Name:</B> [src.victim.real_name]<BR>
-<B>Age:</B> [src.victim.age]<BR>
-<B>Blood Type:</B> [src.victim.b_type]<BR>
-<BR>
-<B>Health:</B> [src.victim.health]<BR>
-<B>Brute Damage:</B> [src.victim.getBruteLoss()]<BR>
-<B>Toxins Damage:</B> [src.victim.getToxLoss()]<BR>
-<B>Fire Damage:</B> [src.victim.getFireLoss()]<BR>
-<B>Suffocation Damage:</B> [src.victim.getOxyLoss()]<BR>
-<B>Patient Status:</B> [src.victim.stat ? "Non-Responsive" : "Stable"]<BR>
-<B>Heartbeat rate:</B> [victim.get_pulse(GETPULSE_TOOL)]<BR>
+[medical_scan_results(victim, 1)]
 "}
 	else
-		src.victim = null
 		dat += {"
 <B>Patient Information:</B><BR>
 <BR>
@@ -73,11 +68,11 @@
 /obj/machinery/computer/operating/Topic(href, href_list)
 	if(..())
 		return 1
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 	return
 
 
 /obj/machinery/computer/operating/process()
 	if(..())
-		src.updateDialog()
+		updateDialog()

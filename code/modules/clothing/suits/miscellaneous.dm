@@ -13,7 +13,7 @@
 	desc = "Blue Pride, Galaxy Wide."
 	icon_state = "bluetag"
 	item_state = "bluetag"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/blue)
 	siemens_coefficient = 3.0
@@ -23,7 +23,7 @@
 	desc = "Reputed to go faster."
 	icon_state = "redtag"
 	item_state = "redtag"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO
 	allowed = list (/obj/item/weapon/gun/energy/lasertag/red)
 	siemens_coefficient = 3.0
@@ -164,8 +164,8 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
-/obj/item/clothing/suit/cardborg/initialize()
-	..()
+/obj/item/clothing/suit/cardborg/Initialize()
+	. = ..()
 	set_extension(src, /datum/extension/appearance, /datum/extension/appearance/cardborg)
 
 /*
@@ -449,7 +449,9 @@
 /obj/item/clothing/suit/poncho/roles/science
 	name = "science poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	icon = 'icons/urist/restored/suits.dmi'
 	icon_state = "sciponcho"
+	item_icons = URIST_ALL_ONMOBS
 	item_state = "sciponcho"
 
 /obj/item/clothing/suit/poncho/roles/cargo
@@ -491,3 +493,28 @@
 	icon_state = "trackjacketwhite"
 	icon_open = "trackjacketwhite_open"
 	icon_closed = "trackjacketwhite"
+
+/obj/item/clothing/suit/rubber
+	name = "human suit"
+	desc = "Rubber suit, perfect for infiltrating Earthling nudist beaches."
+	icon_state = "mansuit"
+	permeability_coefficient = 0
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	siemens_coefficient = 0.8
+
+/obj/item/clothing/suit/rubber/tajaran
+	name = "tajara suit"
+	desc = "Rubber suit covered in artificial fur. No tajaran interns harmed excessively in making."
+	icon_state = "catsuit"
+
+/obj/item/clothing/suit/rubber/skrell
+	name = "skrell suit"
+	desc = "Rubber suit of slimy texture. Not guaranteed to fool real Skrell."
+	icon_state = "skrellsuit"
+
+/obj/item/clothing/suit/rubber/unathi
+	name = "unathi suit"
+	desc = "Rubber suit with muscle painted on. Would probably fool average Unathi."
+	icon_state = "lizsuit"

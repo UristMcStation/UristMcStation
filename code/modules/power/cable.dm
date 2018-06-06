@@ -79,6 +79,8 @@ var/list/possible_cable_coil_colours
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
+/obj/structure/cable/fadeblue
+	color = "#4f637d"
 /obj/structure/cable/New()
 	..()
 
@@ -95,11 +97,11 @@ var/list/possible_cable_coil_colours
 	cable_list += src //add it to the global cable list
 
 
-/obj/structure/cable/Destroy()					// called when a cable is deleted
+/obj/structure/cable/Destroy()     // called when a cable is deleted
 	if(powernet)
-		cut_cable_from_powernet()				// update the powernets
-	cable_list -= src							//remove it from global cable list
-	..()										// then go ahead and delete the cable
+		cut_cable_from_powernet()  // update the powernets
+	cable_list -= src              // remove it from global cable list
+	. = ..()                       // then go ahead and delete the cable
 
 
 // Ghost examining the cable -> tells him the power
@@ -108,7 +110,7 @@ var/list/possible_cable_coil_colours
 		user.examinate(src)
 		// following code taken from attackby (multitool)
 		if(powernet && (powernet.avail > 0))
-			to_chat(user, "<span class='warning'>[powernet.avail]W in power network.</span>")
+			to_chat(user, "<span class='warning'>[get_wattage()] in power network.</span>")
 		else
 			to_chat(user, "<span class='warning'>The cable is not powered.</span>")
 	return
@@ -116,6 +118,13 @@ var/list/possible_cable_coil_colours
 ///////////////////////////////////
 // General procedures
 ///////////////////////////////////
+
+/obj/structure/cable/proc/get_wattage()
+	if(powernet.avail >= 1000000000)
+		return "[round(powernet.avail/1000000, 0.01)] MW"
+	if(powernet.avail >= 1000000)
+		return "[round(powernet.avail/1000, 0.01)] kW"
+	return "[round(powernet.avail)] W"
 
 //If underfloor, hide the cable
 /obj/structure/cable/hide(var/i)
@@ -193,7 +202,7 @@ var/list/possible_cable_coil_colours
 	else if(istype(W, /obj/item/device/multitool))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
-			to_chat(user, "<span class='warning'>[powernet.avail]W in power network.</span>")
+			to_chat(user, "<span class='warning'>[get_wattage()] in power network.</span>")
 
 		else
 			to_chat(user, "<span class='warning'>The cable is not powered.</span>")
@@ -232,7 +241,6 @@ var/list/possible_cable_coil_colours
 			if (prob(25))
 				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
 				qdel(src)
-	return
 
 obj/structure/cable/proc/cableColor(var/colorC)
 	var/color_n = "#DD0000"
@@ -292,7 +300,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 // merge with the powernets of power objects in the given direction
 /obj/structure/cable/proc/mergeConnectedNetworks(var/direction)
 
-	var/fdir = direction ? reverse_dir[direction] : 0 //flip the direction, to match with the source position on its turf
+	var/fdir = direction ? GLOB.reverse_dir[direction] : 0 //flip the direction, to match with the source position on its turf
 
 	if(!(d1 == direction || d2 == direction)) //if the cable is not pointed in this direction, do nothing
 		return
@@ -372,7 +380,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 0)
 			continue
-		var/reverse = reverse_dir[cable_dir]
+		var/reverse = GLOB.reverse_dir[cable_dir]
 		T = get_zstep(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -439,7 +447,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 
 	// remove the cut cable from its turf and powernet, so that it doesn't get count in propagate_network worklist
-	loc = null
+	forceMove(null)
 	powernet.remove_cable(src) //remove the cut cable from its powernet
 
 	var/datum/powernet/newPN = new()// creates a new powernet...
@@ -450,6 +458,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		for(var/obj/machinery/power/P in T1)
 			if(!P.connect_to_network()) //can't find a node cable on a the turf to connect to
 				P.disconnect_from_network() //remove from current network
+
+	powernet = null // And finally null the powernet var.
 
 ///////////////////////////////////////////////
 // The cable coil object, used for laying cable

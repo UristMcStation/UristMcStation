@@ -6,6 +6,7 @@
 	base_icon = "chair"
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled
+	flags = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
 /obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -74,6 +75,9 @@
 	..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
+
+/obj/structure/bed/chair/AltClick()
+	rotate()
 
 /obj/structure/bed/chair/verb/rotate()
 	set name = "Rotate Chair"

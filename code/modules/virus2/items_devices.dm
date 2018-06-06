@@ -47,11 +47,12 @@
 
 /obj/item/weapon/virusdish/random
 	name = "virus sample"
+	var/severity = 3
 
 /obj/item/weapon/virusdish/random/New()
 	..()
 	src.virus2 = new /datum/disease2/disease
-	src.virus2.makerandom()
+	src.virus2.makerandom(severity)
 	growth = rand(5, 50)
 
 /obj/item/weapon/virusdish/attackby(var/obj/item/weapon/W as obj,var/mob/living/carbon/user as mob)
@@ -100,13 +101,12 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0"
 	w_class = ITEM_SIZE_TINY
-	var/datum/disease2/effectholder/effect = null
+	var/datum/disease2/effect/effect = null
 	var/list/species = null
 	var/stage = 1
 	var/analysed = 1
 
 /obj/item/weapon/diseasedisk/premade/New()
 	name = "blank GNA disk (stage: [stage])"
-	effect = new /datum/disease2/effectholder
-	effect.effect = new /datum/disease2/effect/invisible
+	effect = new /datum/disease2/effect/invisible
 	effect.stage = stage

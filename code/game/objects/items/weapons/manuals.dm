@@ -151,7 +151,7 @@
 
 /obj/item/weapon/book/manual/rust_engine
 	name = "R-UST Operating Manual"
-	icon_state = "bookSupermatter"
+	icon_state = "bookMagazine"
 	author = "Cindy Crawfish"
 	title = "R-UST Operating Manual"
 
@@ -173,14 +173,14 @@
 				<i>This guide appears to have been scribbled in haste on the back of a WetSkrell magazine...</i>
 				<br><br>
 				<ol>
-				<li>Put uranium in the portable generator near the gyrotron and turn it to full. This is to provide initial power to the core.</li>
-				<li>Enable and max output on the SMES in the engine room. This is to power the gyrotron.</li>
-				<li>Go into the control room, interact with the fusion core control console. Turn the field on and raise size to 501. Any bigger and it will start EMPing the doors. Any smaller and the fuel pellets might miss.</li>
-				<li>Interact with the gyrotron control computer, set power as high as the SMES can support, usually around 4, and turn it on. This will start increasing the plasma temperature to the point where reactions can occur.</li>
-				<li>Go into the engine room and insert a deuterium fuel assembly and a tritium fuel assembly into two of the fuel injectors. You can make deuterium rods in the fuel compressor if you want to play it safe.</li>
-				<li>Go back to the control room and turn the fuel injectors on. This will start firing pellets into the field.</li>
-				<li>Wait for reactions to start (plasma temperature will spike and fuel amounts will drop). Turn the gyrotron power down until it's keeping up with field instability. This will prevent cumulative instability from the deuterium-tritium reaction fucking up the field. If you're using straight deuterium instability isn't a problem and you can turn the gyrotron off.</li>
-				<li>Configure the SMES, turn the PACMAN off before it explodes.</li>
+				<li>Locate the engine SMES connected to the orange wire and enable its output to maximum.</li>
+				<li>Ensure the breaker box is enabled as to allow the core power.</li>
+				<li>Locate the deuterium inside a crate nearby the breaker box, insert it into the fuel compressor and load 3 assemblies into the injectors located around the chamber.</li>
+				<li>Enter the control room and access the fusion core. Then turn the field range to 501 and enable it, you should now see a visible field around the core.</li>
+				<li>Access the gyrotron controller and turn its power to the maximum of your current power setup(Typically 8 with 1 Standard Engine SMES), and the delay to 1.</li>
+				<li>While the plasma is heating to 1000 kelven start fuel injections of deuterium with the injector controller.</li>
+				<li>Once the fusion temperature has been reached the field should now begin to start glowing blue, you may now turn off the breaker box to prevent feedback loops.</li>
+				<li>Configure the SMESes for your installation and ensure that the plasma temperature never cools enough to stop reactions.</li>
 				</ol>
 				<br>
 				<b>NOTES FOR NEWBIES</b>
@@ -762,7 +762,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wikiurl][GLOB.using_map.name]/Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -830,7 +830,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wikiurl][GLOB.using_map.name]/Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -862,7 +862,7 @@
 				<br>
 				<h1>The Oath</h1>
 
-				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [using_map.company_name]</i><br>
+				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [GLOB.using_map.company_name]</i><br>
 
 				<ol>
 					<li>Now, as a new doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>

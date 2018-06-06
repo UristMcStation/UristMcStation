@@ -1,9 +1,11 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list_ -= src
-	living_mob_list_ -= src
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list_ -= src
+	GLOB.living_mob_list_ -= src
 	unset_machine()
 	qdel(hud_used)
+	for(var/obj/item/grab/G in grabbed_by)
+		qdel(G)
 	clear_fullscreen()
 	if(client)
 		remove_screen_obj_references()
@@ -15,7 +17,8 @@
 	if(mind && mind.current == src)
 		spellremove(src)
 	ghostize()
-	. = ..()
+	..()
+	return QDEL_HINT_HARDDEL_NOW
 
 /mob/proc/remove_screen_obj_references()
 	hands = null
@@ -40,7 +43,7 @@
 	zone_sel = null
 
 /mob/New()
-	mob_list += src
+	GLOB.mob_list += src
 	..()
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
@@ -128,13 +131,16 @@
 		O.show_message(message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE)
 
 /mob/proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[]", msg))
 			return M
 	return 0
 
 /mob/proc/movement_delay()
 	. = 0
+	if(istype(loc, /turf))
+		var/turf/T = loc
+		. += T.movement_delay
 	if(pulling)
 		if(istype(pulling, /obj))
 			var/obj/O = pulling
@@ -257,13 +263,13 @@
 
 //Gets the mob grab conga line.
 /mob/proc/ret_grab(list/L)
-	if (!istype(l_hand, /obj/item/weapon/grab) && !istype(r_hand, /obj/item/weapon/grab))
+	if (!istype(l_hand, /obj/item/grab) && !istype(r_hand, /obj/item/grab))
 		return L
 	if (!L)
 		L = list(src)
 	for(var/A in list(l_hand,r_hand))
-		if (istype(A, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = A
+		if (istype(A, /obj/item/grab))
+			var/obj/item/grab/G = A
 			if (!(G.affecting in L))
 				L += G.affecting
 				if (G.affecting)
@@ -432,7 +438,7 @@
 				namecounts[name] = 1
 			creatures[name] = O
 
-	for(var/mob/M in sortAtom(mob_list))
+	for(var/mob/M in sortAtom(GLOB.mob_list))
 		var/name = M.name
 		if (names.Find(name))
 			namecounts[name]++
@@ -483,18 +489,21 @@
 //	..()
 	return
 
-
 /mob/proc/pull_damage()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(H.health - H.getHalLoss() <= config.health_threshold_softcrit)
-			for(var/name in H.organs_by_name)
-				var/obj/item/organ/external/e = H.organs_by_name[name]
-				if(e && H.lying)
-					if((((e.status & ORGAN_BROKEN) && !e.splinted) || e.status & ORGAN_BLEEDING ) && (H.getBruteLoss() + H.getFireLoss() >= 100))
-						return 1
-						break
+	return 0
+
+/mob/living/carbon/human/pull_damage()
+	if(!lying || getBruteLoss() + getFireLoss() < 100)
 		return 0
+	for(var/thing in organs)
+		var/obj/item/organ/external/e = thing
+		if(!e || e.is_stump())
+			continue
+		if((e.status & ORGAN_BROKEN) && !e.splinted)
+			return 1
+		if(e.status & ORGAN_BLEEDING)
+			return 1
+	return 0
 
 /mob/MouseDrop(mob/M as mob)
 	..()
@@ -620,14 +629,26 @@
 			stat("Round Duration", roundduration2text())
 		if(client.holder || isghost(client.mob))
 			stat("Location:", "([x], [y], [z]) [loc]")
-		if(client.holder)
+
+	if(client.holder)
+		if(statpanel("Processes") && processScheduler)
+			processScheduler.statProcesses()
+		if(statpanel("MC"))
 			stat("CPU:","[world.cpu]")
 			stat("Instances:","[world.contents.len]")
-
-	if(client.holder && statpanel("Processes"))
-		if(processScheduler)
-			processScheduler.statProcesses()
-		sleep(1 SECOND)
+			stat(null)
+			if(Master)
+				Master.stat_entry()
+			else
+				stat("Master Controller:", "ERROR")
+			if(Failsafe)
+				Failsafe.stat_entry()
+			else
+				stat("Failsafe Controller:", "ERROR")
+			if(Master)
+				stat(null)
+				for(var/datum/controller/subsystem/SS in Master.subsystems)
+					SS.stat_entry()
 
 	if(listed_turf && client)
 		if(!TurfAdjacent(listed_turf))
@@ -679,16 +700,16 @@
 
 	if(lying)
 		set_density(0)
-		if(l_hand) unEquip(l_hand)
-		if(r_hand) unEquip(r_hand)
 	else
 		set_density(initial(density))
 	reset_layer()
 
-	for(var/obj/item/weapon/grab/G in grabbed_by)
-		if(G.state >= GRAB_AGGRESSIVE)
+	for(var/obj/item/grab/G in grabbed_by)
+		if(G.stop_move())
 			canmove = 0
-			break
+
+		if(G.force_stand())
+			lying = 0
 
 	//Temporarily moved here from the various life() procs
 	//I'm fixing stuff incrementally so this will likely find a better home.
@@ -746,6 +767,8 @@
 	if(status_flags & CANSTUN)
 		facing_dir = null
 		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
+		if(l_hand) unEquip(l_hand)
+		if(r_hand) unEquip(r_hand)
 	return
 
 /mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
@@ -781,6 +804,8 @@
 	if(status_flags & CANPARALYSE)
 		facing_dir = null
 		paralysis = max(max(paralysis,amount),0)
+		if(l_hand) unEquip(l_hand)
+		if(r_hand) unEquip(r_hand)
 	return
 
 /mob/proc/SetParalysis(amount)
@@ -796,6 +821,8 @@
 /mob/proc/Sleeping(amount)
 	facing_dir = null
 	sleeping = max(max(sleeping,amount),0)
+	if(l_hand) unEquip(l_hand)
+	if(r_hand) unEquip(r_hand)
 	return
 
 /mob/proc/SetSleeping(amount)
@@ -937,7 +964,7 @@ mob/proc/yank_out_object()
 
 	return 0
 
-/mob/proc/updateicon()
+/mob/update_icon()
 	return
 
 /mob/verb/face_direction()

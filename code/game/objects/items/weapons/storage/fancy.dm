@@ -60,6 +60,9 @@
 
 	startswith = list(/obj/item/weapon/reagent_containers/food/snacks/egg = 12)
 
+/obj/item/weapon/storage/fancy/egg_box/empty
+	startswith = null
+
 
 /*
  * Candle Box
@@ -130,7 +133,7 @@
 /obj/item/weapon/storage/fancy/cigarettes/New()
 	..()
 	flags |= NOREACT
-	create_reagents(5 * storage_slots)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
+	create_reagents(5 * max_storage_space)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 	flags |= OPENCONTAINER
 
 /obj/item/weapon/storage/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -185,7 +188,7 @@
 
 /obj/item/weapon/storage/fancy/cigarettes/killthroat/New()
 	..()
-	fill_cigarre_package(src,list("fuel" = 4))
+	fill_cigarre_package(src,list(/datum/reagent/fuel = 4))
 
 // New exciting ways to kill your lungs! - Earthcrusher //
 

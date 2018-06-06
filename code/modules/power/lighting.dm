@@ -42,7 +42,6 @@ var/global/list/light_type_cache = list()
 		if(istype(fixture, /obj/machinery/light))
 			fixture_type = fixture.type
 		fixture.transfer_fingerprints_to(src)
-		stage = 2
 
 	update_icon()
 
@@ -159,7 +158,7 @@ var/global/list/light_type_cache = list()
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect_system/sparks/spark_system
 
 	//default lighting - these are obtained from light_type
 	var/brightness_range
@@ -192,7 +191,7 @@ var/global/list/light_type_cache = list()
 /obj/machinery/light/New(atom/newloc, obj/machinery/light_construct/construct = null)
 	..(newloc)
 
-	s.set_up(1, 1, src)
+	spark_system = bind_spark(src, 3)
 
 	if(construct)
 		status = LIGHT_EMPTY
@@ -210,13 +209,10 @@ var/global/list/light_type_cache = list()
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
-	if(s)
-		qdel(s)
-		s = null
 	if(A)
 		on = 0
 //		A.update_lights()
-	..()
+	. = ..()
 
 /obj/machinery/light/update_icon()
 
@@ -407,9 +403,7 @@ var/global/list/light_type_cache = list()
 
 		to_chat(user, "You stick \the [W] into the light socket!")
 		if(powered() && (W.flags & CONDUCT))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -476,14 +470,14 @@ var/global/list/light_type_cache = list()
 			prot = 1
 
 		if(prot > 0 || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, "You remove the light [get_fitting_name()]")
+			to_chat(user, "You remove the [get_fitting_name()]")
 		else if(TK in user.mutations)
-			to_chat(user, "You telekinetically remove the light [get_fitting_name()].")
+			to_chat(user, "You telekinetically remove the [get_fitting_name()].")
 		else
-			to_chat(user, "You try to remove the light [get_fitting_name()], but it's too hot and you don't want to burn your hand.")
+			to_chat(user, "You try to remove the [get_fitting_name()], but it's too hot and you don't want to burn your hand.")
 			return				// if burned, don't remove the light
 	else
-		to_chat(user, "You remove the light [get_fitting_name()].")
+		to_chat(user, "You remove the [get_fitting_name()].")
 
 	// create a light tube/bulb item and put it in the user's hand
 	user.put_in_active_hand(remove_bulb())	//puts it in our active hand
@@ -494,7 +488,7 @@ var/global/list/light_type_cache = list()
 		to_chat(user, "There is no [get_fitting_name()] in this light.")
 		return
 
-	to_chat(user, "You telekinetically remove the light [get_fitting_name()].")
+	to_chat(user, "You telekinetically remove the [get_fitting_name()].")
 	remove_bulb()
 
 // ghost attack - make lights flicker like an AI, but even spookier!
@@ -512,10 +506,10 @@ var/global/list/light_type_cache = list()
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			s.set_up(3, 1, src)
-			s.start()
+			spark_system.queue()
 	status = LIGHT_BROKEN
 	update()
+	CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
@@ -564,7 +558,7 @@ var/global/list/light_type_cache = list()
 	spawn(0)
 		broken()	// break it first to give a warning
 		sleep(2)
-		explosion(T, 0, 0, 2, 2)
+		explosion(T, 0, 0, 3, 5)
 		sleep(1)
 		qdel(src)
 
@@ -602,18 +596,18 @@ obj/machinery/light/proc/burn_out()
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 
-	brightness_range = 8	// luminosity when on, also used in power calculation
+	brightness_range = 6	// luminosity when on, also used in power calculation
 	brightness_power = 3
 	brightness_color = "#FFFFFF"
 	lighting_modes = list(
-		"emergency_lighting" = list(l_range = 5, l_power = 1, l_color = "#da0205"),
+		"emergency_lighting" = list(l_range = 4, l_power = 1, l_color = "#da0205"),
 		)
 
 /obj/item/weapon/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
-	brightness_range = 12
-	brightness_power = 4
+	brightness_range = 8
+	brightness_power = 3
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -628,7 +622,7 @@ obj/machinery/light/proc/burn_out()
 	brightness_power = 2
 	brightness_color = "#a0a080"
 	lighting_modes = list(
-		"emergency_lighting" = list(l_range = 4, l_power = 1, l_color = "#da0205"),
+		"emergency_lighting" = list(l_range = 3, l_power = 1, l_color = "#da0205"),
 		)
 
 /obj/item/weapon/light/bulb/red
@@ -646,7 +640,7 @@ obj/machinery/light/proc/burn_out()
 	base_state = "fbulb"
 	item_state = "egg4"
 	matter = list("glass" = 100)
-	brightness_range = 5
+	brightness_range = 4
 	brightness_power = 2
 
 // update the icon state and description of the light
@@ -688,7 +682,7 @@ obj/machinery/light/proc/burn_out()
 
 		to_chat(user, "You inject the solution into the [src].")
 
-		if(S.reagents.has_reagent("phoron", 5))
+		if(S.reagents.has_reagent(/datum/reagent/toxin/phoron, 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")

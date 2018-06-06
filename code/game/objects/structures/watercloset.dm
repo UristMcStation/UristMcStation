@@ -52,29 +52,6 @@
 			update_icon()
 			return
 
-	if(istype(I, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = I
-
-		if(isliving(G.affecting))
-			var/mob/living/GM = G.affecting
-
-			if(G.state>1)
-				if(!GM.loc == get_turf(src))
-					to_chat(user, "<span class='notice'>[GM.name] needs to be on the toilet.</span>")
-					return
-				if(open && !swirlie)
-					user.visible_message("<span class='danger'>[user] starts to give [GM.name] a swirlie!</span>", "<span class='notice'>You start to give [GM.name] a swirlie!</span>")
-					swirlie = GM
-					if(do_after(user, 30, src))
-						user.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='notice'>You give [GM.name] a swirlie!</span>", "You hear a toilet flushing.")
-						GM.adjustOxyLoss(5)
-					swirlie = null
-				else
-					user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
-					GM.adjustBruteLoss(8)
-			else
-				to_chat(user, "<span class='notice'>You need a tighter grip.</span>")
-
 	if(cistern && !istype(user,/mob/living/silicon/robot)) //STOP PUTTING YOUR MODULES IN THE TOILET.
 		if(I.w_class > ITEM_SIZE_NORMAL)
 			to_chat(user, "<span class='notice'>\The [I] does not fit.</span>")
@@ -97,22 +74,6 @@
 	icon_state = "urinal"
 	density = 0
 	anchored = 1
-
-/obj/structure/urinal/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = I
-		if(isliving(G.affecting))
-			var/mob/living/GM = G.affecting
-			if(G.state>1)
-				if(!GM.loc == get_turf(src))
-					to_chat(user, "<span class='notice'>[GM.name] needs to be on the urinal.</span>")
-					return
-				user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
-				GM.adjustBruteLoss(8)
-			else
-				to_chat(user, "<span class='notice'>You need a tighter grip.</span>")
-
-
 
 /obj/machinery/shower
 	name = "shower"
@@ -298,7 +259,7 @@
 			if(istype(L))
 				process_heat(L)
 	wash_floor()
-	reagents.add_reagent("water", reagents.get_free_space())
+	reagents.add_reagent(/datum/reagent/water, reagents.get_free_space())
 
 /obj/machinery/shower/proc/wash_floor()
 	if(!ismist && is_washing)
@@ -397,7 +358,7 @@
 
 	var/obj/item/weapon/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
-		RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] using \the [src].</span>","<span class='notice'>You fill \the [RG] using \the [src].</span>")
 		return 1
 
@@ -419,7 +380,7 @@
 					"<span class='userdanger'>[user] was stunned by \his wet [O]!</span>")
 				return 1
 	else if(istype(O, /obj/item/weapon/mop))
-		O.reagents.add_reagent("water", 5)
+		O.reagents.add_reagent(/datum/reagent/water, 5)
 		to_chat(user, "<span class='notice'>You wet \the [O] in \the [src].</span>")
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return

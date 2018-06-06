@@ -1,3 +1,4 @@
+/*
 /obj/machinery/computer/shuttle_control/naval
 	name = "naval shuttle console"
 	shuttle_tag = "Naval"
@@ -66,3 +67,4 @@
 //	docking_controller_tag = "research_elevator_shaft"
 //	dock_target_station = "research_elevator_surface"
 //	dock_target_offsite = "research_elevator_underground"
+*/

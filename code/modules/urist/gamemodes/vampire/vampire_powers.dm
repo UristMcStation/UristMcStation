@@ -234,9 +234,9 @@
 		M.current << "<span class='warning'> They seem to be unaffected.</span>"
 		return
 	var/datum/disease2/disease/shutdown = new /datum/disease2/disease
-	var/datum/disease2/effectholder/holder = new /datum/disease2/effectholder
+	var/datum/disease2/effect/holder = new /datum/disease2/effect
 	var/datum/disease2/effect/organs/vampire/O = new /datum/disease2/effect/organs/vampire
-	holder.effect += O
+	holder += O
 	holder.chance = 10
 	shutdown.infectionchance = 100
 	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
@@ -438,7 +438,7 @@
 	if(M.current.vampire_power(75, 0))
 		var/list/turf/locs = new
 		var/number = 0
-		for(var/direction in alldirs) //looking for bat spawns
+		for(var/direction in GLOB.alldirs) //looking for bat spawns
 			if(locs.len == 2) //we found 2 locations and thats all we need
 				break
 			var/turf/T = get_step(M.current,direction) //getting a loc in that direction

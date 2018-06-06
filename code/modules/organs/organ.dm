@@ -44,8 +44,12 @@ var/list/organ_cache = list()
 /obj/item/organ/New(var/mob/living/carbon/holder)
 	..(holder)
 
-	if(!max_damage)
+	if(max_damage)
+		min_broken_damage = Floor(max_damage / 2)
+		min_bruised_damage = Floor(max_damage / 4)
+	else
 		max_damage = min_broken_damage * 2
+
 	if(istype(holder))
 		src.owner = holder
 		src.w_class = max(src.w_class + mob_size_difference(holder.mob_size, MOB_MEDIUM), 1) //smaller mobs have smaller organs.
@@ -63,7 +67,7 @@ var/list/organ_cache = list()
 		blood_DNA[dna.unique_enzymes] = dna.b_type
 
 	create_reagents(5 * (w_class-1)**2)
-	reagents.add_reagent("protein", reagents.maximum_volume)
+	reagents.add_reagent(/datum/reagent/nutriment/protein, reagents.maximum_volume)
 
 	update_icon()
 
@@ -77,11 +81,9 @@ var/list/organ_cache = list()
 		species = all_species[new_dna.species]
 
 /obj/item/organ/proc/die()
-	if(robotic >= ORGAN_ROBOT)
-		return
 	damage = max_damage
 	status |= ORGAN_DEAD
-	processing_objects -= src
+	GLOB.processing_objects -= src
 	if(owner && vital)
 		owner.death()
 
@@ -94,9 +96,7 @@ var/list/organ_cache = list()
 	if(status & ORGAN_DEAD)
 		return
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
-	if(istype(loc,/obj/item/device/mmi))
-		return
-	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/weapon/storage/box/freezer))
+	if(is_preserved())
 		return
 	//Process infections
 	if ((robotic >= ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
@@ -106,7 +106,7 @@ var/list/organ_cache = list()
 	if(!owner && reagents)
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && prob(40))
-			reagents.remove_reagent("blood",0.1)
+			reagents.remove_reagent(/datum/reagent/blood,0.1)
 			blood_splatter(src,B,1)
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
@@ -127,21 +127,31 @@ var/list/organ_cache = list()
 	if(damage >= max_damage)
 		die()
 
+/obj/item/organ/proc/is_preserved()
+	if(istype(loc,/obj/item/organ))
+		var/obj/item/organ/O = loc
+		return O.is_preserved()
+	else
+		return (istype(loc,/obj/item/device/mmi) || istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/weapon/storage/box/freezer))
+
 /obj/item/organ/examine(mob/user)
 	. = ..(user)
+	show_decay_status(user)
+
+/obj/item/organ/proc/show_decay_status(mob/user)
 	if(status & ORGAN_DEAD)
-		to_chat(user, "<span class='notice'>The decay has set in.</span>")
+		to_chat(user, "<span class='notice'>The decay has set into \the [src].</span>")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
-	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+	var/antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/spaceacillin)
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
+	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(owner.virus_immunity()*0.3))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
 		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
+		if(antibiotics < 5 && prob(round(germ_level/6 * owner.immunity_weakness() * 0.01)))
 			germ_level++
 
 	if(germ_level >= INFECTION_LEVEL_ONE)
@@ -151,7 +161,7 @@ var/list/organ_cache = list()
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
-		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
+		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(owner.immunity_weakness() * 0.3) ))
 			parent.germ_level++
 
 		if (prob(3))	//about once every 30 seconds
@@ -160,6 +170,8 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/handle_rejection()
 	// Process unsuitable transplants. TODO: consider some kind of
 	// immunosuppressant that changes transplant data to make it match.
+	if(owner.virus_immunity() < 10) //for now just having shit immunity will suppress it
+		return
 	if(dna)
 		if(!rejecting)
 			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
@@ -176,7 +188,7 @@ var/list/organ_cache = list()
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent("toxin", rand(1,2))
+						owner.reagents.add_reagent(/datum/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -207,7 +219,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/handle_antibiotics()
 	var/antibiotics = 0
 	if(owner)
-		antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+		antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/spaceacillin)
 
 	if (!germ_level || antibiotics < 5)
 		return
@@ -256,8 +268,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = 0
 	robotic = ORGAN_ASSISTED
-	min_bruised_damage = 15
-	min_broken_damage = 35
+	min_broken_damage += 5
 
 /obj/item/organ/emp_act(severity)
 	if(!(robotic >= ORGAN_ROBOT))
@@ -308,7 +319,7 @@ var/list/organ_cache = list()
 	if(drop_organ)
 		dropInto(owner.loc)
 
-	processing_objects |= src
+	GLOB.processing_objects |= src
 	rejecting = null
 	if(robotic < ORGAN_ROBOT)
 		var/datum/reagent/blood/organ_blood = locate(/datum/reagent/blood) in reagents.reagent_list //TODO fix this and all other occurences of locate(/datum/reagent/blood) horror
@@ -357,3 +368,36 @@ var/list/organ_cache = list()
 
 /obj/item/organ/proc/is_usable()
 	return !(status & (ORGAN_CUT_AWAY|ORGAN_MUTATED|ORGAN_DEAD))
+
+/obj/item/organ/proc/get_scan_results()
+	. = list()
+	if(robotic == ORGAN_ASSISTED)
+		. += "Assisted"
+	else if(robotic == ORGAN_ROBOT)
+		. += "Mechanical"
+	if(status & ORGAN_CUT_AWAY)
+		. += "Severed"
+	if(status & ORGAN_MUTATED)
+		. += "Genetic Deformation"
+	if(status & ORGAN_DEAD)
+		. += "Necrotic"
+	switch (germ_level)
+		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
+			. +=  "Mild Infection"
+		if (INFECTION_LEVEL_ONE + 200 to INFECTION_LEVEL_ONE + 300)
+			. +=  "Mild Infection+"
+		if (INFECTION_LEVEL_ONE + 300 to INFECTION_LEVEL_ONE + 400)
+			. +=  "Mild Infection++"
+		if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + 200)
+			. +=  "Acute Infection"
+		if (INFECTION_LEVEL_TWO + 200 to INFECTION_LEVEL_TWO + 300)
+			. +=  "Acute Infection+"
+		if (INFECTION_LEVEL_TWO + 300 to INFECTION_LEVEL_TWO + 400)
+			. +=  "Acute Infection++"
+		if (INFECTION_LEVEL_THREE to INFINITY)
+			. +=  "Septic"
+	if(rejecting)
+		. += "Genetic Rejection"
+		
+/obj/item/organ/proc/isrobotic()
+	return robotic >= ORGAN_ROBOT

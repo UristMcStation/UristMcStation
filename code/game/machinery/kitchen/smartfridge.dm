@@ -216,7 +216,7 @@
 		overlays.Cut()
 		if(panel_open)
 			overlays += image(icon, icon_panel)
-		nanomanager.update_uis(src)
+		GLOB.nanomanager.update_uis(src)
 		return
 
 	if(istype(O, /obj/item/device/multitool)||istype(O, /obj/item/weapon/wirecutters))
@@ -270,7 +270,7 @@
 
 /obj/machinery/smartfridge/proc/stock(var/datum/stored_items/I, var/obj/item/O)
 	I.add_product(O)
-	nanomanager.update_uis(src)
+	GLOB.nanomanager.update_uis(src)
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
 	attack_hand(user)
@@ -305,7 +305,7 @@
 	if(items.len > 0)
 		data["contents"] = items
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "smartfridge.tmpl", src.name, 400, 500)
 		ui.set_initial_data(data)
@@ -315,7 +315,7 @@
 	if(..()) return 0
 
 	var/mob/user = usr
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+	var/datum/nanoui/ui = GLOB.nanomanager.get_open_ui(user, src, "main")
 
 	src.add_fingerprint(user)
 

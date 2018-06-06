@@ -29,11 +29,11 @@
 /obj/item/device/assembly/prox_sensor/toggle_secure()
 	secured = !secured
 	if(secured)
-		processing_objects.Add(src)
+		GLOB.processing_objects.Add(src)
 	else
 		scanning = 0
 		timing = 0
-		processing_objects.Remove(src)
+		GLOB.processing_objects.Remove(src)
 	update_icon()
 	return secured
 
@@ -42,8 +42,10 @@
 	if(!istype(AM))
 		log_debug("DEBUG: HasProximity called with [AM] on [src] ([usr]).")
 		return
-	if (istype(AM, /obj/effect/beam))	return
-	if (AM.move_speed < 12)	sense()
+	if (istype(AM, /obj/effect/beam))
+		return
+	if (AM.move_speed < 12 && AM.simulated)
+		sense()
 	return
 
 
@@ -65,7 +67,7 @@
 	if(scanning)
 		var/turf/mainloc = get_turf(src)
 		for(var/mob/living/A in range(range,mainloc))
-			if (A.move_speed < 12)
+			if (A.move_speed < 12 && A.simulated)
 				sense()
 
 	if(timing && (time >= 0))
@@ -130,7 +132,7 @@
 	return
 
 
-/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = physical_state)
+/obj/item/device/assembly/prox_sensor/Topic(href, href_list, state = GLOB.physical_state)
 	if(..()) return 1
 	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 		usr << browse(null, "window=prox")

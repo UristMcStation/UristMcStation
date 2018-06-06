@@ -1,6 +1,6 @@
-/datum/species/resomi
+/datum/species/teshari
 	name = SPECIES_RESOMI
-	name_plural = "Resomii"
+	name_plural = "Tesharii"
 	blurb = "A race of feathered raptors who developed on a cold world, almost \
 	outside of the Goldilocks zone. Extremely fragile, they developed hunting skills \
 	that emphasized taking out their prey without themselves getting hit. They are an \
@@ -26,8 +26,8 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
 
-	slowdown = -1
-	total_health = 50
+	slowdown = -0.1
+	total_health = 150
 	brute_mod = 1.35
 	burn_mod =  1.35
 	metabolism_mod = 2.0

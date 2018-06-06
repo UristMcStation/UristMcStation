@@ -70,8 +70,8 @@
 //Meteor spawning global procs
 ///////////////////////////////
 
-/proc/pick_meteor_start(var/startSide = pick(cardinal))
-	var/startLevel = pick(using_map.station_levels)
+/proc/pick_meteor_start(var/startSide = pick(GLOB.cardinal))
+	var/startLevel = pick(GLOB.using_map.station_levels)
 	var/pickedstart = spaceDebrisStartLoc(startSide, startLevel)
 
 	return list(startLevel, pickedstart)
@@ -151,7 +151,7 @@
 	var/z_original
 	var/meteordrop = /obj/item/weapon/ore/iron
 	var/dropamt = 1
-	
+
 	var/move_count = 0
 
 /obj/effect/meteor/proc/get_shield_damage()
@@ -173,7 +173,7 @@
 
 /obj/effect/meteor/Destroy()
 	walk(src,0) //this cancels the walk_towards() proc
-	..()
+	return ..()
 
 /obj/effect/meteor/New()
 	..()
@@ -181,7 +181,7 @@
 
 /obj/effect/meteor/Bump(atom/A)
 	..()
-	if(A && !deleted(src))	// Prevents explosions and other effects when we were deleted by whatever we Bumped() - currently used by shields.
+	if(A && !QDELETED(src))	// Prevents explosions and other effects when we were deleted by whatever we Bumped() - currently used by shields.
 		ram_turf(get_turf(A))
 		get_hit() //should only get hit once per move attempt
 
@@ -222,13 +222,12 @@
 		O.throw_at(dest, 5, 10)
 
 /obj/effect/meteor/proc/meteor_effect()
-	if(heavy)
-		for(var/mob/M in player_list)
-			var/turf/T = get_turf(M)
-			if(!T || T.z != src.z)
-				continue
-			var/dist = get_dist(M.loc, src.loc)
-			shake_camera(M, dist > 20 ? 3 : 5, dist > 20 ? 1 : 3)
+	for(var/mob/M in GLOB.player_list)
+		var/turf/T = get_turf(M)
+		if(!T || T.z != src.z)
+			continue
+		var/dist = get_dist(M.loc, src.loc)
+		shake_camera(M, dist > 20 ? 3 : 5, dist > 20 ? 1 : 3)
 
 
 ///////////////////////

@@ -2,7 +2,10 @@
 
 /obj/machinery/power/emitter
 	name = "emitter"
-	desc = "It is a heavy duty industrial laser."
+	desc = "A massive heavy industrial laser. This design is a fixed installation, capable of shooting in only one direction."
+	description_info = "You must secure this in place with a wrench and weld it to the floor before using it. The emitter will only fire if it is installed above a cable endpoint. Clicking will toggle it on and off, at which point, so long as it remains powered, it will fire in a single direction in bursts of four."
+	description_fluff = "Lasers like this one have been in use for ages, in applications such as mining, cutting, and in the startup sequence of many advanced space station and starship engines."
+	description_antag = "This baby is capable of slicing through walls, sealed lockers, and people."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "emitter"
 	anchored = 0
@@ -24,6 +27,7 @@
 	var/shot_number = 0
 	var/state = 0
 	var/locked = 0
+	var/mapped_damage
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
@@ -36,18 +40,18 @@
 	set name = "Rotate"
 	set category = "Object"
 	set src in oview(1)
-	
+
 	if(usr.incapacitated())
 		return
-    
+
 	if (src.anchored)
 		to_chat(usr, "It is fastened to the floor!")
 		return 0
 	src.set_dir(turn(src.dir, 90))
 	return 1
 
-/obj/machinery/power/emitter/initialize()
-	..()
+/obj/machinery/power/emitter/Initialize()
+	. = ..()
 	if(state == 2 && anchored)
 		connect_to_network()
 		if(_wifi_id)
@@ -140,7 +144,10 @@
 
 		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
 		playsound(src.loc, A.fire_sound, 25, 1)
-		A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
+		if(mapped_damage)
+			A.damage = mapped_damage
+		else
+			A.damage = round(power_per_shot/EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch( get_step(src.loc, src.dir) )
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)

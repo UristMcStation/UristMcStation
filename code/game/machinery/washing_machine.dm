@@ -22,13 +22,9 @@
 	var/gibs_ready = 0
 	var/obj/crayon
 
-/obj/machinery/washing_machine/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/washing_machine(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
+/obj/machinery/washing_machine/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/washing_machine)
 
 /obj/machinery/washing_machine/Destroy()
 	qdel(crayon)
@@ -112,9 +108,9 @@
 				..()
 		else
 			..()
-	else if(istype(W,/obj/item/weapon/grab))
+	else if(istype(W,/obj/item/grab))
 		if( (state == 1) && hacked)
-			var/obj/item/weapon/grab/G = W
+			var/obj/item/grab/G = W
 			if(ishuman(G.assailant) && iscorgi(G.affecting))
 				G.affecting.loc = src
 				qdel(G)
@@ -189,13 +185,15 @@
 		if(2)
 			state = 1
 			for(var/atom/movable/O in contents)
-				O.forceMove(loc)
+				if(!(O in component_parts))
+					O.forceMove(loc)
 		if(3)
 			state = 4
 		if(4)
 			state = 3
 			for(var/atom/movable/O in contents)
-				O.forceMove(src)
+				if(!(O in component_parts))
+					O.forceMove(src)
 			crayon = null
 			state = 1
 		if(5)
@@ -209,7 +207,8 @@
 					var/mob/M = locate(/mob,contents)
 					M.gib()
 			for(var/atom/movable/O in contents)
-				O.forceMove(src.loc)
+				if(!(O in component_parts))
+					O.forceMove(src.loc)
 			crayon = null
 			state = 1
 

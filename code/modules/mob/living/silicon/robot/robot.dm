@@ -32,7 +32,6 @@
 
 //Hud stuff
 
-	var/obj/screen/cells = null
 	var/obj/screen/inv1 = null
 	var/obj/screen/inv2 = null
 	var/obj/screen/inv3 = null
@@ -114,7 +113,7 @@
 	module_sprites["Basic"] = "robot"
 	icontype = "Basic"
 	updatename(modtype)
-	updateicon()
+	update_icon()
 
 	radio = new /obj/item/device/radio/borg(src)
 	common_radio = radio
@@ -254,15 +253,16 @@
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
-	updateicon()
+	update_icon()
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module()
 	if(module)
 		return
 	var/list/modules = list()
-	modules.Add(robot_module_types)
-	if((crisis && security_level == SEC_LEVEL_RED) || crisis_override) //Leaving this in until it's balanced appropriately.
+	modules.Add(GLOB.robot_module_types)
+	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	if((crisis && security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level)) || crisis_override) //Leaving this in until it's balanced appropriately.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot module", null, null) as null|anything in modules
@@ -312,7 +312,7 @@
 
 	// Synths aren't in data_core, but are on manifest. Invalidate old one so the
 	// synth shows up.
-	data_core.ResetPDAManifest()
+	GLOB.data_core.ResetPDAManifest()
 
 	//We also need to update name of internal camera.
 	if (camera)
@@ -341,7 +341,7 @@
 			custom_name = newname
 
 		updatename()
-		updateicon()
+		update_icon()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
@@ -525,7 +525,7 @@
 				if(do_after(user, 50, src))
 					to_chat(user, "<span class='notice'>You close \the [src]'s maintenance hatch.</span>")
 					opened = 0
-					updateicon()
+					update_icon()
 
 			else if(wiresexposed && wires.IsAllCut())
 				//Cell is out, wires are exposed, remove MMI, produce damaged chassis, baleet original mob.
@@ -541,7 +541,7 @@
 					C.parts[BP_R_LEG] = new/obj/item/robot_parts/r_leg(C)
 					C.parts[BP_L_ARM] = new/obj/item/robot_parts/l_arm(C)
 					C.parts[BP_R_ARM] = new/obj/item/robot_parts/r_arm(C)
-					C.updateicon()
+					C.update_icon()
 					new/obj/item/robot_parts/chest(loc)
 					qdel(src)
 
@@ -578,7 +578,7 @@
 				if(do_after(user, 50, src))
 					to_chat(user, "<span class='notice'>You open \the [src]'s maintenance hatch.</span>")
 					opened = 1
-					updateicon()
+					update_icon()
 
 	else if (istype(W, /obj/item/weapon/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 		if(storage)
@@ -620,14 +620,14 @@
 	else if(istype(W, /obj/item/weapon/screwdriver) && opened && !cell)	// haxing
 		wiresexposed = !wiresexposed
 		to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"].")
-		updateicon()
+		update_icon()
 
 	else if(istype(W, /obj/item/weapon/screwdriver) && opened && cell)	// radio
 		if(radio)
 			radio.attackby(W,user)//Push it to the radio to let it handle everything
 		else
 			to_chat(user, "Unable to locate a radio.")
-		updateicon()
+		update_icon()
 
 	else if(istype(W, /obj/item/device/encryptionkey/) && opened)
 		if(radio)//sanityyyyyy
@@ -643,7 +643,7 @@
 			if(allowed(usr))
 				locked = !locked
 				to_chat(user, "You [ locked ? "lock" : "unlock"] [src]'s interface.")
-				updateicon()
+				update_icon()
 			else
 				to_chat(user, "<span class='warning'>Access denied.</span>")
 	else if(istype(W, /obj/item/borg/upgrade/))
@@ -673,6 +673,9 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
+		if(H.a_intent == I_HELP && H.zone_sel.selecting == BP_HEAD)
+			H.visible_message("[H] pats [name] on their head.")
+			return
 		if(H.species.can_shred(H))
 			attack_generic(H, rand(30,50), "slashed")
 			return
@@ -687,7 +690,7 @@
 			cell = null
 			cell_component.wrapped = null
 			cell_component.installed = 0
-			updateicon()
+			update_icon()
 		else if(cell_component.installed == -1)
 			cell_component.installed = 0
 			var/obj/item/broken_device = cell_component.wrapped
@@ -727,7 +730,7 @@
 			return 1
 	return 0
 
-/mob/living/silicon/robot/updateicon()
+/mob/living/silicon/robot/update_icon()
 	var/list/custom_cover  //Add the sprite name from the list where a cyborg picks its module, then change that sprite's name to match for this to work.
 	custom_cover = list("Advanced-Drone", "Wiredroid", "Worm", "Spider", "Eyebot")
 
@@ -982,7 +985,7 @@
 	else
 		icontype = input("Select an icon! [triesleft ? "You have [triesleft] more chance\s." : "This is your last try."]", "Robot Icon", icontype, null) in module_sprites
 	icon_state = module_sprites[icontype]
-	updateicon()
+	update_icon()
 
 	if (module_sprites.len > 1 && triesleft >= 1 && client)
 		icon_selection_tries--
@@ -1085,7 +1088,7 @@
 				clear_inherent_laws()
 				laws = new /datum/ai_laws/syndicate_override
 				var/time = time2text(world.realtime,"hh:mm:ss")
-				lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+				GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 				set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
 				SetLockdown(0)
 				. = 1
@@ -1114,7 +1117,7 @@
 						if(rebuild)
 							src.module.modules += new /obj/item/weapon/pickaxe/diamonddrill(src.module)
 							src.module.rebuild()
-					updateicon()
+					update_icon()
 			else
 				to_chat(user, "You fail to hack [src]'s interface.")
 				to_chat(src, "Hack attempt detected.")

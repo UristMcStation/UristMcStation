@@ -64,8 +64,8 @@
 	icon_state = "map_vent_in"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
-	internal_pressure_bound = 2000
-	internal_pressure_bound_default = 2000
+	internal_pressure_bound = MAX_PUMP_PRESSURE
+	internal_pressure_bound_default = MAX_PUMP_PRESSURE
 	pressure_checks = 2
 	pressure_checks_default = 2
 
@@ -82,12 +82,16 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/Destroy()
 	unregister_radio(src, frequency)
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
 	power_channel = EQUIP
 	power_rating = 15000	//15 kW ~ 20 HP
+
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/on
+	use_power = 1
+	icon_state = "map_vent_out"
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/New()
 	..()
@@ -240,6 +244,9 @@
 		"flow_rate" = last_flow_rate,
 	)
 
+	if(!initial_loc)
+		initial_loc = get_area(src)
+
 	if(!initial_loc.air_vent_names[id_tag])
 		var/new_name = "[initial_loc.name] Vent Pump #[initial_loc.air_vent_names.len+1]"
 		initial_loc.air_vent_names[id_tag] = new_name
@@ -251,8 +258,8 @@
 	return 1
 
 
-/obj/machinery/atmospherics/unary/vent_pump/initialize()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/Initialize()
+	. = ..()
 
 	//some vents work his own special way
 	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
@@ -382,6 +389,10 @@
 			"You hear welding.")
 		return 1
 
+	if(ismultitool(W))
+		broadcast_status()
+		to_chat(user, "<span class='notice'>A [name == "Air Vent" ? "red" : "green"] light appears on \the [src] as it broadcasts atmospheric data.</span>")
+		flick("broadcast", src)
 	else
 		..()
 

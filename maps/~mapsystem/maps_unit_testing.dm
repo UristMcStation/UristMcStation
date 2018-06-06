@@ -4,8 +4,22 @@
 	var/const/NO_SCRUBBER = 4
 
 	// Unit test vars
-	var/list/apc_test_exempt_areas = list()
-	var/list/area_coherency_test_exempt_areas = list(/area/space)
+	var/list/apc_test_exempt_areas = list(
+		/area/exoplanet          = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/snow     = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC
+	)
+
+	var/list/area_coherency_test_exempt_areas = list(
+		/area/space,
+		/area/exoplanet,
+		/area/exoplanet/desert,
+		/area/exoplanet/grass,
+		/area/exoplanet/snow,
+		/area/exoplanet/garbage
+	)
 	var/list/area_coherency_test_subarea_count = list()
 
 	// These areas are used specifically by code and need to be broken out somehow
@@ -35,7 +49,6 @@
 		/area/shuttle/escape/centcom,
 		/area/shuttle/specops,
 		/area/shuttle/specops/centcom,
-		/area/shuttle/specops/station,
 		/area/shuttle/syndicate_elite,
 		/area/shuttle/syndicate_elite/mothership,
 		/area/shuttle/syndicate_elite/station,
@@ -45,8 +58,12 @@
 		/area/shuttle/infestation/i2/ship,
 		/area/turbolift,
 		/area/supply,
-		/area/supply/station,
 		/area/syndicate_mothership,
 		/area/syndicate_mothership/elite_squad,
-		/area/wizard_station
+		/area/wizard_station,
+		/area/exoplanet,
+		/area/exoplanet/desert,
+		/area/exoplanet/grass,
+		/area/exoplanet/snow,
+		/area/exoplanet/garbage
 	)

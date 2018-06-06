@@ -46,7 +46,7 @@
 #define SHUTTLE_WARMUP    1
 #define SHUTTLE_INTRANSIT 2
 
-// Ferry shuttle processing status.
+// Autodock shuttle processing status.
 #define IDLE_STATE   0
 #define WAIT_LAUNCH  1
 #define FORCE_LAUNCH 2
@@ -100,6 +100,8 @@
 #define SHARD_NONE ""
 
 #define OBJ_ANCHORABLE 0x1
+#define OBJ_CLIMBABLE 0x2
+#define OBJ_SURGICAL 0x4
 
 #define MATERIAL_UNMELTABLE 0x1
 #define MATERIAL_BRITTLE    0x2
@@ -107,10 +109,10 @@
 
 #define TABLE_BRITTLE_MATERIAL_MULTIPLIER 4 // Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)
 
-#define BOMBCAP_DVSTN_RADIUS (max_explosion_range/4)
-#define BOMBCAP_HEAVY_RADIUS (max_explosion_range/2)
-#define BOMBCAP_LIGHT_RADIUS max_explosion_range
-#define BOMBCAP_FLASH_RADIUS (max_explosion_range*1.5)
+#define BOMBCAP_DVSTN_RADIUS (GLOB.max_explosion_range/4)
+#define BOMBCAP_HEAVY_RADIUS (GLOB.max_explosion_range/2)
+#define BOMBCAP_LIGHT_RADIUS GLOB.max_explosion_range
+#define BOMBCAP_FLASH_RADIUS (GLOB.max_explosion_range*1.5)
 									// NTNet module-configuration values. Do not change these. If you need to add another use larger number (5..6..7 etc)
 #define NTNET_SOFTWAREDOWNLOAD 1 	// Downloads of software from NTNet
 #define NTNET_PEERTOPEER 2			// P2P transfers of files between devices
@@ -187,12 +189,27 @@
 #define WORLD_ICON_SIZE 32
 #define PIXEL_MULTIPLIER WORLD_ICON_SIZE/32
 
-//MultiZ directions for ZAS checks.
-#define NORTHUP (NORTH|UP)
-#define EASTUP (EAST|UP)
-#define SOUTHUP (SOUTH|UP)
-#define WESTUP (WEST|UP)
-#define NORTHDOWN (NORTH|DOWN)
-#define EASTDOWN (EAST|DOWN)
-#define SOUTHDOWN (SOUTH|DOWN)
-#define WESTDOWN (WEST|DOWN)
+#define DEFAULT_SPAWNPOINT_ID "Default"
+
+#define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
+
+//Virus badness defines
+#define VIRUS_MILD			1
+#define VIRUS_COMMON		2	//Random events don't go higher (mutations aside)
+#define VIRUS_ENGINEERED	3
+#define VIRUS_EXOTIC		4	//Usually adminbus only
+#define VIRUS_UNQIUE    5 //For pre-prepared maps where you expect this level of hell
+
+//Error handler defines
+#define ERROR_USEFUL_LEN 2
+
+// Effect Systems.
+#define EFFECT_CONTINUE 0 	// Keep processing.
+#define EFFECT_HALT 1		// Stop processing, but don't qdel.
+#define EFFECT_DESTROY 2	// qdel.
+#define RAD_LEVEL_LOW 0.5 // Around the level at which radiation starts to become harmful
+#define RAD_LEVEL_MODERATE 5
+#define RAD_LEVEL_HIGH 25
+#define RAD_LEVEL_VERY_HIGH 75
+
+#define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.

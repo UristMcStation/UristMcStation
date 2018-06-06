@@ -1,20 +1,9 @@
-var/list/clients = list()							//list of all clients
-var/list/admins = list()							//list of all clients whom are admins
-var/list/directory = list()							//list of all ckeys with associated client
-
 //Since it didn't really belong in any other category, I'm putting this here
 //This is for procs to replace all the goddamn 'in world's that are chilling around the code
 
-var/global/list/player_list = list()				//List of all mobs **with clients attached**. Excludes /mob/new_player
-var/global/list/mob_list = list()					//List of all mobs, including clientless
-var/global/list/human_mob_list = list()				//List of all human mobs and sub-types, including clientless
-var/global/list/silicon_mob_list = list()			//List of all silicon mobs, including clientless
-var/global/list/living_mob_list_ = list()			//List of all alive mobs, including clientless. Excludes /mob/new_player
-var/global/list/dead_mob_list_ = list()				//List of all dead mobs, including clientless. Excludes /mob/new_player
-
 var/global/list/cable_list = list()					//Index for all cables, so that powernets don't have to look through the entire world all the time
 var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
-var/global/list/chemical_reagents_list				//list of all /datum/reagent datums indexed by reagent id. Used by chemistry stuff
+GLOBAL_LIST_INIT(chemical_reagents_list, do_initialize_chemical_reagents())
 var/global/list/landmarks_list = list()				//list of all landmarks created
 var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
@@ -37,6 +26,10 @@ var/list/mannequins_
 
 // Posters
 var/global/list/poster_designs = list()
+
+// Grabs
+var/global/list/all_grabstates[0]
+var/global/list/all_grabobjects[0]
 
 // Uplinks
 var/list/obj/item/device/uplink/world_uplinks = list()
@@ -102,7 +95,7 @@ var/global/list/string_slot_flags = list(
 //////////////////////////
 
 /hook/global_init/proc/populateGlobalLists()
-    possible_cable_coil_colours = sortAssoc(list(
+	possible_cable_coil_colours = sortAssoc(list(
 		"Yellow" = COLOR_YELLOW,
 		"Green" = COLOR_LIME,
 		"Pink" = COLOR_PINK,
@@ -112,7 +105,7 @@ var/global/list/string_slot_flags = list(
 		"Red" = COLOR_RED,
 		"White" = COLOR_WHITE
 	))
-    return 1
+	return 1
 
 /proc/get_mannequin(var/ckey)
 	if(!mannequins_)
@@ -199,8 +192,24 @@ var/global/list/string_slot_flags = list(
 		var/datum/poster/P = new T
 		poster_designs += P
 
-	return 1
+	//Grabs
+	paths = typesof(/datum/grab) - /datum/grab
+	for(var/T in paths)
+		var/datum/grab/G = new T
+		if(G.state_name)
+			all_grabstates[G.state_name] = G
 
+	paths = typesof(/obj/item/grab) - /obj/item/grab
+	for(var/T in paths)
+		var/obj/item/grab/G = new T
+		if(G.type_name)
+			all_grabobjects[G.type_name] = T
+
+	for(var/grabstate_name in all_grabstates)
+		var/datum/grab/G = all_grabstates[grabstate_name]
+		G.refresh_updown()
+
+	return 1
 
 /* // Uncomment to debug chemical reaction list.
 /client/verb/debug_chemical_list()

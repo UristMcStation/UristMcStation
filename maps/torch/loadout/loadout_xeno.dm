@@ -128,10 +128,10 @@
 	path = /obj/item/clothing/under/resomi/science
 
 /datum/gear/uniform/harness
-	display_name = "gear harness (Full Body Prosthetic, IPC, Diona)"
+	display_name = "gear harness (Full Body Prosthetic, Diona, Giant Armoured Serpentid)"
 	path = /obj/item/clothing/under/harness
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_IPC,SPECIES_DIONA)
+	whitelisted = list(SPECIES_IPC,SPECIES_DIONA, SPECIES_NABBER)
 
 /datum/gear/mask/ipc_monitor
 	display_name = "display monitor (IPC)"
@@ -161,3 +161,20 @@
 /datum/gear/uniform/resomi/formal
 	display_name = "small formal uniform (Resomi)"
 	path = /obj/item/clothing/under/resomi/formal
+
+/datum/gear/eyes/tajblind/med
+	display_name = "medical veil (Tajara)"
+	path = /obj/item/clothing/glasses/hud/health/tajblind
+	whitelisted = list(SPECIES_TAJARA)
+	sort_category = "Xenowear"
+	cost = 1
+	allowed_roles = MEDICAL_ROLES
+
+/datum/gear/eyes/tajblind/meson
+	display_name = "industrial veil (Tajara)"
+	path = /obj/item/clothing/glasses/meson/prescription/tajblind
+	whitelisted = list(SPECIES_TAJARA)
+	sort_category = "Xenowear"
+	cost = 1
+	allowed_roles = list(/datum/job/engineer_contractor, /datum/job/mining, /datum/job/scientist_assistant)
+

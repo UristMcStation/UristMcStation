@@ -35,4 +35,5 @@ slot_back_str = 'icons/uristmob/back.dmi', slot_w_uniform_str = 'icons/uristmob/
 slot_wear_suit_str = 'icons/uristmob/clothes.dmi', slot_head_str = 'icons/uristmob/head.dmi', \
 slot_belt_str = 'icons/uristmob/belt_mirror.dmi', slot_shoes_str = 'icons/uristmob/shoes.dmi', \
 slot_wear_mask_str = 'icons/uristmob/mask.dmi', slot_gloves_str = 'icons/uristmob/gloves.dmi', \
-slot_glasses_str = 'icons/uristmob/glasses.dmi', slot_tie_str = 'icons/uristmob/ties.dmi')
+slot_glasses_str = 'icons/uristmob/glasses.dmi', slot_tie_str = 'icons/uristmob/ties.dmi', \
+slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_ear.dmi')

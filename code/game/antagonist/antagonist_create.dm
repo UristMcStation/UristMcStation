@@ -108,6 +108,7 @@
 		create_nuke()
 
 	src.show_objectives_at_creation(player)
+	to_chat(player.current, "<span class='notice'><font size = 3>You may assign yourself objectives with the get-objective verb in the OOC tab.</font></span>")
 	return 1
 
 /datum/antagonist/proc/set_antag_name(var/mob/living/player)

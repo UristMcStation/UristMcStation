@@ -37,12 +37,15 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 //  phoron
 //  supermatter
 
-// Virtual fuels
-//  helium-3
-//  lithium-6
-//  boron-11
+// Gaseous/reagent fuels
+// hydrogen
+//  helium
+//  lithium
+//  boron
 
 // Basic power production reactions.
+// This is not necessarily realistic, but it makes a basic failure more spectacular.
+
 /decl/fusion_reaction/deuterium_deuterium
 	p_react = "deuterium"
 	s_react = "deuterium"
@@ -52,7 +55,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 // Advanced production reactions (todo)
 /decl/fusion_reaction/deuterium_helium
 	p_react = "deuterium"
-	s_react = "helium-3"
+	s_react = "helium"
 	energy_consumption = 1
 	energy_production = 5
 	radiation = 2
@@ -62,7 +65,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	s_react = "tritium"
 	energy_consumption = 1
 	energy_production = 1
-	products = list("helium-3" = 1)
+	products = list("helium" = 1)
 	instability = 0.5
 	radiation = 3
 
@@ -121,13 +124,10 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	qdel(holder)
 	var/radiation_level = rand(100, 200)
 
-	// Copied from the SM for proof of concept. //Not any more --Cirra
-	for(var/area/A)
-		if(A.z == holder.z)
-			for(var/turf/T in A)
-				radiation_repository.irradiated_turfs[T] = radiation_level
+	// Copied from the SM for proof of concept. //Not any more --Cirra //Use the whole z proc --Leshana
+	radiation_repository.z_radiate(locate(1, 1, holder.z), radiation_level, 1)
 
-	for(var/mob/living/mob in living_mob_list_)
+	for(var/mob/living/mob in GLOB.living_mob_list_)
 		var/turf/T = get_turf(mob)
 		if(T && (holder.z == T.z))
 			if(istype(mob, /mob/living/carbon/human))
@@ -148,20 +148,20 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 
 
 // High end reactions.
-/decl/fusion_reaction/boron_hydrogen
-	p_react = "boron"
-	s_react = "hydrogen"
-	minimum_energy_level = FUSION_HEAT_CAP * 0.5
-	energy_consumption = 3
-	energy_production = 15
-	radiation = 3
-	instability = 3
-
 /decl/fusion_reaction/hydrogen_hydrogen
 	p_react = "hydrogen"
 	s_react = "hydrogen"
-	minimum_energy_level = FUSION_HEAT_CAP * 0.75
-	energy_consumption = 0
-	energy_production = 20
-	radiation = 5
-	instability = 5
+	minimum_energy_level = 5000
+	energy_consumption = 3
+	energy_production = 15
+	radiation = 0.5
+	instability = 0.5
+
+/decl/fusion_reaction/boron_hydrogen
+  p_react = "boron"
+  s_react = "hydrogen"
+  minimum_energy_level = 10000
+  energy_consumption = 0
+  energy_production = 20
+  radiation = 2
+  instability = 1

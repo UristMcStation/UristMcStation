@@ -79,7 +79,7 @@
 	sleep(1)
 /obj/structure/emplacement/New()
 	..()
-	processing_objects.Add(src)
+	GLOB.processing_objects.Add(src)
 
 /obj/structure/emplacement/proc/shoot(var/turf/T)
 	if(ammo <= 0)

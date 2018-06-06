@@ -122,3 +122,22 @@
 	light_color = "#fcfcb6"
 	light_power = 1
 	light_range = 127
+
+/obj/machinery/light/chromatic
+	name = "chromatic light"
+	var/id_tag = 1
+	var/freq = 1343
+
+/obj/machinery/light/chromatic/Initialize()
+	. = ..()
+	radio_controller.add_object(src, freq, RADIO_CHROMATIC)
+
+/obj/machinery/light/chromatic/receive_signal(datum/signal/signal, receive_method, receive_param)
+	if(signal.data["tag"] == id_tag)
+		if(signal.data["color"])
+			brightness_color = signal.data["color"]
+			update()
+
+/obj/machinery/light/broken/Initialize()
+	. = ..()
+	broken()

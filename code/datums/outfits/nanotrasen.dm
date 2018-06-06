@@ -30,3 +30,23 @@
 	head = /obj/item/clothing/head/beret/centcom/captain
 	belt = /obj/item/weapon/gun/energy/gun/small
 	id_pda_assignment = "NanoTrasen Navy Captain"
+
+/decl/hierarchy/outfit/nanotrasensci
+	name = "Nanotrasen scientist"
+	uniform = /obj/item/clothing/under/rank/scientist/nt
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	shoes = /obj/item/clothing/shoes/white
+	back = /obj/item/weapon/storage/backpack/nt
+	l_ear = /obj/item/device/radio/headset/headset_sci
+
+/decl/hierarchy/outfit/nanotrasensci/loot
+	backpack_contents = list(/obj/random/material, /obj/random/material, /obj/random/material, /obj/random/loot)
+
+/decl/hierarchy/outfit/nanotrasensci/exec
+	name = "Nanotrasen senior scientist"
+	uniform = /obj/item/clothing/under/rank/scientist/executive
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/rd
+	gloves = /obj/item/clothing/gloves/white
+
+/decl/hierarchy/outfit/nanotrasensci/exec/armed
+	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)

@@ -21,13 +21,13 @@
 	if(cached_icon)
 		icon = cached_icon
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
 	//switching opacity on after the smoke has spawned, and then turning it off before it is deleted results in cleaner
 	//lighting and view range updates (Is this still true with the new lighting system?)
-	opacity = 1
+	set_opacity(1)
 
 	//float over to our destination, if we have one
 	destination = dest_turf
@@ -35,9 +35,11 @@
 		walk_to(src, destination)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	opacity = 0
+	walk(src, 0) // Because we might have called walk_to, we must stop the walk loop or BYOND keeps an internal reference to us forever.
+	set_opacity(0)
+	// TODO - fadeOut() sleeps.  Sleeping in /Destroy is Bad, this needs to be fixed.
 	fadeOut()
-	..()
+	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)
@@ -248,7 +250,7 @@
 
 	while(pending.len)
 		for(var/turf/current in pending)
-			for(var/D in cardinal)
+			for(var/D in GLOB.cardinal)
 				var/turf/target = get_step(current, D)
 				if(wallList)
 					if(istype(target, /turf/simulated/wall))

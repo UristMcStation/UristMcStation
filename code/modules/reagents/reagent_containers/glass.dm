@@ -26,7 +26,6 @@
 		/obj/structure/sink,
 		/obj/item/weapon/storage,
 		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
 		/obj/item/weapon/grenade/chem_grenade,
 		/mob/living/bot/medbot,
 		/obj/item/weapon/storage/secure/safe,
@@ -192,25 +191,61 @@
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
 	New()
 		..()
-		reagents.add_reagent("cryoxadone", 30)
+		reagents.add_reagent(/datum/reagent/cryoxadone, 30)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric
 	New()
 		..()
-		reagents.add_reagent("sacid", 60)
+		reagents.add_reagent(/datum/reagent/acid, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/fuel
 	New()
 		..()
-		reagents.add_reagent("fuel", 60)
+		reagents.add_reagent(/datum/reagent/fuel, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/water
 	New()
 		..()
-		reagents.add_reagent("water", 60)
+		reagents.add_reagent(/datum/reagent/water, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/sugar
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/sugar, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/mercury
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/mercury, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/lithium
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/lithium, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/acetone
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/acetone, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/ethanol
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/ethanol, 60)
+		update_icon()
+
+/obj/item/weapon/reagent_containers/glass/beaker/radium
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/radium, 60)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bucket

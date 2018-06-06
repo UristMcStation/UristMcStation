@@ -19,13 +19,11 @@
 		germ_level++
 
 /mob/living/carbon/Destroy()
-	qdel(ingested)
-	qdel(touching)
+	QDEL_NULL(ingested)
+	QDEL_NULL(touching)
 	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
-	for(var/guts in internal_organs)
-		qdel(guts)
-	for(var/food in stomach_contents)
-		qdel(food)
+	QDEL_NULL_LIST(internal_organs)
+	QDEL_NULL_LIST(stomach_contents)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -164,7 +162,7 @@
 		swap_hand()
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
-	if (src.health >= config.health_threshold_crit)
+	if(!is_asystole())
 		if (on_fire)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			if (M.on_fire)
@@ -222,9 +220,11 @@
 					M.fire_stacks -= 1
 				if(M.on_fire)
 					src.IgniteMob()
-			AdjustParalysis(-3)
-			AdjustStunned(-3)
-			AdjustWeakened(-3)
+
+			if(stat != DEAD)
+				AdjustParalysis(-3)
+				AdjustStunned(-3)
+				AdjustWeakened(-3)
 
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
@@ -255,8 +255,8 @@
 				H.update_inv_gloves(0)
 			H.gloves.germ_level = 0
 		else
-			if(H.bloody_hands)
-				H.bloody_hands = 0
+			if(!isnull(H.bloody_hands))
+				H.bloody_hands = null
 				H.update_inv_gloves(0)
 			H.germ_level = 0
 	update_icons()	//apply the now updated overlays to the mob
@@ -276,15 +276,16 @@
 	if(!item) return
 
 	var/throw_range = item.throw_range
-	if (istype(item, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = item
+	var/itemsize
+	if (istype(item, /obj/item/grab))
+		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item))
 			var/mob/M = item
 
 			//limit throw range by relative mob size
 			throw_range = round(M.throw_range * min(src.mob_size/M.mob_size, 1))
-
+			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
@@ -292,12 +293,16 @@
 				var/end_T_descriptor = "<font color='#6b4400'>[start_T] \[[end_T.x],[end_T.y],[end_T.z]\] ([end_T.loc])</font>"
 				admin_attack_log(usr, M, "Threw the victim from [start_T_descriptor] to [end_T_descriptor].", "Was from [start_T_descriptor] to [end_T_descriptor].", "threw, from [start_T_descriptor] to [end_T_descriptor], ")
 
+	else if (istype(item, /obj/item/))
+		var/obj/item/I = item
+		itemsize = I.w_class
+
 	src.drop_from_inventory(item)
 	if(!item || !isturf(item.loc))
 		return
 
 	//actually throw it!
-	src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
+	src.visible_message("<span class='warning'>[src] has thrown [item].</span>", range = min(itemsize*2,world.view))
 
 	if(!src.lastarea)
 		src.lastarea = get_area(src.loc)
@@ -432,3 +437,6 @@
 
 /mob/living/carbon/proc/get_adjusted_metabolism(metabolism)
 	return metabolism
+
+/mob/living/carbon/proc/need_breathe()
+	return

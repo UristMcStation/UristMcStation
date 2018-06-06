@@ -42,6 +42,8 @@
 	active_power_usage = 1000 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
+	clicksound = "button"
+	clickvol = 30
 
 	layer = ABOVE_WINDOW_LAYER
 
@@ -117,7 +119,8 @@
 		update_icon()
 		frame.transfer_fingerprints_to(src)
 
-/obj/machinery/alarm/initialize()
+/obj/machinery/alarm/Initialize()
+	. = ..()
 	alarm_area = get_area(src)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
@@ -470,7 +473,7 @@
 	ui_interact(user)
 	wires.Interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
+/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -490,7 +493,7 @@
 	if(!(locked && !remote_connection) || remote_access || issilicon(user))
 		populate_controls(data)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "air_alarm.tmpl", src.name, 325, 625, master_ui = master_ui, state = state)
 		ui.set_initial_data(data)
@@ -889,15 +892,13 @@ FIRE ALARM
 		if(!src.detecting)
 			icon_state = "fire1"
 			set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
-		else
+		else if(z in GLOB.using_map.contact_levels)
 			icon_state = "fire0"
-			switch(seclevel)
-				if("green")	set_light(l_range = 2, l_power = 0.5, l_color = COLOR_LIME)
-				if("blue")	set_light(l_range = 2, l_power = 0.5, l_color = "#1024A9")
-				if("red")	set_light(l_range = 4, l_power = 2, l_color = COLOR_RED)
-				if("delta")	set_light(l_range = 4, l_power = 2, l_color = "#FF6633")
+			var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+			var/decl/security_level/sl = security_state.current_security_level
 
-		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
+			set_light(sl.light_range, sl.light_power, sl.light_color_alarm)
+			src.overlays += image(sl.icon, sl.overlay_alarm)
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -985,7 +986,7 @@ FIRE ALARM
 			src.alarm()
 			src.time = 0
 			src.timing = 0
-			processing_objects.Remove(src)
+			GLOB.processing_objects.Remove(src)
 		src.updateDialog()
 	last_process = world.timeofday
 
@@ -1005,6 +1006,8 @@ FIRE ALARM
 	var/area/A = src.loc
 	var/d1
 	var/d2
+
+	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 	if (istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon))
 		A = A.loc
 
@@ -1018,7 +1021,7 @@ FIRE ALARM
 			d2 = text("<A href='?src=\ref[];time=1'>Initiate Time Lock</A>", src)
 		var/second = round(src.time) % 60
 		var/minute = (round(src.time) - second) / 60
-		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current alert level is: <b>[get_security_level()]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
+		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>Fire alarm</B> [d1]\n<HR>The current security level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
 		user << browse(dat, "window=firealarm")
 		onclose(user, "firealarm")
 	else
@@ -1033,7 +1036,7 @@ FIRE ALARM
 			d2 = text("<A href='?src=\ref[];time=1'>[]</A>", src, stars("Initiate Time Lock"))
 		var/second = round(src.time) % 60
 		var/minute = (round(src.time) - second) / 60
-		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>[stars("Fire alarm")]</B> [d1]\n<HR><b>The current alert level is: [stars(get_security_level())]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? text("[]:", minute) : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
+		var/dat = "<HTML><HEAD></HEAD><BODY><TT><B>[stars("Fire alarm")]</B> [d1]\n<HR>The current security level is <b>[security_state.current_security_level.name]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? text("[]:", minute) : null)][second] <A href='?src=\ref[src];tp=-30'>-</A> <A href='?src=\ref[src];tp=-1'>-</A> <A href='?src=\ref[src];tp=1'>+</A> <A href='?src=\ref[src];tp=30'>+</A>\n</TT></BODY></HTML>"
 		user << browse(dat, "window=firealarm")
 		onclose(user, "firealarm")
 	return
@@ -1055,7 +1058,7 @@ FIRE ALARM
 		else if (href_list["time"])
 			src.timing = text2num(href_list["time"])
 			last_process = world.timeofday
-			processing_objects.Add(src)
+			GLOB.processing_objects.Add(src)
 		else if (href_list["tp"])
 			var/tp = text2num(href_list["tp"])
 			src.time += tp
@@ -1103,14 +1106,10 @@ FIRE ALARM
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 		frame.transfer_fingerprints_to(src)
 
-/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
-	if(seclevel != newlevel)
-		seclevel = newlevel
+/obj/machinery/firealarm/Initialize()
+	. = ..()
+	if(z in GLOB.using_map.contact_levels)
 		update_icon()
-
-/obj/machinery/firealarm/initialize()
-	if(z in using_map.contact_levels)
-		set_security_level(security_level? get_security_level() : "green")
 
 /*
 FIRE ALARM CIRCUIT

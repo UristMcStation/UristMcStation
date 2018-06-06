@@ -221,7 +221,7 @@
 		qdel(src)*/
 
 //I fixed the bugs. I'll clean this up too when I get a chance.
-
+/*
 /obj/item/clothing/mask/bandana/bedsheet/white/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
 	set category = "Object"
@@ -544,4 +544,4 @@
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
 		qdel(src)
-
+*/

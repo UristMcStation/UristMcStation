@@ -53,6 +53,7 @@
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "Xenoarchaeologist Locker"
+	icon = 'icons/urist/restored/closet.dmi'
 	req_access = list(access_xenoarch)
 	icon_state = "secureres1"
 	icon_closed = "secureres"

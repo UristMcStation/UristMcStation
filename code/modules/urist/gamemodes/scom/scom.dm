@@ -37,7 +37,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
 	world << "<span class='danger'> Setting up S-COM, please be patient. This may take a minute or two.</span>"
 
-	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
+	for(var/mob/living/L in GLOB.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		qdel(L)
 
 	if(!scommapsloaded) //necessary incase an admin fucks something up.
@@ -45,7 +45,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	config.allow_random_events = 0 //nooooope
 
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/new_player/player in GLOB.player_list)
 		if((player.client)&&(player.ready))
 			SCOMplayerC++
 	//world << "<span class='danger'> [SCOMplayerC] players counted.</span>"
@@ -74,7 +74,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	else
 		missiondiff = 2
 		scom_lowpop_scale = 1
-
+/*
 /datum/game_mode/scom/post_setup()
 	world << "<span class='danger'> Setting up science...</span>"
 	populate_scomscience_recipes()
@@ -128,7 +128,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 					C.launch()
 					spawn(300)
 						declared = 0
-
+*/
 
 datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
@@ -161,7 +161,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 /obj/structure/scom/fuckitall/ex_act()
 	return
-
+/*
 /obj/structure/scom/fuckitall/attack_hand(mob/user as mob)
 	var/want = input("Start the self destruct countdown? You will have 3 minutes to escape.", "Your Choice", "Cancel") in list ("Cancel", "Yes")
 	switch(want)
@@ -185,7 +185,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 					world << "<span class='danger'> The mothership has been destroyed!</span>"
 					sleep(50)
 					sploded = 2
-
+*/
 /obj/effect/landmark/scom/bomb
 	icon_state = "grabbed1"
 	invisibility = 101
@@ -194,7 +194,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
 		explosion(src.loc, 1, 2, 3, 4)
-
+/*
 /client/proc/delaymissions()
 
 	set name = "Delay SCOM Missions"
@@ -215,7 +215,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			command_announcement.Announce("Shuttles will be launched in one minute.", "S-COM Shuttle Command")
 			spawn(600)
 				C.launch()
-
+*/
 /client/proc/toggle_dyndiff()
 
 	set name = "Toggle Dynamic Difficulty"

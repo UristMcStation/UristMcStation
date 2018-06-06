@@ -10,6 +10,12 @@
 	bandanas["pirate bandana"] = /obj/item/clothing/head/bandana
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
 
+/datum/gear/head/beret
+	display_name = "beret, colored"
+	description = "A simple, solid color beret. This one has no emblems or insignia on it."
+	path = /obj/item/clothing/head/beret/plaincolor
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/bow
 	display_name = "hair bow"
 	path = /obj/item/clothing/head/hairflower/bow
@@ -105,6 +111,11 @@
 /datum/gear/head/turban
 	display_name = "turban"
 	path = /obj/item/clothing/head/turban
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/taqiyah
+	display_name = "taqiyah"
+	path = /obj/item/clothing/head/taqiyah
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/welding

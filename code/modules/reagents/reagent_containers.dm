@@ -18,10 +18,10 @@
 		amount_per_transfer_from_this = N
 
 /obj/item/weapon/reagent_containers/New()
-	..()
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
+	..() //Lots of things need reagents in Initialize, don't move this
 
 /obj/item/weapon/reagent_containers/attack_self(mob/user as mob)
 	return
@@ -172,3 +172,14 @@
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
 	return 1
+
+/obj/item/weapon/reagent_containers/do_surgery(mob/living/carbon/M, mob/living/user)
+	if(user.zone_sel.selecting != BP_MOUTH) //in case it is ever used as a surgery tool
+		return ..()
+
+/obj/item/weapon/reagent_containers/AltClick(var/mob/user)
+	if(possible_transfer_amounts)
+		if(CanPhysicallyInteract(user))
+			set_APTFT()
+	else
+		return ..()

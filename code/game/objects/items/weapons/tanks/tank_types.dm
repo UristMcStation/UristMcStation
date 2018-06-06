@@ -5,6 +5,7 @@
  *		Air
  *		Phoron
  *		Emergency Oxygen
+ 		Alium
  */
 
 /*
@@ -165,3 +166,14 @@
 
 	src.air_contents.adjust_gas("nitrogen", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 	return
+
+/obj/item/weapon/tank/aliether
+	name = "strange tank"
+	desc = "A tank of unknown gas."
+	icon_state = "oxygen_f"
+	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
+
+
+/obj/item/weapon/tank/aliether/New()
+	..()
+	air_contents.adjust_gas("aliether", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))

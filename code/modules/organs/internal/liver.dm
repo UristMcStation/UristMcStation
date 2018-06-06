@@ -4,6 +4,10 @@
 	icon_state = "liver"
 	organ_tag = BP_LIVER
 	parent_organ = BP_GROIN
+	min_bruised_damage = 25
+	min_broken_damage = 45
+	max_damage = 70
+	relative_size = 60
 
 /obj/item/organ/internal/liver/robotize()
 	. = ..()
@@ -26,7 +30,7 @@
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 
 		//High toxins levels are dangerous
-		if(owner.getToxLoss() >= 60 && !owner.reagents.has_reagent("anti_toxin"))
+		if(owner.getToxLoss() >= 60 && !owner.reagents.has_reagent(/datum/reagent/dylovene))
 			//Healthy liver suffers on its own
 			if (src.damage < min_broken_damage)
 				src.damage += 0.2 * PROCESS_ACCURACY
@@ -37,7 +41,7 @@
 					O.take_damage(0.2)
 
 		//Detox can heal small amounts of damage
-		if (src.damage && src.damage < src.min_bruised_damage && owner.reagents.has_reagent("anti_toxin"))
+		if (src.damage && src.damage < src.min_bruised_damage && owner.reagents.has_reagent(/datum/reagent/dylovene))
 			src.damage -= 0.2 * PROCESS_ACCURACY
 
 		if(src.damage < 0)
@@ -49,6 +53,8 @@
 			filter_effect -= 1
 		if(is_broken())
 			filter_effect -= 2
+		if(robotic >= ORGAN_ROBOT)
+			filter_effect += 1
 
 		// Do some reagent processing.
 		if(owner.chem_effects[CE_ALCOHOL_TOXIC])
@@ -57,16 +63,21 @@
 			else
 				take_damage(owner.chem_effects[CE_ALCOHOL_TOXIC] * 0.1 * PROCESS_ACCURACY, prob(1)) // Chance to warn them
 
+		// Heal a bit if needed. This allows recovery from low amounts of toxloss.
+		if(damage < min_broken_damage)
+			damage = max(0, damage - 0.1 * PROCESS_ACCURACY)
+
 	//Blood regeneration if there is some space
-	var/blood_volume_raw = owner.vessel.get_reagent_amount("blood")
+	var/blood_volume_raw = owner.vessel.get_reagent_amount(/datum/reagent/blood)
 	if(blood_volume_raw < species.blood_volume)
 		var/datum/reagent/blood/B = owner.get_blood(owner.vessel)
-		B.volume += 0.1 // regenerate blood VERY slowly
-		if(CE_BLOODRESTORE in owner.chem_effects)
-			B.volume += owner.chem_effects[CE_BLOODRESTORE]
+		if(istype(B))
+			B.volume += 0.1 // regenerate blood VERY slowly
+			if(CE_BLOODRESTORE in owner.chem_effects)
+				B.volume += owner.chem_effects[CE_BLOODRESTORE]
 
 	// Blood loss or liver damage make you lose nutriments
-	var/blood_volume = owner.get_effective_blood_volume()
+	var/blood_volume = owner.get_blood_volume()
 	if(blood_volume < BLOOD_VOLUME_SAFE || is_bruised())
 		if(owner.nutrition >= 300)
 			owner.nutrition -= 10

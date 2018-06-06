@@ -23,7 +23,7 @@
 /datum/gear/uniform/roboticist_skirt
 	display_name = "skirt, roboticist"
 	path = /obj/item/clothing/under/rank/roboticist/skirt
-	allowed_roles = list("Roboticist")
+	allowed_roles = list(/datum/job/roboticist)
 
 /datum/gear/uniform/suit
 	display_name = "clothes selection"
@@ -92,8 +92,19 @@
 	dresses["pink dress"] = /obj/item/clothing/under/dress/dress_pink
 	dresses["purple dress"] = /obj/item/clothing/under/dress/dress_purple
 	dresses["sundress"] = /obj/item/clothing/under/sundress
-	dresses["white cheongsam"] = /obj/item/clothing/under/cheongsam
 	gear_tweaks += new/datum/gear_tweak/path(dresses)
+
+/datum/gear/uniform/cheongsam
+	display_name = "cheongsam"
+	path = /obj/item/clothing/under/cheongsam
+	flags = GEAR_HAS_COLOR_SELECTION
+	allowed_roles = FORMAL_ROLES
+
+/datum/gear/uniform/abaya
+	display_name = "abaya"
+	path = /obj/item/clothing/under/abaya
+	flags = GEAR_HAS_COLOR_SELECTION
+	allowed_roles = FORMAL_ROLES
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
@@ -109,10 +120,14 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(skirts))
 
 /datum/gear/uniform/casual_pants
-    allowed_roles = SEMIFORMAL_ROLES
+	display_name = "casual pants selection"
+	path = /obj/item/clothing/under/casual_pants
+	allowed_roles = SEMIFORMAL_ROLES
 
 /datum/gear/uniform/formal_pants
-    allowed_roles = FORMAL_ROLES
+	display_name = "formal pants selection"
+	path = /obj/item/clothing/under/formal_pants
+	allowed_roles = FORMAL_ROLES
 
 /datum/gear/uniform/shorts
 	allowed_roles = RESTRICTED_ROLES
@@ -131,9 +146,9 @@
 /datum/gear/uniform/corporate
 	display_name = "corporate uniform selection"
 	path = /obj/item/clothing/under/mbill
-	allowed_roles = list("Scientist", "Prospector", "Security Guard", "Research Assistant",
-						"Passenger", "Maintenance Assistant", "Roboticist", "Medical Contractor",
-						"Chemist", "Counselor", "Supply Assistant", "Bartender", "Merchant")
+	allowed_roles = list(/datum/job/scientist, /datum/job/mining, /datum/job/guard, /datum/job/scientist_assistant,
+						/datum/job/scientist_assistant, /datum/job/engineer_contractor, /datum/job/roboticist, /datum/job/doctor_contractor,
+						/datum/job/chemist, /datum/job/psychiatrist, /datum/job/cargo_contractor, /datum/job/bartender, /datum/job/merchant)
 
 /datum/gear/uniform/corporate/New()
 	..()

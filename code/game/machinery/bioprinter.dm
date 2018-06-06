@@ -129,8 +129,8 @@
 	var/matter_amount_per_sheet = 10
 	var/matter_type = DEFAULT_WALL_MATERIAL
 
-/obj/machinery/organ_printer/robot/mapped/initialize()
-	..()
+/obj/machinery/organ_printer/robot/mapped/Initialize()
+	. = ..()
 	stored_matter = max_stored_matter
 
 /obj/machinery/organ_printer/robot/dismantle()
@@ -144,6 +144,8 @@
 
 /obj/machinery/organ_printer/robot/print_organ(var/choice)
 	var/obj/item/organ/O = ..()
+	var/datum/dna/dna = new
+	O.set_dna(dna)
 	O.robotize()
 	O.status |= ORGAN_CUT_AWAY  // robotize() resets status to 0
 	visible_message("<span class='info'>\The [src] churns for a moment, then spits out \a [O].</span>")
@@ -176,8 +178,8 @@
 	var/amount_per_slab = 50
 	var/loaded_dna //Blood sample for DNA hashing.
 
-/obj/machinery/organ_printer/flesh/mapped/initialize()
-	..()
+/obj/machinery/organ_printer/flesh/mapped/Initialize()
+	. = ..()
 	stored_matter = max_stored_matter
 
 /obj/machinery/organ_printer/flesh/dismantle()

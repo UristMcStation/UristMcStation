@@ -85,7 +85,7 @@
 			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 			totalPlayers = 0
 			totalPlayersReady = 0
-			for(var/mob/new_player/player in player_list)
+			for(var/mob/new_player/player in GLOB.player_list)
 				var/highjob
 				if(player.client && player.client.prefs && player.client.prefs.job_high)
 					highjob = " as [player.client.prefs.job_high]"
@@ -115,7 +115,7 @@
 			to_chat(src, "<span class='warning'>Please wait for server initialization to complete...</span>")
 			return
 
-		if(!config.respawn_delay || alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minute\s before being able to respawn!","Player Setup","Yes","No") == "Yes")
+		if(!config.respawn_delay || client.holder || alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minute\s before being able to respawn!","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
 			var/mob/observer/ghost/observer = new()
 
@@ -133,7 +133,8 @@
 				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the map.</span>")
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
-			announce_ghost_joinleave(src)
+			if(isnull(client.holder))
+				announce_ghost_joinleave(src)
 
 			var/mob/living/carbon/human/dummy/mannequin = new()
 			client.prefs.dress_preview_mob(mannequin)
@@ -162,11 +163,16 @@
 		ViewManifest()
 
 	if(href_list["SelectedJob"])
+		var/datum/job/job = job_master.GetJob(href_list["SelectedJob"])
+
+		if(!job)
+			to_chat(usr, "<span class='danger'>The job '[href_list["SelectedJob"]]' doesn't exist!</span>")
+			return
 
 		if(!config.enter_allowed)
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
-		else if(ticker && ticker.mode && ticker.mode.explosion_in_progress)
+		if(ticker && ticker.mode && ticker.mode.explosion_in_progress)
 			to_chat(usr, "<span class='danger'>The [station_name()] is currently exploding. Joining would go poorly.</span>")
 			return
 
@@ -174,7 +180,7 @@
 		if(!check_species_allowed(S))
 			return 0
 
-		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
+		AttemptLateSpawn(job, client.prefs.spawnpoint)
 		return
 
 	if(href_list["privacy_poll"])
@@ -284,13 +290,6 @@
 
 	return 1
 
-/mob/new_player/proc/IsJobRestricted(var/datum/job/job, var/branch_pref, var/rank_pref)
-	if(!job.is_branch_allowed(branch_pref))
-		return 1
-	if(!job.is_rank_allowed(branch_pref, rank_pref))
-		return 1
-	return 0
-
 /mob/new_player/proc/get_branch_pref()
 	if(client)
 		return client.prefs.char_branch
@@ -299,7 +298,7 @@
 	if(client)
 		return client.prefs.char_rank
 
-/mob/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
+/mob/new_player/proc/AttemptLateSpawn(var/datum/job/job, var/spawning_at)
 	if(src != usr)
 		return 0
 	if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
@@ -308,20 +307,18 @@
 	if(!config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
-	var/datum/job/job = job_master.GetJob(rank)
+
 	if(!IsJobAvailable(job))
-		alert("[rank] is not available. Please try another.")
+		alert("[job.title] is not available. Please try another.")
 		return 0
-	if(!job.is_branch_allowed(client.prefs.char_branch))
-		alert("Wrong branch of service for [rank]. Valid branches are: [job.get_branches()].")
-		return 0
-	if(!job.is_rank_allowed(client.prefs.char_branch, client.prefs.char_rank))
-		alert("Wrong rank for [rank]. Valid ranks in [client.prefs.char_branch] are: [job.get_ranks(client.prefs.char_branch)].")
-		return 0
+	if(job.is_restricted(client.prefs, src))
+		return
 
-
-	var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, rank)
+	var/datum/spawnpoint/spawnpoint = job_master.get_spawnpoint_for(client, job.title)
 	var/turf/spawn_turf = pick(spawnpoint.turfs)
+	if(job.latejoin_at_spawnpoints)
+		var/obj/S = job_master.get_roundstart_spawnpoint(job.title)
+		spawn_turf = get_turf(S)
 	var/airstatus = IsTurfAtmosUnsafe(spawn_turf)
 	if(airstatus)
 		var/reply = alert(usr, "Warning. Your selected spawn location seems to have unfavorable atmospheric conditions. \
@@ -335,16 +332,16 @@
 
 		// Just in case someone stole our position while we were waiting for input from alert() proc
 		if(!IsJobAvailable(job))
-			to_chat(src, alert("[rank] is not available. Please try another."))
+			to_chat(src, alert("[job.title] is not available. Please try another."))
 			return 0
 
-	job_master.AssignRole(src, rank, 1)
+	job_master.AssignRole(src, job.title, 1)
 
 	var/mob/living/character = create_character(spawn_turf)	//creates the human and transfers vars and mind
 	if(!character)
 		return 0
 
-	character = job_master.EquipRank(character, rank, 1)					//equips the human
+	character = job_master.EquipRank(character, job.title, 1)					//equips the human
 	UpdateFactionList(character)
 	equip_custom_items(character)
 
@@ -361,7 +358,7 @@
 		var/mob/living/silicon/ai/A = character
 		A.on_mob_init()
 
-		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
+		AnnounceCyborg(character, job.title, "has been downloaded to the empty core in \the [character.loc.loc]")
 		ticker.mode.handle_latejoin(character)
 
 		qdel(C)
@@ -369,14 +366,14 @@
 		return
 
 	ticker.mode.handle_latejoin(character)
-	universe.OnPlayerLatejoin(character)
-	if(job_master.ShouldCreateRecords(rank))
+	GLOB.universe.OnPlayerLatejoin(character)
+	if(job_master.ShouldCreateRecords(job.title))
 		if(character.mind.assigned_role != "Cyborg")
-			data_core.manifest_inject(character)
+			GLOB.data_core.manifest_inject(character)
 			ticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
-
-			if(job.announced)
-				AnnounceArrival(character, rank, spawnpoint.msg)
+			AnnounceArrival(character, job, spawnpoint.msg)
+		else
+			AnnounceCyborg(character, job, spawnpoint.msg)
 		matchmaker.do_matchmaking()
 		if(master_mode=="scom")
 			if(istype(character, /mob/living/carbon))
@@ -398,7 +395,7 @@
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived"].", "Arrivals Announcement Computer")
+		GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived"].", "Arrivals Announcement Computer")
 		log_and_message_admins("has joined the round as [character.mind.assigned_role].", character)
 
 /mob/new_player/proc/LateChoices()
@@ -424,10 +421,10 @@
 
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
-			for(var/mob/M in player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
+			for(var/mob/M in GLOB.player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
 				active++
 
-			if(IsJobRestricted(job, client.prefs.char_branch, client.prefs.char_rank))
+			if(job.is_restricted(client.prefs))
 				dat += "<a style='text-decoration: line-through' href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
 			else
 				dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
@@ -479,9 +476,11 @@
 	if(mind)
 		mind.active = 0					//we wish to transfer the key manually
 		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
-			new_character.real_name = pick(clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
+			new_character.real_name = pick(GLOB.clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
 			new_character.rename_self("clown")
 		mind.original = new_character
+		if(client.prefs.memory)
+			mind.store_memory(client.prefs.memory)
 		if(client.prefs.relations.len)
 			for(var/T in client.prefs.relations)
 				var/TT = matchmaker.relation_types[T]
@@ -514,7 +513,7 @@
 
 /mob/new_player/proc/ViewManifest()
 	var/dat = "<div align='center'>"
-	dat += data_core.get_manifest(OOC = 1)
+	dat += GLOB.data_core.get_manifest(OOC = 1)
 	//src << browse(dat, "window=manifest;size=370x420;can_close=1")
 	var/datum/browser/popup = new(src, "Crew Manifest", "Crew Manifest", 370, 420, src)
 	popup.set_content(dat)

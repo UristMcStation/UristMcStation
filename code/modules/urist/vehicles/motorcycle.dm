@@ -205,11 +205,11 @@
 
 /obj/vehicle/bike/motorcycle/turn_on()
 	..()
-	processing_objects |= src
+	GLOB.processing_objects |= src
 
 /obj/vehicle/bike/motorcycle/turn_off()
 	..()
-	processing_objects -= src
+	GLOB.processing_objects -= src
 
 /*/obj/vehicle/bike/motorcycle/Move(var/turf/destination)
 	if(kickstand) return

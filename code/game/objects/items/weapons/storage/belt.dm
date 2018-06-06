@@ -35,8 +35,11 @@
 	return ret
 
 /obj/item/weapon/storage/belt/utility
-	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "Can hold various tools."
+	name = "tool-belt"
+	desc = "A belt of durable leather, festooned with hooks, slots, and pouches."
+	description_info = "The tool-belt has enough slots to carry a full engineer's toolset: screwdriver, crowbar, wrench, welder, cable coil, and multitool. Simply click the belt to move a tool to one of its slots."
+	description_fluff = "Good hide is hard to come by in certain regions of the galaxy. When they can't come across it, most TSCs will outfit their crews with toolbelts made of synthesized leather."
+	description_antag = "Only amateurs skip grabbing a tool-belt."
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	can_hold = list(
@@ -89,7 +92,6 @@
 	item_state = "medical"
 	can_hold = list(
 		/obj/item/device/healthanalyzer,
-		/obj/item/weapon/dnainjector,
 		/obj/item/weapon/reagent_containers/dropper,
 		/obj/item/weapon/reagent_containers/glass/beaker,
 		/obj/item/weapon/reagent_containers/glass/bottle,
@@ -117,6 +119,10 @@
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
+/obj/item/weapon/storage/belt/medical/classic
+	icon = 'icons/urist/items/clothes/belt.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/weapon/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
@@ -143,7 +149,9 @@
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee,
 		/obj/item/weapon/gun/projectile/sec,
-		/obj/item/taperoll
+		/obj/item/taperoll,
+		/obj/item/device/holowarrant,
+		/obj/item/weapon/magnetic_ammo
 		)
 
 /obj/item/weapon/storage/belt/soulstone

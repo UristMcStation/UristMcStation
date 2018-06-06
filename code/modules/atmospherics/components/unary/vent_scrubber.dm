@@ -19,7 +19,7 @@
 
 	var/hibernate = 0 //Do we even process?
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
-	var/list/scrubbing_gas = list("carbon_dioxide", "phoron", "sleeping_agent")
+	var/list/scrubbing_gas
 
 	var/panic = 0 //is this scrubber panicked?
 
@@ -121,13 +121,18 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
-	..()
+/obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
+	. = ..()
 	radio_filter_in = frequency==initial(frequency)?(RADIO_FROM_AIRALARM):null
 	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
 	if (frequency)
 		set_frequency(frequency)
 		src.broadcast_status()
+	if(!scrubbing_gas)
+		scrubbing_gas = list()
+		for(var/g in gas_data.gases)
+			if(g != "oxygen" && g != "nitrogen")
+				scrubbing_gas += g
 
 /obj/machinery/atmospherics/unary/vent_scrubber/process()
 	..()

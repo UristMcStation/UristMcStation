@@ -91,20 +91,13 @@
 		radio = card.radio
 		common_radio = radio
 
-	//Default languages without universal translator software
-	add_language("Sol Common", 1)
-	add_language("Tradeband", 1)
-	add_language("Gutter", 1)
-
+	//As a human made device, we'll understand sol common without the need of the translator
+	add_language(LANGUAGE_SOL_COMMON, 1)
+	
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
 	verbs -= /mob/living/verb/ghost
 
-	//PDA
-	pda = new(src)
-	spawn(5)
-		pda.set_owner_rank_job(text("[]", src), "Personal Assistant")
-		pda.toff = 1
 	..()
 
 /mob/living/silicon/pai/Login()
@@ -192,7 +185,7 @@
 	medicalActive1 = null
 	medicalActive2 = null
 	medical_cannotfind = 0
-	nanomanager.update_uis(src)
+	GLOB.nanomanager.update_uis(src)
 	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")
 
 /mob/living/silicon/pai/cancel_camera()
@@ -259,8 +252,8 @@
 	last_special = world.time + 100
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
-	if(istype(card.loc,/obj/item/rig_module))
-		to_chat(src, "There is no room to unfold inside this rig module. You're good and stuck.")
+	if(istype(card.loc,/obj/item/rig_module) || istype(card.loc,/obj/item/integrated_circuit/manipulation/ai/))
+		to_chat(src, "There is no room to unfold inside \the [card.loc]. You're good and stuck.")
 		return 0
 	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc

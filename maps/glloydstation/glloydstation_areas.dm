@@ -187,7 +187,7 @@
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
-	lighting_use_dynamic = 0
+	dynamic_lighting = 0
 	flags = AREA_RAD_SHIELDED
 
 /area/syndicate_mothership/ninja
@@ -204,13 +204,13 @@
 	name = "\improper Response Team Base"
 	icon_state = "yellow"
 	requires_power = 0
-	lighting_use_dynamic = 1
+	dynamic_lighting = 1
 	flags = AREA_RAD_SHIELDED
 
 /area/rescue_base/base
 	name = "\improper Barracks"
 	icon_state = "yellow"
-	lighting_use_dynamic = 0
+	dynamic_lighting = 0
 
 /area/rescue_base/start
 	name = "\improper Response Team Base"
@@ -248,7 +248,7 @@
 /area/rescue_base/mining
 	name = "northeast of the engineering station"
 	icon_state = "northeast"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /area/rescue_base/arrivals_dock
 	name = "docked with station"
@@ -303,7 +303,7 @@
 /area/syndicate_station/mining
 	name = "northeast of the mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /area/syndicate_station/transit
 	name = "\proper bluespace"
@@ -340,7 +340,7 @@
 /area/skipjack_station/mining
 	name = "south of mining station"
 	icon_state = "north"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 // Maintenance
 
@@ -723,7 +723,7 @@ area/rnd/test_area
 
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
-	base_turf = /turf/simulated/planet/jungle/clear
+	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /area/outpost/mining_main/eva
 	name = "Mining Outpost EVA storage"

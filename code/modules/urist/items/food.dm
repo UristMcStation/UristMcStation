@@ -44,7 +44,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 3)
+		reagents.add_reagent(/datum/reagent/nutriment, 3)
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/bubblegum
@@ -56,7 +56,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("sugar", 2)
+		reagents.add_reagent(/datum/reagent/sugar, 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/cram
 	name = "cram"
@@ -67,8 +67,8 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 3)
-		reagents.add_reagent("sugar", 2)
+		reagents.add_reagent(/datum/reagent/nutriment, 3)
+		reagents.add_reagent(/datum/reagent/sugar, 2)
 		bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/dapples
@@ -80,8 +80,8 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 1)
-		reagents.add_reagent("sugar", 3)
+		reagents.add_reagent(/datum/reagent/nutriment, 1)
+		reagents.add_reagent(/datum/reagent/sugar, 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/fancycakes
 	name = "fancy lads snack cakes"
@@ -92,8 +92,8 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 2)
-		reagents.add_reagent("sugar", 3)
+		reagents.add_reagent(/datum/reagent/nutriment, 2)
+		reagents.add_reagent(/datum/reagent/sugar, 3)
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/urist/instamash
@@ -105,5 +105,5 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 4)
+		reagents.add_reagent(/datum/reagent/nutriment, 4)
 		bitesize = 2

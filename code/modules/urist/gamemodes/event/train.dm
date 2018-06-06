@@ -110,7 +110,7 @@ proc/traintime()
 		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
-	for(var/mob/living/carbon/human/M in player_list)
+	for(var/mob/living/carbon/human/M in GLOB.player_list)
 
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ))
@@ -155,7 +155,7 @@ proc/traintime()
 //snow train stuff
 
 proc/snowtraintime()
-	for(var/mob/living/carbon/human/M in player_list)
+	for(var/mob/living/carbon/human/M in GLOB.player_list)
 
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ))
@@ -268,7 +268,7 @@ proc/snowtraintime()
 			for(var/turf/unsimulated/floor/uristturf/train/snowmoving2/F in world)
 				F.icon_state = "s2"
 
-			for(var/mob/living/carbon/human/M in player_list)
+			for(var/mob/living/carbon/human/M in GLOB.player_list)
 				if(M.client)
 					spawn(0)
 						if(M.buckled)
@@ -305,7 +305,7 @@ proc/snowtraintime()
 
 /turf/unsimulated/wall/other/transparent
 	opacity = 0
-
+/*
 /datum/shuttle/ferry/train
 	category = /datum/shuttle/ferry/train
 	name = "Train"
@@ -314,3 +314,4 @@ proc/snowtraintime()
 	move_time = 22000
 	area_offsite = /area/shuttle/train/stop
 	area_station = /area/shuttle/train/go
+*/

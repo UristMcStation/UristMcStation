@@ -51,11 +51,11 @@ var/list/ghost_traps
 /datum/ghosttrap/proc/request_player(var/mob/target, var/request_string, var/request_timeout)
 	if(request_timeout)
 		request_timeouts[target] = world.time + request_timeout
-		destroyed_event.register(target, src, /datum/ghosttrap/proc/unregister_target)
+		GLOB.destroyed_event.register(target, src, /datum/ghosttrap/proc/unregister_target)
 	else
 		unregister_target(target)
 
-	for(var/mob/observer/ghost/O in player_list)
+	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(!assess_candidate(O, target, FALSE))
 			return
 		if(pref_check && !O.client.wishes_to_be_role(pref_check))
@@ -65,7 +65,7 @@ var/list/ghost_traps
 
 /datum/ghosttrap/proc/unregister_target(var/target)
 	request_timeouts -= target
-	destroyed_event.unregister(target, src, /datum/ghosttrap/proc/unregister_target)
+	GLOB.destroyed_event.unregister(target, src, /datum/ghosttrap/proc/unregister_target)
 
 // Handles a response to request_player().
 /datum/ghosttrap/Topic(href, href_list)
@@ -215,6 +215,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	object = "cultist"
 	ban_checks = list("cultist")
 	pref_check = MODE_CULTIST
+	can_set_own_name = FALSE
 	ghost_trap_message = "They are occupying a cultist's body now."
 	ghost_trap_role = "Cultist"
 

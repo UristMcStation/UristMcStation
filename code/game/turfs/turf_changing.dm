@@ -32,8 +32,9 @@
 	var/obj/fire/old_fire = fire
 	var/old_opacity = opacity
 	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
+	var/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
+	var/old_corners = corners
 
 //	log_debug("Replacing [src.type] with [N]")
 
@@ -51,6 +52,8 @@
 
 	var/turf/simulated/W = new N( locate(src.x, src.y, src.z) )
 
+	W.opaque_counter = opaque_counter
+
 	if(ispath(N, /turf/simulated))
 		if(old_fire)
 			fire = old_fire
@@ -60,7 +63,7 @@
 		old_fire.RemoveFire()
 
 	if(tell_universe)
-		universe.OnTurfChange(W)
+		GLOB.universe.OnTurfChange(W)
 
 	if(air_master)
 		air_master.mark_for_update(src) //handle the addition of the new turf.
@@ -71,17 +74,17 @@
 	W.post_change()
 	. = W
 
-	lighting_overlay = old_lighting_overlay
-	if(lighting_overlay)
-		lighting_overlay.update_overlay()
-	affecting_lights = old_affecting_lights
-	if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
-	if(dynamic_lighting != old_dynamic_lighting)
-		if(dynamic_lighting)
-			lighting_build_overlays()
-		else
-			lighting_clear_overlays()
+	if(lighting_overlays_initialised)
+		lighting_overlay = old_lighting_overlay
+		affecting_lights = old_affecting_lights
+		corners = old_corners
+		if((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting))
+			reconsider_lights()
+		if(dynamic_lighting != old_dynamic_lighting)
+			if(dynamic_lighting)
+				lighting_build_overlay()
+			else
+				lighting_clear_overlay()
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))

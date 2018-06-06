@@ -13,8 +13,7 @@ var/list/mining_floors = list()
 	name = "Rock"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	opacity = 1
 	density = 1
 	blocks_air = 1
@@ -63,16 +62,24 @@ var/list/mining_floors = list()
 
 	overlays.Cut()
 
-	var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
-	for(var/direction in step_overlays)
-		var/turf/turf_to_check = get_step(src,step_overlays[direction])
+	for(var/direction in GLOB.cardinal)
+		var/turf/turf_to_check = get_step(src,direction)
 		if(update_neighbors && istype(turf_to_check,/turf/simulated/floor/asteroid))
 			var/turf/simulated/floor/asteroid/T = turf_to_check
 			T.updateMineralOverlays()
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
-			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
+			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(direction, 180))
 			rock_side.turf_decal_layerise()
-			turf_to_check.overlays += rock_side
+			switch(direction)
+				if(NORTH)
+					rock_side.pixel_y += world.icon_size
+				if(SOUTH)
+					rock_side.pixel_y -= world.icon_size
+				if(EAST)
+					rock_side.pixel_x += world.icon_size
+				if(WEST)
+					rock_side.pixel_x -= world.icon_size
+			overlays += rock_side
 
 	if(ore_overlay)
 		overlays += ore_overlay
@@ -124,7 +131,7 @@ var/list/mining_floors = list()
 
 /turf/simulated/mineral/proc/MineralSpread()
 	if(mineral && mineral.spread)
-		for(var/trydir in cardinal)
+		for(var/trydir in GLOB.cardinal)
 			if(prob(mineral.spread_chance))
 				var/turf/simulated/mineral/target_turf = get_step(src, trydir)
 				if(istype(target_turf) && !target_turf.mineral)
@@ -136,6 +143,7 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
 	ore_overlay = image('icons/obj/mining.dmi', "rock_[mineral.icon_tag]")
+	ore_overlay.appearance_flags = RESET_COLOR
 	ore_overlay.turf_decal_layerise()
 	update_icon()
 
@@ -279,7 +287,7 @@ var/list/mining_floors = list()
 
 	clear_ore_effects()
 	var/obj/item/weapon/ore/O = new mineral.ore (src)
-	if(istype(O))
+	if(geologic_data && istype(O))
 		geologic_data.UpdateNearbyArtifactInfo(src)
 		O.geologic_data = geologic_data
 	return O
@@ -309,25 +317,9 @@ var/list/mining_floors = list()
 				if(prob(50))
 					M.Stun(5)
 		radiation_repository.flat_radiate(src, 25, 200)
-
-
-
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
 	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
-
-	// Kill and update the space overlays around us.
-	for(var/direction in step_overlays)
-		var/turf/space/T = get_step(src, step_overlays[direction])
-		if(istype(T))
-			T.overlays.Cut()
-			for(var/next_direction in step_overlays)
-				if(istype(get_step(T, step_overlays[next_direction]),/turf/simulated/mineral))
-					var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[next_direction])
-					rock_side.turf_decal_layerise()
-					T.overlays += rock_side
 
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
@@ -403,7 +395,7 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
 	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Iron" = 35, "Carbon" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Phoron" = 10)
-	var/mineralChance = 100 //10 //means 10% chance of this plot changing to a mineral deposit
+	var/mineralChance = 10 //10 //means 10% chance of this plot changing to a mineral deposit
 
 /turf/simulated/mineral/random/New()
 	if (prob(mineralChance) && !mineral)
@@ -416,7 +408,7 @@ var/list/mining_floors = list()
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
-	mineralChance = 100 //25
+	mineralChance = 25 //25
 	mineralSpawnChanceList = list("Uranium" = 10, "Platinum" = 10, "Iron" = 20, "Carbon" = 20, "Diamond" = 2, "Gold" = 10, "Silver" = 10, "Phoron" = 20)
 
 
@@ -434,8 +426,7 @@ var/list/mining_floors = list()
 	base_icon_state = "asteroid"
 
 	initial_flooring = null
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	var/dug = 0       //0 = has not yet been dug, 1 = has already been dug
 	var/overlay_detail

@@ -12,6 +12,7 @@
 
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_MIXER
 	var/list/mixing_inputs
+	var/target_pressure = MAX_PUMP_PRESSURE
 
 	//for mapping
 	var/node1_concentration = 0.5
@@ -73,6 +74,9 @@
 	last_flow_rate = 0
 
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
+		return
+
+	if(air3.return_pressure() >= target_pressure)
 		return
 
 	//Figure out the amount of moles to transfer
@@ -189,7 +193,7 @@ obj/machinery/atmospherics/trinary/mixer/t_mixer/New()
 		if(WEST)
 			initialize_directions = WEST|NORTH|SOUTH
 
-obj/machinery/atmospherics/trinary/mixer/t_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/t_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 
@@ -235,7 +239,7 @@ obj/machinery/atmospherics/trinary/mixer/m_mixer/New()
 		if(WEST)
 			initialize_directions = WEST|SOUTH|EAST
 
-obj/machinery/atmospherics/trinary/mixer/m_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/m_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 

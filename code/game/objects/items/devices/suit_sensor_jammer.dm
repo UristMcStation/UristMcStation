@@ -1,5 +1,5 @@
 #define JAMMER_MAX_RANGE world.view*2
-#define JAMMER_POWER_CONSUMPTION ((max(0.75, range)**2 * jammer_method.energy_cost * process_schedule_interval("obj")) / 10)
+#define JAMMER_POWER_CONSUMPTION ((max(0.75, range)**2 * jammer_method.energy_cost * process_schedule_interval("obj")) / 20)
 
 /obj/item/device/suit_sensor_jammer
 	name = "small device"
@@ -177,7 +177,7 @@ obj/item/device/suit_sensor_jammer/ui_act(action, params)
 	if(active)
 		return FALSE
 	active = TRUE
-	processing_objects += src
+	GLOB.processing_objects += src
 	jammer_method.enable()
 	update_icon()
 	return TRUE
@@ -187,7 +187,7 @@ obj/item/device/suit_sensor_jammer/ui_act(action, params)
 		return FALSE
 	active = FALSE
 	jammer_method.disable()
-	processing_objects -= src
+	GLOB.processing_objects -= src
 	update_icon()
 	return TRUE
 

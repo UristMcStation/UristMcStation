@@ -16,7 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
-	flags = OBJ_ANCHORABLE
+	flags = OBJ_ANCHORABLE|OBJ_CLIMBABLE
 	var/list/can_hold = list(
 		/obj/item/weapon/paper,
 		/obj/item/weapon/folder,
@@ -34,14 +34,15 @@
 	icon_state = "tallcabinet"
 
 
-/obj/structure/filingcabinet/initialize()
+/obj/structure/filingcabinet/Initialize()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/weapon/paper) || istype(I, /obj/item/weapon/folder) || istype(I, /obj/item/weapon/photo) || istype(I, /obj/item/weapon/paper_bundle))
 			I.loc = src
-
+	. = ..()
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
 	if(is_type_in_list(P, can_hold))
+		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
 		user.drop_item()
 		P.loc = src
@@ -62,8 +63,7 @@
 				b.loc = (get_turf(src))
 			qdel(src)
 	else
-		to_chat(user, "<span class='notice'>You can't put [P] in [src]!</span>")
-	..()
+		..()
 	return
 
 
@@ -123,9 +123,9 @@
 
 /obj/structure/filingcabinet/security/proc/populate()
 	if(virgin)
-		for(var/datum/data/record/G in data_core.general)
+		for(var/datum/data/record/G in GLOB.data_core.general)
 			var/datum/data/record/S
-			for(var/datum/data/record/R in data_core.security)
+			for(var/datum/data/record/R in GLOB.data_core.security)
 				if((R.fields["name"] == G.fields["name"] || R.fields["id"] == G.fields["id"]))
 					S = R
 					break
@@ -160,9 +160,9 @@
 
 /obj/structure/filingcabinet/medical/proc/populate()
 	if(virgin)
-		for(var/datum/data/record/G in data_core.general)
+		for(var/datum/data/record/G in GLOB.data_core.general)
 			var/datum/data/record/M
-			for(var/datum/data/record/R in data_core.medical)
+			for(var/datum/data/record/R in GLOB.data_core.medical)
 				if((R.fields["name"] == G.fields["name"] || R.fields["id"] == G.fields["id"]))
 					M = R
 					break

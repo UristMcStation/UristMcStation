@@ -48,7 +48,7 @@ obj/machinery/atmospherics/pipe/zpipe/New()
 		invisibility = i ? 101 : 0
 	update_icon()
 
-obj/machinery/atmospherics/pipe/up/process()
+obj/machinery/atmospherics/pipe/zpipe/process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -78,10 +78,10 @@ obj/machinery/atmospherics/pipe/zpipe/proc/burst()
 	qdel(src) // NOT qdel.
 
 obj/machinery/atmospherics/pipe/zpipe/proc/normalize_dir()
-	if(dir==3)
-		set_dir(1)
-	else if(dir==12)
-		set_dir(4)
+	if(dir == (NORTH|SOUTH))
+		set_dir(NORTH)
+	else if(dir == (EAST|WEST))
+		set_dir(EAST)
 
 obj/machinery/atmospherics/pipe/zpipe/Destroy()
 	if(node1)
@@ -118,11 +118,12 @@ obj/machinery/atmospherics/pipe/zpipe/up
 		name = "upwards pipe"
 		desc = "A pipe segment to connect upwards."
 
-obj/machinery/atmospherics/pipe/zpipe/up/initialize()
+obj/machinery/atmospherics/pipe/zpipe/up/atmos_init()
+	..()
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -156,11 +157,12 @@ obj/machinery/atmospherics/pipe/zpipe/down
 		name = "downwards pipe"
 		desc = "A pipe segment to connect downwards."
 
-obj/machinery/atmospherics/pipe/zpipe/down/initialize()
+obj/machinery/atmospherics/pipe/zpipe/down/atmos_init()
+	..()
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction

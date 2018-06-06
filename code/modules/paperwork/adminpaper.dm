@@ -16,6 +16,9 @@
 	var/footer = null
 	var/footerOn = FALSE
 
+	var/logo_list = list("ntlogo.png","sollogo.png")
+	var/logo = ""
+
 /obj/item/weapon/paper/admin/New()
 	..()
 	generateInteractions()
@@ -31,6 +34,7 @@
 	interactions += "<A href='?src=\ref[src];penmode=1'>Pen mode: [isCrayon ? "Crayon" : "Pen"]</A> "
 	interactions += "<A href='?src=\ref[src];cancel=1'>Cancel fax</A> "
 	interactions += "<BR>"
+	interactions += "<A href='?src=\ref[src];changelogo=1'>Change logo</A> "
 	interactions += "<A href='?src=\ref[src];toggleheader=1'>Toggle Header</A> "
 	interactions += "<A href='?src=\ref[src];togglefooter=1'>Toggle Footer</A> "
 	interactions += "<A href='?src=\ref[src];clear=1'>Clear page</A> "
@@ -41,7 +45,7 @@
 	var/challengehash = copytext(md5("[game_id]"),1,10) // changed to a hash of the game ID so it's more consistant but changes every round.
 	var/text = null
 	//TODO change logo based on who you're contacting.
-	text = "<center><img src = ntlogo.png></br>"
+	text = "<center><img src = [logo]></br>"
 	text += "<b>[origin] Quantum Uplink Signed Message</b><br>"
 	text += "<font size = \"1\">Encryption key: [originhash]<br>"
 	text += "Challenge: [challengehash]<br></font></center><hr>"
@@ -53,7 +57,7 @@
 
 	text = "<hr><font size= \"1\">"
 	text += "This transmission is intended only for the addressee and may contain confidential information. Any unauthorized disclosure is strictly prohibited. <br><br>"
-	text += "If this transmission is recieved in error, please notify both the sender and the office of [using_map.boss_name] Internal Affairs immediately so that corrective action may be taken."
+	text += "If this transmission is recieved in error, please notify both the sender and the office of [GLOB.using_map.boss_name] Internal Affairs immediately so that corrective action may be taken."
 	text += "Failure to comply is a breach of regulation and may be prosecuted to the fullest extent of the law, where applicable."
 	text += "</font>"
 
@@ -143,6 +147,12 @@ obj/item/weapon/paper/admin/proc/updateDisplay()
 
 	if(href_list["togglefooter"])
 		footerOn = !footerOn
+		updateDisplay()
+		return
+	
+	if(href_list["changelogo"])
+		logo = input(usr, "What logo?", "Choose a logo", "") as null|anything in (logo_list)
+		generateHeader()
 		updateDisplay()
 		return
 

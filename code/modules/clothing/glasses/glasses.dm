@@ -58,7 +58,7 @@
 
 /obj/item/clothing/glasses/meson/New()
 	..()
-	overlay = global_hud.meson
+	overlay = GLOB.global_hud.meson
 
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
@@ -75,7 +75,7 @@
 
 /obj/item/clothing/glasses/science/New()
 	..()
-	overlay = global_hud.science
+	overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/night
 	name = "Night Vision Goggles"
@@ -91,7 +91,7 @@
 
 /obj/item/clothing/glasses/night/New()
 	..()
-	overlay = global_hud.nvg
+	overlay = GLOB.global_hud.nvg
 
 /obj/item/clothing/glasses/tacgoggles //made their own thing, with more extreme flash protection and medium NV, but no more sechud
 	name = "tactical goggles"
@@ -221,6 +221,7 @@
 			tint = TINT_NONE
 			to_chat(usr, "You push \the [src] up out of your face.")
 		update_clothing_icon()
+		update_vision()
 		usr.update_action_buttons()
 
 /obj/item/clothing/glasses/welding/superior
@@ -337,7 +338,7 @@
 
 /obj/item/clothing/glasses/thermal/New()
 	..()
-	overlay = global_hud.thermal
+	overlay = GLOB.global_hud.thermal
 
 /obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
 	name = "Optical Meson Scanner"
@@ -370,3 +371,33 @@
 	desc = "A set of implantable lenses designed to augment your vision."
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
+
+
+/*---Tajaran-specific Eyewear---*/
+
+/obj/item/clothing/glasses/tajblind
+	name = "embroidered veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes."
+	icon_state = "tajblind"
+	item_state = "tajblind"
+	prescription = 5
+
+/obj/item/clothing/glasses/hud/health/tajblind
+	name = "lightweight veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has an installed medical HUD."
+	icon_state = "tajblind_med"
+	item_state = "tajblind_med"
+
+/obj/item/clothing/glasses/sunglasses/sechud/tajblind
+	name = "sleek veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has an in-built security HUD."
+	icon_state = "tajblind_sec"
+	item_state = "tajblind_sec"
+	prescription = 5
+
+/obj/item/clothing/glasses/meson/prescription/tajblind
+	name = "industrial veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has installed mesons."
+	icon_state = "tajblind_meson"
+	item_state = "tajblind_meson"
+	off_state = "tajblind_meson"

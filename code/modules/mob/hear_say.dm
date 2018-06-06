@@ -21,7 +21,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if(sleeping || stat == 1)
+	if(sleeping || stat == UNCONSCIOUS)
 		hear_sleep(message)
 		return
 
@@ -146,7 +146,7 @@
 				var/mob/living/carbon/human/I = impersonated[speaker_name]
 
 				if(!I)
-					for(var/mob/living/carbon/human/M in mob_list)
+					for(var/mob/living/carbon/human/M in GLOB.mob_list)
 						if(M.real_name == speaker_name)
 							I = M
 							impersonated[speaker_name] = I
@@ -192,7 +192,8 @@
 	else
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
 	if(sdisabilities & DEAF || ear_deaf)
-		if(prob(20))
+		var/mob/living/carbon/human/H = src
+		if(istype(H) && H.has_headset_in_ears() && prob(20))
 			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
 	else
 		on_hear_radio(part_a, speaker_name, track, part_b, part_c, formatted)
@@ -217,6 +218,9 @@
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
 	if(!client)
 		return
+
+	if(sleeping || stat == UNCONSCIOUS)
+		return 0
 
 	if(say_understands(speaker, language))
 		message = "<B>[speaker]</B> [verb], \"[message]\""
