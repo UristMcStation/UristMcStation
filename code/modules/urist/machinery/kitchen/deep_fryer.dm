@@ -40,7 +40,7 @@
 			if(istype(frying, /obj/item/weapon/reagent_containers/))
 				var/obj/item/weapon/reagent_containers/food = frying
 				food.reagents.trans_to(S, food.reagents.total_volume)
-			S.color = "#FFAD33"
+			S.color = "#ffad33"
 			S.icon = frying.icon
 			S.overlays = I.overlays
 			S.icon_state = frying.icon_state

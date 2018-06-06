@@ -288,16 +288,16 @@
 	id = "Wyrm NAS"
 	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
 	channel_tags = list(
-		list(AI_FREQ, "AI Private", "#FF00FF"),
-		list(COMM_FREQ, "Command", "#395A9A"),
-		list(ENG_FREQ, "Engineering", "#A66300"),
-		list(ENT_FREQ, "Entertainment", "#6EAA2C"),
+		list(AI_FREQ, "AI Private", "#ff00ff"),
+		list(COMM_FREQ, "Command", "#395a9a"),
+		list(ENG_FREQ, "Engineering", "#a66300"),
+		list(ENT_FREQ, "Entertainment", "#6eaa2c"),
 		list(MED_FREQ, "Medical", "#008160"),
 		list(PUB_FREQ, "Common", "#008000"),
 		list(SCI_FREQ, "Science", "#993399"),
-		list(SEC_FREQ, "Security", "#A30000"),
-		list(SRV_FREQ, "Service", "#6EAA2C"),
-		list(SUP_FREQ, "Supply", "#7F6539")
+		list(SEC_FREQ, "Security", "#a30000"),
+		list(SRV_FREQ, "Service", "#6eaa2c"),
+		list(SUP_FREQ, "Supply", "#7f6539")
 	)
 	autolinkers = list("serverWyrm", "busWyrm")
 

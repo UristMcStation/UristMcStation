@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY(emergency_responses)
 /obj/machinery/emergency_beacon/proc/update_status()
 	if(GLOB.using_map.active_beacon)
 		if(GLOB.using_map.active_beacon == src)
-			visible_message("<span class='notice>\The [src] flickers for a moment, but stays online.</span>")
+			visible_message("<span class='notice'>\The [src] flickers for a moment, but stays online.</span>")
 		else
 			visible_message("<span class='notice'>\The [src] buzzes as it displays \"Beacon signature already detected.\"</span>")
 	else

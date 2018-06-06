@@ -118,9 +118,9 @@
 
 	reagent_tag = IS_XENOS
 
-	blood_color = "#A10808"
+	blood_color = "#a10808"
 
-	blood_color = "#05EE05"
+	blood_color = "#05ee05"
 	flesh_color = "null"
 	gibbed_anim = "blank"
 	dusted_anim = "blank"

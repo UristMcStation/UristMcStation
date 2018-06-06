@@ -344,7 +344,7 @@
 				if(O.filling_color)
 					externalcolors = hex2rgblist(O.filling_color)
 				if((!internalcolors) && (!externalcolors))
-					src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+					src.filling_color = pick("#aa0000","#0000aa","#006600","#f0f000") //toned down
 				else if((!internalcolors) && (externalcolors))
 					src.filling_color = O.filling_color
 				else if((internalcolors) && (!externalcolors))
@@ -567,7 +567,7 @@
 			if(O.filling_color)
 				externalcolors = hex2rgblist(O.filling_color)
 			if((!internalcolors) && (!externalcolors))
-				src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+				src.filling_color = pick("#aa0000","#0000aa","#006600","#f0f000") //toned down
 			else if((!internalcolors) && (externalcolors))
 				src.filling_color = O.filling_color
 			else if((internalcolors) && (!externalcolors))

@@ -25,7 +25,7 @@
 	base_state = "flight"
 	item_state = "contvapour"
 	b_outer_range = 6
-	b_colour = "#B12525"
+	b_colour = "#b12525"
 
 //cold, blue tint; feedback was good on putting it in Medbay
 /obj/machinery/light/coldtint
@@ -34,7 +34,7 @@
 /obj/item/weapon/light/tube/tinted
 	name = "light tube (tinted)"
 	desc = "A replacement light tube."
-	b_colour = "#F0008C" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
+	b_colour = "#f0008c" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
 
 /obj/item/weapon/light/tube/tinted/coldtint
 	name = "light tube (cold-light)"
@@ -42,7 +42,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	b_colour = "#B0DCEA"
+	b_colour = "#b0dcea"
 
 //super warm tint (color literally stolen from candles), for the Bar
 /obj/machinery/light/warmtint
@@ -54,7 +54,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	b_colour = "#E09D37"
+	b_colour = "#e09d37"
 
 //green tint
 /obj/machinery/light/greentint
@@ -66,7 +66,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	b_colour ="#A8FFB1"
+	b_colour ="#a8ffb1"
 
 /obj/item/weapon/light/tube/tinted/redtint
 	name = "light tube (red)"
@@ -74,7 +74,7 @@
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"
-	b_colour ="#B12525"
+	b_colour ="#b12525"
 
 //because the train lamp sprite is nice
 /obj/item/device/flashlight/lamp/lantern
@@ -84,7 +84,7 @@
 	icon_state = "wolfflight"
 	item_state = "lamp"
 	flashlight_max_bright = 0.5
-	light_color = "#E09D37"
+	light_color = "#e09d37"
 	w_class = 4
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 

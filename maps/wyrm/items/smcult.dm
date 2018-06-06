@@ -32,6 +32,7 @@
 				<b>Dies:</b> 45
 				<br><center>
 				Tantum manet, ante magnam gradus una lex sit completum. Popule stulte sapere ut barbari nostros offendit terram, sed et de quibus ipsi secundum.
+				</center>
 				</font>
 				</html>"}
 

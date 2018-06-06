@@ -260,7 +260,7 @@
 	force = 7
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("hit", "bashed", "smacked")
-	light_color = "#E09D37"
+	light_color = "#e09d37"
 
 /obj/item/weapon/flame/torch/New()
 	smoketime = rand(500, 600)

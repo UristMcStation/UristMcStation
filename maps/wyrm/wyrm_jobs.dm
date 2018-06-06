@@ -82,7 +82,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "whichever head you're protecting. Remember, you are NOT security. Ultimately, you report to the Captain."
-	selection_color = "#004A7F"
+	selection_color = "#004a7f"
 	req_admin_notify = 1
 	minimal_player_age = 8
 	economic_modifier = 7

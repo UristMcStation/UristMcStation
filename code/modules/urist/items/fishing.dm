@@ -42,7 +42,7 @@
 	name = "fish fillet"
 	desc = "A fillet of fish meat."
 	icon_state = "fishfillet"
-	filling_color = "#FFDEFE"
+	filling_color = "#ffdefe"
 	center_of_mass = "x=17;y=13"
 
 /obj/item/weapon/reagent_containers/food/snacks/fishmeat/New()

@@ -32,11 +32,11 @@
 		overlays += img
 		sleep(200)
 		overlays.Cut()
-		img.color = "#C28566"
+		img.color = "#c28566"
 		overlays += img
 		sleep(200)
 		overlays.Cut()
-		img.color = "#A34719"
+		img.color = "#a34719"
 		overlays += img
 		sleep(50)
 		overlays.Cut()
@@ -49,6 +49,6 @@
 			food.reagents.add_reagent(/datum/reagent/nutriment, 10)
 			food.reagents.trans_to(I, food.reagents.total_volume)
 		I.loc = get_turf(src)
-		I.color = "#A34719"
+		I.color = "#a34719"
 		var/tempname = I.name
 		I.name = "grilled [tempname]"
