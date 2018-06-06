@@ -1,6 +1,6 @@
 
 
-/datum/map/glloydstation
+/datum/map/glloydstation //RIP Geneticists, you're illegal now. - Vak
 	allowed_jobs = list(
 						/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/hydro,
 						/datum/job/qm, /datum/job/cargo_tech,
@@ -9,7 +9,7 @@
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/chaplain,
-						/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/mining,  //RIP Geneticists, you're illegal now. - Vak
+						/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/mining,
 						/datum/job/blueshield, /datum/job/mime, /datum/job/clown, /datum/job/merchant
 						)
 
