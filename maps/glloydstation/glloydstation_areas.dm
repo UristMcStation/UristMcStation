@@ -9,10 +9,10 @@
 	post_round_safe_areas = list (
 		/area/centcom,
 		/area/shuttle/escape/centcom,
-		/area/shuttle/escape_pod1/centcom,
-		/area/shuttle/escape_pod2/centcom,
-		/area/shuttle/escape_pod3/centcom,
-		/area/shuttle/escape_pod5/centcom,
+		/area/shuttle/escape_pod1,
+		/area/shuttle/escape_pod2,
+		/area/shuttle/escape_pod3,
+		/area/shuttle/escape_pod5,
 		/area/shuttle/transport1/centcom,
 		/area/shuttle/administration/centcom,
 		/area/shuttle/specops/centcom,
@@ -105,25 +105,12 @@
 	name = "\improper Emergency Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/shuttle/escape/station
-	name = "\improper Emergency Shuttle Station"
-	icon_state = "shuttle2"
-
-/area/shuttle/escape/transit // the area to pass through for 3 minute transit
-	name = "\improper Emergency Shuttle Transit"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
-
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
-
-/area/shuttle/escape_pod1/transit
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
 
 /area/shuttle/escape_pod2
 	name = "\improper Escape Pod Two"
@@ -132,10 +119,6 @@
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
 
-/area/shuttle/escape_pod2/transit
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
-
 /area/shuttle/escape_pod3
 	name = "\improper Escape Pod Three"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -143,20 +126,12 @@
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
 
-/area/shuttle/escape_pod3/transit
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/east
-
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
 	name = "\improper Escape Pod Five"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
-
-/area/shuttle/escape_pod5/transit
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/east
 
 // === Trying to remove these areas:
 
@@ -177,10 +152,6 @@
 
 /area/shuttle/planet/station
 	icon_state = "shuttle"
-
-/area/shuttle/planet/outpost
-	icon_state = "shuttle2"
-	base_turf = /turf/simulated/floor/plating
 
 //SYNDICATES
 
@@ -381,10 +352,6 @@
 /area/maintenance/medbay
 	name = "\improper Medbay Maintenance"
 	icon_state = "maint_medbay"
-
-/area/maintenance/security_port
-	name = "\improper Security Maintenance - Port"
-	icon_state = "maint_security_port"
 
 /area/maintenance/exterior
 	name = "\improper Exterior Reinforcements"
@@ -1037,26 +1004,8 @@ area/rnd/test_area
 
 // CentCom
 
-/area/centcom/control
-	name = "\improper Centcom Control"
-
-/area/centcom/creed
-	name = "Creed's Office"
-
 /area/centcom/evac
 	name = "\improper Centcom Emergency Shuttle"
-
-/area/centcom/ferry
-	name = "\improper Centcom Transport Shuttle"
-
-/area/centcom/living
-	name = "\improper Centcom Living Quarters"
-
-/area/centcom/suppy
-	name = "\improper Centcom Supply Shuttle"
-
-/area/centcom/test
-	name = "\improper Centcom Testing Facility"
 
 // Solars
 /area/maintenance/auxsolarport
@@ -1351,28 +1300,12 @@ area/rnd/test_area
 	name = "\improper Administration Shuttle"
 	icon_state = "shuttlered"
 
-/area/shuttle/escape_pod1/centcom
-	icon_state = "shuttle"
-
-/area/shuttle/escape_pod2/centcom
-	icon_state = "shuttle"
-
-/area/shuttle/escape_pod3/centcom
-	icon_state = "shuttle"
-
-/area/shuttle/escape_pod5/centcom
-	icon_state = "shuttle"
-
 /area/supply/dock
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
 
 // Security
-
-/area/prison/solitary
-	name = "Solitary Confinement"
-	icon_state = "brig"
 
 /area/security/armoury
 	name = "\improper Security - Armory"
