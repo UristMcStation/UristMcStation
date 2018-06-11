@@ -11,8 +11,8 @@
 
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel
 	random_reagent_list = list(
-		list("fuel" = 15, "thermite" = 15)	= 9,
-		list("fuel" = 30)	 = 1,) //10% chance, the mix cannot, in fact, melt steel beams.
+		list(/datum/reagent/fuel = 15, /datum/reagent/thermite = 15)	= 9,
+		list(/datum/reagent/fuel = 30)	 = 1,) //10% chance, the mix cannot, in fact, melt steel beams.
 
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel/New()
 	..()

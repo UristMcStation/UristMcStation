@@ -241,15 +241,17 @@
 	backpack_contents = list(/obj/random/material, /obj/random/material, /obj/random/material, /obj/random/loot)
 
 /decl/hierarchy/outfit/nanotrasensci/exec
-	name = "Nanotrasen senior scientist"
+	name = "NT Senior Scientist"
 	uniform = /obj/item/clothing/under/rank/scientist/executive
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/rd
 	gloves = /obj/item/clothing/gloves/white
 
 /decl/hierarchy/outfit/nanotrasensci/exec/armed
+	name = "NT Senior Scientist - Armed"
 	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)
 
 /decl/hierarchy/outfit/vaultrich
+	name = "Banker"
 	uniform = /obj/item/clothing/under/det/black
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white

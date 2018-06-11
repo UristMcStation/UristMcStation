@@ -1,4 +1,5 @@
 /decl/hierarchy/outfit/grayson
+	name = "Grayson Default"
 	uniform = /obj/item/clothing/under/grayson
 	shoes = /obj/item/clothing/shoes/black
 
