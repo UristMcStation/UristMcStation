@@ -8669,7 +8669,7 @@
 "dkK" = (/obj/structure/particle_accelerator/particle_emitter/right{tag = "icon-emitter_right (EAST)"; icon_state = "emitter_right"; dir = 4},/turf/simulated/floor/tiled,/area/engineering/singulo)
 "dkL" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/tiled,/area/engineering/singulo)
 "dkM" = (/obj/item/weapon/crowbar,/turf/space,/area/space)
-"dkN" = (/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/blood/splatter,/obj/structure/bed/nice,/turf/simulated/floor/plating,/area/maintenance/aft)
+"dkN" = (/obj/effect/decal/cleanable/blood/splatter,/obj/structure/bed/nice,/turf/simulated/floor/plating,/area/maintenance/aft)
 "dkO" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/simulated/floor/plating,/area/maintenance/aft)
 "dkP" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/plating,/area/maintenance/aft)
 "dkQ" = (/obj/effect/decal/cleanable/vomit,/obj/effect/decal/cleanable/blood/tracks,/turf/simulated/floor/plating,/area/maintenance/aft)

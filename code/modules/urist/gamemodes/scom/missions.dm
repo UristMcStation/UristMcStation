@@ -214,6 +214,6 @@
 
 /obj/effect/shuttle_landmark/SCOM/S2/M7
 	name = "Shuttle 2 - Mission 7"
-	landmark_tag = "SCOM_S2_M5"
+	landmark_tag = "SCOM_S2_M7"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/scom/mission/nolighting

@@ -3,16 +3,16 @@
 #define RANK_COMMAND 3
 #define RANK_SUPPORT 4
 
-var/datum/antagonist/scom/scommies
+GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 /proc/isscom(var/mob/player)
-	if(!scommies || !player.mind)
+	if(!GLOB.scommies || !player.mind)
 		return 0
-	if(player.mind in scommies.current_antagonists)
+	if(player.mind in GLOB.scommies.current_antagonists)
 		return 1
 
 /proc/find_scom_ghost(var/mob/player)
-	if(scommies)
+	if(GLOB.scommies)
 		for(var/mob/observer/ghost/G in GLOB.player_list)
 			if(G.mind)
 				if((G.mind.current == player) && isscom(G))
@@ -40,14 +40,9 @@ var/datum/antagonist/scom/scommies
 	landmark_id = "scomspawn3"
 
 	var/list/teamnames = list(1,2,3,4) //all possible team names, putting this in one place for easy editing
-	var/list/freeteams = list()
+	var/list/freeteams = list(1,2,3,4)
 
 	welcome_text = "<span class='danger'>Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die.</span>"
-
-/datum/antagonist/scom/New()
-	..()
-	freeteams = teamnames.Copy()
-	scommies = src
 
 /datum/antagonist/scom/update_antag_mob(var/datum/mind/player, var/preserve_appearance = 1, var/rank)
 	..()
