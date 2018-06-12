@@ -28,7 +28,7 @@
 /datum/sprite_accessory/hair/fujisake
 	name = "Fujisake"
 	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_fujisake"
+	icon_state = "hair_fujisaki"
 
 /datum/sprite_accessory/hair/schierke
 	name = "Schierke"

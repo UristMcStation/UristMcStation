@@ -238,6 +238,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
 /decl/hierarchy/outfit/nanotrasensci/loot
+	name = "NT Scientist - Random Loot"
 	backpack_contents = list(/obj/random/material, /obj/random/material, /obj/random/material, /obj/random/loot)
 
 /decl/hierarchy/outfit/nanotrasensci/exec

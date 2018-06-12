@@ -39,7 +39,7 @@
 	var/static/list/phase_shift_by_y
 
 /turf/space/transit/east/Initialize()
-	..()
+	. = ..()
 	if(!phase_shift_by_y)
 		phase_shift_by_y = get_cross_shift_list(15)
 

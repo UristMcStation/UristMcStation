@@ -105,6 +105,11 @@
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
 
+/datum/gear/accessory/capes
+	display_name = "Shoulder cape"
+	path = /obj/item/clothing/accessory/shouldercape
+	sort_category = "Xenowear"
+
 /datum/gear/accessory/capes/New()
 	..()
 	var/capes = list()

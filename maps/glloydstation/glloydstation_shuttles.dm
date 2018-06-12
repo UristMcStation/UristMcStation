@@ -295,7 +295,7 @@
 /obj/effect/shuttle_landmark/centcom/transport/centcom
 	name = "Transport - Centcom"
 	landmark_tag = "centcom_shuttle_bay"
-	docking_controller = "centcom_shuttle_bay"
+	docking_controller = "centcom_shuttle"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/centcom
 
