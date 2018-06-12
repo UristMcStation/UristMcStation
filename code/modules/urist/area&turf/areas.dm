@@ -28,21 +28,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Heads of Staff Dorms"
 	icon_state = "head_quarters"
 
-/area/crew_quarters/heads_dorms/CE
-	name = "\improper Chief Engineer Dorm"
-
-/area/crew_quarters/heads_dorms/CMO
-	name = "\improper Chief Medical Officer Dorm"
-
-/area/crew_quarters/heads_dorms/HoP
-	name = "\improper Head of Personnel Dorm"
-
-/area/crew_quarters/heads_dorms/HoS
-	name = "\improper Head of Security Dorm"
-
-/area/crew_quarters/heads_dorms/RD
-	name = "\improper Research Director Dorm"
-
 /area/storage/emergency3
 	name = "\improper Escape Emergency Storage" //Because yolo
 	icon_state = "emergencystorage"
@@ -84,16 +69,8 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/bridge/blueshield
 	name = "\improper Blueshield's Office"
 
-/area/shuttle/arrivals/station
-	icon_state = "shuttle"
-	name = "\improper Arrival Shuttle Station"
-
 /area/shuttle/arrivals/centcom
 	name = "\improper Arrival Shuttle CentComm"
-	icon_state = "shuttle"
-
-/area/shuttle/arrivals/transit
-	name = "\improper Arrival Shuttle Transit"
 	icon_state = "shuttle"
 
 /area/engineering/singulo
@@ -137,10 +114,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/naval1/centcom
 	name = "\improper Navy Ship Centcom" //Not a WIP any longer motherfuckers
-	icon_state = "shuttle"
-
-/area/shuttle/naval1/station
-	name = "\improper Navy Ship"
 	icon_state = "shuttle"
 
 /area/shuttle/naval1/event1
@@ -222,15 +195,7 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	name = "\improper Mining Elevator"
 	icon_state = "shuttle"
 
-/area/shuttle/elevator/mining/underground
-	name = "\improper Mining Elevator"
-	icon_state = "shuttle"
-
 /area/shuttle/elevator/research/surface
-	name = "\improper Research Elevator"
-	icon_state = "shuttle"
-
-/area/shuttle/elevator/research/underground
 	name = "\improper Research Elevator"
 	icon_state = "shuttle"
 
@@ -242,10 +207,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/shuttle/securityoutpost/station
 	name = "\improper Security Outpost Shuttle Station"
 	base_turf = null
-
-/area/shuttle/securityoutpost/outpost
-	name = "\improper Security Outpost Shuttle Outpost"
-	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /area/outpost/security
 	icon_state = "security"
@@ -270,8 +231,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 /area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
 
 /area/shuttle/mining/outpost/base_turf = /turf/simulated/floor/planet/jungle/clear
-
-/area/shuttle/research/outpost/base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
 

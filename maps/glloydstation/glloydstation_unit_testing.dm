@@ -58,7 +58,6 @@
 			/area/space,
 			/area/mine/explored,
 			/area/mine/unexplored,
-			/area/centcom/control,
 			/area/engineering/atmos,
 			/area/constructionsite,
 			/area/constructionsite/maintenance,
@@ -183,5 +182,7 @@
 		/area/turbolift,
 		/area/outpost/engineering/storage,
 		/area/outpost/mining_main/maintenance,
-		/area/outpost/security/lounge
+		/area/outpost/security/lounge,
+		/area/exoplanet,
+		/area/map_template
 	)
