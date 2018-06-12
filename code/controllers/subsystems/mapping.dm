@@ -21,12 +21,23 @@ SUBSYSTEM_DEF(mapping)
 	exoplanet_ruins_templates = SSmapping.exoplanet_ruins_templates
 	away_sites_templates = SSmapping.away_sites_templates
 
-/datum/controller/subsystem/mapping/proc/preloadTemplates(var/path = "maps/templates/") //see master controller setup
+/datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
 		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
 		map_templates[T.name] = T
+
+	preloadOtherTemplates()
 	preloadBlacklistableTemplates()
+
+	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
+
+	for(var/obj/effect/template_loader/E in world)
+		if(E.gamemode)
+			continue
+		spawn(200)
+			E.Load()
+			admin_notice("<span class='danger'>Map Templates Spawned</span>", R_DEBUG)
 
 /datum/controller/subsystem/mapping/proc/preloadBlacklistableTemplates()
 	// Still supporting bans by filename

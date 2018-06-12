@@ -12,7 +12,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	screen_shake = 1
 	combustion = 1
-
+	fire_delay = 6
 	var/caliber = "357"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine

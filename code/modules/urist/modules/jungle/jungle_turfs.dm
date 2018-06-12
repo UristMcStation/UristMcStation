@@ -131,7 +131,7 @@
 	plants_spawn_chance = 40
 	small_trees_chance = 7.5
 	large_trees_chance = 0
-	reeds_spawn_chance = 10
+	reeds_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
@@ -224,6 +224,7 @@
 /turf/simulated/floor/planet/jungle/path
 	bushspawnchance = 0
 	small_trees_chance = 0
+	reeds_spawn_chance = 5
 	name = "wet grass"
 	desc = "thick, long wet grass"
 	icon = 'icons/jungle.dmi'
