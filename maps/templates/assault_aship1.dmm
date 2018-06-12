@@ -12,7 +12,7 @@
 "l" = (/obj/machinery/light,/turf/simulated/floor/tiled,/area/hallway/secondary/exit)
 "m" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/hallway/secondary/exit)
 "n" = (/turf/simulated/wall,/area/template_noop)
-"o" = (/obj/machinery/light{brightness_power = 4; brightness_range = 9; dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/hallway/secondary/exit)
+"o" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled,/area/hallway/secondary/exit)
 "p" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/hallway/secondary/exit)
 "q" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/wall,/area/hallway/secondary/exit)
 "r" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/tiled,/area/hallway/secondary/exit)

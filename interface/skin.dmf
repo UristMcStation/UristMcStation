@@ -612,7 +612,7 @@ macro "hotkeymode"
 		command = ".me"
 	elem 
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem 
 		name = "F5+REP"
 	elem 
@@ -629,6 +629,9 @@ macro "hotkeymode"
 		command = "aooc"
 		is-disabled = false
 	elem 
+		name = "F10"
+		command = "msay"
+	elem
 		name = "F12"
 		command = "F12"
 	elem 

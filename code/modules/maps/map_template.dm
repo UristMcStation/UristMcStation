@@ -10,14 +10,24 @@
 	var/base_turf_for_zs = null
 	var/accessibility_weight = 0
 	var/spawn_guaranteed = FALSE
+//	var/mappath = null
+//	var/mapfile = null
 
-/datum/map_template/New(var/list/paths = null, var/rename = null)
+/datum/map_template/New(var/path = null, var/list/paths = null, var/rename = null)
+	if(path)
+		paths = list()
+		paths += path
 	if(paths && !islist(paths))
 		crash_with("Non-list paths passed into map template constructor.")
 	if(paths)
 		mappaths = paths
 	if(mappaths)
 		preload_size(mappaths)
+//	if(path)
+//		mappath = path
+//		preload_size(mappath)
+//	if(map)
+//		mapfile = map
 	if(rename)
 		name = rename
 

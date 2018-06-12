@@ -292,7 +292,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(icon_state == "sheetwhite")
-		var/obj/item/clothing/mask/bandana/bedsheet/white/B = new /obj/item/clothing/mask/bandana/bedsheet/white
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/white/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/white
 
 		user.remove_from_mob(src)
 
@@ -300,7 +300,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetblue")
-		var/obj/item/clothing/mask/bandana/bedsheet/blue/B = new /obj/item/clothing/mask/bandana/bedsheet/blue
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/blue/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/blue
 
 		user.remove_from_mob(src)
 
@@ -308,7 +308,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetorange")
-		var/obj/item/clothing/mask/bandana/bedsheet/orange/B = new /obj/item/clothing/mask/bandana/bedsheet/orange
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/orange/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/orange
 
 		user.remove_from_mob(src)
 
@@ -316,7 +316,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetred")
-		var/obj/item/clothing/mask/bandana/bedsheet/red/B = new /obj/item/clothing/mask/bandana/bedsheet/red
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/red/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/red
 
 		user.remove_from_mob(src)
 
@@ -324,7 +324,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetpurple")
-		var/obj/item/clothing/mask/bandana/bedsheet/purple/B = new /obj/item/clothing/mask/bandana/bedsheet/purple
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/purple/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/purple
 
 		user.remove_from_mob(src)
 
@@ -332,7 +332,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetgreen")
-		var/obj/item/clothing/mask/bandana/bedsheet/green/B = new /obj/item/clothing/mask/bandana/bedsheet/green
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/green/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/green
 
 		user.remove_from_mob(src)
 
@@ -340,7 +340,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetyellow")
-		var/obj/item/clothing/mask/bandana/bedsheet/yellow/B = new /obj/item/clothing/mask/bandana/bedsheet/yellow
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/yellow/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/yellow
 
 		user.remove_from_mob(src)
 
@@ -348,7 +348,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetrainbow")
-		var/obj/item/clothing/mask/bandana/bedsheet/rainbow/B = new /obj/item/clothing/mask/bandana/bedsheet/rainbow
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/rainbow/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/rainbow
 
 		user.remove_from_mob(src)
 
@@ -356,7 +356,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetbrown")
-		var/obj/item/clothing/mask/bandana/bedsheet/brown/B = new /obj/item/clothing/mask/bandana/bedsheet/brown
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/brown/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/brown
 
 		user.remove_from_mob(src)
 
@@ -364,7 +364,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetcaptain")
-		var/obj/item/clothing/mask/bandana/bedsheet/captain/B = new /obj/item/clothing/mask/bandana/bedsheet/captain
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/captain/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/captain
 
 		user.remove_from_mob(src)
 
@@ -372,7 +372,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheethop")
-		var/obj/item/clothing/mask/bandana/bedsheet/hop/B = new /obj/item/clothing/mask/bandana/bedsheet/hop
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/hop/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/hop
 
 		user.remove_from_mob(src)
 
@@ -380,7 +380,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetce")
-		var/obj/item/clothing/mask/bandana/bedsheet/ce/B = new /obj/item/clothing/mask/bandana/bedsheet/ce
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/ce/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/ce
 
 		user.remove_from_mob(src)
 
@@ -388,7 +388,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheethos")
-		var/obj/item/clothing/mask/bandana/bedsheet/hos/B = new /obj/item/clothing/mask/bandana/bedsheet/hos
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/hos/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/hos
 
 		user.remove_from_mob(src)
 
@@ -396,7 +396,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetmedical")
-		var/obj/item/clothing/mask/bandana/bedsheet/medical/B = new /obj/item/clothing/mask/bandana/bedsheet/medical
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/medical/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/medical
 
 		user.remove_from_mob(src)
 
@@ -404,7 +404,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetcmo")
-		var/obj/item/clothing/mask/bandana/bedsheet/cmo/B = new /obj/item/clothing/mask/bandana/bedsheet/cmo
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/cmo/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/cmo
 
 		user.remove_from_mob(src)
 
@@ -412,7 +412,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetrd")
-		var/obj/item/clothing/mask/bandana/bedsheet/rd/B = new /obj/item/clothing/mask/bandana/bedsheet/rd
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/rd/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/rd
 
 		user.remove_from_mob(src)
 
@@ -420,7 +420,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetqm")
-		var/obj/item/clothing/mask/bandana/bedsheet/qm/B = new /obj/item/clothing/mask/bandana/bedsheet/qm
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/qm/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/qm
 
 		user.remove_from_mob(src)
 
@@ -428,7 +428,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetcentcom")
-		var/obj/item/clothing/mask/bandana/bedsheet/centcom/B = new /obj/item/clothing/mask/bandana/bedsheet/centcom
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/centcom/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/centcom
 
 		user.remove_from_mob(src)
 
@@ -436,7 +436,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetsyndie")
-		var/obj/item/clothing/mask/bandana/bedsheet/syndie/B = new /obj/item/clothing/mask/bandana/bedsheet/syndie
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/syndie/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/syndie
 
 		user.remove_from_mob(src)
 
@@ -444,7 +444,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetcult")
-		var/obj/item/clothing/mask/bandana/bedsheet/cult/B = new /obj/item/clothing/mask/bandana/bedsheet/cult
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/cult/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/cult
 
 		user.remove_from_mob(src)
 
@@ -452,7 +452,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetwiz")
-		var/obj/item/clothing/mask/bandana/bedsheet/wiz/B = new /obj/item/clothing/mask/bandana/bedsheet/wiz
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/wiz/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/wiz
 
 		user.remove_from_mob(src)
 
@@ -460,7 +460,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetclown")
-		var/obj/item/clothing/mask/bandana/bedsheet/clown/B = new /obj/item/clothing/mask/bandana/bedsheet/clown
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/clown/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/clown
 
 		user.remove_from_mob(src)
 
@@ -468,7 +468,7 @@ LINEN BINS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 	if(icon_state == "sheetmime")
-		var/obj/item/clothing/mask/bandana/bedsheet/mime/B = new /obj/item/clothing/mask/bandana/bedsheet/mime
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/mime/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/mime
 
 		user.remove_from_mob(src)
 
@@ -485,7 +485,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/white/B = new /obj/item/clothing/mask/bandana/bedsheet/white
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/white/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/white
 
 		user.remove_from_mob(src)
 
@@ -499,7 +499,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/blue/B = new /obj/item/clothing/mask/bandana/bedsheet/blue
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/blue/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/blue
 
 		user.remove_from_mob(src)
 
@@ -513,7 +513,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/orange/B = new /obj/item/clothing/mask/bandana/bedsheet/orange
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/orange/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/orange
 
 		user.remove_from_mob(src)
 
@@ -527,7 +527,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/red/B = new /obj/item/clothing/mask/bandana/bedsheet/red
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/red/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/red
 
 		user.remove_from_mob(src)
 
@@ -541,7 +541,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/purple/B = new /obj/item/clothing/mask/bandana/bedsheet/purple
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/purple/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/purple
 
 		user.remove_from_mob(src)
 
@@ -555,7 +555,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/green/B = new /obj/item/clothing/mask/bandana/bedsheet/green
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/green/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/green
 
 		user.remove_from_mob(src)
 
@@ -569,7 +569,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/yellow/B = new /obj/item/clothing/mask/bandana/bedsheet/yellow
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/yellow/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/yellow
 
 		user.remove_from_mob(src)
 
@@ -583,7 +583,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/rainbow/B = new /obj/item/clothing/mask/bandana/bedsheet/rainbow
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/rainbow/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/rainbow
 
 		user.remove_from_mob(src)
 
@@ -597,7 +597,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/brown/B = new /obj/item/clothing/mask/bandana/bedsheet/brown
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/brown/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/brown
 
 		user.remove_from_mob(src)
 
@@ -611,7 +611,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/captain/B = new /obj/item/clothing/mask/bandana/bedsheet/captain
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/captain/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/captain
 
 		user.remove_from_mob(src)
 
@@ -625,7 +625,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/hop/B = new /obj/item/clothing/mask/bandana/bedsheet/hop
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/hop/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/hop
 
 		user.remove_from_mob(src)
 
@@ -639,7 +639,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/ce/B = new /obj/item/clothing/mask/bandana/bedsheet/ce
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/ce/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/ce
 
 		user.remove_from_mob(src)
 
@@ -653,7 +653,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/hos/B = new /obj/item/clothing/mask/bandana/bedsheet/hos
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/hos/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/hos
 
 		user.remove_from_mob(src)
 
@@ -668,7 +668,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/medical/B = new /obj/item/clothing/mask/bandana/bedsheet/medical
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/medical/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/medical
 
 		user.remove_from_mob(src)
 
@@ -682,7 +682,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/cmo/B = new /obj/item/clothing/mask/bandana/bedsheet/cmo
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/cmo/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/cmo
 
 		user.remove_from_mob(src)
 
@@ -696,7 +696,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/rd/B = new /obj/item/clothing/mask/bandana/bedsheet/rd
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/rd/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/rd
 
 		user.remove_from_mob(src)
 
@@ -710,7 +710,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/qm/B = new /obj/item/clothing/mask/bandana/bedsheet/qm
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/qm/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/qm
 
 		user.remove_from_mob(src)
 
@@ -724,7 +724,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/centcom/B = new /obj/item/clothing/mask/bandana/bedsheet/centcom
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/centcom/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/centcom
 
 		user.remove_from_mob(src)
 
@@ -738,7 +738,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/syndie/B = new /obj/item/clothing/mask/bandana/bedsheet/syndie
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/syndie/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/syndie
 
 		user.remove_from_mob(src)
 
@@ -752,7 +752,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/cult/B = new /obj/item/clothing/mask/bandana/bedsheet/cult
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/cult/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/cult
 
 		user.remove_from_mob(src)
 
@@ -766,7 +766,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/wiz/B = new /obj/item/clothing/mask/bandana/bedsheet/wiz
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/wiz/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/wiz
 
 		user.remove_from_mob(src)
 
@@ -780,7 +780,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/clown/B = new /obj/item/clothing/mask/bandana/bedsheet/clown
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/clown/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/clown
 
 		user.remove_from_mob(src)
 
@@ -794,7 +794,7 @@ LINEN BINS
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/clothing/mask/bandana/bedsheet/mime/B = new /obj/item/clothing/mask/bandana/bedsheet/mime
+		var/obj/item/clothing/mask/urist/bandana/bedsheet/mime/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/mime
 
 		user.remove_from_mob(src)
 
