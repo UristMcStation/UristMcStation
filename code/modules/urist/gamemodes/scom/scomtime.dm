@@ -37,27 +37,27 @@
 	return 1
 
 /proc/HandleScomJoinFor(var/mob/living/carbon/L)
-	if(!(scommies)) //hacky af, but there's no other easy way to hook into that
+	if(!GLOB.scommies) //hacky af, but there's no other easy way to hook into that
 		log_and_message_admins("S-COM Operative antagonist not properly initialized!")
 	var/squadpick = 0
-	if(scommies.freeteams.len)
-		squadpick = pick_n_take(scommies.freeteams)
+	if(GLOB.scommies.freeteams.len)
+		squadpick = pick_n_take(GLOB.scommies.freeteams)
 	else
-		squadpick = pick(scommies.teamnames)
+		squadpick = pick(GLOB.scommies.teamnames)
 	var/station_job = L.job
 	L.delete_inventory(TRUE)
 	if(station_job == "Captain")
 		L.loc = pick(scomspawn1)
 		L << ("<span class='notice'> You are the Commander of the S-COM forces. You are expected to control all local aspects of your S-COL base, research, medical, supply and tactical. You should not attend combat missions yourself, unless you have no other option. Your goal is to ensure the project runs smoothly. You report only to the Council and its members. Good luck, the fate of the galaxy rests on your frail shoulders.</span>")
-		scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
-		scommies.update_antag_mob(L.mind, 1, RANK_COMMAND)
-		scommies.equip(L, RANK_COMMAND, 0)
+		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
+		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_COMMAND)
+		GLOB.scommies.equip(L, RANK_COMMAND, 0)
 	else if(station_job in list("Research Director", "Scientist"))
 		L.loc = pick(scomspawn2)
 		L << ("<span class='notice'> You are the Researcher. It is your job to bother the operatives to bring back whatever they can recover from their missions. You will use this, along with the provided facilities to advance the cause of science. It is your job to provide the soldiers with new equipment to match the rising alien threat. It is also your duty to heal any returning injured soldiers. You report to the Commander, good luck.</span>")
-		scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
-		scommies.update_antag_mob(L.mind, 1, RANK_SUPPORT)
-		scommies.equip(L, RANK_SUPPORT, 0)
+		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
+		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_SUPPORT)
+		GLOB.scommies.equip(L, RANK_SUPPORT, 0)
 
 /*		else if(station_job in list("Clown", "Mime"))
 			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
@@ -85,7 +85,7 @@
 
 	else if(station_job in list("Head of Personnel", "Head of Security", "Chief Engineer", "Chief Medical Officer"))
 		L.loc = pick(scomspawn1)
-		//teamnum = scommies.teamnames.Find(squadpick, 1, 4)
+		//teamnum = GLOB.scommies.teamnames.Find(squadpick, 1, 4)
 		L << ("<span class='warning'> You are leading squad [squadpick]</span>")
 			//if(station_job == "Head of Personnel")
 			//	W.access += access_cent_general
@@ -96,17 +96,17 @@
 			//if(station_job == "Chief Medical Officer")
 			//	W.access += access_cent_medical //keeping this for reference later when I CBA to restore access
 		L << ("<span class='notice'> You are the heart of the S-COM project: the squad leaders. Divided into four squads, you are the last and greatest line of defence against the alien menace. You report to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>")
-		scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
-		scommies.update_antag_mob(L.mind, 1, RANK_OFFICER)
-		scommies.equip(L, RANK_OFFICER, squadpick)
+		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
+		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_OFFICER)
+		GLOB.scommies.equip(L, RANK_OFFICER, squadpick)
 	else
 		L.loc = pick(scomspawn3)
-		//teamnum = scommies.teamnames.Find(squadpick, 1, 4)
+		//teamnum = GLOB.scommies.teamnames.Find(squadpick, 1, 4)
 		L << ("<span class='warning'> You are in squad [squadpick]</span>")
 		L << ("<span class='notice'> You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to your squad leaders and then to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>")
-		scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
-		scommies.update_antag_mob(L.mind, 1, RANK_SOLDIER)
-		scommies.equip(L, RANK_SOLDIER, squadpick)
+		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
+		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_SOLDIER)
+		GLOB.scommies.equip(L, RANK_SOLDIER, squadpick)
 	L.regenerate_icons()
 	return 1
 
@@ -123,7 +123,7 @@
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
-					if(!QDELETED(object))
+					if(!QDELETED(object) && !object.initialized)
 						object.Initialize()
 
 			world.log << "S-COM Maps loaded."

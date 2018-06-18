@@ -867,8 +867,6 @@
 			return global.same_wires;
 		if("scom_lowpop_scale")
 			return global.scom_lowpop_scale;
-		if("scommies")
-			return global.scommies;
 		if("scomscience_categories")
 			return global.scomscience_categories;
 		if("scomscience_recipes")
@@ -1982,8 +1980,6 @@
 			global.same_wires=newval;
 		if("scom_lowpop_scale")
 			global.scom_lowpop_scale=newval;
-		if("scommies")
-			global.scommies=newval;
 		if("scomscience_categories")
 			global.scomscience_categories=newval;
 		if("scomscience_recipes")
@@ -2663,7 +2659,6 @@
 	"runtime_diary",
 	"same_wires",
 	"scom_lowpop_scale",
-	"scommies",
 	"scomscience_categories",
 	"scomscience_recipes",
 	"scomspawn1",
