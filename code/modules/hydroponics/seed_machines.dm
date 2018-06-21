@@ -199,9 +199,8 @@
 	if(..())
 		return 1
 
-	var/mob/user = usr
-	user.set_machine(src)
-	src.add_fingerprint(user)
+	usr.set_machine(src)
+	src.add_fingerprint(usr)
 
 	if(href_list["scan_genome"])
 
@@ -211,11 +210,8 @@
 		active = 1
 
 		if(seed && seed.seed)
-			if(prob(user.skill_fail_chance(SKILL_BOTANY, 100, SKILL_ADEPT)))
-				failed_task = 1
-			else
-				genetics = seed.seed
-				degradation = 0
+			genetics = seed.seed
+			degradation = 0
 
 		qdel(seed)
 		seed = null
@@ -239,10 +235,7 @@
 		loaded_disk.desc += " The label reads \'gene [plant_controller.gene_tag_masks[href_list["get_gene"]]], sampled from [genetics.display_name]\'."
 		eject_disk = 1
 
-		degradation += rand(20,60) + user.skill_fail_chance(SKILL_BOTANY, 100, SKILL_ADEPT)
-		var/expertise = max(0, user.get_skill_value(SKILL_BOTANY) - SKILL_ADEPT)
-		degradation = max(0, degradation - 10*expertise)
-	
+		degradation += rand(20,60)
 		if(degradation >= 100)
 			failed_task = 1
 			genetics = null
@@ -311,7 +304,6 @@
 	if(href_list["apply_gene"])
 		if(!loaded_disk || !seed) return
 
-		var/mob/user = usr
 		last_action = world.time
 		active = 1
 
@@ -326,8 +318,7 @@
 
 		for(var/datum/plantgene/gene in loaded_disk.genes)
 			seed.seed.apply_gene(gene)
-			var/expertise = max(user.get_skill_value(SKILL_BOTANY) - SKILL_ADEPT)
-			seed.modified += rand(5,10) + min(-5, 30 * expertise)
+			seed.modified += rand(5,10)
 
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
