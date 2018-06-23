@@ -29,10 +29,7 @@
 	icon_state = "shuttlegrn"
 
 /area/shuttle/merchant/home
-	name = "\improper Merchant Van - Home"
-
-/area/shuttle/merchant/away
-	name = "\improper Merchant Van - Station Side"
+	name = "\improper Merchant Van"
 
 // Command
 /area/crew_quarters/heads/chief
@@ -63,10 +60,6 @@
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
 
-/area/shuttle/mining/outpost
-	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/plating
-
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
 	base_turf = null
@@ -86,20 +79,8 @@
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle Centcom"
 
-/area/shuttle/transport1/station
-	icon_state = "shuttle"
-	name = "\improper Transport Shuttle"
-
-/area/shuttle/alien/mine
-	icon_state = "shuttle"
-	name = "\improper Alien Shuttle Mine"
-	requires_power = 1
-
 /area/shuttle/arrivals
 	name = "\improper Arrival Shuttle"
-
-/area/shuttle/arrivals/station
-	icon_state = "shuttle"
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
@@ -142,10 +123,6 @@
 /area/shuttle/research/station
 	icon_state = "shuttle2"
 
-/area/shuttle/research/outpost
-	icon_state = "shuttle"
-	base_turf = /turf/simulated/floor/plating
-
 /area/shuttle/planet
 	name = "\improper Planet Outpost Shuttle"
 	base_turf = null
@@ -164,10 +141,6 @@
 
 /area/syndicate_mothership/ninja
 	name = "\improper Ninja Base"
-
-/area/syndicate_mothership/control
-	name = "\improper Syndicate Control Room"
-	icon_state = "syndie-control"
 
 //RESCUE
 
@@ -595,10 +568,6 @@
 	name = "\improper Security Office"
 	icon_state = "security"
 
-/area/security/brig/interrogation
-	name = "\improper Security - Interrogation"
-	icon_state = "brig"
-
 /area/security/brig/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
 		temp_closet.locked = 0
@@ -848,10 +817,6 @@ area/rnd/test_area
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
 
-/area/maintenance/security_port
-	name = "Security Maintenance - Port"
-	icon_state = "maint_security_port"
-
 /area/hallway/primary/
 	sound_env = LARGE_ENCLOSED
 
@@ -933,6 +898,10 @@ area/rnd/test_area
 /area/derelict/bridge
 	name = "\improper Derelict Control Room"
 	icon_state = "bridge"
+
+/area/derelict/armory
+	name = "\improper Derelict Armory"
+	icon_state = "red"
 
 /area/derelict/bridge/access
 	name = "Derelict Control Room Access"
@@ -1289,11 +1258,6 @@ area/rnd/test_area
 	name = "\improper Alien base"
 	icon_state = "yellow"
 	requires_power = 0
-
-/area/shuttle/alien/base
-	icon_state = "shuttle"
-	name = "\improper Alien Shuttle Base"
-	requires_power = 1
 
 // Shuttles
 /area/shuttle/administration/centcom

@@ -12,7 +12,7 @@
 
 /datum/gear/uniform/standard_scrubs
 	display_name = "standard medical scrubs"
-	path = /obj/item/clothing/under/rank/medical/scrubs/black
+	path = /obj/item/clothing/under/rank/medical/scrubs
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo,/datum/job/chemist)
 
 /datum/gear/uniform/standard_scrubs/New()
@@ -55,7 +55,7 @@
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
-	path = /obj/item/clothing/under/formal_pants
+	path = /obj/item/clothing/under/pants/urist
 
 /datum/gear/uniform/pants/New()
 	..()
@@ -67,7 +67,7 @@
 
 /datum/gear/uniform/shorts
 	display_name = "shorts selection"
-	path = /obj/item/clothing/under/shorts/jeans
+	path = /obj/item/clothing/under/shorts
 
 /datum/gear/uniform/shorts/New()
 	..()
@@ -88,7 +88,7 @@
 
 /datum/gear/uniform/corporate
 	display_name = "corporate uniform selection"
-	path = /obj/item/clothing/under/mbill
+	path = /obj/item/clothing/under
 
 /datum/gear/uniform/corporate/New()
 	..()

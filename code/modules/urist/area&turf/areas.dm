@@ -230,8 +230,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
 
-/area/shuttle/mining/outpost/base_turf = /turf/simulated/floor/planet/jungle/clear
-
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
 
 /area/shuttle/constructionsite/base_turf = /turf/simulated/floor/planet/jungle/clear

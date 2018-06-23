@@ -7,7 +7,7 @@
 
 /datum/gear/eyes/glasses
 	display_name = "glasses"
-	path = /obj/item/clothing/glasses/regular
+	path = /obj/item/clothing/glasses
 
 /datum/gear/eyes/glasses/New()
 	..()

@@ -116,6 +116,8 @@
 		last_int_pressure = breath_pressure
 		return
 	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
+	if(!environment)
+		return
 	var/int_pressure_diff = abs(last_int_pressure - breath_pressure)
 	var/ext_pressure_diff = abs(last_ext_pressure - environment.return_pressure()) * owner.get_pressure_weakness()
 	if(int_pressure_diff > max_pressure_diff && ext_pressure_diff > max_pressure_diff)
@@ -133,8 +135,9 @@
 	var/breath_pressure = breath.return_pressure()
 	check_rupturing(breath_pressure)
 	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
-	last_ext_pressure = environment.return_pressure()
-	last_int_pressure = breath_pressure
+	if(environment)
+		last_ext_pressure = environment.return_pressure()
+		last_int_pressure = breath_pressure
 	if(breath.total_moles == 0)
 		breath_fail_ratio = 1
 		handle_failed_breath()
