@@ -257,7 +257,7 @@
 	..()
 	usr << message
 
-/obj/structure/gravemarker/random/Initialize()
+/obj/structure/gravemarker/random/New()
 	generate()
 	..()
 
