@@ -43,6 +43,48 @@
 
 	away_site_budget = 5
 
+	citizenship_choices = list(
+		"Earth",
+		"Mars",
+		"New Earth",
+		"Luna",
+		"Ryclies I",
+		"Venus",
+		"Moghes",
+		"Ahdomai",
+		"Qerrbalak",
+		"Reade III",
+		"Procyon"
+	)
+
+	home_system_choices = list(
+		"Sol",
+		"Nyx",
+		"Tau Ceti",
+		"Epsilon Ursae Minoris",
+		"Zamsiin-lr",
+		"Gilgamesh",
+		"Ryclies",
+		"Reade"
+		)
+
+	faction_choices = list(
+		"Terran Confederacy",
+		"Outer Rim Miners Alliance",
+		"Vey Med",
+		"Einstein Engines",
+		"Free Trade Union",
+		"NanoTrasen",
+		"Ward-Takahashi GMB",
+		"Gilthari Exports",
+		"Grayson Manufactories Ltd.",
+		"Aether Atmospherics",
+		"Zeng-Hu Pharmaceuticals",
+		"Hephaestus Industries",
+		"Commonwealth of Ahdomai"
+		)
+
+
 /datum/map/wyrm/setup_map()
 	..()
 	system_name = generate_system_name()
