@@ -61,7 +61,8 @@
 	. = ..()
 
 /obj/structure/scrap/proc/shuffle_loot()
-	loot.close_all()
+	if(loot.initialized)
+		loot.close_all()
 	for(var/A in loot)
 		loot.remove_from_storage(A,src)
 	if(contents.len)
