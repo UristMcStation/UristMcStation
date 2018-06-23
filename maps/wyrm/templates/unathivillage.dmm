@@ -1,0 +1,28 @@
+"a" = (/turf/template_noop,/area/template_noop)
+"b" = (/turf/simulated/wall/wood,/area/template_noop)
+"c" = (/obj/structure/table/woodentable,/turf/template_noop,/area/template_noop)
+"d" = (/obj/machinery/door/unpowered/simple/wood,/turf/template_noop,/area/template_noop)
+"e" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/template_noop,/area/template_noop)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaa
+abbbbbaaaaaaabbbbbaa
+abaacbaaaaaabbaaabba
+abaacbaaaaaabaaaaaba
+abaacbaaaaaabaaaaaba
+abbdbbaaaaaabaaaaaba
+aaaaaaaaaaaabbaaabba
+aaaaaaaaaaaaabbdbbaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaabbdbbaaaaa
+aeeeaeeeaabcaabaaaaa
+aaaaaaaaaabcaabaaaaa
+aeeeaeeeaabbbbbaaaaa
+aaaaaaaaaaaaaaaaaaaa
+"}

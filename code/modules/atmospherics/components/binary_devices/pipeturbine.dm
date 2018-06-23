@@ -40,17 +40,17 @@
 
 		if(node1)
 			node1.disconnect(src)
-			qdel(network1)
+			QDEL_NULL(network1)
 		if(node2)
 			node2.disconnect(src)
-			qdel(network2)
+			QDEL_NULL(network2)
 
 		node1 = null
 		node2 = null
 
-		..()
+		. = ..()
 
-	process()
+	Process()
 		..()
 		if(anchored && !(stat&BROKEN))
 			kin_energy *= 1 - kin_loss
@@ -86,7 +86,7 @@
 			overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/wrench))
+		if(isWrench(W))
 			anchored = !anchored
 			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
 
@@ -96,13 +96,13 @@
 				else if(dir & (EAST|WEST))
 					initialize_directions = NORTH|SOUTH
 
-				initialize()
+				atmos_init()
 				build_network()
 				if (node1)
-					node1.initialize()
+					node1.atmos_init()
 					node1.build_network()
 				if (node2)
-					node2.initialize()
+					node2.atmos_init()
 					node2.build_network()
 			else
 				if(node1)
@@ -154,7 +154,8 @@
 
 		return null
 
-	initialize()
+	atmos_init()
+		..()
 		if(node1 && node2) return
 
 		var/node2_connect = turn(dir, -90)
@@ -246,16 +247,6 @@
 			if (turbine.stat & (BROKEN) || !turbine.anchored || turn(turbine.dir,180) != dir)
 				turbine = null
 
-	process()
-		updateConnection()
-		if(!turbine || !anchored || stat & (BROKEN))
-			return
-
-		var/power_generated = kin_to_el_ratio * turbine.kin_energy
-		turbine.kin_energy -= power_generated
-		add_avail(power_generated)
-
-
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
 			anchored = !anchored
@@ -284,3 +275,12 @@
 			return
 
 		src.set_dir(turn(src.dir, 90))
+
+/obj/machinery/power/turbinemotor/Process()
+	updateConnection()
+	if(!turbine || !anchored || stat & (BROKEN))
+		return
+
+	var/power_generated = kin_to_el_ratio * turbine.kin_energy
+	turbine.kin_energy -= power_generated
+	add_avail(power_generated)

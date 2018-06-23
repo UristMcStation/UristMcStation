@@ -1,6 +1,31 @@
 /decl/hierarchy/supply_pack/miscellaneous
 	name = "Miscellaneous"
 
+/decl/hierarchy/supply_pack/miscellaneous/llamps
+	num_contained = 3
+	contains = list(/obj/item/device/flashlight/lamp/lava,
+					/obj/item/device/flashlight/lamp/lava/red,
+					/obj/item/device/flashlight/lamp/lava/orange,
+					/obj/item/device/flashlight/lamp/lava/yellow,
+					/obj/item/device/flashlight/lamp/lava/green,
+					/obj/item/device/flashlight/lamp/lava/cyan,
+					/obj/item/device/flashlight/lamp/lava/blue,
+					/obj/item/device/flashlight/lamp/lava/purple,
+					/obj/item/device/flashlight/lamp/lava/pink)
+	name = "Lava lamps"
+	cost = 10
+	containername = "\improper Lava lamp crate"
+	supply_method = /decl/supply_method/randomized
+
+/decl/hierarchy/supply_pack/miscellaneous/officetoys
+	name = "Office toys"
+	contains = list(/obj/item/toy/desk/newtoncradle,
+					/obj/item/toy/desk/fan,
+					/obj/item/toy/desk/officetoy,
+					/obj/item/toy/desk/dippingbird)
+	cost = 15
+	containername = "\improper Office toys crate"
+
 /decl/hierarchy/supply_pack/miscellaneous/wizard
 	name = "Wizard costume"
 	contains = list(/obj/item/weapon/staff,
@@ -10,11 +35,47 @@
 	cost = 20
 	containername = "\improper Wizard costume crate"
 
-/decl/hierarchy/supply_pack/miscellaneous/carpet
-	name = "Imported carpet"
+/decl/hierarchy/supply_pack/miscellaneous/carpetbrown
+	name = "Brown carpet"
 	contains = list(/obj/item/stack/tile/carpet/fifty)
 	cost = 15
-	containername = "\improper Imported carpet crate"
+	containername = "\improper Brown carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetblue
+	name = "Blue and gold carpet"
+	contains = list(/obj/item/stack/tile/carpetblue/fifty)
+	cost = 15
+	containername = "\improper Blue and gold carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetblue2
+	name = "Blue and silver carpet"
+	contains = list(/obj/item/stack/tile/carpetblue2/fifty)
+	cost = 15
+	containername = "\improper Blue and silver carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetpurple
+	name = "Purple carpet"
+	contains = list(/obj/item/stack/tile/carpetpurple/fifty)
+	cost = 15
+	containername = "\improper Purple carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetorange
+	name = "Orange carpet"
+	contains = list(/obj/item/stack/tile/carpetorange/fifty)
+	cost = 15
+	containername = "\improper Orange carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetgreen
+	name = "Green carpet"
+	contains = list(/obj/item/stack/tile/carpetgreen/fifty)
+	cost = 15
+	containername = "\improper Green carpet crate"
+
+/decl/hierarchy/supply_pack/miscellaneous/carpetred
+	name = "Red carpet"
+	contains = list(/obj/item/stack/tile/carpetred/fifty)
+	cost = 15
+	containername = "\improper Red carpet crate"
 
 /decl/hierarchy/supply_pack/miscellaneous/linoleum
 	name = "Linoleum"
@@ -68,7 +129,10 @@
 					/obj/item/clothing/suit/chef,
 					/obj/item/clothing/suit/apron/overalls,
 					/obj/item/clothing/under/redcoat,
-					/obj/item/clothing/under/kilt)
+					/obj/item/clothing/under/kilt,
+					/obj/item/clothing/under/savage_hunter,
+					/obj/item/clothing/under/savage_hunter/female,
+					/obj/item/clothing/under/wetsuit)
 	name = "Costumes crate"
 	cost = 10
 	containername = "\improper Actor Costumes"
@@ -77,8 +141,8 @@
 /decl/hierarchy/supply_pack/miscellaneous/formal_wear
 	contains = list(/obj/item/clothing/head/bowler,
 					/obj/item/clothing/head/that,
-					/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket,
-					/obj/item/clothing/suit/storage/lawyer/purpjacket,
+					/obj/item/clothing/suit/storage/toggle/suit/blue,
+					/obj/item/clothing/suit/storage/toggle/suit/purple,
 					/obj/item/clothing/under/suit_jacket,
 					/obj/item/clothing/under/suit_jacket/female,
 					/obj/item/clothing/under/suit_jacket/really_black,
@@ -168,7 +232,8 @@
 					/obj/item/clothing/mask/gas/owl_mask,
 					/obj/item/clothing/mask/gas/monkeymask,
 					/obj/item/clothing/head/helmet/gladiator,
-					/obj/item/clothing/head/ushanka)
+					/obj/item/clothing/head/ushanka,
+					/obj/item/clothing/mask/spirit)
 	cost = 10
 	containername = "\improper Actor hats crate"
 	containertype = /obj/structure/closet
@@ -252,4 +317,9 @@
 	name = "\improper Pest Control Crate"
 	cost = 10
 	containername = "\improper Pest Control Crate"
-	
+
+/decl/hierarchy/supply_pack/miscellaneous/illuminate
+	name = "Illumination grenades"
+	contains = list(/obj/item/weapon/grenade/light = 8)
+	cost = 20
+	containername = "\improper Illumination grenade crate"

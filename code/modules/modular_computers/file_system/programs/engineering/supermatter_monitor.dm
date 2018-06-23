@@ -3,6 +3,8 @@
 	filedesc = "Supermatter Monitoring"
 	nanomodule_path = /datum/nano_module/supermatter_monitor/
 	program_icon_state = "smmon_0"
+	program_key_state = "tech_key"
+	program_menu_icon = "notice"
 	extended_desc = "This program connects to specially calibrated supermatter sensors to provide information on the status of supermatter-based engines."
 	ui_header = "smmon_0.gif"
 	required_access = access_engine
@@ -42,8 +44,8 @@
 	var/turf/T = get_turf(nano_host())
 	if(!T)
 		return
-	var/valid_z_levels = (GetConnectedZlevels(T.z) & using_map.station_levels)
-	for(var/obj/machinery/power/supermatter/S in machines)
+	var/valid_z_levels = (GetConnectedZlevels(T.z) & GLOB.using_map.station_levels)
+	for(var/obj/machinery/power/supermatter/S in SSmachines.machinery)
 		// Delaminating, not within coverage, not on a tile.
 		if(S.grav_pulling || S.exploded || !(S.z in valid_z_levels) || !istype(S.loc, /turf/))
 			continue
@@ -57,7 +59,7 @@
 	for(var/obj/machinery/power/supermatter/S in supermatters)
 		. = max(., S.get_status())
 
-/datum/nano_module/supermatter_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/supermatter_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 	if(istype(active))
@@ -75,19 +77,21 @@
 		data["SM_power"] = active.power
 		data["SM_ambienttemp"] = air.temperature
 		data["SM_ambientpressure"] = air.return_pressure()
-		data["SM_EPR"] = round((air.total_moles / air.group_multiplier) / 23.1, 0.01)
+		data["SM_EPR"] = active.get_epr()
 		if(air.total_moles)
 			data["SM_gas_O2"] = round(100*air.gas["oxygen"]/air.total_moles,0.01)
 			data["SM_gas_CO2"] = round(100*air.gas["carbon_dioxide"]/air.total_moles,0.01)
 			data["SM_gas_N2"] = round(100*air.gas["nitrogen"]/air.total_moles,0.01)
 			data["SM_gas_PH"] = round(100*air.gas["phoron"]/air.total_moles,0.01)
 			data["SM_gas_N2O"] = round(100*air.gas["sleeping_agent"]/air.total_moles,0.01)
+			data["SM_gas_H2"] = round(100*air.gas["hydrogen"]/air.total_moles,0.01)
 		else
 			data["SM_gas_O2"] = 0
 			data["SM_gas_CO2"] = 0
 			data["SM_gas_N2"] = 0
 			data["SM_gas_PH"] = 0
 			data["SM_gas_N2O"] = 0
+			data["SM_gas_H2"] = 0
 	else
 		var/list/SMS = list()
 		for(var/obj/machinery/power/supermatter/S in supermatters)
@@ -104,7 +108,7 @@
 		data["active"] = 0
 		data["supermatters"] = SMS
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "supermatter_monitor.tmpl", "Supermatter Monitoring", 600, 400, state = state)
 		if(host.update_layout())

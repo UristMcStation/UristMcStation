@@ -1,3 +1,4 @@
+/* TODO: Update to refactored grab system
 /obj/machinery/monkey_recycler
 	name = "monkey recycler"
 	desc = "A machine used for recycling dead monkeys into monkey cubes. It requires 5 monkeys per cube."
@@ -48,3 +49,4 @@
 	else
 		user << "<span class='warning'> The machine needs at least 5 monkeys worth of material to produce a monkey cube. It only has [grinded].</span>"
 	return
+*/

@@ -3,7 +3,7 @@
 	desc = "A small electronic device that should never exist."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = ""
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	throwforce = 2
@@ -102,7 +102,7 @@
 		if((!A.secured) && (!secured))
 			attach_assembly(A,user)
 			return
-	if(isscrewdriver(W))
+	if(isScrewdriver(W))
 		if(toggle_secure())
 			to_chat(user, "<span class='notice'>\The [src] is ready!</span>")
 		else
@@ -112,9 +112,8 @@
 	return
 
 
-/obj/item/device/assembly/process()
-	processing_objects.Remove(src)
-	return
+/obj/item/device/assembly/Process()
+	return PROCESS_KILL
 
 
 /obj/item/device/assembly/examine(mob/user)
@@ -137,9 +136,9 @@
 	return //HTML MENU FOR WIRES GOES HERE
 
 /obj/item/device/assembly/nano_host()
-    if(istype(loc, /obj/item/device/assembly_holder))
-        return loc.nano_host()
-    return ..()
+	if(istype(loc, /obj/item/device/assembly_holder))
+		return loc.nano_host()
+	return ..()
 
 /*
 	var/small_icon_state = null//If this obj will go inside the assembly use this for icons

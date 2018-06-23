@@ -1,43 +1,43 @@
-#define TOPIC_NOACTION 0
-#define TOPIC_HANDLED 1
-#define TOPIC_REFRESH 2
 #define TOPIC_UPDATE_PREVIEW 4
 #define TOPIC_REFRESH_UPDATE_PREVIEW (TOPIC_REFRESH|TOPIC_UPDATE_PREVIEW)
+
+var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
 	sort_order = 1
 	category_item_type = /datum/category_item/player_setup_item/general
 
-/datum/category_group/player_setup_category/skill_preferences
-	name = "Skills"
-	sort_order = 2
-	category_item_type = /datum/category_item/player_setup_item/skills
-
 /datum/category_group/player_setup_category/occupation_preferences
 	name = "Occupation"
-	sort_order = 3
+	sort_order = 2
 	category_item_type = /datum/category_item/player_setup_item/occupation
 
 /datum/category_group/player_setup_category/appearance_preferences
 	name = "Roles"
-	sort_order = 4
+	sort_order = 3
 	category_item_type = /datum/category_item/player_setup_item/antagonism
 
 /datum/category_group/player_setup_category/relations_preferences
 	name = "Matchmaking"
-	sort_order = 5
+	sort_order = 4
 	category_item_type = /datum/category_item/player_setup_item/relations
 
 /datum/category_group/player_setup_category/loadout_preferences
 	name = "Loadout"
-	sort_order = 6
+	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/loadout
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 7
+	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/player_global
+
+/datum/category_group/player_setup_category/law_pref
+	name = "Laws"
+	sort_order = 7
+	category_item_type = /datum/category_item/player_setup_item/law_pref
+
 
 /****************************
 * Category Collection Setup *
@@ -79,7 +79,7 @@
 
 /datum/category_collection/player_setup_collection/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_group/player_setup_category/PS in categories)
-		. = . && PS.update_setup(preferences, character)
+		. = PS.update_setup(preferences, character) || .
 
 /datum/category_collection/player_setup_collection/proc/header()
 	var/dat = ""
@@ -126,8 +126,6 @@
 		PI.sanitize_character()
 
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
-	// Load all data, then sanitize it.
-	// Need due to, for example, the 01_basic module relying on species having been loaded to sanitize correctly but that isn't loaded until module 03_body.
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.load_character(S)
 
@@ -150,7 +148,7 @@
 
 /datum/category_group/player_setup_category/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_item/player_setup_item/PI in items)
-		. = . && PI.update_setup(preferences, character)
+		. = PI.update_setup(preferences, character) || .
 
 /datum/category_group/player_setup_category/proc/content(var/mob/user)
 	. = "<table style='width:100%'><tr style='vertical-align:top'><td style='width:50%'>"
@@ -253,3 +251,6 @@
 
 	if(pref.client)
 		return pref.client.mob
+
+/datum/category_item/player_setup_item/proc/preference_species()
+	return all_species[pref.species] || all_species[SPECIES_HUMAN]

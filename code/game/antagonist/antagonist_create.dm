@@ -1,4 +1,4 @@
-/datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+/datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance, var/do_not_greet)
 
 	if(!target)
 		return
@@ -15,7 +15,8 @@
 	update_leader()
 	create_objectives(target)
 	update_icons_added(target)
-	greet(target)
+	if(!do_not_greet)
+		greet(target)
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 
@@ -76,7 +77,7 @@
 			// Create and pass on the bomb code paper.
 			var/obj/item/weapon/paper/P = new(paper_spawn_loc)
 			P.info = "The nuclear authorization code is: <b>[code]</b>"
-			P.name = "nuclear bomb code"
+			P.SetName("nuclear bomb code")
 			if(leader && leader.current)
 				if(get_turf(P) == get_turf(leader.current) && !(leader.current.l_hand && leader.current.r_hand))
 					leader.current.put_in_hands(P)
@@ -108,6 +109,7 @@
 		create_nuke()
 
 	src.show_objectives_at_creation(player)
+	to_chat(player.current, "<span class='notice'><font size = 3>You may assign yourself objectives with the get-objective verb in the OOC tab.</font></span>")
 	return 1
 
 /datum/antagonist/proc/set_antag_name(var/mob/living/player)
@@ -115,7 +117,7 @@
 	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
 	if (newname)
 		player.real_name = newname
-		player.name = player.real_name
+		player.SetName(player.real_name)
 		if(player.dna)
 			player.dna.real_name = newname
 	if(player.mind) player.mind.name = player.name

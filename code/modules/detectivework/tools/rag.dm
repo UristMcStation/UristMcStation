@@ -1,5 +1,5 @@
 /mob
-	var/bloody_hands = 0
+	var/bloody_hands = null
 	var/mob/living/carbon/human/bloody_hands_mob
 	var/track_blood = 0
 	var/list/feet_blood_DNA
@@ -23,7 +23,8 @@
 	possible_transfer_amounts = "5"
 	volume = 10
 	can_be_placed_into = null
-	flags = OPENCONTAINER | NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	unacidable = 0
 
 	var/on_fire = 0
@@ -34,8 +35,8 @@
 	update_name()
 
 /obj/item/weapon/reagent_containers/glass/rag/Destroy()
-	processing_objects -= src //so we don't continue turning to ash while gc'd
-	..()
+	STOP_PROCESSING(SSobj, src) //so we don't continue turning to ash while gc'd
+	. = ..()
 
 /obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user as mob)
 	if(on_fire)
@@ -60,11 +61,11 @@
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
-		name = "burning [initial(name)]"
+		SetName("burning [initial(name)]")
 	else if(reagents.total_volume)
-		name = "damp [initial(name)]"
+		SetName("damp [initial(name)]")
 	else
-		name = "dry [initial(name)]"
+		SetName("dry [initial(name)]")
 
 /obj/item/weapon/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
@@ -159,7 +160,7 @@
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
 /obj/item/weapon/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = reagents.get_reagent_amount("fuel")
+	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/ignite()
@@ -169,22 +170,22 @@
 		return
 
 	//also copied from matches
-	if(reagents.get_reagent_amount("phoron")) // the phoron explodes when exposed to fire
+	if(reagents.get_reagent_amount(/datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message("<span class='danger'>\The [src] conflagrates violently!</span>")
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(reagents.get_reagent_amount("phoron") / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return
 
-	processing_objects += src
-	set_light(2, null, "#E38F46")
+	START_PROCESSING(SSobj, src)
+	set_light(0.5, 0.1, 2, 2, "#e38f46")
 	on_fire = 1
 	update_name()
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/extinguish()
-	processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 	set_light(0)
 	on_fire = 0
 
@@ -197,7 +198,7 @@
 	update_name()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/process()
+/obj/item/weapon/reagent_containers/glass/rag/Process()
 	if(!can_ignite())
 		visible_message("<span class='warning'>\The [src] burns out.</span>")
 		extinguish()
@@ -211,11 +212,11 @@
 		location.hotspot_expose(700, 5)
 
 	if(burn_time <= 0)
-		processing_objects -= src
+		STOP_PROCESSING(SSobj, src)
 		new /obj/effect/decal/cleanable/ash(location)
 		qdel(src)
 		return
 
-	reagents.remove_reagent("fuel", reagents.maximum_volume/25)
+	reagents.remove_reagent(/datum/reagent/fuel, reagents.maximum_volume/25)
 	update_name()
 	burn_time--

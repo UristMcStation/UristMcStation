@@ -23,16 +23,17 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/Destroy()
 	rad_collectors -= src
-	..()
+	. = ..()
 
-/obj/machinery/power/rad_collector/process()
+/obj/machinery/power/rad_collector/Process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0
 
-	var/turf/T = get_turf(src)
-	if(T in radiation_repository.irradiated_turfs)
-		receive_pulse((radiation_repository.irradiated_turfs[T] * 5)) //Maths is hard
+	if(P && active)
+		var/rads = radiation_repository.get_rads_at_turf(get_turf(src))
+		if(rads)
+			receive_pulse(rads * 5) //Maths is hard
 
 	if(P)
 		if(P.air_contents.gas["phoron"] == 0)
@@ -70,14 +71,18 @@ var/global/list/rad_collectors = list()
 		W.loc = src
 		update_icons()
 		return 1
-	else if(istype(W, /obj/item/weapon/crowbar))
+	else if(isCrowbar(W))
 		if(P && !src.locked)
 			eject()
 			return 1
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(isWrench(W))
 		if(P)
 			to_chat(user, "<span class='notice'>Remove the phoron tank first.</span>")
 			return 1
+		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
+			if(R != src)
+				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
+				return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
@@ -88,7 +93,7 @@ var/global/list/rad_collectors = list()
 		else
 			disconnect_from_network()
 		return 1
-	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
 		if (src.allowed(user))
 			if(active)
 				src.locked = !src.locked

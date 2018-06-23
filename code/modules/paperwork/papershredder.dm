@@ -5,7 +5,8 @@
 	icon_state = "papershredder0"
 	density = 1
 	anchored = 1
-	flags = OBJ_ANCHORABLE
+	atom_flags = ATOM_FLAG_CLIMBABLE
+	obj_flags = OBJ_FLAG_ANCHORABLE
 	var/max_paper = 10
 	var/paperamount = 0
 	var/list/shred_amounts = list(
@@ -40,7 +41,7 @@
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/weapon/shreddedp/SP = get_shredded_paper()
 					SP.loc = get_turf(src)
-					SP.throw_at(get_edge_target_turf(src,pick(alldirs)),1,5)
+					SP.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),1,5)
 				paperamount = max_paper
 			update_icon()
 			return
@@ -137,4 +138,4 @@
 
 /obj/item/weapon/shreddedp/New()
 	..()
-	if(prob(65)) color = pick("#BABABA","#7F7F7F")
+	if(prob(65)) color = pick("#bababa","#7f7f7f")

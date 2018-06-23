@@ -1,8 +1,10 @@
 /obj/machinery/computer/fusion_core_control
 	name = "\improper R-UST Mk. 8 core control"
-	icon = 'icons/obj/machines/power/fusion.dmi'
-	icon_state = "core_control"
+	icon_keyboard = "power_key"
+	icon_screen = "rust_screen"
 	light_color = COLOR_ORANGE
+	idle_power_usage = 250
+	active_power_usage = 500
 
 	var/id_tag
 	var/scan_range = 25
@@ -10,7 +12,7 @@
 	var/obj/machinery/power/fusion_core/cur_viewed_device
 
 /obj/machinery/computer/fusion_core_control/attackby(var/obj/item/thing, var/mob/user)
-	if(ismultitool(thing))
+	if(isMultitool(thing))
 		var/new_ident = input("Enter a new ident tag.", "Core Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
@@ -68,8 +70,8 @@
 				<b>Fuel:</b><br>
 				<table><tr><th><b>Name</b></th><th><b>Amount</b></th></tr>
 			"}
-			for(var/reagent in cur_viewed_device.owned_field.dormant_reactant_quantities)
-				dat += "<tr><td>[reagent]</td><td>[cur_viewed_device.owned_field.dormant_reactant_quantities[reagent]]</td></tr>"
+			for(var/reagent in cur_viewed_device.owned_field.reactants)
+				dat += "<tr><td>[reagent]</td><td>[cur_viewed_device.owned_field.reactants[reagent]]</td></tr>"
 			dat += "</table><hr>"
 
 	else
@@ -131,8 +133,7 @@
 	user.set_machine(src)
 
 /obj/machinery/computer/fusion_core_control/Topic(href, href_list)
-	. = ..()
-	if(.)
+	if((. = ..()))
 		return
 
 	if(href_list["access_device"])

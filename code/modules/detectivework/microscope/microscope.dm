@@ -10,6 +10,10 @@
 	var/obj/item/weapon/sample = null
 	var/report_num = 0
 
+/obj/machinery/microscope/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/microscope)
+	. = ..()
+
 /obj/machinery/microscope/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(sample)
@@ -23,6 +27,14 @@
 		sample = W
 		update_icon()
 		return
+
+	else if(default_deconstruction_crowbar(user, W))
+		return
+	else if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user,W))
+		return
+	. = ..()
 
 /obj/machinery/microscope/attack_hand(mob/user)
 
@@ -45,7 +57,7 @@
 	if(istype(sample, /obj/item/weapon/forensics/swab))
 		var/obj/item/weapon/forensics/swab/swab = sample
 
-		report.name = "GSR report #[++report_num]: [swab.name]"
+		report.SetName("GSR report #[++report_num]: [swab.name]")
 		report.info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
 
 		if(swab.gsr)
@@ -55,7 +67,7 @@
 
 	else if(istype(sample, /obj/item/weapon/sample/fibers))
 		var/obj/item/weapon/sample/fibers/fibers = sample
-		report.name = "Fiber report #[++report_num]: [fibers.name]"
+		report.SetName("Fiber report #[++report_num]: [fibers.name]")
 		report.info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
 		if(fibers.evidence)
 			report.info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
@@ -64,7 +76,7 @@
 		else
 			report.info += "No fibers found."
 	else if(istype(sample, /obj/item/weapon/sample/print))
-		report.name = "Fingerprint report #[report_num]: [sample.name]"
+		report.SetName("Fingerprint report #[report_num]: [sample.name]")
 		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
 		var/obj/item/weapon/sample/print/card = sample
 		if(card.evidence && card.evidence.len)

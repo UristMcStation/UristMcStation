@@ -8,12 +8,15 @@
 	oxygen requirements to support their robust metabolism."
 	icobase = 'icons/mob/human_races/subspecies/r_gravworlder.dmi'
 	health_hud_intensity = 3
+	num_alternate_languages = 2
 
 	flash_mod =     0.9
 	oxy_mod =       1.1
 	radiation_mod = 0.5
 	brute_mod =     0.85
 	slowdown =      1
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE_GRAV | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 /datum/species/human/spacer
 	name = "Space-Adapted Human"
@@ -22,12 +25,18 @@
 	lack both light and atmosphere. As such, they're quite resistant to asphyxiation as well as \
 	toxins, but they suffer from weakened bone structure and a marked vulnerability to bright lights."
 	icobase = 'icons/mob/human_races/subspecies/r_spacer.dmi'
+	num_alternate_languages = 2
 
 	oxy_mod =   0.8
 	toxins_mod =   0.9
 	flash_mod = 1.2
 	brute_mod = 1.1
 	burn_mod =  1.1
+	darksight_range = 6
+	darksight_tint = DARKTINT_MODERATE
+
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE_SPCR | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
@@ -36,6 +45,7 @@
 	of bodies is a very real and rather ethically grey industry. Vat-grown humans tend to be paler than \
 	baseline, with no appendix and fewer inherited genetic disabilities, but a weakened metabolism."
 	icobase = 'icons/mob/human_races/subspecies/r_vatgrown.dmi'
+	num_alternate_languages = 2
 
 	toxins_mod =   1.1
 	has_organ = list(
@@ -54,7 +64,7 @@
 	// #defines so it's easier to read what's actually being generated
 	#define LTR ascii2text(rand(65,90)) // A-Z
 	#define NUM ascii2text(rand(48,57)) // 0-9
-	#define NAME capitalize(pick(gender == FEMALE ? first_names_female : first_names_male))
+	#define NAME capitalize(pick(gender == FEMALE ? GLOB.first_names_female : GLOB.first_names_male))
 	switch(rand(1,4))
 		if(1) return NAME
 		if(2) return "[LTR][LTR]-[NAME]"

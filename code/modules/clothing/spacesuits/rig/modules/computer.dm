@@ -23,7 +23,7 @@
 		to_chat(usr, "Your module is not installed in a hardsuit.")
 		return
 
-	module.holder.ui_interact(usr, nano_state = contained_state)
+	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
 
 /obj/item/rig_module/ai_container
 
@@ -50,7 +50,7 @@
 /mob
 	var/get_rig_stats = 0
 
-/obj/item/rig_module/ai_container/process()
+/obj/item/rig_module/ai_container/Process()
 	if(integrated_ai)
 		var/obj/item/weapon/rig/rig = get_rig()
 		if(rig && rig.ai_override_enabled)
@@ -123,7 +123,7 @@
 		return 1
 
 	// Okay, it wasn't a terminal being touched, check for all the simple insertions.
-	if(input_device.type in list(/obj/item/device/paicard, /obj/item/device/mmi, /obj/item/device/mmi/digital/posibrain))
+	if(input_device.type in list(/obj/item/device/paicard, /obj/item/device/mmi, /obj/item/organ/internal/posibrain))
 		if(integrated_ai)
 			integrated_ai.attackby(input_device,user)
 			// If the transfer was successful, we can clear out our vars.
@@ -146,7 +146,7 @@
 	if(!target)
 		if(ai_card)
 			if(istype(ai_card,/obj/item/weapon/aicard))
-				ai_card.ui_interact(H, state = deep_inventory_state)
+				ai_card.ui_interact(H, state = GLOB.deep_inventory_state)
 			else
 				eject_ai(H)
 		update_verb_holder()
@@ -243,8 +243,8 @@
 	interface_desc = "An induction-powered high-throughput datalink suitable for hacking encrypted networks."
 	var/list/stored_research
 
-/obj/item/rig_module/datajack/New()
-	..()
+/obj/item/rig_module/datajack/Initialize()
+	. =..()
 	stored_research = list()
 
 /obj/item/rig_module/datajack/engage(atom/target)
@@ -423,7 +423,7 @@
 		return 1
 	return 0
 
-/obj/item/rig_module/power_sink/process()
+/obj/item/rig_module/power_sink/Process()
 
 	if(!interfaced_with)
 		return ..()

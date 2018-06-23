@@ -32,6 +32,7 @@
 					/obj/item/weapon/grenade/chem_grenade/cleaner = 3,
 					/obj/structure/mopbucket)
 	cost = 10
+	containertype = /obj/structure/closet/crate/large
 	containername = "\improper Janitorial supplies"
 
 /decl/hierarchy/supply_pack/supply/boxes
@@ -44,7 +45,8 @@
 	contains = list(/obj/item/weapon/clipboard,
 					 /obj/item/weapon/clipboard,
 					 /obj/item/weapon/pen/red,
-					 /obj/item/weapon/pen/blue = 2,
+					 /obj/item/weapon/pen/blue,
+					 /obj/item/weapon/pen/green,
 					 /obj/item/device/camera_film,
 					 /obj/item/weapon/folder/blue,
 					 /obj/item/weapon/folder/red,
@@ -55,11 +57,18 @@
 					 /obj/item/weapon/paper_bin)
 	name = "Office supplies"
 	cost = 15
+	containertype = /obj/structure/closet/crate/large
 	containername = "\improper Office supplies crate"
+
+/decl/hierarchy/supply_pack/supply/scanner_module
+	name = "Paper scanner module crate"
+	contains = list(/obj/item/weapon/computer_hardware/scanner/paper = 4)
+	cost = 20
+	containername = "\improper Paper scanner module crate"
 
 /decl/hierarchy/supply_pack/supply/spare_pda
 	name = "Spare PDAs"
-	contains = list(/obj/item/device/pda = 3)
+	contains = list(/obj/item/modular_computer/pda = 3)
 	cost = 10
 	containername = "\improper Spare PDA crate"
 

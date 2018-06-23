@@ -5,7 +5,7 @@
 	icon_state = "pdapainter"
 	density = 1
 	anchored = 1
-	var/obj/item/device/pda/storedpda = null
+	var/obj/item/modular_computer/pda/storedpda = null
 	var/list/colorlist = list()
 
 
@@ -28,11 +28,10 @@
 
 /obj/machinery/pdapainter/New()
 	..()
-	var/blocked = list(/obj/item/device/pda/ai/pai, /obj/item/device/pda/ai, /obj/item/device/pda/heads,
-						/obj/item/device/pda/clear, /obj/item/device/pda/syndicate)
+	var/blocked = list(/obj/item/modular_computer/pda/heads, /obj/item/modular_computer/pda/syndicate)
 
-	for(var/P in typesof(/obj/item/device/pda)-blocked)
-		var/obj/item/device/pda/D = new P
+	for(var/P in typesof(/obj/item/modular_computer/pda)-blocked)
+		var/obj/item/modular_computer/pda/D = new P
 
 		//D.name = "PDA Style [colorlist.len+1]" //Gotta set the name, otherwise it all comes up as "PDA"
 		D.name = D.icon_state //PDAs don't have unique names, but using the sprite names works.
@@ -41,12 +40,12 @@
 
 
 /obj/machinery/pdapainter/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/device/pda))
+	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
 			user << "There is already a PDA inside."
 			return
 		else
-			var/obj/item/device/pda/P = usr.get_active_hand()
+			var/obj/item/modular_computer/pda/P = usr.get_active_hand()
 			if(istype(P))
 				user.drop_item()
 				storedpda = P
@@ -61,7 +60,7 @@
 	src.add_fingerprint(user)
 
 	if(storedpda)
-		var/obj/item/device/pda/P
+		var/obj/item/modular_computer/pda/P
 		P = input(user, "Select your color!", "PDA Painting") as null|anything in colorlist
 		if(!P)
 			return

@@ -1,18 +1,5 @@
-
-//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent id
-/proc/initialize_chemical_reagents()
-	var/paths = typesof(/datum/reagent) - /datum/reagent
-	chemical_reagents_list = list()
-	for(var/path in paths)
-		var/datum/reagent/D = new path()
-		if(!D.name)
-			continue
-		chemical_reagents_list[D.id] = D
-
-
 /datum/reagent
 	var/name = "Reagent"
-	var/id = "reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
@@ -23,8 +10,6 @@
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
-	var/dose = 0
-	var/max_dose = 0
 	var/overdose = 0
 	var/scannable = 0 // Shows up on health analyzers.
 	var/color = "#000000"
@@ -36,8 +21,14 @@
 	var/glass_desc = "It's a glass of... what, exactly?"
 	var/list/glass_special = null // null equivalent to list()
 
+/datum/reagent/New(var/datum/reagents/holder)
+	if(!istype(holder))
+		CRASH("Invalid reagents holder: [log_info_line(holder)]")
+	src.holder = holder
+	..()
+
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
-	holder.remove_reagent(id, amount)
+	holder.remove_reagent(type, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /datum/reagent/proc/touch_mob(var/mob/M, var/amount)
@@ -70,12 +61,10 @@
 
 	//adjust effective amounts - removed, dose, and max_dose - for mob size
 	var/effective = removed
-	max_dose = max(volume, max_dose)
 	if(!(flags & IGNORE_MOB_SIZE) && location != CHEM_TOUCH)
 		effective *= (MOB_MEDIUM/M.mob_size)
-		max_dose *= (MOB_MEDIUM/M.mob_size)
 
-	dose = min(dose + effective, max_dose)
+	M.chem_doses[type] = M.chem_doses[type] + effective
 	if(effective >= (metabolism * 0.1) || effective >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
 		switch(location)
 			if(CHEM_BLOOD)
@@ -85,7 +74,8 @@
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, effective)
 
-	remove_self(removed)
+	if(volume)
+		remove_self(removed)
 	return
 
 /datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -99,6 +89,7 @@
 	return
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
+	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustToxLoss(REM)
 	return
 
@@ -118,8 +109,8 @@
 	return null
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
-	..()
 	holder = null
+	. = ..()
 
 /* DEPRECATED - TODO: REMOVE EVERYWHERE */
 

@@ -18,7 +18,7 @@
 /obj/item/integrated_circuit/input/button/get_topic_data(mob/user)
 	return list("Press" = "press=1")
 
-/obj/item/integrated_circuit/input/button/OnTopic(href_list, user)
+/obj/item/integrated_circuit/input/button/OnICTopic(href_list, user)
 	if(href_list["press"])
 		to_chat(user, "<span class='notice'>You press the button labeled '[src.name]'.</span>")
 		activate_pin(1)
@@ -39,7 +39,7 @@
 /obj/item/integrated_circuit/input/toggle_button/get_topic_data(mob/user)
 	return list("Toggle [get_pin_data(IC_OUTPUT, 1) ? "Off" : "On"]" = "toggle=1")
 
-/obj/item/integrated_circuit/input/toggle_button/OnTopic(href_list, user)
+/obj/item/integrated_circuit/input/toggle_button/OnICTopic(href_list, user)
 	if(href_list["toggle"])
 		set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
 		activate_pin(1)
@@ -60,10 +60,10 @@
 /obj/item/integrated_circuit/input/numberpad/get_topic_data(mob/user)
 	return list("Enter Number" = "enter_number=1")
 
-/obj/item/integrated_circuit/input/numberpad/OnTopic(href_list, user)
+/obj/item/integrated_circuit/input/numberpad/OnICTopic(href_list, user)
 	if(href_list["enter_number"])
 		var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
-		if(isnum(new_input) && CanInteract(user, physical_state))
+		if(isnum(new_input) && CanInteract(user, GLOB.physical_state))
 			set_pin_data(IC_OUTPUT, 1, new_input)
 			activate_pin(1)
 		return IC_TOPIC_REFRESH
@@ -80,10 +80,10 @@
 /obj/item/integrated_circuit/input/textpad/get_topic_data(mob/user)
 	return list("Enter Words" = "enter_words=1")
 
-/obj/item/integrated_circuit/input/textpad/OnTopic(href_list, user)
+/obj/item/integrated_circuit/input/textpad/OnICTopic(href_list, user)
 	if(href_list["enter_words"])
 		var/new_input = input(user, "Enter some words, please.","Number pad") as null|text
-		if(istext(new_input) && CanInteract(user, physical_state))
+		if(istext(new_input) && CanInteract(user, GLOB.physical_state))
 			set_pin_data(IC_OUTPUT, 1, new_input)
 			activate_pin(1)
 			return IC_TOPIC_REFRESH
@@ -97,16 +97,18 @@
 	outputs = list("total health %", "total missing health")
 	activators = list("scan")
 
+	dist_check = /decl/dist_check/in_view
+
 /obj/item/integrated_circuit/input/med_scanner/do_work()
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.maxHealth, 0.1)*100
-		var/missing_health = H.maxHealth - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
+	var/total_health = round(H.health/H.maxHealth, 0.1)*100
+	var/missing_health = H.maxHealth - H.health
+
+	set_pin_data(IC_OUTPUT, 1, total_health)
+	set_pin_data(IC_OUTPUT, 2, missing_health)
 	push_data()
 
 /obj/item/integrated_circuit/input/adv_med_scanner
@@ -127,22 +129,24 @@
 	)
 	activators = list("scan")
 
+	dist_check = /decl/dist_check/in_view
+
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
 	var/datum/integrated_io/I = inputs[1]
 	var/mob/living/carbon/human/H = I.data_as_type(/mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
-	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
-		var/total_health = round(H.health/H.maxHealth, 0.1)*100
-		var/missing_health = H.maxHealth - H.health
 
-		set_pin_data(IC_OUTPUT, 1, total_health)
-		set_pin_data(IC_OUTPUT, 2, missing_health)
-		set_pin_data(IC_OUTPUT, 3, H.getBruteLoss())
-		set_pin_data(IC_OUTPUT, 4, H.getFireLoss())
-		set_pin_data(IC_OUTPUT, 5, H.getToxLoss())
-		set_pin_data(IC_OUTPUT, 6, H.getOxyLoss())
-		set_pin_data(IC_OUTPUT, 7, H.getCloneLoss())
+	var/total_health = round(H.health/H.maxHealth, 0.1)*100
+	var/missing_health = H.maxHealth - H.health
+
+	set_pin_data(IC_OUTPUT, 1, total_health)
+	set_pin_data(IC_OUTPUT, 2, missing_health)
+	set_pin_data(IC_OUTPUT, 3, H.getBruteLoss())
+	set_pin_data(IC_OUTPUT, 4, H.getFireLoss())
+	set_pin_data(IC_OUTPUT, 5, H.getToxLoss())
+	set_pin_data(IC_OUTPUT, 6, H.getOxyLoss())
+	set_pin_data(IC_OUTPUT, 7, H.getCloneLoss())
 
 /obj/item/integrated_circuit/input/local_locator
 	name = "local locator"
@@ -204,8 +208,8 @@
 	var/datum/radio_frequency/radio_connection
 	var/frequency = 1357
 
-/obj/item/integrated_circuit/input/signaler/initialize()
-	..()
+/obj/item/integrated_circuit/input/signaler/Initialize()
+	. = ..()
 
 	var/datum/integrated_io/new_freq = inputs[1]
 	var/datum/integrated_io/new_code = inputs[2]
@@ -282,34 +286,41 @@
 	desc = "Signals from a signaler can be received with this, allowing for remote control.  Additionally, it can send signals as well."
 	extended_desc = "When a signal is received from another signaler with the right id tag, the 'on signal received' activator pin will be pulsed and the command output is updated.  \
 	The two input pins are to configure the integrated signaler's settings.  Note that the frequency should not have a decimal in it.  \
-	Meaning the default frequency is expressed as 1457, not 145.7.  To send a signal, pulse the 'send signal' activator pin. Set the command output to set the message recieved"
+	Meaning the default frequency is expressed as 1457, not 145.7.  To send a signal, pulse the 'send signal' activator pin. Set the command output to set the message received."
 	complexity = 8
-	inputs = list("frequency", "code", "command", "id tag")
-	outputs = list("recieved command")
+	inputs = list("frequency", "id tag", "command")
+	outputs = list("received command")
 
-/obj/item/integrated_circuit/input/signaler/advanced/initialize()
-	..()
+/obj/item/integrated_circuit/input/signaler/advanced/Initialize()
+	. = ..()
 	var/datum/integrated_io/new_com = inputs[3]
-	var/datum/integrated_io/new_id = inputs[4]
+	var/datum/integrated_io/new_id = inputs[2]
 	var/datum/integrated_io/new_rec = outputs[1]
 	new_com.data = "ACTIVATE"
 	new_id.data = "Integrated_Circuit"
 	new_rec.data = "ACTIVATE"
 
+/obj/item/integrated_circuit/input/signaler/signal_good(var/datum/signal/signal)
+	. = ..()
+	var/datum/integrated_io/id_tag = inputs[2]
+	if(!id_tag.data || id_tag.data != signal.data["tag"])
+		return 0
+
 /obj/item/integrated_circuit/input/signaler/advanced/create_signal()
 	var/datum/signal/signal = ..()
+	var/datum/integrated_io/new_id = inputs[2]
 	var/datum/integrated_io/new_com = inputs[3]
-	var/datum/integrated_io/new_id = inputs[4]
+	signal.data["tag"] = new_id.data
 	signal.data["command"] = new_com.data
-	signal.data["id_tag"] = new_id.data
+	signal.encryption = null
 	return signal
 
 /obj/item/integrated_circuit/input/signaler/advanced/receive_signal(var/datum/signal/signal)
-	if(!..())
+	if(!signal_good(signal))
 		return 0
 	if(signal.data["command"])
 		set_pin_data(IC_OUTPUT, 1, signal.data["command"])
-	return 1
+	return ..()
 
 /obj/item/integrated_circuit/input/teleporter_locator
 	name = "teleporter locator"
@@ -320,6 +331,8 @@
 	outputs = list("teleporter")
 	activators = list("on selected")
 
+	dist_check = /decl/dist_check/omni
+
 /obj/item/integrated_circuit/input/teleporter_locator/get_topic_data(mob/user)
 	var/datum/integrated_io/O = outputs[1]
 	var/obj/machinery/computer/teleporter/current_console = O.data_as_type(/obj/machinery/computer/teleporter)
@@ -327,13 +340,13 @@
 	. = list()
 	. += "Current selection: [(current_console && current_console.id) || "None"]"
 	. += "Please select a teleporter to lock in on:"
-	for(var/obj/machinery/teleport/hub/R in machines)
+	for(var/obj/machinery/teleport/hub/R in SSmachines.machinery)
 		var/obj/machinery/computer/teleporter/com = R.com
 		if (istype(com, /obj/machinery/computer/teleporter) && com.locked && !com.one_time_use && com.operable())
 			.["[com.id] ([R.icon_state == "tele1" ? "Active" : "Inactive"])"] = "tport=[any2ref(com)]"
 	.["None (Dangerous)"] = "tport=random"
 
-/obj/item/integrated_circuit/input/teleporter_locator/OnTopic(href_list, user)
+/obj/item/integrated_circuit/input/teleporter_locator/OnICTopic(href_list, user)
 	if(href_list["tport"])
 		var/output = href_list["tport"] == "random" ? null : locate(href_list["tport"])
 		set_pin_data(IC_OUTPUT, 1, output && weakref(output))
@@ -358,7 +371,7 @@
 	scanned_access = new()
 
 /obj/item/integrated_circuit/input/access_scanner/Destroy()
-	qdel_null(scanned_access)
+	QDEL_NULL(scanned_access)
 	if(contained_id)
 		contained_id.dropInto(loc)
 		contained_id = null
@@ -411,7 +424,7 @@
 /obj/item/integrated_circuit/input/access_scanner/get_topic_data(mob/user)
 	return contained_id ? ..() : list("Access Scan" = "access_scan=1")
 
-/obj/item/integrated_circuit/input/access_scanner/OnTopic(href_list, var/mob/user)
+/obj/item/integrated_circuit/input/access_scanner/OnICTopic(href_list, var/mob/user)
 	if(href_list["access_scan"])
 		if(contained_id)
 			return
@@ -515,7 +528,7 @@
 	activators = list("toggle light")
 	var/light_toggled = 0
 	var/light_brightness = 3
-	var/light_rgb = "#FFFFFF"
+	var/light_rgb = "#ffffff"
 
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
@@ -523,7 +536,7 @@
 
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
-		set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb)
+		set_light(0.5, 0.1, light_brightness, l_color = light_rgb)
 	else
 		set_light(0)
 

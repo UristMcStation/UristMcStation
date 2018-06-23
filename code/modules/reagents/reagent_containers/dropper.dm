@@ -12,12 +12,6 @@
 	slot_flags = SLOT_EARS
 	volume = 5
 
-	do_surgery(mob/living/carbon/M, mob/living/user)
-		if(user.a_intent != I_HELP) //in case it is ever used as a surgery tool
-			return ..()
-		afterattack(M, user, 1)
-		return 1
-
 	afterattack(var/obj/target, var/mob/user, var/proximity)
 		if(!target.reagents || !proximity) return
 
@@ -34,6 +28,8 @@
 			var/trans = 0
 
 			if(ismob(target))
+				if(user.a_intent == I_HELP)
+					return
 
 				var/time = 20 //2/3rds the time of a syringe
 				user.visible_message("<span class='warning'>[user] is trying to squirt something into [target]'s eyes!</span>")
@@ -52,7 +48,7 @@
 						if (victim.head.body_parts_covered & EYES)
 							safe_thing = victim.head
 					if(victim.glasses)
-						if (!safe_thing)
+						if (victim.glasses.body_parts_covered & EYES)
 							safe_thing = victim.glasses
 
 					if(safe_thing)

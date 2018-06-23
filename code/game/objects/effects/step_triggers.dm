@@ -102,6 +102,7 @@
 /* Random teleporter, teleports atoms to locations ranging from teleport_x - teleport_x_offset, etc */
 
 /obj/effect/step_trigger/teleporter/random
+	opacity = 1
 	var/teleport_x_offset = 0
 	var/teleport_y_offset = 0
 	var/teleport_z_offset = 0
@@ -110,3 +111,23 @@
 	var/turf/T = locate(rand(teleport_x, teleport_x_offset), rand(teleport_y, teleport_y_offset), rand(teleport_z, teleport_z_offset))
 	if(T)
 		A.forceMove(T)
+
+/* Radio Trap */
+
+/obj/effect/step_trigger/radio
+	var/freq
+	var/filter
+	var/list/newdata
+
+	var/datum/radio_frequency/radio_connection
+
+/obj/effect/step_trigger/radio/Initialize()
+	. = ..()
+	if(!freq || !filter)
+		return INITIALIZE_HINT_QDEL
+	radio_connection = radio_controller.add_object(src, freq, filter)
+
+/obj/effect/step_trigger/radio/Trigger(var/atom/movable/A)
+	var/datum/signal/S = new
+	S.data = newdata
+	radio_connection.post_signal(src, S, filter)

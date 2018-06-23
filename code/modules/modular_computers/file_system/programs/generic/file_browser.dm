@@ -1,10 +1,10 @@
-#define MAX_TEXTFILE_LENGTH 128000		// 512GQ file
-
 /datum/computer_file/program/filemanager
 	filename = "filemanager"
 	filedesc = "NTOS File Manager"
 	extended_desc = "This program allows management of files."
 	program_icon_state = "generic"
+	program_key_state = "generic_key"
+	program_menu_icon = "folder-collapsed"
 	size = 8
 	requires_ntnet = 0
 	available_on_ntnet = 0
@@ -12,6 +12,7 @@
 	nanomodule_path = /datum/nano_module/program/computer_filemanager/
 	var/open_file
 	var/error
+	usage_flags = PROGRAM_ALL
 
 /datum/computer_file/program/filemanager/Topic(href, href_list)
 	if(..())
@@ -89,9 +90,9 @@
 			return 1
 
 		var/oldtext = html_decode(F.stored_data)
-		oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
+		oldtext = replacetext(oldtext, "\[br\]", "\n")
 
-		var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
+		var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[br\]"), MAX_TEXTFILE_LENGTH)
 		if(!newtext)
 			return
 
@@ -145,12 +146,12 @@
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
 	if(.)
-		nanomanager.update_uis(NM)
+		GLOB.nanomanager.update_uis(NM)
 
 /datum/nano_module/program/computer_filemanager
 	name = "NTOS File Manager"
 
-/datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 	var/datum/computer_file/program/filemanager/PRG
 	PRG = program
@@ -199,10 +200,9 @@
 					)))
 				data["usbfiles"] = usbfiles
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "file_manager.tmpl", "NTOS File Manager", 575, 700, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
-#undef MAX_TEXTFILE_LENGTH

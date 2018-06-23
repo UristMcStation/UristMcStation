@@ -15,9 +15,20 @@
 			/obj/item/weapon/lipstick/random,
 			/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 2,
 			/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 4,
-			/obj/item/weapon/storage/box/glowsticks = 2)
+			/obj/item/weapon/storage/box/glowsticks = 2,
+			/obj/item/weapon/clothingbag/rubbermask,
+			/obj/item/weapon/clothingbag/rubbersuit)
 	cost = 20
 	containername = "\improper Party equipment"
+
+// TODO; Add more premium drinks at a later date. Could be useful for diplomatic events or fancy parties.
+/decl/hierarchy/supply_pack/hospitality/premiumalcohol
+	name = "Premium drinks crate"
+	contains = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumwine = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumvodka = 1)
+	cost = 60
+	containertype = /obj/structure/closet/crate/freezer
+	containername = "\improper Premium drinks"
 
 /decl/hierarchy/supply_pack/hospitality/barsupplies
 	name = "Bar supplies"

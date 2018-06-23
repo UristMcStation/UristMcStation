@@ -45,7 +45,7 @@
     name = "clown mask"
     icon = 'icons/urist/items/clothes/masks.dmi'
     icon_override = 'icons/uristmob/mask.dmi'
-    flags = BLOCK_GAS_SMOKE_EFFECT
+    item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
     flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
     w_class = 3.0
     gas_transfer_coefficient = 0.01
@@ -90,7 +90,7 @@
 	cold_protection = FACE
 	min_cold_protection_temperature = 243.15
 
-/obj/item/clothing/mask/bandana/leather
+/obj/item/clothing/mask/urist/bandana/leather
 	name = "leather mask"
 	desc = "It's a simple leather mask. Hmmm, maybe if you get some glass you could turn this into some impromptu goggles."
 	icon_state = "sandsuit"
@@ -100,7 +100,7 @@
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 
-/obj/item/clothing/mask/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/urist/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/glass))
 		var/obj/item/stack/material/glass/G = I
 		G.use(1)

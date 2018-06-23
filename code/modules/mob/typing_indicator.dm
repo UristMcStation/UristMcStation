@@ -19,19 +19,19 @@ I IS TYPIN'!'
 	src.master = master
 	name = master.name
 
-	moved_event.register(master, src, /atom/movable/proc/move_to_turf_or_null)
+	GLOB.moved_event.register(master, src, /atom/movable/proc/move_to_turf_or_null)
 
-	stat_set_event.register(master, src, /datum/proc/qdel_self) // Making the assumption master is conscious at creation
-	logged_out_event.register(master, src, /datum/proc/qdel_self)
-	destroyed_event.register(master, src, /datum/proc/qdel_self)
+	GLOB.stat_set_event.register(master, src, /datum/proc/qdel_self) // Making the assumption master is conscious at creation
+	GLOB.logged_out_event.register(master, src, /datum/proc/qdel_self)
+	GLOB.destroyed_event.register(master, src, /datum/proc/qdel_self)
 
 /atom/movable/overlay/typing_indicator/Destroy()
 	var/mob/M = master
 
-	moved_event.unregister(master, src)
-	stat_set_event.unregister(master, src)
-	logged_out_event.unregister(master, src)
-	destroyed_event.unregister(master, src)
+	GLOB.moved_event.unregister(master, src)
+	GLOB.stat_set_event.unregister(master, src)
+	GLOB.logged_out_event.unregister(master, src)
+	GLOB.destroyed_event.unregister(master, src)
 
 	M.typing_indicator = null
 	master = null
@@ -39,11 +39,11 @@ I IS TYPIN'!'
 	. = ..()
 
 /mob/proc/create_typing_indicator()
-	if(client && !stat && is_preference_enabled(/datum/client_preference/show_typing_indicator))
+	if(client && !stat && get_preference_value(/datum/client_preference/show_typing_indicator) == GLOB.PREF_SHOW)
 		new/atom/movable/overlay/typing_indicator(get_turf(src), src)
 
 /mob/proc/remove_typing_indicator() // A bit excessive, but goes with the creation of the indicator I suppose
-	qdel_null(typing_indicator)
+	QDEL_NULL(typing_indicator)
 
 /mob/verb/say_wrapper()
 	set name = ".Say"

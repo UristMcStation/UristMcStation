@@ -7,6 +7,7 @@
 	exclaim_verb = "declares"
 	key = "b"
 	flags = RESTRICTED | HIVEMIND
+	shorthand = "N/A"
 	var/drone_only
 
 /datum/language/binary/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
@@ -20,11 +21,14 @@
 	var/message_start = "<i><span class='game say'>[name], <span class='name'>[speaker.name]</span>"
 	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
 
-	for (var/mob/M in dead_mob_list_)
+	for (var/mob/observer/ghost/O in GLOB.ghost_mob_list)
+		O.show_message("[message_start] ([ghost_follow_link(speaker, O)]) [message_body]", 2)
+
+	for (var/mob/M in GLOB.dead_mob_list_)
 		if(!istype(M,/mob/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
 			M.show_message("[message_start] ([ghost_follow_link(speaker, M)]) [message_body]", 2)
 
-	for (var/mob/living/S in living_mob_list_)
+	for (var/mob/living/S in GLOB.living_mob_list_)
 		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
 			continue
 		else if(istype(S , /mob/living/silicon/ai))
@@ -58,3 +62,4 @@
 	key = "d"
 	flags = RESTRICTED | HIVEMIND
 	drone_only = 1
+	shorthand = "N/A"

@@ -61,7 +61,7 @@
 
 	New()
 		..()
-		reagents.add_reagent("nutriment", 8)
+		reagents.add_reagent(/datum/reagent/nutriment, 8)
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/pizza
 	name = "personal pizza"
@@ -344,7 +344,7 @@
 				if(O.filling_color)
 					externalcolors = hex2rgblist(O.filling_color)
 				if((!internalcolors) && (!externalcolors))
-					src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+					src.filling_color = pick("#aa0000","#0000aa","#006600","#f0f000") //toned down
 				else if((!internalcolors) && (externalcolors))
 					src.filling_color = O.filling_color
 				else if((internalcolors) && (!externalcolors))
@@ -390,8 +390,8 @@
         icon_state = "icecream_cone"
         New()
                 ..()
-                reagents.add_reagent("nutriment", 1)
-                reagents.add_reagent("sugar",1)
+                reagents.add_reagent(/datum/reagent/nutriment, 1)
+                reagents.add_reagent(/datum/reagent/sugar,1)
                 bitesize = 1
                 update_icon()
 
@@ -408,9 +408,9 @@
         volume = 500
         New()
                 ..()
-                reagents.add_reagent("nutriment", 2)
-                reagents.add_reagent("sugar",6)
-                reagents.add_reagent("ice",2)
+                reagents.add_reagent(/datum/reagent/nutriment, 2)
+                reagents.add_reagent(/datum/reagent/sugar,6)
+                reagents.add_reagent(/datum/reagent/drink/ice,2)
                 bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup
@@ -420,9 +420,9 @@
         volume = 500
         New()
                 ..()
-                reagents.add_reagent("nutriment", 4)
-                reagents.add_reagent("sugar",8)
-                reagents.add_reagent("ice",2)
+                reagents.add_reagent(/datum/reagent/nutriment, 4)
+                reagents.add_reagent(/datum/reagent/sugar,8)
+                reagents.add_reagent(/datum/reagent/drink/ice,2)
                 bitesize = 6
 
 //cereals
@@ -435,7 +435,7 @@
 	bitesize = 2
 	New()
 		..()
-		reagents.add_reagent("nutriment", 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
 
@@ -448,7 +448,7 @@
 	deepfried = 1
 	New()
 		..()
-		reagents.add_reagent("nutriment", 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //////////////
 //STILL SHIT//
@@ -465,7 +465,7 @@
 	var/add_overlays = 0	//Do we stack? //see above
 	var/ingredient_limit = 1
 	var/fullycustom = 0
-	var/boozetype = "hooch"
+	var/boozetype = /datum/reagent/ethanol/hooch
 	volume = 100
 	amount_per_transfer_from_this = 2
 
@@ -485,7 +485,7 @@
 	basename = "wine bottle"
 	add_overlays = 0
 	top = 0
-	boozetype = "wine"
+	boozetype = /datum/reagent/ethanol/wine
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/whiskey
 	name = "whiskey bottle"
@@ -495,7 +495,7 @@
 	basename = "whiskey bottle"
 	add_overlays = 0
 	top = 0
-	boozetype = "whiskey"
+	boozetype = /datum/reagent/ethanol/whiskey
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vermouth
 	name = "vermouth bottle"
@@ -505,7 +505,7 @@
 	basename = "vermouth bottle"
 	add_overlays = 0
 	top = 0
-	boozetype = "vermouth"
+	boozetype = /datum/reagent/ethanol/vermouth
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vodka
 	name = "vodka"
@@ -515,7 +515,7 @@
 	basename = "vodka"
 	add_overlays = 0
 	top = 0
-	boozetype = "vodka"
+	boozetype = /datum/reagent/ethanol/vodka
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/ale
 	name = "ale"
@@ -525,7 +525,7 @@
 	basename = "ale"
 	add_overlays = 0
 	top = 0
-	boozetype = "ale"
+	boozetype = /datum/reagent/ethanol/ale
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.contents.len > ingredient_limit)
@@ -567,7 +567,7 @@
 			if(O.filling_color)
 				externalcolors = hex2rgblist(O.filling_color)
 			if((!internalcolors) && (!externalcolors))
-				src.filling_color = pick("#AA0000","#0000AA","#006600","#F0F000") //toned down
+				src.filling_color = pick("#aa0000","#0000aa","#006600","#f0f000") //toned down
 			else if((!internalcolors) && (externalcolors))
 				src.filling_color = O.filling_color
 			else if((internalcolors) && (!externalcolors))
@@ -602,12 +602,12 @@
 	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
-	if(!(istext(boozetype)))
-		boozetype = "hooch"
+	if(!(boozetype))
+		boozetype = /datum/reagent/ethanol/hooch
 	var/datum/reagents/R = src.reagents
-	var/nutrition = R.get_reagent_amount("nutriment")
-	var/sweetness = R.get_reagent_amount("sugar")
+	var/nutrition = R.get_reagent_amount(/datum/reagent/nutriment)
+	var/sweetness = R.get_reagent_amount(/datum/reagent/sugar)
 	var/boozeamt = max(((nutrition * 10) + (sweetness * 20)), 10)
-	R.remove_reagent("nutriment", nutrition)
-	R.remove_reagent("sugar", sweetness)
+	R.remove_reagent(/datum/reagent/nutriment, nutrition)
+	R.remove_reagent(/datum/reagent/sugar, sweetness)
 	R.add_reagent(boozetype, boozeamt)

@@ -19,13 +19,14 @@
 	// 8 for phoron concentration
 	// 16 for nitrogen concentration
 	// 32 for carbon dioxide concentration
+	// 64 for hydrogen concentration
 
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/air_sensor/update_icon()
 	icon_state = "gsensor[on]"
 
-/obj/machinery/air_sensor/process()
+/obj/machinery/air_sensor/Process()
 	if(on)
 		var/datum/signal/signal = new
 		signal.transmission_method = 1 //radio signal
@@ -50,11 +51,14 @@
 					signal.data["nitrogen"] = round(100*air_sample.gas["nitrogen"]/total_moles,0.1)
 				if(output&32)
 					signal.data["carbon_dioxide"] = round(100*air_sample.gas["carbon_dioxide"]/total_moles,0.1)
+				if(output&64)
+					signal.data["hydrogen"] = round(100*air_sample.gas["hydrogen"]/total_moles,0.1)
 			else
 				signal.data["oxygen"] = 0
 				signal.data["phoron"] = 0
 				signal.data["nitrogen"] = 0
 				signal.data["carbon_dioxide"] = 0
+				signal.data["hydrogen"] = 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -64,8 +68,9 @@
 	frequency = new_frequency
 	radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
 
-/obj/machinery/air_sensor/initialize()
+/obj/machinery/air_sensor/Initialize()
 	set_frequency(frequency)
+	. = ..()
 
 obj/machinery/air_sensor/Destroy()
 	if(radio_controller)
@@ -98,7 +103,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	user.set_machine(src)
 	onclose(user, "computer")
 
-/obj/machinery/computer/general_air_control/process()
+/obj/machinery/computer/general_air_control/Process()
 	..()
 	src.updateUsrDialog()
 
@@ -123,7 +128,7 @@ obj/machinery/computer/general_air_control/Destroy()
 					sensor_part += "   <B>Pressure:</B> [data["pressure"]] kPa<BR>"
 				if(data["temperature"])
 					sensor_part += "   <B>Temperature:</B> [data["temperature"]] K<BR>"
-				if(data["oxygen"]||data["phoron"]||data["nitrogen"]||data["carbon_dioxide"])
+				if(data["oxygen"]||data["phoron"]||data["nitrogen"]||data["carbon_dioxide"]||data["hydrogen"])
 					sensor_part += "   <B>Gas Composition :</B>"
 					if(data["oxygen"])
 						sensor_part += "[data["oxygen"]]% O2; "
@@ -131,8 +136,10 @@ obj/machinery/computer/general_air_control/Destroy()
 						sensor_part += "[data["nitrogen"]]% N; "
 					if(data["carbon_dioxide"])
 						sensor_part += "[data["carbon_dioxide"]]% CO2; "
+					if(data["hydrogen"])
+						sensor_part += "[data["hydrogen"]]% H2; "
 					if(data["phoron"])
-						sensor_part += "[data["phoron"]]% TX; "
+						sensor_part += "[data["phoron"]]% PH; "
 				sensor_part += "<HR>"
 
 			else
@@ -153,9 +160,9 @@ obj/machinery/computer/general_air_control/Destroy()
 	frequency = new_frequency
 	radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
 
-/obj/machinery/computer/general_air_control/initialize()
+/obj/machinery/computer/general_air_control/Initialize()
 	set_frequency(frequency)
-	..()
+	. = ..()
 
 /obj/machinery/computer/general_air_control/large_tank_control
 	icon = 'icons/obj/computer.dmi'
@@ -223,7 +230,7 @@ Max Output Pressure: [output_pressure] kPa<BR>"}
 
 	if(href_list["adj_pressure"])
 		var/change = text2num(href_list["adj_pressure"])
-		pressure_setting = between(0, pressure_setting + change, 50*ONE_ATMOSPHERE)
+		pressure_setting = between(0, pressure_setting + change, MAX_PUMP_PRESSURE)
 		spawn(1)
 			src.updateUsrDialog()
 		return 1
@@ -342,7 +349,7 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 
 	if(href_list["adj_pressure"])
 		var/change = text2num(href_list["adj_pressure"])
-		pressure_setting = between(0, pressure_setting + change, 10*ONE_ATMOSPHERE)
+		pressure_setting = between(0, pressure_setting + change, MAX_PUMP_PRESSURE)
 		spawn(1)
 			src.updateUsrDialog()
 		return 1
@@ -408,7 +415,7 @@ Min Core Pressure: [pressure_limit] kPa<BR>"}
 	var/on_temperature = 1200
 	circuit = /obj/item/weapon/circuitboard/air_management/injector_control
 
-/obj/machinery/computer/general_air_control/fuel_injection/process()
+/obj/machinery/computer/general_air_control/fuel_injection/Process()
 	if(automation)
 		if(!radio_connection)
 			return 0
@@ -470,7 +477,7 @@ Rate: [volume_rate] L/sec<BR>"}
 		..(signal)
 
 /obj/machinery/computer/general_air_control/fuel_injection/Topic(href, href_list)
-	if(..())
+	if((. = ..()))
 		return
 
 	if(href_list["refresh_status"])

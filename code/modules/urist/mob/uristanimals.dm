@@ -55,19 +55,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	melee_damage_lower = 6
 	melee_damage_upper = 5
 	attacktext = "bites"
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	faction = "carp"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space bats need no air to fly in.
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 //ARANEUS. Squee?
@@ -122,7 +116,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A sac something evolved to store venom in."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "roro core"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/chem_type_amt = 3 //should def it probably; max chem types
 
 	//blacklist for subtypes!
@@ -147,14 +141,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/max_chemtypes = rand(1, maxchems)
 	var/list/blacklist = list() //actual utility list
 
-	for(var/Reagent in chemical_reagents_list)
+	for(var/Reagent in subtypesof(/datum/reagent))
 		for(var/Banned in banned_chems) //O(n^2), bleh, couldn't think of anything else
 			if(istype(Reagent, Banned))
 				if(!(Reagent in ban_excepted))
 					blacklist += Reagent
 
 	while (mix.len < max_chemtypes)
-		new_chem = pick(chemical_reagents_list)
+		new_chem = pick(subtypesof(/datum/reagent))
 		if(new_chem in blacklist)
 			new_chem = null
 		else

@@ -19,6 +19,9 @@
 	var/shuttletarget = null
 	var/enroute = 0
 
+	var/damtype = BRUTE
+	var/defense = "melee" //what armor protects against its attacks
+
 /mob/living/simple_animal/hostile/proc/FindTarget()
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
@@ -38,10 +41,14 @@
 			var/mob/living/L = A
 			if(L.faction == src.faction && !attack_same)
 				continue
-			else if(L in friends)
+			else if(weakref(L) in friends)
 				continue
 			else
 				if(!L.stat)
+					if (ishuman(L))
+						var/mob/living/carbon/human/H = L
+						if (H.is_cloaked())
+							continue
 					stance = HOSTILE_STANCE_ATTACK
 					T = L
 					break
@@ -80,6 +87,11 @@
 	if(!(target_mob in ListTargets(10)))
 		LostTarget()
 		return 0
+	if (ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
+		if (H.is_cloaked())
+			LoseTarget()
+			return 0
 	if(next_move >= world.time)
 		return 0
 	if(get_dist(src, target_mob) <= 1)	//Attacking
@@ -92,7 +104,7 @@
 		return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+		L.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext,damtype,defense)
 		return L
 	if(istype(target_mob,/obj/mecha))
 		var/obj/mecha/M = target_mob
@@ -118,8 +130,8 @@
 
 	return L
 
-/mob/living/simple_animal/hostile/death()
-	..()
+/mob/living/simple_animal/hostile/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/Life()
@@ -130,7 +142,7 @@
 		return 0
 	if(client)
 		return 0
-	if(isturf(src.loc))
+	if(isturf(src.loc) && !src.buckled)
 		if(!stat)
 			switch(stance)
 				if(HOSTILE_STANCE_IDLE)
@@ -213,13 +225,13 @@
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings()
 	if(prob(break_stuff_probability))
-		for(var/dir in cardinal) // North, South, East, West
+		for(var/dir in GLOB.cardinal) // North, South, East, West
 			var/obj/effect/shield/S = locate(/obj/effect/shield, get_step(src, dir))
 			if(S && S.gen && S.gen.check_flag(MODEFLAG_NONHUMANS))
 				S.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 				return
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
-				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
+				if(obstacle.dir == GLOB.reverse_dir[dir]) // So that windows get smashed in the right order
 					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 					return
 			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))

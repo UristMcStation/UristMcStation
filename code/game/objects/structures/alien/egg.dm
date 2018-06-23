@@ -8,13 +8,13 @@
 	anchored = 1
 	var/progress = 0
 
-/obj/structure/alien/egg/New()
-	..()
-	processing_objects += src
+/obj/structure/alien/egg/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
 /obj/structure/alien/egg/Destroy()
-	processing_objects -= src
-	..()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
 
 /obj/structure/alien/egg/CanUseTopic(var/mob/user)
 	return isghost(user) ? STATUS_INTERACTIVE : STATUS_CLOSE
@@ -26,13 +26,13 @@
 	if(href_list["spawn"])
 		attack_ghost(usr)
 
-/obj/structure/alien/egg/process()
+/obj/structure/alien/egg/Process()
 	progress++
 	if(progress >= MAX_PROGRESS)
-		for(var/mob/M in dead_mob_list_)
-			if(isghost(M) && M.client && M.client.prefs && (MODE_XENOMORPH in M.client.prefs.be_special_role))
-				to_chat(M, "<span class='notice'>An alien is ready to hatch! ([ghost_follow_link(src, M)]) (<a href='byond://?src=\ref[src];spawn=1'>spawn</a>)</span>")
-		processing_objects -= src
+		for(var/mob/observer/ghost/O in GLOB.ghost_mob_list)
+			if(O.client && O.client.prefs && (MODE_XENOMORPH in O.client.prefs.be_special_role))
+				to_chat(O, "<span class='notice'>An alien is ready to hatch! ([ghost_follow_link(src, O)]) (<a href='byond://?src=\ref[src];spawn=1'>spawn</a>)</span>")
+		STOP_PROCESSING(SSobj, src)
 		update_icon()
 
 /obj/structure/alien/egg/update_icon()
@@ -56,10 +56,10 @@
 
 	// Check for bans properly.
 	if(jobban_isbanned(user, MODE_XENOMORPH))
-		to_chat(user, "<span class='danger'>You are banned from playing a Xenomorph.</span>")
+		to_chat(user, "<span class='danger'>You are banned from playing a Xenophage.</span>")
 		return
 
-	var/confirm = alert(user, "Are you sure you want to join as a Xenomorph larva?", "Become Larva", "No", "Yes")
+	var/confirm = alert(user, "Are you sure you want to join as a Xenophage larva?", "Become Larva", "No", "Yes")
 
 	if(!src || confirm != "Yes")
 		return
@@ -83,7 +83,7 @@
 	// Create the mob, transfer over key.
 	var/mob/living/carbon/alien/larva/larva = new(get_turf(src))
 	larva.ckey = user.ckey
-	xenomorphs.add_antagonist(larva.mind, 1)
+	GLOB.xenomorphs.add_antagonist(larva.mind, 1)
 	spawn(-1)
 		if(user) qdel(user) // Remove the keyless ghost if it exists.
 

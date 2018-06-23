@@ -26,7 +26,7 @@
 		T.target_name = target
 		T.purpose = reason
 		T.amount = amount
-		T.date = current_date_string
+		T.date = stationdate2text()
 		T.time = stationtime2text()
 		T.source_terminal = machine_id
 		return T
@@ -52,7 +52,7 @@
 		O.loc = src
 		held_card = O
 
-		nanomanager.update_uis(src)
+		GLOB.nanomanager.update_uis(src)
 
 	attack_hand(user)
 
@@ -106,7 +106,7 @@
 	if (accounts.len > 0)
 		data["accounts"] = accounts
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "accounts_terminal.tmpl", src.name, 400, 640)
 		ui.set_initial_data(data)
@@ -116,7 +116,7 @@
 	if(..())
 		return 1
 
-	var/datum/nanoui/ui = nanomanager.get_open_ui(usr, src, "main")
+	var/datum/nanoui/ui = GLOB.nanomanager.get_open_ui(usr, src, "main")
 
 	if(href_list["choice"])
 		switch(href_list["choice"])
@@ -200,7 +200,7 @@
 				var/text
 				var/obj/item/weapon/paper/P = new(loc)
 				if (detailed_account_view)
-					P.name = "account #[detailed_account_view.account_number] details"
+					P.SetName("account #[detailed_account_view.account_number] details")
 					var/title = "Account #[detailed_account_view.account_number] Details"
 					text = {"
 						[accounting_letterhead(title)]
@@ -238,7 +238,7 @@
 						"}
 
 				else
-					P.name = "financial account list"
+					P.SetName("financial account list")
 					text = {"
 						[accounting_letterhead("Financial Account List")]
 

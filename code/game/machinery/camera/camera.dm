@@ -12,6 +12,7 @@
 	var/list/network = list(NETWORK_EXODUS)
 	var/c_tag = null
 	var/c_tag_order = 999
+	var/number = 0 //camera number in area
 	var/status = 1
 	anchored = 1.0
 	var/invuln = null
@@ -35,6 +36,21 @@
 	var/on_open_network = 0
 
 	var/affected_by_emp_until = 0
+
+/obj/machinery/camera/examine(mob/user)
+	. = ..()
+	if(stat & BROKEN)
+		to_chat(user, "<span class='warning'>It is completely demolished.</span>")
+
+/obj/machinery/camera/malf_upgrade(var/mob/living/silicon/ai/user)
+	..()
+	malf_upgraded = 1
+
+	upgradeEmpProof()
+	upgradeXRay()
+
+	to_chat(user, "\The [src] has been upgraded. It now has X-Ray capability and EMP resistance.")
+	return 1
 
 /obj/machinery/camera/apply_visual(mob/living/carbon/human/M)
 	if(!M.client)
@@ -74,6 +90,20 @@
 		ASSERT(src.network.len > 0)
 	..()
 
+/obj/machinery/camera/Initialize()
+	. = ..()
+	if(!c_tag)
+		number = 1
+		var/area/A = get_area(src)
+		if(A)
+			for(var/obj/machinery/camera/C in A)
+				if(C == src) continue
+				if(C.number)
+					number = max(number, C.number+1)
+			c_tag = "[A.name][number == 1 ? "" : " #[number]"]"
+		invalidateCameraCache()
+
+
 /obj/machinery/camera/Destroy()
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
@@ -83,7 +113,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/process()
+/obj/machinery/camera/Process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -104,7 +134,7 @@
 			triggerCameraAlarm()
 			update_icon()
 			update_coverage()
-			processing_objects |= src
+			START_PROCESSING(SSmachines, src)
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
 	take_damage(P.get_structure_damage())
@@ -146,7 +176,7 @@
 /obj/machinery/camera/attackby(obj/item/W as obj, mob/living/user as mob)
 	update_coverage()
 	// DECONSTRUCTION
-	if(isscrewdriver(W))
+	if(isScrewdriver(W))
 //		to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
@@ -154,10 +184,10 @@
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 
-	else if((iswirecutter(W) || ismultitool(W)) && panel_open)
+	else if((isWirecutter(W) || isMultitool(W)) && panel_open)
 		interact(user)
 
-	else if(iswelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
+	else if(isWelder(W) && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(W, user))
 			if(assembly)
 				assembly.dropInto(loc)
@@ -169,6 +199,7 @@
 				if(stat & BROKEN)
 					assembly.state = 2
 					to_chat(user, "<span class='notice'>You repaired \the [src] frame.</span>")
+					cancelCameraAlarm()
 				else
 					assembly.state = 1
 					to_chat(user, "<span class='notice'>You cut \the [src] free from the wall.</span>")
@@ -178,23 +209,13 @@
 			return
 
 	// OTHER
-	else if (can_use() && (istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/device/pda)) && isliving(user))
+	else if (can_use() && istype(W, /obj/item/weapon/paper) && isliving(user))
 		var/mob/living/U = user
-		var/obj/item/weapon/paper/X = null
-		var/obj/item/device/pda/P = null
-
-		var/itemname = ""
-		var/info = ""
-		if(istype(W, /obj/item/weapon/paper))
-			X = W
-			itemname = X.name
-			info = X.info
-		else
-			P = W
-			itemname = P.name
-			info = P.notehtml
+		var/obj/item/weapon/paper/X = W
+		var/itemname = X.name
+		var/info = X.info
 		to_chat(U, "You hold \a [itemname] up to the camera ...")
-		for(var/mob/living/silicon/ai/O in living_mob_list_)
+		for(var/mob/living/silicon/ai/O in GLOB.living_mob_list_)
 			if(!O.client) continue
 			if(U.name == "Unknown") to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...")
 			else to_chat(O, "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[U.name]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...")

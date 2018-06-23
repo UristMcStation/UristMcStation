@@ -26,7 +26,7 @@ BAN_LEGACY_SYSTEM
 USE_AGE_RESTRICTION_FOR_JOBS
 
 ## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
-#USE_RECURSIVE_EXPLOSIONS
+USE_RECURSIVE_EXPLOSIONS
 
 ## log OOC channel
 LOG_OOC
@@ -166,7 +166,7 @@ ALLOW_AI
 # DONT_DEL_NEWMOB
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Vactor
+HOSTEDBY Nyxodile
 
 ## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 ## Set to 1 to jobban them from those positions, set to 0 to allow them.
@@ -187,16 +187,16 @@ GUEST_BAN
 #SERVERURL server.net:port
 
 ## forum address
-FORUMURL http://uristmcstation.com/forum/
+#FORUMURL http://uristmcstation.com/forum/
 
 ## Wiki address
-WIKIURL "http://uristmcstation.com/wiki/index.php/Main_Page"
+WIKIURL "https://wiki.baystation12.net/Main_Page"
 
 ## GitHub address
 # GITHUBURL https://github.com/example-user/example-repository
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10
+#BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -304,7 +304,7 @@ EVENT_DELAY_UPPER 15;45;70
 ## Unset setting use the EVENT_DELAY_LOWER and EVENT_DELAY_UPPER values instead.
 # EVENT_CUSTOM_START_MINOR 10;15
 # EVENT_CUSTOM_START_MODERATE 30;45
-EVENT_CUSTOM_START_MAJOR 80;100
+# EVENT_CUSTOM_START_MAJOR 80;100
 
 ## Uncomment to make proccall require R_ADMIN instead of R_DEBUG
 ## designed for environments where you have testers but don't want them
@@ -368,6 +368,9 @@ ORGANS_CAN_DECAY
 
 ## Uncomment to override default brain health.
 #DEFAULT_BRAIN_HEALTH 400
+
+##Uncomment to enable simple Skype/Discord style markup over say.
+ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and - 
 # DEFAULT_LANGUAGE_PREFIXES , # -

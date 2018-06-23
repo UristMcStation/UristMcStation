@@ -108,142 +108,136 @@
 "cd" = (/obj/structure/table/woodentable,/obj/item/weapon/flame/candle,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "ce" = (/obj/machinery/vending/dinnerware,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "cf" = (/obj/structure/table/woodentable,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cg" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/condiment/saltshaker{pixel_x = -3; pixel_y = 0},/obj/item/weapon/reagent_containers/food/condiment/peppermill{pixel_x = 3},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"ch" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/condiment/enzyme{layer = 5},/obj/item/weapon/material/kitchen/rollingpin,/obj/item/weapon/reagent_containers/glass/beaker{pixel_x = 5},/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"ci" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cj" = (/obj/machinery/vending/boozeomat,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"ck" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/drinks/glass2/square,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cl" = (/obj/structure/table/woodentable,/obj/machinery/chemical_dispenser/bar_alc/full,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cm" = (/obj/structure/table/woodentable,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cn" = (/obj/structure/closet/secure_closet/bar{req_access = list(25)},/obj/item/weapon/storage/fancy/cigar,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"co" = (/obj/structure/reagent_dispensers/beerkeg,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cp" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{tag = "icon-metal10"; icon_state = "metal10"},/area/awaymission/train)
-"cq" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"cr" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{tag = "icon-metal6"; icon_state = "metal6"},/area/awaymission/train)
-"cs" = (/obj/structure/fakeladder{height = 1; id = "snowtrain3"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"ct" = (/obj/structure/fakeladder{height = 0; id = "snowtrain3"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cu" = (/obj/structure/bed/chair/comfy/brown,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cv" = (/obj/structure/bed/chair/comfy/brown,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cw" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cx" = (/obj/structure/table/woodentable,/obj/item/weapon/material/ashtray/bronze,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cy" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/obj/effect/landmark{name = "eventwarp2"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cz" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cA" = (/obj/structure/fakeladder{height = 1; id = "snowtrain2"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"cB" = (/obj/structure/fakeladder{height = 0; id = "snowtrain2"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cC" = (/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cD" = (/obj/machinery/door/window/westleft{req_access = list(100)},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cE" = (/obj/structure/bed/nice,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cF" = (/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"cG" = (/obj/structure/bed/chair,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cH" = (/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cI" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cJ" = (/obj/structure/table/standard,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cK" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cL" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cM" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"cN" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"cO" = (/obj/structure/closet/crate,/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cP" = (/obj/structure/closet/crate,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cQ" = (/obj/structure/closet/crate,/obj/structure/window/basic{dir = 4},/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cR" = (/obj/structure/window/reinforced,/obj/structure/bed/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cS" = (/obj/item/weapon/paper_bin,/turf/unsimulated/wall/other{tag = "icon-metal3"; icon_state = "metal3"},/area/awaymission/train/snow)
-"cT" = (/obj/structure/table/standard,/obj/item/weapon/paper_bin,/turf/unsimulated/floor,/area/awaymission/train/snow)
-"cU" = (/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cV" = (/obj/structure/table/standard,/obj/item/weapon/folder,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cW" = (/obj/machinery/light/small{brightness_range = 8},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"cX" = (/obj/effect/landmark{name = "eventwarp3"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"cY" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"cZ" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"da" = (/turf/unsimulated/floor{icon_state = "dark"},/obj/effect/landmark{name = "eventwarp3"},/turf/unsimulated/floor{tag = "icon-asteroid_dug_overlay"; icon_state = "asteroid_dug_overlay"},/area/awaymission/train/snow)
-"db" = (/obj/structure/table/standard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dc" = (/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dd" = (/turf/simulated/wall/false{density = 1; icon_state = "metal12"; opacity = 1},/turf/unsimulated/floor,/area/awaymission/train/snow)
-"de" = (/obj/structure/filingcabinet,/obj/effect/decal/cleanable/cobweb,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"df" = (/obj/machinery/light/small{dir = 1},/obj/structure/table/rack,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dg" = (/obj/structure/barricade,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dh" = (/obj/structure/filingcabinet,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"di" = (/obj/machinery/light/small{dir = 1},/obj/structure/closet/cabinet,/obj/item/weapon/mop,/obj/item/weapon/soap,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dj" = (/obj/structure/largecrate,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"dk" = (/obj/item/stack/tile/floor,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
-"dl" = (/turf/unsimulated/floor,/obj/structure/barricade,/turf/unsimulated/floor{tag = "icon-asteroid_dug_overlay"; icon_state = "asteroid_dug_overlay"},/area/awaymission/train/snow)
-"dm" = (/obj/effect/decal/cleanable/blood/splatter,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"dn" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"do" = (/obj/effect/decal/cleanable/dirt,/obj/item/weapon/broken_bottle,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dp" = (/obj/structure/closet/crate,/obj/item/stack/material/wood{amount = 10},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dq" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dr" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"ds" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dt" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"du" = (/obj/item/trash/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dv" = (/obj/structure/closet/crate,/obj/item/stack/medical/bruise_pack,/obj/item/stack/medical/ointment,/obj/item/stack/medical/bruise_pack,/obj/item/weapon/cane,/obj/item/stack/medical/advanced/bruise_pack,/obj/item/stack/medical/advanced/ointment,/obj/item/stack/medical/splint,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"dw" = (/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dx" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"dy" = (/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dz" = (/obj/item/weapon/stool,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dA" = (/turf/unsimulated/floor,/turf/unsimulated/floor{tag = "icon-asteroid_dug_overlay"; icon_state = "asteroid_dug_overlay"},/area/awaymission/train/snow)
-"dB" = (/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dC" = (/obj/structure/closet/emcloset,/obj/item/weapon/lipstick,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dD" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dE" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dF" = (/obj/structure/extinguisher_cabinet,/turf/unsimulated/wall/other{tag = "icon-metal3"; icon_state = "metal3"},/area/awaymission/train/snow)
-"dG" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"dH" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash/raisins,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dI" = (/obj/item/stack/tile/floor,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dJ" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dK" = (/obj/structure/closet/firecloset,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dL" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"dM" = (/obj/structure/bedsheetbin,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"dN" = (/obj/machinery/light/small{brightness_range = 8},/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dO" = (/obj/structure/reagent_dispensers/watertank,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dP" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "wall_thermite"; tag = "icon-wall_thermite"},/area/awaymission/train/snow)
-"dQ" = (/obj/structure/curtain/open,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dR" = (/obj/effect/decal/cleanable/blood/oil/streak,/obj/item/trash/cheesie,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dS" = (/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dT" = (/obj/structure/urinal{pixel_y = 28},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
-"dU" = (/obj/structure/urinal{pixel_y = 28},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"dV" = (/obj/machinery/light/small{dir = 1},/obj/structure/toilet{tag = "icon-toilet00 (WEST)"; icon_state = "toilet00"; dir = 8},/obj/structure/curtain/open,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dW" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
-"dX" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"dY" = (/obj/effect/decal/cleanable/vomit,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"dZ" = (/obj/effect/decal/cleanable/mucus,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ea" = (/obj/structure/fakeladder{height = 1; id = "snowtrain1"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
-"eb" = (/obj/item/trash/sosjerky,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"ec" = (/obj/structure/curtain/open,/obj/structure/fakeladder{id = "snowtrain1"},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"ed" = (/obj/structure/bed/chair,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ee" = (/obj/effect/decal/cleanable/spiderling_remains,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"ef" = (/obj/item/weapon/stool,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eg" = (/obj/item/weapon/stool/urist/bar,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eh" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ei" = (/obj/item/weapon/stool/padded,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ej" = (/obj/structure/table/poker,/obj/item/weapon/reagent_containers/food/snacks/tofu,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ek" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/snacks/cereal,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
-"el" = (/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"em" = (/obj/effect/decal/cleanable/flour,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"en" = (/obj/structure/table/poker,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/obj/item/weapon/reagent_containers/food/snacks/stewedsoymeat,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eo" = (/obj/machinery/light/small{brightness_range = 8},/obj/item/weapon/stool/padded,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ep" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eq" = (/obj/machinery/light/small{brightness_range = 8},/obj/item/weapon/stool/padded,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"er" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"es" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
-"et" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"eu" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/storage/toolbox/emergency,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"ev" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ew" = (/obj/item/trash/raisins,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ex" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/broken_bottle,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"ey" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"ez" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/no_raisin,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eA" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"eB" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/clothing/suit/storage/hazardvest,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"eC" = (/obj/effect/decal/cleanable/spiderling_remains,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
-"eD" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eE" = (/turf/unsimulated/floor{tag = "icon-platingdmg1"; icon_state = "platingdmg1"},/area/awaymission/train/snow)
-"eF" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/clothing/suit/storage/hazardvest,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eG" = (/obj/structure/closet/crate,/obj/item/weapon/crossbowframe,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/plastic{amount = 7},/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eH" = (/obj/structure/closet/crate,/obj/item/weapon/crowbar,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/stack/cable_coil,/obj/item/stack/cable_coil,/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eI" = (/obj/structure/closet/crate,/obj/item/weapon/reagent_containers/food/snacks/cereal,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eJ" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
-"eK" = (/obj/structure/closet/crate,/obj/item/weapon/material/hatchet,/obj/item/weapon/material/shard,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/steel{amount = 10},/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
-"eL" = (/obj/vehicle/train/cargo/engine,/obj/structure/curtain,/obj/item/stack/cable_coil,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"cg" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/condiment/enzyme{layer = 5},/obj/item/weapon/material/kitchen/rollingpin,/obj/item/weapon/reagent_containers/glass/beaker{pixel_x = 5},/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"ch" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"ci" = (/obj/machinery/vending/boozeomat,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cj" = (/obj/structure/table/woodentable,/obj/item/weapon/reagent_containers/food/drinks/glass2/square,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"ck" = (/obj/structure/table/woodentable,/obj/machinery/chemical_dispenser/bar_alc/full,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cl" = (/obj/structure/table/woodentable,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cm" = (/obj/structure/closet/secure_closet/bar{req_access = list(25)},/obj/item/weapon/storage/fancy/cigar,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cn" = (/obj/structure/reagent_dispensers/beerkeg,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"co" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{tag = "icon-metal10"; icon_state = "metal10"},/area/awaymission/train)
+"cp" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"cq" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{tag = "icon-metal6"; icon_state = "metal6"},/area/awaymission/train)
+"cr" = (/obj/structure/fakeladder{height = 1; id = "snowtrain3"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"cs" = (/obj/structure/fakeladder{height = 0; id = "snowtrain3"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"ct" = (/obj/structure/bed/chair/comfy/brown,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cu" = (/obj/structure/bed/chair/comfy/brown,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cv" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cw" = (/obj/structure/table/woodentable,/obj/item/weapon/material/ashtray/bronze,/obj/item/weapon/storage/fancy/cigarettes,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cx" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/obj/effect/landmark{name = "eventwarp2"},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cy" = (/obj/structure/bed/chair/comfy/brown{tag = "icon-comfychair (NORTH)"; icon_state = "comfychair"; dir = 1},/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cz" = (/obj/structure/fakeladder{height = 1; id = "snowtrain2"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"cA" = (/obj/structure/fakeladder{height = 0; id = "snowtrain2"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cB" = (/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cC" = (/obj/machinery/door/window/westleft{req_access = list(100)},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cD" = (/obj/structure/bed/nice,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cE" = (/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"cF" = (/obj/structure/bed/chair,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cG" = (/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cH" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cI" = (/obj/structure/table/standard,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cJ" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cK" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cL" = (/obj/effect/landmark{name = "eventwarp3"},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"cM" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"cN" = (/obj/structure/closet/crate,/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/obj/item/weapon/melee/telebaton,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cO" = (/obj/structure/closet/crate,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cP" = (/obj/structure/closet/crate,/obj/structure/window/basic{dir = 4},/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/obj/item/ammo_magazine/c38,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cQ" = (/obj/structure/window/reinforced,/obj/structure/bed/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cR" = (/obj/item/weapon/paper_bin,/turf/unsimulated/wall/other{tag = "icon-metal3"; icon_state = "metal3"},/area/awaymission/train/snow)
+"cS" = (/obj/structure/table/standard,/obj/item/weapon/paper_bin,/turf/unsimulated/floor,/area/awaymission/train/snow)
+"cT" = (/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cU" = (/obj/structure/table/standard,/obj/item/weapon/folder,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cV" = (/obj/machinery/light/small{brightness_range = 8},/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"cW" = (/obj/effect/landmark{name = "eventwarp3"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"cX" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"cY" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"cZ" = (/obj/structure/table/standard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"da" = (/obj/machinery/light/small{brightness_range = 8},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"db" = (/obj/structure/filingcabinet,/obj/effect/decal/cleanable/cobweb,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dc" = (/obj/machinery/light/small{dir = 1},/obj/structure/table/rack,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dd" = (/obj/structure/barricade,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"de" = (/obj/structure/filingcabinet,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"df" = (/obj/machinery/light/small{dir = 1},/obj/structure/closet/cabinet,/obj/item/weapon/mop,/obj/item/weapon/soap,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dg" = (/obj/structure/largecrate,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dh" = (/obj/item/stack/tile/floor,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
+"di" = (/obj/effect/decal/cleanable/blood/splatter,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"dj" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dk" = (/obj/effect/decal/cleanable/dirt,/obj/item/weapon/broken_bottle,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dl" = (/obj/structure/closet/crate,/obj/item/stack/material/wood{amount = 10},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dm" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dn" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"do" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dp" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dq" = (/obj/item/trash/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dr" = (/obj/structure/closet/crate,/obj/item/stack/medical/bruise_pack,/obj/item/stack/medical/ointment,/obj/item/stack/medical/bruise_pack,/obj/item/weapon/cane,/obj/item/stack/medical/advanced/bruise_pack,/obj/item/stack/medical/advanced/ointment,/obj/item/stack/medical/splint,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"ds" = (/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dt" = (/obj/item/weapon/stool,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"du" = (/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dv" = (/obj/item/weapon/stool,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dw" = (/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dx" = (/obj/structure/closet/emcloset,/obj/item/weapon/lipstick,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dy" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dz" = (/obj/item/weapon/material/shard,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dA" = (/obj/structure/extinguisher_cabinet,/turf/unsimulated/wall/other{tag = "icon-metal3"; icon_state = "metal3"},/area/awaymission/train/snow)
+"dB" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dC" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash/raisins,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dD" = (/obj/item/stack/tile/floor,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dE" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dF" = (/obj/structure/closet/firecloset,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dG" = (/obj/item/weapon/newspaper,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"dH" = (/obj/structure/bedsheetbin,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dI" = (/obj/machinery/light/small{brightness_range = 8},/obj/structure/reagent_dispensers/fueltank,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dJ" = (/obj/structure/reagent_dispensers/watertank,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dK" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "wall_thermite"; tag = "icon-wall_thermite"},/area/awaymission/train/snow)
+"dL" = (/obj/structure/curtain/open,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dM" = (/obj/effect/decal/cleanable/blood/oil/streak,/obj/item/trash/cheesie,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dN" = (/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dO" = (/obj/structure/urinal{pixel_y = 28},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
+"dP" = (/obj/structure/urinal{pixel_y = 28},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dQ" = (/obj/machinery/light/small{dir = 1},/obj/structure/toilet{tag = "icon-toilet00 (WEST)"; icon_state = "toilet00"; dir = 8},/obj/structure/curtain/open,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dR" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
+"dS" = (/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dT" = (/obj/effect/decal/cleanable/vomit,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dU" = (/obj/effect/decal/cleanable/mucus,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dV" = (/obj/structure/fakeladder{height = 1; id = "snowtrain1"},/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
+"dW" = (/obj/item/trash/sosjerky,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"dX" = (/obj/structure/curtain/open,/obj/structure/fakeladder{id = "snowtrain1"},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"dY" = (/obj/structure/bed/chair,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"dZ" = (/obj/effect/decal/cleanable/spiderling_remains,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"ea" = (/obj/item/weapon/stool,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eb" = (/obj/item/weapon/stool/urist/bar,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ec" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ed" = (/obj/item/weapon/stool/padded,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ee" = (/obj/structure/table/poker,/obj/item/weapon/reagent_containers/food/snacks/tofu,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ef" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/snacks/cereal,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
+"eg" = (/obj/structure/bed/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"eh" = (/obj/effect/decal/cleanable/flour,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ei" = (/obj/structure/table/poker,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/obj/item/weapon/reagent_containers/food/snacks/stewedsoymeat,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ej" = (/obj/machinery/light/small{brightness_range = 8},/obj/item/weapon/stool/padded,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ek" = (/obj/effect/decal/cleanable/dirt,/obj/item/trash/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"el" = (/obj/machinery/light/small{brightness_range = 8},/obj/item/weapon/stool/padded,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"em" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"en" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg2"; tag = "icon-platingdmg2"},/area/awaymission/train/snow)
+"eo" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"ep" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/storage/toolbox/emergency,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"eq" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"er" = (/obj/item/trash/raisins,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"es" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/broken_bottle,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"et" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/effect/landmark{name = "eventwarp1"},/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eu" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/no_raisin,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ev" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"ew" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/clothing/suit/storage/hazardvest,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"ex" = (/obj/effect/decal/cleanable/spiderling_remains,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg3"; tag = "icon-platingdmg3"},/area/awaymission/train/snow)
+"ey" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"ez" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/obj/item/clothing/suit/storage/hazardvest,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eA" = (/obj/structure/closet/crate,/obj/item/weapon/crossbowframe,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/plastic{amount = 7},/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eB" = (/obj/structure/closet/crate,/obj/item/weapon/crowbar,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/stack/cable_coil,/obj/item/stack/cable_coil,/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eC" = (/obj/structure/closet/crate,/obj/item/weapon/reagent_containers/food/snacks/cereal,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/tofu,/obj/item/weapon/reagent_containers/food/snacks/sosjerky,/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eD" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
+"eE" = (/obj/structure/closet/crate,/obj/item/weapon/material/hatchet,/obj/item/weapon/material/shard,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/stack/rods{amount = 10},/obj/item/stack/material/steel{amount = 10},/obj/structure/curtain,/turf/unsimulated/floor/plating,/area/awaymission/train/snow)
+"eF" = (/obj/vehicle/train/cargo/engine,/obj/structure/curtain,/obj/item/stack/cable_coil,/turf/unsimulated/floor{icon = 'icons/turf/flooring/plating.dmi'; icon_state = "dmg1"; tag = "icon-platingdmg1"},/area/awaymission/train/snow)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -330,73 +324,73 @@ abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjbUbVbWbX
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbYbZbjcabnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjcbbobjccbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbvbjbjcbcdbjcebhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbYcfbjcgbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjcbbVbjchbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjcibhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjcjbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbjbgbjckbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhbvbjbjcbbVbjclbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjcmbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbYbVbjcnbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjcobhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbccpcqcqcqcqancrbdababababababababaaacacacacacacacaKaMbgbgaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbYcfbjbVbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjcbbVbjcgbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjchbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjcibnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbjbgbjcjbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhbvbjbjcbbVbjckbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjclbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbYbVbjcmbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjcnbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbccocpcpcpcpancqbdababababababababaaacacacacacacacaKaMbgbgaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananancsamabababababababababaaacacacacacacacaoawaHawawawaHctaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananancramabababababababababaaacacacacacacacaoawaHawawawaHcsaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababadbdanananananbcafababababababababaaacacacacacacacaKaLaLaMbgaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhbicubEbjbEcucvbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhbictbEbjbEctcubhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjbocdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbxbrbjbjbjbrcwbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhcucubjbjbjbycubhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjcxcdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqcybrbjbjbjbrcwbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhcucubjbjbjbycubhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbxbrbjbjbjbrcvbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhctctbjbjbjbyctbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjcwcdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqcxbrbjbjbjbrcvbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhctctbjbjbjbyctbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjbocdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbrczbjbjbjczbrbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbrcybjbjbjcybrbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLaMbgbgbgaOaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananancAamabababababababababaaacacacacacacacaoaHawawaHawaHcBaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamananananczamabababababababababaaacacacacacacacaoaHawawaHawaHcAaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbebeaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaocCawawawcDawcEaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhcFcGawcHaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbncIcJcKawcDawcEaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqcLcJcMawaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbhcIcJcKawcDawcEaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnawcNawcHaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqcOcPcQawcDawcHaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaKaLaLaMawbKcRcRaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacaccScTcUcFawawawcNaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaocVcWawawcXaHcYaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaocBawawawcCawcDaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhcEcFawcGaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbncHcIcJawcCawcDaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqcKcIcLawaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhcHcIcJawcCawcDaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbnawcMawcGaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqcNcOcPawcCawcGaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaKaLaLaMawbKcQcQaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacaccRcScTcEawawawcMaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaocUcVawawcWaHcXaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananananamabababababababababaaacacacacacacacaocZawcXawawcXbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananananamabababababababababaaacacacacacacacaKaMdbcJdbcJcJaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananananamabababababababababaaacacacacacacacaoawaHcFcNawdcawaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKcFaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodedfdgdhdgdidjaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodkcFdgdmdndodpaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodqdrcFdsdtdudvaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodwdxdycNdzcFdBaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodCdDdtdEcNcFdkaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacdFdGdHdIdJdzdGdKaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodydcdLcFdMdNdOaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbcafanananananadbdababababababababaaacacacacacacacaKdPaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananananamabababababababababaaacacacacacacacaodQdRdScNdTdUdVaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamanananananamabababababababababaaacacacacacacacaKaMdWdXdJdYdZaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-ababababababababamananananeaamabababababababababaaacacacacacacacaodQdcdsebdXdcecaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKdPaLaMbeaOaLcFaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaocNeddXdJeeefcNaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaoegehdzdneiejegaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodzekelemefendzaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaodXeoepcNdXeqdXaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaKdPaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbheresetcFercZeubhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamcqananananananamababababababababaaacacacacacacacbnevewexdWeycFezbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamcqananananananamababababababababaaacacacacacacacbqerdZdJdXcFdZeybqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacaoeyeAcNcFepdXeraoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbheBcNereCeDdXeFbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnezcFeydJeGdXeHbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqeIdceJdXeKdceLbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananananamabababababababababaaacacacacacacacaocYawcWawawcWbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananananamabababababababababaaacacacacacacacaKaMcZcIcZcIcIaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananananamabababababababababaaacacacacacacacaoawaHcEcMawdaawaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKcEaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodbdcdddedddfdgaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodhcEdddidjdkdlaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodmdncEdodpdqdraoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodsdtducMdvcEdwaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodxdydpdzcMcEdhaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacdAdBdCdDdEdvdBdFaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodudadGcEdHdIdJaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbcafanananananadbdababababababababaaacacacacacacacaKdKaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananananamabababababababababaaacacacacacacacaodLdMdNcMdOdPdQaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananananamabababababababababaaacacacacacacacaKaMdRdSdEdTdUaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+ababababababababamanananandVamabababababababababaaacacacacacacacaodLdadodWdSdadXaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKdKaLaMbeaOaLcEaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaocMdYdSdEdZeacMaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaoebecdvdjedeeebaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodvefegeheaeidvaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaodSejekcMdSeldSaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaKdKaLaMbeaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhemeneocEemcYepbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamcpananananananamababababababababaaacacacacacacacbneqeresdRetcEeubnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamcpananananananamababababababababaaacacacacacacacbqemdUdEdScEdUetbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacaoetevcMcEekdSemaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbhewcMemexeydSezbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbneucEetdEeAdSeBbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqeCdaeDdSeEdaeFbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababbcaeaeaeaeaeaeaebdababababababababaaacacacacacacacbzaLaLaLaLaLaLaLbCacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababababababababababababababababababaaacacacacacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababababababababababababababababababaaacacacacacacacacacacacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaa

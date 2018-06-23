@@ -30,7 +30,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -77,23 +77,25 @@
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
 	var/amount_grown = 0
-	New()
+
+/obj/effect/spider/eggcluster/Initialize()
+		. = ..()
 		pixel_x = rand(3,-3)
 		pixel_y = rand(3,-3)
-		processing_objects |= src
+		START_PROCESSING(SSobj, src)
 
 /obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
 	get_light_and_color(parent)
 	..()
 
 /obj/effect/spider/eggcluster/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 	if(istype(loc, /obj/item/organ/external))
 		var/obj/item/organ/external/O = loc
 		O.implants -= src
 	. = ..()
 
-/obj/effect/spider/eggcluster/process()
+/obj/effect/spider/eggcluster/Process()
 	amount_grown += rand(0,2)
 	if(amount_grown >= 100)
 		var/num = rand(6,24)
@@ -125,7 +127,7 @@
 
 	var/shift_range = 6
 
-/obj/effect/spider/spiderling/New(var/location, var/atom/parent)
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent)
 	greater_form = pick(typesof(/mob/living/simple_animal/hostile/giant_spider))
 	icon_state = initial(greater_form.icon_state)
 	pixel_x = rand(-shift_range, shift_range)
@@ -136,12 +138,12 @@
 		dormant = FALSE
 
 	if(dormant)
-		moved_event.register(src, src, /obj/effect/spider/spiderling/proc/disturbed)
+		GLOB.moved_event.register(src, src, /obj/effect/spider/spiderling/proc/disturbed)
 	else
-		processing_objects |= src
+		START_PROCESSING(SSobj, src)
 
 	get_light_and_color(parent)
-	..()
+	. = ..()
 
 /obj/effect/spider/spiderling/mundane
 	growth_chance = 0 // Just a simple, non-mutant spider
@@ -151,8 +153,9 @@
 
 /obj/effect/spider/spiderling/Destroy()
 	if(dormant)
-		moved_event.unregister(src, src, /obj/effect/spider/spiderling/proc/disturbed)
-	processing_objects -= src
+		GLOB.moved_event.unregister(src, src, /obj/effect/spider/spiderling/proc/disturbed)
+	STOP_PROCESSING(SSobj, src)
+	walk(src, 0) // Because we might have called walk_to, we must stop the walk loop or BYOND keeps an internal reference to us forever.
 	. = ..()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/weapon/W, var/mob/user)
@@ -169,8 +172,8 @@
 		return
 	dormant = FALSE
 
-	moved_event.unregister(src, src, /obj/effect/spider/spiderling/proc/disturbed)
-	processing_objects |= src
+	GLOB.moved_event.unregister(src, src, /obj/effect/spider/spiderling/proc/disturbed)
+	START_PROCESSING(SSobj, src)
 
 /obj/effect/spider/spiderling/Bump(atom/user)
 	if(istype(user, /obj/structure/table))
@@ -187,7 +190,7 @@
 	if(health <= 0)
 		die()
 
-/obj/effect/spider/spiderling/process()
+/obj/effect/spider/spiderling/Process()
 	if(travelling_in_vent)
 		if(istype(src.loc, /turf))
 			travelling_in_vent = 0

@@ -42,12 +42,12 @@
 	name = "fish fillet"
 	desc = "A fillet of fish meat."
 	icon_state = "fishfillet"
-	filling_color = "#FFDEFE"
+	filling_color = "#ffdefe"
 	center_of_mass = "x=17;y=13"
 
 /obj/item/weapon/reagent_containers/food/snacks/fishmeat/New()
 	..()
-	reagents.add_reagent("protein", 3)
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
 	src.bitesize = 6
 
 /datum/recipe/fishburger2
@@ -65,7 +65,7 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/fishandchips
 
 /datum/recipe/fishfingers2
-	reagents = list("flour" = 10)
+	reagents = list(/datum/reagent/nutriment/flour = 10)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/fishmeat,

@@ -4,6 +4,8 @@
 	if(species.slowdown)
 		tally += species.slowdown
 
+	tally += species.handle_movement_delay_special(src)
+
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
 	if(embedded_flag || (stomach_contents && stomach_contents.len))
@@ -12,11 +14,14 @@
 	if(CE_SPEEDBOOST in chem_effects)
 		return -1
 
+	if(CE_SLOWDOWN in chem_effects)
+		tally += chem_effects[CE_SLOWDOWN]
+
 	var/health_deficiency = (maxHealth - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
 	if(can_feel_pain())
-		if(getHalLoss() >= 10) tally += (getHalLoss() / 10) //halloss shouldn't slow you down if you can't even feel it
+		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
@@ -28,11 +33,25 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 	else
+		var/total_item_slowdown = -1
 		for(var/slot = slot_first to slot_last)
 			var/obj/item/I = get_equipped_item(slot)
 			if(I)
-				tally += I.slowdown_general
-				tally += I.slowdown_per_slot[slot]
+				var/item_slowdown = 0
+				item_slowdown += I.slowdown_general
+				item_slowdown += I.slowdown_per_slot[slot]
+				item_slowdown += I.slowdown_accessory
+
+				if(item_slowdown >= 0)
+					var/size_mod = 0
+					if(!(mob_size == MOB_MEDIUM))
+						size_mod = log(2, mob_size / MOB_MEDIUM)
+					if(species.strength + size_mod + 1 > 0)
+						item_slowdown = item_slowdown / (species.strength + size_mod + 1)
+					else
+						item_slowdown = item_slowdown - species.strength - size_mod
+				total_item_slowdown += max(item_slowdown, 0)
+		tally += round(total_item_slowdown)
 
 		for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = get_organ(organ_name)
@@ -44,6 +63,8 @@
 				tally += 1.5
 
 	if(shock_stage >= 10) tally += 3
+
+	if(is_asystole()) tally += 10  //heart attacks are kinda distracting
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
@@ -96,8 +117,8 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip()
-	if(species.flags & NO_SLIP)
+	if(species.species_flags & SPECIES_FLAG_NO_SLIP)
 		return 1
-	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
+	if(shoes && (shoes.item_flags & ITEM_FLAG_NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0

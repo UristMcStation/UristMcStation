@@ -39,8 +39,8 @@
 		set category = "Exosuit Interface"
 		set src = usr.loc
 		var/perspective = input("Select a perspective type.",
-                      "Client perspective",
-                      occupant.client.perspective) in list(MOB_PERSPECTIVE,EYE_PERSPECTIVE)
+					  "Client perspective",
+					  occupant.client.perspective) in list(MOB_PERSPECTIVE,EYE_PERSPECTIVE)
 		log_debug("[perspective]")
 
 		occupant.client.perspective = perspective
@@ -102,7 +102,7 @@
 				holder.icon_state = "hudhealth-100"
 				C.images += holder
 			else
-				holder.icon_state = RoundHealth((patient.health-config.health_threshold_crit)/(patient.maxHealth-config.health_threshold_crit)*100)
+				holder.icon_state = "hudhealth-100" // TODO
 				C.images += holder
 
 			holder = patient.hud_list[STATUS_HUD]

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/scarybat
 	name = "space bats"
-	desc = "A swarm of cute little blood sucking bats that looks pretty upset."
+	desc = "A swarm of cute little blood sucking bats - they look pretty upset."
 	icon = 'icons/mob/bats.dmi'
 	icon_state = "bat"
 	icon_living = "bat"
@@ -22,15 +22,8 @@
 	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
-	//Space carp aren't affected by atmos.
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 	environment_smash = 1

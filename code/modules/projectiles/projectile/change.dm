@@ -32,8 +32,9 @@
 		var/options = list("robot", "slime")
 		for(var/t in all_species)
 			options += t
-		options -= "Xenomorph Queen"
-		options -= "Xenomorph"
+		options -= "Xenophage Queen"
+		options -= "Xenophage Drone"
+		options -= "Xenophage"
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species)
@@ -48,8 +49,8 @@
 			if("robot")
 				new_mob = new /mob/living/silicon/robot(M.loc)
 				new_mob.gender = M.gender
-				new_mob.invisibility = 0
-				new_mob.job = "Cyborg"
+				new_mob.set_invisibility(0)
+				new_mob.job = "Robot"
 				var/mob/living/silicon/robot/Robot = new_mob
 				Robot.mmi = new /obj/item/device/mmi(new_mob)
 				Robot.mmi.transfer_identity(M)	//Does not transfer key/client.
@@ -66,15 +67,15 @@
 
 				if(M.gender == MALE)
 					H.gender = MALE
-					H.name = pick(first_names_male)
+					H.SetName(pick(GLOB.first_names_male))
 				else if(M.gender == FEMALE)
 					H.gender = FEMALE
-					H.name = pick(first_names_female)
+					H.SetName(pick(GLOB.first_names_female))
 				else
 					H.gender = NEUTER
-					H.name = pick(first_names_female|first_names_male)
+					H.SetName(pick(GLOB.first_names_female|GLOB.first_names_male))
 
-				H.name += " [pick(last_names)]"
+				H.name += " [pick(GLOB.last_names)]"
 				H.real_name = H.name
 
 				H.set_species(randomize)

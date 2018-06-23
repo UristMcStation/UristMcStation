@@ -1,3 +1,6 @@
+GLOBAL_LIST_INIT(registered_weapons, list())
+GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
+
 /obj/item/weapon/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
@@ -18,6 +21,8 @@
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
 	var/charge_tick = 0
+	var/icon_rounder = 25
+	combustion = 1
 
 /obj/item/weapon/gun/energy/switch_firemodes()
 	. = ..()
@@ -35,15 +40,15 @@
 	else
 		power_supply = new /obj/item/weapon/cell/device/variable(src, max_shots*charge_cost)
 	if(self_recharge)
-		processing_objects.Add(src)
+		START_PROCESSING(SSobj, src)
 	update_icon()
 
 /obj/item/weapon/gun/energy/Destroy()
 	if(self_recharge)
-		processing_objects.Remove(src)
-	..()
+		STOP_PROCESSING(SSobj, src)
+	return ..()
 
-/obj/item/weapon/gun/energy/process()
+/obj/item/weapon/gun/energy/Process()
 	if(self_recharge) //Every [recharge_time] ticks, recharge a shot for the cyborg
 		charge_tick++
 		if(charge_tick < recharge_time) return 0
@@ -83,23 +88,25 @@
 
 /obj/item/weapon/gun/energy/examine(mob/user)
 	. = ..(user)
+	if(!power_supply)
+		to_chat(user, "Seems like it's dead.")
+		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
 	return
 
 /obj/item/weapon/gun/energy/update_icon()
 	..()
-	if(charge_meter)
+	if(charge_meter && power_supply)
 		var/ratio = power_supply.percent()
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
 		if(power_supply.charge < charge_cost)
 			ratio = 0
 		else
-			ratio = max(round(ratio, 25), 25)
+			ratio = max(round(ratio, icon_rounder), icon_rounder)
 
 		if(modifystate)
 			icon_state = "[modifystate][ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
-

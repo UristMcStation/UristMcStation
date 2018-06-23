@@ -28,23 +28,20 @@
 	var/datum/storage_ui/storage_ui = /datum/storage_ui/default
 
 /obj/item/weapon/storage/Destroy()
-	qdel_null(storage_ui)
+	QDEL_NULL(storage_ui)
 	. = ..()
 
 /obj/item/weapon/storage/MouseDrop(obj/over_object as obj)
 	if(!canremove)
 		return
 
-	if (ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
+	if ((ishuman(usr) || issmall(usr)) && !usr.incapacitated())
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
-			return
+			return TRUE
 
 		if (!( istype(over_object, /obj/screen) ))
 			return ..()
-
-		if (usr.incapacitated())
-			return
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		if (!usr.contains(src))
@@ -74,14 +71,16 @@
 	return L
 
 /obj/item/weapon/storage/proc/show_to(mob/user as mob)
-	storage_ui.show_to(user)
+	if(storage_ui)
+		storage_ui.show_to(user)
 
 /obj/item/weapon/storage/proc/hide_from(mob/user as mob)
-	storage_ui.hide_from(user)
+	if(storage_ui)
+		storage_ui.hide_from(user)
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
 	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 
 	prepare_ui()
 	storage_ui.on_open(user)
@@ -92,10 +91,12 @@
 
 /obj/item/weapon/storage/proc/close(mob/user as mob)
 	hide_from(user)
-	storage_ui.after_close(user)
+	if(storage_ui)
+		storage_ui.after_close(user)
 
 /obj/item/weapon/storage/proc/close_all()
-	storage_ui.close_all()
+	if(storage_ui)
+		storage_ui.close_all()
 
 /obj/item/weapon/storage/proc/storage_space_used()
 	. = 0
@@ -193,18 +194,21 @@
 
 /obj/item/weapon/storage/proc/update_ui_after_item_insertion()
 	prepare_ui()
-	storage_ui.on_insertion(usr)
+	if(storage_ui)
+		storage_ui.on_insertion(usr)
 
 /obj/item/weapon/storage/proc/update_ui_after_item_removal()
 	prepare_ui()
-	storage_ui.on_post_remove(usr)
+	if(storage_ui)
+		storage_ui.on_post_remove(usr)
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
 /obj/item/weapon/storage/proc/remove_from_storage(obj/item/W as obj, atom/new_location, var/NoUpdate = 0)
 	if(!istype(W)) return 0
 	new_location = new_location || get_turf(src)
 
-	storage_ui.on_pre_remove(usr, W)
+	if(storage_ui)
+		storage_ui.on_pre_remove(usr, W)
 
 	if(ismob(loc))
 		W.dropped(usr)
@@ -283,7 +287,7 @@
 	var/success = 0
 	var/failure = 0
 
-	for(var/obj/item/I in T)
+	for(var/obj/item/I in T.contents)
 		if(!can_be_inserted(I, user, 0))	// Note can_be_inserted still makes noise when the answer is no
 			failure = 1
 			continue
@@ -322,8 +326,8 @@
 		remove_from_storage(I, T, 1)
 	update_ui_after_item_removal()
 
-/obj/item/weapon/storage/New()
-	..()
+/obj/item/weapon/storage/Initialize()
+	. = ..()
 	if(allow_quick_empty)
 		verbs += /obj/item/weapon/storage/verb/quick_empty
 	else
@@ -336,12 +340,6 @@
 
 	if(isnull(max_storage_space) && !isnull(storage_slots))
 		max_storage_space = storage_slots*base_storage_cost(max_w_class)
-
-	spawn(5)
-		var/total_storage_space = 0
-		for(var/obj/item/I in contents)
-			total_storage_space += I.get_storage_cost()
-		max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
 	storage_ui = new storage_ui(src)
 	prepare_ui()

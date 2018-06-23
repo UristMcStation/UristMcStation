@@ -15,11 +15,14 @@
 
 	station_levels = list(1)
 	admin_levels = list(2)
-	contact_levels = list(1,5,6,7)
+	contact_levels = list(1,2,5,6,7)
 	player_levels = list(1,3,4,5,6,7)
 	sealed_levels = list(6)
 	empty_levels = list(6)
-	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/planet/jungle/clear)
+	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/floor/planet/jungle/clear)
+	accessible_z_levels = list("1"=15, "3"=15, "4"=25)
+
+	id_hud_icons = 'maps/glloydstation/icons/assignment_hud.dmi'
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %Dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."
@@ -33,7 +36,62 @@
 	evac_controller_type = /datum/evacuation_controller/shuttle
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
+	citizenship_choices = list(
+		"Earth",
+		"Mars",
+		"New Earth",
+		"Luna",
+		"Ryclies I",
+		"Venus",
+		"Moghes",
+		"Ahdomai",
+		"Qerrbalak",
+		"Reade III",
+		"Procyon"
+	)
+
+	home_system_choices = list(
+		"Sol",
+		"Nyx",
+		"Tau Ceti",
+		"Epsilon Ursae Minoris",
+		"Zamsiin-lr",
+		"Gilgamesh",
+		"Ryclies",
+		"Reade"
+		)
+
+	faction_choices = list(
+		"Terran Confederacy",
+		"Outer Rim Miners Alliance",
+		"Vey Med",
+		"Einstein Engines",
+		"Free Trade Union",
+		"NanoTrasen",
+		"Ward-Takahashi GMB",
+		"Gilthari Exports",
+		"Grayson Manufactories Ltd.",
+		"Aether Atmospherics",
+		"Zeng-Hu Pharmaceuticals",
+		"Hephaestus Industries",
+		"Commonwealth of Ahdomai"
+		)
+
 /datum/map/glloydstation/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
 	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
 	return 1
+
+/obj/effect/overmap/sector/urist
+	name = "NSS Urist"
+	desc = "Starbase records report: NT owned, unknown crew status."
+	base = TRUE
+	start_x = 11
+	start_y = 12
+
+/obj/effect/overmap/sector/uristplanet
+	name = "Nyx Phi III"
+	desc = "Geneseeded world detected, possible intelligent life detected."
+	base = TRUE
+	start_x = 12
+	start_y = 13

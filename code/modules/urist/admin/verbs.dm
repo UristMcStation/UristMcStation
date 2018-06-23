@@ -7,7 +7,7 @@
 		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
-	for(var/mob/living/M in player_list)
+	for(var/mob/living/M in GLOB.player_list)
 		M.loc = get_turf(usr)
 		message_admins("[key_name(usr)] has warped all players to their location.")
 		log_admin("[key_name(src)] has warped all players to their location.")

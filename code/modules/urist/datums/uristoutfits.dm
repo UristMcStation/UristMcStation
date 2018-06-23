@@ -6,12 +6,12 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_pocket = /obj/item/weapon/melee/energy/sword
-	mask = /obj/item/clothing/mask/bandana/bedsheet/red
+	mask = /obj/item/clothing/mask/urist/bandana/bedsheet/red
 
 	id_slot = slot_wear_id
 	id_type = /obj/item/weapon/card/id/syndicate/station_access
 	pda_slot = slot_belt
-	pda_type = /obj/item/device/pda/heads
+	pda_type = /obj/item/modular_computer/pda/heads
 	id_pda_assignment = "ANTAG Operative"
 
 /decl/hierarchy/outfit/ANTAG/post_equip(var/mob/living/carbon/human/H)

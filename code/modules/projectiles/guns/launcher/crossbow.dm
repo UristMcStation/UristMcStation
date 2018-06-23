@@ -63,6 +63,12 @@
 	var/release_speed = 5                   // Speed per unit of tension.
 	var/obj/item/weapon/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
+	var/powered = TRUE											// Do we allow cells to be used?
+	var/draw_time = 2.5 SECONDS
+
+/obj/item/weapon/gun/launcher/crossbow/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
 
 /obj/item/weapon/gun/launcher/crossbow/update_release_force()
 	release_force = tension*release_speed
@@ -108,7 +114,7 @@
 	tension = 1
 
 	while(bolt && tension && loc == current_user)
-		if(!do_after(user, 25, src)) //crossbow strings don't just magically pull back on their own.
+		if(!do_after(user, draw_time, src)) //crossbow strings don't just magically pull back on their own.
 			user.visible_message("[usr] stops drawing and relaxes the string of [src].","<span class='warning'>You stop drawing back and relax the string of [src].</span>")
 			tension = 0
 			update_icon()
@@ -153,6 +159,9 @@
 				superheat_rod(user)
 			return
 
+	if(!powered)
+		..()
+
 	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
 			user.drop_item()
@@ -163,7 +172,7 @@
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell installed.</span>")
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isScrewdriver(W))
 		if(cell)
 			var/obj/item/C = cell
 			C.loc = get_turf(user)
@@ -187,12 +196,13 @@
 	cell.use(500)
 
 /obj/item/weapon/gun/launcher/crossbow/update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(tension > 1)
-		icon_state = "crossbow-drawn"
+		icon_state = "[bis.base_icon_state]-drawn"
 	else if(bolt)
-		icon_state = "crossbow-nocked"
+		icon_state = "[bis.base_icon_state]-nocked"
 	else
-		icon_state = "crossbow"
+		icon_state = "[bis.base_icon_state]"
 
 
 // Crossbow construction.
@@ -227,7 +237,7 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(isWelder(W))
 		if(buildstate == 1)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
@@ -237,7 +247,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(istype(W,/obj/item/stack/cable_coil))
+	else if(isCoil(W))
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 2)
 			if(C.use(5))
@@ -265,7 +275,7 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least three plastic sheets to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/weapon/screwdriver))
+	else if(isScrewdriver(W))
 		if(buildstate == 5)
 			to_chat(user, "<span class='notice'>You secure the crossbow's various parts.</span>")
 			new /obj/item/weapon/gun/launcher/crossbow(get_turf(src))

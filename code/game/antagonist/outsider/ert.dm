@@ -1,4 +1,4 @@
-var/datum/antagonist/ert/ert
+GLOBAL_DATUM_INIT(ert, /datum/antagonist/ert, new)
 
 /datum/antagonist/ert
 	id = MODE_ERT
@@ -28,15 +28,14 @@ var/datum/antagonist/ert/ert
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)
 
-/datum/antagonist/ert/New()
+/datum/antagonist/ert/Initialize()
 	..()
-	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to [using_map.boss_name], and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
-	ert = src
+	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to [GLOB.using_map.boss_name], and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
 
 /datum/antagonist/ert/greet(var/datum/mind/player)
 	if(!..())
 		return
-	to_chat(player.current, "The Emergency Response Team works for Asset Protection; your job is to protect [using_map.company_name]'s ass-ets. There is a code red alert on [station_name()], you are tasked to go and fix the problem.")
+	to_chat(player.current, "The Emergency Response Team works for Asset Protection; your job is to protect [GLOB.using_map.company_name]'s ass-ets. There is a code red alert on [station_name()], you are tasked to go and fix the problem.")
 	to_chat(player.current, "You should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready.")
 
 /datum/antagonist/ert/equip(var/mob/living/carbon/human/player)

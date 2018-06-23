@@ -3,7 +3,8 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
-	flags = CONDUCT | PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	throwforce = 5
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 3
@@ -44,7 +45,7 @@
 		D2.loc = src
 		a_left = D
 		a_right = D2
-		name = "[D.name]-[D2.name] assembly"
+		SetName("[D.name]-[D2.name] assembly")
 		update_icon()
 		usr.put_in_hands(src)
 
@@ -58,7 +59,7 @@
 /*		if(O:Attach_Holder())
 			special_assembly = O
 			update_icon()
-			src.name = "[a_left.name] [a_right.name] [special_assembly.name] assembly"
+			src.SetName("[a_left.name] [a_right.name] [special_assembly.name] assembly")
 */
 		return
 
@@ -144,7 +145,7 @@
 
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(isscrewdriver(W))
+		if(isScrewdriver(W))
 			if(!a_left || !a_right)
 				to_chat(user, "<span class='warning'>BUG:Assembly part missing, please report this!</span>")
 				return
@@ -213,10 +214,10 @@
 
 /obj/item/device/assembly_holder/New()
 	..()
-	listening_objects += src
+	GLOB.listening_objects += src
 
 /obj/item/device/assembly_holder/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	return ..()
 
 
@@ -242,12 +243,12 @@
 		tmr.time=5
 		tmr.secured = 1
 		tmr.holder = src
-		processing_objects.Add(tmr)
+		START_PROCESSING(SSobj, tmr)
 		a_left = tmr
 		a_right = ign
 		secured = 1
 		update_icon()
-		name = initial(name) + " ([tmr.time] secs)"
+		SetName(initial(name) + " ([tmr.time] secs)")
 
 		loc.verbs += /obj/item/device/assembly_holder/timer_igniter/verb/configure
 
@@ -278,9 +279,29 @@
 				var/ntime = input("Enter desired time in seconds", "Time", "5") as num
 				if (ntime>0 && ntime<1000)
 					tmr.time = ntime
-					name = initial(name) + "([tmr.time] secs)"
+					SetName(initial(name) + "([tmr.time] secs)")
 					to_chat(usr, "<span class='notice'>Timer set to [tmr.time] seconds.</span>")
 				else
 					to_chat(usr, "<span class='notice'>Timer can't be [ntime<=0?"negative":"more than 1000 seconds"].</span>")
 		else
 			to_chat(usr, "<span class='notice'>You cannot do this while [usr.stat?"unconscious/dead":"restrained"].</span>")
+
+/obj/item/device/assembly_holder/prox_igniter
+	name = "proximity igniter"
+
+/obj/item/device/assembly_holder/prox_igniter/New()
+	..()
+	var/obj/item/device/assembly/igniter/I = new(src)
+	var/obj/item/device/assembly/prox_sensor/P = new(src)
+
+	I.secured = TRUE
+	I.holder = src
+
+	P.secured = TRUE
+	P.holder = src
+	P.scanning = TRUE
+
+	a_left = I
+	a_right = P
+	secured = TRUE
+	update_icon()

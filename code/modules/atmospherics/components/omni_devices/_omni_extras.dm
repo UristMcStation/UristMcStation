@@ -10,6 +10,7 @@
 #define ATM_CO2		5
 #define ATM_P		6	//Phoron
 #define ATM_N2O		7
+#define ATM_H2		8
 
 //--------------------------------------------
 // Omni port datum
@@ -40,10 +41,10 @@
 /datum/omni_port/proc/connect()
 	if(node)
 		return
-	master.initialize()
+	master.atmos_init()
 	master.build_network()
 	if(node)
-		node.initialize()
+		node.atmos_init()
 		node.build_network()
 
 /datum/omni_port/proc/disconnect()
@@ -104,6 +105,8 @@
 			return "phoron"
 		if(ATM_N2O) 
 			return "sleeping_agent"
+		if(ATM_H2)
+			return "hydrogen"
 		else
 			return null
 	

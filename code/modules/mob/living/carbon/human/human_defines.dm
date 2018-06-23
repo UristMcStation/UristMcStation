@@ -18,7 +18,8 @@
 	var/g_eyes = 0
 	var/b_eyes = 0
 
-	var/s_tone = 0	//Skin tone
+	var/s_tone = 0  //Skin tone
+	var/s_base = "" //Skin base
 
 	//Skin colour
 	var/r_skin = 0
@@ -34,9 +35,9 @@
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
 
-	var/list/all_underwear = list()
-	var/list/all_underwear_metadata = list()
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
+	var/list/worn_underwear = list()
+
+	var/datum/backpack_setup/backpack_setup
 
 	// General information
 	var/home_system = ""
@@ -59,9 +60,6 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 
-	var/used_skillpoints = 0
-	var/list/skills = list()
-
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
 
@@ -82,6 +80,7 @@
 	var/pulling_punches    // Are you trying not to hurt your opponent?
 	var/full_prosthetic    // We are a robutt.
 	var/robolimb_count = 0 // Number of robot limbs.
+	var/last_attack = 0    // The world_time where an unarmed attack was done
 
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
@@ -105,6 +104,11 @@
 	var/datum/mil_rank/char_rank = null
 
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
-	var/cloaked // If set, mob will only render its inhands, no other icons will be shown.
 
 	var/obj/machinery/machine_visual //machine that is currently applying visual effects to this mob. Only used for camera monitors currently.
+
+	var/innate_heal = 1
+	var/shock_stage
+
+	var/obj/item/grab/current_grab_type 	// What type of grab they use when they grab someone.
+	var/skin_state = SKIN_NORMAL

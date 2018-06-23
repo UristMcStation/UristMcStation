@@ -26,15 +26,20 @@
 	item_cost = 8
 	path = /obj/item/ammo_magazine/a357
 
-/datum/uplink_item/item/ammo/a762
-	name = "7.62mm"
+/datum/uplink_item/item/ammo/a556
+	name = "5.56mm"
 	item_cost = 8
-	path = /obj/item/ammo_magazine/c762
+	path = /obj/item/ammo_magazine/c556
 
 /datum/uplink_item/item/ammo/sniperammo
 	name = "14.5mm"
 	item_cost = 8
 	path = /obj/item/weapon/storage/box/sniperammo
+
+/datum/uplink_item/item/ammo/sniperammo/apds
+	name = "14.5mm APDS"
+	item_cost = 12
+	path = /obj/item/weapon/storage/box/sniperammo/apds
 
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Shotgun Shells box"
@@ -56,8 +61,17 @@
 	item_cost = 8
 	path = /obj/item/ammo_magazine/a50
 
+/datum/uplink_item/item/ammo/c50
+	name = ".50 AE speedloader"
+	item_cost = 8
+	path = /obj/item/ammo_magazine/c50
+
 /datum/uplink_item/item/ammo/c38
 	name = ".38 speedloader"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/c38
 
+/datum/uplink_item/item/ammo/flechette
+	name = "Flechette Magazine"
+	item_cost = 8
+	path = /obj/item/weapon/magnetic_ammo

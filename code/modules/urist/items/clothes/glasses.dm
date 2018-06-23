@@ -20,7 +20,7 @@
 	desc = "A pair of goggles made out of some glass and a leather mask."
 
 /obj/item/clothing/glasses/goggles/attack_self(mob/user as mob)
-	var/obj/item/clothing/mask/bandana/leather/S = new /obj/item/clothing/mask/bandana/leather(src.loc)
+	var/obj/item/clothing/mask/urist/bandana/leather/S = new /obj/item/clothing/mask/urist/bandana/leather(src.loc)
 	user.put_in_hands(S)
 	to_chat(user, "<span class='notice'>You pop the glass out of the strip of leather.</span>")
 	qdel(src)

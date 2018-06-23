@@ -14,7 +14,8 @@
 	language = LANGUAGE_EAL
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
-	num_alternate_languages = 1 // potentially could be 2?
+	num_alternate_languages = 2
+	strength = STR_HIGH
 	name_language = LANGUAGE_EAL
 
 	min_age = 1
@@ -37,17 +38,16 @@
 	body_temperature = null
 	passive_temp_gain = 5  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = NO_SCAN | NO_PAIN | NO_POISON
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_NO_FBP_CONSTRUCTION
+	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_LACE
 	appearance_flags = HAS_UNDERWEAR //IPCs can wear undies too :(
 
-	blood_color = "#1F181F"
+	blood_color = "#1f181f"
 	flesh_color = "#575757"
 	virus_immune = 1
 
 	has_organ = list(
-		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL = /obj/item/organ/internal/cell,
+		BP_POSIBRAIN = /obj/item/organ/internal/posibrain,
 		BP_OPTICS = /obj/item/organ/internal/eyes/optics
 		)
 
@@ -84,14 +84,19 @@
 	return sanitizeName(new_name, allow_numbers = 1)
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
-	spawn(10) // This is annoying, but for whatever stupid reason this proc isn't called
-	          // before prefs are transferred over and robolimbs are applied on spawn.
-		if(!H)
-			return
-		for(var/obj/item/organ/external/E in H.organs)
-			if(E.robotic < ORGAN_ROBOT)
-				E.robotize("Morpheus")
+	if(!H)
 		return
+	handle_limbs_setup(H)
+
+/datum/species/machine/handle_limbs_setup(var/mob/living/carbon/human/H)
+	for(var/obj/item/organ/external/E in H.organs)
+		if(E.robotic < ORGAN_ROBOT)
+			E.robotize("Morpheus")
+	return
 
 /datum/species/machine/get_blood_name()
 	return "oil"
+
+/datum/species/machine/disfigure_msg(var/mob/living/carbon/human/H)
+	var/datum/gender/T = gender_datums[H.get_gender()]
+	return "<span class='danger'>[T.His] monitor is completely busted!</span>\n"

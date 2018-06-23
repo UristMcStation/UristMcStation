@@ -12,9 +12,9 @@
 
 /obj/machinery/suit_storage_unit/anfor
 	name = "ANFOR Voidsuit Storage Unit"
-	SUIT_TYPE = /obj/item/clothing/suit/space/void/anfor
-	HELMET_TYPE = /obj/item/clothing/head/helmet/space/void/anfor
-	MASK_TYPE = /obj/item/clothing/mask/breath
+	suit_type = /obj/item/clothing/suit/space/void/anfor
+	helmet_type = /obj/item/clothing/head/helmet/space/void/anfor
+	mask_type = /obj/item/clothing/mask/breath
 	req_access = list(access_cent_general)
 	islocked = 1
 
@@ -56,8 +56,8 @@
 		/obj/item/weapon/storage/box/beanbags = 5,
 		/obj/item/ammo_magazine/c38 = 10,
 		/obj/item/ammo_magazine/c45m = 10,
-		/obj/item/ammo_magazine/a556 = 10,
-		/obj/item/ammo_magazine/c762 = 10
+		/obj/item/ammo_magazine/a762 = 10,
+		/obj/item/ammo_magazine/c556 = 10
 		)
 
 //Assault mode clothing and armor vender

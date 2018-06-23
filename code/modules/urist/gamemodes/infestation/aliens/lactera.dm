@@ -113,14 +113,14 @@
 	brute_mod = 1.6
 	burn_mod = 1
 
-	flags = NO_SCAN | NO_PAIN | NO_POISON
+	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON
 	spawn_flags = SPECIES_IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
 
-	blood_color = "#A10808"
+	blood_color = "#a10808"
 
-	blood_color = "#05EE05"
+	blood_color = "#05ee05"
 	flesh_color = "null"
 	gibbed_anim = "blank"
 	dusted_anim = "blank"
@@ -138,7 +138,7 @@
 	has_organ = list(
 		BP_HEART =           /obj/item/organ/internal/heart,
 		BP_BRAIN =           /obj/item/organ/internal/brain/xeno,
-		BP_HIVE =       /obj/item/organ/internal/xenos/hivenode,
+		BP_HIVE =       /obj/item/organ/internal/xeno/hivenode,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 

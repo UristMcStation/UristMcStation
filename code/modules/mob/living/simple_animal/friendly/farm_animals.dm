@@ -25,9 +25,12 @@
 	var/datum/reagents/udder = null
 
 /mob/living/simple_animal/hostile/retaliate/goat/New()
-	udder = new(50)
-	udder.my_atom = src
+	udder = new(50, src)
 	..()
+
+/mob/living/simple_animal/hostile/retaliate/goat/Destroy()
+	QDEL_NULL(udder)
+	. = ..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
@@ -39,49 +42,48 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			src.visible_message("<span class='notice'>[src] calms down.</span>")
+			src.visible_message("<span class='notice'>\The [src] calms down.</span>")
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent("milk", rand(5, 10))
+				udder.add_reagent(/datum/reagent/drink/milk, rand(5, 10))
 
-		if(locate(/obj/effect/plant) in loc)
-			var/obj/effect/plant/SV = locate() in loc
-			SV.die_off(1)
-
-		if(locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible) in loc)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
-			qdel(SP)
+		if(locate(/obj/effect/vine) in loc)
+			var/obj/effect/vine/SV = locate() in loc
+			if(prob(60))
+				src.visible_message("<span class='notice'>\The [src] eats the plants.</span>")
+				SV.die_off(1)
+				if(locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible) in loc)
+					var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
+					qdel(SP)
+			else if(prob(20))
+				src.visible_message("<span class='notice'>\The [src] chews on the plants.</span>")
+			return
 
 		if(!pulledby)
-			var/obj/effect/plant/food
-			food = locate(/obj/effect/plant) in oview(5,loc)
+			var/obj/effect/vine/food
+			food = locate(/obj/effect/vine) in oview(5,loc)
 			if(food)
 				var/step = get_step_to(src, food, 0)
 				Move(step)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	if(stat == CONSCIOUS)
-		visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
-
-/mob/living/simple_animal/hostile/retaliate/goat/Move()
-	..()
-	if(!stat)
-		for(var/obj/effect/plant/SV in loc)
-			SV.die_off(1)
+	if(stat == CONSCIOUS && prob(50))
+		visible_message("<span class='warning'>\The [src] gets an evil-looking gleam in their eye.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+		var/transfered = udder.trans_type_to(G, /datum/reagent/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
 			to_chat(user, "<span class='warning'>The udder is dry. Wait a bit longer...</span>")
 	else
 		..()
+
 //cow
 /mob/living/simple_animal/cow
 	name = "cow"
@@ -115,7 +117,7 @@
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
+		var/transfered = udder.trans_type_to(G, /datum/reagent/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
@@ -127,7 +129,7 @@
 	. = ..()
 	if(stat == CONSCIOUS)
 		if(udder && prob(5))
-			udder.add_reagent("milk", rand(5, 10))
+			udder.add_reagent(/datum/reagent/drink/milk, rand(5, 10))
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
@@ -166,7 +168,7 @@
 	attacktext = "kicked"
 	health = 1
 	var/amount_grown = 0
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE
 	mob_size = MOB_MINISCULE
 
 /mob/living/simple_animal/chick/New()
@@ -208,7 +210,7 @@ var/global/chicken_count = 0
 	health = 10
 	var/eggsleft = 0
 	var/body_color
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	mob_size = MOB_SMALL
 
 /mob/living/simple_animal/chicken/New()
@@ -222,8 +224,8 @@ var/global/chicken_count = 0
 	pixel_y = rand(0, 10)
 	chicken_count += 1
 
-/mob/living/simple_animal/chicken/death()
-	..()
+/mob/living/simple_animal/chicken/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
 	chicken_count -= 1
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -253,16 +255,24 @@ var/global/chicken_count = 0
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
-			processing_objects.Add(E)
+			E.amount_grown = 1
+			START_PROCESSING(SSobj, E)
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/var/amount_grown = 0
-/obj/item/weapon/reagent_containers/food/snacks/egg/process()
+/obj/item/weapon/reagent_containers/food/snacks/egg
+	var/amount_grown = 0
+
+/obj/item/weapon/reagent_containers/food/snacks/egg/Destroy()
+	if(amount_grown)
+		STOP_PROCESSING(SSobj, src)
+	. = ..()
+
+/obj/item/weapon/reagent_containers/food/snacks/egg/Process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSobj, src)
 			qdel(src)
 	else
-		processing_objects.Remove(src)
+		return PROCESS_KILL

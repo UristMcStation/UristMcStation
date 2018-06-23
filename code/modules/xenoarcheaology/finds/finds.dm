@@ -15,7 +15,7 @@
 	dissonance_spread = rand(1500, 2500) / 100
 
 /obj/item/weapon/ore/strangerock
-	name = "Strange rock"
+	name = "strange rock"
 	desc = "Seems to have some unusal strata evident throughout it."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "strange"
@@ -25,10 +25,11 @@
 	..(loc)
 
 	if(inside_item_type)
-		new /obj/item/weapon/archaeological_find(src, new_item_type = inside_item_type)
+		var/T = get_archeological_find_by_findtype(inside_item_type)
+		new T(src)
 
 /obj/item/weapon/ore/strangerock/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/pickaxe/brush))
+	if(istype(I, /obj/item/weapon/pickaxe/xeno/brush))
 		var/obj/item/inside = locate() in src
 		if(inside)
 			inside.forceMove(get_turf(src))
@@ -38,7 +39,7 @@
 		qdel(src)
 		return
 
-	if(istype(I, /obj/item/weapon/weldingtool))
+	if(isWelder(I))
 		var/obj/item/weapon/weldingtool/W = I
 		if(W.isOn())
 			if(W.get_fuel() >= 2)

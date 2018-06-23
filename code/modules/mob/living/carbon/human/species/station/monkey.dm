@@ -26,7 +26,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
 
 	rarity_value = 0.1
-	total_health = 75
+	total_health = 150
 	brute_mod = 1.5
 	burn_mod = 1.5
 
@@ -36,7 +36,7 @@
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	holder_type = /obj/item/weapon/holder
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -56,9 +56,21 @@
 	if(H.stat != CONSCIOUS)
 		return
 	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
-		step(H, pick(cardinal))
+		step(H, pick(GLOB.cardinal))
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
+
+	if(H.get_shock() && H.shock_stage < 40 && prob(3))
+		H.custom_emote("chimpers pitifully")
+
+	if(H.shock_stage > 10 && prob(3))
+		H.emote(pick("cry","whimper"))
+
+	if(H.shock_stage >= 40 && prob(3))
+		H.emote("scream")
+
+	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
+		H.custom_emote("thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"
@@ -77,7 +89,7 @@
 
 	greater_form = "Tajaran"
 	default_language = "Farwa"
-	flesh_color = "#AFA59E"
+	flesh_color = "#afa59e"
 	base_color = "#333333"
 	tail = "farwatail"
 
@@ -91,8 +103,8 @@
 
 	greater_form = SPECIES_SKRELL
 	default_language = "Neaera"
-	flesh_color = "#8CD7A3"
-	blood_color = "#1D2CBF"
+	flesh_color = "#8cd7a3"
+	blood_color = "#1d2cbf"
 	reagent_tag = IS_SKRELL
 	tail = null
 
@@ -107,6 +119,6 @@
 	tail = "stoktail"
 	greater_form = SPECIES_UNATHI
 	default_language = "Stok"
-	flesh_color = "#34AF10"
+	flesh_color = "#34af10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI

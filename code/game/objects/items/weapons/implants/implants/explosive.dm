@@ -3,6 +3,7 @@
 	name = "explosive implant"
 	desc = "A military grade micro bio-explosive. Highly dangerous."
 	icon_state = "implant_evil"
+	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 3)
 	var/elevel
 	var/phrase
 	var/code = 13
@@ -44,9 +45,9 @@
 		<A href='byond://?src=\ref[src];msg=1'>[warning_message ? warning_message : "NONE SET"]</A>
 		"}
 
-/obj/item/weapon/implant/explosive/initialize()
-	..()
-	listening_objects += src
+/obj/item/weapon/implant/explosive/Initialize()
+	. = ..()
+	GLOB.listening_objects += src
 	set_frequency(frequency)
 
 /obj/item/weapon/implant/explosive/Topic(href, href_list)
@@ -101,7 +102,7 @@
 
 /obj/item/weapon/implant/explosive/exposed()
 	if(warning_message)
-		global_headset.autosay(warning_message, "Anti Tampering System")
+		GLOB.global_headset.autosay(warning_message, "Anti Tampering System")
 
 /obj/item/weapon/implant/explosive/proc/sanitize_phrase(phrase)
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
@@ -172,7 +173,7 @@
 
 /obj/item/weapon/implant/explosive/Destroy()
 	removed()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	return ..()
 
 /obj/item/weapon/implanter/explosive

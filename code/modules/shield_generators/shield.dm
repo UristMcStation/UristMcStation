@@ -1,18 +1,3 @@
-/obj/effect/shield_impact
-	name = "shield impact"
-	icon = 'icons/obj/machines/shielding.dmi'
-	icon_state = "shield_impact"
-	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
-	density = 0
-
-
-/obj/effect/shield_impact/New()
-	spawn(2 SECONDS)
-		qdel(src)
-
-
 /obj/effect/shield
 	name = "energy shield"
 	desc = "An impenetrable field of energy, capable of blocking anything as long as it's active."
@@ -73,7 +58,7 @@
 		gen.damaged_segments |= src
 	disabled_for += duration
 	set_density(0)
-	invisibility = INVISIBILITY_MAXIMUM
+	set_invisibility(INVISIBILITY_MAXIMUM)
 	update_nearby_tiles()
 	update_icon()
 	update_explosion_resistance()
@@ -89,7 +74,7 @@
 
 	if(!disabled_for && !diffused_for)
 		set_density(1)
-		invisibility = 0
+		set_invisibility(0)
 		update_nearby_tiles()
 		update_icon()
 		update_explosion_resistance()
@@ -105,7 +90,7 @@
 	diffused_for = max(duration, 0)
 	gen.damaged_segments |= src
 	set_density(0)
-	invisibility = INVISIBILITY_MAXIMUM
+	set_invisibility(INVISIBILITY_MAXIMUM)
 	update_nearby_tiles()
 	update_icon()
 	update_explosion_resistance()
@@ -142,7 +127,7 @@
 
 	damage = round(damage)
 
-	new/obj/effect/shield_impact(get_turf(src))
+	new /obj/effect/temporary(get_turf(src), 2 SECONDS,'icons/obj/machines/shielding.dmi',"shield_impact")
 
 	var/list/field_segments = gen.field_segments
 	switch(gen.take_damage(damage, damtype))
@@ -264,6 +249,8 @@
 	else
 		explosion_resistance = 0
 
+/obj/effect/shield/get_explosion_resistance()
+	return explosion_resistance
 
 // Shield collision checks below
 

@@ -10,15 +10,15 @@
 	. = ..()
 	if(!.)
 		return
-	for(var/mob/living/carbon/human/H in mob_list)
+	for(var/mob/living/carbon/human/H in SSmobs.mob_list)
 		var/turf/T = get_turf(H)
 		var/security = 0
-		if((T && T in using_map.admin_levels) || prisonwarped.Find(H))
+		if((T && (T in GLOB.using_map.admin_levels)) || GLOB.prisonwarped.Find(H))
 		//don't warp them if they aren't ready or are already there
 			continue
 		H.Paralyse(5)
 		if(H.wear_id)
-			var/obj/item/weapon/card/id/id = H.get_idcard()
+			var/obj/item/weapon/card/id/id = H.GetIdCard()
 			for(var/A in id.access)
 				if(A == access_security)
 					security++
@@ -30,10 +30,10 @@
 					//don't strip organs
 				H.drop_from_inventory(W)
 			//teleport person to cell
-			H.loc = pick(prisonwarp)
+			H.forceMove(pick(GLOB.prisonwarp))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/orange(H), slot_shoes)
 		else
 			//teleport security person
-			H.loc = pick(prisonsecuritywarp)
-		prisonwarped += H
+			H.forceMove(pick(GLOB.prisonsecuritywarp))
+		GLOB.prisonwarped |= H

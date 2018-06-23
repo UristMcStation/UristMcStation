@@ -18,6 +18,7 @@
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	var/associated_account_number = 0
+	var/list/associated_email_login = list("login" = "", "password" = "")
 
 	var/list/files = list(  )
 
@@ -36,9 +37,9 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.SetName(text("data disk- '[]'", t))
 	else
-		src.name = "data disk"
+		src.SetName("data disk")
 	src.add_fingerprint(usr)
 	return
 
@@ -153,10 +154,14 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/weapon/card/id/proc/update_name()
+	SetName("[get_display_name()]'s ID Card")
+
+/obj/item/weapon/card/id/proc/get_display_name()
+	. = registered_name
+	if(military_rank && military_rank.name_short)
+		. = military_rank.name_short + " " + .
 	if(assignment)
-		name = "[registered_name]'s ID Card ([assignment])"
-	else
-		name = "[registered_name]'s ID Card"
+		. += " ([assignment])"
 
 /obj/item/weapon/card/id/proc/set_id_photo(var/mob/M)
 	front = getFlatIcon(M, SOUTH, always_use_defdir = 1)
@@ -174,17 +179,15 @@ var/const/NO_EMAG_ACT = -50
 		id_card.fingerprint_hash= md5(dna.uni_identity)
 	id_card.update_name()
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/h = src
-		if(using_map.flags & MAP_HAS_BRANCH)
-			id_card.military_branch = h.char_branch
-
-		if(using_map.flags & MAP_HAS_RANK)
-			id_card.military_rank = h.char_rank
-
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
 	id_card.age = age
+
+	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
+		id_card.military_branch = char_branch
+
+	if(GLOB.using_map.flags & MAP_HAS_RANK)
+		id_card.military_rank = char_rank
 
 /obj/item/weapon/card/id/proc/dat()
 	var/list/dat = list("<table><tr><td>")
@@ -192,9 +195,9 @@ var/const/NO_EMAG_ACT = -50
 	dat += text("Sex: []</A><BR>\n", sex)
 	dat += text("Age: []</A><BR>\n", age)
 
-	if(using_map.flags & MAP_HAS_BRANCH)
+	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
 		dat += text("Branch: []</A><BR>\n", military_branch ? military_branch.name : "\[UNSET\]")
-	if(using_map.flags & MAP_HAS_RANK)
+	if(GLOB.using_map.flags & MAP_HAS_RANK)
 		dat += text("Rank: []</A><BR>\n", military_rank ? military_rank.name : "\[UNSET\]")
 
 	dat += text("Assignment: []</A><BR>\n", assignment)
@@ -436,3 +439,20 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "trader"
 	access = list(access_merchant)
 
+//Fake IDs for non-station/ship crew
+
+/obj/item/weapon/card/id/fake/cargo
+	name = "identification card"
+	desc = "A card issued to cargo staff."
+	icon_state = "cargo"
+	access = list(201)
+
+/obj/item/weapon/card/id/fake/veymed
+	name = "identification card"
+	desc = "A card issued to medical staff."
+	icon_state = "green"
+	access = list(202)
+
+/obj/item/weapon/card/id/fake/veymed/head
+	icon_state = "greenGold"
+	access = list(202,212)

@@ -1,8 +1,8 @@
 /proc/alien_queen_exists(var/ignore_self,var/mob/living/carbon/human/self)
-	for(var/mob/living/carbon/human/Q in living_mob_list_)
+	for(var/mob/living/carbon/human/Q in GLOB.living_mob_list_)
 		if(self && ignore_self && self == Q)
 			continue
-		if(Q.species.name != "Xenomorph Queen")
+		if(Q.species.name != "Xenophage Queen")
 			continue
 		if(!Q.key || !Q.client || Q.stat)
 			continue
@@ -11,7 +11,7 @@
 
 /mob/living/carbon/human/proc/gain_plasma(var/amount)
 
-	var/obj/item/organ/internal/xenos/plasmavessel/I = internal_organs_by_name[BP_PLASMA]
+	var/obj/item/organ/internal/xeno/plasmavessel/I = internal_organs_by_name[BP_PLASMA]
 	if(!istype(I)) return
 
 	if(amount)
@@ -20,7 +20,7 @@
 
 /mob/living/carbon/human/proc/check_alien_ability(var/cost,var/needs_foundation,var/needs_organ)
 
-	var/obj/item/organ/internal/xenos/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
+	var/obj/item/organ/internal/xeno/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
 	if(!istype(P))
 		to_chat(src, "<span class='danger'>Your plasma vessel has been removed!</span>")
 		return
@@ -62,7 +62,7 @@
 		to_chat(src, "<span class='alium'>You need to be closer.</span>")
 		return
 
-	var/obj/item/organ/internal/xenos/plasmavessel/I = M.internal_organs_by_name[BP_PLASMA]
+	var/obj/item/organ/internal/xeno/plasmavessel/I = M.internal_organs_by_name[BP_PLASMA]
 	if(!istype(I))
 		to_chat(src, "<span class='alium'>Their plasma vessel is missing.</span>")
 		return
@@ -110,7 +110,7 @@
 
 	if(check_alien_ability(500))
 		visible_message("<span class='alium'><B>[src] begins to twist and contort!</B></span>", "<span class='alium'>You begin to evolve!</span>")
-		src.set_species("Xenomorph Queen")
+		src.set_species("Xenophage Queen")
 
 	return
 
@@ -213,7 +213,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		to_chat(src, "<span class='warning'>This mindless flesh adds nothing to the hive.</span>")
 		return
 
-	if(M.species.get_bodytype(M) == "Xenomorph" || !isnull(M.internal_organs_by_name["hive node"]))
+	if(M.species.get_bodytype(M) == "Xenophage" || !isnull(M.internal_organs_by_name["hive node"]))
 		to_chat(src, "<span class='warning'>They are already part of the hive.</span>")
 		return
 
@@ -231,7 +231,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 		to_chat(src, "<span class='warning'>They are too far away.</span>")
 		return
 
-	if(M.species.get_bodytype(M) == "Xenomorph" || !isnull(M.internal_organs_by_name["hive node"]) || !affecting || (affecting.robotic >= ORGAN_ROBOT))
+	if(M.species.get_bodytype(M) == "Xenophage" || !isnull(M.internal_organs_by_name["hive node"]) || !affecting || (affecting.robotic >= ORGAN_ROBOT))
 		return
 
 	if(!check_alien_ability(500,1,"egg sac"))
@@ -239,7 +239,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 
 	src.visible_message("<span class='danger'>\The [src] regurgitates something into \the [M]'s torso!</span>")
 	to_chat(M, "<span class='danger'>A hideous lump of alien mass strains your ribcage as it settles within!</span>")
-	var/obj/item/organ/internal/xenos/hivenode/node = new(affecting)
+	var/obj/item/organ/internal/xeno/hivenode/node = new(affecting)
 	node.replaced(M,affecting)
 
 /mob/living/carbon/human/proc/pry_open(obj/machinery/door/A in filter_list(oview(1), /obj/machinery/door))

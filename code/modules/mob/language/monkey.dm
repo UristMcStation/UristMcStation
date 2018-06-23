@@ -4,23 +4,17 @@
 	speech_verb = "chimpers"
 	ask_verb = "chimpers"
 	exclaim_verb = "screeches"
-	key = "6"
-	flags = RESTRICTED|NONGLOBAL|INNATE
-
-/datum/language/skrell/monkey
-	name = "Neaera"
-	desc = "Squik squik squik."
-	key = "8"
-	flags = RESTRICTED|NONGLOBAL|INNATE
+	key = "m"
+	shorthand = "HM"
 
 /datum/language/unathi/monkey
 	name = "Stok"
 	desc = "Hiss hiss hiss."
 	key = "7"
-	flags = RESTRICTED|NONGLOBAL|INNATE
+	shorthand = "UM"
 
-/datum/language/tajaran/monkey
-	name = "Farwa"
-	desc = "Meow meow meow."
-	key = "9"
-	flags = RESTRICTED|NONGLOBAL|INNATE
+/datum/language/skrell/monkey
+	name = "Neaera"
+	desc = "Squik squik squik."
+	key = "8"
+	shorthand = "SM"

@@ -27,10 +27,10 @@
 /obj/item/device/assembly/timer/toggle_secure()
 	secured = !secured
 	if(secured)
-		processing_objects.Add(src)
+		START_PROCESSING(SSobj, src)
 	else
 		timing = 0
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSobj, src)
 	update_icon()
 	return secured
 
@@ -46,9 +46,10 @@
 	return
 
 
-/obj/item/device/assembly/timer/process()
+/obj/item/device/assembly/timer/Process()
 	if(timing && (time > 0))
 		time--
+		playsound(loc, 'sound/items/timer.ogg', 50)
 	if(timing && time <= 0)
 		timing = 0
 		timer_end()
@@ -81,7 +82,7 @@
 	return
 
 
-/obj/item/device/assembly/timer/Topic(href, href_list, state = physical_state)
+/obj/item/device/assembly/timer/Topic(href, href_list, state = GLOB.physical_state)
 	if(..()) return 1
 	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 		usr << browse(null, "window=timer")

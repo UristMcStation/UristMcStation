@@ -4,7 +4,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
-	icon_dead = ""
+	icon_dead = null
 	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 5
@@ -21,14 +21,8 @@
 	attacktext = "punched"
 	a_intent = "harm"
 	ranged = 1
-	min_oxy = 5
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 1
-	min_co2 = 0
-	max_co2 = 5
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = list("oxygen" = 5)
+	max_gas = null
 	unsuitable_atoms_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
@@ -66,6 +60,7 @@
 /mob/living/simple_animal/hostile/urist/ntagent
 	icon_state = "agent"
 	icon_living = "agent"
+	icon_dead = "agentdead"
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
@@ -96,6 +91,7 @@
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
 	icon_living = "skrellorist"
+	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
 	casingtype = /obj/item/ammo_casing/a10mm
@@ -169,7 +165,6 @@
 	attacktext = "brutalized"
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
-	tele_effect = /obj/effect/sparks
 
 /mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')

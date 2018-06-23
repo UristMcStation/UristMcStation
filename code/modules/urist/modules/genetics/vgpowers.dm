@@ -22,7 +22,7 @@ Obviously, requires DNA2.
 
 	New()
 		..()
-		block = HULKBLOCK
+		block = GLOB.HULKBLOCK
 
 	can_activate(var/mob/M,var/flags)
 		// Can't be big AND small.

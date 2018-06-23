@@ -1,14 +1,14 @@
-
 /datum/map/example
 	name = "Example"
 	full_name = "The Example"
 	path = "example"
 
 	lobby_icon = 'maps/example/example_lobby.dmi'
+	lobby_tracks = list(/music_track/absconditus)
 
-	station_levels = list(1,2)
-	contact_levels = list(1,2)
-	player_levels = list(1,2)
+	station_levels = list(1, 2, 3)
+	contact_levels = list(1, 2, 3)
+	player_levels = list(1, 2, 3)
 
 	allowed_spawns = list("Arrivals Shuttle")
 

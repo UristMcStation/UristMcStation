@@ -394,9 +394,9 @@
 	icon_state = "pill9"
 	New()
 		..()
-		reagents.add_reagent("stoxin", 5)
-		reagents.add_reagent("sugar", 10)
-		reagents.add_reagent("ethanol", 5)
+		reagents.add_reagent(/datum/reagent/slimetoxin, 5)
+		reagents.add_reagent(/datum/reagent/sugar, 10)
+		reagents.add_reagent(/datum/reagent/ethanol, 5)
 
 /obj/item/clothing/mask/fluff/electriccig //CubeJackal: Barry Sharke
 	name = "Electronic cigarette"
@@ -420,8 +420,8 @@
 
 /obj/item/weapon/reagent_containers/hypospray/fluff/asher_spock_1/New()
 	..()
-	reagents.remove_reagent("tricordrazine", 30)
-	reagents.add_reagent("oxycodone", 15)
+	reagents.remove_reagent(/datum/reagent/tricordrazine, 30)
+	reagents.add_reagent(/datum/reagent/oxycodone, 15)
 	update_icon()
 	return
 
@@ -1359,7 +1359,6 @@
 	desc = "A custom built revolver, based off the semi-popular Detective Special model."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "leamas-empty"
-	ammo_type = /obj/item/ammo_magazine/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/detective/fluff/callum_leamas/update_icon()
 	..()

@@ -15,6 +15,10 @@
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
+/obj/machinery/dnaforensics/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/dnaforensics)
+	. = ..()
+
 /obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
 
 	if(bloodsamp)
@@ -31,6 +35,12 @@
 		src.bloodsamp = swab
 		swab.loc = src
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+	else if(default_deconstruction_crowbar(user, W))
+		return
+	else if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user,W))
+		return
 	else
 		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
 		return
@@ -45,7 +55,7 @@
 	data["bloodsamp_desc"] = (bloodsamp ? (bloodsamp.desc ? bloodsamp.desc : "No information on record.") : "")
 	data["lidstate"] = closed
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data)
 	if (!ui)
 		ui = new(user, src, ui_key, "dnaforensics.tmpl", "QuikScan DNA Analyzer", 540, 326)
 		ui.set_initial_data(data)
@@ -84,7 +94,7 @@
 
 	return 1
 
-/obj/machinery/dnaforensics/process()
+/obj/machinery/dnaforensics/Process()
 	if(scanning)
 		if(!bloodsamp || bloodsamp.loc != src)
 			bloodsamp = null
@@ -103,7 +113,7 @@
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/weapon/paper/P = new(src)
-		P.name = "[src] report #[++report_num]: [bloodsamp.name]"
+		P.SetName("[src] report #[++report_num]: [bloodsamp.name]")
 		P.stamped = list(/obj/item/weapon/stamp)
 		P.overlays = list("paper_stamped")
 		//dna data itself

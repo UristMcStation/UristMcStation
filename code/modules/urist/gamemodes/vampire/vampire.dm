@@ -33,8 +33,8 @@
 	if(!mind.vampire)
 		mind.vampire = new /datum/vampire(gender)
 		mind.vampire.owner = src
-	if(!mind in vamps.current_antagonists)
-		vamps.add_antagonist(src.mind)
+	if(!mind in GLOB.vamps.current_antagonists)
+		GLOB.vamps.add_antagonist(src.mind)
 
 	verbs += /client/proc/vampire_rejuvinate
 	verbs += /client/proc/vampire_coffinsleep
@@ -107,27 +107,27 @@
 			return 0
 		bloodtotal = src.mind.vampire.bloodtotal
 		bloodusable = src.mind.vampire.bloodusable
-		if(!H.vessel.get_reagent_amount("blood"))
+		if(!H.vessel.get_reagent_amount(/datum/reagent/blood))
 			src << "<span class='warning'> They've got no blood left to give.</span>"
 			break
 		if(H.stat < 2) //alive
-			blood = min(10, H.vessel.get_reagent_amount("blood"))// if they have less than 10 blood, give them the remnant else they get 10 blood
+			blood = min(10, H.vessel.get_reagent_amount(/datum/reagent/blood))// if they have less than 10 blood, give them the remnant else they get 10 blood
 			src.mind.vampire.bloodtotal += (blood)
 			src.mind.vampire.bloodusable += (blood)
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
-				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
-			H.traumatic_shock += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
+				V.vessel.add_reagent(/datum/reagent/blood, blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
+			H.shock_stage += 2 // vampire bites suck, a long suckership will hurt the victim enough to knock them out
 		else
-			blood = min(5, H.vessel.get_reagent_amount("blood"))// The dead only give 5 bloods
+			blood = min(5, H.vessel.get_reagent_amount(/datum/reagent/blood))// The dead only give 5 bloods
 			src.mind.vampire.bloodtotal += blood
 			if(istype(src.mind.current, /mob/living/carbon/human))
 				var/mob/living/carbon/human/V = src.mind.current
-				V.vessel.add_reagent("blood", blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
+				V.vessel.add_reagent(/datum/reagent/blood, blood) // finally, no more vamps bleeding out mid-draining; trans_to_holder instead?
 		if(bloodtotal != src.mind.vampire.bloodtotal)
 			src << "<span class='notice'>You have accumulated [src.mind.vampire.bloodtotal] [src.mind.vampire.bloodtotal > 1 ? "units" : "unit"] of blood[src.mind.vampire.bloodusable != bloodusable ?", and have [src.mind.vampire.bloodusable] left to use" : "."]</span>"
 		check_vampire_upgrade(mind)
-		H.vessel.remove_reagent("blood",25)
+		H.vessel.remove_reagent(/datum/reagent/blood,25)
 
 	src.mind.vampire.draining = null
 	src << "<span class='notice'> You stop draining [H.name] of blood.</span>"
@@ -227,8 +227,8 @@
 //	var/mob/living/carbon/M = src
 
 	for(var/i = 1 to 20)
-		ax += sun.dx
-		ay += sun.dy
+		ax += GLOB.sun.dx
+		ay += GLOB.sun.dy
 
 		var/turf/T = locate( round(ax,0.5),round(ay,0.5),z)
 

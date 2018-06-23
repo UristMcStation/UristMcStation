@@ -48,6 +48,9 @@
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return 1
+	if(modifiers["ctrl"] && modifiers["alt"])
+		CtrlAltClickOn(A)
+		return 1
 	if(modifiers["middle"])
 		MiddleClickOn(A)
 		return 1
@@ -250,7 +253,6 @@
 */
 /mob/proc/AltClickOn(var/atom/A)
 	A.AltClick(src)
-	return
 
 /atom/proc/AltClick(var/mob/user)
 	var/turf/T = get_turf(src)
@@ -265,6 +267,11 @@
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
 
+/mob/observer/ghost/TurfAdjacent(var/turf/T)
+	if(!isturf(loc) || !client)
+		return FALSE
+	return z == T.z && (get_dist(loc, T) <= client.view)
+
 /*
 	Control+Shift click
 	Unused except for AI
@@ -274,6 +281,16 @@
 	return
 
 /atom/proc/CtrlShiftClick(var/mob/user)
+	return
+
+/*
+	Control+Alt click
+*/
+/mob/proc/CtrlAltClickOn(var/atom/A)
+	A.CtrlAltClick(src)
+	return
+
+/atom/proc/CtrlAltClick(var/mob/user)
 	return
 
 /*
@@ -355,7 +372,7 @@
 /mob/Destroy()
 	if(click_handlers)
 		click_handlers.QdelClear()
-		qdel_null(click_handlers)
+		QDEL_NULL(click_handlers)
 	. = ..()
 
 var/const/CLICK_HANDLER_NONE                 = 0
@@ -370,11 +387,11 @@ var/const/CLICK_HANDLER_ALL                  = (~0)
 	..()
 	src.user = user
 	if(flags & (CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT))
-		logged_out_event.register(user, src, /datum/click_handler/proc/OnMobLogout)
+		GLOB.logged_out_event.register(user, src, /datum/click_handler/proc/OnMobLogout)
 
 /datum/click_handler/Destroy()
 	if(flags & (CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT))
-		logged_out_event.unregister(user, src, /datum/click_handler/proc/OnMobLogout)
+		GLOB.logged_out_event.unregister(user, src, /datum/click_handler/proc/OnMobLogout)
 	user = null
 	. = ..()
 

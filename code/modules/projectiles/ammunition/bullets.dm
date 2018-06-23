@@ -1,7 +1,7 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
 	caliber = "357"
-	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
 
 /obj/item/ammo_casing/a50
 	desc = "A .50AE bullet casing."
@@ -43,6 +43,16 @@
 	desc = "A 9mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
+/obj/item/ammo_casing/c44
+	desc = "A .44 magnum bullet casing."
+	caliber = ".44"
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/revolver
+
+/obj/item/ammo_casing/c44/rubber
+	desc = "A .44 magnum rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+	icon_state = "r-casing"
+	spent_icon = "r-casing-spent"
 
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
@@ -67,7 +77,6 @@
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/smg
-
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
@@ -134,10 +143,10 @@
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, "glass" = 90)
 
-/obj/item/ammo_casing/a762
-	desc = "A 7.62mm bullet casing."
-	caliber = "a762"
-	projectile_type = /obj/item/projectile/bullet/rifle/a762
+/obj/item/ammo_casing/a556
+	desc = "A 5.56mm bullet casing."
+	caliber = "a556"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
@@ -150,16 +159,21 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a145
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
-/obj/item/ammo_casing/a556
-	desc = "A 5.56mm bullet casing."
-	caliber = "a556"
-	projectile_type = /obj/item/projectile/bullet/rifle/a556
+/obj/item/ammo_casing/a145/apds
+	name = "APDS shell casing"
+	desc = "A 14.5mm Armour Piercing Discarding Sabot shell."
+	projectile_type = /obj/item/projectile/bullet/rifle/a145/apds
+
+/obj/item/ammo_casing/a762
+	desc = "A 7.62mm bullet casing."
+	caliber = "a762"
+	projectile_type = /obj/item/projectile/bullet/rifle/a762
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
-/obj/item/ammo_casing/a556/practice
-	desc = "A 5.56mm practice bullet casing."
-	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
+/obj/item/ammo_casing/a762/practice
+	desc = "A 7.62mm practice bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/a762/practice
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
@@ -172,7 +186,7 @@
 	name = "cap"
 	desc = "A cap for children toys."
 	caliber = "caps"
-	color = "#FF0000"
+	color = "#ff0000"
 	projectile_type = /obj/item/projectile/bullet/pistol/cap
 
 // EMP ammo.

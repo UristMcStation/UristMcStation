@@ -24,12 +24,12 @@
 	var/effectiverange = 25
 
 	// Borrows code from cloning computer
-/obj/machinery/computer/gravity_control_computer/initialize()
-	..()
+/obj/machinery/computer/gravity_control_computer/Initialize()
+	. = ..()
 	updatemodules()
 
-/obj/machinery/gravity_generator/initialize()
-	..()
+/obj/machinery/gravity_generator/Initialize()
+	. = ..()
 	locatelocalareas()
 
 /obj/machinery/computer/gravity_control_computer/proc/updatemodules()
@@ -91,13 +91,9 @@
 
 /obj/machinery/computer/gravity_control_computer/Topic(href, href_list)
 	set background = 1
-	..()
-
-	if ( (get_dist(src, usr) > 1 ))
-		if (!istype(usr, /mob/living/silicon))
-			usr.unset_machine()
-			usr << browse(null, "window=air_alarm")
-			return
+	if((. = ..()))
+		usr << browse(null, "window=air_alarm")
+		return
 
 	if(href_list["gentoggle"])
 		if(gravity_generator.on)
@@ -105,7 +101,7 @@
 
 			for(var/area/A in gravity_generator.localareas)
 				var/obj/machinery/gravity_generator/G
-				for(G in machines)
+				for(G in SSmachines.machinery)
 					if((A in G.localareas) && (G.on))
 						break
 				if(!G)
@@ -115,5 +111,4 @@
 				gravity_generator.on = 1
 				A.gravitychange(1)
 
-		src.updateUsrDialog()
-		return
+	src.updateUsrDialog()

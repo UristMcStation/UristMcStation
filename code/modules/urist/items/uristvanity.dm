@@ -9,49 +9,42 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A zippo lighter made of some blue metal."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "bluezippo"
-	base_state = "bluezippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/gold
 	name = "gold zippo"
 	desc = "A golden lighter, engraved with some ornaments."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "guessip"
-	base_state = "guessip"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/black
 	name = "black zippo"
 	desc = "A black zippo lighter."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "blackzippo"
-	base_state = "blackzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/red
 	name = "black and red zippo"
 	desc = "A black and red zippo lighter."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "gonzozippo"
-	base_state = "gonzozippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/engraved
 	name = "engraved zippo"
 	desc = "A intricately engraved zippo lighter."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "engravedzippo"
-	base_state = "engravedzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/redwhitered
 	name = "red striped zippo"
 	desc = "A red and white striped zippo lighter."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "redzippo"
-	base_state = "redzippo"
 
 /obj/item/weapon/flame/lighter/zippo/vanity/butterfly
 	name = "butterfly lighter"
 	desc = "A custom-made zippo lighter, looks rather expensive. On one of its sides, a butterfly is engraved in gold and silver."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "che_zippo"
-	base_state = "che_zippo"
 
 //nanotrasen shiiiiit for the nt vending machine
 

@@ -2,8 +2,9 @@
 	density = 1
 	plane = MOB_PLANE
 
+	appearance_flags = PIXEL_SCALE
 	animate_movement = 2
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 
 	virtual_mob = /mob/observer/virtual/mob
 
@@ -99,9 +100,6 @@
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
-
-	var/datum/hud/hud_used = null
-
 	var/list/grabbed_by = list(  )
 
 	var/in_throw_mode = 0
@@ -111,7 +109,7 @@
 //	var/job = null//Living
 
 	var/can_pull_size = ITEM_SIZE_NO_CONTAINER // Maximum w_class the mob can pull.
-	var/can_pull_mobs = MOB_PULL_LARGER       // Whether or not the mob can pull other mobs.
+	var/can_pull_mobs = MOB_PULL_SAME          // Whether or not the mob can pull other mobs.
 
 	var/datum/dna/dna = null//Carbon
 	var/list/active_genes=list()
@@ -162,3 +160,7 @@
 
 	var/memory = ""
 	var/flavor_text = ""
+
+	var/nabbing = 0  // Whether a creature with a CAN_NAB tag is grabbing normally or in nab mode.
+	
+	var/datum/skillset/skillset = /datum/skillset

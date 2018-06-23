@@ -13,7 +13,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "seclite"
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
-	brightness_on = 5 // A little better than the standard flashlight.
+	flashlight_max_bright = 0.6 // A little better than the standard flashlight.
 
 //Fucking powergamers
 
@@ -95,6 +95,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 10
 	w_class = 3
 	var/charged = 1
+	var/rend_type = /obj/effect/rend
 
 
 /obj/effect/rend
@@ -105,45 +106,28 @@ Please only put items here that don't have a huge definition - Glloyd											
 	density = 1
 	unacidable = 1
 	anchored = 1.0
-
+	var/spawn_type = /obj/singularity/narsie/wizard
 
 /obj/effect/rend/New()
 	spawn(50)
-		new /obj/singularity/narsie/wizard(get_turf(src))
+		new spawn_type(loc)
 		qdel(src)
 		return
 	return
-
-
-/obj/item/weapon/veilrender/attack_self(mob/user as mob)
-	if(charged == 1)
-		new /obj/effect/rend(get_turf(usr))
-		charged = 0
-		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to reality itself!</span>")
-	else
-		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>"
-
-/obj/item/weapon/veilrender/vealrender
-	name = "veal render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
-
-/obj/item/weapon/veilrender/vealrender/attack_self(mob/user as mob)
-	if(charged)
-		new /obj/effect/rend/cow(get_turf(usr))
-		charged = 0
-		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to hunger itself!</span>")
-	else
-		user << "<span class='warning'> The unearthly energies that powered the blade are now dormant.</span>"
 
 /obj/effect/rend/cow
 	desc = "Reverberates with the sound of ten thousand moos."
 	var/cowsleft = 20
 
-/obj/effect/rend/cow/New()
-	processing_objects.Add(src)
-	return
+/obj/effect/rend/cow/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
-/obj/effect/rend/cow/process()
+/obj/effect/rend/cow/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	..()
+
+/obj/effect/rend/cow/Process()
 	if(locate(/mob) in loc) return
 	new /mob/living/simple_animal/cow(loc)
 	cowsleft--
@@ -157,6 +141,27 @@ Please only put items here that don't have a huge definition - Glloyd											
 			qdel(src)
 		return
 	..()
+
+/obj/effect/rend/sm
+	spawn_type = /mob/living/simple_animal/hostile/smshard
+
+/obj/item/weapon/veilrender/attack_self(mob/user as mob)
+	if(charged)
+		new rend_type(get_turf(usr))
+		charged = 0
+		visible_message("<span class='danger'>[src] hums with power as [usr] deals a blow to reality itself!</span>")
+	else
+		to_chat(user, "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>")
+
+/obj/item/weapon/veilrender/vealrender
+	name = "veal render"
+	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
+	rend_type = /obj/effect/rend/cow
+
+/obj/item/weapon/veilrender/sm
+	name = "glowing blade"
+	desc = "An odd blade with a pale yellow glow. <span class='danger'>It strains your eyes to look at.</span>"
+	rend_type = /obj/effect/rend/sm
 
 //Medals. Noone uses them, but I like them, so fuck you all.
 
@@ -246,10 +251,10 @@ Please only put items here that don't have a huge definition - Glloyd											
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent("condensedcapsaicin", 25)
-		B1.reagents.add_reagent("potassium", 25)
-		B2.reagents.add_reagent("phosphorus", 25)
-		B2.reagents.add_reagent("sugar", 25)
+		B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
+		B1.reagents.add_reagent(/datum/reagent/potassium, 25)
+		B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
+		B2.reagents.add_reagent(/datum/reagent/sugar, 25)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -301,7 +306,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/fancy/cigarettes/urist/syndicate/New()
 	..()
 	for(var/i = 1 to storage_slots)
-		reagents.add_reagent("doctorsdelight",15)
+		reagents.add_reagent(/datum/reagent/drink/doctor_delight,15)
 
 /obj/item/weapon/storage/fancy/cigarettes/urist/midori
 	name = "midori tabako packet"
@@ -318,10 +323,10 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim/New()
 	..()
 	for(var/i = 1 to storage_slots)
-		reagents.add_reagent("lipozine",4)
-		reagents.add_reagent("ammonia",2)
-		reagents.add_reagent("plantbgone",1)
-		reagents.add_reagent("toxin",1.5)
+		reagents.add_reagent(/datum/reagent/lipozine,4)
+		reagents.add_reagent(/datum/reagent/ammonia,2)
+		reagents.add_reagent(/datum/reagent/toxin/plantbgone,1)
+		reagents.add_reagent(/datum/reagent/toxin,1.5)
 
 // Smuggler's satchel from /tg/.
 

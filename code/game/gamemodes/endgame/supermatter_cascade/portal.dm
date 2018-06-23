@@ -14,15 +14,15 @@
 
 	consume_range = 6
 
-/obj/singularity/narsie/large/exit/New()
-	..()
-	processing_objects.Add(src)
+/obj/singularity/narsie/large/exit/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
 /obj/singularity/narsie/large/exit/update_icon()
 	overlays = 0
 
-/obj/singularity/narsie/large/exit/process()
-	for(var/mob/M in player_list)
+/obj/singularity/narsie/large/exit/Process()
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			M.see_rift(src)
 	eat()
@@ -91,4 +91,4 @@
 		src << riftimage
 
 	else
-		qdel_null(riftimage)
+		QDEL_NULL(riftimage)

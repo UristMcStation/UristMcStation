@@ -3,7 +3,7 @@
 	head_position = 1
 	department = "Security"
 	department_flag = SEC|COM
-	faction = "Station"
+
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -20,7 +20,6 @@
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
 	minimal_player_age = 14
 	outfit_type = /decl/hierarchy/outfit/job/security/hos
-	announced = 1
 
 /datum/job/hos/equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -31,7 +30,7 @@
 	title = "Warden"
 	department = "Security"
 	department_flag = SEC
-	faction = "Station"
+
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
@@ -46,7 +45,7 @@
 	title = "Detective"
 	department = "Security"
 	department_flag = SEC
-	faction = "Station"
+
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of security"
@@ -62,14 +61,50 @@
 	title = "Security Officer"
 	department = "Security"
 	department_flag = SEC
-	faction = "Station"
+
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
 	selection_color = "#601c1c"
 	alt_titles = list("Junior Officer")
 	economic_modifier = 4
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_forensics_lockers)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_forensics_lockers)
 	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/security/officer
+
+/datum/job/blueshield
+	title = "Blueshield"
+	department_flag = SEC|COM
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "whichever head you protect. Remember, you are NOT security. Ultimately, you report to Nanotrasen, but if unavailable, defer to the Captain."
+	selection_color = "#ddddff"
+	req_admin_notify = 1
+	minimal_player_age = 8
+	economic_modifier = 15
+	outfit_type = /decl/hierarchy/outfit/job/blueshield
+	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
+			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
+			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
+			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
+	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
+			            access_medical, access_engine, access_eva, access_heads,
+			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
+			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
+
+//Urist Job, it's here for compatability with other maps.
+/decl/hierarchy/outfit/job/blueshield
+	name = OUTFIT_JOB_NAME("Blueshield")
+	uniform = /obj/item/clothing/under/rank/centcom
+	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
+	l_ear = /obj/item/device/radio/headset/heads/hop
+	shoes = /obj/item/clothing/shoes/jackboots
+	id_type = /obj/item/weapon/card/id/blueshield
+	pda_type = /obj/item/modular_computer/pda/heads/hop
+	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
+	gloves = /obj/item/clothing/gloves/thick/combat

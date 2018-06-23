@@ -1,10 +1,10 @@
-/datum/species/resomi
+/datum/species/teshari
 	name = SPECIES_RESOMI
-	name_plural = "Resomii"
-	blurb = "A race of feathered raptors who developed on a cold world, almost \
-	outside of the Goldilocks zone. Extremely fragile, they developed hunting skills \
-	that emphasized taking out their prey without themselves getting hit. They are an \
-	advanced culture on good terms with Skrellian and Human interests."
+	name_plural = "Tesharii"
+	blurb = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
+	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
+	hunting skills that emphasized taking out their prey without themselves getting hit. They \
+	are only recently becoming known on human stations after reaching space with Skrell assistance."
 
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_RESOMI)
@@ -13,12 +13,14 @@
 	max_age = 45
 	health_hud_intensity = 3
 
-	blood_color = "#D514F7"
-	flesh_color = "#5F7BB0"
+	blood_color = "#d514f7"
+	flesh_color = "#5f7bb0"
 	base_color = "#001144"
 	tail = "resomitail"
 	tail_hair = "feathers"
 	reagent_tag = IS_RESOMI
+
+	eye_icon = "eyes_resomi"
 
 	icobase = 'icons/mob/human_races/r_resomi.dmi'
 	deform = 'icons/mob/human_races/r_resomi.dmi'
@@ -26,12 +28,13 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
 
-	slowdown = -1
-	total_health = 50
+	slowdown = -0.1
+	total_health = 150
 	brute_mod = 1.35
 	burn_mod =  1.35
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
+	strength = STR_HIGH
 	holder_type = /obj/item/weapon/holder/human
 	light_sensitive = 6
 	gluttonous = GLUT_TINY
@@ -87,3 +90,18 @@
 		)
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/sonar_ping)
+
+/obj/item/organ/external/foot/resomi
+	body_hair = "feathers"
+/obj/item/organ/external/foot/right/resomi
+	body_hair = "feathers"
+/obj/item/organ/external/hand/resomi
+	body_hair = "feathers"
+/obj/item/organ/external/hand/right/resomi
+	body_hair = "feathers"
+/obj/item/organ/external/head/resomi
+	eye_icon = "eyes_resomi"
+/obj/item/organ/internal/kidneys/resomi
+	parent_organ = BP_CHEST
+/obj/item/organ/internal/liver/resomi
+	parent_organ = BP_CHEST

@@ -10,7 +10,7 @@
 	canmove = 0
 	stunned = 1
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
@@ -24,7 +24,7 @@
 	transforming = 0
 	stunned = 0
 	update_canmove()
-	invisibility = initial(invisibility)
+	set_invisibility(initial(invisibility))
 
 	if(!species.primitive_form) //If the creature in question has no primitive set, this is going to be messy.
 		gib()
@@ -33,8 +33,8 @@
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	set_species(species.primitive_form)
-	dna.SetSEState(MONKEYBLOCK,1)
-	dna.SetSEValueRange(MONKEYBLOCK,0xDAC, 0xFFF)
+	dna.SetSEState(GLOB.MONKEYBLOCK,1)
+	dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
 
 	to_chat(src, "<B>You are now [species.name]. </B>")
 	qdel(animation)
@@ -50,6 +50,7 @@
 		return
 	for(var/t in organs)
 		qdel(t)
+	QDEL_NULL_LIST(worn_underwear)
 	return ..(move)
 
 /mob/living/carbon/AIize()
@@ -60,7 +61,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	return ..()
 
 /mob/proc/AIize(move=1)
@@ -68,8 +69,8 @@
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))// stop the jams for AIs
 
 
-	var/mob/living/silicon/ai/O = new (loc, using_map.default_law_type,,1)//No MMI but safety is in effect.
-	O.invisibility = 0
+	var/mob/living/silicon/ai/O = new (loc, GLOB.using_map.default_law_type,,1)//No MMI but safety is in effect.
+	O.set_invisibility(0)
 	O.aiRestorePowerRoutine = 0
 	if(mind)
 		mind.transfer_to(O)
@@ -110,24 +111,25 @@
 /mob/living/carbon/human/proc/Robotize()
 	if (transforming)
 		return
+	QDEL_NULL_LIST(worn_underwear)
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	regenerate_icons()
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
 
 	var/mob/living/silicon/robot/O = new /mob/living/silicon/robot( loc )
 
 	O.gender = gender
-	O.invisibility = 0
+	O.set_invisibility(0)
 
 	if(mind)		//TODO
 		mind.transfer_to(O)
-		if(O.mind.assigned_role == "Cyborg")
+		if(O.mind.assigned_role == "Robot")
 			O.mind.original = O
 		else if(mind && mind.special_role)
 			O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
@@ -135,14 +137,14 @@
 		O.key = key
 
 	O.loc = loc
-	O.job = "Cyborg"
-	if(O.mind.assigned_role == "Cyborg")
-		if(O.mind.role_alt_title == "Android")
-			O.mmi = new /obj/item/device/mmi/digital/posibrain(O)
-		else if(O.mind.role_alt_title == "Robot")
+	O.job = "Robot"
+	if(O.mind.assigned_role == "Robot")
+		if(O.mind.role_alt_title == "Drone")
 			O.mmi = new /obj/item/device/mmi/digital/robot(O)
-		else
+		else if(O.mind.role_alt_title == "Cyborg")
 			O.mmi = new /obj/item/device/mmi(O)
+		else
+			O.mmi = new /obj/item/organ/internal/posibrain(O)
 
 		O.mmi.transfer_identity(src)
 
@@ -162,7 +164,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
 
@@ -196,7 +198,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	for(var/t in organs)	//this really should not be necessary
 		qdel(t)
 
@@ -226,7 +228,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 
 	for(var/t in organs)
 		qdel(t)
@@ -311,4 +313,22 @@
 	return 0
 
 
-
+//This is barely a transformation but probably best file for it.
+/mob/living/carbon/human/proc/zombieze()
+	ChangeToHusk()
+	mutations |= CLUMSY //cause zombie
+	src.visible_message("<span class='danger'>\The [src]'s flesh decays before your very eyes!</span>", "<span class='danger'>Your entire body is ripe with pain as it is consumed down to flesh and bones. You... hunger. Not only for flesh, but to spread your disease.</span>")
+	if(src.mind)
+		src.mind.special_role = "Zombie"
+	log_admin("[key_name(src)] has transformed into a zombie!")
+	Weaken(5)
+	if(should_have_organ(BP_HEART))
+		vessel.add_reagent(/datum/reagent/blood,species.blood_volume-vessel.total_volume)
+	for(var/o in organs)
+		var/obj/item/organ/organ = o
+		organ.vital = 0
+		organ.rejuvenate(1)
+		organ.max_damage *= 5
+		organ.min_broken_damage *= 5
+	verbs += /mob/living/proc/breath_death
+	verbs += /mob/living/proc/consume

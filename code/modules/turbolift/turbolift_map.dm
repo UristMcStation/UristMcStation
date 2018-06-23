@@ -22,8 +22,8 @@
 	turbolifts += src
 	..()
 
-/obj/turbolift_map_holder/initialize()
-
+/obj/turbolift_map_holder/Initialize()
+	. = ..()
 	// Create our system controller.
 	var/datum/turbolift/lift = new()
 
@@ -192,7 +192,7 @@
 		panel_ext.set_dir(udir)
 		cfloor.ext_panel = panel_ext
 
-        // Place lights
+		// Place lights
 		var/turf/placing1 = locate(light_x1, light_y1, cz)
 		var/turf/placing2 = locate(light_x2, light_y2, cz)
 		var/obj/machinery/light/light1 = new(placing1, light)
@@ -221,7 +221,89 @@
 	var/turf/T = locate(int_panel_x, int_panel_y, uz)
 	lift.control_panel_interior = new(T, lift)
 	lift.control_panel_interior.set_dir(udir)
-	lift.current_floor = lift.floors[uz]
+	lift.current_floor = lift.floors[1]
+
+	lift.open_doors()
+
+	qdel(src) // We're done.
+
+//A bunch of copy&paste for a slightly different design
+/obj/freight_elevator_map_holder
+	name = "freight elevator map placeholder"
+	icon = 'icons/obj/turbolift_preview_3x3.dmi'
+	dir = SOUTH         // Direction of the holder determines the placement of the lift control panel and doors.
+	var/depth = 2       // Number of floors to generate, including the initial floor.
+	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
+	var/lift_size_y = 2 // ie. a 3x3 lift would have a value of 2 in each of these variables.
+	var/floor_type = /turf/simulated/floor/tiled/dark
+	var/list/areas_to_use = list()
+
+/obj/freight_elevator_map_holder/Destroy()
+	turbolifts -= src
+	return ..()
+
+/obj/freight_elevator_map_holder/New()
+	turbolifts += src
+	..()
+
+/obj/freight_elevator_map_holder/Initialize()
+	. = ..()
+	// Create our system controller.
+	var/datum/turbolift/lift = new()
+
+	// Holder values since we're moving this object to null ASAP.
+	var/ux = x
+	var/uy = y
+	var/uz = z
+	var/udir = dir
+	forceMove(null)
+
+	var/az = 1
+	var/ex = (ux+lift_size_x)
+	var/ey = (uy+lift_size_y)
+	var/ez = (uz+(depth-1))
+
+	var/control_x = ex + 1
+	var/control_y = uy -1
+
+	var/int_panel_x = ux + Floor(lift_size_x/2)
+	var/int_panel_y = ey
+
+	for(var/cz = uz;cz<=ez;cz++)
+		var/datum/turbolift_floor/cfloor = new()
+		lift.floors += cfloor
+
+		var/list/floor_turfs = list()
+
+		for(var/tx = ux to ex)
+			for(var/ty = uy to ey)
+
+				var/turf/checking = locate(tx,ty,cz)
+
+				if(!istype(checking))
+					log_debug("[name] cannot find a component turf at [tx],[ty] on floor [cz]. Aborting.")
+					qdel(src)
+					return
+
+				if(tx >= ux && tx <= ex && ty >= uy && ty <= ey)
+					floor_turfs += checking
+
+		var/turf/placing = locate(control_x, control_y, cz)
+		var/obj/structure/lift/button/railing/panel_ext = new(placing, lift)
+		panel_ext.floor = cfloor
+		cfloor.ext_panel = panel_ext
+
+		var/area_path = areas_to_use[az]
+		for(var/thing in floor_turfs)
+			new area_path(thing)
+		var/area/A = locate(area_path)
+		cfloor.set_area_ref("\ref[A]")
+		az++
+
+	var/turf/T = locate(int_panel_x, int_panel_y, uz)
+	lift.control_panel_interior = new(T, lift)
+	lift.control_panel_interior.set_dir(udir)
+	lift.current_floor = lift.floors[1]
 
 	lift.open_doors()
 

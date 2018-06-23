@@ -32,6 +32,7 @@ code\game\dna\genes\goon_powers.dm
 	desc = "This spell inflicts a target with temporary blindness. Does not require wizard garb."
 	feedback = "BD"
 	disabilities = 1
+	school = "illusion"
 	duration = 300
 
 	charge_max = 300
@@ -78,3 +79,15 @@ code\game\dna\genes\goon_powers.dm
 	cooldown_min = 300
 
 	hud_state = "wiz_hulk"
+
+/spell/targeted/genetic/blind/hysteria
+	name = "Hysteria"
+	desc = "A spell used to make someone look like a blind fool, and also makes them a blind fool."
+	feedback = "HY"
+	school = "illusion"
+	spell_flags = SELECTABLE
+	charge_max = 600
+	invocation_type = SpI_SHOUT
+	invocation = "Sty Di Kaly!"
+	amt_dizziness = 10
+	hud_state = "hysteria"

@@ -37,7 +37,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
 	world << "<span class='danger'> Setting up S-COM, please be patient. This may take a minute or two.</span>"
 
-	for(var/mob/living/L in mob_list) //get rid of Ian and all the other mobs. we don't need them around.
+	for(var/mob/living/L in SSmobs.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		qdel(L)
 
 	if(!scommapsloaded) //necessary incase an admin fucks something up.
@@ -45,7 +45,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	config.allow_random_events = 0 //nooooope
 
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/new_player/player in GLOB.player_list)
 		if((player.client)&&(player.ready))
 			SCOMplayerC++
 	//world << "<span class='danger'> [SCOMplayerC] players counted.</span>"
@@ -89,12 +89,12 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	spawn(2400)
 		command_announcement.Announce("Launching shuttles in one minute.", "S-COM Shuttle Control")
 		spawn(600)
-			for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+			for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 				C.launch()
 
 /datum/game_mode/scom/process()
 	SCOMplayercount = 0
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.client && H.stat != DEAD && isscom(H))
 			SCOMplayercount += 1
 	if(SCOMplayercount == 0 && declared == 0 && prob(5))
@@ -113,7 +113,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in mob_list)
+		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
@@ -124,7 +124,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 			if(config.SCOM_dynamic_difficulty)
 				update_dyndifficulty()
 			spawn(1200)
-				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
 					spawn(300)
 						declared = 0
@@ -172,10 +172,10 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			sploded = 1
 			command_announcement.Announce("We're launching the shuttles in two minutes and fourty five seconds. I don't think we need to say it twice, get the fuck out of there.", "S-COM Mission Command")
 			spawn(1650)
-				for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 					C.launch()
 				spawn(250) //long enough to luanch both shuttles
-					for(var/mob/living/M in mob_list)
+					for(var/mob/living/M in SSmobs.mob_list)
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
@@ -204,7 +204,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
-	for(var/datum/shuttle/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+	for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
 		if(!C.missiondelayed)
 			C.missiondelayed = 1
 			message_admins("[key_name(usr)] has delayed the mission timer.")

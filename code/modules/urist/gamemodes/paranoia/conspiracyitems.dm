@@ -11,8 +11,8 @@
 
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel
 	random_reagent_list = list(
-		list("fuel" = 15, "thermite" = 15)	= 9,
-		list("fuel" = 30)	 = 1,) //10% chance, the mix cannot, in fact, melt steel beams.
+		list(/datum/reagent/fuel = 15, /datum/reagent/thermite = 15)	= 9,
+		list(/datum/reagent/fuel = 30)	 = 1,) //10% chance, the mix cannot, in fact, melt steel beams.
 
 /obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel/New()
 	..()
@@ -166,7 +166,7 @@
 	overlays.Cut()
 	if(open)
 		icon_state = "laptop"
-		light_range = 3
+		light_outer_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/computer.dmi',icon_state="command")
 			overlays = list(screen)
@@ -176,7 +176,7 @@
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
-		light_range = 0
+		light_outer_range = 0
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 
@@ -247,7 +247,7 @@
 
 //the mask for the full kit, straight out of the Uncanny Valley
 
-/obj/item/clothing/mask/gas/voice/fleshmask
+/obj/item/clothing/mask/chameleon/voice/fleshmask
 	icon = 'icons/urist/items/clothes/masks.dmi'
 	icon_override = 'icons/uristmob/mask.dmi'
 	name = "ugly green collar (?)" //for examining wearers
@@ -256,10 +256,10 @@
 	icon_state = "fleshmask"
 	body_parts_covered = FACE|HEAD
 	flags_inv = HIDEEARS|HIDEFACE
-	flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | BLOCKHAIR
+	obj_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | BLOCKHAIR
 	var/usedonce = 0 //can only set voice once, to prevent being superior to voice changer at the same cost
 
-/obj/item/clothing/mask/gas/voice/fleshmask/Set_Voice(name as text)
+/obj/item/clothing/mask/chameleon/voice/fleshmask/Set_Voice(name as text)
 	if(usedonce)
 		usr << "<span class='notice'>The modulator in the [src] cannot be reset!</span>"
 		return
@@ -274,7 +274,7 @@
 /obj/item/weapon/storage/box/syndie_kit/fleshsuit/New()
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
-	new /obj/item/clothing/mask/gas/voice/fleshmask(src)
+	new /obj/item/clothing/mask/chameleon/voice/fleshmask(src)
 	make_exact_fit()
 
 /obj/effect/landmark/intelspawn

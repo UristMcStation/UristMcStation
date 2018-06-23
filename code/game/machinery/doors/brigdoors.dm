@@ -31,33 +31,31 @@
 	maptext_height = 26
 	maptext_width = 32
 
-/obj/machinery/door_timer/New()
+/obj/machinery/door_timer/Initialize()
 	..()
+	return INITIALIZE_HINT_LATELOAD
 
-	spawn(20)
-		for(var/obj/machinery/door/window/brigdoor/M in machines)
-			if (M.id == src.id)
-				targets += M
+/obj/machinery/door_timer/LateInitialize()
+	for(var/obj/machinery/door/window/brigdoor/M in SSmachines.machinery)
+		if (M.id == src.id)
+			targets += M
 
-		for(var/obj/machinery/flasher/F in machines)
-			if(F.id == src.id)
-				targets += F
+	for(var/obj/machinery/flasher/F in SSmachines.machinery)
+		if(F.id == src.id)
+			targets += F
 
-		for(var/obj/structure/closet/secure_closet/brig/C in world)
-			if(C.id == src.id)
-				targets += C
+	for(var/obj/structure/closet/secure_closet/brig/C in world)
+		if(C.id == src.id)
+			targets += C
 
-		if(targets.len==0)
-			stat |= BROKEN
-		update_icon()
-		return
-	return
-
+	if(targets.len==0)
+		stat |= BROKEN
+	update_icon()
 
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
-/obj/machinery/door_timer/process()
+/obj/machinery/door_timer/Process()
 
 	if(stat & (NOPOWER|BROKEN))	return
 	if(src.timing)
@@ -201,7 +199,7 @@
 	return TRUE
 
 
-/obj/machinery/door_timer/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = default_state)
+/obj/machinery/door_timer/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = tgui_process.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "brig_timer", name , 300, 150, master_ui, state)

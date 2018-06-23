@@ -57,6 +57,10 @@
 	var/light_up = FALSE
 	var/datum/turbolift_floor/floor
 
+/obj/structure/lift/button/New()
+	..()
+	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
+
 /obj/structure/lift/button/Destroy()
 	if(floor && floor.ext_panel == src)
 		floor.ext_panel = null
@@ -84,10 +88,20 @@
 	update_icon()
 
 /obj/structure/lift/button/update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
+
 	if(light_up)
-		icon_state = "button_lit"
+		icon_state = "[bis.base_icon_state]_lit"
 	else
-		icon_state = initial(icon_state)
+		icon_state = bis.base_icon_state
+
+/obj/structure/lift/button/railing
+	icon_state = "railing_button"
+
+/obj/structure/lift/button/railing/New()
+	..()
+	pixel_x = -10
+	pixel_y = 14
 
 // End button.
 
@@ -129,28 +143,21 @@
 	popup.open()
 	return
 
-/obj/structure/lift/panel/Topic(href, href_list)
-	. = ..()
-	if(.)
-		return
-
-	var/panel_interact
+/obj/structure/lift/panel/OnTopic(user, href_list)
 	if(href_list["move_to_floor"])
 		lift.queue_move_to(locate(href_list["move_to_floor"]))
-		panel_interact = 1
+		. = TOPIC_REFRESH
 	if(href_list["open_doors"])
-		panel_interact = 1
 		lift.open_doors()
+		. = TOPIC_REFRESH
 	if(href_list["close_doors"])
-		panel_interact = 1
 		lift.close_doors()
+		. = TOPIC_REFRESH
 	if(href_list["emergency_stop"])
-		panel_interact = 1
 		lift.emergency_stop()
+		. = TOPIC_REFRESH
 
-	if(panel_interact)
-		pressed(usr)
-
-	return 0
+	if(. == TOPIC_REFRESH)
+		pressed(user)
 
 // End panel.

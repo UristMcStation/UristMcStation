@@ -405,7 +405,7 @@
 /datum/reagent/tramadol
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/tramadol/oxycodone
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -455,6 +455,9 @@
 
 /datum/reagent/nicotine
 	value = 2
+
+/datum/reagent/tobacco
+	value = 3
 
 /datum/reagent/rezadone
 	value = 5

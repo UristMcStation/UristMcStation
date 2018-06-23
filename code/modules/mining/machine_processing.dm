@@ -105,7 +105,7 @@
 	icon_state = "furnace"
 	density = 1
 	anchored = 1
-	light_range = 3
+	light_outer_range = 3
 	var/obj/machinery/mineral/input = null
 	var/obj/machinery/mineral/output = null
 	var/obj/machinery/mineral/console = null
@@ -131,16 +131,16 @@
 
 	//Locate our output and input machinery.
 	spawn(5)
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
 			if(src.input) break
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 			if(src.output) break
 		return
 	return
 
-/obj/machinery/mineral/processing_unit/process()
+/obj/machinery/mineral/processing_unit/Process()
 
 	if (!src.output || !src.input) return
 

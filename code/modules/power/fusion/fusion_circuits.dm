@@ -59,7 +59,7 @@
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_MATERIAL = 3)
 
 /datum/design/circuit/fusion/fuel_compressor
-	name = "fusion fuel compressor"
+	name = "fuel compressor"
 	id = "fusion_fuel_compressor"
 	build_path = /obj/item/weapon/circuitboard/fusion_fuel_compressor
 	sort_string = "LAAAE"

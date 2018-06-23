@@ -34,12 +34,12 @@
 	poison_type = "oxygen"
 	siemens_coefficient = 0.2
 
-	flags = NO_SCAN
-	spawn_flags = SPECIES_IS_WHITELISTED | SPECIES_IS_RESTRICTED
+	species_flags = SPECIES_FLAG_NO_SCAN
+	spawn_flags = SPECIES_IS_RESTRICTED | SPECIES_NO_FBP_CONSTRUCTION
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
-	blood_color = "#2299FC"
-	flesh_color = "#808D11"
+	blood_color = "#2299fc"
+	flesh_color = "#808d11"
 
 	reagent_tag = IS_VOX
 
@@ -49,7 +49,7 @@
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/vox),
 		BP_HEAD =   list("path" = /obj/item/organ/external/head/vox),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
@@ -63,10 +63,10 @@
 
 
 	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_HEART =    /obj/item/organ/internal/heart/vox,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
+		BP_LIVER =    /obj/item/organ/internal/liver/vox,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
 		BP_STACK =    /obj/item/organ/internal/stack/vox
@@ -79,78 +79,20 @@
 	return species_language.get_random_name(gender)
 
 /datum/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
-	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H), slot_r_hand)
-		H.internal = H.back
-	else
+	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vox(H), slot_wear_mask)
+
+	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
 		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_r_hand)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
-	H.internals.icon_state = "internal1"
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H), slot_r_hand)
+		H.internal = H.back
 
+	if(H.internals)
+		H.internals.icon_state = "internal1"
 
-/datum/species/vox/pariah
-	name = SPECIES_VOXPARIAH
-	blurb = "Sickly biproducts of Vox society, these creatures are vilified by their own kind \
-	and taken advantage of by enterprising companies for cheap, disposable labor. \
-	They aren't very smart, smell worse than a vox, and vomit constantly, \
-	earning them the true title of 'shitbird'."
-	rarity_value = 0.1
-	speech_chance = 60        // No volume control.
-	siemens_coefficient = 0.5 // Ragged scaleless patches.
-
-	oxy_mod = 1.4
-	brute_mod = 1.3
-	burn_mod = 1.4
-	toxins_mod = 1.3
-
-	cold_level_1 = 130
-	cold_level_2 = 100
-	cold_level_3 = 60
-
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws, /datum/unarmed_attack/bite)
-
-	// Pariahs have no stack.
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
-		BP_BRAIN =    /obj/item/organ/internal/pariah_brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
-		)
-	spawn_flags = SPECIES_IS_WHITELISTED | SPECIES_IS_RESTRICTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
-	flags = NO_SCAN
-	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
-
-/datum/species/vox/pariah/get_bodytype(var/mob/living/carbon/human/H)
-	return SPECIES_VOX
-
-// No combat skills for you.
-/datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
-	return 0
-
-// Pariahs are really gross.
-/datum/species/vox/pariah/handle_environment_special(var/mob/living/carbon/human/H)
-	if(prob(5))
-		var/datum/gas_mixture/vox = H.loc.return_air()
-		var/stink_range = rand(3,5)
-		for(var/mob/living/M in range(H,stink_range))
-			if(M.stat || M == H || issilicon(M) || isbrain(M))
-				continue
-			var/datum/gas_mixture/mob_air = M.loc.return_air()
-			if(!vox || !mob_air || vox != mob_air) //basically: is our gasses their gasses? If so, smell. If not, how can smell?
-				continue
-			var/mob/living/carbon/human/target = M
-			if(istype(target))
-				if(target.internal)
-					continue
-				if(target.head && (target.head.body_parts_covered & FACE) && (target.head.flags & AIRTIGHT))
-					continue
-				if(target.wear_mask && (target.wear_mask.body_parts_covered & FACE) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
-					continue
-				if(!target.should_have_organ(BP_LUNGS)) //dont breathe so why do they smell it.
-					continue
-			to_chat(M, "<span class='danger'>A terrible stench emanates from \the [H].</span>")
+/datum/species/vox/disfigure_msg(var/mob/living/carbon/human/H)
+	var/datum/gender/T = gender_datums[H.get_gender()]
+	return "<span class='danger'>[T.His] beak is chipped! [T.He] [T.is] not even recognizable.</span>\n" //Pretty birds.

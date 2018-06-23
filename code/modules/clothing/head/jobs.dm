@@ -49,36 +49,44 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
 
-
-
 //Medical
 /obj/item/clothing/head/surgery
 	name = "surgical cap"
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
-	icon_state = "surgcap_blue"
+	icon_state = "surgcap"
 	flags_inv = BLOCKHEADHAIR
 
 /obj/item/clothing/head/surgery/purple
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is deep purple."
-	icon_state = "surgcap_purple"
+	name = "purple surgical cap"
+	color = "#7a1b3f"
 
 /obj/item/clothing/head/surgery/blue
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is baby blue."
-	icon_state = "surgcap_blue"
+	name = "blue surgical cap"
+	color = "#4891e1"
 
 /obj/item/clothing/head/surgery/green
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
-	icon_state = "surgcap_green"
+	name = "green surgical cap"
+	color = "#255a3e"
 
 /obj/item/clothing/head/surgery/black
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is black."
-	icon_state = "surgcap_black"
+	name = "black surgical cap"
+	color = "#242424"
 
 /obj/item/clothing/head/surgery/navyblue
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is navy blue."
-	icon_state = "surgcap_navyblue"
+	name = "navy blue surgical cap"
+	color = "#1f3a69"
 
+/obj/item/clothing/head/surgery/lilac
+	name = "lilac surgical cap"
+	color = "#c8a2c8"
 
+/obj/item/clothing/head/surgery/teal
+	name = "teal surgical cap"
+	color = "#008080"
+
+/obj/item/clothing/head/surgery/heliodor
+	name = "heliodor surgical cap"
+	color = "#aad539"
 
 //Berets
 /obj/item/clothing/head/beret
@@ -125,7 +133,9 @@
 /obj/item/clothing/head/beret/engineering
 	name = "corporate engineering beret"
 	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
+	icon = 'icons/urist/restored/hats.dmi'
 	icon_state = "beret_orange"
+	item_icons = URIST_ALL_ONMOBS
 
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
@@ -136,6 +146,7 @@
 	name = "asset protection beret"
 	desc = "A navy blue beret adorned with the crest of corporate asset protection. For asset protection agents that are more inclined towards style than safety."
 	icon_state = "beret_corporate_navy"
+	armor = list(melee = 20, bullet = 20, laser = 20,energy = 10, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "asset protection command beret"
@@ -154,3 +165,7 @@
 	desc = "A white beret adorned with the crest of NanoTrasen. For security guards that are more inclined towards style than safety."
 	icon_state = "beret_corporate_whitered"
 
+/obj/item/clothing/head/beret/plaincolor
+	name = "beret"
+	desc = "A simple, solid color beret. This one has no emblems or insignia on it."
+	icon_state = "beret_white"

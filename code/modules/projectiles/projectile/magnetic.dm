@@ -7,6 +7,7 @@
 	weaken = 1
 	penetrating = 5
 	armor_penetration = 70
+	penetration_modifier = 1.1
 	fire_sound = 'sound/weapons/railgun.ogg'
 
 /obj/item/projectile/bullet/magnetic/slug
@@ -14,3 +15,10 @@
 	icon_state = "gauss_silenced"
 	damage = 75
 	armor_penetration = 90
+
+/obj/item/projectile/bullet/magnetic/flechette
+	name = "flechette"
+	icon_state = "flechette"
+	damage = 20
+	armor_penetration = 100
+	fire_sound = 'sound/weapons/rapidslice.ogg'

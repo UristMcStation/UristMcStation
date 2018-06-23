@@ -58,6 +58,9 @@
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(melee = 20, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/gloves/thick/modified
+	item_flags = ITEM_FLAG_PREMODIFIED
+
 /obj/item/clothing/gloves/thick/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
 	name = "\improper SWAT Gloves"
@@ -82,9 +85,12 @@
 
 /obj/item/clothing/gloves/thick/botany
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
-	name = "botanist's leather gloves"
+	name = "thick leather gloves"
 	icon_state = "leather"
 	item_state = "ggloves"
+
+/obj/item/clothing/gloves/thick/botany/modified
+	item_flags = ITEM_FLAG_PREMODIFIED
 
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
@@ -97,12 +103,17 @@
 
 	germ_level = 0
 
+/obj/item/clothing/gloves/latex/modified
+	item_flags = ITEM_FLAG_PREMODIFIED
+
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves"
 	icon_state = "nitrile"
 	item_state = "ngloves"
 
+/obj/item/clothing/gloves/latex/nitrile/modified
+	item_flags = ITEM_FLAG_PREMODIFIED
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "botanist's leather gloves"
@@ -119,6 +130,9 @@
 	item_state = "wgloves"
 	siemens_coefficient = 0.50
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/gloves/duty/modified
+	item_flags = ITEM_FLAG_PREMODIFIED
 
 /obj/item/clothing/gloves/tactical
 	desc = "These brown tactical gloves are made from a durable synthetic, and have hardened knuckles."

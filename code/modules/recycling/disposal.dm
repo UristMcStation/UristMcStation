@@ -24,8 +24,10 @@
 	var/flush_every_ticks = 30 //Every 30 ticks it will look whether it is ready to flush
 	var/flush_count = 0 //this var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush.
 	var/last_sound = 0
+	var/list/allowed_objects = list(/obj/structure/closet)
 	active_power_usage = 2200	//the pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
@@ -53,9 +55,9 @@
 	if(stat & BROKEN || !I || !user)
 		return
 
-	src.add_fingerprint(user)
+	add_fingerprint(user, 0, I)
 	if(mode<=0) // It's off
-		if(istype(I, /obj/item/weapon/screwdriver))
+		if(isScrewdriver(I))
 			if(contents.len > 0)
 				to_chat(user, "Eject the items first!")
 				return
@@ -69,7 +71,7 @@
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "You attach the screws around the power connection.")
 				return
-		else if(istype(I,/obj/item/weapon/weldingtool) && mode==-1)
+		else if(isWelder(I) && mode==-1)
 			if(contents.len > 0)
 				to_chat(user, "Eject the items first!")
 				return
@@ -106,7 +108,7 @@
 		update_icon()
 		return
 
-	var/obj/item/weapon/grab/G = I
+	var/obj/item/grab/G = I
 	if(istype(G))	// handle grabbed mob
 		if(ismob(G.affecting))
 			var/mob/GM = G.affecting
@@ -140,52 +142,66 @@
 
 	update_icon()
 
-// mouse drop another mob or self
-//
-/obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
-	if(user.stat || !user.canmove || !istype(target))
-		return
-	if(target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1)
+/obj/machinery/disposal/MouseDrop_T(atom/movable/AM, mob/user)
+	var/incapacitation_flags = INCAPACITATION_DEFAULT
+	if(AM == user)
+		incapacitation_flags &= ~INCAPACITATION_RESTRAINED
+
+	if(stat & BROKEN || !CanMouseDrop(AM, user, incapacitation_flags) || AM.anchored || !isturf(user.loc))
 		return
 
-	//animals cannot put mobs other than themselves into disposal
-	if(isanimal(user) && target != user)
+	// Animals can only put themself in
+	if(isanimal(user) && AM != user)
 		return
 
+	// Determine object type and run necessary checks
+	var/mob/M = AM
+	var/is_dangerous // To determine css style in messages
+	if(istype(M))
+		is_dangerous = TRUE
+		if(M.buckled)
+			return
+	else if(istype(AM, /obj/item))
+		attackby(AM, user)
+		return
+	else if(!is_type_in_list(AM, allowed_objects))
+		return
+
+	// Checks completed, start inserting
 	src.add_fingerprint(user)
-	var/target_loc = target.loc
-	var/msg
-	for (var/mob/V in viewers(usr))
-		if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			V.show_message("[usr] starts climbing into the disposal.", 3)
-		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			if(target.anchored) return
-			V.show_message("[usr] starts stuffing [target.name] into the disposal.", 3)
-	if(!do_after(usr, 20, src))
-		return
-	if(target_loc != target.loc)
-		return
-	if(target == user && !user.incapacitated(INCAPACITATION_ALL))	// if drop self, then climbed in
-											// must be awake, not stunned or whatever
-		msg = "\The [user] climbs into \the [src]."
-		to_chat(user, "You climb into \the [src].")
-	else if(target != user && !user.incapacitated())
-		msg = "\The [user] stuffs \the [target] into \the [src]!"
-		to_chat(user, "You stuff \the [target] into \the [src]!")
-		admin_attack_log(user, target, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
+	var/old_loc = AM.loc
+	if(AM == user)
+		user.visible_message("<span class='warning'>[user] starts climbing into [src].</span>", \
+							 "<span class='notice'>You start climbing into [src].</span>")
 	else
+		user.visible_message("<span class='[is_dangerous ? "warning" : "notice"]'>[user] starts stuffing [AM] into [src].</span>", \
+							 "<span class='notice'>You start stuffing [AM] into [src].</span>")
+
+	if(!do_after(user, 2 SECONDS, src))
 		return
-	if (target.client)
-		target.client.perspective = EYE_PERSPECTIVE
-		target.client.eye = src
 
-	target.forceMove(src)
+	// Repeat checks
+	if(stat & BROKEN || user.incapacitated(incapacitation_flags))
+		return
+	if(!AM || old_loc != AM.loc || AM.anchored)
+		return
+	if(istype(M) && M.buckled)
+		return
 
-	for (var/mob/C in viewers(src))
-		if(C == user)
-			continue
-		C.show_message(msg, 3)
+	// Messages and logging
+	if(AM == user)
+		user.visible_message("<span class='danger'>[user] climbs into [src].</span>", \
+							 "<span class='notice'>You climb into [src].</span>")
+	else
+		user.visible_message("<span class='[is_dangerous ? "danger" : "notice"]'>[user] stuffs [AM] into [src][is_dangerous ? "!" : "."]</span>", \
+							 "<span class='notice'>You stuff [AM] into [src].</span>")
+		if(ismob(M))
+			admin_attack_log(user, M, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
+			if (M.client)
+				M.client.perspective = EYE_PERSPECTIVE
+				M.client.eye = src
 
+	AM.forceMove(src)
 	update_icon()
 	return
 
@@ -265,49 +281,43 @@
 
 // handle machine interaction
 
-/obj/machinery/disposal/Topic(href, href_list)
+/obj/machinery/disposal/CanUseTopic(user, state, href_list)
 	if(usr.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
-		return
-
+		return STATUS_CLOSE
+	if(isAI(user) && (href_list["handle"] || href_list["eject"]))
+		return min(STATUS_UPDATE, ..())
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
-		return
-	if(..())
-		return
+		to_chat(user, "<span class='warning'>The disposal units power is disabled.</span>")
+		return min(STATUS_UPDATE, ..())
+	if(flushing)
+		return min(STATUS_UPDATE, ..())
+	return ..()
 
-	if(stat & BROKEN)
-		return
-	if(usr.stat || usr.restrained() || src.flushing)
-		return
+/obj/machinery/disposal/OnTopic(user, href_list)
+	if(href_list["close"])
+		close_browser(user, "window=disposal")
+		return TOPIC_HANDLED
 
-	if(istype(src.loc, /turf))
-		usr.set_machine(src)
+	if(href_list["pump"])
+		if(text2num(href_list["pump"]))
+			mode = 1
+		else
+			mode = 0
+		update_icon()
+		. = TOPIC_REFRESH
 
-		if(href_list["close"])
-			usr.unset_machine()
-			usr << browse(null, "window=disposal")
-			return
+	else if(href_list["handle"])
+		flush = text2num(href_list["handle"])
+		update_icon()
+		. = TOPIC_REFRESH
 
-		if(href_list["pump"])
-			if(text2num(href_list["pump"]))
-				mode = 1
-			else
-				mode = 0
-			update_icon()
+	else if(href_list["eject"])
+		eject()
+		. = TOPIC_REFRESH
 
-		if(!isAI(usr))
-			if(href_list["handle"])
-				flush = text2num(href_list["handle"])
-				update_icon()
-
-			if(href_list["eject"])
-				eject()
-	else
-		usr << browse(null, "window=disposal")
-		usr.unset_machine()
-		return
-	return
+	if(. == TOPIC_REFRESH)
+		interact(user)
 
 // eject the contents of the disposal unit
 /obj/machinery/disposal/proc/eject()
@@ -344,7 +354,7 @@
 
 // timed process
 // charge the gas reservoir and perform flush if ready
-/obj/machinery/disposal/process()
+/obj/machinery/disposal/Process()
 	if(!air_contents || (stat & BROKEN))			// nothing can happen if broken
 		update_use_power(0)
 		return
@@ -648,7 +658,8 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	plane = ABOVE_PLATING_PLANE
+	alpha = 192 // Plane and alpha modified for mapping, reset to normal on spawn.
+	plane = ABOVE_TURF_PLANE
 	layer = DISPOSALS_PIPE_LAYER
 	var/base_icon_state	// initial icon state on map
 	var/sortType = ""
@@ -656,9 +667,10 @@
 	// new pipe, set the icon_state as on map
 	New()
 		..()
+		alpha = 255
+		plane = ABOVE_PLATING_PLANE
 		base_icon_state = icon_state
 		return
-
 
 	// pipe is deleted
 	// ensure if holder is present, it is expelled
@@ -676,13 +688,12 @@
 					AM.forceMove(T)
 					AM.pipe_eject(0)
 				qdel(H)
-				..()
-				return
+				return ..()
 
 			// otherwise, do normal expel from turf
 			if(H)
 				expel(H, T, 0)
-		..()
+		. = ..()
 
 	// returns the direction of the next pipe object, given the entrance dir
 	// by default, returns the bitmask of remaining directions
@@ -720,14 +731,14 @@
 	// hide called by levelupdate if turf intact status changes
 	// change visibility status and force update of icon
 	hide(var/intact)
-		invisibility = intact ? 101: 0	// hide if floor is intact
-		updateicon()
+		set_invisibility(intact ? 101: 0)	// hide if floor is intact
+		update_icon()
 
 	// update actual icon_state depending on visibility
 	// if invisible, append "f" to icon_state to show faded version
 	// this will be revealed if a T-scanner is used
 	// if visible, use regular icon_state
-	proc/updateicon()
+	update_icon()
 /*		if(invisibility)	//we hide things with alpha now, no need for transparent icons
 			icon_state = "[base_icon_state]f"
 		else
@@ -799,12 +810,12 @@
 	// remains : set to leave broken pipe pieces in place
 	proc/broken(var/remains = 0)
 		if(remains)
-			for(var/D in cardinal)
+			for(var/D in GLOB.cardinal)
 				if(D & dpdir)
 					var/obj/structure/disposalpipe/broken/P = new(src.loc)
 					P.set_dir(D)
 
-		src.invisibility = 101	// make invisible (since we won't delete the pipe immediately)
+		src.set_invisibility(101)	// make invisible (since we won't delete the pipe immediately)
 		var/obj/structure/disposalholder/H = locate() in src
 		if(H)
 			// holder was present
@@ -861,7 +872,7 @@
 		var/turf/T = src.loc
 		if(!T.is_plating())
 			return		// prevent interaction with T-scanner revealed pipes
-		src.add_fingerprint(user)
+		src.add_fingerprint(user, 0, I)
 		if(istype(I, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/W = I
 
@@ -939,13 +950,12 @@
 				AM.forceMove(T)
 				AM.pipe_eject(0)
 			qdel(H)
-			..()
-			return
+			return ..()
 
 		// otherwise, do normal expel from turf
 		if(H)
 			expel(H, T, 0)
-	..()
+	. = ..()
 
 /obj/structure/disposalpipe/hides_under_flooring()
 	return 1
@@ -1132,14 +1142,14 @@
 
 	proc/updatename()
 		if(sort_tag)
-			name = "[initial(name)] ([sort_tag])"
+			SetName("[initial(name)] ([sort_tag])")
 		else
-			name = initial(name)
+			SetName(initial(name))
 
 	New()
 		. = ..()
 		dpdir = dir | turn(dir, 180)
-		if(sort_tag) tagger_locations |= sort_tag
+		if(sort_tag) GLOB.tagger_locations |= sort_tag
 		updatename()
 		updatedesc()
 		update()
@@ -1186,20 +1196,20 @@
 	if(!id_tag)
 		id_tag = newid
 
-/obj/machinery/disposal_switch/initialize()
+/obj/machinery/disposal_switch/Initialize()
 	for(var/obj/structure/disposalpipe/diversion_junction/D in world)
 		if(D.id_tag && !D.linked && D.id_tag == src.id_tag)
 			junctions += D
 			D.linked = src
 
-	..()
+	. = ..()
 
 /obj/machinery/disposal_switch/Destroy()
 	junctions.Cut()
 	return ..()
 
 /obj/machinery/disposal_switch/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(isCrowbar(I))
 		var/obj/item/disposal_switch_construct/C = new/obj/item/disposal_switch_construct(src.loc, id_tag)
 		transfer_fingerprints_to(C)
 		user.visible_message("<span class='notice'>\The [user] deattaches \the [src]</span>")
@@ -1349,9 +1359,9 @@
 
 	proc/updatename()
 		if(sortType)
-			name = "[initial(name)] ([sortType])"
+			SetName("[initial(name)] ([sortType])")
 		else
-			name = initial(name)
+			SetName(initial(name))
 
 	proc/updatedir()
 		posdir = dir
@@ -1366,7 +1376,7 @@
 
 	New()
 		. = ..()
-		if(sortType) tagger_locations |= sortType
+		if(sortType) GLOB.tagger_locations |= sortType
 
 		updatedir()
 		updatename()
@@ -1502,7 +1512,7 @@
 	var/turf/T = src.loc
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
-	src.add_fingerprint(user)
+	src.add_fingerprint(user, 0, I)
 	if(istype(I, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/W = I
 
@@ -1584,6 +1594,7 @@
 	var/active = 0
 	var/turf/target	// this will be where the output objects are 'thrown' to.
 	var/mode = 0
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 	New()
 		..()
@@ -1620,8 +1631,8 @@
 	attackby(var/obj/item/I, var/mob/user)
 		if(!I || !user)
 			return
-		src.add_fingerprint(user)
-		if(istype(I, /obj/item/weapon/screwdriver))
+		src.add_fingerprint(user, 0, I)
+		if(isScrewdriver(I))
 			if(mode==0)
 				mode=1
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -1671,7 +1682,7 @@
 	if(direction)
 		dirs = list( direction, turn(direction, -45), turn(direction, 45))
 	else
-		dirs = alldirs.Copy()
+		dirs = GLOB.alldirs.Copy()
 
 	src.streak(dirs)
 
@@ -1680,6 +1691,6 @@
 	if(direction)
 		dirs = list( direction, turn(direction, -45), turn(direction, 45))
 	else
-		dirs = alldirs.Copy()
+		dirs = GLOB.alldirs.Copy()
 
 	src.streak(dirs)

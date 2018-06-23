@@ -137,11 +137,11 @@
 	if (src.stat != 0)
 		uneq_all()
 
-	if(radio)
+	if(silicon_radio)
 		if(!is_component_functioning("radio"))
-			radio.on = 0
+			silicon_radio.on = 0
 		else
-			radio.on = 1
+			silicon_radio.on = 1
 
 	if(is_component_functioning("camera"))
 		src.blinded = 0
@@ -201,7 +201,7 @@
 			src.healths.icon_state = "health7"
 
 	if (src.syndicate && src.client)
-		for(var/datum/mind/tra in traitors.current_antagonists)
+		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
@@ -211,7 +211,7 @@
 			// TODO: Update to new antagonist system.
 			if(!src.mind.special_role)
 				src.mind.special_role = "traitor"
-				traitors.current_antagonists |= src.mind
+				GLOB.traitors.current_antagonists |= src.mind
 
 	if (src.cells)
 		if (src.cell)
@@ -296,7 +296,7 @@
 		src.module_state_2:screen_loc = ui_inv2
 	if(src.module_state_3)
 		src.module_state_3:screen_loc = ui_inv3
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
 	if(killswitch)

@@ -1,7 +1,7 @@
 /obj/item/device/taperecorder
 	name = "universal recorder"
 	desc = "A device that can record to cassette tapes, and play them. It automatically translates the content in playback."
-	icon_state = "taperecorder_empty"
+	icon_state = "taperecorder"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
 
@@ -13,7 +13,7 @@
 	var/playsleepseconds = 0.0
 	var/obj/item/device/tape/mytape = /obj/item/device/tape/random
 	var/canprint = 1
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	throwforce = 2
 	throw_speed = 4
@@ -21,16 +21,17 @@
 
 /obj/item/device/taperecorder/New()
 	..()
+	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
 	if(ispath(mytape))
 		mytape = new mytape(src)
-		update_icon()
-	listening_objects += src
+	GLOB.listening_objects += src
+	update_icon()
 
 /obj/item/device/taperecorder/empty
 	mytape = null
 
 /obj/item/device/taperecorder/Destroy()
-	listening_objects -= src
+	GLOB.listening_objects -= src
 	if(mytape)
 		qdel(mytape)
 		mytape = null
@@ -327,7 +328,7 @@
 			printedmessage = "\[[time2text(mytape.timestamp[i]*10,"mm:ss")]\] (Unrecognized sound)"
 		t1 += "[printedmessage]<BR>"
 	P.info = t1
-	P.name = "Transcript"
+	P.SetName("Transcript")
 	canprint = 0
 	sleep(300)
 	canprint = 1
@@ -341,16 +342,16 @@
 
 
 /obj/item/device/taperecorder/update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
+
 	if(!mytape)
-		icon_state = "taperecorder_empty"
+		icon_state = "[bis.base_icon_state]_empty"
 	else if(recording)
-		icon_state = "taperecorder_recording"
+		icon_state = "[bis.base_icon_state]_recording"
 	else if(playing)
-		icon_state = "taperecorder_playing"
+		icon_state = "[bis.base_icon_state]_playing"
 	else
-		icon_state = "taperecorder_idle"
-
-
+		icon_state = "[bis.base_icon_state]_idle"
 
 /obj/item/device/tape
 	name = "tape"
@@ -405,7 +406,7 @@
 
 
 /obj/item/device/tape/attackby(obj/item/I, mob/user, params)
-	if(ruined && istype(I, /obj/item/weapon/screwdriver))
+	if(ruined && isScrewdriver(I))
 		to_chat(user, "<span class='notice'>You start winding the tape back in...</span>")
 		if(do_after(user, 120, target = src))
 			to_chat(user, "<span class='notice'>You wound the tape back in.</span>")
@@ -417,10 +418,10 @@
 			if(isnull(new_name)) return
 			new_name = sanitizeSafe(new_name)
 			if(new_name)
-				name = "tape - '[new_name]'"
+				SetName("tape - '[new_name]'")
 				to_chat(user, "<span class='notice'>You label the tape '[new_name]'.</span>")
 			else
-				name = "tape"
+				SetName("tape")
 				to_chat(user, "<span class='notice'>You scratch off the label.</span>")
 		return
 	..()

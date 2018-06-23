@@ -130,7 +130,7 @@
 	var/artillery = 0
 	var/fire = 0
 
-/obj/machinery/scom/artillerycontrol/process()
+/obj/machinery/scom/artillerycontrol/Process()
 	if(src.reload<120)
 		src.reload++
 

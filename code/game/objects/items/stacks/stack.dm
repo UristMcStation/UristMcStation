@@ -26,9 +26,8 @@
 	..()
 	if (!stacktype)
 		stacktype = type
-	if (amount)
+	if (amount > 1)
 		src.amount = amount
-	return
 
 /obj/item/stack/Destroy()
 	if(uses_charge)
@@ -135,17 +134,13 @@
 		O.set_dir(user.dir)
 		O.add_fingerprint(user)
 
+		if (recipe.goes_in_hands)
+			user.put_in_hands(O)
+
 		if (istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
 			S.amount = produced
-			S.add_to_stacks(user)
-
-		if (recipe.goes_in_hands)
-			user.put_in_hands(O)
-			if (istype(O, /obj/item/stack))
-				var/obj/item/stack/S = O
-				S.amount = produced
-				S.add_to_stacks(user)
+			S.add_to_stacks(user, recipe.goes_in_hands)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -244,10 +239,10 @@
 	return 0
 
 //creates a new stack with the specified amount
-/obj/item/stack/proc/split(var/tamount)
+/obj/item/stack/proc/split(var/tamount, var/force=FALSE)
 	if (!amount)
 		return null
-	if(uses_charge)
+	if(uses_charge && !force)
 		return null
 
 	var/transfer = max(min(tamount, src.amount, initial(max_amount)), 0)
@@ -289,8 +284,16 @@
 		return
 	return max_amount
 
-/obj/item/stack/proc/add_to_stacks(mob/user as mob)
+/obj/item/stack/proc/add_to_stacks(mob/user, check_hands)
+	var/list/stacks = list()
+	if(check_hands)
+		if(isstack(user.l_hand))
+			stacks += user.l_hand
+		if(isstack(user.r_hand))
+			stacks += user.r_hand
 	for (var/obj/item/stack/item in user.loc)
+		stacks += item
+	for (var/obj/item/stack/item in stacks)
 		if (item==src)
 			continue
 		var/transfer = src.transfer_to(item)
@@ -313,6 +316,8 @@
 				user.put_in_hands(F)
 				src.add_fingerprint(user)
 				F.add_fingerprint(user)
+				if(istype(F,/obj/item/stack/tile))
+					F.throwforce = src.throwforce
 				spawn(0)
 					if (src && usr.machine==src)
 						src.interact(usr)

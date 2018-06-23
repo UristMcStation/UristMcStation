@@ -4,11 +4,11 @@
 	desc = "What IS that?"
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "alien"
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	health = 100
 	maxHealth = 100
 	mob_size = 4
-	species_language = "Xenomorph"
+	species_language = "Xenophage"
 
 	var/adult_form
 	var/dead_icon

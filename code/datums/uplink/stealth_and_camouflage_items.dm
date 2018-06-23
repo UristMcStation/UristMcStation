@@ -25,9 +25,9 @@
 	path = /obj/item/weapon/storage/backpack/chameleon/sydie_kit
 
 /datum/uplink_item/item/stealth_items/voice
-	name = "Voice Changer"
+	name = "Chameleon Mask/Voice Changer"
 	item_cost = 20
-	path = /obj/item/clothing/mask/gas/voice
+	path = /obj/item/clothing/mask/chameleon/voice
 
 /datum/uplink_item/item/stealth_items/chameleon_projector
 	name = "Chameleon-Projector"
@@ -43,3 +43,8 @@
 	name = "Smuggler's Satchel"
 	item_cost = 8
 	path = /obj/item/weapon/storage/backpack/satchel_flat
+
+/datum/uplink_item/item/stealth_items/sneakies
+	name = "Sneakies"
+	item_cost = 4
+	path = /obj/item/clothing/shoes/laceup/sneakies

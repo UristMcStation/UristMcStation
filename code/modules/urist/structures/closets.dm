@@ -41,10 +41,10 @@
 		..()
 		sleep(2)
 		new /obj/item/clothing/suit/armor/vest(src)
-		new /obj/item/weapon/cartridge/captain(src)
 		new /obj/item/clothing/head/helmet/swat(src)
 		new /obj/item/device/radio/headset/heads/captain(src)
-		new /obj/item/weapon/gun/energy/gun(src)
+		new /obj/item/weapon/gun/projectile/revolver/webley(src)
+		new /obj/item/ammo_magazine/c44(src)
 		new /obj/item/clothing/suit/armor/captain(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/suit/armor/vest/capcarapace(src)
@@ -82,6 +82,7 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/weapon/handcuffs(src)
 		new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
+		new /obj/item/clothing/suit/armor/pcarrier/medium(src)
 		return
 
 //Emergency suits locker
@@ -192,13 +193,14 @@
 /obj/structure/closet/scom/generic
 	name = "S-COM Closet"
 
-/obj/structure/closet/scom/generic/New()
-	..()
-	new /obj/item/device/radio/headset/syndicate(src)
-	new /obj/item/clothing/under/rank/centcom(src)
-	new /obj/item/clothing/shoes/swat(src)
-	new /obj/item/clothing/gloves/thick/swat(src)
-	new /obj/item/weapon/storage/belt/urist/military/scom(src)
+/obj/structure/closet/scom/generic/WillContain()
+	return list(
+		/obj/item/device/radio/headset/syndicate,
+		/obj/item/clothing/under/rank/centcom,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/gloves/thick/swat,
+		/obj/item/weapon/storage/belt/urist/military/scom
+	)
 
 //for the map
 
@@ -208,42 +210,32 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/wardrobe/tactical/New()
-	..()
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	return
+/obj/structure/closet/wardrobe/tactical/double/WillContain()
+	return list(
+		/obj/item/clothing/suit/armor/pcarrier/green = 2,
+		/obj/item/clothing/accessory/armorplate/medium = 2,
+		/obj/item/clothing/under/tactical = 2,
+		/obj/item/clothing/head/helmet/nt/tactical = 2,
+		/obj/item/clothing/accessory/armguards/green = 2,
+		/obj/item/clothing/accessory/legguards/green = 2,
+		/obj/item/clothing/mask/balaclava/tactical = 2,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
+		/obj/item/weapon/storage/belt/security/tactical = 2,
+		/obj/item/clothing/shoes/jackboots = 2,
+		/obj/item/clothing/gloves/thick = 2,
+	)
 
 /obj/structure/closet/secure_closet/hunter
 	name = "hunting gear"
 	req_access = list(access_mining)
 
-/obj/structure/closet/secure_closet/hunter/New()
-	..()
-	sleep(2)
-	if(prob(20))
-		new /obj/item/weapon/gunattachment/scope/huntrifle(src)
-	new /obj/item/weapon/gun/projectile/manualcycle/hunterrifle(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	if(prob(25)) //you get 15 shots, with a chance of 20. Past that, you'll have to go make your own in cargonia.
-		new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/device/flashlight/lantern(src)
-	new /obj/item/weapon/shovel(src)
-	new /obj/item/weapon/material/hatchet(src)
-	new /obj/item/weapon/material/knife/hunting(src)
+/obj/structure/closet/secure_closet/hunter/WillContain()
+	return list(
+		/obj/item/weapon/gunattachment/scope/huntrifle,
+		/obj/item/weapon/gun/projectile/manualcycle/hunterrifle,
+		/obj/item/ammo_magazine/a762mm/stripper = 3,
+		/obj/item/device/flashlight/lantern,
+		/obj/item/weapon/shovel,
+		/obj/item/weapon/material/hatchet,
+		/obj/item/weapon/material/knife/hunting
+	)

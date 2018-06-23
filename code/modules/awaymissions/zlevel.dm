@@ -1,5 +1,5 @@
 proc/createRandomZlevel()
-	if(awaydestinations.len)	//crude, but it saves another var!
+	if(GLOB.awaydestinations.len)	//crude, but it saves another var!
 		return
 
 	if(!fexists("maps/RandomZLevels/fileList.txt"))
@@ -24,11 +24,11 @@ proc/createRandomZlevel()
 	//	var/value = null
 
 		if (pos)
-            // No, don't do lowertext here, that breaks paths on linux
+			// No, don't do lowertext here, that breaks paths on linux
 			name = copytext(t, 1, pos)
 		//	value = copytext(t, pos + 1)
 		else
-            // No, don't do lowertext here, that breaks paths on linux
+			// No, don't do lowertext here, that breaks paths on linux
 			name = t
 
 		if (!name)
@@ -43,13 +43,13 @@ proc/createRandomZlevel()
 		var/map = pick(potentialRandomZlevels)
 		var/file = file(map)
 		if(isfile(file))
-			maploader.load_map(file)
+			load_new_z_level(file, "Away mission")
 			log_debug("away mission loaded: [map]")
 
 		for(var/obj/effect/landmark/L in landmarks_list)
 			if (L.name != "awaystart")
 				continue
-			awaydestinations.Add(L)
+			GLOB.awaydestinations.Add(L)
 
 		admin_notice("<span class='danger'>Away mission loaded.</span>", R_DEBUG)
 
@@ -59,7 +59,8 @@ proc/createRandomZlevel()
 
 /proc/generateMapList(filename)
 	var/list/potentialMaps = list()
-	var/list/Lines = file2list(filename)
+	var/list/Lines = world.file2list(filename)
+
 	if(!Lines.len)
 		return
 	for (var/t in Lines)

@@ -107,7 +107,7 @@
 	triggerproc = "triggerstun"
 
 /obj/effect/mine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.checkpass(PASS_FLAG_GRILLE))
 		return 1
 	else
 		return ..()

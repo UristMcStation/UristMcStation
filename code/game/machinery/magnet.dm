@@ -45,11 +45,11 @@
 
 	// update the invisibility and icon
 	hide(var/intact)
-		invisibility = intact ? 101 : 0
-		updateicon()
+		set_invisibility(intact ? 101 : 0)
+		update_icon()
 
 	// update the icon_state
-	proc/updateicon()
+	update_icon()
 		var/state="floor_magnet"
 		var/onstate=""
 		if(!on)
@@ -129,7 +129,7 @@
 
 
 
-	process()
+	Process()
 		if(stat & NOPOWER)
 			on = 0
 
@@ -168,7 +168,7 @@
 						qdel(src)
 		*/
 
-		updateicon()
+		update_icon()
 
 
 	proc/magnetic_process() // proc that actually does the pulling
@@ -179,7 +179,7 @@
 			center = locate(x+center_x, y+center_y, z)
 			if(center)
 				for(var/obj/M in orange(magnetic_field, center))
-					if(!M.anchored && (M.flags & CONDUCT))
+					if(!M.anchored && (M.obj_flags & OBJ_FLAG_CONDUCTIBLE))
 						step_towards(M, center)
 
 				for(var/mob/living/silicon/S in orange(magnetic_field, center))
@@ -239,7 +239,7 @@
 			filter_path() // renders rpath
 
 
-	process()
+	Process()
 		if(magnets.len == 0 && autolink)
 			for(var/obj/machinery/magnetic_module/M in world)
 				if(M.freq == frequency && M.code == code)
@@ -278,10 +278,11 @@
 		onclose(user, "magnet")
 
 	Topic(href, href_list)
+		if(..())
+			return 1
 		if(stat & (BROKEN|NOPOWER))
 			return
 		usr.set_machine(src)
-		src.add_fingerprint(usr)
 
 		if(href_list["radio-op"])
 

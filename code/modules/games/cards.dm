@@ -136,6 +136,30 @@
 	H.throw_at(get_step(target,target.dir),10,1,H)
 
 /obj/item/weapon/hand/attackby(obj/O as obj, mob/user as mob)
+	if(cards.len == 1 && istype(O, /obj/item/weapon/pen))
+		var/datum/playingcard/P = cards[1]
+		if(P.name != "Blank Card")
+			to_chat(user,"You cannot write on that card.")
+			return
+		var/cardtext = sanitize(input(user, "What do you wish to write on the card?", "Card Editing") as text|null, MAX_PAPER_MESSAGE_LEN)
+		if(!cardtext)
+			return
+		P.name = cardtext
+		// SNOWFLAKE FOR CAG, REMOVE IF OTHER CARDS ARE ADDED THAT USE THIS.
+		P.card_icon = "cag_white_card"
+		update_icon()
+	else if(istype(O,/obj/item/weapon/hand))
+		var/obj/item/weapon/hand/H = O
+		for(var/datum/playingcard/P in cards)
+			H.cards += P
+		H.concealed = src.concealed
+		user.drop_from_inventory(src)
+		qdel(src)
+		H.update_icon()
+		return
+	..()
+
+/obj/item/weapon/hand/attackby(obj/O as obj, mob/user as mob)
 	if(istype(O,/obj/item/weapon/hand))
 		var/obj/item/weapon/hand/H = O
 		for(var/datum/playingcard/P in cards)
@@ -309,8 +333,8 @@
 /obj/item/weapon/hand/missing_card
 	name = "missing playing card"
 
-/obj/item/weapon/hand/missing_card/initialize()
-	..()
+/obj/item/weapon/hand/missing_card/Initialize()
+	. = ..()
 
 	var/list/deck_list = list()
 	for(var/obj/item/weapon/deck/D in world)
@@ -320,7 +344,7 @@
 	if(deck_list.len)
 		var/obj/item/weapon/deck/the_deck = pick(deck_list)
 		var/datum/playingcard/the_card = length(the_deck.cards) ? pick(the_deck.cards) : null
-		
+
 		if(the_card)
 			cards += the_card
 			the_deck.cards -= the_card

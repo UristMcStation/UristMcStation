@@ -9,15 +9,20 @@
 	var/list/gibdirections = list() //of lists
 	var/fleshcolor //Used for gibbed humans.
 	var/bloodcolor //Used for gibbed humans.
+	var/datum/dna/MobDNA
 
-	New(location, var/datum/dna/MobDNA, var/fleshcolor, var/bloodcolor)
+	New(location, var/datum/dna/newMobDNA, var/newfleshcolor, var/newbloodcolor)
+		if(fleshcolor) fleshcolor = newfleshcolor
+		if(bloodcolor) bloodcolor = newbloodcolor
+		if(MobDNA)     MobDNA = newMobDNA
 		..()
 
-		if(fleshcolor) src.fleshcolor = fleshcolor
-		if(bloodcolor) src.bloodcolor = bloodcolor
-		Gib(loc,MobDNA)
+	Initialize()
+		..()
+		Gib(loc)
+		return INITIALIZE_HINT_QDEL
 
-	proc/Gib(atom/location, var/datum/dna/MobDNA = null)
+	proc/Gib(atom/location)
 		if(gibtypes.len != gibamounts.len || gibamounts.len != gibdirections.len)
 			log_error("<span class='warning'>Gib list length mismatch!</span>")
 			return

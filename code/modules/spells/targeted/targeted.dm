@@ -17,11 +17,15 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	var/amt_confused = 0
 	var/amt_stuttering = 0
 
-		//set to negatives for healing
+		//set to negatives for healing unless commented otherwise
 	var/amt_dam_fire = 0
 	var/amt_dam_brute = 0
 	var/amt_dam_oxy = 0
 	var/amt_dam_tox = 0
+	var/amt_brain = 0
+	var/amt_radiation = 0
+	var/amt_blood = 0 //Positive numbers to add blood
+	var/amt_organ = 0 //Positive numbers for healing
 
 	var/amt_eye_blind = 0
 	var/amt_eye_blurry = 0
@@ -34,7 +38,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 
 	if(max_targets == 0) //unlimited
 		if(range == -2)
-			targets = living_mob_list_
+			targets = GLOB.living_mob_list_
 		else
 			for(var/mob/living/target in view_or_range(range, holder, selection_type))
 				targets += target
@@ -46,7 +50,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			var/list/possible_targets = list()
 			var/list/starting_targets
 			if(range == -2)
-				starting_targets = living_mob_list_
+				starting_targets = GLOB.living_mob_list_
 			else
 				starting_targets = view_or_range(range, holder, selection_type)
 
@@ -74,7 +78,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 		var/list/starting_targets
 
 		if(range == -2)
-			starting_targets = living_mob_list_
+			starting_targets = GLOB.living_mob_list_
 		else
 			starting_targets = view_or_range(range, holder, selection_type)
 
@@ -131,6 +135,16 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	target.adjustFireLoss(amt_dam_fire)
 	target.adjustToxLoss(amt_dam_tox)
 	target.adjustOxyLoss(amt_dam_oxy)
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		for(var/obj/item/organ/external/affecting in H.organs)
+			if(affecting && istype(affecting))
+				affecting.heal_damage(amt_organ, amt_organ)
+		H.vessel.add_reagent(/datum/reagent/blood,amt_blood)
+		H.adjustBrainLoss(amt_brain)
+		H.radiation += min(H.radiation, amt_radiation)
+		H.fixblood()
+	target.regenerate_icons()
 	//disabling
 	target.Weaken(amt_weakened)
 	target.Paralyse(amt_paralysis)

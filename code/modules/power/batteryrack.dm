@@ -172,7 +172,7 @@
 	return 1
 
 
-/obj/machinery/power/smes/batteryrack/process()
+/obj/machinery/power/smes/batteryrack/Process()
 	charge = 0
 	for(var/obj/item/weapon/cell/C in internal_cells)
 		charge += C.charge
@@ -233,7 +233,7 @@
 		cells += list(cell)
 	data["cells_list"] = cells
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "psu.tmpl", "Cell Rack PSU", 500, 430)
 		ui.set_initial_data(data)

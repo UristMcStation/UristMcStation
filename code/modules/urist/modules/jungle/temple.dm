@@ -375,8 +375,6 @@
 	name = "fake trap"
 
 	New()
-		if(prob(10))
-			new /obj/effect/plant(src.loc)
 		if(prob(90))
 			var/turf/T = get_turf(src)
 			T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
@@ -392,8 +390,6 @@
 		if(prob(50))
 			..()
 		else
-			if(prob(10))
-				new /obj/effect/plant(src.loc)
 			qdel(src)
 
 //structures

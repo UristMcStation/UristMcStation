@@ -157,9 +157,8 @@
 	if(co != null) carbon_amt = co
 	..()
 
-/obj/effect/spawner/newbomb/New(newloc)
-	..(newloc)
-
+/obj/effect/spawner/newbomb/Initialize()
+	..()
 	var/obj/item/device/transfer_valve/V = new(src.loc)
 	var/obj/item/weapon/tank/phoron/PT = new(V)
 	var/obj/item/weapon/tank/oxygen/OT = new(V)
@@ -193,10 +192,7 @@
 	S.toggle_secure()
 
 	V.update_icon()
-
-	qdel(src)
-
-
+	return INITIALIZE_HINT_QDEL
 
 ///////////////////////
 //One Tank Bombs, WOOOOOOO! -Luke
@@ -220,3 +216,19 @@
 	new type(src.loc)
 
 	qdel(src)
+
+/obj/effect/spawner/welderbomb/New()
+	var/obj/structure/reagent_dispensers/fueltank/F = new(loc)
+	var/obj/item/device/assembly_holder/prox_igniter/I = new(F)
+	F.modded = TRUE
+	F.rig = I
+
+//the other type of bomb spawner for use in mapping to make more accurate destroyed places
+/obj/effect/spawner/bomb_simulator
+	var/_high = 0
+	var/_med = 0
+	var/_low = 0
+
+/obj/effect/spawner/bomb_simulator/Initialize()
+	. = ..()
+	explosion(loc,_high,_med,_low)

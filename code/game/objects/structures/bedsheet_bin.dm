@@ -17,6 +17,7 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
+	pixel_y = 1
 	w_class = ITEM_SIZE_SMALL
 
 /obj/item/weapon/bedsheet/attackby(obj/item/I, mob/user)

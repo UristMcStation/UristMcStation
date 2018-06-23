@@ -49,7 +49,7 @@
 /obj/item/borg/upgrade/rename/action(var/mob/living/silicon/robot/R)
 	if(..()) return 0
 	R.notify_ai(ROBOT_NOTIFICATION_NEW_NAME, R.name, heldname)
-	R.name = heldname
+	R.SetName(heldname)
 	R.custom_name = heldname
 	R.real_name = heldname
 
@@ -84,7 +84,7 @@
 		return 0
 
 	if(!R.key)
-		for(var/mob/observer/ghost/ghost in player_list)
+		for(var/mob/observer/ghost/ghost in GLOB.player_list)
 			if(ghost.mind && ghost.mind.current == R)
 				R.key = ghost.key
 

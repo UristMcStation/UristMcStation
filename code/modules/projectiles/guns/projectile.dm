@@ -11,7 +11,8 @@
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	screen_shake = 1
-
+	combustion = 1
+	fire_delay = 6
 	var/caliber = "357"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
@@ -82,7 +83,7 @@
 
 	switch(handle_casings)
 		if(EJECT_CASINGS) //eject casing onto ground.
-			chambered.loc = get_turf(src)
+			chambered.forceMove(get_turf(src))
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -170,6 +171,8 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.loc = T
+					C.pixel_x = rand(-C.randpixel,C.randpixel)
+					C.pixel_y = rand(-C.randpixel,C.randpixel)
 					count++
 				loaded.Cut()
 			if(count)

@@ -10,8 +10,8 @@
 	universal_speak = 0
 	universal_understand = 1
 
-	min_oxy = 1 //still require a /bit/ of air.
-	max_co2 = 0
+	min_gas = list("oxygen" = 1)
+	max_gas = null
 	unsuitable_atoms_damage = 1
 
 	var/list/wizardy_spells = list()
@@ -39,6 +39,7 @@
 	melee_damage_upper = 15
 	attacktext = "pinches"
 	resistance = 9
+	can_escape = 1 //snip snip
 
 /*familiar version of the Pike w/o all the other hostile/carp stuff getting in the way (namely life)
 */
@@ -59,8 +60,9 @@
 	maxHealth = 100
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	can_escape = 1
 
-	min_oxy = 0
+	min_gas = null
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
@@ -86,8 +88,8 @@
 
 	wizardy_spells = list(/spell/targeted/torment)
 
-/mob/living/simple_animal/familiar/horror/death()
-	..(null,"rapidly deteriorates")
+/mob/living/simple_animal/familiar/horror/death(gibbed, deathmessage, show_dead_message)
+	..(null,"rapidly deteriorates","The bonds tying you to this mortal plane have been severed.")
 
 	ghostize()
 	gibs(src.loc)
@@ -134,7 +136,7 @@
 
 	speak_emote = list("squeeks")
 	holder_type = /obj/item/weapon/holder/mouse
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	mob_size = MOB_MINISCULE
 
 	response_harm = "stamps on"
@@ -143,6 +145,7 @@
 	maxHealth = 15
 	melee_damage_lower = 1
 	melee_damage_upper = 1
+	can_escape = 1
 	attacktext = "nibbles"
 
 	wizardy_spells = list(/spell/aoe_turf/smoke)

@@ -1,8 +1,7 @@
 /mob/living/simple_animal/spiderbot
 
-	min_oxy = 0
-	max_tox = 0
-	max_co2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	maxbodytemp = 500
 	mob_size = MOB_SMALL
@@ -38,7 +37,7 @@
 	var/emagged = 0
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	speak_emote = list("beeps","clicks","chirps")
 
 /mob/living/simple_animal/spiderbot/New()
@@ -50,35 +49,41 @@
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
-	if(istype(O, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = O
+	if(istype(O, /obj/item/device/mmi) || istype(O, /obj/item/organ/internal/posibrain))
+		var/mob/living/carbon/brain/B
+		if(istype(O, /obj/item/device/mmi))
+			var/obj/item/device/mmi/M = O
+			B = M.brainmob
+		else
+			var/obj/item/organ/internal/posibrain/P = O
+			B = P.brainmob
 		if(src.mmi)
 			to_chat(user, "<span class='warning'>There's already a brain in [src]!</span>")
 			return
-		if(!B.brainmob)
+		if(!B)
 			to_chat(user, "<span class='warning'>Sticking an empty MMI into the frame would sort of defeat the purpose.</span>")
 			return
-		if(!B.brainmob.key)
+		if(!B.key)
 			var/ghost_can_reenter = 0
-			if(B.brainmob.mind)
-				for(var/mob/observer/ghost/G in player_list)
-					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
+			if(B.mind)
+				for(var/mob/observer/ghost/G in GLOB.player_list)
+					if(G.can_reenter_corpse && G.mind == B.mind)
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
 				to_chat(user, "<span class='notice'>[O] is completely unresponsive; there's no point.</span>")
 				return
 
-		if(B.brainmob.stat == DEAD)
+		if(B.stat == DEAD)
 			to_chat(user, "<span class='warning'>[O] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
 			return
 
-		if(jobban_isbanned(B.brainmob, "Cyborg"))
+		if(jobban_isbanned(B, "Robot"))
 			to_chat(user, "<span class='warning'>\The [O] does not seem to fit.</span>")
 			return
 
 		to_chat(user, "<span class='notice'>You install \the [O] in \the [src]!</span>")
-		if(istype(O, /obj/item/device/mmi/digital))
+		if(istype(O, /obj/item/organ/internal/posibrain))
 			positronic = 1
 			add_language("Robot Talk")
 
@@ -90,7 +95,7 @@
 		src.update_icon()
 		return 1
 
-	if (istype(O, /obj/item/weapon/weldingtool))
+	if(isWelder(O))
 		var/obj/item/weapon/weldingtool/WT = O
 		if (WT.remove_fuel(0))
 			if(health < maxHealth)
@@ -104,20 +109,14 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(istype(O, /obj/item/weapon/card/id)||istype(O, /obj/item/device/pda))
+	else if(istype(O, /obj/item/weapon/card/id)||istype(O, /obj/item/modular_computer))
 		if (!mmi)
 			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
 			return 0
 
-		var/obj/item/weapon/card/id/id_card
+		var/obj/item/weapon/card/id/id_card = O.GetIdCard()
 
-		if(istype(O, /obj/item/weapon/card/id))
-			id_card = O
-		else
-			var/obj/item/device/pda/pda = O
-			id_card = pda.id
-
-		if(access_robotics in id_card.access)
+		if(id_card && (access_robotics in id_card.access))
 			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
 			eject_brain()
 			if(held_item)
@@ -146,7 +145,7 @@
 		src.mind = M.brainmob.mind
 		src.mind.key = M.brainmob.key
 		src.ckey = M.brainmob.ckey
-		src.name = "spider-bot ([M.brainmob.name])"
+		src.SetName("spider-bot ([M.brainmob.name])")
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
 	src.visible_message("<span class='danger'>\The [src] makes an odd warbling noise, fizzles, and explodes!</span>")
@@ -154,7 +153,7 @@
 	eject_brain()
 	death()
 
-/mob/living/simple_animal/spiderbot/proc/update_icon()
+/mob/living/simple_animal/spiderbot/update_icon()
 	if(mmi)
 		if(positronic)
 			icon_state = "spiderbot-chassis-posi"
@@ -174,7 +173,7 @@
 		if(mind)	mind.transfer_to(mmi.brainmob)
 		mmi = null
 		real_name = initial(real_name)
-		name = real_name
+		SetName(real_name)
 		update_icon()
 	remove_language("Robot Talk")
 	positronic = null

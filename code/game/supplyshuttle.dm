@@ -43,7 +43,7 @@ var/list/mechtoys = list(
 		)
 
 /obj/structure/plasticflaps/CanPass(atom/A, turf/T)
-	if(istype(A) && A.checkpass(PASSGLASS))
+	if(istype(A) && A.checkpass(PASS_FLAG_GLASS))
 		return prob(60)
 
 	var/obj/structure/bed/B = A
@@ -116,6 +116,8 @@ var/list/point_source_descriptions = list(
 	"crate" = "From exported crates",
 	"phoron" = "From exported phoron",
 	"platinum" = "From exported platinum",
+	"virology" = "From uploaded antibody data",
+	"gep" = "From uploaded good explorer points",
 	"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
 
@@ -128,9 +130,8 @@ var/list/point_source_descriptions = list(
 /datum/controller/supply
 	//supply points
 	var/points = 50
-	var/points_per_process = 1
+	var/points_per_process = 1.5
 	var/points_per_slip = 2
-	var/points_per_crate = 5
 	var/points_per_platinum = 5 // 5 points per sheet
 	var/points_per_phoron = 5
 	var/point_sources = list()
@@ -140,13 +141,11 @@ var/list/point_source_descriptions = list(
 	var/ordernum
 	var/list/shoppinglist = list()
 	var/list/requestlist = list()
+	var/list/donelist = list()
 	var/list/master_supply_list = list()
 	//shuttle movement
 	var/movetime = 1200
-	var/datum/shuttle/ferry/supply/shuttle
-
-	var/obj/machinery/computer/supply/primaryterminal //terminal hardcopy forms will be printed to.
-
+	var/datum/shuttle/autodock/ferry/supply/shuttle
 
 	New()
 		ordernum = rand(1,9000)
@@ -181,39 +180,44 @@ var/list/point_source_descriptions = list(
 
 	//Sellin
 	proc/sell()
-		var/area/area_shuttle = shuttle.get_location_area()
-		if(!area_shuttle)	return
-
 		var/phoron_count = 0
 		var/plat_count = 0
+		for(var/area/subarea in shuttle.shuttle_area)
+			for(var/atom/movable/MA in subarea)
+				if(MA.anchored)	continue
 
-		for(var/atom/movable/MA in area_shuttle)
-			if(MA.anchored)	continue
+				// Must be in a crate!
+				if(istype(MA,/obj/structure/closet/crate))
+					var/obj/structure/closet/crate/CR = MA
+					callHook("sell_crate", list(CR, subarea))
 
-			// Must be in a crate!
-			if(istype(MA,/obj/structure/closet/crate))
-				callHook("sell_crate", list(MA, area_shuttle))
+					add_points_from_source(CR.points_per_crate, "crate")
+					var/find_slip = 1
 
-				add_points_from_source(points_per_crate, "crate")
-				var/find_slip = 1
+					for(var/atom in CR)
+						// Sell manifests
+						var/atom/A = atom
+						if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
+							var/obj/item/weapon/paper/manifest/slip = A
+							if(!slip.is_copy && slip.stamped && slip.stamped.len) //yes, the clown stamp will work. clown is the highest authority on the station, it makes sense
+								add_points_from_source(points_per_slip, "manifest")
+								find_slip = 0
+							continue
 
-				for(var/atom in MA)
-					// Sell manifests
-					var/atom/A = atom
-					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
-						var/obj/item/weapon/paper/manifest/slip = A
-						if(!slip.is_copy && slip.stamped && slip.stamped.len) //yes, the clown stamp will work. clown is the highest authority on the station, it makes sense
-							add_points_from_source(points_per_slip, "manifest")
-							find_slip = 0
-						continue
+						// Sell phoron and platinum
+						if(istype(A, /obj/item/stack))
+							var/obj/item/stack/P = A
+							switch(P.get_material_name())
+								if("phoron") phoron_count += P.get_amount()
+								if("platinum") plat_count += P.get_amount()
+							continue
 
-					// Sell phoron and platinum
-					if(istype(A, /obj/item/stack))
-						var/obj/item/stack/P = A
-						switch(P.get_material_name())
-							if("phoron") phoron_count += P.get_amount()
-							if("platinum") plat_count += P.get_amount()
-			qdel(MA)
+						// Hahahaha must sell ore detector disks in crates
+						if(istype(A, /obj/item/weapon/disk/survey))
+							var/obj/item/weapon/disk/survey/D = A
+							add_points_from_source(round(D.Value() * 0.005), "gep")
+							
+				qdel(MA)
 
 		if(phoron_count)
 			var/temp = phoron_count * points_per_phoron
@@ -226,32 +230,31 @@ var/list/point_source_descriptions = list(
 	//Buyin
 	proc/buy()
 		if(!shoppinglist.len) return
-		var/area/area_shuttle = shuttle.get_location_area()
-		if(!area_shuttle)	return
 		var/list/clear_turfs = list()
-
-		for(var/turf/T in area_shuttle)
-			if(T.density)	continue
-			var/contcount
-			for(var/atom/A in T.contents)
-				if(!A.simulated)
+		for(var/area/subarea in shuttle.shuttle_area)
+			for(var/turf/T in subarea)
+				if(T.density)	continue
+				var/contcount
+				for(var/atom/A in T.contents)
+					if(!A.simulated)
+						continue
+					contcount++
+				if(contcount)
 					continue
-				contcount++
-			if(contcount)
-				continue
-			clear_turfs += T
+				clear_turfs += T
 		for(var/S in shoppinglist)
 			if(!clear_turfs.len)	break
 			var/i = rand(1,clear_turfs.len)
 			var/turf/pickedloc = clear_turfs[i]
 			clear_turfs.Cut(i,i+1)
 			shoppinglist -= S
+			donelist += S
 
 			var/datum/supply_order/SO = S
 			var/decl/hierarchy/supply_pack/SP = SO.object
 
 			var/obj/A = new SP.containertype(pickedloc)
-			A.name = "[SP.containername][SO.comment ? " ([SO.comment])":"" ]"
+			A.SetName("[SP.containername][SO.comment ? " ([SO.comment])":"" ]")
 			//supply manifest generation begin
 
 			var/obj/item/weapon/paper/manifest/slip
@@ -260,7 +263,7 @@ var/list/point_source_descriptions = list(
 				slip.is_copy = 0
 				slip.info = "<h3>[command_name()] Shipping Manifest</h3><hr><br>"
 				slip.info +="Order #[SO.ordernum]<br>"
-				slip.info +="Destination: [using_map.station_name]<br>"
+				slip.info +="Destination: [GLOB.using_map.station_name]<br>"
 				slip.info +="[shoppinglist.len] PACKAGES IN THIS SHIPMENT<br>"
 				slip.info +="CONTENTS:<br><ul>"
 

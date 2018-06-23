@@ -96,15 +96,15 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/Topic(href,href_list)
 	..()
-	var/datum/topic_input/filter = new /datum/topic_input(href,href_list)
-	if(filter.get("eject"))
+	var/datum/topic_input/F = new /datum/topic_input(href,href_list)
+	if(F.get("eject"))
 		go_out()
-	if(filter.get("view_stats"))
+	if(F.get("view_stats"))
 		chassis.occupant << browse(get_occupant_stats(),"window=msleeper")
 		onclose(chassis.occupant, "msleeper")
 		return
-	if(filter.get("inject"))
-		inject_reagent(filter.getType("inject",/datum/reagent),filter.getObj("source"))
+	if(F.get("inject"))
+		inject_reagent(F.getType("inject",/datum/reagent),F.getObj("source"))
 	return
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/proc/get_occupant_stats()
@@ -176,10 +176,10 @@
 	if(!R || !occupant || !SG || !(SG in chassis.equipment))
 		return 0
 	var/to_inject = min(R.volume, inject_amount)
-	if(to_inject && occupant.reagents.get_reagent_amount(R.id) + to_inject <= inject_amount*2)
+	if(to_inject && occupant.reagents.get_reagent_amount(R.type) + to_inject <= inject_amount*2)
 		occupant_message("Injecting [occupant] with [to_inject] units of [R.name].")
 		log_message("Injecting [occupant] with [to_inject] units of [R.name].")
-		SG.reagents.trans_id_to(occupant,R.id,to_inject)
+		SG.reagents.trans_type_to(occupant,R.type,to_inject)
 		update_equip_info()
 	return
 
@@ -211,8 +211,8 @@
 	M.AdjustStunned(-4)
 	M.AdjustWeakened(-4)
 	M.AdjustStunned(-4)
-	if(M.reagents.get_reagent_amount("inaprovaline") < 5)
-		M.reagents.add_reagent("inaprovaline", 5)
+	if(M.reagents.get_reagent_amount(/datum/reagent/inaprovaline) < 5)
+		M.reagents.add_reagent(/datum/reagent/inaprovaline, 5)
 	S.chassis.use_power(S.energy_drain)
 	S.update_equip_info()
 	return
@@ -238,9 +238,9 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/New()
 	..()
-	flags |= NOREACT
+	atom_flags |= ATOM_FLAG_NO_REACT
 	syringes = new
-	known_reagents = list("inaprovaline"="Inaprovaline","anti_toxin"="Dylovene")
+	known_reagents = list(/datum/reagent/inaprovaline="Inaprovaline",/datum/reagent/dylovene="Dylovene")
 	processed_reagents = new
 	create_reagents(max_volume)
 	synth = new (list(src),0)
@@ -251,7 +251,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/critfail()
 	..()
-	flags &= ~NOREACT
+	atom_flags &= ~ATOM_FLAG_NO_REACT
 	return
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/get_equip_info()
@@ -322,21 +322,21 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/Topic(href,href_list)
 	..()
-	var/datum/topic_input/filter = new (href,href_list)
-	if(filter.get("toggle_mode"))
+	var/datum/topic_input/F = new (href,href_list)
+	if(F.get("toggle_mode"))
 		mode = !mode
 		update_equip_info()
 		return
-	if(filter.get("select_reagents"))
+	if(F.get("select_reagents"))
 		processed_reagents.len = 0
 		var/m = 0
 		var/message
 		for(var/i=1 to known_reagents.len)
 			if(m>=synth_speed)
 				break
-			var/reagent = filter.get("reagent_[i]")
-			if(reagent && (reagent in known_reagents))
-				message = "[m ? ", " : null][known_reagents[reagent]]"
+			var/reagent = known_reagents[i]
+			if(F.get("reagent_[i]"))
+				message += "[m ? ", " : null][known_reagents[reagent]]"
 				processed_reagents += reagent
 				m++
 		if(processed_reagents.len)
@@ -346,14 +346,14 @@
 			occupant_message("Reagent processing started.")
 			log_message("Reagent processing started.")
 		return
-	if(filter.get("show_reagents"))
+	if(F.get("show_reagents"))
 		chassis.occupant << browse(get_reagents_page(),"window=msyringegun")
-	if(filter.get("purge_reagent"))
-		var/reagent = filter.get("purge_reagent")
-		if(reagent)
-			reagents.del_reagent(reagent)
+	if(F.get("purge_reagent"))
+		var/datum/reagent/R = locate(F.get("purge_reagent")) in reagents.reagent_list
+		if(R)
+			reagents.del_reagent(R.type)
 		return
-	if(filter.get("purge_all"))
+	if(F.get("purge_all"))
 		reagents.clear_reagents()
 		return
 	return
@@ -412,7 +412,7 @@
 	var/output
 	for(var/datum/reagent/R in reagents.reagent_list)
 		if(R.volume > 0)
-			output += "[R]: [round(R.volume,0.001)] - <a href=\"?src=\ref[src];purge_reagent=[R.id]\">Purge Reagent</a><br />"
+			output += "[R]: [round(R.volume,0.001)] - <a href=\"?src=\ref[src];purge_reagent=\ref[R]\">Purge Reagent</a><br />"
 	if(output)
 		output += "Total: [round(reagents.total_volume,0.001)]/[reagents.maximum_volume] - <a href=\"?src=\ref[src];purge_all=1\">Purge All</a>"
 	return output || "None"
@@ -448,7 +448,7 @@
 		return 0
 	occupant_message("Analyzing reagents...")
 	for(var/datum/reagent/R in A.reagents.reagent_list)
-		if(R.reagent_state == 2 && add_known_reagent(R.id,R.name))
+		if(R.reagent_state == 2 && add_known_reagent(R.type,R.name))
 			occupant_message("Reagent analyzed, identified as [R.name] and added to database.")
 			send_byjax(chassis.occupant,"msyringegun.browser","reagents_form",get_reagents_form())
 	occupant_message("Analyzis complete.")

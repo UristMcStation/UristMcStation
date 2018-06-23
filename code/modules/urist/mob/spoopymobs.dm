@@ -2,10 +2,9 @@
 	name = "zombie"
 	desc = "Dead man walking - and hungry for your flesh."
 	speak_emote = list("groans")
-	icon = 'icons/mob/human.dmi'
-	icon_state = "husk_s"
-	icon_living = "husk_s"
-	icon_dead = ""
+	icon_state = "zombie_s"
+	icon_living = "zombie_s"
+	icon_dead = "zombie_d"
 	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
@@ -14,14 +13,8 @@
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "undead"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	idle_vision_range = 3
 	aggro_vision_range = 15 //fairly easy to evade a single one, but DO NOT PISS THEM OFF
@@ -74,6 +67,7 @@
 	if(src.contents)
 		for(var/obj/O in src.contents)
 			drop_from_inventory(O)
+	. = ..()
 
 /mob/living/simple_animal/hostile/urist/zombie/generic
 	plague = 0
@@ -87,7 +81,7 @@
 	regen = 1
 	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
-/mob/living/simple_animal/hostile/urist/zombie/regenplague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
+/mob/living/simple_animal/hostile/urist/zombie/regen/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
 	desc = "A bloodthirsty and brain-hungry corpse revived by an unknown infectious pathogen with extreme regenerative abilities."
 	stat_attack = 2
 	regen = 1
@@ -199,7 +193,7 @@
 	return
 
 /mob/living/simple_animal/hostile/scom/civ/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
-	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regenplague
+	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regen/plague
 
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
@@ -231,14 +225,8 @@
 	attacktext = "bit"
 	attack_sound = 'sound/items/drink.ogg'
 	faction = "undead"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	ranged = 0
 	simplify_dead_icon = 1
@@ -261,6 +249,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "skeltal"
 	icon_living = "skeltal"
+	icon_dead = "skeltal_d"
 	faction = "undead"
 	health = 40 //not much keeping them in one piece
 	resistance = 10 //but not much to hit either unless you use a heavy object
@@ -268,14 +257,8 @@
 	attacktext = "stabbed"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 //a more persistent variant of the shadow wight with a different soundset
@@ -285,14 +268,15 @@
 	icon_state = "ghost-narsie"
 	density = 1
 
-/obj/effect/haunter/New()
-	processing_objects.Add(src)
+/obj/effect/haunter/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
 
 /obj/effect/haunter/Destroy()
-	processing_objects.Remove(src)
-	return ..()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
 
-/obj/effect/haunter/process()
+/obj/effect/haunter/Process()
 	if(src.loc)
 		src.loc = get_turf(pick(orange(1,src)))
 		var/mob/living/carbon/M = locate() in src.loc
@@ -312,7 +296,7 @@
 			if(prob(5))
 				src.loc = null
 	else
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSobj, src)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
@@ -474,7 +458,7 @@
 /mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
 	var/attempts = 3
 	while(!(stalkee))
-		stalkee = pick(player_list)
+		stalkee = pick(GLOB.player_list)
 		attempts--
 		var/recheck = 0
 		if(stalkee)
