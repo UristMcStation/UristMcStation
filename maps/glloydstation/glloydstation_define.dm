@@ -36,6 +36,47 @@
 	evac_controller_type = /datum/evacuation_controller/shuttle
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
+	citizenship_choices = list(
+		"Earth",
+		"Mars",
+		"New Earth",
+		"Luna",
+		"Ryclies I",
+		"Venus",
+		"Moghes",
+		"Ahdomai",
+		"Qerrbalak",
+		"Reade III",
+		"Procyon"
+	)
+
+	home_system_choices = list(
+		"Sol",
+		"Nyx",
+		"Tau Ceti",
+		"Epsilon Ursae Minoris",
+		"Zamsiin-lr",
+		"Gilgamesh",
+		"Ryclies",
+		"Reade"
+		)
+
+	faction_choices = list(
+		"Terran Confederacy",
+		"Outer Rim Miners Alliance",
+		"Vey Med",
+		"Einstein Engines",
+		"Free Trade Union",
+		"NanoTrasen",
+		"Ward-Takahashi GMB",
+		"Gilthari Exports",
+		"Grayson Manufactories Ltd.",
+		"Aether Atmospherics",
+		"Zeng-Hu Pharmaceuticals",
+		"Hephaestus Industries",
+		"Commonwealth of Ahdomai"
+		)
+
 /datum/map/glloydstation/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
 	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
