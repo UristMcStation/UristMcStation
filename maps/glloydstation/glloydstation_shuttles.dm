@@ -344,12 +344,6 @@
 	name = "naval shuttle console"
 	shuttle_tag = "Naval"
 
-// I don't even know, some alien ship that's unused
-
-/datum/shuttle/autodock/ferry/alien
-	name = "Alien"
-	flags = SHUTTLE_FLAGS_NONE
-
 // Merchant ship
 
 /datum/shuttle/autodock/ferry/merchant
