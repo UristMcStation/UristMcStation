@@ -3,12 +3,12 @@ var/const/NETWORK_SECOND_DECK		= "Second Deck"
 var/const/NETWORK_THIRD_DECK		= "Third Deck"
 var/const/NETWORK_COMMAND		= "Command"
 
-/datum/map/wyrm/get_network_access(var/network)
+/datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
 		return access_heads
 	return ..()
 
-/datum/map/wyrm
+/datum/map/nerva
 	station_networks = list(
 		NETWORK_FIRST_DECK,
 		NETWORK_SECOND_DECK,
