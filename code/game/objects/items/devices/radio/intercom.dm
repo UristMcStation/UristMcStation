@@ -50,6 +50,10 @@
 	frequency = ENT_FREQ
 	canhear_range = 4
 
+/obj/item/device/radio/intercom/department/command
+	name = "intercom (Command)"
+	frequency = COMM_FREQ
+
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
@@ -70,6 +74,13 @@
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
 		num2text(ENT_FREQ) = list()
+	)
+
+/obj/item/device/radio/intercom/command/Initialize()
+	. = ..()
+	internal_channels = list(
+		num2text(PUB_FREQ) = list(),
+		num2text(COMM_FREQ) = list()
 	)
 
 /obj/item/device/radio/intercom/syndicate
