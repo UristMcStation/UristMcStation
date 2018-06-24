@@ -106,7 +106,6 @@
 	priority = 3
 	can_infect = 0
 	blood_level = 0
-	core_skill = SKILL_EVA
 
 	min_duration = 120
 	max_duration = 180
