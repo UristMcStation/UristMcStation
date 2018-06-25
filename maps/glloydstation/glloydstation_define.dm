@@ -44,7 +44,6 @@
 		"Ryclies I",
 		"Venus",
 		"Moghes",
-		"Ahdomai",
 		"Qerrbalak",
 		"Reade III",
 		"Procyon"
@@ -55,7 +54,6 @@
 		"Nyx",
 		"Tau Ceti",
 		"Epsilon Ursae Minoris",
-		"Zamsiin-lr",
 		"Gilgamesh",
 		"Ryclies",
 		"Reade"
@@ -73,8 +71,7 @@
 		"Grayson Manufactories Ltd.",
 		"Aether Atmospherics",
 		"Zeng-Hu Pharmaceuticals",
-		"Hephaestus Industries",
-		"Commonwealth of Ahdomai"
+		"Hephaestus Industries"
 		)
 
 /datum/map/glloydstation/perform_map_generation()
