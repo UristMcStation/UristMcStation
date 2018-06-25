@@ -27,7 +27,7 @@
 
 		beaker = O
 		user.drop_item()
-		O.forceMove(src)
+		O.loc = src
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 		GLOB.nanomanager.update_uis(src)
@@ -43,7 +43,7 @@
 
 		dish = O
 		user.drop_item()
-		O.forceMove(src)
+		O.loc = src
 
 		user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 		GLOB.nanomanager.update_uis(src)
@@ -102,8 +102,6 @@
 			on = 0
 			icon_state = "incubator"
 
-		var/threshold_mod = 0
-
 		if(foodsupply)
 			if(dish.growth + 3 >= 100 && dish.growth < 100)
 				ping("\The [src] pings, \"Sufficient viral growth density achieved.\"")
@@ -113,7 +111,6 @@
 			GLOB.nanomanager.update_uis(src)
 
 		if(radiation)
-			threshold_mod++
 			if(radiation > 50 & prob(5))
 				dish.virus2.majormutate()
 				if(dish.info)
@@ -132,7 +129,6 @@
 			dish.growth = 0
 			dish.virus2 = null
 			GLOB.nanomanager.update_uis(src)
-		infect_nearby(dish.virus2, 10 * 2**threshold_mod, SKILL_BASIC + threshold_mod)
 	else if(!dish)
 		on = 0
 		icon_state = "incubator"
@@ -156,8 +152,7 @@
 					break
 			GLOB.nanomanager.update_uis(src)
 
-/obj/machinery/disease2/incubator/OnTopic(mob/user, href_list)
-	operator_skill = user.get_skill_value(core_skill)
+/obj/machinery/disease2/incubator/OnTopic(user, href_list)
 	if (href_list["close"])
 		GLOB.nanomanager.close_user_uis(user, src, "main")
 		return TOPIC_HANDLED

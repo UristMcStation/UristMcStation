@@ -23,8 +23,7 @@
 
 	dish = O
 	user.drop_item()
-	O.forceMove(src)
-	operator_skill = user.get_skill_value(core_skill)
+	O.loc = src
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 
@@ -38,24 +37,22 @@
 			if (dish.virus2.addToDB())
 				ping("\The [src] pings, \"New pathogen added to data bank.\"")
 
-			var/list/effects = get_fake_effects(dish.virus2)
-			var/r = dish.virus2.get_info(operator_skill, 1, effects)
-			var/title = "paper - [dish.virus2.name()]"
-			var/info = {"
+			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
+			P.SetName("paper - [dish.virus2.name()]")
+
+			var/r = dish.virus2.get_info()
+			P.info = {"
 				[virology_letterhead("Post-Analysis Memo")]
 				[r]
 				<hr>
 				<u>Additional Notes:</u>&nbsp;
-		"}
-			new /obj/item/weapon/paper(loc, info, title)
-
-			dish.basic_info = dish.virus2.get_info(operator_skill, 0, effects)
+"}
+			dish.basic_info = dish.virus2.get_basic_info()
 			dish.info = r
 			dish.SetName("[initial(dish.name)] ([dish.virus2.name()])")
 			dish.analysed = 1
-			dish.forceMove(loc)
+			dish.loc = src.loc
 			dish = null
-			operator_skill = null
 
 			icon_state = "analyser"
 			src.state("\The [src] prints a sheet of paper.")
@@ -68,16 +65,9 @@
 		else
 			pause = 1
 			spawn(25)
-				dish.forceMove(loc)
+				dish.loc = src.loc
 				dish = null
 
 				src.state("\The [src] buzzes, \"Insufficient growth density to complete analysis.\"")
 				pause = 0
-
-/obj/machinery/disease2/diseaseanalyser/proc/get_fake_effects()
-	. = list()
-	for(var/datum/disease2/effect/E in dish.virus2.effects)
-		if((operator_skill <= SKILL_BASIC && prob(60)) || (operator_skill == SKILL_ADEPT && prob(80)) || (operator_skill > SKILL_ADEPT))
-			. += E //Passed skill check, use real effect
-		else
-			. += get_random_virus2_effect(E.stage, VIRUS_ENGINEERED) //Failed check, get a fake effect
+	return
