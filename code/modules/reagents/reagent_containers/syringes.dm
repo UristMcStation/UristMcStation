@@ -75,7 +75,7 @@
 	if(!target.reagents)
 		return
 
-	if((user.a_intent == I_HURT) && ismob(target))
+	if(user.a_intent == I_HURT && ismob(target))
 		syringestab(target, user)
 		return
 
@@ -151,13 +151,6 @@
 			else
 				user.visible_message("<span class='warning'>\The [user] is trying to take a blood sample from [target].</span>")
 
-			if(prob(user.skill_fail_chance(SKILL_MEDICAL, 60, SKILL_BASIC)))
-				to_chat(user, "<span class='warning'>You miss the vein!</span>")
-				var/target_zone = check_zone(user.zone_sel.selecting)
-				T.apply_damage(3, BRUTE, target_zone, damage_flags=DAM_SHARP)
-				return
-
-			injtime *= user.skill_delay_mult(SKILL_MEDICAL)
 			user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 			user.do_attack_animation(target)
 
@@ -187,9 +180,6 @@
 		update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/proc/injectReagents(var/atom/target, var/mob/user)
-	if(ismob(target) && !user.skill_check(SKILL_MEDICAL, SKILL_BASIC))
-		syringestab(target, user)
-
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='notice'>The syringe is empty.</span>")
 		mode = SYRINGE_DRAW
@@ -239,7 +229,7 @@
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(trackTarget)
 
-		if(!user.do_skilled(injtime, SKILL_MEDICAL, trackTarget))
+		if(!do_after(user, injtime, trackTarget))
 			return
 
 		if(target != trackTarget && target.loc != trackTarget)
@@ -262,7 +252,7 @@
 
 		var/mob/living/carbon/human/H = target
 
-		var/target_zone = check_zone(user.zone_sel.selecting)
+		var/target_zone = ran_zone(check_zone(user.zone_sel.selecting, target))
 		var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 
 		if (!affecting || affecting.is_stump())
@@ -284,11 +274,11 @@
 			return
 
 		user.visible_message("<span class='danger'>[user] stabs [target] in \the [hit_area] with [src.name]!</span>")
-		target.apply_damage(3, BRUTE, target_zone, damage_flags=DAM_SHARP)
+		affecting.take_damage(3)
 
 	else
 		user.visible_message("<span class='danger'>[user] stabs [target] with [src.name]!</span>")
-		target.apply_damage(3, BRUTE)
+		target.take_organ_damage(3)// 7 is the same as crowbar punch
 
 	var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
 	var/contained_reagents = reagents.get_reagents()
