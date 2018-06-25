@@ -42,11 +42,6 @@
 				to_chat(user, "<span class='warning'>You need at least 25 [mat.sheet_plural_name] to make a fusion fuel rod.</span>")
 				return
 			M.use(25)
-		else if(mat.is_fission_fuel)
-			if(M.get_amount() < 5)
-				to_chat(user, "<span class='warning'>You need at least 5 [mat.sheet_plural_name] to make a fission fuel rod.</span>")
-				return
-			M.use(5)
 		else
 			to_chat(user, "<span class='warning'>It would be pointless to make a fuel rod out of [mat.use_name].</span>")
 			return

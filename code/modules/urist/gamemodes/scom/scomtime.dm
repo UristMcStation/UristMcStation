@@ -123,7 +123,7 @@
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
-					if(!QDELETED(object) && !object.initialized)
+					if(!QDELETED(object) && !(object.atom_flags & ATOM_FLAG_INITIALIZED))
 						object.Initialize()
 
 			world.log << "S-COM Maps loaded."

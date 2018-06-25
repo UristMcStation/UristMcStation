@@ -250,10 +250,10 @@ to avoid worrying about the sprites -Glloyd*/
 	set name = "Unfold Bandana"
 	set category = "Object"
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
 		return 0
 
-	var/mob/living/carbon/human/user = usr
 	var/obj/item/clothing/suit/storage/hazardvest/H = new /obj/item/clothing/suit/storage/hazardvest
 
 	user.remove_from_mob(src)
@@ -266,10 +266,10 @@ to avoid worrying about the sprites -Glloyd*/
 	set name = "Fold Bandana"
 	set category = "Object"
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
 		return 0
 
-	var/mob/living/carbon/human/user = usr
 	for(var/obj/item/O in contents)
 		O.loc = (get_turf(src))
 	var/obj/item/clothing/head/urist/hazardbandana/H = new /obj/item/clothing/head/urist/hazardbandana
