@@ -65,9 +65,6 @@
 	var/mob/living/carbon/human/assailant = G.assailant
 	var/mob/living/carbon/human/affecting = G.affecting
 
-	if(!assailant.skill_check(SKILL_COMBAT, SKILL_ADEPT))
-		return
-
 	if(!O)
 		to_chat(assailant, "<span class='warning'>[affecting] is missing that body part!</span>")
 		return 0
@@ -95,9 +92,6 @@
 	var/obj/item/organ/external/O = G.get_targeted_organ()
 	var/mob/living/carbon/human/assailant = G.assailant
 	var/mob/living/carbon/human/affecting = G.affecting
-
-	if(!assailant.skill_check(SKILL_COMBAT, SKILL_ADEPT))
-		return
 
 	if(!O)
 		to_chat(assailant, "<span class='warning'>[affecting] is missing that body part!</span>")
@@ -167,9 +161,6 @@
 /datum/grab/normal/proc/headbutt(var/obj/item/grab/G)
 	var/mob/living/carbon/human/attacker = G.assailant
 	var/mob/living/carbon/human/target = G.affecting
-
-	if(!attacker.skill_check(SKILL_COMBAT, SKILL_BASIC))
-		return
 
 	if(target.lying)
 		return
@@ -253,7 +244,7 @@
 	user.visible_message("<span class='danger'>\The [user] begins to slit [affecting]'s throat with \the [W]!</span>")
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!do_after(user, 20*user.skill_delay_mult(SKILL_COMBAT) , progress = 0))
+	if(!do_after(user, 20, progress = 0))
 		return 0
 	if(!(G && G.affecting == affecting)) //check that we still have a grab
 		return 0
@@ -286,9 +277,6 @@
 
 /datum/grab/normal/proc/attack_tendons(var/obj/item/grab/G, var/obj/item/W, var/mob/living/carbon/human/user, var/target_zone)
 	var/mob/living/carbon/human/affecting = G.affecting
-
-	if(!user.skill_check(SKILL_COMBAT, SKILL_ADEPT))
-		return
 
 	if(user.a_intent != I_HURT)
 		return 0 // Not trying to hurt them.
