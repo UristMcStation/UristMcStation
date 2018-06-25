@@ -1,25 +1,24 @@
-/datum/map/wyrm
-	name = "Wyrm"
-	full_name = "ISC Wyrm"
-	path = "wyrm"
+/datum/map/nerva
+	name = "Nerva"
+	full_name = "ICS Nerva"
+	path = "nerva"
 
-	lobby_icon = 'maps/torch/icons/lobby.dmi'
+	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
 
-	station_levels = list(1,2)
-	contact_levels = list(1,2)
-	player_levels = list(1,2)
-	admin_levels = list(3)
-	empty_levels = list(4)
-	accessible_z_levels = list("1"=5,"2"=5,"4"=50)
+	station_levels = list(1,2,3)
+	contact_levels = list(1,2,3)
+	player_levels = list(1,2,3)
+	admin_levels = list(4)
+	empty_levels = list(5)
+	accessible_z_levels = list("1"=5,"2"=5,"3"=5)
 	overmap_size = 30
 	overmap_event_areas = 25
-//	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
-	station_name  = "ISC Wyrm"
-	station_short = "Wyrm"
+	station_name  = "ICS Nerva"
+	station_short = "Nerva"
 	dock_name     = "TBD"
 	boss_name     = "Automated Announcement Systems"
 	boss_short    = "AAS"
@@ -82,13 +81,13 @@
 		)
 
 
-/datum/map/wyrm/setup_map()
+/datum/map/nerva/setup_map()
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
 
 /datum/map/wyrm/send_welcome()
-	var/welcome_text = "<center><br /><font size = 3><b>ISC Wyrm</b> Sensor Readings:</font><hr />"
+	var/welcome_text = "<center><br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"
 	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
@@ -96,22 +95,22 @@
 	welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
 	welcome_text += "Scan results:<br />"
 	var/list/space_things = list()
-	var/obj/effect/overmap/torch = map_sectors["1"]
+	var/obj/effect/overmap/nerva = map_sectors["1"]
 	for(var/zlevel in map_sectors)
 		var/obj/effect/overmap/O = map_sectors[zlevel]
-		if(O.name == torch.name)
+		if(O.name == nerva.name)
 			continue
 		space_things |= O
 
 	for(var/obj/effect/overmap/O in space_things)
 		var/location_desc = " at present co-ordinates."
-		if (O.loc != torch.loc)
-			var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work
+		if (O.loc != nerva.loc)
+			var/bearing = round(90 - Atan2(O.x - nerva.x, O.y - nerva.y),5) //fucking triangles how do they work
 			if(bearing < 0)
 				bearing += 360
 			location_desc = ", bearing [bearing]."
 		welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
 	welcome_text += "<br>No distress calls logged.<br />"
 
-	post_comm_message("SEV Torch Sensor Readings", welcome_text)
+	post_comm_message("ICS Nerva Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
