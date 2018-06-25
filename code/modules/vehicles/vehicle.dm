@@ -352,6 +352,7 @@
 		unbuckle_mob(load)
 
 	load = null
+	update_icon()
 
 	return 1
 

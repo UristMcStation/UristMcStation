@@ -47,7 +47,7 @@
 	if(!base_state)
 		base_state = icon_state
 
-	if(usr.canmove && !usr.stat && !usr.restrained())
+	if(CanPhysicallyInteract(usr))
 		if(src.up)
 			src.up = !src.up
 			body_parts_covered |= (EYES|FACE)

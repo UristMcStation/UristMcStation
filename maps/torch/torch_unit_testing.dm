@@ -1,6 +1,7 @@
 /datum/map/torch
 	// Unit test exemptions
 	apc_test_exempt_areas = list(
+		/area/aquila/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
 		/area/engineering/auxpower = NO_SCRUBBER|NO_VENT,
 		/area/engineering/drone_fabrication = NO_SCRUBBER|NO_VENT,
@@ -68,9 +69,12 @@
 		/area/mobius_rift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/icarus/vessel = NO_APC,
 		/area/icarus/open = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/hydrobase/station = NO_SCRUBBER
 	)
 
 	area_coherency_test_exempt_areas = list(
+		/area/aquila/airlock,
 		/area/space,
 		/area/mine/explored,
 		/area/mine/unexplored,
@@ -114,7 +118,7 @@
 		/area/exoplanet/garbage,
 		/area/template_noop,
 		/area/map_template,
-		/area/map_template/little_house,
+		/area/map_template/little_house
 	)
 
 	// not an away site? you probably want to be using area_usage_test_exempted_areas
@@ -129,13 +133,13 @@
 		/area/ship,
 		/area/smugglers,
 		/area/slavers_base,
-		/area/hydro,
 		/area/yacht,
 		/area/bluespaceriver,
 		/area/mobius_rift,
 		/area/icarus,
 		/area/errant_pisces,
 		/area/lar_maria,
+		/area/map_template/hydrobase
 	)
 
 /datum/unit_test/zas_area_test/ai_chamber

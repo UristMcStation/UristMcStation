@@ -81,13 +81,15 @@
 
 /obj/item/weapon/contract/wizard/telepathy/contract_effect(mob/user as mob)
 	..()
-	if(!(mRemotetalk in user.mutations))
-		user.mutations.Add(mRemotetalk)
-		user.dna.SetSEState(GLOB.REMOTETALKBLOCK,1)
-		domutcheck(user, null, MUTCHK_FORCED)
-		to_chat(user, "<span class='notice'>You expand your mind outwards.</span>")
-		return 1
-	return 0
+	if (!ishuman(user))
+		return 0
+	var/mob/living/carbon/human/H = user
+	if (mRemotetalk in H.mutations)
+		return 0
+	H.mutations.Add(mRemotetalk)
+	H.verbs += /mob/living/carbon/human/proc/remotesay
+	to_chat(H, "<span class='notice'>You expand your mind outwards.</span>")
+	return 1
 
 /obj/item/weapon/contract/wizard/tk
 	name = "telekinesis contract"
@@ -122,6 +124,9 @@
 
 /obj/item/weapon/contract/boon/contract_effect(mob/user as mob)
 	..()
+	if(user.mind.special_role == ANTAG_SERVANT)
+		to_chat(user, "<span class='warning'>As a servant you find yourself unable to use this contract.</span>")
+		return 0
 	if(ispath(path,/spell))
 		user.add_spell(new path)
 		return 1

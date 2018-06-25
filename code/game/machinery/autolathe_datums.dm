@@ -324,6 +324,12 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_rubber_45ds
+	name = "ammunition (.45, rubber) double-stack"
+	path = /obj/item/ammo_magazine/c45mds/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/speedloader_44_rubber
 	name = "speed loader (.44 magnum, rubber)"
 	path = /obj/item/ammo_magazine/c44/rubber
@@ -338,6 +344,12 @@ var/const/EXTRA_COST_FACTOR = 1.25
 /datum/autolathe/recipe/magazine_flash
 	name = "ammunition (.45, flash)"
 	path = /obj/item/ammo_magazine/c45m/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_flash_45ds
+	name = "ammunition (.45, flash) double-stack"
+	path = /obj/item/ammo_magazine/c45mds/flash
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -466,6 +478,12 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_45ds
+	name = "ammunition (.45) double-stack"
+	path = /obj/item/ammo_magazine/c45mds
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/speedloader_44
 	name = "speed loader (.44 magnum)"
 	path = /obj/item/ammo_magazine/c44
@@ -493,6 +511,18 @@ var/const/EXTRA_COST_FACTOR = 1.25
 /datum/autolathe/recipe/magazine_stetchkin_flash
 	name = "ammunition (9mm, flash)"
 	path = /obj/item/ammo_magazine/mc9mm/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_9mmds
+	name = "ammunition (9mm) double-stack"
+	path = /obj/item/ammo_magazine/mc9mmds
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_stetchkin_flash
+	name = "ammunition (9mm, flash) double-stack"
+	path = /obj/item/ammo_magazine/mc9mmds/flash
 	hidden = 1
 	category = "Arms and Ammunition"
 

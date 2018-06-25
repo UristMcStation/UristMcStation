@@ -34,8 +34,12 @@
 	var/indicator = (faction_indicator && (other in faction_members)) ? faction_indicator : antag_indicator
 	if(src.uristantag)
 		return image('icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
-	else
-		return image('icons/mob/hud.dmi', loc = other.current, icon_state = indicator)
+	var/image/I = image('icons/mob/hud.dmi', loc = other.current, icon_state = indicator, layer = LIGHTING_LAYER+0.1)
+	if(ishuman(other.current))
+		var/mob/living/carbon/human/H = other.current
+		I.pixel_x = H.species.antaghud_offset_x
+		I.pixel_y = H.species.antaghud_offset_y
+	return I
 
 /datum/antagonist/proc/update_all_icons()
 	if(!antag_indicator)

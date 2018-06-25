@@ -8,7 +8,7 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel
+	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
 	in_space = 0
 	var/maxx
 	var/maxy
@@ -21,7 +21,9 @@
 	var/repopulate_types = list() // animals which have died that may come back
 
 	var/features_budget = 2
-	var/list/possible_features = list(/datum/map_template/ruin/exoplanet/monolith) //pre-defined list of features templates to pick from
+	//pre-defined list of features templates to pick from
+	var/list/possible_features = list(/datum/map_template/ruin/exoplanet/monolith,
+									  /datum/map_template/ruin/exoplanet/hydrobase)
 
 /obj/effect/overmap/sector/exoplanet/New(nloc, max_x, max_y)
 	if(!GLOB.using_map.use_overmap)
@@ -39,17 +41,16 @@
 	possible_features.Cut()
 	for(var/T in feature_types)
 		var/datum/map_template/ruin/exoplanet/ruin = new T
-		possible_features[ruin.id] = ruin
+		possible_features += ruin
 	..()
 
 /obj/effect/overmap/sector/exoplanet/proc/build_level()
-	spawn()
-		generate_atmosphere()
-		generate_map()
-		generate_features()
-		generate_landing(4)		//try making 4 landmarks
-		update_biome()
-		START_PROCESSING(SSobj, src)
+	generate_atmosphere()
+	generate_map()
+	generate_features()
+	generate_landing(4)		//try making 4 landmarks
+	update_biome()
+	START_PROCESSING(SSobj, src)
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/sector/exoplanet/proc/get_engravings()
@@ -180,11 +181,24 @@
 //Tries to generate num landmarks, but avoids repeats.
 /obj/effect/overmap/sector/exoplanet/proc/generate_landing(num = 1)
 	var/places = list()
-	for(var/i = 1, i <= num, i++)
+	var/attempts = 5*num
+	while(num)
+		attempts--
 		var/turf/T = locate(rand(20, maxx-20), rand(20, maxy - 10),map_z[map_z.len])
-		if(T && !(T in places))
-			places += T
-			new landmark_type(T)
+		if(!T || (T in places))
+			continue
+		if(attempts >= 0) // While we have the patience, try to find better spawn points. If out of patience, put them down wherever, so long as there are no repeats.
+			var/valid = 1
+			var/list/block_to_check = block(locate(T.x - 10, T.y - 10, T.z), locate(T.x + 10, T.y + 10, T.z))
+			for(var/turf/check in block_to_check)
+				if(!istype(get_area(check), /area/exoplanet) || check.turf_flags & TURF_FLAG_NORUINS)
+					valid = 0
+					break
+			if(!valid)
+				continue
+		num--
+		places += T
+		new landmark_type(T)
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new
@@ -412,9 +426,8 @@
 			if(E.atmosphere)
 				initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
-			if(E.lightlevel)
-				light_max_bright = E.lightlevel
-				light_outer_range = 2
+			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+			set_light(E.lightlevel, 0.1, 2)
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)

@@ -49,16 +49,18 @@
 
 /obj/item/organ/internal/brain/New(var/mob/living/carbon/holder)
 	..()
-	max_damage = 200
 	if(species)
-		max_damage = species.total_health
-	min_bruised_damage = max_damage*0.25
-	min_broken_damage = max_damage*0.75
+		set_max_damage(species.total_health)
+	else
+		set_max_damage(200)
 
-	damage_threshold_value = round(max_damage / damage_threshold_count)
 	spawn(5)
 		if(brainmob && brainmob.client)
 			brainmob.client.screen.len = null //clear the hud
+
+/obj/item/organ/internal/brain/set_max_damage(var/ndamage)
+	..()
+	damage_threshold_value = round(max_damage / damage_threshold_count)
 
 /obj/item/organ/internal/brain/Destroy()
 	QDEL_NULL(brainmob)
@@ -117,11 +119,17 @@
 
 	return 1
 
+/obj/item/organ/internal/brain/can_recover()
+	return ~status & ORGAN_DEAD
+
 /obj/item/organ/internal/brain/slime
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "green slime extract"
+
+/obj/item/organ/internal/brain/slime/can_recover()
+	return 0
 
 /obj/item/organ/internal/brain/golem
 	name = "chem"
@@ -129,6 +137,14 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
 
+/obj/item/organ/internal/brain/golem/can_recover()
+	return 0
+
+/obj/item/organ/internal/brain/starlight
+	name = "essence of fire"
+	desc = "A fancy name for ash. Still, it does look a bit different from the regular stuff."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "ash"
 
 /obj/item/organ/internal/brain/proc/get_current_damage_threshold()
 	return round(damage / damage_threshold_value)
@@ -161,7 +177,7 @@
 
 				if(BLOOD_VOLUME_SAFE to INFINITY)
 					if(can_heal)
-						damage--
+						damage = max(damage-1, 0)
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))
 						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
@@ -189,7 +205,26 @@
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
 					if(prob(damprob))
 						take_damage(1)
+					if(prob(damprob))
+						take_damage(1)
 	..()
+
+/obj/item/organ/internal/brain/take_damage(var/damage)
+	set waitfor = 0
+	..()
+	if(damage >= 10) //This probably won't be triggered by oxyloss or mercury. Probably.
+		var/damage_secondary = damage * 0.20
+		owner.flash_eyes()
+		owner.eye_blurry += damage_secondary
+		owner.confused += damage_secondary * 2
+		owner.Paralyse(damage_secondary)
+		owner.Weaken(round(damage, 1))
+		if(prob(30))
+			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
+
+/obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
+	to_chat(owner, "<span class = 'notice' font size='10'><B>I can't remember which way is forward...</B></span>")
+	owner.confused += damage
 
 /obj/item/organ/internal/brain/proc/handle_disabilities()
 	if(owner.stat)
@@ -227,3 +262,13 @@
 		if(!owner.lying)
 			to_chat(owner, "<span class='danger'>You black out!</span>")
 		owner.Paralyse(10)
+
+/obj/item/organ/internal/brain/surgical_fix(mob/user)
+	var/blood_volume = owner.get_blood_oxygenation()
+	if(blood_volume < BLOOD_VOLUME_SURVIVE)
+		to_chat(user, "<span class='danger'>Parts of [src] didn't survive the procedure due to lack of air supply!</span>")
+		set_max_damage(Floor(max_damage - 0.25*damage))
+	heal_damage(damage)
+
+/obj/item/organ/internal/brain/get_scarring_level()
+	. = (species.total_health - max_damage)/species.total_health
