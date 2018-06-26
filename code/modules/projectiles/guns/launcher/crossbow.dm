@@ -56,7 +56,6 @@
 	fire_sound_text = "a solid thunk"
 	fire_delay = 25
 	slot_flags = SLOT_BACK
-	has_safety = FALSE
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.
@@ -70,9 +69,6 @@
 /obj/item/weapon/gun/launcher/crossbow/Initialize()
 	. = ..()
 	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
-
-/obj/item/weapon/gun/launcher/crossbow/toggle_safety(var/mob/user)
-	to_chat(user, "<span class='warning'>There's no safety on \the [src]!</span>")
 
 /obj/item/weapon/gun/launcher/crossbow/update_release_force()
 	release_force = tension*release_speed
