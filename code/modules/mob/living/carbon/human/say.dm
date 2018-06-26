@@ -25,12 +25,12 @@
 				L.last_failed_breath = world.time - 2 MINUTES
 				return ..(message, alt_name = alt_name, speaking = speaking)
 
-			visible_message("<span class='warning'>[src] gasps!</span>", "<span class='warning'>You don't have enough air in [L] to make a sound!</span>")
+			visible_message("<span class='warning'>[src] gasps in an attempt to speak!</span>", "<span class='warning'>You don't have enough air in [L] to make a sound!</span>")
 			return
 		else if(L.breath_fail_ratio > 0.7)
-			whisper_say(length(message) > 5 ? stars(message) : message, speaking, alt_name)
-		else if(L.breath_fail_ratio > 0.4 && length(message) > 10)
-			whisper_say(message, speaking, alt_name)
+			..(message, speaking = speaking, alt_name = alt_name, whispering = TRUE, verb = "wheezes")
+		else if(L.breath_fail_ratio > 0.4)
+			..(message, speaking = speaking, alt_name = alt_name, verb = "wheezes")
 	else
 		return ..(message, alt_name = alt_name, speaking = speaking, whispering = whispering)
 

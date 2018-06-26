@@ -92,11 +92,11 @@
 				)
 
 			owner.drip(1)
-		if(prob(4))
+		if(prob(2) && owner.losebreath == 0)
 			if(active_breathing)
 				owner.visible_message(
 					"<B>\The [owner]</B> gasps for air!",
-					"<span class='danger'>You can't breathe!</span>",
+					"<span class='danger'>You try to take a breath and fail!</span>",
 					"You hear someone gasp for air!",
 				)
 			else
@@ -131,7 +131,6 @@
 		return 1
 
 	if(!breath)
-		breath_fail_ratio = 1
 		handle_failed_breath()
 		return 1
 
@@ -143,13 +142,12 @@
 		last_ext_pressure = environment.return_pressure()
 		last_int_pressure = breath_pressure
 	if(breath.total_moles == 0)
-		breath_fail_ratio = 1
 		handle_failed_breath()
 		return 1
 
 	var/safe_pressure_min = min_breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 	// Lung damage increases the minimum safe pressure.
-	safe_pressure_min *= 1 + rand(1,4) * damage/max_damage
+	safe_pressure_min = safe_pressure_min ** (1 + damage/max_damage)
 
 	if(!forced && owner.chem_effects[CE_BREATHLOSS] && !owner.chem_effects[CE_STABLE]) //opiates are bad mmkay
 		safe_pressure_min *= 1 + rand(1,4) * owner.chem_effects[CE_BREATHLOSS]
@@ -162,12 +160,12 @@
 
 	// Not enough to breathe
 	if(inhale_efficiency < 1)
-		if(prob(20) && active_breathing)
+		if(prob(5) && active_breathing && breath_fail_ratio > 0.4)
 			owner.emote("gasp")
-		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
+		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
-		breath_fail_ratio = 0
+		breath_fail_ratio = Clamp(0,breath_fail_ratio/2,1)
 
 	owner.oxygen_alert = failed_inhale * 2
 
@@ -238,6 +236,7 @@
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_failed_breath()
+	breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)
