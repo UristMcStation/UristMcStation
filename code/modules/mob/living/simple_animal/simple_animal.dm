@@ -64,9 +64,6 @@
 
 	// contained in a cage
 	var/in_stasis = 0
-
-	var/simplify_dead_icon
-
 /mob/living/simple_animal/Life()
 	..()
 	if(!living_observers_present(GetConnectedZlevels(z)))
@@ -393,3 +390,6 @@
 	return
 /mob/living/simple_animal/ExtinguishMob()
 	return
+
+/mob/living/simple_animal/is_burnable()
+	return heat_damage_per_tick
