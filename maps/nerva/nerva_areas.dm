@@ -46,8 +46,14 @@
 /area/command/fo
 	name = "\improper First Officer's Office"
 
+/area/command/fobedroom
+	name = "\improper First Officer's Bedroom"
+
 /area/command/ce
 	name = "\improper Chief Engineer's Office"
+
+/area/command/storage
+	name = "\improper Bridge Storage"
 
 /area/command/aiupload
 	name = "\improper AI Upload"
@@ -72,6 +78,10 @@
 /area/command/eva
 	name = "\improper EVA"
 	icon_state = "eva"
+
+/area/command/bodyguard
+	name = "\improper Bodyguard's Office"
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
