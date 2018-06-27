@@ -67,6 +67,7 @@
 
 	faction_choices = list(
 		"Terran Confederacy",
+		"United Human Alliance",
 		"Outer Rim Miners Alliance",
 		"Vey Med",
 		"Einstein Engines",
