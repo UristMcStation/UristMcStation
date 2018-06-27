@@ -1444,21 +1444,6 @@ About the new airlock wires panel:
 			if("Default")
 				icon = 'icons/obj/doors/Doorint.dmi'
 				heat_proof = 0
-			if("Engineering")
-				icon = 'icons/obj/doors/Dooreng.dmi'
-				heat_proof = 0
-			if("Atmospherics")
-				icon = 'icons/obj/doors/Dooratmo.dmi'
-				heat_proof = 0
-			if("Security")
-				icon = 'icons/obj/doors/Doorsec.dmi'
-				heat_proof = 0
-			if("Command")
-				icon = 'icons/obj/doors/Doorcom.dmi'
-				heat_proof = 0
-			if("Medical")
-				icon = 'icons/obj/doors/Doormed.dmi'
-				heat_proof = 0
 			if("Research")
 				icon = 'icons/obj/doors/Doorresearch.dmi'
 				heat_proof = 0
