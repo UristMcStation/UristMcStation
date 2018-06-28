@@ -140,7 +140,7 @@ var/list/airlock_overlays = list()
 
 /obj/machinery/door/airlock/research
 	door_color = COLOR_WHITE
-	stripe_color = COLOR_NT_RED
+	stripe_color = "#563c57"
 
 /obj/machinery/door/airlock/science
 	door_color = COLOR_WHITE
@@ -200,7 +200,7 @@ var/list/airlock_overlays = list()
 
 /obj/machinery/door/airlock/glass/research
 	door_color = COLOR_WHITE
-	stripe_color = COLOR_NT_RED
+	stripe_color = "#563c57"
 
 /obj/machinery/door/airlock/glass/science
 	door_color = COLOR_WHITE

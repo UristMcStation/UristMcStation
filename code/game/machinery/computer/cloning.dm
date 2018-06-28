@@ -34,8 +34,8 @@
 	var/obj/machinery/dna_scannernew/scannerf = null
 
 	//Try to find scanner on adjacent tiles first
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+	for(var/direction in list(NORTH,EAST,SOUTH,WEST))
+		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, direction))
 		if (scannerf)
 			return scannerf
 

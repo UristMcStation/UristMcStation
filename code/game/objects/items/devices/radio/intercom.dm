@@ -59,6 +59,14 @@
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
+	if(dir == NORTH)
+		pixel_y = -28
+	else if(dir == SOUTH)
+		pixel_y = 26
+	else if(dir == WEST)
+		pixel_x = 22
+	else if(dir == EAST)
+		pixel_x = -22
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
