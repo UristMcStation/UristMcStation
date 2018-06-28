@@ -1412,53 +1412,17 @@ About the new airlock wires panel:
 		to_chat(usr, brace.examine_health())
 
 //CopyPasta'd from /tg/ by TGameCo
-/obj/machinery/door/airlock/proc/change_paintjob(obj/item/C as obj, mob/user as mob)
-	var/obj/item/weapon/airlock_painter/W
-	if(istype(C, /obj/item/weapon/airlock_painter))
-		W = C
-	else
-		user << "If you see this, it means airlock/change_paintjob() was called with something other than an airlock painter. Check your code!"
+/obj/machinery/door/airlock/proc/change_paintjob(var/obj/item/weapon/airlock_painter/AP, var/mob/user)
+	if(!AP || !AP.use())
 		return
 
-	if(glass == 1)
-		//These airlocks have a glass version.
-		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining")
-		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
-		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
-		switch(paintjob)
-			if("Default")
-				icon = 'icons/obj/doors/Doorglass.dmi'
-				heat_proof = 0
-			if("Research")
-				icon = 'icons/obj/doors/Doorresearchglass.dmi'
-				heat_proof = 1
-			if("Mining")
-				icon = 'icons/obj/doors/Doorminingglass.dmi'
-				heat_proof = 0
-	else
-		//These airlocks have a regular version.
-		var optionlist = list("Default", "Engineering", "Atmospherics", "Security", "Command", "Medical", "Research", "Mining", "Maintenance", "External", "High Security")
-		var paintjob = input(user, "Please select a paintjob for this airlock.") in optionlist
-		if((!in_range(src, usr) && src.loc != usr) || !W.use(user))	return
-		switch(paintjob)
-			if("Default")
-				icon = 'icons/obj/doors/Doorint.dmi'
-				heat_proof = 0
-			if("Research")
-				icon = 'icons/obj/doors/Doorresearch.dmi'
-				heat_proof = 0
-			if("Mining")
-				icon = 'icons/obj/doors/Doormining.dmi'
-				heat_proof = 0
-			if("Maintenance")
-				icon = 'icons/obj/doors/Doormaint.dmi'
-				heat_proof = 0
-			if("External")
-				icon = 'icons/obj/doors/Doorext.dmi'
-				heat_proof = 0
-			if("High Security")
-				icon = 'icons/obj/doors/hightechsecurity.dmi'
-				heat_proof = 0
+	var/choice = input(user, "What would you like to change?","Airlock Painting") in list("Door Color","Stripe Color")
+	switch(choice)
+		if("Door Color")
+			door_color = input(user, "Choose a new door color:", "Airlock Painting", rgb(255,255,255)) as color|null
+		if("Stripe Color")
+			stripe_color = input(user, "Choose a new stripe color:", "Airlock Painting", rgb(255,255,255)) as color|null
+
 	update_icon()
 
 /obj/machinery/door/airlock/autoname
