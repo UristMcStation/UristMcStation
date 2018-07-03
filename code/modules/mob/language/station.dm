@@ -196,6 +196,7 @@
 	desc = "The official language of the Terran Colonial Confederation, evolved from a pidgin of Eastern European languages and English."
 	speech_verb = "speaks"
 	colour = "terran"
+	flags = RESTRICTED
 	key = "r"
 	syllables = list("rus","zem","ave","groz","ski","ska","ven","konst","pol","lin","svy",
 	"danya","da","mied","zan","das","krem","myka","to","st","no","na","ni",
@@ -220,6 +221,7 @@
 /datum/language/spacer
 	name = LANGUAGE_SPACER
 	desc = "A pidgin language spoken by haulers, merchants, traders, travellers, and cocky fly-boys across the galaxy."
+	flags = RESTRICTED
 	colour = "spacer"
 	key = "p"
 	syllables = list ("die", "en", "skei", "van", "son", "der", "aar", "ch", "op", "ruk", "aa", "be", "ne", "het",
