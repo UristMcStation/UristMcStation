@@ -3,7 +3,7 @@
 	full_name = "ICS Nerva"
 	path = "nerva"
 
-	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
+	lobby_icon = 'maps/nerva/nerva_lobby.dmi'
 
 	station_levels = list(1,2,3)
 	contact_levels = list(1,2,3)
