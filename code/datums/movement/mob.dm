@@ -212,15 +212,15 @@
 	if(mob.check_slipmove())
 		return
 
+	// Need to handle grabs before we move
+	var/extra_delay = HandleGrabs(direction)
+	mob.ExtraMoveCooldown(extra_delay)
+
 	//We are now going to move
 	mob.moving = 1
 
 	direction = mob.AdjustMovementDirection(direction)
 	step(mob, direction)
-
-	// Something with pulling things
-	var/extra_delay = HandleGrabs(direction)
-	mob.ExtraMoveCooldown(extra_delay)
 
 	for (var/obj/item/grab/G in mob)
 		if (G.assailant_reverse_facing())
@@ -245,15 +245,10 @@
 				L -= mob
 				var/mob/M = L[1]
 				if(M)
-					if ((get_dist(mob, M) <= 1 || M.loc == mob.loc))
+					if((get_dist(mob, M) <= 1 || M.loc == mob.loc))
 						var/turf/T = mob.loc
-						if (isturf(M.loc))
-							var/diag = get_dir(mob, M)
-							if ((diag - 1) & diag)
-							else
-								diag = null
-							if ((get_dist(mob, M) > 1 || diag))
-								step(M, get_dir(M.loc, T))
+						if(isturf(M.loc))
+							step(M, get_dir(M.loc, T))
 			else
 				for(var/mob/M in L)
 					M.other_mobs = 1
