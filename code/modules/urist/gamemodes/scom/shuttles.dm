@@ -33,7 +33,7 @@
 		user << "<span class='notice'>You're not on a mission yet!</span>"
 		return
 	else
-		for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+		for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 			if(C.location == 0)
 				return
 
@@ -95,7 +95,7 @@
 	command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
 	..()
 
-	for(var/datum/shuttle/autodock/ferry/scom/s2/C in shuttle_controller.process_shuttles)
+	for(var/datum/shuttle/autodock/ferry/scom/s2/C in SSshuttle.process_shuttles)
 		C.launch()
 
 
@@ -117,7 +117,7 @@
 				missionannounce = S.missionannounce //only announce it once
 				mission = S.mission
 				waypoint_offsite = locate(missionloc)
-				for(var/datum/shuttle/autodock/ferry/scom/s2/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s2/C in SSshuttle.process_shuttles)
 					C.missionloc = S.missionloc2
 					C.waypoint_offsite = locate(C.missionloc)
 

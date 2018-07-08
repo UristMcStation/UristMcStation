@@ -89,7 +89,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	spawn(2400)
 		command_announcement.Announce("Launching shuttles in one minute.", "S-COM Shuttle Control")
 		spawn(600)
-			for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+			for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 				C.launch()
 
 /datum/game_mode/scom/process()
@@ -124,7 +124,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 			if(config.SCOM_dynamic_difficulty)
 				update_dyndifficulty()
 			spawn(1200)
-				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 					C.launch()
 					spawn(300)
 						declared = 0
@@ -172,7 +172,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 			sploded = 1
 			command_announcement.Announce("We're launching the shuttles in two minutes and fourty five seconds. I don't think we need to say it twice, get the fuck out of there.", "S-COM Mission Command")
 			spawn(1650)
-				for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 					C.launch()
 				spawn(250) //long enough to luanch both shuttles
 					for(var/mob/living/M in SSmobs.mob_list)
@@ -204,7 +204,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		src <<"<span class='danger'> You do not have the required admin rights.</span>"
 		return
 
-	for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+	for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 		if(!C.missiondelayed)
 			C.missiondelayed = 1
 			message_admins("[key_name(usr)] has delayed the mission timer.")

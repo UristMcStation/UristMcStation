@@ -304,27 +304,19 @@ var/list/mob/living/forced_ambiance_list = new
 			thunk(M)
 		M.update_floating()
 
-/area/proc/thunk(mob)
+/area/proc/thunk(mob/mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
+		return
+
+	if(mob.Check_Shoegrip())
 		return
 
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
-		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & ITEM_FLAG_NOSLIP))
-			return
-
-		if(H.m_intent == M_RUN)
-			H.AdjustStunned(6)
-			H.AdjustWeakened(6)
-		else
-			H.AdjustStunned(3)
+		if(!MOVING_DELIBERATELY(H))
 			H.AdjustWeakened(3)
-		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
-
-		if(H.m_intent == "run")
-			H.AdjustWeakened(2)
 		else
-			H.AdjustWeakened(1)
+			H.AdjustWeakened(2)
 		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()

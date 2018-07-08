@@ -108,7 +108,6 @@
 //////////////////////////////////////////////////////////////////
 /datum/surgery_step/limb/mechanize
 	allowed_tools = list(/obj/item/robot_parts = 100)
-	core_skill = SKILL_DEVICES
 
 	min_duration = 80
 	max_duration = 100

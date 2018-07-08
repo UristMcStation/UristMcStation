@@ -23,7 +23,6 @@
 	if(!user.unEquip(O, src))
 		return
 	dish = O
-	operator_skill = user.get_skill_value(core_skill)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 

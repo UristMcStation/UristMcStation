@@ -771,8 +771,6 @@
 			return global.plant_seed_sprites;
 		if("playable_species")
 			return global.playable_species;
-		if("point_source_descriptions")
-			return global.point_source_descriptions;
 		if("pooledvariables")
 			return global.pooledvariables;
 		if("possible_changeling_IDs")
@@ -1882,8 +1880,6 @@
 			global.plant_seed_sprites=newval;
 		if("playable_species")
 			global.playable_species=newval;
-		if("point_source_descriptions")
-			global.point_source_descriptions=newval;
 		if("pooledvariables")
 			global.pooledvariables=newval;
 		if("possible_changeling_IDs")

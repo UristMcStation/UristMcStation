@@ -148,6 +148,13 @@
 	if(istype(loc, /turf))
 		var/turf/T = loc
 		. += T.movement_delay
+
+	if ((drowsyness > 0) && !MOVING_DELIBERATELY(src))
+		. += 6
+	if(lying) //Crawling, it's slower
+		. += 8 + (weakened * 2)
+	. += move_intent.move_delay
+
 	if(pulling)
 		if(istype(pulling, /obj))
 			var/obj/O = pulling
