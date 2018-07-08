@@ -121,6 +121,7 @@ GLOBAL_LIST_INIT(possible_cable_colours, SetupCableColors())
 		/obj/item/stack/cable_coil/single,
 		/obj/item/stack/cable_coil/cut,
 		/obj/item/stack/cable_coil/cyborg,
+		/obj/item/stack/cable_coil/scrap,
 		/obj/item/stack/cable_coil/random
 	)
 
