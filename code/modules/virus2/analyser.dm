@@ -20,10 +20,10 @@
 	if(dish)
 		to_chat(user, "\The [src] is already loaded.")
 		return
-
+	if(!user.unEquip(O, src))
+		return
 	dish = O
-	user.drop_item()
-	O.loc = src
+	operator_skill = user.get_skill_value(core_skill)
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 

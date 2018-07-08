@@ -77,7 +77,7 @@
 
 /mob/living/carbon/alien/diona/hotkey_drop()
 	if(holding_item || hat)
-		drop_item()
+		unequip_item()
 	else
 		to_chat(usr, "<span class='warning'>You have nothing to drop.</span>")
 

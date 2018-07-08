@@ -66,11 +66,9 @@
 		found = 1
 		scanner = H
 		scanner.do_after_install(user, src)
-	if(found)
+	if(found && user.unEquip(H, src))
 		to_chat(user, "You install \the [H] into \the [src]")
 		H.holder2 = src
-		user.drop_from_inventory(H)
-		H.forceMove(src)
 		update_verbs()
 		return TRUE
 

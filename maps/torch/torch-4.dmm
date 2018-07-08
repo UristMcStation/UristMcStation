@@ -5742,7 +5742,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_one_access = list(11,24)
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -12397,7 +12397,7 @@
 	dir = 8;
 	pixel_x = 25;
 	pixel_y = 0;
-	req_one_access = list(201)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/crew_quarters/sleep/cryo/aux)
@@ -13275,7 +13275,7 @@
 	dir = 8;
 	pixel_x = 25;
 	pixel_y = 0;
-	req_one_access = list(201)
+	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/techfloor,
 /turf/simulated/floor/tiled/dark,
@@ -17178,11 +17178,6 @@
 /obj/structure/skele_stand{
 	anchored = 0
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/firstdeck/aftstarboard)
-"cpb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/aftstarboard)
 "cqb" = (
@@ -24368,6 +24363,13 @@
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/command/captainmess)
+"mJY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/washing_machine,
+/turf/simulated/floor/tiled/white,
+/area/medical/locker)
 "mKb" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8;
@@ -27786,19 +27788,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"sdC" = (
-/obj/structure/sign/directions/security{
-	dir = 2;
-	pixel_y = -4;
-	pixel_z = 0
-	},
-/obj/structure/sign/directions/bridge{
-	dir = 1;
-	pixel_y = 3;
-	pixel_z = 0
-	},
-/turf/simulated/wall/r_wall/prepainted,
-/area/hallway/primary/firstdeck/fore)
+"sde" = (
+/turf/simulated/floor/plating,
+/area/maintenance/firstdeck/aftstarboard)
 "seb" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Xenoflora Lab Maintenance";
@@ -28820,6 +28812,14 @@
 /obj/structure/noticeboard,
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/conference)
+"udY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/table/standard,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled/white,
+/area/medical/locker)
 "ugg" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -51403,13 +51403,13 @@ mpy
 mpy
 acL
 adu
-acL
 afZ
 cxb
 dqb
 dEb
 dQb
 aeY
+mJY
 afZ
 fab
 fSb
@@ -51605,9 +51605,9 @@ mpy
 mpy
 acM
 adv
-cob
 afZ
 aak
+cVb
 cVb
 cVb
 cVb
@@ -51807,12 +51807,12 @@ mpy
 mpy
 acN
 adt
-cpb
 cGb
 cVb
 drb
 drb
 drb
+cVb
 ejb
 eIb
 feb
@@ -52009,10 +52009,10 @@ mpy
 mpy
 chb
 adt
-cqb
 afZ
 cWb
 dsb
+dGb
 dGb
 dGb
 ekb
@@ -52208,16 +52208,16 @@ aaa
 aaa
 mpy
 mpy
-mpy
 acP
+sde
 adt
-acV
 afZ
 cXb
 dpb
 dHb
 dVb
 elb
+udY
 afZ
 fib
 fUb
@@ -52410,8 +52410,8 @@ aaa
 aaa
 mpy
 mpy
-mpy
 acQ
+sde
 adv
 aep
 aep
@@ -52612,8 +52612,8 @@ aaa
 aaa
 mpy
 mpy
-mpy
-acR
+acS
+sde
 adt
 aep
 afn
@@ -52814,8 +52814,8 @@ aaa
 aaa
 mpy
 mpy
-mpy
-acS
+acT
+sde
 adt
 aep
 kYM
@@ -53017,7 +53017,7 @@ aaa
 mpy
 mpy
 mpy
-acT
+acR
 adw
 aep
 mww
@@ -53219,7 +53219,7 @@ aaa
 mpy
 mpy
 mpy
-abL
+cob
 bGb
 crb
 cJb
@@ -53421,7 +53421,7 @@ aaa
 mpy
 mpy
 mpy
-abL
+cqb
 adv
 aep
 cKb
@@ -53623,7 +53623,7 @@ aaa
 mpy
 mpy
 mpy
-abL
+acV
 adt
 aep
 afq

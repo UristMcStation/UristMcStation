@@ -52,9 +52,9 @@
 		if(src.beaker)
 			to_chat(user, "A beaker is already loaded into the machine.")
 			return
+		if(!user.unEquip(B, src))
+			return
 		src.beaker = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -64,10 +64,9 @@
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
-
+		if(!user.unEquip(B, src))
+			return
 		src.loaded_pill_bottle = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
 	else
@@ -329,9 +328,9 @@
 		if (beaker)
 			return 1
 		else
+			if(!user.unEquip(O, src))
+				return
 			src.beaker =  O
-			user.drop_item()
-			O.loc = src
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -378,8 +377,8 @@
 		to_chat(user, "\The [O] is not suitable for blending.")
 		return 1
 
-	user.remove_from_mob(O)
-	O.loc = src
+	if(!user.unEquip(O, src))
+		return
 	holdingitems += O
 	src.updateUsrDialog()
 	return 0

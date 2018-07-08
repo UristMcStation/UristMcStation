@@ -872,7 +872,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(201)
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/crew)
@@ -13967,6 +13967,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/primary/fourthdeck/center)
 "AR" = (

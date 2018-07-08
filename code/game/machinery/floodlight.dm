@@ -129,8 +129,8 @@
 			if(cell)
 				to_chat(user, "There's already a [cell] installed.")
 			else
-				user.drop_item()
-				W.forceMove(src)
+				if(!user.unEquip(W, src))
+					return
 				cell = W
 				to_chat(user, "You insert \the [W].")
 	update_icon()

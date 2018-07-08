@@ -69,8 +69,6 @@
 			finished = new /obj/item/weapon/material/twohanded/quarterstaff(get_turf(user))
 			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
 	if(finished)
-		user.drop_from_inventory(src)
-		user.drop_from_inventory(I)
 		qdel(I)
 		qdel(src)
 		user.put_in_hands(finished)
