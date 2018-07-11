@@ -59,6 +59,9 @@
 
 /datum/gear/tactical/large_pouches
 	flags = null
+	display_name = "black large armor pouches"
+	path = /obj/item/clothing/accessory/storage/pouches/large
+	cost = 5
 
 /datum/gear/tactical/tacticool
 	allowed_roles = null
