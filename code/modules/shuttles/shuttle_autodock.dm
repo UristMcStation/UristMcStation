@@ -119,16 +119,14 @@
 	next_location = null
 	in_use = null	//release lock
 
-/datum/shuttle/autodock/proc/get_travel_time()
-	return move_time
 
 /datum/shuttle/autodock/proc/process_launch()
 	if(!next_location.is_valid(src))
 		process_state = IDLE_STATE
 		in_use = null
 		return
-	if (get_travel_time() && landmark_transition)
-		. = long_jump(next_location, landmark_transition, get_travel_time())
+	if (move_time && landmark_transition)
+		. = long_jump(next_location, landmark_transition, move_time)
 	else
 		. = short_jump(next_location)
 	process_state = WAIT_ARRIVE
