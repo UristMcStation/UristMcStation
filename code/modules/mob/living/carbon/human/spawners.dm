@@ -79,7 +79,7 @@
 			for(var/limb in damage)
 				var/obj/item/organ/external/O = H.organs_by_name[limb]
 				if(O)
-					O.take_damage(damage[limb])
+					O.take_external_damage(damage[limb])
 
 		if(damage["impale"] && ispath(damage["impale"]))
 			var/turf/T = H.near_wall(dir,2)
