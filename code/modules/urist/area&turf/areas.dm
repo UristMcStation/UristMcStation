@@ -1,81 +1,4 @@
-/*Urist McStation Areas!
-
-Basically, if you need to add areas for UMcS, use this file -Glloyd */
-
-//UMcS unique Areas
-
-/area/hallway/secondary/entry
-	name = "\improper Arrival Shuttle Hallway"
-	icon_state = "entry_1"
-
-/area/tcommsat/pirate
-	name = "\improper Pirate Server Room"
-	icon_state = "tcomsatcham"
-
-/area/crew_quarters/pool
-	name = "\improper Pool"
-	icon_state = "bluenew"
-
-/area/crew_quarters/lounge
-	name = "\improper Lounge"
-	icon_state = "lounge"
-
-/area/bridge/meeting_hall
-	name = "\improper Meeting Hall"
-	icon_state = "bridge"
-
-/area/crew_quarters/heads_dorms //Noble's Quarters, hehehe.
-	name = "\improper Heads of Staff Dorms"
-	icon_state = "head_quarters"
-
-/area/storage/emergency3
-	name = "\improper Escape Emergency Storage" //Because yolo
-	icon_state = "emergencystorage"
-
-/area/crew_quarters/party //needs the crewquarters before it because of gamemode code
- 	name = "\improper Party Room"
- 	icon_state = "yellow"
-
-/area/centcom/scom
-	name = "\improper S-COM Headquarters"
-
-/area/centcom/antag
-	name = "\improper A.N.T.A.G Base"
-
-/area/medical/lounge
-	name = "\improper Medbay Lounge"
-	icon_state = "medbay2"
-
-/area/medical/psychoffice
-	name = "\improper Psychologist's Office"
-	icon_state = "medbay3"
-
-/area/crew_quarters/sleep/sci
-	name = "\improper Research Dormitories"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep/med
-	name = "\improper Medbay Dormitories"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep/engi
-	name = "\improper Engineering Dormitories"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep/sec
-	name = "\improper Security Dormitories"
-	icon_state = "Sleep"
-
-/area/bridge/blueshield
-	name = "\improper Blueshield's Office"
-
-/area/shuttle/arrivals/centcom
-	name = "\improper Arrival Shuttle CentComm"
-	icon_state = "shuttle"
-
-/area/engineering/singulo
-	name = "\improper Engineering Singularity"
-	icon_state = "engineering_workshop"
+// This file is for areas that are either shared across all maps, or for runtime loaded event maps.
 
 //Maintenance soundsssss
 /area/maintenance
@@ -99,16 +22,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/awaymission/train
 	name = "\improper Train Station"
-
-//fixing tcomms
-
-/area/tcommsat/chamber/abandoned
-	name = "\improper Abandoned Satellite"
-	icon_state = "tcomsatcham"
-
-/area/tcommsat/chamber/server
-	name = "\improper Telecoms Server Room"
-	icon_state = "tcomsatcham"
 
 //Shuttlessssssss
 
@@ -153,11 +66,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 	luminosity = 0
 	dynamic_lighting = 1
 
-//centcahm
-
-/area/centcom/transit
-	name = "\improper Centcom Transit Area"
-
 //event shuttles
 
 /area/shuttle/event1
@@ -185,42 +93,6 @@ Basically, if you need to add areas for UMcS, use this file -Glloyd */
 
 /area/shuttle/event2/l3
 	name = "\improper Event 2 - 3 "
-
-//elevators
-
-/area/shuttle/elevator
-	dynamic_lighting = 0
-
-/area/shuttle/elevator/mining/surface
-	name = "\improper Mining Elevator"
-	icon_state = "shuttle"
-
-/area/shuttle/elevator/research/surface
-	name = "\improper Research Elevator"
-	icon_state = "shuttle"
-
-//security outpost
-
-/area/shuttle/securityoutpost
-	icon_state = "shuttle"
-
-/area/shuttle/securityoutpost/station
-	name = "\improper Security Outpost Shuttle Station"
-	base_turf = null
-
-/area/outpost/security
-	icon_state = "security"
-
-/area/outpost/security/hallway
-	name = "\improper Security Outpost Hallway"
-
-/area/outpost/security/lounge
-	name = "\improper Security Outpost Lounge"
-	icon_state = "checkpoint1"
-
-/area/outpost/security/storage
-	name = "\improper Security Outpost Storage"
-	icon_state = "storage"
 
 //REMEMBER THIS FOR THE MERGE //I forgot
 

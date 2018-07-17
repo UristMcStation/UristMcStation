@@ -1,0 +1,50 @@
+/datum/map/wyrm
+
+	apc_test_exempt_areas = list(
+		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/rnd/xenobiology/xenoflora_storage = NO_SCRUBBER|NO_VENT,
+		/area/engineering/extsubmaint = NO_SCRUBBER,
+		/area/maintenance/construction = NO_APC,
+		/area/engineering/teg = NO_SCRUBBER|NO_VENT,
+		/area/engineering/externalmaint = NO_SCRUBBER,
+		/area/engineering/atmos = NO_SCRUBBER,
+		/area/maintenance/primary/fp = NO_SCRUBBER|NO_VENT,
+		/area/pod/start = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/primary/engp = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/engineering/atmosmon = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/primary/med = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/primary/fs = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/primary/sec = NO_SCRUBBER|NO_VENT,
+		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/maintenance/primary/engs = NO_SCRUBBER|NO_VENT,
+		/area/turbolift/freightsub = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/turbolift/freightmain = NO_SCRUBBER|NO_VENT|NO_APC
+	)
+
+	area_coherency_test_exempt_areas = list(
+		/area/maintenance/primary/sec
+	)
+
+	area_usage_test_exempted_root_areas = list(
+		/area/casino,
+		/area/constructionsite,
+		/area/derelict,
+		/area/lost_supply_base,
+		/area/magshield,
+		/area/mine,
+		/area/ship,
+		/area/smugglers,
+		/area/slavers_base,
+		/area/yacht,
+		/area/bluespaceriver,
+		/area/mobius_rift,
+		/area/icarus,
+		/area/errant_pisces,
+		/area/map_template,
+		/area/exoplanet,
+		/area/lanius,
+		/area/jungle,
+		/area/scom,
+		/area/shuttle/naval1,
+		/area/shuttle/scom
+	)

@@ -14,3 +14,4 @@
 	icon = 'maps/wyrm/icons/awaymission.dmi'
 	layer = ABOVE_HUMAN_LAYER
 	plane = ABOVE_HUMAN_PLANE
+	width = 2
