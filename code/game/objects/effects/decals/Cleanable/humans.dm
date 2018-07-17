@@ -53,7 +53,7 @@ var/global/list/image/splatter_cache=list()
 				if(B != src)
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
-					qdel(B)
+					QDEL_IN(B,0)
 	drytime = world.time + DRYING_TIME * (amount+1)
 	START_PROCESSING(SSobj, src)
 

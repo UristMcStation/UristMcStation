@@ -1557,3 +1557,17 @@ area/rnd/test_area
 /area/outpost/abandoned
 	name = "Abandoned Outpost"
 	icon_state = "dark"
+
+//REMEMBER THIS FOR THE MERGE //I forgot
+
+/area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
+
+/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid
+
+/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
+
+/area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
+
+/area/shuttle/constructionsite/base_turf = /turf/simulated/floor/planet/jungle/clear
+
+/area/shuttle/securityoutpost/base_turf = /turf/simulated/floor/planet/jungle/clear

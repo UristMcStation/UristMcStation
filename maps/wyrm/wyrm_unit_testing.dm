@@ -18,11 +18,26 @@
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance/primary/engs = NO_SCRUBBER|NO_VENT,
 		/area/turbolift/freightsub = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/turbolift/freightmain = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/turbolift/freightmain = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/rescue/start = NO_SCRUBBER,
+		/area/exoplanet          = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/snow     = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_coherency_test_exempt_areas = list(
 		/area/maintenance/primary/sec
+	)
+
+	area_usage_test_exempted_areas = list(
+		/area/AIsattele,
+		/area/djstation,
+		/area/outpost,
+		/area/outpost/abandoned,
+		/area/jungleoutpost,
+		/area/science/xenoarch
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -40,11 +55,20 @@
 		/area/mobius_rift,
 		/area/icarus,
 		/area/errant_pisces,
+		/area/lar_maria,
 		/area/map_template,
 		/area/exoplanet,
 		/area/lanius,
 		/area/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
-		/area/shuttle/scom
+		/area/shuttle/scom,
+		/area/shuttle/train,
+		/area/shuttle/event1,
+		/area/shuttle/event2,
+		/area/shuttle/assault,
+		/area/shuttle/infestation,
+		/area/awaymission,
+		/area/outpost,
+		/area/away
 	)

@@ -24,7 +24,6 @@
 	#include "wyrm-3.dmm"
 	#include "wyrm-4.dmm"
 
-	#include "../away/empty.dmm"
 	#include "../away/mining/mining.dm"
 	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
