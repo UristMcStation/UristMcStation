@@ -15,8 +15,9 @@
 		/area/maintenance/primary/med = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/primary/fs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/primary/sec = NO_SCRUBBER|NO_VENT,
-		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance/primary/engs = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/primary/cargo = NO_SCRUBBER|NO_VENT,
+		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift/freightsub = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift/freightmain = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/rescue/start = NO_SCRUBBER,
@@ -27,17 +28,30 @@
 		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
-	area_coherency_test_exempt_areas = list(
-		/area/maintenance/primary/sec
-	)
-
 	area_usage_test_exempted_areas = list(
 		/area/AIsattele,
 		/area/djstation,
 		/area/outpost,
 		/area/outpost/abandoned,
 		/area/jungleoutpost,
-		/area/science/xenoarch
+		/area/science/xenoarch,
+		/area/centcom/holding,
+		/area/centcom/specops,
+		/area/centcom/holding,
+		/area/chapel,
+		/area/medical/virologyaccess,
+		/area/security/prison,
+		/area/shuttle/escape/centcom,
+		/area/shuttle/specops/centcom,
+		/area/shuttle/syndicate_elite/mothership,
+		/area/skipjack_station/start,
+		/area/syndicate_mothership/elite_squad,
+		/area/wizard_station,
+		/area/beach,
+		/area/template_noop,
+		/area/overmap,
+		/area/infestation,
+		/area/command/ce
 	)
 
 	area_usage_test_exempted_root_areas = list(
