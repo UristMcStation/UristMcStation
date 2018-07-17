@@ -70,8 +70,6 @@
 			else
 				neighbours |= other
 	activated = 1
-	for(var/obj/effect/wallframe_spawn/other in neighbours)
-		if(!other.activated) other.activate()
 
 /obj/effect/wallframe_spawn/proc/handle_frame_spawn(var/obj/structure/wall_frame/F)
 	for(var/direction in GLOB.cardinal)
