@@ -124,13 +124,20 @@ var/list/flooring_types
 	icon_base = "monotile"
 	build_type = /obj/item/stack/tile/mono
 
+/decl/flooring/tiling/mono/dark
+	color = COLOR_DARK_GRAY
+	build_type = /obj/item/stack/tile/mono/dark
+
+/decl/flooring/tiling/mono/white
+	icon_base = "monotile_light"
+	color = COLOR_OFF_WHITE
+	build_type = /obj/item/stack/tile/mono/white
+
 /decl/flooring/tiling/white
+	icon_base = "tiled_light"
 	desc = "How sterile."
 	color = COLOR_OFF_WHITE
 	build_type = /obj/item/stack/tile/floor_white
-
-/decl/flooring/tiling/white/mono
-	icon_base = "monotile"
 
 /decl/flooring/tiling/white/sand
 	color = "#b2afa6"

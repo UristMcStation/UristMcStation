@@ -15,9 +15,9 @@
 #define LANGUAGE_INDEPENDENT "Independent"
 #define LANGUAGE_NABBER "Serpentid"
 #define LANGUAGE_SPACER "Spacer"
-#define LANGUAGE_BOGANI "Bogani"
 #define LANGUAGE_RESOMI "Schechi"
 #define LANGUAGE_ALIUM "Alium"
+#define LANGUAGE_OCCULT "Occult"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.

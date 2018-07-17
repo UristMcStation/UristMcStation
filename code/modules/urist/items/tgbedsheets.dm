@@ -287,10 +287,10 @@ LINEN BINS
 	set category = "Object"
 //	set src in usr
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
 		return 0
 
-	var/mob/living/carbon/human/user = usr
 	if(icon_state == "sheetwhite")
 		var/obj/item/clothing/mask/urist/bandana/bedsheet/white/B = new /obj/item/clothing/mask/urist/bandana/bedsheet/white
 

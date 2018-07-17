@@ -93,7 +93,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
 			var/obj/item/organ/external/E = H.organs_by_name[BP_CHEST]
-			E.take_damage(25)
+			E.take_external_damage(25)
 			return 1
 		if(do_after_cooldown(target))
 			if(T == chassis.loc && src == chassis.selected)
@@ -933,7 +933,7 @@
 
 	process(var/obj/item/mecha_parts/mecha_equipment/generator/nuclear/EG)
 		if(..())
-			radiation_repository.radiate(EG, (EG.rad_per_cycle * 3))
+			SSradiation.radiate(EG, (EG.rad_per_cycle * 3))
 		return 1
 
 

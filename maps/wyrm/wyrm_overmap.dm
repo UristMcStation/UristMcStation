@@ -22,13 +22,6 @@
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/lanius/start
-	name = "\improper Aura"
-	icon_state = "shuttlered"
-	requires_power = 1
-	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED
-
 /obj/effect/overmap/ship/wyrm
 	name = "ISC Wyrm"
 	vessel_mass = 150
@@ -107,13 +100,6 @@
 	current_location = "wyrm_docked_hatchling"
 	landmark_transition = "nav_transit_hatchling"
 
-/datum/shuttle/autodock/overmap/lanius
-	name = "Aura"
-	move_time = 40
-	shuttle_area = /area/lanius/start
-	current_location = "contact_light_lanius"
-	landmark_transition = "nav_transit_lanius"
-
 /datum/shuttle/autodock/ferry/escape_pod/pod
 	name = "Escape Pod"
 	shuttle_area = /area/pod/start
@@ -190,25 +176,6 @@
 /obj/effect/shuttle_landmark/random
 	name = "Unknown Navpoint"
 	landmark_tag = "random_away"
-
-// RoR reference
-
-/obj/effect/overmap/sector/distress
-	name = "distress signal"
-	desc = "Emergency signal detected. No further data avaliable."
-	icon_state = "event"
-	restricted_waypoints = list(
-		"Hatchling" = list("distress_signal"),
-		"Aura" = list("contact_light_lanius")
-	)
-
-/obj/effect/shuttle_landmark/distress
-	name = "Unknown Navpoint"
-	landmark_tag = "distress_signal"
-
-/obj/effect/shuttle_landmark/contact_light_lanius
-	name = "Unknown Navpoint"
-	landmark_tag = "contact_light_lanius"
 
 // illegal mining colony & maint drone takeover
 

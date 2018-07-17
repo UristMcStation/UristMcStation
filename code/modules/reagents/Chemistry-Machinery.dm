@@ -3,8 +3,6 @@
 #define GAS 3
 
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
-#define REAGENTS_PER_SHEET 20
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,9 +52,9 @@
 		if(src.beaker)
 			to_chat(user, "A beaker is already loaded into the machine.")
 			return
+		if(!user.unEquip(B, src))
+			return
 		src.beaker = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -66,10 +64,9 @@
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
-
+		if(!user.unEquip(B, src))
+			return
 		src.loaded_pill_bottle = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
 	else
@@ -312,20 +309,6 @@
 	var/obj/item/weapon/reagent_containers/beaker = null
 	var/limit = 10
 	var/list/holdingitems = list()
-	var/list/sheet_reagents = list(
-		/obj/item/stack/material/iron = /datum/reagent/iron,
-		/obj/item/stack/material/uranium = /datum/reagent/uranium,
-		/obj/item/stack/material/uranium/ten = /datum/reagent/uranium,
-		/obj/item/stack/material/phoron = /datum/reagent/toxin/phoron,
-		/obj/item/stack/material/phoron/ten = /datum/reagent/toxin/phoron,
-		/obj/item/stack/material/phoron/fifty = /datum/reagent/toxin/phoron,
-		/obj/item/stack/material/gold = /datum/reagent/gold,
-		/obj/item/stack/material/gold/ten = /datum/reagent/gold,
-		/obj/item/stack/material/silver = /datum/reagent/silver,
-		/obj/item/stack/material/silver/ten = /datum/reagent/silver,
-		/obj/item/stack/material/mhydrogen = /datum/reagent/hydrazine,
-		/obj/item/stack/material/mhydrogen/ten = /datum/reagent/hydrazine
-		)
 
 /obj/machinery/reagentgrinder/New()
 	..()
@@ -345,9 +328,9 @@
 		if (beaker)
 			return 1
 		else
+			if(!user.unEquip(O, src))
+				return
 			src.beaker =  O
-			user.drop_item()
-			O.loc = src
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -383,12 +366,19 @@
 		src.updateUsrDialog()
 		return 0
 
-	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
+	if(istype(O,/obj/item/stack/material))
+		var/obj/item/stack/material/stack = O
+		var/material/material = stack.material
+		if(!material.chem_products.len)
+			to_chat(user, "\The [material.name] is unable to produce any usable reagents.")
+			return 1
+
+	if(!O.reagents || !O.reagents.total_volume)
 		to_chat(user, "\The [O] is not suitable for blending.")
 		return 1
 
-	user.remove_from_mob(O)
-	O.loc = src
+	if(!user.unEquip(O, src))
+		return
 	holdingitems += O
 	src.updateUsrDialog()
 	return 0
@@ -507,16 +497,25 @@
 		if(remaining_volume <= 0)
 			break
 
-		if(sheet_reagents[O.type])
-			var/obj/item/stack/stack = O
-			if(istype(stack))
-				var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/REAGENTS_PER_SHEET)))
-				if(amount_to_take)
-					stack.use(amount_to_take)
-					if(QDELETED(stack))
-						holdingitems -= stack
-					beaker.reagents.add_reagent(sheet_reagents[stack.type], (amount_to_take*REAGENTS_PER_SHEET))
-					continue
+		var/obj/item/stack/material/stack = O
+		if(istype(stack))
+			var/material/material = stack.material
+			if(!material.chem_products.len)
+				break
+
+			var/list/chem_products = material.chem_products
+			var/sheet_volume = 0
+			for(var/chem in chem_products)
+				sheet_volume += chem_products[chem]
+
+			var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/sheet_volume)))
+			if(amount_to_take)
+				stack.use(amount_to_take)
+				if(QDELETED(stack))
+					holdingitems -= stack
+				for(var/chem in chem_products)
+					beaker.reagents.add_reagent(chem, (amount_to_take*chem_products[chem]))
+				continue
 
 		if(O.reagents)
 			O.reagents.trans_to(beaker, min(O.reagents.total_volume, remaining_volume))
@@ -525,5 +524,3 @@
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
-
-#undef REAGENTS_PER_SHEET

@@ -6,9 +6,10 @@
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
 	return ((robotic >= ORGAN_ROBOT) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
-/obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null)
-	if(!owner)
-		return
+obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
+	take_external_damage(amount)
+
+/obj/item/organ/external/proc/take_external_damage(brute, burn, damage_flags, used_weapon = null)
 	brute = round(brute * get_brute_mod(), 0.1)
 	burn = round(burn * get_burn_mod(), 0.1)
 	if((brute <= 0) && (burn <= 0))
@@ -31,8 +32,7 @@
 		else
 			spillover = brute_dam + burn_dam + brute + burn - max_damage
 			if(spillover > 0)
-				burn -= spillover
-
+				burn = max(burn - spillover, 0)
 	owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
@@ -40,7 +40,7 @@
 			var/total_damage = brute_dam + burn_dam + brute + burn + spillover
 			var/threshold = max_damage * config.organ_health_multiplier
 			if(total_damage > threshold)
-				if(attempt_dismemberment(pure_brute, burn, edge, used_weapon, spillover, total_damage > threshold*4))
+				if(attempt_dismemberment(pure_brute, burn, edge, used_weapon, spillover, total_damage > threshold*3))
 					return
 
 	// High brute damage or sharp objects may damage internal organs
@@ -64,12 +64,13 @@
 					victims += I
 			if(!victims.len)
 				victims += pick(internal_organs)
-			for(var/obj/item/organ/victim in victims)
+			for(var/v in victims)
+				var/obj/item/organ/internal/victim = v
 				brute /= 2
 				if(laser)
 					burn /= 2
 				damage_amt /= 2
-				victim.take_damage(damage_amt)
+				victim.take_internal_damage(damage_amt)
 
 	if(status & ORGAN_BROKEN && brute)
 		jostle_bone(brute)
@@ -271,7 +272,7 @@
 //2. If the damage amount dealt exceeds the disintegrate threshold, the organ is completely obliterated.
 //3. If the organ has already reached or would be put over it's max damage amount (currently redundant),
 //   and the brute damage dealt exceeds the tearoff threshold, the organ is torn off.
-/obj/item/organ/external/proc/attempt_dismemberment(brute, burn, edge, weapon, used_weapon, spillover, force_droplimb)
+/obj/item/organ/external/proc/attempt_dismemberment(brute, burn, edge, used_weapon, spillover, force_droplimb)
 	//Check edge eligibility
 	var/edge_eligible = 0
 	if(edge)
@@ -281,22 +282,27 @@
 				edge_eligible = 1
 		else
 			edge_eligible = 1
+
+	if(force_droplimb)
+		if(burn)
+			droplimb(0, DROPLIMB_BURN)
+		else if(brute)
+			droplimb(0, edge_eligible ? DROPLIMB_EDGE : DROPLIMB_BLUNT)
+		return TRUE
+
 	if(edge_eligible && brute >= max_damage / DROPLIMB_THRESHOLD_EDGE)
-		if(prob(brute) || force_droplimb)
+		if(prob(brute))
 			droplimb(0, DROPLIMB_EDGE)
 			return TRUE
 	else if(burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY)
-		if(prob(burn/3) || force_droplimb)
+		if(prob(burn/3))
 			droplimb(0, DROPLIMB_BURN)
 			return TRUE
 	else if(brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY)
-		if(prob(brute) || force_droplimb)
+		if(prob(brute))
 			droplimb(0, DROPLIMB_BLUNT)
 			return TRUE
 	else if(brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF)
-		if(prob(brute/3) || force_droplimb)
+		if(prob(brute/3))
 			droplimb(0, DROPLIMB_EDGE)
 			return TRUE
-	else if(force_droplimb)
-		droplimb(0, DROPLIMB_BLUNT)
-		return TRUE

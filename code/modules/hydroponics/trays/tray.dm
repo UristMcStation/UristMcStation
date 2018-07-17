@@ -80,9 +80,11 @@
 		/datum/reagent/adminordrazine = -5
 		)
 	var/global/list/pestkiller_reagents = list(
-		/datum/reagent/sugar =           2,
-		/datum/reagent/diethylamine =   -2,
-		/datum/reagent/adminordrazine = -5
+		/datum/reagent/sugar =                 2,
+		/datum/reagent/diethylamine =         -2,
+		/datum/reagent/toxin/bromide =        -2,
+		/datum/reagent/toxin/methyl_bromide = -4,
+		/datum/reagent/adminordrazine =       -5
 		)
 	var/global/list/water_reagents = list(
 		/datum/reagent/water =           1,
@@ -466,9 +468,7 @@
 	else if (istype(O, /obj/item/seeds))
 
 		if(!seed)
-
 			var/obj/item/seeds/S = O
-			user.remove_from_mob(O)
 
 			if(!S.seed)
 				to_chat(user, "The packet seems to be empty. You throw it away.")
@@ -513,7 +513,6 @@
 	else if ( istype(O, /obj/item/weapon/plantspray) )
 
 		var/obj/item/weapon/plantspray/spray = O
-		user.remove_from_mob(O)
 		toxins += spray.toxicity
 		pestlevel -= spray.pest_kill_str
 		weedlevel -= spray.weed_kill_str

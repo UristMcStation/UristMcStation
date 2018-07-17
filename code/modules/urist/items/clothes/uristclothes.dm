@@ -172,7 +172,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 		set category = "Object"
 		set src in usr
 
-		if(!usr.canmove || usr.stat || usr.restrained())
+		var/mob/living/carbon/human/user = usr
+		if(user.incapacitated())
 			return 0
 
 		switch(icon_state)

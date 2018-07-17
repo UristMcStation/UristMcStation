@@ -546,7 +546,7 @@
 	else if(istype(O, /mob/living/carbon) && !bridge)
 		var/mob/living/carbon/M = O
 		//slip in the murky water if we try to run through it
-		if(prob(10 + (M.m_intent == "run" ? 40 : 0)))
+		if(prob(10 + (!MOVING_DELIBERATELY(M) ? 40 : 0)))
 			to_chat(M, pick("<span class='notice'> You slip on something slimy.</span>","<span class='notice'> You fall over into the murk.</span>"))
 			M.Stun(2)
 			M.Weaken(1)

@@ -87,7 +87,7 @@
 		H.paralysis += 2 //as above
 		H.status_flags &= ~(FAKEDEATH)
 		H.resuscitate()
-		H.update_canmove()
+		H.UpdateLyingBuckledAndVerbStatus()
 		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
 
 	do
@@ -467,7 +467,7 @@
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
-	if(usr.z == 2)
+	if(usr.z in GLOB.using_map.admin_levels)
 		return 0
 
 	else if(M.current.vampire_power(15, 0))
@@ -497,7 +497,6 @@
 			animation.loc = mobloc
 			steam.location = mobloc
 			steam.start()
-			M.current.canmove = 0
 			sleep(20)
 			flick("reappear",animation)
 			sleep(5)
@@ -507,7 +506,6 @@
 					if(T)
 						if(M.current.Move(T))
 							break
-			M.current.canmove = 1
 			M.current.client.eye = M.current
 			qdel(animation)
 			qdel(holder)

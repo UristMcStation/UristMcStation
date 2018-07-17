@@ -89,15 +89,9 @@
 /obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
 	if(!istype(G))
 		return ..()
-	if (!ismob(G.affecting))
-		return
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
-	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
-		return
 	var/mob/M = G.affecting
+	if(!user_can_move_target_inside(M, user))
+		return
 	M.forceMove(src)
 	src.occupant = M
 	update_use_power(2)
@@ -105,23 +99,30 @@
 	src.add_fingerprint(user)
 	qdel(G)
 
+/obj/machinery/bodyscanner/proc/user_can_move_target_inside(var/mob/target, var/mob/user)
+	if(!istype(user) || !istype(target))
+		return FALSE
+	if(!CanMouseDrop(target, user))
+		return FALSE
+	if(occupant)
+		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
+		return FALSE
+	if(target.abiotic())
+		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
+		return FALSE
+	if(target.buckled)
+		to_chat(user, "<span class='warning'>Unbuckle the subject before attempting to move them.</span>")
+		return FALSE
+	return TRUE
+
 //Like grap-put, but for mouse-drop.
 /obj/machinery/bodyscanner/MouseDrop_T(var/mob/target, var/mob/user)
-	if(!istype(target))
-		return
-	if (!CanMouseDrop(target, user))
-		return
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
-	if (target.abiotic())
-		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return
-	if (target.buckled)
-		to_chat(user, "<span class='warning'>Unbuckle the subject before attempting to move them.</span>")
+	if(!user_can_move_target_inside(target, user))
 		return
 	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
 	if(!do_after(user, 30, src))
+		return
+	if(!user_can_move_target_inside(target, user))
 		return
 	var/mob/M = target
 	M.forceMove(src)
@@ -277,7 +278,7 @@
 		return
 	return attack_hand(user)
 
-/obj/machinery/body_scanconsole/OnTopic(user, href_list)
+/obj/machinery/body_scanconsole/OnTopic(mob/user, href_list)
 	if (href_list["print"])
 		if (!src.connected)
 			to_chat(user, "\icon[src]<span class='warning'>Error: No body scanner connected.</span>")
@@ -321,6 +322,7 @@
 	dat += "<b>Brain activity:</b> [brain_result]"
 
 	var/pulse_result = "normal"
+	var/pulse_suffix = "bpm"
 	if(H.should_have_organ(BP_HEART))
 		if(H.status_flags & FAKEDEATH)
 			pulse_result = 0
@@ -328,7 +330,8 @@
 			pulse_result = H.get_pulse(1)
 	else
 		pulse_result = "ERROR - Nonstandard biology"
-	dat += "<b>Pulse rate:</b> [pulse_result]bpm."
+		pulse_suffix = ""
+	dat += "<b>Pulse rate:</b> [pulse_result][pulse_suffix]"
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.get_blood_volume() <= 70)
@@ -376,9 +379,9 @@
 		else
 			table += "<td>"
 			if(E.brute_dam)
-				table += "[capitalize(get_wound_severity(E.brute_ratio, E.vital))] physical trauma"
+				table += "[capitalize(get_wound_severity(E.brute_ratio, E.can_heal_overkill))] physical trauma"
 			if(E.burn_dam)
-				table += " [capitalize(get_wound_severity(E.burn_ratio, E.vital))] burns"
+				table += " [capitalize(get_wound_severity(E.burn_ratio, E.can_heal_overkill))] burns"
 			if(E.brute_dam + E.burn_dam == 0)
 				table += "None"
 			table += "</td><td>[english_list(E.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"
