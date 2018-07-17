@@ -47,6 +47,8 @@
 
 /obj/item/weapon/card/id/bodyguard
 	name = "identification card"
-	desc = "A card issued to those crazy enough to put their life on the line for the Heads of Staff."
+	desc = "A card issued to those crazy enough to put their life on the line for the Officers."
 	icon_state = "centcom"
 	job_access_type = /datum/job/blueshield
+
+/datum/job/firstofficer

@@ -11,8 +11,8 @@
 	admin_levels = list(4)
 	empty_levels = list(5)
 	accessible_z_levels = list("1"=5,"2"=5,"3"=5)
-	overmap_size = 30
-	overmap_event_areas = 25
+	overmap_size = 36
+	overmap_event_areas = 32
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
@@ -37,10 +37,10 @@
 	default_law_type = /datum/ai_laws/manifest
 	use_overmap = 1
 
-	num_exoplanets = 1
+	num_exoplanets = 2
 	planet_size = list(129,129)
 
-	away_site_budget = 5
+	away_site_budget = 6
 
 	citizenship_choices = list(
 		"Earth",

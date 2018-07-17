@@ -239,3 +239,31 @@
 		/obj/item/weapon/material/hatchet,
 		/obj/item/weapon/material/knife/hunting
 	)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm
+	name = "sidearm cabinet"
+	req_access = list()
+	req_one_access = list(access_armory,access_hos,access_hop,access_ce,access_cmo,access_rd)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
+	return list(
+			/obj/item/clothing/accessory/holster/thigh = 2,
+			/obj/item/weapon/gun/energy/secure/gun = 3,
+	)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/small
+	name = "personal sidearm cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/small/WillContain()
+	return list(/obj/item/weapon/gun/energy/secure/gun/small = 4)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/combined
+	name = "combined sidearm cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
+	return list(
+		/obj/item/weapon/gun/energy/secure/gun/small = 2,
+		/obj/item/clothing/accessory/holster/thigh = 2,
+		/obj/item/weapon/gun/energy/secure/gun = 2,
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/gun/energy/secure/gun, /obj/item/weapon/gun/energy/secure/gun/small))
+	)

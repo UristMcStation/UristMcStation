@@ -52,6 +52,9 @@
 /area/command/ce
 	name = "\improper Chief Engineer's Office"
 
+/area/command/teleporter
+	name = "\improper Teleporter Chamber"
+
 /area/command/storage
 	name = "\improper Bridge Storage"
 
@@ -91,9 +94,11 @@
 
 /area/civilian/cryo1
 	name = "\improper Primary Cryogenic Storage"
+	icon_state = "bluenew"
 
 /area/civilian/cryo2
 	name = "\improper Secondary Cryogenic Storage"
+	icon_state = "bluenew"
 
 /area/civilian/freezer
 	name = "\improper Kitchen Freezer"
@@ -102,11 +107,19 @@
 	name = "\improper Kitchen"
 	icon_state = "kitchen"
 
+/area/civilian/messhall
+	name = "\improper Mess Hall"
+
 /area/civilian/hydro
 	name = "\improper Hydroponics"
 
 /area/civilian/holodeck
 	name = "\improper Holodeck"
+
+/area/civilian/bath
+	name = "\improper Bathrooms"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "blueold"
 
 /area/civilian/personal
 	name = "\improper Personal Storage"
@@ -193,35 +206,49 @@
 
 /area/engineering/lobby
 	name = "\improper Engineering"
+	icon_state = "engineering_foyer"
 
 /area/engineering/locker
+	name = "\improper Engineering Locker Room"
+	icon_state = "engineering_locker"
+
+/area/engineering/genstorage
 	name = "\improper Engineering Storage"
+	icon_state = "engineering_storage"
 
-/area/engineering/rustmon
-	name = "\improper Fusion Core Monitoring Room"
+/area/engineering/smmon
+	name = "\improper Supermatter Monitoring Room"
+	icon_state = "engine_monitoring"
 
-/area/engineering/atmos
+/area/engineering/atmospherics
 	name = "\improper Atmospherics"
+	icon_state = "atmos"
 
 /area/engineering/atmosmon
 	name = "\improper Atmospherics Monitoring"
 
 /area/engineering/engine
-	name = "\improper Engine Core"
+	name = "\improper Engine Room"
 	icon_state = "engine"
+	sound_env = LARGE_ENCLOSED
 
 /area/engineering/externalmaint
 	name = "\improper External Engine Maintenance"
-	icon_state = "engine"
+	icon_state = "engine_eva"
 
 /area/engineering/smes
 	name = "\improper SMES Room"
+	sound_env = SMALL_ENCLOSED
+	icon_state = "engine_smes"
 
 /area/engineering/subsmes
 	name = "\improper Sub Deck SMES Room"
+	icon_state = "engine_smes"
+	sound_env = SMALL_ENCLOSED
 
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
+	sound_env = SMALL_ENCLOSED
 
 /area/engineering/techstorage
 	name = "\improper Tech Storage"
@@ -241,30 +268,55 @@
 /area/engineering/teg
 	name = "\improper TEG Room"
 
+/area/engineering/engine_waste
+	name = "\improper Engine Waste Handling"
+	icon_state = "engine_waste"
+
 //////////////////////////////////////
 //			MEDICAL					//
 //////////////////////////////////////
 
 /area/medical
-	icon_state = "bluenew"
+	icon_state = "medbay"
 
 /area/medical/lobby
 	name = "\improper Medical Lobby"
+	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/treatment
 	name = "\improper Medical Treatment Center"
+	icon_state = "medbay3"
+
+/area/medical/hallway
+	name = "\improper Medical Hallway"
+	icon_state = "medbay2"
 
 /area/medical/morgue
 	name = "\improper Morgue"
+	icon_state = "morgue"
+
+/area/medical/examroom
+	name = "\improper Exam Room"
+	icon_state = "exam_room"
+
+/area/medical/ward
+	name = "\improper Patient Ward"
+
+/area/medical/locker
+	name = "\improper Medical Locker Room"
+	icon_state = "bluenew"
 
 /area/medical/storage
 	name = "\improper Medical Storage"
+	icon_state = "medbay4"
 
 /area/medical/chemistry
 	name = "\improper Chemistry Lab"
+	icon_state = "chem"
 
 /area/medical/surgery
 	name = "\improper Operating Theatre"
+	icon_state = "surgery"
 
 /area/medical/virology
 	name = "\improper Virology Lab"
@@ -281,6 +333,9 @@
 
 /area/logistics/storage
 	name = "\improper Logistics Storage"
+
+/area/logistics/primtool
+	name = "\improper General Storage"
 
 /area/logistics/loading
 	name = "\improper Loading Bay"
