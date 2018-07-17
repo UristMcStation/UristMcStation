@@ -507,46 +507,39 @@
 	name = "\improper Cloning Lab"
 	icon_state = "cloning"
 
-// Solars
+/area/medical/psychoffice
+	name = "\improper Psychologist's Office"
+	icon_state = "medbay3"
 
-/area/solar/starboard
-	name = "\improper Starboard Auxiliary Solar Array"
-	icon_state = "panelsS"
+/area/medical/biostorage
+	name = "\improper Secondary Storage"
+	icon_state = "medbay4"
+	ambience = list('sound/ambience/signal.ogg')
 
-/area/solar/auxport
-	name = "\improper Fore Port Solar Array"
-	icon_state = "panelsA"
+/area/medical/chemistry
+	name = "\improper Chemistry"
+	icon_state = "chem"
 
-/area/solar/fore
-	name = "\improper Fore Solar Array"
-	icon_state = "yellow"
+/area/medical/exam_room
+	name = "\improper Exam Room"
+	icon_state = "exam_room"
 
-/area/maintenance/foresolar
-	name = "\improper Solar Maintenance - Fore"
-	icon_state = "SolarcontrolA"
-	sound_env = SMALL_ENCLOSED
+/area/medical/morgue
+	name = "\improper Morgue"
+	icon_state = "morgue"
+	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
-/area/maintenance/portsolar
-	name = "\improper Solar Maintenance - Aft Port"
-	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+/area/medical/sleeper
+	name = "\improper Emergency Treatment Centre"
+	icon_state = "exam_room"
 
-/area/maintenance/starboardsolar
-	name = "\improper Solar Maintenance - Aft Starboard"
-	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+/area/medical/surgery
+	name = "\improper Operating Theatre"
+	icon_state = "surgery"
 
-//Teleporter
-
-/area/teleporter
-	name = "\improper Teleporter"
-	icon_state = "teleporter"
-
-/area/gateway
-	name = "\improper Gateway"
-	icon_state = "teleporter"
-
-//MedBay
+/area/medical/lounge
+	name = "\improper Medbay Lounge"
+	icon_state = "medbay2"
 
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
@@ -594,6 +587,45 @@
 /area/medical/cryo
 	name = "\improper Cryogenics"
 	icon_state = "cryo"
+
+// Solars
+
+/area/solar/starboard
+	name = "\improper Starboard Auxiliary Solar Array"
+	icon_state = "panelsS"
+
+/area/solar/auxport
+	name = "\improper Fore Port Solar Array"
+	icon_state = "panelsA"
+
+/area/solar/fore
+	name = "\improper Fore Solar Array"
+	icon_state = "yellow"
+
+/area/maintenance/foresolar
+	name = "\improper Solar Maintenance - Fore"
+	icon_state = "SolarcontrolA"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/portsolar
+	name = "\improper Solar Maintenance - Aft Port"
+	icon_state = "SolarcontrolP"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/starboardsolar
+	name = "\improper Solar Maintenance - Aft Starboard"
+	icon_state = "SolarcontrolS"
+	sound_env = SMALL_ENCLOSED
+
+//Teleporter
+
+/area/teleporter
+	name = "\improper Teleporter"
+	icon_state = "teleporter"
+
+/area/gateway
+	name = "\improper Gateway"
+	icon_state = "teleporter"
 
 //Security
 
@@ -1300,38 +1332,6 @@ area/rnd/test_area
  	name = "\improper Atmospherics"
  	icon_state = "atmos"
  	sound_env = LARGE_ENCLOSED
-
-// Medical
-
-/area/medical/biostorage
-	name = "\improper Secondary Storage"
-	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/chemistry
-	name = "\improper Chemistry"
-	icon_state = "chem"
-
-/area/medical/exam_room
-	name = "\improper Exam Room"
-	icon_state = "exam_room"
-
-/area/medical/morgue
-	name = "\improper Morgue"
-	icon_state = "morgue"
-	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
-
-/area/medical/sleeper
-	name = "\improper Emergency Treatment Centre"
-	icon_state = "exam_room"
-
-/area/medical/surgery
-	name = "\improper Operating Theatre"
-	icon_state = "surgery"
-
-/area/medical/lounge
-	name = "\improper Medbay Lounge"
-	icon_state = "medbay2"
 
 // Research
 /area/assembly/chargebay
