@@ -211,3 +211,33 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 
 /obj/structure/sign/double/icarus/solgovflag/right
 	icon_state = "solgovflag-right"
+
+/turf/simulated/floor/exoplanet/desert/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/floor/exoplanet/desert/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()
+
+/turf/simulated/floor/exoplanet/grass/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/floor/exoplanet/grass/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()
+
+/turf/simulated/open/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/open/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()
