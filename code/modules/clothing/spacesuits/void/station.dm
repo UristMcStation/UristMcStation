@@ -51,7 +51,6 @@
 	name = "mining voidsuit"
 	desc = "A grimy, decently armored voidsuit with purple blazes and extra insulation."
 	icon = 'icons/urist/restored/suits.dmi'
-	item_icons = URIST_ALL_ONMOBS
 	item_state_slots = list(
 		slot_l_hand_str = "mining_voidsuit",
 		slot_r_hand_str = "mining_voidsuit",

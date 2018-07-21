@@ -96,7 +96,7 @@
 	name = "Hatchling"
 	move_time = 90
 	shuttle_area = /area/hatchling/start
-	dock_target = "hatchling_airlock"
+	dock_target = "hatchling_dock"
 	current_location = "wyrm_docked_hatchling"
 	landmark_transition = "nav_transit_hatchling"
 
@@ -123,6 +123,7 @@
 /obj/effect/shuttle_landmark/wyrm/docked/hatchling
 	name = "Docking Port"
 	landmark_tag = "wyrm_docked_hatchling"
+	docking_controller = "wyrm_docking_hatch"
 
 /obj/effect/shuttle_landmark/wyrm/docked/rescue
 	name = "Docking Port"
