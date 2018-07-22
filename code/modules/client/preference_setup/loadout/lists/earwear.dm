@@ -36,3 +36,22 @@
 	earrings["dangle, platinum"] = /obj/item/clothing/ears/earring/dangle/platinum
 	earrings["dangle, diamond"] = /obj/item/clothing/ears/earring/dangle/diamond
 	gear_tweaks += new/datum/gear_tweak/path(earrings)
+
+/datum/gear/earflowers
+	display_name = "flower selection"
+	path = /obj/item/clothing
+	sort_category = "Earwear"
+
+/datum/gear/earflowers/New()
+	..()
+	var/flowers = list()
+	flowers["poppy flower crown"] = /obj/item/clothing/ears/flower/poppy
+	flowers["sunflower flower crown"] = /obj/item/clothing/ears/flower/sunflower
+	flowers["moonflower flower crown"] = /obj/item/clothing/ears/flower/moonflower
+	flowers["novaflower flower crown"] = /obj/item/clothing/ears/flower/novaflower
+	flowers["ambrosia vulgaris flower crown"] = /obj/item/clothing/ears/flower/ambrosiavulgaris
+	flowers["ambrosia deus flower crown"] = /obj/item/clothing/ears/flower/ambrosiadeus
+	flowers["ambrosia gaia flower crown"] = /obj/item/clothing/ears/flower/ambrosia_gaia
+	flowers["lily flower crown"] = /obj/item/clothing/ears/flower/lily
+	flowers["geranium flower crown"] = /obj/item/clothing/ears/flower/geranium
+	gear_tweaks += new/datum/gear_tweak/path(flowers)
