@@ -11129,7 +11129,10 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/machinery/firealarm,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "rs" = (
@@ -14635,11 +14638,14 @@
 /obj/item/modular_computer/console/preset/medical{
 	dir = 4
 	},
-/obj/machinery/firealarm,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical Lobby";
 	dir = 4;
 	icon_state = "camera"
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
@@ -19886,7 +19892,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/firealarm,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
 "GG" = (
