@@ -20,9 +20,9 @@
 	tail_hair = "feathers"
 	reagent_tag = IS_RESOMI
 
-	eye_icon = "eyes_resomi"
 
-	icobase = 'icons/mob/human_races/r_resomi.dmi'
+	icobase = 'icons/mob/human_races/species/teshari/body.dmi'
+	preview_icon = 'icons/mob/human_races/species/teshari/preview.dmi'
 	deform = 'icons/mob/human_races/r_resomi.dmi'
 	damage_overlays = 'icons/mob/human_races/masks/dam_resomi.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
@@ -63,22 +63,22 @@
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/resomi),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/teshari),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
 		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/resomi),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/resomi),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/resomi),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/resomi)
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/teshari),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/teshari),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/teshari),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/teshari)
 		)
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver/resomi,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/resomi,
+		BP_LIVER =    /obj/item/organ/internal/liver/teshari,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/teshari,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
@@ -91,17 +91,17 @@
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/sonar_ping)
 
-/obj/item/organ/external/foot/resomi
+/obj/item/organ/external/foot/teshari
 	body_hair = "feathers"
-/obj/item/organ/external/foot/right/resomi
+/obj/item/organ/external/foot/right/teshari
 	body_hair = "feathers"
-/obj/item/organ/external/hand/resomi
+/obj/item/organ/external/hand/teshari
 	body_hair = "feathers"
-/obj/item/organ/external/hand/right/resomi
+/obj/item/organ/external/hand/right/teshari
 	body_hair = "feathers"
-/obj/item/organ/external/head/resomi
-	eye_icon = "eyes_resomi"
-/obj/item/organ/internal/kidneys/resomi
+/obj/item/organ/external/head/teshari
+	eye_icon_location = 'icons/mob/human_races/species/teshari/eyes.dmi'
+/obj/item/organ/internal/kidneys/teshari
 	parent_organ = BP_CHEST
-/obj/item/organ/internal/liver/resomi
+/obj/item/organ/internal/liver/teshari
 	parent_organ = BP_CHEST

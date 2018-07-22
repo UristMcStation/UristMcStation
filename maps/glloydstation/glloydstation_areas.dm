@@ -82,6 +82,10 @@
 /area/shuttle/arrivals
 	name = "\improper Arrival Shuttle"
 
+/area/shuttle/arrivals/centcom
+	name = "\improper Arrival Shuttle CentComm"
+	icon_state = "shuttle"
+
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -113,6 +117,27 @@
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
+
+/area/shuttle/administration/centcom
+	name = "\improper Administration Shuttle"
+	icon_state = "shuttlered"
+
+/area/supply/dock
+	name = "Supply Shuttle"
+	icon_state = "shuttle3"
+	requires_power = 0
+
+// Elevators
+/area/shuttle/elevator
+	dynamic_lighting = 0
+
+/area/shuttle/elevator/mining/surface
+	name = "\improper Mining Elevator"
+	icon_state = "shuttle"
+
+/area/shuttle/elevator/research/surface
+	name = "\improper Research Elevator"
+	icon_state = "shuttle"
 
 // === Trying to remove these areas:
 
@@ -383,6 +408,10 @@
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 
+/area/hallway/secondary/entry
+	name = "\improper Arrival Shuttle Hallway"
+	icon_state = "entry_1"
+
 // Command
 
 /area/crew_quarters/captain
@@ -461,6 +490,10 @@
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
 
+/area/engineering/singulo
+	name = "\improper Engineering Singularity"
+	icon_state = "engineering_workshop"
+
 // Medbay
 /area/medical/storage
 	name = "\improper Medical Storage"
@@ -474,46 +507,39 @@
 	name = "\improper Cloning Lab"
 	icon_state = "cloning"
 
-// Solars
+/area/medical/psychoffice
+	name = "\improper Psychologist's Office"
+	icon_state = "medbay3"
 
-/area/solar/starboard
-	name = "\improper Starboard Auxiliary Solar Array"
-	icon_state = "panelsS"
+/area/medical/biostorage
+	name = "\improper Secondary Storage"
+	icon_state = "medbay4"
+	ambience = list('sound/ambience/signal.ogg')
 
-/area/solar/auxport
-	name = "\improper Fore Port Solar Array"
-	icon_state = "panelsA"
+/area/medical/chemistry
+	name = "\improper Chemistry"
+	icon_state = "chem"
 
-/area/solar/fore
-	name = "\improper Fore Solar Array"
-	icon_state = "yellow"
+/area/medical/exam_room
+	name = "\improper Exam Room"
+	icon_state = "exam_room"
 
-/area/maintenance/foresolar
-	name = "\improper Solar Maintenance - Fore"
-	icon_state = "SolarcontrolA"
-	sound_env = SMALL_ENCLOSED
+/area/medical/morgue
+	name = "\improper Morgue"
+	icon_state = "morgue"
+	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
-/area/maintenance/portsolar
-	name = "\improper Solar Maintenance - Aft Port"
-	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+/area/medical/sleeper
+	name = "\improper Emergency Treatment Centre"
+	icon_state = "exam_room"
 
-/area/maintenance/starboardsolar
-	name = "\improper Solar Maintenance - Aft Starboard"
-	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+/area/medical/surgery
+	name = "\improper Operating Theatre"
+	icon_state = "surgery"
 
-//Teleporter
-
-/area/teleporter
-	name = "\improper Teleporter"
-	icon_state = "teleporter"
-
-/area/gateway
-	name = "\improper Gateway"
-	icon_state = "teleporter"
-
-//MedBay
+/area/medical/lounge
+	name = "\improper Medbay Lounge"
+	icon_state = "medbay2"
 
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
@@ -561,6 +587,45 @@
 /area/medical/cryo
 	name = "\improper Cryogenics"
 	icon_state = "cryo"
+
+// Solars
+
+/area/solar/starboard
+	name = "\improper Starboard Auxiliary Solar Array"
+	icon_state = "panelsS"
+
+/area/solar/auxport
+	name = "\improper Fore Port Solar Array"
+	icon_state = "panelsA"
+
+/area/solar/fore
+	name = "\improper Fore Solar Array"
+	icon_state = "yellow"
+
+/area/maintenance/foresolar
+	name = "\improper Solar Maintenance - Fore"
+	icon_state = "SolarcontrolA"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/portsolar
+	name = "\improper Solar Maintenance - Aft Port"
+	icon_state = "SolarcontrolP"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/starboardsolar
+	name = "\improper Solar Maintenance - Aft Starboard"
+	icon_state = "SolarcontrolS"
+	sound_env = SMALL_ENCLOSED
+
+//Teleporter
+
+/area/teleporter
+	name = "\improper Teleporter"
+	icon_state = "teleporter"
+
+/area/gateway
+	name = "\improper Gateway"
+	icon_state = "teleporter"
 
 //Security
 
@@ -745,6 +810,31 @@ area/rnd/test_area
 /area/outpost/research/anomaly_analysis
 	name = "Research Outpost Anomaly Analysis"
 
+// Security Outpost
+
+/area/shuttle/securityoutpost
+	icon_state = "shuttle"
+
+/area/shuttle/securityoutpost/station
+	name = "\improper Security Outpost Shuttle Station"
+	base_turf = null
+
+/area/outpost/security
+	icon_state = "security"
+
+/area/outpost/security/hallway
+	name = "\improper Security Outpost Hallway"
+
+/area/outpost/security/lounge
+	name = "\improper Security Outpost Lounge"
+	icon_state = "checkpoint1"
+
+/area/outpost/security/storage
+	name = "\improper Security Outpost Storage"
+	icon_state = "storage"
+
+// Maintenance
+
 /area/maintenance/aft
 	name = "Aft Maintenance"
 	icon_state = "amaint"
@@ -860,6 +950,23 @@ area/rnd/test_area
 	name = "\improper AI Satellite EVA Entrance"
 	icon_state = "ai"
 
+// Crew Quarters
+
+/area/crew_quarters/pool
+	name = "\improper Pool"
+	icon_state = "bluenew"
+
+/area/crew_quarters/lounge
+	name = "\improper Lounge"
+	icon_state = "lounge"
+
+/area/crew_quarters/heads_dorms //Noble's Quarters, hehehe.
+	name = "\improper Heads of Staff Dorms"
+	icon_state = "head_quarters"
+
+/area/crew_quarters/heads
+	icon_state = "head_quarters"
+
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
@@ -869,13 +976,25 @@ area/rnd/test_area
 	icon_state = "Theatre"
 	sound_env = LARGE_SOFTFLOOR
 
-/area/toxins/telesci
-	name = "\improper Telescience Lab"
-	icon_state = "toxmisc"
+/area/crew_quarters/party //needs the crewquarters before it because of gamemode code
+ 	name = "\improper Party Room"
+ 	icon_state = "yellow"
 
-/area/djstation
-	name = "\improper Listening Post"
-	icon_state = "LP"
+/area/crew_quarters/sleep/sci
+	name = "\improper Research Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/med
+	name = "\improper Medbay Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/engi
+	name = "\improper Engineering Dormitories"
+	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/sec
+	name = "\improper Security Dormitories"
+	icon_state = "Sleep"
 
 //DERELICT
 
@@ -943,6 +1062,10 @@ area/rnd/test_area
 	name = "\improper Derelict Singularity Engine"
 	icon_state = "engine"
 
+/area/djstation
+	name = "\improper Listening Post"
+	icon_state = "LP"
+
 //Areas from the deceased shared folder
 // Command
 
@@ -956,8 +1079,12 @@ area/rnd/test_area
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 
-/area/crew_quarters/heads
-	icon_state = "head_quarters"
+/area/bridge/meeting_hall
+	name = "\improper Meeting Hall"
+	icon_state = "bridge"
+
+/area/bridge/blueshield
+	name = "\improper Blueshield's Office"
 
 /area/maintenance/substation
 	name = "Substation"
@@ -975,6 +1102,15 @@ area/rnd/test_area
 
 /area/centcom/evac
 	name = "\improper Centcom Emergency Shuttle"
+
+/area/centcom/scom
+	name = "\improper S-COM Headquarters"
+
+/area/centcom/antag
+	name = "\improper A.N.T.A.G Base"
+
+/area/centcom/transit
+	name = "\improper Centcom Transit Area"
 
 // Solars
 /area/maintenance/auxsolarport
@@ -1025,6 +1161,10 @@ area/rnd/test_area
 /area/storage/tools
 	name = "Auxiliary Tool Storage"
 	icon_state = "auxstorage"
+
+/area/storage/emergency3
+	name = "\improper Escape Emergency Storage" //Because yolo
+	icon_state = "emergencystorage"
 
 // Holodecks
 
@@ -1193,34 +1333,6 @@ area/rnd/test_area
  	icon_state = "atmos"
  	sound_env = LARGE_ENCLOSED
 
-// Medical
-
-/area/medical/biostorage
-	name = "\improper Secondary Storage"
-	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/chemistry
-	name = "\improper Chemistry"
-	icon_state = "chem"
-
-/area/medical/exam_room
-	name = "\improper Exam Room"
-	icon_state = "exam_room"
-
-/area/medical/morgue
-	name = "\improper Morgue"
-	icon_state = "morgue"
-	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
-
-/area/medical/sleeper
-	name = "\improper Emergency Treatment Centre"
-	icon_state = "exam_room"
-
-/area/medical/surgery
-	name = "\improper Operating Theatre"
-	icon_state = "surgery"
-
 // Research
 /area/assembly/chargebay
 	name = "\improper Mech Bay"
@@ -1242,6 +1354,10 @@ area/rnd/test_area
 	name = "\improper Research and Development"
 	icon_state = "research"
 
+/area/toxins/telesci
+	name = "\improper Telescience Lab"
+	icon_state = "toxmisc"
+
 // Derelict
 
 /area/derelict/ship
@@ -1259,15 +1375,7 @@ area/rnd/test_area
 	icon_state = "yellow"
 	requires_power = 0
 
-// Shuttles
-/area/shuttle/administration/centcom
-	name = "\improper Administration Shuttle"
-	icon_state = "shuttlered"
 
-/area/supply/dock
-	name = "Supply Shuttle"
-	icon_state = "shuttle3"
-	requires_power = 0
 
 // Security
 
@@ -1327,6 +1435,18 @@ area/rnd/test_area
 /area/tcommsat/computer
 	name = "\improper Telecoms Control Room"
 	icon_state = "tcomsatcomp"
+
+/area/tcommsat/pirate
+	name = "\improper Pirate Server Room"
+	icon_state = "tcomsatcham"
+
+/area/tcommsat/chamber/abandoned
+	name = "\improper Abandoned Satellite"
+	icon_state = "tcomsatcham"
+
+/area/tcommsat/chamber/server
+	name = "\improper Telecoms Server Room"
+	icon_state = "tcomsatcham"
 
 // AI
 
@@ -1437,3 +1557,17 @@ area/rnd/test_area
 /area/outpost/abandoned
 	name = "Abandoned Outpost"
 	icon_state = "dark"
+
+//REMEMBER THIS FOR THE MERGE //I forgot
+
+/area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
+
+/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid
+
+/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
+
+/area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
+
+/area/shuttle/constructionsite/base_turf = /turf/simulated/floor/planet/jungle/clear
+
+/area/shuttle/securityoutpost/base_turf = /turf/simulated/floor/planet/jungle/clear

@@ -21,7 +21,7 @@
 	display_name = "armor pouches"
 	path = /obj/item/clothing/accessory/storage/pouches
 	cost = 2
-	
+
 /datum/gear/tactical/armor_pouches/New()
 	..()
 	var/pouches = list()
@@ -46,7 +46,6 @@
 	bigpouches["large green armor pouches"] = /obj/item/clothing/accessory/storage/pouches/large/green
 	bigpouches["large tan armor pouches"] = /obj/item/clothing/accessory/storage/pouches/large/tan
 	gear_tweaks += new/datum/gear_tweak/path(bigpouches)
-
 
 /datum/gear/tactical/armor_deco
 	display_name = "armor customization"

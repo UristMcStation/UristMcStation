@@ -274,6 +274,10 @@
 	name = "\improper Security Maintenance"
 	icon_state = "maint_security_starboard"
 
+/area/maintenance/primary/cargo
+	name = "\improper Cargo Maintenance"
+	icon_state = "maint_cargo"
+
 /area/maintenance/primary/med
 	name = "\improper Medical Maintenance"
 	icon_state = "maint_medical"

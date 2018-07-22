@@ -33,7 +33,7 @@
 		user << "<span class='notice'>You're not on a mission yet!</span>"
 		return
 	else
-		for(var/datum/shuttle/autodock/ferry/scom/s1/C in shuttle_controller.process_shuttles)
+		for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 			if(C.location == 0)
 				return
 
@@ -59,6 +59,7 @@
 /datum/shuttle/autodock/ferry/scom
 	category = /datum/shuttle/autodock/ferry/scom //parent, hide he
 	name = "SCOM-BU66Y5H1T" //really nobody should see it ever, and I couldn't resist. I'll see myself out.
+	defer_initialisation = TRUE
 	var/missiontime = 3600 //3000 //(5) //6 minutes (add 2 to the shuttle launch), 8 minutes in total. I gotta do some real testing in a full round to figure out if we're going to have 10 hour scom rounds or some bullshit like that.
 	var/mission = 0
 	var/missionloc = /area/shuttle/scom //shuttle
@@ -77,7 +78,6 @@
 	name = "Shuttle 1 - Base"
 	landmark_tag = "SCOM_S1_BASE"
 	base_turf = /turf/unsimulated/floor/plating
-	base_area = /area/centcom/scom
 
 /datum/shuttle/autodock/ferry/scom/s2
 	name = "SCOM-402"
@@ -89,13 +89,12 @@
 	name = "Shuttle 2 - Base"
 	landmark_tag = "SCOM_S2_BASE"
 	base_turf = /turf/unsimulated/floor/plating
-	base_area = /area/centcom/scom
 
 /datum/shuttle/autodock/ferry/scom/s1/launch()
 	command_announcement.Announce("Launching shuttles...", "S-COM Shuttle Control")
 	..()
 
-	for(var/datum/shuttle/autodock/ferry/scom/s2/C in shuttle_controller.process_shuttles)
+	for(var/datum/shuttle/autodock/ferry/scom/s2/C in SSshuttle.process_shuttles)
 		C.launch()
 
 
@@ -117,7 +116,7 @@
 				missionannounce = S.missionannounce //only announce it once
 				mission = S.mission
 				waypoint_offsite = locate(missionloc)
-				for(var/datum/shuttle/autodock/ferry/scom/s2/C in shuttle_controller.process_shuttles)
+				for(var/datum/shuttle/autodock/ferry/scom/s2/C in SSshuttle.process_shuttles)
 					C.missionloc = S.missionloc2
 					C.waypoint_offsite = locate(C.missionloc)
 

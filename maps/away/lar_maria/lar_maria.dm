@@ -122,8 +122,8 @@
 	. = ..()
 	if (!.)
 		return
-	if(ishuman(target_mob) && Adjacent(target_mob))//if it's human who can be infected standing nearby
-		var/mob/living/L = target_mob
+	if(ishuman(target) && Adjacent(target))//if it's human who can be infected standing nearby
+		var/mob/living/L = target
 		if (prob(50))
 			visible_message("<span class='alert'>[src] violently bites [L]!</span>")
 			infect_virus2(L, LMD, 1)

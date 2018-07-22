@@ -14,6 +14,8 @@
 
 /obj/structure/closet/secure_closet/pathfinder/WillContain()
 	return list(
+		/obj/item/solbanner,
+		/obj/item/solbanner,
 		/obj/item/device/radio,
 		/obj/item/device/tape/random,
 		/obj/item/device/gps,
@@ -28,6 +30,7 @@
 		/obj/item/device/analyzer,
 		/obj/item/device/flash,
 		/obj/item/device/radio/headset/pathfinder,
+		/obj/item/device/radio/headset/pathfinder/alt,
 		/obj/item/weapon/storage/box/encryptionkey/exploration,
 		/obj/item/device/binoculars,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack, /obj/item/weapon/storage/backpack/satchel/grey)),
@@ -54,6 +57,7 @@
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/device/analyzer,
 		/obj/item/device/radio/headset/exploration,
+		/obj/item/device/radio/headset/exploration/alt,
 		/obj/item/device/binoculars,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack, /obj/item/weapon/storage/backpack/satchel/grey)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag, /obj/item/weapon/storage/backpack/messenger)),

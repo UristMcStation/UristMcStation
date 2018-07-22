@@ -131,9 +131,6 @@
 /turf/simulated/floor/reinforced/phoron/fuel
 	initial_gas = list("phoron" = ATMOSTANK_PHORON_FUEL)
 
-/turf/simulated/floor/reinforced/hydrogen
-	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
-
 /turf/simulated/floor/reinforced/hydrogen/fuel
 	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN_FUEL)
 
@@ -171,6 +168,11 @@
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
+/turf/simulated/floor/tiled/dark/monotile
+	name = "floor"
+	icon_state = "monotiledark"
+	initial_flooring = /decl/flooring/tiling/mono/dark
+
 /turf/simulated/floor/tiled/dark/airless
 	initial_gas = null
 
@@ -185,12 +187,12 @@
 
 /turf/simulated/floor/tiled/white/monotile
 	icon_state = "monotile"
-	initial_flooring = /decl/flooring/tiling/white/mono
+	initial_flooring = /decl/flooring/tiling/mono/white
 
 /turf/simulated/floor/tiled/monofloor
 	name = "floor"
 	icon_state = "steel_monofloor"
-	initial_flooring = /decl/flooring/tiling/new_tile/monofloor
+	initial_flooring = /decl/flooring/tiling/mono
 
 /turf/simulated/floor/tiled/white/airless
 	name = "airless floor"
@@ -345,10 +347,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
+	turf_flags = TURF_IS_WET
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
+	turf_flags = TURF_IS_WET
 
 /turf/simulated/floor/beach/water/update_dirt()
 	return	// Water doesn't become dirty

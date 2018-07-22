@@ -100,7 +100,6 @@
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
-			user.drop_from_inventory(C)
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
@@ -115,8 +114,7 @@
 			return
 		C.use(1)
 		if(!istype(src.loc, /turf))
-			user.drop_from_inventory(src)
-			src.loc = get_turf(src)
+			src.forceMove(get_turf(src))
 		to_chat(user, "You add padding to \the [src].")
 		add_padding(padding_type)
 		return
@@ -185,12 +183,6 @@
 
 /obj/structure/bed/alien/New(var/newloc)
 	..(newloc,"resin")
-
-/obj/structure/bed/bogani
-	name = "alien bed"
-	desc = "a strange looking bed, not from something you've seen before."
-	icon_state = "bogbed"
-
 
 /obj/structure/bed/alien/diona/New(var/newloc)
 	..(newloc,"biomass")

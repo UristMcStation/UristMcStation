@@ -17,7 +17,7 @@
 	if(N)
 		transfer_amount = N
 
-/obj/structure/iv_drip/update_icon()
+/obj/structure/iv_drip/queue_icon_update()
 	if(attached)
 		icon_state = "hooked"
 	else
@@ -53,27 +53,21 @@
 /obj/structure/iv_drip/MouseDrop(over_object, src_location, over_location)
 	if(!CanMouseDrop(over_object))
 		return
-
 	if(attached)
-		visible_message("\The [attached] is taken off \the [src]")
-		attached = null
+		drip_detach()
 	else if(ishuman(over_object))
-		visible_message("\The [usr] hooks \the [over_object] up to \the [src].")
-		attached = over_object
-		START_PROCESSING(SSobj,src)
-
-	update_icon()
+		hook_up(over_object, usr)
 
 /obj/structure/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/reagent_containers))
 		if(!isnull(src.beaker))
 			to_chat(user, "There is already a reagent container loaded!")
 			return
-		user.drop_item()
-		W.forceMove(src)
+		if(!user.unEquip(W, src))
+			return
 		beaker = W
 		to_chat(user, "You attach \the [W] to \the [src].")
-		update_icon()
+		queue_icon_update()
 	else
 		return ..()
 
@@ -97,7 +91,7 @@
 
 	if(!beaker)
 		return
-	
+
 	//SSObj fires twice as fast as SSMobs, so gotta slow down to not OD our victims.
 	if(SSobj.times_fired % 2)
 		return
@@ -105,11 +99,11 @@
 	if(mode) // Give blood
 		if(beaker.volume > 0)
 			beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
-			update_icon()
+			queue_icon_update()
 	else // Take blood
 		var/amount = beaker.reagents.maximum_volume - beaker.reagents.total_volume
 		amount = min(amount, 4)
-		
+
 		if(amount == 0) // If the beaker is full, ping
 			if(prob(5)) visible_message("\The [src] pings.")
 			return
@@ -122,19 +116,39 @@
 			visible_message("\The [src] beeps loudly.")
 
 		if(attached.take_blood(beaker,amount))
-			update_icon()
+			queue_icon_update()
 
 /obj/structure/iv_drip/attack_hand(mob/user as mob)
-	if(beaker)
+	if(attached)
+		drip_detach()
+	else if(beaker)
 		beaker.dropInto(loc)
 		beaker = null
-		update_icon()
+		queue_icon_update()
 	else
 		return ..()
 
 /obj/structure/iv_drip/attack_robot(var/mob/user)
 	if(Adjacent(user))
 		attack_hand(user)
+
+/obj/structure/iv_drip/verb/drip_detach()
+	set category = "Object"
+	set name = "Detach IV Drip"
+	set src in range(1)
+
+	if(!attached)
+		return
+
+	if(!usr.Adjacent(attached))
+		to_chat(usr, "<span class='warning'>You are too far away from the [attached]!</span>")
+		return
+
+	visible_message("\The [attached] is taken off \the [src].")
+	attached = null
+
+	queue_icon_update()
+	STOP_PROCESSING(SSobj,src)
 
 /obj/structure/iv_drip/verb/toggle_mode()
 	set category = "Object"
@@ -154,7 +168,7 @@
 /obj/structure/iv_drip/examine(mob/user)
 	. = ..(user)
 
-	if (get_dist(src, user) > 2) 
+	if (get_dist(src, user) > 2)
 		return
 
 	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
@@ -169,3 +183,13 @@
 		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
 
 	to_chat(usr, "<span class='notice'>[attached ? attached : "No one"] is hooked up to it.</span>")
+
+/obj/structure/iv_drip/proc/rip_out()
+	visible_message("The needle is ripped out of [src.attached], doesn't that hurt?")
+	attached.apply_damage(1, BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags=DAM_SHARP)
+	attached = null
+
+/obj/structure/iv_drip/proc/hook_up(mob/living/carbon/human/target, mob/user)
+	visible_message("\The [usr] hooks \the [target] up to \the [src].")
+	attached = target
+	START_PROCESSING(SSobj,src)

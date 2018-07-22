@@ -9,6 +9,8 @@
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = ABOVE_WINDOW_LAYER
+	cell = null
+	power_usage = 0
 	var/number = 0
 	var/last_tick //used to delay the powercheck
 
@@ -57,6 +59,14 @@
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
+	if(dir == NORTH)
+		pixel_y = -28
+	else if(dir == SOUTH)
+		pixel_y = 26
+	else if(dir == WEST)
+		pixel_x = 22
+	else if(dir == EAST)
+		pixel_x = -22
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
