@@ -14,6 +14,7 @@
 	var/shielddamage = 0 //how much damage do we do to shields
 	var/passshield = 0 //do we go through shields to hit the hull?
 	var/hulldamage = 1
+	var/firedelay = 0 //how long do we take to fire again
 
 /datum/shipcomponents/weapons/proc/Fire()
 	return
