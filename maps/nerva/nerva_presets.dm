@@ -49,6 +49,9 @@ var/const/NETWORK_COMMAND		= "Command"
 /obj/machinery/camera/network/research
 	network = list(NETWORK_RESEARCH)
 
+/obj/machinery/camera/network/engineering
+	network = list(NETWORK_ENGINEERING)
+
 // Motion
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
