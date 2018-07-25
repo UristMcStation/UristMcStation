@@ -43,6 +43,9 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 
+/area/command/headquarters
+	name = "\improper Officer's Quarters"
+
 /area/command/fo
 	name = "\improper First Officer's Office"
 
@@ -57,6 +60,7 @@
 
 /area/command/storage
 	name = "\improper Bridge Storage"
+	icon_state = "bridge"
 
 /area/command/aiupload
 	name = "\improper AI Upload"
@@ -116,6 +120,9 @@
 /area/civilian/holodeck
 	name = "\improper Holodeck"
 
+/area/civilian/janitor
+	name = "\improper Janitor's Closet"
+
 /area/civilian/bath
 	name = "\improper Bathrooms"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -138,6 +145,9 @@
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
 
+/area/civilian/sbobserve
+	name = "\improper Starboard Observatory"
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////
@@ -147,21 +157,37 @@
 
 /area/security/entrance
 	name = "\improper Brig Entrance"
+	icon_state = "checkpoint1"
 
-/area/security/warden
-	name = "\improper Warden's Office"
+/area/security/checkpoint
+	name = "\improper Brig Checkpoint"
+	icon_state = "Warden"
 
-/area/security/armory
-	name = "\improper Armory"
+/area/security/cosoffice
+	name = "\improper Chief of Security's Office"
+	icon_state = "Warden"
 
-/area/security/locker
-	name = "\improper Security Locker Room"
+/area/security/armoury
+	name = "\improper Armoury"
+	icon_state = "Warden"
 
-/area/security/forenics
+/area/security/breakroom
+	name = "\improper Security Break Room"
+
+/area/security/office
+	name = "\improper Security Office"
+
+/area/security/forensics
 	name = "\improper Forensics Lab"
+	icon_state = "detective"
 
 /area/security/evidence
 	name = "\improper Evidence Storage"
+	icon_state = "detective"
+
+/area/security/tacarmoury
+	name = "\improper Tactical Armory"
+	icon_state = "Warden"
 
 //////////////////////////////////////
 //			SCIENCE					//
@@ -202,7 +228,7 @@
 	icon_state = "yellow"
 
 /area/engineering/tool
-	name = "\improper Public Workshop"
+	name = "\improper Engineering Workshop"
 
 /area/engineering/lobby
 	name = "\improper Engineering"
@@ -272,12 +298,21 @@
 	name = "\improper Engine Waste Handling"
 	icon_state = "engine_waste"
 
+/area/engineering/fuelbay
+	name = "\improper Fuel Bay"
+
+/area/engineering/fdengine
+	name = "\improper First Deck Engine Bay"
+
 //////////////////////////////////////
 //			MEDICAL					//
 //////////////////////////////////////
 
 /area/medical
 	icon_state = "medbay"
+
+/area/medical/cmo
+	name = "\improper Chief Medical Officer's Office"
 
 /area/medical/lobby
 	name = "\improper Medical Lobby"
@@ -337,6 +372,9 @@
 /area/logistics/primtool
 	name = "\improper General Storage"
 
+/area/logistics/auxtool
+	name = "\improper Auxiliary Storage"
+
 /area/logistics/loading
 	name = "\improper Loading Bay"
 
@@ -388,6 +426,40 @@
 /area/maintenance/construction
 	name = "\improper Construction Room"
 
+
+//////////////////////////////////////
+//			HALLWAYS   				//
+//////////////////////////////////////
+
+/area/hallway
+	sound_env = LARGE_ENCLOSED
+
+/area/hallway/fore
+	icon_state = "hallF"
+
+/area/hallway/aft
+	icon_state = "hallA"
+
+//top deck
+/area/hallway/fore/first
+	name = "\improper Fore First Deck Hallway"
+
+/area/hallway/aft/first
+	name = "\improper Aft First Deck Hallway"
+
+//central deck
+
+/area/hallway/fore/second
+	name = "\improper Fore Second Deck Hallway"
+
+/area/hallway/aft/second
+	name = "\improper Aft Second Deck Hallway"
+
+//bottom deck
+
+/area/hallway/centralthird
+	name = "\improper Primary Third Deck Hallway"
+	icon_state = "hallC1"
 //////////////////////////////////////
 //			Z-LEVEL 3 / ADMIN		//
 //////////////////////////////////////

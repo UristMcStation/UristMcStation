@@ -1,6 +1,6 @@
-var/const/NETWORK_FIRST_DECK		= "First Deck"
-var/const/NETWORK_SECOND_DECK		= "Second Deck"
-var/const/NETWORK_THIRD_DECK		= "Third Deck"
+var/const/NETWORK_FIRST_DECK		= "First Deck" //top
+var/const/NETWORK_SECOND_DECK		= "Second Deck" //central
+var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom
 var/const/NETWORK_COMMAND		= "Command"
 
 /datum/map/nerva/get_network_access(var/network)
