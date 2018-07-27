@@ -33,8 +33,10 @@
 	boardingmap = "piratesmall.dmm"
 	faction = "pirate"
 
-/datum/ships/ntmerchant
+/datum/ships/nanotrasen
+	faction = "nanotrasen"
+
+/datum/ships/nanotrasen/ntmerchant
 	name = "Nanotrasen merchant vessel"
 	components = list()
 	boardingmap = "ntmerchant.dmm"
-	faction = "nanotrasen"
