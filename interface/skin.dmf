@@ -791,7 +791,7 @@ macro "borgmacro"
 		command = ".me"
 	elem 
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem 
 		name = "F6"
 		command = "Player-Panel-New"
@@ -801,6 +801,9 @@ macro "borgmacro"
 	elem 
 		name = "F8"
 		command = "Invisimin"
+	elem
+		name = "F10"
+		command = "msay"
 	elem 
 		name = "F12"
 		command = "F12"
