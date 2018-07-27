@@ -10,7 +10,7 @@
 	name = "distress signal"
 	desc = "Emergency signal detected. No further data avaliable."
 	icon_state = "event"
-	restricted_waypoints = list(
+	initial_restricted_waypoints = list(
 		"Hatchling" = list("distress_signal"),
 		"Aura" = list("contact_light_lanius")
 	)
