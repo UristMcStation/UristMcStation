@@ -27,6 +27,7 @@
 	alt_titles = list("Detective")
 
 /datum/job/doctor
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_cmo)
 	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
 		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
 		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,

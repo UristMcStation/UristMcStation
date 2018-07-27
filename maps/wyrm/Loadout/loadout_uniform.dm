@@ -8,7 +8,7 @@
 /datum/gear/uniform/roboticist_skirt
 	display_name = "skirt, roboticist"
 	path = /obj/item/clothing/under/rank/roboticist/skirt
-	allowed_roles = list(/datum/job/roboticist)
+	allowed_roles = list(/datum/job/scientist)
 
 /datum/gear/uniform/standard_scrubs
 	display_name = "standard medical scrubs"
