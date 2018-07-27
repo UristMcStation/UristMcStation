@@ -26,7 +26,7 @@
 	name = "ISC Wyrm"
 	vessel_mass = 150
 	fore_dir = WEST
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"wyrm_prim_fore",
 		"wyrm_prim_star",
 		"wyrm_prim_port",
@@ -36,7 +36,7 @@
 		"wyrm_sub_port",
 		"wyrm_sub_aft"
 	)
-	restricted_waypoints = list(
+	initial_restricted_waypoints = list(
 		"Hatchling" = list("wyrm_docked_hatchling"),
 		"Rescue Pod" = list("wyrm_docked_rescue")
 	)
@@ -155,7 +155,7 @@
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
 	icon_state = "sector"
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"nav_cluster_1"
 	)
 
@@ -170,7 +170,7 @@
 	name = "unidentified signal"
 	desc = "Unknown object detected. No further data avaliable."
 	icon_state = "sector"
-	restricted_waypoints = list(
+	initial_restricted_waypoints = list(
 		"Hatchling" = list("random_away")
 	)
 
@@ -184,7 +184,7 @@
 	name = "mineral field"
 	desc = "Mineral field detected."
 	icon_state = "sector"
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"asteroid_away"
 	)
 
@@ -198,7 +198,7 @@
 	name = "rainforest exoplanet"
 	desc = "Biological scans report non-manifest lifeforms."
 	icon_state = "planet"
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"planet_away"
 	)
 
@@ -218,7 +218,7 @@
 /obj/effect/overmap/sector/diona
 	name = "unknown biomass structure"
 	desc = "Scans report unknown polymer materials in addition t- ERR: Malformed data packets received //SCN_DAT_END 0x00."
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"diona_away"
 	)
 
@@ -236,6 +236,6 @@
 /obj/effect/overmap/sector/refueling
 	name = "refueling station"
 	desc = ""
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"docking_bay"
 	)
