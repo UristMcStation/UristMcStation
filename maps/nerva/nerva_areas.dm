@@ -234,6 +234,10 @@
 	name = "\improper Engineering"
 	icon_state = "engineering_foyer"
 
+/area/engineering/break_room
+	name = "\improper Engineering Break Room"
+	icon_state = "engineering_foyer"
+
 /area/engineering/locker
 	name = "\improper Engineering Locker Room"
 	icon_state = "engineering_locker"
