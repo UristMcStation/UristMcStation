@@ -7,15 +7,16 @@
 	icon_living = "ship"
 	icon_dead = "ship"
 
-
 /mob/living/simple_animal/hostile/overmapship/New()
+	..()
+
 	var/datum/ships/SD = shipdatum
 
-	shields = SD.shields
-	health = SD.health
-	faction = SD.faction
-	name = SD.name
-	..()
+	src.shields = SD.shields
+	src.health = SD.health
+	src.faction = SD.faction
+	src.name = SD.name
+
 
 /mob/living/simple_animal/hostile/overmapship/Process() //here we do the attacking stuff
 	..()
@@ -28,6 +29,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen
 	color = "#4286f4"
+	wander = 1 //temporary
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	shipdatum = /datum/ships/nanotrasen/ntmerchant

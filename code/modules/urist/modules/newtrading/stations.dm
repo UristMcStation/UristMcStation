@@ -8,6 +8,8 @@
 	var/nospawn = 1
 	var/patrolship = null //if you piss us off, we start spawning the big boys
 	known = 1
+	icon = 'icons/urist/misc/overmap.dmi'
+	icon_state = "station1"
 
 /obj/effect/overmap/sector/station/Initialize()
 	if(nospawn)

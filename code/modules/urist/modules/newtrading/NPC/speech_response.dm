@@ -95,11 +95,11 @@
 		"Fucking lizard scum.",\
 		"If you ask me, the United Human Alliance has the right idea about those lizard fucks",\
 		"No aliens. Only men.",\
-		"We would have stopped the Galactic crisis without those lizard fucks.",\
+		"We would have stopped the Galactic Crisis without those lizard fucks.",\
 		"If the administration had their wits about them, they would keep Unathi from taking our jobs.")
 
 /datum/npc_speech_trigger/colonist_galacticcrisis
-	trigger_words  = list("Galactic Crisis", "GC")
+	trigger_words  = list("Galactic Crisis")
 	response_phrase = 1
 
 /datum/npc_speech_trigger/colonist_galacticcrisis/New()

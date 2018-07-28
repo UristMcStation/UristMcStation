@@ -1,4 +1,4 @@
-var/mob/living/simple_animal/hostile/storedfaction = null
+mob/living/simple_animal/hostile/var/hiddenfaction = null
 
 /mob/living/simple_animal/hostile/npc
 	name = "NPC"
