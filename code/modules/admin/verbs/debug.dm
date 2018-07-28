@@ -387,7 +387,7 @@
 	if(!check_rights(R_FUN))
 		return
 
-	H = input("Select mob.", "Select equipment.") as null|anything in GLOB.human_mob_list
+//	H = input("Select mob.", "Select equipment.") as null|anything in GLOB.human_mob_list
 	if(!H)
 		return
 

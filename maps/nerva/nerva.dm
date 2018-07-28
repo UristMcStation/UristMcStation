@@ -3,6 +3,7 @@
 	#include "nerva_areas.dm"
 	#include "nerva_presets.dm"
 	#include "nerva_jobs.dm"
+	#include "nerva_overmap.dm"
 
 	#include "nerva-1.dmm"
 	#include "nerva-2.dmm"
@@ -21,6 +22,7 @@
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/icarus/icarus.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
+	#include "../away/stations/nerva_stations.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
