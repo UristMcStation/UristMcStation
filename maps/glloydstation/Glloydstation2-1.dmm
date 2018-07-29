@@ -13793,7 +13793,7 @@
 /area/security/vacantoffice)
 "aDm" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/scissors/pscissors,
+/obj/item/weapon/scissors,
 /turf/simulated/floor/wood,
 /area/security/vacantoffice)
 "aDn" = (
@@ -23754,7 +23754,7 @@
 /area/medical/storage)
 "aXb" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/med)
 "aXc" = (
@@ -29228,7 +29228,7 @@
 	dir = 8;
 	network = list("Exodus")
 	},
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/sec)
 "bhz" = (
@@ -31719,7 +31719,7 @@
 "bmc" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /obj/item/toy/water_balloon,
 /turf/simulated/floor/carpet/blue2,
 /area/crew_quarters/sleep)
@@ -44542,8 +44542,8 @@
 	},
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/scissors/pscissors,
-/obj/item/weapon/scissors/pscissors,
+/obj/item/weapon/scissors,
+/obj/item/weapon/scissors,
 /turf/simulated/floor/tiled/dark,
 /area/storage/art)
 "bKL" = (
@@ -48389,7 +48389,7 @@
 /area/quartermaster/office)
 "bSl" = (
 /obj/structure/disposalpipe/segment,
-/obj/item/weapon/scissors/pscissors,
+/obj/item/weapon/scissors,
 /obj/structure/table/standard,
 /obj/machinery/status_display/supply_display{
 	pixel_x = 32
@@ -58095,7 +58095,7 @@
 	},
 /obj/structure/table/woodentable,
 /obj/item/clothing/glasses/science,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/sci)
 "clk" = (
@@ -65479,7 +65479,7 @@
 "cAC" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "cAD" = (
@@ -66215,7 +66215,7 @@
 /area/maintenance/asmaint2)
 "cCc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scissors/pscissors,
+/obj/item/weapon/scissors,
 /obj/item/weapon/flame/candle,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
@@ -67341,7 +67341,7 @@
 	dir = 1
 	},
 /obj/item/weapon/razor,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/locker)
@@ -74472,7 +74472,7 @@
 /area/maintenance/aft)
 "cUa" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scissors/bscissors,
+/obj/item/weapon/scissors/barber,
 /obj/item/weapon/razor,
 /turf/simulated/floor/wood,
 /area/maintenance/aft)
