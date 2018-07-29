@@ -29,6 +29,8 @@
 		if(istype(src, /obj/item/weapon/scissors/craft))
 			right_part.icon_state = "scissors_knife_craft_right"
 			right_part.item_state = "scissors_knife_craft_right"
+		else
+			right_part.icon_state = right_part.icon_state + "_right"
 
 		user.remove_from_mob(src)
 		user.drop_from_inventory(src)
