@@ -2482,6 +2482,7 @@
 #include "code\modules\sprite_accessories\accessory_ipc.dm"
 #include "code\modules\sprite_accessories\accessory_skrell.dm"
 #include "code\modules\sprite_accessories\accessory_tajara.dm"
+#include "code\modules\sprite_accessories\accessory_teshari.dm"
 #include "code\modules\sprite_accessories\accessory_unathi.dm"
 #include "code\modules\sprite_accessories\accessory_vox.dm"
 #include "code\modules\supermatter\setup_supermatter.dm"

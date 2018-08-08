@@ -648,7 +648,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/under/urist/dress/twopiece
 	name = "two-piece dress"
-	desc = "An fancy two-piece dress, the pieces are sewn together."
+	desc = "A fancy two-piece dress, the pieces are sewn together."
 	icon_state = "twopiece"
 	item_state = "twopiece"
 
