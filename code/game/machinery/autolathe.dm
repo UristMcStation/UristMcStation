@@ -117,7 +117,7 @@
 	//Hacking.
 	if(panel_open)
 		dat += "<h2>Maintenance Panel</h2>"
-		dat += wires.GetInteractWindow(user)
+		dat += wires.GetInteractWindow()
 
 		dat += "<hr>"
 
