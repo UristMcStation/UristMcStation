@@ -273,7 +273,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "yellowdress"
 	//item_color = "yellowdress"
 	item_state = "yellowdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/white1
 	name = "short white dress"
