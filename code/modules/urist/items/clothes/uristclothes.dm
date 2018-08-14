@@ -16,10 +16,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //this is important EXPLICITLY for all the dresses -Vakothu
 /obj/item/clothing/under/urist/dress
-	name = "floral yellow dress"
-	desc = "A pretty yellow dress with some cute designs on it."
-	icon_state = "yellowdress"
-	item_state = "yellowdress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //backtracking and putting this here to clean things up
@@ -270,6 +266,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "tealdress"
 	//item_color = "tealdress"
 	item_state = "tealdress"
+
+/obj/item/clothing/under/urist/dress/yellow
+	name = "floral yellow dress"
+	desc = "A pretty yellow dress with some cute designs on it."
+	icon_state = "yellowdress"
+	//item_color = "yellowdress"
+	item_state = "yellowdress"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/white1
 	name = "short white dress"
