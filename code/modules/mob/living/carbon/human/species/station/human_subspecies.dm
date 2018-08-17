@@ -43,8 +43,9 @@
 	name_plural = "Vat-Grown Humans"
 	blurb = "With cloning on the forefront of human scientific advancement, cheap mass production \
 	of bodies is a very real and rather ethically grey industry. Vat-grown humans tend to be paler than \
-	baseline, with no appendix and fewer inherited genetic disabilities, but a weakened metabolism."
-	icobase = 'icons/mob/human_races/subspecies/r_vatgrown.dmi'
+	baseline, with no appendix and fewer inherited genetic disabilities, but a weakened metabolism."	
+	icobase =     'icons/mob/human_races/species/human/subspecies/vatgrown_body.dmi'
+	preview_icon= 'icons/mob/human_races/species/human/subspecies/vatgrown_preview.dmi'
 	num_alternate_languages = 3
 
 	toxins_mod =   1.1
