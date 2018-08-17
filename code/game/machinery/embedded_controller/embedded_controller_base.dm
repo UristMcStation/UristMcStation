@@ -7,6 +7,8 @@
 	use_power = 1
 	idle_power_usage = 10
 
+	layer = ABOVE_WINDOW_LAYER
+
 	var/on = 1
 
 obj/machinery/embedded_controller/radio/Destroy()

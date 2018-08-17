@@ -6,7 +6,7 @@
 	icon_state = "globe"
 	known = 0
 	in_space = 0
-	generic_waypoints = list(
+	initial_generic_waypoints = list(
 		"nav_icarus_1",
 		"nav_icarus_2",
 		"nav_icarus_antag"
@@ -30,7 +30,7 @@ obj/effect/icarus/irradiate/Initialize()
 	S.decay = FALSE
 	S.source_turf = get_turf(src)
 	S.update_rad_power(radiation_power)
-	radiation_repository.add_source(S)
+	SSradiation.add_source(S)
 
 obj/effect/icarus/irradiate/Destroy()
 	. = ..()
@@ -211,3 +211,33 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 
 /obj/structure/sign/double/icarus/solgovflag/right
 	icon_state = "solgovflag-right"
+
+/turf/simulated/floor/exoplanet/desert/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/floor/exoplanet/desert/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()
+
+/turf/simulated/floor/exoplanet/grass/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/floor/exoplanet/grass/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()
+
+/turf/simulated/open/skylight
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 3.0
+	light_color = "#ffffff"
+
+/turf/simulated/open/skylight/Initialize()
+	light_color = SSskybox.BGcolor
+	. = ..()

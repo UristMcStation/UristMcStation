@@ -43,7 +43,7 @@ var/list/datum/map_template/underground_templates = list()
 	var/turf/central_turf = get_turf(src)
 	template.load(central_turf,centered = TRUE)
 //	template.loaded++
-	qdel(src)
+	QDEL_IN(src,0)
 
 /obj/effect/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
@@ -60,7 +60,7 @@ var/list/datum/map_template/underground_templates = list()
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
 //	world << "<span class='boldannounce'>Ruins loaded.</span>"
-	qdel(src)
+	QDEL_IN(src,0)
 
 /obj/effect/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
@@ -75,7 +75,7 @@ var/list/datum/map_template/underground_templates = list()
 	var/turf/central_turf = get_turf(src)
 	template.load(central_turf,centered = TRUE)
 //	template.loaded++
-	qdel(src)
+	QDEL_IN(src,0)
 
 /obj/effect/template_loader/gamemode
 	var/mapfile = null
@@ -92,7 +92,7 @@ var/list/datum/map_template/underground_templates = list()
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++
 
-	qdel(src)
+	QDEL_IN(src,0)
 
 
 /obj/effect/template_loader/gamemode/assault

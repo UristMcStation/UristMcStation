@@ -1,4 +1,4 @@
-//TODO: datum to decl
+//TODO: Convert and remove all this
 
 /datum/away_mission
 	var/map_path              // String form of the actual .dmm
@@ -9,11 +9,6 @@
 	return
 
 //Actual away missions go down here
-
-/datum/away_mission/tradership
-	map_path = "maps/wyrm/templates/tradership.dmm"
-	value = 10
-	random_start = TRUE
 
 /datum/away_mission/crystalcaves
 	map_path = "maps/wyrm/templates/crystalmines.dmm"

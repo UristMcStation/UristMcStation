@@ -8,11 +8,11 @@
 /datum/gear/uniform/roboticist_skirt
 	display_name = "skirt, roboticist"
 	path = /obj/item/clothing/under/rank/roboticist/skirt
-	allowed_roles = list(/datum/job/roboticist)
+	allowed_roles = list(/datum/job/scientist)
 
 /datum/gear/uniform/standard_scrubs
 	display_name = "standard medical scrubs"
-	path = /obj/item/clothing/under/rank/medical/scrubs/black
+	path = /obj/item/clothing/under/rank/medical/scrubs
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo,/datum/job/chemist)
 
 /datum/gear/uniform/standard_scrubs/New()
@@ -55,7 +55,7 @@
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
-	path = /obj/item/clothing/under/formal_pants
+	path = /obj/item/clothing/under/pants
 
 /datum/gear/uniform/pants/New()
 	..()
@@ -67,7 +67,7 @@
 
 /datum/gear/uniform/shorts
 	display_name = "shorts selection"
-	path = /obj/item/clothing/under/shorts/jeans
+	path = /obj/item/clothing/under/shorts
 
 /datum/gear/uniform/shorts/New()
 	..()
@@ -85,20 +85,3 @@
 	display_name = "sweater"
 	path = /obj/item/clothing/under/rank/psych/turtleneck/sweater
 	flags = GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/uniform/corporate
-	display_name = "corporate uniform selection"
-	path = /obj/item/clothing/under/mbill
-
-/datum/gear/uniform/corporate/New()
-	..()
-	var/corps = list()
-	corps["major bill's shipping uniform"] = /obj/item/clothing/under/mbill
-	corps["SAARE uniform"] = /obj/item/clothing/under/saare
-	corps["aether atmospherics uniform"] = /obj/item/clothing/under/aether
-	corps["hephaestus uniform"] = /obj/item/clothing/under/hephaestus
-	corps["PCRC uniform"] = /obj/item/clothing/under/pcrc
-	corps["ward-takahashi uniform"] = /obj/item/clothing/under/wardt
-	corps["grayson uniform"] = /obj/item/clothing/under/grayson
-	corps["focal point uniform"] = /obj/item/clothing/under/focal
-	gear_tweaks += new/datum/gear_tweak/path(corps)

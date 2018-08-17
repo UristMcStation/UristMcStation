@@ -61,8 +61,8 @@
 		icon_state = "glassboxb"
 	else
 		icon_state = "glassbox"
-		for(var/atom/movable/AM in contents)
-			underlays += AM.appearance
+	for(var/atom/movable/AM in contents)
+		underlays += AM.appearance
 
 /obj/structure/displaycase/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

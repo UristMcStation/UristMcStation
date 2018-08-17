@@ -14,6 +14,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
+//this is important EXPLICITLY for all the dresses -Vakothu
+/obj/item/clothing/under/urist/dress
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
 //backtracking and putting this here to clean things up
 
 /obj/item/clothing/suit/urist
@@ -172,7 +176,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 		set category = "Object"
 		set src in usr
 
-		if(!usr.canmove || usr.stat || usr.restrained())
+		var/mob/living/carbon/human/user = usr
+		if(user.incapacitated())
 			return 0
 
 		switch(icon_state)
@@ -261,7 +266,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "tealdress"
 	//item_color = "tealdress"
 	item_state = "tealdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/yellow
 	name = "floral yellow dress"
@@ -269,7 +273,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "yellowdress"
 	//item_color = "yellowdress"
 	item_state = "yellowdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/white1
 	name = "short white dress"
@@ -285,7 +288,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "wd2"
 	//item_color = "wd2"
 	item_state = "wd2"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/princess
 	name = "princess dress"
@@ -293,7 +295,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "princess"
 	//item_color = "princess"
 	item_state = "princess"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/red
 	name = "red cocktail dress"
@@ -579,7 +580,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "whitedress"
 	item_state = "whitedress"
 	//item_color = "whitedress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/pink
 	name = "pink dress"
@@ -587,7 +587,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "pinkdress"
 	item_state = "pinkdress"
 	//item_color = "pinkdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/gold
 	name = "gold dress"
@@ -595,7 +594,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "golddress"
 	item_state = "golddress"
 	//item_color = "golddress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/green
 	name = "green dress"
@@ -603,7 +601,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "greendress"
 	item_state = "greendress"
 	//item_color = "greendress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/purple
 	name = "purple dress"
@@ -611,7 +608,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "purpledress"
 	item_state = "purpledress"
 	//item_color = "purpledress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/black
 	name = "black dress"
@@ -619,7 +615,51 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "blackdress"
 	item_state = "blackdress"
 	//item_color = "blackdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+//Even MORE dresses! -Dresses are sprited by Deer (2018) -Teshari sprites by Vakothu
+
+/obj/item/clothing/under/urist/dress/pinksun
+	name = "pink sundress"
+	desc = "A cute pink sundress."
+	icon_state = "pinksun"
+	item_state = "pinksun"
+
+/obj/item/clothing/under/urist/dress/whitesun
+	name = "short white sundress"
+	desc = "A white sundress, it's short."
+	icon_state = "whitesun"
+	item_state = "whitesun"
+
+/obj/item/clothing/under/urist/dress/bowsun
+	name = "bowed pink sundress"
+	desc = "A cute pink sundress with a bow."
+	icon_state = "bowsun"
+	item_state = "bowsun"
+
+/obj/item/clothing/under/urist/dress/bluesun
+	name = "long blue sundress"
+	desc = "A long blue sun dress with white frills towards the bottom."
+	icon_state = "bluesun"
+	item_state = "bluesun"
+
+/obj/item/clothing/under/urist/dress/shortpink
+	name = "short pink sundress"
+	desc = "A very short pink sundress, it's more like a chemise."
+	icon_state = "shortpink"
+	item_state = "shortpink"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/urist/dress/twopiece
+	name = "two-piece dress"
+	desc = "A fancy two-piece dress, the pieces are sewn together."
+	icon_state = "twopiece"
+	item_state = "twopiece"
+
+/obj/item/clothing/under/urist/dress/gothic
+	name = "gothic dress"
+	desc = "An elegant gothic dress with lace decorations."
+	icon_state = "gothic"
+	item_state = "gothic"
 
 //pinstripe suit
 
@@ -647,7 +687,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "polkaskirt"
 	item_state = "polkaskirt"
 	//item_color = "polkaskirt"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //dress blouse
 

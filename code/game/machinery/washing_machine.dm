@@ -104,9 +104,9 @@
 	if(istype(W,/obj/item/weapon/pen/crayon) || istype(W,/obj/item/weapon/stamp))
 		if( state in list(	1, 3, 6 ) )
 			if(!crayon)
-				user.drop_item()
+				if(!user.unEquip(W, src))
+					return
 				crayon = W
-				crayon.forceMove(src)
 			else
 				..()
 		else
@@ -121,12 +121,12 @@
 		else
 			..()
 	else if(istype(W,/obj/item/stack/material/hairlesshide) || \
-		istype(W,/obj/item/clothing/under) || \
-		istype(W,/obj/item/clothing/mask) || \
-		istype(W,/obj/item/clothing/head) || \
+		istype(W,/obj/item/clothing/under)  || \
+		istype(W,/obj/item/clothing/mask)   || \
+		istype(W,/obj/item/clothing/head)   || \
 		istype(W,/obj/item/clothing/gloves) || \
-		istype(W,/obj/item/clothing/shoes) || \
-		istype(W,/obj/item/clothing/suit) || \
+		istype(W,/obj/item/clothing/shoes)  || \
+		istype(W,/obj/item/clothing/suit)   || \
 		istype(W,/obj/item/weapon/bedsheet) || \
 		istype(W,/obj/item/stack/hide/animalhide))
 
@@ -137,9 +137,6 @@
 		if ( istype(W,/obj/item/clothing/suit/syndicatefake ) )
 			to_chat(user, "This item does not fit.")
 			return
-//		if ( istype(W,/obj/item/clothing/suit/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
 		if ( istype(W,/obj/item/clothing/suit/cyborg_suit ) )
 			to_chat(user, "This item does not fit.")
 			return
@@ -161,17 +158,14 @@
 		if ( istype(W,/obj/item/clothing/head/syndicatefake ) )
 			to_chat(user, "This item does not fit.")
 			return
-//		if ( istype(W,/obj/item/clothing/head/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
 		if ( istype(W,/obj/item/clothing/head/helmet ) )
 			to_chat(user, "This item does not fit.")
 			return
 
 		if(contents.len < 10)
 			if ( state in list(1, 3) )
-				user.drop_item()
-				W.loc = src
+				if(!user.unEquip(W, src))
+					return
 				state = 3
 			else
 				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")

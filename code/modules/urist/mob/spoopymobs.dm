@@ -96,7 +96,7 @@
 			var/mob/living/carbon/human/victim = target
 			if(victim.stat == DEAD)
 				src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-				victim.Zombify(regenerative, infectious, resilience)
+				victim.zombify()
 				return
 		else if(istype(src.target, /mob/living/simple_animal/hostile/scom/civ))
 			var/mob/living/simple_animal/hostile/scom/civ/victim = target
@@ -129,14 +129,14 @@
 	if(istype(T, /mob/living/carbon/human))
 		var/mob/living/carbon/human/victim = T
 		src.visible_message("<span class = 'warning'><b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-		victim.Zombify(src.regen, src.plague, src.maxHealth)
+		victim.zombify()
 	else if(istype(T, /mob/living/simple_animal/hostile/scom/civ))
 		var/mob/living/simple_animal/hostile/scom/civ/victim = T
 		src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
 		victim.Zombify(src.regen, src.plague, src.maxHealth)
 	return
 
-
+/*
 /mob/living/carbon/human/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
 
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie
@@ -191,6 +191,7 @@
 	spawn()
 		qdel(src)
 	return
+*/
 
 /mob/living/simple_animal/hostile/scom/civ/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regen/plague

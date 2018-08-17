@@ -18,8 +18,9 @@
 	set name = "Toggle Bandana"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
+		return 0
 	if(!can_flip)
 		usr << "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down."
 		return
@@ -64,8 +65,9 @@
 	set name = "Roll Bandana"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
+		return 0
 	if(!can_roll)
 		usr << "You try rolling up [src], but it doesn't work!"
 		return
