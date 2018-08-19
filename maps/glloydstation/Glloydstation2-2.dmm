@@ -10607,7 +10607,7 @@
 	pixel_x = 5
 	},
 /obj/item/device/radio/intercom{
-	dir = 4;
+	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 30
 	},
@@ -10876,28 +10876,6 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
-"azv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/escape/centcom)
-"azw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/escape/centcom)
 "azx" = (
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
@@ -10973,7 +10951,7 @@
 /area/centcom)
 "azF" = (
 /obj/item/device/radio/intercom{
-	dir = 4;
+	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 31
 	},
@@ -67066,7 +67044,7 @@ avF
 apZ
 ayL
 auu
-azv
+avF
 apZ
 ayL
 azd
@@ -67323,7 +67301,7 @@ axW
 apZ
 ayL
 auu
-azw
+avF
 apZ
 ayL
 azd
@@ -67837,7 +67815,7 @@ axW
 apZ
 ayL
 auu
-azv
+avF
 apZ
 ayL
 auu
@@ -68094,7 +68072,7 @@ avF
 apZ
 ayL
 auu
-azw
+avF
 apZ
 ayL
 ays
