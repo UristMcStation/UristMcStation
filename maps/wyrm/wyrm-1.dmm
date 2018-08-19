@@ -6802,6 +6802,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
 /area/civilian/personal)
 "mN" = (
