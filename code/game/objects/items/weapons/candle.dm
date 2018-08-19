@@ -30,7 +30,7 @@
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
 	if(is_hot(W))
-		light()
+		light(user)
 
 /obj/item/weapon/flame/candle/resolve_attackby(var/atom/A, mob/user)
 	. = ..()

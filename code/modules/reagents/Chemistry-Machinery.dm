@@ -372,11 +372,18 @@
 		if(!material.chem_products.len)
 			to_chat(user, "\The [material.name] is unable to produce any usable reagents.")
 			return 1
+		else
+			add_item(O,user)
+			return 0
 
 	if(!O.reagents || !O.reagents.total_volume)
 		to_chat(user, "\The [O] is not suitable for blending.")
 		return 1
 
+	add_item(O,user)
+	return 0
+
+/obj/machinery/reagentgrinder/proc/add_item(var/obj/item/O as obj, var/mob/user as mob)
 	if(!user.unEquip(O, src))
 		return
 	holdingitems += O
