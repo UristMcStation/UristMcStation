@@ -10783,6 +10783,10 @@
 /obj/effect/shuttle_landmark/wyrm/sub/port,
 /turf/space,
 /area/space)
+"Az" = (
+/obj/structure/stairs/west,
+/turf/simulated/floor/tiled,
+/area/civilian/personal)
 
 (1,1,1) = {"
 aa
@@ -34298,7 +34302,7 @@ ir
 jo
 kN
 lU
-jn
+Az
 nQ
 oT
 qc
