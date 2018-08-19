@@ -4024,8 +4024,11 @@
 /turf/simulated/floor/tiled/white,
 /area/command/aicore)
 "ij" = (
-/obj/machinery/firealarm,
 /obj/machinery/ai_slipper,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
 "ik" = (
@@ -5769,7 +5772,6 @@
 /turf/simulated/floor/tiled,
 /area/civilian/personal)
 "kQ" = (
-/obj/machinery/firealarm,
 /obj/effect/floor_decal/corner/purple{
 	icon_state = "corner_white";
 	dir = 4
@@ -5777,6 +5779,10 @@
 /obj/effect/floor_decal/corner/green,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/personal,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled,
 /area/civilian/personal)
 "kR" = (
@@ -6766,10 +6772,6 @@
 /obj/structure/closet/gimmick/russian,
 /turf/simulated/floor/plating,
 /area/civilian/personal)
-"mK" = (
-/obj/structure/stairs/west,
-/turf/simulated/floor/tiled,
-/area/civilian/personal)
 "mL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6779,10 +6781,6 @@
 	icon_state = "1-2";
 	pixel_y = 0;
 	tag = ""
-	},
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/civilian/personal)
@@ -6804,7 +6802,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
 /area/civilian/personal)
 "mN" = (
@@ -8987,6 +8984,10 @@
 /obj/structure/cable/orange{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
@@ -34296,7 +34297,7 @@ ir
 jo
 kN
 lU
-mK
+jn
 nQ
 oT
 qc

@@ -2888,7 +2888,7 @@
 /turf/space,
 /area/space)
 "gI" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/wingrille_spawn/reinforced/full,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -3083,11 +3083,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/merchant_station)
-"hh" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/merchant_station)
 "hi" = (
 /obj/machinery/light/small{
@@ -3290,7 +3285,6 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "hK" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3298,6 +3292,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "hL" = (
@@ -3588,13 +3583,13 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "ir" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -3891,13 +3886,14 @@
 	},
 /area/shuttle/merchant/home)
 "iZ" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 1;
-	dir = 2;
-	name = "Warehouse";
-	req_access = newlist()
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass{
+	tag = "icon-closed (WEST)";
+	name = "Warehouse";
+	icon_state = "closed";
+	dir = 8;
+	autoclose = 1
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "ja" = (
@@ -4242,7 +4238,7 @@
 	},
 /area/shuttle/merchant/home)
 "jQ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "jR" = (
@@ -5384,12 +5380,6 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "mm" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 1;
-	dir = 2;
-	name = "Warehouse";
-	req_access = newlist()
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5399,6 +5389,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	tag = "icon-closed (WEST)";
+	name = "Warehouse";
+	icon_state = "closed";
+	dir = 8;
+	autoclose = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -5501,10 +5498,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/firealarm,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "mA" = (
@@ -6198,7 +6192,6 @@
 /turf/simulated/floor/airless,
 /area/merchant_station)
 "nX" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -6208,6 +6201,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "nY" = (
@@ -7979,6 +7973,11 @@
 "sk" = (
 /turf/simulated/floor/tiled,
 /area/space)
+"HA" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wingrille_spawn/reinforced/full,
+/turf/simulated/floor/plating,
+/area/merchant_station)
 
 (1,1,1) = {"
 aa
@@ -35680,7 +35679,7 @@ eX
 eX
 eX
 eX
-hh
+gI
 hC
 eX
 eX
@@ -36724,9 +36723,9 @@ aa
 aa
 gH
 eX
-gI
+HA
 nX
-gI
+HA
 eX
 eE
 aa
@@ -37236,7 +37235,7 @@ jn
 iU
 aa
 gH
-gI
+HA
 nh
 nE
 nZ
@@ -37493,7 +37492,7 @@ lz
 iT
 gH
 gH
-gI
+HA
 ni
 nF
 oa
@@ -37749,8 +37748,8 @@ kX
 lA
 iT
 in
-gI
-gI
+HA
+HA
 nj
 na
 ob
@@ -37992,8 +37991,8 @@ fg
 fv
 eX
 gl
-gI
-gI
+HA
+HA
 hK
 eX
 in
@@ -39291,7 +39290,7 @@ kZ
 lC
 lV
 mg
-gI
+HA
 id
 eX
 eX
@@ -39548,7 +39547,7 @@ la
 lD
 lV
 mh
-gI
+HA
 id
 eX
 eE
@@ -39805,7 +39804,7 @@ jP
 iS
 jQ
 mi
-gI
+HA
 iL
 eX
 eE
@@ -40056,9 +40055,9 @@ ip
 gI
 gI
 in
-jQ
-jQ
-jQ
+gI
+gI
+gI
 in
 eX
 mj

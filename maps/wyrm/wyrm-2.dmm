@@ -4375,6 +4375,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "ia" = (
@@ -4443,6 +4444,10 @@
 /obj/item/weapon/folder/red,
 /obj/item/weapon/pen/multi,
 /obj/item/weapon/tape_roll,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forenics)
 "ii" = (
@@ -5493,7 +5498,6 @@
 /obj/machinery/microscope{
 	density = 0
 	},
-/obj/machinery/firealarm,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	icon_state = "map_vent_out";
 	dir = 8
@@ -14113,9 +14117,12 @@
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /obj/random/powercell,
-/obj/machinery/firealarm,
 /obj/machinery/light,
 /obj/item/weapon/storage/box/lights/mixed,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/tool)
 "wI" = (
@@ -18468,7 +18475,10 @@
 /obj/machinery/body_scanconsole{
 	density = 0
 	},
-/obj/machinery/firealarm,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "DT" = (
