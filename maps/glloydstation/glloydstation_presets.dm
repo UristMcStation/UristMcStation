@@ -3,7 +3,7 @@ var/const/NETWORK_PRISON              = "Prison"
 var/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
 var/const/NETWORK_TELECOM             = "Tcomsat"
 var/const/NETWORK_URIST               = "Urist"
-//var/const/NETWORK_COMMAND             = "Command"
+var/const/NETWORK_COMMAND             = "Command"
 var/const/NETWORK_ENGINE              = "Engine"
 var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
 
