@@ -11,7 +11,7 @@
 		var/datum/trade_item/T = trade_items_inventory_by_type[O.type]
 		if(T)
 			T.quantity += 1
-			T.value = round(T.value * 0.95)		//price goes down a little
+			T.value = round(T.value * src.sellmodifier)		//price goes down a little
 			update_trade_item_ui(T)
 
 /mob/living/simple_animal/hostile/npc/proc/player_buy(var/item_name, var/mob/M)
@@ -38,7 +38,17 @@
 		GiveItem(D, M)
 
 /mob/living/simple_animal/hostile/npc/proc/GiveItem(var/datum/trade_item/D, var/mob/M)
-		//create the object and pass it over
+	//create the object and pass it over
+
+	if(D.is_bulky)
+
+		var/obj/O = new D.item_type(M.loc)
+
+		//tell the user
+		M.visible_message("<span class='info'>[M] exchanges items with [src]</span>",\
+			"<span class='info'>You split off cR-[D.value] to [src] who pulls out [O] and places it in front of you.</span>") //out of where? fuck knows.
+
+	else
 		var/obj/O = new D.item_type(M.loc)
 		M.put_in_hands(O)
 
@@ -46,9 +56,9 @@
 		M.visible_message("<span class='info'>[M] exchanges items with [src]</span>",\
 			"<span class='info'>You split off cR-[D.value] to [src] who hands you [O].</span>")
 
-		//update the inventory
-		D.quantity -= 1
-		D.value = round(D.value * 1.05)		//price goes up a little
-		update_trade_item_ui(D)
+	//update the inventory
+	D.quantity -= 1
+	D.value = round(D.value * src.price_increase)		//price goes up a little
+	update_trade_item_ui(D)
 
 

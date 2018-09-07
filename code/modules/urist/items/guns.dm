@@ -721,3 +721,147 @@ the sprite and make my own projectile -Glloyd*/
 	caliber = "c45m"
 	ammo_type = /obj/item/ammo_casing/c45m
 */
+
+
+//nerva guns
+
+/obj/item/weapon/gun/projectile/automatic/spaceak
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the ORMA, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "sexyrifle"
+	item_state = "sexyrifle"
+	w_class = 4
+	force = 10
+	caliber = "a762"
+	origin_tech = "combat=4;materials=1;syndicate=1"
+	slot_flags = SLOT_BACK
+	ammo_type = "/obj/item/ammo_casing/a762"
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a762mm/spaceak
+	one_hand_penalty = 4
+	wielded_item_state = "sexyrifle-wielded"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/spaceak/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "sexyrifle"
+	else
+		icon_state = "sexyrifle-empty"
+	return
+
+/obj/item/ammo_magazine/a762mm/spaceak
+	name = "U2442 magazine box (7.62mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "sexyrifle-mag"
+	max_ammo = 30
+
+
+/obj/item/weapon/gun/projectile/automatic/hi2521smg
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper HI-2521 SMG"
+	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "combatSMG"
+	item_state = "combatSMG"
+	w_class = 3
+	force = 10
+	caliber = "9mm"
+	origin_tech = "combat=6;materials=1;syndicate=4"
+	slot_flags = SLOT_BELT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm
+	one_hand_penalty = 1
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/hi2521smg/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "combatSMG"
+	else
+		icon_state = "combatSMG-empty"
+
+/obj/item/ammo_magazine/hi2521smg9mm
+	name = "HI-2521 SMG magazine (9mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "combatSMG-mag"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	origin_tech = "combat=2"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/hi2521smg9mm/empty
+	initial_ammo = 0
+
+/obj/item/weapon/gun/projectile/revolver/coltsaa
+	icon = 'icons/urist/items/guns.dmi'
+	item_icons = DEF_URIST_INHANDS
+	name = "Colt Single Action Army"
+	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector. Uses .45 magnum rounds."
+	icon_state = "antiquerevolver"
+	item_state = "antiquerevolver"
+	max_shells = 6
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c45
+
+/obj/item/weapon/gun/projectile/revolver/coltsaa/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "antiquerevolver"
+	else
+		icon_state = "antiquerevolver-empty"
+
+/obj/item/ammo_magazine/c45r
+	name = "speed loader (.45 magnum)"
+	desc = "A speed loader for revolvers."
+	icon_state = "38"
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	caliber = ".45"
+	max_ammo = 6
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45r/rubber
+	name = "speed loader (.45 magnum, rubber)"
+	icon_state = "R38"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r
+	icon = 'icons/urist/items/guns.dmi'
+	item_icons = DEF_URIST_INHANDS
+	name = "HI-2521 revolver"
+	desc = "A sleek modern revolver manufactured by Hephaestus Industries. Chambered in .44, this sucker packs a punch."
+	icon_state = "combatrevolver"
+	item_state = "combatrevolver"
+	max_shells = 6
+	caliber = ".44"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c44
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "combatrevolver"
+	else
+		icon_state = "combatrevolver-empty"
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
+	ammo_type = /obj/item/ammo_casing/c44/rubber

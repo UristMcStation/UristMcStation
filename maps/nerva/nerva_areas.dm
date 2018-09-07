@@ -44,7 +44,7 @@
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/command/headquarters
-	name = "\improper Officer's Quarters"
+	name = "\improper Officers' Quarters"
 
 /area/command/fo
 	name = "\improper First Officer's Office"
@@ -95,6 +95,9 @@
 
 /area/civilian
 	icon_state = "green"
+
+/area/civilian/observatory
+	name = "\improper Starboard Observatory"
 
 /area/civilian/cryo1
 	name = "\improper Primary Cryogenic Storage"
@@ -391,13 +394,51 @@
 //			MAINTENANCE				//
 //////////////////////////////////////
 
-/area/maintenance/primary/fs
-	name = "\improper Fore Starboard Maintenance"
+//first deck
+
+/area/maintenance/first_deck/fs
+	name = "\improper First Deck Fore Starboard Maintenance"
 	icon_state = "fsmaint"
 
-/area/maintenance/primary/fp
-	name = "\improper Fore Port Maintenance"
+/area/maintenance/first_deck/fp
+	name = "\improper First Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
+
+/area/maintenance/first_deck/afs
+	name = "\improper First Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/first_deck/afp
+	name = "\improper First Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/first_deck/central
+	name = "\improper First Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+//second deck
+
+/area/maintenance/second_deck/fs
+	name = "\improper Second Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/second_deck/fp
+	name = "\improper Second Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/second_deck/afs
+	name = "\improper Second Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/second_deck/afp
+	name = "\improper Second Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/second_deck/central
+	name = "\improper First Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+//third deck
 
 /area/maintenance/primary/sec
 	name = "\improper Security Maintenance"

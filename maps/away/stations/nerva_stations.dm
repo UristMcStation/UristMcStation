@@ -5,6 +5,8 @@
 	desc = "A Nanotrasen trading station, dock here to trade with its many merchants."
 	faction = "nanotrasen"
 	nospawn = 0
+	start_x = 6
+	start_y = 7
 	spawn_type = list(
 	/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	)

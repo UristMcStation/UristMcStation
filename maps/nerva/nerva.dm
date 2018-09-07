@@ -2,8 +2,10 @@
 
 	#include "nerva_areas.dm"
 	#include "nerva_presets.dm"
-	#include "nerva_jobs.dm"
 	#include "nerva_overmap.dm"
+	#include "datums/nerva_jobs.dm"
+	#include "datums/nerva_access_datums.dm"
+	#include "datums/nerva_outfits.dm"
 
 	#include "nerva-1.dmm"
 	#include "nerva-2.dmm"

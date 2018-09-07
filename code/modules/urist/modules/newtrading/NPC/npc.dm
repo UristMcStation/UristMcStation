@@ -1,6 +1,7 @@
 mob/living/simple_animal/hostile/var/hiddenfaction = null
 
 /mob/living/simple_animal/hostile/npc
+	anchored = 1
 	name = "NPC"
 	desc = "npc"
 	var/npc_job_title
@@ -46,6 +47,9 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	var/list/interact_inventory = list()
 
 	var/datum/controller/process/trade_controller/trade_controller_debug
+
+	var/sellmodifier = 0.90
+	var/price_increase = 1.02
 
 /mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)

@@ -18,43 +18,37 @@
 	//this uses the default SS13 item_worth procs so its a good fallback
 	. = get_value(O)
 
+	get_trade_info(O)
+
+/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject)
 	//see if we are already selling the item
-	var/datum/trade_item/T = trade_items_inventory_by_type[O.type]
+	var/datum/trade_item/T = trade_items_inventory_by_type[tradingobject.type]
 	if(T)
-		return T.value
+		if(!T.sellable)
+			return 0
+
+		else
+			return T.value
 
 	//check if its an accepted item
-	T = trade_items_by_type[O.type]
+	T = trade_items_by_type[tradingobject.type]
 	if(T)
+
+		if(!T.sellable)
+			return 0
 		//this is in the accepted trade categories initialise the trade item but keep it hidden for now
 		//note: spawn_trade_item() will slightly randomise the sale value to make it different per NPC
-		spawn_trade_item(T, 1)
-		return T.value
+		else
+			spawn_trade_item(T, 1)
+			return T.value
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[O.type]
+	T = trade_controller.trade_items_by_type[tradingobject.type]
 	if(T)
-		return T.value
+		if(!T.sellable)
+			return 0
 
-	//try and find it via the global categories
-	/*
-	var/obj_category = O.trader_category
-	if(obj_category)
-		var/datum/trade_category/C = trade_categories_by_name[obj_category]
-		var/init_hidden_trade_item = 0
-		if(C)
-			init_hidden_trade_item = 1
 		else
-			//we'll have to get the global value
-			//dont initialise a hidden trade item because we probably wont be trading it
-			C = trade_controller.get_trade_category(obj_category)
 
-		T = C.trade_items_by_type[O.type]
-		if(T)
-			if(init_hidden_trade_item)
-				//this is in the accepted trade categories initialise the trade item but keep it hidden for now
-				//note: spawn_trade_item() will slightly randomise the sale value to make it different per NPC
-				spawn_trade_item(T, 1)
+			return T.value
 
-			. = T.value
-			*/

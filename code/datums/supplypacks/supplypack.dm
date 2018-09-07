@@ -14,6 +14,7 @@ var/decl/hierarchy/supply_pack/cargo_supply_packs	// Non-category supply packs
 	var/num_contained = 0 //number of items picked to be contained in a randomised crate
 	var/supply_method = /decl/supply_method
 	var/decl/security_level/security_level
+	var/newcargocost = null //to raise prices if necessary to avoid exploitable situations
 
 /decl/hierarchy/supply_pack/New()
 	..()
@@ -30,6 +31,12 @@ var/decl/hierarchy/supply_pack/cargo_supply_packs	// Non-category supply packs
 	var/decl/supply_method/sm = get_supply_method(supply_method)
 	manifest = sm.setup_manifest(src)
 
+	if(GLOB.using_map.using_new_cargo)
+		if(newcargocost)
+			cost = (newcargocost * GLOB.using_map.new_cargo_inflation)
+		else
+			cost = (cost * GLOB.using_map.new_cargo_inflation) //this needs balancing
+
 /decl/hierarchy/supply_pack/proc/sec_available()
 	if(isnull(security_level))
 		return TRUE
@@ -37,9 +44,9 @@ var/decl/hierarchy/supply_pack/cargo_supply_packs	// Non-category supply packs
 	switch(security_level)
 		if(SUPPLY_SECURITY_ELEVATED)
 			if(security_state.all_security_levels.len > 1)
-				security_level = security_state.all_security_levels[2] 
+				security_level = security_state.all_security_levels[2]
 			else
-				security_level = security_state.high_security_level 
+				security_level = security_state.high_security_level
 		if(SUPPLY_SECURITY_HIGH)
 			security_level = security_state.high_security_level
 	if(!istype(security_level))

@@ -59,3 +59,6 @@ var/const/NETWORK_COMMAND		= "Command"
 // X-ray
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
+
+/obj/machinery/camera/xray/first_deck //for officers dorms
+	network = list(NETWORK_FIRST_DECK)

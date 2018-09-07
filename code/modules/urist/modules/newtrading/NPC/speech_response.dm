@@ -76,7 +76,7 @@
 		"We should be left to govern ourselves.",\
 		"If you ask me, the United Human Alliance has the right idea about those lizard fucks",\
 		"No aliens. Only men.",\
-		"There's an insurrection brewing, maybe it's about time Confederacy falls apart.",\
+		"There's an insurrection brewing, maybe it's about time the Confederacy falls apart.",\
 		"I'm not saying the United Human Alliance is justified, but some of their leaders have the right idea about where humanity should be going.")
 
 /datum/npc_speech_trigger/colonist_lizards

@@ -161,6 +161,15 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/obj/machinery/emergency_beacon/active_beacon
 
+//below this is all Nerva stuff
+
+	var/date_offset = 544 //default date offset
+	var/using_new_cargo = 0 //for nerva
+	var/new_cargo_inflation = 200 //used to calculate how much points are now. this needs balancing
+	var/nanotrasen_relations = 100 //used to determine if nt hates you
+	var/terran_confederacy_relations = 50 //used to determine if the tc hates you
+	var/list/contracts = list()
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
@@ -286,7 +295,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 /datum/map/proc/unbolt_saferooms()
 	return // overriden by torch
-	
+
 /datum/map/proc/make_maint_all_access(var/radstorm = 0) // parameter used by torch
 	maint_all_access = 1
 	priority_announcement.Announce("The maintenance access requirement has been revoked on all maintenance airlocks.", "Attention!")

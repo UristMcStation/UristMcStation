@@ -363,3 +363,25 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "medradio"
 	frequency = MED_I_FREQ
+
+//jeez this file is a mess. anyways, here's an empty welder for merchants
+
+/obj/item/weapon/weldingtool/empty
+	tank = /obj/item/weapon/welder_tank/empty
+
+/obj/item/weapon/welder_tank/empty
+	max_fuel = 0
+
+
+/obj/item/weapon/welder_tank/empty/Initialize()
+	..()
+	max_fuel = 20 //this is a dumb hack and i hate it
+
+//mapping object
+
+/obj/item/weapon/cigbutt/rand
+
+/obj/item/weapon/cigbutt/rand/New()
+	pixel_x = rand(1,9)
+	pixel_y = rand(1,9)
+	..()

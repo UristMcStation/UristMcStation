@@ -14,7 +14,7 @@
 	overmap_size = 36
 	overmap_event_areas = 32
 
-	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
+	allowed_spawns = list("Cryogenic Storage", "Secondary Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
 	station_name  = "ICS Nerva"
@@ -32,6 +32,15 @@
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
+	starting_money = 20000		//Money in station account //tweak this value
+	department_money = 1000		//Money in department accounts
+	salary_modifier	= 1			//Multiplier to starting character money
+
+	supply_currency_name = "Thalers"
+	supply_currency_name_short = "Th."
+
+	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+
 	evac_controller_type = /datum/evacuation_controller/starship
 
 	default_law_type = /datum/ai_laws/manifest
@@ -41,6 +50,8 @@
 	planet_size = list(129,129)
 
 	away_site_budget = 6
+
+	date_offset = 564
 
 	citizenship_choices = list(
 		"Earth",
@@ -87,7 +98,14 @@
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
 
-/datum/map/wyrm/send_welcome()
+/datum/map/nerva/map_info(victim)
+	to_chat(victim, "<h2>Current map information</h2>")
+	to_chat(victim, "You're aboard the <b>ICS Nerva</b>, an independently contracted vessel owned by the Captain. Its primary mission is whatever the Captain dictates, which can include trading, scavenging or exploration..")
+	to_chat(victim, "The vessel is staffed with a mix of personnel, hailing from multiple different backgrounds and factions. While the ship itself is an indepently contracted vessel, the crew may have their own loyalties.")
+	to_chat(victim, "This area of space is on the frontier, and is largely unsettled and unexplored. Any extensive settlements were destroyed during the Galactic Crisis.")
+	to_chat(victim, "You might encounter remote outposts, pirates, or drifting hulks, but no one faction can claim to fully control this sector.")
+
+/datum/map/nerva/send_welcome()
 	var/welcome_text = "<center><br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"

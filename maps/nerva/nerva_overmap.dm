@@ -9,6 +9,9 @@
 	shipid = "nerva"
 	vessel_mass = 200 //bigger than wyrm, smaller than torch
 	fore_dir = EAST
+	start_x = 6
+	start_y = 7
+
 /*	generic_waypoints = list(
 		"wyrm_prim_fore",
 		"wyrm_prim_star",
