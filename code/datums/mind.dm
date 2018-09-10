@@ -52,7 +52,7 @@
 
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
-	var/datum/faction/faction 			//associated faction
+	var/faction 			//associated faction
 	var/datum/changeling/changeling		//changeling holder
 	var/datum/vampire/vampire			//vamp holder; really have to clean this up someday.
 

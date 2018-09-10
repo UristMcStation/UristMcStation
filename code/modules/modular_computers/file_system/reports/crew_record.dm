@@ -54,10 +54,9 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 	// Employment record
 	set_emplRecord(H && H.gen_record && !jobban_isbanned(H, "Records") ? html_decode(H.gen_record) : "No record supplied")
-	set_homeSystem(H ? html_decode(H.home_system) : "Unset")
-	set_citizenship(H ? html_decode(H.citizenship) : "Unset")
-	set_faction(H ? html_decode(H.personal_faction) : "Unset")
-	set_religion(H ? html_decode(H.religion) : "Unset")
+	set_homeSystem(H ? html_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
+	set_faction(H ? html_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
+	set_religion(H ? html_decode(H.get_cultural_value(TAG_RELIGION)) : "Unset")
 
 	// Antag record
 	set_antagRecord(H && H.exploit_record && !jobban_isbanned(H, "Records") ? html_decode(H.exploit_record) : "")
@@ -151,10 +150,10 @@ FIELD_SHORT("DNA", dna, access_security)
 FIELD_SHORT("Fingerprint", fingerprint, access_security)
 
 // EMPLOYMENT RECORDS
-FIELD_LONG("Employment Record", emplRecord, access_heads)
-FIELD_SHORT("Home System", homeSystem, access_heads)
-FIELD_SHORT("Citizenship", citizenship, access_heads)
-FIELD_SHORT("Faction", faction, access_heads)
+FIELD_LONG("Employment Record", emplRecord, access_bridge)
+FIELD_SHORT("Home System", homeSystem, access_bridge)
+FIELD_SHORT("Faction", faction, access_bridge)
+FIELD_LONG("Qualifications", skillset, access_bridge)
 
 // ANTAG RECORDS
 FIELD_LONG("Exploitable Information", antagRecord, access_syndicate)

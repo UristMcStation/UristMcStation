@@ -375,6 +375,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src)
+	src.modules += new /obj/item/inducer/borg(src)
 	src.emag = new /obj/item/weapon/melee/baton/robot/electrified_arm(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
@@ -517,8 +518,6 @@ var/global/list/robot_modules = list(
 	languages = list(
 					LANGUAGE_SOL_COMMON	= 1,
 					LANGUAGE_UNATHI		= 1,
-					LANGUAGE_SIIK_MAAS	= 1,
-					LANGUAGE_SIIK_TAJR	= 0,
 					LANGUAGE_SKRELLIAN	= 1,
 					LANGUAGE_LUNAR	= 1,
 					LANGUAGE_RESOMI		= 1,
@@ -762,6 +761,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
+	src.modules += new /obj/item/inducer/borg(src)
 	src.modules += new /obj/item/weapon/reagent_containers/spray/cleaner/drone(src)
 
 	robot.internals = new/obj/item/weapon/tank/jetpack/carbondioxide(src)

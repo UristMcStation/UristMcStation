@@ -83,14 +83,13 @@ h1.alert, h2.alert		{color: #000000;}
 .notice					{color: #000099;}
 .alium					{color: #00ff00;}
 .cult					{color: #800080; font-weight: bold; font-style: italic;}
+.fountain				{color: #800080; font-style: italic; font-size: 175%;}
 
 .reflex_shoot			{color: #000099; font-style: italic;}
 
 /* Languages */
 
 .alien					{color: #543354;}
-.tajaran				{color: #803b56;}
-.tajaran_signlang		{color: #941c1c;}
 .skrell					{color: #00ced1;}
 .soghun					{color: #228b22;}
 .nabber_lang			{color: #525252;}

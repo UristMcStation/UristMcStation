@@ -715,7 +715,7 @@
 	model_text = "Pilot"
 	req_access = list(access_mining_office)
 	departments = list("Pilot")
-	species = list(SPECIES_HUMAN,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_UNATHI)
+	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return attack_hand(user)

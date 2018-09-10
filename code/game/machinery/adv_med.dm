@@ -39,8 +39,7 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Enter Body Scanner"
-
-	if(usr.stat != 0)
+	if (usr.stat != 0)
 		return
 	if(src.occupant)
 		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
@@ -61,9 +60,7 @@
 /obj/machinery/bodyscanner/proc/go_out()
 	if(!(occupant) || locked)
 		return
-	for(var/obj/O in src)
-		if(O in component_parts)
-			continue
+	for(var/obj/O in (src.contents - component_parts))
 		O.dropInto(loc)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
@@ -88,14 +85,24 @@
 
 /obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
 	if(!istype(G))
-		return ..()
+		if(default_deconstruction_screwdriver(user, G))
+			updateUsrDialog()
+			return
+		if(default_deconstruction_crowbar(user, G))
+			return
+		if(default_part_replacement(user, G))
+			return
 	var/mob/M = G.affecting
 	if(!user_can_move_target_inside(M, user))
 		return
 	M.forceMove(src)
 	src.occupant = M
+
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
+	for(var/obj/O in (contents - component_parts))
+		O.forceMove(loc)
+
 	src.add_fingerprint(user)
 	qdel(G)
 
@@ -129,6 +136,8 @@
 	src.occupant = M
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
+	for(var/obj/O in (contents - component_parts))
+		O.forceMove(loc)
 	src.add_fingerprint(user)
 
 /obj/machinery/bodyscanner/ex_act(severity)
@@ -177,6 +186,8 @@
 		else
 	return
 
+
+
 /obj/machinery/body_scanconsole/update_icon()
 	if(stat & BROKEN)
 		icon_state = "body_scannerconsole-p"
@@ -196,6 +207,13 @@
 	density = 0
 	anchored = 1
 
+/obj/machinery/body_scanconsole/Initialize()
+	. = ..()
+	component_parts = list(
+		new /obj/item/weapon/circuitboard/body_scanconsole(src),
+		new /obj/item/weapon/stock_parts/console_screen(src))
+	RefreshParts()
+	FindScanner()
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
@@ -303,6 +321,27 @@
 		. = "significant"
 	else if(amount > 10)
 		. = "moderate"
+
+/obj/machinery/body_scanconsole/proc/generate_window(mob/user)
+	var/dat = list()
+	if (stored_scan)
+		dat = stored_scan
+		dat += "<br><HR><A href='?src=\ref[src];print=1'>Print Scan</A>"
+		dat += "<br><HR><A href='?src=\ref[src];erase=1'>Erase Scan</A>"
+		if(ishuman(connected.occupant))
+			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Rescan Occupant</A>"
+	else
+		dat = "<b>Scan Menu</b>"
+		if (!connected.occupant)
+			dat += "<br><HR><span class='warning'>The body scanner is empty.</span>"
+		else if(!ishuman(connected.occupant))
+			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
+		else
+			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Scan Occupant</A>"
+
+	dat += "<BR><HR><A href='?src=\ref[src];scan_refresh=1'>Refresh</A>"
+	dat += "<BR><HR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>"
+	show_browser(user, jointext(dat, null), "window=scanconsole;size=430x600")
 
 /mob/living/carbon/human/proc/get_medical_data()
 	var/mob/living/carbon/human/H = src

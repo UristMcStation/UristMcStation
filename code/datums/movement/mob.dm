@@ -230,13 +230,6 @@
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
-	if(mob.check_slipmove())
-		return
-
-	// Need to handle grabs before we move
-	var/extra_delay = HandleGrabs(direction)
-	mob.ExtraMoveCooldown(extra_delay)
-
 	//We are now going to move
 	mob.moving = 1
 

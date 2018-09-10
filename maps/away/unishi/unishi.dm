@@ -12,13 +12,14 @@
 		/datum/job/submap/unishi_crew,
 		/datum/job/submap/unishi_researcher
 	)
+	whitelisted_species = list(SPECIES_HUMAN)
 
 /obj/effect/overmap/ship/unishi
 	name = "SRV Verne"
 	desc = "Sensor array detects unknown class medium size vessel. The vessel appears unarmed.\
 	A small amount of radiation has been detected at the aft of the ship"
-	vessel_mass = 300
-	default_delay = 35 SECONDS
+	vessel_mass = 80
+	default_delay = 15 SECONDS
 	speed_mod = 10 SECONDS
 	initial_generic_waypoints = list(
 		"nav_unishi_1",
@@ -74,7 +75,7 @@
 	thermal_release_modifier = 0 //Basically inert
 	phoron_release_modifier = 100000000000
 	oxygen_release_modifier = 100000000000
-	radiation_release_modifier = 3.5
+	radiation_release_modifier = 1
 
 /obj/machinery/power/emitter/anchored/on
 	active = 1
@@ -102,8 +103,8 @@ obj/item/weapon/paper/prof2
 	var/logtype
 	var/used = 0
 
-/obj/machinery/computer/log_printer/attack_hand(mob/user as mob)
-	if(!used)
+/obj/machinery/computer/log_printer/attack_hand(mob/living/user as mob)
+	if(!used && !isghost(usr))
 		to_chat(usr, "Default Boot Device File Integrity Damaged. Startup aborted. Error log printing.")
 		new logtype(loc)
 		used = 1

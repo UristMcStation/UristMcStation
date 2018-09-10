@@ -161,6 +161,11 @@
 		if(("Assistant" in pref.job_low) && (rank != "Assistant"))
 			. += "<font color=grey>[rank]</font></a></td><td></td></tr>"
 			continue
+		if(bad_message)
+			. += "<a href='?src=\ref[src];set_skills=[rank]'><del>[rank]</del></a></td><td>[bad_message]</td></tr>"
+			continue
+
+		. += (unspent && (current_level != JOB_LEVEL_NEVER) ? "<a class='Points' href='?src=\ref[src];set_skills=[rank]'>" : "<a href='?src=\ref[src];set_skills=[rank]'>")
 		if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
 			. += "<b>[rank]</b>"
 		else

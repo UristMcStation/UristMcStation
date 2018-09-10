@@ -72,7 +72,7 @@
 	/* Species-specific sprites, concept stolen from Paradise//vg/.
 	ex:
 	sprite_sheets = list(
-		SPECIES_TAJARA = 'icons/cat/are/bad'
+		SPECIES_UNATHI = 'icons/lizard/are/bad'
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
@@ -591,6 +591,7 @@ var/list/global/slot_flags_enumeration = list(
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
+	trace_DNA = null
 
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)

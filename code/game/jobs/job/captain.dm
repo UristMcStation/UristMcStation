@@ -38,7 +38,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
 	minimal_player_age = 14
-	economic_modifier = 10
+	economic_power = 10
 	ideal_character_age = 50
 
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
