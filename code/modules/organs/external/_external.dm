@@ -852,7 +852,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 			stump.artery_name = "mangled [artery_name]"
 			stump.arterial_bleed_severity = arterial_bleed_severity
 			stump.add_pain(max_damage)
-			W.parent_organ = stump
 			stump.wounds |= W
 			victim.organs |= stump
 			if(disintegrate != DROPLIMB_BURN)

@@ -9,17 +9,13 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 
 /obj/item/weapon/reagent_containers/food/drinks/shaker/attack_self(mob/user as mob)
-	if(user.skill_check(SKILL_COOKING, SKILL_PROF))
+	if(user.mind.assigned_role == "Bartender")
 		user.visible_message("<span class='rose'>\The [user] shakes \the [src] briskly in one hand, with supreme confidence and competence.</span>", "<span class='rose'>You shake \the [src] briskly with one hand.</span>")
-		mix()
-		return
-	if(user.skill_check(SKILL_COOKING, SKILL_ADEPT))
-		user.visible_message(SPAN_NOTICE("\The [user] shakes \the [src] briskly, with some skill."), SPAN_NOTICE("You shake \the [src] briskly, with some skill."))
 		mix()
 		return
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] shakes \the [src] gingerly."), SPAN_NOTICE("You shake \the [src] gingerly."))
-		if(prob(15) && (reagents && reagents.total_volume))
+		if(prob(1) && (reagents && reagents.total_volume))
 			user.visible_message(SPAN_WARNING("\The [user] spills the contents of \the [src] over themselves!"), SPAN_WARNING("You spill the contents of \the [src] over yourself!"))
 			reagents.splash(user, reagents.total_volume)
 		else

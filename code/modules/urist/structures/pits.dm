@@ -233,7 +233,7 @@
 	new /obj/item/clothing/head/urist/cowboy2(C)
 	new /obj/item/clothing/under/urist/cowboy(C)
 	new /obj/item/clothing/suit/urist/poncho(C)
-	new /obj/item/clothing/accessory/holster/hip(C)
+	new /obj/item/clothing/accessory/storage/holster/hip(C)
 	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
 
 	var/obj/structure/gravemarker/cross/R = new(src.loc)

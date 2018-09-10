@@ -76,7 +76,7 @@ REAGENT SCANNER
 		to_chat(user, "<span class='warning'>\The [scanner] is designed for organic humanoid patients only.</span>")
 		return
 	to_chat(user, "<hr>")
-	to_chat(user, medical_scan_results(H, mode))
+	to_chat(user, medical_scan_results(scan_subject, verbose))
 	to_chat(user, "<hr>")
 
 proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
@@ -126,16 +126,17 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 			pulse_result = H.get_pulse(1)
 	else
 		pulse_result = "<span class='danger'>ERROR - Nonstandard biology</span>"
+		pulse_suffix = ""
 
-	. += "<span class='notice'>Pulse rate: [pulse_result]bpm.</span>"
+	. += "<span class='notice'>Pulse rate: [pulse_result][pulse_suffix].</span>"
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
-			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
-		dat += "[b]Blood pressure:[endb] [H.get_blood_pressure()] ([H.get_blood_oxygenation()]% blood oxygenation)"
+			. += "<span class='scan_danger'>Severe blood loss detected.</span>"
+		. += "<b>Blood pressure:</b> [H.get_blood_pressure()] ([H.get_blood_oxygenation()]% blood oxygenation)"
 	else
-		dat += "[b]Blood pressure:[endb] N/A"
+		. += "<b>Blood pressure:</b> N/A"
 
 	// Body temperature.
 	. += "<span class='notice'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"

@@ -70,8 +70,6 @@
 
 		if (istype(E, /datum/stack_recipe))
 			var/datum/stack_recipe/R = E
-			if(!user.skill_check(SKILL_CONSTRUCTION, R.difficulty))
-				continue
 			t1+="<br>"
 			var/max_multiplier = round(src.get_amount() / R.req_amount)
 			var/title as text
@@ -104,8 +102,6 @@
 /obj/item/stack/proc/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)
 	var/required = quantity*recipe.req_amount
 	var/produced = min(quantity*recipe.res_amount, recipe.max_res_amount)
-	if(!user.skill_check(SKILL_CONSTRUCTION, recipe.difficulty))
-		return
 
 	if (!can_use(required))
 		if (produced>1)
@@ -124,7 +120,7 @@
 
 	if (recipe.time)
 		to_chat(user, "<span class='notice'>Building [recipe.display_name()] ...</span>")
-		if (!user.do_skilled(recipe.time, SKILL_CONSTRUCTION))
+		if (!do_after(user, recipe.time, user))
 			return
 
 	if (use(required))

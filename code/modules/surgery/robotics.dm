@@ -217,11 +217,6 @@
 	min_duration = 50
 	max_duration = 60
 
-/datum/surgery_step/robotics/repair_brittle/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	. = ..()
-	if(user.skill_check(SKILL_ELECTRICAL, SKILL_BASIC))
-		. += 10
-
 /datum/surgery_step/robotics/repair_brittle/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return ..() && affected && BP_IS_BRITTLE(affected) && affected.hatch_state == HATCH_OPENED && target_zone != BP_MOUTH

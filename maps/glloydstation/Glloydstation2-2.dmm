@@ -6062,8 +6062,8 @@
 /area/syndicate_station/start)
 "aoI" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /obj/item/ammo_magazine/mc9mm/flash,
 /obj/item/weapon/gun/projectile/pistol/flash,
 /turf/simulated/floor/shuttle/darkred,
@@ -6170,12 +6170,12 @@
 /area/syndicate_mothership)
 "aoS" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /obj/item/weapon/melee/baton/loaded,
 /obj/item/weapon/melee/baton/loaded,
 /turf/unsimulated/floor{
@@ -8942,10 +8942,10 @@
 /area/centcom/specops)
 "avo" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9442,7 +9442,7 @@
 /obj/item/weapon/handcuffs,
 /obj/item/device/flash,
 /obj/item/weapon/melee/baton/loaded,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -23311,10 +23311,10 @@
 /obj/structure/closet/cabinet{
 	name = "clothes cabinet"
 	},
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
@@ -23472,7 +23472,7 @@
 /obj/item/clothing/glasses/night,
 /obj/item/clothing/glasses/eyepatch,
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
 /obj/item/clothing/accessory/kneepads,
 /obj/item/clothing/mask/balaclava/tactical,
 /obj/item/clothing/mask/balaclava/skimask,

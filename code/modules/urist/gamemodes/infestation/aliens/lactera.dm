@@ -13,59 +13,58 @@
 	return //can't strip lactera
 
 /obj/item/organ/external/chest/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/groin/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/arm/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/arm/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/leg/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/leg/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/foot/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
 
 /obj/item/organ/external/foot/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/hand/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/hand/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+
 
 /obj/item/organ/external/head/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-//	cannot_amputate = 1
+//
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0

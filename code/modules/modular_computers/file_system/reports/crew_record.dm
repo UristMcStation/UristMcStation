@@ -155,7 +155,6 @@ FIELD_LONG("Employment Record", emplRecord, access_heads)
 FIELD_SHORT("Home System", homeSystem, access_heads)
 FIELD_SHORT("Citizenship", citizenship, access_heads)
 FIELD_SHORT("Faction", faction, access_heads)
-FIELD_SHORT("Religion", religion, access_heads)
 
 // ANTAG RECORDS
 FIELD_LONG("Exploitable Information", antagRecord, access_syndicate)
