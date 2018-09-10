@@ -83,7 +83,7 @@
 	if(H == user)	//can't look into your own eyes buster
 		return
 
-	if(vision.robotic < ORGAN_ROBOT )
+	if(!BP_IS_ROBOTIC(vision))
 
 		if(vision.owner.stat == DEAD || H.blinded)	//mob is dead or fully blind
 			to_chat(user, "<span class='warning'>\The [H]'s pupils do not react to the light!</span>")
@@ -402,6 +402,7 @@
 	icon = 'icons/obj/machines/floodlight.dmi'
 	icon_state = "floodlamp"
 	item_state = "lamp"
+	on = 0
 	w_class = ITEM_SIZE_LARGE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
@@ -430,6 +431,9 @@
 
 /obj/item/device/flashlight/floodlamp/AltClick()
 	rotate()
+
+/obj/item/device/flashlight/lamp/floodlamp/green
+	icon_state = "greenfloodlamp"
 
 //Lava Lamps: Because we're already stuck in the 70ies with those fax machines.
 /obj/item/device/flashlight/lamp/lava

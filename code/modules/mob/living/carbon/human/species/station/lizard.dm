@@ -24,6 +24,7 @@
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI)
 	name_language = LANGUAGE_UNATHI
+	assisted_langs = list(LANGUAGE_NABBER)
 	health_hud_intensity = 2
 	hunger_factor = DEFAULT_HUNGER_FACTOR * 3
 
@@ -82,6 +83,11 @@
 	prone_overlay_offset = list(-4, -4)
 
 	override_limb_types = list(BP_HEAD = /obj/item/organ/external/head/unathi)
+
+	descriptors = list(
+		/datum/mob_descriptor/height = 2,
+		/datum/mob_descriptor/build = 2
+		)
 
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()

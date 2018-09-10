@@ -62,6 +62,9 @@
 	else
 		icon_state = "secgundark-e"
 
+/obj/item/weapon/gun/projectile/sec/wood/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A handgun with an integral silencer. Uses .45 rounds."
@@ -76,10 +79,10 @@
 
 /obj/item/weapon/gun/projectile/magnum_pistol
 	name = ".50 magnum pistol"
-	desc = "The HelTek Magnus, a robust terran handgun that uses .50 AE ammo."
+	desc = "The HelTek Magnus, a robust Terran handgun that uses .50 AE ammo."
 	icon_state = "magnum"
 	item_state = "revolver"
-	force = 14.0
+	force = 9
 	caliber = ".50"
 	fire_delay = 12
 	screen_shake = 2
@@ -178,7 +181,7 @@
 			return//put the silencer into the gun
 		to_chat(user, "<span class='notice'>You screw [I] onto [src].</span>")
 		silenced = I	//dodgy?
-		w_class = ITEM_SIZE_NORMAL		
+		w_class = ITEM_SIZE_NORMAL
 		update_icon()
 		return
 	..()
@@ -207,6 +210,7 @@
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
+	w_class = ITEM_SIZE_NORMAL
 
 	var/global/list/ammo_types = list(
 		/obj/item/ammo_casing/a357              = ".357",

@@ -458,13 +458,13 @@ obj/random/closet/spawn_choices()
 	icon_state = "coin"
 
 /obj/random/coin/spawn_choices()
-	return list(/obj/item/weapon/coin/gold = 3,
-				/obj/item/weapon/coin/silver = 4,
-				/obj/item/weapon/coin/diamond = 2,
-				/obj/item/weapon/coin/iron = 4,
-				/obj/item/weapon/coin/uranium = 3,
-				/obj/item/weapon/coin/platinum = 1,
-				/obj/item/weapon/coin/phoron = 1)
+	return list(/obj/item/weapon/material/coin/gold = 3,
+				/obj/item/weapon/material/coin/silver = 4,
+				/obj/item/weapon/material/coin/diamond = 2,
+				/obj/item/weapon/material/coin/iron = 4,
+				/obj/item/weapon/material/coin/uranium = 3,
+				/obj/item/weapon/material/coin/platinum = 1,
+				/obj/item/weapon/material/coin/phoron = 1)
 
 /obj/random/toy
 	name = "random toy"
@@ -715,8 +715,8 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/weapon/storage/belt/utility/full = 2,
 				/obj/item/weapon/storage/belt/medical/emt = 2,
 				/obj/item/weapon/storage/belt/medical = 2,
-				/obj/item/weapon/storage/belt/security = 2,
-				/obj/item/weapon/storage/belt/security/tactical = 1)
+				/obj/item/weapon/storage/belt/holster/security = 2,
+				/obj/item/weapon/storage/belt/holster/security/tactical = 1)
 
 /obj/random/shoes
 	name = "random footwear"
@@ -862,10 +862,10 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/clothing/accessory/storage/brown_vest = 2,
 				/obj/item/clothing/accessory/storage/white_vest = 2,
 				/obj/item/clothing/accessory/storage/bandolier = 1,
-				/obj/item/clothing/accessory/holster/thigh = 1,
-				/obj/item/clothing/accessory/holster/hip = 1,
-				/obj/item/clothing/accessory/holster/waist = 1,
-				/obj/item/clothing/accessory/holster/armpit = 1,
+				/obj/item/clothing/accessory/storage/holster/thigh = 1,
+				/obj/item/clothing/accessory/storage/holster/hip = 1,
+				/obj/item/clothing/accessory/storage/holster/waist = 1,
+				/obj/item/clothing/accessory/storage/holster/armpit = 1,
 				/obj/item/clothing/accessory/kneepads = 3,
 				/obj/item/clothing/accessory/stethoscope = 2)
 

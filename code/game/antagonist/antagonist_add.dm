@@ -68,9 +68,9 @@
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
 
-		var/datum/job/job = job_master.GetJob(player.assigned_role) //Reset their skills to be job-appropriate.
+		//Reset their skills to be job-appropriate.
 		if(player.current)
-			player.current.skillset.obtain_from_client(job, player.current.client)
+			player.current.reset_skillset()
 
 		if(!is_special_character(player))
 			player.current.verbs -= /mob/living/proc/write_ambition

@@ -74,8 +74,6 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/snake
 
-	var/list/eye_overlays = list()
-
 	has_organ = list(    // which required-organ checks are conducted.
 		BP_BRAIN =    /obj/item/organ/internal/brain/nabber,
 		BP_EYES =     /obj/item/organ/internal/eyes/nabber,
@@ -127,8 +125,14 @@
 	unarmed_types = list(/datum/unarmed_attack/nabber)
 
 	equip_adjust = list(
-		slot_back_str = list(NORTH = list("x" = 0, "y" = 7), EAST = list("x" = 0, "y" = 8), SOUTH = list("x" = 0, "y" = 8), WEST = list("x" = 0, "y" = 8))
-			)
+		slot_back_str = list(NORTH = list("x" = 0, "y" = 7), EAST = list("x" = 0, "y" = 8), SOUTH = list("x" = 0, "y" = 8), WEST = list("x" = 0, "y" = 8)),
+		slot_belt_str = list(NORTH = list("x" = 0, "y" = 0), EAST = list("x" = 8, "y" = 0), SOUTH = list("x" = 0, "y" = 0), WEST = list("x" = -8, "y" = 0)),
+	)
+
+	descriptors = list(
+		/datum/mob_descriptor/height = 3,
+		/datum/mob_descriptor/body_length = 0
+		)
 
 /datum/species/nabber/get_blood_name()
 	return "haemolymph"
@@ -230,7 +234,7 @@
 				if(part)
 					image_key += "[part.species.get_race_key(part.owner)]"
 					image_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
-				if(part.robotic >= ORGAN_ROBOT)
+				if(BP_IS_ROBOTIC(part))
 					image_key += "2[part.model ? "-[part.model]": ""]"
 				else if(part.status & ORGAN_DEAD)
 					image_key += "3"

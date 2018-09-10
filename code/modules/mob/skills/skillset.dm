@@ -33,30 +33,35 @@
 	skill_list = list()
 	return												//Antags get generic skills, unless this is modified
 
-/datum/skillset/proc/obtain_from_client(datum/job/job, client/given_client)
+/datum/skillset/proc/obtain_from_client(datum/job/job, client/given_client, override = 0)
 	if(!skills_transferable)
 		return
-	if(owner.mind && player_is_antag(owner.mind))		//Antags are dealt with at a different time. Note that this may be called before or after antag roles are assigned.
+	if(!override && owner.mind && player_is_antag(owner.mind))		//Antags are dealt with at a different time. Note that this may be called before or after antag roles are assigned.
 		return
 	if(!given_client)
 		return
 
-	var/allocation = list()
-	if(job in given_client.prefs.skills_allocated)
-		allocation = given_client.prefs.skills_allocated[job]
+	var/allocation = given_client.prefs.skills_allocated[job] || list()
 	skill_list = list()
+
 	for(var/decl/hierarchy/skill/S in GLOB.skills)
 		var/min = given_client.prefs.get_min_skill(job, S)
 		skill_list[S] = min + (allocation[S] || 0)
 
 // Show skills verb
 
-proc/show_skill_window(var/mob/user, var/mob/M)
-	if(!istype(M)) return
+mob/living/verb/show_skills()
+	set category = "IC"
+	set name = "Show Own Skills"
 
-	if(!M.skillset)
-		to_chat(user, "There are no skills to display.")
+	skillset.open_ui()
+
+datum/skillset/proc/open_ui()
+	if(!owner)
 		return
+	if(!NM)
+		NM = new nm_type(owner)
+	NM.ui_interact(owner)
 
 	var/HTML = list()
 	HTML += "<body>"
