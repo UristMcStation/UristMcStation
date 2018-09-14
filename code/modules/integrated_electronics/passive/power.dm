@@ -104,7 +104,7 @@
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()
 	..()
 	create_reagents(volume)
-	extended_desc +="But no fuel can be compared with blood of living human."
+	extended_desc +=" But no fuel can be compared with blood of living human."
 
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
@@ -119,7 +119,20 @@
 /obj/item/integrated_circuit/passive/power/chemical_cell/make_energy()
 	if(assembly)
 		if(assembly.battery)
-			var/bp = 5000
+			var/bp = 10000
+			for(var/datum/reagent/R in reagents.reagent_list)
+				if(R.type == /datum/reagent/blood)
+					var/datum/reagent/blood/B = R
+					if(!B.data.len)
+						break
+					var/weakref/W = B.data["donor"]
+					var/mob/M = W.resolve()
+					if(M.stat)
+						bp *= 0.5
+					if(B.data["species"] == "Human")
+						bp *= 1.5
+					else if(B.data["species"] != "Monkey")
+						bp *= 2.5
 			if((assembly.battery.maxcharge-assembly.battery.charge) / CELLRATE > bp && reagents.remove_reagent(/datum/reagent/blood, 1)) //only blood is powerful enough to power the station(c)
 				assembly.give_power(bp)
 			for(var/I in fuel)

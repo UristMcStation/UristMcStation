@@ -126,8 +126,8 @@
 	death_message = "bursts into flames and disappears."
 	death_sound = 'sound/voice/hiss6.ogg'
 
-	default_language = "Xenomorph"
-	language = "Hivemind"
+//	default_language = "Xenomorph"
+//	language = "Hivemind"
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -140,8 +140,6 @@
 		BP_HIVE =       /obj/item/organ/internal/xeno/hivenode,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
-
-	caste_name = "lactera" // Used to update alien name.
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/lactera),

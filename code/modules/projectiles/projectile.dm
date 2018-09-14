@@ -387,7 +387,7 @@
 			if(!hitscan) //Bullets don't hit their target instantly, so we can't link the deletion of the muzzle flash to the bullet's Destroy()
 				QDEL_IN(M,1)
 			else
-				segments += M
+				segments |= M
 
 /obj/item/projectile/proc/tracer_effect(var/matrix/M)
 	if(ispath(tracer_type))
@@ -400,7 +400,7 @@
 			if(!hitscan)
 				QDEL_IN(M,1)
 			else
-				segments += P
+				segments |= P
 
 /obj/item/projectile/proc/impact_effect(var/matrix/M)
 	if(ispath(impact_type))
@@ -410,7 +410,7 @@
 			P.set_transform(M)
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
-			segments += P
+			segments |= P
 
 //"Tracing" projectile
 /obj/item/projectile/test //Used to see if you can hit them.

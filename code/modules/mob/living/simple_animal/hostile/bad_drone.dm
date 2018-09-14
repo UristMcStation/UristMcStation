@@ -22,7 +22,7 @@
 	. = ..()
 	name = "[initial(name)] ([random_id(type,100,999)])"
 
-/mob/living/simple_animal/hostile/rogue_drone/ValidTarget(var/atom/A)
+/mob/living/simple_animal/hostile/rogue_drone/Found(var/atom/A)
 	. = ..()
 	if(.)
 		if(istype(A,/mob/living/silicon/))

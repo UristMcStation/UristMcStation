@@ -277,7 +277,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/try_graffiti(var/mob/vandal, var/obj/item/tool)
 
-	if(!tool.sharp || !can_engrave())
+	if(vandal.a_intent != I_HELP || !tool.sharp || !can_engrave())
 		return FALSE
 
 	var/too_much_graffiti = 0

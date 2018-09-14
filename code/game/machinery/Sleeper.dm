@@ -22,20 +22,9 @@
 
 /obj/machinery/sleeper/Initialize()
 	. = ..()
-	component_parts = list(
-		new /obj/item/weapon/circuitboard/sleeper(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/console_screen(src),
-		new /obj/item/weapon/reagent_containers/syringe(src),
-		new /obj/item/weapon/reagent_containers/syringe(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker/large(src))
-	RefreshParts()
-
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
-	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
 	component_parts += beaker
+	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
 	update_icon()
 
 /obj/machinery/sleeper/Process()

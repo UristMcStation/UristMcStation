@@ -4,6 +4,7 @@
 	icon_state = "x"
 	invisibility = 0
 	var/species = SPECIES_HUMAN
+	var/language = LANGUAGE_GALCOM
 	var/new_name
 	var/new_gender
 	var/hair_style           // Regular name
@@ -24,7 +25,7 @@
 /obj/effect/spawner/carbon/human/Initialize()
 	. = ..()
 	H = new /mob/living/carbon/human(loc)
-	var/datum/species/real_species = all_species[species]
+	var/datum/language/L = all_languages[language]
 	H.set_species(species)
 
 	if(new_gender)
@@ -43,7 +44,7 @@
 	if(new_name)
 		H.real_name = new_name
 	else
-		H.real_name = real_species.get_random_name(H.gender)
+		H.real_name = L.get_random_name(H.gender)
 
 	if(tone && !skin_color)
 		if(tone == "RAND")

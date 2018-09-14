@@ -236,6 +236,10 @@
 	direction = mob.AdjustMovementDirection(direction)
 	step(mob, direction)
 
+	// Something with pulling things
+	var/extra_delay = HandleGrabs(direction)
+	mob.ExtraMoveCooldown(extra_delay)
+
 	for (var/obj/item/grab/G in mob)
 		if (G.assailant_reverse_facing())
 			mob.set_dir(GLOB.reverse_dir[direction])
@@ -251,32 +255,23 @@
 /datum/movement_handler/mob/movement/proc/HandleGrabs(var/direction)
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
+	var/list/L = mob.ret_grab()
+	if(LAZYLEN(L))
+		var/turf/T = get_step(mob,reverse_direction(direction))
+		L -= mob
+		for(var/mob/M in L)
+			if ((get_dist(mob, M) <= 2 || M.loc == mob.loc))
+				if (isturf(M.loc))
+					var/diag = get_dir(mob, M)
+					if ((diag - 1) & diag)
+					else
+						diag = null
+					if ((get_dist(mob, M) > 1 || diag))
+						step(M, get_dir(M.loc, T))
+
 	for (var/obj/item/grab/G in mob)
 		. = max(., G.grab_slowdown())
-		var/list/L = mob.ret_grab()
-		if(istype(L, /list))
-			if(L.len == 2)
-				L -= mob
-				var/mob/M = L[1]
-				if(M)
-					if((get_dist(mob, M) <= 1 || M.loc == mob.loc))
-						var/turf/T = mob.loc
-						if(isturf(M.loc))
-							step(M, get_dir(M.loc, T))
-			else
-				for(var/mob/M in L)
-					M.other_mobs = 1
-					if(mob != M)
-						M.animate_movement = 3
-				for(var/mob/M in L)
-					spawn( 0 )
-						step(M, direction)
-						return
-					spawn( 1 )
-						M.other_mobs = null
-						M.animate_movement = 2
-						return
-			G.adjust_position()
+		G.adjust_position()
 
 // Misc. helpers
 /mob/proc/MayEnterTurf(var/turf/T)

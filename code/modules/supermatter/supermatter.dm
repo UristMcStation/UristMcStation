@@ -247,7 +247,7 @@
 
 /obj/machinery/power/supermatter/examine(mob/user)
 	. = ..()
-	if(user.skill_check(SKILL_ENGINES, SKILL_EXPERT))
+	if("Engineer" in user.mind.assigned_role)
 		var/integrity_message
 		switch(get_integrity())
 			if(0 to 30)
@@ -257,11 +257,10 @@
 			else
 				integrity_message = "At a glance, it seems to be in sound shape."
 		to_chat(user, integrity_message)
-		if(user.skill_check(SKILL_ENGINES, SKILL_PROF))
-			var/display_power = power
-			display_power *= (0.85 + 0.3 * rand())
-			display_power = round(display_power, 20)
-			to_chat(user, "Eyeballing it, you place the relative EER at around [display_power] MeV/cm3.")
+		var/display_power = power
+		display_power *= (0.85 + 0.3 * rand())
+		display_power = round(display_power, 20)
+		to_chat(user, "Eyeballing it, you place the relative EER at around [display_power] MeV/cm3.")
 
 //Changes color and luminosity of the light to these values if they were not already set
 /obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)

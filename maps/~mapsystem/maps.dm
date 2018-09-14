@@ -186,6 +186,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	)
 
 	var/obj/machinery/emergency_beacon/active_beacon
+	var/list/blacklisted_programs = list()
 
 /datum/map/New()
 	if(!map_levels)

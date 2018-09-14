@@ -210,16 +210,16 @@
 
 		var/tramount = abs(transfer_amount)
 
-		if(istype(AM, /mob/living/carbon))
-			var/mob/living/carbon/C = AM
-			var/injection_status = C.can_inject(null, BP_CHEST)
-			if(istype(C, /mob/living/carbon/slime) || !C.dna || !injection_status)
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			var/injection_status = H.can_inject(null, BP_CHEST)
+			if(!H.dna || !injection_status || !H.vessel.total_volume)
 				activate_pin(3)
 				return
-			C.visible_message("<span class='danger'>\The [acting_object] is trying to take a blood sample from [C]!</span>", \
+			H.visible_message("<span class='danger'>\The [acting_object] is trying to take a blood sample from [H]!</span>", \
 								"<span class='danger'>\The [acting_object] is trying to take a blood sample from you!</span>")
 			busy = TRUE
-			addtimer(CALLBACK(src, .proc/draw_after, weakref(C), tramount), injection_status * 3 SECONDS)
+			addtimer(CALLBACK(src, .proc/draw_after, weakref(H), tramount), injection_status * 3 SECONDS)
 			return
 
 		else

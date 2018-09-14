@@ -5,8 +5,7 @@
 /decl/cultural_info/culture/human
 	name = CULTURE_HUMAN
 	description = "You are from one of various planetary cultures of humankind."
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_GALCOM)
+	secondary_langs = list(LANGUAGE_GALCOM,LANGUAGE_SOL_COMMON)
 
 /decl/cultural_info/culture/human/vatgrown
 	name = CULTURE_HUMAN_VATGROWN

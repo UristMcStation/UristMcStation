@@ -6,7 +6,7 @@
 	exclaim_verb = "peals"
 	colour = "adherent"
 	key = "p"
-	flags = WHITELISTED
+	flags = RESTRICTED
 	syllables = list("\[Ab\]", "\[Bb\]", "\[Cb\]", "\[Db\]", "\[Eb\]", "\[Fb\]",
 		"\[Gb\]", "\[A#\]", "\[B#\]", "\[C#\]", "\[D#\]", "\[E#\]", "\[F#\]",
 		"\[G#\]", "\[A\]", "\[B\]", "\[C\]", "\[D\]", "\[E\]", "\[F\]", "\[G\]",

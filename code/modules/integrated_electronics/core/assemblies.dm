@@ -206,7 +206,7 @@
 				to_chat(usr, "<span class='warning'>The circuit is empty!</span>")
 		return
 
-	if(!check_interactivity(usr))
+	if(!check_interactivity(usr) || !Adjacent(usr))
 		return
 
 	if(href_list["rename"])
@@ -566,7 +566,7 @@
 		icon_l_hand = 'icons/mob/onmob/items/lefthand_guns.dmi',
 		icon_r_hand = 'icons/mob/onmob/items/righthand_guns.dmi'
 		)
-	circuit_flags = IC_FLAG_CAN_FIRE | IC_FLAG_ANCHORABLE
+	circuit_flags = IC_FLAG_CAN_FIRE | IC_ACTION_COMBAT | IC_FLAG_ANCHORABLE
 
 /obj/item/device/electronic_assembly/medium/radio
 	name = "type-f electronic mechanism"
@@ -616,7 +616,7 @@
 	w_class = ITEM_SIZE_LARGE
 	max_components = IC_MAX_SIZE_BASE * 3
 	max_complexity = IC_COMPLEXITY_BASE * 3
-	allowed_circuit_action_flags = IC_ACTION_MOVEMENT | IC_ACTION_COMBAT | IC_ACTION_LONG_RANGE
+	allowed_circuit_action_flags = IC_ACTION_MOVEMENT | IC_ACTION_COMBAT | IC_ACTION_LONG_RANGE | IC_FLAG_CAN_FIRE
 	circuit_flags = 0
 
 /obj/item/device/electronic_assembly/drone/can_move()

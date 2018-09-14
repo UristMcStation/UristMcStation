@@ -74,7 +74,9 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work(ord)
 	if(!installed_gun)
 		return
-	if(!isturf(assembly.loc) && !((IC_FLAG_CAN_FIRE & assembly.circuit_flags)  && ishuman(assembly.loc)))
+	if(!(IC_FLAG_CAN_FIRE & assembly.circuit_flags))
+		return
+	if(istype(assembly,/obj/item/device/electronic_assembly/medium/gun) && !ishuman(assembly.loc))
 		return
 	set_pin_data(IC_OUTPUT, 1, weakref(installed_gun))
 	push_data()
@@ -92,8 +94,8 @@
 				var/target_x = Clamp(T.x + xo.data, 0, world.maxx)
 				var/target_y = Clamp(T.y + yo.data, 0, world.maxy)
 
-				assembly.visible_message("<span class='danger'>[assembly] fires [installed_gun]!</span>")
 				shootAt(locate(target_x, target_y, T.z))
+				assembly.visible_message("<span class='danger'>[assembly] fires [installed_gun]!</span>")
 		if(2)
 			var/datum/firemode/next_firemode = installed_gun.switch_firemodes()
 			set_pin_data(IC_OUTPUT, 2, next_firemode ? next_firemode.name : null)
@@ -106,6 +108,7 @@
 	update_icon()
 	var/obj/item/projectile/A = installed_gun.consume_next_projectile()
 	if(!A)
+		installed_gun.handle_click_empty()
 		return
 	//Shooting Code:
 	A.shot_from = assembly.name

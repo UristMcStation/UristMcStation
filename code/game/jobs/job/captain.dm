@@ -14,7 +14,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 7
-	economic_modifier = 20
 
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain

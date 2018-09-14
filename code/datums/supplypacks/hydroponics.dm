@@ -2,63 +2,6 @@
 	name = "Hydroponics"
 	containertype = /obj/structure/closet/crate/hydroponics
 
-/decl/hierarchy/supply_pack/hydroponics/monkey
-	name = "Monkey crate"
-	contains = list (/obj/item/weapon/storage/box/monkeycubes)
-	cost = 20
-	containertype = /obj/structure/closet/crate/freezer
-	containername = "\improper Monkey crate"
-
-/decl/hierarchy/supply_pack/hydroponics/farwa
-	name = "Farwa crate"
-	contains = list (/obj/item/weapon/storage/box/monkeycubes/farwacubes)
-	cost = 30
-	containertype = /obj/structure/closet/crate/freezer
-	containername = "\improper Farwa crate"
-
-/decl/hierarchy/supply_pack/hydroponics/skrell
-	name = "Neaera crate"
-	contains = list (/obj/item/weapon/storage/box/monkeycubes/neaeracubes)
-	cost = 30
-	containertype = /obj/structure/closet/crate/freezer
-	containername = "\improper Neaera crate"
-
-/decl/hierarchy/supply_pack/hydroponics/stok
-	name = "Stok crate"
-	contains = list (/obj/item/weapon/storage/box/monkeycubes/stokcubes)
-	cost = 30
-	containertype = /obj/structure/closet/crate/freezer
-	containername = "\improper Stok crate"
-
-/decl/hierarchy/supply_pack/hydroponics/corgi
-	name = "Corgi crate"
-	contains = list()
-	cost = 50
-	containertype = /obj/structure/largecrate/animal/corgi
-	containername = "\improper Corgi crate"
-
-//farm animals - useless and annoying, but potentially a good source of food
-/decl/hierarchy/supply_pack/hydroponics/cow
-	name = "Cow crate"
-	cost = 80
-	containertype = /obj/structure/largecrate/animal/cow
-	containername = "\improper Cow crate"
-	access = access_hydroponics
-
-/decl/hierarchy/supply_pack/hydroponics/goat
-	name = "Goat crate"
-	cost = 75
-	containertype = /obj/structure/largecrate/animal/goat
-	containername = "\improper Goat crate"
-	access = access_hydroponics
-
-/decl/hierarchy/supply_pack/hydroponics/chicken
-	name = "Chicken crate"
-	cost = 70
-	containertype = /obj/structure/largecrate/animal/chick
-	containername = "\improper Chicken crate"
-	access = access_hydroponics
-
 /decl/hierarchy/supply_pack/hydroponics/hydroponics // -- Skie
 	name = "Gear - Hydroponics Supply Crate"
 	contains = list(/obj/item/weapon/reagent_containers/spray/plantbgone = 4,

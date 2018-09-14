@@ -1,14 +1,10 @@
 /datum/species/teshari
 	name = SPECIES_RESOMI
 	name_plural = "Tesharii"
-	blurb = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
+	description = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
 	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
 	hunting skills that emphasized taking out their prey without themselves getting hit. They \
 	are only recently becoming known on human stations after reaching space with Skrell assistance."
-
-	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_RESOMI)
-	name_language = LANGUAGE_RESOMI
 	min_age = 15
 	max_age = 45
 	health_hud_intensity = 3

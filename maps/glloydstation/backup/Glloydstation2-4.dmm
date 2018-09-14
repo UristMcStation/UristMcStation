@@ -762,7 +762,7 @@
 /turf/simulated/floor/tiled,
 /area/djstation)
 "bK" = (
-/obj/structure/hygiene/sink{
+/obj/structure/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -772,7 +772,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/djstation)
 "bL" = (
-/obj/structure/hygiene/toilet{
+/obj/structure/toilet{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/freezer,
