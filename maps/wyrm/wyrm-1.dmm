@@ -885,7 +885,7 @@
 "ra" = (/obj/structure/bed/nice,/obj/structure/curtain/open/bed,/obj/item/weapon/bedsheet/hop,/obj/machinery/button/remote/chromatic{id_tag = 2; pixel_x = 24; pixel_y = 0},/obj/machinery/light/chromatic{dir = 2; icon_state = "tube1"; id_tag = 2; tag = "icon-tube1 (NORTH)"},/turf/simulated/floor/tiled,/area/civilian/dorms)
 "rb" = (/obj/machinery/alarm{pixel_y = 24},/obj/machinery/suspension_gen,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled,/area/hatchling/start)
 "rc" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/floor_decal/corner/purple{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled,/area/hatchling/start)
-"rd" = (/obj/machinery/computer/mining{!INVALID_VAR! = 2},/turf/simulated/wall/r_wall,/area/science/shuttleprep)
+"rd" = (/obj/machinery/computer/mining,/turf/simulated/wall/r_wall,/area/science/shuttleprep)
 "re" = (/obj/machinery/mining/drill,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled,/area/hatchling/start)
 "rf" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{icon_state = "map_scrubber_on"; dir = 4},/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/turf/simulated/floor/tiled,/area/hatchling/start)
 "rg" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/effect/floor_decal/corner/brown{icon_state = "corner_white"; dir = 4},/obj/machinery/camera/network/hatchling{c_tag = " Hatchling Storage"},/turf/simulated/floor/tiled,/area/hatchling/start)
