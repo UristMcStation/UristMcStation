@@ -1,3 +1,24 @@
+// Movement relayed to self handling
+/datum/movement_handler/mob/relayed_movement
+	var/prevent_host_move = FALSE
+	var/list/allowed_movers
+
+/datum/movement_handler/mob/relayed_movement/MayMove(var/mob/mover, var/is_external)
+	if(is_external)
+		return MOVEMENT_PROCEED
+	if(mover == mob && !(prevent_host_move && LAZYLEN(allowed_movers) && !LAZYISIN(allowed_movers, mover)))
+		return MOVEMENT_PROCEED
+	if(LAZYISIN(allowed_movers, mover))
+		return MOVEMENT_PROCEED
+
+	return MOVEMENT_STOP
+
+/datum/movement_handler/mob/relayed_movement/proc/AddAllowedMover(var/mover)
+	LAZYDISTINCTADD(allowed_movers, mover)
+
+/datum/movement_handler/mob/relayed_movement/proc/RemoveAllowedMover(var/mover)
+	LAZYREMOVE(allowed_movers, mover)
+
 // Admin object possession
 /datum/movement_handler/mob/admin_possess/DoMove(var/direction)
 	if(QDELETED(mob.control_object))
@@ -107,15 +128,15 @@
 
 /datum/movement_handler/mob/buckle_relay/MayMove(var/mover)
 	if(mob.buckled)
-		return mob.buckled.MayMove(mover) ? (MOVEMENT_PROCEED|MOVEMENT_HANDLED) : MOVEMENT_STOP
+		return mob.buckled.MayMove(mover, FALSE) ? (MOVEMENT_PROCEED|MOVEMENT_HANDLED) : MOVEMENT_STOP
 	return MOVEMENT_PROCEED
 
 // Movement delay
 /datum/movement_handler/mob/delay
 	var/next_move
 
-/datum/movement_handler/mob/delay/DoMove(var/direction, var/mover)
-	if(IS_NOT_SELF(mover))
+/datum/movement_handler/mob/delay/DoMove(var/direction, var/mover, var/is_external)
+	if(is_external)
 		return
 	next_move = world.time + max(1, mob.movement_delay())
 
@@ -209,18 +230,15 @@
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
-	if(mob.check_slipmove())
-		return
-
-	// Need to handle grabs before we move
-	var/extra_delay = HandleGrabs(direction)
-	mob.ExtraMoveCooldown(extra_delay)
-
 	//We are now going to move
 	mob.moving = 1
 
 	direction = mob.AdjustMovementDirection(direction)
 	step(mob, direction)
+
+	// Something with pulling things
+	var/extra_delay = HandleGrabs(direction)
+	mob.ExtraMoveCooldown(extra_delay)
 
 	for (var/obj/item/grab/G in mob)
 		if (G.assailant_reverse_facing())
@@ -237,32 +255,23 @@
 /datum/movement_handler/mob/movement/proc/HandleGrabs(var/direction)
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
+	var/list/L = mob.ret_grab()
+	if(LAZYLEN(L))
+		var/turf/T = get_step(mob,reverse_direction(direction))
+		L -= mob
+		for(var/mob/M in L)
+			if ((get_dist(mob, M) <= 2 || M.loc == mob.loc))
+				if (isturf(M.loc))
+					var/diag = get_dir(mob, M)
+					if ((diag - 1) & diag)
+					else
+						diag = null
+					if ((get_dist(mob, M) > 1 || diag))
+						step(M, get_dir(M.loc, T))
+
 	for (var/obj/item/grab/G in mob)
 		. = max(., G.grab_slowdown())
-		var/list/L = mob.ret_grab()
-		if(istype(L, /list))
-			if(L.len == 2)
-				L -= mob
-				var/mob/M = L[1]
-				if(M)
-					if((get_dist(mob, M) <= 1 || M.loc == mob.loc))
-						var/turf/T = mob.loc
-						if(isturf(M.loc))
-							step(M, get_dir(M.loc, T))
-			else
-				for(var/mob/M in L)
-					M.other_mobs = 1
-					if(mob != M)
-						M.animate_movement = 3
-				for(var/mob/M in L)
-					spawn( 0 )
-						step(M, direction)
-						return
-					spawn( 1 )
-						M.other_mobs = null
-						M.animate_movement = 2
-						return
-			G.adjust_position()
+		G.adjust_position()
 
 // Misc. helpers
 /mob/proc/MayEnterTurf(var/turf/T)

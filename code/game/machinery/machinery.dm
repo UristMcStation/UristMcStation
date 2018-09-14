@@ -369,3 +369,14 @@ Class Procs:
 /obj/machinery/proc/build_default_parts(var/obj/item/weapon/circuitboard/CB)
 	var/obj/item/weapon/circuitboard/C = new CB(src)
 	C.apply_default_parts(src)
+
+// This is really pretty crap and should be overridden for specific machines.
+/obj/machinery/water_act(var/depth)
+	..()
+	if(!(stat & (NOPOWER|BROKEN)) && !waterproof && (depth > FLUID_DEEP))
+		ex_act(3)
+
+/obj/machinery/Move()
+	. = ..()
+	if(. && !CanFluidPass())
+		fluid_update()

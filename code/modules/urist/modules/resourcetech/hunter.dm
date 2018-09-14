@@ -49,7 +49,7 @@
 				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
-				GLOB.nanomanager.update_uis(src)
+				SSnano.update_uis(src)
 				return
 
 			else
@@ -126,9 +126,9 @@
 	recipes = list()
 
 	recipes += new/datum/stack_recipe_list("holsters", list( \
-		new/datum/stack_recipe("hip holster", /obj/item/clothing/accessory/holster/hip, 2, time = 40), \
-		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/holster/waist, 2, time = 40), \
-		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/holster/armpit, 2, time = 40), \
+		new/datum/stack_recipe("hip holster", /obj/item/clothing/accessory/storage/holster/hip, 2, time = 40), \
+		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/storage/holster/waist, 2, time = 40), \
+		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/storage/holster/armpit, 2, time = 40), \
 		))
 	recipes += new/datum/stack_recipe("tool belt", /obj/item/weapon/storage/belt/utility, 3, time = 45)
 	recipes += new/datum/stack_recipe("briefcase", /obj/item/weapon/storage/briefcase, 1, time = 30)

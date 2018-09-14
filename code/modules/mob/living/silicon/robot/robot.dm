@@ -248,21 +248,43 @@
 	update_icon()
 	return module_sprites
 
-/mob/living/silicon/robot/proc/pick_module()
-	if(module)
-		return
-	var/list/modules = list()
-	modules.Add(GLOB.robot_module_types)
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-	if((crisis && security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level)) || crisis_override) //Leaving this in until it's balanced appropriately.
-		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
-		modules+="Combat"
-	modtype = input("Please, select a module!", "Robot module", null, null) as null|anything in modules
+/mob/living/silicon/robot/proc/reset_module(var/suppress_alert = null)
+	// Clear hands and module icon.
+	uneq_all()
+	modtype = initial(modtype)
+	hands.icon_state = initial(hands.icon_state)
 
-	if(module)
+	// If the robot had a module and this wasn't an uncertified change, let the AI know.
+	if (module)
+		if (!suppress_alert)
+			notify_ai(ROBOT_NOTIFICATION_MODULE_RESET, module.name)
+
+		// Delete the module.
+		module.Reset(src)
+		QDEL_NULL(module)
+
+	updatename("Default")
+
+/mob/living/silicon/robot/proc/pick_module(var/override = null)
+	if(module && !override)
 		return
-	if(!(modtype in robot_modules))
-		return
+
+	if(!override)
+		var/list/modules = list()
+		modules.Add(GLOB.robot_module_types)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		if((crisis && security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level)) || crisis_override) //Leaving this in until it's balanced appropriately.
+			to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
+			modules+="Combat"
+		modtype = input("Please, select a module!", "Robot module", null, null) as null|anything in modules
+
+		if(module)
+			return
+		if(!(modtype in robot_modules))
+			return
+
+	else
+		modtype = override
 
 	var/module_type = robot_modules[modtype]
 	new module_type(src)
@@ -274,6 +296,9 @@
 	recalculate_synth_capacities()
 	if(module)
 		notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+
+/mob/living/silicon/robot/get_cell()
+	return cell
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
 	if(prefix)
@@ -458,6 +483,8 @@
 	return 2
 
 /mob/living/silicon/robot/attackby(obj/item/weapon/W as obj, mob/user as mob)
+
+	if(istype(W, /obj/item/inducer)) return // inducer.dm afterattack handles this
 	if (istype(W, /obj/item/weapon/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
 		return
 

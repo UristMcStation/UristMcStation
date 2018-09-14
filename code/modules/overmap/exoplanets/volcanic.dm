@@ -67,8 +67,8 @@
 				map[current_cell] = 1
 
 /datum/random_map/noise/ore/filthy_rich
-	deep_val = 0.9
-	rare_val = 0.7
+	deep_val = 0.6
+	rare_val = 0.4
 
 /area/exoplanet/volcanic
 	forced_ambience = list('sound/ambience/magma.ogg')
@@ -107,8 +107,7 @@
 	iterations = 2
 	descriptor = "space volcanic mountains"
 	wall_type =  /turf/simulated/mineral/volcanic
-	mineral_sparse =  /turf/simulated/mineral/random/volcanic
-	mineral_rich = /turf/simulated/mineral/high_chance/volcanic
+	mineral_turf =  /turf/simulated/mineral/random/volcanic
 
 /turf/simulated/floor/exoplanet/lava
 	name = "lava"
@@ -163,6 +162,6 @@
 	name = "volcanic rock"
 	icon = 'icons/turf/flooring/lava.dmi'
 
-/turf/simulated/mineral/high_chance/volcanic
+/turf/simulated/mineral/random/high_chance/volcanic
 	name = "volcanic rock"
 	icon = 'icons/turf/flooring/lava.dmi'

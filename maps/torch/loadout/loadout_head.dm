@@ -2,7 +2,7 @@
 	display_name = "SolGov beret selection"
 	description = "A beret denoting service in an organization within SolGov."
 	path = /obj/item/clothing/head/beret/solgov
-	allowed_branches = UNIFORMED_BRANCHES
+	allowed_branches = SOLGOV_BRANCHES
 
 /datum/gear/head/solberet/New()
 	..()
@@ -25,7 +25,7 @@
 /datum/gear/head/solhat
 	display_name = "sol central government hat"
 	path = /obj/item/clothing/head/soft/solgov
-	allowed_branches = UNIFORMED_BRANCHES
+	allowed_branches = SOLGOV_BRANCHES
 
 /datum/gear/head/fleethat
 	display_name = "fleet cap"
@@ -37,7 +37,6 @@
 	display_name = "EC cap"
 	path = /obj/item/clothing/head/soft/solgov/expedition
 	cost = 0
-	allowed_roles = SOLGOV_ROLES
 	allowed_branches = list(/datum/mil_branch/expeditionary_corps)
 
 /datum/gear/head/surgical
@@ -51,7 +50,7 @@
 
 /datum/gear/mask/bandana
 	allowed_branches = CIVILIAN_BRANCHES
-	
+
 /datum/gear/head/bandana
 	allowed_branches = CIVILIAN_BRANCHES
 
@@ -77,3 +76,6 @@
 
 /datum/gear/head/welding
 	allowed_roles = TECHNICAL_ROLES
+
+/datum/gear/tactical/balaclava
+	allowed_roles = ARMORED_ROLES

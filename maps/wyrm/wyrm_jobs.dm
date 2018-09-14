@@ -86,7 +86,6 @@
 	selection_color = "#004a7f"
 	req_admin_notify = 1
 	minimal_player_age = 8
-	economic_modifier = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,

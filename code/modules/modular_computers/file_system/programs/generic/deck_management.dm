@@ -22,7 +22,7 @@
 	var/list/report_prototypes = list()              //Stores report prototypes to use for UI purposes.
 	var/datum/shuttle/prototype_shuttle              //The shuttle for which the prototypes were built (to avoid excessive prototype rebuilding)
 	//The default access needed to properly use. Should be set in map files.
-	var/default_access = list(access_cargo, access_heads)  //The format is (needs one of list(these access constants or lists of access constants))
+	var/default_access = list(access_cargo, access_bridge)  //The format is (needs one of list(these access constants or lists of access constants))
 
 /datum/nano_module/deck_management/New()
 	..()
@@ -116,7 +116,7 @@
 			data["mission_data"] = generate_mission_data(selected_mission)
 			data["view_only"] = can_view_only
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "deck_management.tmpl", name, 700, 800, state = state)
 		ui.auto_update_layout = 1
@@ -173,7 +173,7 @@
 			return 1
 
 /datum/nano_module/deck_management/proc/get_shuttle_access(mob/user, datum/shuttle/shuttle)
-	return shuttle.logging_access ? (check_access(user, shuttle.logging_access) || check_access(user, access_heads)) : 0
+	return shuttle.logging_access ? (check_access(user, shuttle.logging_access) || check_access(user, access_bridge)) : 0
 
 /datum/nano_module/deck_management/proc/set_shuttle(mob/user, shuttle_name, need_access = 1)
 	var/datum/shuttle/shuttle

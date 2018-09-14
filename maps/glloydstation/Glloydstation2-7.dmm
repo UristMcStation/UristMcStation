@@ -981,7 +981,7 @@
 /obj/structure/sign/botany{
 	pixel_x = 32
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -1231,7 +1231,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "dl" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 30
 	},
 /obj/item/weapon/storage/mirror{
@@ -1243,7 +1243,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/research/hallway)
 "dm" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -1436,7 +1436,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "dI" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 5
@@ -3563,7 +3563,9 @@
 /turf/simulated/floor/wood,
 /area/outpost/research/hallway)
 "hl" = (
-/obj/item/modular_computer/console/preset/research,
+/obj/item/modular_computer/console/preset/research{
+	dir = 4
+	},
 /obj/structure/cable,
 /turf/simulated/floor/wood,
 /area/outpost/research/hallway)
@@ -4920,8 +4922,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "jD" = (
-/turf/simulated/floor/tiled,
-/area/outpost/research/dock)
+/obj/machinery/computer/operating{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/mining_main/medbay)
 "jE" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -6483,7 +6488,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "mB" = (
-/obj/machinery/mineral/input,
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "mC" = (
@@ -6803,7 +6807,6 @@
 	dir = 2;
 	id = "anominerals"
 	},
-/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/research/dock)
 "np" = (
@@ -7165,6 +7168,31 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/isolation_b)
+"nW" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/obj/item/modular_computer/console/preset/security{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/security/hallway)
+"nX" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/item/modular_computer/console/preset/security{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/security/hallway)
 "nY" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/isolation_c)
@@ -7962,7 +7990,7 @@
 /turf/simulated/wall,
 /area/outpost/mining_main/refinery)
 "qt" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -8766,7 +8794,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "sF" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 5
@@ -8781,7 +8809,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/mining_main/hallway)
 "sH" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 1;
 	icon_state = "sink";
 	pixel_x = 0;
@@ -8797,7 +8825,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/mining_main/hallway)
 "sI" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 1;
 	icon_state = "sink";
 	pixel_x = 0;
@@ -9753,7 +9781,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "uB" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -9894,13 +9922,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"uW" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "uX" = (
 /obj/machinery/conveyor{
 	dir = 9;
@@ -9911,14 +9932,6 @@
 "uY" = (
 /obj/machinery/mineral/unloading_machine{
 	icon_state = "unloader-corner"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"uZ" = (
-/obj/machinery/mineral/input,
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "planet_mining"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -10143,7 +10156,6 @@
 	dir = 2;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /obj/structure/plasticflaps/mining,
 /obj/machinery/light/small{
 	dir = 4;
@@ -10177,7 +10189,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
 "vB" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -10366,7 +10378,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "vU" = (
-/obj/machinery/mineral/input,
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
 	},
@@ -10382,7 +10393,6 @@
 	dir = 4;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "vX" = (
@@ -10621,13 +10631,6 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
-"wx" = (
-/obj/machinery/conveyor{
-	dir = 2;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "wy" = (
 /obj/structure/table/standard,
@@ -10993,10 +10996,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
-"xh" = (
-/obj/machinery/computer/operating,
-/turf/simulated/floor/tiled/white,
-/area/outpost/mining_main/medbay)
 "xi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -11180,14 +11179,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"xC" = (
-/obj/machinery/mineral/input,
-/obj/machinery/conveyor{
-	dir = 2;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "xD" = (
 /obj/structure/table/standard,
 /obj/item/weapon/surgicaldrill,
@@ -11227,15 +11218,6 @@
 /area/outpost/mining_main/medbay)
 "xH" = (
 /turf/simulated/wall/r_wall,
-/area/outpost/security/hallway)
-"xI" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
-	icon_state = "corner_white_three_quarters";
-	dir = 8
-	},
-/obj/item/modular_computer/console/preset/security,
-/turf/simulated/floor/tiled,
 /area/outpost/security/hallway)
 "xJ" = (
 /obj/effect/floor_decal/corner/red{
@@ -11583,25 +11565,13 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "yi" = (
-/obj/machinery/mineral/processing_unit_console,
+/obj/machinery/computer/mining,
 /turf/simulated/wall/r_wall,
 /area/outpost/mining_main/refinery)
 "yj" = (
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"yk" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHWEST)";
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/item/modular_computer/console/preset/security,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/security/hallway)
 "yl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -11965,7 +11935,6 @@
 	dir = 2;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "yQ" = (
@@ -12184,10 +12153,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"zo" = (
-/obj/machinery/mineral/stacking_unit_console,
-/turf/simulated/wall/r_wall,
-/area/outpost/mining_main/refinery)
 "zp" = (
 /obj/machinery/conveyor{
 	dir = 2;
@@ -12401,19 +12366,11 @@
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"zG" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_internal"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "zH" = (
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "zI" = (
@@ -12421,7 +12378,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "zJ" = (
-/obj/machinery/mineral/input,
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "mining_internal"
@@ -20329,7 +20285,7 @@ vc
 vB
 ve
 wz
-xh
+jD
 xF
 vc
 ac
@@ -21203,7 +21159,7 @@ hf
 cT
 ih
 iP
-jD
+mB
 ko
 cT
 cl
@@ -21460,7 +21416,7 @@ hf
 cT
 ii
 iQ
-jD
+mB
 kp
 kR
 kR
@@ -21872,8 +21828,8 @@ vg
 wd
 wE
 uG
-xI
-yk
+nW
+nX
 yQ
 xH
 ac
@@ -21974,7 +21930,7 @@ hf
 dw
 ij
 iQ
-jD
+mB
 kr
 kR
 lr
@@ -23266,7 +23222,7 @@ lv
 mb
 mA
 mW
-jD
+mB
 nz
 nN
 cl
@@ -34202,7 +34158,7 @@ jG
 tm
 tW
 qs
-uW
+vW
 qs
 vW
 qs
@@ -34459,9 +34415,9 @@ sz
 tm
 tT
 qs
-uW
+vW
 qs
-uW
+vW
 qs
 xc
 pT
@@ -34718,14 +34674,14 @@ tX
 qs
 uX
 vx
-uW
+vW
 qs
 xd
 pT
 pT
 yN
 jG
-zG
+zH
 qs
 cl
 cl
@@ -34981,7 +34937,7 @@ xe
 xB
 tm
 yO
-zo
+yi
 zH
 qs
 cl
@@ -35232,7 +35188,7 @@ tT
 qs
 uY
 vy
-uW
+vW
 jG
 jG
 jG
@@ -35487,12 +35443,12 @@ qs
 tm
 tY
 qs
-uZ
+va
 qs
 uX
-wx
-wx
-xC
+yP
+yP
+yP
 yj
 yP
 zp

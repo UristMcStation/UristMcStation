@@ -608,7 +608,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
 "abO" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -617,7 +617,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/merchant_station)
 "abP" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 1;
 	pixel_y = 16
 	},
@@ -627,7 +627,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/merchant_station)
 "abQ" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 1;
 	pixel_y = 16
 	},
@@ -650,7 +650,7 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -750,7 +750,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
 "ach" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 0
@@ -5228,7 +5228,7 @@
 	},
 /area/syndicate_mothership)
 "amU" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
@@ -5555,7 +5555,7 @@
 	},
 /area/syndicate_mothership)
 "anJ" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -5564,7 +5564,7 @@
 	},
 /area/syndicate_mothership)
 "anK" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
 /obj/structure/window/basic{
@@ -5576,7 +5576,7 @@
 	},
 /area/syndicate_mothership)
 "anL" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
 /obj/item/weapon/soap/syndie,
@@ -5655,7 +5655,7 @@
 	},
 /area/syndicate_mothership)
 "anU" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -5698,7 +5698,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -6062,8 +6062,8 @@
 /area/syndicate_station/start)
 "aoI" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /obj/item/ammo_magazine/mc9mm/flash,
 /obj/item/weapon/gun/projectile/pistol/flash,
 /turf/simulated/floor/shuttle/darkred,
@@ -6111,7 +6111,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aoM" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -6170,12 +6170,12 @@
 /area/syndicate_mothership)
 "aoS" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /obj/item/weapon/melee/baton/loaded,
 /obj/item/weapon/melee/baton/loaded,
 /turf/unsimulated/floor{
@@ -6229,7 +6229,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aoX" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -7022,7 +7022,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aqM" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -7540,7 +7540,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/administration/centcom)
 "ass" = (
-/obj/structure/device/piano{
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -8942,10 +8942,10 @@
 /area/centcom/specops)
 "avo" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
+/obj/item/weapon/storage/belt/holster/security,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9442,7 +9442,7 @@
 /obj/item/weapon/handcuffs,
 /obj/item/device/flash,
 /obj/item/weapon/melee/baton/loaded,
-/obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/holster/security,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -13087,7 +13087,7 @@
 	},
 /area/centcom/holding)
 "aEJ" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -15139,7 +15139,7 @@
 	},
 /area/centcom/transit)
 "aJm" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -15230,7 +15230,7 @@
 /turf/unsimulated/wall,
 /area/wizard_station)
 "aJz" = (
-/obj/structure/sink,
+/obj/structure/hygiene/sink,
 /turf/unsimulated/wall,
 /area/wizard_station)
 "aJA" = (
@@ -15491,7 +15491,7 @@
 	},
 /area/wizard_station)
 "aKj" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -15561,7 +15561,7 @@
 	},
 /area/centcom/transit)
 "aKs" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -15866,7 +15866,7 @@
 	},
 /area/wizard_station)
 "aLd" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 8
 	},
@@ -20463,7 +20463,7 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/device/guitar,
+/obj/item/device/synthesized_instrument/guitar,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
 	icon_state = "wood"
@@ -20696,7 +20696,7 @@
 	},
 /area/centcom/scom)
 "aVQ" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /obj/item/weapon/soap/syndie,
@@ -20706,7 +20706,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aVR" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -20721,7 +20721,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aVT" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
 	icon_state = "wood"
@@ -21241,7 +21241,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aWW" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -21452,7 +21452,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aXr" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -21469,7 +21469,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aXs" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -21536,7 +21536,7 @@
 	},
 /area/centcom/scom)
 "aXz" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -22151,7 +22151,7 @@
 	},
 /area/centcom/scom)
 "aYJ" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
@@ -22160,7 +22160,7 @@
 	},
 /area/centcom/scom)
 "aYK" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -22185,7 +22185,7 @@
 	},
 /area/centcom/scom)
 "aYM" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -22717,7 +22717,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aZL" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -22726,7 +22726,7 @@
 	},
 /area/centcom/scom)
 "aZM" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -22736,7 +22736,7 @@
 /area/centcom/scom)
 "aZN" = (
 /obj/item/weapon/bikehorn/rubberducky,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -23147,7 +23147,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "baI" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	tag = "icon-shower (NORTH)";
 	icon_state = "shower";
 	dir = 1
@@ -23311,10 +23311,10 @@
 /obj/structure/closet/cabinet{
 	name = "clothes cabinet"
 	},
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
-/obj/item/clothing/accessory/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
+/obj/item/clothing/accessory/storage/holster,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
 /obj/item/clothing/accessory/storage/webbing,
@@ -23472,7 +23472,7 @@
 /obj/item/clothing/glasses/night,
 /obj/item/clothing/glasses/eyepatch,
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/storage/holster/thigh,
 /obj/item/clothing/accessory/kneepads,
 /obj/item/clothing/mask/balaclava/tactical,
 /obj/item/clothing/mask/balaclava/skimask,
@@ -24994,7 +24994,7 @@
 	},
 /area/centcom/antag)
 "beK" = (
-/obj/structure/device/piano{
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	dir = 4
 	},
 /obj/effect/floor_decal/carpet{
@@ -25726,7 +25726,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
 "bgm" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -25859,7 +25859,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/skipjack_station/start)
 "bgH" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -25984,7 +25984,7 @@
 	},
 /area/centcom/scom)
 "bgR" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -25998,7 +25998,7 @@
 	},
 /area/centcom/antag)
 "bgT" = (
-/obj/structure/toilet,
+/obj/structure/hygiene/toilet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -26011,7 +26011,7 @@
 /turf/simulated/floor/airless,
 /area/skipjack_station/start)
 "bgX" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -26250,7 +26250,7 @@
 	},
 /area/centcom/scom)
 "bhE" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -26276,7 +26276,7 @@
 	},
 /area/centcom/antag)
 "bhG" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -26380,7 +26380,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/antag)
 "bhT" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/machinery/light/small{

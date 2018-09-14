@@ -20,7 +20,7 @@
 "at" = (/obj/item/stack/rods,/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/simulated/floor/reinforced,/area/template_noop)
 "au" = (/obj/structure/assaultshieldgen,/turf/simulated/floor/reinforced,/area/template_noop)
 "av" = (/obj/item/stack/tile/floor,/obj/machinery/hologram/holopad,/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/reinforced,/area/template_noop)
-"aw" = (/obj/machinery/camera{c_tag = "Meeting Hall East"; dir = 8; network = list("Exodus")},/obj/item/device/radio/intercom{dir = 4; name = "Station Intercom (General)"; pixel_x = 31},/turf/simulated/floor/tiled/dark,/area/template_noop)
+"aw" = (/obj/machinery/camera{c_tag = "Meeting Hall East"; dir = 8; network = list("Exodus")},/obj/item/device/radio/intercom{dir = 8; name = "Station Intercom (General)"; pixel_x = 31},/turf/simulated/floor/tiled/dark,/area/template_noop)
 "ax" = (/obj/machinery/light{dir = 8},/obj/structure/table/standard/flipped/s,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "ay" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "az" = (/obj/item/weapon/cigbutt,/obj/item/weapon/grenade/frag/anforgrenade,/turf/simulated/floor/tiled/dark,/area/template_noop)
@@ -36,10 +36,8 @@
 "aJ" = (/obj/machinery/sleeper,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "aK" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/multi_tile/glass,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "aL" = (/obj/machinery/door/firedoor,/turf/simulated/floor/tiled/dark,/area/template_noop)
-"aM" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/template_noop)
-"aN" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/template_noop)
-"aO" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/template_noop)
-"aP" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/disposalpipe/segment,/obj/item/weapon/material/shard,/obj/item/stack/rods,/turf/simulated/floor/plating,/area/template_noop)
+"aM" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/template_noop)
+"aN" = (/obj/structure/disposalpipe/segment,/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/template_noop)
 "aQ" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/multi_tile/glass,/turf/simulated/floor,/area/template_noop)
 "aR" = (/obj/machinery/door/firedoor,/turf/simulated/floor,/area/template_noop)
 "aS" = (/turf/template_noop,/area/template_noop)
@@ -65,7 +63,7 @@ araaasaaatauauavajaaaaaw
 axayaaazaAaBaBaCaaaaayaD
 aaaaajaaaEayayajaFaaaaaa
 aaaaaGaHaaaaaaaIaJaJaaaa
-aKaLaMaNaOaKaLaPaNaOaQaR
+aKaLaMaMaMaKaLaNaMaMaQaR
 aSaSaSaTaUaSaSaVaTaWaXaS
 aYaZbabbbabababcbabdbaba
 aSaXaSbeaSaSaSaSaXbfaSaS
