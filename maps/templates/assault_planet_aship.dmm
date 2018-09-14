@@ -1,55 +1,53 @@
-"a" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/plating,/area/jungle)
-"b" = (/turf/simulated/planet/jungle/path,/area/jungle)
-"c" = (/turf/simulated/planet/jungle,/area/jungle)
-"d" = (/turf/simulated/planet/jungle/path,/area/shuttle/assault/a1/station)
-"e" = (/obj/structure/disposalpipe/segment,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/jungle)
-"f" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/plating,/area/jungle)
-"g" = (/obj/structure/disposalpipe/segment,/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/jungle)
-"h" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/jungle)
-"i" = (/obj/structure/disposalpipe/segment{dir = 1; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/jungle)
-"j" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/plating,/area/jungle)
-"k" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/jungle)
-"l" = (/turf/simulated/planet/jungle/path,/area/shuttle/assault/a2/station)
-"m" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/jungle)
-"n" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/jungle)
-"o" = (/obj/structure/disposalpipe/segment{dir = 4; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/jungle)
-"p" = (/obj/structure/disposalpipe/segment{dir = 8; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/jungle)
-"q" = (/turf/simulated/planet/jungle/med,/area/jungle)
+"a" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor/plating,/area/space)
+"b" = (/turf/simulated/floor/planet/jungle/path,/area/space)
+"c" = (/turf/simulated/floor/planet/jungle,/area/space)
+"d" = (/obj/structure/disposalpipe/segment,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/space)
+"e" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/plating,/area/space)
+"f" = (/obj/structure/disposalpipe/segment,/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/space)
+"g" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/space)
+"h" = (/obj/structure/disposalpipe/segment{dir = 1; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/space)
+"i" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/plating,/area/space)
+"j" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/space)
+"k" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/space)
+"l" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/space)
+"m" = (/obj/structure/disposalpipe/segment{dir = 4; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/space)
+"n" = (/obj/structure/disposalpipe/segment{dir = 8; icon_state = "pipe-c"},/turf/simulated/floor/plating,/area/space)
+"o" = (/turf/simulated/floor/planet/jungle/med,/area/space)
 
 (1,1,1) = {"
-abbcccccccccccccccccccccccbdddddddddbbcc
-efbccccccccccccccccccbcbbbbdddddddddbbcc
-ghbccccccccccccccccbbbbbbbbdddddddddbbcc
-accccccccccccccccccbbbbbbbbdddddddddbccc
-acccccccccccccccccbbbbbbbbbdddddddddbccc
-ijjkcccccccccbbbbbbbbbbbbbbdddddddddbccc
-cccaccbbbbbbbbbbbbbbbbbbbbbdddddddddbbcc
-cccacbbbbbbbbbbbbbbbbbbbbbbdddddddddbbcc
-cccabbbbbbbbbbbccbbbbbbbbbbdddddddddbbcc
-ccbabbbbbbbbbbbcccbbbbbbbbbdddddddddbccc
-cbbabbbccbccccccbbbbbbbbbbbdddddddddbccc
-cbbabbcccbcccccbbbbbbbbbbbbdddddddddbccc
-bbbabbcccbcccbbbbbbbbbbbbbbdddddddddbccc
-bbbabbbbbbbbbbbbbbbbbbbbbbbdddddddddbccc
-bbbabbbbbbbbbbbbbbbbbbbbbbbbbdddddbbbbbc
-bbbabbbbbbbbbbbbbbbbbbbbbbbbbdddddbbcccc
+abbcccccccccccccccccccccccbbbbbbbbbbbbcc
+debccccccccccccccccccbcbbbbbbbbbbbbbbbcc
+fgbccccccccccccccccbbbbbbbbbbbbbbbbbbbcc
+accccccccccccccccccbbbbbbbbbbbbbbbbbbccc
+acccccccccccccccccbbbbbbbbbbbbbbbbbbbccc
+hiijcccccccccbbbbbbbbbbbbbbbbbbbbbbbbccc
+cccaccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcc
+cccacbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcc
+cccabbbbbbbbbbbccbbbbbbbbbbbbbbbbbbbbbcc
+ccbabbbbbbbbbbbcccbbbbbbbbbbbbbbbbbbbccc
+cbbabbbccbccccccbbbbbbbbbbbbbbbbbbbbbccc
+cbbabbcccbcccccbbbbbbbbbbbbbbbbbbbbbbccc
+bbbabbcccbcccbbbbbbbbbbbbbbbbbbbbbbbbccc
+bbbabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccc
+bbbabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc
+bbbabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcccc
 bbbabbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbcccc
 cbbabbcccbbbbbbbcbbbbbbbbbbbbbbbbbbbbccc
 cbbabbbccbbbbbcccbbbbbbbbbbbbbbbbbbbbccc
-cbbabbbccbbbbbbccbbblllllbbbbbbbbbbbbccc
-cbbabbbccbbbbbbccbbblllllbbbbbbbbbcccccc
-bbbijkbbbbbbbbbcbblllllllllbbbbbbbcccccc
-bbbbbikbbbbbcccccblllllllllbbcbbbbcccccc
-cccbbbabbbbbccccbblllllllllbbccbbccccccc
-cccbbbabbbbcccccbblllllllllbcccbbccccccc
-cccbbbabbbbcccccbblllllllllbbccccccccccc
-ccccbbabbbbccccccblllllllllbbccccccccccc
-ccccbbabbbcccccccblllllllllbbccccccccccc
-ccbbbmefbbbccccbbblllllllllbbccccccccccc
-ccbbbnghbbcccccbbblllllllllbbccccccccccc
-cccbbbabbbccccccbblllllllllbbccccccccccc
-cccbbbabbbccccccbblllllllllbcccccccccccc
-ccbbojpbbbbcccccbblllllllllbbbcccccccccc
-cbbbabbbbccccccccblllllllllbbbccccccccqq
-cbbbabbbbbcccccccblllllllllbbbccccccccqq
+cbbabbbccbbbbbbccbbbbbbbbbbbbbbbbbbbbccc
+cbbabbbccbbbbbbccbbbbbbbbbbbbbbbbbcccccc
+bbbhijbbbbbbbbbcbbbbbbbbbbbbbbbbbbcccccc
+bbbbbhjbbbbbcccccbbbbbbbbbbbbcbbbbcccccc
+cccbbbabbbbbccccbbbbbbbbbbbbbccbbccccccc
+cccbbbabbbbcccccbbbbbbbbbbbbcccbbccccccc
+cccbbbabbbbcccccbbbbbbbbbbbbbccccccccccc
+ccccbbabbbbccccccbbbbbbbbbbbbccccccccccc
+ccccbbabbbcccccccbbbbbbbbbbbbccccccccccc
+ccbbbkdebbbccccbbbbbbbbbbbbbbccccccccccc
+ccbbblfgbbcccccbbbbbbbbbbbbbbccccccccccc
+cccbbbabbbccccccbbbbbbbbbbbbbccccccccccc
+cccbbbabbbccccccbbbbbbbbbbbbcccccccccccc
+ccbbminbbbbcccccbbbbbbbbbbbbbbcccccccccc
+cbbbabbbbccccccccbbbbbbbbbbbbbccccccccoo
+cbbbabbbbbcccccccbbbbbbbbbbbbbccccccccoo
 "}
