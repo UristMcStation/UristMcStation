@@ -79,7 +79,7 @@
 				src.usage_info = new (owner, src.player)
 			src.usage_info.ui_interact(usr)
 		if ("volume")
-			src.player.volume = max(min(player.volume+text2num(value), 100), 0)
+			src.player.volume = min(max(min(player.volume+text2num(value), 100), 0), player.max_volume)
 		if ("transposition")
 			src.player.song.transposition = max(min(player.song.transposition+value, GLOB.musical_config.highest_transposition), GLOB.musical_config.lowest_transposition)
 		if ("min_octave")
@@ -205,7 +205,7 @@
 	var/sound_player = /datum/sound_player
 
 /obj/structure/synthesized_instrument/Initialize()
-	..()
+	. = ..()
 	for (var/type in typesof(path))
 		var/datum/instrument/new_instrument = new type
 		if (!new_instrument.id) continue
@@ -254,10 +254,10 @@
 	icon = 'icons/obj/musician.dmi'
 	var/datum/instrument/instruments = list()
 	var/path = /datum/instrument
-	var/sound_player //Need path here
+	var/sound_player = /datum/sound_player
 
 /obj/item/device/synthesized_instrument/Initialize()
-	..()
+	. = ..()
 	for (var/type in typesof(path))
 		var/datum/instrument/new_instrument = new type
 		if (!new_instrument.id) continue
@@ -286,8 +286,7 @@
 
 
 /obj/item/device/synthesized_instrument/proc/shouldStopPlaying(mob/user)
-	return 0
-
+	return !(src && in_range(src, user))
 
 /obj/item/device/synthesized_instrument/Topic(href, href_list)
 	if (..())
