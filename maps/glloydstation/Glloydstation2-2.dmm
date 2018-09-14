@@ -7540,7 +7540,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/administration/centcom)
 "ass" = (
-/obj/structure/device/piano{
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -20463,7 +20463,7 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/device/guitar,
+/obj/item/device/synthesized_instrument/guitar,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
 	icon_state = "wood"
@@ -20721,7 +20721,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aVT" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
 	icon_state = "wood"
@@ -24994,7 +24994,7 @@
 	},
 /area/centcom/antag)
 "beK" = (
-/obj/structure/device/piano{
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	dir = 4
 	},
 /obj/effect/floor_decal/carpet{

@@ -60,11 +60,11 @@
 	if(punji)
 		if(istype(O, /mob/living) && !(animal_safe && istype(O, /mob/living/simple_animal)))
 			var/mob/living/M = O
-			M.visible_message("[M] falls into the pit and impales themselves on sharpened sticks!", \
-			"You step into the pit and hurt yourself on the sharpened sticks within!")
-			var/punjidamage = rand(2,5) //maximum damage of 30 with 6 sticks (this probably needs balancing)
-			punjidamage *= punji
-			M.adjustBruteLoss(punjidamage)
+			M.visible_message("<span class='warning'>[M] falls into the pit and impales themselves on sharpened sticks!</span>", \
+			"<span class='danger'>You step into the pit and hurt yourself on the sharpened sticks within!</span>")
+			var/punjidamage = rand(8,12) //Damage ranges from 16 to 72 spread out among all the organs.
+			for(var/punji = rand(min(2,punji),punji) to 1)
+				M.apply_damage(punjidamage)
 			M.Stun(punji) //stunned for more with more sticks. doesn't make a huge different, but w/e
 			M.Weaken(punji)
 
