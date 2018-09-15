@@ -16,19 +16,6 @@
 	item_state = "nervacapregular"
 	worn_state = "nervacapregular"
 
-/obj/item/clothing/suit/storage/toggle/urist/capjacket
-	name = "captain's jacket"
-	desc = "A hardy synthleather flight jacket worn by the captain of the ICS Nerva. Stylsh, practical and lightly armoured, this outfit exudes an aura of command."
-	icon_state = "nervacapcoat_open"
-	icon_open = "nervacapcoat_open"
-	icon_closed = "nervacapcoat_closed"
-	item_state = "nervacapcoat"
-	blood_overlay_type = "coatblood"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = 253.15
-	armor = list(melee = 30, bullet = 10, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
-
 /obj/item/clothing/under/urist/nerva/foregular
 	name = "first officer's uniform"
 	desc = "The assigned uniform for the ICS Nerva's First Officer. More practical than stylish."
@@ -64,6 +51,20 @@
 	item_state = "nervasecfield"
 	worn_state = "nervasecfield"
 
+/obj/item/clothing/under/urist/nerva/qm
+	name = "quartermaster's uniform"
+	desc = "A stlish uniform worn by the ICS Nerva's quartermaster."
+	icon_state = "qm"
+	item_state = "qm"
+	worn_state = "qm"
+
+/obj/item/clothing/under/urist/nerva/cargo
+	name = "supply technician's uniform"
+	desc = "A stlish uniform worn by the ICS Nerva's supply technicians."
+	icon_state = "cargo"
+	item_state = "cargo"
+	worn_state = "cargo"
+
 /obj/item/clothing/under/bodyguard
 	name = "Bodyguard's Uniform"
 	desc = "A black uniform made from a durable, slightly laser-resistant, fabric."
@@ -73,6 +74,57 @@
 	armor = list(melee = 10, bullet = 0, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
 //jackets
+
+/obj/item/clothing/suit/storage/toggle/urist/hosjacket
+	name = "chief of security's jacket"
+	desc = "A hardy jacket worn by the ICS Nerva's Chief of Security."
+	icon_state = "service_hos_open"
+	icon_open = "service_hos_open"
+	icon_closed = "service_hos_closed"
+	item_state = "service_hos"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
+	armor = list(melee = 15, bullet = 5, laser = 10, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/urist/qmjacket
+	name = "quartermaster's jacket"
+	desc = "A light jacket worn by the ICS Nerva's Quartermaster."
+	icon_state = "service_qm_open"
+	icon_open = "service_qm_open"
+	icon_closed = "service_qm_closed"
+	item_state = "service_qm"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
+
+/obj/item/clothing/suit/storage/toggle/urist/cargojacket
+	name = "supply technician's jacket"
+	desc = "A light jacket worn by the ICS Nerva's supply technicians."
+	icon_state = "service_cargo_open"
+	icon_open = "service_cargo_open"
+	icon_closed = "service_cargo_closed"
+	item_state = "service_cargo"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
+
+/obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
+	name = "captain's jacket"
+	desc = "A hardy synthleather flight jacket worn by the captain of the ICS Nerva. Stylsh, practical and lightly armoured, this outfit exudes an aura of command."
+	icon_state = "nervacapcoat_open"
+	icon_open = "nervacapcoat_open"
+	icon_closed = "nervacapcoat_closed"
+	item_state = "nervacapcoat"
+	blood_overlay_type = "coatblood"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = 253.15
+	armor = list(melee = 30, bullet = 10, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
+
 
 //armor
 
@@ -85,7 +137,7 @@
 	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
 
 /obj/item/clothing/suit/urist/armor/nerva/sec_cos
 	name = "chief of security's armour vest"
@@ -168,8 +220,8 @@
 /obj/item/clothing/shoes/urist/capboots
 	name = "captain's boots"
 	desc = "Classy synthleather boots worn by the captain of the ICS Nerva. Stylish, practical and lightly armoured, these boots are as good as it gets."
-	icon_state = "capboots"
-	item_state = "capboots"
+	icon_state = "nervacapboots"
+	item_state = "nervacapboots"
 	force = 3
 	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
@@ -205,35 +257,3 @@
 	name = "chief of security's beret"
 	desc = "A striking black beret with an emblem denoting the ICS Nerva's chief of security."
 	icon_state = "beret_corporate_hos"
-
-//ids
-
-/obj/item/weapon/card/id/bodyguard
-	name = "identification card"
-	desc = "A card issued to those crazy enough to put their life on the line for the Officers."
-	icon_state = "centcom"
-	job_access_type = /datum/job/blueshield
-
-/obj/item/weapon/card/id/firstofficer
-	name = "identification card"
-	desc = "A card issued to the ship's first officer."
-	icon_state = "cyanGold"
-	job_access_type = /datum/job/firstofficer
-
-/obj/item/weapon/card/id/secondofficer
-	name = "identification card"
-	desc = "A card issued to the ship's second officer."
-	icon_state = "civGold"
-	job_access_type = /datum/job/hop
-
-/obj/item/weapon/card/id/civilian/clown
-	name = "identification card"
-	desc = "A card issued to the ship's clown."
-	icon_state = "clown"
-	job_access_type = /datum/job/assistant
-
-/obj/item/weapon/card/id/civilian/mime
-	name = "identification card"
-	desc = "A card issued to the ship's mime."
-	icon_state = "mime"
-	job_access_type = /datum/job/assistant

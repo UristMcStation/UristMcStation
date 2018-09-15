@@ -43,19 +43,19 @@
 	uniform = /obj/item/clothing/under/urist/nerva/foregular
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	shoes = /obj/item/clothing/shoes/black
-//	id_type = /obj/item/weapon/card/id/firstofficer
+	id_type = /obj/item/weapon/card/id/firstofficer
 	pda_type = /obj/item/modular_computer/pda/heads/hop //change
 	gloves = /obj/item/clothing/gloves/color/grey
 	head = /obj/item/clothing/head/urist/beret/nervafo
 
 //so
 
-/decl/hierarchy/outfit/job/nerva/secondofficer
+/decl/hierarchy/outfit/job/nerva/secondofficer //done
 	name = OUTFIT_JOB_NAME("Second Officer")
 	uniform = /obj/item/clothing/under/urist/nerva/soregular
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset/heads/secondofficer
 	shoes = /obj/item/clothing/shoes/black
-//	id_type = /obj/item/weapon/card/id/secondofficer
+	id_type = /obj/item/weapon/card/id/secondofficer
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	gloves = /obj/item/clothing/gloves/color/grey
 	head = /obj/item/clothing/head/urist/beret/nervaso
@@ -65,36 +65,34 @@
 
 /decl/hierarchy/outfit/job/nerva/supplytech
 	name = OUTFIT_JOB_NAME("Supply Technician")
-	uniform = /obj/item/clothing/under/bodyguard
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
-	l_ear = /obj/item/device/radio/headset/heads/captain
-	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/weapon/card/id/bodyguard
-	pda_type = /obj/item/modular_computer/pda/heads/hop
-	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
-	gloves = /obj/item/clothing/gloves/thick/combat
+	uniform = /obj/item/clothing/under/urist/nerva/cargo
+	suit = /obj/item/clothing/suit/storage/toggle/urist/cargojacket
+	l_ear = /obj/item/device/radio/headset/headset_cargo
+	shoes = /obj/item/clothing/shoes/urist/leather
+	id_type = /obj/item/weapon/card/id/cargo
+	pda_type = /obj/item/modular_computer/pda/cargo
+	gloves = /obj/item/clothing/gloves/urist/leather
 
 /decl/hierarchy/outfit/job/nerva/qm
 	name = OUTFIT_JOB_NAME("Nerva Quartermaster")
-	uniform = /obj/item/clothing/under/bodyguard
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
-	l_ear = /obj/item/device/radio/headset/heads/captain
-	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/weapon/card/id/bodyguard
+	uniform = /obj/item/clothing/under/urist/nerva/qm
+	suit = /obj/item/clothing/suit/storage/toggle/urist/qmjacket
+	l_ear = /obj/item/device/radio/headset/heads/nerva_qm
+	shoes = /obj/item/clothing/shoes/black
+	id_type = /obj/item/weapon/card/id/cargo/head
 	pda_type = /obj/item/modular_computer/pda/heads/hop
-	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
-	gloves = /obj/item/clothing/gloves/thick/combat
+	gloves = /obj/item/clothing/gloves/color/grey
 
 //cappy
 
-/decl/hierarchy/outfit/job/nerva/captain
+/decl/hierarchy/outfit/job/nerva/captain //done
 	name = OUTFIT_JOB_NAME("Nerva Captain")
 	uniform = /obj/item/clothing/under/urist/nerva/capregular
-	suit = /obj/item/clothing/suit/storage/toggle/urist/capjacket
+	suit = /obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	shoes = /obj/item/clothing/shoes/urist/capboots
-//	id_type = /obj/item/weapon/card/id/captain
-//	pda_type = /obj/item/modular_computer/pda/heads/captain
+	id_type = /obj/item/weapon/card/id/gold
+	pda_type = /obj/item/modular_computer/pda/captain
 	gloves = /obj/item/clothing/gloves/thick/combat
 	head = /obj/item/clothing/head/urist/beret/nervacap
 
@@ -109,7 +107,7 @@
 	pda_type = /obj/item/modular_computer/pda/security
 	head = /obj/item/clothing/head/beret/sec
 
-/decl/hierarchy/outfit/job/security/nervacos
+/decl/hierarchy/outfit/job/security/nervacos //done
 	name = OUTFIT_JOB_NAME("Chief of Security")
 	uniform = /obj/item/clothing/under/urist/nerva/cosregular
 	l_ear = /obj/item/device/radio/headset/heads/hos
@@ -117,3 +115,17 @@
 	pda_type = /obj/item/modular_computer/pda/heads/hos
 	backpack_contents = list(/obj/item/weapon/handcuffs = 1)
 	head = /obj/item/clothing/head/beret/sec/nervacos
+
+//science
+
+/decl/hierarchy/outfit/job/nerva/scientist
+	name = OUTFIT_JOB_NAME("Scientist - Nerva")
+	uniform = /obj/item/clothing/under/rank/scientist
+	shoes = /obj/item/clothing/shoes/white
+	pda_type = /obj/item/modular_computer/pda/science
+	id_type = /obj/item/weapon/card/id/nerva_scientist
+	l_ear = /obj/item/device/radio/headset/headset_sci
+
+/decl/hierarchy/outfit/job/nerva/scientist/New()
+	..()
+	BACKPACK_OVERRIDE_RESEARCH

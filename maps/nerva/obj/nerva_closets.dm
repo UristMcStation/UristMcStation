@@ -142,3 +142,36 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
+
+/obj/structure/closet/secure_closet/science_nerva
+	name = "Nanotrasen scientist's locker"
+	req_access = list(access_xenoarch)
+	icon_state = "secureres1"
+	icon_closed = "secureres"
+	icon_locked = "secureres1"
+	icon_opened = "secureresopen"
+	icon_off = "secureresoff"
+
+/obj/structure/closet/secure_closet/science_nerva/WillContain()
+	return list(
+		/obj/item/clothing/under/rank/scientist,
+		/obj/item/clothing/suit/storage/toggle/labcoat/science,
+		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/shoes/white,
+		/obj/item/device/radio/headset/nervananotrasen,
+		/obj/item/clothing/mask/gas,
+		/obj/item/weapon/clipboard,
+		/obj/item/weapon/folder,
+		/obj/item/device/taperecorder,
+		/obj/item/device/tape/random = 3,
+		/obj/item/device/camera,
+		/obj/item/device/analyzer,
+		/obj/item/taperoll/research,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/meson,
+		/obj/item/device/radio,
+		/obj/item/device/flashlight/lantern,
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/toxins, /obj/item/weapon/storage/backpack/satchel_tox)),
+		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 50)
+		)

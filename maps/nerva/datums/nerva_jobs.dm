@@ -1,3 +1,16 @@
+/datum/map/nerva
+	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield,
+						/datum/job/cook, /datum/job/janitor, /datum/job/assistant,
+						/datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/chief_engineer, /datum/job/engineer,
+						/datum/job/hos, /datum/job/officer,
+						/datum/job/cmo, /datum/job/doctor,
+						/datum/job/scientist,
+						/datum/job/merchant,
+						/datum/job/ai, /datum/job/cyborg
+						)
+
+
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
@@ -114,6 +127,16 @@
 /datum/job/engineer
 	total_positions = 5
 	spawn_positions = 3
+
+/datum/job/scientist
+	title = "Nanotrasen Scientist"
+	supervisors = "Nanotrasen Central Command and the captain."
+	total_positions = 2
+	spawn_positions = 2
+	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
+
+/datum/job/scientist/get_description_blurb()
+	return "You are a Nanotrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from Nanotrasen, and access to Nanotrasen research contracts. This unique arrangement is owing to Nanotrasen's weak position in the outer sector. Thus, you are not fully part of the Nerva's crew, and answer to Nanotrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
 
 /datum/job/merchant
 	total_positions = 1

@@ -60,6 +60,7 @@ var/list/newplayer_start = list()
 var/list/latejoin         = list()
 var/list/latejoin_gateway = list()
 var/list/latejoin_cryo    = list()
+var/list/latejoin_cryo2    = list()
 var/list/latejoin_cyborg  = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
