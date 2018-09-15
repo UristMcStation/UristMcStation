@@ -75,7 +75,7 @@
 		/obj/item/clothing/under/urist/anfor = 20,
 		/obj/item/clothing/head/helmet/urist/anfor = 20,
 		/obj/item/clothing/shoes/urist/anforjackboots = 20,
-		/obj/item/weapon/storage/belt/security/tactical = 20
+		/obj/item/weapon/storage/belt/holster/security/tactical = 20
 		)
 	contraband = list(
 		/obj/item/weapon/storage/fancy/cigar = 1

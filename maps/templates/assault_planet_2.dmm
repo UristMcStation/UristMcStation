@@ -1,4 +1,4 @@
-"aa" = (/turf/simulated/planet/jungle/rock,/area/jungle)
+"aa" = (/turf/simulated/floor/planet/jungle/rock,/area/jungle)
 "ab" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/medbay)
 "ac" = (/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/gl,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/obj/item/weapon/gun/projectile/a18/scoped,/turf/simulated/floor/tiled/dark,/area/outpost/mining_main/medbay)
 "ad" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/obj/item/ammo_magazine/a762mm/a18,/turf/simulated/floor/tiled/dark,/area/outpost/mining_main/medbay)
@@ -7,11 +7,11 @@
 "ag" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/turf/simulated/floor/tiled/dark,/area/outpost/mining_main/medbay)
 "ah" = (/turf/simulated/floor/tiled,/area/outpost/mining_main/medbay)
 "ai" = (/turf/simulated/wall,/area/outpost/mining_main/hallway)
-"aj" = (/obj/structure/toilet{dir = 4},/obj/machinery/light/small{dir = 4},/turf/simulated/floor/tiled/freezer,/area/outpost/mining_main/hallway)
+"aj" = (/obj/structure/hygiene/toilet{dir = 4},/obj/machinery/light/small{dir = 4},/turf/simulated/floor/tiled/freezer,/area/outpost/mining_main/hallway)
 "ak" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/machinery/door/firedoor/border_only{dir = 2},/turf/simulated/floor/plating,/area/outpost/mining_main/hallway)
 "al" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/machinery/door/firedoor/border_only{dir = 2},/turf/simulated/floor/plating,/area/outpost/mining_main/hallway)
-"am" = (/obj/machinery/door/airlock/glass_medical{name = "Infirmary"},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/hallway)
-"an" = (/obj/machinery/door/airlock/glass_medical{name = "Infirmary"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
+"am" = (/obj/machinery/door/airlock/glass/medical{name = "Infirmary"},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/hallway)
+"an" = (/obj/machinery/door/airlock/glass/medical{name = "Infirmary"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/outpost/mining_main/hallway)
 "ao" = (/turf/simulated/wall/r_wall,/area/outpost/mining_main/hallway)
 "ap" = (/obj/machinery/door/airlock/security{name = "Security Outpost"; req_access = list(1)},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
 "aq" = (/turf/simulated/wall/r_wall,/area/outpost/security/storage)
@@ -31,8 +31,8 @@
 "aE" = (/obj/machinery/flasher/portable,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
 "aF" = (/obj/item/weapon/storage/firstaid/surgery,/obj/structure/table/standard,/obj/item/weapon/reagent_containers/glass/beaker/painkiller,/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (WEST)"; icon_state = "corner_white_three_quarters"; dir = 8},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aG" = (/obj/machinery/optable,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"aH" = (/obj/machinery/iv_drip,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"aI" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/obj/structure/table/standard,/obj/item/weapon/reagent_containers/blood/OMinus,/obj/item/weapon/reagent_containers/blood/OMinus,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"aH" = (/obj/structure/iv_drip,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"aI" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/obj/structure/table/standard,/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aJ" = (/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (NORTH)"; icon_state = "corner_white_three_quarters"; dir = 1},/obj/structure/table/standard,/obj/item/weapon/storage/box/gloves,/obj/item/weapon/storage/box/masks,/obj/item/clothing/glasses/hud/health,/obj/item/clothing/glasses/hud/health,/obj/item/clothing/glasses/hud/health,/obj/item/clothing/glasses/hud/health,/obj/item/clothing/glasses/hud/health,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aK" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (WEST)"; icon_state = "corner_white"; dir = 8},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "aL" = (/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
@@ -94,7 +94,7 @@
 "bP" = (/obj/structure/bed/chair/couch/left{tag = "icon-couch_left (WEST)"; icon_state = "couch_left"; dir = 8},/obj/effect/floor_decal/corner/red/three_quarters{tag = "icon-corner_white_three_quarters (EAST)"; icon_state = "corner_white_three_quarters"; dir = 4},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
 "bQ" = (/obj/effect/floor_decal/corner/paleblue/three_quarters,/obj/item/weapon/storage/firstaid/surgery,/obj/structure/table/standard,/obj/item/weapon/reagent_containers/glass/beaker/painkiller,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bR" = (/obj/machinery/optable,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
-"bS" = (/obj/machinery/iv_drip,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
+"bS" = (/obj/structure/iv_drip,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bT" = (/obj/effect/floor_decal/corner/red/full,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bU" = (/obj/effect/floor_decal/corner/red/full,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bV" = (/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
@@ -113,25 +113,23 @@
 "ci" = (/turf/simulated/floor/plating,/area/outpost/security/hallway)
 "cj" = (/obj/machinery/embedded_controller/radio/airlock/docking_port{frequency = 1380; id_tag = "secdock_airlock"; pixel_x = 30; pixel_y = 0; req_access = list(1); tag_airpump = "secdock_pump"; tag_chamber_sensor = "secdock_sensor"; tag_exterior_door = "secdock_outer"; tag_interior_door = "secdock_inner"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
 "ck" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cl" = (/turf/simulated/planet/jungle/clear,/area/jungle)
+"cl" = (/turf/simulated/floor/planet/jungle/clear,/area/jungle)
 "cm" = (/obj/machinery/light/small{dir = 4},/obj/machinery/airlock_sensor{frequency = 1380; id_tag = "secdock_sensor"; pixel_x = 25; pixel_y = 0},/turf/simulated/floor/plating,/area/outpost/security/hallway)
 "cn" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/outpost/security/hallway)
 "co" = (/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"; pixel_y = 0},/turf/simulated/wall/r_wall,/area/outpost/security/hallway)
 "cp" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "secdock_outer"; locked = 1; name = "Security Dock Airlock"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cq" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "secdock_airlock"; name = "exterior access button"; pixel_x = -25; pixel_y = 0; req_access = list(1)},/turf/simulated/planet/jungle/clear,/area/jungle)
-"cr" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "edock_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 0; req_access = list(10)},/turf/simulated/planet/jungle/clear,/area/jungle)
-"cs" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"ct" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cu" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHEAST)"; icon_state = "warning"; dir = 5},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cv" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/shuttle/constructionsite/site)
-"cw" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cx" = (/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cy" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cz" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/simulated/floor/plating,/area/shuttle/constructionsite/site)
-"cA" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cB" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cC" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/shuttle/securityoutpost/outpost)
-"cD" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (SOUTHWEST)"; icon_state = "warning"; dir = 10},/turf/simulated/floor/plating,/area/shuttle/constructionsite/site)
+"cq" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "secdock_airlock"; name = "exterior access button"; pixel_x = -25; pixel_y = 0; req_access = list(1)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
+"cr" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "edock_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 0; req_access = list(10)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
+"cs" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/jungle)
+"ct" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/jungle)
+"cu" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHEAST)"; icon_state = "warning"; dir = 5},/turf/simulated/floor/plating,/area/jungle)
+"cv" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/simulated/floor/plating,/area/jungle)
+"cw" = (/turf/simulated/floor/plating,/area/jungle)
+"cx" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/turf/simulated/floor/plating,/area/jungle)
+"cy" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/jungle)
+"cz" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/jungle)
+"cA" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/jungle)
+"cB" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (SOUTHWEST)"; icon_state = "warning"; dir = 10},/turf/simulated/floor/plating,/area/jungle)
 
 (1,1,1) = {"
 aaabacadaeafagahahabaiajaiajaiakalamanakalaoapapaqaqaqaqaqaq
@@ -147,10 +145,10 @@ aaaaaaaaaaaaarararararararararararbDbDbDbDbDcfcfbDcgbDbDaach
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDcicjckclaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDcicmcnclaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacocpcpbDcqclaaaacr
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacsctctctctctcuaaaacv
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcxcxcxcxcxcyaaaacz
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcxcxcxcxcxcyaaaacz
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcxcxcxcxcxcyaaaacz
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacAcBcBcBcBcBcCaaaacD
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacsctctctctctcuaaaacs
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacyczczczczczcAaaaacB
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

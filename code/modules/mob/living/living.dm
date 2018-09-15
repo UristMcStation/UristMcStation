@@ -618,8 +618,8 @@ default behaviour is:
 			if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
 				return
 		M.status_flags &= ~PASSEMOTES
-	else if(istype(H.loc,/obj/item/clothing/accessory/holster))
-		var/obj/item/clothing/accessory/holster/holster = H.loc
+	else if(istype(H.loc,/obj/item/clothing/accessory/storage/holster) || istype(H.loc,/obj/item/weapon/storage/belt/holster))
+		var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
 		if(holster.holstered == H)
 			holster.clear_holster()
 		to_chat(src, "<span class='warning'>You extricate yourself from \the [holster].</span>")
@@ -803,3 +803,24 @@ default behaviour is:
 		. -= 1
 	if(CLUMSY in mutations)
 		. -= 3
+
+/mob/living/can_drown()
+	return TRUE
+
+/mob/living/handle_drowning()
+	if(!can_drown() || !loc.is_flooded(lying))
+		return FALSE
+	if(prob(5))
+		to_chat(src, "<span class='danger'>You choke and splutter as you inhale water!</span>")
+	var/turf/T = get_turf(src)
+	T.show_bubbles()
+	return TRUE // Presumably chemical smoke can't be breathed while you're underwater.
+
+/mob/living/water_act(var/depth)
+	..()
+	wash_mob(src)
+	for(var/thing in get_equipped_items(TRUE))
+		if(isnull(thing)) continue
+		var/atom/movable/A = thing
+		if(A.simulated && !A.waterproof)
+			A.water_act(depth)

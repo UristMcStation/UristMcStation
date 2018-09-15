@@ -1,7 +1,7 @@
 /obj/item/weapon/rig/ert
 	name = "emergency response command hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has blue highlights. Armoured and space ready."
-	suit_type = "Asset Protection command"
+	suit_type = "emergency response command"
 	icon_state = "ert_commander_rig"
 
 	chest_type = /obj/item/clothing/suit/space/rig/ert
@@ -36,13 +36,14 @@
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/rig/ert
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_NOCUFFS
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
 
 /obj/item/weapon/rig/ert/engineer
 	name = "emergency response engineering hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has orange highlights. Armoured and space ready."
-	suit_type = "Asset Protection engineer"
+	suit_type = "emergency response engineer"
 	icon_state = "ert_engineer_rig"
 	armor = list(melee = 60, bullet = 50, laser = 50,energy = 15, bomb = 30, bio = 100, rad = 100)
 
@@ -62,7 +63,7 @@
 /obj/item/weapon/rig/ert/janitor
 	name = "emergency response sanitation hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has purple highlights. Armoured and space ready."
-	suit_type = "Asset Protection sanitation"
+	suit_type = "emergency response sanitation"
 	icon_state = "ert_janitor_rig"
 	armor = list(melee = 60, bullet = 50, laser = 50,energy = 40, bomb = 40, bio = 100, rad = 100)
 
@@ -78,7 +79,7 @@
 /obj/item/weapon/rig/ert/medical
 	name = "emergency response medical hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has white highlights. Armoured and space ready."
-	suit_type = "Asset Protection medic"
+	suit_type = "emergency response medic"
 	icon_state = "ert_medical_rig"
 
 	initial_modules = list(
@@ -92,7 +93,7 @@
 /obj/item/weapon/rig/ert/security
 	name = "emergency response security hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has red highlights. Armoured and space ready."
-	suit_type = "Asset Protection security"
+	suit_type = "emergency response security"
 	icon_state = "ert_security_rig"
 
 	initial_modules = list(
@@ -106,7 +107,7 @@
 /obj/item/weapon/rig/ert/assetprotection
 	name = "heavy emergency response suit control module"
 	desc = "A heavy, modified version of a common emergency response hardsuit. Has blood red highlights.  Armoured and space ready."
-	suit_type = "heavy asset protection"
+	suit_type = "heavy emergency response"
 	icon_state = "asset_protection_rig"
 	armor = list(melee = 60, bullet = 50, laser = 50,energy = 40, bomb = 40, bio = 100, rad = 100)
 

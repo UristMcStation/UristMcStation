@@ -11,7 +11,7 @@
 	program_menu_icon = "flag"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control. Can relay long-range communications. This program can not be run on tablet computers."
-	required_access = access_heads
+	required_access = access_bridge
 	requires_ntnet = 1
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -99,7 +99,7 @@
 			processed_evac_options[++processed_evac_options.len] = option
 	data["evac_options"] = processed_evac_options
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "communication.tmpl", name, 550, 420, state = state)
 		ui.auto_update_layout = 1
@@ -153,7 +153,7 @@
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-							GLOB.nanomanager.update_uis(src)
+							SSnano.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 						if(!input || !can_still_topic())
@@ -168,7 +168,7 @@
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
-						GLOB.nanomanager.update_uis(src)
+						SSnano.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
@@ -364,6 +364,7 @@ var/last_message_id = 0
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called the shuttle.")
 
 /proc/init_autotransfer()
+
 	if (!ticker || !evacuation_controller)
 		return
 

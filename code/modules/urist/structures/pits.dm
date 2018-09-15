@@ -60,11 +60,11 @@
 	if(punji)
 		if(istype(O, /mob/living) && !(animal_safe && istype(O, /mob/living/simple_animal)))
 			var/mob/living/M = O
-			M.visible_message("[M] falls into the pit and impales themselves on sharpened sticks!", \
-			"You step into the pit and hurt yourself on the sharpened sticks within!")
-			var/punjidamage = rand(2,5) //maximum damage of 30 with 6 sticks (this probably needs balancing)
-			punjidamage *= punji
-			M.adjustBruteLoss(punjidamage)
+			M.visible_message("<span class='warning'>[M] falls into the pit and impales themselves on sharpened sticks!</span>", \
+			"<span class='danger'>You step into the pit and hurt yourself on the sharpened sticks within!</span>")
+			var/punjidamage = rand(8,12) //Damage ranges from 16 to 72 spread out among all the organs.
+			for(var/punji = rand(min(2,punji),punji) to 1)
+				M.apply_damage(punjidamage)
 			M.Stun(punji) //stunned for more with more sticks. doesn't make a huge different, but w/e
 			M.Weaken(punji)
 
@@ -233,7 +233,7 @@
 	new /obj/item/clothing/head/urist/cowboy2(C)
 	new /obj/item/clothing/under/urist/cowboy(C)
 	new /obj/item/clothing/suit/urist/poncho(C)
-	new /obj/item/clothing/accessory/holster/hip(C)
+	new /obj/item/clothing/accessory/storage/holster/hip(C)
 	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
 
 	var/obj/structure/gravemarker/cross/R = new(src.loc)
@@ -264,8 +264,8 @@
 /obj/structure/gravemarker/random/proc/generate()
 	icon_state = pick("wood","cross")
 
-	var/datum/species/S = all_species["Human"]
-	var/nam = S.get_random_name(pick(MALE,FEMALE))
+	var/datum/language/L = all_languages[LANGUAGE_GALCOM]
+	var/nam = L.get_random_name(pick(MALE,FEMALE))
 	var/cur_year = text2num(time2text(world.timeofday, "YYYY"))+544
 	var/born = cur_year - rand(5,150)
 	var/died = max(cur_year - rand(0,70),born)

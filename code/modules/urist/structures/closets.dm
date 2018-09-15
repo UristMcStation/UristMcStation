@@ -72,7 +72,7 @@
 	sleep(2)
 	new	/obj/item/weapon/storage/firstaid/adv(src)
 	new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
-	new /obj/item/weapon/storage/belt/security(src)
+	new /obj/item/weapon/storage/belt/holster/security(src)
 	new /obj/item/weapon/grenade/flashbang(src)
 	new /obj/item/weapon/melee/baton/loaded(src)
 	new /obj/item/weapon/gun/energy/taser(src)
@@ -220,7 +220,7 @@
 		/obj/item/clothing/accessory/legguards/green = 2,
 		/obj/item/clothing/mask/balaclava/tactical = 2,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
-		/obj/item/weapon/storage/belt/security/tactical = 2,
+		/obj/item/weapon/storage/belt/holster/security/tactical = 2,
 		/obj/item/clothing/shoes/jackboots = 2,
 		/obj/item/clothing/gloves/thick = 2,
 	)

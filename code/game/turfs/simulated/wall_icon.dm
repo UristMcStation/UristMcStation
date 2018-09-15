@@ -8,7 +8,7 @@
 	else
 		construction_stage = null
 	if(!material)
-		material = get_material_by_name(DEFAULT_WALL_MATERIAL)
+		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
@@ -34,6 +34,9 @@
 	update_material()
 
 /turf/simulated/wall/update_icon()
+
+	..()
+
 	if(!material)
 		return
 

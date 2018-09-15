@@ -151,7 +151,7 @@
 		src.visible_message("\The [src] buzzes. That ID has already been scanned.")
 		return 0
 
-	if (!(access_heads in access))
+	if (!(access_bridge in access))
 		src.visible_message("\The [src] buzzes, rejecting [ident].")
 		return 0
 
@@ -234,7 +234,7 @@
 		"user" = debug? user : null,
 	)
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
 		ui = new(user, src, ui_key, "escape_shuttle_control_console.tmpl", "Shuttle Control", 470, 420)

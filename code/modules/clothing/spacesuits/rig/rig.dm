@@ -499,7 +499,7 @@
 	if(module_list.len)
 		data["modules"] = module_list
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, state = nano_state)
 		ui.set_initial_data(data)
@@ -848,9 +848,6 @@
 		if(user) to_chat(user, "<span class='warning'>You are locked out of the suit servo controller.</span>")
 		return 0
 	return 1
-
-/obj/item/weapon/rig/check_access(obj/item/I)
-	return TRUE
 
 /obj/item/weapon/rig/proc/force_rest(var/mob/user)
 	if(!ai_can_move_suit(user, check_user_module = 1))

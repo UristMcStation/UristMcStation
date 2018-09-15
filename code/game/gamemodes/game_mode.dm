@@ -276,9 +276,9 @@ var/global/list/additional_antag_types = list()
 		"killer bugs that lay eggs in the husks of the living",
 		"a deserted transport carrying xenomorph specimens",
 		"an emissary for the gestalt requesting a security detail",
-		"a Tajaran slave rebellion",
 		"radical Skrellian transevolutionaries",
-		"classified security operations"
+		"classified security operations",
+		"a gargantuan glowing goat"
 		)
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
@@ -499,16 +499,6 @@ proc/display_roundstart_logout_report()
 	for(var/mob/M in SSmobs.mob_list)
 		if(M.client && M.client.holder)
 			to_chat(M, msg)
-proc/get_nt_opposed()
-	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in GLOB.player_list)
-		if(man.client)
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED)
-				dudes += man
-			else if(man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL && prob(50))
-				dudes += man
-	if(dudes.len == 0) return null
-	return pick(dudes)
 
 /proc/show_objectives(var/datum/mind/player)
 

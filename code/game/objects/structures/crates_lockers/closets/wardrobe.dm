@@ -411,7 +411,7 @@
 		/obj/item/clothing/accessory/legguards/green,
 		/obj/item/clothing/mask/balaclava/tactical,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
-		/obj/item/weapon/storage/belt/security/tactical,
+		/obj/item/weapon/storage/belt/holster/security/tactical,
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/gloves/thick
 	)

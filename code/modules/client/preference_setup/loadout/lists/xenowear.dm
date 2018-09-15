@@ -21,6 +21,18 @@
 	path = /obj/item/clothing/accessory/storage/knifeharness
 	cost = 5
 
+/datum/gear/suit/unathi/savage_hunter
+	display_name = "savage hunter hides (Male, Unathi)"
+	path = /obj/item/clothing/under/savage_hunter
+	slot = slot_w_uniform
+	cost = 2
+
+/datum/gear/suit/unathi/savage_hunter/female
+	display_name = "savage hunter hides (Female, Unathi)"
+	path = /obj/item/clothing/under/savage_hunter/female
+	slot = slot_w_uniform
+	cost = 2
+
 //Skrell Chains
 /datum/gear/ears/skrell/
 	sort_category = "Xenowear"
@@ -50,22 +62,16 @@
 
 //Skrell Cloth
 /datum/gear/ears/skrell/cloth/male
-	display_name = "men's headtail cloth (Skrell)"
+	display_name = "male headtail cloth (Skrell)"
 	path = /obj/item/clothing/ears/skrell/cloth_male
+	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/skrell/cloth/male/New()
-	..()
-	var/list/valid_colors = list("#c20c00", "#0227f7", "#6262ff", "#454545", "#009900", "#e17291")
-	gear_tweaks = list(new/datum/gear_tweak/color(valid_colors))
 
 /datum/gear/ears/skrell/cloth/female
-	display_name = "women's headtail cloth (Skrell)"
+	display_name = "female headtail cloth (Skrell)"
 	path = /obj/item/clothing/ears/skrell/cloth_female
+	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/skrell/cloth/female/New()
-	..()
-	var/list/valid_colors = list("#c20c00", "#0227f7", "#6262ff", "#454545", "#009900", "#e17291")
-	gear_tweaks = list(new/datum/gear_tweak/color(valid_colors))
 
 /datum/gear/suit/lab_veymed_skrell
 	display_name = "Vey-Med labcoat"
@@ -105,62 +111,49 @@
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
 
-/datum/gear/accessory/capes
-	display_name = "Shoulder cape"
-	path = /obj/item/clothing/accessory/shouldercape
-	sort_category = "Xenowear"
-
-/datum/gear/accessory/capes/New()
-	..()
-	var/capes = list()
-	capes["simple cape"] = /obj/item/clothing/accessory/shouldercape/grunt
-	capes["decorated cape"] = /obj/item/clothing/accessory/shouldercape/officer
-	capes["government cape"] = /obj/item/clothing/accessory/shouldercape/command
-	gear_tweaks += new/datum/gear_tweak/path(capes)
-
 // Pre-modified gloves
 
 /datum/gear/gloves/colored/modified
 	display_name = "modified gloves, colored"
 	path = /obj/item/clothing/gloves/color/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list( SPECIES_UNATHI)
 
 /datum/gear/gloves/latex/modified
 	display_name = "modified gloves, latex"
 	path = /obj/item/clothing/gloves/latex/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/gloves/nitrile/modified
 	display_name = "modified gloves, nitrile"
 	path = /obj/item/clothing/gloves/latex/nitrile/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/gloves/rainbow/modified
 	display_name = "modified gloves, rainbow"
 	path = /obj/item/clothing/gloves/rainbow/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/gloves/evening/modified
 	display_name = "modified gloves, evening"
 	path = /obj/item/clothing/gloves/color/evening/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/gloves/botany/modified
 	display_name = "modified gloves, botany"
 	path = /obj/item/clothing/gloves/thick/botany/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/gloves/work/modified
 	display_name = "modified gloves, work"
 	path = /obj/item/clothing/gloves/thick/modified
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_TAJARA, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI)
 
 // Vox clothing
 /datum/gear/mask/gas/vox

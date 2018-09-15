@@ -79,6 +79,8 @@
 
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_NOCUFFS
+
 
 /obj/item/weapon/rig/light/ninja
 	name = "ominous suit control module"
@@ -150,7 +152,7 @@
 /obj/item/clothing/gloves/rig/light/ninja
 	name = "insulated gloves"
 	siemens_coefficient = 0
-	
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_NOCUFFS
 	sprite_sheets = list(
 		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi'
 	)

@@ -9,7 +9,13 @@
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 
+	var/list/stance_limbs
+	var/list/grasp_limbs
+
 /mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+
+	grasp_limbs = list()
+	stance_limbs = list()
 
 	if(!dna)
 		dna = new /datum/dna(null)
@@ -21,9 +27,10 @@
 		else
 			set_species()
 
-	if(species)
-		real_name = species.get_random_name(gender)
-		SetName(real_name)
+	var/decl/cultural_info/culture = SSculture.get_culture(cultural_info[TAG_CULTURE])
+	if(culture)
+		real_name = culture.get_random_name(gender, species.name)
+		name = real_name
 		if(mind)
 			mind.name = real_name
 
@@ -54,6 +61,7 @@
 	for(var/organ in organs)
 		qdel(organ)
 	return ..()
+
 
 /mob/living/carbon/human/Stat()
 	. = ..()
@@ -293,7 +301,7 @@
 //Also used in AI tracking people by face, so added in checks for head coverings like masks and helmets
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/H = get_organ(BP_HEAD)
-	if(!H || H.disfigured || H.is_stump() || !real_name || (HUSK in mutations) || (wear_mask && (wear_mask.flags_inv&HIDEFACE)) || (head && (head.flags_inv&HIDEFACE)))	//Face is unrecognizeable, use ID if able
+	if(!H || (H.status & ORGAN_DISFIGURED) || H.is_stump() || !real_name || (HUSK in mutations) || (wear_mask && (wear_mask.flags_inv&HIDEFACE)) || (head && (head.flags_inv&HIDEFACE)))	//Face is unrecognizeable, use ID if able
 		if(istype(wear_mask))
 			return wear_mask.visible_name
 		else
@@ -914,7 +922,7 @@
 		custom_pain(msg,40,affecting = organ)
 
 	organ.take_external_damage(rand(1,3), 0, 0)
-	if(!(organ.robotic >= ORGAN_ROBOT) && (should_have_organ(BP_HEART))) //There is no blood in protheses.
+	if(!BP_IS_ROBOTIC(organ) && (should_have_organ(BP_HEART))) //There is no blood in protheses.
 		organ.status |= ORGAN_BLEEDING
 		src.adjustToxLoss(rand(1,3))
 
@@ -988,12 +996,7 @@
 
 		if(species.name && species.name == new_species)
 			return
-		if(species.language)
-			remove_language(species.language)
-		if(species.default_language)
-			remove_language(species.default_language)
-		for(var/datum/language/L in species.assisted_langs)
-			remove_language(L)
+
 		// Clear out their species abilities.
 		species.remove_base_auras(src)
 		species.remove_inherent_verbs(src)
@@ -1001,16 +1004,6 @@
 
 	species = all_species[new_species]
 	species.handle_pre_spawn(src)
-
-	if(species.language)
-		add_language(species.language)
-		species_language = all_languages[species.language]
-
-	for(var/L in species.additional_langs)
-		add_language(L)
-
-	if(species.default_language)
-		add_language(species.default_language)
 
 	if(species.grab_type)
 		current_grab_type = all_grabobjects[species.grab_type]
@@ -1044,6 +1037,15 @@
 	pixel_x = default_pixel_x
 	pixel_y = default_pixel_y
 
+	if(LAZYLEN(descriptors))
+		descriptors = null
+
+	if(LAZYLEN(species.descriptors))
+		descriptors = list()
+		for(var/desctype in species.descriptors)
+			var/datum/mob_descriptor.descriptor = species.descriptors[desctype]
+			descriptors[desctype] = descriptor.default_value
+
 	if(!(species.appearance_flags & HAS_UNDERWEAR))
 		QDEL_NULL_LIST(worn_underwear)
 
@@ -1057,7 +1059,6 @@
 			vessel.maximum_volume = species.blood_volume
 		fixblood()
 
-
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
 		client.screen.len = null
@@ -1067,6 +1068,20 @@
 		create_stack()
 	full_prosthetic = null
 
+	var/update_lang
+	for(var/token in ALL_CULTURAL_TAGS)
+		if(species.force_cultural_info && species.force_cultural_info[token])
+			update_lang = TRUE
+			set_cultural_value(token, species.force_cultural_info[token], defer_language_update = TRUE)
+		else if(!cultural_info[token] || !(cultural_info[token] in species.available_cultural_info[token]))
+			update_lang = TRUE
+			set_cultural_value(token, species.default_cultural_info[token], defer_language_update = TRUE)
+
+	if(update_lang)
+		languages.Cut()
+		default_language = null
+		update_languages()
+
 	//recheck species-restricted clothing
 	for(var/slot in slot_first to slot_last)
 		var/obj/item/clothing/C = get_equipped_item(slot)
@@ -1074,6 +1089,44 @@
 			unEquip(C)
 
 	return 1
+
+/mob/living/carbon/human/proc/update_languages()
+
+	var/list/permitted_languages = list()
+	var/list/free_languages =      list()
+	var/list/default_languages =   list()
+
+	for(var/thing in cultural_info)
+		var/decl/cultural_info/check = cultural_info[thing]
+		if(istype(check))
+			if(check.default_language)
+				free_languages    |= all_languages[check.default_language]
+				default_languages |= all_languages[check.default_language]
+			if(check.language)
+				free_languages    |= all_languages[check.language]
+			if(check.name_language)
+				free_languages    |= all_languages[check.name_language]
+			for(var/lang in check.additional_langs)
+				free_languages    |= all_languages[lang]
+			for(var/lang in check.get_spoken_languages())
+				permitted_languages |= all_languages[lang]
+
+	for(var/thing in languages)
+		var/datum/language/lang = thing
+		if(lang in permitted_languages)
+			continue
+		if(!(lang.flags & RESTRICTED) && (lang.flags & WHITELISTED) && is_alien_whitelisted(src, lang))
+			continue
+		if(lang == default_language)
+			default_language = null
+		remove_language(lang.name)
+
+	for(var/thing in free_languages)
+		var/datum/language/lang = thing
+		add_language(lang.name)
+
+	if(LAZYLEN(default_languages) && isnull(default_language))
+		default_language = default_languages[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -1138,7 +1191,7 @@
 		to_chat(user, "<span class='warning'>They are missing that limb.</span>")
 		return 0
 
-	if(affecting.robotic >= ORGAN_ROBOT)
+	if(BP_IS_ROBOTIC(affecting))
 		to_chat(user, "<span class='warning'>That limb is robotic.</span>")
 		return 0
 
@@ -1225,14 +1278,6 @@
 		return 0
 	return !!(..(slipped_on,stun_duration))
 
-/mob/living/carbon/human/check_slipmove()
-	if(h_style)
-		var/datum/sprite_accessory/hair/S = GLOB.hair_styles_list[h_style]
-		if(S && S.flags & HAIR_TRIPPABLE && prob(0.4))
-			slip(S, 4)
-			return TRUE
-	return FALSE
-
 /mob/living/carbon/human/proc/undislocate()
 	set category = "Object"
 	set name = "Undislocate Joint"
@@ -1310,7 +1355,7 @@
 /mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
 	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 	if(!H)
-		return
+		return "0"
 	if(H.open && !method)
 		return "muddled and unclear; you can't seem to find a vein"
 
@@ -1380,7 +1425,7 @@
 	else if(organ_check in list(BP_LIVER, BP_KIDNEYS))
 		affecting = organs_by_name[BP_GROIN]
 
-	if(affecting && (affecting.robotic >= ORGAN_ROBOT))
+	if(affecting && BP_IS_ROBOTIC(affecting))
 		return 0
 	return (species && species.has_organ[organ_check])
 
@@ -1397,7 +1442,7 @@
 	. = ..()
 	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 	if(H && !H.open)
-		. *= (H.robotic < ORGAN_ROBOT) ? pulse()/PULSE_NORM : 1.5
+		. *= (!BP_IS_ROBOTIC(H)) ? pulse()/PULSE_NORM : 1.5
 
 /mob/living/carbon/human/need_breathe()
 	if(!(mNobreath in mutations) && species.breathing_organ && should_have_organ(species.breathing_organ))
@@ -1467,7 +1512,7 @@
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
-	if(istype(heart) && heart.robotic <= ORGAN_ROBOT && !(heart.status & ORGAN_DEAD))
+	if(istype(heart) && !(heart.status & ORGAN_DEAD))
 		var/species_organ = species.breathing_organ
 		var/active_breaths = 0
 		if(species_organ)
@@ -1499,3 +1544,41 @@
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/proc/nervous_system_failure()
 	return getBrainLoss() >= maxHealth * 0.75
+/mob/living/carbon/human/can_drown()
+	if(!internal && (!istype(wear_mask) || !wear_mask.filters_water()))
+		var/obj/item/organ/internal/lungs/L = locate() in internal_organs
+		return (!L || L.can_drown())
+	return FALSE
+
+/mob/living/carbon/human/get_breath_from_environment(var/volume_needed = STD_BREATH_VOLUME)
+	var/datum/gas_mixture/breath = ..(volume_needed)
+	var/turf/T = get_turf(src)
+	if(istype(T) && T.is_flooded(lying) && should_have_organ(BP_LUNGS))
+		var/can_breathe_water = (istype(wear_mask) && wear_mask.filters_water()) ? TRUE : FALSE
+		if(!can_breathe_water)
+			var/obj/item/organ/internal/lungs/lungs = internal_organs_by_name[BP_LUNGS]
+			if(lungs && lungs.can_drown())
+				can_breathe_water = TRUE
+		if(can_breathe_water)
+			if(!breath)
+				breath = new
+				breath.volume = volume_needed
+				breath.temperature = T.temperature
+			breath.adjust_gas("oxygen", ONE_ATMOSPHERE*volume_needed/(R_IDEAL_GAS_EQUATION*T20C))
+			T.show_bubbles()
+	return breath
+
+/mob/living/carbon/human/water_act(var/depth)
+	species.water_act(src, depth)
+	..(depth)
+
+/mob/living/carbon/human/proc/set_cultural_value(var/token, var/decl/cultural_info/_culture, var/defer_language_update)
+	if(!istype(_culture))
+		_culture = SSculture.get_culture(_culture)
+	if(istype(_culture))
+		cultural_info[token] = _culture
+		if(!defer_language_update)
+			update_languages()
+
+/mob/living/carbon/human/proc/get_cultural_value(var/token)
+	return cultural_info[token]

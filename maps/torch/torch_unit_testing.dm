@@ -20,7 +20,9 @@
 		/area/maintenance/incinerator = NO_SCRUBBER,
 		/area/maintenance/seconddeck/aftport = NO_SCRUBBER,
 		/area/maintenance/seconddeck/forestarboard = NO_SCRUBBER,
-		/area/maintenance/thirddeck/aftstarboard = NO_SCRUBBER,
+		/area/maintenance/seconddeck/hallway = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/thirddeck/aftstarboard = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/bluespace = NO_SCRUBBER,
 		/area/janitor = NO_SCRUBBER|NO_VENT,
 		/area/mine/explored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -55,6 +57,7 @@
 		/area/vacant/missile = NO_SCRUBBER|NO_VENT,
 		/area/vacant/monitoring = NO_SCRUBBER|NO_VENT,
 		/area/vacant/office = 0,
+		/area/vacant/mess        = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet          = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -132,6 +135,7 @@
 		/area/errant_pisces,
 		/area/lar_maria,
 		/area/map_template,
+		/area/unishi,
 		/area/exoplanet
 	)
 

@@ -109,7 +109,7 @@ var/global/datum/ntnet/ntnet_global = new()
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue
 		// Check whether the program should be available for station/antag download, if yes, add it to lists.
-		if(prog.available_on_ntnet)
+		if(prog.available_on_ntnet && !(F in GLOB.using_map.blacklisted_programs))
 			available_station_software.Add(prog)
 		if(prog.available_on_syndinet)
 			available_antag_software.Add(prog)
