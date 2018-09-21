@@ -20,7 +20,7 @@
 	selection_color = "#004a7f"
 	req_admin_notify = 1
 	minimal_player_age = 8
-	economic_modifier = 7
+	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
@@ -44,7 +44,7 @@
 	selection_color = "#004a7f"
 	req_admin_notify = 1
 	minimal_player_age = 18
-	economic_modifier = 17
+	economic_power = 15
 	outfit_type = /decl/hierarchy/outfit/job/nerva/firstofficer
 	access = list()
 	minimal_access = list()
@@ -61,7 +61,7 @@
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger Nanotrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing."
 	minimal_player_age = 21
 	outfit_type = /decl/hierarchy/outfit/job/nerva/captain
-	economic_modifier = 26
+	economic_power = 24
 
 /datum/job/captain/get_description_blurb()
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ship only has a small complement of weapons at first, which can be upgraded at certain stations in the sector. Good luck."

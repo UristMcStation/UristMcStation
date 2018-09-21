@@ -257,3 +257,33 @@
 	name = "chief of security's beret"
 	desc = "A striking black beret with an emblem denoting the ICS Nerva's chief of security."
 	icon_state = "beret_corporate_hos"
+
+//rigs
+
+/obj/item/weapon/rig/command/exploration
+	name = "exploration command HCM"
+	suit_type = "exploration command hardsuit"
+	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
+	icon_state = "command_exp_rig"
+	armor = list(melee = 35, bullet = 25, laser = 25, energy = 35, bomb = 15, bio = 100, rad = 100)
+
+	chest_type = /obj/item/clothing/suit/space/rig/command/exploration
+	helm_type = /obj/item/clothing/head/helmet/space/rig/command/exploration
+
+	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+
+	req_access = list(access_qm)
+
+/obj/item/clothing/head/helmet/space/rig/command/exploration
+	icon_state = "command_exp_rig"
+/obj/item/clothing/suit/space/rig/command/exploration
+	icon_state = "command_exp_rig"
+/obj/item/clothing/shoes/magboots/rig/command/exploration
+/obj/item/clothing/gloves/rig/command/exploration
+
+/obj/item/weapon/rig/command/exploration/equipped
+	initial_modules = list(
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/grenade_launcher/light,
+		/obj/item/rig_module/cooling_unit)

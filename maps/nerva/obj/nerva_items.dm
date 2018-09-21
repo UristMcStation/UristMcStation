@@ -52,3 +52,11 @@
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
 	icon_state = "stamp-intaff"
+
+//paint
+
+/obj/effect/paint/hull
+	color = COLOR_HULL
+
+/obj/effect/paint/expeditionary
+	color = "#68099e"

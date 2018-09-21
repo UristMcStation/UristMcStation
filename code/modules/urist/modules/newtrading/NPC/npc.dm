@@ -25,7 +25,7 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	var/list/suits = list()
 	var/suit_chance = 25
 
-	unsuitable_atoms_damage = 15
+//	unsuitable_atoms_damage = 15
 //	corpse = /obj/effect/landmark/mobcorpse/pirate
 	var/weapon1 = /obj/item/weapon/melee/energy/sword/pirate
 

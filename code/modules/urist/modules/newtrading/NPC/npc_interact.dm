@@ -72,7 +72,7 @@
 
 	data["user"] = "\ref[user]"
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "npc.tmpl", "Talking to [src.name]", 800, 600)
 		ui.set_initial_data(data)

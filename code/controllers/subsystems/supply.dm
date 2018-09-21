@@ -46,11 +46,7 @@ SUBSYSTEM_DEF(supply)
 
 	if(GLOB.using_map.using_new_cargo) //here we do setup for the new cargo system
 		points_per_process = 0
-		//balance this shit
-		material_buy_prices = list(
-			/material/platinum = 500,
-			/material/phoron = 500
-		)
+
 /*
 		point_source_descriptions = list(
 			"time" = "Base station supply",
@@ -134,11 +130,12 @@ SUBSYSTEM_DEF(supply)
 
 					// Sell materials
 					if(istype(A, /obj/item/stack))
-						var/obj/item/stack/P = A
-						var/material/material = P.get_material()
-						if(material.sale_price > 0)
-							material_count[material.display_name] += P.get_amount() * material.sale_price
-						continue
+						if(!GLOB.using_map.using_new_cargo) //Bay sucks cock, so now we're just doing it through our price system
+							var/obj/item/stack/P = A
+							var/material/material = P.get_material()
+							if(material.sale_price > 0)
+								material_count[material.display_name] += P.get_amount() * material.sale_price
+							continue
 
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))

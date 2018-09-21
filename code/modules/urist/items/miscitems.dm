@@ -379,9 +379,9 @@
 
 //mapping object
 
-/obj/item/weapon/cigbutt/rand
+/obj/item/trash/cigbutt/rand
 
-/obj/item/weapon/cigbutt/rand/New()
+/obj/item/trash/cigbutt/rand/New()
 	pixel_x = rand(1,9)
 	pixel_y = rand(1,9)
 	..()

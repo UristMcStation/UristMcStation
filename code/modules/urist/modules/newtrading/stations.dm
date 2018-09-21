@@ -1,6 +1,6 @@
 /obj/effect/overmap/sector/station
 	var/faction = null
-	var/list/spawn_type = list()
+	var/spawn_type = null
 	var/mob/living/spawned_ship
 	var/spawn_time_high = 2400
 	var/spawn_time_low = 1200

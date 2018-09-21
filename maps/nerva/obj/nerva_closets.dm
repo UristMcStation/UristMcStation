@@ -22,7 +22,7 @@
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/weapon/gun/energy/gun/secure,
 		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber,
-		/obj/item/clothing/accessory/holster/thigh,
+		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
@@ -37,7 +37,7 @@
 
 /obj/structure/closet/secure_closet/nervafo
 	name = "first officer's locker"
-	req_access = list(access_hop)
+	req_access = list(access_fo)
 	icon_state = "twosolsecure1"
 	icon_closed = "twosolsecure"
 	icon_locked = "twosolsecure1"
@@ -49,7 +49,7 @@
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/clothing/suit/armor/pcarrier/medium/nerva,
 		/obj/item/device/radio/headset/heads/captain,
-		/obj/item/clothing/accessory/holster/thigh,
+		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/clothing/under/urist/nerva/foregular,
 		/obj/item/clothing/head/urist/beret/nervafo,
 		/obj/item/weapon/gun/energy/gun/secure,
@@ -68,6 +68,33 @@
 		/obj/item/weapon/storage/box/imprinting
 	)
 
+/obj/structure/closet/secure_closet/nervaso
+	name = "second officer's locker"
+	req_access = list(access_hop)
+	icon_state = "hopsecure1"
+	icon_closed = "hopsecure"
+	icon_locked = "hopsecure1"
+	icon_opened = "hopsecureopen"
+	icon_off = "hopsecureoff"
+
+/obj/structure/closet/secure_closet/nervaso/WillContain()
+	return list(
+		/obj/item/clothing/glasses/sunglasses,
+		/obj/item/clothing/suit/armor/pcarrier/light,
+		/obj/item/clothing/head/helmet,
+		/obj/item/device/radio/headset/heads/secondofficer,
+		/obj/item/weapon/storage/box/ids = 2,
+		/obj/item/weapon/gun/projectile/sec/flash,
+		/obj/item/device/flash,
+		/obj/item/weapon/storage/box/large/ids,
+		/obj/item/weapon/storage/box/PDAs,
+		/obj/item/weapon/clipboard,
+		/obj/item/clothing/under/urist/nerva/soregular,
+		/obj/item/clothing/head/urist/beret/nervaso,
+		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
+	)
+
+
 /obj/structure/closet/secure_closet/nervasec
 	name = "security officer's locker"
 	req_access = list(access_brig)
@@ -83,7 +110,7 @@
 		/obj/item/device/radio/headset/headset_sec,
 		/obj/item/clothing/under/urist/nerva/secregular,
 		/obj/item/clothing/under/urist/nerva/secfield,
-		/obj/item/weapon/storage/belt/security,
+		/obj/item/weapon/storage/belt/holster/security,
 		/obj/item/device/flash,
 		/obj/item/weapon/reagent_containers/spray/pepper,
 		/obj/item/weapon/grenade/chem_grenade/teargas,
@@ -95,7 +122,7 @@
 		/obj/item/weapon/gun/energy/gun/small/secure,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/gloves/thick,
-		/obj/item/clothing/accessory/holster/thigh,
+		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
@@ -121,13 +148,13 @@
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
 		/obj/item/taperoll/police,
 		/obj/item/weapon/handcuffs,
-		/obj/item/weapon/storage/belt/security,
+		/obj/item/weapon/storage/belt/holster/security,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee/baton/loaded,
 		/obj/item/weapon/gun/energy/gun/secure,
 		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber,
-		/obj/item/clothing/accessory/holster/thigh,
+		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/weapon/reagent_containers/spray/pepper,
 		/obj/item/clothing/accessory/storage/black_vest,

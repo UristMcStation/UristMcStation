@@ -247,7 +247,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
 	return list(
-			/obj/item/clothing/accessory/holster/thigh = 2,
+			/obj/item/clothing/accessory/storage/holster/thigh = 2,
 			/obj/item/weapon/gun/energy/gun/secure = 3,
 	)
 
@@ -263,7 +263,7 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
 	return list(
 		/obj/item/weapon/gun/energy/gun/small/secure = 2,
-		/obj/item/clothing/accessory/holster/thigh = 2,
+		/obj/item/clothing/accessory/storage/holster/thigh = 2,
 		/obj/item/weapon/gun/energy/gun/secure = 2,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/gun/energy/gun/secure, /obj/item/weapon/gun/energy/gun/small/secure))
 	)
