@@ -17,9 +17,6 @@ datum/preferences
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 
-	//character preferences
-	var/species_preview                 //Used for the species selection window.
-
 		//Mob preview
 	var/icon/preview_icon = null
 
@@ -131,8 +128,10 @@ datum/preferences
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 	character.set_species(species)
+
 	if(be_random_name)
-		real_name = random_name(gender,species)
+		var/decl/cultural_info/culture = SSculture.get_culture(cultural_info[TAG_CULTURE])
+		if(culture) real_name = culture.get_random_name(gender)
 
 	if(config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
@@ -188,7 +187,6 @@ datum/preferences
 		if(!O)
 			continue
 		O.status = 0
-		O.robotic = 0
 		O.model = null
 		if(status == "amputated")
 			character.organs_by_name[O.organ_tag] = null
@@ -197,15 +195,18 @@ datum/preferences
 				for(var/obj/item/organ/external/child in O.children)
 					character.organs_by_name[child.organ_tag] = null
 					character.organs -= child
+					qdel(child)
+			qdel(O)
 		else if(status == "cyborg")
 			if(rlimb_data[name])
 				O.robotize(rlimb_data[name])
 			else
 				O.robotize()
 		else //normal organ
-			O.force_icon = null
+			O.force_icon = initial(O.force_icon)
 			O.SetName(initial(O.name))
 			O.desc = initial(O.desc)
+
 	//For species that don't care about your silly prefs
 	character.species.handle_limbs_setup(character)
 	if(!is_preview_copy)
@@ -263,6 +264,12 @@ datum/preferences
 	if(is_preview_copy)
 		return
 
+	for(var/token in cultural_info)
+		character.set_cultural_value(token, cultural_info[token], defer_language_update = TRUE)
+	character.update_languages()
+	for(var/lang in alternate_languages)
+		character.add_language(lang)
+
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts["head"] = flavor_texts["head"]
 	character.flavor_texts["face"] = flavor_texts["face"]
@@ -278,15 +285,12 @@ datum/preferences
 	character.gen_record = gen_record
 	character.exploit_record = exploit_record
 
-	character.home_system = home_system
-	character.citizenship = citizenship
-	character.personal_faction = faction
-	character.religion = religion
+	if(LAZYLEN(character.descriptors))
+		for(var/entry in body_descriptors)
+			character.descriptors[entry] = body_descriptors[entry]
 
 	if(!character.isSynthetic())
 		character.nutrition = rand(140,360)
-
-	return
 
 
 /datum/preferences/proc/open_load_dialog(mob/user)

@@ -23,7 +23,7 @@
 		/obj/machinery/reagentgrinder,
 		/obj/structure/table,
 		/obj/structure/closet,
-		/obj/structure/sink,
+		/obj/structure/hygiene/sink,
 		/obj/item/weapon/storage,
 		/obj/machinery/atmospherics/unary/cryo_cell,
 		/obj/machinery/dna_scannernew,
@@ -115,7 +115,7 @@
 
 	New()
 		..()
-		desc += " Can hold up to [volume] units."
+		desc += " It can hold up to [volume] units."
 
 	on_reagent_change()
 		update_icon()

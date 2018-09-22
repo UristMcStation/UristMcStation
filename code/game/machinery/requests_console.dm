@@ -120,7 +120,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["msgVerified"] = msgVerified
 	data["announceAuth"] = announceAuth
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
 		ui.set_initial_data(data)
@@ -161,9 +161,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		screen = RCS_SENTFAIL
 		var/obj/machinery/message_server/MS = get_message_server(get_z(src))
 		if(MS)
-			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
-			screen = RCS_SENTPASS
-			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
+			if(MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority))
+				screen = RCS_SENTPASS
+				message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
 			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
 

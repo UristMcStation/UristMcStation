@@ -23,7 +23,7 @@ var/global/list/protected_objects = list(/obj/machinery,
 	icon_state = "crate"
 	icon_living = "crate"
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/fish
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"
@@ -48,6 +48,7 @@ var/global/list/protected_objects = list(/obj/machinery,
 	var/weakref/creator // the creator
 	var/destroy_objects = 0
 	var/knockdown_people = 0
+	pass_flags = PASS_FLAG_TABLE
 
 /mob/living/simple_animal/hostile/mimic/New(newloc, var/obj/o, var/mob/living/creator)
 	..()

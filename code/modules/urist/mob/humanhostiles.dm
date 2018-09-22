@@ -23,7 +23,7 @@
 	ranged = 1
 	min_gas = list("oxygen" = 5)
 	max_gas = null
-	unsuitable_atoms_damage = 15
+	unsuitable_atmos_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
 	stat_attack = 1

@@ -33,9 +33,14 @@
 /datum/surgery_step/limb/attach/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return 0
+	var/obj/item/organ/external/E = tool
+	var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
+	if(!P || P.is_stump())
+		to_chat(user, "<span class='danger'>The [E.amputation_point] is missing!</span>")
+		return SURGERY_FAILURE
 	if(target.isSynthetic())
 		var/obj/item/organ/external/using = tool
-		if(using.robotic < ORGAN_ROBOT)
+		if(!BP_IS_ROBOTIC(using))
 			to_chat(user, "<span class='danger'>You cannot attach a flesh part to a robotic body.</span>")
 			return SURGERY_FAILURE
 	return 1
@@ -140,7 +145,7 @@
 			var/obj/item/organ/external/new_limb = new new_limb_type(target)
 			new_limb.robotize(L.model_info)
 			if(L.sabotaged)
-				new_limb.sabotaged = 1
+				new_limb.status |= ORGAN_SABOTAGED
 
 	target.update_body()
 	target.updatehealth()

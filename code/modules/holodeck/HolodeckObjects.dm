@@ -6,6 +6,10 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
+// the new Diona Death Prevention Feature: gives an average amount of lumination
+/turf/simulated/floor/holofloor/get_lumcount(var/minlum = 0, var/maxlum = 1)
+	return 0.8
+
 /turf/simulated/floor/holofloor/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
@@ -18,6 +22,18 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "brown"
 	initial_flooring = /decl/flooring/carpet
+
+/turf/simulated/floor/holofloor/concrete
+	name = "brown carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "brown"
+	initial_flooring = /decl/flooring/carpet
+
+/turf/simulated/floor/holofloor/concrete
+	name = "floor"
+	icon = 'icons/turf/flooring/misc.dmi'
+	icon_state = "concrete"
+	initial_flooring = null
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -126,6 +142,13 @@
 	desc = "Because you really needed another excuse to punch your crewmates."
 	icon_state = "boxing"
 	item_state = "boxing"
+
+/obj/structure/window/holowindow/full
+	dir = 5
+	icon_state = "window_full"
+
+/obj/structure/window/holowindow/full/Destroy()
+	..()
 
 /obj/structure/window/reinforced/holowindow/Destroy()
 	..()
@@ -242,8 +265,8 @@
 		spark_system.start()
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 
-/obj/item/weapon/holo/esword/get_parry_chance()
-	return active ? base_parry_chance : 0
+/obj/item/weapon/holo/esword/get_parry_chance(mob/user)
+	return active ? ..() : 0
 
 /obj/item/weapon/holo/esword/New()
 	blade_color = pick("red","blue","green","purple")
@@ -301,6 +324,43 @@
 	else
 		return ..(mover, target, height, air_group)
 
+//VOLEYBALL OBJECTS
+
+/obj/item/weapon/beach_ball/holovolleyball
+	icon = 'icons/obj/basketball.dmi'
+	icon_state = "volleyball"
+	name = "voleyball"
+	item_state = "volleyball"
+	desc = "You can be my wingman anytime."
+	w_class = ITEM_SIZE_LARGE //Stops people from hiding it in their pockets
+
+/obj/structure/holonet
+	name = "net"
+	desc = "Bullshit, you can be mine!"
+	icon = 'icons/obj/basketball.dmi'
+	icon_state = "volleynet_mid"
+	density = 1
+	anchored = 1
+	layer = TABLE_LAYER
+	throwpass = 1
+	dir = 4
+
+/obj/structure/holonet/end
+	icon_state = "volleynet_end"
+
+/obj/structure/holonet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (istype(mover,/obj/item) && mover.throwing)
+		var/obj/item/I = mover
+		if(istype(I, /obj/item/projectile))
+			return
+		if(prob(10))
+			I.forceMove(get_turf(src))
+			visible_message("<span class='notice'>Swish! \the [I] gets caught in \the [src].</span>", 3)
+			return 0
+		else
+			return 1
+	else
+		return ..(mover, target, height, air_group)
 
 /obj/machinery/readybutton
 	name = "Ready Declaration Device"

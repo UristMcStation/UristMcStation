@@ -1,13 +1,14 @@
 /datum/computer_file/program/docking
 	filename = "docking"
 	filedesc = "Docking Control"
-	required_access = access_heads
+	required_access = access_bridge
 	nanomodule_path = /datum/nano_module/docking
 	program_icon_state = "supply"
 	program_key_state = "rd_key"
 	program_menu_icon = "triangle-2-e-w"
 	extended_desc = "A management tool that lets you see the status of the docking ports."
 	size = 10
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	available_on_ntnet = 1
 	requires_ntnet = 1
 
@@ -47,15 +48,17 @@
 		var/datum/computer/file/embedded_program/docking/P = locate(docktag)
 		if(P)
 			var/docking_attempt = P.tag_target && !P.dock_state
+			var/docked = P.tag_target && (P.dock_state == STATE_DOCKED)
 			docks.Add(list(list(
 				"tag"=P.id_tag,
 				"location" = P.get_name(),
 				"status" = capitalize(P.get_docking_status()),
 				"docking_attempt" = docking_attempt,
+				"docked" = docked,
 				"codes" = P.docking_codes ? P.docking_codes : "Unset"
 				)))
 	data["docks"] = docks
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "docking.tmpl", name, 600, 450, state = state)
 		ui.set_auto_update(1)
@@ -78,4 +81,9 @@
 		var/datum/computer/file/embedded_program/docking/P = locate(href_list["dock"])
 		if(P)
 			P.receive_user_command("dock")
+		return 1
+	if(href_list["undock"])
+		var/datum/computer/file/embedded_program/docking/P = locate(href_list["undock"])
+		if(P)
+			P.receive_user_command("undock")
 		return 1

@@ -36,43 +36,75 @@
 	evac_controller_type = /datum/evacuation_controller/shuttle
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
-	citizenship_choices = list(
-		"Earth",
-		"Mars",
-		"New Earth",
-		"Luna",
-		"Ryclies I",
-		"Venus",
-		"Moghes",
-		"Qerrbalak",
-		"Reade III",
-		"Procyon"
+	available_cultural_info = list(
+		TAG_HOMEWORLD = list(
+			HOME_SYSTEM_EARTH,
+			HOME_SYSTEM_LUNA,
+			HOME_SYSTEM_MARS,
+			HOME_SYSTEM_VENUS,
+			HOME_SYSTEM_CERES,
+			HOME_SYSTEM_PLUTO,
+			HOME_SYSTEM_TAU_CETI,
+			HOME_SYSTEM_HELIOS,
+			HOME_SYSTEM_TERRA,
+			HOME_SYSTEM_TERSTEN,
+			HOME_SYSTEM_LORRIMAN,
+			HOME_SYSTEM_CINU,
+			HOME_SYSTEM_YUKLID,
+			HOME_SYSTEM_LORDANIA,
+			HOME_SYSTEM_KINGSTON,
+			HOME_SYSTEM_GAIA,
+			HOME_SYSTEM_OTHER
+		),
+		TAG_FACTION = list(
+			FACTION_NANOTRASEN,
+			FACTION_FREETRADE,
+			FACTION_XYNERGY,
+			FACTION_HEPHAESTUS,
+			FACTION_PCRC,
+			FACTION_OTHER
+		),
+		TAG_CULTURE = list(
+			CULTURE_HUMAN,
+			CULTURE_HUMAN_MARTIAN,
+			CULTURE_HUMAN_MARSTUN,
+			CULTURE_HUMAN_LUNAPOOR,
+			CULTURE_HUMAN_LUNARICH,
+			CULTURE_HUMAN_VENUSIAN,
+			CULTURE_HUMAN_VENUSLOW,
+			CULTURE_HUMAN_BELTER,
+			CULTURE_HUMAN_PLUTO,
+			CULTURE_HUMAN_EARTH,
+			CULTURE_HUMAN_CETI,
+			CULTURE_HUMAN_SPACER,
+			CULTURE_HUMAN_SPAFRO,
+			CULTURE_HUMAN_CONFED,
+			CULTURE_HUMAN_OTHER,
+			CULTURE_OTHER
+		),
+		TAG_RELIGION = list(
+			RELIGION_OTHER,
+			RELIGION_JUDAISM,
+			RELIGION_HINDUISM,
+			RELIGION_BUDDHISM,
+			RELIGION_ISLAM,
+			RELIGION_CHRISTIANITY,
+			RELIGION_AGNOSTICISM,
+			RELIGION_DEISM,
+			RELIGION_ATHEISM,
+			RELIGION_THELEMA,
+			RELIGION_SPIRITUALISM
+		)
 	)
 
-	home_system_choices = list(
-		"Sol",
-		"Nyx",
-		"Tau Ceti",
-		"Epsilon Ursae Minoris",
-		"Gilgamesh",
-		"Ryclies",
-		"Reade"
-		)
+	default_cultural_info = list(
+		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
+		TAG_FACTION =   FACTION_NANOTRASEN,
+		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
+		TAG_RELIGION =  RELIGION_AGNOSTICISM
+	)
 
-	faction_choices = list(
-		"Terran Confederacy",
-		"Outer Rim Miners Alliance",
-		"Vey Med",
-		"Einstein Engines",
-		"Free Trade Union",
-		"NanoTrasen",
-		"Ward-Takahashi GMB",
-		"Gilthari Exports",
-		"Grayson Manufactories Ltd.",
-		"Aether Atmospherics",
-		"Zeng-Hu Pharmaceuticals",
-		"Hephaestus Industries"
-		)
+	blacklisted_programs = list(/datum/computer_file/program/deck_management,/datum/computer_file/program/docking)
 
 /datum/map/glloydstation/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.

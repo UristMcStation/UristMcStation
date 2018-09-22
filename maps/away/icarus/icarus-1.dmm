@@ -395,8 +395,8 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
-"bB" = (
-/obj/structure/toilet{
+"bC" = (
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -412,8 +412,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel)
-"bE" = (
-/obj/structure/toilet{
+"bF" = (
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -422,19 +422,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel)
-"bF" = (
-/obj/structure/sink{
-	dir = 1;
-	pixel_y = 16
-	},
-/obj/item/weapon/storage/mirror{
-	pixel_x = 0;
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/white,
-/area/icarus/vessel)
-"bG" = (
-/obj/machinery/shower{
+"bH" = (
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 0
@@ -442,8 +431,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel)
-"bH" = (
-/obj/machinery/shower{
+"bI" = (
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 8
 	},
@@ -552,8 +541,8 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel)
-"bY" = (
-/obj/machinery/shower{
+"bZ" = (
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 0
@@ -2709,6 +2698,61 @@
 /obj/effect/landmark/random_gen/asteroid,
 /turf/unsimulated/mineral,
 /area/space)
+"jb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav1{
+	autoset = 1
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"kb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav2{
+	autoset = 1
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"lb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav3{
+	autoset = 1
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"mb" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 16
+	},
+/obj/item/weapon/storage/mirror{
+	pixel_x = 0;
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/icarus/vessel)
+"nb" = (
+/obj/item/weapon/storage/mirror{
+	pixel_x = 30
+	},
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/icarus/vessel)
+"ob" = (
+/obj/item/weapon/storage/mirror{
+	pixel_x = -30
+	},
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/random/soap,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/icarus/vessel)
 
 (1,1,1) = {"
 aa

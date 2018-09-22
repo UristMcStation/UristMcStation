@@ -291,74 +291,6 @@ datum/unit_test/mob_damage/unathi/halloss
 	name = "MOB: Unathi Halloss Damage Check"
 	damagetype = PAIN
 
-/*// =================================================================
-// SpessKahjit aka Tajaran
-// =================================================================
-
-datum/unit_test/mob_damage/tajaran
-	name = "MOB: Tajaran damage check template"
-	mob_type = /mob/living/carbon/human/tajaran
-
-datum/unit_test/mob_damage/tajaran/brute
-	name = "MOB: Tajaran Brute Damage Check"
-	damagetype = BRUTE
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/tajaran/fire
-	name = "MOB: Tajaran Fire Damage Check"
-	damagetype = BURN
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/tajaran/tox
-	name = "MOB: Tajaran Toxins Damage Check"
-	damagetype = TOX
-
-datum/unit_test/mob_damage/tajaran/oxy
-	name = "MOB: Tajaran Oxygen Damage Check"
-	damagetype = OXY
-
-datum/unit_test/mob_damage/tajaran/clone
-	name = "MOB: Tajaran Clone Damage Check"
-	damagetype = CLONE
-
-datum/unit_test/mob_damage/tajaran/halloss
-	name = "MOB: Tajaran Halloss Damage Check"
-	damagetype = PAIN*/
-
-// =================================================================
-// Resomi
-// =================================================================
-
-datum/unit_test/mob_damage/resomi
-	name = "MOB: Resomi damage check template"
-	mob_type = /mob/living/carbon/human/resomi
-
-datum/unit_test/mob_damage/resomi/brute
-	name = "MOB: Resomi Brute Damage Check"
-	damagetype = BRUTE
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/resomi/fire
-	name = "MOB: Resomi Fire Damage Check"
-	damagetype = BURN
-	expected_vulnerability = EXTRA_VULNERABLE
-
-datum/unit_test/mob_damage/resomi/tox
-	name = "MOB: Resomi Toxins Damage Check"
-	damagetype = TOX
-
-datum/unit_test/mob_damage/resomi/oxy
-	name = "MOB: Resomi Oxygen Damage Check"
-	damagetype = OXY
-
-datum/unit_test/mob_damage/resomi/clone
-	name = "MOB: Resomi Clone Damage Check"
-	damagetype = CLONE
-
-datum/unit_test/mob_damage/resomi/halloss
-	name = "MOB: Resomi Halloss Damage Check"
-	damagetype = PAIN
-
 // =================================================================
 // Skrell
 // =================================================================
@@ -592,7 +524,7 @@ datum/unit_test/species_base_skin/start_test()
 				var/list/paths = S.has_limbs[tag]
 				var/obj/item/organ/external/E = paths["path"]
 				var/list/gender_test = list("")
-				if(initial(E.gendered_icon))
+				if(initial(E.limb_flags) & ORGAN_FLAG_GENDERED_ICON)
 					gender_test = list("_m", "_f")
 				var/icon_name = initial(E.icon_name)
 

@@ -104,12 +104,8 @@
 	// Set up roundstart seed list.
 	plant_controller = new()
 
-	// This is kinda important. Set up details of what the hell things are made of.
-	populate_material_list()
-
 	if(config.generate_map)
 		GLOB.using_map.perform_map_generation()
-
 
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
@@ -474,6 +470,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 		*/
 
+	Master.Shutdown()
 	processScheduler.stop()
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite

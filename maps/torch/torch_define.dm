@@ -12,7 +12,7 @@
 	accessible_z_levels = list("1"=1,"2"=1,"3"=1,"4"=1,"5"=1,"8"=30)
 	overmap_size = 35
 	overmap_event_areas = 34
-	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "torch.marine.mil", "freemail.nt")
+	usable_email_tlds = list("torch.ec.scg", "torch.fleet.mil", "freemail.nt", "torch.scg")
 
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
@@ -41,71 +41,6 @@
 	planet_size = list(129,129)
 
 	away_site_budget = 3
-
-	citizenship_choices = list(
-		"Earth",
-		"Luna",
-		"Mars",
-		"Terra",
-		"Gaia",
-		"Moghes",
-		"Ahdomai",
-		"Qerrbalak",
-		"Tersten",
-		"Avalon",
-		"Yuklid",
-		"Venus",
-		"Cinu",
-		"Tau-Wilo",
-		"Ceres",
-		"Galilei"
-	)
-
-	home_system_choices = list(
-		"Sol",
-		"Nyx",
-		"Tau Ceti",
-		"Epsilon Ursae Minoris",
-		"Zamsiin-lr",
-		"Gilgamesh",
-		"Gavil",
-		"Uuoea-Esa",
-		"Kernel",
-		"Gessshire",
-		"Galilei"
-		)
-
-	faction_choices = list(
-		"Sol Central Government",
-		"Terran Colonial Confederation",
-		"Vey Med",
-		"Einstein Engines",
-		"Free Trade Union",
-		"NanoTrasen",
-		"Ward-Takahashi GMB",
-		"Gilthari Exports",
-		"Grayson Manufactories Ltd.",
-		"Aether Atmospherics",
-		"Zeng-Hu Pharmaceuticals",
-		"Hephaestus Industries",
-		"Commonwealth of Ahdomai",
-		"Xynergy",
-		"Positronic Union"
-		)
-
-	religion_choices = list(
-		"Jewish",
-		"Hinduism",
-		"Buddhist",
-		"Islamic",
-		"Christian",
-		"Agnostic",
-		"Deist",
-		"Athiest",
-		"Thelema",
-		"Spiritualist"
-		)
-
 	id_hud_icons = 'maps/torch/icons/assignment_hud.dmi'
 
 	num_exoplanets = 1
