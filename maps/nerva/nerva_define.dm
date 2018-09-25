@@ -161,6 +161,9 @@
 		)*/
 
 
+	base_floor_type = /turf/simulated/floor/reinforced/airless
+	base_floor_area = /area/maintenance/exterior
+
 /datum/map/nerva/setup_map()
 	..()
 	system_name = generate_system_name()

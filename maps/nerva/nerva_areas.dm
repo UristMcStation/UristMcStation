@@ -169,6 +169,10 @@
 	name = "\improper Brig Checkpoint"
 	icon_state = "Warden"
 
+/area/security/hangercheckpoint
+	name = "\improper Hanger Checkpoint"
+	icon_state = "checkpoint1"
+
 /area/security/cosoffice
 	name = "\improper Chief of Security's Office"
 	icon_state = "Warden"
@@ -335,7 +339,12 @@
 	name = "\improper Bottom Deck Port Engine Bay"
 
 /area/engineering/bdstarengine
-	name = "\improper First Deck Top Engine Bay"
+	name = "\improper Bottom Deck Starboard Engine Bay"
+
+/area/engineering/drone_fabrication
+	name = "\improper Drone Fabrication"
+	icon_state = "drone_fab"
+	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////
 //			MEDICAL					//
@@ -432,8 +441,12 @@
 	name = "\improper Mailing Office"
 	icon_state = "quartoffice"
 
-/area/logistics/lockers
+/area/logistics/prep
 	name = "\improper Cargo Expedition Prep"
+	icon_state = "exploration"
+
+/area/logistics/genprep
+	name = "\improper General Expedition Prep"
 	icon_state = "exploration"
 
 /area/logistics/robotics
@@ -443,6 +456,9 @@
 /area/logistics/mechbay
 	name = "\improper Mech Bay"
 	icon_state = "mechbay"
+
+/area/logistics/hangar
+	name = "\improper Hanger"
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -502,10 +518,36 @@
 	icon_state = "amaint"
 
 /area/maintenance/second_deck/central
-	name = "\improper First Deck Central Maintenance"
+	name = "\improper Second Deck Central Maintenance"
 	icon_state = "maintcentral"
 
 //third deck
+
+/area/maintenance/third_deck/fs
+	name = "\improper Third Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/third_deck/fp
+	name = "\improper Third Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/third_deck/afs
+	name = "\improper Third Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/third_deck/afp
+	name = "\improper Third Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/third_deck/central
+	name = "\improper Third Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+
+/area/maintenance/disposals
+	name = "\improper Disposals"
+	icon_state = "maint_engineering"
+
 
 /area/maintenance/primary/sec
 	name = "\improper Security Maintenance"
@@ -590,7 +632,7 @@
 	icon_state = "hallC1"
 
 //////////////////////////////////////
-//			Z-LEVEL 3 / ADMIN		//
+//			Z-LEVEL 4 / ADMIN		//
 //////////////////////////////////////
 
 /area/holodeck
