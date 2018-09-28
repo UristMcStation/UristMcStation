@@ -93,14 +93,13 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "ao" = (
 /obj/machinery/light{
@@ -348,8 +347,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/starboardgun)
 "aM" = (
 /obj/machinery/atmospherics/omni/filter{
@@ -688,7 +686,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
@@ -723,8 +721,11 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/fadeblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "bg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -852,11 +853,7 @@
 /area/engineering/engine)
 "bn" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/floor_decal/corner/black/border{
-	tag = "icon-bordercolor (EAST)";
-	icon_state = "bordercolor";
-	dir = 4
-	},
+/obj/effect/floor_decal/borderfloorblack/corner,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
 "bo" = (
@@ -880,9 +877,6 @@
 	output_attempt = 1;
 	outputting = 2;
 	RCon_tag = "Engine 2"
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /obj/structure/sign/warning/secure_area{
 	tag = "icon-shock (EAST)";
@@ -997,7 +991,7 @@
 "bA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
@@ -1017,7 +1011,10 @@
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/effect/floor_decal/corner/fadeblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "bC" = (
@@ -1026,7 +1023,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "bD" = (
@@ -1051,7 +1047,6 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1062,7 +1057,7 @@
 	pixel_x = 0;
 	tag = ""
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "bF" = (
 /obj/machinery/door/airlock/command{
@@ -1082,7 +1077,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgelock";
 	name = "Bridge Lockdown";
 	tag = "icon-pdoor1"
@@ -1187,7 +1182,7 @@
 	d2 = 2
 	},
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "bridgeview";
 	name = "Bridge Viewport Door";
 	tag = "icon-pdoor1"
@@ -1457,9 +1452,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -26
-	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "co" = (
@@ -1516,7 +1508,7 @@
 	d2 = 2
 	},
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "bridgeview";
 	name = "Bridge Viewport Door";
 	tag = "icon-pdoor1"
@@ -1869,7 +1861,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgelock";
 	name = "Bridge Lockdown";
 	tag = "icon-pdoor1"
@@ -1897,7 +1889,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "bridgeview";
 	name = "Bridge Viewport Door";
 	tag = "icon-pdoor1"
@@ -2241,6 +2233,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_x = 6;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
 "dN" = (
@@ -2279,8 +2275,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "dQ" = (
 /obj/item/device/radio/intercom{
@@ -2654,11 +2649,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandoffices)
 "ew" = (
 /obj/machinery/door/firedoor,
@@ -2810,9 +2804,6 @@
 	tag = "icon-capchair_preview (EAST)";
 	icon_state = "capchair_preview";
 	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /obj/structure/fireaxecabinet{
 	pixel_x = -32;
@@ -3031,10 +3022,11 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
-	opacity = 0;
 	id = "kitchen";
-	name = "kitchen shutters"
+	name = "kitchen shutters";
+	opacity = 0
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -3104,8 +3096,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "fg" = (
 /obj/structure/closet/secure_closet/miner,
@@ -3371,10 +3362,11 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 4;
 	icon_state = "shutter0";
-	opacity = 0;
 	id = "kitchen";
-	name = "kitchen shutters"
+	name = "kitchen shutters";
+	opacity = 0
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -3476,9 +3468,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 26
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -3852,6 +3841,12 @@
 "gH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/fadeblue/full,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "bridgeoutlock";
+	name = "Bridge Outer Lockdown";
+	tag = "icon-pdoor1"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "gI" = (
@@ -3876,7 +3871,6 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "gK" = (
@@ -3900,7 +3894,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgelock";
 	name = "Bridge Lockdown";
 	tag = "icon-pdoor1"
@@ -4118,6 +4112,12 @@
 	req_access = list(19)
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "bridgeoutlock";
+	name = "Bridge Outer Lockdown";
+	tag = "icon-pdoor1"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "hg" = (
@@ -4125,8 +4125,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/fadeblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "hh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4192,14 +4195,14 @@
 /area/command/hop)
 "hq" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
-	id = "hop";
+	id = "soofficeshutters";
 	name = "Personnel Office Shutters";
 	tag = "icon-shutter1 (EAST)"
 	},
+/obj/effect/wallframe_spawn/reinforced/polarized/full,
 /turf/simulated/floor/tiled,
 /area/command/hop)
 "hs" = (
@@ -4233,6 +4236,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
+"hu" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "hv" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -4290,6 +4304,12 @@
 /area/maintenance/second_deck/fp)
 "hB" = (
 /obj/item/modular_computer/console/preset/command,
+/obj/machinery/button/remote/blast_door{
+	id = "soofficeshutters";
+	name = "Second Officer Privacy Shutter";
+	pixel_x = -24;
+	pixel_y = -6
+	},
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "hC" = (
@@ -4375,7 +4395,7 @@
 "hL" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
@@ -4411,11 +4431,11 @@
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	icon_state = "shutter1";
-	id = "hop";
+	id = "soofficeshutters";
 	name = "Personnel Office Shutters";
 	tag = "icon-shutter1 (EAST)"
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/command/hop)
 "hP" = (
 /obj/structure/bed/chair/office/dark{
@@ -4500,7 +4520,6 @@
 /area/command/eva)
 "hX" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/effect/floor_decal/corner/red/full,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	icon_state = "map_vent_out";
 	dir = 1
@@ -4568,11 +4587,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandoffices)
 "ib" = (
 /obj/item/modular_computer/console/preset/command{
@@ -4587,11 +4605,11 @@
 "ic" = (
 /obj/machinery/light_switch{
 	pixel_x = -6;
-	pixel_y = -24
+	pixel_y = -20
 	},
 /obj/machinery/button/windowtint{
 	pixel_x = 6;
-	pixel_y = -24
+	pixel_y = -20
 	},
 /obj/structure/closet/secure_closet/nervaso,
 /turf/simulated/floor/carpet,
@@ -4699,7 +4717,7 @@
 	pixel_y = 0;
 	tag = ""
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/command/hop)
 "ip" = (
 /obj/structure/lattice,
@@ -4829,7 +4847,7 @@
 /area/maintenance/second_deck/afs)
 "iE" = (
 /obj/machinery/camera/network/command{
-	c_tag = "Meeting Room"
+	c_tag = "Bodyguard Office"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -5193,6 +5211,7 @@
 	pixel_y = 25;
 	req_access = list(13)
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "jt" = (
@@ -5790,9 +5809,9 @@
 "kB" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 2;
 	icon_state = "pdoor0";
-	id = "SupermatterPort";
+	id = "SupermatterShield";
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -5892,10 +5911,6 @@
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"kK" = (
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
-/area/security/portgun)
 "kM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -6448,7 +6463,7 @@
 	dir = 6
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "EVA Airlock";
+	c_tag = "EVA Airlock External";
 	dir = 2;
 	icon_state = "camera"
 	},
@@ -6757,6 +6772,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/command/fo)
+"ms" = (
+/obj/structure/table/woodentable,
+/obj/item/device/radio/intercom{
+	dir = 3
+	},
+/turf/simulated/floor/carpet/green,
+/area/command/meeting)
 "mu" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -6862,7 +6884,7 @@
 	id = "enginecore";
 	name = "Emergency Core Eject";
 	pixel_x = 0;
-	pixel_y = -24
+	pixel_y = -20
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/window/brigdoor/northleft{
@@ -7155,8 +7177,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light_switch{
-	pixel_x = -20;
-	pixel_y = 0
+	dir = 4;
+	pixel_x = -22;
+	pixel_y = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
@@ -7681,9 +7704,8 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
 "ok" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7757,10 +7779,6 @@
 /area/medical/examroom)
 "oq" = (
 /obj/machinery/vending/robotics,
-/obj/effect/floor_decal/corner/purple/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/robotics)
@@ -7989,8 +8007,11 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/borderfloorblack{
+	icon_state = "borderfloor_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "oS" = (
 /obj/item/device/radio/intercom{
@@ -8332,7 +8353,7 @@
 	id = "MedbaySA";
 	name = "Sub-acute Door Control";
 	pixel_x = 0;
-	pixel_y = -25
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -8407,6 +8428,9 @@
 	RCon_tag = "Engine 1"
 	},
 /obj/effect/engine_setup/smes,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes)
 "pI" = (
@@ -8435,8 +8459,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "pN" = (
 /obj/structure/bed/chair/office/dark{
@@ -8826,7 +8849,8 @@
 "qy" = (
 /obj/machinery/disposal,
 /obj/machinery/light_switch{
-	pixel_y = -24
+	pixel_x = 6;
+	pixel_y = -20
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
@@ -9310,16 +9334,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
-"rx" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
-/area/security/portgun)
 "ry" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -9510,7 +9524,7 @@
 "rS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
-	dir = 8;
+	dir = 2;
 	id = "armory";
 	name = "Armory Blast Door"
 	},
@@ -10200,7 +10214,6 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
 	icon_state = "intact-scrubbers";
@@ -10210,7 +10223,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/eva)
 "th" = (
 /obj/machinery/power/apc{
@@ -10252,6 +10265,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"tm" = (
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -6;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "tn" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -10563,7 +10584,7 @@
 /obj/item/device/multitool,
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/camera/network/command{
-	c_tag = "Bottom Deck Gun Bay";
+	c_tag = "Bottom Deck Gunnery Room";
 	dir = 4;
 	icon_state = "camera";
 	tag = "icon-camera (EAST)"
@@ -10673,6 +10694,7 @@
 /area/security/brig)
 "ue" = (
 /obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/structure/table/standard,
 /turf/simulated/floor/wood,
 /area/civilian/bar)
 "uf" = (
@@ -10813,11 +10835,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -10851,12 +10868,13 @@
 /area/medical/hallway)
 "uu" = (
 /obj/machinery/disposal,
-/obj/machinery/light_switch{
-	pixel_y = -24
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 6;
+	pixel_y = -20
 	},
 /turf/simulated/floor/carpet,
 /area/command/fo)
@@ -11143,9 +11161,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/medical/morgue)
-"uX" = (
-/turf/simulated/wall,
-/area/medical/morgue)
 "uY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -11165,9 +11180,8 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
 "va" = (
 /obj/machinery/light/small/red,
@@ -11346,7 +11360,6 @@
 /obj/structure/closet/crate{
 	name = "Shield Generator Parts"
 	},
-/obj/effect/floor_decal/corner/blue/three_quarters,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -11566,10 +11579,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "vQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/entrance)
@@ -11989,6 +12005,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/genstorage)
+"wJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/hallway/commandstarboard)
 "wK" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -12202,6 +12235,7 @@
 /area/medical/lobby)
 "xd" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineEmitterPort";
 	layer = 3.3;
@@ -12301,6 +12335,7 @@
 "xl" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineRadiatorViewport";
 	name = "Engine Radiator Viewport Shutter";
@@ -12324,6 +12359,9 @@
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Infirmary - Treatment Centre Starboard"
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -12458,13 +12496,16 @@
 /area/security/cosoffice)
 "xB" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/floor_decal/corner/black/border{
-	tag = "icon-bordercolor (WEST)";
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/borderfloorblack{
+	icon_state = "borderfloor_white";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lightgrey/border{
 	icon_state = "bordercolor";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
 "xC" = (
@@ -12480,7 +12521,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
-	id = "EngineVent";
+	id = "Engine Vent Control";
 	name = "Engine Ventillatory Control";
 	pixel_x = -24;
 	pixel_y = 10;
@@ -12583,7 +12624,10 @@
 /area/engineering/lobby)
 "xN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/effect/floor_decal/corner/fadeblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "xO" = (
@@ -12620,7 +12664,7 @@
 	tag = ""
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/command/fo)
 "xR" = (
 /obj/structure/disposalpipe/segment{
@@ -12920,9 +12964,8 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
 "yA" = (
 /obj/effect/floor_decal/floordetail/edgedrain,
@@ -13127,14 +13170,17 @@
 /area/logistics/lockers)
 "zb" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/floor_decal/corner/black/border{
-	tag = "icon-bordercolor (WEST)";
-	icon_state = "bordercolor";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/borderfloorblack/corner{
+	icon_state = "borderfloorcorner_white";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lightgrey/bordercorner{
+	icon_state = "bordercolorcorner";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -13186,7 +13232,7 @@
 /area/hallway/fore/second)
 "zf" = (
 /obj/machinery/door/airlock/glass/research{
-	name = "Nanotrasen Office";
+	name = "NanoTrasen Office";
 	req_access = list(55)
 	},
 /obj/machinery/door/firedoor,
@@ -13262,6 +13308,7 @@
 /area/logistics/mechbay)
 "zn" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "Engine Vent Control";
 	name = "Reactor Vent";
@@ -13272,14 +13319,14 @@
 /area/engineering/engine)
 "zo" = (
 /obj/item/weapon/stool/padded,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/orange{
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
@@ -13339,9 +13386,6 @@
 /area/logistics/mechbay)
 "zu" = (
 /obj/machinery/atmospherics/valve/shutoff,
-/obj/effect/floor_decal/industrial/shutoff{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -13352,6 +13396,10 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/shutoff,
 /turf/simulated/floor/tiled/dark,
 /area/security/entrance)
 "zv" = (
@@ -13716,6 +13764,7 @@
 /area/hallway/aft/second)
 "Ad" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineEmitterPort";
 	layer = 3.3;
@@ -14427,7 +14476,7 @@
 	name = "Starboard Gun Bay";
 	req_access = list(19)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/starboardgun)
 "By" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14513,8 +14562,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "BE" = (
 /obj/machinery/door/airlock/external{
@@ -14557,13 +14605,10 @@
 "BH" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/cell/high{
-	charge = 100;
-	maxcharge = 15000
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
+/obj/item/weapon/cell/high,
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
 "BI" = (
@@ -14743,7 +14788,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "Cd" = (
-/obj/structure/closet/crate/radiation,
+/obj/structure/closet/crate/radiation_gear,
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
 "Ce" = (
@@ -15068,6 +15113,7 @@
 "CL" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineRadiatorViewport";
 	name = "Engine Radiator Viewport Shutter";
@@ -15136,6 +15182,12 @@
 /obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
@@ -15294,7 +15346,6 @@
 	name = "Engineering External Access";
 	req_access = list(10,13)
 	},
-/obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "Dj" = (
@@ -15597,6 +15648,11 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandoffices)
 "DK" = (
@@ -15828,16 +15884,19 @@
 /area/engineering/tool)
 "Ec" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/floor_decal/corner/black/border{
-	tag = "icon-bordercolor (WEST)";
-	icon_state = "bordercolor";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Fore Hallway - Offices";
 	dir = 4
+	},
+/obj/effect/floor_decal/borderfloorblack{
+	icon_state = "borderfloor_white";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lightgrey/border{
+	icon_state = "bordercolor";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
@@ -16056,11 +16115,10 @@
 	name = "Command Offices";
 	req_access = list(19)
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandoffices)
 "Ew" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16136,7 +16194,7 @@
 	tag = ""
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/security/cosoffice)
 "ED" = (
 /obj/structure/cable{
@@ -16513,7 +16571,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -16628,10 +16687,6 @@
 /area/command/eva)
 "FB" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/corner/purple/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light_switch{
 	pixel_x = -22
@@ -16979,9 +17034,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "Gf" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -26
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -17752,13 +17804,12 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "HQ" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
@@ -18075,6 +18126,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineRadiatorViewport";
 	name = "Engine Radiator Viewport Shutter";
@@ -18298,7 +18350,7 @@
 /area/security/cosoffice)
 "Ja" = (
 /obj/machinery/door/blast/regular{
-	dir = 8;
+	dir = 2;
 	id = "armory";
 	name = "Armory Blast Door"
 	},
@@ -18526,9 +18578,9 @@
 "JC" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 2;
 	icon_state = "pdoor0";
-	id = "SupermatterPort";
+	id = "SupermatterShield";
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -18747,9 +18799,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"JZ" = (
-/turf/simulated/wall,
-/area/medical/hallway)
 "Ka" = (
 /obj/vehicle/train/cargo/trolley,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18782,7 +18831,7 @@
 "Kf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light_switch{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcommsmon)
@@ -19007,10 +19056,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "KI" = (
-/obj/effect/floor_decal/corner/purple{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
@@ -19169,7 +19214,7 @@
 	pixel_y = -22
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Aft Hallway - Port";
+	c_tag = "Aft Hallway - Medical";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lightgrey{
@@ -19316,12 +19361,12 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/borderfloorblack,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "Lh" = (
 /obj/machinery/door/firedoor,
@@ -20681,6 +20726,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
+"NL" = (
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/effect/floor_decal/borderfloorblack{
+	icon_state = "borderfloor_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second)
 "NM" = (
 /obj/machinery/door/airlock/glass/command{
 	name = "EVA";
@@ -20879,10 +20932,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
 "Of" = (
@@ -21805,6 +21858,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
+"PL" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	on = 0;
+	pixel_x = 22
+	},
+/turf/simulated/floor/plating,
+/area/engineering/smmon)
 "PM" = (
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer/adv,
@@ -22472,9 +22533,6 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -22755,7 +22813,6 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -22763,7 +22820,7 @@
 	pixel_x = 0;
 	tag = ""
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "RE" = (
 /obj/structure/cable{
@@ -23049,11 +23106,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/eva)
 "Sc" = (
 /obj/machinery/door/airlock/maintenance{
@@ -23189,28 +23245,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
-"Sn" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "SupermatterPort";
-	layer = 2.7;
-	name = "Reactor Blast Door";
-	opacity = 0
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "SupermatterPort";
-	layer = 2.7;
-	name = "Reactor Blast Door";
-	opacity = 0
-	},
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/engine)
 "So" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-22";
@@ -23389,9 +23423,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
@@ -23700,6 +23731,26 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/engineering/smmon)
+"Tv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/hallway/commandoffices)
 "Tw" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -23756,6 +23807,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
@@ -24367,7 +24421,6 @@
 /area/medical/ward)
 "UL" = (
 /obj/machinery/computer/operating,
-/obj/effect/floor_decal/corner/fadeblue/three_quarters,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/robotics)
 "UM" = (
@@ -24564,7 +24617,7 @@
 /area/engineering/engine)
 "Vh" = (
 /obj/machinery/door/airlock/glass/research{
-	name = "Nanotrasen Office";
+	name = "NanoTrasen Office";
 	req_access = list(55)
 	},
 /turf/simulated/floor/wood,
@@ -24575,6 +24628,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"Vj" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/hallway/commandoffices)
 "Vk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -24652,6 +24726,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "Vo" = (
@@ -24838,8 +24913,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "VJ" = (
 /obj/structure/cable{
@@ -24863,9 +24937,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -25067,11 +25138,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandoffices)
 "Wb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -25380,8 +25450,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/effect/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "WD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -25710,9 +25779,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
-"Xf" = (
-/turf/simulated/wall,
-/area/medical/lobby)
 "Xh" = (
 /obj/machinery/button/remote/airlock{
 	desiredstate = 1;
@@ -25754,7 +25820,7 @@
 /area/maintenance/second_deck/cents)
 "Xj" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "armory";
 	name = "Armory Blast Door"
 	},
@@ -26630,7 +26696,7 @@
 	tag = "icon-shutter1 (EAST)"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/command/fo)
 "YQ" = (
 /obj/structure/filingcabinet/wallcabinet{
@@ -26965,7 +27031,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering Entrance Hallway";
+	c_tag = "Fuel Tank";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -27158,7 +27224,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
-	id = "SupermatterPort";
+	id = "SupermatterShield";
 	name = "Reactor Blast Doors";
 	pixel_x = -25;
 	pixel_y = -5;
@@ -27259,6 +27325,7 @@
 	pixel_x = 0;
 	tag = ""
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "ZY" = (
@@ -40724,7 +40791,7 @@ JC
 eN
 ZH
 ZQ
-Sn
+kB
 Xo
 Oj
 Vg
@@ -41540,7 +41607,7 @@ hm
 hy
 hJ
 hJ
-hJ
+PL
 Ns
 hM
 hM
@@ -45153,9 +45220,9 @@ tU
 Hx
 JT
 zg
-Tc
-xk
 Vu
+xk
+Tc
 JT
 Jg
 sP
@@ -45964,7 +46031,7 @@ tC
 tC
 tC
 tC
-Xf
+tC
 Nq
 cv
 nv
@@ -50999,15 +51066,15 @@ FW
 FW
 qR
 Ag
-uX
-uX
-uX
-uX
-uX
-uX
-uX
-uX
-JZ
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+jO
 Sc
 Oa
 Oa
@@ -52852,7 +52919,7 @@ Ie
 kt
 xA
 Wh
-iM
+Tv
 Lr
 GN
 YA
@@ -55069,12 +55136,12 @@ ci
 JM
 WA
 bn
-bn
-bn
+NL
+NL
 Zw
 Nd
 Iv
-Vl
+Vj
 Zw
 nc
 nc
@@ -56286,7 +56353,7 @@ hT
 im
 hp
 Fc
-iM
+Tv
 US
 iF
 Ra
@@ -56475,7 +56542,7 @@ ck
 cY
 dE
 eI
-eH
+ms
 eH
 fO
 gn
@@ -57093,7 +57160,7 @@ iC
 iC
 zG
 iC
-Fw
+wJ
 bo
 iC
 rq
@@ -57277,7 +57344,7 @@ Bs
 fY
 Je
 pp
-kv
+hu
 bH
 al
 db
@@ -57295,7 +57362,7 @@ iC
 Sh
 DM
 zG
-Fw
+wJ
 Bk
 iC
 sg
@@ -57693,7 +57760,7 @@ ZW
 Uz
 HS
 JV
-aq
+tm
 al
 al
 al
@@ -57877,8 +57944,8 @@ PV
 wx
 Kg
 vY
-rx
-kK
+JS
+Mo
 ak
 xD
 aq

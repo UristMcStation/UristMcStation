@@ -793,7 +793,7 @@ the sprite and make my own projectile -Glloyd*/
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "combatSMG"
 	else
-		icon_state = "combatSMG-empty"
+		icon_state = "combatSMG_empty"
 
 /obj/item/ammo_magazine/hi2521smg9mm
 	name = "HI-2521 SMG magazine (9mm)"
@@ -827,7 +827,7 @@ the sprite and make my own projectile -Glloyd*/
 	if(loaded.len)
 		icon_state = "antiquerevolver"
 	else
-		icon_state = "antiquerevolver-empty"
+		icon_state = "antiquerevolver_empty"
 
 /obj/item/ammo_magazine/c45r
 	name = "speed loader (.45 magnum)"
@@ -861,7 +861,7 @@ the sprite and make my own projectile -Glloyd*/
 	if(loaded.len)
 		icon_state = "combatrevolver"
 	else
-		icon_state = "combatrevolver-empty"
+		icon_state = "combatrevolver_empty"
 
 /obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
 	ammo_type = /obj/item/ammo_casing/c44/rubber

@@ -3,6 +3,7 @@
 	#include "nerva_announcements.dm"
 	#include "nerva_areas.dm"
 	#include "nerva_elevators.dm"
+	#include "nerva_holodecks.dm"
 	#include "nerva_presets.dm"
 	#include "nerva_overmap.dm"
 	#include "nerva_shuttles.dm"

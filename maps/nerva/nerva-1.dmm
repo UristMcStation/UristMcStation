@@ -1949,7 +1949,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/rnd/storage)
 "id" = (
 /obj/machinery/recharge_station,
@@ -2091,10 +2091,7 @@
 "iD" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/cell/high{
-	charge = 100;
-	maxcharge = 15000
-	},
+/obj/item/weapon/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "iE" = (
@@ -2695,7 +2692,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3158,6 +3156,9 @@
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
 "mm" = (
@@ -3258,15 +3259,15 @@
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/atmos)
 "my" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
 	icon_state = "pipe-t";
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -3391,10 +3392,6 @@
 /obj/machinery/light/chromatic{
 	icon_state = "tube1";
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
 	},
 /obj/structure/table/glass,
 /obj/machinery/light{
@@ -3758,7 +3755,7 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/advwork)
 "nS" = (
 /obj/structure/cable/orange{
@@ -4095,7 +4092,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -6140,10 +6138,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
-"uK" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenoflora)
 "uL" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Firefighting equipment";
@@ -6774,10 +6768,6 @@
 	opacity = 0
 	},
 /obj/machinery/door/window/westleft{
-	name = "containment pen door";
-	req_access = list(55)
-	},
-/obj/machinery/door/window/eastleft{
 	name = "containment pen door";
 	req_access = list(55)
 	},
@@ -8091,6 +8081,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "An" = (
@@ -8440,7 +8431,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/advwork)
 "Bl" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
@@ -9168,7 +9159,7 @@
 	dir = 8;
 	icon_state = "direction_evac";
 	pixel_x = 0;
-	pixel_y = -26;
+	pixel_y = -20;
 	tag = "icon-direction_evac (WEST)"
 	},
 /obj/structure/cable/orange{
@@ -9972,7 +9963,8 @@
 	dir = 1;
 	health = 1e+006
 	},
-/turf/simulated/wall/titanium,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
 /area/exploration_shuttle/cargo)
 "Fo" = (
 /obj/structure/closet/crate,
@@ -10182,9 +10174,6 @@
 /obj/item/weapon/storage/box/beakers,
 /obj/item/weapon/storage/box/gloves,
 /obj/item/weapon/storage/box/masks,
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -10476,7 +10465,7 @@
 	pixel_x = -22
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bottom Deck Gun Bay";
+	c_tag = "Bottom Deck Gunnery Room";
 	dir = 4;
 	icon_state = "camera";
 	tag = "icon-camera (EAST)"
@@ -10751,7 +10740,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -11075,10 +11065,6 @@
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "It" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/purple{
 	icon_state = "corner_white";
 	dir = 6
@@ -11093,6 +11079,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -12033,7 +12023,8 @@
 /obj/structure/shuttle/engine/propulsion{
 	dir = 2
 	},
-/turf/simulated/wall/titanium,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
 /area/exploration_shuttle/cargo)
 "KZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12317,7 +12308,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "LH" = (
-/obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -12646,6 +12636,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -13719,18 +13713,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/white,
 /area/command/aicomputer)
-"PL" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/fabwork)
 "PM" = (
 /obj/structure/bed/chair/shuttle{
 	tag = "icon-shuttle_chair_preview (EAST)";
@@ -14328,7 +14310,7 @@
 "Ry" = (
 /obj/structure/catwalk,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
@@ -14626,7 +14608,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/advwork)
 "Sm" = (
 /obj/machinery/door/airlock/maintenance{
@@ -15398,7 +15380,7 @@
 /area/hallway/centralthird)
 "Ue" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/security/bottomgun)
 "Uf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15643,10 +15625,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/rnd/dorms)
 "UQ" = (
 /obj/structure/cable/orange{
@@ -16143,20 +16124,6 @@
 /obj/item/trash/chips,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"Ws" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/handrai,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1331;
-	master_tag = "calypso_shuttle";
-	pixel_x = -20;
-	pixel_y = 20
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Wu" = (
 /obj/machinery/computer/mining,
 /turf/simulated/wall,
@@ -16415,6 +16382,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "Xg" = (
@@ -16572,7 +16540,8 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -16851,7 +16820,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/advwork)
 "Yq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17267,7 +17236,7 @@
 "Zx" = (
 /obj/structure/catwalk,
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
@@ -38204,7 +38173,7 @@ Yj
 gK
 hH
 Wu
-PL
+OM
 tw
 Bf
 kp
@@ -38810,7 +38779,7 @@ RF
 gK
 Ul
 Wu
-PL
+OM
 jl
 Bf
 kp
@@ -39786,7 +39755,7 @@ aa
 aa
 aa
 aa
-Ws
+aa
 aa
 NE
 Bz
@@ -43454,7 +43423,7 @@ EJ
 Ru
 NC
 lF
-uK
+sg
 Xd
 Zz
 Xq

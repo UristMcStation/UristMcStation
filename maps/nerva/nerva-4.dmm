@@ -1755,9 +1755,6 @@
 	icon_state = "bcircuit"
 	},
 /area/tdome)
-"dR" = (
-/turf/simulated/floor/planet/jungle/thick,
-/area/space)
 "dS" = (
 /obj/machinery/vending/engivend,
 /turf/unsimulated/floor{
@@ -2334,9 +2331,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
-"fi" = (
-/turf/simulated/wall/voxshuttle,
-/area/space)
 "fj" = (
 /obj/item/weapon/storage/secure/safe{
 	pixel_x = -25
@@ -2423,7 +2417,7 @@
 /turf/simulated/floor/asteroid,
 /area/merchant_station)
 "ft" = (
-/turf/unsimulated/wall,
+/turf/space,
 /area/drone_test)
 "fu" = (
 /obj/structure/table/woodentable,
@@ -2488,55 +2482,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
 /area/merchant_station)
-"fF" = (
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"fG" = (
-/obj/effect/spawner/holo_shields,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
-	icon_state = "warningcee";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"fH" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"fI" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"fJ" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"fK" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"fL" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"fM" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
 "fN" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -2678,45 +2623,6 @@
 "ga" = (
 /turf/simulated/wall/r_wall,
 /area/merchant_station)
-"gb" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall2";
-	icon_state = "swall";
-	dir = 2
-	},
-/area/space)
-"gc" = (
-/obj/effect/wingrille_spawn/reinforced/full,
-/turf/simulated/floor/plating,
-/area/space)
-"gd" = (
-/obj/effect/spawner/holo_shields,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"ge" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/spawner/holo_blob,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"gf" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"gg" = (
-/turf/simulated/floor/plating,
-/area/drone_test)
-"gh" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
 "gi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2899,50 +2805,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
-"gE" = (
-/turf/simulated/floor/planet/jungle/thick,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/area/space)
-"gF" = (
-/turf/simulated/floor/shuttle/white,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/area/space)
-"gG" = (
-/turf/simulated/floor/shuttle/white,
-/area/space)
-"gH" = (
-/turf/simulated/floor/shuttle/white,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
-	dir = 1
-	},
-/area/space)
-"gI" = (
-/turf/simulated/floor/planet/jungle/thick,
-/turf/simulated/shuttle/wall/corner/smoothwhite,
-/area/space)
-"gJ" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"gK" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"gL" = (
-/obj/effect/spawner/holo_blob,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "gM" = (
 /obj/structure/lattice,
 /turf/space,
@@ -3095,28 +2957,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
-"hf" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
-/area/space)
-"hg" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (WEST)";
-	icon_state = "warningcee";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"hh" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (EAST)";
-	icon_state = "warningcee";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
 "hi" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -3218,24 +3058,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
-"hz" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"hA" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"hB" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
 "hC" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
@@ -3474,14 +3296,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
-"ib" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "ic" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -3591,20 +3405,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
-"io" = (
-/turf/simulated/floor/shuttle/white,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/area/space)
-"ip" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "iq" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -3688,67 +3488,6 @@
 /obj/item/weapon/storage/bag/cash,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"iC" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iD" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iE" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iF" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
-	icon_state = "warningcee";
-	dir = 1
-	},
-/obj/machinery/power/breakerbox,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"iG" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iH" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "iI" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_s";
@@ -3864,32 +3603,6 @@
 /obj/item/weapon/clipboard,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"iT" = (
-/obj/machinery/door/unpowered/shuttle,
-/turf/simulated/floor/plating,
-/area/space)
-"iU" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iV" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"iW" = (
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "iX" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_s";
@@ -3951,13 +3664,12 @@
 	},
 /area/shuttle/merchant/home)
 "je" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 1;
-	dir = 2;
-	name = "Warehouse";
-	req_access = newlist()
+	dir = 8;
+	name = "Warehouse"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "jf" = (
@@ -3973,48 +3685,11 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "jh" = (
-/obj/item/modular_computer/console/preset/merchant,
+/obj/item/modular_computer/console/preset/merchant{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"ji" = (
-/obj/machinery/recharge_station/maxed,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"jj" = (
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"jk" = (
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"jl" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "jm" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_t";
@@ -4122,45 +3797,6 @@
 /obj/machinery/merchant_pad,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"jA" = (
-/turf/simulated/floor/planet/jungle/clear,
-/area/space)
-"jB" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 2
-	},
-/area/space)
-"jC" = (
-/turf/simulated/floor/shuttle/white,
-/turf/simulated/shuttle/wall/corner/smoothwhite,
-/area/space)
-"jD" = (
-/turf/simulated/floor/shuttle/white,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/area/space)
-"jE" = (
-/obj/effect/floor_decal/corner/green/three_quarters{
-	dir = 1;
-	icon_state = "corner_white_three_quarters"
-	},
-/obj/structure/table/reinforced,
-/obj/machinery/button/alternate/biohazard{
-	name = "Simulation Controls"
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"jF" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "jG" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4355,131 +3991,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"kd" = (
-/turf/simulated/floor/planet/jungle/thick,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/area/space)
 "ke" = (
 /turf/simulated/shuttle/wall{
 	dir = 8;
 	icon_state = "swall"
 	},
 /area/space)
-"kf" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	dir = 1;
-	health = 1e+006
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"kg" = (
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "swall"
-	},
-/area/space)
-"kh" = (
-/turf/simulated/floor/planet/jungle/thick,
-/turf/simulated/shuttle/wall/corner/smoothwhite{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
-	dir = 1
-	},
-/area/space)
-"ki" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kj" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kk" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kl" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/white{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"km" = (
-/obj/effect/floor_decal/corner/green{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kn" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
-	icon_state = "warningcee";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"ko" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "kp" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4648,98 +4165,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"kH" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/plating,
-/area/space)
-"kI" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kJ" = (
-/obj/machinery/drone_fabricator/blob,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"kK" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kN" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kO" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/spawner/holo_shields,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"kP" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"kQ" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
-	icon_state = "warningcee";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"kR" = (
-/obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "kS" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4884,133 +4309,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"lk" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"ll" = (
-/obj/machinery/power/debug_items/infinite_generator{
-	power_generation_rate = 100000
-	},
-/obj/structure/cable,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"lm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHWEST)";
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"ln" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/green{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lo" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/machinery/power/breakerbox,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"lp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	pixel_x = 0;
-	tag = ""
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lq" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/showcase/blob_hazard,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lr" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"ls" = (
-/obj/machinery/power/debug_items/infinite_generator{
-	power_generation_rate = 50000
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"lt" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (NORTHWEST)";
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lu" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
 "lv" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -5207,64 +4505,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"lR" = (
-/turf/simulated/floor/exoplanet/water,
-/area/space)
-"lS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lT" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lU" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lV" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lW" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"lX" = (
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"lY" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "lZ" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_s";
@@ -5310,51 +4550,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"mf" = (
-/obj/effect/floor_decal/corner/brown{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mg" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mh" = (
-/obj/effect/floor_decal/corner/brown,
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mi" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mj" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "mk" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 4;
@@ -5444,12 +4639,6 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "mr" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 1;
-	dir = 2;
-	name = "Warehouse";
-	req_access = newlist()
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5459,6 +4648,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 1;
+	dir = 8;
+	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -5494,55 +4688,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"mw" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach"
-	},
-/area/space)
-"mx" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beachcorner (NORTH)";
-	icon_state = "beachcorner";
-	dir = 1
-	},
-/area/space)
-"my" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"mz" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mA" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mB" = (
-/obj/effect/floor_decal/corner/green/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 4
-	},
-/obj/machinery/computer/gyrotron_control{
-	id_tag = "Simulation"
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "mC" = (
 /obj/structure/lattice,
 /obj/machinery/light/small,
@@ -5662,29 +4807,6 @@
 /obj/machinery/vending/urist/dress,
 /turf/simulated/floor/tiled/airless,
 /area/merchant_station)
-"mO" = (
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
-"mP" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (SOUTHWEST)";
-	icon_state = "beach";
-	dir = 10
-	},
-/area/space)
-"mQ" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"mR" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "mS" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -5821,36 +4943,6 @@
 /obj/item/clothing/under/resomi/white,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"nh" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"ni" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"nj" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "nk" = (
 /obj/structure/cable{
 	icon_state = "0-4";
@@ -6002,80 +5094,6 @@
 /obj/item/clothing/under/vox/vox_casual,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"ny" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (NORTHEAST)";
-	icon_state = "beach";
-	dir = 5
-	},
-/area/space)
-"nz" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (WEST)";
-	icon_state = "beach";
-	dir = 8
-	},
-/area/space)
-"nA" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner"
-	},
-/area/space)
-"nB" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"nC" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/material/ocp/fifty,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"nD" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"nE" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"nF" = (
-/obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/power/breakerbox,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"nG" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "nH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	external_pressure_bound = 140;
@@ -6155,46 +5173,6 @@
 /obj/random/medical,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"nS" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beachcorner (WEST)";
-	icon_state = "beachcorner";
-	dir = 8
-	},
-/area/space)
-"nT" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (SOUTHEAST)";
-	icon_state = "beach";
-	dir = 6
-	},
-/area/space)
-"nU" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"nV" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"nW" = (
-/obj/effect/floor_decal/corner/yellow,
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "nX" = (
 /obj/structure/cable{
 	icon_state = "0-4";
@@ -6354,62 +5332,6 @@
 /obj/item/weapon/tank/emergency/oxygen/double,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"om" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (EAST)";
-	icon_state = "beach";
-	dir = 4
-	},
-/area/space)
-"on" = (
-/obj/structure/table/rack,
-/obj/item/weapon/gun/energy/laser,
-/obj/item/weapon/gun/energy/laser,
-/obj/item/weapon/gun/energy/laser,
-/obj/item/weapon/gun/energy/laser,
-/obj/item/weapon/gun/energy/laser,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oo" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHWEST)";
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"op" = (
-/obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oq" = (
-/obj/machinery/power/emitter,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"or" = (
-/obj/machinery/power/emitter/gyrotron{
-	id_tag = "Simulation"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"os" = (
-/obj/machinery/power/port_gen/pacman/mrs,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "ot" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -6483,49 +5405,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"oD" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (NORTHWEST)";
-	icon_state = "beach";
-	dir = 9
-	},
-/area/space)
-"oE" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beach (NORTH)";
-	icon_state = "beach";
-	dir = 1
-	},
-/area/space)
-"oF" = (
-/obj/item/device/integrated_circuit_printer,
-/obj/item/device/integrated_electronics/wirer,
-/obj/item/device/integrated_electronics/debugger,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oG" = (
-/obj/structure/closet/crate{
-	name = "Limited Tritium Supply"
-	},
-/obj/item/stack/material/tritium{
-	amount = 5
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oH" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
-"oI" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "oJ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -6562,63 +5441,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"oP" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	tag = "icon-beachcorner (EAST)";
-	icon_state = "beachcorner";
-	dir = 4
-	},
-/area/space)
-"oQ" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oR" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oS" = (
-/obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oT" = (
-/obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (NORTHEAST)";
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"oU" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "oV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -6664,147 +5486,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"pa" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pb" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pc" = (
-/obj/effect/floor_decal/corner/blue,
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pd" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pe" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/drone_test)
 "pf" = (
 /turf/unsimulated/floor{
 	icon_state = "reinforced"
 	},
 /area/space)
-"pg" = (
-/obj/machinery/power/port_gen/pacman,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"ph" = (
-/obj/structure/closet/crate{
-	name = "Phoron Supply"
-	},
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/item/stack/material/phoron/fifty,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pi" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pj" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pk" = (
-/obj/structure/closet/crate{
-	name = "Shield Generator Components"
-	},
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/smes_coil,
-/obj/item/weapon/circuitboard/shield_generator,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pl" = (
-/obj/structure/closet/crate{
-	name = "Spare Scanning Modules"
-	},
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/item/weapon/stock_parts/scanning_module/phasic,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pm" = (
-/obj/structure/closet/crate{
-	name = "Spare Micro Lasers"
-	},
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pn" = (
-/obj/structure/closet/crate{
-	name = "Spare Console Screens"
-	},
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "po" = (
 /obj/structure/cable,
 /obj/machinery/power/solar,
@@ -6826,64 +5512,6 @@
 "ps" = (
 /turf/simulated/wall/titanium,
 /area/space)
-"pt" = (
-/obj/structure/closet/crate{
-	name = "SMES Components"
-	},
-/obj/item/weapon/smes_coil,
-/obj/item/weapon/smes_coil,
-/obj/item/weapon/smes_coil/super_capacity,
-/obj/item/weapon/smes_coil/super_capacity,
-/obj/item/weapon/smes_coil/super_io,
-/obj/item/weapon/smes_coil/super_io,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pu" = (
-/obj/structure/closet/crate{
-	name = "Spare Manipulators"
-	},
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/item/weapon/stock_parts/manipulator/pico,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pv" = (
-/obj/structure/closet/crate{
-	name = "Spare Capacitors"
-	},
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/item/weapon/stock_parts/capacitor/super,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
-"pw" = (
-/obj/structure/closet/crate{
-	name = "Spare Matter Bins"
-	},
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/item/weapon/stock_parts/matter_bin/super,
-/obj/effect/floor_decal/industrial/outline,
-/turf/simulated/floor/plating,
-/area/drone_test)
 "px" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
@@ -16984,24 +15612,24 @@ ab
 ab
 ab
 ft
-ji
-ji
-ki
-kI
-kI
-lS
-mf
-my
-my
 ft
-nB
-nU
-on
-oF
-oQ
-pa
-pg
-pg
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -17186,24 +15814,24 @@ ab
 ab
 ab
 ft
-jj
-jj
-kj
-kJ
-gg
-lT
-mg
-mz
-mz
-nh
-gg
-nV
-oo
-oo
-oR
-pa
-ph
-pt
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -17388,24 +16016,24 @@ ab
 ab
 ab
 ft
-jk
-jk
-kk
-gg
-gg
-lT
-mh
-mA
-mA
-ni
-gg
-gg
-gg
-gg
-gg
-pb
-pi
-pi
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -17590,24 +16218,24 @@ ab
 ab
 ab
 ft
-ji
-ji
-kl
-kK
-kK
-lU
-mf
-my
-my
 ft
-nC
-nW
-op
-op
-oS
-pc
-pj
-pj
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -17795,21 +16423,21 @@ ft
 ft
 ft
 ft
-fF
-fF
-fF
 ft
 ft
 ft
 ft
 ft
 ft
-oq
-oq
-oT
-pd
-pk
-pk
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -17992,26 +16620,26 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-lk
-fF
-fF
-fF
-fF
-fF
-fF
 ft
-oq
-oq
-oT
-pd
-pl
-pu
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -18194,26 +16822,26 @@ ab
 ab
 ab
 ft
-iC
-iU
-iU
-iU
-iU
-kL
-ll
-lV
-iU
-iU
-iU
-iU
-nD
 ft
-or
-gg
-oT
-pd
-pm
-pv
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -18396,26 +17024,26 @@ ab
 ab
 ab
 ft
-iD
-fF
-fF
-fF
-fF
-fF
-lm
-fF
-fF
-fF
-fF
-fF
-iD
 ft
-os
-oG
-oT
-pd
-pn
-pw
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -18598,19 +17226,19 @@ ft
 ft
 ft
 ft
-iE
-iV
 ft
-jE
-km
-km
-ln
-km
-km
-mB
 ft
-nj
-nE
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ft
 ft
@@ -18793,33 +17421,33 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-ft
-fF
-fF
-ft
-iF
-iW
 ft
 ft
-kn
-kM
-lo
-kM
-iW
 ft
 ft
-kn
-nF
 ft
-fF
-fF
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -18995,33 +17623,33 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-hg
-fF
-fF
-ip
-iG
-ip
-ip
-jF
-ko
-kN
-lp
-kN
-mi
-jF
-mQ
-mQ
-nG
-fF
-fF
-fF
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -19197,33 +17825,33 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-hh
-fF
-fF
-fF
-iH
-fF
-fF
-fF
-iH
-fF
-lq
-fF
-iH
-fF
-fF
-fF
-iH
-fF
-fF
-fF
 ft
 ft
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -19399,33 +18027,33 @@ bP
 ab
 ab
 ft
-fF
-fF
-fF
 ft
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
 ft
-oH
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -19601,33 +18229,33 @@ bP
 ab
 ab
 ft
-fG
-gd
 ft
 ft
-fF
-fF
-fF
-fF
-ft
-fF
-ft
-fF
-fF
-fF
-fF
-fF
-ft
-fF
-ft
-fF
-fF
 ft
 ft
-oH
-oU
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -19803,33 +18431,33 @@ bP
 bP
 ab
 ft
-fF
-fF
-gJ
 ft
-fF
-fF
-fF
-fF
 ft
-fF
 ft
-fF
-fF
-fF
-fF
-fF
 ft
-fF
 ft
-fF
-fF
 ft
-oH
-oU
-pe
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -20005,33 +18633,33 @@ eQ
 bP
 ab
 ft
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -20209,31 +18837,31 @@ ab
 ft
 ft
 ft
-fF
-ft
-fF
-fF
-fF
-fF
 ft
 ft
 ft
-fG
-kO
-kO
-kO
-gd
 ft
 ft
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-gJ
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -20409,31 +19037,31 @@ eQ
 bP
 ab
 ft
-fF
-fF
-fF
-ft
-fG
-gd
-ft
-ft
-ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
 ft
 ft
 ft
 ft
-fG
-gd
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ft
 ft
@@ -20611,33 +19239,33 @@ eR
 bP
 ab
 ft
-fF
-fF
-fF
 ft
-fF
-ib
-fL
-gg
-hA
-jl
-fF
-fF
-fF
-fF
-fF
-gJ
-fF
-mR
-fL
-gg
-gg
-hA
-oI
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -20813,33 +19441,33 @@ eS
 bP
 ab
 ft
-fF
 ft
 ft
 ft
-fF
-ib
-fL
-gg
-hA
-jl
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-mR
-fL
-gg
-gg
-hA
-oI
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -21015,33 +19643,33 @@ eT
 bP
 ab
 ft
-fF
-fF
-fF
-ft
-fF
-fF
-ft
-ft
-ft
-fF
-fF
-fF
-ft
-ft
-ft
-fF
-fF
-fF
 ft
 ft
 ft
 ft
-fF
-fF
 ft
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -21217,33 +19845,33 @@ eU
 bP
 ab
 ft
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fF
-ft
-fF
-fF
 ft
 ft
-gL
 ft
 ft
-fF
-fF
-ft
-fF
-fF
-gg
-fF
-fF
 ft
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -21421,31 +20049,31 @@ ab
 ft
 ft
 ft
-fF
-ft
-fF
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fJ
-lr
-lU
-fF
-fF
-fF
-ft
-fF
-fF
-gg
-fF
 ft
 ft
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -21621,33 +20249,33 @@ eV
 bP
 ab
 ft
-fF
-fF
-fF
 ft
 ft
 ft
-fF
-fF
-ft
-fF
-fF
-ft
-kP
-ls
-lW
-ft
-fF
-fF
-ft
-fF
-fF
-ft
-fF
-fF
 ft
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -21823,33 +20451,33 @@ eW
 bP
 ab
 ft
-fF
-fF
-fF
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-lt
-fF
-fF
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -22025,33 +20653,33 @@ eX
 bP
 ab
 ft
-fH
 ft
 ft
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fH
-kI
-lS
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -22227,33 +20855,33 @@ eY
 bP
 ab
 ft
-fI
-ge
-ft
-fF
-fF
-ft
-fF
-fF
 ft
 ft
 ft
 ft
-kQ
-lu
-lX
 ft
 ft
 ft
 ft
-fF
-fF
 ft
-fF
-fI
-ge
-lT
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -22429,33 +21057,33 @@ eZ
 bP
 ab
 ft
-fJ
 ft
 ft
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
-fF
-fF
 ft
-fF
-fJ
-kK
-lU
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -22631,33 +21259,33 @@ fa
 bP
 ab
 ft
-fF
-fF
-fF
-fF
-fF
 ft
-fF
-fF
-hg
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-hg
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -22833,33 +21461,33 @@ fb
 bP
 ab
 ft
-fF
-fF
 ft
 ft
 ft
 ft
-fF
-fF
-hh
-fF
-fF
-fF
-fH
-kI
-lS
-fF
-fF
-fF
-hh
-fF
-fF
-ft
-fF
-fF
 ft
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -23035,33 +21663,33 @@ bP
 bP
 ab
 ft
-fF
-fF
-fF
-fF
-fF
-ft
-fF
-ft
-ft
-ft
-fF
-fF
-ft
-gL
-ft
-fF
-fF
 ft
 ft
 ft
 ft
 ft
-fF
 ft
 ft
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -23237,33 +21865,33 @@ bP
 ab
 ab
 ft
-fF
-fF
-fF
-gJ
-fF
 ft
 ft
 ft
-fF
-fF
-fF
-fF
 ft
 ft
 ft
-fF
-fF
-fF
-fF
-ft
-fF
-fF
-fF
-fF
 ft
 ft
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -23442,30 +22070,30 @@ ft
 ft
 ft
 ft
-fF
-fF
-ft
-fF
-fF
-fF
-gJ
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
 ft
-fF
-fF
 ft
 ft
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -23641,33 +22269,33 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-fF
-fF
-ft
-fF
-fF
 ft
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -23843,33 +22471,33 @@ ab
 ab
 ab
 ft
-fF
-fF
-fF
-fF
-fF
 ft
 ft
-fF
-fF
 ft
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
-fF
 ft
-fF
 ft
-fF
-fF
-gJ
-fF
-fF
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -24045,33 +22673,33 @@ ab
 ab
 ab
 ft
-fK
-gf
-gf
-gf
-hz
-fF
-ft
-ft
-fF
-ft
-fF
-fK
-gf
-gf
-gf
-mj
-fF
 ft
 ft
 ft
 ft
 ft
-fK
-gf
-gf
-gf
-hz
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -24247,33 +22875,33 @@ ab
 ab
 ab
 ft
-fL
-gg
-gK
-gg
-hA
-fF
 ft
-gJ
-fF
 ft
-fF
-fL
-kR
-gg
-gg
-hA
-fF
 ft
-fF
-fF
-fF
 ft
-fL
-gg
-gg
-gg
-hA
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -24449,33 +23077,33 @@ ab
 ab
 ab
 ft
-fL
-gg
-gL
-gg
-hA
-fF
-ft
-fF
 ft
 ft
-fF
-fL
-gg
-gL
-gg
-hA
-fF
 ft
-fF
 ft
-fF
 ft
-fL
-gK
-gL
-gg
-hA
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -24651,33 +23279,33 @@ ab
 ab
 ab
 ft
-fL
-gg
-gg
-gg
-hA
-fF
-fF
-fF
-fF
-ft
-fF
-fL
-gg
-gg
-gg
-hA
-fF
 ft
 ft
 ft
-fF
 ft
-fL
-gg
-gg
-gg
-hA
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -24853,33 +23481,33 @@ ab
 ab
 ab
 ft
-fM
-gh
-gh
-gh
-hB
-fF
-fF
-fF
-fF
 ft
-fF
-fM
-gh
-gh
-lY
-hB
-fF
-fF
-fF
 ft
-fF
-fF
-fM
-gh
-gh
-gh
-hB
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
+ft
 ft
 ab
 ab
@@ -36354,48 +34982,48 @@ ab
 ab
 ab
 ab
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -36556,48 +35184,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-ny
-nS
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -36758,48 +35386,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-mx
-mP
-mO
-mO
-ny
-om
-om
-nS
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -36960,48 +35588,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mx
-mP
-mO
-mO
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -37162,48 +35790,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mx
-nz
-mP
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -37364,48 +35992,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -37566,48 +36194,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -37768,48 +36396,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -37970,48 +36598,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -38172,48 +36800,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -38374,48 +37002,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -38576,48 +37204,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-fi
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-fi
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -38778,48 +37406,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -38980,48 +37608,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -39182,48 +37810,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -39384,48 +38012,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -39586,48 +38214,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gE
-kd
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-nA
-nT
-mO
-oD
-oP
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -39788,48 +38416,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gE
-hf
-iT
-iT
-jB
-gE
-kd
-jA
-jA
-jA
-jA
-jA
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -39990,48 +38618,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gE
-hf
-gc
-gb
-gF
-gG
-gG
-gG
-jC
-jB
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -40192,48 +38820,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gb
-gF
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-ke
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -40394,48 +39022,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gc
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-kf
-kH
-jA
-jA
-jA
-jA
-jA
-lR
-mx
-mP
-mO
-ny
-nS
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -40596,48 +39224,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gc
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-kf
-kH
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -40798,48 +39426,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gb
-gH
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-gG
-kg
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -41000,48 +39628,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gI
-hf
-gc
-gb
-io
-gG
-gG
-gG
-jD
-jB
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -41202,48 +39830,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gI
-hf
-iT
-iT
-jB
-gI
-kh
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -41404,48 +40032,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-gI
-kh
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -41606,48 +40234,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -41808,48 +40436,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -42010,48 +40638,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -42212,48 +40840,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -42414,48 +41042,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-fi
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-fi
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -42616,48 +41244,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -42818,48 +41446,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -43020,48 +41648,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-oE
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -43222,48 +41850,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-ny
-nS
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -43424,48 +42052,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mw
-mO
-mO
-mO
-ny
-nS
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -43626,48 +42254,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-mx
-mP
-mO
-mO
-mO
-ny
-om
-om
-om
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -43828,48 +42456,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-mx
-mP
-mO
-mO
-mO
-mO
-mO
-mO
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -44030,48 +42658,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-mx
-mP
-mO
-mO
-mO
-mO
-mO
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -44232,48 +42860,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-mx
-nz
-nz
-nz
-nz
-nz
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -44434,48 +43062,48 @@ ab
 ab
 ab
 ab
-aq
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-dR
-jA
-jA
-jA
-jA
-jA
-jA
-jA
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-lR
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -44636,48 +43264,48 @@ ab
 ab
 ab
 ab
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab

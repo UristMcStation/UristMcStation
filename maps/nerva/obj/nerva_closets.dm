@@ -83,7 +83,6 @@
 		/obj/item/clothing/suit/armor/pcarrier/light,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/secondofficer,
-		/obj/item/weapon/storage/box/ids = 2,
 		/obj/item/weapon/gun/projectile/sec/flash,
 		/obj/item/device/flash,
 		/obj/item/weapon/storage/box/large/ids,
