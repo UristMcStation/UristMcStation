@@ -35,7 +35,6 @@
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	ceiling_type = null
 	knockdown = 0
-	defer_initialisation = TRUE
 
 /obj/machinery/computer/shuttle_control/liftnerva
 	name = "cargo freight elevator controls"
@@ -49,13 +48,14 @@
 /obj/effect/shuttle_landmark/liftnerva/top
 	name = "Top Deck"
 	landmark_tag = "nav_nerva_lift_top"
-	autoset = 1
+	base_area = /area/logistics/uppercargo
+	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/liftnerva/bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_nerva_lift_bottom"
 	base_area = /area/logistics/lowercargo
-	base_turf = /turf/simulated/floor
+	base_turf = /turf/simulated/floor/plating
 
 //i fucking hate myself
 

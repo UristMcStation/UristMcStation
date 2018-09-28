@@ -210,7 +210,7 @@
 	icon_state = "research"
 
 /area/rnd/office
-	name = "\improper Nanotrasen Office"
+	name = "\improper NanoTrasen Office"
 
 /area/rnd/chemlab
 	name = "\improper Research Chemistry Lab"

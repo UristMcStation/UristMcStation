@@ -428,7 +428,9 @@
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
 "by" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/hub{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (NORTHWEST)";
 	icon_state = "warning";
@@ -476,7 +478,7 @@
 "bI" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "capbedroomview";
 	name = "Captain's Bedroom Door";
 	tag = "icon-pdoor1"
@@ -537,7 +539,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled,
 /area/command/captain)
 "bV" = (
 /obj/structure/disposalpipe/segment{
@@ -626,7 +628,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "capbedroomview";
 	name = "Captain's Bedroom Door";
 	tag = "icon-pdoor1"
@@ -818,7 +820,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
-	dir = 1;
+	dir = 4;
 	id = "capofficeview";
 	name = "Captain's Office Door";
 	tag = "icon-pdoor1"
@@ -1151,7 +1153,7 @@
 	req_access = list(19)
 	},
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
@@ -1236,7 +1238,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/purple,
+/turf/simulated/floor/tiled,
 /area/command/fobedroom)
 "dz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1757,7 +1759,8 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	color = "#4444ff";
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2109,6 +2112,11 @@
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/command/teleporter)
@@ -2663,6 +2671,12 @@
 "iM" = (
 /turf/simulated/floor/tiled,
 /area/command/teleporter)
+"iN" = (
+/obj/machinery/light_switch{
+	pixel_y = -20
+	},
+/turf/simulated/floor/wood,
+/area/civilian/dorms)
 "iU" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -3205,7 +3219,7 @@
 	dir = 8;
 	linkedholodeck = /area/holodeck;
 	linkedholodeck_area = /area/holodeck;
-	programs_list_id = "WyrmMainPrograms"
+	programs_list_id = "NervaMainPrograms"
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -4067,6 +4081,17 @@
 "nJ" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/fuelbay)
+"nK" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "fobedroomview";
+	name = "First Officer's Bedroom Door";
+	tag = "icon-pdoor1"
+	},
+/turf/simulated/floor/plating,
+/area/command/fobedroom)
 "nL" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light_switch{
@@ -4994,7 +5019,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/command/headquarters)
 "rv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5327,7 +5352,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/command/headquarters)
 "sV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5478,7 +5503,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering Entrance Hallway";
+	c_tag = "Fuel Tank";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -8697,7 +8722,7 @@
 	name = "Officers Dorms";
 	req_access = list(19)
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/plating,
 /area/command/headquarters)
 "Gp" = (
 /obj/random/junk,
@@ -8772,7 +8797,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/command/headquarters)
 "Gz" = (
 /obj/machinery/door/airlock/maintenance{
@@ -9211,7 +9236,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
 "Iv" = (
-/obj/machinery/computer/teleporter,
+/obj/machinery/computer/teleporter{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -9837,7 +9864,9 @@
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
 "KU" = (
-/obj/machinery/teleport/station,
+/obj/machinery/teleport/station{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (WEST)";
 	icon_state = "warning";
@@ -10045,7 +10074,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/command/headquarters)
 "Mf" = (
 /turf/simulated/floor/holofloor/reinforced,
@@ -10095,10 +10124,6 @@
 "Mq" = (
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_x = 28;
-	pixel_y = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -10364,6 +10389,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
+"NC" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Officers Dorms";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled,
+/area/command/headquarters)
 "NE" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/board,
@@ -12063,7 +12096,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/plating,
 /area/command/headquarters)
 "UJ" = (
 /obj/structure/catwalk,
@@ -12214,6 +12247,21 @@
 /obj/item/weapon/papercrafts/oragami/swan,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
+"Vp" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Officers Dorms";
+	req_access = list(19)
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/command/headquarters)
 "Vq" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -29764,7 +29812,7 @@ xa
 xa
 xa
 uM
-cu
+uM
 Wi
 ie
 hk
@@ -29966,7 +30014,7 @@ xa
 xa
 tR
 uM
-cu
+uM
 HO
 qD
 tF
@@ -30168,7 +30216,7 @@ xa
 uH
 GS
 uM
-cu
+uM
 eD
 HS
 gV
@@ -33817,7 +33865,7 @@ nd
 AE
 sM
 Wu
-Wu
+iN
 nd
 TB
 xl
@@ -40285,7 +40333,7 @@ Dr
 BV
 EW
 vy
-UG
+Vp
 Ds
 Xy
 gY
@@ -40487,7 +40535,7 @@ vB
 Jc
 Bu
 RW
-Gg
+NC
 Rm
 Rm
 RF
@@ -44728,8 +44776,8 @@ aa
 aa
 aa
 Zb
-oM
-oM
+nK
+nK
 Zb
 Zb
 aa
