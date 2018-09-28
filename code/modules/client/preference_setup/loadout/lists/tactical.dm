@@ -63,7 +63,7 @@
 
 /datum/gear/tactical/holster
 	display_name = "holster selection"
-	path = /obj/item/clothing/accessory/holster
+	path = /obj/item/clothing/accessory/storage/holster
 	cost = 3
 	flags = GEAR_HAS_TYPE_SELECTION
 

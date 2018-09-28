@@ -1,3 +1,60 @@
+/obj/structure/deity/gateway
+	name = "gateway"
+	desc = "A gateway into the unknown."
+	power_adjustment = 0
+	var/weakref/target_ref
+	var/start_time = 0
+	var/power_drain = 15
+
+/obj/structure/deity/gateway/New()
+	..()
+	if(linked_god)
+		linked_god.power_per_regen -= power_drain
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/deity/gateway/Process()
+	if(!linked_god)
+		return
+	if(linked_god.power <= 0)
+		to_chat(linked_god,"<span class='warning'>\The [src] disappears from your lack of power!</span>")
+		qdel(src)
+		return
+	var/mob/living/carbon/human/target
+	if(target_ref)
+		target = target_ref.resolve()
+	if(target)
+		if(get_turf(target) != get_turf(src))
+			target = null
+			target_ref = null
+			start_time = 0
+			return
+		else if(prob(5))
+			to_chat(target,"<span class='danger'>\The [src] sucks at your lifeforce!</span>")
+		if(start_time && world.time > start_time + 300)
+			start_time = 0
+			to_chat(target,"<span class='danger'>You have been sucked into \the [src], your soul used to fuel \the [linked_god]'s minions.</span>")
+			var/mob/living/starlight_soul/ss = new(get_turf(linked_god),target)
+			if(target.mind)
+				target.mind.transfer_to(ss)
+			else
+				ss.ckey = target.ckey
+			ss.set_deity(linked_god)
+			target.dust()
+			if(power_drain > 5)
+				linked_god.power_per_regen += 3
+				power_drain -= 3
+	else
+		//Get new target
+		var/mob/living/carbon/human/T = locate() in get_turf(src)
+		if(T)
+			target_ref = weakref(T)
+			start_time = world.time
+			to_chat(T, "<span class='danger'>You feel your lifeforce begin to drain into \the [src]!</span>")
+
+/obj/structure/deity/gateway/Destroy()
+	linked_god.power_per_regen += power_drain
+	. = ..()
+
 /obj/structure/deity/radiant_statue
 	name = "radiant statue"
 	build_cost = 750

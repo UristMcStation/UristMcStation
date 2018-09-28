@@ -79,7 +79,7 @@
 
 					var/amount = rand(2,6)
 					var/list/possible_spawns = list()
-					for(var/coin_type in typesof(/obj/item/weapon/coin))
+					for(var/coin_type in typesof(/obj/item/weapon/material/coin))
 						possible_spawns += coin_type
 
 					var/coin_type = pick(possible_spawns)

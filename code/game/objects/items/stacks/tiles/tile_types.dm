@@ -178,7 +178,7 @@
 	name = "linoleum"
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
-	icon_state = "tile-linoleum"
+	icon_state = "tile_linoleum"
 	build_type = /decl/flooring/linoleum
 
 /obj/item/stack/tile/linoleum/fifty

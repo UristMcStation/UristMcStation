@@ -26,7 +26,7 @@
 /obj/machinery/crystal_static/New()
 	..()
 	collected = rand(-3,0)
-	set_light(l_range = 2, l_power = 2, l_color = crystal_color)
+	set_light(0.2, 0.5, 2, l_color = crystal_color)
 
 /obj/machinery/crystal_static/pink
 	icon_state = "crystal2"

@@ -73,8 +73,14 @@ var/global/datum/controller/gameticker/ticker
 				if(GM)
 					GM.on_selection()
 			if(pregame_timeleft <= 0 || ((initialization_stage & INITIALIZATION_NOW_AND_COMPLETE) == INITIALIZATION_NOW_AND_COMPLETE))
-				current_state = GAME_STATE_SETTING_UP
-				Master.SetRunLevel(RUNLEVEL_SETUP)
+				if (Master.current_runlevel >= RUNLEVEL_LOBBY)
+					current_state = GAME_STATE_SETTING_UP
+					Master.SetRunLevel(RUNLEVEL_SETUP)
+				else
+					var/additional_time = 20
+					to_world("<B><FONT color='blue'>Waiting an additional [additional_time] seconds for initializations to complete...</FONT></B>")
+					log_world("Master initializations were not complete by the time the round was due to start! Waiting an additional [additional_time] seconds...")
+					pregame_timeleft += additional_time // yeah, this will repeat, but it's not good to go into a round with stuff not initialized!
 
 	while (!setup())
 
@@ -474,6 +480,7 @@ var/global/datum/controller/gameticker/ticker
 	if(all_money_accounts.len)
 		var/datum/money_account/max_profit = all_money_accounts[1]
 		var/datum/money_account/max_loss = all_money_accounts[1]
+		var/stationmoney
 		for(var/datum/money_account/D in all_money_accounts)
 			if(D == vendor_account) //yes we know you get lots of money
 				continue
@@ -482,8 +489,15 @@ var/global/datum/controller/gameticker/ticker
 				max_profit = D
 			if(saldo <= max_loss.get_balance())
 				max_loss = D
+			if(D == station_account)
+				stationmoney = station_account.money
+				stationmoney -= GLOB.using_map.starting_money //how much money did we make from the start of the round
+
 		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance()]</b>.")
 		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
+
+		if(GLOB.using_map.using_new_cargo)
+			to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>T[stationmoney]</b> in revenue today.")
 
 	mode.declare_completion()//To declare normal completion.
 

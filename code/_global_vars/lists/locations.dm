@@ -6,6 +6,7 @@ var/list/ninjastart         = list()
 GLOBAL_LIST_EMPTY(latejoin)
 GLOBAL_LIST_EMPTY(latejoin_gateway)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
+GLOBAL_LIST_EMPTY(latejoin_cryo2)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
 
 GLOBAL_LIST_EMPTY(prisonwarp) // Prisoners go to these

@@ -849,6 +849,19 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/industrial/warning/fulltile
 	icon_state = "warningfulltile"
 
+/obj/effect/floor_decal/industrial/danger
+	name = "danger stripes"
+	icon_state = "danger"
+
+/obj/effect/floor_decal/industrial/danger/corner
+	icon_state = "dangercorner"
+
+/obj/effect/floor_decal/industrial/danger/full
+	icon_state = "dangerfull"
+
+/obj/effect/floor_decal/industrial/danger/cee
+	icon_state = "dangercee"
+
 /obj/effect/floor_decal/industrial/warning/dust
 	name = "hazard stripes"
 	icon_state = "warning_dust"
@@ -856,6 +869,47 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/industrial/warning/dust/corner
 	name = "hazard stripes"
 	icon_state = "warningcorner_dust"
+
+/obj/effect/floor_decal/rust
+	name = "rust"
+	icon_state = "rust"
+	alpha = 150
+
+/obj/effect/floor_decal/rust/light
+	icon_state = "part_rusted1"
+
+/obj/effect/floor_decal/rust/medium
+	icon_state = "part_rusted2"
+
+/obj/effect/floor_decal/rust/high
+	icon_state = "part_rusted3"
+
+/obj/effect/floor_decal/rust/bar
+	icon_state = "color_rusted"
+
+/obj/effect/floor_decal/rust/bar/corner
+	icon_state = "color_rustedcorner"
+
+/obj/effect/floor_decal/rust/full
+	icon_state = "color_rustedfull"
+
+/obj/effect/floor_decal/rust/cee
+	icon_state = "color_rustedcee"
+
+/obj/effect/floor_decal/rust/decal
+	icon_state = "steel_decals_rusted1"
+
+/obj/effect/floor_decal/rust/decal/high
+	icon_state = "steel_decals_rusted2"
+
+/obj/effect/floor_decal/rust/mono
+	icon_state = "mono_rusted1"
+
+/obj/effect/floor_decal/rust/mono/medium
+	icon_state = "mono_rusted2"
+
+/obj/effect/floor_decal/rust/mono/high
+	icon_state = "mono_rusted3"
 
 /obj/effect/floor_decal/industrial/hatch
 	name = "hatched marking"
@@ -915,6 +969,14 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/asteroid
 	name = "random asteroid rubble"
 	icon_state = "asteroid0"
+
+/obj/effect/floor_decal/beach
+	name = "sandy border"
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "beachborder"
+
+/obj/effect/floor_decal/beach/corner
+	icon_state = "beachbordercorner"
 
 /obj/effect/floor_decal/asteroid/New()
 	icon_state = "asteroid[rand(0,9)]"

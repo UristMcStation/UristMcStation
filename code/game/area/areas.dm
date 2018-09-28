@@ -10,6 +10,8 @@
 
 /area/New()
 	icon_state = ""
+	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	layer = ALARM_LAYER
 	uid = ++global_uid
 
 	if(!requires_power)
@@ -271,7 +273,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	var/turf/T = get_turf(L)
 	var/hum = 0
-	if(!L.ear_deaf && !always_unpowered && power_environ)
+	if(!L.ear_deaf && !always_unpowered && power_environ || isplanet(src))
 		for(var/obj/machinery/atmospherics/unary/vent_pump/vent in src)
 			if(vent.can_pump())
 				hum = 1

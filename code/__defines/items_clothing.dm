@@ -21,7 +21,6 @@
 #define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
 
 #define ACCESSORY_SLOT_UTILITY  "Utility"
-#define ACCESSORY_SLOT_HOLSTER  "Holster"
 #define ACCESSORY_SLOT_ARMBAND  "Armband"
 #define ACCESSORY_SLOT_RANK     "Rank"
 #define ACCESSORY_SLOT_DEPT		"Department"
@@ -190,8 +189,7 @@
 
 // Hair Flags
 #define VERY_SHORT 0x1
-#define HAIR_TRIPPABLE 0x2
-#define HAIR_TIEABLE 0x4
+#define HAIR_TIEABLE 0x2
 
 //flags to determine if an eyepiece is a hud.
 #define HUD_SCIENCE 0x1

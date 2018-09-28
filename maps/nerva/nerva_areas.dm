@@ -3,22 +3,6 @@
 //this is just the Wyrm areas right now, but is in flux as I add/remove areas
 
 //////////////////////////////////////
-//			HALLWAYS				//
-//////////////////////////////////////
-
-/area/hallway/primary/fore
-	name = "\improper Fore Primary Hallway"
-	icon_state = "hallF"
-
-/area/hallway/primary/aft
-	name = "\improper Aft Primary Hallway"
-	icon_state = "hallA"
-
-/area/hallway/primary/central
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC1"
-
-//////////////////////////////////////
 //			COMMAND					//
 //////////////////////////////////////
 
@@ -44,7 +28,7 @@
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/command/headquarters
-	name = "\improper Officer's Quarters"
+	name = "\improper Officers' Quarters"
 
 /area/command/fo
 	name = "\improper First Officer's Office"
@@ -95,6 +79,9 @@
 
 /area/civilian
 	icon_state = "green"
+
+/area/civilian/observatory
+	name = "\improper Starboard Observatory"
 
 /area/civilian/cryo1
 	name = "\improper Primary Cryogenic Storage"
@@ -148,6 +135,9 @@
 /area/civilian/sbobserve
 	name = "\improper Starboard Observatory"
 
+/area/civilian/abandonedoffice
+	name = "\improper Abandoned Office"
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////
@@ -162,6 +152,10 @@
 /area/security/checkpoint
 	name = "\improper Brig Checkpoint"
 	icon_state = "Warden"
+
+/area/security/hangercheckpoint
+	name = "\improper Hangar Checkpoint"
+	icon_state = "checkpoint1"
 
 /area/security/cosoffice
 	name = "\improper Chief of Security's Office"
@@ -189,36 +183,53 @@
 	name = "\improper Tactical Armory"
 	icon_state = "Warden"
 
+/area/security/boardarmoury
+	name = "\improper Boarding Armory"
+	icon_state = "Warden"
+
+/area/security/lockers
+	name = "\improper Security Locker Room"
+
+/area/security/portgun
+	name = "\improper Port Gunnery Room"
+	icon_state = "LP"
+
+/area/security/starboardgun
+	name = "\improper Starboard Gunnery Room"
+	icon_state = "LP"
+
+/area/security/bottomgun
+	name = "\improper Bottom Deck Gunnery Room"
+	icon_state = "LP"
+
 //////////////////////////////////////
 //			SCIENCE					//
 //////////////////////////////////////
 
-/area/science
+/area/rnd
 	icon_state = "research"
 
-/area/science/entrance
-	name = "\improper Science Wing Entrance"
+/area/rnd/office
+	name = "\improper Nanotrasen Office"
 
-/area/science/robotics
-	name = "\improper Robotics Lab"
+/area/rnd/chemlab
+	name = "\improper Research Chemistry Lab"
 
-/area/science/rnd
-	name = "\improper Research and Development Lab"
+///area/rnd/xenobio
+//	name = "\improper Xenobiology Wing"
+//	icon_state = "xeno_lab"
 
-/area/science/hallway
-	name = "\improper Science Wing Hallway"
+///area/rnd/xenoarch
+//	name = "\improper Xenoarcheology Lab"
+//	icon_state = "anomaly"
 
-/area/science/xenobio
-	name = "\improper Xenobiology Wing"
+/area/rnd/dorms
+	name = "\improper Research Dormitory"
+	icon_state = "blue"
 
-/area/science/xenoarch
-	name = "\improper Xenoarcheology Lab"
-
-/area/science/prep
-	name = "\improper Research Locker Room"
-
-/area/science/shuttleprep
-	name = "\improper Hatchling Preperation Room"
+/area/rnd/storage
+	name = "\improper Research Expedition Prep"
+	icon_state = "exploration"
 
 //////////////////////////////////////
 //			ENGINEERING				//
@@ -306,7 +317,18 @@
 	name = "\improper Fuel Bay"
 
 /area/engineering/fdengine
-	name = "\improper First Deck Engine Bay"
+	name = "\improper Top Deck Engine Bay"
+
+/area/engineering/bdportengine
+	name = "\improper Bottom Deck Port Engine Bay"
+
+/area/engineering/bdstarengine
+	name = "\improper Bottom Deck Starboard Engine Bay"
+
+/area/engineering/drone_fabrication
+	name = "\improper Drone Fabrication"
+	icon_state = "drone_fab"
+	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////
 //			MEDICAL					//
@@ -367,11 +389,13 @@
 /area/logistics
 	icon_state = "yellow"
 
-/area/logistics/desk
-	name = "\improper Logistics Office"
+/area/logistics/qm
+	name = "\improper Quartermaster's Office"
+	icon_state = "quartoffice"
 
 /area/logistics/storage
-	name = "\improper Logistics Storage"
+	name = "\improper Cargo General Storage"
+	icon_state = "quartstorage"
 
 /area/logistics/primtool
 	name = "\improper General Storage"
@@ -379,8 +403,46 @@
 /area/logistics/auxtool
 	name = "\improper Auxiliary Storage"
 
-/area/logistics/loading
-	name = "\improper Loading Bay"
+/area/logistics/uppercargo
+	name = "\improper Upper Cargo Bay"
+
+/area/logistics/lowercargo
+	name = "\improper Lower Cargo Bay"
+
+/area/logistics/lockers
+	name = "\improper Cargo Locker Room"
+	icon_state = "quartstorage"
+
+/area/logistics/fabwork
+	name = "\improper Cargo Fabrication Workshop"
+	icon_state = "quartoffice"
+
+/area/logistics/advwork
+	name = "\improper Cargo Advanced Workshop"
+	icon_state = "quart"
+
+/area/logistics/mailing
+	name = "\improper Mailing Office"
+	icon_state = "quartoffice"
+
+/area/logistics/prep
+	name = "\improper Cargo Expedition Prep"
+	icon_state = "exploration"
+
+/area/logistics/genprep
+	name = "\improper General Expedition Prep"
+	icon_state = "exploration"
+
+/area/logistics/robotics
+	name = "\improper Robotics Lab"
+	icon_state = "research"
+
+/area/logistics/mechbay
+	name = "\improper Mech Bay"
+	icon_state = "mechbay"
+
+/area/logistics/hangar
+	name = "\improper Hangar"
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -391,45 +453,86 @@
 //			MAINTENANCE				//
 //////////////////////////////////////
 
-/area/maintenance/primary/fs
-	name = "\improper Fore Starboard Maintenance"
+//first deck
+
+/area/maintenance/first_deck/fs
+	name = "\improper First Deck Fore Starboard Maintenance"
 	icon_state = "fsmaint"
 
-/area/maintenance/primary/fp
-	name = "\improper Fore Port Maintenance"
+/area/maintenance/first_deck/fp
+	name = "\improper First Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
 
-/area/maintenance/primary/sec
-	name = "\improper Security Maintenance"
-	icon_state = "maint_security_starboard"
-
-/area/maintenance/primary/med
-	name = "\improper Medical Maintenance"
-	icon_state = "maint_medical"
-
-/area/maintenance/primary/engs
-	name = "\improper Engineering Starboard Maintenance"
+/area/maintenance/first_deck/afs
+	name = "\improper First Deck Aft Starboard Maintenance"
 	icon_state = "maint_engineering"
 
-/area/maintenance/primary/engp
-	name = "\improper Engineering Port Maintenance"
-	icon_state = "maint_engineering"
-
-/area/maintenance/sub/fore
-	name = "\improper Fore Sub Deck Maintenance"
-	icon_state = "fmaint"
-
-/area/maintenance/sub/aft
-	name = "\improper Aft Sub Deck Maintenance"
+/area/maintenance/first_deck/afp
+	name = "\improper First Deck Aft Port Maintenance"
 	icon_state = "amaint"
 
-/area/maintenance/drone
-	name = "\improper Maintenance Drone Production"
+/area/maintenance/first_deck/central
+	name = "\improper First Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+//second deck
+
+/area/maintenance/second_deck/fs
+	name = "\improper Second Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/second_deck/fp
+	name = "\improper Second Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/second_deck/centp
+	name = "\improper Second Deck Central Port Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/second_deck/cents
+	name = "\improper Second Deck Central Port Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/second_deck/afs
+	name = "\improper Second Deck Aft Starboard Maintenance"
 	icon_state = "maint_engineering"
 
-/area/maintenance/construction
-	name = "\improper Construction Room"
+/area/maintenance/second_deck/afp
+	name = "\improper Second Deck Aft Port Maintenance"
+	icon_state = "amaint"
 
+/area/maintenance/second_deck/central
+	name = "\improper Second Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+//third deck
+
+/area/maintenance/third_deck/fs
+	name = "\improper Third Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/third_deck/fp
+	name = "\improper Third Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/third_deck/afs
+	name = "\improper Third Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/third_deck/afp
+	name = "\improper Third Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/third_deck/central
+	name = "\improper Third Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/third_deck/disposals
+	name = "\improper Waste Disposal"
+	icon_state = "disposal"
+
+/area/maintenance/exterior
+	name = "\improper Exterior Maintenance"
 
 //////////////////////////////////////
 //			HALLWAYS   				//
@@ -456,16 +559,33 @@
 /area/hallway/fore/second
 	name = "\improper Fore Second Deck Hallway"
 
+/area/hallway/central/second
+	name = "\improper Central Second Deck Hallway"
+	icon_state = "hallC1"
+
 /area/hallway/aft/second
 	name = "\improper Aft Second Deck Hallway"
+
+/area/hallway/commandoffices
+	name = "\improper Command Offices Hallway"
+	icon_state = "hallC1"
+
+/area/hallway/commandport
+	name = "\improper Command Port Hallway"
+	icon_state = "hallP"
+
+/area/hallway/commandstarboard
+	name = "\improper Command Starboard Hallway"
+	icon_state = "hallS"
 
 //bottom deck
 
 /area/hallway/centralthird
 	name = "\improper Primary Third Deck Hallway"
 	icon_state = "hallC1"
+
 //////////////////////////////////////
-//			Z-LEVEL 3 / ADMIN		//
+//			Z-LEVEL 4 / ADMIN		//
 //////////////////////////////////////
 
 /area/holodeck

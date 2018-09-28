@@ -1,7 +1,9 @@
 var/const/NETWORK_FIRST_DECK		= "First Deck" //top
 var/const/NETWORK_SECOND_DECK		= "Second Deck" //central
 var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom
-var/const/NETWORK_COMMAND		= "Command"
+var/const/NETWORK_COMMAND			= "Command"
+var/const/NETWORK_CARGO				= "Cargo"
+var/const/NETWORK_TRAJAN     		= "Trajan"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
@@ -17,6 +19,8 @@ var/const/NETWORK_COMMAND		= "Command"
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
 		NETWORK_RESEARCH,
+		NETWORK_CARGO,
+		NETWORK_TRAJAN,
 		NETWORK_MINE,
 		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
@@ -52,6 +56,12 @@ var/const/NETWORK_COMMAND		= "Command"
 /obj/machinery/camera/network/engineering
 	network = list(NETWORK_ENGINEERING)
 
+/obj/machinery/camera/network/cargo
+	network = list(NETWORK_CARGO)
+
+/obj/machinery/camera/network/trajan
+	network = list(NETWORK_TRAJAN)
+
 // Motion
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
@@ -59,3 +69,26 @@ var/const/NETWORK_COMMAND		= "Command"
 // X-ray
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
+
+/obj/machinery/camera/xray/first_deck //for officers dorms
+	network = list(NETWORK_FIRST_DECK)
+
+/obj/machinery/camera/xray/command //for the bridge
+	network = list(NETWORK_COMMAND)
+
+/obj/machinery/power/smes/buildable/preset/nerva/shuttle/configure_and_install_coils()
+	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	_input_maxed = TRUE
+	_output_maxed = TRUE
+	_input_on = TRUE
+	_output_on = TRUE
+	_fully_charged = TRUE
+
+/obj/machinery/power/smes/buildable/preset/nerva/hangar/configure_and_install_coils()
+	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	_input_maxed = TRUE
+	_output_maxed = TRUE
+	_input_on = TRUE
+	_output_on = TRUE
+	_fully_charged = TRUE

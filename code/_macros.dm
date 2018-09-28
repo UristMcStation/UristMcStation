@@ -55,6 +55,8 @@
 
 #define isspace(A) istype(A, /area/space)
 
+#define isplanet(A) istype(A, /area/jungle)
+
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
 
 #define isrobot(A) istype(A, /mob/living/silicon/robot)
@@ -172,3 +174,7 @@
 #define FLAGS_EQUALS(flag, flags) ((flag & (flags)) == (flags))
 
 #define JOINTEXT(X) jointext(X, null)
+
+#define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
+
+#define SPAN_WARNING(X) "<span class='warning'>[X]</span>"

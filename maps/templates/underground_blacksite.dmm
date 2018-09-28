@@ -41,7 +41,7 @@
 "aO" = (/obj/structure/table/gamblingtable,/obj/item/weapon/storage/fancy/cigar,/turf/simulated/floor/carpet,/area/mine/unexplored)
 "aP" = (/obj/machinery/camera{c_tag = "Blacksite Lobby"; dir = 1; network = list("Exodus")},/obj/effect/floor_decal/corner/black{dir = 10},/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aQ" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
-"aR" = (/obj/structure/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/item/weapon/storage/mirror{dir = 4; pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
+"aR" = (/obj/structure/hygiene/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/item/weapon/storage/mirror{dir = 4; pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aS" = (/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aT" = (/obj/structure/closet/secure_closet/injection,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aU" = (/obj/structure/filingcabinet/chestdrawer,/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/simulated/floor/carpet,/area/mine/unexplored)

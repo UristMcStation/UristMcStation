@@ -1,6 +1,6 @@
 /obj/effect/overmap/sector/station
 	var/faction = null
-	var/list/spawn_type = list()
+	var/spawn_type = null
 	var/mob/living/spawned_ship
 	var/spawn_time_high = 2400
 	var/spawn_time_low = 1200
@@ -18,7 +18,7 @@
 	else
 		..()
 
-/obj/effect/overmap/sector/station/New()
+/*/obj/effect/overmap/sector/station/New()
 	..()
 	if(!spawn_type)
 		var/new_type = pick(typesof(/obj/effect/overmap/sector/station) - /obj/effect/overmap/sector/station)
@@ -53,3 +53,4 @@
 			qdel(M)
 	else
 		..()
+*/

@@ -43,21 +43,25 @@
 		if ("remove_area")
 			delete_area()
 
-/obj/item/blueprints/interact()
+/obj/item/blueprints/interact() //test
 	var/area/A = getArea(usr)
 	var/text = "<HTML><head><title>[src]</title></head><BODY>"
 	text += "<p>According to the blueprints, you are now in <b>[A.name]</b>.</p>"
 	if(!istype(A, /area/turbolift))
-		text += "<br>" + (isspace(A) ? "<a href='?src=\ref[src];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
-		text += "<br>" + (isspace(A) ? "Modify Area - You can't edit space!" : "<a href='?src=\ref[src];action=edit_area'>Modify Area</a>")
-		text += "<br>" + (isspace(A) ? "Merge Areas - You can't combine space!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=\ref[src];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
-		text += "<br>" + (isspace(A) ? "Add to Area - You can't add to space!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=\ref[src];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
-		text += "<br>" + (isspace(A) ? "Remove Area - You can't remove space!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=\ref[src];action=remove_area'>Remove Area</a>")
+		text += "<br>" + (CheckArea(A) ? "<a href='?src=\ref[src];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
+		text += "<br>" + (CheckArea(A) ? "Modify Area - You can't edit this area!" : "<a href='?src=\ref[src];action=edit_area'>Modify Area</a>")
+		text += "<br>" + (CheckArea(A) ? "Merge Areas - You can't combine this area!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=\ref[src];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
+		text += "<br>" + (CheckArea(A) ? "Add to Area - You can't add to this area!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=\ref[src];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
+		text += "<br>" + (CheckArea(A) ? "Remove Area - You can't remove this area!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=\ref[src];action=remove_area'>Remove Area</a>")
 	else
 		text += "You may not touch turbolifts"
 		text += "</BODY></HTML>"
 	usr << browse(text, "window=blueprints")
 	onclose(usr, "blueprints")
+
+/obj/item/blueprints/proc/CheckArea(var/area/A)
+	if(isspace(A) || isplanet(A))
+		return 1
 
 /obj/item/blueprints/proc/getArea(var/o)
 	var/turf/T = get_turf(o)
@@ -172,7 +176,7 @@
 		var/turf/T = get_step(usr, dir)
 		var/area/area = getArea(T)
 		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
-			if(n || !isspace(area))
+			if(n || !isspace(area) || !isplanet(area))
 				areas.Add(area)
 	if(!areas.len)
 		return 0
@@ -181,7 +185,7 @@
 
 /obj/item/blueprints/proc/delete_area()
 	var/area/A = getArea(usr)
-	if (isspace(A) || A.apc) //let's just check this one last time, just in case
+	if (isspace(A) || isplanet(A) || A.apc) //let's just check this one last time, just in case
 		interact()
 		return
 	to_chat(usr, "<span class='notice'>You scrub [A.name] off the blueprint.</span>")
@@ -219,12 +223,15 @@
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (istype(T2, /turf/simulated/shuttle))
 		return BORDER_SPACE
-	if (!isspace(T2.loc))
+	if(istype(T2, /turf/simulated/floor/planet))
+		return BORDER_SPACE
+	if (!isspace(T2.loc) || !isplanet(T2.loc))
 		return BORDER_BETWEEN
 	if (istype(T2, /turf/simulated/wall))
 		return BORDER_2NDTILE
 	if (!istype(T2, /turf/simulated))
 		return BORDER_BETWEEN
+
 
 	for (var/obj/structure/window/W in T2)
 		if(turn(dir,180) == W.dir)

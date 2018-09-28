@@ -1,30 +1,30 @@
 /datum/map/torch
 	species_to_job_whitelist = list(
+		/datum/species/adherent = list(/datum/job/assistant),
 		/datum/species/nabber = list(/datum/job/ai, /datum/job/cyborg, /datum/job/janitor, /datum/job/scientist_assistant, /datum/job/chemist,
 		/datum/job/roboticist, /datum/job/cargo_contractor, /datum/job/chef, /datum/job/engineer_contractor, /datum/job/doctor_contractor, /datum/job/bartender),
 		/datum/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
 	)
 
-#define HUMAN_ONLY_JOBS /datum/job/captain, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/hos, /datum/job/representative, /datum/job/sea, /datum/job/pathfinder, /datum/job/warden
+#define HUMAN_ONLY_JOBS /datum/job/captain, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/hos, /datum/job/representative, /datum/job/sea, /datum/job/pathfinder
 	species_to_job_blacklist = list(
-		/datum/species/unathi  = list(HUMAN_ONLY_JOBS, /datum/job/liaison), //Other jobs unavailable via branch restrictions,
+		/datum/species/unathi  = list(HUMAN_ONLY_JOBS, /datum/job/liaison, /datum/job/warden), //Other jobs unavailable via branch restrictions,
 		/datum/species/skrell  = list(HUMAN_ONLY_JOBS),
-		/datum/species/tajaran = list(HUMAN_ONLY_JOBS),
 		/datum/species/machine = list(HUMAN_ONLY_JOBS),
-		/datum/species/diona   = list(HUMAN_ONLY_JOBS, /datum/job/guard, /datum/job/officer),	//Other jobs unavailable via branch restrictions,
+		/datum/species/diona   = list(HUMAN_ONLY_JOBS, /datum/job/guard, /datum/job/officer, /datum/job/rd, /datum/job/liaison, /datum/job/warden),	//Other jobs unavailable via branch restrictions,
 	)
 #undef HUMAN_ONLY_JOBS
 
 	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/rd, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/hos,
 						/datum/job/liaison, /datum/job/representative, /datum/job/sea,
-						/datum/job/bridgeofficer, /datum/job/pathfinder, /datum/job/explorer,
+						/datum/job/bridgeofficer, /datum/job/pathfinder, /datum/job/nt_pilot, /datum/job/explorer,
 						/datum/job/senior_engineer, /datum/job/engineer, /datum/job/engineer_contractor, /datum/job/roboticist, /datum/job/engineer_trainee,
 						/datum/job/officer, /datum/job/warden, /datum/job/detective,
 						/datum/job/senior_doctor, /datum/job/doctor, /datum/job/doctor_contractor,/datum/job/chemist, /datum/job/medical_trainee,
 						/datum/job/psychiatrist,
-						/datum/job/qm, /datum/job/cargo_tech, /datum/job/cargo_contractor,
+						/datum/job/qm, /datum/job/cargo_tech, /datum/job/cargo_contractor, /datum/job/mining,
 						/datum/job/janitor, /datum/job/chef, /datum/job/bartender,
-						/datum/job/senior_scientist, /datum/job/nt_pilot, /datum/job/scientist, /datum/job/mining, /datum/job/guard, /datum/job/scientist_assistant,
+						/datum/job/senior_scientist, /datum/job/scientist, /datum/job/guard, /datum/job/scientist_assistant,
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/crew, /datum/job/assistant,
 						/datum/job/merchant, /datum/job/stowaway
@@ -37,7 +37,7 @@
 		var/datum/job/job = decls_repository.get_decl(job_type)
 		// Most species are restricted from SCG security and command roles
 		if((job.department_flag & (COM)) && job.allowed_branches.len && !(/datum/mil_branch/civilian in job.allowed_branches))
-			for(var/species_name in list(SPECIES_IPC, SPECIES_TAJARA, SPECIES_SKRELL, SPECIES_UNATHI))
+			for(var/species_name in list(SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI))
 				var/datum/species/S = all_species[species_name]
 				var/species_blacklist = species_to_job_blacklist[S.type]
 				if(!species_blacklist)
@@ -48,8 +48,8 @@
 /datum/job/captain
 	title = "Commanding Officer"
 	supervisors = "the Sol Central Government and the Sol Code of Military Justice"
-	minimal_player_age = 21
-	economic_modifier = 15
+	minimal_player_age = 7
+	economic_power = 15
 	ideal_character_age = 50
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/CO
 	allowed_branches = list(
@@ -64,6 +64,10 @@
 						SKILL_PILOT       = SKILL_ADEPT)
 	skill_points = 40
 
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+	skill_points = 30
+
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/card_mod,
 							 /datum/computer_file/program/camera_monitor,
@@ -77,8 +81,8 @@
 	supervisors = "the Commanding Officer"
 	department = "Command"
 	department_flag = COM
-	minimal_player_age = 21
-	economic_modifier = 10
+	minimal_player_age = 7
+	economic_power = 10
 	ideal_character_age = 45
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/XO
 	allowed_branches = list(
@@ -96,18 +100,23 @@
 						SKILL_PILOT       = SKILL_BASIC)
 	skill_points = 40
 
-	access = list(access_security, access_brig, access_armory, access_forensics_lockers,
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+
+	skill_points = 30
+
+	access = list(access_security, access_brig, access_armory, access_forensics_lockers, access_heads,
 			            access_medical, access_morgue, access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_change_ids, access_ai_upload, access_teleporter, access_eva, access_heads,
+			            access_change_ids, access_ai_upload, access_teleporter, access_eva, access_bridge,
 			            access_all_personal_lockers, access_chapel_office, access_tech_storage, access_atmospherics, access_bar, access_janitor, access_crematorium, access_robotics,
 			            access_kitchen, access_cargo, access_construction, access_chemistry, access_cargo_bot, access_hydroponics, access_library, access_virology,
 			            access_cmo, access_qm, access_network, access_surgery, access_mailsorting, access_heads_vault, access_ce,
 			            access_hop, access_hos, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_sec_doors, access_psychiatrist,
 			            access_medical_equip, access_solgov_crew, access_robotics_engineering, access_emergency_armory, access_gun, access_expedition_shuttle, access_guppy,
 			            access_seneng, access_senmed, access_senadv, access_hangar, access_guppy_helm, access_expedition_shuttle_helm, access_aquila, access_aquila_helm, access_explorer, access_pathfinder)
-	minimal_access = list(access_security, access_brig, access_armory, access_forensics_lockers,
+	minimal_access = list(access_security, access_brig, access_armory, access_forensics_lockers, access_heads,
 			            access_medical, access_morgue, access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_change_ids, access_ai_upload, access_teleporter, access_eva, access_heads,
+			            access_change_ids, access_ai_upload, access_teleporter, access_eva, access_bridge,
 			            access_all_personal_lockers, access_chapel_office, access_tech_storage, access_atmospherics, access_bar, access_janitor, access_crematorium,
 			            access_kitchen, access_cargo, access_construction, access_chemistry, access_cargo_bot, access_hydroponics, access_library, access_virology,
 			            access_cmo, access_qm, access_network, access_surgery, access_mailsorting, access_heads_vault, access_ce,
@@ -127,8 +136,8 @@
 /datum/job/rd
 	title = "Research Director"
 	supervisors = "NanoTrasen and the Commanding Officer"
-	economic_modifier = 20
-	minimal_player_age = 14
+	economic_power = 20
+	minimal_player_age = 7
 	ideal_character_age = 60
 	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/rd
 	allowed_branches = list(/datum/mil_branch/civilian)
@@ -143,9 +152,14 @@
 						SKILL_SCIENCE     = SKILL_ADEPT)
 	skill_points = 40
 
-	access = list(access_tox, access_tox_storage, access_emergency_storage, access_teleporter, access_heads, access_rd,
+	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+	skill_points = 30
+
+	access = list(access_tox, access_tox_storage, access_emergency_storage, access_teleporter, access_bridge, access_rd,
 						access_research, access_mining, access_mining_office, access_mining_station, access_xenobiology,
-						access_RC_announce, access_keycard_auth, access_xenoarch, access_nanotrasen, access_sec_guard,
+						access_RC_announce, access_keycard_auth, access_xenoarch, access_nanotrasen, access_sec_guard, access_heads,
 						access_expedition_shuttle, access_guppy, access_hangar, access_petrov, access_petrov_helm, access_guppy_helm)
 	minimal_access = list()
 
@@ -160,8 +174,8 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
 	supervisors = "the Commanding Officer and the Executive Officer"
-	economic_modifier = 10
-	minimal_player_age = 21
+	economic_power = 10
+	minimal_player_age = 7
 	ideal_character_age = 48
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/cmo
 	allowed_branches = list(
@@ -182,8 +196,14 @@
 						SKILL_VIROLOGY    = SKILL_BASIC)
 	skill_points = 40
 
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
+	skill_points = 32
+
 	access = list(access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_teleporter, access_eva, access_heads,
+			            access_teleporter, access_eva, access_bridge, access_heads,
 			            access_chapel_office, access_crematorium, access_chemistry, access_virology,
 			            access_cmo, access_surgery, access_RC_announce, access_keycard_auth, access_psychiatrist,
 			            access_medical_equip, access_solgov_crew, access_senmed, access_hangar)
@@ -200,9 +220,9 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	supervisors = "the Commanding Officer and the Executive Officer"
-	economic_modifier = 9
+	economic_power = 9
 	ideal_character_age = 40
-	minimal_player_age = 21
+	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/chief_engineer
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
@@ -224,12 +244,12 @@
 	skill_points = 32
 
 	access = list(access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_ai_upload, access_teleporter, access_eva, access_heads,
+			            access_ai_upload, access_teleporter, access_eva, access_bridge, access_heads,
 			            access_tech_storage, access_robotics, access_atmospherics, access_janitor, access_construction,
 			            access_network, access_ce, access_RC_announce, access_keycard_auth, access_tcomsat,
 			            access_solgov_crew, access_robotics_engineering, access_seneng, access_hangar, access_robotics)
 	minimal_access = list(access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_ai_upload, access_teleporter, access_eva, access_heads,
+			            access_ai_upload, access_teleporter, access_eva, access_bridge, access_heads,
 			            access_tech_storage, access_atmospherics, access_janitor, access_construction,
 			            access_network, access_ce, access_RC_announce, access_keycard_auth, access_tcomsat,
 			            access_solgov_crew, access_robotics_engineering, access_seneng, access_hangar, access_robotics)
@@ -251,8 +271,8 @@
 /datum/job/hos
 	title = "Chief of Security"
 	supervisors = "the Commanding Officer and the Executive Officer"
-	economic_modifier = 8
-	minimal_player_age = 21
+	economic_power = 8
+	minimal_player_age = 7
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/cos
 	allowed_branches = list(
@@ -274,9 +294,9 @@
 
 	access = list(access_security, access_brig, access_armory, access_forensics_lockers,
 			            access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_teleporter, access_eva, access_heads,
+			            access_teleporter, access_eva, access_bridge, access_heads,
 			            access_hos, access_RC_announce, access_keycard_auth, access_sec_doors,
-			            access_solgov_crew, access_gun, access_emergency_armory)
+			            access_solgov_crew, access_gun, access_emergency_armory, access_hangar)
 	minimal_access = list()
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
@@ -296,8 +316,8 @@
 	spawn_positions = 1
 	supervisors = "NanoTrasen and Corporate Regulations"
 	selection_color = "#2f2f7f"
-	economic_modifier = 15
-	minimal_player_age = 10
+	economic_power = 15
+	minimal_player_age = 0
 	alt_titles = list(
 		"NanoTrasen Representative",
 		"NanoTrasen Executive"
@@ -305,11 +325,11 @@
 	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/cl
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/nt)
-	min_skill = list(	SKILL_BUREAUCRACY	= SKILL_EXPERT,
-						SKILL_FINANCE		= SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY	= SKILL_EXPERT,
+	                    SKILL_FINANCE		= SKILL_BASIC)
 	skill_points = 20
 
-	access = list(access_liaison, access_tox, access_tox_storage, access_heads, access_research,
+	access = list(access_liaison, access_tox, access_tox_storage, access_bridge, access_research,
 						access_mining, access_mining_office, access_mining_station, access_xenobiology,
 						access_xenoarch, access_nanotrasen, access_sec_guard,
 						access_hangar, access_petrov, access_petrov_helm)
@@ -328,20 +348,17 @@
 	spawn_positions = 1
 	supervisors = "the Sol Central Government and the SCG Charter"
 	selection_color = "#2f2f7f"
-	economic_modifier = 15
-	minimal_player_age = 10
-	alt_titles = list(
-		"Inspector General"
-		)
+	economic_power = 15
+	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/representative
-	allowed_branches = list(/datum/mil_branch/civilian)
-	allowed_ranks = list(/datum/mil_rank/civ/civ)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_EXPERT,
-						SKILL_FINANCE     = SKILL_BASIC)
+	allowed_branches = list(/datum/mil_branch/solgov)
+	allowed_ranks = list(/datum/mil_rank/sol/gov)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_EXPERT,
+	                    SKILL_FINANCE     = SKILL_BASIC)
 	skill_points = 20
 
-	access = list(access_representative, access_security,access_medical, access_engine,
-			            access_heads, access_cargo, access_solgov_crew, access_hangar)
+	access = list(access_representative, access_security, access_medical,
+			            access_bridge, access_cargo, access_solgov_crew, access_hangar)
 
 	software_on_spawn = list(/datum/computer_file/program/reports)
 
@@ -357,8 +374,8 @@
 	spawn_positions = 1
 	supervisors = "the Commanding Officer and the Executive Officer"
 	selection_color = "#2f2f7f"
-	minimal_player_age = 21
-	economic_modifier = 8
+	minimal_player_age = 7
+	economic_power = 8
 	ideal_character_age = 45
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/sea/fleet
 	allowed_branches = list(
@@ -377,7 +394,7 @@
 
 
 	access = list(access_security, access_medical, access_engine, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
-			            access_teleporter, access_eva, access_heads, access_all_personal_lockers, access_janitor,
+			            access_teleporter, access_eva, access_bridge, access_all_personal_lockers, access_janitor,
 			            access_kitchen, access_cargo, access_RC_announce, access_keycard_auth, access_guppy_helm,
 			            access_solgov_crew, access_gun, access_expedition_shuttle, access_guppy, access_senadv, access_hangar, access_emergency_armory)
 
@@ -396,8 +413,8 @@
 	spawn_positions = 2
 	supervisors = "the Commanding Officer and heads of staff"
 	selection_color = "#2f2f7f"
-	minimal_player_age = 18
-	economic_modifier = 7
+	minimal_player_age = 0
+	economic_power = 7
 	ideal_character_age = 24
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/command/bridgeofficer
 	allowed_branches = list(
@@ -415,7 +432,7 @@
 
 
 	access = list(access_security, access_medical, access_engine, access_maint_tunnels, access_emergency_storage,
-			            access_heads, access_janitor, access_kitchen, access_cargo, access_RC_announce, access_keycard_auth,
+			            access_bridge, access_janitor, access_kitchen, access_cargo, access_RC_announce, access_keycard_auth,
 			            access_solgov_crew, access_aquila, access_aquila_helm, access_guppy, access_guppy_helm, access_external_airlocks,
 			            access_eva, access_hangar, access_cent_creed, access_explorer)
 
@@ -441,8 +458,8 @@
 	spawn_positions = 1
 	supervisors = "the Commanding Officer and the Executive Officer"
 	selection_color = "#68099e"
-	minimal_player_age = 7
-	economic_modifier = 7
+	minimal_player_age = 1
+	economic_power = 7
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/exploration/pathfinder
 	allowed_branches = list(/datum/mil_branch/expeditionary_corps)
@@ -456,13 +473,48 @@
 						SKILL_PILOT       = SKILL_BASIC)
 	skill_points = 24
 
-	access = list(access_pathfinder, access_explorer, access_eva, access_maint_tunnels, access_heads, access_emergency_storage, access_tech_storage, access_guppy_helm, access_solgov_crew, access_expedition_shuttle, access_expedition_shuttle_helm, access_guppy, access_hangar, access_cent_creed)
+	access = list(access_pathfinder, access_explorer, access_eva, access_maint_tunnels, access_bridge, access_emergency_storage, access_tech_storage, access_guppy_helm, access_solgov_crew, access_expedition_shuttle, access_expedition_shuttle_helm, access_guppy, access_hangar, access_cent_creed)
 
 	software_on_spawn = list(/datum/computer_file/program/deck_management,
 							 /datum/computer_file/program/reports)
 
 /datum/job/pathfinder/get_description_blurb()
 	return "You are the Pathfinder. Your duty is to organize and lead the expeditions to away sites, carrying out the EC’s Primary Mission. You command Explorers. You make sure that expedition has the supplies and personnel it needs. You can pilot Charon if NT doesn’t provide their pilot. Once on the away mission, your duty is to ensure that anything of scientific interest is brought back to the ship and passed to the relevant research lab."
+
+/datum/job/nt_pilot
+	title = "Shuttle Pilot"
+	supervisors = "the Pathfinder"
+	department = "Exploration"
+	department_flag = EXP
+
+	total_positions = 1
+	spawn_positions = 1
+	selection_color = "#68099e"
+	economic_power = 10
+	minimal_player_age = 0
+	ideal_character_age = 25
+	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/pilot
+	allowed_branches = list(
+		/datum/mil_branch/civilian,
+		/datum/mil_branch/expeditionary_corps = /decl/hierarchy/outfit/job/torch/crew/exploration/pilot,
+		/datum/mil_branch/fleet = /decl/hierarchy/outfit/job/torch/crew/exploration/pilot/fleet
+	)
+	allowed_ranks = list(
+		/datum/mil_rank/civ/contractor,
+		/datum/mil_rank/civ/nt = /decl/hierarchy/outfit/job/torch/passenger/research/nt_pilot,
+		/datum/mil_rank/ec/e7,
+		/datum/mil_rank/fleet/e6,
+		/datum/mil_rank/fleet/e7
+	)
+
+	access = list(access_mining_office,
+						access_mining_station, access_expedition_shuttle, access_expedition_shuttle_helm, access_guppy,
+						access_hangar, access_guppy_helm, access_mining, access_pilot, access_solgov_crew, access_eva)
+	min_skill = list(	SKILL_EVA   = SKILL_BASIC,
+						SKILL_PILOT = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
 
 /datum/job/explorer
 	title = "Explorer"
@@ -480,7 +532,12 @@
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/ec/e5
 	)
-	min_skill = list(	SKILL_EVA = SKILL_BASIC)
+	min_skill = list(   SKILL_EVA = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX,
+	                    SKILL_COMBAT      = SKILL_EXPERT,
+	                    SKILL_WEAPONS     = SKILL_EXPERT)
 
 	access = list(access_explorer, access_maint_tunnels, access_eva, access_emergency_storage, access_guppy_helm, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar, access_cent_creed)
 
@@ -498,8 +555,8 @@
 	spawn_positions = 1
 	supervisors = "the Chief Engineer"
 	selection_color = "#5b4d20"
-	economic_modifier = 6
-	minimal_player_age = 14
+	economic_power = 6
+	minimal_player_age = 3
 	ideal_character_age = 40
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/engineering/senior_engineer
 	allowed_branches = list(
@@ -511,8 +568,6 @@
 		/datum/mil_rank/ec/e7,
 		/datum/mil_rank/fleet/e7,
 		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/ec/e5
 	)
 	min_skill = list(	SKILL_MANAGEMENT   = SKILL_BASIC,
 						SKILL_COMPUTER     = SKILL_BASIC,
@@ -543,8 +598,8 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the Chief Engineer"
-	economic_modifier = 5
-	minimal_player_age = 7
+	economic_power = 5
+	minimal_player_age = 0
 	ideal_character_age = 30
 	alt_titles = list(
 		"Maintenance Technician",
@@ -567,12 +622,18 @@
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/fleet/e2
 	)
-	min_skill = list(	SKILL_COMPUTER     = SKILL_BASIC,
-						SKILL_EVA          = SKILL_BASIC,
-						SKILL_CONSTRUCTION = SKILL_ADEPT,
-						SKILL_ELECTRICAL   = SKILL_BASIC,
-						SKILL_ATMOS        = SKILL_BASIC,
-						SKILL_ENGINES      = SKILL_BASIC)
+	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
+	                    SKILL_EVA          = SKILL_BASIC,
+	                    SKILL_CONSTRUCTION = SKILL_ADEPT,
+	                    SKILL_ELECTRICAL   = SKILL_BASIC,
+	                    SKILL_ATMOS        = SKILL_BASIC,
+	                    SKILL_ENGINES      = SKILL_BASIC)
+
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX)
+	skill_points = 20
 
 	access = list(access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_teleporter, access_eva, access_tech_storage, access_atmospherics, access_janitor, access_construction,
@@ -598,7 +659,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Engineer and Engineering Personnel"
-	minimal_player_age = 7
+	minimal_player_age = 0
 	selection_color = "#5b4d20"
 	alt_titles = list(
 		"Maintenance Assistant",
@@ -610,12 +671,17 @@
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/engineering/contractor
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_COMPUTER      = SKILL_BASIC,
-						SKILL_EVA           = SKILL_BASIC,
-						SKILL_CONSTRUCTION	= SKILL_BASIC,
-						SKILL_ELECTRICAL    = SKILL_BASIC,
-						SKILL_ATMOS         = SKILL_BASIC,
-						SKILL_ENGINES       = SKILL_BASIC)
+	min_skill = list(   SKILL_COMPUTER      = SKILL_BASIC,
+	                    SKILL_EVA           = SKILL_BASIC,
+	                    SKILL_CONSTRUCTION	= SKILL_BASIC,
+	                    SKILL_ELECTRICAL    = SKILL_BASIC,
+	                    SKILL_ATMOS         = SKILL_BASIC,
+	                    SKILL_ENGINES       = SKILL_BASIC)
+
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX)
 	skill_points = 20
 
 	access = list(access_engine, access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
@@ -657,13 +723,18 @@
 	skill_points = 4
 	no_skill_buffs = TRUE
 
-	min_skill = list(	SKILL_COMPUTER     = SKILL_BASIC,
-						SKILL_HAULING      = SKILL_ADEPT,
-						SKILL_EVA          = SKILL_ADEPT,
-						SKILL_CONSTRUCTION = SKILL_ADEPT,
-						SKILL_ELECTRICAL   = SKILL_ADEPT,
-						SKILL_ATMOS        = SKILL_ADEPT,
-						SKILL_ENGINES      = SKILL_ADEPT)
+	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
+	                    SKILL_HAULING      = SKILL_ADEPT,
+	                    SKILL_EVA          = SKILL_ADEPT,
+	                    SKILL_CONSTRUCTION = SKILL_ADEPT,
+	                    SKILL_ELECTRICAL   = SKILL_ADEPT,
+	                    SKILL_ATMOS        = SKILL_ADEPT,
+	                    SKILL_ENGINES      = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX)
 
 	access = list(access_engine_equip, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_eva, access_tech_storage, access_janitor, access_construction,
@@ -688,18 +759,27 @@
 
 	total_positions = 1
 	spawn_positions = 1
+	minimal_player_age = 0
 	supervisors = "the Chief Engineer and the Chief Medical Officer"
 	selection_color = "#5b4d20"
-	economic_modifier = 6
+	economic_power = 6
 	alt_titles = list(
 		"Biomechanical Engineer",
 		"Mechsuit Technician")
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/engineering/roboticist
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_COMPUTER		= SKILL_ADEPT,
-						SKILL_MECH = SKILL_ADEPT,
-						SKILL_DEVICES		= SKILL_ADEPT)
+	min_skill = list(   SKILL_COMPUTER		= SKILL_ADEPT,
+	                    SKILL_MECH          = SKILL_ADEPT,
+	                    SKILL_DEVICES		= SKILL_ADEPT)
+
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX,
+	                    SKILL_DEVICES      = SKILL_MAX,
+	                    SKILL_ANATOMY      = SKILL_MAX,
+	                    SKILL_MEDICAL      = SKILL_MAX)
 
 	access = list(access_robotics, access_robotics_engineering, access_tech_storage, access_morgue, access_medical, access_robotics_engineering, access_solgov_crew)
 	minimal_access = list()
@@ -712,8 +792,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Chief of Security"
-	economic_modifier = 5
-	minimal_player_age = 14
+	economic_power = 5
+	minimal_player_age = 7
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/security/brig_officer
 	allowed_branches = list(
@@ -723,10 +803,8 @@
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e8,
 		/datum/mil_rank/ec/e7,
-		/datum/mil_rank/ec/e5,
 		/datum/mil_rank/fleet/e7,
 		/datum/mil_rank/fleet/e6,
-		/datum/mil_rank/fleet/e5
 	)
 	min_skill = list(	SKILL_MANAGEMENT  = SKILL_BASIC,
 						SKILL_BUREAUCRACY = SKILL_ADEPT,
@@ -749,7 +827,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Chief of Security"
-	economic_modifier = 5
+	economic_power = 5
 	minimal_player_age = 7
 	ideal_character_age = 35
 	alt_titles = list(
@@ -758,8 +836,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
+		/datum/mil_branch/civilian = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/contractor,
 		/datum/mil_branch/fleet = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/fleet,
-		/datum/mil_branch/civilian
+		/datum/mil_branch/solgov = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/agent
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/fleet/e3,
@@ -767,15 +846,19 @@
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/fleet/e4,
 		/datum/mil_rank/fleet/e5,
-		/datum/mil_rank/civ/contractor = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/contractor,
-		/datum/mil_rank/civ/marshal = /decl/hierarchy/outfit/job/torch/crew/security/forensic_tech/marshal
+		/datum/mil_rank/civ/contractor,
+		/datum/mil_rank/sol/agent
 	)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_COMPUTER    = SKILL_BASIC,
-						SKILL_EVA         = SKILL_BASIC,
-						SKILL_COMBAT      = SKILL_BASIC,
-						SKILL_WEAPONS     = SKILL_BASIC,
-						SKILL_FORENSICS   = SKILL_ADEPT)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_COMPUTER    = SKILL_BASIC,
+	                    SKILL_EVA         = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_BASIC,
+	                    SKILL_FORENSICS   = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX,
+	                    SKILL_FORENSICS   = SKILL_MAX)
 	skill_points = 20
 
 	access = list(access_security, access_brig, access_forensics_lockers,
@@ -791,26 +874,30 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the Chief of Security"
-	economic_modifier = 4
-	minimal_player_age = 10
+	economic_power = 4
+	minimal_player_age = 7
 	ideal_character_age = 25
 	alt_titles = list()
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/security/maa
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps,
-		/datum/mil_branch/fleet = /decl/hierarchy/outfit/job/torch/crew/security/maa/fleet
+		/datum/mil_branch/fleet = /decl/hierarchy/outfit/job/torch/crew/security/maa/fleet,
 	)
 	allowed_ranks = list(
 		/datum/mil_rank/ec/e3,
 		/datum/mil_rank/fleet/e2,
 		/datum/mil_rank/fleet/e3,
-		/datum/mil_rank/fleet/e4
+		/datum/mil_rank/fleet/e4,
 	)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_EVA         = SKILL_BASIC,
-						SKILL_COMBAT      = SKILL_BASIC,
-						SKILL_WEAPONS     = SKILL_ADEPT,
-						SKILL_FORENSICS   = SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_EVA         = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_ADEPT,
+	                    SKILL_FORENSICS   = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX,
+	                    SKILL_FORENSICS   = SKILL_MAX)
 
 	access = list(access_security, access_brig, access_maint_tunnels,
 						access_external_airlocks, access_emergency_storage,
@@ -825,13 +912,13 @@
 	department = "Medical"
 	department_flag = MED
 
-	minimal_player_age = 14
+	minimal_player_age = 2
 	ideal_character_age = 45
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013d3b"
-	economic_modifier = 8
+	economic_power = 8
 	alt_titles = list(
 		"Surgeon",
 		"Trauma Surgeon")
@@ -845,11 +932,16 @@
 		/datum/mil_rank/fleet/o2,
 		/datum/mil_rank/fleet/o1
 	)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_MEDICAL     = SKILL_ADEPT,
-						SKILL_ANATOMY     = SKILL_EXPERT,
-						SKILL_CHEMISTRY   = SKILL_BASIC,
-						SKILL_VIROLOGY    = SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_MEDICAL     = SKILL_ADEPT,
+	                    SKILL_ANATOMY     = SKILL_EXPERT,
+	                    SKILL_CHEMISTRY   = SKILL_BASIC,
+	                    SKILL_VIROLOGY    = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
 	skill_points = 32
 
 	access = list(access_medical, access_morgue, access_virology, access_maint_tunnels, access_emergency_storage,
@@ -864,12 +956,13 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
-	economic_modifier = 7
+	economic_power = 7
 	ideal_character_age = 40
+	minimal_player_age = 0
 	alt_titles = list(
 		"Field Medic" = /decl/hierarchy/outfit/job/torch/crew/medical/doctor/medic,
 		"Medical Technician",
-		"Nurse")
+		"Nursing Assistant")
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/medical/doctor/fleet
 	allowed_branches = list(
 		/datum/mil_branch/expeditionary_corps = /decl/hierarchy/outfit/job/torch/crew/medical/doctor,
@@ -883,9 +976,15 @@
 		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/fleet/e6
 	)
-	min_skill = list(	SKILL_EVA     = SKILL_BASIC,
-						SKILL_MEDICAL = SKILL_BASIC,
-						SKILL_ANATOMY = SKILL_BASIC)
+	min_skill = list(   SKILL_EVA     = SKILL_BASIC,
+	                    SKILL_MEDICAL = SKILL_BASIC,
+	                    SKILL_ANATOMY = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
+
 	access = list(access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_eva, access_surgery, access_medical_equip, access_solgov_crew, access_hangar)
 	minimal_access = list()
@@ -903,7 +1002,7 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer and Medical Personnel"
 	selection_color = "#013d3b"
-	economic_modifier = 3
+	economic_power = 3
 	ideal_character_age = 30
 	alt_titles = list(
 		"Orderly" = /decl/hierarchy/outfit/job/torch/crew/medical/contractor/orderly,
@@ -913,9 +1012,14 @@
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/medical/contractor
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_EVA     = SKILL_BASIC,
-						SKILL_MEDICAL = SKILL_BASIC,
-						SKILL_ANATOMY = SKILL_BASIC)
+	min_skill = list(   SKILL_EVA     = SKILL_BASIC,
+	                    SKILL_MEDICAL = SKILL_BASIC,
+	                    SKILL_ANATOMY = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
 	skill_points = 32
 
 	access = list(access_medical, access_morgue, access_crematorium, access_virology, access_surgery, access_medical_equip, access_solgov_crew,
@@ -948,10 +1052,15 @@
 	skill_points = 4
 	no_skill_buffs = TRUE
 
-	min_skill = list(	SKILL_EVA     = SKILL_ADEPT,
-						SKILL_HAULING = SKILL_ADEPT,
-						SKILL_MEDICAL = SKILL_EXPERT,
-						SKILL_ANATOMY = SKILL_BASIC)
+	min_skill = list(   SKILL_EVA     = SKILL_ADEPT,
+	                    SKILL_HAULING = SKILL_ADEPT,
+	                    SKILL_MEDICAL = SKILL_EXPERT,
+	                    SKILL_ANATOMY = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
 
 	access = list(access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_emergency_storage,
 			            access_surgery, access_medical_equip, access_solgov_crew)
@@ -971,13 +1080,17 @@
 	spawn_positions = 1
 	supervisors = "the Chief Medical Officer and Medical Personnel"
 	selection_color = "#013d3b"
-	economic_modifier = 4
+	economic_power = 4
 	ideal_character_age = 30
+	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/medical/contractor/chemist
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_MEDICAL   = SKILL_BASIC,
-						SKILL_CHEMISTRY = SKILL_ADEPT)
+	min_skill = list(   SKILL_MEDICAL   = SKILL_BASIC,
+	                    SKILL_CHEMISTRY = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX)
 	skill_points = 26
 
 	access = list(access_medical, access_maint_tunnels, access_emergency_storage, access_medical_equip, access_solgov_crew, access_chemistry)
@@ -991,7 +1104,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	ideal_character_age = 40
-	economic_modifier = 5
+	economic_power = 5
+	minimal_player_age = 0
 	supervisors = "the Chief Medical Officer"
 	alt_titles = list(
 		"Psychiatrist" = /decl/hierarchy/outfit/job/torch/crew/medical/counselor/psychiatrist,
@@ -1007,8 +1121,10 @@
 		/datum/mil_rank/fleet/o2,
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/ec/o1)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_MEDICAL     = SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_MEDICAL     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX)
 
 	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_psychiatrist, access_solgov_crew)
 	minimal_access = list()
@@ -1023,8 +1139,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Executive Officer"
-	economic_modifier = 5
-	minimal_player_age = 7
+	economic_power = 5
+	minimal_player_age = 0
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/supply/deckofficer
 	allowed_branches = list(
@@ -1035,10 +1151,8 @@
 		/datum/mil_rank/ec/o1 = /decl/hierarchy/outfit/job/torch/crew/supply/deckofficer/commissioned,
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/fleet/o2,
-		/datum/mil_rank/fleet/e5,
 		/datum/mil_rank/fleet/e6,
 		/datum/mil_rank/ec/e7,
-		/datum/mil_rank/ec/e5,
 		/datum/mil_rank/fleet/e7,
 		/datum/mil_rank/fleet/e8
 	)
@@ -1050,8 +1164,8 @@
 						SKILL_PILOT       = SKILL_BASIC)
 	skill_points = 20
 
-	access = list(access_maint_tunnels, access_heads, access_emergency_storage, access_tech_storage,  access_cargo, access_guppy_helm,
-						access_cargo_bot, access_qm, access_mailsorting, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar)
+	access = list(access_maint_tunnels, access_bridge, access_emergency_storage, access_tech_storage,  access_cargo, access_guppy_helm,
+						access_cargo_bot, access_qm, access_mailsorting, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar, access_commissary)
 	minimal_access = list()
 
 	software_on_spawn = list(/datum/computer_file/program/supply,
@@ -1077,12 +1191,14 @@
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4
 	)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_FINANCE     = SKILL_BASIC,
-						SKILL_HAULING     = SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_FINANCE     = SKILL_BASIC,
+	                    SKILL_HAULING     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX)
 
 	access = list(access_maint_tunnels, access_emergency_storage, access_cargo, access_guppy_helm,
-						access_cargo_bot, access_mailsorting, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar)
+						access_cargo_bot, access_mailsorting, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar, access_commissary)
 	minimal_access = list()
 
 	software_on_spawn = list(/datum/computer_file/program/supply,
@@ -1103,15 +1219,48 @@
 	outfit_type = /decl/hierarchy/outfit/job/torch/crew/supply/contractor
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_FINANCE     = SKILL_BASIC,
-						SKILL_HAULING     = SKILL_BASIC)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_FINANCE     = SKILL_BASIC,
+	                    SKILL_HAULING     = SKILL_BASIC)
 
-	access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting, access_hangar, access_guppy, access_guppy_helm, access_solgov_crew)
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX)
+
+	access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting, access_hangar, access_guppy, access_guppy_helm, access_solgov_crew, access_commissary)
 
 	software_on_spawn = list(/datum/computer_file/program/supply,
 							 /datum/computer_file/program/deck_management,
 							 /datum/computer_file/program/reports)
+
+/datum/job/mining
+	title = "Prospector"
+	department = "Supply"
+	department_flag = SUP
+	total_positions = 4
+	spawn_positions = 4
+	supervisors = "the Deck Officer and Executive Officer"
+	selection_color = "#515151"
+	economic_power = 7
+	ideal_character_age = 25
+	alt_titles = list(
+		"Drill Technician",
+		"Shaft Miner",
+		"Salvage Technician")
+	min_skill = list(   SKILL_MECH    = SKILL_BASIC,
+	                    SKILL_HAULING = SKILL_ADEPT,
+	                    SKILL_EVA     = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX)
+
+	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/prospector
+	allowed_branches = list(/datum/mil_branch/civilian)
+	allowed_ranks = list(
+		/datum/mil_rank/civ/nt,
+		/datum/mil_rank/civ/contractor
+	)
+
+	access = list(access_mining, access_mining_office, access_mining_station,
+						access_expedition_shuttle, access_guppy, access_hangar, access_guppy_helm)
+	minimal_access = list()
 
 /datum/job/janitor
 	title = "Sanitation Technician"
@@ -1137,7 +1286,7 @@
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4
 	)
-	min_skill = list(	SKILL_HAULING = SKILL_BASIC)
+	min_skill = list(   SKILL_HAULING = SKILL_BASIC)
 
 	access = list(access_maint_tunnels, access_emergency_storage, access_janitor, access_solgov_crew)
 	minimal_access = list()
@@ -1166,11 +1315,11 @@
 		/datum/mil_rank/fleet/e3,
 		/datum/mil_rank/fleet/e4
 	)
-	min_skill = list(	SKILL_COOKING   = SKILL_ADEPT,
-						SKILL_BOTANY    = SKILL_BASIC,
-						SKILL_CHEMISTRY = SKILL_BASIC)
+	min_skill = list(   SKILL_COOKING   = SKILL_ADEPT,
+	                    SKILL_BOTANY    = SKILL_BASIC,
+	                    SKILL_CHEMISTRY = SKILL_BASIC)
 
-	access = list(access_maint_tunnels, access_hydroponics, access_kitchen, access_solgov_crew, access_bar)
+	access = list(access_maint_tunnels, access_hydroponics, access_kitchen, access_solgov_crew, access_bar, access_commissary)
 	minimal_access = list()
 
 /datum/job/bartender
@@ -1183,11 +1332,11 @@
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
 
-	access = list(access_hydroponics, access_bar, access_solgov_crew, access_kitchen)
+	access = list(access_hydroponics, access_bar, access_solgov_crew, access_kitchen, access_commissary)
 	minimal_access = list()
-	min_skill = list(	SKILL_COOKING   = SKILL_BASIC,
-						SKILL_BOTANY    = SKILL_BASIC,
-						SKILL_CHEMISTRY = SKILL_BASIC)
+	min_skill = list(   SKILL_COOKING   = SKILL_BASIC,
+	                    SKILL_BOTANY    = SKILL_BASIC,
+	                    SKILL_CHEMISTRY = SKILL_BASIC)
 
 /datum/job/crew
 	title = "Crewman"
@@ -1223,8 +1372,8 @@
 	spawn_positions = 1
 	supervisors = "the Research Director"
 	selection_color = "#633d63"
-	economic_modifier = 12
-	minimal_player_age = 10
+	economic_power = 12
+	minimal_player_age = 3
 	ideal_character_age = 50
 	alt_titles = list(
 		"Research Supervisor")
@@ -1235,45 +1384,27 @@
 	access = list(access_tox, access_tox_storage, access_research, access_mining, access_mining_office,
 						access_mining_station, access_xenobiology, access_xenoarch, access_nanotrasen,
 						access_expedition_shuttle, access_guppy, access_hangar, access_petrov, access_petrov_helm, access_guppy_helm)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_COMPUTER    = SKILL_BASIC,
-						SKILL_FINANCE     = SKILL_BASIC,
-						SKILL_BOTANY      = SKILL_BASIC,
-						SKILL_ANATOMY     = SKILL_BASIC,
-						SKILL_DEVICES     = SKILL_ADEPT,
-						SKILL_SCIENCE     = SKILL_ADEPT)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_COMPUTER    = SKILL_BASIC,
+	                    SKILL_FINANCE     = SKILL_BASIC,
+	                    SKILL_BOTANY      = SKILL_BASIC,
+	                    SKILL_ANATOMY     = SKILL_BASIC,
+	                    SKILL_DEVICES     = SKILL_ADEPT,
+	                    SKILL_SCIENCE     = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
 	skill_points = 20
-
-/datum/job/nt_pilot
-	title = "NanoTrasen Pilot"
-	supervisors = "the Research Director"
-	department = "Science"
-	department_flag = SCI
-
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the Research Director and NanoTrasen Personnel"
-	selection_color = "#633d63"
-	economic_modifier = 10
-	minimal_player_age = 5
-	ideal_character_age = 40
-	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/nt_pilot
-	allowed_branches = list(/datum/mil_branch/civilian)
-	allowed_ranks = list(/datum/mil_rank/civ/nt)
-
-	access = list(access_research, access_mining_office,
-						access_mining_station, access_nanotrasen, access_expedition_shuttle, access_expedition_shuttle_helm, access_guppy,
-						access_hangar, access_petrov, access_petrov_helm, access_guppy_helm, access_mining)
-	min_skill = list(	SKILL_EVA   = SKILL_BASIC,
-						SKILL_PILOT = SKILL_ADEPT)
 
 /datum/job/scientist
 	title = "Scientist"
 	total_positions = 6
 	spawn_positions = 6
 	supervisors = "the Research Director"
-	economic_modifier = 10
+	economic_power = 10
 	ideal_character_age = 45
+	minimal_player_age = 0
 	alt_titles = list(
 		"Xenoarcheologist",
 		"Anomalist",
@@ -1281,10 +1412,14 @@
 		"Xenobiologist",
 		"Xenobotanist",
 		"Psychologist" = /decl/hierarchy/outfit/job/torch/passenger/research/scientist/psych)
-	min_skill = list(	SKILL_BUREAUCRACY = SKILL_BASIC,
-						SKILL_COMPUTER    = SKILL_BASIC,
-						SKILL_DEVICES     = SKILL_BASIC,
-						SKILL_SCIENCE     = SKILL_ADEPT)
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_COMPUTER    = SKILL_BASIC,
+	                    SKILL_DEVICES     = SKILL_BASIC,
+	                    SKILL_SCIENCE     = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
 
 	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/scientist
 	allowed_branches = list(/datum/mil_branch/civilian)
@@ -1296,34 +1431,6 @@
 	minimal_access = list()
 	skill_points = 20
 
-
-/datum/job/mining
-	title = "Prospector"
-	department = "Science"
-	department_flag = SCI
-	total_positions = 4
-	spawn_positions = 4
-	supervisors = "the Research Director"
-	selection_color = "#633d63"
-	economic_modifier = 7
-	ideal_character_age = 25
-	alt_titles = list(
-		"Drill Technician",
-		"Shaft Miner",
-		"Salvage Technician")
-	min_skill = list(	SKILL_MECH    = SKILL_BASIC,
-						SKILL_HAULING = SKILL_ADEPT,
-						SKILL_EVA     = SKILL_BASIC)
-
-	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/prospector
-	allowed_branches = list(/datum/mil_branch/civilian)
-	allowed_ranks = list(/datum/mil_rank/civ/nt)
-
-	access = list(access_research, access_mining, access_mining_office, access_mining_station, access_nanotrasen,
-						access_expedition_shuttle, access_guppy, access_hangar, access_petrov, access_guppy_helm)
-	minimal_access = list()
-
-
 /datum/job/guard
 	title = "Security Guard"
 	department = "Science"
@@ -1333,14 +1440,19 @@
 	spawn_positions = 2
 	supervisors = "the Research Director and NanoTrasen Personnel"
 	selection_color = "#633d63"
-	economic_modifier = 6
-	minimal_player_age = 3
+	economic_power = 6
+	minimal_player_age = 0
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/research/guard
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/nt, /datum/mil_rank/civ/contractor)
-	min_skill = list(	SKILL_COMBAT  = SKILL_BASIC,
-						SKILL_WEAPONS = SKILL_BASIC)
+	min_skill = list(   SKILL_COMBAT  = SKILL_BASIC,
+	                    SKILL_WEAPONS = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX)
 
 	access = list(access_tox, access_tox_storage,access_research, access_mining, access_mining_office, access_mining_station, access_xenobiology,
 						access_xenoarch, access_nanotrasen, access_sec_guard, access_hangar, access_petrov, access_expedition_shuttle, access_guppy)
@@ -1355,7 +1467,7 @@
 	spawn_positions = 4
 	supervisors = "the Research Director and NanoTrasen Personnel"
 	selection_color = "#633d63"
-	economic_modifier = 3
+	economic_power = 3
 	ideal_character_age = 30
 	alt_titles = list(
 		"Custodian" = /decl/hierarchy/outfit/job/torch/passenger/research/assist/janitor,
@@ -1369,6 +1481,10 @@
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/nt)
 
+	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+
 	access = list(access_research, access_mining_office, access_nanotrasen, access_petrov, access_expedition_shuttle, access_guppy, access_hangar)
 
 
@@ -1378,7 +1494,7 @@
 	spawn_positions = 12
 	supervisors = "the Executive Officer"
 	selection_color = "#515151"
-	economic_modifier = 6
+	economic_power = 6
 	announced = FALSE
 	alt_titles = list(
 		"Journalist" = /decl/hierarchy/outfit/job/torch/passenger/passenger/journalist,
@@ -1390,13 +1506,11 @@
 		"Entertainer",
 		"Independent Observer",
 		"Sociologist",
-		"Off-Duty",
 		"Trainer")
 	outfit_type = /decl/hierarchy/outfit/job/torch/passenger/passenger
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(
 		/datum/mil_rank/civ/civ,
-		/datum/mil_rank/civ/offduty,
 		/datum/mil_rank/civ/nt
 	)
 
@@ -1404,7 +1518,10 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "your laws"
+	minimal_player_age = 0
 
+/datum/job/ai
+	minimal_player_age = 3
 
 /datum/job/merchant
 	title = "Merchant"
@@ -1417,7 +1534,7 @@
 	supervisors = "the invisible hand of the market"
 	selection_color = "#515151"
 	ideal_character_age = 30
-	minimal_player_age = 7
+	minimal_player_age = 0
 	create_record = 0
 	outfit_type = /decl/hierarchy/outfit/job/torch/merchant
 	allowed_branches = list(/datum/mil_branch/civilian)
@@ -1425,8 +1542,10 @@
 	latejoin_at_spawnpoints = 1
 	access = list(access_merchant)
 	announced = FALSE
-	min_skill = list(	SKILL_FINANCE = SKILL_ADEPT,
-						SKILL_PILOT	  = SKILL_BASIC)
+	min_skill = list(   SKILL_FINANCE = SKILL_ADEPT,
+	                    SKILL_PILOT	  = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX)
 	skill_points = 24
 
 /datum/job/stowaway
@@ -1440,7 +1559,7 @@
 	supervisors = "yourself"
 	selection_color = "#515151"
 	ideal_character_age = 30
-	minimal_player_age = 7
+	minimal_player_age = 0
 	create_record = 0
 	account_allowed = 0
 	outfit_type = /decl/hierarchy/outfit/job/torch/stowaway

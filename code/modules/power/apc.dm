@@ -127,6 +127,9 @@
 	var/global/list/status_overlays_environ
 
 
+/obj/machinery/power/apc/get_cell()
+	return cell
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -216,6 +219,7 @@
 	if(emp_hardened)
 		return
 	failure_timer = max(failure_timer, round(duration))
+	playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
 
 /obj/machinery/power/apc/proc/make_terminal()
 	// create a terminal object at the same position as original turf loc
@@ -362,7 +366,7 @@
 		if(update_state & (UPDATE_OPENED1|UPDATE_OPENED2|UPDATE_BROKE))
 			set_light(0)
 		else if(update_state & UPDATE_BLUESCREEN)
-			set_light(0.3, 0.1, 1, 2, "0000ff")
+			set_light(0.8, 0.1, 1, 2, "#00ecff")
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
 			var/color
 			switch(charging)
@@ -372,7 +376,7 @@
 					color = "#a8b0f8"
 				if(2)
 					color = "#82ff4c"
-			set_light(0.3, 0.1, 1, l_color = color)
+			set_light(0.8, 0.1, 1, l_color = color)
 		else
 			set_light(0)
 
@@ -434,10 +438,10 @@
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 
 /obj/machinery/power/apc/attackby(obj/item/W, mob/user)
-
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
 	src.add_fingerprint(user)
+	if(istype(W, /obj/item/inducer)) return // inducer.dm afterattack handles this
 	if(isCrowbar(W) && opened)
 		if (has_electronics==1)
 			if (terminal)
@@ -815,7 +819,7 @@
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

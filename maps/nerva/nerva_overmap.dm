@@ -9,20 +9,22 @@
 	shipid = "nerva"
 	vessel_mass = 200 //bigger than wyrm, smaller than torch
 	fore_dir = EAST
-/*	generic_waypoints = list(
-		"wyrm_prim_fore",
-		"wyrm_prim_star",
-		"wyrm_prim_port",
-		"wyrm_prim_aft",
-		"wyrm_sub_fore",
-		"wyrm_sub_star",
-		"wyrm_sub_port",
-		"wyrm_sub_aft"
+	start_x = 6
+	start_y = 7
+
+	initial_generic_waypoints = list(
+		"nav_deck1_antonine",
+		"nav_deck2_antonine",
+		"nav_deck3_antonine",
+		"nav_deck1_trajan",
+		"nav_deck2_trajan",
+		"nav_deck3_trajan"
 	)
-	restricted_waypoints = list(
-		"Hatchling" = list("wyrm_docked_hatchling"),
-		"Rescue Pod" = list("wyrm_docked_rescue")
-	)*/
+
+	initial_restricted_waypoints = list(
+		"Trajan" = list("nav_hangar_trajan"),
+		"Antonine" = list("nav_hangar_antonine")
+	)
 
 	canfight = 1
 	hostile_factions = list(

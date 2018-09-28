@@ -39,8 +39,7 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Enter Body Scanner"
-
-	if(usr.stat != 0)
+	if (usr.stat != 0)
 		return
 	if(src.occupant)
 		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
@@ -61,9 +60,7 @@
 /obj/machinery/bodyscanner/proc/go_out()
 	if(!(occupant) || locked)
 		return
-	for(var/obj/O in src)
-		if(O in component_parts)
-			continue
+	for(var/obj/O in (src.contents - component_parts))
 		O.dropInto(loc)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
@@ -88,14 +85,24 @@
 
 /obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
 	if(!istype(G))
-		return ..()
+		if(default_deconstruction_screwdriver(user, G))
+			updateUsrDialog()
+			return
+		if(default_deconstruction_crowbar(user, G))
+			return
+		if(default_part_replacement(user, G))
+			return
 	var/mob/M = G.affecting
 	if(!user_can_move_target_inside(M, user))
 		return
 	M.forceMove(src)
 	src.occupant = M
+
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
+	for(var/obj/O in (contents - component_parts))
+		O.forceMove(loc)
+
 	src.add_fingerprint(user)
 	qdel(G)
 
@@ -129,6 +136,8 @@
 	src.occupant = M
 	update_use_power(2)
 	src.icon_state = "body_scanner_1"
+	for(var/obj/O in (contents - component_parts))
+		O.forceMove(loc)
 	src.add_fingerprint(user)
 
 /obj/machinery/bodyscanner/ex_act(severity)
@@ -177,6 +186,8 @@
 		else
 	return
 
+
+
 /obj/machinery/body_scanconsole/update_icon()
 	if(stat & BROKEN)
 		icon_state = "body_scannerconsole-p"
@@ -188,14 +199,13 @@
 
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
-	var/delete
-	var/temphtml
+	var/stored_scan
+	var/stored_scan_subject
 	name = "Body Scanner Console"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
-
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
@@ -211,33 +221,10 @@
 			return TRUE
 	return FALSE
 
-/*
-
-/obj/machinery/body_scanconsole/process() //not really used right now
-	if(stat & (NOPOWER|BROKEN))
-		return
-	//use_power(250) // power stuff
-
-//	var/mob/M //occupant
-//	if (!( src.status )) //remove this
-//		return
-//	if ((src.connected && src.connected.occupant)) //connected & occupant ok
-//		M = src.connected.occupant
-//	else
-//		if (istype(M, /mob))
-//		//do stuff
-//		else
-///			src.temphtml = "Process terminated due to lack of occupant in scanning chamber."
-//			src.status = null
-//	src.updateDialog()
-//	return
-
-*/
-
 /obj/machinery/body_scanconsole/attack_ai(user as mob)
 	return src.attack_hand(user)
 
-/obj/machinery/body_scanconsole/attack_hand(user as mob)
+/obj/machinery/body_scanconsole/attack_hand(mob/user)
 	if(..())
 		return
 	if(stat & (NOPOWER|BROKEN))
@@ -245,52 +232,35 @@
 	if(!connected || (connected.stat & (NOPOWER|BROKEN)))
 		to_chat(user, "<span class='warning'>This console is not connected to a functioning body scanner.</span>")
 		return
-	if(!ishuman(connected.occupant))
-		to_chat(user, "<span class='warning'>This device can only scan compatible lifeforms.</span>")
-		return
-
-	var/dat
-	if (src.delete && src.temphtml) //Window in buffer but its just simple message, so nothing
-		src.delete = src.delete
-	else if (!src.delete && src.temphtml) //Window in buffer - its a menu, dont add clear message
-		dat = text("[]<BR><BR><A href='?src=\ref[];clear=1'>Main Menu</A>", src.temphtml, src)
-	else
-		if (src.connected) //Is something connected?
-			dat = connected.occupant.get_medical_data()
-			dat += "<br><HR><A href='?src=\ref[src];print=1'>Print</A><BR>"
-		else
-			dat = "<span class='warning'>Error: No Body Scanner connected.</span>"
-
-	dat += text("<BR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>", user)
-	user << browse(dat, "window=scanconsole;size=430x600")
+	generate_window(user)
 	return
-
-/obj/machinery/body_scanconsole/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(istype(I, /obj/item/device/multitool))
-		if(locate_scanner())
-			to_chat(user, "\The [src] pings as it connects to \the [connected]")
-		else
-			to_chat(user, "\The [src] buzzes as it fails to connect to a scanner.")
-		return
-	return attack_hand(user)
 
 /obj/machinery/body_scanconsole/OnTopic(mob/user, href_list)
 	if (href_list["print"])
-		if (!src.connected)
-			to_chat(user, "\icon[src]<span class='warning'>Error: No body scanner connected.</span>")
+		if (!stored_scan)
+			to_chat(user, "\icon[src]<span class='warning'>Error: No scan stored.</span>")
 			return TOPIC_REFRESH
-		var/mob/living/carbon/human/occupant = src.connected.occupant
-		if (!src.connected.occupant)
+		new/obj/item/weapon/paper/(loc, "<tt>[stored_scan]</tt>", "Body scan report - [stored_scan_subject]")
+		return TOPIC_REFRESH
+	if(href_list["scan"])
+		if (!connected.occupant)
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner is empty.</span>")
 			return TOPIC_REFRESH
-		if (!istype(occupant,/mob/living/carbon/human))
+		if (!istype(connected.occupant))
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>")
 			return TOPIC_REFRESH
-		new/obj/item/weapon/paper/(loc, "<tt>[connected.occupant.get_medical_data()]</tt>", "Body scan report - [occupant]")
+		stored_scan = connected.occupant.get_medical_data(user.get_skill_value(SKILL_MEDICAL))
+		stored_scan_subject = connected.occupant
+		user.visible_message("<span class='notice'>\The [user] performs a scan of \the [connected.occupant] using \the [connected].</span>")
+		generate_window(user)
+		return TOPIC_REFRESH
+	if(href_list["erase"])
+		stored_scan = null
+		stored_scan_subject = null
+		generate_window(user)
+		return TOPIC_REFRESH
+	if(href_list["scan_refresh"])
+		generate_window(user)
 		return TOPIC_REFRESH
 
 /proc/get_severity(amount)
@@ -303,6 +273,27 @@
 		. = "significant"
 	else if(amount > 10)
 		. = "moderate"
+
+/obj/machinery/body_scanconsole/proc/generate_window(mob/user)
+	var/dat = list()
+	if (stored_scan)
+		dat = stored_scan
+		dat += "<br><HR><A href='?src=\ref[src];print=1'>Print Scan</A>"
+		dat += "<br><HR><A href='?src=\ref[src];erase=1'>Erase Scan</A>"
+		if(ishuman(connected.occupant))
+			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Rescan Occupant</A>"
+	else
+		dat = "<b>Scan Menu</b>"
+		if (!connected.occupant)
+			dat += "<br><HR><span class='warning'>The body scanner is empty.</span>"
+		else if(!ishuman(connected.occupant))
+			dat += "<br><HR><span class='warning'>This device can only scan compatible lifeforms.</span>"
+		else
+			dat += "<br><HR><A href='?src=\ref[src];scan=1'>Scan Occupant</A>"
+
+	dat += "<BR><HR><A href='?src=\ref[src];scan_refresh=1'>Refresh</A>"
+	dat += "<BR><HR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>"
+	show_browser(user, jointext(dat, null), "window=scanconsole;size=430x600")
 
 /mob/living/carbon/human/proc/get_medical_data()
 	var/mob/living/carbon/human/H = src
@@ -379,9 +370,9 @@
 		else
 			table += "<td>"
 			if(E.brute_dam)
-				table += "[capitalize(get_wound_severity(E.brute_ratio, E.can_heal_overkill))] physical trauma"
+				table += "[capitalize(get_wound_severity(E.brute_ratio))] physical trauma"
 			if(E.burn_dam)
-				table += " [capitalize(get_wound_severity(E.burn_ratio, E.can_heal_overkill))] burns"
+				table += " [capitalize(get_wound_severity(E.burn_ratio))] burns"
 			if(E.brute_dam + E.burn_dam == 0)
 				table += "None"
 			table += "</td><td>[english_list(E.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"

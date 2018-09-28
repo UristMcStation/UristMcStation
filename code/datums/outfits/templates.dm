@@ -35,7 +35,7 @@
 	suit = /obj/item/clothing/suit/storage/vest/pcrc
 	head = /obj/item/clothing/head/helmet/pcrc
 	shoes = /obj/item/clothing/shoes/jackboots
-	belt = /obj/item/weapon/storage/belt/security
+	belt = /obj/item/weapon/storage/belt/holster/security
 
 /decl/hierarchy/outfit/patient
 	name = "Medical Patient"

@@ -12,7 +12,7 @@
 		handle_embedded_and_stomach_objects() //Moving with objects stuck in you can cause bad times.
 
 	if(CE_SPEEDBOOST in chem_effects)
-		return -1
+		tally -= chem_effects[CE_SPEEDBOOST]
 
 	if(CE_SLOWDOWN in chem_effects)
 		tally += chem_effects[CE_SLOWDOWN]
@@ -81,8 +81,17 @@
 	return (tally+config.human_delay)
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)
-	//Can we act?
-	if(restrained())	return 0
+	. = ..()
+	if(.)
+		return
+
+	// This is horrible but short of spawning a jetpack inside the organ than locating
+	// it, I don't really see another viable approach short of a total jetpack refactor.
+	for(var/obj/item/organ/internal/powered/jets/jet in internal_organs)
+		if(!jet.is_broken() && jet.active)
+			inertia_dir = 0
+			return 1
+	// End 'eugh'
 
 	//Do we have a working jetpack?
 	var/obj/item/weapon/tank/jetpack/thrust

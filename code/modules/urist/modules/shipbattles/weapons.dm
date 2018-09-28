@@ -2,6 +2,7 @@
 	name = "shipweapon"
 	idle_power_usage = 10
 	active_power_usage = 1000
+	use_power = 1
 	var/passshield = 0
 	var/shielddamage = 0
 	var/hulldamage = 0
@@ -22,19 +23,28 @@
 /obj/machinery/shipweapons/Process()
 	..()
 
-/obj/machinery/shipweapons/proc/Charging()
-	charged = 0
-	update_use_power(2)
-	recharging = 1
-	update_icon()
-	spawn(rechargerate)
-		charged = 1
+/obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
+	if(stat & (BROKEN|NOPOWER))
+		return
+	else
+		update_use_power(2)
+		recharging = 1
 		update_icon()
-		canfire = 1
-		update_use_power(1)
+		spawn(rechargerate)
+			charged = 1
+			update_icon()
+			canfire = 1
+			update_use_power(1)
+
+/obj/machinery/shipweapons/power_change()
+	if(!charged) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+		Charging()
+
+	else
+		..()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
-	if(charged)
+	if(charged) //even if we don't have power, as long as we have a charge, we can do this
 		var/want = input("Fire the [src]?") in list ("Cancel", "Yes")
 		switch(want)
 			if("Cancel")
@@ -77,7 +87,7 @@
 
 		else if(passshield) //do we pass through the shield? let's do our damage
 			OM.health -= hulldamage
-
+		charged = 0
 		Charging() //time to recharge
 
 /obj/machinery/shipweapons/update_icon()
