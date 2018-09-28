@@ -18,3 +18,6 @@
 
 /datum/access/robotics
 	region = ACCESS_REGION_SUPPLY
+
+/datum/access/blueshield
+	desc = "Bodyguard Access"

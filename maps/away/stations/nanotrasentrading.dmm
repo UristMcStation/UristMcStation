@@ -6,72 +6,72 @@
 "af" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/item/modular_computer/laptop/preset/records,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
 "ag" = (/obj/item/modular_computer/laptop/preset/records,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
 "ah" = (/turf/simulated/wall/r_wall/hull,/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; icon = 'icons/obj/machines/shielding.dmi'; icon_state = "shield_normal"; name = "Heavy Shielding"},/area/spacestations/nanotrasenspace)
-"ai" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"aj" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/machinery/door/window/westleft{name = "Transit Desk"},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ak" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"al" = (/obj/structure/sign/urist/nt{pixel_x = 32},/obj/item/modular_computer/console/preset/command{dir = 8},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"am" = (/obj/machinery/door/window/northleft{base_state = "right"; dir = 8; icon_state = "right"; name = "Transit Processing"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"an" = (/obj/structure/filingcabinet,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ao" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc/high{cell_type = /obj/item/weapon/cell/infinite; dir = 8; name = "west bump"; pixel_x = -24},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ap" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"aq" = (/obj/machinery/power/smes/buildable,/obj/structure/cable,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ar" = (/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
-"as" = (/turf/unsimulated/floor/uristturf/rail{tag = "icon-rail2"; icon_state = "rail2"},/area/spacestations/nanotrasenspace)
-"at" = (/turf/unsimulated/floor/uristturf/rail,/area/spacestations/nanotrasenspace)
-"au" = (/obj/item/modular_computer/console/preset/command{dir = 8},/obj/structure/sign/urist/nt{pixel_x = 32},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"av" = (/turf/simulated/floor/tiled/dark,/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; icon = 'icons/obj/machines/shielding.dmi'; icon_state = "shield_normal"; name = "Heavy Shielding"},/area/spacestations/nanotrasenspace)
-"aw" = (/obj/machinery/door/airlock/centcom{name = "Transit Checkpoint"; opacity = 1; req_access = list(109)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ax" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
-"ay" = (/turf/simulated/wall/titanium,/area/spacestations/nanotrasenspace)
-"az" = (/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"aA" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (WEST)"; icon_state = "benchleft"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"aB" = (/obj/structure/toilet{pixel_y = 8},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aC" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aD" = (/obj/machinery/light{dir = 1},/obj/structure/table/standard,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aE" = (/obj/machinery/computer/arcade,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aF" = (/obj/structure/closet/wardrobe/green,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aG" = (/obj/structure/closet/wardrobe/black,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aH" = (/obj/structure/closet/wardrobe/mixed,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aI" = (/obj/structure/closet/wardrobe/grey,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aJ" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/regular{pixel_x = 2; pixel_y = 3},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aK" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 4},/turf/unsimulated/floor/plating,/area/spacestations/nanotrasenspace)
-"aL" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"aM" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (WEST)"; icon_state = "benchmid"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"aN" = (/obj/machinery/door/airlock{name = "Unit 1"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aO" = (/obj/machinery/door/airlock{name = "Unit 2"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aP" = (/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aQ" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (WEST)"; icon_state = "shuttlechair"; dir = 8},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aR" = (/obj/structure/shuttle/engine/heater{icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor/plating,/area/spacestations/nanotrasenspace)
-"aS" = (/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aT" = (/obj/structure/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/item/weapon/storage/mirror{pixel_x = 28; pixel_y = -2},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aU" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aV" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"aW" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"aX" = (/obj/structure/sign/urist/nt{pixel_x = 32},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"aY" = (/obj/machinery/light,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"aZ" = (/mob/living/simple_animal/hostile/scom/civ/combat/police,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"ba" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (WEST)"; icon_state = "benchright"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bb" = (/obj/machinery/door/airlock{name = "Unisex Restrooms"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
-"bc" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/structure/window/reinforced,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"bd" = (/obj/structure/table/reinforced,/obj/item/weapon/folder,/obj/machinery/door/window/southleft{name = "Transit Checkpoint"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"be" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced,/obj/item/modular_computer/laptop/preset/records,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"bf" = (/obj/structure/flora/pottedplant{tag = "icon-plant-22"; icon_state = "plant-22"},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bg" = (/obj/structure/bed/chair/urist/bench/bench1/left,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bh" = (/obj/structure/bed/chair/urist/bench/bench1/right,/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bi" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bj" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bk" = (/obj/structure/bed/chair/urist/bench/bench2/top{tag = "icon-bench2top (WEST)"; icon_state = "bench2top"; dir = 8},/obj/effect/landmark{name = "JoinLate"},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bl" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"bm" = (/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"bn" = (/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"bo" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
-"bp" = (/obj/machinery/vending/coffee,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bq" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"br" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bs" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = null; name = "transit shuttle door"; opacity = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bt" = (/obj/structure/bed/chair/urist/bench/bench2/mid{tag = "icon-bench2mid (WEST)"; icon_state = "bench2mid"; dir = 8},/obj/effect/landmark{name = "JoinLate"},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bu" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = null; name = "transit blast door"; opacity = 0},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bv" = (/obj/structure/sign/urist/transitmap,/turf/simulated/wall/titanium,/area/spacestations/nanotrasenspace)
+"ai" = (/turf/simulated/wall/r_wall/hull,/area/space)
+"aj" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ak" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/machinery/door/window/westleft{name = "Transit Desk"},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"al" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"am" = (/obj/structure/sign/urist/nt{pixel_x = 32},/obj/item/modular_computer/console/preset/command{dir = 8},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"an" = (/obj/machinery/door/window/northleft{base_state = "right"; dir = 8; icon_state = "right"; name = "Transit Processing"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ao" = (/obj/structure/filingcabinet,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ap" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc/high{cell_type = /obj/item/weapon/cell/infinite; dir = 8; name = "west bump"; pixel_x = -24},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"aq" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ar" = (/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; icon = 'icons/obj/doors/rapid_pdoor.dmi'; icon_state = "pdoor1"; name = "Shuttle Access"},/area/space)
+"as" = (/obj/machinery/power/smes/buildable,/obj/structure/cable,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"at" = (/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
+"au" = (/turf/unsimulated/floor/uristturf/rail{tag = "icon-rail2"; icon_state = "rail2"},/area/spacestations/nanotrasenspace)
+"av" = (/turf/unsimulated/floor/uristturf/rail{icon_state = "rail3"},/area/spacestations/nanotrasenspace)
+"aw" = (/turf/unsimulated/floor/uristturf/rail,/area/spacestations/nanotrasenspace)
+"ax" = (/turf/simulated/floor/plating,/area/space)
+"ay" = (/obj/item/modular_computer/console/preset/command{dir = 8},/obj/structure/sign/urist/nt{pixel_x = 32},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"az" = (/turf/simulated/floor/tiled/dark,/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; icon = 'icons/obj/machines/shielding.dmi'; icon_state = "shield_normal"; name = "Heavy Shielding"},/area/spacestations/nanotrasenspace)
+"aA" = (/obj/machinery/door/airlock/centcom{name = "Transit Checkpoint"; opacity = 1; req_access = list(109)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"aB" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
+"aC" = (/turf/simulated/wall/titanium,/area/spacestations/nanotrasenspace)
+"aD" = (/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"aE" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (WEST)"; icon_state = "benchleft"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"aF" = (/obj/structure/hygiene/toilet{pixel_y = 8},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"aG" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aH" = (/obj/machinery/light{dir = 1},/obj/structure/table/standard,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aI" = (/obj/machinery/computer/arcade,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aJ" = (/obj/structure/closet/wardrobe/green,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aK" = (/obj/structure/closet/wardrobe/black,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aL" = (/obj/structure/closet/wardrobe/mixed,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aM" = (/obj/structure/closet/wardrobe/grey,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aN" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/regular{pixel_x = 2; pixel_y = 3},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aO" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 4},/turf/unsimulated/floor/plating,/area/spacestations/nanotrasenspace)
+"aP" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"aQ" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (WEST)"; icon_state = "benchmid"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"aR" = (/obj/machinery/door/airlock{name = "Unit 1"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"aS" = (/obj/machinery/door/airlock{name = "Unit 2"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"aT" = (/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aU" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (WEST)"; icon_state = "shuttlechair"; dir = 8},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aV" = (/obj/structure/shuttle/engine/heater{icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor/plating,/area/spacestations/nanotrasenspace)
+"aW" = (/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"aX" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/item/weapon/storage/mirror{pixel_x = 28; pixel_y = -2},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"aY" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"aZ" = (/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"ba" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"bb" = (/obj/structure/sign/urist/nt{pixel_x = 32},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"bc" = (/obj/machinery/light,/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"bd" = (/mob/living/simple_animal/hostile/scom/civ/combat/police,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"be" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (WEST)"; icon_state = "benchright"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bf" = (/obj/machinery/door/airlock{name = "Unisex Restrooms"},/turf/simulated/floor/tiled/white,/area/spacestations/nanotrasenspace)
+"bg" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/structure/window/reinforced,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"bh" = (/obj/structure/table/reinforced,/obj/item/weapon/folder,/obj/machinery/door/window/southleft{name = "Transit Checkpoint"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"bi" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced,/obj/item/modular_computer/laptop/preset/records,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"bj" = (/obj/structure/flora/pottedplant{tag = "icon-plant-22"; icon_state = "plant-22"},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bk" = (/obj/structure/bed/chair/urist/bench/bench1/left,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bl" = (/obj/structure/bed/chair/urist/bench/bench1/right,/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bm" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bn" = (/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"bo" = (/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"bp" = (/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"bq" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/shuttle/white,/area/spacestations/nanotrasenspace)
+"br" = (/obj/machinery/vending/coffee,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bs" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bt" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bu" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = "nervasupply"; name = "transit shuttle door"; opacity = 0},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bv" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = null; name = "transit blast door"; opacity = 0},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
 "bw" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
 "bx" = (/turf/space,/area/spacestations/nanotrasenspace)
 "by" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (WEST)"; icon_state = "benchleft"; dir = 8},/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{tag = "icon-body_m_s (WEST)"; icon_state = "body_m_s"; dir = 8},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
@@ -85,150 +85,151 @@
 "bG" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ywflowers_3"; icon_state = "ywflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
 "bH" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ppflowers_3"; icon_state = "ppflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
 "bI" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (EAST)"; icon_state = "benchmid"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bJ" = (/obj/structure/bed/chair/urist/bench/bench2/bot{tag = "icon-bench2bot (WEST)"; icon_state = "bench2bot"; dir = 8},/obj/effect/landmark{name = "JoinLate"},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bK" = (/obj/machinery/vending/urist/nanotrasen,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bL" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (WEST)"; icon_state = "benchmid"; dir = 8},/obj/structure/sign/urist/ad/sign1{pixel_x = 32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bM" = (/turf/unsimulated/wall,/area/spacestations/nanotrasenspace)
-"bN" = (/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ppflowers_3"; icon_state = "ppflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
-"bO" = (/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-sunnybush_3"; icon_state = "sunnybush_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
-"bP" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (EAST)"; icon_state = "benchmid"; dir = 4},/obj/structure/sign/urist/transitmap{pixel_x = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bQ" = (/obj/machinery/door/airlock/external,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor2"},/area/spacestations/nanotrasenspace)
-"bR" = (/obj/structure/window/reinforced,/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ywflowers_3"; icon_state = "ywflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
-"bS" = (/obj/structure/window/reinforced,/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ppflowers_3"; icon_state = "ppflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
-"bT" = (/obj/structure/sign/urist/nt,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
-"bU" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bV" = (/mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen{wander = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bW" = (/obj/structure/bed/chair/urist/bench/bench1/mid,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bX" = (/obj/structure/bed/chair/urist/bench/bench1/right,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bY" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (EAST)"; icon_state = "benchright"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"bZ" = (/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; dir = 4; icon = 'icons/obj/doors/rapid_pdoor.dmi'; icon_state = "pdoor1"; name = "Stair Access"},/area/spacestations/nanotrasenspace)
-"ca" = (/obj/structure/sign/urist/ad/sign5{pixel_y = -32},/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (NORTH)"; icon_state = "benchleft"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cb" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cc" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cd" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"ce" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/structure/sign/urist/ad/sign4{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cf" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cg" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"ch" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (NORTH)"; icon_state = "benchleft"; dir = 1},/obj/structure/sign/urist/ad/sign3{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"ci" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/structure/sign/urist/ad/sign2{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cj" = (/obj/machinery/atm,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
-"ck" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cl" = (/obj/structure/table/reinforced,/obj/item/weapon/folder,/obj/machinery/door/window/northleft{name = "Transit Checkpoint"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cm" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/item/modular_computer/laptop/preset/records,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cn" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"co" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cp" = (/obj/structure/sign/urist/nt{pixel_x = 32},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cq" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cr" = (/mob/living/simple_animal/hostile/npc/colonist/mineral_trader,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cs" = (/mob/living/simple_animal/hostile/npc/colonist/crop_trader,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"ct" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cu" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cv" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cw" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cx" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cy" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cz" = (/obj/effect/overmap/sector/station/nanotrasentrading,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cA" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cB" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
-"cC" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cD" = (/turf/simulated/wall/r_wall/hull,/area/space)
-"cE" = (/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cF" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cG" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cH" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cI" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 8; icon_state = "warningcorner"; tag = "icon-warningcorner (WEST)"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cJ" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cK" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"bJ" = (/obj/machinery/vending/urist/nanotrasen,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bK" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (WEST)"; icon_state = "benchmid"; dir = 8},/obj/structure/sign/urist/ad/sign1{pixel_x = 32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bL" = (/turf/unsimulated/wall,/area/spacestations/nanotrasenspace)
+"bM" = (/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ppflowers_3"; icon_state = "ppflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
+"bN" = (/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-sunnybush_3"; icon_state = "sunnybush_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
+"bO" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (EAST)"; icon_state = "benchmid"; dir = 4},/obj/structure/sign/urist/transitmap{pixel_x = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bP" = (/obj/effect/shuttle_landmark/supply/station,/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
+"bQ" = (/obj/structure/window/reinforced,/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ywflowers_3"; icon_state = "ywflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
+"bR" = (/obj/structure/window/reinforced,/obj/structure/flora/pottedplant/Nienplants/plant{tag = "icon-ppflowers_3"; icon_state = "ppflowers_3"},/turf/simulated/floor/grass,/area/spacestations/nanotrasenspace)
+"bS" = (/obj/structure/sign/urist/nt,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
+"bT" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bU" = (/mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen{wander = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bV" = (/obj/structure/bed/chair/urist/bench/bench1/mid,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bW" = (/obj/structure/bed/chair/urist/bench/bench1/right,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bX" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (EAST)"; icon_state = "benchright"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"bY" = (/turf/unsimulated/wall{desc = "That looks like it doesn't open easily."; dir = 4; icon = 'icons/obj/doors/rapid_pdoor.dmi'; icon_state = "pdoor1"; name = "Stair Access"},/area/spacestations/nanotrasenspace)
+"bZ" = (/obj/structure/sign/urist/ad/sign5{pixel_y = -32},/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (NORTH)"; icon_state = "benchleft"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"ca" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cb" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cc" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cd" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/structure/sign/urist/ad/sign4{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"ce" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/machinery/newscaster{layer = 3.3; pixel_x = 0; pixel_y = -27},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cf" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cg" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (NORTH)"; icon_state = "benchleft"; dir = 1},/obj/structure/sign/urist/ad/sign3{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"ch" = (/obj/structure/bed/chair/urist/bench/bench1/mid{tag = "icon-benchmid (NORTH)"; icon_state = "benchmid"; dir = 1},/obj/structure/sign/urist/ad/sign2{pixel_y = -32},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"ci" = (/obj/machinery/atm,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
+"cj" = (/obj/structure/table/reinforced,/obj/item/weapon/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/weapon/pen,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ck" = (/obj/structure/table/reinforced,/obj/item/weapon/folder,/obj/machinery/door/window/northleft{name = "Transit Checkpoint"; req_access = list(101)},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cl" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/item/modular_computer/laptop/preset/records,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cm" = (/obj/structure/bed/chair/urist/bench/bench1/right{tag = "icon-benchright (NORTH)"; icon_state = "benchright"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cn" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"co" = (/obj/structure/sign/urist/nt{pixel_x = 32},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cp" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cq" = (/mob/living/simple_animal/hostile/npc/colonist/mineral_trader,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cr" = (/mob/living/simple_animal/hostile/npc/colonist/crop_trader,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cs" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"ct" = (/obj/structure/table/reinforced,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cu" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cv" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cw" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light{dir = 8; icon_state = "tube1"; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cx" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cy" = (/obj/effect/overmap/sector/station/nanotrasentrading,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cz" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cA" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/yellow,/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/tiled/dark,/area/spacestations/nanotrasenspace)
+"cB" = (/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cC" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cD" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cE" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cF" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 8; icon_state = "warningcorner"; tag = "icon-warningcorner (WEST)"},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cG" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"cH" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cI" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 6; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cJ" = (/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
+"cK" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 10; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
 "cL" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 8; icon_state = "warningcorner"; tag = "icon-warningcorner (WEST)"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cM" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 6; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cN" = (/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
-"cO" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 10; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"cP" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/obj/machinery/light{dir = 4},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
-"cQ" = (/obj/machinery/newscaster,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
-"cR" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
-"cS" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cM" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cN" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
+"cO" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cP" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cQ" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cR" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"cS" = (/obj/machinery/newscaster,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
 "cT" = (/obj/structure/sign/urist/ad/sign5,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
 "cU" = (/obj/structure/bed/chair/urist/bench/bench1/left{tag = "icon-benchleft (EAST)"; icon_state = "benchleft"; dir = 4},/mob/living/simple_animal/hostile/npc/colonist{tag = "icon-body_m_s (EAST)"; icon_state = "body_m_s"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
 "cV" = (/obj/structure/sign/urist/ad/sign3,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
 "cW" = (/obj/structure/sign/urist/ad/sign4,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
 "cX" = (/obj/structure/sign/urist/ad/sign2,/turf/simulated/wall/r_wall/hull,/area/spacestations/nanotrasenspace)
-"cY" = (/obj/structure/flora/pottedplant{tag = "icon-plant-22"; icon_state = "plant-22"},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"cZ" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
-"da" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"db" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTH)"; icon_state = "warning"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"dc" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 5},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"dd" = (/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1,/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
+"cY" = (/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1,/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
+"cZ" = (/obj/structure/flora/pottedplant{tag = "icon-plant-22"; icon_state = "plant-22"},/obj/machinery/light,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"da" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/plating,/area/spacestations/nanotrasenspace)
+"db" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"dc" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTH)"; icon_state = "warning"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
+"dd" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 5},/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
 "de" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 10},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
 "df" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
 "dg" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/tiled,/area/spacestations/nanotrasenspace)
-"dh" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 4; icon_state = "warningcorner"; tag = "icon-warningcorner (EAST)"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"di" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 5; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"dj" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 9; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"dk" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 1; icon_state = "warningcorner"; tag = "icon-warningcorner (NORTH)"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"dl" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 4; icon_state = "warningcorner"; tag = "icon-warningcorner (EAST)"},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"dm" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"dn" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
-"do" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 1; icon_state = "warningcorner"; tag = "icon-warningcorner (NORTH)"},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dh" = (/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2,/turf/simulated/floor/plating{color = "#bbbbbb"},/area/spacestations/nanotrasenspace)
+"di" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 4; icon_state = "warningcorner"; tag = "icon-warningcorner (EAST)"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dj" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 5; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dk" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 9; icon_state = "warning"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dl" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 1; icon_state = "warningcorner"; tag = "icon-warningcorner (NORTH)"},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dm" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 4; icon_state = "warningcorner"; tag = "icon-warningcorner (EAST)"},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dn" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 1},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"do" = (/obj/effect/floor_decal/industrial/warning{color = "#d2af6e"; dir = 1},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
+"dp" = (/obj/effect/floor_decal/industrial/warning/corner{color = "#d2af6e"; dir = 1; icon_state = "warningcorner"; tag = "icon-warningcorner (NORTH)"},/obj/machinery/light,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/spacestations/nanotrasenspace)
 
 (1,1,1) = {"
-aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeafaeagacacacacahahahahahahahacaaaaaaaaaaacacacacacacacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaiajakalacacacacahacacacacacahacaaaaaaaaaaacacacacacacacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeamaeanacacacacahacaoaeapacahacaaaaaaaaaaacacadadadadacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeafaeagacacacacahacaqaeaeacahacaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaiajakauacacacacahacadadadacahacaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeamaeanacacacacahahavavavahahacaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababacawaxaxaxacacacacacacaeaeapacacacacacacacacacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabababababayayaxaxayayayayaxaxayayacazazazaAacaBacaBacacaeaeaeacacacacacacacacacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabayayayayayaCaDaEaFaGaHaIaDaJayaKacaLazazaMacaNacaOacacacadacacacacacacacacacacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabayaPaPaQayaPaQaPaQaPaQaPaQaPaRaKacazazazaMacaSaSaSaTacanaeagacacacacacacazazazacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaxaQaPaPaUaPaQaPaQaPaQaPaQaPaRaKacazazazaMacaSaSaVaTacaeaWaXacacacacacacazazazacayaxaxayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabayaPaYaQayaPaQaPaQaPaQaPaQaPaRaKacaLazaZbaacbbacacacacbcbdbeacbfbgbhbfacaxaxbiacaybjbkayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabayayayayayblaPaPbmaPaPbnaPboayaKacazazazazazazbpbqbraxazazazaxazazazazacazazazazbsbjbtayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabababababayayaUaUayaxaxayaUaUayayacazazazazazazazazazbuazazazbuazazazazacazazazazbsbjbtbvacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacbwbwacbxbxacbwbwacacacaLazaAazbyazaAazaAaxbzbAbBaxbCazazazacazazazazbsbjbtayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacararacbxbxacararacbDazazazaMazbEazaMazbFacbGbHbGacbIazazazazazazazazaybjbJayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacararacbxbxacararacbKazazazbEazaMazaMazbLbMbNbObNacbPazazazazazazazazaybQayayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacbwbwacaxaxacbwbwacbDazazazaMazaMazaMazbFacbRbSbRacbIazazazazazazazazaybjbkayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbTbfazazbUazazbVazazbUazazazazbaazbaazbaazbaaxbgbWbXaxbYazazazacazazazazbsbjbtayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbZazazazazazazazazazazazazazazazazazazazazazbuazazazbuazazazazacazazazazbsbjbtbvacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbTbfcabAcbccbzcdcebBbzcfcgazazchcbccbzcdcibBaxazazazaxazazazazacazazazazbsbjbtayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacaccjacacacacaccjacacacazazacacaccjacacacacckclcmacbfbzcnbfacacazazacaybjbJayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacacacacacazazacacacacacacacacaecocpacacacacacacacacacacayaxaxayacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababacaccqcqcrcqacazazaccqcscqcqacacacanaeagacacacacacacacacacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacctaeaecqacaLazaccqaeaecuacacacacadacacacaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccqaeaeaecvazazcvaeaeaecqacacacaeaeaeacacaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccwaeaeaecvazazcvaeaeaecwacacacaeaeaeacacaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccxcycycyacaLczaccycycycAacacacacacacacacaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccycycBcyacazazaccycycBcyacacacacacacacacaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacazcCacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaacacarasataracacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccqcqaecqacazazaccqaecqcqacacaaaaaaaaaaaaaaaaaaaaaaaaacacadadadadacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacctaeaecqacaLazaccqaeaecuacacaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccqaeaeaecvazazcvaeaeaecqacacaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacabaaaaaaaaaaaaaa
-aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccwaeaeaecvazazcvaeaeaecwacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaa
-aaaaaaabababababababababababababababababababababababacaccxcycycyacaLazaccycycycAacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababaaaaaa
-aaaaaaabcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDacaccycycBcyacazazaccycycBcyacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaa
-aaaaaaabaccEcEcEcFcGcGcGcGcGcGcGcGcHcGcGcGcGcGcGcIcEacacacacacacacazazacacacacacacaccJcEcEcKcGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcLcEacabaaaaaa
-aaaaaaabaccEcEcKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcOcLacacacacacbTacazazacbTacacacacaccEcEcKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcOcLacabaaaaaa
-aaaaaaabaccEcKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcOacacacacacbDbUazazbUbpacacacacaccEcKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcOacabaaaaaa
-aaaaaaabaccKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcPacacacaccQbfazazazazbfcjacacacaccKcMcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacaccTcUazazazazaAcVacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacaccWbYazaZazazbacXacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacacaccYazazazazcYacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcPacacacacacacazazazazacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRbwarcZarbwdadbdbdbdbdcbwarcZarbwcScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNddcNcNcNcNcNcNcNcNcRbwarararbwdedfdfdfdfdgbwarararbwcScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcPacacacacacacacbwbwacacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacacacacacararacacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacacacacacararacacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacacacacacacacararacacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabacdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcPacacacacacacacbwbwacacacacacacaccScNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccEdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNdjacababababababababababababababacdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcRacabaaaaaa
-aaaaaaabaccEcEdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNdjdkacabaaaaaaaaaaaaaaaaaaaaaaaaabaccEdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNdjacabaaaaaa
-aaaaaaabaccEcEcEdldmdmdmdmdmdmdmdmdndmdmdmdmdmdmdocEacabaaaaaaaaaaaaaaaaaaaaaaaaabaccEcEdhdicNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNdjdkacabaaaaaa
-aaaaaaabacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaabaccEcEcEdhdmdmdmdmdmdmdmdmdmdmdmdmdmdmdmdmdmdkcEacabaaaaaa
+aaaaaaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeafaeagacacacacahahahahahahahacaaaaaaaaaaacacacacacacacacaiaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacajakalamacacacacahacacacacacahacaaaaaaaaaaacacacacacacacacaiaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeanaeaoacacacacahacapaeaqacahacaaaaaaaaaaacacadadadadadadaraiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeafaeagacacacacahacasaeaeacahacaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacajakalayacacacacahacadadadacahacaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaeanaeaoacacacacahahazazazahahacaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababacaAaBaBaBacacacacacacaeaeaqacacacacacacacacacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabababababaCaCaBaBaCaCaCaCaBaBaCaCacaDaDaDaEacaFacaFacacaeaeaeacacacacacacacacacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaCaCaCaCaCaGaHaIaJaKaLaMaHaNaCaOacaPaDaDaQacaRacaSacacacadacacacacacacacacacacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaCaTaTaUaCaTaUaTaUaTaUaTaUaTaVaOacaDaDaDaQacaWaWaWaXacaoaeagacacacacacacaDaDaDacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaBaUaTaTaYaTaUaTaUaTaUaTaUaTaVaOacaDaDaDaQacaWaWaZaXacaebabbacacacacacacaDaDaDacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaCaTbcaUaCaTaUaTaUaTaUaTaUaTaVaOacaPaDbdbeacbfacacacacbgbhbiacbjbkblbjacaBaBbmacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabaCaCaCaCaCbnaTaTboaTaTbpaTbqaCaOacaDaDaDaDaDaDbrbsbtaBaDaDaDaBaDaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaabababababaCaCaYaYaCaBaBaCaYaYaCaCacaDaDaDaDaDaDaDaDaDbvaDaDaDbvaDaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacbwbwacbxbxacbwbwacacacaPaDaEaDbyaDaEaDaEaBbzbAbBaBbCaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacatatacbxbxacatatacbDaDaDaDaQaDbEaDaQaDbFacbGbHbGacbIaDaDaDaDaDaDaDacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacatatacbxbxacatatacbJaDaDaDbEaDaQaDaQaDbKbLbMbNbMacbOaDaDaDaDaDaDaDacatatatbPatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacbwbwacaBaBacbwbwacbDaDaDaDaQaDaQaDaQaDbFacbQbRbQacbIaDaDaDaDaDaDaDacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbSbjaDaDbTaDaDbUaDaDbTaDaDaDaDbeaDbeaDbeaDbeaBbkbVbWaBbXaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbYaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDaDbvaDaDaDbvaDaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbSbjbZbAcacbbzcccdbBbzcecfaDaDcgcacbbzccchbBaBaDaDaDaBaDaDaDaDacaDaDaDbuatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacciacacacacacciacacacaDaDacacacciacacacaccjckclacbjbzcmbjacaDaDaDacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacacacacacaDaDacacacacacacacacaecncoacacacacacacacacacacatatatatatataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababacaccpcpcqcpacaDaDaccpcrcpcpacacacaoaeagacacacacacacacacacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccsaeaecpacaPaDaccpaeaectacacacacadacacacaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccpaeaeaecuaDaDcuaeaeaecpacacacaeaeaeacacaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacaccvaeaeaecuaDaDcuaeaeaecvacacacaeaeaeacacaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaababababababababababababababababababababababababacaccwcxcxcxacaPcyaccxcxcxczacacacacacacacacaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaabaiacacacacacacacacacacacacacacacacacacacacacacacaccxcxcAcxacaDaDaccxcxcAcxacacacacacacacacaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaabaicBcBcBcCcDcDcDcDcDcDcDcDcEcDcDcDcDcDcDcFcBcBacacacacacacacaDcGacacacacacacacaaaaaaaaaaaaaaaaaaaaaaaaacacatatauavawataxaiaiabaaaaaaaa
+aaaaabaicBcBcHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcKcLcBacaccpcpaecpacaDaDaccpaecpcpacacaaaaaaaaaaaaaaaaaaaaaaaaacacadadadadadadaraiaiabaaaaaaaa
+aaaaabaicMcHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcKcBacaccsaeaecpacaPaDaccpaeaectacacaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacaiaiaiabaaaaaaaa
+aaaaabaicHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacaccpaeaeaecuaDaDcuaeaeaecpacacaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacaiaiaiabaaaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacaccvaeaeaecuaDaDcuaeaeaecvacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacaccwcxcxcxacaPaDaccxcxcxczacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacaccxcxcAcxacaDaDaccxcxcAcxacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaa
+aaaaabaicQcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacacacacacacacaDaDacacacacacacaccRcBcBcHcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcDcLcBacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacacacbSacaDaDacbSacacacacaccBcBcHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcKcLacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacacacbDbTaDaDbTbracacacacaccBcHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcKacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacacacaccSbjaDaDaDaDbjciacacacaccHcIcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacaccTcUaDaDaDaDaEcVacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacaccWbXaDbdaDaDbecXacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicQcJcJcJcJcJcJcJcJcJcJcYcJcJcJcJcJcJcJcJcNcBacacacacaccZaDaDaDaDcZacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacacacacacacaDaDaDaDacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBbwatdaatbwdbdcdcdcdcddbwatdaatbwcPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBbwatatatbwdedfdfdfdfdgbwatatatbwcPcJcJcJcJcJcJcJcJcJcJcJdhcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacacacacacacacbwbwacacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicQcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacacacacacatatacacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacacacacacatatacacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcBacacacacacacacatatacacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaididjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNcOacacacacacacacbwbwacacacacacacaccPcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicBdidjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdkcBacababababababababababababababacdidjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcNacabaaaaaa
+aaaaabaicBcBdidjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdkdlcBacabaaaaaaaaaaaaaaaaaaaaaaaaabaccBdidjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdkacabaaaaaa
+aaaaabaicBcBcBdmdndndndndndndndndodndndndndndndpcBcBacabaaaaaaaaaaaaaaaaaaaaaaaaabaccBcBdidjcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJcJdkdlacabaaaaaa
+aaaaabaiacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaabaccBcBcBdidndndndndndndndndndndndndndndndndndlcBacabaaaaaa
 aaaaaaabababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababababababababababaaaaaa
 "}

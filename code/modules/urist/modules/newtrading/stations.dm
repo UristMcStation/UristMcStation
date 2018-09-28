@@ -18,7 +18,7 @@
 	else
 		..()
 
-/obj/effect/overmap/sector/station/New()
+/*/obj/effect/overmap/sector/station/New()
 	..()
 	if(!spawn_type)
 		var/new_type = pick(typesof(/obj/effect/overmap/sector/station) - /obj/effect/overmap/sector/station)
@@ -53,3 +53,4 @@
 			qdel(M)
 	else
 		..()
+*/

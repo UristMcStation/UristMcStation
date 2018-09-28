@@ -100,6 +100,9 @@
 /obj/machinery/telecomms/hub/preset/wyrm
 	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
 
+/obj/machinery/telecomms/hub/preset/nerva
+	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "1_relay", "2_relay", "3_relay")
+
 //Receivers
 
 /obj/machinery/telecomms/receiver/preset_right

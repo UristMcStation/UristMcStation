@@ -497,7 +497,7 @@ var/global/datum/controller/gameticker/ticker
 		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
 
 		if(GLOB.using_map.using_new_cargo)
-			to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>[stationmoney]<b> in revenue today.")
+			to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>T[stationmoney]</b> in revenue today.")
 
 	mode.declare_completion()//To declare normal completion.
 

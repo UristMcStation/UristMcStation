@@ -242,7 +242,7 @@
 	item_state = "nervafoberet"
 
 /obj/item/clothing/head/urist/beret/nervaso
-	name = "first officer's beret"
+	name = "second officer's beret"
 	desc = "A crisp white beret worn by the ISC Nerva's Second Officer."
 	icon_state = "nervafoberet"
 	item_state = "nervafoberet"

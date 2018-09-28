@@ -168,6 +168,7 @@
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
+	contracts += new /datum/contract/nanotrasen/anomaly
 
 /datum/map/nerva/map_info(victim)
 	to_chat(victim, "<h2>Current map information</h2>")

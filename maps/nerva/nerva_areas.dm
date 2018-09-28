@@ -3,22 +3,6 @@
 //this is just the Wyrm areas right now, but is in flux as I add/remove areas
 
 //////////////////////////////////////
-//			HALLWAYS				//
-//////////////////////////////////////
-
-/area/hallway/primary/fore
-	name = "\improper Fore Primary Hallway"
-	icon_state = "hallF"
-
-/area/hallway/primary/aft
-	name = "\improper Aft Primary Hallway"
-	icon_state = "hallA"
-
-/area/hallway/primary/central
-	name = "\improper Central Primary Hallway"
-	icon_state = "hallC1"
-
-//////////////////////////////////////
 //			COMMAND					//
 //////////////////////////////////////
 
@@ -170,7 +154,7 @@
 	icon_state = "Warden"
 
 /area/security/hangercheckpoint
-	name = "\improper Hanger Checkpoint"
+	name = "\improper Hangar Checkpoint"
 	icon_state = "checkpoint1"
 
 /area/security/cosoffice
@@ -222,28 +206,28 @@
 //			SCIENCE					//
 //////////////////////////////////////
 
-/area/science
+/area/rnd
 	icon_state = "research"
 
-/area/science/office
+/area/rnd/office
 	name = "\improper Nanotrasen Office"
 
-/area/science/chemlab
+/area/rnd/chemlab
 	name = "\improper Research Chemistry Lab"
 
-/area/science/xenobio
-	name = "\improper Xenobiology Wing"
-	icon_state = "xeno_lab"
+///area/rnd/xenobio
+//	name = "\improper Xenobiology Wing"
+//	icon_state = "xeno_lab"
 
-/area/science/xenoarch
-	name = "\improper Xenoarcheology Lab"
-	icon_state = "anomaly"
+///area/rnd/xenoarch
+//	name = "\improper Xenoarcheology Lab"
+//	icon_state = "anomaly"
 
-/area/science/dorms
+/area/rnd/dorms
 	name = "\improper Research Dormitory"
 	icon_state = "blue"
 
-/area/science/storage
+/area/rnd/storage
 	name = "\improper Research Expedition Prep"
 	icon_state = "exploration"
 
@@ -458,7 +442,7 @@
 	icon_state = "mechbay"
 
 /area/logistics/hangar
-	name = "\improper Hanger"
+	name = "\improper Hangar"
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -543,43 +527,12 @@
 	name = "\improper Third Deck Central Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/third_deck/disposals
+	name = "\improper Waste Disposal"
+	icon_state = "disposal"
 
-/area/maintenance/disposals
-	name = "\improper Disposals"
-	icon_state = "maint_engineering"
-
-
-/area/maintenance/primary/sec
-	name = "\improper Security Maintenance"
-	icon_state = "maint_security_starboard"
-
-/area/maintenance/primary/med
-	name = "\improper Medical Maintenance"
-	icon_state = "maint_medical"
-
-/area/maintenance/primary/engs
-	name = "\improper Engineering Starboard Maintenance"
-	icon_state = "maint_engineering"
-
-/area/maintenance/primary/engp
-	name = "\improper Engineering Port Maintenance"
-	icon_state = "maint_engineering"
-
-/area/maintenance/sub/fore
-	name = "\improper Fore Sub Deck Maintenance"
-	icon_state = "fmaint"
-
-/area/maintenance/sub/aft
-	name = "\improper Aft Sub Deck Maintenance"
-	icon_state = "amaint"
-
-/area/maintenance/drone
-	name = "\improper Maintenance Drone Production"
-	icon_state = "maint_engineering"
-
-/area/maintenance/construction
-	name = "\improper Construction Room"
-
+/area/maintenance/exterior
+	name = "\improper Exterior Maintenance"
 
 //////////////////////////////////////
 //			HALLWAYS   				//

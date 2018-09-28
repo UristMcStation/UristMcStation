@@ -64,8 +64,8 @@ SUBSYSTEM_DEF(supply)
 /datum/controller/subsystem/supply/fire()
 	add_points_from_source(points_per_process, "time")
 
-	if(GLOB.using_map.using_new_cargo)
-		points = station_account.money
+//	if(GLOB.using_map.using_new_cargo)
+//		points = station_account.money
 
 /datum/controller/subsystem/supply/stat_entry()
 	..("Points: [points]")

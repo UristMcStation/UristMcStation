@@ -1,6 +1,6 @@
 /datum/map/nerva
 	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield,
-						/datum/job/cook, /datum/job/janitor, /datum/job/assistant,
+						/datum/job/chef, /datum/job/janitor, /datum/job/assistant,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
@@ -10,6 +10,7 @@
 						/datum/job/ai, /datum/job/cyborg
 						)
 
+//general command
 
 /datum/job/blueshield
 	title = "Bodyguard"
@@ -22,14 +23,16 @@
 	minimal_player_age = 8
 	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
+	hud_icon = "hudbodyguard"
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
+			            access_medical, access_engine, access_ai_upload, access_eva, access_heads, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield)
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield,
+			            )
 	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_eva, access_heads,
+			            access_medical, access_engine, access_eva, access_heads, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
@@ -46,13 +49,9 @@
 	minimal_player_age = 18
 	economic_power = 15
 	outfit_type = /decl/hierarchy/outfit/job/nerva/firstofficer
+	hud_icon = "hudheadofpersonnel"
 	access = list()
 	minimal_access = list()
-
-/datum/job/firstofficer/get_access()
-	get_all_station_access()
-	access -= access_captain
-	return
 
 /datum/job/firstofficer/get_description_blurb()
 	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. Moreover, if there is no second officer, your job is also to oversee personnel issues. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
@@ -69,21 +68,132 @@
 /datum/job/hop
 	title = "Second Officer"
 	supervisors = "the captain and the first officer."
+	outfit_type = /decl/hierarchy/outfit/job/nerva/secondofficer
+	hud_icon = "hudheadofpersonnel"
+	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
+			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
+			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_chapel_office, access_library, access_research, access_heads_vault,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
+			            access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
+			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
+			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_chapel_office, access_library, access_research, access_heads_vault,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
+			            access_expedition_shuttle_helm, access_expedition)
+//eng
+
+/datum/job/chief_engineer
+	supervisors = "the captain and the first officer."
+	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
+			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
+			            access_bridge, access_construction, access_sec_doors,
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload,
+			            access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
+			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
+			            access_bridge, access_construction, access_sec_doors,
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload,
+			            access_expedition_shuttle_helm, access_expedition)
+
+/datum/job/engineer
+	total_positions = 5
+	spawn_positions = 3
+
+//cargo
+
+/datum/job/qm
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the captain and the first officer."
+	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_kitchen, access_janitor)
+	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
+
+/datum/job/cargo_tech
+	title = "Supply Technician"
+	supervisors = "the quartermaster"
+	alt_titles = list("Cargo Technician", "Resource Technician", "Fabrication Technician", "Salvage Technician",
+	"Roboticist" = /decl/hierarchy/outfit/job/science/roboticist)
+	total_positions = 6 //because we're replacing science
+	spawn_positions = 4
+	hud_icon = "hudcargotechnician"
+	outfit_type = /decl/hierarchy/outfit/job/nerva/supplytech
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research)
+	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research)
+
+//medbay
+
+/datum/job/cmo
+	supervisors = "the captain and the first officer."
+	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
+			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
+			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
+			access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
+			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
+			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
+			access_expedition_shuttle_helm, access_expedition)
+
+/datum/job/doctor
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
+	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
+		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
+		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
+		"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist
+		)
+
+//sec
 
 /datum/job/hos
 	title = "Chief of Security"
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/security/nervacos
+	hud_icon = "hudheadofsecurity"
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
+			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+			            access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
+			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+			            access_expedition_shuttle_helm, access_expedition)
 
-/datum/job/cmo
-	supervisors = "the captain and the first officer."
+/datum/job/officer
+	supervisors = "the chief of security."
+	alt_titles = list("Detective")
+	outfit_type = /decl/hierarchy/outfit/job/security/nervasecofficer
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition)
 
-/datum/job/chief_engineer
-	supervisors = "the captain and the first officer."
+//sci
 
-/datum/job/qm
-	supervisors = "the captain and the first officer."
-	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
+/datum/job/scientist
+	title = "Nanotrasen Scientist"
+	supervisors = "Nanotrasen Central Command and the captain."
+	total_positions = 2
+	spawn_positions = 2
+	hud_icon = "hudblueshield"
+	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition)
+
+/datum/job/scientist/get_description_blurb()
+	return "You are a Nanotrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from Nanotrasen, and access to Nanotrasen research contracts. This unique arrangement is owing to Nanotrasen's weak position in the outer sector. Thus, you are not fully part of the Nerva's crew, and answer to Nanotrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
+
+//misc
 
 /datum/job/assistant
 	alt_titles = list(
@@ -93,29 +203,9 @@
 	"Mime" = /decl/hierarchy/outfit/job/mime
 	)
 
-/datum/job/cargo_tech
-	title = "Supply Technician"
-	supervisors = "the quartermaster"
-	alt_titles = list("Cargo Technician", "Resource Technician", "Fabrication Technician", "Salvage Technician",
-	"Roboticist" = /decl/hierarchy/outfit/job/science/roboticist)
-	total_positions = 6 //because we're replacing science
-	spawn_positions = 4
-	outfit_type = /decl/hierarchy/outfit/job/nerva/supplytech
-
-/datum/job/officer
-	supervisors = "the chief of security."
-	alt_titles = list("Detective")
-	outfit_type = /decl/hierarchy/outfit/job/security/nervasecofficer
-
-/datum/job/doctor
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_cmo)
-	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
-		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
-		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
-		"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist
-		)
-
-/datum/job/cook
+/datum/job/chef
+	access = list(access_hydroponics, access_bar, access_kitchen)
+	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/bartender)
 	supervisors = "the quartermaster."
 
@@ -123,20 +213,6 @@
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
-
-/datum/job/engineer
-	total_positions = 5
-	spawn_positions = 3
-
-/datum/job/scientist
-	title = "Nanotrasen Scientist"
-	supervisors = "Nanotrasen Central Command and the captain."
-	total_positions = 2
-	spawn_positions = 2
-	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
-
-/datum/job/scientist/get_description_blurb()
-	return "You are a Nanotrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from Nanotrasen, and access to Nanotrasen research contracts. This unique arrangement is owing to Nanotrasen's weak position in the outer sector. Thus, you are not fully part of the Nerva's crew, and answer to Nanotrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
 
 /datum/job/merchant
 	total_positions = 1

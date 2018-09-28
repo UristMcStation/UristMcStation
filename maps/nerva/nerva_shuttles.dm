@@ -59,6 +59,56 @@
 	name = "In transit"
 	landmark_tag = "nav_transit_trajan"
 
+//////////////
+//little guy//
+//////////////
+
+/datum/shuttle/autodock/overmap/antonine
+	name = "Antonine"
+	warmup_time = 5
+	move_time = 30
+	shuttle_area = /area/antonine_hangar/start
+	dock_target ="antonine_shuttle"
+	current_location = "nav_hangar_antonine"
+	landmark_transition = "nav_transit_antonine"
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	fuel_consumption = 2
+//	logging_home_tag = "nav_hangar_antonine"
+
+/obj/effect/shuttle_landmark/nerva/hangar/antonine
+	name = "Antonine Hangar"
+	landmark_tag = "nav_hangar_antonine"
+	base_area = /area/logistics/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/nerva/transit/antonine
+	name = "In transit"
+	landmark_tag = "nav_transit_antonine"
+
+/obj/effect/shuttle_landmark/nerva/deck1/antonine
+	name = "Space near First Deck"
+	landmark_tag = "nav_deck1_antonine"
+
+/obj/effect/shuttle_landmark/nerva/deck3/antonine
+	name = "Space near Third Deck"
+	landmark_tag = "nav_deck3_antonine"
+
+/obj/effect/shuttle_landmark/nerva/deck2/antonine
+	name = "Space near Second Deck"
+	landmark_tag = "nav_deck2_antonine"
+
+/area/antonine_hangar/start
+	name = "\improper Antonine"
+	icon_state = "shuttlered"
+	requires_power = 1
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/obj/machinery/computer/shuttle_control/explore/antonine
+	name = "antonine control console"
+	shuttle_tag = "Antonine"
+
 //////////
 //supply//
 //////////
@@ -187,20 +237,22 @@
 /area/shuttle/escape_pod1/station
 	name = "Escape Pod One"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	base_turf = /turf/simulated/floor/reinforced/airless
 
 /area/shuttle/escape_pod2/station
 	name = "Escape Pod Two"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	base_turf = /turf/simulated/floor/plating
 
 /area/shuttle/escape_pod3/station
 	name = "Escape Pod Three"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
+	base_turf = /turf/simulated/floor/plating
 
 /////////////////////
 //generic waypoints//
 /////////////////////
-
+/*
 /obj/effect/shuttle_landmark/nerva/first/fore
 	name = "First Deck - Fore"
 	landmark_tag = "wyrm_prim_fore"
@@ -247,7 +299,7 @@
 
 /obj/effect/shuttle_landmark/nerva/third/aft
 	name = "Second Deck - Aft"
-	landmark_tag = "wyrm_sub_aft"
+	landmark_tag = "wyrm_sub_aft"*/
 
 
 
