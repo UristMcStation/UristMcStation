@@ -55,6 +55,8 @@
 
 #define isspace(A) istype(A, /area/space)
 
+#define isplanet(A) istype(A, /area/jungle)
+
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
 
 #define isrobot(A) istype(A, /mob/living/silicon/robot)

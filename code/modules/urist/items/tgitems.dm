@@ -384,7 +384,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "A manky old roach, or for non-stoners, a used rollup."
 	icon_state = "roach"
 
-/obj/item/weapon/cigbutt/roach/New()
+/obj/item/trash/cigbutt/roach/New()
 	..()
 	src.pixel_x = rand(-5, 5)
 	src.pixel_y = rand(-5, 5)
