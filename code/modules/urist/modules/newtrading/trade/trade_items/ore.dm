@@ -55,7 +55,7 @@
 	item_type = /obj/item/weapon/ore/diamond
 	category = "ore"
 	quantity = 0
-	value = 3000
+	value = 2000
 	trader_weight = 0
 
 /datum/trade_item/uranium
@@ -63,5 +63,5 @@
 	item_type = /obj/item/weapon/ore/uranium
 	category = "ore"
 	quantity = 0
-	value = 5000
+	value = 1000
 	trader_weight = 0
