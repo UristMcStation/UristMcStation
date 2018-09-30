@@ -3298,7 +3298,6 @@
 	icon_state = "direction_bridge";
 	pixel_x = 32;
 	pixel_y = -8;
-	step_y = 0;
 	tag = "icon-direction_bridge (EAST)"
 	},
 /obj/structure/sign/directions/science{
@@ -14525,7 +14524,6 @@
 	dir = 4;
 	icon_state = "direction_bridge";
 	pixel_y = -30;
-	step_y = 0;
 	tag = "icon-direction_bridge (EAST)"
 	},
 /turf/simulated/floor/tiled,
@@ -21215,7 +21213,6 @@
 	icon_state = "direction_bridge";
 	pixel_x = 32;
 	pixel_y = -8;
-	step_y = 0;
 	tag = "icon-direction_bridge (EAST)"
 	},
 /obj/structure/sign/directions/supply{
