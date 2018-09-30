@@ -382,6 +382,13 @@
 /area/medical/virology
 	name = "\improper Virology Lab"
 
+/area/medical/cloning
+	name = "\improper Cloning Bay"
+
+/area/medical/extstorage
+	name = "\improper Medbay Extra Storage"
+	icon_state = "bluenew"
+
 //////////////////////////////////////
 //			LOGISTICS				//
 //////////////////////////////////////

@@ -129,3 +129,11 @@
 /decl/hierarchy/outfit/job/nerva/scientist/New()
 	..()
 	BACKPACK_OVERRIDE_RESEARCH
+
+//bartender
+
+/decl/hierarchy/outfit/job/service/nervabartender
+	name = OUTFIT_JOB_NAME("Bartender")
+	uniform = /obj/item/clothing/under/rank/bartender
+	id_type = /obj/item/weapon/card/id/civilian/chef
+	pda_type = /obj/item/modular_computer/pda

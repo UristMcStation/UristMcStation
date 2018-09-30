@@ -116,10 +116,11 @@
 /datum/shuttle/autodock/ferry/supply/drone
 	name = "Supply Drone"
 	location = 1
-	warmup_time = 10
+	warmup_time = 5
 	shuttle_area = /area/supply/dock
 	waypoint_offsite = "nav_cargo_start"
 	waypoint_station = "nav_cargo_station"
+	var/doorid = "supplyshuttledoors"
 
 /obj/effect/shuttle_landmark/supply/away
 	name = "Away"
@@ -130,6 +131,19 @@
 	landmark_tag = "nav_cargo_station"
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/reinforced
+
+/datum/shuttle/autodock/ferry/supply/drone/arrived()
+	if(location == 0)
+		for(var/obj/machinery/door/blast/M in SSmachines.machinery)
+			if(M.id == src.doorid)
+				if(M.density)
+					spawn(0)
+						M.open()
+						return
+				else
+					spawn(0)
+						M.close()
+						return
 
 ////////////
 //merchant//

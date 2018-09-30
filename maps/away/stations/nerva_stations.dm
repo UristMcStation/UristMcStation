@@ -15,12 +15,12 @@
 		)
 
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1
-	name = "Docking Navpoint #1"
+	name = "Visitor's Bay"
 	landmark_tag = "nav_nanotrading_1"
 	base_area = /area/spacestations/nanotrasenspace
 
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2
-	name = "Docking Navpoint #2"
+	name = "Loading Bay"
 	landmark_tag = "nav_nanotrading_2"
 	base_area = /area/spacestations/nanotrasenspace
 
