@@ -53,14 +53,14 @@
 
 /obj/item/clothing/under/urist/nerva/qm
 	name = "quartermaster's uniform"
-	desc = "A stlish uniform worn by the ICS Nerva's quartermaster."
+	desc = "A stylish uniform worn by the ICS Nerva's quartermaster."
 	icon_state = "qm"
 	item_state = "qm"
 	worn_state = "qm"
 
 /obj/item/clothing/under/urist/nerva/cargo
 	name = "supply technician's uniform"
-	desc = "A stlish uniform worn by the ICS Nerva's supply technicians."
+	desc = "A stylish uniform worn by the ICS Nerva's supply technicians."
 	icon_state = "cargo"
 	item_state = "cargo"
 	worn_state = "cargo"

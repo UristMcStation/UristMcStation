@@ -8,6 +8,7 @@
 
 /mob/living/simple_animal/hostile/npc/attack_hand(var/mob/living/user)
 	if(user && istype(user) && can_use(user))
+
 		if(interacting_mob && !can_use(interacting_mob))
 			interacting_mob = null
 
@@ -69,6 +70,14 @@
 		data["r_hand_icon"] = ""
 		data["r_hand_worth"] = "0"
 		data["r_sellable"] = 0
+
+	data["l_is_bag"] = 0
+	if(istype(M.l_hand, /obj/item/weapon/storage))
+		data["l_is_bag"] = 1
+
+	data["r_is_bag"] = 0
+	if(istype(M.r_hand, /obj/item/weapon/storage))
+		data["r_is_bag"] = 1
 
 	data["user"] = "\ref[user]"
 

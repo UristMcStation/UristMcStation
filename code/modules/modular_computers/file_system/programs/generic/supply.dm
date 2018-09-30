@@ -179,6 +179,10 @@
 			SSsupply.requestlist -= SO
 			SSsupply.shoppinglist += SO
 			SSsupply.points -= SO.object.cost
+
+			if(GLOB.using_map.using_new_cargo)
+				station_account.money -= SO.object.cost
+
 			break
 		return 1
 

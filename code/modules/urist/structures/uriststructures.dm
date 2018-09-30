@@ -446,3 +446,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "raft_frame4"
 	built = 1
 	buildstate = 4
+
+//special flaps for shuttles
+/obj/structure/plasticflaps/mining/special/clear_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating))
+			T.ChangeTurf(/turf/simulated/floor/plating/flaps)
+
+/obj/structure/plasticflaps/mining/special/clear_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating/flaps))
+			T.ChangeTurf(/turf/simulated/floor/plating)

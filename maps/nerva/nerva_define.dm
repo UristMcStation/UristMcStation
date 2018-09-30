@@ -40,6 +40,7 @@
 	supply_currency_name_short = "Th."
 
 	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	new_cargo_inflation = 35 //used to calculate how much points are now. this needs balancing
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
