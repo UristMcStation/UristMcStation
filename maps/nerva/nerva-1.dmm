@@ -2096,6 +2096,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /mob/living/simple_animal/mouse/brown,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
@@ -2247,6 +2248,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/logistics/fabwork)
+"iI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/maintenance/third_deck/disposals)
 "iJ" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -4613,9 +4620,7 @@
 /area/maintenance/third_deck/afs)
 "pw" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod3/station)
 "px" = (
 /obj/machinery/conveyor{
@@ -5103,7 +5108,7 @@
 	id = "Atmospherics Lockdown";
 	name = "atmos blast door"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/maintenance/third_deck/disposals)
 "qE" = (
 /obj/machinery/conveyor{
@@ -5875,6 +5880,7 @@
 	dir = 8
 	},
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "tc" = (
@@ -5910,10 +5916,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/command/aicore)
-"ti" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/space,
-/area/maintenance/third_deck/disposals)
 "tm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6433,10 +6435,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
-"uU" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/space,
-/area/shuttle/escape_pod2/station)
 "uV" = (
 /obj/structure/catwalk,
 /obj/structure/cable/orange{
@@ -6477,6 +6475,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "uZ" = (
@@ -6792,6 +6791,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"vL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "vN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -8976,9 +8987,7 @@
 /area/exploration_shuttle/main)
 "BS" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod2/station)
 "BU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -10875,6 +10884,7 @@
 	dir = 8
 	},
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "Gy" = (
@@ -12128,6 +12138,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/trash,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "JZ" = (
@@ -13000,6 +13011,9 @@
 "Mx" = (
 /obj/structure/disposaloutlet{
 	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/disposals)
@@ -15833,6 +15847,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "TQ" = (
@@ -17178,7 +17196,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/storage)
 "XP" = (
-/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -17689,10 +17706,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/disposals)
-"Za" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/space,
-/area/shuttle/escape_pod3/station)
 "Zb" = (
 /obj/machinery/atmospherics/tvalve/digital{
 	dir = 8;
@@ -35503,7 +35516,7 @@ Qf
 ag
 ZX
 Sa
-uU
+BS
 tu
 yF
 tu
@@ -36513,7 +36526,7 @@ iV
 Qf
 zD
 Sa
-Za
+pw
 Eb
 lZ
 Lz
@@ -43006,7 +43019,7 @@ rk
 fX
 pY
 TP
-TP
+vL
 tb
 Gw
 uY
@@ -43207,7 +43220,7 @@ NC
 Hk
 xf
 Oz
-Oz
+iI
 Oz
 Oz
 GR
@@ -43415,7 +43428,7 @@ lC
 YW
 XP
 EL
-ti
+yZ
 aa
 aa
 aa
@@ -43617,7 +43630,7 @@ MR
 Lk
 Nt
 gd
-ti
+yZ
 aa
 aa
 aa
@@ -43818,9 +43831,9 @@ Vk
 gd
 Oz
 qD
-ti
-ti
-ti
+yZ
+yZ
+yZ
 aa
 aa
 aa
