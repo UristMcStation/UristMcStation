@@ -78,6 +78,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"aq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/item/device/radio/beacon,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "at" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -998,6 +1006,10 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
+/obj/machinery/light_switch{
+	pixel_x = 10;
+	pixel_y = -25
+	},
 /turf/simulated/floor/wood,
 /area/command/captain)
 "de" = (
@@ -1034,9 +1046,6 @@
 /area/command/captain)
 "dh" = (
 /obj/structure/closet/secure_closet/captainsequipment,
-/obj/machinery/light_switch{
-	pixel_y = -25
-	},
 /turf/simulated/floor/wood,
 /area/command/captain)
 "di" = (
@@ -1103,7 +1112,7 @@
 	tag = ""
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "do" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1111,7 +1120,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -1162,7 +1171,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1182,7 +1191,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -1199,7 +1208,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1215,7 +1224,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -1277,7 +1286,7 @@
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "dC" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 5;
@@ -1736,6 +1745,8 @@
 /area/civilian/holodeck)
 "fi" = (
 /obj/structure/closet,
+/obj/random/toolbox,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "fk" = (
@@ -2500,7 +2511,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/command/captain)
+/area/command/bridge)
 "ie" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -3784,7 +3795,7 @@
 	id = "bridgelock"
 	},
 /turf/simulated/open,
-/area/command/captain)
+/area/command/bridge)
 "mq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -3967,6 +3978,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
+"mX" = (
+/turf/simulated/wall/r_wall,
+/area/command/bridge)
 "nc" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -4464,6 +4478,29 @@
 /obj/machinery/vending/urist/suitdispenser,
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
+"pi" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/random/tool,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afs)
 "pl" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -7089,10 +7126,6 @@
 /area/engineering/atmospherics)
 "Af" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/light_switch{
-	pixel_x = 28;
-	pixel_y = 0
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -7126,6 +7159,7 @@
 /obj/structure/table/standard,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "Ak" = (
@@ -8649,6 +8683,8 @@
 	name = "Station Intercom (General)";
 	pixel_y = 28
 	},
+/obj/random/medical/lite,
+/obj/random/toolbox,
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "FU" = (
@@ -9267,10 +9303,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
-"IE" = (
-/obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/afp)
 "IH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -11080,7 +11112,7 @@
 	id = "bridgelock"
 	},
 /turf/simulated/open,
-/area/command/captain)
+/area/command/bridge)
 "Qw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -11506,6 +11538,7 @@
 	icon_state = "intact-supply";
 	dir = 5
 	},
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
 "Si" = (
@@ -29235,7 +29268,7 @@ hW
 hW
 Fg
 Fg
-fH
+aq
 wG
 Ud
 Mb
@@ -33882,7 +33915,7 @@ OH
 fe
 PK
 hD
-vr
+pi
 lW
 aw
 lW
@@ -35267,11 +35300,11 @@ Ie
 Vo
 xa
 Ig
-IE
 Ig
 Ig
 Ig
 Ig
+oo
 qZ
 Od
 Gq
@@ -42959,10 +42992,10 @@ aO
 aO
 aO
 aO
-aO
+mX
 du
-aO
-aO
+mX
+mX
 SJ
 rg
 rg
@@ -43164,7 +43197,7 @@ di
 dn
 dv
 dB
-aO
+mX
 fD
 co
 Zw
@@ -43366,7 +43399,7 @@ aO
 do
 dw
 Qv
-aO
+mX
 ZJ
 ZJ
 Zw
@@ -43568,7 +43601,7 @@ aO
 id
 dx
 mo
-aO
+mX
 we
 ZJ
 EB
