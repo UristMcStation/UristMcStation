@@ -224,7 +224,7 @@
 	},
 /obj/machinery/access_button/airlock_interior{
 	frequency = 1331;
-	master_tag = "calypso_shuttle";
+	master_tag = "trajan_shuttle";
 	pixel_x = -22;
 	pixel_y = -22
 	},
@@ -1667,7 +1667,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_pump_out_external"
+	id_tag = "trajan_shuttle_pump_out_external"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1679,7 +1679,7 @@
 	},
 /obj/machinery/access_button/airlock_exterior{
 	frequency = 1331;
-	master_tag = "calypso_shuttle";
+	master_tag = "trajan_shuttle";
 	pixel_x = 20;
 	pixel_y = 20
 	},
@@ -2079,11 +2079,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_pump"
+	id_tag = "trajan_shuttle_pump"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "calypso_shuttle_sensor";
+	id_tag = "trajan_shuttle_sensor";
 	pixel_x = 0;
 	pixel_y = -24
 	},
@@ -6430,7 +6430,7 @@
 /obj/machinery/door/airlock/external{
 	density = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_outer";
+	id_tag = "trajan_shuttle_outer";
 	name = "Trajan External Access"
 	},
 /turf/simulated/floor/plating,
@@ -7874,7 +7874,7 @@
 "yz" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
-	id_tag = "calypso_shuttle_inner";
+	id_tag = "trajan_shuttle_inner";
 	name = "Trajan External Access"
 	},
 /obj/structure/cable/cyan{
@@ -8528,7 +8528,7 @@
 "Az" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
-	id_tag = "calypso_shuttle_inner";
+	id_tag = "trajan_shuttle_inner";
 	name = "Trajan External Access"
 	},
 /turf/simulated/floor/plating,
@@ -8947,17 +8947,13 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
 "BM" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle";
+	id_tag = "trajan_shuttle";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = newlist();
-	tag_exterior_sensor = "calypso_shuttle_sensor_external"
+	tag_exterior_sensor = "trajan_shuttle_sensor_external"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -8967,6 +8963,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
@@ -9440,9 +9440,6 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "De" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
@@ -9451,6 +9448,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
@@ -10456,7 +10456,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_pump_out_internal"
+	id_tag = "trajan_shuttle_pump_out_internal"
 	},
 /obj/structure/handrai{
 	icon_state = "handrail";
@@ -12436,7 +12436,7 @@
 	dir = 8
 	},
 /obj/machinery/air_sensor{
-	id_tag = "calypso_out"
+	id_tag = "trajan_out"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -13348,11 +13348,11 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "Nr" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/atmos)
 "Nt" = (
@@ -16428,7 +16428,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_pump"
+	id_tag = "trajan_shuttle_pump"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -16631,7 +16631,7 @@
 /obj/machinery/door/airlock/external{
 	density = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_outer";
+	id_tag = "trajan_shuttle_outer";
 	name = "Trajan External Access"
 	},
 /obj/machinery/shield_diffuser,
@@ -17073,11 +17073,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1331;
-	id_tag = "calypso_shuttle_pump_out_external"
+	id_tag = "trajan_shuttle_pump_out_external"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
-	id_tag = "calypso_shuttle_sensor_external";
+	id_tag = "trajan_shuttle_sensor_external";
 	pixel_x = 25;
 	pixel_y = -25
 	},
