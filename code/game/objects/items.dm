@@ -508,8 +508,6 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/get_parry_chance(mob/user)
 	. = base_parry_chance
-	if(user)
-		. += 15 * (user.get_skill_value(SKILL_COMBAT) - SKILL_BASIC)
 
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc

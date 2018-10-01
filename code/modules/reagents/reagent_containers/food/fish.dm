@@ -18,9 +18,6 @@
 		if(istype(M) && !M.unEquip(src))
 			return
 
-		var/toxin_amt = reagents.get_reagent_amount(/datum/reagent/toxin/carpotoxin)
-		if(toxin_amt && !prob(user.skill_fail_chance(SKILL_COOKING, 100, SKILL_PROF)))
-			reagents.remove_reagent(/datum/reagent/toxin/carpotoxin, toxin_amt)
 		user.visible_message("<span class='notice'>\The [user] slices \the [src] into thin strips.</span>")
 
 		var/transfer_amt = Floor(reagents.total_volume * 0.3)
