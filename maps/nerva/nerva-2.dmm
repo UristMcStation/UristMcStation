@@ -2382,9 +2382,6 @@
 /area/civilian/messhall)
 "dX" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light_switch{
-	pixel_y = -24
-	},
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
@@ -3061,12 +3058,9 @@
 	dir = 4;
 	layer = 2.4
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "kitchen";
-	name = "Kitchen Shutters Control";
-	pixel_x = -1;
-	pixel_y = 24;
-	req_access = list(28)
+/obj/machinery/smartfridge{
+	density = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
@@ -3585,7 +3579,18 @@
 	pixel_y = -28
 	},
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	pixel_y = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	icon_state = "blastctrl";
+	id = "kitchen";
+	name = "Kitchen Shutters Control";
+	pixel_x = -22;
+	pixel_y = -5;
+	req_access = list(28);
+	tag = "icon-blastctrl (EAST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
@@ -6452,6 +6457,17 @@
 "lL" = (
 /turf/simulated/wall,
 /area/maintenance/second_deck/fp)
+"lM" = (
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (NORTH)";
+	icon_state = "railing0";
+	dir = 1
+	},
+/obj/machinery/light_switch{
+	pixel_y = -24
+	},
+/turf/simulated/open,
+/area/civilian/kitchen)
 "lN" = (
 /obj/machinery/light_switch{
 	pixel_x = -22
@@ -53216,7 +53232,7 @@ Fz
 ca
 cN
 dt
-dZ
+lM
 ca
 fe
 du
