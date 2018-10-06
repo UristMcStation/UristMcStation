@@ -21,6 +21,10 @@
 	..()
 
 /obj/machinery/shipweapons/Process()
+	if(!charged && !recharging)
+		Charging()
+		recharging = 1
+
 	..()
 
 /obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
@@ -35,16 +39,17 @@
 			update_icon()
 			canfire = 1
 			update_use_power(1)
+			recharging = 0
 
 /obj/machinery/shipweapons/power_change()
-	if(!charged) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+	if(!charged && !recharging) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
 	else
 		..()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
-	if(charged) //even if we don't have power, as long as we have a charge, we can do this
+	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
 		var/want = input("Fire the [src]?") in list ("Cancel", "Yes")
 		switch(want)
 			if("Cancel")
@@ -57,8 +62,11 @@
 					user << "<span class='warning'>The [src] needs to charge!</span>"
 
 		return
-	else
+	else if(!charged)
 		user << "<span class='warning'>The [src] needs to charge!</span>"
+
+	else if(!target)
+		user << "<span class='warning'>There is nothing to shoot at...</span>"
 
 /obj/machinery/shipweapons/proc/Fire()
 	if(!target) //maybe make it fire and recharge if people are dumb?
@@ -138,3 +146,4 @@
 /obj/machinery/shipweapons/beam/ion
 	name = "ion cannon"
 	shielddamage = 400
+	active_power_usage = 2000

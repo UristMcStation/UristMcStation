@@ -1046,6 +1046,7 @@
 /area/command/captain)
 "dh" = (
 /obj/structure/closet/secure_closet/captainsequipment,
+/obj/item/ammo_magazine/c44,
 /turf/simulated/floor/wood,
 /area/command/captain)
 "di" = (
@@ -1774,6 +1775,9 @@
 	icon_state = "intact-supply";
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "fn" = (
@@ -2403,6 +2407,10 @@
 "hO" = (
 /turf/simulated/wall,
 /area/maintenance/first_deck/central)
+"hP" = (
+/obj/effect/shuttle_landmark/skipjack/deck1,
+/turf/space,
+/area/space)
 "hR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -3223,6 +3231,9 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "kB" = (
@@ -4037,6 +4048,31 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"nq" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/catwalk_plated,
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
+/turf/simulated/floor/plating,
+/area/logistics/primtool)
 "nu" = (
 /obj/machinery/computer/arcade{
 	dir = 2
@@ -7379,6 +7415,9 @@
 	dir = 4
 	},
 /obj/effect/catwalk_plated,
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "Bo" = (
@@ -7837,6 +7876,14 @@
 /obj/item/clothing/suit/urist/blackjacket,
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
+"Dn" = (
+/obj/structure/catwalk,
+/obj/structure/handrai{
+	icon_state = "handrail";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/maintenance/first_deck/afp)
 "Dp" = (
 /obj/structure/bed/chair/urist/shuttle{
 	tag = "icon-shuttlechair (WEST)";
@@ -9811,6 +9858,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/command/teleporter)
+"Kw" = (
+/obj/structure/catwalk,
+/obj/structure/handrai,
+/turf/simulated/floor/reinforced/airless,
+/area/maintenance/first_deck/fs)
 "Kx" = (
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Aft Hallway - Port";
@@ -9895,6 +9947,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
+"KT" = (
+/obj/structure/curtain/open/bed,
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/orange,
+/turf/simulated/floor/wood,
+/area/civilian/dorms)
 "KU" = (
 /obj/machinery/teleport/station{
 	dir = 1
@@ -10907,6 +10965,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
+"Ps" = (
+/obj/effect/shuttle_landmark/ninja/deck1,
+/turf/space,
+/area/space)
 "Pt" = (
 /obj/machinery/door/airlock/glass{
 	name = "Library"
@@ -11081,6 +11143,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
+"Qi" = (
+/obj/effect/shuttle_landmark/merc/deck1,
+/turf/space,
+/area/space)
 "Qq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -24173,7 +24239,7 @@ aa
 aa
 aa
 aa
-aa
+hP
 aa
 aa
 aa
@@ -30846,7 +30912,7 @@ uy
 uy
 uy
 uy
-Yv
+Dn
 xa
 xa
 xa
@@ -35149,7 +35215,7 @@ aa
 aa
 aa
 aa
-aa
+Ps
 aa
 aa
 aa
@@ -36319,7 +36385,7 @@ BU
 Od
 ho
 nd
-sM
+KT
 Wu
 Wu
 Zv
@@ -38918,7 +38984,7 @@ aa
 aa
 aa
 aa
-aa
+Dc
 aa
 aa
 aa
@@ -39967,7 +40033,7 @@ Xr
 tg
 cL
 Ai
-jD
+nq
 YT
 Hs
 UM
@@ -40127,7 +40193,7 @@ aa
 aa
 aa
 aa
-Dc
+aa
 aa
 aa
 aa
@@ -40178,7 +40244,7 @@ Zw
 Zw
 Zw
 Zw
-KO
+Kw
 uy
 uy
 uy
@@ -45794,7 +45860,7 @@ aa
 aa
 aa
 aa
-aa
+Dc
 aa
 aa
 aa
@@ -46010,7 +46076,7 @@ aa
 aa
 aa
 aa
-aa
+Dc
 aa
 aa
 aa
@@ -47208,7 +47274,7 @@ aa
 aa
 aa
 aa
-Dc
+aa
 aa
 aa
 aa
@@ -47428,7 +47494,7 @@ aa
 aa
 aa
 aa
-Dc
+aa
 aa
 aa
 aa
@@ -48209,7 +48275,7 @@ aa
 aa
 aa
 aa
-aa
+Qi
 aa
 aa
 aa

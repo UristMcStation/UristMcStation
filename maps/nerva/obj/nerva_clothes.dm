@@ -160,9 +160,10 @@
 	name = "\improper ICS Nerva tag"
 	desc = "An armor tag with an 'N' emblazoned on it to denote the ICS Nerva."
 	icon_state = "nervatag"
-	icon_override = 'icons/uristmob/modular_armor.dmi'
-	icon = 'icons/urist/items/clothes/modular_armor.dmi'
-	accessory_icons = list(slot_tie_str = 'icons/uristmob/modular_armor.dmi', slot_wear_suit_str = 'icons/uristmob/modular_armor.dmi')
+	item_icons = URIST_ALL_ONMOBS
+	icon_override = 'icons/uristmob/ties.dmi'
+	icon = 'icons/urist/items/clothes/ties.dmi'
+//	accessory_icons = list(slot_tie_str = 'icons/uristmob/modular_armor.dmi', slot_wear_suit_str = 'icons/uristmob/modular_armor.dmi')
 
 //cloak
 

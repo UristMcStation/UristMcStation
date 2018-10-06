@@ -187,8 +187,8 @@
 	supervisors = "the chief of security."
 	alt_titles = list("Detective")
 	outfit_type = /decl/hierarchy/outfit/job/security/nervasecofficer
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
+	access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
+	minimal_access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
 
 //sci
 

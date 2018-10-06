@@ -10,7 +10,7 @@
 	icon_state = "head_quarters"
 
 /area/command/bridge
-	name = "\improper Bridge"
+	name = "\improper ICS Nerva Bridge"
 	icon_state = "bridge"
 
 /area/command/hop
@@ -595,6 +595,9 @@
 //			Z-LEVEL 4 / ADMIN		//
 //////////////////////////////////////
 
+/area/centcom
+	name = "Admin Area"
+
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
@@ -626,10 +629,10 @@
 	requires_power = 0
 	dynamic_lighting = 0
 
-/area/wizard
-	name = "Wizard's Lair"
-	requires_power = 0
-	dynamic_lighting = 0
+///area/wizard
+//	name = "Wizard's Lair"
+//	requires_power = 0
+//	dynamic_lighting = 0
 
 // ACTORS GUILD
 /area/acting
@@ -677,6 +680,9 @@
 
 /area/merchant_station
 	name = "\improper Merchant Station"
+
+/area/syndicate_mothership/raider_base
+	name = "\improper Raider Base"
 
 //////////////////////////////////////
 //			AWAY MISSION			//

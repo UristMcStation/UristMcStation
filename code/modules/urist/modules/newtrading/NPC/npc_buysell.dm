@@ -14,6 +14,11 @@
 			else
 				qdel(I)
 
+	if(istype(O, /obj/item/stack))
+		var/obj/item/stack/S = O
+		var/newworth = worth * S.amount
+		worth = newworth
+
 	else
 		M.drop_from_inventory(O, src)
 
@@ -28,7 +33,7 @@
 
 
 	M.visible_message("<span class='info'>[M] exchanges items with [src]</span>",\
-		"<span class='info'>You give [O] to [src] who gives you a bundle of credits worth cR-[worth].</span>")
+		"<span class='info'>You give [O] to [src] who gives you a bundle of thalers worth Th-[worth].</span>")
 	spawn_money(worth, M.loc, M)
 	src.playsound_local(src.loc, "rustle", 100, 1)
 
@@ -59,19 +64,34 @@
 		B = M.r_hand
 
 	if(!B || !istype(B) || B.worth < value)
-		var/money_phrases = list("Show me the cR-[value].","Where is the cash? cR-[value]","That's not enough, you'd be out of pocket cR-[value]","I don't do credit. That's cR-[value]")
+		var/money_phrases = list("Show me the cR-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
 		var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"[pick(money_phrases)]\"</span></span></span>"
 		M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 	else
 
-		if(istype (B, /obj/item/weapon/spacecash/bundle))
-			//take the cash
-			var/obj/item/weapon/spacecash/bundle/P = B
-			var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
-			payment.loc = src
-			qdel(payment)
+		if(D.req_access)
+			var/id_card = M.GetIdCard()
+			if(!CanPurchase(M, id_card, D.req_access))
+				var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
+				M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
+			else
+				if(istype (B, /obj/item/weapon/spacecash/bundle))
+					//take the cash
+					var/obj/item/weapon/spacecash/bundle/P = B
+					var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+					payment.loc = src
+					qdel(payment)
 
-		GiveItem(D, M)
+				GiveItem(D, M)
+		else
+			if(istype (B, /obj/item/weapon/spacecash/bundle))
+				//take the cash
+				var/obj/item/weapon/spacecash/bundle/P = B
+				var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+				payment.loc = src
+				qdel(payment)
+
+			GiveItem(D, M)
 
 /mob/living/simple_animal/hostile/npc/proc/GiveItem(var/datum/trade_item/D, var/mob/M)
 	//create the object and pass it over
@@ -82,7 +102,7 @@
 
 		//tell the user
 		M.visible_message("<span class='info'>[M] exchanges items with [src]</span>",\
-			"<span class='info'>You split off cR-[D.value] to [src] who pulls out [O] and places it in front of you.</span>") //out of where? fuck knows.
+			"<span class='info'>You split off Th-[D.value] to [src] who pulls out [O] and places it in front of you.</span>") //out of where? fuck knows.
 
 	else
 		var/obj/O = new D.item_type(M.loc)
@@ -90,7 +110,7 @@
 
 		//tell the user
 		M.visible_message("<span class='info'>[M] exchanges items with [src]</span>",\
-			"<span class='info'>You split off cR-[D.value] to [src] who hands you [O].</span>")
+			"<span class='info'>You split off Th-[D.value] to [src] who hands you [O].</span>")
 
 	src.playsound_local(src.loc, "rustle", 100, 1)
 
@@ -99,4 +119,7 @@
 	D.value = round(D.value * src.price_increase)		//price goes up a little
 	update_trade_item_ui(D)
 
-
+/mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/obj/item/weapon/card/id/id_card, var/access)
+	var/list/L = id_card.GetAccess()
+	if(has_access(access, access, L))
+		return 1

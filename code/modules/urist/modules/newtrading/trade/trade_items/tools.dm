@@ -19,7 +19,7 @@
 	category = "tools"
 	quantity = 10
 	value = 30
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/wrench
 	name = "wrench"
@@ -27,7 +27,7 @@
 	category = "tools"
 	quantity = 10
 	value = 30
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/screwdriver
 	name = "screwdriver"
@@ -35,7 +35,7 @@
 	category = "tools"
 	quantity = 10
 	value = 30
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/wirecutters
 	name = "wirecutters"
@@ -43,7 +43,7 @@
 	category = "tools"
 	quantity = 10
 	value = 40
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/weldingtool
 	name = "empty welding tool"
@@ -51,7 +51,7 @@
 	category = "tools"
 	quantity = 10
 	value = 70
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/welder_tank
 	name = "welding fuel tank"
@@ -59,7 +59,7 @@
 	category = "tools"
 	quantity = 10
 	value = 60
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/welder_tank_large
 	name = "large welding fuel tank"
@@ -67,7 +67,7 @@
 	category = "tools"
 	quantity = 10
 	value = 100
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/utilitybelt
 	name = "utility belt"
@@ -75,7 +75,7 @@
 	category = "tools"
 	quantity = 5
 	value = 70
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/t_scanner
 	name = "T-ray scanner"
@@ -83,7 +83,7 @@
 	category = "tools"
 	quantity = 5
 	value = 100
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/multitool
 	name = "multitool"
@@ -91,7 +91,7 @@
 	category = "tools"
 	quantity = 5
 	value = 120
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/mesons
 	name = "meson goggles"
@@ -99,7 +99,7 @@
 	category = "tools"
 	quantity = 10
 	value = 200
-	trader_weight = 1
+//	trader_weight = 1
 
 /datum/trade_item/tool/radio
 	name = "shortwave radio"
@@ -107,5 +107,5 @@
 	category = "tools"
 	quantity = 10
 	value = 60
-	trader_weight = 1
+//	trader_weight = 1
 

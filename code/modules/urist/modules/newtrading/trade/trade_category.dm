@@ -34,4 +34,7 @@
 /datum/trade_category/clothing
 	name = "clothing"
 
+/datum/trade_category/refreshments
+	name = "refreshments"
+
 

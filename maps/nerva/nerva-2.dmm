@@ -241,7 +241,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "aC" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1545,6 +1545,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/command/bridge)
+"ct" = (
+/obj/structure/catwalk,
+/obj/structure/handrai{
+	icon_state = "handrail";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/centp)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -4035,12 +4043,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
 "gW" = (
-/obj/structure/closet/secure_closet/hos,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
+/obj/structure/closet/secure_closet/nervacos,
+/obj/item/ammo_magazine/c44,
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "gX" = (
@@ -4174,6 +4183,10 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
+"hi" = (
+/obj/effect/shuttle_landmark/skipjack/deck2,
+/turf/space,
+/area/space)
 "hj" = (
 /obj/structure/stairs/west,
 /obj/machinery/door/blast/regular/open{
@@ -5341,6 +5354,11 @@
 	pixel_y = 26;
 	req_access = list(13)
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "EVA Airlock External";
+	dir = 2;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/command/eva)
 "jC" = (
@@ -5985,6 +6003,7 @@
 	tag = "icon-shutter1 (EAST)"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/logistics/mechbay)
 "kQ" = (
@@ -6522,11 +6541,7 @@
 	icon_state = "warning";
 	dir = 6
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "EVA Airlock External";
-	dir = 2;
-	icon_state = "camera"
-	},
+/obj/structure/handrai,
 /turf/simulated/floor/reinforced/airless,
 /area/command/eva)
 "lS" = (
@@ -6641,21 +6656,6 @@
 "lZ" = (
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
-"ma" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance{
-	name = "Morgue Maintenance";
-	req_access = list(6)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/medical/morgue)
 "mb" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -7558,6 +7558,13 @@
 /obj/item/weapon/storage/box/lights/mixed,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"nM" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Morgue Maintenance";
+	req_access = list(6)
+	},
+/turf/simulated/floor/plating,
+/area/medical/morgue)
 "nO" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7836,7 +7843,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Assistant"
+	name = "Medical Doctor"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/examroom)
@@ -8574,6 +8581,12 @@
 "pR" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
 /turf/simulated/floor/tiled/dark,
 /area/command/storage)
 "pS" = (
@@ -15489,6 +15502,9 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "Dl" = (
@@ -16761,7 +16777,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark/start{
-	name = "Assistant"
+	name = "Medical Doctor"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -19596,6 +19612,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/robotics)
+"Lp" = (
+/obj/effect/shuttle_landmark/merc/deck2,
+/turf/space,
+/area/space)
 "Lq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -21379,7 +21399,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Assistant"
+	name = "Medical Doctor"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
@@ -23374,15 +23394,13 @@
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "So" = (
-/obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
-	icon_state = "plant-22"
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
+/obj/structure/closet/secure_closet/nervafo,
+/obj/item/ammo_magazine/c44,
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "Sp" = (
@@ -24989,7 +25007,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Assistant"
+	name = "Medical Doctor"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -25115,6 +25133,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"VO" = (
+/obj/effect/shuttle_landmark/ninja/deck2,
+/turf/space,
+/area/space)
 "VP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -27085,7 +27107,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Assistant"
+	name = "Medical Doctor"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
@@ -39534,7 +39556,7 @@ aa
 aa
 aa
 aa
-aa
+hi
 aa
 aa
 aa
@@ -43516,7 +43538,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 ag
@@ -43717,7 +43739,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 tU
@@ -43918,7 +43940,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 tU
@@ -44119,7 +44141,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 FS
@@ -44320,7 +44342,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 tU
@@ -44521,7 +44543,7 @@ aa
 aa
 aa
 aa
-af
+tU
 tU
 tU
 tU
@@ -50585,8 +50607,8 @@ FW
 FW
 FW
 zS
-ma
-zC
+mC
+tq
 vS
 zy
 IM
@@ -50781,14 +50803,14 @@ aa
 aa
 aa
 aa
-xI
+ct
 FW
 FW
 FW
 ix
 Ag
-mC
-tq
+nM
+zC
 XO
 WF
 kh
@@ -54824,7 +54846,7 @@ aa
 aa
 aa
 aa
-af
+XZ
 XZ
 XZ
 XZ
@@ -55229,7 +55251,7 @@ aa
 aa
 aa
 aa
-af
+XZ
 XZ
 zY
 Zj
@@ -55431,7 +55453,7 @@ aa
 aa
 aa
 aa
-af
+XZ
 XZ
 XZ
 XZ
@@ -55634,7 +55656,7 @@ aa
 aa
 aa
 aa
-af
+XZ
 XZ
 Tb
 XZ
@@ -55837,7 +55859,7 @@ aa
 aa
 aa
 aa
-af
+XZ
 XZ
 XZ
 Zj
@@ -57712,7 +57734,7 @@ aa
 aa
 aa
 aa
-aa
+Lp
 aa
 aa
 aa
@@ -58652,7 +58674,7 @@ aa
 aa
 aa
 aa
-aa
+VO
 aa
 aa
 aa
@@ -60130,7 +60152,7 @@ aa
 aa
 aa
 aa
-rE
+aa
 aa
 aa
 aa
@@ -60934,7 +60956,7 @@ aa
 aa
 aa
 aa
-aa
+rE
 aa
 aa
 aa

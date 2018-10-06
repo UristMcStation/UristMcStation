@@ -40,7 +40,7 @@
 	supply_currency_name_short = "Th."
 
 	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
-	new_cargo_inflation = 35 //used to calculate how much points are now. this needs balancing
+	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -54,9 +54,8 @@
 
 	date_offset = 564
 
-	available_cultural_info = list(
+/*	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
 			HOME_SYSTEM_VENUS,
@@ -72,14 +71,19 @@
 			HOME_SYSTEM_LORDANIA,
 			HOME_SYSTEM_KINGSTON,
 			HOME_SYSTEM_GAIA,
+			HOME_SYSTEM_RYCLIES,
+			HOME_SYSTEM_READE,
+			HOME_SYSTEM_PROCYON,
 			HOME_SYSTEM_OTHER
 		),
 		TAG_FACTION = list(
 			FACTION_NANOTRASEN,
-			FACTION_FREETRADE,
 			FACTION_XYNERGY,
 			FACTION_HEPHAESTUS,
+			FACTION_TCONFEDERACY,
+			FACTION_UHA,
 			FACTION_PCRC,
+			FACTION_ORMA,
 			FACTION_OTHER
 		),
 		TAG_CULTURE = list(
@@ -92,11 +96,13 @@
 			CULTURE_HUMAN_VENUSLOW,
 			CULTURE_HUMAN_BELTER,
 			CULTURE_HUMAN_PLUTO,
-			CULTURE_HUMAN_EARTH,
 			CULTURE_HUMAN_CETI,
 			CULTURE_HUMAN_SPACER,
 			CULTURE_HUMAN_SPAFRO,
 			CULTURE_HUMAN_CONFED,
+			CULTURE_HUMAN_UHA_OFFTERRA,
+			CULTURE_HUMAN_ORMA,
+			CULTURE_HUMAN_NT,
 			CULTURE_HUMAN_OTHER,
 			CULTURE_OTHER
 		),
@@ -117,11 +123,11 @@
 
 	default_cultural_info = list(
 		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
-		TAG_FACTION =   FACTION_NANOTRASEN,
+		TAG_FACTION =   FACTION_SOL_CENTRAL,
 		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
 		TAG_RELIGION =  RELIGION_AGNOSTICISM
 	)
-
+*/
 /*	citizenship_choices = list(
 		"Earth",
 		"Mars",
