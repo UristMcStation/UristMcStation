@@ -9,3 +9,4 @@
 	var/is_template = 1
 	var/sellable = 0 //can we sell this item to the trader
 	var/is_bulky = 0
+	var/req_access = null

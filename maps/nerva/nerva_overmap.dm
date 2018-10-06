@@ -23,7 +23,8 @@
 
 	initial_restricted_waypoints = list(
 		"Trajan" = list("nav_hangar_trajan"),
-		"Antonine" = list("nav_hangar_antonine")
+		"Antonine" = list("nav_hangar_antonine"),
+		"Transport" = list("nav_ferry_out")
 	)
 
 	canfight = 1

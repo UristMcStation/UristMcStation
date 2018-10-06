@@ -587,9 +587,17 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "bG" = (
-/turf/space,
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "pdoor1";
+	name = "Secure Access"
+	},
 /area/spacestations/nanotrasenspace)
 "bH" = (
+/turf/space,
+/area/spacestations/nanotrasenspace)
+"bI" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
@@ -602,7 +610,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bI" = (
+"bJ" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
@@ -610,7 +618,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bJ" = (
+"bK" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
@@ -618,7 +626,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bK" = (
+"bL" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
@@ -626,7 +634,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bL" = (
+"bM" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
@@ -634,11 +642,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bM" = (
+"bN" = (
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"bO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"bP" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bN" = (
+"bQ" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
@@ -651,7 +668,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bO" = (
+"bR" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
@@ -662,7 +679,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bP" = (
+"bS" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -672,7 +689,7 @@
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"bQ" = (
+"bT" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -682,7 +699,7 @@
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"bR" = (
+"bU" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
@@ -690,17 +707,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bS" = (
+"bV" = (
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
-"bT" = (
+"bW" = (
 /obj/machinery/vending/urist/nanotrasen,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bU" = (
+"bX" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
@@ -711,24 +728,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bV" = (
+"bY" = (
 /turf/unsimulated/wall,
 /area/spacestations/nanotrasenspace)
-"bW" = (
+"bZ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"bX" = (
+"ca" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-sunnybush_3";
 	icon_state = "sunnybush_3"
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"bY" = (
+"cb" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
@@ -739,7 +756,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bZ" = (
+"cc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cd" = (
+/obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"ce" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cf" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-ywflowers_3";
@@ -747,7 +782,7 @@
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"ca" = (
+"cg" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-ppflowers_3";
@@ -755,31 +790,35 @@
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"cb" = (
+"ch" = (
+/obj/item/weapon/stool/bar/padded,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"ci" = (
 /obj/structure/sign/urist/nt,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"cc" = (
+"cj" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cd" = (
+"ck" = (
 /mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen{
 	wander = 1
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"ce" = (
+"cl" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cf" = (
+"cm" = (
 /obj/structure/bed/chair/urist/bench/bench1/right,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cg" = (
+"cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (EAST)";
 	icon_state = "benchright";
@@ -787,27 +826,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"ch" = (
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	dir = 4;
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	name = "Stair Access"
-	},
+"co" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
-"ci" = (
-/obj/structure/sign/urist/ad/sign5{
-	pixel_y = -32
-	},
+"cp" = (
+/obj/structure/bed/chair/wood,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cq" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
+/obj/structure/sign/urist/ad/sign3{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cj" = (
+"cr" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
@@ -820,7 +858,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"ck" = (
+"cs" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
@@ -833,7 +871,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cl" = (
+"ct" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
@@ -842,51 +880,7 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cm" = (
-/obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
-	icon_state = "benchmid";
-	dir = 1
-	},
-/obj/structure/sign/urist/ad/sign4{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"cn" = (
-/obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
-	icon_state = "benchmid";
-	dir = 1
-	},
-/obj/machinery/newscaster{
-	layer = 3.3;
-	pixel_x = 0;
-	pixel_y = -27
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"co" = (
-/obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
-	icon_state = "benchright";
-	dir = 1
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"cp" = (
-/obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
-	icon_state = "benchleft";
-	dir = 1
-	},
-/obj/structure/sign/urist/ad/sign3{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"cq" = (
+"cu" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
@@ -897,11 +891,71 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cr" = (
+"cv" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (EAST)";
+	icon_state = "wooden_chair";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cw" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair (WEST)";
+	icon_state = "wooden_chair";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cx" = (
+/obj/structure/sign/urist/ad/sign5{
+	pixel_y = -32
+	},
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (NORTH)";
+	icon_state = "benchleft";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cy" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (NORTH)";
+	icon_state = "benchmid";
+	dir = 1
+	},
+/obj/structure/sign/urist/ad/sign4{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cz" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (NORTH)";
+	icon_state = "benchmid";
+	dir = 1
+	},
+/obj/machinery/newscaster{
+	layer = 3.3;
+	pixel_x = 0;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cA" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (NORTH)";
+	icon_state = "benchright";
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cB" = (
 /obj/machinery/atm,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"cs" = (
+"cC" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/paper_bin{
 	pixel_x = 1;
@@ -913,7 +967,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"ct" = (
+"cD" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/folder,
 /obj/machinery/door/window/northleft{
@@ -922,7 +976,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cu" = (
+"cE" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -930,7 +984,7 @@
 /obj/item/modular_computer/laptop/preset/records,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cv" = (
+"cF" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
@@ -943,31 +997,51 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cw" = (
+"cG" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cH" = (
+/obj/structure/bed/chair/wood{
+	tag = "icon-wooden_chair_preview (NORTH)";
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cI" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cJ" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cx" = (
+"cK" = (
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cy" = (
+"cL" = (
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cz" = (
+"cM" = (
 /mob/living/simple_animal/hostile/npc/colonist/mineral_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cA" = (
+"cN" = (
 /mob/living/simple_animal/hostile/npc/colonist/crop_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cB" = (
+"cO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
@@ -978,7 +1052,7 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cC" = (
+"cP" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 5;
@@ -988,7 +1062,23 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cD" = (
+"cQ" = (
+/obj/structure/bed/chair/couch/left/black{
+	tag = "icon-couch_left (EAST)";
+	icon_state = "couch_left";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cR" = (
+/obj/structure/bed/chair/couch/right/black{
+	tag = "icon-couch_right (WEST)";
+	icon_state = "couch_right";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 8;
@@ -997,14 +1087,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cE" = (
+"cT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cF" = (
+"cU" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 9;
@@ -1014,11 +1104,52 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cG" = (
+"cV" = (
+/obj/structure/bed/chair/couch/middle/black{
+	tag = "icon-couch_middle (NORTHEAST)";
+	icon_state = "couch_middle";
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cW" = (
+/obj/machinery/light,
+/obj/structure/bed/chair/couch/middle/black{
+	tag = "icon-couch_middle (NORTH)";
+	icon_state = "couch_middle";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cX" = (
+/obj/structure/bed/chair/couch/right/black{
+	tag = "icon-couch_right (NORTH)";
+	icon_state = "couch_right";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cY" = (
+/obj/structure/bed/chair/couch/left/black{
+	tag = "icon-couch_left (NORTH)";
+	icon_state = "couch_left";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"cZ" = (
+/obj/structure/bed/chair/couch/middle/black{
+	tag = "icon-couch_middle (NORTHWEST)";
+	icon_state = "couch_middle";
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"da" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cH" = (
+"db" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
@@ -1029,11 +1160,11 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cI" = (
+"dc" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cJ" = (
+"dd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
@@ -1045,7 +1176,7 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cK" = (
+"de" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 1
@@ -1054,7 +1185,7 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cL" = (
+"df" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 1
@@ -1064,7 +1195,7 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cM" = (
+"dg" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
@@ -1076,7 +1207,7 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"cN" = (
+"dh" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -1086,16 +1217,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cO" = (
+"di" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cP" = (
+"dj" = (
 /obj/effect/overmap/sector/station/nanotrasentrading,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cQ" = (
+"dk" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -1103,7 +1234,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cR" = (
+"dl" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
@@ -1113,35 +1244,35 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cS" = (
+"dm" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cT" = (
+"dn" = (
 /mob/living/simple_animal/hostile/npc/colonist/tool_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"cU" = (
+"do" = (
 /turf/unsimulated/floor/uristturf/rail{
 	tag = "icon-rail2";
 	icon_state = "rail2"
 	},
 /area/spacestations/nanotrasenspace)
-"cV" = (
+"dp" = (
 /turf/unsimulated/floor/uristturf/rail{
 	icon_state = "rail3"
 	},
 /area/spacestations/nanotrasenspace)
-"cW" = (
+"dq" = (
 /turf/unsimulated/floor/uristturf/rail,
 /area/spacestations/nanotrasenspace)
-"cX" = (
+"dr" = (
 /obj/machinery/newscaster,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"cY" = (
+"ds" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
@@ -1151,18 +1282,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"cZ" = (
+"dt" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"da" = (
+"du" = (
 /obj/structure/sign/urist/ad/sign5,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"db" = (
+"dv" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
@@ -1175,19 +1306,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dc" = (
+"dw" = (
 /obj/structure/sign/urist/ad/sign3,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"dd" = (
+"dx" = (
 /obj/structure/sign/urist/ad/sign4,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"de" = (
+"dy" = (
 /obj/structure/sign/urist/ad/sign2,
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
-"df" = (
+"dz" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-22";
 	icon_state = "plant-22"
@@ -1195,7 +1326,7 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dg" = (
+"dA" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
@@ -1206,11 +1337,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dh" = (
+"dB" = (
 /obj/effect/shuttle_landmark/supply/station,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
-"di" = (
+"dC" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
@@ -1220,7 +1351,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dj" = (
+"dD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -1229,7 +1360,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dk" = (
+"dE" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
@@ -1237,7 +1368,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dl" = (
+"dF" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
@@ -1247,13 +1378,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dm" = (
+"dG" = (
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
-"dn" = (
+"dH" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (WEST)";
 	icon_state = "warning";
@@ -1261,55 +1392,69 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"do" = (
+"dI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dp" = (
+"dJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dq" = (
+"dK" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dr" = (
+"dL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"ds" = (
+"dM" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dt" = (
+"dN" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
-"du" = (
+"dO" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
-"dv" = (
+"dP" = (
 /obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dw" = (
+"dQ" = (
 /obj/item/modular_computer/console/preset/supply,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 
 (1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -1406,9 +1551,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -1474,9 +1633,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
 aa
 aa
 aa
@@ -1542,9 +1715,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ab
+ad
+ad
+bG
+bN
+bN
+cc
+ch
+bN
+bN
+bN
+cG
+bN
+cQ
+cV
+ad
+ab
 aa
 aa
 aa
@@ -1610,9 +1797,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ab
+ad
+ad
+ad
+bO
+bN
+cd
+ch
+bN
+bN
+bN
+bN
+cp
+cd
+cW
+ad
+ab
 aa
 aa
 aa
@@ -1678,9 +1879,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ab
+ad
+ad
+ad
+bN
+bN
+cd
+ch
+bN
+bN
+cv
+bN
+cp
+cd
+cX
+ad
+ab
 aa
 aa
 aa
@@ -1742,13 +1957,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ad
+ad
+ad
+bN
+bN
+cd
+ch
+bN
+cp
+cd
+cH
+bN
+bN
+bN
+ad
+ab
 aa
 aa
 aa
@@ -1810,47 +2039,61 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aK
+aK
+aI
+aK
+aK
+ad
+ad
+bN
+bN
+cd
+ch
+bN
+cp
+cd
+cH
+bN
+bN
+bN
+ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 "}
 (9,1,1) = {"
@@ -1878,47 +2121,61 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aK
+bb
+bc
+bb
+aK
+ad
+ad
+bN
+bN
+cd
+ch
+bN
+bN
+cw
+bN
+cp
+cd
+cY
+ad
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
 aa
 "}
 (10,1,1) = {"
@@ -1946,47 +2203,61 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aK
+bb
+bb
+bl
+aK
+ad
+ad
+bO
+bN
+bN
+bN
+bN
+bN
+bN
+bN
+cp
+cd
+cW
+ad
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
 aa
 "}
 (11,1,1) = {"
@@ -2013,48 +2284,62 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+aK
+bc
+bb
+bc
+aK
+ad
+ad
+bN
+bN
+ce
+bN
+bN
+bN
+bN
+cI
+bN
+cR
+cZ
+ad
+ab
+ad
+ad
+ae
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+ae
+ad
+ad
+ab
 aa
 "}
 (12,1,1) = {"
@@ -2081,48 +2366,62 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aK
+aK
+aK
+bh
+aK
+aK
+aK
+ad
+ad
+ad
+ad
+ci
+co
+co
+ci
+ad
+ad
+ad
+ad
+ad
+ab
+ad
+ad
+ae
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+ae
+ad
+ad
+ab
 aa
 "}
 (13,1,1) = {"
@@ -2149,468 +2448,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(14,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(15,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aK
-aK
-aI
-aK
-aK
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-"}
-(16,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aK
-bb
-bc
-bb
-aK
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ab
-aa
-"}
-(17,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aK
-bb
-bb
-bl
-aK
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ab
-aa
-"}
-(18,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-aK
-bc
-bb
-bc
-aK
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-ab
-ad
-ad
-ae
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-ae
-ad
-ad
-ab
-aa
-"}
-(19,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aK
-aK
-aK
-bh
-aK
-aK
-aK
-ad
-ad
-ad
-ad
-cb
-ch
-cb
-ad
-ad
-ab
-aa
-aa
-aa
-ab
-ad
-ad
-ae
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-ae
-ad
-ad
-ab
-aa
-"}
-(20,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 aK
 aO
@@ -2625,24 +2462,24 @@ ad
 ad
 bs
 aL
+aL
 bs
 ad
 ad
-ab
-aa
-aa
-aa
+ad
+ad
+ad
 ab
 ad
 ad
 ae
-cU
-cU
-cU
-cU
-cU
-cU
-cU
+do
+do
+do
+do
+do
+do
+do
 bE
 bE
 bE
@@ -2656,20 +2493,34 @@ bE
 bE
 bE
 bE
-cU
-cU
-cU
-cU
-cU
-cU
-cU
+do
+do
+do
+do
+do
+do
+do
 ae
 ad
 ad
 ab
 aa
 "}
-(21,1,1) = {"
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2693,51 +2544,65 @@ bE
 bD
 aL
 aL
-ci
-ad
+aL
+cx
 ad
 ab
-aa
-aa
-aa
+ab
+ab
+ab
 ab
 ad
 ad
 ae
-cV
-cV
-cV
-cV
-cV
-cV
-cV
+dp
+dp
+dp
+dp
+dp
+dp
+dp
 bE
 bE
 bE
 bE
 bE
 bE
-dh
+dB
 bE
 bE
 bE
 bE
 bE
 bE
-cV
-cV
-cV
-cV
-cV
-cV
-cV
+dp
+dp
+dp
+dp
+dp
+dp
+dp
 ae
 ad
 ad
 ab
 aa
 "}
-(22,1,1) = {"
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2761,8 +2626,8 @@ bE
 bD
 aL
 aL
-bJ
-cr
+aL
+bK
 ad
 ab
 aa
@@ -2772,13 +2637,13 @@ ab
 ad
 ad
 ae
-cW
-cW
-cW
-cW
-cW
-cW
-cW
+dq
+dq
+dq
+dq
+dq
+dq
+dq
 bE
 bE
 bE
@@ -2792,20 +2657,34 @@ bE
 bE
 bE
 bE
-cW
-cW
-cW
-cW
-cW
-cW
-cW
+dq
+dq
+dq
+dq
+dq
+dq
+dq
 ae
 ad
 ad
 ab
 aa
 "}
-(23,1,1) = {"
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2827,10 +2706,10 @@ ad
 ad
 ad
 ad
-cc
-aL
 cj
-ad
+aL
+aL
+cr
 ad
 ab
 aa
@@ -2873,7 +2752,21 @@ ad
 ab
 aa
 "}
-(24,1,1) = {"
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2891,14 +2784,14 @@ bb
 bb
 bb
 aI
-bG
-bG
-bG
+bH
+bH
+bH
 aI
 aL
 aL
-ck
-ad
+aL
+cs
 ad
 ab
 ab
@@ -2941,7 +2834,21 @@ ad
 ab
 aa
 "}
-(25,1,1) = {"
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2959,13 +2866,14 @@ bc
 bc
 bb
 aI
-bG
-bG
-bG
+bH
+bH
+bH
 aI
 aL
 aL
-bI
+aL
+bJ
 ad
 ad
 ad
@@ -2984,16 +2892,15 @@ ad
 ad
 ad
 ad
-ad
-cY
-cY
-cY
-ad
+ds
+ds
+ds
 ad
 ad
-cY
-cY
-cY
+ad
+ds
+ds
+ds
 ad
 ad
 ad
@@ -3009,7 +2916,21 @@ ad
 ab
 aa
 "}
-(26,1,1) = {"
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3031,9 +2952,10 @@ ad
 ad
 ad
 ad
-cd
+ck
 aL
-cl
+aL
+ct
 ad
 ad
 ad
@@ -3052,20 +2974,19 @@ ad
 ad
 ad
 ad
-ad
-cZ
-cZ
-cZ
-cZ
-di
-cZ
-cZ
-cZ
-cZ
+dt
+dt
+dt
+dt
+dC
+dt
+dt
+dt
+dt
 aI
 aL
 aL
-dv
+dP
 ad
 ad
 ad
@@ -3077,7 +2998,21 @@ ad
 ab
 aa
 "}
-(27,1,1) = {"
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3101,27 +3036,27 @@ bE
 bD
 aL
 aL
-cm
-ad
-ad
+aL
 cy
-cD
-cy
-cI
-cN
-cO
 ad
-cy
-cD
-cy
-cI
-cN
-cO
+cL
+cS
+cL
+dc
+dh
+di
+ad
+cL
+cS
+cL
+dc
+dh
+di
 ad
 ad
 ad
 ad
-cc
+cj
 aL
 aL
 aL
@@ -3133,7 +3068,7 @@ aL
 aI
 aL
 aL
-dw
+dQ
 ad
 ab
 ab
@@ -3145,7 +3080,21 @@ ab
 ab
 aa
 "}
-(28,1,1) = {"
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3169,22 +3118,22 @@ bE
 bD
 aL
 aL
-bK
-cr
+aL
+bL
 ad
-cy
+cL
 af
 af
 af
-cO
-cO
+di
+di
 ad
-cy
+cL
 af
 af
 af
-cO
-cO
+di
+di
 ad
 ad
 ad
@@ -3192,16 +3141,16 @@ ad
 aM
 aY
 aY
-dg
+dA
 aL
 aL
 aL
-cS
+dm
 aL
-ds
+dM
 aL
 aL
-dv
+dP
 ad
 ab
 aa
@@ -3213,7 +3162,21 @@ aa
 aa
 aa
 "}
-(29,1,1) = {"
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3235,103 +3198,117 @@ ad
 ad
 ad
 ad
-cc
-aL
-bI
-ad
-ad
-cz
-af
-af
-af
-cO
-cR
-ad
-cT
-af
-af
-af
-cO
-cR
-ad
-ad
-ad
-cX
-da
-dd
-ad
-ad
+cj
 aL
 aL
-aL
+bJ
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(30,1,1) = {"
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aK
-aW
-aW
-aW
-aW
-aW
-aK
-ad
-bM
-bT
-bM
-aL
-aL
-cn
-ad
-ad
-cy
-cy
+cM
 af
 af
-cO
-cO
-ad
-cy
-cy
 af
-af
-cO
-cO
+di
+dl
 ad
-cb
-bM
-bs
-db
-cg
-df
-ad
-dj
 dn
-dp
+af
+af
+af
+di
+dl
+ad
+ad
+ad
+dr
+du
+dx
+ad
+ad
+aL
+aL
+aL
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aK
+aW
+aW
+aW
+aW
+aW
+aK
+ad
+bP
+bW
+bP
+aL
+aL
+aL
+cz
+ad
+cL
+cL
+af
+af
+di
+di
+ad
+cL
+cL
+af
+af
+di
+di
+ad
+ci
+bP
+bs
+dv
+cn
+dz
+ad
+dD
+dH
+dJ
 ad
 ad
 ad
@@ -3349,7 +3326,21 @@ aa
 aa
 aa
 "}
-(31,1,1) = {"
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3373,33 +3364,33 @@ aL
 aL
 aL
 aL
-co
+aL
+cA
+ad
+ad
+ad
+da
+da
 ad
 ad
 ad
 ad
-cG
-cG
+ad
+da
+da
 ad
 ad
 ad
 ad
-ad
-cG
-cG
-ad
-ad
-ad
-ad
-cc
+cj
 aL
 aL
 aL
 aL
 aL
-dk
+dE
 aL
-dq
+dK
 ad
 ad
 ad
@@ -3417,7 +3408,21 @@ aa
 aa
 aa
 "}
-(32,1,1) = {"
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ae
@@ -3465,14 +3470,14 @@ aL
 bm
 aL
 aL
-dk
+dE
 aL
-dq
+dK
 bD
 bE
 bE
 bE
-du
+dO
 ab
 aa
 aa
@@ -3485,7 +3490,21 @@ aa
 aa
 aa
 "}
-(33,1,1) = {"
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3516,11 +3535,9 @@ aL
 aL
 aL
 aL
-cP
+dj
 aL
-cS
-aL
-aL
+dm
 aL
 aL
 aL
@@ -3533,14 +3550,16 @@ aL
 aL
 aL
 aL
-dk
 aL
-dq
+aL
+dE
+aL
+dK
 bD
 bE
-dt
+dN
 bE
-du
+dO
 ab
 aa
 aa
@@ -3553,7 +3572,21 @@ aa
 aa
 aa
 "}
-(34,1,1) = {"
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3573,37 +3606,37 @@ aL
 aL
 aM
 aY
-bN
+bQ
 aY
 bn
 aL
-cp
+cq
 ad
 ad
 ad
 ad
-cG
-cG
+da
+da
 ad
 ad
 ad
 ad
 ad
-cG
-cG
+da
+da
 ad
 ad
 ad
 ad
-cc
+cj
 aL
 aL
 aL
 aL
 aL
-dk
+dE
 aL
-dq
+dK
 ad
 ad
 ad
@@ -3621,7 +3654,21 @@ aa
 aa
 aa
 "}
-(35,1,1) = {"
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3645,33 +3692,33 @@ aL
 aL
 aL
 aL
-cj
+cr
 ad
 ad
-cy
-cy
+cL
+cL
 af
 af
-cO
-cO
+di
+di
 ad
-cy
-cy
+cL
+cL
 af
 af
-cO
-cO
+di
+di
 ad
-cb
+ci
 bz
 bs
 aM
 bn
-df
+dz
 ad
-dl
-do
-dr
+dF
+dI
+dL
 ad
 ad
 ad
@@ -3689,7 +3736,21 @@ aa
 aa
 aa
 "}
-(36,1,1) = {"
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3707,34 +3768,34 @@ ad
 ad
 aL
 aL
-bH
-bN
+bI
+bQ
 aY
 aY
 bn
 aL
-ck
+cs
 ad
 ad
-cA
+cN
 af
 af
 af
-cO
-cO
+di
+di
 ad
 af
 af
 af
 af
-cO
-cO
+di
+di
 ad
 ad
 ad
-cr
-dc
-de
+cB
+dw
+dy
 ad
 ad
 ad
@@ -3757,7 +3818,21 @@ aa
 aa
 aa
 "}
-(37,1,1) = {"
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ad
 ad
@@ -3781,22 +3856,22 @@ aL
 aL
 aL
 aL
-bI
-cr
+bJ
+cB
 ad
-cy
+cL
 af
 af
 af
-cO
-cR
+di
+dl
 ad
-cy
+cL
 af
 af
 af
-cO
-cR
+di
+dl
 ad
 ad
 ad
@@ -3825,7 +3900,21 @@ aa
 aa
 aa
 "}
-(38,1,1) = {"
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ab
 ab
 ad
@@ -3849,22 +3938,22 @@ aY
 aY
 bn
 aL
-cl
+ct
 ad
 ad
-cy
-cE
-cy
-cI
-cQ
-cO
+cL
+cT
+cL
+dc
+dk
+di
 ad
-cy
-cE
-cy
-cI
-cQ
-cO
+cL
+cT
+cL
+dc
+dk
+di
 ad
 ad
 ad
@@ -3893,8 +3982,22 @@ aa
 aa
 aa
 "}
-(39,1,1) = {"
-ab
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ad
@@ -3917,7 +4020,7 @@ aL
 aL
 aL
 aL
-cq
+cu
 ad
 ad
 ad
@@ -3961,8 +4064,22 @@ aa
 aa
 aa
 "}
-(40,1,1) = {"
-ab
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -3980,12 +4097,12 @@ ad
 bB
 aL
 aM
-bO
-bU
-bO
+bR
+bX
+bR
 bn
 aL
-bK
+bL
 ad
 ad
 ad
@@ -4029,8 +4146,22 @@ aa
 aa
 aa
 "}
-(41,1,1) = {"
-ab
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4049,7 +4180,7 @@ aI
 bC
 aI
 ad
-bV
+bY
 ad
 aI
 bC
@@ -4085,7 +4216,7 @@ aJ
 aJ
 aJ
 bg
-cB
+cO
 ar
 ar
 ar
@@ -4097,8 +4228,22 @@ aa
 aa
 aa
 "}
-(42,1,1) = {"
-ab
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4115,14 +4260,14 @@ af
 bp
 aL
 aL
-bI
-bP
-bW
+bJ
+bS
 bZ
+cf
 bt
 aL
 aL
-cs
+cC
 af
 ao
 ad
@@ -4153,8 +4298,8 @@ az
 az
 az
 az
-cC
-cB
+cP
+cO
 ar
 ar
 ad
@@ -4165,8 +4310,22 @@ aa
 aa
 aa
 "}
-(43,1,1) = {"
-ab
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4183,15 +4342,15 @@ bj
 bq
 aL
 aL
-bJ
-bQ
-bX
+bK
+bT
 ca
-ce
+cg
+cl
 aL
 aL
-ct
-cw
+cD
+cJ
 af
 ae
 af
@@ -4222,8 +4381,8 @@ az
 az
 az
 az
-cC
-cB
+cP
+cO
 ar
 ad
 ab
@@ -4233,8 +4392,22 @@ aa
 aa
 aa
 "}
-(44,1,1) = {"
-ab
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4251,15 +4424,15 @@ bk
 br
 aL
 aL
-bK
-bP
-bW
+bL
+bS
 bZ
 cf
+cm
 aL
 aL
-cu
-cx
+cE
+cK
 ah
 ad
 af
@@ -4291,8 +4464,8 @@ az
 az
 az
 az
-cC
-cJ
+cP
+dd
 ad
 ab
 aa
@@ -4301,8 +4474,22 @@ aa
 aa
 aa
 "}
-(45,1,1) = {"
-ab
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4360,7 +4547,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4369,8 +4556,22 @@ aa
 aa
 aa
 "}
-(46,1,1) = {"
-ab
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ai
@@ -4387,11 +4588,11 @@ ad
 bs
 aL
 aL
-bL
-bR
-bY
-bR
-cg
+bM
+bU
+cb
+bU
+cn
 aL
 aL
 bs
@@ -4428,7 +4629,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4437,8 +4638,22 @@ aa
 aa
 aa
 "}
-(47,1,1) = {"
-ab
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ad
 ad
@@ -4462,7 +4677,7 @@ aL
 aL
 aL
 aL
-bI
+bJ
 ad
 ad
 ab
@@ -4496,7 +4711,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4505,8 +4720,22 @@ aa
 aa
 aa
 "}
-(48,1,1) = {"
-ab
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
 ab
 ab
 ab
@@ -4530,14 +4759,14 @@ aL
 aL
 aL
 aL
-cv
+cF
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 at
@@ -4564,7 +4793,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4573,7 +4802,21 @@ aa
 aa
 aa
 "}
-(49,1,1) = {"
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4602,10 +4845,10 @@ bs
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 at
@@ -4632,7 +4875,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4641,7 +4884,21 @@ aa
 aa
 aa
 "}
-(50,1,1) = {"
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4670,10 +4927,10 @@ ad
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 at
@@ -4700,7 +4957,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4709,7 +4966,21 @@ aa
 aa
 aa
 "}
-(51,1,1) = {"
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4738,10 +5009,10 @@ ad
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 at
@@ -4768,7 +5039,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4777,7 +5048,21 @@ aa
 aa
 aa
 "}
-(52,1,1) = {"
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4806,10 +5091,10 @@ ad
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 at
@@ -4825,7 +5110,7 @@ az
 az
 az
 az
-dm
+dG
 az
 az
 az
@@ -4836,7 +5121,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4845,7 +5130,21 @@ aa
 aa
 aa
 "}
-(53,1,1) = {"
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4874,10 +5173,10 @@ ad
 ad
 ad
 ab
-bG
-bG
-bG
-bG
+aa
+aa
+aa
+aa
 ab
 ad
 au
@@ -4904,7 +5203,7 @@ az
 az
 az
 az
-cL
+df
 ad
 ab
 aa
@@ -4913,7 +5212,21 @@ aa
 aa
 aa
 "}
-(54,1,1) = {"
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -4972,7 +5285,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -4981,7 +5294,21 @@ aa
 aa
 aa
 "}
-(55,1,1) = {"
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5040,7 +5367,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5049,7 +5376,21 @@ aa
 aa
 aa
 "}
-(56,1,1) = {"
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5076,7 +5417,7 @@ aJ
 bg
 aJ
 aJ
-cB
+cO
 ar
 ar
 ar
@@ -5108,7 +5449,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5117,7 +5458,21 @@ aa
 aa
 aa
 "}
-(57,1,1) = {"
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5144,8 +5499,8 @@ az
 az
 az
 az
-cC
-cB
+cP
+cO
 ar
 ar
 ad
@@ -5176,7 +5531,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5185,7 +5540,21 @@ aa
 aa
 aa
 "}
-(58,1,1) = {"
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5213,8 +5582,8 @@ az
 az
 az
 az
-cC
-cB
+cP
+cO
 ar
 ad
 ab
@@ -5244,7 +5613,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5253,7 +5622,21 @@ aa
 aa
 aa
 "}
-(59,1,1) = {"
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5282,8 +5665,8 @@ az
 az
 az
 az
-cC
-cJ
+cP
+dd
 ad
 ab
 ab
@@ -5312,7 +5695,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5321,7 +5704,21 @@ aa
 aa
 aa
 "}
-(60,1,1) = {"
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5351,7 +5748,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 ab
@@ -5379,8 +5776,8 @@ az
 az
 az
 az
-cF
-cM
+cU
+dg
 ad
 ab
 aa
@@ -5389,7 +5786,21 @@ aa
 aa
 aa
 "}
-(61,1,1) = {"
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5419,7 +5830,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 ab
@@ -5446,11 +5857,585 @@ aF
 aF
 aF
 aF
-cF
-cH
+cU
+db
 ar
 ad
 ab
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+ab
+ad
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(57,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(58,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aa
+aa
+aa
+aa
+aa
+"}
+(59,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(60,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+bV
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(61,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aa
+aa
+ab
+ad
+au
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+df
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5458,6 +6443,20 @@ aa
 aa
 "}
 (62,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5487,38 +6486,38 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
-ab
-ad
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5526,6 +6525,20 @@ aa
 aa
 "}
 (63,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5555,38 +6568,38 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
-ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5594,6 +6607,20 @@ aa
 aa
 "}
 (64,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5623,38 +6650,38 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5662,6 +6689,20 @@ aa
 aa
 "}
 (65,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5691,38 +6732,38 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5730,6 +6771,20 @@ aa
 aa
 "}
 (66,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5759,7 +6814,7 @@ az
 az
 az
 az
-cK
+de
 ad
 ab
 aa
@@ -5798,6 +6853,20 @@ aa
 aa
 "}
 (67,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
@@ -5816,7 +6885,6 @@ az
 az
 az
 az
-bS
 az
 az
 az
@@ -5827,7 +6895,8 @@ az
 az
 az
 az
-cK
+az
+de
 ad
 ab
 aa
@@ -5866,12 +6935,27 @@ aa
 aa
 "}
 (68,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
 ab
 ad
-au
+av
+aA
 az
 az
 az
@@ -5893,9 +6977,8 @@ az
 az
 az
 az
-az
-az
-cL
+cU
+dg
 ad
 ab
 aa
@@ -5934,36 +7017,50 @@ aa
 aa
 "}
 (69,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
 ab
 ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
+ar
+aB
+aA
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+cU
+db
+ar
 ad
 ab
 aa
@@ -6002,36 +7099,50 @@ aa
 aa
 "}
 (70,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
 ab
 ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+ar
 ad
 ab
 aa
@@ -6070,36 +7181,50 @@ aa
 aa
 "}
 (71,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
 aa
 aa
 ab
 ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 ab
 aa
@@ -6138,38 +7263,52 @@ aa
 aa
 "}
 (72,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
-aa
-aa
-ab
-ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
-ad
-ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa
@@ -6206,38 +7345,52 @@ aa
 aa
 "}
 (73,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6274,38 +7427,52 @@ aa
 aa
 "}
 (74,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cK
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6342,38 +7509,52 @@ aa
 aa
 "}
 (75,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-av
-aA
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-cF
-cM
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6410,38 +7591,52 @@ aa
 aa
 "}
 (76,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-ar
-aB
-aA
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-aF
-cF
-cH
-ar
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6478,38 +7673,52 @@ aa
 aa
 "}
 (77,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6546,38 +7755,52 @@ aa
 aa
 "}
 (78,1,1) = {"
-ac
 aa
 aa
-ab
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6614,38 +7837,52 @@ aa
 aa
 "}
 (79,1,1) = {"
-ac
-ac
-ac
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6682,6 +7919,20 @@ aa
 aa
 "}
 (80,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6816,8 +8067,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (82,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6952,8 +8231,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (84,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7088,8 +8395,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (86,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7224,8 +8559,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (88,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7360,8 +8723,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (90,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7496,8 +8887,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (92,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7632,8 +9051,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (94,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7768,8 +9215,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (96,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7904,8 +9379,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (98,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -8040,8 +9543,36 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (100,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

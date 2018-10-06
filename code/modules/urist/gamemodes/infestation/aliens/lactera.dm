@@ -101,6 +101,8 @@
 
 	icobase = 'icons/uristmob/r_lactera.dmi'
 
+	natural_armour_values = list(melee = 0, bullet = 0, laser = 0, energy = 10, bomb = 10, bio = 100, rad = 100)
+
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws/strong)
 
 	hud_type = null
@@ -110,7 +112,11 @@
 	spawns_with_stack = 0
 
 	brute_mod = 1.6
-	burn_mod = 1
+	burn_mod = 1.1
+	radiation_mod = 0    // No feasible way of curing radiation.
+	flash_mod =     0    // Denied.
+	stun_mod =      0.5  // Halved stun times.
+	paralysis_mod = 0.25 // Quartered paralysis times.
 
 	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON
 	spawn_flags = SPECIES_IS_RESTRICTED
@@ -133,6 +139,15 @@
 	speech_chance = 100
 
 	vision_flags = SEE_SELF
+
+	genders = list(NEUTER)
+
+	force_cultural_info = list(
+		TAG_CULTURE =   CULTURE_XENOPHAGE_D,
+		TAG_HOMEWORLD = HOME_SYSTEM_DEEP_SPACE,
+		TAG_FACTION =   FACTION_XENOPHAGE,
+		TAG_RELIGION =  RELIGION_OTHER
+	)
 
 	has_organ = list(
 		BP_HEART =           /obj/item/organ/internal/heart,

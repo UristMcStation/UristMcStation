@@ -58,3 +58,24 @@
 	hat_chance = 50
 	glove_chance = 50
 	wander = 0
+
+//bartender
+
+/mob/living/simple_animal/hostile/npc/colonist/bartender_trader
+	name = "Bartender"
+	npc_job_title = "Bartender"
+	desc = "A human from one of Earth's diverse cultures. They are a bartender."
+	trade_categories_by_name =  list("refreshments")
+	jumpsuits = list(\
+		/obj/item/clothing/under/rank/bartender\
+		)
+	suit_chance = 100
+	hat_chance = 50
+	glove_chance = 50
+	wander = 0
+
+/mob/living/simple_animal/hostile/npc/colonist/crop_trader/get_trade_value(var/obj/O)
+	. = get_value(O) * 25
+
+/mob/living/simple_animal/hostile/npc/colonist/crop_trader/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
+	return ..(O, M, worth, 0)

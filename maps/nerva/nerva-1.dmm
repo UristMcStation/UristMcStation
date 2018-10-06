@@ -639,6 +639,10 @@
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"bx" = (
+/obj/effect/shuttle_landmark/skipjack/deck3,
+/turf/space,
+/area/space)
 "bW" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/lockbox/vials,
@@ -1914,6 +1918,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/reagent_dispensers/acid{
+	density = 0;
 	pixel_y = -32
 	},
 /obj/effect/landmark/start{
@@ -1921,6 +1926,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
+"hC" = (
+/obj/effect/shuttle_landmark/ninja/deck3,
+/turf/space,
+/area/space)
 "hD" = (
 /obj/item/weapon/tape_roll,
 /turf/simulated/floor/plating,
@@ -4841,6 +4850,10 @@
 	dir = 4
 	},
 /obj/effect/catwalk_plated,
+/turf/simulated/floor/plating,
+/area/hallway/centralthird)
+"pV" = (
+/obj/effect/shuttle_landmark/ferry/out,
 /turf/simulated/floor/plating,
 /area/hallway/centralthird)
 "pY" = (
@@ -10250,7 +10263,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
 	name = "Advanced Fabrication Lab";
-	req_access = list(7)
+	req_access = list(29)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -10835,6 +10848,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"Gr" = (
+/obj/effect/shuttle_landmark/merc/deck3,
+/turf/space,
+/area/space)
 "Gt" = (
 /obj/machinery/door/airlock/glass{
 	name = "Central Access"
@@ -11851,7 +11868,7 @@
 "Jg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
-	req_access = list(7)
+	req_access = list(29)
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -13348,11 +13365,10 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "Nr" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/atmos)
 "Nt" = (
@@ -16211,6 +16227,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/extstorage)
+"UJ" = (
+/obj/structure/catwalk,
+/obj/structure/handrai{
+	icon_state = "handrail";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "UK" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/glowsticks,
@@ -17156,6 +17180,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
+"Xz" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/hallway/centralthird)
 "XA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -32880,7 +32908,7 @@ aa
 aa
 aa
 aa
-Wv
+UJ
 Sa
 Sa
 Sa
@@ -33311,8 +33339,8 @@ rs
 UX
 yG
 Gk
-aa
-aa
+RZ
+RZ
 Gk
 LR
 oh
@@ -33715,8 +33743,8 @@ fR
 UX
 pH
 Gk
-RZ
-RZ
+aa
+aa
 Gk
 ID
 oh
@@ -34119,8 +34147,8 @@ SU
 UX
 lL
 Gk
-aa
-aa
+RZ
+RZ
 Gk
 ID
 oh
@@ -35331,7 +35359,7 @@ wE
 sY
 sz
 Gk
-le
+Xz
 le
 le
 le
@@ -35533,7 +35561,7 @@ Cc
 Db
 xZ
 Gk
-le
+Xz
 le
 le
 le
@@ -35735,7 +35763,7 @@ WH
 yl
 dV
 yl
-le
+Xz
 le
 le
 le
@@ -35937,6 +35965,7 @@ NO
 YR
 dV
 YR
+Xz
 le
 le
 le
@@ -35945,8 +35974,7 @@ le
 le
 le
 le
-le
-le
+pV
 le
 le
 le
@@ -36139,7 +36167,7 @@ hd
 yl
 dV
 yl
-le
+Xz
 le
 le
 le
@@ -36341,7 +36369,7 @@ tx
 Db
 Pf
 FL
-le
+Xz
 le
 le
 le
@@ -36543,7 +36571,7 @@ Nj
 Db
 Fy
 FL
-le
+Xz
 le
 le
 le
@@ -38397,7 +38425,7 @@ aa
 aa
 aa
 aa
-aa
+Gr
 aa
 aa
 aa
@@ -48084,7 +48112,7 @@ aa
 aa
 aa
 aa
-aa
+bx
 aa
 aa
 aa
@@ -53095,7 +53123,7 @@ aa
 aa
 aa
 aa
-aa
+hC
 aa
 aa
 aa

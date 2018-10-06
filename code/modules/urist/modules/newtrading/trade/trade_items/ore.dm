@@ -31,7 +31,7 @@
 	item_type = /obj/item/weapon/ore/silver
 	category = "ore"
 	quantity = 5
-	value = 250
+	value = 200
 	trader_weight = 1
 
 /datum/trade_item/gold
@@ -39,7 +39,7 @@
 	item_type = /obj/item/weapon/ore/gold
 	category = "ore"
 	quantity = 5
-	value = 500
+	value = 225
 	trader_weight = 1
 
 /datum/trade_item/platinum
@@ -55,7 +55,7 @@
 	item_type = /obj/item/weapon/ore/diamond
 	category = "ore"
 	quantity = 0
-	value = 2000
+	value = 450
 	trader_weight = 0
 
 /datum/trade_item/uranium
@@ -63,5 +63,82 @@
 	item_type = /obj/item/weapon/ore/uranium
 	category = "ore"
 	quantity = 0
-	value = 1000
+	value = 360
 	trader_weight = 0
+
+/datum/trade_item/phoron
+	name = "uranium"
+	item_type = /obj/item/weapon/ore/phoron
+	category = "ore"
+	quantity = 0
+	value = 360
+	trader_weight = 0
+
+
+/*
+
+/datum/trade_item/coal
+	name = "coal"
+	item_type = /obj/item/weapon/ore/coal
+	category = "ore"
+	quantity = 10
+	value = 25
+	trader_weight = 1
+
+/datum/trade_item/iron
+	name = "iron"
+	item_type = /obj/item/weapon/ore/iron
+	category = "ore"
+	quantity = 10
+	value = 50
+	trader_weight = 1
+
+/datum/trade_item/silver
+	name = "silver"
+	item_type = /obj/item/weapon/ore/silver
+	category = "ore"
+	quantity = 5
+	value = 200
+	trader_weight = 1
+
+/datum/trade_item/gold
+	name = "gold"
+	item_type = /obj/item/weapon/ore/gold
+	category = "ore"
+	quantity = 5
+	value = 225
+	trader_weight = 1
+
+/datum/trade_item/platinum
+	name = "platinum"
+	item_type = /obj/item/weapon/ore/osmium
+	category = "ore"
+	quantity = 0
+	value = 750
+	trader_weight = 0
+
+/datum/trade_item/diamond
+	name = "diamond"
+	item_type = /obj/item/weapon/ore/diamond
+	category = "ore"
+	quantity = 0
+	value = 450
+	trader_weight = 0
+
+/datum/trade_item/uranium
+	name = "uranium"
+	item_type = /obj/item/weapon/ore/uranium
+	category = "ore"
+	quantity = 0
+	value = 360
+	trader_weight = 0
+
+/datum/trade_item/phoron
+	name = "uranium"
+	item_type = /obj/item/weapon/ore/phoron
+	category = "ore"
+	quantity = 0
+	value = 360
+	trader_weight = 0
+
+*/

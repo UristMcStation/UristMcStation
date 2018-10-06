@@ -2,8 +2,6 @@
  * Neeeeeeeeeeerrrrrrrrrrrrrvvvvvvvvvvvvvvvaaaaaaaaaaaaaaa
  */
 
-//need some fucking helmets in this bitch
-
 /obj/structure/closet/secure_closet/nervacap
 	name = "captains's locker"
 	req_access = list(access_captain)
@@ -16,6 +14,7 @@
 /obj/structure/closet/secure_closet/nervacap/WillContain()
 	return list(
 		/obj/item/clothing/suit/armor/pcarrier/medium/nerva,
+		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/captain,
 		/obj/item/clothing/head/urist/beret/nervacap,
 		/obj/item/clothing/under/urist/nerva/capformal,
@@ -48,6 +47,7 @@
 	return list(
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/clothing/suit/armor/pcarrier/medium/nerva,
+		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/captain,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/clothing/under/urist/nerva/foregular,
@@ -106,9 +106,11 @@
 /obj/structure/closet/secure_closet/nervasec/WillContain()
 	return list(
 		/obj/item/clothing/suit/urist/armor/nerva/sec,
+		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/headset_sec,
 		/obj/item/clothing/under/urist/nerva/secregular,
 		/obj/item/clothing/under/urist/nerva/secfield,
+		/obj/item/clothing/suit/storage/hooded/seccloak,
 		/obj/item/weapon/storage/belt/holster/security,
 		/obj/item/device/flash,
 		/obj/item/weapon/reagent_containers/spray/pepper,
@@ -143,7 +145,9 @@
 		/obj/item/clothing/suit/urist/armor/nerva/sec_cos,
 		/obj/item/clothing/under/urist/nerva/cosregular,
 		/obj/item/clothing/head/HoS/dermal,
+		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/hos,
+		/obj/item/clothing/suit/storage/hooded/seccloak,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
 		/obj/item/taperoll/police,
 		/obj/item/weapon/handcuffs,

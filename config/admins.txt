@@ -10,6 +10,7 @@ glloyd - Head Admin
 CoraiUnki - Game Master
 Gale212 - Game Master
 Lyeos - Game Master
+Acemuto10 - Game Master
 
 Scrdest - Coder
 
@@ -29,6 +30,6 @@ Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
 Stefender - Inactive Admin
 Zty8212000 - Inactive Admin
-Acemuto10 - Inactive Admin
 Nienhaus2 - Retired Admin
+MrBarman - Retired Admin
 #Electronics

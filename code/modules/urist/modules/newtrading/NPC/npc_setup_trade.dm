@@ -10,8 +10,8 @@
 			trade_items_by_type += C.trade_items_by_type
 			total_trade_weight += C.total_weighting
 
-	//pick 6 items randomly weighted from the accepted trade categories
-	var/trade_items_left = 6
+	//pick 8 items randomly weighted from the accepted trade categories
+	var/trade_items_left = 8
 	var/trade_weight_left = total_trade_weight
 	var/list/trade_items_other = trade_items.Copy()
 	while(trade_items_left > 0 && trade_items_other.len)
