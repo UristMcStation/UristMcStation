@@ -11,7 +11,7 @@
 
 /obj/effect/overmap/sector/exoplanet/rocks/generate_map()
 	if(prob(50))
-		lightlevel = rand(1,10)/10 //total random
+		lightlevel = rand(1,10)/20 //total random
 	for(var/zlevel in map_z)
 		new /datum/random_map/automata/cave_system/mountains(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
 		var/datum/random_map/noise/exoplanet/M = pick(subtypesof(/datum/random_map/noise/exoplanet))
@@ -25,6 +25,12 @@
 				if(istype(T,/turf/simulated/mineral))
 					var/turf/simulated/mineral/MT = T
 					MT.mined_turf = A.base_turf
+
+/obj/effect/overmap/sector/exoplanet/rocks/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.temperature = T20C - rand(0, 100)
+		atmosphere.update_values()
 
 /datum/random_map/automata/cave_system/mountains
 	iterations = 2
