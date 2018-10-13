@@ -140,7 +140,7 @@
 	icon_opened = "hossecureopen"
 	icon_off = "hossecureoff"
 
-/obj/structure/closet/secure_closet/cos/WillContain()
+/obj/structure/closet/secure_closet/nervacos/WillContain()
 	return list(
 		/obj/item/clothing/suit/urist/armor/nerva/sec_cos,
 		/obj/item/clothing/under/urist/nerva/cosregular,

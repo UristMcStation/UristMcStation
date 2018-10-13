@@ -5,8 +5,8 @@
 	var/name = "contract"
 	var/desc = "contract"
 	var/faction = null //who are we doing this for
-	var/money = 0 //how much money we getting
-	var/rep_points = 0 //how much rep we getting
+	var/money = 0 //how much money are we getting
+	var/rep_points = 0 //how much rep are we getting
 	var/neg_rep_points = 0 //how much rep do we lose
 	var/neg_faction = null //and from who
 	var/amount = 0 //how much of whatever we have to do
@@ -29,20 +29,23 @@
 	name = C.name
 	info = C.desc
 
+	AddContract()
+
 /obj/item/weapon/paper/contract/proc/AddContract()
 	GLOB.using_map.contracts += new contract
 
 /datum/contract/nanotrasen
 	faction = "nanotrasen"
 
-/datum/contract/nanotrasen/anomaly
+/datum/contract/nanotrasen/anomaly //code\modules\xenoarcheaology\tools\artifact_analyser.dm
 	name = "Anomaly Research Contract"
 	desc = "A contract issued by Nanotrasen to research anomalies."
 
 /datum/contract/nanotrasen/anomaly/New()
-	amount = rand(1,10)
+	amount = rand(1,5)
 	desc = "A contract issued by Nanotrasen to research [amount] of the anomalies found throughout this sector."
-	money = (amount * rand(200,300))
+	money = (amount * rand(300,500))
+	rep_points = amount
 
 /obj/item/weapon/paper/contract/nanotrasen/anomaly
 	contract = /datum/contract/nanotrasen/anomaly

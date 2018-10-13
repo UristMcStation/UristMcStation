@@ -179,15 +179,15 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
 
-	New()
-		..()
-		new /obj/item/clothing/accessory/medal/silver(src)
-		new /obj/item/clothing/accessory/medal/silver(src)
-		new /obj/item/clothing/accessory/medal/bronze/nanotrasen(src)
-		new /obj/item/clothing/accessory/medal/gold(src)
-		new /obj/item/clothing/accessory/medal/iron(src)
-		new /obj/item/clothing/accessory/medal/iron/nanotrasen(src)
-		new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
+/obj/item/weapon/storage/lockbox/medal/New()
+	..()
+	new /obj/item/clothing/accessory/medal/silver(src)
+	new /obj/item/clothing/accessory/medal/silver(src)
+	new /obj/item/clothing/accessory/medal/bronze/nanotrasen(src)
+	new /obj/item/clothing/accessory/medal/gold(src)
+	new /obj/item/clothing/accessory/medal/iron(src)
+	new /obj/item/clothing/accessory/medal/iron/nanotrasen(src)
+	new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
 //holojanisign
 
@@ -246,21 +246,21 @@ Please only put items here that don't have a huge definition - Glloyd											
 	path = 1
 	stage = 2
 
-	New()
-		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+/obj/item/weapon/grenade/chem_grenade/teargas/New()
+	..()
+	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
-		B1.reagents.add_reagent(/datum/reagent/potassium, 25)
-		B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
-		B2.reagents.add_reagent(/datum/reagent/sugar, 25)
+	B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 25)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 25)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
-		icon_state = "grenade"
+	beakers += B1
+	beakers += B2
+	icon_state = "grenade"
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of tear gas grenades (WARNING)"

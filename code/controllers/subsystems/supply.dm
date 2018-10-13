@@ -34,20 +34,10 @@ SUBSYSTEM_DEF(supply)
 	. = ..()
 	ordernum = rand(1,9000)
 
-	//Build master supply list
-	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
-		if(sp.is_category())
-			for(var/decl/hierarchy/supply_pack/spc in sp.children)
-				master_supply_list += spc
-
-	for(var/material/mat in SSmaterials.materials)
-		if(mat.sale_price > 0)
-			point_source_descriptions[mat.display_name] = "From exported [mat.display_name]"
-
 	if(GLOB.using_map.using_new_cargo) //here we do setup for the new cargo system
 		points_per_process = 0
 
-/*
+
 		point_source_descriptions = list(
 			"time" = "Base station supply",
 			"manifest" = "From exported manifests",
@@ -57,8 +47,16 @@ SUBSYSTEM_DEF(supply)
 			"trade" = "From trading items",
 			"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 		)
-*/
 
+	//Build master supply list
+	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
+		if(sp.is_category())
+			for(var/decl/hierarchy/supply_pack/spc in sp.children)
+				master_supply_list += spc
+
+	for(var/material/mat in SSmaterials.materials)
+		if(mat.sale_price > 0)
+			point_source_descriptions[mat.display_name] = "From exported [mat.display_name]"
 
 // Just add points over time.
 /datum/controller/subsystem/supply/fire()
@@ -78,8 +76,8 @@ SUBSYSTEM_DEF(supply)
 	point_sources["total"] += amount
 
 	if(GLOB.using_map.using_new_cargo)
-		var/newamount = (amount * GLOB.using_map.new_cargo_inflation)
-		station_account.money += newamount
+	//	var/newamount = (amount * GLOB.using_map.new_cargo_inflation)
+		station_account.money += amount
 		points = station_account.money
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
@@ -115,11 +113,24 @@ SUBSYSTEM_DEF(supply)
 					var/atom/A = atom
 
 					if(GLOB.using_map.using_new_cargo)
-						var/obj/O = A
-						var/addvalue = (find_item_value(O) * 0.8) //we get even less for selling in bulk
-//						add_points_from_source(addvalue, "trade")
-						station_account.money += addvalue
-						points = station_account.money
+						if(istype(A, /obj/item/stack/material))
+							var/obj/item/stack/material/P = A
+							var/material/material = P.get_material()
+							if(material.sale_price > 0)
+								var/materialmoney = P.get_amount() * material.sale_price
+								materialmoney *= GLOB.using_map.new_cargo_inflation
+								materialmoney *= 0.25 //test and balance
+								material_count[material.display_name] += materialmoney
+//								station_account.money += materialmoney
+//								points = station_account.money
+
+						else
+
+							var/obj/O = A
+							var/addvalue = (find_item_value(O) * 0.8) //we get even less for selling in bulk
+							add_points_from_source(addvalue, "trade")
+//							station_account.money += addvalue
+//							points = station_account.money
 
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
 						var/obj/item/weapon/paper/manifest/slip = A

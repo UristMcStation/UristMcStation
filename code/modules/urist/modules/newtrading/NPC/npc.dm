@@ -51,6 +51,10 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	var/sellmodifier = 0.90
 	var/price_increase = 1.02
 
+	var/npc_item_amount = 8
+	var/randomize_value = 1
+	var/randomize_quantity = 1
+
 /mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0

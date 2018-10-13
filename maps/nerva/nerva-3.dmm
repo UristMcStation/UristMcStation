@@ -518,6 +518,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
+"bS" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27;
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "bT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -822,6 +837,7 @@
 	pixel_y = 26
 	},
 /obj/item/weapon/storage/secure/briefcase/nukedisk,
+/obj/item/weapon/storage/lockbox/station_account,
 /turf/simulated/floor/wood,
 /area/command/captain)
 "cC" = (
@@ -4633,6 +4649,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/taperoll/atmos,
+/obj/item/taperoll/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "pE" = (
@@ -4942,6 +4960,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
+"qO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/first)
 "qP" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/module/power_control,
@@ -5738,6 +5766,10 @@
 /obj/structure/disposalpipe/trunk{
 	icon_state = "pipe-t";
 	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = 28;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
@@ -6839,10 +6871,6 @@
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
 "yV" = (
-/obj/machinery/light_switch{
-	pixel_x = 28;
-	pixel_y = 0
-	},
 /obj/machinery/vending/fitness,
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
@@ -8276,6 +8304,10 @@
 /area/civilian/bath)
 "EI" = (
 /obj/machinery/vending/urist/beltdispenser,
+/obj/machinery/light_switch{
+	pixel_x = 28;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
 "EK" = (
@@ -9937,6 +9969,10 @@
 /area/civilian/lounge)
 "KO" = (
 /obj/structure/catwalk,
+/obj/machinery/light/small{
+	icon_state = "bulb1";
+	dir = 1
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/fs)
 "KQ" = (
@@ -10268,7 +10304,7 @@
 /area/logistics/auxtool)
 "MJ" = (
 /obj/machinery/door/airlock{
-	name = "Unit 4"
+	name = "Robot Unit"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
@@ -10549,6 +10585,10 @@
 "NP" = (
 /obj/structure/closet/firecloset,
 /obj/random/toolbox,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/first)
 "NS" = (
@@ -11831,6 +11871,10 @@
 /area/engineering/atmospherics)
 "Tb" = (
 /obj/structure/closet/wardrobe/white,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
 "Td" = (
@@ -12195,6 +12239,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/command/headquarters)
 "UJ" = (
@@ -12539,11 +12584,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/hygiene/toilet{
-	tag = "icon-toilet00 (WEST)";
-	icon_state = "toilet00";
-	dir = 8
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "Wg" = (
@@ -12862,6 +12903,10 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "XI" = (
@@ -13088,6 +13133,7 @@
 /area/civilian/lounge)
 "Yv" = (
 /obj/structure/catwalk,
+/obj/machinery/light/small,
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/afp)
 "Yw" = (
@@ -36789,7 +36835,7 @@ wj
 AY
 cf
 cf
-cf
+qO
 Tn
 cf
 hR
@@ -42043,7 +42089,7 @@ mU
 mU
 Gb
 fv
-mU
+bS
 NO
 ad
 Ap

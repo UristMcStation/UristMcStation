@@ -23,7 +23,6 @@
 /obj/machinery/shipweapons/Process()
 	if(!charged && !recharging)
 		Charging()
-		recharging = 1
 
 	..()
 
@@ -36,10 +35,10 @@
 		update_icon()
 		spawn(rechargerate)
 			charged = 1
-			update_icon()
 			canfire = 1
 			update_use_power(1)
 			recharging = 0
+			update_icon()
 
 /obj/machinery/shipweapons/power_change()
 	if(!charged && !recharging) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
@@ -101,6 +100,7 @@
 /obj/machinery/shipweapons/update_icon()
 	if(charged)
 		icon_state = "[initial(icon_state)]-charged"
+
 	if(recharging)
 		icon_state = "[initial(icon_state)]-charging"
 
@@ -138,7 +138,7 @@
 /obj/machinery/shipweapons/beam/lightlaser
 	name = "light laser cannon"
 	shielddamage = 200
-	hulldamage = 200
+	hulldamage = 100
 	icon_state = "beamcannon"
 	idle_power_usage = 10
 	active_power_usage = 2000

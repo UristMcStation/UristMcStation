@@ -42,7 +42,7 @@
 
 
 //mineral trader
-
+/*
 /mob/living/simple_animal/hostile/npc/colonist/mineral_trader
 	name = "Ore Trader"
 	npc_job_title = "Ore Trader"
@@ -58,6 +58,7 @@
 	hat_chance = 50
 	glove_chance = 50
 	wander = 0
+*/
 
 //bartender
 
@@ -69,13 +70,11 @@
 	jumpsuits = list(\
 		/obj/item/clothing/under/rank/bartender\
 		)
-	suit_chance = 100
-	hat_chance = 50
-	glove_chance = 50
+	suit_chance = 0
+	hat_chance = 0
+	glove_chance = 0
 	wander = 0
 
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader/get_trade_value(var/obj/O)
-	. = get_value(O) * 25
+	npc_item_amount = 26
+	randomize_value = 0
 
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
-	return ..(O, M, worth, 0)

@@ -728,7 +728,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/automatic/spaceak
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper U2442 Assault Rifle"
-	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the ORMA, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "sexyrifle"
 	item_state = "sexyrifle"
@@ -755,7 +755,7 @@ the sprite and make my own projectile -Glloyd*/
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "sexyrifle"
 	else
-		icon_state = "sexyrifle-empty"
+		icon_state = "sexyrifle_empty"
 	return
 
 /obj/item/ammo_magazine/a762mm/spaceak

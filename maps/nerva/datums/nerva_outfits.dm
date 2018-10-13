@@ -83,6 +83,21 @@
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	gloves = /obj/item/clothing/gloves/color/grey
 
+/decl/hierarchy/outfit/job/science/nervaroboticist
+	name = OUTFIT_JOB_NAME("Nerva Roboticist")
+	uniform = /obj/item/clothing/under/rank/roboticist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/robotics
+	l_ear = /obj/item/device/radio/headset/headset_cargo
+	shoes = /obj/item/clothing/shoes/black
+	belt = /obj/item/weapon/storage/belt/robotics/full
+	id_type = /obj/item/weapon/card/id/cargo
+	pda_slot = slot_r_store
+	pda_type = /obj/item/modular_computer/pda/roboticist
+
+/decl/hierarchy/outfit/job/science/nervaroboticist/New()
+	..()
+	backpack_overrides.Cut()
+
 //cappy
 
 /decl/hierarchy/outfit/job/nerva/captain //done
@@ -137,3 +152,14 @@
 	uniform = /obj/item/clothing/under/rank/bartender
 	id_type = /obj/item/weapon/card/id/civilian/chef
 	pda_type = /obj/item/modular_computer/pda
+
+//stowaway
+/decl/hierarchy/outfit/job/nerva/stowaway
+	name = OUTFIT_JOB_NAME("Nerva Stowaway")
+	shoes = /obj/item/clothing/shoes/black
+	uniform = /obj/item/clothing/under/color/grey
+	id_type = null
+	pda_type = null
+	l_ear = null
+	l_pocket = /obj/item/weapon/wrench
+	r_pocket = /obj/item/weapon/crowbar

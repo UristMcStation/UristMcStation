@@ -10,8 +10,8 @@
 			trade_items_by_type += C.trade_items_by_type
 			total_trade_weight += C.total_weighting
 
-	//pick 8 items randomly weighted from the accepted trade categories
-	var/trade_items_left = 8
+	//pick the number of items defined in npc_item_amount randomly weighted from the accepted trade categories
+	var/trade_items_left = npc_item_amount
 	var/trade_weight_left = total_trade_weight
 	var/list/trade_items_other = trade_items.Copy()
 	while(trade_items_left > 0 && trade_items_other.len)
@@ -63,13 +63,15 @@
 	trade_items_inventory_by_type[I.item_type] = I
 
 	//randomise the value between 75% and 125%
-	I.value = round(I.value * (75 + rand(0,50))/100)
+	if(randomize_value)
+		I.value = round(I.value * (75 + rand(0,50))/100)
 
 	if(hidden)
 		I.quantity = 0
 	else
-		//randomise the quantity
-		I.quantity = max(I.quantity + rand(-5,5), 1)
+
+		if(randomize_quantity)//randomise the quantity
+			I.quantity = max(I.quantity + rand(-5,5), 1)
 
 		//add it to the shop list in the NanoUI window
 		generate_trade_item_ui(I)

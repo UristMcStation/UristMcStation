@@ -29,6 +29,7 @@
 
 	stance = HOSTILE_STANCE_IDLE*/
 
+
 /mob/living/simple_animal/hostile/scom
 	response_help = "pokes"
 	response_disarm = "shoves"
@@ -39,6 +40,7 @@
 	minbodytemp = 0
 	faction = "alien" //luv u corai. scom 5eva	//rip in peace corai
 	var/weapon1
+	var/diesnormally = 0
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
@@ -46,6 +48,14 @@
 	var/can_heal = 0
 	var/will_flee = 0
 	search_objects = 1
+
+/mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
+	if(diesnormally)
+		..()
+	else
+		LoseAggro()
+		mouse_opacity = 1
+		walk(src, 0)
 
 /mob/living/simple_animal/hostile/scom/husk
 	name = "Husk"
@@ -55,6 +65,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 20 //stay away
 	melee_damage_upper = 20
+	diesnormally = 1
 
 /mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
