@@ -19,8 +19,8 @@
 /datum/trade_category/crops
 	name = "crops"
 
-/datum/trade_category/ore
-	name = "ore"
+///datum/trade_category/ore
+//	name = "ore"
 
 /datum/trade_category/medical
 	name = "medical"
@@ -37,4 +37,11 @@
 /datum/trade_category/refreshments
 	name = "refreshments"
 
+/datum/trade_category/liquor
+	name = "liquor"
 
+/datum/trade_category/groceries
+	name = "groceries"
+
+/datum/trade_category/ntsciencecontract
+	name = "ntsciencecontract"

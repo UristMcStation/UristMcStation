@@ -8743,7 +8743,7 @@
 	},
 /area/syndicate_mothership)
 "xS" = (
-/obj/structure/closet/secure_closet/cos,
+/obj/structure/closet/secure_closet/nervacos,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -14406,11 +14406,6 @@
 "RA" = (
 /obj/effect/shuttle_landmark/ninja/internim,
 /turf/space/bluespace,
-/area/space)
-"RC" = (
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
 /area/space)
 "RF" = (
 /obj/structure/table/rack,
@@ -45095,7 +45090,7 @@ uT
 fG
 wY
 Qt
-RC
+Qt
 UB
 uT
 uT

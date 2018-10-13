@@ -60,3 +60,30 @@
 
 /obj/effect/paint/expeditionary
 	color = "#68099e"
+
+//station account card
+
+/obj/item/weapon/card/station_account
+	name = "ICS Nerva account card"
+	desc = "A banking card with access to the ICS Nerva's main account."
+	icon_state = "data"
+
+/obj/item/weapon/card/station_account/Initialize()
+	..()
+	associated_account_number = station_account.account_number
+
+
+/obj/item/weapon/storage/lockbox/station_account
+	name = "station account card lockbox"
+	desc = "A locked box used to store the ICS Nerva's account card."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "medalbox+l"
+	item_state = "syringe_kit"
+	w_class = 3
+	max_w_class = 2
+	storage_slots = 7
+	req_access = list(access_captain)
+	icon_locked = "medalbox+l"
+	icon_closed = "medalbox"
+	icon_broken = "medalbox+b"
+	startswith = list(/obj/item/weapon/card/station_account)

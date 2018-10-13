@@ -111,7 +111,7 @@
 		"It's hardly been a decade since the Galactic Crisis came to an end, but it feels like just yesterday we were living with the fear of death every day.")
 
 /datum/npc_speech_trigger/colonist_pirate
-	trigger_words  = list("pirate", "piracy")
+	trigger_words  = list("pirate", "piracy", "pirates")
 	response_phrase = 1
 
 /datum/npc_speech_trigger/colonist_pirate/New()

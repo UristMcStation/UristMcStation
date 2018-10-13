@@ -500,10 +500,12 @@
 /area/turbolift/mainbottom)
 "bg" = (
 /obj/structure/sign/directions/bridge{
+	dir = 1;
 	pixel_x = 32;
 	pixel_y = 4
 	},
 /obj/structure/sign/directions/engineering{
+	dir = 1;
 	pixel_x = 32;
 	pixel_y = -4
 	},
@@ -607,6 +609,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "bq" = (
@@ -658,8 +661,16 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/item/device/antibody_scanner,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"cc" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Virology Staircase"
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/white,
+/area/medical/extstorage)
 "cu" = (
 /obj/effect/catwalk_plated/white,
 /obj/structure/cable/orange{
@@ -673,6 +684,14 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
+/area/medical/extstorage)
+"cI" = (
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 25
+	},
+/obj/structure/closet/l3closet/general/multi,
+/turf/simulated/floor/tiled/white,
 /area/medical/extstorage)
 "cZ" = (
 /obj/effect/catwalk_plated/white,
@@ -2340,9 +2359,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
 "jh" = (
@@ -2804,7 +2820,7 @@
 	pixel_y = -24
 	},
 /obj/structure/cable/orange,
-/obj/structure/closet/secure_closet/medical1,
+/obj/structure/closet/secure_closet/medical2,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "kF" = (
@@ -2946,10 +2962,12 @@
 /area/exploration_shuttle/main)
 "la" = (
 /obj/structure/sign/directions/medical{
+	dir = 1;
 	pixel_x = 32;
 	pixel_y = -4
 	},
 /obj/structure/sign/directions/security{
+	dir = 1;
 	pixel_x = 32;
 	pixel_y = 4
 	},
@@ -2963,7 +2981,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
 "lb" = (
-/obj/machinery/organ_printer/flesh/mapped,
 /obj/effect/floor_decal/corner/lime/three_quarters{
 	dir = 8
 	},
@@ -2972,6 +2989,7 @@
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/medical/cloning)
 "ld" = (
@@ -3013,6 +3031,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "lj" = (
@@ -3059,6 +3078,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
+/obj/structure/iv_drip,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "lr" = (
@@ -3078,9 +3098,11 @@
 /area/engineering/bdportengine)
 "ls" = (
 /obj/structure/table/standard,
+/obj/item/weapon/extinguisher,
+/obj/item/weapon/extinguisher,
+/obj/item/weapon/storage/box/cleangrenades,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/extinguisher,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "lt" = (
@@ -3122,12 +3144,6 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
-"lw" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/bluegrid,
-/area/command/aicore)
 "lx" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4;
@@ -5123,13 +5139,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/disposals)
-"qE" = (
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "garbage"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/disposals)
 "qF" = (
 /obj/structure/catwalk,
 /obj/structure/cable/orange{
@@ -5174,6 +5183,7 @@
 	pixel_x = 22;
 	tag = "icon-intercom (WEST)"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/command/aicore)
 "qI" = (
@@ -6400,13 +6410,15 @@
 /turf/simulated/wall,
 /area/logistics/lowercargo)
 "uI" = (
-/obj/item/modular_computer/console/preset/sysadmin{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
+	},
+/obj/machinery/computer/robotics{
+	tag = "icon-computer (WEST)";
+	icon_state = "computer";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
@@ -6445,6 +6457,10 @@
 	frequency = 1331;
 	id_tag = "trajan_shuttle_outer";
 	name = "Trajan External Access"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
@@ -6492,7 +6508,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "uZ" = (
+/obj/item/weapon/reagent_containers/ivbag/blood,
+/obj/item/weapon/reagent_containers/ivbag/blood/OPlus,
+/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
+/obj/item/weapon/reagent_containers/ivbag/blood/BPlus,
+/obj/item/weapon/reagent_containers/ivbag/blood/BMinus,
+/obj/item/weapon/reagent_containers/ivbag/blood/APlus,
+/obj/item/weapon/reagent_containers/ivbag/blood/AMinus,
 /obj/effect/catwalk_plated/white,
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "Blood Locker";
+	pixel_x = 0;
+	pixel_y = 28
+	},
 /turf/simulated/floor/plating,
 /area/medical/extstorage)
 "va" = (
@@ -7010,6 +7038,7 @@
 	pixel_x = -22;
 	tag = "icon-intercom (EAST)"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/command/aicore)
 "wk" = (
@@ -7821,6 +7850,7 @@
 	id_tag = 1;
 	pixel_y = -24
 	},
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "yq" = (
@@ -8490,13 +8520,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"As" = (
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "smelt"
-	},
-/turf/simulated/floor/plating,
-/area/logistics/fabwork)
 "Av" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8977,9 +9000,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 10
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "trajan_shuttle_pump_out_internal"
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
@@ -10329,6 +10353,12 @@
 	icon_state = "map_scrubber_on";
 	dir = 8
 	},
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "Fc" = (
@@ -10467,7 +10497,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
+	dir = 8;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_pump_out_internal"
 	},
@@ -10507,6 +10537,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "Fy" = (
@@ -11446,6 +11477,7 @@
 	dir = 8
 	},
 /obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/beakers,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "If" = (
@@ -12026,6 +12058,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
+"JG" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "JH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -13023,6 +13059,9 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
 "Mx" = (
@@ -13059,13 +13098,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/logistics/storage)
-"MB" = (
-/obj/machinery/conveyor{
-	dir = 9;
-	id = "garbage"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/disposals)
 "ME" = (
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -13582,7 +13614,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/radiation,
+/obj/structure/closet/secure_closet/medical1,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "Ob" = (
@@ -14583,12 +14615,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/closet/l3closet/general/multi,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light_switch{
 	pixel_x = 0;
 	pixel_y = 25
 	},
+/obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "QR" = (
@@ -15798,11 +15830,12 @@
 /obj/item/weapon/wrench,
 /obj/item/weapon/screwdriver,
 /obj/item/weapon/storage/box/lights/mixed,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "TJ" = (
 /obj/machinery/conveyor{
-	dir = 10;
+	dir = 1;
 	id = "smelt"
 	},
 /turf/simulated/floor/plating,
@@ -16211,9 +16244,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Staircase"
-	},
 /obj/structure/cable/orange{
 	d1 = 2;
 	d2 = 4;
@@ -16619,6 +16649,8 @@
 /obj/item/weapon/storage/box/syringes,
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/item/weapon/storage/box/bodybags,
+/obj/item/weapon/storage/box/cleangrenades,
+/obj/item/weapon/storage/box/beakers,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "VU" = (
@@ -16659,13 +16691,14 @@
 	name = "Trajan External Access"
 	},
 /obj/machinery/shield_diffuser,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/structure/cable/cyan{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1;
+	level = 2
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
@@ -16771,6 +16804,7 @@
 /area/logistics/fabwork)
 "Wv" = (
 /obj/structure/catwalk,
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "Wy" = (
@@ -17345,6 +17379,7 @@
 /obj/item/weapon/screwdriver{
 	pixel_y = 10
 	},
+/obj/item/weapon/storage/box/cleangrenades,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "Ya" = (
@@ -34962,7 +34997,7 @@ ou
 gf
 Gk
 DD
-rg
+JG
 GW
 EZ
 EZ
@@ -36743,7 +36778,7 @@ aa
 aa
 aa
 GG
-GG
+cc
 UI
 nK
 tZ
@@ -36945,7 +36980,7 @@ aa
 aa
 aa
 GG
-GG
+cI
 FA
 sh
 RC
@@ -39804,7 +39839,7 @@ kM
 Bq
 yO
 iH
-As
+yQ
 sV
 kx
 Lc
@@ -44460,8 +44495,8 @@ NC
 NC
 xf
 Oz
-MB
-qE
+Al
+IP
 EM
 EM
 aa
@@ -47680,7 +47715,7 @@ Tf
 ed
 JA
 VG
-lw
+TL
 qH
 sX
 aa

@@ -6,8 +6,9 @@
 					if(message == T.trigger_phrase)
 						do_react(T)
 				else if(T.trigger_words)
-					if(findtext(message,T.trigger_words))
-						do_react(T)
+					for(var/triggerword in T.trigger_words)
+						if(findtext(message,triggerword))
+							do_react(T)
 
 /mob/living/simple_animal/hostile/npc/proc/do_react(var/datum/npc_speech_trigger/T)
 	if(prob(T.response_chance))

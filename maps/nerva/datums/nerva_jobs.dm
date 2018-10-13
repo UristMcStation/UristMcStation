@@ -133,7 +133,7 @@
 	title = "Supply Technician"
 	supervisors = "the quartermaster"
 	alt_titles = list("Cargo Technician", "Resource Technician", "Fabrication Technician", "Salvage Technician",
-	"Roboticist" = /decl/hierarchy/outfit/job/science/roboticist)
+	"Roboticist" = /decl/hierarchy/outfit/job/science/nervaroboticist)
 	total_positions = 6 //because we're replacing science
 	spawn_positions = 4
 	hud_icon = "hudcargotechnician"
@@ -227,5 +227,23 @@
 	spawn_positions = 1
 
 /datum/job/merchant
+	total_positions = 0
+	spawn_positions = 0
+
+/datum/job/stowaway
+	title = "Stowaway"
+	department = "Civilian"
+	department_flag = CIV
+
 	total_positions = 1
 	spawn_positions = 1
+	availablity_chance = 15
+	supervisors = "yourself"
+	selection_color = "#515151"
+	ideal_character_age = 30
+	minimal_player_age = 0
+	create_record = 0
+	account_allowed = 0
+	outfit_type = /decl/hierarchy/outfit/job/nerva/stowaway
+	latejoin_at_spawnpoints = 1
+	announced = FALSE

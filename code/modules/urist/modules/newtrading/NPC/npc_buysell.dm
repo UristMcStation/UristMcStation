@@ -1,4 +1,3 @@
-
 /mob/living/simple_animal/hostile/npc/proc/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
 	if(!worth)
 		to_chat(M,"<span class = 'warning'>It's not worth your time to do that.</span>")
@@ -70,8 +69,7 @@
 	else
 
 		if(D.req_access)
-			var/id_card = M.GetIdCard()
-			if(!CanPurchase(M, id_card, D.req_access))
+			if(!CanPurchase(M, D.req_access))
 				var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
 				M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 			else
@@ -119,7 +117,8 @@
 	D.value = round(D.value * src.price_increase)		//price goes up a little
 	update_trade_item_ui(D)
 
-/mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/obj/item/weapon/card/id/id_card, var/access)
+/mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/access)
+	var/obj/item/weapon/card/id/id_card = M.GetIdCard()
 	var/list/L = id_card.GetAccess()
-	if(has_access(access, access, L))
+	if(has_access(access, list(), L))
 		return 1
