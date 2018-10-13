@@ -693,6 +693,13 @@
 /obj/structure/closet/l3closet/general/multi,
 /turf/simulated/floor/tiled/white,
 /area/medical/extstorage)
+"cO" = (
+/obj/structure/plasticflaps/mining,
+/obj/machinery/conveyor{
+	id = "smelt"
+	},
+/turf/simulated/floor/tiled,
+/area/logistics/fabwork)
 "cZ" = (
 /obj/effect/catwalk_plated/white,
 /obj/structure/cable/orange{
@@ -2272,8 +2279,11 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
 "iH" = (
-/obj/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/mineral/unloading_machine{
+	input_turf = 1;
+	output_turf = 2
+	},
 /turf/simulated/floor/tiled,
 /area/logistics/fabwork)
 "iI" = (
@@ -2768,7 +2778,7 @@
 	dir = 1
 	},
 /obj/machinery/conveyor_switch/oneway{
-	convdir = -1;
+	convdir = 1;
 	id = "smelt"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2899,11 +2909,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "kM" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "smelt"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/conveyor{
+	id = "OreDropoff"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/fabwork)
 "kN" = (
@@ -7985,10 +7994,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "yO" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "smelt"
-	},
 /obj/structure/cable/orange{
 	d1 = 4;
 	d2 = 8;
@@ -8004,6 +8009,9 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
+/obj/machinery/conveyor{
+	id = "OreDropoff"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
 "yQ" = (
@@ -8837,11 +8845,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "Bq" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "smelt"
-	},
 /obj/structure/plasticflaps/mining,
+/obj/machinery/conveyor{
+	id = "OreDropoff"
+	},
 /turf/simulated/floor/tiled,
 /area/logistics/fabwork)
 "Bs" = (
@@ -8921,6 +8928,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "BD" = (
@@ -12550,9 +12558,8 @@
 /area/exploration_shuttle/cargo)
 "KZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/conveyor_switch/oneway{
-	convdir = -1;
-	id = "smelt"
+/obj/machinery/conveyor_switch{
+	id = "OreDropoff"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/fabwork)
@@ -15835,7 +15842,6 @@
 /area/maintenance/third_deck/fs)
 "TJ" = (
 /obj/machinery/conveyor{
-	dir = 1;
 	id = "smelt"
 	},
 /turf/simulated/floor/plating,
@@ -16047,7 +16053,10 @@
 /area/logistics/genprep)
 "Ul" = (
 /obj/machinery/light,
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/mineral/processing_unit{
+	input_turf = 4;
+	output_turf = 8
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
@@ -38426,7 +38435,7 @@ TW
 AL
 gK
 TJ
-Bq
+cO
 BC
 vS
 st
