@@ -2868,7 +2868,6 @@
 #include "code\modules\urist\modules\shipbattles\combatcomputer.dm"
 #include "code\modules\urist\modules\shipbattles\components.dm"
 #include "code\modules\urist\modules\shipbattles\overmapships.dm"
-#include "code\modules\urist\modules\shipbattles\shipdatums.dm"
 #include "code\modules\urist\modules\shipbattles\weapons.dm"
 #include "code\modules\urist\modules\weather\area_climates.dm"
 #include "code\modules\urist\modules\weather\weather_controller.dm"

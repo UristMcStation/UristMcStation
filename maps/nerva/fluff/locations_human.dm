@@ -5,7 +5,7 @@
 	Mars is also an economic powerhouse. Featuring largescale industry, both planet based and orbital, and extensive agricultural networks, \
 	Mars is the trading hub of Sol. Due to the high level of economic activity on Mars, there is also a large corporate presence. \
 	However, corporations are not allowed to maintain a presence in the capital, Olympus, in order to avoid corruption in the government. \
-	That being said, companies like Nanotrasen have huge industrial interests in other large Martian cities, and own large orbital refineries and dockyards. \
+	That being said, companies like NanoTrasen have huge industrial interests in other large Martian cities, and own large orbital refineries and dockyards. \
 	Mars has been mined of most of its useful minerals, but due to the massive trade routes maintained by the Terran Confederacy's trading fleet, \
 	shortages are rare, and the standard of living is relatively high. However, the Martian people have not had an easy history. As the new, primary home of humanity, the people have seen great struggles \
 	over the centuries, ranging from revolutions to political upheaval and regular rioting. The people of Mars consider themselves somewhat tougher \
@@ -167,7 +167,7 @@
 	The planet's population is primarily divided into northern, urban Tersteners who often are seen in the military; and southern, rural Tersteners, who make up the farmers and ranchers of the planet. \
 	While much of the North has been developed, large parts of the South remain undeveloped. In addition, reconstruction efforts after the Galactic Crisis are ongoing, further exacerbating this divide. \
 	Tersten is an isolated border world, with little influence in the larger community. Still, it is a proud member of the Terran Confederacy, and Tersten City has become a haunt for Terran naval forces on shore leave. \
-	Nanotrasen maintain an office in Tersten City and the city of Moore, and various Trans-Stellar Corporations have a foothold in the city of South Harelstone. \
+	NanoTrasen maintains an office in Tersten City and the city of Moore, and various Trans-Stellar Corporations have a foothold in the city of South Harelstone. \
 	<br><br>The Tersten people are separated into various cultures. For example, urban Tersteners, known as 'Pinascs', live around Tersten City, and are often seen in the defence forces.  \
 	Rural Tersteners, known as 'Nevokies', live in the south central region around the city of Nevada.  Many Skrell enclaves exist on the planet, significantly in South Harelstone. \
 	The divide between north and south could also be considered a divide between rich and poor. Even the poorest city dweller will likely be richer than most farmers. \
@@ -299,7 +299,7 @@
 	name = HOME_SYSTEM_READE
 	distance = "114 light years"
 	description = "Reade III, the headquarters of the The Outer Rim Miners Alliance. A cold planet circling a weak star in the Outer Rim, the governing body of the ORMA \
-	is located here. Chosen because of the 3 mineral rich small moons orbiting it, Reade III is also home to the Nanotrasen base of operations for the Outer Rim. Completely destroyed during the Galactic Crisis, \
+	is located here. Chosen because of the 3 mineral rich small moons orbiting it, Reade III is also home to the NanoTrasen base of operations for the Outer Rim. Completely destroyed during the Galactic Crisis, \
 	the human presence on Reade has only recently been re-established."
 	capital = "New Reade City"
 	economic_power = 0.7
@@ -314,7 +314,7 @@
 	corporate headquarters, along with the primary residence of NanoTrasen's CEO. One of the first planets outside of Sol settled by human colonists, Procyon is a lovely garden world \
 	with a relatively high standard on living. Although Procyon was one of the first planets settled by humanity, it has been controlled by NanoTrasen since the mid-23rd century, \
 	and as such, it has seen intense development by the corporation. Indeed, it is home to some of the foremost research facilities in human-controlled space, along with extensive orbital dockyards. \
-	The fact that Procyon was largely untouched by the Galactic Crisis has allowed Nanotrasen to bounce back far quicker than the Terran Confederacy."
+	The fact that Procyon was largely untouched by the Galactic Crisis has allowed NanoTrasen to bounce back far quicker than the Terran Confederacy."
 	capital = "Trasen City"
 	economic_power = 1.3
 	ruling_body = FACTION_NANOTRASEN

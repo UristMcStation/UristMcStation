@@ -20,18 +20,18 @@
 	GLOB.using_map.contracts -= src
 
 /obj/item/weapon/paper/contract
-	var/contract = /datum/contract
+	var/list/contracts = list()
 
-/obj/item/weapon/paper/contract/New()
-	var/datum/contract/C
-	C = contract
+/obj/item/weapon/paper/contract/Initialize()
+	..()
+	for(var/datum/contract/C in contracts)
 
 	name = C.name
 	info = C.desc
 
-	AddContract()
+	AddContract(C)
 
-/obj/item/weapon/paper/contract/proc/AddContract()
+/obj/item/weapon/paper/contract/proc/AddContract(var/contract)
 	GLOB.using_map.contracts += new contract
 
 /datum/contract/nanotrasen
