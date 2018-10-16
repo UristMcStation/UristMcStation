@@ -26,10 +26,10 @@
 	..()
 	for(var/datum/contract/C in contracts)
 
-	name = C.name
-	info = C.desc
+		name = C.name
+		info = C.desc
 
-	AddContract(C)
+		AddContract(C)
 
 /obj/item/weapon/paper/contract/proc/AddContract(var/contract)
 	GLOB.using_map.contracts += new contract
