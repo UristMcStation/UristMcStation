@@ -13,6 +13,7 @@
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
+	#include "obj/nerva_computers.dm"
 	#include "fluff/_fluff.dm"
 	#include "fluff/culture.dm"
 	#include "fluff/factions.dm"
