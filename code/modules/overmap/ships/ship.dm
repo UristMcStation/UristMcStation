@@ -19,6 +19,7 @@
 
 	var/auto_connect = 1
 	var/list/connected
+	var/halted = 0 //Nax, I know this is going to conflict when we merge Bay. If it's you merging it, just take Bay's version of this whole file. What I'm adding is just temporary, for combat.
 
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
@@ -85,6 +86,8 @@
 /obj/effect/overmap/ship/proc/get_brake_path()
 	if(!get_acceleration())
 		return INFINITY
+	if(is_still())
+		return 0
 	var/num_burns = get_speed()/get_acceleration() + 2 //some padding in case acceleration drops form fuel usage
 	var/burns_per_grid = (default_delay - speed_mod*get_speed())/burn_delay
 	return round(num_burns/burns_per_grid)
@@ -111,7 +114,7 @@
 			adjust_speed(0, -get_burn_acceleration())
 
 /obj/effect/overmap/ship/Process()
-	if(!is_still())
+	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
 		for(var/i=1, i<=2, i++)
 			if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
@@ -139,11 +142,13 @@
 		. += E.get_thrust()
 
 /obj/effect/overmap/ship/proc/can_burn()
+	if(halted)
+		return 0
 	if (world.time < last_burn + burn_delay)
 		return 0
 	for(var/datum/ship_engine/E in engines)
 		. |= E.can_burn()
-		
+
 //deciseconds to next step
 /obj/effect/overmap/ship/proc/ETA()
 	. = INFINITY
@@ -177,3 +182,10 @@
 	if(istype(A,/turf/unsimulated/map/edge))
 		handle_wraparound()
 	..()
+
+/obj/effect/overmap/ship/proc/halt()
+	adjust_speed(-speed[1], -speed[2])
+	halted = 1
+
+/obj/effect/overmap/ship/proc/unhalt()
+	halted = 0

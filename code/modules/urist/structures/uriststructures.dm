@@ -459,3 +459,38 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(T)
 		if(istype(T, /turf/simulated/floor/plating/flaps))
 			T.ChangeTurf(/turf/simulated/floor/plating)
+
+//this file is a fucking mess. anyways, here's a random portal
+
+/obj/structure/shipportal //this is for returning from the map ships
+	name = "portal"
+	desc = "Looks unstable. Best to test it with the clown."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "portal"
+	density = 1
+	anchored = 1
+
+/obj/structure/shipportal/Bumped(mob/M as mob|obj)
+	spawn(0)
+		src.teleport(M)
+		return
+	return
+
+/obj/structure/shipportal/Crossed(AM as mob|obj)
+	spawn(0)
+		src.teleport(AM)
+		return
+	return
+
+/obj/structure/shipportal/attack_hand(mob/user as mob)
+	spawn(0)
+		src.teleport(user)
+		return
+	return
+
+
+/obj/structure/shipportal/proc/teleport(atom/movable/M as mob|obj)
+	if(istype(M, /obj/effect)) //sparks don't teleport
+		return
+	else
+		do_teleport(M, locate(89,97,1), 0) //super Nerva specific

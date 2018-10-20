@@ -27,6 +27,10 @@ var/list/datum/map_template/underground_templates = list()
 	invisibility = 0
 	var/gamemode = 0
 
+/obj/effect/template_loader/New()
+	..()
+	GLOB.trigger_landmarks += src
+
 /obj/effect/template_loader/proc/Load()
 	return
 

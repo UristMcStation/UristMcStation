@@ -9,6 +9,7 @@
 	var/boardingmap = null
 	var/list/components = list()
 	var/incombat = 0
+	var/aggressive = 0 //will always attack
 
 /mob/living/simple_animal/hostile/overmapship/New()
 	..()
@@ -23,6 +24,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/Process() //here we do the attacking stuff
 	..()
+//	if(incombat)
 
 /mob/living/simple_animal/hostile/overmapship/debug
 //	shipdatum = /datum/ships/debug
@@ -38,6 +40,7 @@
 	wander = 1 //temporary
 	color = "#660000"
 	hiddenfaction = "pirates"
+	aggressive = 1
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small
 //	shipdatum = /datum/ships/piratesmall
