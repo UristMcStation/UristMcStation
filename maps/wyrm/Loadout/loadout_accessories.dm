@@ -1,13 +1,5 @@
 #define ARMED_ROLES list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
 
-/datum/gear/accessory/suspenders
-	display_name = "suspenders"
-	path = /obj/item/clothing/accessory/suspenders
-
-/datum/gear/accessory/wcoat
-	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat
-
 /datum/gear/accessory/armband
 	display_name = "armband selection"
 	path = /obj/item/clothing/accessory/armband
@@ -25,19 +17,8 @@
 	armbands["NanoTrasen armband"] = /obj/item/clothing/accessory/armband/whitered
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
-/datum/gear/accessory/wallet_poly
-	display_name = "wallet, polychromic"
-	path = /obj/item/weapon/storage/wallet/poly
-	cost = 2
-
 /datum/gear/accessory/stethoscope
-	display_name = "stethoscope (medical)"
-	path = /obj/item/clothing/accessory/stethoscope
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo)
-
-/datum/gear/accessory/locket
-	display_name = "locket"
-	path = /obj/item/clothing/accessory/locket
 
 /datum/gear/accessory/ubac
 	display_name = "ubac selection"

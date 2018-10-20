@@ -1,11 +1,4 @@
 // Suit slot
-/datum/gear/suit
-	display_name = "apron, blue"
-	path = /obj/item/clothing/suit/apron
-	slot = slot_wear_suit
-	sort_category = "Suits and Overwear"
-	cost = 2
-
 /datum/gear/suit/roles/poncho/security
 	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer)
 

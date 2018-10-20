@@ -1,11 +1,6 @@
 // Alien clothing.
-/datum/gear/suit/unathi_mantle
-	display_name = "hide mantle (Unathi)"
-	path = /obj/item/clothing/suit/unathi/mantle
-	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear"
 
+//Teshari Clothing
 /datum/gear/uniform/resomi
 	display_name = "smock, grey (Teshari)"
 	path = /obj/item/clothing/under/resomi
@@ -46,25 +41,3 @@
 /datum/gear/uniform/resomi/science
 	display_name = "uniform, Science (Teshari)"
 	path = /obj/item/clothing/under/resomi/science
-
-/datum/gear/uniform/harness
-	display_name = "gear harness (Full Body Prosthetic, Diona)"
-	path = /obj/item/clothing/under/harness
-	sort_category = "Xenowear"
-
-/datum/gear/mask/ipc_monitor
-	display_name = "display monitor (IPC)"
-	path = /obj/item/clothing/mask/monitor
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_IPC)
-	cost = 1
-
-/datum/gear/shoes/toeless
-	display_name = "toeless jackboots"
-	path = /obj/item/clothing/shoes/jackboots/unathi
-	sort_category = "Xenowear"
-
-/datum/gear/shoes/wrk_toeless
-	display_name = "toeless workboots"
-	path = /obj/item/clothing/shoes/workboots/toeless
-	sort_category = "Xenowear"
