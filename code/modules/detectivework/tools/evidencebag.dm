@@ -74,6 +74,19 @@
 	w_class = I.w_class
 	return
 
+/obj/item/weapon/evidencebag/on_update_icon()
+	overlays.Cut()
+	if(stored_item)
+		icon_state = "evidence"
+		var/xx = stored_item.pixel_x	//save the offset of the item
+		var/yy = stored_item.pixel_y
+		stored_item.pixel_x = 0		//then remove it so it'll stay within the evidence bag
+		stored_item.pixel_y = 0
+		var/image/img = image("icon"=stored_item, "layer"=FLOAT_LAYER)	//take a snapshot. (necessary to stop the underlays appearing under our inventory-HUD slots ~Carn
+		stored_item.pixel_x = xx		//and then return it
+		stored_item.pixel_y = yy
+		overlays += img
+		overlays += "evidence"	//should look nicer for transparent stuff. not really that important, but hey.
 
 /obj/item/weapon/evidencebag/attack_self(mob/user as mob)
 	if(contents.len)
@@ -82,16 +95,17 @@
 		"You hear someone rustle around in a plastic bag, and remove something.")
 		overlays.Cut()	//remove the overlays
 
-		user.put_in_hands(I)
-		stored_item = null
-
-		w_class = initial(w_class)
-		icon_state = "evidenceobj"
-		desc = "An empty evidence bag."
+		user.put_in_hands(stored_item)
+		empty()
 	else
 		to_chat(user, "[src] is empty.")
 		icon_state = "evidenceobj"
 	return
+
+/obj/item/weapon/evidencebag/proc/empty()
+	stored_item = null
+	w_class = initial(w_class)
+	update_icon()
 
 /obj/item/weapon/evidencebag/examine(mob/user)
 	. = ..(user)

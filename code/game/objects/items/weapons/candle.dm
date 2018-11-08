@@ -13,7 +13,7 @@
 
 	..()
 
-/obj/item/weapon/flame/candle/update_icon()
+/obj/item/weapon/flame/candle/on_update_icon()
 	var/i
 	if(wax > 1500)
 		i = 1
@@ -29,7 +29,7 @@
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
-	if(is_hot(W))
+	if(isflamesource(W) || is_hot(W))
 		light(user)
 
 /obj/item/weapon/flame/candle/resolve_attackby(var/atom/A, mob/user)
@@ -39,13 +39,11 @@
 		other_candle.light()
 
 /obj/item/weapon/flame/candle/proc/light(mob/user)
-	if(!src.lit)
-		src.lit = 1
-		//src.damtype = "fire"
-		src.visible_message("<span class='notice'>\The [user] lights the [name].</span>")
+	if(!lit)
+		lit = 1
+		visible_message("<span class='notice'>\The [user] lights the [name].</span>")
 		set_light(0.3, 0.1, 4, 2)
 		START_PROCESSING(SSobj, src)
-
 
 /obj/item/weapon/flame/candle/Process()
 	if(!lit)

@@ -93,7 +93,7 @@
 		if(percent <= k)
 			return k
 
-/obj/item/weapon/reagent_containers/food/drinks/update_icon()
+/obj/item/weapon/reagent_containers/food/drinks/on_update_icon()
 	overlays.Cut()
 	if(reagents.reagent_list.len > 0)
 		if(base_name)
@@ -329,16 +329,22 @@
 	base_name = "heart cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG
-	name = "SCG coffee cup"
+	name = "\improper SCG coffee cup"
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Central Government."
 	icon_state = "coffeecup_SCG"
-	base_name = "SCG cup"
+	base_name = "\improper SCG cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/NT
-	name = "NT coffee cup"
-	desc = "A red NanoTrasen coffee cup. 90% Guaranteed to not be laced with mind-control drugs."
+	name = "\improper NT coffee cup"
+	desc = "A red NanoTrasen coffee cup. 90% guaranteed to not be laced with mind-control drugs."
 	icon_state = "coffeecup_NT"
 	base_name = "NT cup"
+
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup/corp
+	name = "\improper Expeditionary Corps Organisation coffee cup"
+	desc = "A tasteful coffee cup in Expeditionary Corps Organisation corporate colours."
+	icon_state = "coffeecup_corp"
+	base_name = "EXO cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/one
 	name = "#1 coffee cup"
@@ -404,3 +410,9 @@
 	filling_states = "50;70;90;100"
 	base_name = "tall cup"
 	base_icon = "coffeecup_tall"
+
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup/dais
+	name = "\improper DAIS coffee cup"
+	desc = "A coffee cup imprinted with the stylish logo of Deimos Advanced Information Systems."
+	icon_state = "coffeecup_dais"
+	base_name = "DAIS cup"

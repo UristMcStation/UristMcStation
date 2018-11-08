@@ -77,7 +77,7 @@
 	. = ..()
 
 /obj/machinery/door/firedoor/get_material()
-	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+	return SSmaterials.get_material_by_name(MATERIAL_STEEL)
 
 /obj/machinery/door/firedoor/examine(mob/user)
 	. = ..(user, 1)
@@ -387,7 +387,7 @@
 	return
 
 
-/obj/machinery/door/firedoor/update_icon()
+/obj/machinery/door/firedoor/on_update_icon()
 	var/icon/lights_overlay
 	var/icon/panel_overlay
 	var/icon/weld_overlay

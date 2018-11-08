@@ -37,7 +37,7 @@
 	damage = 10
 	damage_type = BURN
 	check_armour = "energy"
-	var/temperature = 300
+	var/firing_temperature = 300
 
 /obj/item/projectile/temp/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
 	var/obj/item/weapon/gun/energy/temperature/T = launcher

@@ -139,6 +139,7 @@
 		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
 		ui.set_initial_data(data)
 		ui.open()
+		ui.set_auto_update(1)
 
 /obj/machinery/chemical_dispenser/OnTopic(user, href_list)
 	if(href_list["amount"])
@@ -169,7 +170,7 @@
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/chemical_dispenser/update_icon()
+/obj/machinery/chemical_dispenser/on_update_icon()
 	overlays.Cut()
 	if(container)
 		var/mutable_appearance/beaker_overlay

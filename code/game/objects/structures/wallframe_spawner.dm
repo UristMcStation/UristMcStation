@@ -25,7 +25,7 @@
 	. = ..()
 	if(!win_path)
 		return
-	var/auto_activate = mapload || (ticker && ticker.current_state < GAME_STATE_PLAYING)
+	var/auto_activate = mapload || (GAME_STATE < RUNLEVEL_GAME)
 	if(auto_activate)
 		activate()
 		return INITIALIZE_HINT_QDEL
@@ -108,6 +108,12 @@
 	name = "reinforced phoron wall frame window spawner"
 	icon_state = "pr-wingrille"
 	win_path = /obj/structure/window/phoronreinforced/full
+
+/obj/effect/wallframe_spawn/reinforced_phoron/titanium
+	frame_path = /obj/structure/wall_frame/titanium
+
+/obj/effect/wallframe_spawn/reinforced_phoron/hull
+	frame_path = /obj/structure/wall_frame/hull
 
 /obj/effect/wallframe_spawn/reinforced/polarized
 	name = "polarized wall frame window spawner"

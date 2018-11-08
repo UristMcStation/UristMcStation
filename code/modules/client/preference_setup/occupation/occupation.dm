@@ -254,15 +254,18 @@
 	else if(href_list["show_branches"])
 		var/rank = href_list["show_branches"]
 		var/datum/job/job = job_master.GetJob(rank)
-		to_chat(user, "<span clas='notice'>Valid branches for [rank]: [job.get_branches()]</span>")
+		if(job)
+			to_chat(user, "<span clas='notice'>Valid branches for [rank]: [job.get_branches()]</span>")
 	else if(href_list["show_ranks"])
 		var/rank = href_list["show_ranks"]
 		var/datum/job/job = job_master.GetJob(rank)
-		to_chat(user, "<span clas='notice'>Valid ranks for [rank] ([pref.char_branch]): [job.get_ranks(pref.char_branch)]</span>")
+		if(job)
+			to_chat(user, "<span clas='notice'>Valid ranks for [rank] ([pref.char_branch]): [job.get_ranks(pref.char_branch)]</span>")
 	else if(href_list["set_skills"])
 		var/rank = href_list["set_skills"]
 		var/datum/job/job = job_master.GetJob(rank)
-		open_skill_setup(user, job)
+		if(job)
+			open_skill_setup(user, job)
 
 	//From the skills popup
 
@@ -314,7 +317,15 @@
 		dat += "<hr style='clear:left;'>"
 		if(config.wikiurl)
 			dat += "<a href='?src=\ref[src];job_wiki=[rank]'>Open wiki page in browser</a>"
+
 		var/description = job.get_description_blurb()
+		if(job.required_education)
+			description = "[description ? "[description]\n\n" : ""] This role requires [SSculture.education_tiers_to_strings["[job.required_education]"]] or higher,"
+			if(!job.maximum_education)
+				description = "[description] selected under Education in the Background tab of your character preferences."
+			else
+				description = "[description] but no higher than [SSculture.education_tiers_to_strings["[job.maximum_education]"]], selected under Education in the Background tab of your character preferences."
+
 		if(description)
 			dat += html_encode(description)
 		var/datum/browser/popup = new(user, "Job Info", "[capitalize(rank)]", 430, 520, src)

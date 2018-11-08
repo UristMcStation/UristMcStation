@@ -168,7 +168,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	allCasters -= src
 	..()
 
-/obj/machinery/newscaster/update_icon()
+/obj/machinery/newscaster/on_update_icon()
 	if(inoperable())
 		icon_state = "newscaster_off"
 		if(stat & BROKEN) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
@@ -212,7 +212,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0)
 				dat += "Welcome to Newscasting Unit #[src.unit_no].<BR> Interface & News networks Operational."
-				dat += "<BR><FONT SIZE=1>Property of Nanotransen Inc</FONT>"
+				dat += "<BR><FONT SIZE=1>Property of Ward-Takahashi GMB</FONT>"
 				if(news_network.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 				dat+= "<HR><BR><A href='?src=\ref[src];create_channel=1'>Create Feed Channel</A>"

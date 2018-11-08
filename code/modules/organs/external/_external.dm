@@ -65,7 +65,7 @@
 	var/cavity_name = "cavity"
 
 	// Surgery vars.
-	var/cavity_max_w_class = 0
+	var/cavity_max_w_class = ITEM_SIZE_TINY //this is increased if bigger organs spawn by default inside
 	var/hatch_state = 0
 	var/stage = 0
 	var/cavity = 0
@@ -108,6 +108,7 @@
 
 	if(parent && parent.children)
 		parent.children -= src
+		parent = null
 
 	if(children)
 		for(var/obj/item/organ/external/C in children)
@@ -167,7 +168,7 @@
 		if(I.obj_flags & OBJ_FLAG_CONDUCTIBLE)
 			burn_damage += I.w_class * rand(power, 3*power)
 
-	if(burn_damage)
+	if(owner && burn_damage)
 		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
 		take_external_damage(0, burn_damage, 0, used_weapon = "Hot metal")
 
@@ -889,7 +890,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(DROPLIMB_BLUNT)
 			var/obj/gore
 			if(BP_IS_CRYSTAL(src))
-				gore = new /obj/item/weapon/material/shard(get_turf(victim), "crystal")
+				gore = new /obj/item/weapon/material/shard(get_turf(victim), MATERIAL_CRYSTAL)
 			else if(BP_IS_ROBOTIC(src))
 				gore = new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(victim))
 			else

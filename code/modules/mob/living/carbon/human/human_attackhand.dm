@@ -2,6 +2,13 @@
 	if(!hit_zone)
 		hit_zone = zone_sel.selecting
 
+	if(default_attack && default_attack.is_usable(src, target, hit_zone))
+		if(pulling_punches)
+			var/datum/unarmed_attack/soft_type = default_attack.get_sparring_variant()
+			if(soft_type)
+				return soft_type
+		return default_attack
+
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		if(u_attack.is_usable(src, target, hit_zone))
 			if(pulling_punches)
@@ -80,12 +87,12 @@
 					return
 
 				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
-				if(prob(5))
+				if(prob(5 + 5 * (SKILL_EXPERT - M.get_skill_value(SKILL_ANATOMY))))
 					var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 					if(chest)
 						chest.fracture()
 				if(stat != DEAD)
-					if(prob(15))
+					if(prob(10 + 5 * M.get_skill_value(SKILL_ANATOMY)))
 						resuscitate()
 
 					if(!H.check_has_mouth())

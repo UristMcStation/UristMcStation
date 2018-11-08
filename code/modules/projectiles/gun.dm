@@ -40,7 +40,7 @@
 	item_state = "gun"
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	w_class = ITEM_SIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
@@ -83,8 +83,8 @@
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
-/obj/item/weapon/gun/New()
-	..()
+/obj/item/weapon/gun/Initialize()
+	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
@@ -96,10 +96,11 @@
 		update_icon() // In case item_state is set somewhere else.
 	..()
 
-/obj/item/weapon/gun/update_icon()
-	if(wielded_item_state)
-		var/mob/living/M = loc
-		if(istype(M))
+/obj/item/weapon/gun/on_update_icon()
+	var/mob/living/M = loc
+	overlays.Cut()
+	if(istype(M))
+		if(wielded_item_state)
 			if(M.can_wield_item(src) && src.is_held_twohanded(M))
 				item_state_slots[slot_l_hand_str] = wielded_item_state
 				item_state_slots[slot_r_hand_str] = wielded_item_state
@@ -293,14 +294,15 @@
 		return //default behaviour only applies to true projectiles
 
 	//default point blank multiplier
-	var/max_mult = 1.3
+	var/max_mult = 1
 
 	//determine multiplier due to the target being grabbed
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		for(var/obj/item/grab/G in H.grabbed_by)
-			if(G.point_blank_mult() > max_mult)
-				max_mult = G.point_blank_mult()
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.incapacitated())
+			max_mult = 1.2
+		for(var/obj/item/grab/G in L.grabbed_by)
+			max_mult = max(max_mult, G.point_blank_mult())
 	P.damage *= max_mult
 
 /obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded)
@@ -482,3 +484,17 @@
 		"<span class='warning'>You fire \the [src]!</span>",
 		"You hear a [fire_sound_text]!"
 		)
+
+/obj/item/weapon/gun/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/weapon/gun/on_disarm_attempt(mob/target, mob/attacker)
+	var/list/turfs = list()
+	for(var/turf/T in view())
+		turfs += T
+	if(turfs.len)
+		var/turf/shoot_to = pick(turfs)
+		target.visible_message("<span class='danger'>\The [src] goes off during the struggle!</span>")
+		afterattack(shoot_to,target)
+		return 1

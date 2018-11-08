@@ -545,7 +545,7 @@
 /obj/machinery/vending/powered()
 	return anchored && ..()
 
-/obj/machinery/vending/update_icon()
+/obj/machinery/vending/on_update_icon()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 	else if( !(stat & NOPOWER) )
@@ -1031,7 +1031,8 @@
 	/obj/item/weapon/storage/lunchbox/mars = 3,
 	/obj/item/weapon/storage/lunchbox/cti = 3,
 	/obj/item/weapon/storage/lunchbox/nymph = 3,
-	/obj/item/weapon/storage/lunchbox/syndicate = 3)
+	/obj/item/weapon/storage/lunchbox/syndicate = 3,
+	/obj/item/weapon/storage/lunchbox/dais = 3)
 
 
 	contraband = list(/obj/item/weapon/material/knife/butch = 2)

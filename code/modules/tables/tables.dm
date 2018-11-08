@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	obj_flags = OBJ_FLAG_SURGICAL
 	layer = TABLE_LAYER
 	throwpass = 1
@@ -290,13 +290,13 @@
 	if(full_return || prob(20))
 		new /obj/item/stack/material/steel(src.loc)
 	else
-		var/material/M = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+		var/material/M = SSmaterials.get_material_by_name(MATERIAL_STEEL)
 		S = M.place_shard(loc)
 		if(S) shards += S
 	qdel(src)
 	return shards
 
-/obj/structure/table/update_icon()
+/obj/structure/table/on_update_icon()
 	if(flipped != 1)
 		icon_state = "blank"
 		overlays.Cut()

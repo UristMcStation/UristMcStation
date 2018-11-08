@@ -155,7 +155,7 @@
 	closed = !closed
 	src.update_icon()
 
-/obj/machinery/dnaforensics/update_icon()
+/obj/machinery/dnaforensics/on_update_icon()
 	..()
 	if(!(stat & NOPOWER) && scanning)
 		icon_state = "dnaworking"

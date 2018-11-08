@@ -9,7 +9,7 @@
 
 /obj/structure/closet/secure_closet/captains/WillContain()
 	return list(
-		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel_cap)),
+		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel/cap)),
 		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag/captain, 50),
 		/obj/item/clothing/suit/captunic,
 		/obj/item/clothing/suit/captunic/capjacket,
@@ -85,7 +85,7 @@
 
 /obj/structure/closet/secure_closet/hos/WillContain()
 	return list(
-		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
+		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		/obj/item/clothing/head/HoS,
 		/obj/item/clothing/suit/armor/pcarrier/medium/nt,
 		/obj/item/clothing/head/helmet/nt/guard,
@@ -120,7 +120,7 @@
 
 /obj/structure/closet/secure_closet/warden/WillContain()
 	return list(
-		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
+		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag/sec, 50),
 		/obj/item/clothing/suit/armor/pcarrier/medium/nt,
 		/obj/item/clothing/head/helmet/nt/guard,
@@ -154,7 +154,7 @@
 
 /obj/structure/closet/secure_closet/security/WillContain()
 	return list(
-		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
+		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag/sec, 50),
 		/obj/item/clothing/suit/armor/pcarrier/light/nt,
 		/obj/item/clothing/head/helmet/nt/guard,

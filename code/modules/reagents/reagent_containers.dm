@@ -18,10 +18,10 @@
 		amount_per_transfer_from_this = N
 
 /obj/item/weapon/reagent_containers/New()
+	create_reagents(volume)
+	..()
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
-	create_reagents(volume)
-	..() //Lots of things need reagents in Initialize, don't move this
 
 /obj/item/weapon/reagent_containers/attack_self(mob/user as mob)
 	return
@@ -201,4 +201,10 @@
 	if(!reagents)
 		return
 	if(hasHUD(user, HUD_SCIENCE))
-		to_chat(user, "<span class='notice'>The [src] contains: [reagents.get_reagents()].</span>")
+		to_chat(user, "<span class='notice'>The [src] contains: [reagents.get_reagents(precision = prec)].</span>")
+
+/obj/item/weapon/reagent_containers/ex_act(severity)
+	if(reagents)
+		for(var/datum/reagent/R in reagents.reagent_list)
+			R.ex_act(src, severity)
+	..()

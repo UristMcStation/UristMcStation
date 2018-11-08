@@ -92,7 +92,7 @@
 		if("stun") return "nucgun-stun"
 		if("kill") return "nucgun-kill"
 
-/obj/item/weapon/gun/energy/gun/nuclear/update_icon()
+/obj/item/weapon/gun/energy/gun/nuclear/on_update_icon()
 	var/list/new_overlays = list()
 
 	new_overlays += get_charge_overlay()

@@ -64,13 +64,13 @@
 	use_external_power = 1
 	one_hand_penalty = 0
 
-/obj/item/weapon/gun/energy/gun/secure/mounted/New()
+/obj/item/weapon/gun/energy/gun/secure/mounted/Initialize()
 	var/mob/borg = get_holder_of_type(src, /mob/living/silicon/robot)
 	if(!borg)
 		CRASH("Invalid spawn location.")
 	registered_owner = borg.name
 	GLOB.registered_cyborg_weapons += src
-	..()
+	. = ..()
 
 /obj/item/weapon/gun/energy/laser/secure
 	name = "laser carbine"

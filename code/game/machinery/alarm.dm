@@ -304,7 +304,7 @@
 		return 1
 	return 0
 
-/obj/machinery/alarm/update_icon()
+/obj/machinery/alarm/on_update_icon()
 	if(wiresexposed)
 		icon_state = "alarmx"
 		set_light(0)
@@ -606,7 +606,6 @@
 			var/list/gas_names = list(
 				"oxygen"         = "O<sub>2</sub>",
 				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Toxin",
 				"other"          = "Other")
 			for (var/g in gas_names)
 				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
@@ -869,7 +868,7 @@ Just a object used in constructing air alarms
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = ITEM_SIZE_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 
 /*
 FIRE ALARM
@@ -903,7 +902,7 @@ FIRE ALARM
 	. = ..()
 	update_icon()
 
-/obj/machinery/firealarm/update_icon()
+/obj/machinery/firealarm/on_update_icon()
 	overlays.Cut()
 
 	pixel_x = 0
@@ -949,9 +948,9 @@ FIRE ALARM
 			set_light(sl.light_max_bright, sl.light_inner_range, sl.light_outer_range, 2, sl.light_color_alarm)
 			src.overlays += image(sl.icon, sl.overlay_alarm)
 
-/obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/machinery/firealarm/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(src.detecting)
-		if(temperature > T0C+200)
+		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
 	return
 
@@ -1161,7 +1160,7 @@ Just a object used in constructing fire alarms
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\"."
 	w_class = ITEM_SIZE_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 
 /obj/machinery/partyalarm
 	name = "\improper PARTY BUTTON"

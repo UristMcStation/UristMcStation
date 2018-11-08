@@ -17,7 +17,7 @@
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		new /obj/item/weapon/storage/backpack/satchel/eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/thick(src)
@@ -43,7 +43,7 @@
 	icon_state = "pickaxe"
 	item_state = "jackhammer"
 	w_class = ITEM_SIZE_HUGE
-	matter = list(DEFAULT_WALL_MATERIAL = 3750)
+	matter = list(MATERIAL_STEEL = 3750)
 	var/digspeed = 40 //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")

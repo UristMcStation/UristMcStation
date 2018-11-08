@@ -37,7 +37,7 @@
 		/obj/item/weapon/wirecutters/clippers,
 		/obj/item/weapon/reagent_containers/spray/plantbgone,
 		new /datum/atom_creator/weighted(list(/obj/item/clothing/suit/apron, /obj/item/clothing/suit/apron/overalls)),
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/hydroponics, /obj/item/weapon/storage/backpack/satchel_hyd)),
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/hydroponics, /obj/item/weapon/storage/backpack/satchel/hyd)),
 		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/messenger/hyd, 50)
 	)
 
@@ -58,7 +58,9 @@
 		/obj/item/weapon/storage/bag/trash,
 		/obj/item/clothing/shoes/galoshes,
 		/obj/item/weapon/storage/box/detergent,
-		/obj/item/weapon/soap
+		/obj/item/weapon/soap,
+		/obj/item/weapon/storage/belt/janitor,
+		/obj/item/clothing/glasses/hud/janitor
 	)
 
 /obj/structure/closet/secure_closet/bar_torch

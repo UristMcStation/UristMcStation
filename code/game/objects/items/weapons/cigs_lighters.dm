@@ -17,6 +17,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	waterproof = FALSE
 	var/lit = 0
 
+/obj/item/weapon/flame/afterattack(var/obj/O, var/mob/user, proximity)
+	..()
+	if(proximity && lit && istype(O))
+		O.HandleObjectHeating(src, user, 700)
+
 /obj/item/weapon/flame/proc/extinguish(var/mob/user, var/no_message)
 	lit = 0
 	damtype = "brute"
@@ -109,6 +114,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/brand
+	var/gas_consumption = 0.04
 
 /obj/item/clothing/mask/smokable/New()
 	..()
@@ -120,6 +126,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		STOP_PROCESSING(SSobj, src)
 
+/obj/item/clothing/mask/smokable/fire_act()
+	light(0)
+
 /obj/item/clothing/mask/smokable/proc/smoke(amount)
 	smoketime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
@@ -130,17 +139,30 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				add_trace_DNA(C)
 		else // else just remove some of the reagents
 			reagents.remove_any(REM)
+	var/turf/T = get_turf(src)
+	if(T)
+		var/datum/gas_mixture/environment = T.return_air()
+		if(ishuman(loc))
+			var/mob/living/carbon/human/C = loc
+			if (src == C.wear_mask && C.internal)
+				environment = C.internal.return_air()
+		if(environment.get_by_flag(XGM_GAS_OXIDIZER) < gas_consumption)
+			extinguish()
+		else
+			environment.remove_by_flag(XGM_GAS_OXIDIZER, gas_consumption)
+			environment.adjust_gas("carbon_dioxide", 0.5*gas_consumption,0)
+			environment.adjust_gas("carbon_monoxide", 0.5*gas_consumption)
 
 /obj/item/clothing/mask/smokable/Process()
 	var/turf/location = get_turf(src)
-	smoke(1)
 	if(submerged() || smoketime < 1)
 		extinguish()
 		return
+	smoke(1)
 	if(location)
 		location.hotspot_expose(700, 5)
 
-/obj/item/clothing/mask/smokable/update_icon()
+/obj/item/clothing/mask/smokable/on_update_icon()
 	if(lit && icon_on)
 		icon_state = icon_on
 		item_state = icon_on
@@ -179,11 +201,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			qdel(src)
 			return
 		atom_flags &= ~ATOM_FLAG_NO_REACT // allowing reagents to react after being lit
-		reagents.process_reactions()
+		HANDLE_REACTIONS(reagents)
 		update_icon()
-		var/turf/T = get_turf(src)
-		T.visible_message(flavor_text)
-		set_light(0.6, 0.5, 2, 2, "#e38f46")
+		if(flavor_text)
+			var/turf/T = get_turf(src)
+			T.visible_message(flavor_text)
 		START_PROCESSING(SSobj, src)
 
 /obj/item/clothing/mask/smokable/proc/extinguish(var/mob/user, var/no_message)
@@ -245,13 +267,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	for(var/R in filling)
 		reagents.add_reagent(R, filling[R])
 
-/obj/item/clothing/mask/smokable/cigarette/update_icon()
+/obj/item/clothing/mask/smokable/cigarette/on_update_icon()
 	..()
 	overlays.Cut()
 	if(lit)
 		overlays += overlay_image(icon, "cigon", flags=RESET_COLOR)
 
-/obj/item/clothing/mask/smokable/cigarette/trident/update_icon()
+/obj/item/clothing/mask/smokable/cigarette/trident/on_update_icon()
 	..()
 	overlays.Cut()
 	if(lit)
@@ -357,7 +379,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "wooden tip"
 	desc = "A wooden mouthpiece from a cigar. Smells rather bad."
 	icon_state = "woodbutt"
-	matter = list("Wood" = 1)
+	matter = list(MATERIAL_WOOD = 1)
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(var/obj/item/weapon/W, var/mob/user)
 	..()
@@ -1104,7 +1126,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	else
 		extinguish(user)
 
-/obj/item/weapon/flame/lighter/update_icon()
+/obj/item/weapon/flame/lighter/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 
 	if(lit)

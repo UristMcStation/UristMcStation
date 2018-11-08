@@ -2709,31 +2709,20 @@
 /obj/effect/landmark/random_gen/asteroid,
 /turf/unsimulated/mineral,
 /area/space)
-"ke" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"Il" = (
-/obj/structure/cable,
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"ON" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+"jb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav1,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"kb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav2,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"lb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav3,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"mb" = (
+/obj/structure/hygiene/sink{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24

@@ -5,9 +5,10 @@
 	density = 1
 	throwpass = 1
 	layer = 5.2
+	climb_speed_mult = 0.25
 	anchored = FALSE
-	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CLIMBABLE
-	icon_state = "railing0"
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CLIMBABLE
+	icon_state = "railing0-1"
 
 	var/material/material
 	var/broken =    FALSE
@@ -23,7 +24,7 @@
 	. = ..()
 	color = COLOR_GUNMETAL // They're not painted!
 
-/obj/structure/railing/New(var/newloc, var/material_key = "steel")
+/obj/structure/railing/New(var/newloc, var/material_key = MATERIAL_STEEL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
 
@@ -127,19 +128,19 @@
 			if (UpdateNeighbors)
 				R.update_icon(0)
 
-/obj/structure/railing/update_icon(var/update_neighbors = TRUE)
+/obj/structure/railing/on_update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	overlays.Cut()
 	if (!neighbor_status || !anchored)
-		icon_state = "railing0"
+		icon_state = "railing0-[density]"
 	else
-		icon_state = "railing1"
+		icon_state = "railing1-[density]"
 		if (neighbor_status & 32)
-			overlays += image(icon, "corneroverlay")
+			overlays += image(icon, "corneroverlay[density]")
 		if ((neighbor_status & 16) || !(neighbor_status & 32) || (neighbor_status & 64))
-			overlays += image(icon, "frontoverlay_l")
+			overlays += image(icon, "frontoverlay_l[density]")
 		if (!(neighbor_status & 2) || (neighbor_status & 1) || (neighbor_status & 4))
-			overlays += image(icon, "frontoverlay_r")
+			overlays += image(icon, "frontoverlay_r[density]")
 			if(neighbor_status & 4)
 				var/pix_offset_x = 0
 				var/pix_offset_y = 0
@@ -152,7 +153,7 @@
 						pix_offset_y = -32
 					if(WEST)
 						pix_offset_y = 32
-				overlays += image(icon, "mcorneroverlay", pixel_x = pix_offset_x, pixel_y = pix_offset_y)
+				overlays += image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y)
 
 /obj/structure/railing/verb/rotate()
 	set name = "Rotate Railing Counter-Clockwise"
@@ -208,6 +209,8 @@
 	if(istype(O) && O.checkpass(PASS_FLAG_TABLE))
 		return 1
 	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return 1
 		return 0
 	return 1
 
@@ -237,14 +240,27 @@
 			return
 
 	// Dismantle
-	if(isWrench(W) && !anchored)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		if(do_after(user, 20, src))
-			user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
-			material.place_sheet(loc, 2)
-			qdel(src)
-		return
-
+	if(isWrench(W))
+		if(!anchored)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			if(do_after(user, 20, src))
+				if(anchored)
+					return
+				user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
+				material.place_sheet(loc, 2)
+				qdel(src)
+			return
+	// Wrench Open
+		else
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			if(density)
+				user.visible_message("<span class='notice'>\The [user] wrenches \the [src] open.</span>", "<span class='notice'>You wrench \the [src] open.</span>")
+				density = 0
+			else
+				user.visible_message("<span class='notice'>\The [user] wrenches \the [src] closed.</span>", "<span class='notice'>You wrench \the [src] closed.</span>")
+				density = 1
+			update_icon()
+			return
 	// Repair
 	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/F = W
@@ -254,15 +270,20 @@
 				return
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 			if(do_after(user, 20, src))
+				if(health >= maxhealth)
+					return
 				user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>", "<span class='notice'>You repair some damage to \the [src].</span>")
 				health = min(health+(maxhealth/5), maxhealth)
 			return
 
 	// Install
 	if(isScrewdriver(W))
+		if(!density)
+			to_chat(user, "<span class='notice'>You need to wrench \the [src] from back into place first.</span>")
+			return
 		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrew \the [src].</span>" : "<span class='notice'>\The [user] begins fasten \the [src].</span>" )
 		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-		if(do_after(user, 10, src))
+		if(do_after(user, 10, src) && density)
 			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
 			anchored = !anchored
 			update_icon()
@@ -278,34 +299,16 @@
 /obj/structure/railing/ex_act(severity)
 	qdel(src)
 
-/obj/structure/railing/MouseDrop_T(var/obj/item/thing, var/mob/user)
-	if(get_turf(user) == get_turf(src))
-		do_climb(user)
-	..()
+/obj/structure/railing/can_climb(var/mob/living/user, post_climb_check=0)
+	. = ..()
+	if(. && get_turf(user) == get_turf(src))
+		var/turf/T = get_step(src, src.dir)
+		if(T.turf_is_crowded(user))
+			to_chat(user, "<span class='warning'>You can't climb there, the way is blocked.</span>")
+			return 0
 
 /obj/structure/railing/do_climb(var/mob/living/user)
-	var/turf/other_side = get_step(src, dir)
-	var/jumping_over = (get_turf(user) == get_turf(src)) && other_side.CanPass(user, other_side)
-	if(!jumping_over && !can_climb(user))
-		return
-
-	user.visible_message("<span class='warning'>\The [user] starts climbing onto \the [src]!</span>")
-	climbers |= user
-
-	if(!do_after(user,(issmall(user) ? 20 : 34)))
-		climbers -= user
-		return
-
-	if(!jumping_over && !can_climb(user, post_climb_check=1))
-		climbers -= user
-		return
-
-	if(jumping_over)
-		user.forceMove(get_step(user, src.dir))
-	else
-		user.forceMove(get_turf(src))
-
-	user.visible_message("<span class='danger'>\The [user] climbed over \the [src]!</span>")
-	if(!anchored || material.is_brittle())
-		take_damage(maxhealth) // Fatboy
-	climbers -= user
+	. = ..()
+	if(.)
+		if(!anchored || material.is_brittle())
+			take_damage(maxhealth) // Fatboy

@@ -76,7 +76,7 @@
 /obj/item/clothing/suit/space/void/medical
 	icon_state = "rig-medical"
 	name = "medical voidsuit"
-	desc = "A sterile voidsuit with minor radiation shielding and a suite of self-cleaning technology. Standard issue in NanoTrasen medical facilities."
+	desc = "A sterile voidsuit with minor radiation shielding and a suite of self-cleaning technology. Standard issue in most orbital medical facilities."
 	item_state_slots = list(
 		slot_l_hand_str = "medical_voidsuit",
 		slot_r_hand_str = "medical_voidsuit",
@@ -221,6 +221,12 @@
 	icon_state = "rig0-secalt"
 	item_state = "secalt_helm"
 	armor = list(melee = 70, bullet = 20, laser = 30, energy = 5, bomb = 35, bio = 100, rad = 10)
+	sprite_sheets = list(
+		SPECIES_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
+		)
+	sprite_sheets_obj = list(
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
+		)
 
 /obj/item/clothing/suit/space/void/security/alt
 	icon_state = "rig-secalt"
@@ -228,6 +234,12 @@
 	desc = "A heavily armored voidsuit, designed to intimidate people who find black intimidating. Surprisingly slimming."
 	armor = list(melee = 70, bullet = 20, laser = 30, energy = 5, bomb = 35, bio = 100, rad = 10)
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
+	sprite_sheets = list(
+		SPECIES_SKRELL = 'icons/mob/species/skrell/suit.dmi',
+		)
+	sprite_sheets_obj = list(
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
+		)
 
 /obj/item/clothing/suit/space/void/security/alt/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/security/alt
@@ -244,7 +256,7 @@
 	light_overlay = "hardhat_light"
 
 /obj/item/clothing/suit/space/void/atmos/alt
-	desc = "An expensive NanoTrasen voidsuit, rated to withstand extreme heat and even minor radiation without exceeding room temperature within."
+	desc = "An expensive voidsuit, rated to withstand extreme heat and even minor radiation without exceeding room temperature within."
 	icon_state = "rig-atmosalt"
 	name = "heavy duty atmos voidsuit"
 	armor = list(melee = 20, bullet = 5, laser = 20,energy = 15, bomb = 45, bio = 100, rad = 50)

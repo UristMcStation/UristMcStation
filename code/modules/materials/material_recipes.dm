@@ -102,6 +102,7 @@
 	recipes += new/datum/stack_recipe/zipgunframe(src)
 	recipes += new/datum/stack_recipe/coilgun(src)
 	recipes += new/datum/stack_recipe/stick(src)
+	recipes += new/datum/stack_recipe/noticeboard(src)
 	/*
 	recipes += new/datum/stack_recipe("improvised rifle stock", /obj/item/weapon/imprifleframe, 10, time = 50, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("underwear wardrobe", /obj/structure/undies_wardrobe, 8, time = 40, one_per_turf = 1, on_floor = 1)

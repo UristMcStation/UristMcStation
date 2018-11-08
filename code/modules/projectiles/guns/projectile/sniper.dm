@@ -23,7 +23,7 @@
 /obj/item/weapon/gun/projectile/heavysniper/apds
 	ammo_type = /obj/item/ammo_casing/a145/apds
 
-/obj/item/weapon/gun/projectile/heavysniper/update_icon()
+/obj/item/weapon/gun/projectile/heavysniper/on_update_icon()
 	..()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
