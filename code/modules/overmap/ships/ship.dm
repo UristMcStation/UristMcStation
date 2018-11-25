@@ -114,17 +114,18 @@
 			adjust_speed(0, -get_burn_acceleration())
 
 /obj/effect/overmap/ship/Process()
-	if(!halted && !is_still())
-		var/list/deltas = list(0,0)
-		for(var/i=1, i<=2, i++)
-			if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
-				deltas[i] = speed[i] > 0 ? 1 : -1
-				last_movement[i] = world.time
-		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
-		if(newloc)
-			Move(newloc)
-			handle_wraparound()
-		update_icon()
+	if(!is_still())
+		if(!halted)
+			var/list/deltas = list(0,0)
+			for(var/i=1, i<=2, i++)
+				if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
+					deltas[i] = speed[i] > 0 ? 1 : -1
+					last_movement[i] = world.time
+			var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
+			if(newloc)
+				Move(newloc)
+				handle_wraparound()
+			update_icon()
 
 /obj/effect/overmap/ship/update_icon()
 	if(!is_still())

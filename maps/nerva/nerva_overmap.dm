@@ -34,15 +34,20 @@
 		"hostile"
 	)
 
+/obj/effect/overmap/ship/combat/relaymove()
+	if(!canfight)
+		canfight = 1
+
+	..()
+
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
 	..()
 	if(!src.incombat)
-
-
 		if(istype(O, /mob/living/simple_animal/hostile/overmapship))
+			src.halt() //cancel our momentum
 			incombat = 1 //we're in combat now, so let's cancel out momentum
 			var/mob/living/simple_animal/hostile/overmapship/L = O
-			//let's cancel the momentum of the mob
+			//now let's cancel the momentum of the mob
 //			L.combat
 
 
@@ -52,6 +57,19 @@
 			for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
 				if(SW.shipid == src.shipid)
 					SW.target = L
+
+			if(L.aggressive)
+				return //here we set up the combat stuff if they're aggressive
+
+			else
+				spawn(30 SECONDS)
+					for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we take the target away from the combat computer
+						if(CC.shipid == src.shipid)
+							CC.target = null
+					for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and the weapons
+						if(SW.shipid == src.shipid)
+							SW.target = null
+
 
 			return
 

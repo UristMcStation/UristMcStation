@@ -16,7 +16,7 @@
 /turf/unsimulated/wall/urist/other/border,
 /area/jungle)
 "ae" = (
-/turf/simulated/floor/planet/jungle/plains,
+/turf/simulated/floor/planet/plains,
 /area/jungle)
 "af" = (
 /obj/effect/floor_decal/water_edge{
@@ -172,7 +172,7 @@
 /turf/simulated/floor/plating,
 /area/jungle)
 "aD" = (
-/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/tree/planet/jungle/small,
 /turf/simulated/floor/planet/jungle/clear/plains,
 /area/jungle)
 "aE" = (

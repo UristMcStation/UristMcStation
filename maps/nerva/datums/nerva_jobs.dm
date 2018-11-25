@@ -69,7 +69,7 @@
 	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. Moreover, if there is no second officer, your job is also to oversee personnel issues. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
 
 /datum/job/captain
-	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger Nanotrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing."
+	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
 	minimal_player_age = 21
 	outfit_type = /decl/hierarchy/outfit/job/nerva/captain
 	economic_power = 24

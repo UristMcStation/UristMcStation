@@ -99,3 +99,8 @@
 	name = "hunting rifle ammo (7.62mm)"
 	path = /obj/item/ammo_magazine/a762mm/stripper
 	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/smithinghammer
+	name = "smithing hammer"
+	path = /obj/item/weapon/hammer/smithing
+	category = "Tools"

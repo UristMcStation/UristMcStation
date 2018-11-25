@@ -77,4 +77,28 @@
 
 	npc_item_amount = 26
 	randomize_value = 0
+	price_increase = 1 //no price increase
 
+//TC guy
+
+/mob/living/simple_animal/hostile/npc/colonist/terran_assistant_doctor
+	name = "doctor"
+	npc_job_title = "doctor"
+	desc = "A human from one of Earth's diverse cultures. They are a doctor. They look stressed and very tired."
+	trade_categories_by_name =  list("medical")
+	jumpsuits = list(\
+		/obj/item/clothing/under/rank/scientist\
+		)
+	suits = list(\
+		/obj/item/clothing/suit/storage/toggle/labcoat/science \
+	)
+	suit_chance = 100
+	hat_chance = 0
+	glove_chance = 0
+	wander = 0
+
+	angryprob = 0
+	npc_item_amount = 1
+	randomize_value = 0
+	randomize_quantity = 0
+	no_resell = 1

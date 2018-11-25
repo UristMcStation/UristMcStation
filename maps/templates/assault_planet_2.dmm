@@ -105,31 +105,30 @@
 "ca" = (/obj/effect/floor_decal/corner/red{dir = 1},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
 "cb" = (/obj/machinery/access_button{command = "cycle_interior"; frequency = 1380; master_tag = "secdock_airlock"; name = "interior access button"; pixel_x = 25; pixel_y = -25; req_access = list(1)},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
 "cc" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/obj/machinery/camera/network/mining{c_tag = "Outpost Security Dock"; dir = 1; icon_state = "camera"},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
-"cd" = (/obj/machinery/computer/shuttle_control/securityoutpost,/obj/machinery/camera/network/prison{c_tag = "Security Outpost Entrance"},/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
-"ce" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled,/area/outpost/security/hallway)
-"cf" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "secdock_inner"; locked = 1; name = "Security Dock Airlock"},/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cg" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor/border_only{dir = 2},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"ch" = (/turf/simulated/wall,/area/outpost/engineering/hallway)
-"ci" = (/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cj" = (/obj/machinery/embedded_controller/radio/airlock/docking_port{frequency = 1380; id_tag = "secdock_airlock"; pixel_x = 30; pixel_y = 0; req_access = list(1); tag_airpump = "secdock_pump"; tag_chamber_sensor = "secdock_sensor"; tag_exterior_door = "secdock_outer"; tag_interior_door = "secdock_inner"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"ck" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cl" = (/turf/simulated/floor/planet/jungle/clear,/area/jungle)
-"cm" = (/obj/machinery/light/small{dir = 4},/obj/machinery/airlock_sensor{frequency = 1380; id_tag = "secdock_sensor"; pixel_x = 25; pixel_y = 0},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cn" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"co" = (/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"; pixel_y = 0},/turf/simulated/wall/r_wall,/area/outpost/security/hallway)
-"cp" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "secdock_outer"; locked = 1; name = "Security Dock Airlock"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
-"cq" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "secdock_airlock"; name = "exterior access button"; pixel_x = -25; pixel_y = 0; req_access = list(1)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
-"cr" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "edock_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 0; req_access = list(10)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
-"cs" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/jungle)
-"ct" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/jungle)
-"cu" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHEAST)"; icon_state = "warning"; dir = 5},/turf/simulated/floor/plating,/area/jungle)
-"cv" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/simulated/floor/plating,/area/jungle)
-"cw" = (/turf/simulated/floor/plating,/area/jungle)
-"cx" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/turf/simulated/floor/plating,/area/jungle)
-"cy" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/jungle)
-"cz" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/jungle)
-"cA" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/jungle)
-"cB" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (SOUTHWEST)"; icon_state = "warning"; dir = 10},/turf/simulated/floor/plating,/area/jungle)
+"cd" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled,/area/outpost/security/hallway)
+"ce" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "secdock_inner"; locked = 1; name = "Security Dock Airlock"},/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cf" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor/border_only{dir = 2},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cg" = (/turf/simulated/wall,/area/outpost/engineering/hallway)
+"ch" = (/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"ci" = (/obj/machinery/embedded_controller/radio/airlock/docking_port{frequency = 1380; id_tag = "secdock_airlock"; pixel_x = 30; pixel_y = 0; req_access = list(1); tag_airpump = "secdock_pump"; tag_chamber_sensor = "secdock_sensor"; tag_exterior_door = "secdock_outer"; tag_interior_door = "secdock_inner"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cj" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"ck" = (/turf/simulated/floor/planet/jungle/clear,/area/jungle)
+"cl" = (/obj/machinery/light/small{dir = 4},/obj/machinery/airlock_sensor{frequency = 1380; id_tag = "secdock_sensor"; pixel_x = 25; pixel_y = 0},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cm" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/grille,/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cn" = (/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"; pixel_y = 0},/turf/simulated/wall/r_wall,/area/outpost/security/hallway)
+"co" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "secdock_outer"; locked = 1; name = "Security Dock Airlock"},/turf/simulated/floor/plating,/area/outpost/security/hallway)
+"cp" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "secdock_airlock"; name = "exterior access button"; pixel_x = -25; pixel_y = 0; req_access = list(1)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
+"cq" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "edock_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 0; req_access = list(10)},/turf/simulated/floor/planet/jungle/clear,/area/jungle)
+"cr" = (/obj/effect/floor_decal/industrial/warning{dir = 9},/turf/simulated/floor/plating,/area/jungle)
+"cs" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/jungle)
+"ct" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHEAST)"; icon_state = "warning"; dir = 5},/turf/simulated/floor/plating,/area/jungle)
+"cu" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/simulated/floor/plating,/area/jungle)
+"cv" = (/turf/simulated/floor/plating,/area/jungle)
+"cw" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/turf/simulated/floor/plating,/area/jungle)
+"cx" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/plating,/area/jungle)
+"cy" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/jungle)
+"cz" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/plating,/area/jungle)
+"cA" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (SOUTHWEST)"; icon_state = "warning"; dir = 10},/turf/simulated/floor/plating,/area/jungle)
 
 (1,1,1) = {"
 aaabacadaeafagahahabaiajaiajaiakalamanakalaoapapaqaqaqaqaqaq
@@ -140,15 +139,15 @@ arbeaLaLaLaLbfaLaLaLbgbgbgbgbgbhbibjbkblbmabbnazaqboaWaWbpbq
 arbraLaLaLaYarbsaLaLaLaLaLaLaLaLbtabababababayazaqaqbubuaqaq
 arbvbwbxbybzarbAaLaLbBbBbBbBbBaLbCbDbEbFbGbDaybHbFbFbIbIbJbK
 arararararararbLaLaLaLaLaLaLaLaLbMbDbNbIbIapaybIbIbIbIbObPbK
-aaaaaaaaaaaaarbQbRbSbTbUbTbTbTbVbWbDbXbYbZbDcacbcccdcebDbDbK
-aaaaaaaaaaaaarararararararararararbDbDbDbDbDcfcfbDcgbDbDaach
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDcicjckclaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDcicmcnclaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacocpcpbDcqclaaaacr
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacsctctctctctcuaaaacs
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacvcwcwcwcwcwcxaaaacv
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacyczczczczczcAaaaacB
+aaaaaaaaaaaaarbQbRbSbTbUbTbTbTbVbWbDbXbYbZbDcacbccbYcdbDbDbK
+aaaaaaaaaaaaarararararararararararbDbDbDbDbDcecebDcfbDbDaacg
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDchcicjckaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDchclcmckaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacncocobDcpckaaaacq
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacrcscscscscsctaaaacr
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacucvcvcvcvcvcwaaaacu
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacucvcvcvcvcvcwaaaacu
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacucvcvcvcvcvcwaaaacu
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacxcycycycycyczaaaacA
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

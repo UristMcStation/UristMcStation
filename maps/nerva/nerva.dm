@@ -48,6 +48,7 @@
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

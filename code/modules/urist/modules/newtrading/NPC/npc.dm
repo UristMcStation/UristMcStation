@@ -48,12 +48,14 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 
 	var/datum/controller/process/trade_controller/trade_controller_debug
 
-	var/sellmodifier = 0.90
-	var/price_increase = 1.02
+	var/sell_modifier = 0.90 //how much less than the sell price will the merchants buy items from you
+	var/price_increase = 1.02 //how much does the price go up after they sell an item. a value of 1 means no increase.
+	var/no_resell = 0
 
 	var/npc_item_amount = 8
 	var/randomize_value = 1
 	var/randomize_quantity = 1
+	var/inflate_value = 0 //only use this with randomize_value = 0, otherwise it will have no effect
 
 /mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
