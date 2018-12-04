@@ -78,7 +78,7 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.loc = src.loc
+			loaded_pill_bottle.dropInto(loc)
 			loaded_pill_bottle = null
 	else if(href_list["close"])
 		usr << browse(null, "window=chemmaster")
@@ -183,8 +183,7 @@
 				reagents.trans_to_obj(P,amount_per_pill)
 				if(src.loaded_pill_bottle)
 					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.max_storage_space)
-						P.loc = loaded_pill_bottle
-						src.updateUsrDialog()
+						P.forceMove(loaded_pill_bottle)
 
 		else if (href_list["createbottle"])
 			if(!condi)
@@ -480,7 +479,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.loc = src.loc
+		O.dropInto(loc)
 		holdingitems -= O
 	holdingitems.Cut()
 

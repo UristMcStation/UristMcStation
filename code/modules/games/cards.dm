@@ -240,7 +240,7 @@
 	H.update_icon()
 	src.update_icon()
 	usr.visible_message("\The [usr] plays \the [discarding].")
-	H.loc = get_step(usr,usr.dir)
+	H.forceMove(loc = get_step(usr,usr.dir))
 
 	if(!cards.len)
 		qdel(src)

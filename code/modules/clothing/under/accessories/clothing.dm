@@ -130,10 +130,10 @@
 /obj/item/clothing/accessory/toggleable/proc/do_toggle(user)
 	if(icon_state == icon_closed)
 		icon_state = "[icon_closed]_open"
-		to_chat(usr, "You unbutton [src].")
+		to_chat(user, "You unbutton [src].")
 	else
 		icon_state = icon_closed
-		to_chat(usr, "You button up [src].")
+		to_chat(user, "You button up [src].")
 
 	update_clothing_icon()	//so our overlays update
 
@@ -190,7 +190,7 @@
 	name = "flower-pattern shirt"
 	desc = "You probably need some welder googles to look at this."
 	icon_state = "hawaii"
-	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/ties.dmi')
+	sprite_sheets = list("Monkey" = 'icons/mob/species/monkey/onmob_accessories_monkey.dmi')
 
 /obj/item/clothing/accessory/toggleable/hawaii/red
 	icon_state = "hawaii2"
@@ -232,10 +232,10 @@
 /obj/item/clothing/accessory/toggleable/flannel/do_toggle(user)
 	if(buttoned == 0)
 		buttoned = 1
-		to_chat(usr, "You button your [src].")
+		to_chat(user, "You button your [src].")
 	else
 		buttoned = 0
-		to_chat(usr, "You unbutton [src].")
+		to_chat(user, "You unbutton [src].")
 	update_icon()
 
 /obj/item/clothing/accessory/toggleable/flannel/verb/roll_up_sleeves()

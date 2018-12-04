@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(ticker)
 		if(CHOOSE_GAMEMODE_SILENT_REDO)
 			return
 		if(CHOOSE_GAMEMODE_RETRY)
-			pregame_timeleft = 15 SECONDS
+			pregame_timeleft = 60 SECONDS
 			Master.SetRunLevel(RUNLEVEL_LOBBY)
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby to try again.")
 			return
@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(ticker)
 					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
 
 			if(blackbox)
-				blackbox.save_all_data_to_sql()	
+				blackbox.save_all_data_to_sql()
 			handle_tickets()
 		if(END_GAME_ENDING)
 			restart_timeout -= (world.time - last_fire)
@@ -210,9 +210,9 @@ Helpers
 
 	//Decide on the mode to try.
 	if(!bypass_gamemode_vote && gamemode_vote_results)
+		gamemode_vote_results -= bad_modes
 		if(length(gamemode_vote_results))
 			mode_to_try = gamemode_vote_results[1]
-			gamemode_vote_results.Cut(1,2)
 			. = CHOOSE_GAMEMODE_RETRY //Worth it to try again at least once.
 		else
 			mode_to_try = "extended"

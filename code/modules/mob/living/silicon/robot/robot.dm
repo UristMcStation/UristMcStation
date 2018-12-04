@@ -497,7 +497,7 @@
 				C.installed = 1
 				C.wrapped = W
 				C.install()
-				W.loc = null
+				W.forceMove(null)
 
 				var/obj/item/robot_parts/robot_component/WC = W
 				if(istype(WC))
@@ -585,7 +585,7 @@
 					I.brute = C.brute_damage
 					I.burn = C.electronics_damage
 
-				I.loc = src.loc
+				I.forceMove(loc)
 
 				if(C.installed == 1)
 					C.uninstall()
@@ -607,7 +607,7 @@
 			return
 		if(storage)
 			to_chat(user, "You replace \the [storage] with \the [W]")
-			storage.forceMove(get_turf(src))
+			storage.dropInto(loc)
 			storage = null
 		else
 			to_chat(user, "You install \the [W]")
