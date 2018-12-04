@@ -21,10 +21,6 @@
 /datum/nano_module/program/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
-	data += "skill_fail"
-	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
-		var/datum/extension/fake_data/fake_data = get_or_create_extension(src, /datum/extension/fake_data, /datum/extension/fake_data, 15)
-		data["skill_fail"] = fake_data.update_and_return_data()
 	data["terminal"] = !!program
 
 	if(error)
@@ -75,9 +71,6 @@
 
 	var/mob/user = usr
 	if(!istype(user))
-		return 1
-
-	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
 		return 1
 
 	// High security - can only be operated when the user has an ID with access on them.

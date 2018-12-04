@@ -397,6 +397,40 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/yellow/bordercee
 	icon_state = "bordercolorcee"
 
+/obj/effect/floor_decal/corner/gold
+	name = "gold corner"
+	color = "#b99b00"
+
+/obj/effect/floor_decal/corner/gold/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/gold/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/gold/full
+	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/gold/border
+	icon_state = "bordercolor"
+
+/obj/effect/floor_decal/corner/gold/half
+	icon_state = "bordercolorhalf"
+
+/obj/effect/floor_decal/corner/gold/mono
+	icon_state = "bordercolormonofull"
+
+/obj/effect/floor_decal/corner/gold/bordercorner
+	icon_state = "bordercolorcorner"
+
+/obj/effect/floor_decal/corner/gold/bordercorner2
+	icon_state = "bordercolorcorner2"
+
+/obj/effect/floor_decal/corner/gold/borderfull
+	icon_state = "bordercolorfull"
+
+/obj/effect/floor_decal/corner/gold/bordercee
+	icon_state = "bordercolorcee"
+
 /obj/effect/floor_decal/corner/beige
 	name = "beige corner"
 	color = COLOR_BEIGE

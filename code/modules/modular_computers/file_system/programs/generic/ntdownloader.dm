@@ -67,8 +67,7 @@
 	server = (file in ntnet_global.available_station_software) ? "NTNet Software Repository" : "unspecified server"
 	if(!hacked_download)
 		return "[file.filename].[file.filetype]"
-	var/stealth_chance = max(skill - SKILL_BASIC, 0) * 30
-	if(!prob(stealth_chance))
+	if(!prob(30))
 		return "**ENCRYPTED**.[file.filetype]"
 	var/datum/computer_file/fake_file = pick(ntnet_global.available_station_software)
 	server = "NTNet Software Repository"
@@ -119,9 +118,9 @@
 		return 1
 	if(href_list["PRG_downloadfile"])
 		if(!downloaded_file)
-			begin_file_download(href_list["PRG_downloadfile"], usr.get_skill_value(SKILL_COMPUTER))
+			begin_file_download(href_list["PRG_downloadfile"])
 		else if(check_file_download(href_list["PRG_downloadfile"]) && !downloads_queue.Find(href_list["PRG_downloadfile"]) && downloaded_file.filename != href_list["PRG_downloadfile"])
-			downloads_queue[href_list["PRG_downloadfile"]] = usr.get_skill_value(SKILL_COMPUTER)
+			downloads_queue[href_list["PRG_downloadfile"]] = 1
 		return 1
 	if(href_list["PRG_removequeued"])
 		downloads_queue.Remove(href_list["PRG_removequeued"])

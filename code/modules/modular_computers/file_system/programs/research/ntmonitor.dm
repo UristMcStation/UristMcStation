@@ -20,10 +20,6 @@
 		return
 	var/list/data = host.initial_data()
 
-	data += "skill_fail"
-	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
-		var/datum/extension/fake_data/fake_data = get_or_create_extension(src, /datum/extension/fake_data, /datum/extension/fake_data, 20)
-		data["skill_fail"] = fake_data.update_and_return_data()
 	data["terminal"] = !!program
 
 	data["ntnetstatus"] = ntnet_global.check_function()
@@ -53,9 +49,6 @@
 /datum/nano_module/program/computer_ntnetmonitor/Topic(href, href_list, state)
 	var/mob/user = usr
 	if(..())
-		return 1
-
-	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
 		return 1
 
 	if(href_list["resetIDS"])

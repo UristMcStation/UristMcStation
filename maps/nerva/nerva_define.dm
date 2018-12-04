@@ -53,8 +53,7 @@
 	away_site_budget = 6
 
 	date_offset = 564
-
-/*	available_cultural_info = list(
+	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
@@ -80,8 +79,6 @@
 			FACTION_NANOTRASEN,
 			FACTION_XYNERGY,
 			FACTION_HEPHAESTUS,
-			FACTION_TCONFEDERACY,
-			FACTION_UHA,
 			FACTION_PCRC,
 			FACTION_ORMA,
 			FACTION_OTHER
@@ -118,7 +115,18 @@
 			RELIGION_ATHEISM,
 			RELIGION_THELEMA,
 			RELIGION_SPIRITUALISM
+		),
+		TAG_EDUCATION = list(
+			EDUCATION_NONE,
+			EDUCATION_DROPOUT,
+			EDUCATION_HIGH_SCHOOL,
+			EDUCATION_TRADE_SCHOOL,
+			EDUCATION_UNDERGRAD,
+			EDUCATION_MASTERS,
+			EDUCATION_DOCTORATE,
+			EDUCATION_MEDSCHOOL
 		)
+
 	)
 
 	default_cultural_info = list(
@@ -127,45 +135,6 @@
 		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
 		TAG_RELIGION =  RELIGION_AGNOSTICISM
 	)
-*/
-/*	citizenship_choices = list(
-		"Earth",
-		"Mars",
-		"New Earth",
-		"Luna",
-		"Ryclies I",
-		"Venus",
-		"Moghes",
-		"Qerrbalak",
-		"Reade III",
-		"Procyon"
-	)
-
-	home_system_choices = list(
-		"Sol",
-		"Nyx",
-		"Tau Ceti",
-		"Epsilon Ursae Minoris",
-		"Gilgamesh",
-		"Ryclies",
-		"Reade"
-		)
-
-	faction_choices = list(
-		"Terran Confederacy",
-		"United Human Alliance",
-		"Outer Rim Miners Alliance",
-		"Vey Med",
-		"Einstein Engines",
-		"Free Trade Union",
-		"NanoTrasen",
-		"Ward-Takahashi GMB",
-		"Gilthari Exports",
-		"Grayson Manufactories Ltd.",
-		"Aether Atmospherics",
-		"Zeng-Hu Pharmaceuticals",
-		"Hephaestus Industries",
-		)*/
 
 
 	base_floor_type = /turf/simulated/floor/reinforced/airless

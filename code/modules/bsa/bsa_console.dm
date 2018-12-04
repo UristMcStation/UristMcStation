@@ -6,9 +6,6 @@
 	icon_state = "computer"
 	circuit = /obj/item/weapon/circuitboard/bsa
 
-	core_skill = SKILL_PILOT
-	var/skill_offset = SKILL_ADEPT - 1 //After which skill level it starts to matter. -1, because we have to index from zero
-
 	icon_keyboard = "rd_key"
 	icon_screen = "teleport"
 
@@ -142,7 +139,6 @@ obj/machinery/computer/ship/bsa/proc/is_valid_setup()
 		data["range"] = range
 		data["next_shot"] = round(get_next_shot_seconds())
 		data["nopower"] = !data["faillink"] && (!front.powered() || !middle.powered() || !back.powered())
-		data["skill"] = user.get_skill_value(core_skill) > skill_offset
 
 		var/charge = "<b>UNKNOWN ERROR</b>"
 		switch(get_charge_type())
@@ -181,7 +177,7 @@ obj/machinery/computer/ship/bsa/proc/is_valid_setup()
 			calibration[calnum + 1] = sanitize_integer(input, 0, 9, 0)//must add 1 because nanoui indexes from 0
 
 	if(href_list["skill_calibration"])
-		for(var/i = 1 to min(caldigit, user.get_skill_value(core_skill) - skill_offset))
+		for(var/i = 1 to caldigit)
 			calibration[i] = calexpected[i]
 
 	if(href_list["strength"])

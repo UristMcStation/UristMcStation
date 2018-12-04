@@ -2,7 +2,7 @@
 	name = "glasses"
 	icon = 'icons/obj/clothing/obj_eyes.dmi'
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_eyes_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_eyes_unathi.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/eyes.dmi'
 		)
 	var/hud_type

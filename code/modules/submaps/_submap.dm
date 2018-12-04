@@ -8,8 +8,8 @@
 /datum/submap/New(var/existing_z)
 	SSmapping.submaps[src] = TRUE
 	associated_z = existing_z
-	if(ispath(skill_setter))
-		skill_setter = new skill_setter
+//	if(ispath(skill_setter))
+//		skill_setter = new skill_setter
 
 /datum/submap/Destroy()
 	SSmapping.submaps -= src

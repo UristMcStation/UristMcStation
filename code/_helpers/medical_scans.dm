@@ -138,15 +138,12 @@
 		if(-1)
 			dat += "<td><span class='average'>ERROR - Nonstandard biology</span></td></tr>"
 		else
-			if(skill_level >= SKILL_BASIC)
-				if(scan["brain_activity"] <= 50)
-					dat += "<td><span class='bad'>[scan["brain_activity"]]%</span></td></tr>"
-				else if(scan["brain_activity"] <= 80)
-					dat += "<td><span class='average'>[scan["brain_activity"]]%</span></td></tr>"
-				else
-					dat += "<td>[scan["brain_activity"]]%</td></tr>"
+			if(scan["brain_activity"] <= 50)
+				dat += "<td><span class='bad'>[scan["brain_activity"]]%</span></td></tr>"
+			else if(scan["brain_activity"] <= 80)
+				dat += "<td><span class='average'>[scan["brain_activity"]]%</span></td></tr>"
 			else
-				dat += "<td>there's a squiggly line here</td></tr>"
+				dat += "<td>[scan["brain_activity"]]%</td></tr>"
 
 	//Circulatory System
 	/*
@@ -171,15 +168,15 @@
 		dat += "<td><span class='average'>[scan["pulse"]]bpm</span></td></tr>"
 	else
 		dat += "<td>[scan["pulse"]]bpm</td></tr>"
-	if(skill_level >= SKILL_ADEPT)
-		if((scan["pulse"] >= 140) || (scan["pulse"] == -3))
-			dat+= "<tr><td colspan='2'><span class='bad'>Patient is tachycardic.</span></td></tr>"
-		else if(scan["pulse"] >= 120)
-			dat += "<tr><td colspan='2'><span class='average'>Patient is tachycardic.</span></td></tr>"
-		else if(scan["pulse"] == 0)
-			dat+= "<tr><td colspan='2'><span class='bad'>Patient's heart is stopped.</span></td></tr>"
-		else if((scan["pulse"] > 0) && (scan["pulse"] <= 40))
-			dat+= "<tr><td colspan='2'><span class='average'>Patient is bradycardic.</span></td></tr>"
+
+	if((scan["pulse"] >= 140) || (scan["pulse"] == -3))
+		dat+= "<tr><td colspan='2'><span class='bad'>Patient is tachycardic.</span></td></tr>"
+	else if(scan["pulse"] >= 120)
+		dat += "<tr><td colspan='2'><span class='average'>Patient is tachycardic.</span></td></tr>"
+	else if(scan["pulse"] == 0)
+		dat+= "<tr><td colspan='2'><span class='bad'>Patient's heart is stopped.</span></td></tr>"
+	else if((scan["pulse"] > 0) && (scan["pulse"] <= 40))
+		dat+= "<tr><td colspan='2'><span class='average'>Patient is bradycardic.</span></td></tr>"
 
 
 	var/ratio = scan["blood_volume"]/scan["blood_volume_max"]
@@ -195,9 +192,8 @@
 
 	dat += "<tr><td><strong>Blood volume:</strong></td><td>[scan["blood_volume"]]u/[scan["blood_volume_max"]]u</td></tr>"
 
-	if(skill_level >= SKILL_ADEPT)
-		if(ratio <= 0.70)
-			dat += "<tr><td colspan='2'><span class='bad'>Patient is in Hypovolemic Shock. Transfusion highly recommended.</span></td></tr>"
+	if(ratio <= 0.70)
+		dat += "<tr><td colspan='2'><span class='bad'>Patient is in Hypovolemic Shock. Transfusion highly recommended.</span></td></tr>"
 
 	// Body temperature.
 	/*
@@ -215,61 +211,57 @@
 		<tr><td><strong>Genetic Tissue Damage:</strong></td><td>severe</td></tr>
 		<tr><td><strong>Paralysis Summary:</strong></td><td>approx 0 seconds left</td></tr>
 	*/
-	if(skill_level >= SKILL_BASIC)
-		subdat += "<tr><td><strong>Physical Trauma:</strong></td><td>\t[get_severity(scan["trauma"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Burn Severity:</strong></td><td>\t[get_severity(scan["burn"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Systematic Organ Failure:</strong></td><td>\t[get_severity(scan["toxin"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Oxygen Deprivation:</strong></td><td>\t[get_severity(scan["oxygen"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Radiation Level:</strong></td><td>\t[get_severity(scan["radiation"]/5,TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Genetic Tissue Damage:</strong></td><td>\t[get_severity(scan["genetic"],TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Physical Trauma:</strong></td><td>\t[get_severity(scan["trauma"],TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Burn Severity:</strong></td><td>\t[get_severity(scan["burn"],TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Systematic Organ Failure:</strong></td><td>\t[get_severity(scan["toxin"],TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Oxygen Deprivation:</strong></td><td>\t[get_severity(scan["oxygen"],TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Radiation Level:</strong></td><td>\t[get_severity(scan["radiation"]/5,TRUE)]</td></tr>"
+	subdat += "<tr><td><strong>Genetic Tissue Damage:</strong></td><td>\t[get_severity(scan["genetic"],TRUE)]</td></tr>"
 
-		if(scan["paralysis"])
-			subdat += "<tr><td><strong>Paralysis Summary:</strong></td><td>approx. [scan["paralysis"]/4] seconds left</td></tr>"
+	if(scan["paralysis"])
+		subdat += "<tr><td><strong>Paralysis Summary:</strong></td><td>approx. [scan["paralysis"]/4] seconds left</td></tr>"
 
+	dat += subdat
+
+	subdat = null
+	//Immune System
+	/*
+		<tr><td colspan='2'><center>Antibody levels and immune system performance are at 100% of baseline.</center></td></tr>
+		<tr><td colspan='2'><span class='bad'><center>Viral Pathogen detected in blood stream.</center></span></td></tr>
+		<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>
+	*/
+	dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
+	if (scan["virus"])
+		if(skill_level >= SKILL_ADEPT)
+			dat += "<tr><td colspan='2'><span class='bad'><center>Viral pathogen detected in blood stream.</center></span></td></tr>"
+		else
+			dat += "<tr><td colspan='2'><center>Viral pathogen detected in blood stream.</center></td></tr>"
+
+	if(scan["worms"])
+		dat += "<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>"
+
+	//Reagent scan
+	/*
+		<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>
+		<tr><td colspan='2'>10u dexalin plus</td></tr>
+	*/
+	var/other_reagent = FALSE
+
+	for(var/list/R in scan["reagents"])
+		if(R["scannable"])
+			subdat += "<tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
+		else
+			other_reagent = TRUE
+	if(subdat)
+		dat += "<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
 		dat += subdat
-
-		subdat = null
-		//Immune System
-		/*
-			<tr><td colspan='2'><center>Antibody levels and immune system performance are at 100% of baseline.</center></td></tr>
-			<tr><td colspan='2'><span class='bad'><center>Viral Pathogen detected in blood stream.</center></span></td></tr>
-			<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>
-		*/
-		dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
-		if (scan["virus"])
-			if(skill_level >= SKILL_ADEPT)
-				dat += "<tr><td colspan='2'><span class='bad'><center>Viral pathogen detected in blood stream.</center></span></td></tr>"
-			else
-				dat += "<tr><td colspan='2'><center>Viral pathogen detected in blood stream.</center></td></tr>"
-
-		if(scan["worms"])
-			dat += "<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>"
-
-		//Reagent scan
-		/*
-			<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>
-			<tr><td colspan='2'>10u dexalin plus</td></tr>
-		*/
-		var/other_reagent = FALSE
-
-		for(var/list/R in scan["reagents"])
-			if(R["scannable"])
-				subdat += "<tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
-			else
-				other_reagent = TRUE
-		if(subdat)
-			dat += "<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
-			dat += subdat
-		if(other_reagent)
-			dat += "<tr><td colspan='2'><span class='average'>Warning: Unknown substance detected in subject's blood.</span></td></tr>"
+	if(other_reagent)
+		dat += "<tr><td colspan='2'><span class='average'>Warning: Unknown substance detected in subject's blood.</span></td></tr>"
 
 	//summary for the medically disinclined.
 	/*
 			<tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of this means.</td></tr>
 	*/
-	else
-		dat += "<tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of this means.</td></tr>"
-
 	dat = JOINTEXT(dat)
 
 	return dat
@@ -303,30 +295,18 @@
 		row += "<tr><td>[E["name"]]</td>"
 		if(E["is_stump"])
 			row += "<td><span class='bad'>Missing</span></td>"
-			if(skill_level >= SKILL_ADEPT)
-				row += "<td><span class='bad'>[english_list(E["scan_results"], nothing_text = "&nbsp;")]</span></td>"
-			else
-				row += "<td>&nbsp;</td>"
+			row += "<td><span class='bad'>[english_list(E["scan_results"], nothing_text = "&nbsp;")]</span></td>"
 		else
 			row += "<td>"
 			if(E["brute_dam"] + E["burn_dam"] == 0)
 				row += "None</td>"
-			if(skill_level < SKILL_ADEPT)
-				if(E["brute_dam"])
-					row += "<span class='bad'>Damaged</span><br>"
-				if(E["burn_dam"])
-					row += "<span class='average'>Burned</span></td>"
-			else
-				if(E["brute_dam"])
-					row += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma</span><br>"
-				if(E["burn_dam"])
-					row += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns</span></td>"
-			if(skill_level >= SKILL_ADEPT)
-				row += "<td>"
-				row += "<span class='bad'>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
-				row += "</td>"
-			else
-				row += "<td>&nbsp;</td>"
+			if(E["brute_dam"])
+				row += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma</span><br>"
+			if(E["burn_dam"])
+				row += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns</span></td>"
+			row += "<td>"
+			row += "<span class='bad'>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
+			row += "</td>"
 		row += "</tr>"
 		subdat += JOINTEXT(row)
 	dat += subdat
@@ -345,28 +325,24 @@
 				</table>
 			</center></td></tr>
 	*/
-	if(skill_level >= SKILL_BASIC)
-		dat += "<tr><th colspan='3'><center>Internal Organs</center></th></tr>"
-		for(var/list/I in scan["internal_organs"])
-			var/row = list()
-			row += "<tr><td>[I["name"]]</td>"
-			if(I["is_broken"])
-				row += "<td><span class='bad'>Severe</span></td>"
-			else if(I["is_bruised"])
-				row += "<td><span class='average'>Moderate</span></td>"
-			else if(I["is_damaged"])
-				row += "<td>Minor</td>"
-			else
-				row += "<td>None</td>"
-			row += "<td>"
-			row += "<span class='bad'>[english_list(I["scan_results"], nothing_text="&nbsp;")]</span>"
-			row += "</td></tr>"
-			subdat += jointext(row, null)
+	dat += "<tr><th colspan='3'><center>Internal Organs</center></th></tr>"
+	for(var/list/I in scan["internal_organs"])
+		var/row = list()
+		row += "<tr><td>[I["name"]]</td>"
+		if(I["is_broken"])
+			row += "<td><span class='bad'>Severe</span></td>"
+		else if(I["is_bruised"])
+			row += "<td><span class='average'>Moderate</span></td>"
+		else if(I["is_damaged"])
+			row += "<td>Minor</td>"
+		else
+			row += "<td>None</td>"
+		row += "<td>"
+		row += "<span class='bad'>[english_list(I["scan_results"], nothing_text="&nbsp;")]</span>"
+		row += "</td></tr>"
+		subdat += jointext(row, null)
 
-	if(skill_level <= SKILL_ADEPT)
-		dat += shuffle(subdat)
-	else
-		dat += subdat
+	dat += subdat
 	for(var/organ_name in scan["missing_organs"])
 		if(organ_name != "appendix")
 			dat += "<tr><td colspan='3'><span class='bad'>No [organ_name] detected.</span></td></tr>"

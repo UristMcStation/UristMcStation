@@ -37,7 +37,7 @@
 		player.current.verbs += /mob/proc/add_objectives
 
 	if(player.current.client)
-		player.current.client.verbs += /client/proc/aooc
+		player.current.client.verbs += /client/verb/aooc
 
 	spawn(1 SECOND) //Added a delay so that this should pop up at the bottom and not the top of the text flood the new antag gets.
 		to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to \
@@ -73,7 +73,7 @@
 			if(player.current)
 				player.current.verbs -= /mob/living/proc/write_ambition
 				if(player.current.client)
-					player.current.client.verbs -= /client/proc/aooc
+					player.current.client.verbs -= /client/verb/aooc
 			player.ambitions = ""
 		return 1
 	return 0

@@ -94,10 +94,7 @@
 		data["can_save_scan"] = (prog.computer.scanner.can_save_scan && prog.data_buffer)
 	data["using_scanner"] = prog.using_scanner
 	data["check_scanning"] = prog.check_scanning()
-	if(prog.metadata_buffer.len > 0 && prog.paper_type == /obj/item/weapon/paper/bodyscan)
-		data["data_buffer"] = display_medical_data(prog.metadata_buffer.Copy(), user.get_skill_value(SKILL_MEDICAL, TRUE))
-	else
-		data["data_buffer"] = pencode2html(prog.data_buffer)
+	data["data_buffer"] = pencode2html(prog.data_buffer)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)

@@ -25,8 +25,8 @@
 
 /datum/job/submap/equip(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	. = ..()
-	if(H && owner.skill_setter)
-		owner.skill_setter.initialize_skills(H.skillset)
+//	if(H && owner.skill_setter)
+//		owner.skill_setter.initialize_skills(H.skillset)
 
 /datum/job/submap/is_restricted(var/datum/preferences/prefs, var/feedback)
 	if(minimum_character_age && (prefs.age < minimum_character_age))

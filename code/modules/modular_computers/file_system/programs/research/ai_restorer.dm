@@ -22,9 +22,6 @@
 	if(..())
 		return 1
 
-	if(!usr.skill_check(SKILL_COMPUTER, SKILL_ADEPT))
-		return 1
-
 	var/mob/living/silicon/ai/A = get_ai()
 	if(!A)
 		return 0
@@ -90,10 +87,6 @@
 /datum/nano_module/program/computer_aidiag/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
-	data += "skill_fail"
-	if(!user.skill_check(SKILL_COMPUTER, SKILL_ADEPT))
-		var/datum/extension/fake_data/fake_data = get_or_create_extension(src, /datum/extension/fake_data, /datum/extension/fake_data, 25)
-		data["skill_fail"] = fake_data.update_and_return_data()
 	data["terminal"] = !!program
 
 	var/mob/living/silicon/ai/A

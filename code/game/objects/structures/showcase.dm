@@ -19,7 +19,7 @@
 	var/area/A = loc
 	reset_button = locate(/obj/machinery/button/alternate/biohazard) in A
 
-/obj/structure/showcase/blob_hazard/proc/take_damage(var/damage)
+/obj/structure/showcase/blob_hazard/take_damage(var/damage)
 	health -= damage
 	if(health < 0)
 		reset_button.activate(null, TRUE)

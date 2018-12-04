@@ -42,11 +42,6 @@
 	progress += get_speed()
 
 	if(progress >= target_progress)
-		if(prob(20 * max(SKILL_ADEPT - operator_skill, 0))) // Oops
-			var/list/valid_access_values = get_all_station_access()
-			valid_access_values -= restricted_access_codes
-			valid_access_values -= RFID.stored_card.access
-			target_access = get_access_by_id(pick(valid_access_values))
 		RFID.stored_card.access |= target_access.id
 		if(ntnet_global.intrusion_detection_enabled && !prob(get_sneak_chance()))
 			ntnet_global.add_log("IDS WARNING - Unauthorised access to primary keycode database from device: [computer.network_card.get_network_tag()]  - downloaded access codes for: [target_access.desc].")
@@ -84,18 +79,16 @@
 			return 1
 
 		running = TRUE
-		operator_skill = usr.get_skill_value(SKILL_COMPUTER)
 		if(ntnet_global.intrusion_detection_enabled && !prob(get_sneak_chance()))
 			ntnet_global.add_log("IDS WARNING - Unauthorised access attempt to primary keycode database from device: [computer.network_card.get_network_tag()]")
 			ntnet_global.intrusion_detection_alarm = 1
 		return 1
 
 /datum/computer_file/program/access_decrypter/proc/get_sneak_chance()
-	return max(operator_skill - SKILL_ADEPT, 0) * 30
+	return 30
 
 /datum/computer_file/program/access_decrypter/proc/get_speed()
-	var/skill_speed_modifier = 1 + (operator_skill - SKILL_ADEPT)/(SKILL_MAX - SKILL_MIN)
-	return computer.processor_unit.max_idle_programs * skill_speed_modifier
+	return computer.processor_unit.max_idle_programs
 
 /datum/nano_module/program/access_decrypter
 	name = "NTNet Access Decrypter"

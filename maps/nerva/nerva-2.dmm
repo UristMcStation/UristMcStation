@@ -2825,7 +2825,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "eM" = (
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3159,7 +3159,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "fo" = (
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/fadeblue{
@@ -3180,7 +3180,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "fp" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/fadeblue{
@@ -7894,7 +7894,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "ow" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/fadeblue{

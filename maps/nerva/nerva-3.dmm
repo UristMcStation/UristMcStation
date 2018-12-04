@@ -2212,7 +2212,7 @@
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
 "gV" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	dir = 1
 	},
 /obj/machinery/power/apc{
@@ -3693,7 +3693,6 @@
 	pixel_x = -24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	description_info = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm.";
 	dir = 4;
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000

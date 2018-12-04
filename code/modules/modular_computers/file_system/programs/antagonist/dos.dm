@@ -25,7 +25,7 @@
 			dos_speed = NTNETSPEED_HIGHSIGNAL
 		if(3)
 			dos_speed = NTNETSPEED_ETHERNET
-	dos_speed *= NTNETSPEED_DOS_AMPLIFICATION + operator_skill - SKILL_BASIC
+	dos_speed *= NTNETSPEED_DOS_AMPLIFICATION
 	if(target && executed)
 		target.dos_overload += dos_speed
 		if(!target.operable())
@@ -105,18 +105,8 @@
 			return 1
 		executed = 1
 		target.dos_sources.Add(src)
-		operator_skill = usr.get_skill_value(SKILL_COMPUTER)
-	
+
 		var/list/sources_to_show = list(computer.network_card.get_network_tag())
-		var/extra_to_show = 2 * max(operator_skill - SKILL_ADEPT, 0)
-		if(extra_to_show)
-			var/list/candidates = list()
-			for(var/obj/item/modular_computer/C in SSobj.processing) // Apparently the only place these are stored.
-				if(C.network_card && (C.z in GetConnectedZlevels(computer.z)))
-					candidates += C
-			for(var/i = 1, i <= extra_to_show, i++)
-				var/obj/item/modular_computer/C = pick_n_take(candidates)
-				sources_to_show += C.network_card.get_network_tag()
 
 		if(ntnet_global.intrusion_detection_enabled)
 			ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting relay [target.uid] detected from [length(sources_to_show)] device\s: [english_list(sources_to_show)]")

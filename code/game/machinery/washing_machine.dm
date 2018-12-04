@@ -237,7 +237,7 @@
 			state = 3
 			for(var/atom/movable/O in contents)
 				if(!(O in component_parts))
-				O.dropInto(loc)
+					O.dropInto(loc)
 			crayon = null
 			detergent = null
 			state = 1

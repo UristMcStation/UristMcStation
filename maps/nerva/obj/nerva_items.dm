@@ -86,4 +86,4 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/station_account)
+	startswith = list(/obj/item/weapon/card/id/station_account)

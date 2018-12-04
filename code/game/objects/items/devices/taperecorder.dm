@@ -533,10 +533,3 @@
 
 /obj/item/device/tape/loose/get_loose_tape()
 	return
-
-/obj/item/device/tape/loose/examine(var/mob/user)
-	. = ..(user, 1)
-	if(.)
-		to_chat(user, "<span class='notice'>It looks long enough to hold [max_capacity] seconds worth of recording.</span>")
-		if(doctored && user.skill_check(SKILL_FORENSICS, SKILL_PROF))
-			to_chat(user, "<span class='notice'>It has been tampered with...</span>")
