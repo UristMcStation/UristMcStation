@@ -11,7 +11,8 @@
 							 /datum/map_template/ruin/exoplanet/lodge,
 							 /datum/map_template/ruin/exoplanet/crashed_pod,
 							 /datum/map_template/ruin/exoplanet/drill_site,
-							 /datum/map_template/ruin/exoplanet/hut)
+							 /datum/map_template/ruin/exoplanet/hut,
+							 /datum/map_template/ruin/exoplanet/playablecolony)
 
 /obj/effect/overmap/sector/exoplanet/snow/generate_map()
 	if(prob(50))
@@ -53,6 +54,9 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
+
+/turf/simulated/floor/exoplanet/ice/on_update_icon()
+	return
 
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"

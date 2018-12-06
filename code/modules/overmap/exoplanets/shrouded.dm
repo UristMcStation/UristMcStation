@@ -10,7 +10,8 @@
 							/datum/map_template/ruin/exoplanet/crashed_pod,
 							/datum/map_template/ruin/exoplanet/radshrine,
 							/datum/map_template/ruin/exoplanet/spider_nest,
-							/datum/map_template/ruin/exoplanet/deserted_lab)
+							/datum/map_template/ruin/exoplanet/deserted_lab,
+							/datum/map_template/ruin/exoplanet/playablecolony)
 
 /obj/effect/overmap/sector/exoplanet/shrouded/generate_map()
 	for(var/zlevel in map_z)
@@ -31,12 +32,12 @@
 	large_flora_prob = 20
 	flora_diversity = 3
 	water_level_max = 3
-	water_level_min = 1
+	water_level_min = 2
 	land_type = /turf/simulated/floor/exoplanet/shrouded
 	water_type = /turf/simulated/floor/exoplanet/water/shallow/tar
 	planetary_area = /area/exoplanet/shrouded
 	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/royalcrab, /mob/living/simple_animal/hostile/retaliate/jelly/alt, /mob/living/simple_animal/hostile/retaliate/beast/shantak/alt, /mob/living/simple_animal/hostile/giant_spider/hunter)
-	plantcolors = list("3c5434", "2f6655", "0e703f", "495139", "394c66", "1a3b77", "3e3166", "52457c", "402d56", "580d6d")
+	plantcolors = list("#3c5434", "#2f6655", "#0e703f", "#495139", "#394c66", "#1a3b77", "#3e3166", "#52457c", "#402d56", "#580d6d")
 
 /area/exoplanet/shrouded
 	forced_ambience = list("sound/ambience/spookyspace1.ogg", "sound/ambience/spookyspace2.ogg")
@@ -60,5 +61,5 @@
 	desc = "Sand that has been packed in to solid earth."
 
 /turf/simulated/floor/exoplanet/shrouded/New()
-	icon_state = pick("shrouded[rand(0,7)]")
+	icon_state = "shrouded[rand(0,8)]"
 	..()

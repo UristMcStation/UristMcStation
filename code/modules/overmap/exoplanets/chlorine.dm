@@ -9,7 +9,8 @@
 							/datum/map_template/ruin/exoplanet/fountain,
 							/datum/map_template/ruin/exoplanet/spider_nest,
 							/datum/map_template/ruin/exoplanet/radshrine,
-							/datum/map_template/ruin/exoplanet/deserted_lab)
+							/datum/map_template/ruin/exoplanet/deserted_lab,
+							/datum/map_template/ruin/exoplanet/playablecolony)
 
 /obj/effect/overmap/sector/exoplanet/chlorine/generate_map()
 	if(prob(50))
@@ -60,5 +61,5 @@
 	desc = "Sand that has been heavily contaminated by chlorine."
 
 /turf/simulated/floor/exoplanet/chlorine_sand/New()
-	icon_state = pick("chlorine_sand[rand(1,12)]")
+	icon_state = "chlorine_sand[rand(0,11)]"
 	..()
