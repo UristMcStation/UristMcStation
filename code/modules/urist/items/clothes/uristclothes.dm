@@ -48,8 +48,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Emergency Suit. It's really shitty, but better than a firesuit when it comes to space or biological hazards. Will need a special "emergency locker" for this.
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
 
-/obj/item/clothing/suit/emergencysuit
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/suit/urist/emergencysuit
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -67,7 +66,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
 
-/obj/item/clothing/suit/emergencysuit/New()
+/obj/item/clothing/suit/urist/emergencysuit/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1.5
 
@@ -110,7 +109,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "naval space suit"
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navyspace"
-	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
+	desc = "A high quality space suit used by the NanoTrasen Navy. Smells like oppression."
 	w_class = 3
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
@@ -124,7 +123,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/space/void/commando
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando suit"
-	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the NanoTrasen Naval Commandos. It reeks of oppression."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
@@ -194,24 +193,20 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Terran Confederacy Trader outfit
 
-/obj/item/clothing/under/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/under/urist/terran //why was this a weirdass path
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
-/obj/item/clothing/suit/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/suit/urist/terran
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
-/obj/item/clothing/under/terran/trader
+/obj/item/clothing/under/urist/terran/trader
 	name = "Terran Confederacy trader's outfit"
 	desc = "An opulent outfit worn by a Terran Confederacy trader"
 	icon_state = "TCToutfit"
 	item_state = "TCToutfit"
 	//item_color = "TCToutfit"
 
-/obj/item/clothing/suit/terran/trader
+/obj/item/clothing/suit/urist/terran/trader
 	name = "Terran Confederacy trader's cloak"
 	desc = "An opulent cloak worn by a Terran Confederacy trader"
 	icon_state = "TCTRobes"

@@ -66,6 +66,7 @@ for reference:
 	var/material/material
 	atom_flags = ATOM_FLAG_CLIMBABLE
 	layer = ABOVE_WINDOW_LAYER
+	var/use_material_colour = 1
 
 /obj/structure/barricade/New(var/newloc, var/material_name)
 	..(newloc)
@@ -77,7 +78,8 @@ for reference:
 		return
 	name = "[material.display_name] barricade"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
-	color = material.icon_colour
+	if(use_material_colour)
+		color = material.icon_colour
 	maxhealth = material.integrity
 	health = maxhealth
 

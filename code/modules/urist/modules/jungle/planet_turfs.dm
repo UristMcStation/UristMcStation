@@ -82,6 +82,10 @@
 			new /obj/structure/pit/punji6/hidden/dull(src)
 
 	if(spawn_scrap)
+		if(prob(4))
+			new	/obj/structure/scrap/random(src)
+		else if(prob(1))
+			new /obj/structure/scrap/vehicle(src)
 
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
@@ -674,7 +678,7 @@
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "dirt_full"
 	icon_spawn_state = null
-	misc_plant_spawn_chance = 10
+	misc_plant_spawn_chance = 15
 	misc_plant_type = /obj/structure/flora/ausbushes/fullgrass
 
 /turf/simulated/floor/planet/dirt/clear
@@ -693,8 +697,8 @@
 	temperature = 305.15 //32C
 	small_trees_chance = 0
 	large_trees_chance = 0
-	small_tree_type = /obj/structure/flora/tree/planet/jungle/small
-	large_tree_type = /obj/structure/flora/tree/planet/jungle/large
+	small_tree_type = /obj/structure/flora/tree/planet/arid/small
+	large_tree_type = /obj/structure/flora/tree/planet/arid/large
 
 /turf/simulated/floor/planet/ariddirt/Initialize()
 	.=..()
@@ -715,4 +719,4 @@
 	icon_state = "wastelandh"
 	small_trees_chance = 2
 	large_trees_chance = 1
-	misc_plant_spawn_chance = 15
+	misc_plant_spawn_chance = 20

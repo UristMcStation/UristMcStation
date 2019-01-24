@@ -44,4 +44,4 @@
 	id = "awaysite_glloyd_jungle"
 	description = "Geneseeded world detected, possible intelligent life detected."
 	suffixes = list("glloyd_jungle/glloyd_jungle.dmm")
-	accessibility_weight = 10
+	accessibility_weight = 11

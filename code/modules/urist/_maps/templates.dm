@@ -98,10 +98,26 @@ var/list/datum/map_template/underground_templates = list()
 
 	QDEL_IN(src,0)
 
-
 /obj/effect/template_loader/gamemode/assault
 	var/maptype = 0
 	gamemode = "assault"
+
+/obj/effect/template_loader/ships
+	var/mapfile = null
+
+/obj/effect/template_loader/ships/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
+
+	for(var/A in potentialRuins)
+		var/datum/map_template/T = potentialRuins[A]
+//		world << "<span class='boldannounce'>T = [T.name]</span>"
+		if(T.name == src.mapfile)
+			template = T
+//	world << "<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>"
+	template.load(get_turf(src), centered = TRUE)
+//	template.loaded++
+
+	QDEL_IN(src,0)
+
 
 /* MATRIXCOMMENT
 /obj/effect/template_loader/matrix/Initialize()

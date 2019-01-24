@@ -14,11 +14,12 @@
 	var/chargingicon = null
 	var/chargedicon = null
 	var/target = null
+	var/component_hit = 0 //chance to hit components
 
 /obj/machinery/shipweapons/Initialize()
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
 		CC.linkedweapons += src
-	..()
+	.=..()
 
 /obj/machinery/shipweapons/Process()
 	if(!charged && !recharging)
@@ -74,28 +75,54 @@
 	else
 		//do the firing stuff
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
+
+		for(var/datum/shipcomponents/engines/E in OM.components)
+			if(!E.broken && prob(E.evasion_chance))
+				GLOB.global_announcer.autosay("<b>The [src] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+
+			else
+				if(!passshield)
+					if(OM.shields)
+						var/shieldbuffer = OM.shields
+						OM.shields -= shielddamage //take the hit
+						if(OM.shields <= 0) //if we're left with less than 0 shields
+							OM.shields = 0 //we reset the shields to zero to avoid any weirdness
+							//we also apply damage to the actual shield component
+							if(hulldamage)
+								shieldbuffer = (hulldamage-shieldbuffer) //hulldamage is slightly mitigated by the existing shield
+								if(shieldbuffer <=0) //but if the shield was really strong, we don't do anything
+									return
+								else
+									OM.health -= shieldbuffer
+
+					else if(!OM.shields) //no shields? easy
+						OM.health -= hulldamage
+						if(prob(component_hit))
+							HitComponents(OM)
+
+				else if(passshield) //do we pass through the shield? let's do our damage
+					OM.health -= hulldamage
+					HitComponents(OM)
+
+				GLOB.global_announcer.autosay("<b>The [src.name] has hit the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+
 		//insert firing animations here
-		if(!passshield)
-			if(OM.shields)
-				var/shieldbuffer = OM.shields
-				OM.shields -= shielddamage //take the hit
-				if(OM.shields <= 0) //if we're left with less than 0 shields
-					OM.shields = 0 //we reset the shields to zero to avoid any weirdness
-					//we also apply damage to the actual shield component
-					if(hulldamage)
-						shieldbuffer = (hulldamage-shieldbuffer) //hulldamage is slightly mitigated by the existing shield
-						if(shieldbuffer <=0) //but if the shield was really strong, we don't do anything
-							return
-						else
-							OM.health -= shieldbuffer
-
-			else if(!OM.shields) //no shields? easy
-				OM.health -= hulldamage
-
-		else if(passshield) //do we pass through the shield? let's do our damage
-			OM.health -= hulldamage
 		charged = 0
 		Charging() //time to recharge
+
+/obj/machinery/shipweapons/proc/HitComponents(var/targetship)
+	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
+
+//	for(var/datum/shipcomponents/SC in OM.components)
+//		health -= 1
+
+	var/datum/shipcomponents/targetcomponent = pick(OM.components)
+	if(!targetcomponent.broken)
+		targetcomponent.health -= (hulldamage *= 0.1)
+
+		if(targetcomponent.health <= 0)
+			targetcomponent.BlowUp()
+
 
 /obj/machinery/shipweapons/update_icon()
 	if(charged)
@@ -131,6 +158,8 @@
 	icon_state = "torpedo"
 	hulldamage = 400 //maybe
 //	active_power_usage = 1000
+	component_hit = 25
+	rechargerate = 15 SECONDS
 
 /obj/machinery/shipweapons/beam
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
@@ -139,11 +168,28 @@
 	name = "light laser cannon"
 	shielddamage = 200
 	hulldamage = 100
-	icon_state = "beamcannon"
+	icon_state = "lasercannon"
 	idle_power_usage = 10
 	active_power_usage = 2000
+	component_hit = 20
+	rechargerate = 15 SECONDS
 
 /obj/machinery/shipweapons/beam/ion
 	name = "ion cannon"
+	icon_state = "ioncannon"
 	shielddamage = 400
 	active_power_usage = 2000
+	component_hit = 30
+	rechargerate = 12 SECONDS
+
+/obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)
+	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
+
+//	for(var/datum/shipcomponents/SC in OM.components)
+//		health -= 1
+
+	var/datum/shipcomponents/targetcomponent = pick(OM.components)
+	if(!targetcomponent.broken)
+		targetcomponent.broken = TRUE
+		spawn(45 SECONDS)
+			targetcomponent.broken = FALSE

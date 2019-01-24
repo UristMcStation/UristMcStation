@@ -3,6 +3,9 @@
 	var/canfight = 0 //will this ship engage with the combat system? Why is this zero? well, if the ship moves, we're part of the combat system. this is to compensate for lowpop rounds where noone ever moves the ship, to avoid them getting fucked by chance
 	var/incombat = 0 //are we fighting
 	var/shipid = null
+	var/crossed = 0 //have we crossed another ship
+	var/docked = 0 //are we docked?
+	var/mob/living/simple_animal/hostile/overmapship/target
 
 /obj/effect/overmap/ship/combat/nerva
 	name = "ICS Nerva"
@@ -40,36 +43,113 @@
 
 	..()
 
+/obj/effect/overmap/ship/combat/nerva/Initialize()
+	.=..()
+
+	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
+		if(CC.shipid == src.shipid)
+			CC.homeship = src
+
+/obj/effect/overmap/ship/combat/proc/enter_combat()
+	src.incombat = 1
+	target.incombat = 1
+//	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+//	security_state.stored_security_level = security_state.current_security_level
+//	security_state.set_security_level(security_state.high_security_level)
+
+
+	GLOB.global_announcer.autosay("<b>A hostile [target.ship_category] has engaged the ICS Nerva</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+
+/obj/effect/overmap/ship/combat/proc/set_targets(var/mob/living/simple_animal/hostile/overmapship/new_target = null)
+	if(!target)
+
+		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
+			if(CC.shipid == src.shipid)
+				CC.target = new_target
+		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
+			if(SW.shipid == src.shipid)
+				SW.target = new_target
+
+		src.target = new_target
+
+	else
+
+		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
+			if(CC.shipid == src.shipid)
+				CC.target = null
+		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
+			if(SW.shipid == src.shipid)
+				SW.target = null
+
+		src.target = null
+
+/obj/effect/overmap/ship/combat/proc/leave_combat()
+	if(target)
+		target.incombat = 0
+		src.set_targets()
+		target.stop_automated_movement = 0
+
+	incombat = 0
+	crossed = 0
+	src.unhalt()
+
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
 	..()
-	if(!src.incombat)
+	if(!src.incombat && !crossed)
 		if(istype(O, /mob/living/simple_animal/hostile/overmapship))
-			src.halt() //cancel our momentum
-			incombat = 1 //we're in combat now, so let's cancel out momentum
+
 			var/mob/living/simple_animal/hostile/overmapship/L = O
+			src.Contact(L)
+/*
+			src.halt() //cancel our momentum
+			crossed = 1 //we're in combat now, so let's cancel out momentum
 			//now let's cancel the momentum of the mob
 //			L.combat
+			L.target_ship = src
 
+			src.set_targets(L)
 
-			for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
-				if(CC.shipid == src.shipid)
-					CC.target = L
-			for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
-				if(SW.shipid == src.shipid)
-					SW.target = L
-
-			if(L.aggressive)
+			if(L.aggressive || L.hiddenfaction in src.hostile_factions)
+				enter_combat()
 				return //here we set up the combat stuff if they're aggressive
 
 			else
-				spawn(30 SECONDS)
-					for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we take the target away from the combat computer
-						if(CC.shipid == src.shipid)
-							CC.target = null
-					for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and the weapons
-						if(SW.shipid == src.shipid)
-							SW.target = null
+
+			spawn(30 SECONDS)
+				if(!src.incombat || !src.docked)
+					src.set_targets()
+
+					crossed = 0
+					src.unhalt()
+
+				else
+					return
 
 
 			return
+*/
 
+/obj/effect/overmap/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
+	src.halt() //cancel our momentum
+	crossed = 1 //we're in combat now, so let's cancel out momentum
+	//now let's cancel the momentum of the mob
+	L.stop_automated_movement = 1
+//			L.combat
+	L.target_ship = src
+
+	src.set_targets(L)
+
+	if(L.aggressive) //|| L.hiddenfaction in src.hostile_factions)
+		enter_combat()
+		return //here we set up the combat stuff if they're aggressive
+
+
+	spawn(30 SECONDS)
+		if(!src.incombat || !src.docked)
+			src.set_targets()
+
+			crossed = 0
+			src.unhalt()
+
+		else
+			return

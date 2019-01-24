@@ -186,6 +186,8 @@
 
 /obj/effect/overmap/ship/proc/halt()
 	adjust_speed(-speed[1], -speed[2])
+	for(var/zz in map_z)
+		toggle_move_stars(zz)
 	halted = 1
 
 /obj/effect/overmap/ship/proc/unhalt()

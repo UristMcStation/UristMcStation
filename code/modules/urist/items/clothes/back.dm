@@ -30,3 +30,15 @@ icon_override sprites go to 'icons/uristmob/back.dmi' -Glloyd*/
 	name = "opera cape"
 	desc = "A large piece of velvet, originally designed to keep rain out and warmth in. A number of pockets in the lining  allow for storage."
 	icon_state = "vcape"
+
+//explorer backpack
+
+/obj/item/weapon/storage/backpack/urist/explorerpack
+	name = "rugged backpack"
+	desc = "A large rugged backpack with a number of pockets. Very practical, and commonly used out in the frontier of human space."
+	icon_state = "explorerpack"
+
+/obj/item/weapon/storage/backpack/urist/explorersatchel
+	name = "rugged satchel"
+	desc = "A large rugged satchel with a number of pockets. Very practical, and commonly used out in the frontier of human space."
+	icon_state = "satchel-explorer"

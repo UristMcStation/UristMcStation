@@ -494,3 +494,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		return
 	else
 		do_teleport(M, locate(89,97,1), 0) //super Nerva specific
+
+//barricade
+
+/obj/structure/barricade/wooden/crude
+	name = "crude plank barricade"
+	desc = "This space is blocked off by a crude assortment of planks."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodenbarricade-old"
+	health = 50
+	maxhealth = 50
+	use_material_colour = 0
+
+/obj/structure/barricade/wooden/crude/snow
+	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
+	icon_state = "woodenbarricade-snow-old"
+	health = 75
+	maxhealth = 75

@@ -24,8 +24,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //emergency suit hood
 
-/obj/item/clothing/head/emergencyhood
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/head/urist/emergencyhood
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -73,12 +72,10 @@ to avoid worrying about the sprites -Glloyd*/
 
 //TC trader hat
 
-/obj/item/clothing/head/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+/obj/item/clothing/head/urist/terran
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
-/obj/item/clothing/head/terran/trader
+/obj/item/clothing/head/urist/terran/trader
 	name = "Terran Confederacy trader's hat"
 	desc = "An opulent hat worn by a Terran Confederacy trader"
 	icon_state = "TCTHat"
