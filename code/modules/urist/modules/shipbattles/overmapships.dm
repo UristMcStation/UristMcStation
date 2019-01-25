@@ -24,6 +24,8 @@
 		shields = S.strength
 		return
 
+	name = ship_category //once i get names, flesh this out
+
 //	var/datum/ships/SD = shipdatum
 
 //	src.shields = SD.shields

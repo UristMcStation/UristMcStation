@@ -176,6 +176,12 @@
 	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
 	autolinkers = list("processorWyrm", "busWyrm")
 
+/obj/machinery/telecomms/bus/preset_nerva
+	id = "Main Bus"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ, COMB_FREQ)
+	autolinkers = list("processorWyrm", "busWyrm")
+
 //Processors
 
 /obj/machinery/telecomms/processor/preset_one
@@ -301,6 +307,24 @@
 		list(SEC_FREQ, "Security", "#a30000"),
 		list(SRV_FREQ, "Service", "#6eaa2c"),
 		list(SUP_FREQ, "Supply", "#7f6539")
+	)
+	autolinkers = list("serverWyrm", "busWyrm")
+
+/obj/machinery/telecomms/server/presets/nerva //the same, but with combat
+	id = "Wyrm NAS"
+	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
+	channel_tags = list(
+		list(AI_FREQ, "AI Private", "#ff00ff"),
+		list(COMM_FREQ, "Command", "#395a9a"),
+		list(ENG_FREQ, "Engineering", "#a66300"),
+		list(ENT_FREQ, "Entertainment", "#6eaa2c"),
+		list(MED_FREQ, "Medical", "#008160"),
+		list(PUB_FREQ, "Common", "#008000"),
+		list(SCI_FREQ, "Science", "#993399"),
+		list(SEC_FREQ, "Security", "#a30000"),
+		list(SRV_FREQ, "Service", "#6eaa2c"),
+		list(SUP_FREQ, "Supply", "#7f6539"),
+		list(COMB_FREQ, "Combat", "#db135c"), //pank
 	)
 	autolinkers = list("serverWyrm", "busWyrm")
 

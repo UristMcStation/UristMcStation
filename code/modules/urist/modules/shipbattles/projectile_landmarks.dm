@@ -28,7 +28,7 @@
 	var/target_y = rand(63,130) //there's enough variance here that there will be near misses sometimes, moreso if the shots are on the top deck
 //	var/turf/T = get_turf(src)
 
-	message_admins("An enemy ship has fired a [P.name] at the ship targeting <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_x];Y=[target_y];Z=[src.z]'>(JMP)</a>.")
+	message_admins("An enemy ship has fired a [P.name] at the ship targeting <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_x];Y=[target_y];Z=[src.z]'>(JMP)</a>.", 1)
 
 	P.loc = (get_turf(src.loc))
 

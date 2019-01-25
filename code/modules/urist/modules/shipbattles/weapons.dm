@@ -51,6 +51,7 @@
 		..()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
+	..()
 	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
 		var/want = input("Fire the [src]?") in list ("Cancel", "Yes")
 		switch(want)
@@ -58,17 +59,18 @@
 				return
 			if("Yes")
 				if(charged) //just in case, we check again
-					user << "<span class='warning'>You fire the [src].</span>"
+					user.visible_message("<span class='warning'>You fire the [src].</span>")
 					Fire()
 				else
-					user << "<span class='warning'>The [src] needs to charge!</span>"
+					user.visible_message("<span class='warning'>The [src] needs to charge!</span>")
 
 		return
 	else if(!charged)
-		user << "<span class='warning'>The [src] needs to charge!</span>"
+		user.visible_message("<span class='warning'>The [src] needs to charge!</span>")
 
 	else if(!target)
-		user << "<span class='warning'>There is nothing to shoot at...</span>"
+		user.visible_message("<span class='warning'>There is nothing to shoot at...</span>")
+
 
 /obj/machinery/shipweapons/proc/Fire()
 	if(!target) //maybe make it fire and recharge if people are dumb?
@@ -189,10 +191,10 @@
 			user.remove_from_mob(I)
 			qdel(I)
 
-			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
+			user.visible_message("<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>") //torpedo
 
 		else
-			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+			user.visible_message("<span class='notice'>This torpedo already has a warhead in it!</span>") //torpedo
 
 /obj/structure/shipammo/torpedo/loaded
 	name = "loaded torpedo"

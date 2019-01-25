@@ -3,7 +3,7 @@
 /obj/item/weapon/storage/box/radiokeys
 	name = "box of radio encryption keys"
 	desc = "A box full of assorted encryption keys."
-	startswith = list(/obj/item/device/encryptionkey/headset_sec = 3,
+	startswith = list(/obj/item/device/encryptionkey/nerva/sec = 3,
 					  /obj/item/device/encryptionkey/headset_med = 3,
 					  /obj/item/device/encryptionkey/headset_cargo = 3)
 
@@ -23,6 +23,27 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/so
 
+/obj/item/device/radio/headset/heads/firstofficer
+	name = "first officer's headset"
+	desc = "The headset of the ICS Nerva's first officer."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/cap
+
+/obj/item/device/radio/headset/heads/nerva_cap
+	name = "captain's headset"
+	desc = "The headset of the ICS Nerva's captain."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/cap
+
+/obj/item/device/radio/headset/heads/nerva_cos
+	name = "chief of security's headset"
+	desc = "The headset of the man who protects your worthless lives."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/so
+
 /obj/item/device/radio/headset/heads/nerva_qm
 	name = "quatermaster's headset"
 	desc = "The headset of the ICS Nerva's quatermaster."
@@ -30,7 +51,12 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/qm
 
-
+/obj/item/device/radio/headset/nerva_sec
+	name = "security radio headset"
+	desc = "This is used by your elite security force."
+	icon_state = "sec_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/sec
 
 //encryption keys
 
@@ -42,12 +68,27 @@
 /obj/item/device/encryptionkey/nerva/so
 	name = "second officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Service" = 1, "Command" = 1, "Security" = 1)
+	channels = list("Service" = 1, "Command" = 1, "Security" = 1, "Combat" = 0)
 
 /obj/item/device/encryptionkey/nerva/qm
 	name = "quatermaster's encryption key"
 	icon_state = "hop_cypherkey"
 	channels = list("Supply" = 1, "Service" = 1, "Command" = 1)
+
+/obj/item/device/encryptionkey/nerva/cap
+	name = "captain's encryption key"
+	icon_state = "cap_cypherkey"
+	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0, "Combat" = 0)
+
+/obj/item/device/encryptionkey/nerva/cos
+	name = "chief of security's encryption key"
+	icon_state = "hos_cypherkey"
+	channels = list("Security" = 1, "Command" = 1, "Combat" = 0)
+
+/obj/item/device/encryptionkey/nerva/sec
+	name = "security radio encryption key"
+	icon_state = "sec_cypherkey"
+	channels = list("Security" = 1, "Combat" = 1)
 
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
