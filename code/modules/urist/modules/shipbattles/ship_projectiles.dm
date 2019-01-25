@@ -6,9 +6,11 @@
 	heavy_effect_range = 4
 	light_effect_range = 8
 	ship = 1
+	kill_count = 200
 
 /obj/item/projectile/bullet/ship
 	ship = 1
+	kill_count = 200
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
 	name ="autocannon shell"
@@ -20,13 +22,13 @@
 	edge = 1
 	stun = 1
 	weaken = 1
-	penetrating = 3
+	penetrating = 2
 	armor_penetration = 100
 	penetration_modifier = 1.5
-	damage_type = BURN
-///obj/item/projectile/bullet/ship/cannon/ship/on_hit()
-//		explosion(target, 1, 2, 4)
-//		return 1
+
+/obj/item/projectile/bullet/ship/cannon/ship/on_impact(var/atom/A)
+	explosion(A, -1, 0, 2)
+	..()
 
 /obj/item/projectile/bullet/ship/smallmissile
 	name = "small missile"
@@ -61,7 +63,7 @@
 /obj/item/projectile/bullet/ship/bigtorpedo
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
-	icon_state= "bigmissile"
+	icon_state= "bigtorpedo"
 	damage = 200
 
 /obj/item/projectile/bullet/ship/bigtorpedo/on_hit(var/atom/target, var/blocked = 0)
@@ -86,9 +88,10 @@
 	icon_state = "impact_beam_heavy"
 
 /obj/item/projectile/beam/ship
-	var/life = 20
+//	var/life = 20
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	ship = 1
+	kill_count = 200
 
 /obj/item/projectile/beam/ship/destroy/on_hit(var/atom/target, var/blocked = 0)
 	if(isturf(target))
@@ -106,7 +109,7 @@
 	name = "light laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 160
+	damage = 200
 	armor_penetration = 100
 
 	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
@@ -117,9 +120,9 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 300
+	damage = 350
 	armor_penetration = 200
-	life = 30
+//	life = 30
 
 	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser/heavy/tracer

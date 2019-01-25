@@ -488,12 +488,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		return
 	return
 
-
 /obj/structure/shipportal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
 	else
 		do_teleport(M, locate(89,97,1), 0) //super Nerva specific
+		M << "<span class='warning'>You teleport back to the ship!</span>"
+
+/obj/effect/step_trigger/teleporter/urist/nerva
+	teleport_x = 89
+	teleport_y = 90
+	teleport_z = 1
 
 //barricade
 

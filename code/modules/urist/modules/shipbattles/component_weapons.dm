@@ -19,11 +19,14 @@
 		GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the [mastership.target_ship.name]. Brace for impact.</b>", "[mastership.target_ship.name] Automated Defence Computer", "Common")
 
 		if(burst == 1)
-			P.Fire(projectile_type)
+			spawn(5)
+				P.Fire(projectile_type)
 
 		if(burst == 2)
-			P.Fire(projectile_type)
-			P.Fire(projectile_type)
+			spawn(5)
+				P.Fire(projectile_type)
+			spawn(10)
+				P.Fire(projectile_type)
 
 //		src.announce_fire
 
@@ -33,8 +36,13 @@
 /datum/shipcomponents/weapons/ioncannon
 //	shielddamage = 300 //needs testing
 	name = "ion cannon"
-	firedelay = 10 SECONDS
+	firedelay = 12 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship
+
+/datum/shipcomponents/weapons/ioncannon/dual
+	name = "dual ion cannon"
+	firedelay = 20 SECONDS
+	burst = 1
 
 /datum/shipcomponents/weapons/autocannon
 	name = "autocannon"
@@ -75,4 +83,19 @@
 /datum/shipcomponents/weapons/lightlaser/auto
 	name = "light laser autocannon"
 	firedelay = 20 SECONDS
+	burst = 2
+
+/datum/shipcomponents/weapons/heavylaser
+	name = "heavy laser cannon"
+	firedelay = 20 SECONDS
+	projectile_type = /obj/item/projectile/beam/ship/heavylaser
+
+/datum/shipcomponents/weapons/heavylaser/dual
+	name = "dual heavy laser cannon"
+	firedelay = 25 SECONDS
+	burst = 1
+
+/datum/shipcomponents/weapons/heavylaser/auto
+	name = "heavy laser autocannon"
+	firedelay = 30 SECONDS
 	burst = 2

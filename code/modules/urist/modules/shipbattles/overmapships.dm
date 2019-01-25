@@ -75,6 +75,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/death()
 	despawnmap()
+	adjustBruteLoss(maxHealth)
 	target_ship.leave_combat()
 	qdel(src)
 
@@ -86,8 +87,10 @@
 /mob/living/simple_animal/hostile/overmapship/debug
 //	shipdatum = /datum/ships/debug
 	shields = 800
+	maxHealth = 800
 	health = 800
 	wander = 1
+	aggressive = 1
 
 /mob/living/simple_animal/hostile/overmapship/debug/New() //light shield for now to mess with some debug stuff
 	components = list(
@@ -111,6 +114,7 @@
 //	shipdatum = /datum/ships/piratesmall
 	shields = 800
 	health = 800
+	maxHealth = 800
 	name = "small pirate ship"
 	ship_category = "small pirate ship"
 
@@ -118,7 +122,7 @@
 	components = list(
 		new /datum/shipcomponents/shield/light,
 		new /datum/shipcomponents/engines/standard,
-		new /datum/shipcomponents/weapons/ioncannon
+		new /datum/shipcomponents/weapons/smallmissile
 	)
 
 	if(prob(50))
@@ -133,8 +137,18 @@
 //	shipdatum = /datum/ships/piratesmall
 	shields = 2000
 	health = 1000
+	maxHealth = 1000
 	name = "pirate vessel"
 	ship_category = "medium pirate vessel"
+
+/mob/living/simple_animal/hostile/overmapship/pirate/med/New()
+	components = list(
+		new /datum/shipcomponents/shield/medium,
+		new /datum/shipcomponents/engines/standard,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/weapons/heavylaser,
+		new /datum/shipcomponents/weapons/autocannon
+	)
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen
 	color = "#4286f4"
@@ -145,7 +159,8 @@
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
 	name = "Nanotrasen merchant ship"
 	shields = 1000
-	health = 600
+	health = 800
+	maxHealth = 800
 	ship_category = "NanoTrasen merchant ship"
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant/New()
@@ -161,4 +176,5 @@
 	name = "Nanotrasen patrol ship"
 	shields = 3000
 	health = 1600
+	maxHealth = 1600
 	ship_category = "NanoTrasen patrol ship"

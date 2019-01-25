@@ -21,6 +21,11 @@
 	var/recharging = 0 //are we waiting for the next recharge delay?
 	var/recharge_delay = 5 SECONDS //how long do we wait between recharges
 
+/datum/shipcomponents/shield/BlowUp()
+	strength = 0
+	recharge_rate = 0
+	..()
+
 /datum/shipcomponents/shield/debug
 	strength = 800
 	recharge_rate = 400 //super high for testing
@@ -30,6 +35,13 @@
 	strength = 800
 	health = 200
 	recharge_rate = 80
+	recharge_delay = 10 SECONDS
+
+/datum/shipcomponents/shield/medium
+	name = "medium shield"
+	strength = 1200
+	health = 400
+	recharge_rate = 70
 	recharge_delay = 10 SECONDS
 
 /datum/shipcomponents/shield/freighter
@@ -56,15 +68,19 @@
 /datum/shipcomponents/engines/freighter
 	name = "freighter engines"
 	evasion_chance = 5
+	health = 200
 
 /datum/shipcomponents/engines/standard
 	name = "standard engines"
 	evasion_chance = 10
+	health = 100
 
 /datum/shipcomponents/engines/combat
 	name = "high performance combat engines"
 	evasion_chance = 20
+	health = 250
 
 /datum/shipcomponents/engines/fighter //for really small ships
 	name = "small high performance combat engines"
 	evasion_chance = 40
+	health = 50

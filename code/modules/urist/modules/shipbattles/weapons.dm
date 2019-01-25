@@ -3,6 +3,7 @@
 	idle_power_usage = 10
 	active_power_usage = 1000
 	use_power = 1
+	anchored = 1
 	var/passshield = 0
 	var/shielddamage = 0
 	var/hulldamage = 0
@@ -15,6 +16,7 @@
 	var/chargedicon = null
 	var/target = null
 	var/component_hit = 0 //chance to hit components
+	var/obj/item/projectile/projectile_type
 
 /obj/machinery/shipweapons/Initialize()
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
@@ -94,11 +96,20 @@
 									return
 								else
 									OM.health -= shieldbuffer
+									for(var/datum/shipcomponents/shield/S in OM.components)
+										hulldamage *= 0.1
+										if(!S.broken)
+											S.health -= (hulldamage *= 0.1)
+
+											if(S.health <= 0)
+												S.BlowUp()
 
 					else if(!OM.shields) //no shields? easy
 						OM.health -= hulldamage
 						if(prob(component_hit))
 							HitComponents(OM)
+							var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.ship_projectile_landmarks)
+							P.Fire(projectile_type)
 
 				else if(passshield) //do we pass through the shield? let's do our damage
 					OM.health -= hulldamage
@@ -125,14 +136,17 @@
 
 
 /obj/machinery/shipweapons/update_icon()
+	..()
 	if(charged)
 		icon_state = "[initial(icon_state)]-charged"
 
 	if(recharging)
 		icon_state = "[initial(icon_state)]-charging"
 
-	else
-		icon_state = initial(icon_state)
+	if(!charged && !recharging)
+		icon_state = "[initial(icon_state)]-empty"
+
+//missiles
 
 /obj/machinery/shipweapons/missile
 	icon = 'icons/urist/96x96.dmi'
@@ -153,13 +167,77 @@
 		return
 
 
+//torpedo
+
+/obj/structure/shipammo/torpedo //TODO: Make this generic
+	name = "torpedo casing"
+	density = 0
+	anchored = 0
+	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon_state = "bigtorpedo-unloaded"
+	var/loaded = 0
+	matter = list(DEFAULT_WALL_MATERIAL = 2500)
+
+/obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
+		if(!src.loaded)
+
+			icon_state = "bigtorpedo"
+			loaded = 1
+
+			user.remove_from_mob(I)
+			qdel(I)
+
+			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
+
+		else
+			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+
+/obj/structure/shipammo/torpedo/loaded
+	name = "loaded torpedo"
+	loaded = 1
+	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon_state = "bigtorpedo"
+
+/obj/item/shipweapons/torpedo_warhead
+	name = "torpedo warhead"
+	desc = "It's a big warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon_state = "torpedowarhead"
+
 /obj/machinery/shipweapons/missile/torpedo
 	name = "torpedo launcher"
 	icon_state = "torpedo"
-	hulldamage = 400 //maybe
+	hulldamage = 350 //maybe
 //	active_power_usage = 1000
 	component_hit = 25
 	rechargerate = 15 SECONDS
+	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
+
+/obj/machinery/shipweapons/missile/torpedo/Bumped(atom/movable/M as mob|obj)
+	..()
+	if(istype(M, /obj/structure/shipammo/torpedo))
+		var/obj/structure/shipammo/torpedo/L = M
+		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
+			qdel(L)
+			src.loaded += 1
+
+/obj/machinery/shipweapons/missile/torpedo/Crossed(O as obj)
+	..()
+	if(istype(O, /obj/structure/shipammo/torpedo))
+		var/obj/structure/shipammo/torpedo/L = O
+		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
+			qdel(L)
+			src.loaded += 1
+
+/obj/machinery/shipweapons/missile/torpedo/update_icon()
+	..()
+
+	if(charged && loaded)
+		icon_state = "[initial(icon_state)]-loaded"
+
+//beams
 
 /obj/machinery/shipweapons/beam
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
@@ -173,6 +251,7 @@
 	active_power_usage = 2000
 	component_hit = 20
 	rechargerate = 15 SECONDS
+	projectile_type = /obj/item/projectile/beam/ship/lightlaser
 
 /obj/machinery/shipweapons/beam/ion
 	name = "ion cannon"
