@@ -88,7 +88,7 @@
 /obj/item/device/encryptionkey/nerva/sec
 	name = "security radio encryption key"
 	icon_state = "sec_cypherkey"
-	channels = list("Security" = 1, "Combat" = 1)
+	channels = list("Security" = 1, "Combat" = 0)
 
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
