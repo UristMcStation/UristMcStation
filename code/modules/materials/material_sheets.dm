@@ -91,7 +91,18 @@
 	else if(istype(W, /obj/item/stack/rods))
 		material.build_rod_product(user, W, src)
 		return
+	else if(istype(W, /obj/item/weapon/hammer/smithing))
+		if(techniques)
+			var/obj/structure/anvil/A = locate() in src.loc
+			if(A)
+				if(!A.busy)
+					A.busy = 1
+					metal_technique(user, W, src)
+					A.busy = 0
+					return
 	return ..()
+
+
 
 /obj/item/stack/material/iron
 	name = "iron"

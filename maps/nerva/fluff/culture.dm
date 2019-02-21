@@ -133,7 +133,7 @@
 	description = "You are one of the many supporters of the United Human Alliance scattered throughout human space. Either from one of the UHA controlled worlds, or from somewhere else, \
 	your behaviour is defined by your resentment towards the Unathi, and the perceived weakness of Confederacy politicians. As in Terra (not Earth), the broader UHA places an emphasis on \
 	military service, and many of the UHA's far-flung supporters aim to help the UHA in the Terran Civil War in any way they can. This can range from joining the UHA military, \
-	to smuggling weaponry, to stirring up dissent, to outright terrorism."
+	to smuggling weaponry, stirring up dissent, or outright terrorism."
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_INDEPENDENT)
 	economic_power = 0.9
 

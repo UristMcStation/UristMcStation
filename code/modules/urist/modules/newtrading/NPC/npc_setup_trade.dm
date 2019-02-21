@@ -66,6 +66,9 @@
 	if(randomize_value)
 		I.value = round(I.value * (75 + rand(0,50))/100)
 
+	if(!randomize_value && inflate_value) //if we're not randomizing the value, we can set the specific inflation.
+		I.value = (I.value * inflate_value)	//this allows us to make items more expensive in certain areas. but also more lucrative to sell
+
 	if(hidden)
 		I.quantity = 0
 	else

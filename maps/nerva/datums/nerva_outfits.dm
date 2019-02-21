@@ -41,7 +41,7 @@
 /decl/hierarchy/outfit/job/nerva/firstofficer
 	name = OUTFIT_JOB_NAME("First Officer")
 	uniform = /obj/item/clothing/under/urist/nerva/foregular
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	l_ear = /obj/item/device/radio/headset/heads/firstofficer
 	shoes = /obj/item/clothing/shoes/black
 	id_type = /obj/item/weapon/card/id/firstofficer
 	pda_type = /obj/item/modular_computer/pda/heads/hop //change
@@ -104,7 +104,7 @@
 	name = OUTFIT_JOB_NAME("Nerva Captain")
 	uniform = /obj/item/clothing/under/urist/nerva/capregular
 	suit = /obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	l_ear = /obj/item/device/radio/headset/heads/nerva_cap
 	shoes = /obj/item/clothing/shoes/urist/capboots
 	id_type = /obj/item/weapon/card/id/gold
 	pda_type = /obj/item/modular_computer/pda/captain
@@ -121,11 +121,12 @@
 	id_type = /obj/item/weapon/card/id/security
 	pda_type = /obj/item/modular_computer/pda/security
 	head = /obj/item/clothing/head/beret/sec
+	l_ear = /obj/item/device/radio/headset/nerva_sec
 
 /decl/hierarchy/outfit/job/security/nervacos //done
 	name = OUTFIT_JOB_NAME("Chief of Security")
 	uniform = /obj/item/clothing/under/urist/nerva/cosregular
-	l_ear = /obj/item/device/radio/headset/heads/hos
+	l_ear = /obj/item/device/radio/headset/heads/nerva_cos
 	id_type = /obj/item/weapon/card/id/security/head
 	pda_type = /obj/item/modular_computer/pda/heads/hos
 	backpack_contents = list(/obj/item/weapon/handcuffs = 1)

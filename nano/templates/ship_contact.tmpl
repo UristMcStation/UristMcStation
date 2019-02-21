@@ -1,0 +1,24 @@
+<table style="width:100%">
+	<tr><th style="width:20%">Contract<th style="width:30%">Description<th style="width:20%">Issuer<th style="width:10%">Value<th style="width:10%">Required Amount<th style="width:10%">Amount Completed
+	{{for data.existing_contracts}}
+		<tr>
+		<td>{{:value.name}}
+		<td>{{:value.desc}}
+		<td>{{:value.issuer}}
+		<td>{{:value.money}} {{:data.currency}}
+		<td>{{:value.amount}}
+		<td>{{:value.progress}}
+	{{/for}}
+</table>
+
+<div class="item">
+	<div class="itemLabel">
+		Options:
+	</div>
+	<div class="itemContent">
+		{{:helper.link('Engage', 'engage', {'engage' : 1})}}
+	</div>
+	<div class="itemContent">
+		{{:helper.link('Dock', 'dock', {'dock' : 1})}}
+	</div>
+</div>

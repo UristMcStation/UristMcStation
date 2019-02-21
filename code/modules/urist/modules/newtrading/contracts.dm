@@ -17,38 +17,41 @@
 	if(completed >= amount)
 		station_account.money += money
 
-	GLOB.using_map.contracts -= src
+		GLOB.using_map.contracts -= src
+		qdel(src)
 
 /obj/item/weapon/paper/contract
-	var/contract = /datum/contract
+	var/contract_type = null
+	var/datum/contract/Contract = null
 
 /obj/item/weapon/paper/contract/New()
-	var/datum/contract/C
-	C = contract
+	..()
 
-	name = C.name
-	info = C.desc
+	Contract = new contract_type
 
-	AddContract()
+	name = Contract.name
+	info = Contract.desc
 
-/obj/item/weapon/paper/contract/proc/AddContract()
+	AddContract(contract_type)
+
+/obj/item/weapon/paper/contract/proc/AddContract(var/contract)
 	GLOB.using_map.contracts += new contract
 
 /datum/contract/nanotrasen
-	faction = "nanotrasen"
+	faction = "NanoTrasen"
 
 /datum/contract/nanotrasen/anomaly //code\modules\xenoarcheaology\tools\artifact_analyser.dm
 	name = "Anomaly Research Contract"
-	desc = "A contract issued by Nanotrasen to research anomalies."
+	desc = "A contract issued by NanoTrasen to research anomalies."
 
 /datum/contract/nanotrasen/anomaly/New()
 	amount = rand(1,5)
-	desc = "A contract issued by Nanotrasen to research [amount] of the anomalies found throughout this sector."
+	desc = "A contract issued by NanoTrasen to research [amount] of the anomalies found throughout this sector."
 	money = (amount * rand(300,500))
 	rep_points = amount
 
 /obj/item/weapon/paper/contract/nanotrasen/anomaly
-	contract = /datum/contract/nanotrasen/anomaly
+	contract_type = /datum/contract/nanotrasen/anomaly
 
 /datum/contract/terran
 	faction = "terran"

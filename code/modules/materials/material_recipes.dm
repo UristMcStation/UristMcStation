@@ -69,11 +69,20 @@
 	recipes += new/datum/stack_recipe/fire_alarm(src)
 	recipes += new/datum/stack_recipe_list("modular computer frames", create_recipe_list(/datum/stack_recipe/computer))
 
+	recipes += new/datum/stack_recipe_list("filing cabinets", list(
+		new/datum/stack_recipe/furniture/(src),
+		new/datum/stack_recipe/furniture/chestdrawer(src),
+		new/datum/stack_recipe/furniture/tallfilingcabinet(src)
+		))
+
+
 /material/plasteel/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe/ai_core(src)
 	recipes += new/datum/stack_recipe/furniture/crate(src)
 	recipes += new/datum/stack_recipe/grip(src)
+
+	recipes += new/datum/stack_recipe/scrapshield(src)
 
 /material/stone/generate_recipes()
 	..()
@@ -102,19 +111,18 @@
 	recipes += new/datum/stack_recipe/zipgunframe(src)
 	recipes += new/datum/stack_recipe/coilgun(src)
 	recipes += new/datum/stack_recipe/stick(src)
-	/*
-	recipes += new/datum/stack_recipe("improvised rifle stock", /obj/item/weapon/imprifleframe, 10, time = 50, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("underwear wardrobe", /obj/structure/undies_wardrobe, 8, time = 40, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("wooden cabinet", /obj/structure/closet/cabinet, 4, time = 25, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("coatrack", /obj/structure/coatrack, 2, time = 15, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("wooden filing cabinet", /obj/structure/filingcabinet, 3, time = 20, one_per_turf = 1, on_floor = 1)
+
+	recipes += new/datum/stack_recipe/imprifleframe(src)
+	recipes += new/datum/stack_recipe/furniture/undies_wardrobe(src)
+	recipes += new/datum/stack_recipe/furniture/cabinet(src)
+	recipes += new/datum/stack_recipe/furniture/coatrack(src)
+	recipes += new/datum/stack_recipe/furniture/woodfilingcabinet(src)
 //	recipes += new/datum/stack_recipe("easel", /obj/structure/easel, 3, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("wooden rack", /obj/structure/table/rack/wood, 1, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("raft frame", /obj/structure/raft, 6, time = 30, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("paddle", /obj/item/weapon/paddle, 3, time = 20, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("wood rod", /obj/item/stack/woodrods, 1, 2, 60)
-	recipes += new/datum/stack_recipe("wooden bow", /obj/item/weapon/gun/launcher/crossbow/bow, 5, time = 40, on_floor = 1)
-*/
+	recipes += new/datum/stack_recipe/furniture/woodrack(src)
+	recipes += new/datum/stack_recipe/furniture/raft(src)
+	recipes += new/datum/stack_recipe/paddle(src)
+	recipes += new/datum/stack_recipe/woodrod(src)
+//	recipes += new/datum/stack_recipe("wooden bow", /obj/item/weapon/gun/launcher/crossbow/bow, 5, time = 40, on_floor = 1)
 
 /material/cardboard/generate_recipes()
 	..()

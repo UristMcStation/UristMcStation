@@ -19,6 +19,7 @@
 
 	var/auto_connect = 1
 	var/list/connected
+	var/halted = 0 //Nax, I know this is going to conflict when we merge Bay. If it's you merging it, just take Bay's version of this whole file. What I'm adding is just temporary, for combat.
 
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
@@ -85,6 +86,8 @@
 /obj/effect/overmap/ship/proc/get_brake_path()
 	if(!get_acceleration())
 		return INFINITY
+	if(is_still())
+		return 0
 	var/num_burns = get_speed()/get_acceleration() + 2 //some padding in case acceleration drops form fuel usage
 	var/burns_per_grid = (default_delay - speed_mod*get_speed())/burn_delay
 	return round(num_burns/burns_per_grid)
@@ -112,16 +115,17 @@
 
 /obj/effect/overmap/ship/Process()
 	if(!is_still())
-		var/list/deltas = list(0,0)
-		for(var/i=1, i<=2, i++)
-			if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
-				deltas[i] = speed[i] > 0 ? 1 : -1
-				last_movement[i] = world.time
-		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
-		if(newloc)
-			Move(newloc)
-			handle_wraparound()
-		update_icon()
+		if(!halted)
+			var/list/deltas = list(0,0)
+			for(var/i=1, i<=2, i++)
+				if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
+					deltas[i] = speed[i] > 0 ? 1 : -1
+					last_movement[i] = world.time
+			var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
+			if(newloc)
+				Move(newloc)
+				handle_wraparound()
+			update_icon()
 
 /obj/effect/overmap/ship/update_icon()
 	if(!is_still())
@@ -139,11 +143,13 @@
 		. += E.get_thrust()
 
 /obj/effect/overmap/ship/proc/can_burn()
+	if(halted)
+		return 0
 	if (world.time < last_burn + burn_delay)
 		return 0
 	for(var/datum/ship_engine/E in engines)
 		. |= E.can_burn()
-		
+
 //deciseconds to next step
 /obj/effect/overmap/ship/proc/ETA()
 	. = INFINITY
@@ -177,3 +183,12 @@
 	if(istype(A,/turf/unsimulated/map/edge))
 		handle_wraparound()
 	..()
+
+/obj/effect/overmap/ship/proc/halt()
+	adjust_speed(-speed[1], -speed[2])
+	for(var/zz in map_z)
+		toggle_move_stars(zz)
+	halted = 1
+
+/obj/effect/overmap/ship/proc/unhalt()
+	halted = 0

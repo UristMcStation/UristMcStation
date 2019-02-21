@@ -13,6 +13,7 @@
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
+	#include "obj/nerva_computers.dm"
 	#include "fluff/_fluff.dm"
 	#include "fluff/culture.dm"
 	#include "fluff/factions.dm"
@@ -47,6 +48,8 @@
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/glloyd_jungle/glloyd_jungle.dm"
+	#include "../away/destroyed_colony/destroyed_colony.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

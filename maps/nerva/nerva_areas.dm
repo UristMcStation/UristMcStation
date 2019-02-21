@@ -752,3 +752,8 @@
 	name = "\improper Makeshift Building"
 
 /area/jungle/shuttle
+
+//ship
+
+/area/ship/combat
+	name = "\improper Ship"

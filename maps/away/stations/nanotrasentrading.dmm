@@ -1404,6 +1404,10 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"hM" = (
+/mob/living/simple_animal/hostile/npc/colonist/atmos_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "iD" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (EAST)";
@@ -4812,7 +4816,7 @@ af
 di
 dl
 ad
-af
+hM
 af
 af
 af

@@ -6,6 +6,7 @@
 	var/list/linkedweapons = list() //put the weapons in here on their init
 	var/shipid = null
 	var/target = null
+	var/obj/effect/overmap/ship/combat/homeship
 
 /obj/machinery/computer/combatcomputer/attack_hand(user as mob)
 	if(..(user))
