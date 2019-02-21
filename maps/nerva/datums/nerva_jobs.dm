@@ -56,14 +56,26 @@
 			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
 			            access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
-			            access_expedition_shuttle_helm, access_expedition, access_fo,
+			            access_expedition_shuttle_helm, access_expedition, access_fo, access_teleporter,
 			            access_tcomsat, access_engine_equip, access_tech_storage, access_ce, access_external_airlocks, access_atmospherics, access_emergency_storage, access_construction,
 			            access_medical, access_medical_equip, access_morgue, access_genetics,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
 						access_tox, access_tox_storage, access_xenobiology, access_xenoarch
 						)
-	minimal_access = list()
+	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
+			            access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
+			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
+			            access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
+			            access_expedition_shuttle_helm, access_expedition, access_fo, access_teleporter,
+			            access_tcomsat, access_engine_equip, access_tech_storage, access_ce, access_external_airlocks, access_atmospherics, access_emergency_storage, access_construction,
+			            access_medical, access_medical_equip, access_morgue, access_genetics,
+						access_chemistry, access_virology, access_cmo, access_surgery,
+						access_robotics, access_research, access_armory, access_hos,
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch
+						)
 
 /datum/job/firstofficer/get_description_blurb()
 	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. Moreover, if there is no second officer, your job is also to oversee personnel issues. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."

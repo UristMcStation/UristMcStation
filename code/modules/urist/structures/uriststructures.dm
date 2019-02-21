@@ -469,19 +469,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "portal"
 	density = 1
 	anchored = 1
+	layer = 3.1
 
-/obj/structure/shipportal/Bumped(mob/M as mob|obj)
+/obj/structure/shipportal/Bumped(atom/movable/M as mob|obj)
 	spawn(0)
 		src.teleport(M)
 		return
 	return
-
+/*
 /obj/structure/shipportal/Crossed(AM as mob|obj)
 	spawn(0)
 		src.teleport(AM)
 		return
 	return
-
+*/
 /obj/structure/shipportal/attack_hand(mob/user as mob)
 	spawn(0)
 		src.teleport(user)
@@ -492,7 +493,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
 	else
-		do_teleport(M, locate(89,97,1), 0) //super Nerva specific
+		var/tele_x = GLOB.using_map.overmap_ship.evac_x
+		var/tele_y = GLOB.using_map.overmap_ship.evac_y
+		var/tele_z = GLOB.using_map.overmap_ship.evac_z
+
+		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
 		M << "<span class='warning'>You teleport back to the ship!</span>"
 
 /obj/effect/step_trigger/teleporter/urist/nerva

@@ -5,6 +5,8 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	name = "NPC"
 	desc = "npc"
 	var/npc_job_title
+	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
+	icon_state = "Human_m"
 	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pushes"
@@ -57,7 +59,22 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	var/randomize_quantity = 1
 	var/inflate_value = 0 //only use this with randomize_value = 0, otherwise it will have no effect
 
+	var/species_type = SPECIES_HUMAN
+	var/datum/species/my_species
+
+
+
 /mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0
 	return 1
+
+/mob/living/simple_animal/npc/death(gibbed, deathmessage = "dies!", show_dead_message)
+	. = ..()
+
+	//fall over
+	src.dir = 2
+	var/matrix/M = src.transform
+	M.Turn(90)
+	M.Translate(1,-6)
+	src.transform = M

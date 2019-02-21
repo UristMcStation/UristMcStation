@@ -18,6 +18,7 @@
 	icon_state = "globe"
 	known = 0
 	in_space = 0
+	color = "#538224"
 	initial_generic_waypoints = list(
 		"nav_glloyd_jungle_1",
 		"nav_glloyd_jungle_2"

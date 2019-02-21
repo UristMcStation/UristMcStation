@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(mapping)
 
 	admin_notice("<span class='danger'>Templates Preloaded</span>", R_DEBUG)
 
-	for(var/obj/effect/template_loader/E in landmarks_list)
+	for(var/obj/effect/template_loader/E in GLOB.trigger_landmarks)
 		if(E.gamemode)
 			continue
 		spawn(200)

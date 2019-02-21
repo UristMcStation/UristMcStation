@@ -6,11 +6,11 @@
 	heavy_effect_range = 4
 	light_effect_range = 8
 	ship = 1
-	kill_count = 200
+	kill_count = 300
 
 /obj/item/projectile/bullet/ship
 	ship = 1
-	kill_count = 200
+	kill_count = 300
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
 	name ="autocannon shell"
@@ -91,7 +91,7 @@
 //	var/life = 20
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	ship = 1
-	kill_count = 200
+	kill_count = 300
 
 /obj/item/projectile/beam/ship/destroy/on_hit(var/atom/target, var/blocked = 0)
 	if(isturf(target))
@@ -109,7 +109,7 @@
 	name = "light laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 200
+	damage = 300
 	armor_penetration = 100
 
 	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
@@ -120,10 +120,30 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 350
+	damage = 600
 	armor_penetration = 200
 //	life = 30
 
 	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser/heavy/tracer
 	impact_type = /obj/effect/projectile/laser/heavy/impact
+
+/obj/item/projectile/beam/ship/alien
+	icon = 'icons/urist/items/guns.dmi'
+	muzzle_type = /obj/effect/projectile/laser/xray/muzzle
+	tracer_type = /obj/effect/projectile/laser/xray/tracer
+	impact_type = /obj/effect/projectile/laser/xray/impact
+
+/obj/item/projectile/beam/ship/alien/light
+	name = "light laser"
+	icon_state = "alienprojectile"
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	damage = 1000
+	armor_penetration = 200
+
+/obj/item/projectile/beam/ship/alien/heavy
+	name = "heavy laser"
+	icon_state = "alienprojectile"
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	damage = 1800
+	armor_penetration = 200

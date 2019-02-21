@@ -238,6 +238,7 @@
 	number = 1
 /obj/effect/shuttle_landmark/escape_pod/start/pod1
 	number = 1
+	base_turf = /turf/simulated/floor/reinforced/airless
 /obj/effect/shuttle_landmark/escape_pod/out/pod1
 	number = 1
 /obj/effect/shuttle_landmark/escape_pod/transit/pod1
@@ -249,6 +250,7 @@
 	number = 2
 /obj/effect/shuttle_landmark/escape_pod/start/pod2
 	number = 2
+	base_turf = /turf/simulated/floor/plating
 /obj/effect/shuttle_landmark/escape_pod/out/pod2
 	number = 2
 /obj/effect/shuttle_landmark/escape_pod/transit/pod2
@@ -260,6 +262,7 @@
 	number = 3
 /obj/effect/shuttle_landmark/escape_pod/start/pod3
 	number = 3
+	base_turf = /turf/simulated/floor/plating
 /obj/effect/shuttle_landmark/escape_pod/out/pod3
 	number = 3
 /obj/effect/shuttle_landmark/escape_pod/transit/pod3

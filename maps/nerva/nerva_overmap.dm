@@ -7,6 +7,10 @@
 	var/docked = 0 //are we docked?
 	var/mob/living/simple_animal/hostile/overmapship/target
 
+	var/evac_x = 142
+	var/evac_y = 106
+	var/evac_z = 2
+
 /obj/effect/overmap/ship/combat/nerva
 	name = "ICS Nerva"
 	shipid = "nerva"
@@ -32,7 +36,7 @@
 
 	canfight = 1
 	hostile_factions = list(
-		"pirates",
+		"pirate",
 		"xenos",
 		"hostile"
 	)
@@ -44,15 +48,22 @@
 	..()
 
 /obj/effect/overmap/ship/combat/nerva/Initialize()
-	.=..()
-
-	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
-		if(CC.shipid == src.shipid)
+	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign ourself to the combat computer
+		if(CC.shipid == src.shipid) //having things tied to shipid means that in the future we might be able to have pvp ship combat, if i change a couple things with attacking
 			CC.homeship = src
+	for(var/obj/machinery/shipweapons/SW in SSmachines.machinery)
+		if(SW.shipid == src.shipid)
+			SW.homeship = src
+
+	GLOB.using_map.overmap_ship = src
+
+	.=..()
 
 /obj/effect/overmap/ship/combat/proc/enter_combat()
 	src.incombat = 1
 	target.incombat = 1
+	if(!target.map_spawned)
+		target.spawnmap()
 //	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 //	security_state.stored_security_level = security_state.current_security_level
 //	security_state.set_security_level(security_state.high_security_level)
@@ -66,21 +77,27 @@
 		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
 			if(CC.shipid == src.shipid)
 				CC.target = new_target
+			if(!CC.homeship)
+				CC.homeship = src
+
 		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
 			if(SW.shipid == src.shipid)
 				SW.target = new_target
+			if(!SW.homeship)
+				SW.homeship = src
 
 		src.target = new_target
 
 	else
 
-		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
+		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we unassign our targets from the combat computer
 			if(CC.shipid == src.shipid)
 				CC.target = null
-		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
+		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and the weapons
 			if(SW.shipid == src.shipid)
 				SW.target = null
 
+		target.target_ship = null
 		src.target = null
 
 /obj/effect/overmap/ship/combat/proc/leave_combat()
@@ -99,35 +116,8 @@
 		if(istype(O, /mob/living/simple_animal/hostile/overmapship))
 
 			var/mob/living/simple_animal/hostile/overmapship/L = O
-			src.Contact(L)
-/*
-			src.halt() //cancel our momentum
-			crossed = 1 //we're in combat now, so let's cancel out momentum
-			//now let's cancel the momentum of the mob
-//			L.combat
-			L.target_ship = src
-
-			src.set_targets(L)
-
-			if(L.aggressive || L.hiddenfaction in src.hostile_factions)
-				enter_combat()
-				return //here we set up the combat stuff if they're aggressive
-
-			else
-
-			spawn(30 SECONDS)
-				if(!src.incombat || !src.docked)
-					src.set_targets()
-
-					crossed = 0
-					src.unhalt()
-
-				else
-					return
-
-
-			return
-*/
+			if(!L.event)
+				src.Contact(L)
 
 /obj/effect/overmap/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
 	src.halt() //cancel our momentum

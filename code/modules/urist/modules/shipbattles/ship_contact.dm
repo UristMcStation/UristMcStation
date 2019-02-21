@@ -19,7 +19,8 @@
 
 /datum/nano_module/ship_contact/New()
 	for(var/obj/machinery/computer/combatcomputer/comp in SSmachines.machinery)
-		CC = comp
+		if(comp.shipid == src.shipid)
+			CC = comp
 
 	shipid = CC.shipid
 
@@ -36,9 +37,7 @@
 		ui.open()
 
 /datum/nano_module/ship_contact/Topic(href, href_list)
-	ship = null //i hate this
-	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
-		ship = CC.target
+	ship = CC.target
 
 //	var/mob/user = usr
 	if(..())
@@ -51,15 +50,21 @@
 		if(!CC.homeship.incombat) //ew
 			dock()
 
-	ship = null
-
 /datum/nano_module/ship_contact/proc/engage()
 	CC.homeship.enter_combat()
-	ship.spawnmap()
 
 /datum/nano_module/ship_contact/proc/dock()
-	CC.homeship.docked = 1
-	ship.spawnmap()
+	if(!CC.homeship.docked)
+		CC.homeship.docked = 1
+		ship.spawnmap()
+
+	else
+		CC.homeship.docked = 0
+		CC.homeship.leave_combat()
+		ship.despawnmap()
+		ship.incombat = 0
+		CC.homeship.set_targets()
+		ship.stop_automated_movement = 0
 
 /datum/nano_module/ship_contact/proc/generate_categories()
 	category_contents = list()
@@ -71,7 +76,7 @@
 		category.Add(list(list(
 			"name" = ship.name,
 			"desc" = ship.desc,
-			"faction" = ship.faction,
+			"faction" = ship.hiddenfaction,
 			"hull" = ship.health,
 			"shield" = ship.shields
 		)))

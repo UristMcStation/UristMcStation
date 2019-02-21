@@ -11,6 +11,8 @@
 	mastership.health -= 100
 	broken = TRUE
 	name = "destroyed [initial(name)]"
+	if(mastership.health <= 0)
+		mastership.shipdeath()
 	return
 
 //shields
@@ -52,11 +54,25 @@
 	recharge_delay = 10 SECONDS
 
 /datum/shipcomponents/shield/fighter
-	name = "light shield"
+	name = "high performance ultralight shield"
 	strength = 400
 	health = 100
 	recharge_rate = 50
 	recharge_delay = 5 SECONDS
+
+/datum/shipcomponents/shield/alien_light
+	name = "light alien shield"
+	strength = 200
+	health = 200
+	recharge_rate = 60
+	recharge_delay = 5 SECONDS
+
+/datum/shipcomponents/shield/alien_heavy
+	name = "heavy alien shield"
+	strength = 500
+	health = 200
+	recharge_rate = 60
+	recharge_delay = 8 SECONDS
 
 //evasion
 
@@ -64,6 +80,10 @@
 
 /datum/shipcomponents/engines
 	var/evasion_chance = 0
+
+/datum/shipcomponents/engines/BlowUp()
+	evasion_chance = 0
+	..()
 
 /datum/shipcomponents/engines/freighter
 	name = "freighter engines"
@@ -84,3 +104,13 @@
 	name = "small high performance combat engines"
 	evasion_chance = 40
 	health = 50
+
+/datum/shipcomponents/engines/alien_light
+	name = "alien engines"
+	evasion_chance = 25
+	health = 150
+
+/datum/shipcomponents/engines/alien_heavy
+	name = "heavy alien engines"
+	evasion_chance = 15
+	health = 250

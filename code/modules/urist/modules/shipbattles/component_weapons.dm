@@ -16,7 +16,7 @@
 	else
 		var/obj/effect/urist/projectile_landmark/ship/P = pick(GLOB.ship_projectile_landmarks)
 		P.Fire(projectile_type)
-		GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the [mastership.target_ship.name]. Brace for impact.</b>", "[mastership.target_ship.name] Automated Defence Computer", "Combat")
+//		GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the [mastership.target_ship.name]. Brace for impact.</b>", "[mastership.target_ship.name] Automated Defence Computer", "Combat")
 
 		if(burst == 1)
 			spawn(5)
@@ -27,6 +27,10 @@
 				P.Fire(projectile_type)
 			spawn(10)
 				P.Fire(projectile_type)
+
+		ready = FALSE
+		spawn(firedelay)
+			ready = TRUE
 
 //		src.announce_fire
 
@@ -67,8 +71,23 @@
 
 /datum/shipcomponents/weapons/bigmissile/battery
 	name = "large missile battery"
-	firedelay = 60 SECONDS
+	firedelay = 50 SECONDS
 	burst = 1
+
+/datum/shipcomponents/weapons/smalltorpedo
+	name = "small torpedo launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/smalltorpedo
+	firedelay = 25 SECONDS
+
+/datum/shipcomponents/weapons/bigtorpedo
+	name = "large torpedo launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/smalltorpedo
+	firedelay = 40 SECONDS
+
+/datum/shipcomponents/weapons/smalltorpedo
+	name = "large missile launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/bigmissile
+	firedelay = 30 SECONDS
 
 /datum/shipcomponents/weapons/lightlaser
 	name = "light laser cannon"
@@ -99,3 +118,23 @@
 	name = "heavy laser autocannon"
 	firedelay = 30 SECONDS
 	burst = 2
+
+//alien
+
+/datum/shipcomponents/weapons/alien/light
+	name = "alien rapid-fire beam cannon"
+	firedelay = 22 SECONDS
+	burst = 2
+	projectile_type = /obj/item/projectile/beam/ship/alien/light
+
+/datum/shipcomponents/weapons/alien/heavy
+	name = "alien dual heavy beam cannon"
+	burst = 1
+	firedelay = 32 SECONDS
+	projectile_type = /obj/item/projectile/beam/ship/alien/heavy
+
+/datum/shipcomponents/weapons/alien/heavy/burst
+	name = "alien rapid-fire heavy beam cannon"
+	firedelay = 36 SECONDS
+	burst = 2
+	projectile_type = /obj/item/projectile/beam/ship/alien/heavy

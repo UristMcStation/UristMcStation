@@ -518,21 +518,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
-"bS" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27;
-	pixel_y = 1
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/first)
 "bT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -948,7 +933,9 @@
 /turf/simulated/floor/wood,
 /area/command/captain)
 "cR" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/item/modular_computer/console/preset/nervacommand{
+	tag = "icon-console (WEST)";
+	icon_state = "console";
 	dir = 8
 	},
 /obj/item/weapon/card/id/captains_spare,
@@ -1033,6 +1020,7 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Captain's Office"
 	},
+/obj/item/weapon/paper/contract/nanotrasen/anomaly,
 /turf/simulated/floor/wood,
 /area/command/captain)
 "df" = (
@@ -1043,6 +1031,9 @@
 	d2 = 4;
 	icon_state = "2-4";
 	tag = ""
+	},
+/obj/machinery/atm{
+	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
 /area/command/captain)
@@ -2862,7 +2853,7 @@
 	icon_state = "camera";
 	tag = "icon-camera (EAST)"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/civilian/lounge)
 "jB" = (
 /obj/item/weapon/circuitboard/aiupload,
@@ -3553,6 +3544,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/observatory)
+"lx" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "lz" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -5614,6 +5610,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/fuelbay)
+"tG" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "tI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -6510,6 +6513,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)
+"xj" = (
+/obj/effect/urist/projectile_landmark/ship,
+/turf/space,
+/area/space)
 "xl" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -6977,7 +6984,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j2";
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "zC" = (
@@ -7601,6 +7611,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"Cc" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "Cd" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -9998,6 +10016,13 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "TeleporterHub";
+	name = "Teleporter Blast Door Control";
+	pixel_x = -24;
+	pixel_y = 0;
+	req_access = list(19)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/teleporter)
 "KY" = (
@@ -10025,6 +10050,10 @@
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-21";
 	icon_state = "plant-21"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
@@ -10264,6 +10293,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"Ms" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	icon_state = "pdoor1";
+	id = "TeleporterHub";
+	layer = 3.3;
+	name = "Teleporter Access"
+	},
+/turf/simulated/floor/tiled,
+/area/command/teleporter)
 "Mu" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -12956,7 +12995,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j2";
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "XW" = (
@@ -33564,7 +33606,7 @@ aa
 aa
 aa
 aa
-aa
+Ou
 aa
 aa
 aa
@@ -33753,7 +33795,7 @@ aa
 aa
 aa
 aa
-Ou
+aa
 aa
 aa
 aa
@@ -42089,7 +42131,7 @@ mU
 mU
 Gb
 fv
-bS
+mU
 NO
 ad
 Ap
@@ -42291,7 +42333,7 @@ Ar
 iZ
 iZ
 iZ
-iZ
+Ms
 iZ
 iZ
 iZ
@@ -42892,8 +42934,8 @@ gk
 hG
 Ox
 rT
-Ar
-Ar
+lx
+Cc
 iZ
 bT
 LB
@@ -42904,7 +42946,7 @@ Mq
 gK
 iZ
 eH
-Rm
+tG
 XA
 SJ
 XA
@@ -50336,69 +50378,69 @@ aa
 aa
 aa
 aa
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+aa
+aa
+aa
+aa
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
+xj
 aa
 aa
 aa

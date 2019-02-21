@@ -66,7 +66,7 @@
 		B = M.r_hand
 
 	if(!B || !istype(B) || B.worth < value)
-		var/money_phrases = list("Show me the cR-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
+		var/money_phrases = list("Show me the Th-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
 		var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"[pick(money_phrases)]\"</span></span></span>"
 		M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 	else

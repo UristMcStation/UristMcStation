@@ -169,3 +169,94 @@
 /mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
 	..()
+
+//terran
+
+/mob/living/simple_animal/hostile/urist/terran/marine
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine"
+	desc = "A Terran Confederacy Marine."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_marine"
+	icon_living = "terran_marine"
+	icon_dead = "terran_marine_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/a556
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a556
+	maxHealth = 150
+	health = 150
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine/event
+	faction = "neutral"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine Officer"
+	desc = "A Terran Confederacy Marine Officer."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_officer"
+	icon_living = "terran_officer"
+	icon_dead = "terran_officer_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/c9mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol
+	maxHealth = 120
+	health = 120
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/event
+	faction = "neutral"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine"
+	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_heavy"
+	icon_living = "terran_heavy"
+	icon_dead = "terran_heavy_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/a556
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a556
+	maxHealth = 200
+	health = 200
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space/event
+	faction = "neutral"
+
+
+/mob/living/simple_animal/hostile/urist/rebel
+	icon_state = "ANTAG"
+	icon_living = "ANTAG"
+	name = "\improper Rebel"
+	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
+	casingtype = /obj/item/ammo_casing/a762
+	faction = "rebels"
+	rapid = 0
+	maxHealth = 130
+	health = 130
+	minimum_distance = 4
+	retreat_distance = 2
+	ranged_cooldown_cap = 2
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+
+/mob/living/simple_animal/hostile/urist/rebel/event
+	faction = "neutral"
