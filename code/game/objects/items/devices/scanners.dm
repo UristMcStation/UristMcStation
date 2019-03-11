@@ -21,15 +21,9 @@ REAGENT SCANNER
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
-	matter = list(MATERIAL_STEEL = 200)
+	matter = list(MATERIAL_ALUMINIUM = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1;
-
-/obj/item/device/healthanalyzer/do_surgery(mob/living/M, mob/living/user)
-	if(user.a_intent != I_HELP) //in case it is ever used as a surgery tool
-		return ..()
-	medical_scan_action(M, user, src, mode) //default surgery behaviour is just to scan as usual
-	return 1
 
 /obj/item/device/healthanalyzer/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
@@ -123,7 +117,7 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 		if(H.status_flags & FAKEDEATH)
 			pulse_result = 0
 		else
-			pulse_result = H.get_pulse(1)
+			pulse_result = H.get_pulse(GETPULSE_TOOL)
 	else
 		pulse_result = "<span class='danger'>ERROR - Nonstandard biology</span>"
 		pulse_suffix = ""
@@ -250,9 +244,10 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 			print_reagent_default_message = FALSE
 			. += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
 
-	if(H.ingested && H.ingested.total_volume)
+	var/datum/reagents/ingested = H.get_ingested_reagents()
+	if(ingested && ingested.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in H.ingested.reagent_list)
+		for(var/datum/reagent/R in ingested.reagent_list)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				. += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -327,7 +322,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(MATERIAL_STEEL = 30,MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30,MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/advanced_mode = 0
@@ -363,7 +358,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 
 /obj/item/device/mass_spectrometer
 	name = "mass spectrometer"
-	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
+	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample or analyzes unusual chemicals."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
@@ -374,7 +369,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(MATERIAL_STEEL = 30,MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30,MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -401,6 +396,11 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 		var/list/blood_traces = list()
 		var/list/blood_doses = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
+			if(length(reagents.reagent_list) == 1)
+				var/datum/reagent/random/random = R
+				if(istype(random))
+					random.on_chemicals_analyze(user)
+					return
 			if(R.type != /datum/reagent/blood)
 				reagents.clear_reagents()
 				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
@@ -442,7 +442,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(MATERIAL_STEEL = 30,MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30,MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -486,7 +486,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(MATERIAL_STEEL = 25, MATERIAL_GLASS = 25)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_GLASS = 25)
 
 /obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)
@@ -505,7 +505,7 @@ proc/get_wound_severity(var/damage_ratio, var/can_heal_overkill = 0)
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	matter = list(MATERIAL_STEEL = 30,MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30 ,MATERIAL_GLASS = 20, MATERIAL_PLASTIC = 15)
 
 /obj/item/device/slime_scanner/proc/list_gases(var/gases)
 	. = list()

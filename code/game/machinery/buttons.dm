@@ -284,6 +284,7 @@
 	signal.source = src
 	signal.frequency = frequency
 	signal.data["tag"] = id
+	signal.data["sigtype"] = "command"
 	signal.data["command"] = command
 	radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
 	active = !active

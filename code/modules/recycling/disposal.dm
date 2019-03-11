@@ -365,7 +365,7 @@
 		if( contents.len )
 			if(mode == 2)
 				spawn(0)
-					feedback_inc("disposal_auto_flush",1)
+					SSstatistics.add_field("disposal_auto_flush",1)
 					flush()
 		flush_count = 0
 
@@ -436,14 +436,6 @@
 		mode = 1	// switch to charging
 	update_icon()
 	return
-
-
-// called when area power changes
-/obj/machinery/disposal/power_change()
-	..()	// do default setting/reset of stat NOPOWER bit
-	queue_icon_update()	// update icon
-	return
-
 
 // called when holder is expelled from a disposal
 // should usually only occur if the pipe network is modified

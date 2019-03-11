@@ -226,7 +226,17 @@
 		COPY_VALUE(fingerprint)
 		COPY_VALUE(dna)
 		COPY_VALUE(bloodtype)
-	var/datum/job/job = job_master.GetJob(new_record.get_job())
+	var/datum/job/job = SSjobs.get_by_title(new_record.get_job())
+	if(job)
+		var/skills = list()
+		for(var/decl/hierarchy/skill/S in GLOB.skills)
+			var/level = job.min_skill[S.type]
+			if(prob(10))
+				level = min(rand(1,3), job.max_skill[S.type])
+			if(level > SKILL_NONE)
+				skills += "[S.name], [S.levels[level]]"
+		new_record.set_skillset(jointext(skills,"\n"))
+
 	if(istype(job) && job.announced)
 		AnnounceArrivalSimple(new_record.get_name(), new_record.get_job(), "has completed cryogenic revival", get_announcement_frequency(job))
 	. = ..()

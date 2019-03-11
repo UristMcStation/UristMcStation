@@ -1515,8 +1515,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1565,8 +1565,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1591,8 +1591,8 @@
 /area/icarus/open)
 "eY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1662,8 +1662,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1677,14 +1677,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1742,8 +1742,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fp" = (
 /obj/effect/decal/cleanable/dirt,

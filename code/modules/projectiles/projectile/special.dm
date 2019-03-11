@@ -18,6 +18,10 @@
 	heavy_effect_range = 0
 	light_effect_range = 1
 
+/obj/item/projectile/ion/tiny
+	heavy_effect_range = 0
+	light_effect_range = 0
+
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
 	icon_state= "bolter"
@@ -156,6 +160,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/M = target
 			M.confused += rand(5,8)
+
 /obj/item/projectile/chameleon
 	name = "bullet"
 	icon_state = "bullet"
@@ -165,3 +170,15 @@
 	damage_type = PAIN
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
+/obj/item/projectile/venom
+	name = "venom bolt"
+	icon_state = "venom"
+	damage = 5 //most damage is in the reagent
+	damage_type = TOX
+	check_armour = "bio"
+
+/obj/item/projectile/venom/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	var/mob/living/L = target
+	if(L.reagents)
+		L.reagents.add_reagent(/datum/reagent/toxin/venom, 5)

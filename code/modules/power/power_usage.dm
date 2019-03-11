@@ -65,6 +65,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 /obj/machinery/Initialize()
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
 	GLOB.moved_event.register(src, src, .proc/update_power_on_move)
+	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
@@ -84,9 +85,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 			old_area.power_use_change(power, 0, power_channel)
 		if(new_area)
 			new_area.power_use_change(0, power, power_channel)
+		power_change() // Force check in case the old area was powered and the new one isn't or vice versa.
 
 // The three procs below are the only allowed ways of modifying the corresponding variables.
 /obj/machinery/proc/update_use_power(new_use_power)
+	if(!power_init_complete)
+		use_power = new_use_power
+		return // We'll be retallying anyway.
 	if(use_power == new_use_power)
 		return
 	var/old_power = get_power_usage()
@@ -95,6 +100,9 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
 
 /obj/machinery/proc/update_power_channel(new_channel)
+	if(!power_init_complete)
+		power_channel = new_channel
+		return
 	var/old_channel = power_channel
 	if(old_channel == old_channel)
 		return
@@ -114,7 +122,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 			active_power_usage = new_power_consumption
 		else
 			return
-	if(use_power_mode == use_power)
+	if(power_init_complete && (use_power_mode == use_power))
 		REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power_consumption)
 
 #undef REPORT_POWER_CONSUMPTION_CHANGE

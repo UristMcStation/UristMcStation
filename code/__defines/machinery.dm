@@ -54,7 +54,7 @@
 #define NETWORK_ALARM_POWER "Power Alarms"
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
-var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
+var/list/restricted_camera_networks = list(NETWORK_ERT, NETWORK_MERCENARY, NETWORK_CRESCENT, "Secret")
 
 
 //singularity defines

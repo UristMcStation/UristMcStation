@@ -145,7 +145,7 @@ datum/objective/anti_revolution/brig
 
 		if(!istype(I)) return 1
 
-		if(I.assignment == "Assistant")
+		if(I.assignment == GLOB.using_map.default_assistant_title)
 			return 1
 		else
 			return 0
@@ -563,7 +563,7 @@ datum/objective/heist
 
 datum/objective/heist/kidnap
 	choose_target()
-		var/list/roles = list("Chief Engineer","Research Director","Roboticist","Chemist","Engineer")
+		var/list/roles = list("Chief Engineer","Chief Science Officer","Roboticist","Chemist","Engineer")
 		var/list/possible_targets = list()
 		var/list/priority_targets = list()
 

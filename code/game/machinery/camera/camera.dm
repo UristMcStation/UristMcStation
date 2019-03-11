@@ -270,11 +270,11 @@
 
 //Used when someone breaks a camera
 /obj/machinery/camera/proc/destroy()
-	stat |= BROKEN
+	set_broken(TRUE)
 	wires.RandomCutAll()
 
 	triggerCameraAlarm()
-	update_icon()
+	queue_icon_update()
 	update_coverage()
 
 	//sparks
@@ -461,18 +461,16 @@
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
 	cam["camera"] = "\ref[src]"
-	cam["x"] = x
-	cam["y"] = y
-	cam["z"] = z
+	cam["x"] = get_x(src)
+	cam["y"] = get_y(src)
+	cam["z"] = get_z(src)
 	return cam
 
 // Resets the camera's wires to fully operational state. Used by one of Malfunction abilities.
 /obj/machinery/camera/proc/reset_wires()
 	if(!wires)
 		return
-	if (stat & BROKEN) // Fix the camera
-		stat &= ~BROKEN
+	set_broken(FALSE) // Fixes the camera and updates the icon.
 	wires.CutAll()
 	wires.MendAll()
-	update_icon()
 	update_coverage()

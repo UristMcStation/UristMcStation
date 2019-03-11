@@ -624,6 +624,7 @@ GLOBAL_LIST_EMPTY(blood_overlay_cache)
 	I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD) //fills the icon_state with white (except where it's transparent)
 	I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
 	blood_overlay = image(I)
+	blood_overlay.appearance_flags |= NO_CLIENT_COLOR
 	GLOB.blood_overlay_cache["[icon]" + icon_state] = blood_overlay
 
 /obj/item/proc/showoff(mob/user)
@@ -781,16 +782,21 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return overlay_image(mob_icon, mob_state, color, RESET_COLOR)
 
 /obj/item/proc/get_examine_line()
-	if(blood_DNA)
-		. = "<span class='warning'>\icon[src] [gender==PLURAL?"some":"a"] [(blood_color != SYNTH_BLOOD_COLOUR) ? "blood" : "oil"]-stained [src]</span>"
+	if(blood_color)
+		. = SPAN_WARNING("\icon[src] [gender==PLURAL?"some":"a"] <font color='[blood_color]'>stained</font> [src]")
 	else
 		. = "\icon[src] \a [src]"
 	var/ID = GetIdCard()
 	if(ID)
 		. += "  <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
 
+/obj/item/proc/on_active_hand()
+
 /obj/item/is_burnable()
 	return simulated
 
 /obj/item/lava_act()
 	. = (!throwing) ? ..() : FALSE
+
+/obj/item/proc/has_embedded()
+	return

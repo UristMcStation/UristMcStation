@@ -329,20 +329,6 @@
 	if(!istype(T, /turf/space))
 		new /obj/effect/decal/cleanable/blood/oil/streak(T)
 
-/datum/reagent/silicate
-	name = "Silicate"
-	description = "A compound that can be used to reinforce glass."
-	taste_description = "plastic"
-	reagent_state = LIQUID
-	color = "#c7ffff"
-
-/datum/reagent/silicate/touch_obj(var/obj/O)
-	if(istype(O, /obj/structure/window))
-		var/obj/structure/window/W = O
-		W.apply_silicate(volume)
-		remove_self(volume)
-	return
-
 /datum/reagent/glycerol
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
@@ -423,7 +409,7 @@
 	description = "A noble gas. It makes your voice squeaky."
 	taste_description = "nothing"
 	reagent_state = LIQUID
-	color = "#cccccc"
+	color = COLOR_GRAY80
 	metabolism = 0.05 // So that low dosages have a chance to build up in the body.
 
 /datum/reagent/helium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -438,7 +424,7 @@
 	description = "An ubiquitous oxidizing agent."
 	taste_description = "nothing"
 	reagent_state = LIQUID
-	color = "#cccccc"
+	color = COLOR_GRAY80
 
 /datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -449,7 +435,7 @@
 	description = "A dangerous carbon comubstion byproduct."
 	taste_description = "stale air"
 	reagent_state = LIQUID
-	color = "#cccccc"
+	color = COLOR_GRAY80
 	metabolism = 0.05 // As with helium.
 
 /datum/reagent/carbon_monoxide/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)

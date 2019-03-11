@@ -57,6 +57,14 @@
 			node = target
 			break
 
+/obj/machinery/atmospherics/unary/cryo_cell/examine(mob/user)
+	. = ..()
+	if (. && user.Adjacent(src))
+		if (beaker)
+			to_chat(user, "It is loaded with a beaker.")
+		if (occupant)
+			occupant.examine(user)
+
 /obj/machinery/atmospherics/unary/cryo_cell/Process()
 	..()
 	if(!node)
@@ -284,7 +292,9 @@
 	current_heat_capacity = initial(current_heat_capacity)
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
+	SetName(initial(name))
 	return
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
@@ -314,6 +324,7 @@
 	update_use_power(POWER_USE_ACTIVE)
 	add_fingerprint(usr)
 	update_icon()
+	SetName("[name] ([occupant])")
 	return 1
 
 	//Like grab-putting, but for mouse-dropping.

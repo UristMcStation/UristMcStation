@@ -64,5 +64,5 @@
 	onclose(user, "op")
 
 /obj/machinery/computer/operating/Process()
-	if(..())
-		src.updateDialog()
+	if(!inoperable())
+		updateDialog()

@@ -5,6 +5,12 @@
 
 #define get_turf(A) get_step(A,0)
 
+#define get_x(A) (get_step(A, 0)?.x || 0)
+
+#define get_y(A) (get_step(A, 0)?.y || 0)
+
+#define get_z(A) (get_step(A, 0)?.z || 0)
+
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
@@ -13,7 +19,7 @@
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
-#define isatom(A) istype(A, /atom)
+#define isatom(A) isloc(A)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
@@ -75,35 +81,21 @@
 
 #define isopenspace(A) istype(A, /turf/simulated/open)
 
-#define isWrench(A) istype(A, /obj/item/weapon/wrench)
-
-#define isWelder(A) istype(A, /obj/item/weapon/weldingtool)
-
-#define isCoil(A) istype(A, /obj/item/stack/cable_coil)
-
-#define isWirecutter(A) istype(A, /obj/item/weapon/wirecutters)
-
-#define isScrewdriver(A) istype(A, /obj/item/weapon/screwdriver)
-
-#define isMultitool(A) istype(A, /obj/item/device/multitool)
-
-#define isCrowbar(A) istype(A, /obj/item/weapon/crowbar)
-
 #define isPlunger(A) istype(A, /obj/item/clothing/mask/plunger) || istype(A, /obj/item/device/plunger/robot)
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 #define random_id(key,min_id,max_id) uniqueness_repository.Generate(/datum/uniqueness_generator/id_random, key, min_id, max_id)
 
-#define to_chat(target, message)                            target << message
-#define to_world(message)                                   world << message
-#define to_world_log(message)                               world.log << message
-#define sound_to(target, sound)                             target << sound
-#define to_file(file_entry, source_var)                     file_entry << source_var
-#define from_file(file_entry, target_var)                   file_entry >> target_var
+#define to_chat(target, message)                            target << (message)
+#define to_world(message)                                   world << (message)
+#define to_world_log(message)                               world.log << (message)
+#define sound_to(target, sound)                             target << (sound)
+#define to_file(file_entry, source_var)                     file_entry << (source_var)
+#define from_file(file_entry, target_var)                   file_entry >> (target_var)
 #define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
 #define close_browser(target, browser_name)                 target << browse(null, browser_name)
-#define show_image(target, image)                           target << image
+#define show_image(target, image)                           target << (image)
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
 #define open_link(target, url)             target << link(url)
 
@@ -128,6 +120,8 @@
 #define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
 #define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, item), time, TIMER_STOPPABLE)
+
+#define DROP_NULL(x) if(x) { x.dropInto(loc); x = null; }
 
 #define ARGS_DEBUG log_debug("[__FILE__] - [__LINE__]") ; for(var/arg in args) { log_debug("\t[log_info_line(arg)]") }
 

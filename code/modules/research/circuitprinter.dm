@@ -5,13 +5,13 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 */
 
 /obj/machinery/r_n_d/circuit_imprinter
-	name = "\improper Circuit Imprinter"
+	name = "circuit imprinter"
 	icon_state = "circuit_imprinter"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/list/datum/design/queue = list()
 	var/progress = 0
 
-	var/max_material_storage = 75000
+	var/max_material_storage = 100000
 	var/mat_efficiency = 1
 	var/speed = 1
 
@@ -60,7 +60,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/T = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
 		T += G.reagents.maximum_volume
-	create_reagents(T)
+	if(!reagents)
+		create_reagents(T)
+	else
+		reagents.maximum_volume = T
 	max_material_storage = 0
 	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
 		max_material_storage += M.rating * 75000
@@ -132,8 +135,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	return
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/removeFromQueue(var/index)
+	if(!is_valid_index(index, queue))
+		return
 	queue.Cut(index, index + 1)
-	return
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/canBuild(var/datum/design/D)
 	for(var/M in D.materials)

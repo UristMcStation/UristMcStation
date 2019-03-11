@@ -42,9 +42,6 @@
 /datum/gear/head/surgical
 	allowed_roles = STERILE_ROLES
 
-/datum/gear/head/whitentberet
-	allowed_roles = list(/datum/job/guard)
-
 /datum/gear/head/beret
 	allowed_branches = CIVILIAN_BRANCHES
 
@@ -70,6 +67,7 @@
 	display_name = "formal hat selection"
 	path = /obj/item/clothing/head
 	allowed_roles = FORMAL_ROLES
+	allowed_branches = CIVILIAN_BRANCHES
 
 /datum/gear/head/informalhat
 	allowed_roles = SEMIFORMAL_ROLES

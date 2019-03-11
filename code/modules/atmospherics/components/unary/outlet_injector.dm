@@ -7,11 +7,11 @@
 	icon_state = "map_injector"
 
 	name = "air injector"
-	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
+	desc = "Injects air into its surroundings using a passive or injection mode. Passive mode will only inject when internal pressure is greater."
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 15000	//15000 W ~ 20 HP
+	power_rating = 45000	//45000 W ~ 60 HP
 
 	var/injecting = 0
 
@@ -67,6 +67,8 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
+	set waitfor = 0
+
 	if(injecting || (stat & NOPOWER))
 		return 0
 
@@ -89,7 +91,7 @@
 	radio_controller.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency)
+		radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/broadcast_status()
 	if(!radio_connection)
@@ -116,17 +118,17 @@
 	set_frequency(frequency)
 
 /obj/machinery/atmospherics/unary/outlet_injector/receive_signal(datum/signal/signal)
-	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
+	if(!signal.data["tag"] || signal.data["tag"] != id || signal.data["sigtype"]!="command")
 		return 0
 
 	if(signal.data["power"])
 		update_use_power(sanitize_integer(text2num(signal.data["power"]), POWER_USE_OFF, POWER_USE_ACTIVE, use_power))
 
-	if(signal.data["power_toggle"])
+	if(signal.data["power_toggle"] || signal.data["command"] == "valve_toggle") // some atmos buttons use "valve_toggle" as a command
 		update_use_power(!use_power)
 
 	if(signal.data["inject"])
-		spawn inject()
+		inject()
 		return
 
 	if(signal.data["set_volume_rate"])
@@ -134,12 +136,11 @@
 		volume_rate = between(0, number, air_contents.volume)
 
 	if(signal.data["status"])
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)

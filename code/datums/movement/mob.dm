@@ -234,10 +234,11 @@
 	mob.moving = 1
 
 	direction = mob.AdjustMovementDirection(direction)
+	var/old_turf = get_turf(mob)
 	step(mob, direction)
 
 	// Something with pulling things
-	var/extra_delay = HandleGrabs(direction)
+	var/extra_delay = HandleGrabs(direction, old_turf)
 	mob.ExtraMoveCooldown(extra_delay)
 
 	for (var/obj/item/grab/G in mob)
@@ -252,7 +253,7 @@
 /datum/movement_handler/mob/movement/MayMove(var/mob/mover)
 	return IS_SELF(mover) &&  mob.moving ? MOVEMENT_STOP : MOVEMENT_PROCEED
 
-/datum/movement_handler/mob/movement/proc/HandleGrabs(var/direction)
+/datum/movement_handler/mob/movement/proc/HandleGrabs(var/direction, var/old_turf)
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
 	var/list/L = mob.ret_grab()

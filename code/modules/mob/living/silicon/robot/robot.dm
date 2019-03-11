@@ -169,7 +169,7 @@
 	if(ispath(module))
 		new module(src)
 	if(lawupdate)
-		var/new_ai = select_active_ai_with_fewest_borgs()
+		var/new_ai = select_active_ai_with_fewest_borgs((get_turf(src))?.z)
 		if(new_ai)
 			lawupdate = 1
 			connect_to_ai(new_ai)
@@ -291,7 +291,7 @@
 //		module_sprites["Ravensdale"] = "ravensdale-Standard"
 
 	hands.icon_state = lowertext(modtype)
-	feedback_inc("cyborg_[lowertext(modtype)]",1)
+	SSstatistics.add_field("cyborg_[lowertext(modtype)]",1)
 	updatename()
 	recalculate_synth_capacities()
 	if(module)
@@ -748,18 +748,7 @@
 	return 0
 
 /mob/living/silicon/robot/proc/check_access(obj/item/weapon/card/id/I)
-	if(!istype(req_access, /list)) //something's very wrong
-		return 1
-
-	var/list/L = req_access
-	if(!L.len) //no requirements
-		return 1
-	if(!I || !istype(I, /obj/item/weapon/card/id) || !I.access) //not ID or no access
-		return 0
-	for(var/req in req_access)
-		if(req in I.access) //have one of the required accesses
-			return 1
-	return 0
+	return has_access(req_access, I.access)
 
 /mob/living/silicon/robot/on_update_icon()
 	overlays.Cut()

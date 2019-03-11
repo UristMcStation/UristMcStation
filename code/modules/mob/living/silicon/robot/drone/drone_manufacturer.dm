@@ -50,7 +50,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
 
 /obj/machinery/drone_fabricator/power_change()
-	..()
+	. = ..()
 	if (stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 

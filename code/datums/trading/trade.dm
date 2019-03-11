@@ -123,6 +123,12 @@
 		trading_items[type] = margin*value
 	return trading_items[trading_items[trading_num]]
 
+/datum/trader/proc/get_buy_price(item, is_wanted, skill = SKILL_MAX)
+	. = get_value(item)
+	if(is_wanted)
+		. *= want_multiplier
+	. *= max(1 - (margin - 1) * skill_curve(skill), 0.1) //Trader will underpay at lower skill.
+
 /datum/trader/proc/offer_money_for_trade(var/trade_num, var/money_amount)
 	if(!(trade_flags & TRADER_MONEY))
 		return TRADER_NO_MONEY

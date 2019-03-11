@@ -87,8 +87,7 @@
 
 /obj/machinery/porta_turret/New()
 	..()
-	req_access.Cut()
-	req_one_access = list(access_security, access_bridge)
+	req_access = list(list(access_security, access_bridge))
 
 	//Sets up a spark system
 	spark_system = new /datum/effect/effect/system/spark_spread
@@ -99,7 +98,6 @@
 
 /obj/machinery/porta_turret/crescent/New()
 	..()
-	req_one_access.Cut()
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
@@ -434,9 +432,8 @@ var/list/turret_icons
 
 /obj/machinery/porta_turret/proc/die()	//called when the turret dies, ie, health <= 0
 	health = 0
-	stat |= BROKEN	//enables the BROKEN bit
+	set_broken(TRUE)
 	spark_system.start()	//creates some sparks because they look cool
-	update_icon()
 	atom_flags |= ATOM_FLAG_CLIMBABLE // they're now climbable
 
 /obj/machinery/porta_turret/Process()

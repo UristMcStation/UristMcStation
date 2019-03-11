@@ -68,6 +68,7 @@
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain/xeno,
 		BP_PLASMA =   /obj/item/organ/internal/xeno/plasmavessel,
 		BP_HIVE =     /obj/item/organ/internal/xeno/hivenode,
@@ -123,6 +124,7 @@
 /datum/species/xenos/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	if(H.mind)
+		H.mind.reset()
 		H.mind.assigned_role = "Alien"
 		H.mind.special_role = "Alien"
 
@@ -209,6 +211,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
 		BP_BRAIN =    /obj/item/organ/internal/brain/xeno,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_PLASMA =   /obj/item/organ/internal/xeno/plasmavessel/queen,
 		BP_ACID =     /obj/item/organ/internal/xeno/acidgland,
 		BP_HIVE =     /obj/item/organ/internal/xeno/hivenode,
@@ -217,7 +220,6 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/plant,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/evolve,
@@ -250,6 +252,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
 		BP_BRAIN =    /obj/item/organ/internal/brain/xeno,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_PLASMA =   /obj/item/organ/internal/xeno/plasmavessel/hunter,
 		BP_HIVE =     /obj/item/organ/internal/xeno/hivenode,
 		)
@@ -259,8 +262,7 @@
 		/mob/living/carbon/human/proc/pry_open,
 		/mob/living/carbon/human/proc/tackle,
 		/mob/living/carbon/human/proc/leap,
-		/mob/living/carbon/human/proc/psychic_whisper,
-		/mob/living/carbon/human/proc/regurgitate
+		/mob/living/carbon/human/proc/psychic_whisper
 		)
 
 	force_cultural_info = list(
@@ -283,6 +285,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
 		BP_BRAIN =    /obj/item/organ/internal/brain/xeno,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_PLASMA =   /obj/item/organ/internal/xeno/plasmavessel/sentinel,
 		BP_ACID =     /obj/item/organ/internal/xeno/acidgland,
 		BP_HIVE =     /obj/item/organ/internal/xeno/hivenode,
@@ -291,7 +294,6 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/tackle,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin
@@ -323,6 +325,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
 		BP_BRAIN =    /obj/item/organ/internal/brain/xeno,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_EGG =      /obj/item/organ/internal/xeno/eggsac,
 		BP_PLASMA =   /obj/item/organ/internal/xeno/plasmavessel/queen,
 		BP_ACID =     /obj/item/organ/internal/xeno/acidgland,
@@ -333,7 +336,6 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/psychic_whisper,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/lay_egg,
 		/mob/living/carbon/human/proc/plant,
 		/mob/living/carbon/human/proc/transfer_plasma,

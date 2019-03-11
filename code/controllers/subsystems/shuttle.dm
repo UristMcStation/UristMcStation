@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(shuttle)
 	var/list/landmarks_still_needed = list()     //Stores landmark_tags that need to be assigned to the sector (landmark_tag = sector) when registered.
 	var/list/shuttles_to_initialize              //A queue for shuttles to initialize at the appropriate time.
 	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
+	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
 
@@ -27,22 +28,13 @@ SUBSYSTEM_DEF(shuttle)
 		var/datum/shuttle/shuttle = shuttle_type
 		if(!initial(shuttle.defer_initialisation))
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
-	initialize_shuttles() // Order matters here.
-	initialize_sectors()
+	block_queue = FALSE
+	clear_init_queue()
 	. = ..()
 
 /datum/controller/subsystem/shuttle/fire(resumed = FALSE)
 	if (!resumed)
 		working_shuttles = process_shuttles.Copy()
-	
-	if(length(shuttles_to_initialize))
-		initialize_shuttles()
-		if (MC_TICK_CHECK)
-			return
-	if(length(sectors_to_initialize))
-		initialize_sectors()
-		if (MC_TICK_CHECK)
-			return
 
 	while (working_shuttles.len)
 		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
@@ -52,6 +44,12 @@ SUBSYSTEM_DEF(shuttle)
 
 		if (MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/shuttle/proc/clear_init_queue()
+	if(block_queue)
+		return
+	initialize_shuttles()
+	initialize_sectors()
 
 /datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	for(var/shuttle_type in shuttles_to_initialize)
@@ -76,9 +74,8 @@ SUBSYSTEM_DEF(shuttle)
 			try_add_landmark_tag(shuttle_landmark_tag, O)
 			landmarks_still_needed -= shuttle_landmark_tag
 		else if(istype(shuttle_landmark, /obj/effect/shuttle_landmark/automatic)) //These find their sector automatically
-			var/obj/effect/shuttle_landmark/automatic/automatic = shuttle_landmark
-			O = map_sectors["[automatic.z]"]
-			O ? O.add_landmark(automatic, automatic.shuttle_restricted) : (landmarks_awaiting_sector += shuttle_landmark)
+			O = map_sectors["[shuttle_landmark.z]"]
+			O ? O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted) : (landmarks_awaiting_sector += shuttle_landmark)
 
 /datum/controller/subsystem/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
 	return registered_shuttle_landmarks[shuttle_landmark_tag]

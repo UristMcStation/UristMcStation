@@ -13,6 +13,7 @@
 	#include "torch_ranks.dm"
 	#include "torch_security_state.dm"
 	#include "torch_shuttles.dm"
+	#include "torch_submaps.dm"
 	#include "torch_unit_testing.dm"
 
 	#include "datums/uniforms.dm"
@@ -33,10 +34,12 @@
 	#include "items/uniform_vendor.dm"
 	#include "items/rigs.dm"
 	#include "items/solbanner.dm"
+	#include "items/explo_shotgun.dm"
 
 	#include "items/clothing/solgov-accessory.dm"
 	#include "items/clothing/solgov-armor.dm"
 	#include "items/clothing/solgov-feet.dm"
+	#include "items/clothing/solgov-hands.dm"
 	#include "items/clothing/solgov-head.dm"
 	#include "items/clothing/solgov-suit.dm"
 	#include "items/clothing/solgov-under.dm"
@@ -49,9 +52,9 @@
 
 
 	#include "job/torch_access.dm"
-	#include "job/torch_outfits.dm"
 	#include "job/torch_jobs.dm"
 	#include "job/command_jobs.dm"
+	#include "job/corporate_jobs.dm"
 	#include "job/engineering_jobs.dm"
 	#include "job/exploration_jobs.dm"
 	#include "job/medical_jobs.dm"
@@ -61,12 +64,27 @@
 	#include "job/service_jobs.dm"
 	#include "job/supply_jobs.dm"
 
+	#include "job/outfits/torch_outfits.dm"
+	#include "job/outfits/command_outfits.dm"
+	#include "job/outfits/corporate_outfits.dm"
+	#include "job/outfits/engineering_outfits.dm"
+	#include "job/outfits/exploration_outfits.dm"
+	#include "job/outfits/medical_outfits.dm"
+	#include "job/outfits/misc_outfits.dm"
+	#include "job/outfits/research_outfits.dm"
+	#include "job/outfits/security_outfits.dm"
+	#include "job/outfits/service_outfits.dm"
+	#include "job/outfits/supply_outfits.dm"
+	#include "job/outfits/unused_outfits.dm"
+
+
 	#include "machinery/apc_shuttle.dm"
 	#include "machinery/keycard authentication.dm"
 	#include "machinery/suit_storage.dm"
 
-	#include "structures/closets.dm"
 	#include "structures/signs.dm"
+	#include "structures/closets.dm"
+	#include "structures/closets/closet_appearances.dm"
 	#include "structures/closets/command.dm"
 	#include "structures/closets/engineering.dm"
 	#include "structures/closets/medical.dm"
@@ -112,6 +130,7 @@
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/voxship/voxship.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 

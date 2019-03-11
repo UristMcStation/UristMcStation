@@ -15,6 +15,12 @@
 	build_default_parts(/obj/item/weapon/circuitboard/body_scanner)
 	RefreshParts()
 
+
+/obj/machinery/bodyscanner/examine(mob/user)
+	. = ..()
+	if (. && occupant && user.Adjacent(src))
+		occupant.examine(user)
+
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	..()
 	src.go_out()
@@ -55,6 +61,7 @@
 	src.occupant = null
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
+	SetName(initial(name))
 
 /obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
 	if(!istype(G))
@@ -89,6 +96,7 @@
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 	drop_contents()
+	SetName("[name] ([occupant])")
 
 	src.add_fingerprint(user)
 	return TRUE
