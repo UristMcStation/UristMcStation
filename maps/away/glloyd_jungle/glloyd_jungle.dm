@@ -1,4 +1,4 @@
-/area/jungle/away
+/area/planet/jungle/away
 
 /area/jungleoutpost/comms
 	name = "\improper Jungle Outpost Comms"
@@ -31,13 +31,13 @@
 /obj/effect/shuttle_landmark/nav_glloyd_jungle/nav1
 	name = "Planetary Navpoint #1"
 	landmark_tag = "nav_glloyd_jungle_1"
-	base_area = /area/jungle/away
+	base_area = /area/planet/jungle/away
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
 
 /obj/effect/shuttle_landmark/nav_glloyd_jungle/nav2
 	name = "Planetary Navpoint #2"
 	landmark_tag = "nav_glloyd_jungle_2"
-	base_area = /area/jungle/away
+	base_area = /area/planet/jungle/away
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
 
 /datum/map_template/ruin/away_site/glloyd_jungle

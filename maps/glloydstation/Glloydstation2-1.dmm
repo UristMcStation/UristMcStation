@@ -11880,8 +11880,8 @@
 	},
 /obj/structure/closet/emsuits,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/emergencysuit,
-/obj/item/clothing/head/emergencyhood,
+/obj/item/clothing/suit/urist/emergencysuit,
+/obj/item/clothing/head/urist/emergencyhood,
 /obj/item/weapon/storage/toolbox/emergency,
 /obj/structure/window/reinforced{
 	dir = 4

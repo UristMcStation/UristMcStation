@@ -73,7 +73,7 @@
 		/area/map_template,
 		/area/exoplanet,
 		/area/lanius,
-		/area/jungle,
+		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
 		/area/shuttle/scom,

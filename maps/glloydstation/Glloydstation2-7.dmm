@@ -11,13 +11,13 @@
 /area/space)
 "ac" = (
 /turf/simulated/floor/planet/jungle/rock,
-/area/jungle)
+/area/planet/jungle)
 "ad" = (
 /turf/unsimulated/wall/urist/other/border,
-/area/jungle)
+/area/planet/jungle)
 "ae" = (
 /turf/simulated/floor/planet/plains,
-/area/jungle)
+/area/planet/jungle)
 "af" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (EAST)";
@@ -25,10 +25,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ag" = (
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ah" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (NORTHEAST)";
@@ -36,11 +36,11 @@
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ai" = (
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aj" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (EAST)";
@@ -48,7 +48,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ak" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (SOUTHEAST)";
@@ -56,7 +56,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "al" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (SOUTHWEST)";
@@ -64,7 +64,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "am" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2";
@@ -72,7 +72,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "an" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (NORTH)";
@@ -80,7 +80,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ao" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (NORTH)";
@@ -88,7 +88,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ap" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (WEST)";
@@ -96,10 +96,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aq" = (
 /turf/simulated/wall/wood,
-/area/jungle)
+/area/planet/jungle)
 "ar" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (WEST)";
@@ -107,7 +107,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "as" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (NORTHWEST)";
@@ -115,76 +115,76 @@
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "at" = (
-/turf/simulated/floor/planet/jungle/clear/plains,
-/area/jungle)
+/turf/simulated/floor/planet/plains,
+/area/planet/jungle)
 "au" = (
 /obj/structure/bed/nice,
 /turf/simulated/floor/wood{
 	tag = "icon-wood_broken6";
 	icon_state = "wood_broken6"
 	},
-/area/jungle)
+/area/planet/jungle)
 "av" = (
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "aw" = (
 /obj/structure/closet,
 /turf/simulated/floor/wood{
 	tag = "icon-wood_broken2";
 	icon_state = "wood_broken2"
 	},
-/area/jungle)
+/area/planet/jungle)
 "ax" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/simulated/floor/planet/jungle/clear/plains,
-/area/jungle)
+/turf/simulated/floor/planet/plains,
+/area/planet/jungle)
 "ay" = (
 /turf/simulated/floor/wood{
 	tag = "icon-wood_broken1";
 	icon_state = "wood_broken1"
 	},
-/area/jungle)
+/area/planet/jungle)
 "az" = (
 /turf/simulated/floor/wood{
 	tag = "icon-wood_broken5";
 	icon_state = "wood_broken5"
 	},
-/area/jungle)
+/area/planet/jungle)
 "aA" = (
 /turf/simulated/floor/wood{
 	tag = "icon-wood_broken6";
 	icon_state = "wood_broken6"
 	},
-/area/jungle)
+/area/planet/jungle)
 "aB" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "aC" = (
 /obj/structure/window/basic{
 	dir = 5
 	},
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "aD" = (
 /obj/structure/flora/tree/planet/jungle/small,
-/turf/simulated/floor/planet/jungle/clear/plains,
-/area/jungle)
+/turf/simulated/floor/planet/plains,
+/area/planet/jungle)
 "aE" = (
 /obj/structure/pit/closed/grave/spaghettiwestern,
-/turf/simulated/floor/planet/jungle/clear/plains,
-/area/jungle)
+/turf/simulated/floor/planet/plains,
+/area/planet/jungle)
 "aF" = (
 /turf/simulated/floor/planet/jungle/impenetrable,
-/area/jungle)
+/area/planet/jungle)
 "aG" = (
 /turf/simulated/floor/planet/jungle/thick,
-/area/jungle)
+/area/planet/jungle)
 "aH" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (WEST)";
@@ -193,51 +193,51 @@
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aI" = (
 /obj/effect/landmark/animal_spawner/random/jungle/crosstrigger,
 /turf/simulated/floor/planet/jungle/impenetrable,
-/area/jungle)
+/area/planet/jungle)
 "aJ" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aK" = (
 /obj/structure/transit_tube{
 	icon_state = "E-SW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aL" = (
 /obj/structure/transit_tube,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aM" = (
 /obj/structure/transit_tube{
 	icon_state = "W-SE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aN" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aO" = (
 /obj/structure/transit_tube{
 	icon_state = "NE-SW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aP" = (
 /obj/structure/transit_tube{
 	icon_state = "D-NW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "aQ" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/chemistry)
@@ -346,7 +346,7 @@
 	icon_state = "S-NW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bg" = (
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (NORTHWEST)";
@@ -391,16 +391,16 @@
 	icon_state = "N-S"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bn" = (
 /turf/simulated/floor/planet/jungle,
-/area/jungle)
+/area/planet/jungle)
 "bo" = (
 /obj/structure/transit_tube{
 	icon_state = "W-NE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bp" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -437,7 +437,7 @@
 	icon_state = "N-SE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bv" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/asteroid,
@@ -472,13 +472,13 @@
 	icon_state = "D-NE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bC" = (
 /obj/structure/transit_tube{
 	icon_state = "E-NW"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/wallframe_spawn/reinforced,
@@ -504,7 +504,7 @@
 	icon_state = "S-NE"
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bI" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -587,21 +587,21 @@
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bS" = (
 /obj/structure/transit_tube{
 	icon_state = "NW-SE"
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bT" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SW"
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "bU" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (EAST)";
@@ -609,10 +609,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "bV" = (
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "bW" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (WEST)";
@@ -620,14 +620,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "bX" = (
 /obj/structure/fakeladder{
 	height = -1;
 	id = "undergroundjungle"
 	},
 /turf/simulated/floor/planet/jungle/thick,
-/area/jungle)
+/area/planet/jungle)
 "bY" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/steel{
@@ -739,25 +739,25 @@
 /area/outpost/research/hallway)
 "cl" = (
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "cm" = (
 /obj/structure/transit_tube{
 	icon_state = "D-NE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "cn" = (
 /obj/structure/transit_tube{
 	icon_state = "S-NW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "co" = (
 /turf/simulated/floor/planet/jungle/path,
-/area/jungle)
+/area/planet/jungle)
 "cp" = (
 /turf/simulated/floor/planet/jungle/med,
-/area/jungle)
+/area/planet/jungle)
 "cq" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/analysis)
@@ -953,7 +953,7 @@
 	icon_state = "N-S"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "cJ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/bucket,
@@ -1045,7 +1045,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "cV" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2";
@@ -1053,7 +1053,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "cW" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (WEST)";
@@ -1061,7 +1061,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "cX" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (NORTHWEST)";
@@ -1069,7 +1069,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "cY" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small{
@@ -1572,7 +1572,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "dW" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (EAST)";
@@ -1580,7 +1580,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "dX" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test2 (NORTH)";
@@ -1588,7 +1588,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "dY" = (
 /obj/effect/floor_decal/water_edge{
 	tag = "icon-test (SOUTHWEST)";
@@ -1596,21 +1596,21 @@
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "dZ" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SE"
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "ea" = (
 /obj/structure/transit_tube{
 	icon_state = "N-SW"
 	},
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
-/area/jungle)
+/area/planet/jungle)
 "eb" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/bluegrid,
@@ -1775,29 +1775,29 @@
 	icon_state = "D-SE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "er" = (
 /obj/structure/transit_tube{
 	icon_state = "E-SW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "es" = (
 /obj/structure/transit_tube,
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "et" = (
 /obj/structure/transit_tube{
 	icon_state = "W-NE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "eu" = (
 /obj/structure/transit_tube{
 	icon_state = "D-NW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2123,7 +2123,7 @@
 	icon_state = "S-NE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "eT" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2320,25 +2320,25 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "fk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "fl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "fm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "fn" = (
 /obj/machinery/firealarm{
 	dir = 2;
@@ -2665,14 +2665,14 @@
 "fH" = (
 /obj/effect/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water,
-/area/jungle)
+/area/planet/jungle)
 "fI" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "fJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
@@ -2680,7 +2680,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "fK" = (
 /obj/effect/floor_decal/corner/mauve/three_quarters{
 	tag = "icon-corner_white_three_quarters (WEST)";
@@ -3055,11 +3055,11 @@
 	icon_state = "N-SW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "gk" = (
 /obj/effect/shuttle_landmark/research/planet,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "gl" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -3306,7 +3306,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "gN" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -3315,7 +3315,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "gO" = (
 /obj/machinery/mass_driver{
 	dir = 1;
@@ -3324,7 +3324,7 @@
 	tag = "icon-mass_driver (NORTH)"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "gP" = (
 /obj/structure/transit_tube{
 	icon_state = "D-NE"
@@ -3511,17 +3511,17 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "hf" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "hg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "hh" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3978,13 +3978,13 @@
 	icon_state = "W-SE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "ie" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "if" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/effect/wallframe_spawn/reinforced,
@@ -6492,21 +6492,21 @@
 /area/outpost/research/dock)
 "mC" = (
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "mD" = (
 /obj/machinery/conveyor{
 	dir = 2;
 	id = "anotempload"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "mE" = (
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "anosample"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "mF" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -6814,7 +6814,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "nq" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 4;
@@ -6881,7 +6881,7 @@
 	icon_state = "NE-SW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "nx" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -6908,7 +6908,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "nC" = (
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'MOVING PARTS'.";
@@ -6922,7 +6922,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "nD" = (
 /obj/machinery/button/remote/airlock{
 	id = "riso1";
@@ -7073,12 +7073,12 @@
 	icon_state = "N-SE"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "nN" = (
 /turf/simulated/floor/planet/jungle/clear{
 	blocks_air = 1
 	},
-/area/jungle)
+/area/planet/jungle)
 "nO" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -7107,14 +7107,14 @@
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "nQ" = (
 /obj/machinery/conveyor_switch{
 	id = "anosample";
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "nR" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/isolation_a)
@@ -7214,21 +7214,21 @@
 	icon_state = "E-NW"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "od" = (
 /obj/structure/transit_tube,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oe" = (
 /obj/structure/transit_tube/station{
 	dir = 2;
 	icon_state = "closed"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "of" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7254,11 +7254,11 @@
 	c_tag = "Research Outpost Expedition Surface Airlock"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "oj" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "ok" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
@@ -7354,13 +7354,13 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/jungle)
+/area/planet/jungle)
 "ou" = (
 /obj/machinery/door/window/westleft{
 	dir = 2
 	},
 /turf/simulated/floor,
-/area/jungle)
+/area/planet/jungle)
 "ov" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7369,19 +7369,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "ow" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "ox" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/jungle)
+/area/planet/jungle)
 "oy" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -7512,14 +7512,14 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oU" = (
 /obj/structure/transit_tube/station{
 	dir = 2;
@@ -7532,97 +7532,97 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oV" = (
 /obj/structure/transit_tube,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oW" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/jungle)
+/area/planet/jungle)
 "oX" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/jungle)
+/area/planet/jungle)
 "oY" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "oZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "pa" = (
 /obj/effect/shuttle_landmark/raider_skipjack/planetside,
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "pb" = (
 /obj/effect/template_loader/gamemode/assault{
 	mapfile = "assault_planet_aship.dmm";
 	maptype = 1
 	},
 /turf/simulated/floor/planet/jungle,
-/area/jungle)
+/area/planet/jungle)
 "pc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "pd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "pe" = (
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pf" = (
 /obj/structure/scrap,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pg" = (
 /obj/item/stack/medical/bruise_pack,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "ph" = (
 /obj/item/remains/human,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pi" = (
 /obj/effect/template_loader/planet,
 /turf/simulated/floor/planet/jungle/thick,
-/area/jungle)
+/area/planet/jungle)
 "pj" = (
 /obj/effect/shuttle_landmark/mercenary/planetside,
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "pk" = (
 /obj/effect/template_loader/planet,
 /turf/simulated/floor/planet/jungle/med,
-/area/jungle)
+/area/planet/jungle)
 "pl" = (
 /obj/effect/template_loader/gamemode/assault{
 	mapfile = "assault_planet_5.dmm";
 	maptype = 1
 	},
 /turf/simulated/floor/planet/jungle,
-/area/jungle)
+/area/planet/jungle)
 "pm" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/mining_main/dorms)
@@ -7662,7 +7662,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/path,
-/area/jungle)
+/area/planet/jungle)
 "ps" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7704,11 +7704,11 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "px" = (
 /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "py" = (
 /turf/simulated/wall,
 /area/outpost/mining_main/dorms)
@@ -7729,11 +7729,11 @@
 /obj/item/clothing/under/rank/miner,
 /obj/item/remains/human,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pB" = (
 /obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pC" = (
 /obj/item/weapon/bedsheet/brown,
 /obj/structure/bed/nice,
@@ -7784,7 +7784,7 @@
 /area/outpost/mining_main/dorms)
 "pI" = (
 /turf/simulated/wall,
-/area/jungle)
+/area/planet/jungle)
 "pJ" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -7809,7 +7809,7 @@
 "pN" = (
 /obj/effect/shuttle_landmark/planet/planet,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "pO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -7832,7 +7832,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/clear/underground,
-/area/jungle)
+/area/planet/jungle)
 "pS" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -7852,7 +7852,7 @@
 "pV" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/planet/jungle/rock,
-/area/jungle)
+/area/planet/jungle)
 "pW" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -8143,7 +8143,7 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "qN" = (
 /obj/machinery/carpentry/woodprocessor,
 /turf/simulated/floor/wood,
@@ -8254,7 +8254,7 @@
 	req_access = list(1)
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "re" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled,
@@ -8265,7 +8265,7 @@
 	maptype = 1
 	},
 /turf/simulated/floor/planet/jungle/path,
-/area/jungle)
+/area/planet/jungle)
 "rh" = (
 /obj/machinery/door/airlock/external{
 	req_access = list(48)
@@ -8485,7 +8485,7 @@
 	maptype = 1
 	},
 /turf/simulated/floor/planet/jungle/rock,
-/area/jungle)
+/area/planet/jungle)
 "rL" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/donkpockets,
@@ -9015,7 +9015,7 @@
 "tc" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "td" = (
 /obj/structure/window/reinforced,
 /obj/machinery/light{
@@ -9756,7 +9756,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "uy" = (
 /obj/effect/floor_decal/corner/beige/three_quarters,
 /turf/simulated/floor/tiled,
@@ -10587,7 +10587,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "wu" = (
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (NORTH)";
@@ -10864,7 +10864,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "wW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -11484,7 +11484,7 @@
 "yc" = (
 /obj/effect/shuttle_landmark/mining/planet,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "yd" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -12169,7 +12169,7 @@
 	maptype = 1
 	},
 /turf/simulated/floor/planet/jungle/rock,
-/area/jungle)
+/area/planet/jungle)
 "zr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -12317,13 +12317,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "zB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "zC" = (
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (WEST)";
@@ -12702,7 +12702,7 @@
 	req_access = list(1)
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "Ao" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -12714,7 +12714,7 @@
 	req_access = list(10)
 	},
 /turf/simulated/floor/planet/jungle/clear,
-/area/jungle)
+/area/planet/jungle)
 "Ap" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -12785,7 +12785,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "Ay" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air,
@@ -12816,19 +12816,19 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AD" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AE" = (
 /obj/effect/shuttle_landmark/security/planet,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AF" = (
 /obj/effect/shuttle_landmark/engineering/planet,
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AG" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (SOUTHWEST)";
@@ -12836,7 +12836,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AH" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (SOUTHEAST)";
@@ -12844,13 +12844,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/jungle)
+/area/planet/jungle)
 "AI" = (
 /turf/simulated/floor/planet/jungle/water{
 	bridge = 1;
 	density = 1
 	},
-/area/jungle)
+/area/planet/jungle)
 
 (1,1,1) = {"
 aa

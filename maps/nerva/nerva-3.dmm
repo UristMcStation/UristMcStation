@@ -11159,7 +11159,7 @@
 	tag = "icon-pdoor1"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/plating,
 /area/command/captain)
 "PR" = (
 /obj/item/trash/cigbutt/rand,

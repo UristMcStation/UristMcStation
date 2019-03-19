@@ -723,7 +723,7 @@
 
 /area/away/virolabs
 	name = "\improper Virology Labratory"
-
+/*
 /area/jungle/southruins
 
 /area/jungle/northruins
@@ -752,7 +752,7 @@
 	name = "\improper Makeshift Building"
 
 /area/jungle/shuttle
-
+*/
 //ship
 
 /area/ship/combat

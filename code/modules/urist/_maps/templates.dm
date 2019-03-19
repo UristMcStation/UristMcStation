@@ -24,13 +24,13 @@ var/list/datum/map_template/ship/ship_templates = list()
 	for(var/ruin in potentialShipTemplates)
 		var/datum/map_template/ship/T = new(path = "[ruin]", rename = "[ruin]")
 		ship_templates[T.name] = T
-
+		SSmapping.map_templates += T
 
 /obj/effect/template_loader
 	name = "random ruin"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
-	invisibility = 101
+//	invisibility = 101
 	var/gamemode = 0
 
 /obj/effect/template_loader/New()
@@ -114,6 +114,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 /obj/effect/template_loader/ships
 	var/mapfile = null
+	gamemode = "ships" //this is dumb, but i don't want to rewrite it
 
 /obj/effect/template_loader/ships/Load(list/potentialRuins = ship_templates, datum/map_template/ship/template = null)
 
@@ -127,7 +128,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++
 
-	QDEL_IN(src,0)
+	spawn(10)
+		qdel(src)
+
+//	QDEL_IN(src,0)
 
 
 /* MATRIXCOMMENT
@@ -176,6 +180,9 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 				do_teleport(W, locate(tele_x,tele_y,tele_z), 0)
 				W << "<span class='warning'>You teleport back to the ship!</span>"
+
+			else
+				qdel(W)
 
 		for(var/mob/living/silicon/S in B)
 			var/tele_x = GLOB.using_map.overmap_ship.evac_x
