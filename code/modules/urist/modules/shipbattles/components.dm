@@ -26,6 +26,7 @@
 /datum/shipcomponents/shield/BlowUp()
 	strength = 0
 	recharge_rate = 0
+	mastership.shields = src.strength
 	..()
 
 /datum/shipcomponents/shield/debug

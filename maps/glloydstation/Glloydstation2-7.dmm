@@ -117,7 +117,7 @@
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle)
 "at" = (
-/turf/simulated/floor/planet/jungle/clear/plains,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle)
 "au" = (
 /obj/structure/bed/nice,
@@ -140,7 +140,7 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/simulated/floor/planet/jungle/clear/plains,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle)
 "ay" = (
 /turf/simulated/floor/wood{
@@ -173,11 +173,11 @@
 /area/planet/jungle)
 "aD" = (
 /obj/structure/flora/tree/planet/jungle/small,
-/turf/simulated/floor/planet/jungle/clear/plains,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle)
 "aE" = (
 /obj/structure/pit/closed/grave/spaghettiwestern,
-/turf/simulated/floor/planet/jungle/clear/plains,
+/turf/simulated/floor/planet/plains,
 /area/planet/jungle)
 "aF" = (
 /turf/simulated/floor/planet/jungle/impenetrable,

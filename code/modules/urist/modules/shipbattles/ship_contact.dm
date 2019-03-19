@@ -6,7 +6,7 @@
 	program_key_state = "generic_key"
 	size = 4
 	requires_ntnet = 1
-	available_on_ntnet = 1
+	available_on_ntnet = 0
 	nanomodule_path = /datum/nano_module/ship_contact
 //	usage_flags = PROGRAM_ALL
 
@@ -15,14 +15,14 @@
 	var/mob/living/simple_animal/hostile/overmapship/ship
 	var/category_contents
 	var/obj/machinery/computer/combatcomputer/CC
-	var/shipid = null
+	var/shipid = "nerva"
 
 /datum/nano_module/ship_contact/New()
 	for(var/obj/machinery/computer/combatcomputer/comp in SSmachines.machinery)
 		if(comp.shipid == src.shipid)
 			CC = comp
 
-	shipid = CC.shipid
+//	shipid = CC.shipid
 
 /datum/nano_module/ship_contact/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
 	var/list/data = host.initial_data()

@@ -25,7 +25,7 @@
 	var/event = 0 //are we part of an event
 	var/boarding = 0 //are we being boarded
 	var/can_board = FALSE //can we be boarded
-	var/map_spawned = FALSE
+	var/map_spawned = FALSE //have we spawned our boardingmap
 
 /mob/living/simple_animal/hostile/overmapship/New()
 	..()
@@ -56,11 +56,12 @@
 
 		if(istype(O, /obj/effect/overmap/ship/combat))
 			var/obj/effect/overmap/ship/combat/L = O
-			if(!L.incombat && !L.crossed)
-				L.Contact(src)
+			if(L.canfight)
+				if(!L.incombat && !L.crossed)
+					L.Contact(src)
 
-			else
-				return
+				else
+					return
 
 
 /mob/living/simple_animal/hostile/overmapship/Life() //here we do the attacking stuff. i hate that this is life, but fuck.
@@ -129,17 +130,7 @@
 
 	for(var/mob/observer/ghost/G in GLOB.player_list)
 		if(G.client)
-			var/want = input("The [target_ship.name] is now able to board a hostile ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
-			switch(want)
-				if("No")
-					return
-				if("Yes")
-					for(var/obj/effect/urist/triggers/defender_landmark/D in GLOB.trigger_landmarks)
-						if(D.loc)
-							var/mob/living/carbon/human/M = new /mob/living/carbon/human(D.loc)
-							M.ckey = G.ckey
-							D.trigger_spawn(M, hiddenfaction)
-							qdel(G)
+			G.shipdefender_spawn(src.hiddenfaction)
 
 	for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 		A.spawn_mobs()
@@ -179,7 +170,7 @@
 	maxHealth = 800
 	name = "small pirate ship"
 	ship_category = "small pirate ship"
-	boardingmap = "ship_pirate_small1.dmm"
+	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
 	can_board = 1
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small/New()
@@ -204,7 +195,7 @@
 	maxHealth = 1000
 	name = "pirate vessel"
 	ship_category = "medium pirate vessel"
-	boardingmap = "ship_pirate_small1.dmm"
+	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
 	can_board = 1
 
 /mob/living/simple_animal/hostile/overmapship/pirate/med/New()
@@ -322,7 +313,7 @@
 	health = 800
 	maxHealth = 800
 	ship_category = "Terran Confederacy merchant ship"
-	boardingmap = "ship_light_freighter.dmm"
+	boardingmap = "maps/shipmaps/ship_light_freighter.dmm"
 	can_board = 1
 
 /mob/living/simple_animal/hostile/overmapship/terran/tcmerchant/New()
@@ -347,7 +338,7 @@
 	health = 500
 	maxHealth = 1000
 	ship_category = "Terran Confederacy fast attack craft"
-	boardingmap = "ship_fastattackcraft_terran.dmm"
+	boardingmap = "maps/shipmaps/ship_fastattackcraft_terran.dmm"
 	can_board = 1
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack/New()
@@ -373,7 +364,7 @@
 	health = 500
 	maxHealth = 1000
 	ship_category = "rebel fast attack craft"
-	boardingmap = "ship_rebel_small1.dmm"
+	boardingmap = "maps/shipmaps/ship_rebel_small1.dmm"
 	can_board = 1
 
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack/New()

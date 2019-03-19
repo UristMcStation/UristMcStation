@@ -105,8 +105,9 @@
 							OM.shields = 0 //we reset the shields to zero to avoid any weirdness
 							//we also apply damage to the actual shield component //come back to this
 							if(!OM.boarding && OM.can_board)
-								OM.boarding = 1
-								OM.boarded()
+								if(homeship.can_board)
+									OM.boarding = 1
+									OM.boarded()
 
 							if(hulldamage)
 
@@ -125,7 +126,14 @@
 												S.BlowUp()
 
 					else if(!OM.shields) //no shields? easy
+
+						if(!OM.boarding && OM.can_board)
+							if(homeship.can_board)
+								OM.boarding = 1
+								OM.boarded()
+
 						OM.health -= hulldamage
+
 						if(prob(component_hit))
 							HitComponents(OM)
 							var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
@@ -157,9 +165,10 @@
 						GLOB.global_announcer.autosay("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 						dam_announced = 1
 
+				GLOB.global_announcer.autosay("<b>The [src.name] has hit the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+
 		//insert firing animations here
 		playsound(src, fire_sound, 40, 1)
-		GLOB.global_announcer.autosay("<b>The [src.name] has hit the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 
 		if(fire_anim)
 			icon_state = "[initial(icon_state)]-firing"

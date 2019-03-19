@@ -6,7 +6,7 @@
 
 /obj/effect/overmap/sector/destroyed_colony
 	name = "destroyed colony"
-	desc = "A former Terran Confederation colony, any settlements made on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
+	desc = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
 	icon_state = "globe"
 	known = 0
 	in_space = 0
@@ -34,7 +34,7 @@
 /datum/map_template/ruin/away_site/destroyed_colony
 	name = "Destroyed Colony"
 	id = "awaysite_destroyed_colony"
-	description = "A former Terran Confederation colony, any settlements made on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
+	description = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
 	suffixes = list("destroyed_colony/destroyed_colony.dmm")
 	accessibility_weight = 10
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED

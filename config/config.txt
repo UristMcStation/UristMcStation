@@ -207,7 +207,7 @@ GUEST_BAN
 WIKIURL "https://wiki.baystation12.net/Main_Page"
 
 ## GitHub address
-# GITHUBURL https://github.com/example-user/example-repository
+GITHUBURL https://github.com/UristMcStation/UristMcStation
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 #BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10

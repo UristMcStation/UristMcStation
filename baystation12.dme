@@ -2880,6 +2880,7 @@
 #include "code\modules\urist\modules\shipbattles\projectile_landmarks.dm"
 #include "code\modules\urist\modules\shipbattles\ship_contact.dm"
 #include "code\modules\urist\modules\shipbattles\ship_landmarks.dm"
+#include "code\modules\urist\modules\shipbattles\ship_overmaps.dm"
 #include "code\modules\urist\modules\shipbattles\ship_projectiles.dm"
 #include "code\modules\urist\modules\shipbattles\weapons.dm"
 #include "code\modules\urist\modules\weather\area_climates.dm"
