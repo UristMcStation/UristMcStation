@@ -24,6 +24,8 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_resomi.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_resomi.dmi'
 
+	darksight_range = 6
+	darksight_tint = DARKTINT_GOOD
 	slowdown = -0.1
 	total_health = 150
 	brute_mod = 1.35
@@ -56,6 +58,26 @@
 		)
 	cold_discomfort_level = 180
 
+	available_cultural_info = list(
+		TAG_CULTURE = list(
+			CULTURE_TESHARI
+		),
+		TAG_HOMEWORLD = list(
+			HOME_SYSTEM_QERRBALAK,
+			HOME_SYSTEM_OTHER
+		),
+		TAG_FACTION = list(
+			FACTION_TESHARI_QERRBALAK,
+			FACTION_TESHARI_SPACEBORN
+
+		),
+		TAG_RELIGION =  list(
+			RELIGION_OTHER,
+			RELIGION_ATHEISM,
+			RELIGION_AGNOSTICISM
+		)
+	)
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -86,6 +108,11 @@
 		)
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/sonar_ping)
+
+	descriptors = list(
+		/datum/mob_descriptor/height = -4,
+		/datum/mob_descriptor/build = -4
+		)
 
 /obj/item/organ/external/foot/teshari
 	body_hair = "feathers"

@@ -151,3 +151,9 @@
 #define CULTURE_XENOPHAGE_S    "Xenophage Sentinel"
 #define CULTURE_XENOPHAGE_Q    "Xenophage Queen"
 #define FACTION_XENOPHAGE      "Xenophage Hive"
+
+// Teshari culture. TODO?: Add more Factions
+#define CULTURE_TESHARI           "Teshari Packs"
+
+#define FACTION_TESHARI_QERRBALAK "Qerrbalak Teshari"
+#define FACTION_TESHARI_SPACEBORN "Spaceborn Teshari"
