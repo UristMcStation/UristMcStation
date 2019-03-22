@@ -153,7 +153,7 @@
 #define FACTION_XENOPHAGE      "Xenophage Hive"
 
 // Teshari culture. TODO?: Add more Factions
-#define CULTURE_TESHARI           "Teshari Packs"
+#define CULTURE_TESHARI           "Teshari"
 
-#define FACTION_TESHARI_QERRBALAK "Qerrbalak Teshari"
+#define FACTION_TESHARI_QERRBALAK "Qerrbalak Packs"
 #define FACTION_TESHARI_SPACEBORN "Spaceborn Teshari"
