@@ -37,9 +37,11 @@ LEGACY_RECORD_STRUCTURE(virus_records, virus_record)
 	if(severity < 5)
 		antigen = list(pick(ALL_ANTIGENS))
 		antigen |= pick(ALL_ANTIGENS)
-		spreadtype = prob(70) ? prob(20) ? "Airbrone" : "Proximity" : "Contact"
+		spreadtype = prob(70) ? "Proximity" : "Contact"
 	else //Unique virus, we're wanting this to be deadly
 		spreadtype = "Airborne"
+		antigen = list(pick(ALL_ANTIGENS))
+		antigen |= pick(ALL_ANTIGENS)
 
 	if(all_species.len)
 		affected_species = get_infectable_species()

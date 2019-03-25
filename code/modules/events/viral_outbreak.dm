@@ -18,8 +18,11 @@ datum/event/viral_outbreak/start()
 	if(!candidates.len)	return
 	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle
 
+	var/datum/disease2/disease/unique_disease = new /datum/disease2/disease
+	unique_disease.makerandom(VIRUS_UNIQUE)
+
 	while(severity > 0 && candidates.len)
-		infect_mob_random_virus(candidates[1],VIRUS_UNIQUE)
+		infect_virus2(candidates[1],unique_disease,TRUE)
 
 		candidates.Remove(candidates[1])
 		severity--
