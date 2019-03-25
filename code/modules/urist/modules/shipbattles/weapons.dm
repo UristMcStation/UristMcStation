@@ -59,10 +59,8 @@
 	..()
 	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
 		if(homeship.incombat)
-			var/want = input("Fire the [src]?") in list ("Cancel", "Yes")
+			var/want = input("Fire the [src]?") in list ("Yes", "Cancel")
 			switch(want)
-				if("Cancel")
-					return
 				if("Yes")
 					if(charged) //just in case, we check again
 						user << "<span class='warning'>You fire the [src.name].</span>"
@@ -70,6 +68,8 @@
 					else
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
+				if("Cancel")
+					return
 			return
 
 		else

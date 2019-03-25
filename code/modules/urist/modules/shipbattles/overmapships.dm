@@ -123,7 +123,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/proc/boarded()
 
-	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 	for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 		new /obj/item/device/radio/beacon(L.loc)

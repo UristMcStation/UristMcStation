@@ -15,8 +15,28 @@
 		to_chat(user, "<span class='warning'>Access Denied.</span>")
 		return 1
 
+	//quick and dirty hack below, make a real UI for this
+
+	var/list/selectable = list()
+	for(var/obj/machinery/shipweapons/SW in linkedweapons)
+		if(SW.canfire)
+			selectable |= SW
+
+	if(target && homeship.incombat)
+		var/obj/machinery/shipweapons/SW = input("Which charged weapon do you wish to fire?") as null|anything in selectable
+
+		if(!istype(SW))
+	//		to_chat(usr, "<font color='blue'><b>You don't do anything.</b></font>")
+			return
+
+		SW.Fire()
+		to_chat(user, "<span class='warning'>You fire the [SW.name].</span>")
+
+	else
+		to_chat(user, "<span class='warning'>The ship is not in combat.</span>")
+
 //	user.set_machine(src)
-	interact(user)
+//	interact(user)
 //	ui_interact(user)
 
 /obj/machinery/computer/combatcomputer/Topic(href, href_list)

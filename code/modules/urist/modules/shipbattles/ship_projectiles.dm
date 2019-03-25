@@ -11,6 +11,7 @@
 /obj/item/projectile/bullet/ship
 	ship = 1
 	kill_count = 300
+	var/shake_range = 0 //what's the range that we shake people's screens
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
 	name ="autocannon shell"
@@ -35,9 +36,13 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
 	damage = 100
+	shake_range = 15
 
 /obj/item/projectile/bullet/ship/smallmissile/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, 0, 2, 4)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
 	return 1
 
 /obj/item/projectile/bullet/ship/bigmissile
@@ -45,9 +50,13 @@
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
 	damage = 200
+	shake_range = 25
 
 /obj/item/projectile/bullet/ship/bigmissile/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, 1, 3, 7)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
 	return 1
 
 /obj/item/projectile/bullet/ship/smalltorpedo
@@ -55,9 +64,13 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
 	damage = 100
+	shake_range = 20
 
 /obj/item/projectile/bullet/ship/smalltorpedo/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, 3, 4, 5)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
 	return 1
 
 /obj/item/projectile/bullet/ship/bigtorpedo
@@ -65,9 +78,13 @@
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
 	damage = 200
+	shake_range = 30
 
 /obj/item/projectile/bullet/ship/bigtorpedo/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, 5, 6, 7)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
 	return 1
 
 //beam weapons
