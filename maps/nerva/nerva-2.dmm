@@ -6477,6 +6477,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
+"lJ" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/plating,
+/area/engineering/securestorage)
 "lK" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -8803,7 +8811,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/item/weapon/clipboard,
 /obj/item/weapon/material/coin/silver,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
@@ -8818,6 +8825,7 @@
 	icon_state = "camera";
 	tag = "icon-camera (NORTH)"
 	},
+/obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "qm" = (
@@ -9434,6 +9442,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
+"rx" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/engineering/securestorage)
 "ry" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -10112,6 +10127,9 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
@@ -12235,6 +12253,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/weapon/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "wN" = (
@@ -12614,6 +12633,7 @@
 	c_tag = "Brig Cell 1";
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "xy" = (
@@ -13576,6 +13596,7 @@
 	c_tag = "Janitor's Closet";
 	dir = 1
 	},
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/plating,
 /area/civilian/janitor)
 "zx" = (
@@ -16582,6 +16603,7 @@
 /obj/item/weapon/screwdriver{
 	pixel_y = 10
 	},
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
 "Fc" = (
@@ -17758,6 +17780,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "packageSort1"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
 "Hl" = (
@@ -18050,8 +18076,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "HU" = (
-/obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
+/obj/item/modular_computer/console/preset/supply{
+	tag = "icon-console (WEST)";
+	icon_state = "console";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "HV" = (
@@ -18530,6 +18560,7 @@
 	c_tag = "Brig Cell 2";
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "IX" = (
@@ -22233,6 +22264,7 @@
 	id = "brigflasher";
 	pixel_x = -26
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "PX" = (
@@ -22364,6 +22396,25 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/simulated/floor/tiled/dark,
 /area/security/office)
+"Qn" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Qo" = (
 /obj/item/clothing/gloves/rainbow,
 /obj/item/clothing/shoes/rainbow,
@@ -23542,6 +23593,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
+"St" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Su" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
@@ -25077,6 +25149,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
+"Vt" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Vu" = (
 /obj/machinery/suit_storage_unit/atmos,
 /obj/effect/floor_decal/corner/blue{
@@ -43083,7 +43167,7 @@ AZ
 vJ
 Hh
 Rl
-lZ
+rx
 AZ
 QO
 QO
@@ -43689,7 +43773,7 @@ AZ
 Zo
 nR
 FP
-lZ
+lJ
 TY
 Sp
 RK
@@ -44704,8 +44788,8 @@ MZ
 Nm
 kY
 JT
-mx
-JB
+Qn
+Vt
 zB
 GQ
 lo
@@ -45310,7 +45394,7 @@ lG
 RE
 HT
 JT
-Jg
+St
 sN
 zB
 AS

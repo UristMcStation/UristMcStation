@@ -1052,8 +1052,8 @@
 /turf/simulated/floor/wood,
 /area/command/captain)
 "dh" = (
-/obj/structure/closet/secure_closet/captainsequipment,
 /obj/item/ammo_magazine/c44,
+/obj/structure/closet/secure_closet/nervacap,
 /turf/simulated/floor/wood,
 /area/command/captain)
 "di" = (
@@ -1404,6 +1404,16 @@
 /obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
+"dS" = (
+/obj/structure/ladder,
+/obj/machinery/camera/network/first_deck{
+	c_tag = "Aft Port Maintenance APC";
+	dir = 8;
+	icon_state = "camera";
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afp)
 "dT" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3466,12 +3476,12 @@
 	icon_state = "corner_white";
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	icon_state = "intact";
 	dir = 1
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -4220,8 +4230,8 @@
 /obj/structure/table/woodentable,
 /obj/item/device/synthesized_instrument/guitar,
 /obj/item/device/paicard,
-/obj/machinery/atm{
-	pixel_x = 30
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
@@ -4406,6 +4416,9 @@
 "oA" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/scissors,
+/obj/machinery/atm{
+	pixel_x = 30
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "oB" = (
@@ -5961,6 +5974,7 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "vj" = (
@@ -6955,6 +6969,7 @@
 /obj/random/maintenance,
 /obj/structure/table/rack,
 /obj/random/maintenance,
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "zo" = (
@@ -11080,12 +11095,6 @@
 	tag = ""
 	},
 /obj/structure/catwalk,
-/obj/machinery/camera/network/first_deck{
-	c_tag = "Aft Port Maintenance APC";
-	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -31209,7 +31218,7 @@ vm
 Ow
 YE
 Bt
-Bs
+dS
 Cg
 tS
 jN
