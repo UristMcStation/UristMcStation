@@ -23,10 +23,12 @@
 	var/obj/effect/overmap/ship/combat/homeship = null
 
 /obj/machinery/shipweapons/Initialize()
+	.=..()
+
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
 		if(src.shipid == CC.shipid)
 			CC.linkedweapons += src
-	.=..()
+
 
 /obj/machinery/shipweapons/Process()
 	if(!charged && !recharging)
@@ -239,6 +241,7 @@
 	dir = 4
 
 /obj/structure/shipammo/torpedo/New()
+	..()
 	pixel_y = rand(-20,2)
 
 /obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)

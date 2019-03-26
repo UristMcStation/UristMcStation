@@ -149,7 +149,7 @@
 //bartender
 
 /decl/hierarchy/outfit/job/service/nervabartender
-	name = OUTFIT_JOB_NAME("Bartender")
+	name = OUTFIT_JOB_NAME("Nerva Bartender")
 	uniform = /obj/item/clothing/under/rank/bartender
 	id_type = /obj/item/weapon/card/id/civilian/chef
 	pda_type = /obj/item/modular_computer/pda
