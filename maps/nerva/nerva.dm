@@ -18,6 +18,7 @@
 	#include "fluff/culture.dm"
 	#include "fluff/factions.dm"
 	#include "fluff/locations_human.dm"
+	#include "fluff/species_overrides.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
@@ -33,7 +34,7 @@
 	#include "nerva-5.dmm"
 
 	#include "../away/mining/mining.dm"
-	#include "../away/derelict/derelict.dm"
+//	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/lost_supply_base/lost_supply_base.dm"
 	#include "../away/smugglers/smugglers.dm"
