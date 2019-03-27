@@ -1088,7 +1088,7 @@
 	},
 /area/jungleoutpost/main)
 "dz" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/main)
 "dA" = (

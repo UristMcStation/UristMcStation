@@ -104,7 +104,7 @@
 		/area/infestation,
 		/area/planet/jungle/explored,
 		/area/planet/jungle/temple_one,
-//		/area/jungleoutpost,
+		/area/jungleoutpost,
 		/area/maintenance/exterior,
 		/area/maintenance/substation,
 		/area/map_template,
@@ -191,5 +191,6 @@
 		/area/turbolift,
 		/area/outpost/engineering/storage,
 		/area/outpost/mining_main/maintenance,
-		/area/outpost/security/lounge
+		/area/outpost/security/lounge,
+		/area/boarding_ship
 	)

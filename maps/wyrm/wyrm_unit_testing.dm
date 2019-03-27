@@ -51,7 +51,8 @@
 		/area/template_noop,
 		/area/overmap,
 		/area/infestation,
-		/area/command/ce
+		/area/command/ce,
+		/area/boarding_ship
 	)
 
 	area_usage_test_exempted_root_areas = list(

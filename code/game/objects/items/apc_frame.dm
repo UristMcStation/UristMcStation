@@ -24,7 +24,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		to_chat(usr, "<span class='warning'>APC cannot be placed on this spot.</span>")
 		return
-	if (A.requires_power == 0 || istype(A, /area/space) || istype(A, /area/jungle))
+	if (A.requires_power == 0 || istype(A, /area/space) || istype(A, /area/planet/jungle))
 		to_chat(usr, "<span class='warning'>APC cannot be placed in this area.</span>")
 		return
 	if (A.get_apc())

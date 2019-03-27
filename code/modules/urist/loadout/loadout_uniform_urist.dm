@@ -1,8 +1,8 @@
-/datum/gear/uniform/urist/dress
+/datum/gear/uniform/uristdress
 	display_name = "fancy dress selection"
-	path = /obj/item/clothing/under
+	path = /obj/item/clothing/under/urist/dress/pinksun
 
-/datum/gear/uniform/urist/dress/New()
+/datum/gear/uniform/uristdress/New()
 	..()
 	var/udresses = list()
 	udresses += /obj/item/clothing/under/urist/dress/pinksun

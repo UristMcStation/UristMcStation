@@ -2599,7 +2599,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "hg" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "hh" = (
@@ -3318,7 +3318,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "iX" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/space,
 /area/space)
 "iY" = (

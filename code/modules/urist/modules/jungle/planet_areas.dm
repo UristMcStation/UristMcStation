@@ -22,7 +22,7 @@
 	icon = 'icons/jungle.dmi'
 	icon_state = "temple1"
 
-/area/planet/jungleoutpost
+/area/jungleoutpost
 	name = "\improper Jungle Outpost"
 	icon_state = "away"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1

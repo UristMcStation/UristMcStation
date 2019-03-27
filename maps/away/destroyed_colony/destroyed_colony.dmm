@@ -431,7 +431,7 @@
 "io" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/largecrate,/obj/random/tank,/obj/random/tank,/obj/random/tank,/turf/simulated/floor/tiled/dark,/area/planet/destroyed_colony)
 "ip" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate/paper_refill,/turf/simulated/floor/tiled/dark,/area/planet/destroyed_colony)
 "iq" = (/obj/structure/window/reinforced/full,/obj/structure/grille,/obj/effect/urist/spawn_bomb,/turf/simulated/floor/pavement/empty,/area/planet/destroyed_colony)
-"ir" = (/obj/structure/curtain{color = "#4C0000"; name = "burgandy curtain"},/turf/simulated/floor/pavement/empty,/area/planet/destroyed_colony)
+"ir" = (/obj/structure/curtain{color = "#4c0000"; name = "burgandy curtain"},/turf/simulated/floor/pavement/empty,/area/planet/destroyed_colony)
 "is" = (/obj/effect/urist/spawn_bomb,/turf/simulated/wall,/area/planet/destroyed_colony)
 "it" = (/turf/simulated/floor/fixed/destroyedroad{icon_state = "outerpavement"; dir = 6},/area/planet/destroyed_colony)
 "iu" = (/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/destroyedroad{icon_state = "hole"},/area/planet/destroyed_colony)

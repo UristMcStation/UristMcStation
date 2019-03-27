@@ -40,7 +40,7 @@
 "aN" = (/obj/effect/landmark/scom/enemyspawn/easy{spawntype = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "aO" = (/obj/machinery/vending/snack,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "aP" = (/obj/machinery/vending/cola,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
-"aQ" = (/obj/item/weapon/cigbutt,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
+"aQ" = (/obj/item/trash/cigbutt,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "aR" = (/obj/structure/bed/chair{dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "aS" = (/obj/effect/landmark/scom/enemyspawn/easy{mission = 1; spawntype = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "aT" = (/obj/effect/landmark/scom/enemyspawn/hard{mission = 1; spawntype = 11},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)

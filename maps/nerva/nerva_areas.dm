@@ -497,7 +497,7 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/cents
-	name = "\improper Second Deck Central Port Maintenance"
+	name = "\improper Second Deck Central Starboard Maintenance"
 	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/afs
