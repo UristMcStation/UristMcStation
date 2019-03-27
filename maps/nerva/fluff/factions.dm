@@ -18,7 +18,7 @@
 	communicate by Holomessage. The Lower Council's job is to vote on laws proposed by the Grand Council and to propose amendments to them. \
 	The TC's population is diverse including many non-humans and encompassing a wide range of systems, territories \
 	habitats, and celestial bodies. However, it is large, cumbersome, divided and slow to respond to issues due to \
-	its massive bureaucracy and the distance between worlds. Through its member states, the SCG governs as one of the \
+	its massive bureaucracy and the distance between worlds. Nonetheless, the Terran Confederacy governs as one of the \
 	most advanced and powerful civilisations in the known galaxy."
 	language = LANGUAGE_SOL_COMMON
 
@@ -55,7 +55,7 @@
 	economic_power = 0.9
 	subversive_potential = 50
 	language = LANGUAGE_INDEPENDENT
-	secondary_langs = list(LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
 /decl/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY
@@ -68,7 +68,7 @@
 	Xenoarchaeological studies and, most importantly, the discovery of new alien life. The Expeditionary Corps is \
 	often considered a motivated, starry-eyed organisation that genuinely strives to be the best it can."
 	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
 /decl/cultural_info/faction/remote/nanotrasen
 	name = FACTION_NANOTRASEN
@@ -84,6 +84,7 @@
 	they also have a virtual monopoly on trade in the outer systems."
 	economic_power = 1.2
 	subversive_potential = 15
+	secondary_langs = list(LANGUAGE_SIGN)
 
 /decl/cultural_info/faction/remote/xynergy
 	name = FACTION_XYNERGY
@@ -93,6 +94,7 @@
 	training the giant armoured serpentids."
 	economic_power = 1.1
 	subversive_potential = 15
+	secondary_langs = list(LANGUAGE_SIGN)
 
 /decl/cultural_info/faction/remote/hephaestus
 	name = FACTION_HEPHAESTUS
@@ -128,7 +130,7 @@
 	competitor, SAARE."
 	subversive_potential = 15
 	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
 
 
 /decl/cultural_info/faction/orma
@@ -142,7 +144,7 @@
 	They're really just a name at this point, and a loose collection of rebuilt mining colonies in the Outer Rim."
 	subversive_potential = 15
 	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
 
 
@@ -151,3 +153,4 @@
 	description = "You belong to one of the many other factions that operate in the galaxy. Numerous, too numerous to list, these factions represent a variety of interests, purposes, intents and goals."
 	subversive_potential = 25
 	language = LANGUAGE_GALCOM
+	secondary_langs = list(LANGUAGE_SIGN)
