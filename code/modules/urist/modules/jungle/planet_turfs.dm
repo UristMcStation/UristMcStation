@@ -9,6 +9,10 @@
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
+	light_max_bright = 0.4
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
 	var/icon_spawn_state = "grass1"
 	var/farmed = 0
 	var/bushspawnchance = 0 //let's try it, why not
