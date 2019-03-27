@@ -30,7 +30,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 	name = "random ruin"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "syndballoon"
-//	invisibility = 101
+	invisibility = 101
 	var/gamemode = 0
 
 /obj/effect/template_loader/New()

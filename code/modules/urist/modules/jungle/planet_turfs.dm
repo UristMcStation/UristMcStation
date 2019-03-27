@@ -37,6 +37,8 @@
 		..()
 
 /turf/simulated/floor/planet/Initialize()
+	var/bushes = FALSE
+
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
 
@@ -67,12 +69,15 @@
 
 	if(bushspawnchance && prob(bushspawnchance))
 		new bush_type(src)
+		bushes = TRUE
 
 	if(small_trees_chance && prob(small_trees_chance)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
-		new small_tree_type(src)
+		if(!bushes)
+			new small_tree_type(src)
 
 	if(large_trees_chance && prob(large_trees_chance ))
-		new large_tree_type(src)
+		if(!bushes)
+			new large_tree_type(src)
 
 	if(animal_spawn_chance && prob(animal_spawn_chance ))
 		if(prob(50)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
@@ -80,9 +85,7 @@
 			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
 
 	if(trap_spawn_chance)
-		if(prob(1)) //The natives aren't that great
-			var/obj/structure/bush/B = locate() in src
-			if(B) qdel(B)
+		if(!bushes && prob(1))
 			new /obj/structure/pit/punji6/hidden/dull(src)
 
 	if(spawn_scrap)
@@ -94,6 +97,7 @@
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
 	light_color = SSskybox.BGcolor
+
 	. = ..()
 
 /turf/simulated/floor/planet/ex_act(severity)
@@ -114,6 +118,9 @@
 	else if (istype(M, /mob/living/carbon/human/monkey))
 		var/mob/living/carbon/human/monkey/A = M
 		A.loc = get_turf(src)
+
+	else
+		..()
 
 /turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))

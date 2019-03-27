@@ -392,7 +392,7 @@
 
 
 /obj/item/weapon/welder_tank/empty/Initialize()
-	..()
+	. = ..()
 	max_fuel = 20 //this is a dumb hack and i hate it
 
 //mapping object

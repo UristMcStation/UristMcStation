@@ -1317,7 +1317,7 @@ window "rpane"
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Forum"
+		text = "Discord"
 		command = "forum"
 		group = "rpanemode"
 	elem "wikib"

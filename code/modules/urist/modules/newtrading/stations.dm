@@ -11,12 +11,13 @@
 	icon = 'icons/urist/misc/overmap.dmi'
 	icon_state = "station1"
 
+/*
 /obj/effect/overmap/sector/station/Initialize()
 	if(nospawn)
 		qdel(src)
 		return
 	else
-		..()
+		..() */
 
 /*/obj/effect/overmap/sector/station/New()
 	..()

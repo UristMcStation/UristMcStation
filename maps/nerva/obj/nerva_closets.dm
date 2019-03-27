@@ -15,6 +15,8 @@
 	return list(
 		/obj/item/clothing/suit/armor/pcarrier/medium/nerva,
 		/obj/item/clothing/head/helmet,
+		/obj/item/weapon/tank/jetpack/oxygen,
+		/obj/item/clothing/mask/gas,
 		/obj/item/device/radio/headset/heads/nerva_cap,
 		/obj/item/clothing/head/urist/beret/nervacap,
 		/obj/item/clothing/under/urist/nerva/capformal,
