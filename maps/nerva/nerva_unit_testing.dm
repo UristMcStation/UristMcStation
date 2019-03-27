@@ -96,7 +96,7 @@
 		/area/awaymission,
 		/area/outpost,
 		/area/away,
-		/area/spacestations,
+		/area/spacestations
 	)
 
 	area_coherency_test_exempt_areas = list(
@@ -109,5 +109,5 @@
 		/area/exoplanet/desert,
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
-		/area/exoplanet/garbage,
+		/area/exoplanet/garbage
 	)
