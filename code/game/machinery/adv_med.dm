@@ -249,7 +249,7 @@
 		if (!istype(connected.occupant))
 			to_chat(user, "\icon[src]<span class='warning'>The body scanner cannot scan that lifeform.</span>")
 			return TOPIC_REFRESH
-		stored_scan = connected.occupant.get_medical_data(user.get_skill_value(SKILL_MEDICAL))
+		stored_scan = connected.occupant.get_medical_data()
 		stored_scan_subject = connected.occupant
 		user.visible_message("<span class='notice'>\The [user] performs a scan of \the [connected.occupant] using \the [connected].</span>")
 		generate_window(user)

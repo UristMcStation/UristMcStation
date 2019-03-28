@@ -227,10 +227,10 @@
 
 //////////////END HOSTILE MOB TARGETTING AND AGGRESSION////////////
 
-/mob/living/simple_animal/hostile/death()
+/mob/living/simple_animal/hostile/death(gibbed, deathmessage, show_dead_message)
 	LoseAggro()
 	mouse_opacity = 1
-	..()
+	..(gibbed, deathmessage, show_dead_message)
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
@@ -282,8 +282,20 @@
 			for(var/atom/A in T)
 				if(!A.Adjacent(src))
 					continue
-				if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
+				if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille) || istype(A, /obj/machinery/door/window))
 					A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+
+				if(istype(A, /obj/structure/wall_frame))
+					T = get_turf(A)
+					var/obj/structure/struct = locate(/obj/structure/window) in T
+					if(!struct)
+						struct = locate(/obj/structure/grille) in T
+					if(struct)
+						struct.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+						return
+					A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+
+
 	return
 
 /mob/living/simple_animal/hostile/proc/EscapeConfinement()

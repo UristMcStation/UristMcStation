@@ -26,9 +26,9 @@
 
 /decl/hierarchy/outfit/job/trader
 	name = OUTFIT_JOB_NAME("Trader")
-	uniform = /obj/item/clothing/under/terran/trader
-	suit = /obj/item/clothing/suit/terran/trader
-	head = /obj/item/clothing/head/terran/trader
+	uniform = /obj/item/clothing/under/urist/terran/trader
+	suit = /obj/item/clothing/suit/urist/terran/trader
+	head = /obj/item/clothing/head/urist/terran/trader
 	l_ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/modular_computer/pda

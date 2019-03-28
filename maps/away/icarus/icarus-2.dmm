@@ -28,15 +28,6 @@
 "ah" = (
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
-"ai" = (
-/obj/item/weapon/ore/slag,
-/obj/structure/wall_frame,
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"aj" = (
-/obj/structure/wall_frame,
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
 "ak" = (
 /obj/item/weapon/ore/slag,
 /turf/simulated/floor/plating,
@@ -115,20 +106,8 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
-"aA" = (
-/obj/item/modular_computer/console{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/icarus/vessel)
 "aB" = (
 /obj/random/trash,
-/turf/simulated/floor/tiled,
-/area/icarus/vessel)
-"aC" = (
-/obj/item/modular_computer/console{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aD" = (
@@ -161,12 +140,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
-"aI" = (
-/obj/item/modular_computer/console{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/icarus/open)
 "aJ" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/weapon/storage/fancy/cigarettes/killthroat,
@@ -860,12 +833,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
-"cO" = (
-/obj/item/modular_computer/console{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/icarus/vessel)
 "cP" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -1332,11 +1299,6 @@
 /turf/simulated/open/skylight,
 /area/icarus/open)
 "ef" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/airless{
@@ -1348,11 +1310,6 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "eh" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
@@ -1373,26 +1330,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
-"el" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/icarus/open)
-"em" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/icarus/vessel)
 "en" = (
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
@@ -1408,11 +1345,6 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "ep" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -1433,11 +1365,6 @@
 /area/icarus/vessel)
 "es" = (
 /obj/machinery/door/airlock,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -1475,11 +1402,6 @@
 /turf/simulated/shuttle/wall,
 /area/icarus/open)
 "eA" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
@@ -1528,11 +1450,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/icarus/vessel)
 "eK" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -1594,11 +1511,6 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "eV" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
@@ -1616,12 +1528,6 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/icarus/vessel)
-"eY" = (
-/obj/item/modular_computer/console{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/white,
-/area/icarus/open)
 "eZ" = (
 /turf/simulated/shuttle/wall{
 	dir = 2;
@@ -1660,12 +1566,12 @@
 	},
 /area/icarus/open)
 "fg" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fh" = (
@@ -1693,11 +1599,11 @@
 /turf/simulated/floor/reinforced,
 /area/icarus/open)
 "fk" = (
-/obj/machinery/power/solar_control,
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fl" = (
@@ -1717,8 +1623,14 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fm" = (
-/obj/machinery/power/smes/buildable,
 /obj/structure/cable,
+/obj/machinery/power/smes/buildable{
+	charge = 10000;
+	input_attempt = 1;
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
+	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fn" = (
@@ -1944,6 +1856,24 @@
 /obj/effect/landmark/random_gen/asteroid,
 /turf/unsimulated/mineral,
 /area/space)
+"lV" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/cable{
+	d1 = 32;
+	d2 = 4;
+	icon_state = "32-4"
+	},
+/turf/simulated/open,
+/area/icarus/vessel)
+"SO" = (
+/obj/structure/window/reinforced/full,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/icarus/open)
 
 (1,1,1) = {"
 aa
@@ -19575,7 +19505,7 @@ ad
 ad
 ad
 ar
-aD
+SO
 ar
 ar
 ar
@@ -21786,9 +21716,9 @@ ae
 ae
 ae
 as
-aA
+am
 aE
-aA
+am
 as
 as
 as
@@ -22187,7 +22117,7 @@ ae
 ae
 ae
 af
-ai
+ak
 at
 aw
 au
@@ -22589,8 +22519,8 @@ ae
 ae
 af
 af
-ai
-aj
+ak
+ah
 an
 au
 al
@@ -22791,7 +22721,7 @@ ae
 ae
 af
 ag
-aj
+ah
 al
 al
 al
@@ -23095,7 +23025,7 @@ as
 as
 eU
 as
-bu
+lV
 fk
 as
 ar
@@ -23289,8 +23219,8 @@ ad
 ad
 ef
 eh
-el
-em
+dB
+cc
 ep
 es
 eA
@@ -23421,7 +23351,7 @@ aR
 an
 an
 dE
-cO
+am
 cQ
 ad
 ad
@@ -23801,7 +23731,7 @@ ae
 ae
 af
 af
-aj
+ah
 an
 ap
 an
@@ -24004,7 +23934,7 @@ ae
 ae
 af
 af
-ai
+ak
 al
 an
 an
@@ -24027,7 +23957,7 @@ aR
 an
 an
 dE
-cO
+am
 cQ
 cQ
 dV
@@ -24614,9 +24544,9 @@ ae
 ad
 ad
 ar
-aC
-aI
-aC
+am
+aE
+am
 as
 as
 as
@@ -25645,7 +25575,7 @@ as
 dc
 ds
 as
-aD
+SO
 eb
 cQ
 dW
@@ -26123,7 +26053,7 @@ ah
 as
 ew
 eD
-eY
+eO
 eD
 fe
 fj
@@ -26445,7 +26375,7 @@ as
 bU
 as
 aW
-cO
+am
 as
 dl
 du
@@ -27054,14 +26984,14 @@ ar
 ar
 ar
 ar
-aD
-aD
-aD
+SO
+SO
+SO
 ar
 ar
-aD
-aD
-aD
+SO
+SO
+SO
 cQ
 ad
 ad

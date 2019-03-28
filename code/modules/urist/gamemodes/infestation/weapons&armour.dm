@@ -391,7 +391,7 @@
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/c9mm
-	max_ammo = 30
+	max_ammo = 40
 //	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a9mm/empty

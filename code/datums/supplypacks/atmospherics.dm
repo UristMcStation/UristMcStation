@@ -22,6 +22,7 @@
 	cost = 45
 
 	containername = "\improper Emergency crate"
+	newcargocost = 55
 
 /decl/hierarchy/supply_pack/atmospherics/inflatable
 	name = "Equipment - Inflatable barriers"
@@ -36,6 +37,7 @@
 	cost = 7
 	containername = "\improper Empty gas canister crate"
 	containertype = /obj/structure/largecrate
+	newcargocost = 4
 
 /decl/hierarchy/supply_pack/atmospherics/canister_air
 	name = "Gas - Air canister"
@@ -43,6 +45,7 @@
 	cost = 10
 	containername = "\improper Air canister crate"
 	containertype = /obj/structure/largecrate
+	newcargocost = 8
 
 /decl/hierarchy/supply_pack/atmospherics/canister_oxygen
 	name = "Gas - Oxygen canister"
@@ -50,6 +53,7 @@
 	cost = 15
 	containername = "\improper Oxygen canister crate"
 	containertype = /obj/structure/largecrate
+	newcargocost = 10
 
 /decl/hierarchy/supply_pack/atmospherics/canister_nitrogen
 	name = "Gas - Nitrogen canister"
@@ -57,6 +61,7 @@
 	cost = 10
 	containername = "\improper Nitrogen canister crate"
 	containertype = /obj/structure/largecrate
+	newcargocost = 8
 
 /decl/hierarchy/supply_pack/atmospherics/canister_phoron
 	name = "Gas - Phoron gas canister"
@@ -65,6 +70,7 @@
 	containername = "\improper Phoron gas canister crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_atmospherics
+	newcargocost = 60
 
 /decl/hierarchy/supply_pack/atmospherics/canister_hydrogen
 	name = "Gas - Hydrogen canister"
@@ -89,6 +95,7 @@
 	containername = "\improper CO2 canister crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_atmospherics
+	newcargocost = 25
 
 /decl/hierarchy/supply_pack/atmospherics/fuel
 	name = "Liquid - Fuel tank crate"
@@ -119,3 +126,4 @@
 	containername = "\improper Atmospherics scanner module crate"
 	containertype = /obj/structure/closet/crate/secure
 	access = access_atmospherics
+	newcargocost = 18

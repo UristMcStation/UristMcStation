@@ -62,6 +62,15 @@ GLOBAL_VAR(spawntypes)
 	..()
 	turfs = GLOB.latejoin_cryo
 
+/datum/spawnpoint/cryo2
+	display_name = "Secondary Cryogenic Storage"
+	msg = "has completed cryogenic revival"
+	disallow_job = list("Robot")
+
+/datum/spawnpoint/cryo2/New()
+	..()
+	turfs = GLOB.latejoin_cryo2
+
 /datum/spawnpoint/cyborg
 	display_name = "Cyborg Storage"
 	msg = "has been activated from storage"

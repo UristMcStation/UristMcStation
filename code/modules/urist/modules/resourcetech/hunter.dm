@@ -122,6 +122,8 @@
 	max_amount = 10
 	var/busy = 0
 
+/*
+
 /material/leather/generate_recipes()
 	recipes = list()
 
@@ -159,3 +161,5 @@
 	recipes += new/datum/stack_recipe("factory worker's apron", /obj/item/clothing/suit/storage/urist/apron, 3, time = 40)
 	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 30)
 	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/urist/bandana/leather, 1, time = 30)
+
+*/

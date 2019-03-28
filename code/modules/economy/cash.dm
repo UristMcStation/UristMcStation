@@ -90,6 +90,34 @@
 		w_class = ITEM_SIZE_SMALL
 
 /obj/item/weapon/spacecash/bundle/attack_self()
+	var/amount = input(usr, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 20) as num
+	var/result = split_off(amount, usr)
+	if(result)
+		usr.put_in_hands(result)
+	else
+		return 0
+
+/obj/item/weapon/spacecash/bundle/proc/split_off(var/amount, var/mob/user)
+	amount = round(Clamp(amount, 0, src.worth))
+	if(amount==0) return 0
+
+	src.worth -= amount
+	src.update_icon()
+	if(!worth)
+		user.drop_from_inventory(src)
+	if(amount in list(1000,500,200,100,50,20,1))
+		var/cashtype = text2path("/obj/item/weapon/spacecash/bundle/c[amount]")
+		var/obj/cash = new cashtype (user.loc)
+		. = cash
+	else
+		var/obj/item/weapon/spacecash/bundle/bundle = new (user.loc)
+		bundle.worth = amount
+		bundle.update_icon()
+		. = bundle
+	if(!worth)
+		qdel(src)
+
+/*/obj/item/weapon/spacecash/bundle/attack_self() //oldcode
 	var/amount = input(usr, "How many Thalers do you want to take? (0 to [src.worth])", "Take Money", 20) as num
 	amount = round(Clamp(amount, 0, src.worth))
 	if(amount==0) return 0
@@ -106,7 +134,7 @@
 		bundle.update_icon()
 		usr.put_in_hands(bundle)
 	if(!worth)
-		qdel(src)
+		qdel(src)*/
 
 /obj/item/weapon/spacecash/bundle/c1
 	name = "1 Thaler"

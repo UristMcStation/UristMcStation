@@ -78,6 +78,10 @@
 		P.stamped = list(/obj/item/weapon/stamp)
 		P.overlays = list("paper_stamped")
 
+		if(GLOB.using_map.using_new_cargo)
+			for(var/datum/contract/nanotrasen/anomaly/A in GLOB.using_map.contracts)
+				A.Complete(1)
+
 		if(scanned_object && istype(scanned_object, /obj/machinery/artifact))
 			var/obj/machinery/artifact/A = scanned_object
 			A.anchored = 0

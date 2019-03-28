@@ -10,11 +10,11 @@
 	player_levels = list(1,2,3)
 	admin_levels = list(4)
 	empty_levels = list(5)
-	accessible_z_levels = list("1"=5,"2"=5,"3"=5)
-	overmap_size = 30
-	overmap_event_areas = 25
+	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"5"=30)
+	overmap_size = 36
+	overmap_event_areas = 32
 
-	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage")
+	allowed_spawns = list("Cryogenic Storage", "Secondary Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
 	station_name  = "ICS Nerva"
@@ -32,17 +32,103 @@
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
+	starting_money = 20000		//Money in station account //tweak this value
+	department_money = 1000		//Money in department accounts
+	salary_modifier	= 1			//Multiplier to starting character money
+
+	supply_currency_name = "Thalers"
+	supply_currency_name_short = "Th."
+
+	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing
+
 	evac_controller_type = /datum/evacuation_controller/starship
 
 	default_law_type = /datum/ai_laws/manifest
 	use_overmap = 1
 
-	num_exoplanets = 1
+	num_exoplanets = 2
 	planet_size = list(129,129)
 
-	away_site_budget = 5
+	away_site_budget = 6
 
-	citizenship_choices = list(
+	date_offset = 564
+
+/*	available_cultural_info = list(
+		TAG_HOMEWORLD = list(
+			HOME_SYSTEM_LUNA,
+			HOME_SYSTEM_MARS,
+			HOME_SYSTEM_VENUS,
+			HOME_SYSTEM_CERES,
+			HOME_SYSTEM_PLUTO,
+			HOME_SYSTEM_TAU_CETI,
+			HOME_SYSTEM_HELIOS,
+			HOME_SYSTEM_TERRA,
+			HOME_SYSTEM_TERSTEN,
+			HOME_SYSTEM_LORRIMAN,
+			HOME_SYSTEM_CINU,
+			HOME_SYSTEM_YUKLID,
+			HOME_SYSTEM_LORDANIA,
+			HOME_SYSTEM_KINGSTON,
+			HOME_SYSTEM_GAIA,
+			HOME_SYSTEM_RYCLIES,
+			HOME_SYSTEM_READE,
+			HOME_SYSTEM_PROCYON,
+			HOME_SYSTEM_OTHER
+		),
+		TAG_FACTION = list(
+			FACTION_NANOTRASEN,
+			FACTION_XYNERGY,
+			FACTION_HEPHAESTUS,
+			FACTION_TCONFEDERACY,
+			FACTION_UHA,
+			FACTION_PCRC,
+			FACTION_ORMA,
+			FACTION_OTHER
+		),
+		TAG_CULTURE = list(
+			CULTURE_HUMAN,
+			CULTURE_HUMAN_MARTIAN,
+			CULTURE_HUMAN_MARSTUN,
+			CULTURE_HUMAN_LUNAPOOR,
+			CULTURE_HUMAN_LUNARICH,
+			CULTURE_HUMAN_VENUSIAN,
+			CULTURE_HUMAN_VENUSLOW,
+			CULTURE_HUMAN_BELTER,
+			CULTURE_HUMAN_PLUTO,
+			CULTURE_HUMAN_CETI,
+			CULTURE_HUMAN_SPACER,
+			CULTURE_HUMAN_SPAFRO,
+			CULTURE_HUMAN_CONFED,
+			CULTURE_HUMAN_UHA_OFFTERRA,
+			CULTURE_HUMAN_ORMA,
+			CULTURE_HUMAN_NT,
+			CULTURE_HUMAN_OTHER,
+			CULTURE_OTHER
+		),
+		TAG_RELIGION = list(
+			RELIGION_OTHER,
+			RELIGION_JUDAISM,
+			RELIGION_HINDUISM,
+			RELIGION_BUDDHISM,
+			RELIGION_ISLAM,
+			RELIGION_CHRISTIANITY,
+			RELIGION_AGNOSTICISM,
+			RELIGION_DEISM,
+			RELIGION_ATHEISM,
+			RELIGION_THELEMA,
+			RELIGION_SPIRITUALISM
+		)
+	)
+
+	default_cultural_info = list(
+		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
+		TAG_FACTION =   FACTION_SOL_CENTRAL,
+		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
+		TAG_RELIGION =  RELIGION_AGNOSTICISM
+	)
+*/
+/*	citizenship_choices = list(
 		"Earth",
 		"Mars",
 		"New Earth",
@@ -79,15 +165,26 @@
 		"Aether Atmospherics",
 		"Zeng-Hu Pharmaceuticals",
 		"Hephaestus Industries",
-		)
+		)*/
 
+
+	base_floor_type = /turf/simulated/floor/reinforced/airless
+	base_floor_area = /area/maintenance/exterior
 
 /datum/map/nerva/setup_map()
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
+	contracts += new /datum/contract/nanotrasen/anomaly
 
-/datum/map/wyrm/send_welcome()
+/datum/map/nerva/map_info(victim)
+	to_chat(victim, "<h2>Current map information</h2>")
+	to_chat(victim, "You're aboard the <b>ICS Nerva</b>, an independently contracted vessel owned by the Captain. Its primary mission is whatever the Captain dictates, which can include trading, scavenging or exploration.")
+	to_chat(victim, "The vessel is staffed with a mix of personnel, hailing from multiple different backgrounds and factions. While the ship itself is an independently contracted vessel, the crew may have their own loyalties.")
+	to_chat(victim, "This area of space is on the frontier, and is largely unsettled and unexplored. Any extensive settlements were destroyed during the Galactic Crisis.")
+	to_chat(victim, "You might encounter remote outposts, pirates, or drifting hulks, but no one faction can claim to fully control this sector.")
+
+/datum/map/nerva/send_welcome()
 	var/welcome_text = "<center><br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"

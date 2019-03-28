@@ -188,6 +188,16 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/obj/machinery/emergency_beacon/active_beacon
 	var/list/blacklisted_programs = list()
 
+//below this is all Nerva stuff
+
+	var/date_offset = 544 //default date offset
+	var/using_new_cargo = 0 //for nerva
+	var/new_cargo_inflation = 1 //used to calculate how much points are now. this needs balancing
+	var/nanotrasen_relations = 100 //used to determine if nt hates you
+	var/terran_confederacy_relations = 50 //used to determine if the tc hates you
+	var/list/contracts = list()
+	var/obj/effect/overmap/ship/combat/overmap_ship = null
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()

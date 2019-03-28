@@ -142,10 +142,10 @@
 
 	else if(location == 1)
 		onmission = 1
-		for(var/obj/machinery/scom/shuttle_control/SC in world)
+		for(var/obj/machinery/scom/shuttle_control/SC in SSmachines.machinery)
 			SC.fuckoff = 0
 
-		for(var/obj/effect/landmark/scom/enemyspawn/R in world)
+		for(var/obj/effect/landmark/scom/enemyspawn/R in landmarks_list)
 			if(mission == R.mission)
 				R.spawnmobs()
 

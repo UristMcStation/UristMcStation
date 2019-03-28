@@ -17,6 +17,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //this is important EXPLICITLY for all the dresses -Vakothu
 /obj/item/clothing/under/urist/dress
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	icon_state = "blackdress" //for travis purposes
+	name = "dress" //likewise
 
 //backtracking and putting this here to clean things up
 
@@ -48,8 +50,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Emergency Suit. It's really shitty, but better than a firesuit when it comes to space or biological hazards. Will need a special "emergency locker" for this.
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
 
-/obj/item/clothing/suit/emergencysuit
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/suit/urist/emergencysuit
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -67,7 +68,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
 
-/obj/item/clothing/suit/emergencysuit/New()
+/obj/item/clothing/suit/urist/emergencysuit/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1.5
 
@@ -110,7 +111,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "naval space suit"
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navyspace"
-	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
+	desc = "A high quality space suit used by the NanoTrasen Navy. Smells like oppression."
 	w_class = 3
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
@@ -124,7 +125,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/space/void/commando
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando suit"
-	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the NanoTrasen Naval Commandos. It reeks of oppression."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
@@ -194,24 +195,20 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Terran Confederacy Trader outfit
 
-/obj/item/clothing/under/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/under/urist/terran //why was this a weirdass path
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
-/obj/item/clothing/suit/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/suit/urist/terran
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
-/obj/item/clothing/under/terran/trader
+/obj/item/clothing/under/urist/terran/trader
 	name = "Terran Confederacy trader's outfit"
 	desc = "An opulent outfit worn by a Terran Confederacy trader"
 	icon_state = "TCToutfit"
 	item_state = "TCToutfit"
 	//item_color = "TCToutfit"
 
-/obj/item/clothing/suit/terran/trader
+/obj/item/clothing/suit/urist/terran/trader
 	name = "Terran Confederacy trader's cloak"
 	desc = "An opulent cloak worn by a Terran Confederacy trader"
 	icon_state = "TCTRobes"
@@ -902,10 +899,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "luna"
 
 /obj/item/clothing/suit/urist/armor
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = ITEM_FLAG_THICKMATERIAL
-
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
@@ -1226,3 +1222,61 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
 	icon_state = "rnd"
+
+//terran stuff
+
+/obj/item/clothing/suit/space/void/terran_marine
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Confederacy Marine voidsuit"
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the Terran Marines. It reeks of oppression, and also corruption somehow."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "terran_void_marine"
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
+	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
+	can_breach = 0
+
+/obj/item/clothing/suit/space/void/commando/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/suit/storage/urist/terran_marine
+	name = "Terran Confederacy Marine armour"
+	desc = "A heavy armour vest worn by Terran Confederacy Marines."
+	icon_state = "terran_armour"
+	item_state = "terran_armour"
+	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/suit/storage/urist/terran_officer
+	name = "Terran Confederacy Marine Officer armour"
+	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
+	icon_state = "terran_armour_officer"
+	item_state = "terran_armour_officer"
+	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/under/urist/terran/marine
+	name = "Terran Confederacy Marine uniform"
+	desc = "A grey uniform worn by the Terran Confederacy Marines."
+	icon_state = "terran_uniform"
+	item_state = "terran_uniform"

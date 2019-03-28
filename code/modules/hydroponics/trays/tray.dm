@@ -517,11 +517,6 @@
 	health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 	lastcycle = world.time
 
-	var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
-	if(prob(user.skill_fail_chance(SKILL_BOTANY, 40, needed_skill)))
-		dead = 1
-		health = 0
-
 	qdel(S)
 	check_health()
 

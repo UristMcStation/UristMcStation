@@ -77,27 +77,32 @@
 	contains = list(/obj/item/stack/material/phoron/ten)
 	cost = 20 // When sold yields 67 points.
 	containername = "\improper Phoron sheets crate"
+	newcargocost = 80
 
 /decl/hierarchy/supply_pack/materials/gold10
 	name = "10 gold sheets"
 	contains = list(/obj/item/stack/material/gold/ten)
 	cost = 20
 	containername = "\improper Gold sheets crate"
+	newcargocost = 50
 
 /decl/hierarchy/supply_pack/materials/silver10
 	name = "10 silver sheets"
 	contains = list(/obj/item/stack/material/silver/ten)
 	cost = 20
 	containername = "\improper Silver sheets crate"
+	newcargocost = 45
 
 /decl/hierarchy/supply_pack/materials/uranium10
 	name = "10 uranium sheets"
 	contains = list(/obj/item/stack/material/uranium/ten)
 	cost = 20
 	containername = "\improper Uranium sheets crate"
+	newcargocost = 80
 
 /decl/hierarchy/supply_pack/materials/diamond10
 	name = "10 diamond sheets"
 	contains = list(/obj/item/stack/material/diamond/ten)
 	cost = 20
 	containername = "\improper Diamond sheets crate"
+	newcargocost = 100

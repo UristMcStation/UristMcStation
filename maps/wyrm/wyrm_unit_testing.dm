@@ -51,7 +51,8 @@
 		/area/template_noop,
 		/area/overmap,
 		/area/infestation,
-		/area/command/ce
+		/area/command/ce,
+		/area/boarding_ship
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -73,7 +74,7 @@
 		/area/map_template,
 		/area/exoplanet,
 		/area/lanius,
-		/area/jungle,
+		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
 		/area/shuttle/scom,

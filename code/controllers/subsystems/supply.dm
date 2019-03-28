@@ -34,6 +34,20 @@ SUBSYSTEM_DEF(supply)
 	. = ..()
 	ordernum = rand(1,9000)
 
+	if(GLOB.using_map.using_new_cargo) //here we do setup for the new cargo system
+		points_per_process = 0
+
+
+		point_source_descriptions = list(
+			"time" = "Base station supply",
+			"manifest" = "From exported manifests",
+			"crate" = "From exported crates",
+			"virology" = "From uploaded antibody data",
+			"gep" = "From uploaded good explorer points",
+			"trade" = "From trading items",
+			"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
+		)
+
 	//Build master supply list
 	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
 		if(sp.is_category())
@@ -48,6 +62,9 @@ SUBSYSTEM_DEF(supply)
 /datum/controller/subsystem/supply/fire()
 	add_points_from_source(points_per_process, "time")
 
+//	if(GLOB.using_map.using_new_cargo)
+//		points = station_account.money
+
 /datum/controller/subsystem/supply/stat_entry()
 	..("Points: [points]")
 
@@ -57,6 +74,11 @@ SUBSYSTEM_DEF(supply)
 	points += amount
 	point_sources[source] += amount
 	point_sources["total"] += amount
+
+	if(GLOB.using_map.using_new_cargo)
+	//	var/newamount = (amount * GLOB.using_map.new_cargo_inflation)
+		station_account.money += amount
+		points = station_account.money
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/supply/proc/forbidden_atoms_check(atom/A)
@@ -86,10 +108,30 @@ SUBSYSTEM_DEF(supply)
 				callHook("sell_crate", list(CR, subarea))
 				add_points_from_source(CR.points_per_crate, "crate")
 				var/find_slip = 1
-
 				for(var/atom in CR)
 					// Sell manifests
 					var/atom/A = atom
+
+					if(GLOB.using_map.using_new_cargo)
+						if(istype(A, /obj/item/stack/material))
+							var/obj/item/stack/material/P = A
+							var/material/material = P.get_material()
+							if(material.sale_price > 0)
+								var/materialmoney = P.get_amount() * material.sale_price
+								materialmoney *= GLOB.using_map.new_cargo_inflation
+								materialmoney *= 0.25 //test and balance
+								material_count[material.display_name] += materialmoney
+//								station_account.money += materialmoney
+//								points = station_account.money
+
+						else
+
+							var/obj/O = A
+							var/addvalue = (find_item_value(O) * 0.8) //we get even less for selling in bulk
+							add_points_from_source(addvalue, "trade")
+//							station_account.money += addvalue
+//							points = station_account.money
+
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
 						var/obj/item/weapon/paper/manifest/slip = A
 						if(!slip.is_copy && slip.stamped && slip.stamped.len) //Any stamp works.
@@ -99,11 +141,12 @@ SUBSYSTEM_DEF(supply)
 
 					// Sell materials
 					if(istype(A, /obj/item/stack))
-						var/obj/item/stack/P = A
-						var/material/material = P.get_material()
-						if(material.sale_price > 0)
-							material_count[material.display_name] += P.get_amount() * material.sale_price
-						continue
+						if(!GLOB.using_map.using_new_cargo) //Bay sucks cock, so now we're just doing it through our price system
+							var/obj/item/stack/P = A
+							var/material/material = P.get_material()
+							if(material.sale_price > 0)
+								material_count[material.display_name] += P.get_amount() * material.sale_price
+							continue
 
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))
@@ -180,3 +223,17 @@ SUBSYSTEM_DEF(supply)
 	var/comment = null
 	var/reason = null
 	var/orderedrank = null //used for supply console printing
+
+/datum/controller/subsystem/supply/proc/find_item_value(var/obj/object) //here we get the value of the items being traded
+	if(!object)
+		return 0
+
+	//this uses the default SS13 item_worth procs so its a good fallback
+	. = get_value(object)
+
+	var/datum/trade_item/T
+
+	//try and find it via the global controller
+	T = trade_controller.trade_items_by_type[object.type]
+	if(T)
+		return T.value

@@ -1,24 +1,18 @@
 // Suit slot
-/datum/gear/suit
-	display_name = "apron, blue"
-	path = /obj/item/clothing/suit/apron
-	slot = slot_wear_suit
-	sort_category = "Suits and Overwear"
-	cost = 2
 
-/datum/gear/suit/roles/poncho/security
+/datum/gear/suit/security_poncho
 	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer)
 
-/datum/gear/suit/roles/poncho/medical
+/datum/gear/suit/medical_poncho
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo,/datum/job/chemist,)
 
-/datum/gear/suit/roles/poncho/engineering
+/datum/gear/suit/engineering_poncho
 	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer)
 
-/datum/gear/suit/roles/poncho/science
+/datum/gear/suit/science_poncho
 	allowed_roles = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
 
-/datum/gear/suit/roles/poncho/cargo
+/datum/gear/suit/cargo_poncho
 	allowed_roles = list(/datum/job/qm,/datum/job/cargo_tech)
 
 /datum/gear/suit/wintercoat/captain

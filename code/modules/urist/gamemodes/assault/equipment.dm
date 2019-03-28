@@ -296,9 +296,9 @@
 	triggerproc = "explode2"
 
 /obj/effect/mine/frag/attack_hand(mob/user as mob)
-	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span_class='warning'>You start to disarm the mine. Just stay very still.</span>")
+	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span class='warning'>You start to disarm the mine. Just stay very still.</span>")
 	if (do_after(user, 30, src))
-		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span_class='warning'>You disarm the mine. It's safe to pick up now!</span>")
+		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span class='warning'>You disarm the mine. It's safe to pick up now!</span>")
 		new /obj/item/weapon/mine/frag(src.loc)
 		qdel(src)
 

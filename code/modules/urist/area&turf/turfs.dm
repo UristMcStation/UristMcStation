@@ -233,3 +233,19 @@ transit/east is the same thing now AFAIK
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+
+/turf/simulated/floor/plating/flaps //this is hacky, but it'll prevent the airtight flaps from resetting every time the ship takes off
+	blocks_air = 1
+
+//alium space ships
+
+/turf/simulated/wall/alium/ship
+	icon = 'icons/urist/turf/scomturfs.dmi'
+
+/turf/simulated/wall/alium/ship/see
+	opacity = 0
+
+/turf/simulated/floor/fixed/alium/ship
+	name = "alien flooring"
+	desc = "This obviously wasn't made for your feet."
+	icon = 'icons/urist/turf/scomturfs.dmi'

@@ -27,13 +27,13 @@ exactly 2 "/atom text paths" '"/atom'
 exactly 2 "/area text paths" '"/area'
 exactly 2 "/datum text paths" '"/datum'
 exactly 2 "/mob text paths" '"/mob'
-exactly 17 "/obj text paths" '"/obj'
+exactly 19 "/obj text paths" '"/obj'
 exactly 8 "/turf text paths" '"/turf'
-exactly 76 "world<< uses" 'world<<|world[[:space:]]<<'
+exactly 79 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 54 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
-exactly 1350 "<< uses" '(?<!<)<<(?!<)' -P
+exactly 1369 "<< uses" '(?<!<)<<(?!<)' -P
 exactly 324 "incorrect indentations" '^( {4,})' -P
-exactly 28 "text2path uses" 'text2path'
+exactly 29 "text2path uses" 'text2path'
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong
 
 num=`find ./html/changelogs -not -name "*.yml" | wc -l`

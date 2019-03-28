@@ -297,3 +297,59 @@
 	r_hand = /obj/item/weapon/gun/energy/lactera/a2
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
+
+/decl/hierarchy/outfit/terranmarine
+	name = "Terran Marine"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	mask = /obj/item/clothing/mask/gas/terranhalf
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/storage/urist/terran_marine
+	head = /obj/item/clothing/head/helmet/urist/terran_marine
+	back = /obj/item/weapon/storage/backpack/rucksack/tan
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a556/a22
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom
+
+/decl/hierarchy/outfit/terranmarinespace
+	name = "Terran Marine - Space"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	mask = /obj/item/clothing/mask/gas/terranhalf
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/space/void/terran_marine
+	head = /obj/item/clothing/head/helmet/space/void/terran_marine
+	back = /obj/item/weapon/storage/backpack/security
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/weapon/plastique = 1, /obj/item/weapon/gun/projectile/colt/a7 = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a556/a22
+	suit_store = /obj/item/weapon/tank/oxygen
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom
+
+/decl/hierarchy/outfit/terranofficer
+	name = "Terran Officer"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/storage/urist/terran_officer
+	head = /obj/item/clothing/head/urist/terran/officercap
+	back = /obj/item/weapon/storage/backpack/urist/explorersatchel
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/weapon/tank/emergency/oxygen = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/asmg
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a9mm
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom

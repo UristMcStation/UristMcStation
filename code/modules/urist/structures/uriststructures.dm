@@ -446,3 +446,78 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "raft_frame4"
 	built = 1
 	buildstate = 4
+
+//special flaps for shuttles
+/obj/structure/plasticflaps/mining/special/clear_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating))
+			T.ChangeTurf(/turf/simulated/floor/plating/flaps)
+
+/obj/structure/plasticflaps/mining/special/clear_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating/flaps))
+			T.ChangeTurf(/turf/simulated/floor/plating)
+
+//this file is a fucking mess. anyways, here's a random portal
+
+/obj/structure/shipportal //this is for returning from the map ships
+	name = "portal"
+	desc = "Looks unstable. Best to test it with the clown."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "portal"
+	density = 1
+	anchored = 1
+	layer = 3.1
+
+/obj/structure/shipportal/Bumped(atom/movable/M as mob|obj)
+	spawn(0)
+		src.teleport(M)
+		return
+	return
+/*
+/obj/structure/shipportal/Crossed(AM as mob|obj)
+	spawn(0)
+		src.teleport(AM)
+		return
+	return
+*/
+/obj/structure/shipportal/attack_hand(mob/user as mob)
+	spawn(0)
+		src.teleport(user)
+		return
+	return
+
+/obj/structure/shipportal/proc/teleport(atom/movable/M as mob|obj)
+	if(istype(M, /obj/effect)) //sparks don't teleport
+		return
+	else
+		var/tele_x = GLOB.using_map.overmap_ship.evac_x
+		var/tele_y = GLOB.using_map.overmap_ship.evac_y
+		var/tele_z = GLOB.using_map.overmap_ship.evac_z
+
+		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
+		M << "<span class='warning'>You teleport back to the ship!</span>"
+
+/obj/effect/step_trigger/teleporter/urist/nerva
+	teleport_x = 89
+	teleport_y = 90
+	teleport_z = 1
+
+//barricade
+
+/obj/structure/barricade/wooden/crude
+	name = "crude plank barricade"
+	desc = "This space is blocked off by a crude assortment of planks."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodenbarricade-old"
+	health = 50
+	maxhealth = 50
+	use_material_colour = 0
+
+/obj/structure/barricade/wooden/crude/snow
+	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
+	icon_state = "woodenbarricade-snow-old"
+	health = 75
+	maxhealth = 75
