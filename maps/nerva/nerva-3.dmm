@@ -161,8 +161,8 @@
 "ax" = (
 /obj/structure/table/steel,
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
-	id_tag = "escape_pod_1_hatch";
-	tag_door = "escape_pod_1_door"
+	id_tag = "escape_pod_1";
+	tag_door = "escape_pod_1_hatch"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)

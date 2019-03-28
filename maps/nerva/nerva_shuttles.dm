@@ -133,6 +133,13 @@
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/reinforced
 
+/datum/shuttle/autodock/ferry/supply/drone/attempt_move(var/obj/effect/shuttle_landmark/destination)
+	if(!destination)
+		return FALSE
+
+	else
+		..()
+
 /datum/shuttle/autodock/ferry/supply/drone/arrived()
 	if(location == 0)
 		for(var/obj/machinery/door/blast/M in SSmachines.machinery)

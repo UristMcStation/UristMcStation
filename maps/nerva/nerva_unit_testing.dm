@@ -31,7 +31,6 @@
 		/area/turbolift/mainmiddle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift/maintop = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance/exterior = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/rescue/start = NO_SCRUBBER,
 		/area/exoplanet          = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -40,12 +39,10 @@
 	)
 
 	area_usage_test_exempted_areas = list(
-		/area/AIsattele,
 		/area/djstation,
 		/area/outpost,
 		/area/outpost/abandoned,
 		/area/jungleoutpost,
-		/area/science/xenoarch,
 		/area/centcom/holding,
 		/area/centcom/specops,
 		/area/centcom/holding,
@@ -62,13 +59,13 @@
 		/area/template_noop,
 		/area/overmap,
 		/area/infestation,
-		/area/boarding/ship
+		/area/boarding_ship
 	)
 
 	area_usage_test_exempted_root_areas = list(
 		/area/casino,
-		/area/constructionsite,
-		/area/derelict,
+//		/area/constructionsite,
+//		/area/derelict,
 		/area/lost_supply_base,
 		/area/magshield,
 		/area/mine,
@@ -83,7 +80,7 @@
 		/area/lar_maria,
 		/area/map_template,
 		/area/exoplanet,
-		/area/lanius,
+//		/area/lanius,
 		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
@@ -103,7 +100,6 @@
 		/area/space,
 		/area/mine/explored,
 		/area/mine/unexplored,
-		/area/centcom/control,
 		/area/maintenance/exterior,
 		/area/exoplanet,
 		/area/exoplanet/desert,

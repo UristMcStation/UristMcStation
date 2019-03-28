@@ -51,7 +51,8 @@
 		/area/syndicate_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/tcommsat/chamber/abandoned = NO_SCRUBBER,
 		/area/tcommsat/chamber/server = NO_SCRUBBER,
-		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT
+		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT,
+		/area/map_template/hydrobase/station/shower = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_coherency_test_exempt_areas = list(

@@ -692,6 +692,7 @@
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/virusfood{
+	density = 0;
 	pixel_y = 28
 	},
 /obj/machinery/light_switch{
