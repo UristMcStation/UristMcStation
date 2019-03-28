@@ -17,6 +17,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //this is important EXPLICITLY for all the dresses -Vakothu
 /obj/item/clothing/under/urist/dress
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	icon_state = "blackdress" //for travis purposes
+	name = "dress" //likewise
 
 //backtracking and putting this here to clean things up
 

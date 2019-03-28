@@ -161,8 +161,8 @@
 "ax" = (
 /obj/structure/table/steel,
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
-	id_tag = "escape_pod_1_hatch";
-	tag_door = "escape_pod_1_door"
+	id_tag = "escape_pod_1";
+	tag_door = "escape_pod_1_hatch"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
@@ -620,8 +620,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Captain's Bedroom";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/carpet,
 /area/command/captain)
@@ -1005,8 +1004,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Captain's Office";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/wood,
 /area/command/captain)
@@ -1413,10 +1411,9 @@
 "dS" = (
 /obj/structure/ladder,
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Aft Port Maintenance APC";
+	c_tag = "First Deck Aft Port Maintenance APC";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -2712,7 +2709,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fs)
 "iV" = (
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -2847,8 +2844,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Rec Room - Aft";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
@@ -3257,8 +3253,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Holodeck Control";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
@@ -3423,8 +3418,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Starboard Hallway - Fore";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
@@ -3442,6 +3436,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
+"lj" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
 "lk" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4152,7 +4153,7 @@
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fs)
 "nP" = (
 /obj/effect/floor_decal/corner/orange,
 /obj/effect/floor_decal/corner/black{
@@ -4254,7 +4255,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fs)
 "of" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -4492,8 +4493,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Chief Engineer's Office";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
@@ -4582,8 +4582,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Engineering Break Room Main";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -5606,14 +5605,13 @@
 	icon_state = "warning";
 	dir = 8
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Fuel Tank";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/machinery/button/ignition{
 	id = "engines";
 	pixel_y = -26
+	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "Fuel Bay";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/fuelbay)
@@ -6205,10 +6203,9 @@
 /obj/random/maintenance,
 /obj/structure/catwalk,
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Fore Starboard Maintenance APC";
+	c_tag = "First Deck Fore Starboard Maintenance APC";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
@@ -6430,10 +6427,9 @@
 /area/maintenance/first_deck/afp)
 "xc" = (
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Aft Starboard Maintenance APC";
+	c_tag = "First Deck Aft Starboard Maintenance APC";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/telecomms/relay/preset/thirddeck,
 /turf/simulated/floor/plating,
@@ -6595,8 +6591,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Bathrooms";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -6750,7 +6745,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fp)
 "yq" = (
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHWEST)";
@@ -6844,10 +6839,9 @@
 /area/maintenance/first_deck/afp)
 "yQ" = (
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Central Hallway - Port";
+	c_tag = "First Deck Central Hallway - Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
@@ -7192,8 +7186,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Seconday Cryogenic Storage";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo2)
@@ -7470,8 +7463,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Port Hallway - Library";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/open,
 /area/hallway/fore/first)
@@ -7548,8 +7540,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Dormitory - Fore";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/wood,
 /area/civilian/dorms)
@@ -7794,8 +7785,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Laundry Room";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/trunk{
 	icon_state = "pipe-t";
@@ -8042,10 +8032,9 @@
 /obj/structure/closet/emcloset,
 /obj/structure/catwalk,
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Fore Port Maintenance APC";
+	c_tag = "First Deck Fore Port Maintenance APC";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
@@ -8197,8 +8186,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Starboard Hallway - Locker Rooms";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
@@ -8213,7 +8201,7 @@
 	},
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fp)
 "Em" = (
 /obj/structure/railing/mapped{
 	tag = "icon-railing0 (EAST)";
@@ -8718,8 +8706,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Aft Hallway Starboard";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/effect/floor_decal/urist/nervalogo{
 	tag = "icon-nerva1 (NORTH)";
@@ -9005,8 +8992,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Locker Rooms";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
@@ -9026,8 +9012,7 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Atmospherics - Pump Room";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)
@@ -9685,8 +9670,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Port Hallway - Fore";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
@@ -9767,8 +9751,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Rec Room - Fore";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
@@ -9808,6 +9791,11 @@
 /obj/item/weapon/caution/cone,
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
+"JT" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fs)
 "JU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -9842,6 +9830,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
+"JY" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fs)
 "JZ" = (
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
@@ -9940,8 +9933,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Aft Hallway - Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
@@ -10168,8 +10160,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Engineering Break Room Starboard Entrance";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -10344,8 +10335,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "General Storage";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
@@ -10659,8 +10649,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Fore Hallway - Central";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -10891,8 +10880,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Starboard Hallway - Library";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
@@ -10956,8 +10944,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Fore Hallway - Starboard";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
@@ -11287,8 +11274,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Captain's Office Staircase";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/machinery/door/blast/regular/open{
 	tag = "icon-pdoor0 (WEST)";
@@ -11347,7 +11333,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fs)
 "QF" = (
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -11844,8 +11830,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Engineering Break Room Port Entrance";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -11990,7 +11975,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fp)
 "Tn" = (
 /obj/machinery/light{
 	dir = 8
@@ -12382,8 +12367,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Teleporter Chamber";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/command/teleporter)
@@ -12807,10 +12791,9 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/first_deck{
-	c_tag = "Central Hallway - Starboard";
+	c_tag = "First Deck Central Hallway - Starboard";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/newscaster{
 	hitstaken = 1;
@@ -13416,8 +13399,7 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Port Hallway - Cryo";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/first)
@@ -13507,7 +13489,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
-/area/hallway/fore/first)
+/area/maintenance/first_deck/fs)
 "ZJ" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -38521,7 +38503,7 @@ uy
 uy
 uy
 yo
-Ar
+Eq
 Tm
 ql
 HW
@@ -38538,7 +38520,7 @@ Ip
 pL
 QD
 od
-Tm
+JT
 zF
 AR
 jp
@@ -38723,8 +38705,8 @@ uy
 uy
 uy
 Ej
-Ar
-Fu
+Eq
+lj
 ql
 ov
 Pt
@@ -38925,7 +38907,7 @@ mE
 uy
 uy
 yo
-Ar
+Eq
 Tm
 kp
 tI
@@ -38940,9 +38922,9 @@ tL
 ty
 uQ
 wz
-yo
+JY
 od
-Tm
+JT
 zF
 TG
 Dp

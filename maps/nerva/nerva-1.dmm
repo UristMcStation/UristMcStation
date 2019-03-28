@@ -117,6 +117,9 @@
 	dir = 1;
 	luminosity = 2
 	},
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/device/taperecorder,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics)
 "ay" = (
@@ -609,8 +612,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Kitchen Freezer";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/freezer,
@@ -664,6 +666,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
+"bP" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply";
+	tag = "icon-manifold (WEST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/logistics/hangar)
 "bW" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
@@ -678,6 +695,7 @@
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/virusfood{
+	density = 0;
 	pixel_y = 28
 	},
 /obj/machinery/light_switch{
@@ -832,8 +850,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger Aft";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -1601,8 +1618,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger - Trajan Entrance";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -1678,10 +1694,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Aft Starboard Maintenance APC";
+	c_tag = "Third Deck Aft Starboard Maintenance APC";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -2088,13 +2103,13 @@
 	icon_state = "warning";
 	dir = 1
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Port Engine Bay"
-	},
 /obj/structure/cable/orange{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Port Engine Bay"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -2161,9 +2176,7 @@
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bottom Deck Gunnery Room";
-	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/bottomgun)
@@ -2299,10 +2312,9 @@
 "hZ" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Fore Starboard Maintenance APC";
+	c_tag = "Third Deck Fore Starboard Maintenance APC";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
@@ -3241,8 +3253,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger Expedition Prep - Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
@@ -3273,8 +3284,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Main Stairs";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -3910,6 +3920,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
+"mH" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/logistics/hangar)
 "mI" = (
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -4512,8 +4535,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Cargo Workshop";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -5395,8 +5417,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck Primary Hallway Aft";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralthird)
@@ -5791,8 +5812,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Main Compartment";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
@@ -6332,8 +6352,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck Cargo Hallway";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -6604,7 +6623,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Fore Port Maintenance APC"
+	c_tag = "Third Deck Fore Port Maintenance APC"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
@@ -6718,8 +6737,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Port Engines";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
@@ -7165,8 +7183,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Escape Pod 3";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/centralthird)
@@ -8551,8 +8568,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger Fore";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
@@ -9136,8 +9152,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Lower Cargo Bay Elevator";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -9302,8 +9317,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger - Antonine Cockpit";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/monotile,
@@ -9933,8 +9947,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger Starboard Fore";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
@@ -9996,8 +10009,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Cockpit";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
@@ -10557,8 +10569,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Hanger Starboard - Aft";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
@@ -12251,8 +12262,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Cargo Bay";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
@@ -12882,8 +12892,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "General Expedition Prep Starboard";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/genprep)
@@ -14004,6 +14013,7 @@
 /obj/item/weapon/wrench,
 /obj/item/weapon/crowbar,
 /obj/item/weapon/screwdriver,
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/genprep)
 "NN" = (
@@ -14015,8 +14025,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Starboard Engines";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/cargo)
@@ -14030,8 +14039,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck Primary Hallway Center";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
@@ -14370,8 +14378,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Atmospherics";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/atmos)
@@ -14803,8 +14810,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Escape Pod 2";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/centralthird)
@@ -15084,8 +15090,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "AI External - Fore";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/command/aicore)
@@ -15366,10 +15371,9 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Aft Port Maintenance APC";
+	c_tag = "Third Deck Aft Port Maintenance APC";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
@@ -15960,6 +15964,7 @@
 /obj/item/weapon/tank/jetpack/oxygen,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/prep)
 "SR" = (
@@ -16807,8 +16812,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Advanced Workshop";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
@@ -16943,8 +16947,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Airlock - Interior";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -17130,8 +17133,7 @@
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Power Room";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
@@ -18230,8 +18232,7 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Central Maintenance APC";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -18374,6 +18375,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
+/obj/item/weapon/aiModule/manifest,
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
 "YF" = (
@@ -18606,8 +18608,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Lower Cargo Bay Main";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -39149,8 +39150,8 @@ qo
 dp
 VW
 tT
-eg
-ol
+bP
+mH
 tT
 fW
 Xe

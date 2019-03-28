@@ -2809,8 +2809,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Main";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -2888,8 +2887,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mailing Office Main";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
@@ -3100,6 +3098,7 @@
 	dir = 2;
 	pixel_y = 24
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "fh" = (
@@ -3127,8 +3126,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Bar Main";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light/warmtint{
 	tag = "icon-tube_map (EAST)";
@@ -3371,8 +3369,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Starboard - Gun Bay";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
@@ -3894,8 +3891,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Fore Hallway - Fore Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -4022,8 +4018,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mech Bay";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/mechbay)
@@ -4335,7 +4330,7 @@
 	pixel_y = 24
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Fore Port Maintenance APC";
+	c_tag = "Second Deck Fore Port Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -5220,8 +5215,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Starboard Gun Bay";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
@@ -5359,8 +5353,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mailing Office Belt";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
@@ -6336,8 +6329,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Starboard - Meeting Room";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8081,8 +8073,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Port Gun Bay";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/item/device/radio/intercom{
 	dir = 2;
@@ -8876,8 +8867,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Quartermaster's Office";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
@@ -10529,10 +10519,6 @@
 /obj/effect/urist/projectile_landmark/ship,
 /turf/space,
 /area/space)
-"tv" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/turf/simulated/floor/plating,
-/area/space)
 "tw" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -10781,10 +10767,9 @@
 /obj/item/device/multitool,
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/camera/network/command{
-	c_tag = "Bottom Deck Gunnery Room";
+	c_tag = "Bridge Storage";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/item/weapon/storage/box/cleangrenades,
@@ -12022,10 +12007,9 @@
 /area/maintenance/second_deck/afp)
 "wo" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Central Hallway - Starboard";
+	c_tag = "Second Deck Central Hallway - Starboard";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -13126,8 +13110,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Robotics Lab";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/item/weapon/storage/firstaid/regular{
@@ -14074,7 +14057,7 @@
 /area/command/eva)
 "Aa" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Fore Starboard Maintenance APC";
+	c_tag = "Second Deck Fore Starboard Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -14236,7 +14219,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Port Engine Bay"
+	c_tag = "Engineering Storage Port"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
@@ -14715,14 +14698,14 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology";
-	dir = 8
-	},
 /obj/structure/sign/warning/nosmoking_1{
 	dir = 8;
 	icon_state = "nosmoking";
 	pixel_x = 32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Chemistry";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -15316,6 +15299,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
+"Cz" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "CA" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -15351,6 +15338,7 @@
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "CE" = (
@@ -15764,8 +15752,7 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Boarding Armory";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
@@ -17353,8 +17340,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Upper Cargo Bay Entrance";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -17490,8 +17476,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Fore Hallway - Fore Starboard";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -18155,8 +18140,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Port - Meeting Room";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -18492,7 +18476,7 @@
 /turf/simulated/floor/plating,
 /area/command/storage)
 "ID" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -19056,8 +19040,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Port - Gun Bay";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -20182,8 +20165,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Upper Cargo Bay Elevator";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -20805,7 +20787,7 @@
 "MV" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/material/ashtray/plastic,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/random/coin,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -23314,8 +23296,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Aft Hallway - Main Turbolift";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
@@ -23494,8 +23475,7 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security Office";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/office)
@@ -24629,7 +24609,7 @@
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/centp)
+/area/maintenance/second_deck/fp)
 "Ua" = (
 /obj/effect/floor_decal/urist/nervalogo{
 	tag = "icon-nerva4 (NORTH)";
@@ -24732,8 +24712,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Cargo Locker Room";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
@@ -25634,7 +25613,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Aft Starboard Maintenance APC";
+	c_tag = "Second Deck Aft Starboard Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -25805,10 +25784,9 @@
 /area/command/storage)
 "Wf" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Central Hallway - Port";
+	c_tag = "Second Deck Central Hallway - Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -27178,7 +27156,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Aft Port Maintenance APC";
+	c_tag = "Second Deck Aft Port Maintenance APC";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -27686,7 +27664,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Fuel Tank";
+	c_tag = "Engineering Entrance";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -59390,7 +59368,7 @@ PV
 wx
 wx
 ai
-tv
+ai
 wx
 Qk
 Qk
@@ -59618,7 +59596,7 @@ bN
 bN
 bN
 bN
-XZ
+Td
 Td
 RP
 Td
@@ -59820,7 +59798,7 @@ aa
 aa
 aa
 aa
-Pt
+Cz
 Gg
 HW
 Td
@@ -60022,7 +60000,7 @@ aa
 aa
 aa
 aa
-XZ
+Td
 Td
 Td
 Td
@@ -60224,7 +60202,7 @@ aa
 aa
 aa
 aa
-XZ
+Td
 Td
 Td
 Td

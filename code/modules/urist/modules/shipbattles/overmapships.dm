@@ -302,7 +302,7 @@
 //terran
 
 /mob/living/simple_animal/hostile/overmapship/terran
-	color = "#9932CC"
+	color = "#9932cc"
 //	wander = 1 //temporary
 	hiddenfaction = "terran"
 
@@ -355,7 +355,7 @@
 //rebels
 
 /mob/living/simple_animal/hostile/overmapship/rebel
-	color = "#CD0000" //Boston University Red, also known as the red on the flag of the USSR
+	color = "#cd0000" //Boston University Red, also known as the red on the flag of the USSR
 	hiddenfaction = "rebel"
 
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack

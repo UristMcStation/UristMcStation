@@ -9679,7 +9679,7 @@
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "Bq" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
 "Br" = (

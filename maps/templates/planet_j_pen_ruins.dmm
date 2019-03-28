@@ -10,7 +10,7 @@
 "j" = (/obj/structure/table/woodentable,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/cobweb,/obj/item/weapon/screwdriver,/turf/simulated/floor/plating,/area/planet/jungle)
 "k" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor,/area/planet/jungle)
 "l" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/ash,/turf/simulated/floor,/area/planet/jungle)
-"m" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/plating,/area/planet/jungle)
+"m" = (/obj/item/trash/cigbutt,/turf/simulated/floor/plating,/area/planet/jungle)
 "n" = (/turf/simulated/floor,/area/planet/jungle)
 "o" = (/obj/effect/decal/cleanable/liquid_fuel,/turf/simulated/floor,/area/planet/jungle)
 "p" = (/obj/structure/table/woodentable,/turf/simulated/floor,/area/planet/jungle)

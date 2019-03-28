@@ -139,6 +139,10 @@ datum/unit_test/zas_supply_shuttle_moved/check_result()
 		skip("This map has no supply shuttle.")
 		return 1
 
+	if(GLOB.using_map.using_new_cargo)
+		skip("This map is using the new cargo system, supply shuttle must be manually verified.")
+		return 1
+
 	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
 		fail("Shuttle Did not Move")
 		return 1

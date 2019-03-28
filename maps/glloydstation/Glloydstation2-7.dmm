@@ -8500,7 +8500,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "rN" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "rO" = (
