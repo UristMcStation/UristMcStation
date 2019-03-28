@@ -2,7 +2,7 @@
 /datum/gear/uniform/roboticist_skirt
 	allowed_roles = list(/datum/job/scientist)
 
-/datum/gear/uniform/standard_scrubs
+/datum/gear/uniform/scrubs
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo)
 
 /datum/gear/uniform/uniform_captain

@@ -18370,6 +18370,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
+/obj/item/weapon/aiModule/manifest,
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
 "YF" = (

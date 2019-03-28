@@ -68,6 +68,7 @@
 		/area/shuttle/specops,
 		/area/shuttle/syndicate_elite/mothership,
 		/area/shuttle/syndicate_elite/station,
+		/area/shuttle/syndicate_elite,
 		/area/skipjack_station/start,
 		/area/syndicate_mothership/elite_squad,
 		/area/wizard_station,
