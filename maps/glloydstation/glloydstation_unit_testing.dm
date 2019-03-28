@@ -67,7 +67,8 @@
 			/area/awaymission/maze,
 			/area/maintenance/incinerator,
 			/area/beach,
-			/area/planet/jungle
+			/area/planet/jungle,
+			/area/map_template/hydrobase/station/shower
 	)
 
 	area_usage_test_exempted_areas = list(
