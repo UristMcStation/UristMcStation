@@ -1,6 +1,6 @@
 /datum/gear/uniform/uristdress
 	display_name = "fancy dress selection"
-	path = /obj/item/clothing/under/urist/dress/pinksun
+	path = /obj/item/clothing/under/urist/dress
 
 /datum/gear/uniform/uristdress/New()
 	..()
