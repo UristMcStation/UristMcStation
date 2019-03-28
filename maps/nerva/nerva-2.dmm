@@ -3098,6 +3098,7 @@
 	dir = 2;
 	pixel_y = 24
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "fh" = (
@@ -15337,6 +15338,7 @@
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "CE" = (

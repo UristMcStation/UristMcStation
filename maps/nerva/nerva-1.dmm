@@ -14010,6 +14010,7 @@
 /obj/item/weapon/wrench,
 /obj/item/weapon/crowbar,
 /obj/item/weapon/screwdriver,
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/genprep)
 "NN" = (
@@ -15960,6 +15961,7 @@
 /obj/item/weapon/tank/jetpack/oxygen,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/prep)
 "SR" = (
