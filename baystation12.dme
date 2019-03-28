@@ -2759,6 +2759,7 @@
 #include "code\modules\urist\gamemodes\scom\weapons&armour.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire_powers.dm"
+#include "code\modules\urist\items\ai_modules.dm"
 #include "code\modules\urist\items\airlock_painter.dm"
 #include "code\modules\urist\items\cards.dm"
 #include "code\modules\urist\items\chairpainter.dm"
