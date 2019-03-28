@@ -117,6 +117,9 @@
 	dir = 1;
 	luminosity = 2
 	},
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/device/taperecorder,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics)
 "ay" = (
