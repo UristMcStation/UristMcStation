@@ -5,26 +5,27 @@
 		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/engineering/bdstarengine = NO_SCRUBBER,
 		/area/engineering/bdportengine = NO_SCRUBBER,
+		/area/engineering/fdengine = NO_SCRUBBER,
 		/area/shuttle/escape_pod1/station = NO_SCRUBBER|NO_VENT,
-		/area/shuttle/escape_pod2/station = NO_SCRUBBER|NO_VENT,
-		/area/shuttle/escape_pod3/station = NO_SCRUBBER|NO_VENT,
+		/area/shuttle/escape_pod2/station = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shuttle/escape_pod3/station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance/third_deck/fs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/afs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/central = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/fp = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/third_deck/afp = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/third_deck/afp = NO_SCRUBBER,
 		/area/maintenance/second_deck/fs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/second_deck/afs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/second_deck/cents = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/second_deck/centp = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/second_deck/centp = NO_SCRUBBER,
 		/area/maintenance/second_deck/central = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/second_deck/fp = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/second_deck/afp = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/first_deck/fs = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/second_deck/afp = NO_SCRUBBER,
+		/area/maintenance/first_deck/fs = NO_SCRUBBER,
 		/area/maintenance/first_deck/afs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/first_deck/central = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/first_deck/fp = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/first_deck/afp = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/first_deck/afp = NO_SCRUBBER,
 		/area/cargo_lift/lift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift/mainbottom = NO_SCRUBBER|NO_VENT|NO_APC,
@@ -35,7 +36,19 @@
 		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/snow     = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/smugglers/base = NO_SCRUBBER,
+		/area/smugglers/dorms = NO_SCRUBBER|NO_VENT,
+		/area/smugglers/office = NO_SCRUBBER|NO_VENT,
+		/area/bluespaceriver/underground = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/bluespaceriver/ground = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/casino/casino_cutter = NO_SCRUBBER|NO_VENT,
+		/area/mobius_rift = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/icarus/vessel = NO_APC,
+		/area/icarus/open = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/hydrobase = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/map_template/hydrobase/station = NO_SCRUBBER,
+		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -50,8 +63,11 @@
 		/area/medical/virologyaccess,
 		/area/security/prison,
 		/area/shuttle/escape/centcom,
+		/area/shuttle/escape,
 		/area/shuttle/specops/centcom,
+		/area/shuttle/specops,
 		/area/shuttle/syndicate_elite/mothership,
+		/area/shuttle/syndicate_elite/station,
 		/area/skipjack_station/start,
 		/area/syndicate_mothership/elite_squad,
 		/area/wizard_station,
@@ -59,7 +75,8 @@
 		/area/template_noop,
 		/area/overmap,
 		/area/infestation,
-		/area/boarding_ship
+		/area/boarding_ship,
+		/area/rnd/xenobiology/xenoflora_storage
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -93,7 +110,10 @@
 		/area/awaymission,
 		/area/outpost,
 		/area/away,
-		/area/spacestations
+		/area/spacestations,
+		/area/unishi,
+		/area/jungleoutpost,
+		/area/planet
 	)
 
 	area_coherency_test_exempt_areas = list(
