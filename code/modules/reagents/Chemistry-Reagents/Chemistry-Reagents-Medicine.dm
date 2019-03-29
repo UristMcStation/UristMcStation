@@ -392,6 +392,11 @@
 				H.drowsyness++
 				if(I.damage >= I.min_bruised_damage)
 					continue
+			if((I.status & ORGAN_DEAD) && I.can_recover())
+				I.death_time += 27 SECONDS * removed //Let's say its 45% effective if not directly applied
+				if(I.death_time >= world.time)
+					I.status &= ~ORGAN_DEAD
+
 			I.damage = max(I.damage - removed, 0)
 
 /datum/reagent/ryetalyn
