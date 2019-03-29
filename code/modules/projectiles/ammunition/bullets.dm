@@ -44,6 +44,13 @@
 	desc = "An antique pistol bullet casing. Somewhere between 9 and 11 mm in caliber."
 	caliber = CALIBER_PISTOL_ANTIQUE
 
+/obj/item/ammo_casing/pistol/antique_magnum
+	desc = "An antique magnum bullet casing. Seems to be of .45 caliber."
+	caliber = CALIBER_ANTIQUE_MAGNUM
+	projectile_type = /obj/item/projectile/bullet/pistol/strong/antique
+	icon_state = "magnumcasing"
+	spent_icon = "magnumcasing-spent"
+
 /obj/item/ammo_casing/gyrojet
 	desc = "A minirocket casing."
 	caliber = CALIBER_GYROJET
@@ -127,6 +134,12 @@
 /obj/item/ammo_casing/rifle
 	desc = "A rifle bullet casing."
 	caliber = CALIBER_RIFLE
+	projectile_type = /obj/item/projectile/bullet/rifle
+	icon_state = "riflecasing"
+	spent_icon = "riflecasing-spent"
+
+/obj/item/ammo_casing/a762
+	desc = "An antique rifle casing."
 	projectile_type = /obj/item/projectile/bullet/rifle
 	icon_state = "riflecasing"
 	spent_icon = "riflecasing-spent"

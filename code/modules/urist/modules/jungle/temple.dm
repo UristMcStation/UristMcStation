@@ -126,8 +126,6 @@
 				return
 			if("clothes")
 				var/obj/structure/closet/C = new(src.loc)
-				C.icon_state = "blue"
-				C.icon_closed = "blue"
 				if(prob(33))
 					new /obj/item/clothing/under/color/rainbow(C)
 					new /obj/item/clothing/shoes/rainbow(C)
@@ -156,7 +154,7 @@
 				var/new_type = pick(
 				200; /obj/item/weapon/material/hatchet, \
 				/obj/item/weapon/gun/projectile/pistol, \
-				/obj/item/weapon/gun/projectile/magnum_pistol, \
+				/obj/item/weapon/gun/projectile/pistol/magnum_pistol, \
 				// /obj/item/weapon/gun/projectile/revolver/russian, \ //got commented out in revolver.dm
 				)
 				new new_type(C)

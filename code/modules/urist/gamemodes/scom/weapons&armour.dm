@@ -99,7 +99,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
 
-/obj/item/weapon/gun/projectile/sniper/verb/scope()
+/obj/item/weapon/gun/projectile/sniper/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -169,14 +169,14 @@
 //ammo
 
 /obj/item/weapon/storage/box/c20ammo
-	name = "box of c20r ammo"
+	name = "box of smg ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/smg(src)
+		new /obj/item/ammo_magazine/smg(src)
+		new /obj/item/ammo_magazine/smg(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of sniper ammo"
@@ -184,9 +184,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/mil_rifle(src)
+		new /obj/item/ammo_magazine/mil_rifle(src)
+		new /obj/item/ammo_magazine/mil_rifle(src)
 
 /obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
@@ -194,9 +194,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/machinegun(src)
+		new /obj/item/ammo_magazine/box/machinegun(src)
+		new /obj/item/ammo_magazine/box/machinegun(src)
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"
@@ -204,10 +204,10 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/pistol(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

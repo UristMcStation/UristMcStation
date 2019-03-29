@@ -254,13 +254,6 @@
 						to_chat(usr, "<span class='notice'>Hardware Error: Printer was unable to print the selected file.</span>")
 					else
 						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out a paper.</span>")
-		if("emergencybeacon")
-			. = 1
-			if(is_autenthicated(user))
-				if(GLOB.using_map.active_beacon)
-					GLOB.using_map.active_beacon.try_response_force()
-				else
-					to_chat(usr, "<span class='warning'>Warning: Unable to connect to emergency beacon.</span>")
 		if("unbolt_doors")
 			GLOB.using_map.unbolt_saferooms()
 			to_chat(usr, "<span class='notice'>The console beeps, confirming the signal was sent to have the saferooms unbolted.</span>")

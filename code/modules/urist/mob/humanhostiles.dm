@@ -29,11 +29,10 @@
 	stat_attack = 1
 	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	casingtype = /obj/item/ammo_casing/c9mm
+	casingtype = /obj/item/ammo_casing/pistol/small
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
@@ -51,9 +50,9 @@
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/pistol
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
+	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 100
 	health = 100
 
@@ -77,7 +76,7 @@
 	icon_living = "ANTAG"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a762
+	casingtype = /obj/item/ammo_casing/rifle/military
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -86,7 +85,7 @@
 	retreat_distance = 2
 	ranged_cooldown_cap = 2
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	projectiletype = /obj/item/projectile/bullet/rifle/military
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
@@ -94,14 +93,14 @@
 	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/pistol
 	faction = "skrellt"
 	rapid = 2
 	maxHealth = 100
 	health = 100
 	minimum_distance = 8
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
+	projectiletype = /obj/item/projectile/bullet/pistol
 
 /mob/living/simple_animal/hostile/urist/riotcop
 	icon_state = "riotcop"

@@ -1,15 +1,10 @@
 /*
  * Neeeeeeeeeeerrrrrrrrrrrrrvvvvvvvvvvvvvvvaaaaaaaaaaaaaaa
  */
-
+//CDN
 /obj/structure/closet/secure_closet/nervacap
 	name = "captains's locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/nervacap/WillContain()
 	return list(
@@ -33,15 +28,10 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel/cap)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/captain, /obj/item/weapon/storage/backpack/messenger/com))
 	)
-
+//CDN
 /obj/structure/closet/secure_closet/nervafo
 	name = "first officer's locker"
 	req_access = list(access_fo)
-	icon_state = "twosolsecure1"
-	icon_closed = "twosolsecure"
-	icon_locked = "twosolsecure1"
-	icon_opened = "twosolsecureopen"
-	icon_off = "twosolsecureoff"
 
 /obj/structure/closet/secure_closet/nervafo/WillContain()
 	return list(
@@ -67,15 +57,10 @@
 		/obj/item/weapon/folder/blue,
 		/obj/item/weapon/storage/box/imprinting
 	)
-
+//CDN
 /obj/structure/closet/secure_closet/nervaso
 	name = "second officer's locker"
 	req_access = list(access_hop)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_off = "hopsecureoff"
 
 /obj/structure/closet/secure_closet/nervaso/WillContain()
 	return list(
@@ -83,7 +68,7 @@
 		/obj/item/clothing/suit/armor/pcarrier/light,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/secondofficer,
-		/obj/item/weapon/gun/projectile/sec/flash,
+		/obj/item/weapon/gun/projectile/pistol/sec,
 		/obj/item/device/flash,
 		/obj/item/weapon/storage/box/large/ids,
 		/obj/item/weapon/storage/box/PDAs,
@@ -93,15 +78,10 @@
 		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
 	)
 
-
+//CDN
 /obj/structure/closet/secure_closet/nervasec
 	name = "security officer's locker"
 	req_access = list(access_brig)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_off = "secoff"
 
 /obj/structure/closet/secure_closet/nervasec/WillContain()
 	return list(
@@ -130,15 +110,10 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
 
-
 /obj/structure/closet/secure_closet/nervacos
 	name = "chief of security's locker"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_off = "hossecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/security/hos
 
 /obj/structure/closet/secure_closet/nervacos/WillContain()
 	return list(
@@ -172,15 +147,10 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
-
+//CDN
 /obj/structure/closet/secure_closet/science_nerva
 	name = "Nanotrasen scientist's locker"
 	req_access = list(access_xenoarch)
-	icon_state = "secureres1"
-	icon_closed = "secureres"
-	icon_locked = "secureres1"
-	icon_opened = "secureresopen"
-	icon_off = "secureresoff"
 
 /obj/structure/closet/secure_closet/science_nerva/WillContain()
 	return list(

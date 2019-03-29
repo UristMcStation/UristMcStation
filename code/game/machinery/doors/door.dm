@@ -56,7 +56,7 @@
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
 	attack_animation(user)
 
-/obj/machinery/door/Initialize()
+/obj/machinery/door/New()
 	. = ..()
 	if(density)
 		layer = closed_layer
@@ -64,16 +64,22 @@
 	else
 		layer = open_layer
 
+
 	if(width > 1)
-		SetBounds()
-		if(!glass)
-			create_dummy()
+		if(dir in list(EAST, WEST))
+			bound_width = width * world.icon_size
+			bound_height = world.icon_size
+		else
+			bound_width = world.icon_size
+			bound_height = width * world.icon_size
+
 	health = maxhealth
 	update_connections(1)
 	update_icon()
 
 	update_nearby_tiles(need_rebuild=1)
 
+/obj/machinery/door/Initialize()
 	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
 	. = ..()
 	if(autoset_access)
@@ -82,6 +88,7 @@
 			crash_with("A door with mapped access restrictions was set to autoinitialize access.")
 #endif
 		return INITIALIZE_HINT_LATELOAD
+
 
 /obj/machinery/door/LateInitialize()
 	..()

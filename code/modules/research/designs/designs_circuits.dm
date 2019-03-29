@@ -57,14 +57,14 @@
 	name = "body scanner"
 	id = "bodyscanner"
 	req_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
-	build_path = /obj/item/weapon/circuitboard/bodyscanner
+	build_path = /obj/item/weapon/circuitboard/body_scanner
 	sort_string = "FACAC"
 
 /datum/design/circuit/body_scanconsole
 	name = "body scanner console"
 	id = "bodyscannerconsole"
 	req_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
-	build_path = /obj/item/weapon/circuitboard/body_scanconsole
+	build_path = /obj/item/weapon/circuitboard/scanner_console
 	sort_string = "FACAD"
 
 /datum/design/circuit/sleeper

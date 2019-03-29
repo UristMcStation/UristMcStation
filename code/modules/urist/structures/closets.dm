@@ -1,14 +1,9 @@
 //captain's lockers. got sick of the lag when rightclicking.
 
+//CDN
 /obj/structure/closet/secure_closet/captainsclothes
 	name = "Captain's Clothing Locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/captainsclothes/New()
 	..()
@@ -27,15 +22,10 @@
 	new /obj/item/clothing/under/urist/rank/capdressalt(src)
 	return
 
+//CDN
 /obj/structure/closet/secure_closet/captainsequipment
 	name = "Captain's Equipment Locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/captainsequipment/New()
 	..()
@@ -43,8 +33,8 @@
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
-	new /obj/item/weapon/gun/projectile/revolver/webley(src)
-	new /obj/item/ammo_magazine/c44(src)
+	new /obj/item/weapon/gun/projectile/revolver/medium(src)
+	new /obj/item/ammo_magazine/magnum(src)
 	new /obj/item/clothing/suit/armor/captain(src)
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace(src)
@@ -55,17 +45,10 @@
 	return
 
 //blooshield locker
-
+//CDN
 /obj/structure/closet/secure_closet/blueshield
 	name = "Blueshield Locker"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
 	req_access = list(access_blueshield)
-	icon_state = "bssecure1"
-	icon_closed = "bssecure"
-	icon_locked = "bssecure1"
-	icon_opened = "bssecureopen"
-	icon_broken = "bssecurebroken"
-	icon_off = "bssecureoff"
 
 /obj/structure/closet/secure_closet/blueshield/New()
 	..()
@@ -90,10 +73,6 @@
 /obj/structure/closet/emsuits
 	name = "emergency suit closet"
 	desc = "It's a closet for storing emergency equipment and suits. A small  sign on the bottom reads 'use only in extreme emergencies'"
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "ecloset"
-	icon_closed = "ecloset"
-	icon_opened = "eclosetopen"
 
 /obj/structure/closet/emsuits/New()
 	..()
@@ -106,16 +85,10 @@
 	new /obj/item/weapon/tank/emergency/oxygen(src)
 
 //Armored sec biosuit locker
-
+//CDN
 /obj/structure/closet/secure_closet/armoredbiosuit
 	name = "armoured bio suit locker"
 	req_access = list(access_armory)
-	icon_state = "wardensecure1"
-	icon_closed = "wardensecure"
-	icon_locked = "wardensecure1"
-	icon_opened = "wardensecureopen"
-	icon_broken = "wardensecurebroken"
-	icon_off = "wardensecureoff"
 
 /obj/structure/closet/secure_closet/armoredbiosuit/New()
 	..()
@@ -125,15 +98,10 @@
 
 //Psychologists locker
 
+//CDN
 /obj/structure/closet/secure_closet/psychologist
 	name = "Psychologist's Locker"
 	req_access = list(access_psychiatrist)
-	icon_state = "cabinetdetective_locked"
-	icon_closed = "cabinetdetective"
-	icon_locked = "cabinetdetective_locked"
-	icon_opened = "cabinetdetective_open"
-	icon_broken = "cabinetdetective_broken"
-	icon_off = "cabinetdetective_broken"
 
 //scom
 /obj/structure/closet/scom/sniper
@@ -145,10 +113,10 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
-	new /obj/item/ammo_magazine/a50(src)
-	new /obj/item/ammo_magazine/a50(src)
-	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/weapon/gun/projectile/pistol/magnum_pistol(src)
+	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/ammo_magazine/magnum(src)
 
 /obj/structure/closet/scom/assault
 	name = "S-COM Assault"
@@ -159,10 +127,10 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
-	new /obj/item/ammo_magazine/a50(src)
-	new /obj/item/ammo_magazine/a50(src)
-	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/weapon/gun/projectile/pistol/magnum_pistol(src)
+	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/ammo_magazine/magnum(src)
 
 /obj/structure/closet/scom/heavy
 	name = "S-COM Heavy"
@@ -203,12 +171,10 @@
 	)
 
 //for the map
-
+//CDN
 /obj/structure/closet/wardrobe/tactical/double
 	name = "tactical equipment"
 	icon_state = "syndicate1"
-	icon_closed = "syndicate1"
-	icon_opened = "syndicate1open"
 
 /obj/structure/closet/wardrobe/tactical/double/WillContain()
 	return list(
@@ -243,7 +209,7 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm
 	name = "sidearm cabinet"
 	req_access = list()
-	req_one_access = list(access_armory,access_hos,access_hop,access_ce,access_cmo,access_rd)
+//	req_one_access = list(access_armory,access_hos,access_hop,access_ce,access_cmo,access_rd)
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
 	return list(

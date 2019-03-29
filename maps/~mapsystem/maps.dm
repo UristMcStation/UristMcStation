@@ -264,8 +264,9 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		sites_by_spawn_weight -= selected_site
 		if(selected_site.cost > away_site_budget)
 			continue
+		var/starttime = REALTIMEOFDAY
 		if (selected_site.load_new_z())
-			report_progress("Loaded away site [selected_site]!")
+			report_progress("Loaded away site [selected_site] in [(REALTIMEOFDAY - starttime)/10] seconds!")
 			away_site_budget -= selected_site.cost
 	report_progress("Finished loading away sites, remaining budget [away_site_budget], remaining sites [sites_by_spawn_weight.len]")
 #endif

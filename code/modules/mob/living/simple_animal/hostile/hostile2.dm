@@ -28,7 +28,9 @@
 	var/stat_attack = 0 //Mobs with stat_attack to 1 will attempt to attack things that are unconscious, Mobs with stat_attack set to 2 will attempt to attack the dead.
 	var/stat_exclusive = 0 //Mobs with this set to 1 will exclusively attack things defined by stat_attack, stat_attack 2 means they will only attack corpses
 	var/attack_faction = null //Put a faction string here to have a mob only ever attack a specific faction
-
+	var/pry_time = 7 SECONDS //time it takes for mob to pry open a door
+	var/pry_desc = "prying" //"X begins pry_desc the door!"
+	var/stop_automation = FALSE
 	var/break_stuff_probability = 100
 
 /mob/living/simple_animal/hostile/Life()
@@ -76,6 +78,8 @@
 	return L
 
 /mob/living/simple_animal/hostile/proc/FindTarget()//Step 2, filter down possible targets to things we actually care about
+	if(!can_act())
+		return
 	var/list/Targets = list()
 	var/Target
 	for(var/atom/A in ListTargets())
@@ -295,8 +299,25 @@
 						return
 					A.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 
-
+				if(istype(A, /obj/machinery/door))
+					var/obj/machinery/door/obstacle = A
+					if(obstacle.density)
+						if(!obstacle.can_open(1))
+							return
+						face_atom(obstacle)
+						pry_door(src, pry_time, obstacle)
+						return
 	return
+
+/mob/living/simple_animal/hostile/proc/pry_door(var/mob/user, var/delay, var/obj/machinery/door/pesky_door)
+	visible_message("<span class='warning'>\The [user] begins [pry_desc] at \the [pesky_door]!</span>")
+	stop_automation = TRUE
+	if(do_after(user, delay, pesky_door))
+		pesky_door.open(1)
+		stop_automation = FALSE
+	else
+		visible_message("<span class='notice'>\The [user] is interrupted.</span>")
+		stop_automation = FALSE
 
 /mob/living/simple_animal/hostile/proc/EscapeConfinement()
 	if(buckled)
@@ -362,3 +383,14 @@
 			else if(targloc)
 				OpenFire(targloc)
 	return
+
+/mob/living/simple_animal/hostile/proc/can_act()
+	if(stat || stop_automation || incapacitated())
+		return FALSE
+	return TRUE
+
+/mob/living/simple_animal/hostile/proc/kick_stance()
+	if(target)
+		stance = HOSTILE_STANCE_ATTACK
+	else
+		stance = HOSTILE_STANCE_IDLE

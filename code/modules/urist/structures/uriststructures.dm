@@ -347,8 +347,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/grille/wood
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	rodpath = /obj/item/stack/woodrods
+	init_material = MATERIAL_WOOD
 
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"

@@ -8,6 +8,7 @@
 
 /area/command
 	icon_state = "head_quarters"
+	req_access = list(access_bridge)
 
 /area/command/bridge
 	name = "\improper ICS Nerva Bridge"
@@ -15,11 +16,13 @@
 
 /area/command/hop
 	name = "\improper Personnel Office"
+	req_access = list(access_hop)
 
 /area/command/captain
 	name = "\improper Captain's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
+	req_access = list(access_captain)
 
 /area/command/meeting
 	name = "\improper Meeting Room"
@@ -32,15 +35,19 @@
 
 /area/command/fo
 	name = "\improper First Officer's Office"
+	req_access = list(access_fo)
 
 /area/command/fobedroom
 	name = "\improper First Officer's Bedroom"
+	req_access = list(access_fo)
 
 /area/command/ce
 	name = "\improper Chief Engineer's Office"
+	req_access = list(access_ce)
 
 /area/command/teleporter
 	name = "\improper Teleporter Chamber"
+	req_access = list(access_teleporter)
 
 /area/command/storage
 	name = "\improper Bridge Storage"
@@ -49,29 +56,36 @@
 /area/command/aiupload
 	name = "\improper AI Upload"
 	icon_state = "ai_chamber"
+	req_access = list(access_ai_upload)
 
 /area/command/aicore
 	name = "\improper AI Core"
 	icon_state = "ai_chamber"
+	req_access = list(access_ai_upload)
 
 /area/command/aiuploadfoyer
 	name = "\improper AI Upload Foyer"
 	icon_state = "ai_chamber"
+	req_access = list(access_ai_upload)
 
 /area/command/aiatmos
 	name = "\improper AI Atmospherics"
 	icon_state = "ai_chamber"
+	req_access = list(access_engine)
 
 /area/command/aicomputer
 	name = "\improper AI Data Room" //???
 	icon_state = "ai_chamber"
+	req_access = list(access_ai_upload)
 
 /area/command/eva
 	name = "\improper EVA"
 	icon_state = "eva"
+	req_access = list(access_eva)
 
 /area/command/bodyguard
 	name = "\improper Bodyguard's Office"
+	req_access = list(access_blueshield)
 
 //////////////////////////////////////
 //			CIVILIAN				//
@@ -109,6 +123,7 @@
 
 /area/civilian/janitor
 	name = "\improper Janitor's Closet"
+	req_access = list(access_janitor)
 
 /area/civilian/bath
 	name = "\improper Bathrooms"
@@ -144,6 +159,7 @@
 
 /area/security
 	icon_state = "security"
+	req_access = list(access_security)
 
 /area/security/entrance
 	name = "\improper Brig Entrance"
@@ -160,10 +176,12 @@
 /area/security/cosoffice
 	name = "\improper Chief of Security's Office"
 	icon_state = "Warden"
+	req_access = list(access_hos)
 
 /area/security/armoury
 	name = "\improper Armoury"
 	icon_state = "Warden"
+	req_access = list(access_armory)
 
 /area/security/breakroom
 	name = "\improper Security Break Room"
@@ -174,18 +192,22 @@
 /area/security/forensics
 	name = "\improper Forensics Lab"
 	icon_state = "detective"
+	req_access = list(access_forensics_lockers)
 
 /area/security/evidence
 	name = "\improper Evidence Storage"
 	icon_state = "detective"
+	req_access = list(access_forensics_lockers)
 
 /area/security/tacarmoury
 	name = "\improper Tactical Armory"
 	icon_state = "Warden"
+	req_access = list(access_armory)
 
 /area/security/boardarmoury
 	name = "\improper Boarding Armory"
 	icon_state = "Warden"
+	req_access = list(access_armory)
 
 /area/security/lockers
 	name = "\improper Security Locker Room"
@@ -208,6 +230,7 @@
 
 /area/rnd
 	icon_state = "research"
+	req_access = list(access_tox)
 
 /area/rnd/office
 	name = "\improper NanoTrasen Office"
@@ -237,6 +260,7 @@
 
 /area/engineering
 	icon_state = "yellow"
+	req_access = list(access_engine)
 
 /area/engineering/tool
 	name = "\improper Engineering Workshop"
@@ -260,18 +284,22 @@
 /area/engineering/smmon
 	name = "\improper Supermatter Monitoring Room"
 	icon_state = "engine_monitoring"
+	req_access = list(access_engine_equip)
 
 /area/engineering/atmospherics
 	name = "\improper Atmospherics"
 	icon_state = "atmos"
+	req_access = list(access_atmospherics)
 
 /area/engineering/atmosmon
 	name = "\improper Atmospherics Monitoring"
+	req_access = list(access_atmospherics)
 
 /area/engineering/engine
 	name = "\improper Engine Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
+	req_access = list(access_engine_equip)
 
 /area/engineering/externalmaint
 	name = "\improper External Engine Maintenance"
@@ -299,9 +327,11 @@
 
 /area/engineering/tcomms
 	name = "\improper Telecommunications Server"
+	req_access = list(access_tcomsat)
 
 /area/engineering/tcommsmon
 	name = "\improper Telecommunication Monitoring Room"
+	req_access = list(access_tcomsat)
 
 /area/engineering/extsubmaint
 	name = "\improper External Sub Deck Engine Maintenance"
@@ -384,6 +414,7 @@
 
 /area/medical/cloning
 	name = "\improper Cloning Bay"
+	req_access = list(access_genetics)
 
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"
@@ -395,10 +426,12 @@
 
 /area/logistics
 	icon_state = "yellow"
+	req_access = list(access_cargo)
 
 /area/logistics/qm
 	name = "\improper Quartermaster's Office"
 	icon_state = "quartoffice"
+	req_access = list(access_qm)
 
 /area/logistics/storage
 	name = "\improper Cargo General Storage"
@@ -439,6 +472,7 @@
 /area/logistics/genprep
 	name = "\improper General Expedition Prep"
 	icon_state = "exploration"
+	req_access = list(access_expedition)
 
 /area/logistics/robotics
 	name = "\improper Robotics Lab"

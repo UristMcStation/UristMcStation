@@ -138,6 +138,10 @@
 	penetration_modifier = 0.8
 	distance_falloff = 2.5
 
+/obj/item/projectile/bullet/pistol/strong/antique
+	damage = 40
+	armor_penetration = 15
+
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armour = "melee"

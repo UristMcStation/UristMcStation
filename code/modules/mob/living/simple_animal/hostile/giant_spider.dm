@@ -132,8 +132,8 @@
 	move_to_delay = 2
 	projectiletype = /obj/item/projectile/venom
 	projectilesound = 'sound/effects/hypospray.ogg'
-	fire_desc = "spits venom"
-	ranged_range = 6
+	ranged_message = "spits venom"
+	minimum_distance = 6
 	pry_time = 7 SECONDS
 	flash_vulnerability = 2
 
@@ -357,7 +357,7 @@ Nurse caste procs
 
 						if(O.anchored)
 							continue
-						
+
 						if(is_type_in_list(O, cocoon_blacklist))
 							continue
 
@@ -414,9 +414,9 @@ Hunter caste procs
 /mob/living/simple_animal/hostile/giant_spider/hunter/MoveToTarget()
 	if(!can_act())
 		return
-	var/mob/living/target = target_mob
-	if(can_leap(target))
-		prepare_leap(target)
+	var/mob/living/leap_target = target
+	if(can_leap(leap_target))
+		prepare_leap(leap_target)
 		last_leapt = world.time + leap_cooldown
 	..()
 

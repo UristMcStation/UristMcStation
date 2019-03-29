@@ -25,9 +25,9 @@
 			visible_message("<span class='warning'>[src] gasps in an attempt to speak!</span>", "<span class='warning'>You don't have enough air in [L] to make a sound!</span>")
 			return
 		else if(L.breath_fail_ratio > 0.7)
-			whisper_say(length(message) > 5 ? stars(message) : message, speaking)
+			..(message, speaking, whispering = TRUE, verb = "splutters")
 		else if(L.breath_fail_ratio > 0.4)
-			whisper_say(message, speaking)
+			..(message, speaking, verb = "splutters")
 	else
 		return ..(message, speaking = speaking, whispering = whispering)
 

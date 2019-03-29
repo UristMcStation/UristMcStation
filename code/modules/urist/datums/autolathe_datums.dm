@@ -84,11 +84,6 @@
 	path = /obj/item/weapon/cane
 	category = "General"
 
-/datum/autolathe/recipe/magazine_38cal_rubber
-	name = "ammunition (.38, rubber)"
-	path = /obj/item/ammo_magazine/c38/rubber
-	category = "Arms and Ammunition"
-
 /datum/autolathe/recipe/canesword
 	name = "canesword"
 	path = /obj/item/weapon/cane/concealed

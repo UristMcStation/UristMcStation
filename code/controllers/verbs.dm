@@ -55,6 +55,6 @@
 			SSstatistics.add_field_details("admin_verb", "DMilBranches")
 		if("Weather")
 			debug_variables(SSweather)
-			feedback_add_details("admin_verb", "DWeather")
+			SSstatistics.add_field_details("admin_verb", "DWeather")
 	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
 	return

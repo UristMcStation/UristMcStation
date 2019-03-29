@@ -24,7 +24,7 @@
 	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
 
 /obj/item/weapon/gun/projectile/heavysniper/apds
-	ammo_type = /obj/item/ammo_casing/a145/apds
+	ammo_type = /obj/item/ammo_casing/shell/apds
 
 /obj/item/weapon/gun/projectile/heavysniper/on_update_icon()
 	..()

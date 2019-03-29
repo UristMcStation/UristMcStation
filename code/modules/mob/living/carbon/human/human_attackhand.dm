@@ -80,29 +80,26 @@
 				if (!cpr_time)
 					return 0
 
-				var/pumping_skill = max(M.get_skill_value(SKILL_MEDICAL),M.get_skill_value(SKILL_ANATOMY))
-				var/cpr_delay = 15 * M.skill_delay_mult(SKILL_ANATOMY, 0.2) 
 				cpr_time = 0
 
 				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
 
-				if(!do_after(H, cpr_delay, src))
+				if(!do_after(H, 1.5 SECONDS, src))
 					cpr_time = 1
 					return
 				cpr_time = 1
 
 				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
-				if(is_asystole())
-				if(prob(5))
+				if(is_asystole() && prob(5))
 					var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 					if(chest)
 						chest.fracture()
 
 					var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 					if(heart)
-						heart.external_pump = list(world.time, 0.4 + 0.1*pumping_skill + rand(-0.1,0.1))
+						heart.external_pump = list(world.time, 0.5 + rand(-0.1,0.1))
 
-					if(stat != DEAD && prob(10 + 5 * pumping_skill))
+					if(stat != DEAD && prob(15))
 						resuscitate()
 
 				if(!H.check_has_mouth())

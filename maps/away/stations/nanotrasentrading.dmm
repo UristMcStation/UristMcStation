@@ -2,34 +2,8 @@
 "aa" = (
 /turf/space,
 /area/space)
-"ab" = (
-/turf/space,
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/machines/shielding.dmi';
-	icon_state = "shield_normal";
-	name = "Heavy Shielding"
-	},
-/area/spacestations/nanotrasenspace)
-"ac" = (
-/turf/space,
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/machines/shielding.dmi';
-	icon_state = "shield_normal";
-	name = "Heavy Shielding"
-	},
-/area/space)
 "ad" = (
 /turf/simulated/wall/r_wall/hull,
-/area/spacestations/nanotrasenspace)
-"ae" = (
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	name = "Shuttle Access"
-	},
 /area/spacestations/nanotrasenspace)
 "af" = (
 /turf/simulated/floor/tiled/dark,
@@ -46,15 +20,6 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"ai" = (
-/turf/simulated/wall/r_wall/hull,
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/machines/shielding.dmi';
-	icon_state = "shield_normal";
-	name = "Heavy Shielding"
-	},
 /area/spacestations/nanotrasenspace)
 "aj" = (
 /obj/machinery/light{
@@ -238,15 +203,6 @@
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
-	},
-/area/spacestations/nanotrasenspace)
-"aE" = (
-/turf/simulated/floor/tiled/dark,
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/machines/shielding.dmi';
-	icon_state = "shield_normal";
-	name = "Heavy Shielding"
 	},
 /area/spacestations/nanotrasenspace)
 "aF" = (
@@ -562,14 +518,6 @@
 "bE" = (
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
-"bG" = (
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	name = "Secure Access"
-	},
-/area/spacestations/nanotrasenspace)
 "bH" = (
 /turf/space,
 /area/spacestations/nanotrasenspace)
@@ -691,9 +639,6 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"bY" = (
-/turf/unsimulated/wall,
 /area/spacestations/nanotrasenspace)
 "bZ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
@@ -3071,23 +3016,23 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa
@@ -3153,7 +3098,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -3169,7 +3114,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3235,10 +3180,10 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
-bG
+bH
 bN
 bN
 ad
@@ -3251,7 +3196,7 @@ cG
 cQ
 cV
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3317,7 +3262,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -3333,7 +3278,7 @@ cp
 oQ
 cW
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3399,7 +3344,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -3415,7 +3360,7 @@ cp
 TZ
 cX
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3481,9 +3426,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
+bH
+bH
+bH
 ad
 bN
 bN
@@ -3497,7 +3442,7 @@ bN
 bN
 bN
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3559,13 +3504,13 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 bN
 bN
@@ -3579,7 +3524,7 @@ bN
 bN
 bN
 ad
-ab
+bH
 aa
 aa
 aa
@@ -3641,13 +3586,13 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 aK
 aI
 aK
 aK
-ab
+bH
 ad
 bN
 bN
@@ -3661,41 +3606,41 @@ bN
 bN
 bN
 ad
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 "}
 (23,1,1) = {"
@@ -3723,13 +3668,13 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 bb
 bc
 bb
 aK
-ab
+bH
 ad
 bN
 bN
@@ -3743,7 +3688,7 @@ cp
 oQ
 cY
 ad
-ab
+bH
 ad
 ad
 ad
@@ -3777,7 +3722,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (24,1,1) = {"
@@ -3805,13 +3750,13 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 bb
 bb
 bl
 aK
-ab
+bH
 ad
 bO
 bN
@@ -3825,7 +3770,7 @@ cp
 TZ
 cW
 ad
-ab
+bH
 ad
 ad
 ad
@@ -3859,7 +3804,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (25,1,1) = {"
@@ -3886,14 +3831,14 @@ aa
 aa
 aa
 aa
-ab
-ab
+bH
+bH
 aK
 bc
 bb
 bc
 aK
-ab
+bH
 ad
 bN
 bN
@@ -3907,10 +3852,10 @@ cI
 cR
 cZ
 ad
-ab
+bH
 ad
 ad
-ae
+bH
 bE
 bE
 bE
@@ -3938,10 +3883,10 @@ bE
 bE
 bE
 bE
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (26,1,1) = {"
@@ -3968,7 +3913,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 aK
 aK
@@ -3989,10 +3934,10 @@ ad
 ad
 ad
 ad
-ab
+bH
 ad
 ad
-ae
+bH
 bE
 bE
 bE
@@ -4020,10 +3965,10 @@ bE
 bE
 bE
 bE
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (27,1,1) = {"
@@ -4050,7 +3995,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 aO
 bb
@@ -4071,10 +4016,10 @@ ad
 ad
 ad
 ad
-ab
+bH
 ad
 ad
-ae
+bH
 do
 do
 do
@@ -4102,10 +4047,10 @@ do
 do
 do
 do
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (28,1,1) = {"
@@ -4132,7 +4077,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aI
 aP
 bc
@@ -4149,14 +4094,14 @@ xl
 lh
 cx
 ad
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
 ad
 ad
-ae
+bH
 dp
 dp
 dp
@@ -4184,10 +4129,10 @@ dp
 dp
 dp
 dp
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (29,1,1) = {"
@@ -4214,7 +4159,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aI
 aQ
 bb
@@ -4231,14 +4176,14 @@ xl
 lh
 bK
 ad
-ab
+bH
 aa
 aa
 aa
-ab
+bH
 ad
 ad
-ae
+bH
 dq
 dq
 dq
@@ -4266,10 +4211,10 @@ dq
 dq
 dq
 dq
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (30,1,1) = {"
@@ -4296,7 +4241,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 aR
 bc
@@ -4313,14 +4258,14 @@ xl
 lh
 cr
 ad
-ab
+bH
 aa
 aa
 aa
-ab
+bH
 ad
 ad
-ae
+bH
 bE
 bE
 bE
@@ -4348,10 +4293,10 @@ bE
 bE
 bE
 bE
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (31,1,1) = {"
@@ -4378,7 +4323,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 aK
 aS
 bb
@@ -4395,14 +4340,14 @@ xl
 lh
 cs
 ad
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
 ad
 ad
-ae
+bH
 bE
 bE
 bE
@@ -4430,10 +4375,10 @@ bE
 bE
 bE
 bE
-ae
+bH
 ad
 ad
-ab
+bH
 aa
 "}
 (32,1,1) = {"
@@ -4451,16 +4396,16 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aK
 aT
 bc
@@ -4515,7 +4460,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (33,1,1) = {"
@@ -4533,7 +4478,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -4542,7 +4487,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aK
 aU
 bb
@@ -4597,7 +4542,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (34,1,1) = {"
@@ -4615,16 +4560,16 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
-bG
+bH
 aL
 aL
 aL
 aL
 ad
-ab
+bH
 aI
 aP
 bc
@@ -4672,14 +4617,14 @@ aL
 aL
 dQ
 ad
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 "}
 (35,1,1) = {"
@@ -4697,7 +4642,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -4706,7 +4651,7 @@ NO
 aL
 NO
 ad
-ab
+bH
 aI
 aV
 bb
@@ -4754,7 +4699,7 @@ aL
 aL
 dP
 ad
-ab
+bH
 aa
 aa
 aa
@@ -4779,7 +4724,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -4788,7 +4733,7 @@ aL
 aL
 aL
 ad
-ab
+bH
 aK
 aK
 bd
@@ -4836,7 +4781,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -4855,13 +4800,13 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 ad
 ad
@@ -4870,7 +4815,7 @@ aL
 aL
 bs
 ad
-ab
+bH
 aK
 aW
 aW
@@ -4916,9 +4861,9 @@ ad
 ad
 ad
 ad
-ab
-ab
-ab
+bH
+bH
+bH
 aa
 aa
 aa
@@ -4937,7 +4882,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -4998,7 +4943,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5019,9 +4964,9 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ae
+bH
 af
 aj
 af
@@ -5080,7 +5025,7 @@ bE
 bE
 bE
 dO
-ab
+bH
 aa
 aa
 aa
@@ -5101,7 +5046,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ag
@@ -5162,7 +5107,7 @@ bE
 dN
 bE
 dO
-ab
+bH
 aa
 aa
 aa
@@ -5183,7 +5128,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 af
@@ -5244,7 +5189,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5265,7 +5210,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ah
@@ -5326,7 +5271,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5347,7 +5292,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -5407,8 +5352,8 @@ ad
 ad
 ad
 ad
-ab
-ab
+bH
+bH
 aa
 aa
 aa
@@ -5429,13 +5374,13 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 ad
 ad
@@ -5489,7 +5434,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5517,7 +5462,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -5571,7 +5516,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5599,7 +5544,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -5653,13 +5598,13 @@ ad
 ad
 ad
 ad
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa
@@ -5681,14 +5626,14 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ai
-ai
-ai
-ai
-ai
-ai
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -5741,7 +5686,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5763,14 +5708,14 @@ aa
 aa
 aa
 aa
-ab
-ad
-ai
+bH
 ad
 ad
 ad
 ad
-ai
+ad
+ad
+ad
 ad
 ad
 ad
@@ -5782,7 +5727,7 @@ ps
 RV
 aI
 ad
-bY
+bH
 ad
 aI
 ps
@@ -5795,7 +5740,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 ad
 ar
 ar
@@ -5823,7 +5768,7 @@ ar
 ar
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5845,14 +5790,14 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ai
+ad
 ad
 ap
 aw
-ae
-aE
+bH
+af
 af
 af
 ad
@@ -5877,7 +5822,7 @@ ad
 af
 af
 ad
-ab
+bH
 ad
 ar
 ar
@@ -5905,7 +5850,7 @@ cO
 ar
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5927,17 +5872,17 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ai
+ad
 ad
 af
 af
-ae
-aE
+bH
 af
 af
-ae
+af
+bH
 af
 bj
 bq
@@ -5955,11 +5900,11 @@ aL
 cD
 cJ
 af
-ae
+bH
 af
 af
 ad
-ab
+bH
 ad
 ar
 ax
@@ -5987,7 +5932,7 @@ cP
 cO
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6009,14 +5954,14 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ai
+ad
 ad
 aq
 af
-ae
-aE
+bH
+af
 aq
 af
 ad
@@ -6041,7 +5986,7 @@ ad
 af
 af
 ad
-ab
+bH
 ad
 as
 ay
@@ -6069,7 +6014,7 @@ az
 cP
 dd
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6091,14 +6036,14 @@ aa
 aa
 aa
 aa
-ab
-ad
-ai
+bH
 ad
 ad
 ad
 ad
-ai
+ad
+ad
+ad
 ad
 ad
 ad
@@ -6123,7 +6068,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 ad
 at
 az
@@ -6151,7 +6096,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6173,14 +6118,14 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
-ai
-ai
-ai
-ai
-ai
-ai
+ad
+ad
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -6205,7 +6150,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 ad
 at
 az
@@ -6233,7 +6178,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6255,7 +6200,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6282,12 +6227,12 @@ lh
 jC
 ad
 ad
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 at
 az
@@ -6315,7 +6260,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6337,15 +6282,15 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 ad
 ad
@@ -6364,12 +6309,12 @@ lh
 cF
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -6397,7 +6342,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6427,7 +6372,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6446,12 +6391,12 @@ lh
 pO
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -6479,7 +6424,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6509,7 +6454,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6528,12 +6473,12 @@ FC
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -6561,7 +6506,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6591,7 +6536,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6610,12 +6555,12 @@ lh
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -6643,7 +6588,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6673,7 +6618,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6692,12 +6637,12 @@ lh
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -6725,7 +6670,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6755,7 +6700,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6774,12 +6719,12 @@ lh
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
 aa
-ab
+bH
 ad
 au
 az
@@ -6807,7 +6752,7 @@ az
 az
 df
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6832,12 +6777,12 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 ad
 ad
@@ -6856,12 +6801,12 @@ FC
 ad
 ad
 ad
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
 ad
 at
 az
@@ -6889,7 +6834,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6914,7 +6859,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -6942,8 +6887,8 @@ ad
 ad
 ad
 ad
-ab
-ab
+bH
+bH
 ad
 at
 az
@@ -6971,7 +6916,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -6996,7 +6941,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ar
 ar
@@ -7024,8 +6969,8 @@ ar
 ar
 ar
 ad
-ab
-ab
+bH
+bH
 ad
 at
 az
@@ -7053,7 +6998,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7078,7 +7023,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ar
 ar
@@ -7106,8 +7051,8 @@ cO
 ar
 ar
 ad
-ab
-ab
+bH
+bH
 ad
 at
 az
@@ -7135,7 +7080,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7160,7 +7105,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ar
 ax
@@ -7188,8 +7133,8 @@ cP
 cO
 ar
 ad
-ab
-ab
+bH
+bH
 ad
 at
 az
@@ -7217,7 +7162,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7242,7 +7187,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 as
 ay
@@ -7270,8 +7215,8 @@ az
 cP
 dd
 ad
-ab
-ab
+bH
+bH
 ad
 at
 az
@@ -7299,7 +7244,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7324,7 +7269,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7352,8 +7297,8 @@ az
 az
 de
 ad
-ab
-ab
+bH
+bH
 ad
 av
 aA
@@ -7381,7 +7326,7 @@ az
 cU
 dg
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7406,7 +7351,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7434,8 +7379,8 @@ az
 az
 de
 ad
-ab
-ab
+bH
+bH
 ad
 ar
 aB
@@ -7463,7 +7408,7 @@ cU
 db
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7488,7 +7433,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7516,8 +7461,8 @@ az
 az
 de
 ad
-ab
-ab
+bH
+bH
 ad
 ar
 ar
@@ -7545,7 +7490,7 @@ ar
 ar
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7570,7 +7515,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7598,8 +7543,8 @@ az
 az
 de
 ad
-ab
-ab
+bH
+bH
 ad
 ad
 ad
@@ -7627,7 +7572,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7652,7 +7597,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7680,36 +7625,36 @@ az
 az
 de
 ad
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa
@@ -7734,7 +7679,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7762,36 +7707,36 @@ az
 az
 de
 ad
-ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7816,7 +7761,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7844,7 +7789,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7898,7 +7843,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -7926,7 +7871,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7980,7 +7925,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 au
 az
@@ -8008,7 +7953,7 @@ az
 az
 df
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8062,7 +8007,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8090,7 +8035,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8144,7 +8089,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8172,7 +8117,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8226,7 +8171,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8254,7 +8199,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8308,7 +8253,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8336,7 +8281,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8390,7 +8335,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8418,7 +8363,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8472,7 +8417,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 at
 az
@@ -8500,7 +8445,7 @@ az
 az
 de
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8554,7 +8499,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 av
 aA
@@ -8582,7 +8527,7 @@ az
 cU
 dg
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8636,7 +8581,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ar
 aB
@@ -8664,7 +8609,7 @@ cU
 db
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8718,7 +8663,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ar
 ar
@@ -8746,7 +8691,7 @@ ar
 ar
 ar
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8800,7 +8745,7 @@ aa
 aa
 aa
 aa
-ab
+bH
 ad
 ad
 ad
@@ -8828,7 +8773,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -8882,35 +8827,35 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

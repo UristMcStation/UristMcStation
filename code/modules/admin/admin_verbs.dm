@@ -348,7 +348,6 @@ var/list/admin_verbs_mod = list(
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
-		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
 		if(holder.rights & R_ADMIN)			verbs += admin_verbs_poll
 
 /client/proc/remove_admin_verbs()

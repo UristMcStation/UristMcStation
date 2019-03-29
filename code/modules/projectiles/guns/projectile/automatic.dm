@@ -36,7 +36,6 @@
 	desc = "The Hephaestus Industries MP6 Vesper, A fairly common machine pistol. Sometimes refered to as an 'uzi' by the backwater spacers it is often associated with."
 	icon = 'icons/obj/guns/machine_pistol.dmi'
 	icon_state = "mpistolen"
-	safety_icon = "safety"
 	item_state = "wt550"
 	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
@@ -64,7 +63,6 @@
 	icon = 'icons/obj/guns/merc_smg.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
-	safety_icon = "safety"
 	w_class = ITEM_SIZE_LARGE
 	force = 10
 	caliber = CALIBER_PISTOL
@@ -108,7 +106,7 @@
 	magazine_type = /obj/item/ammo_magazine/rifle
 	allowed_magazines = /obj/item/ammo_magazine/rifle
 	one_hand_penalty = 8
-	accuracy_power = 7
+	accuracy_power = 4
 	accuracy = 2
 	bulk = GUN_BULK_RIFLE + 1
 	wielded_item_state = "arifle-wielded"
@@ -137,7 +135,6 @@
 	icon = 'icons/obj/guns/sec_smg.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
-	safety_icon = "safety"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
@@ -146,7 +143,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/smg_top/rubber
 	allowed_magazines = /obj/item/ammo_magazine/smg_top
-	accuracy_power = 7
+	accuracy_power = 3
 	one_hand_penalty = 3
 
 	//machine pistol, like SMG but easier to one-hand with
@@ -181,7 +178,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	accuracy = 2
-	accuracy_power = 7
+	accuracy_power = 4
 	one_hand_penalty = 8
 	bulk = GUN_BULK_RIFLE
 	burst_delay = 4

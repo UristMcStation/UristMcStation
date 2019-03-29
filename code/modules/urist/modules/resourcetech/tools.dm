@@ -97,7 +97,7 @@
 	icon_state = "scopedhuntrifle"
 	item_state = "scopedhuntrifle"
 
-/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/verb/scope()
+/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1

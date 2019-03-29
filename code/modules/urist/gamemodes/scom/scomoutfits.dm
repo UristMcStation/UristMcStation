@@ -68,7 +68,7 @@
 	head = /obj/item/clothing/head/beret/centcom/captain
 	r_pocket = /obj/item/weapon/gun/projectile/silenced/knight
 	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
-	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
+	l_hand = /obj/item/weapon/gun/projectile/automatic/merc_smg
 	r_hand = /obj/item/weapon/storage/box/c20ammo
 	id_pda_assignment = "S-COM Officer"
 	team1uniform = /obj/item/clothing/under/urist/scom/s1l
@@ -123,7 +123,7 @@
 		new /obj/item/clothing/head/beret/centcom/captain(src)
 		new /obj/item/weapon/gun/projectile/silenced/knight(src)
 		new /obj/item/clothing/suit/armor/vest/deus_blueshield(src)
-		new /obj/item/weapon/gun/projectile/automatic/c20r(src)
+		new /obj/item/weapon/gun/projectile/automatic/merc_smg(src)
 		new /obj/item/weapon/storage/box/c20ammo(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
@@ -144,16 +144,11 @@
 		new /obj/item/clothing/suit/storage/toggle/labcoat/science(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
-
+//CDN
 /obj/structure/closet/secure_closet/personal/scom/commander
 	name = "S-COM personal closet (Commander)"
 	desc = "It's a secure locker for the Commander. Bow before its Commandiness."
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
+
 
 /obj/structure/closet/secure_closet/personal/scom/commander/New()
 		new /obj/item/clothing/under/rank/centcom(src)

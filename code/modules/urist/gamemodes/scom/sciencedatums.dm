@@ -45,7 +45,7 @@
 
 /datum/scomscience/recipe/shotgunammo
 	name = "shotgun ammo"
-	path = /obj/item/weapon/storage/box/shotgunammo
+	path = /obj/item/weapon/storage/box/ammo/shotgunammo
 	category = "Assault"
 	resources = 100
 
@@ -73,7 +73,7 @@
 
 /datum/scomscience/recipe/c20r
 	name = "C-20r SMG"
-	path = /obj/item/weapon/gun/projectile/automatic/c20r
+	path = /obj/item/weapon/gun/projectile/automatic/merc_smg
 	category = "Medic"
 	resources = 100
 

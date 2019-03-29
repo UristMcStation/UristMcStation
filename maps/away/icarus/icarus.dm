@@ -218,7 +218,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/floor/exoplanet/desert/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
@@ -228,7 +228,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/floor/exoplanet/grass/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
@@ -238,7 +238,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/open/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()

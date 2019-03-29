@@ -25,7 +25,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "ae" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/space)
 "af" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -226,19 +226,18 @@
 /turf/simulated/floor/plating,
 /area/hallway/aft/first)
 "aO" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/captain)
 "aR" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/airless,
 /area/space)
 "aS" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (WEST)";
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "aV" = (
 /obj/structure/catwalk,
@@ -268,7 +267,7 @@
 	dir = 4;
 	icon_state = "map_vent_out"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ba" = (
 /obj/item/weapon/soap/deluxe,
@@ -356,7 +355,7 @@
 	name = "Checkpoint";
 	sortType = "Checkpoint"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "bm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -509,7 +508,7 @@
 /obj/item/weapon/circuitboard/fusion_fuel_compressor,
 /obj/item/weapon/circuitboard/fusion_fuel_control,
 /obj/item/weapon/circuitboard/gyrotron_control,
-/obj/item/weapon/circuitboard/fusion_core_control,
+/obj/item/weapon/circuitboard/fusion/core_control,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Tech Storage";
@@ -752,7 +751,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "co" = (
 /obj/machinery/power/apc{
@@ -796,7 +795,7 @@
 /obj/item/weapon/gun/projectile/revolver/coltsaa{
 	randpixel = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cx" = (
 /obj/structure/disposalpipe/segment{
@@ -805,7 +804,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cy" = (
 /obj/machinery/disposal{
@@ -819,7 +818,7 @@
 	pixel_y = 26
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cz" = (
 /obj/machinery/alarm{
@@ -827,10 +826,9 @@
 	pixel_y = 24
 	},
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cA" = (
-/obj/structure/table/woodentable,
 /obj/item/weapon/pinpointer,
 /obj/item/weapon/storage/secure/safe{
 	pixel_x = 5;
@@ -838,7 +836,8 @@
 	},
 /obj/item/weapon/storage/secure/briefcase/nukedisk,
 /obj/item/weapon/storage/lockbox/station_account,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cC" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -901,7 +900,7 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "cL" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -916,27 +915,27 @@
 	pixel_x = -30;
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cO" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cQ" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -945,14 +944,14 @@
 /obj/effect/landmark/start{
 	name = "Captain"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cR" = (
 /obj/item/modular_computer/console/preset/command{
 	dir = 8
 	},
 /obj/item/weapon/card/id/captains_spare,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "cS" = (
 /turf/simulated/floor/tiled/dark,
@@ -987,7 +986,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 6
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "da" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -996,14 +995,14 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact (SOUTHWEST)"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "db" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "dc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1015,7 +1014,7 @@
 	icon_state = "camera";
 	tag = "icon-camera (NORTH)"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "dd" = (
 /obj/machinery/keycard_auth{
@@ -1026,14 +1025,14 @@
 	pixel_x = 10;
 	pixel_y = -25
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "de" = (
-/obj/structure/table/woodentable,
 /obj/machinery/photocopier/faxmachine{
 	department = "Captain's Office"
 	},
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "df" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1044,7 +1043,7 @@
 	icon_state = "2-4";
 	tag = ""
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "dg" = (
 /obj/structure/filingcabinet,
@@ -1058,12 +1057,12 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "dh" = (
 /obj/structure/closet/secure_closet/captainsequipment,
-/obj/item/ammo_magazine/c44,
-/turf/simulated/floor/wood,
+/obj/item/ammo_magazine/magnum,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "di" = (
 /obj/machinery/door/airlock/command{
@@ -1111,8 +1110,8 @@
 /turf/simulated/floor/carpet/purple,
 /area/command/fobedroom)
 "dm" = (
-/obj/structure/table/woodentable,
 /obj/item/device/flashlight/lamp/green,
+/obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/carpet/purple,
 /area/command/fobedroom)
 "dn" = (
@@ -1319,7 +1318,7 @@
 	icon_state = "simple";
 	dir = 4
 	},
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "dE" = (
@@ -1510,12 +1509,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "ed" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/chair/wood/walnut,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 6
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ef" = (
 /obj/structure/bed/nice,
@@ -2035,14 +2034,14 @@
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
 "ga" = (
-/obj/structure/table/woodentable,
 /obj/item/weapon/pen,
 /obj/item/weapon/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/prefab/hand_teleporter,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "gd" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -2094,8 +2093,7 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Engine Access";
-	req_one_access = list(11,24)
+	name = "Engine Access"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
@@ -2177,7 +2175,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "gP" = (
 /obj/structure/cable{
@@ -2209,7 +2207,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "gV" = (
 /obj/machinery/computer/ship/engines{
@@ -2246,12 +2244,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/logistics/primtool)
 "ha" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (WEST)";
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
 	dir = 8
 	},
 /turf/simulated/floor/carpet/blue2,
@@ -2339,7 +2336,7 @@
 /obj/structure/bed/nice,
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "hr" = (
 /obj/item/device/radio/intercom{
@@ -2399,7 +2396,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)
 "hD" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/personal)
 "hE" = (
 /obj/structure/cable{
@@ -2410,7 +2407,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
 "hG" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fp)
 "hI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -2421,7 +2418,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "hO" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/central)
 "hP" = (
 /obj/effect/shuttle_landmark/skipjack/deck1,
@@ -2649,7 +2646,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
 "iD" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/command/headquarters)
 "iE" = (
 /obj/structure/cable{
@@ -2710,7 +2707,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -20
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "iU" = (
 /obj/machinery/door/airlock/external{
@@ -2746,7 +2743,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/aft/first)
 "iZ" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/teleporter)
 "jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2842,11 +2839,12 @@
 	dir = 10
 	},
 /obj/machinery/door/blast/regular{
-	icon_state = "pdoor0";
 	density = 0;
-	opacity = 0;
+	dir = 4;
+	icon_state = "pdoor0";
 	id = "Engineering Lockdown";
-	name = "engineering security door"
+	name = "engineering security door";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -3035,7 +3033,7 @@
 /area/civilian/cryo2)
 "jZ" = (
 /obj/structure/bed/nice,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "ka" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3277,9 +3275,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
-"kC" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/atmospherics)
 "kF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	icon_state = "intact";
@@ -3449,7 +3444,7 @@
 	},
 /area/maintenance/first_deck/afp)
 "li" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/pen,
 /obj/item/weapon/paper_bin{
 	pixel_x = -3;
@@ -3643,7 +3638,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "lO" = (
 /obj/machinery/light_switch{
@@ -3701,7 +3696,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "lW" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afs)
 "lX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3757,7 +3752,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ml" = (
 /turf/simulated/floor/plating,
@@ -3800,6 +3795,7 @@
 /obj/structure/catwalk,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "xenoshitonlock";
 	name = "Xenobiology Lockdown";
@@ -3829,15 +3825,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Engine Access";
-	req_access = newlist();
-	req_one_access = list(11,24)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0;
-	tag = ""
+	req_access = newlist()
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -3850,10 +3838,10 @@
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
 "mt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/storage/box/checkers/chess/red,
 /obj/item/weapon/storage/box/checkers/chess,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "my" = (
 /obj/structure/cable{
@@ -3867,7 +3855,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
 "mE" = (
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "mF" = (
@@ -3928,12 +3916,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "mO" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "mP" = (
 /obj/structure/cable{
@@ -3967,11 +3954,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "mS" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (NORTH)";
-	icon_state = "wooden_chair_preview";
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -3979,10 +3961,14 @@
 	tag = ""
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "mT" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/ce)
 "mU" = (
 /obj/structure/catwalk,
@@ -4005,20 +3991,14 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "mX" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/bridge)
 "nc" = (
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "nd" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/dorms)
-"ne" = (
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken1";
-	icon_state = "wood_broken1"
-	},
-/area/civilian/lounge)
 "ng" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
@@ -4220,7 +4200,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nS" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/device/synthesized_instrument/guitar,
 /obj/item/device/paicard,
 /obj/machinery/atm{
@@ -4399,15 +4379,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ox" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
 	dir = 4
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "oA" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/scissors,
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
@@ -4743,7 +4722,7 @@
 	id_tag = "Dorm8";
 	name = "Dorms"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/monotile,
 /area/civilian/dorms)
 "pX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -5055,7 +5034,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/monotile,
 /area/civilian/lounge)
 "rk" = (
 /obj/structure/catwalk,
@@ -5239,7 +5218,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "rT" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/fp)
 "rY" = (
 /obj/machinery/camera/network/first_deck{
@@ -5314,7 +5293,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
 "so" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -5330,7 +5309,7 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "sx" = (
 /obj/random/junk,
@@ -5380,9 +5359,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "sI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/storage/pill_bottle/dice,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "sK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5417,7 +5396,7 @@
 /obj/structure/bed/nice,
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet/blue,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "sO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5637,7 +5616,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "tO" = (
 /obj/structure/table/standard,
@@ -5667,7 +5646,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "tS" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/techstorage)
 "tT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -5730,7 +5709,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/hallway/aft/first)
 "up" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5828,7 +5807,7 @@
 /area/hallway/aft/first)
 "uJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/fdengine)
 "uK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -5852,9 +5831,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
-"uM" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/fuelbay)
 "uP" = (
 /obj/structure/catwalk,
 /obj/machinery/alarm{
@@ -5894,7 +5870,7 @@
 	icon_state = "map_scrubber_on";
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "uW" = (
 /obj/structure/table/standard,
@@ -5902,17 +5878,6 @@
 /obj/random/drinkbottle,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
-"uY" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken3";
-	icon_state = "wood_broken3"
-	},
-/area/civilian/lounge)
 "va" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -5961,7 +5926,7 @@
 /area/civilian/bath)
 "vj" = (
 /obj/machinery/libraryscanner,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "vk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6099,10 +6064,7 @@
 	icon_state = "tube-construct-stage1";
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken1";
-	icon_state = "wood_broken1"
-	},
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "vK" = (
 /obj/structure/synthesized_instrument/synthesizer/piano,
@@ -6231,7 +6193,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "wi" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "wj" = (
 /obj/item/tape/engineering{
@@ -6310,7 +6272,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "wv" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/hallway/fore/first)
 "wy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -6322,7 +6284,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "wz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6389,7 +6351,7 @@
 /area/engineering/fdengine)
 "wS" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "wV" = (
 /obj/machinery/atmospherics/tvalve/digital{
@@ -6440,7 +6402,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/observatory)
 "xa" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afp)
 "xc" = (
 /obj/machinery/camera/network/first_deck{
@@ -6525,7 +6487,7 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmospherics)
 "xq" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/lounge)
 "xt" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -6536,7 +6498,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "xx" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/deck/cards,
 /obj/item/device/flashlight/flare/glowstick/blue,
 /obj/machinery/alarm{
@@ -6587,7 +6549,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "xH" = (
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /turf/simulated/floor/airless,
 /area/space)
 "xI" = (
@@ -6616,7 +6578,7 @@
 /area/civilian/bath)
 "xK" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "xO" = (
 /obj/machinery/light/small,
@@ -6808,7 +6770,7 @@
 /turf/simulated/floor/carpet,
 /area/command/headquarters)
 "yG" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/hallway/aft/first)
 "yI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6828,7 +6790,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
 "yM" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/engineering/break_room)
 "yO" = (
 /obj/machinery/firealarm{
@@ -6924,7 +6886,7 @@
 /turf/space,
 /area/space)
 "zk" = (
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "zl" = (
@@ -7182,8 +7144,7 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Pipe Access";
-	req_one_access = list(11,24)
+	name = "Pipe Access"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
@@ -7203,7 +7164,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo2)
 "Ag" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/securestorage)
 "Ah" = (
 /obj/structure/cable{
@@ -7216,7 +7177,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Ai" = (
 /obj/structure/table/standard,
@@ -7240,7 +7201,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "Am" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/fdengine)
 "Ao" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -7304,7 +7265,7 @@
 /area/space)
 "AE" = (
 /obj/structure/undies_wardrobe,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "AJ" = (
 /obj/structure/catwalk,
@@ -7323,10 +7284,7 @@
 /area/hallway/aft/first)
 "AP" = (
 /obj/structure/firedoor_assembly,
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken3";
-	icon_state = "wood_broken3"
-	},
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "AQ" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -7533,10 +7491,10 @@
 	icon_state = "camera";
 	tag = "icon-camera (NORTH)"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "BU" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afp)
 "BV" = (
 /obj/item/device/radio/intercom{
@@ -7573,7 +7531,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "BY" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/civilian/observatory)
 "Ca" = (
 /obj/machinery/door/airlock/engineering{
@@ -7592,11 +7550,12 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/regular{
-	icon_state = "pdoor0";
 	density = 0;
-	opacity = 0;
+	dir = 4;
+	icon_state = "pdoor0";
 	id = "Engineering Lockdown";
-	name = "engineering security door"
+	name = "engineering security door";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -7627,7 +7586,6 @@
 /turf/simulated/floor/carpet,
 /area/command/headquarters)
 "Cg" = (
-/turf/simulated/open,
 /obj/machinery/atmospherics/pipe/zpipe/down/fuel{
 	tag = "icon-down (WEST)";
 	icon_state = "down";
@@ -7654,6 +7612,7 @@
 	icon_state = "down-scrubbers";
 	dir = 8
 	},
+/turf/simulated/open,
 /turf/simulated/open{
 	initial_gas = null
 	},
@@ -8174,7 +8133,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
 "Ei" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/bath)
 "Ej" = (
 /obj/machinery/door/airlock/external{
@@ -8310,7 +8269,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
 "EK" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/cryo2)
 "EL" = (
 /obj/structure/catwalk,
@@ -8495,10 +8454,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
-	},
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "Fe" = (
 /obj/structure/catwalk,
@@ -8604,10 +8560,10 @@
 /area/maintenance/first_deck/afp)
 "Fj" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Fk" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Fn" = (
 /obj/structure/table/standard,
@@ -8660,7 +8616,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "Fx" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afs)
 "Fz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -8707,7 +8663,7 @@
 /area/hallway/aft/first)
 "FE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "FG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -9025,10 +8981,10 @@
 /obj/machinery/door/airlock/glass{
 	name = "Central Access"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/hallway/fore/first)
 "GY" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/holodeck)
 "Hb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -9298,7 +9254,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "Ig" = (
 /turf/simulated/floor/plating,
@@ -9546,11 +9502,12 @@
 	dir = 5
 	},
 /obj/machinery/door/blast/regular{
-	icon_state = "pdoor0";
 	density = 0;
-	opacity = 0;
+	dir = 4;
+	icon_state = "pdoor0";
 	id = "Engineering Lockdown";
-	name = "engineering security door"
+	name = "engineering security door";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -9578,7 +9535,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Central Access"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/hallway/aft/first)
 "Jq" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -9810,7 +9767,7 @@
 	icon_state = "pipe-t";
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Kh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9848,7 +9805,7 @@
 /area/maintenance/first_deck/afp)
 "Ko" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/atmospherics)
 "Kr" = (
 /obj/machinery/door/airlock/engineering{
@@ -9964,7 +9921,7 @@
 	pixel_y = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "KO" = (
 /obj/structure/catwalk,
@@ -9986,7 +9943,7 @@
 /obj/structure/curtain/open/bed,
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/orange,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "KU" = (
 /obj/machinery/teleport/station{
@@ -10006,19 +9963,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
-"La" = (
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken3";
-	icon_state = "wood_broken3"
-	},
-/area/civilian/dorms)
 "Ld" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	tag = "icon-intact-supply (SOUTHWEST)";
 	icon_state = "intact-supply";
 	dir = 10
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Lh" = (
 /obj/structure/flora/pottedplant{
@@ -10044,7 +9995,7 @@
 	name = "Library"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/monotile,
 /area/civilian/lounge)
 "Ln" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
@@ -10080,7 +10031,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/monotile,
 /area/civilian/lounge)
 "Lv" = (
 /obj/structure/table/rack,
@@ -10135,7 +10086,7 @@
 /area/civilian/personal)
 "LJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "LK" = (
 /obj/item/device/radio/intercom{
@@ -10148,16 +10099,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/first)
 "LL" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (NORTH)";
+/obj/structure/bed/chair/wood/walnut{
 	icon_state = "wooden_chair_preview";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "LY" = (
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
+/obj/structure/bed/chair/wood/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "LZ" = (
 /obj/item/pipe{
@@ -10299,7 +10249,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "MJ" = (
 /obj/machinery/door/airlock{
@@ -10347,8 +10297,7 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Engine Access";
-	req_one_access = list(11,24)
+	name = "Engine Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -10520,13 +10469,13 @@
 	name = "Officers Dorms";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/command/headquarters)
 "NE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/board,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "NF" = (
 /obj/machinery/door/airlock/hatch{
@@ -10977,7 +10926,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/monotile,
 /area/civilian/dorms)
 "Pn" = (
 /obj/structure/bed/chair/urist/shuttle,
@@ -11108,7 +11057,7 @@
 /obj/structure/bed/nice,
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet/green,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "PN" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -11119,14 +11068,13 @@
 	tag = "icon-pdoor1"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/captain)
 "PR" = (
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "PT" = (
-/obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/stamp/captain,
 /obj/machinery/button/remote/blast_door{
@@ -11136,7 +11084,8 @@
 	pixel_y = 28;
 	req_access = list(20)
 	},
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "PU" = (
 /obj/structure/cable{
@@ -11171,7 +11120,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "Qg" = (
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
@@ -11279,7 +11228,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "QH" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/civilian/holodeck)
 "QI" = (
 /obj/structure/catwalk,
@@ -11360,8 +11309,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Engine Access";
-	req_access = newlist();
-	req_one_access = list(11,24)
+	req_access = newlist()
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -11504,7 +11452,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "General Storage"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/logistics/primtool)
 "RG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -11705,11 +11653,7 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Pipe Access";
-	req_one_access = list(11,24)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+	name = "Pipe Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
@@ -11743,8 +11687,7 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Pipe Access";
-	req_one_access = list(11,24)
+	name = "Pipe Access"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
@@ -12086,7 +12029,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
 "TV" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/break_room)
 "TZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -12146,7 +12089,7 @@
 /area/engineering/atmospherics)
 "Un" = (
 /obj/structure/bed/chair/office/dark,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "Up" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -12197,12 +12140,12 @@
 /area/engineering/break_room)
 "UA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/chair_painter,
 /obj/item/weapon/storage/fancy/crayons,
 /obj/machinery/newscaster{
 	pixel_x = 0;
 	pixel_y = -32
 	},
+/obj/item/device/floor_painter,
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
 "UC" = (
@@ -12260,7 +12203,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "UM" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/logistics/primtool)
 "UO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12403,7 +12346,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/command/headquarters)
 "Vq" = (
 /obj/structure/cable{
@@ -12430,13 +12373,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "Vv" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/device/synthesized_instrument/violin,
 /obj/machinery/light_switch{
 	pixel_x = 28;
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Vw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -12536,7 +12479,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "VU" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/logistics/auxtool)
 "VV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12550,7 +12493,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "VW" = (
 /obj/effect/floor_decal/urist/nervalogo{
@@ -12639,10 +12582,10 @@
 /area/space)
 "Wo" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Wu" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "WA" = (
 /obj/machinery/light/small/red{
@@ -12859,7 +12802,7 @@
 /area/engineering/break_room)
 "Xx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Xy" = (
 /obj/structure/cable{
@@ -12875,7 +12818,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
 "XA" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/fs)
 "XG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -13014,7 +12957,7 @@
 "Yf" = (
 /obj/structure/bed/nice,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "Yh" = (
 /obj/structure/table/rack,
@@ -13094,7 +13037,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "Ys" = (
 /obj/effect/landmark/start{
@@ -13122,13 +13065,12 @@
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "Yu" = (
-/obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
-	icon_state = "wooden_chair";
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/bed/chair/wood/walnut{
+	icon_state = "wooden_chair_preview";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Yv" = (
 /obj/structure/catwalk,
@@ -13264,11 +13206,12 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/regular{
-	icon_state = "pdoor0";
 	density = 0;
-	opacity = 0;
+	dir = 4;
+	icon_state = "pdoor0";
 	id = "Engineering Lockdown";
-	name = "engineering security door"
+	name = "engineering security door";
+	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13295,10 +13238,10 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "Zb" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/command/fobedroom)
 "Zc" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/chair/wood/walnut,
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "Ze" = (
@@ -13355,8 +13298,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
 "Zl" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Zm" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
@@ -13378,7 +13321,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
 "Zu" = (
-/obj/item/stack/material/wood/ten,
+/obj/item/stack/material/wood/walnut/ten,
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
 "Zv" = (
@@ -13395,10 +13338,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "Zw" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fs)
 "Zx" = (
 /obj/machinery/light{
@@ -13496,12 +13439,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/command/teleporter)
-"ZZ" = (
-/turf/simulated/floor/wood{
-	tag = "icon-wood_broken6";
-	icon_state = "wood_broken6"
-	},
-/area/logistics/auxtool)
 
 (1,1,1) = {"
 aa
@@ -28157,14 +28094,14 @@ hS
 Am
 zK
 Sp
-kC
-kC
-kC
-kC
+fu
+fu
+fu
+fu
 Ko
-kC
-kC
-kC
+fu
+fu
+fu
 mn
 fu
 lA
@@ -28338,15 +28275,15 @@ uy
 uy
 uy
 uy
-uM
-uM
-uM
-uM
-uM
-uM
-uM
-uM
-uM
+cu
+cu
+cu
+cu
+cu
+cu
+cu
+cu
+cu
 uy
 uy
 Am
@@ -28358,8 +28295,8 @@ Fz
 VY
 Am
 ID
-kC
-kC
+fu
+fu
 eV
 eO
 Tv
@@ -28540,15 +28477,15 @@ uy
 uy
 uy
 uy
-uM
-uM
-uM
-uM
-uM
-uM
-uM
-uM
-uM
+cu
+cu
+cu
+cu
+cu
+cu
+cu
+cu
+cu
 uy
 Am
 Am
@@ -28742,15 +28679,15 @@ uy
 uy
 uy
 uy
-uM
-uM
+cu
+cu
 nJ
 nJ
 nJ
 nJ
 nJ
-uM
-uM
+cu
+cu
 uy
 BW
 Ht
@@ -28944,15 +28881,15 @@ uy
 uy
 uy
 uy
-uM
-uM
+cu
+cu
 nJ
 vs
 vs
 nJ
 nJ
-uM
-uM
+cu
+cu
 Am
 Am
 Am
@@ -29146,15 +29083,15 @@ uy
 uy
 uy
 uy
-uM
-uM
+cu
+cu
 nJ
 nJ
 nJ
 nJ
 nJ
-uM
-uM
+cu
+cu
 Am
 Am
 Am
@@ -29167,7 +29104,7 @@ HN
 Am
 YQ
 dp
-kC
+fu
 Ae
 fu
 fu
@@ -29348,15 +29285,15 @@ uy
 uy
 uy
 uy
-uM
-uM
-nJ
-nJ
-nJ
-nJ
-uM
 cu
-uM
+cu
+nJ
+nJ
+nJ
+nJ
+cu
+cu
+cu
 Am
 wQ
 qX
@@ -29550,13 +29487,13 @@ uy
 uy
 uy
 uy
-uM
-uM
+cu
+cu
 nJ
 nJ
 nJ
 nJ
-uM
+cu
 NS
 sa
 FI
@@ -29753,12 +29690,12 @@ uy
 uy
 xa
 xa
-uM
+cu
 nJ
 nJ
 fS
 TC
-uM
+cu
 WC
 mT
 mT
@@ -29955,12 +29892,12 @@ uy
 xa
 xa
 xa
-uM
-uM
+cu
+cu
 Wi
 ie
 hk
-uM
+cu
 WC
 mT
 KB
@@ -30157,12 +30094,12 @@ xa
 xa
 xa
 tR
-uM
-uM
+cu
+cu
 HO
 qD
 tF
-uM
+cu
 WC
 mT
 RB
@@ -30359,12 +30296,12 @@ xa
 xa
 uH
 GS
-uM
-uM
+cu
+cu
 eD
 HS
 gV
-uM
+cu
 WC
 mT
 cj
@@ -30561,12 +30498,12 @@ xa
 xa
 Bs
 Ig
-uM
+cu
 cu
 Ao
 ij
 BK
-uM
+cu
 WC
 mT
 RT
@@ -30763,12 +30700,12 @@ xa
 xa
 xa
 lf
-uM
+cu
 cu
 jQ
 ER
 cu
-uM
+cu
 WC
 mT
 va
@@ -34411,7 +34348,7 @@ ce
 Gq
 nd
 sM
-La
+Wu
 FE
 Fd
 nd
@@ -35219,7 +35156,7 @@ zP
 sK
 nd
 hq
-La
+Wu
 Wu
 VV
 DL
@@ -37644,7 +37581,7 @@ xm
 ty
 Fj
 Fk
-ne
+Fk
 yT
 Zu
 yT
@@ -39263,7 +39200,7 @@ Fk
 DN
 DN
 Fk
-uY
+gU
 vj
 ty
 Rm
@@ -40463,7 +40400,7 @@ bh
 AB
 VU
 qU
-ZZ
+wi
 Ue
 gA
 qC

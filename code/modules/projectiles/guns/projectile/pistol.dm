@@ -22,7 +22,6 @@
 	allowed_magazines = /obj/item/ammo_magazine/pistol/double
 	icon = 'icons/obj/guns/military_pistol.dmi'
 	icon_state = "military"
-	safety_icon = "safety"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_delay = 7
 
@@ -30,7 +29,6 @@
 	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the ICCG Navy."
 	icon = 'icons/obj/guns/military_pistol2.dmi'
 	icon_state = "military-alt"
-	safety_icon = "safety"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	fire_delay = 8
 
@@ -39,7 +37,6 @@
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "secguncomp"
-	safety_icon = "safety"
 	magazine_type = /obj/item/ammo_magazine/pistol/rubber
 	accuracy = -1
 	fire_delay = 5
@@ -54,7 +51,6 @@
 	icon = 'icons/obj/guns/magnum_pistol.dmi'
 	icon_state = "magnum"
 	item_state = "revolver"
-	safety_icon = "safety"
 	force = 9
 	caliber = CALIBER_PISTOL_MAGNUM
 	fire_delay = 12

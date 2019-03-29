@@ -417,5 +417,5 @@
 	set desc="Create and manage polls in the database"
 	if(holder)
 		holder.poll_panel()
-	feedback_add_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSstatistics.add_field_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

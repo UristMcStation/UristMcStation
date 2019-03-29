@@ -55,3 +55,7 @@
 
 			return
 
+/obj/effect/overmap/ship/landable/trajan
+	name = "Trajan"
+	shuttle = "Trajan"
+	fore_dir = NORTH

@@ -19,7 +19,7 @@
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_head_unathi.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
-		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/hats.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_head_resomi.dmi',
 		)
 
 	light_overlay = "helmet_light"
@@ -45,7 +45,7 @@
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_suit_unathi.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_suit_skrell.dmi',
-		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/suits.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_suit_resomi.dmi',
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.

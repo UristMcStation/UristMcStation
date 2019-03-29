@@ -48,7 +48,6 @@
 /obj/item/weapon/gun/projectile/revolver/medium
 	name = "revolver"
 	icon_state = "medium"
-	safety_icon = "medium_safety"
 	caliber = CALIBER_PISTOL
 	ammo_type = /obj/item/ammo_casing/pistol
 	desc = "The Lumoco Arms' Solid is a rugged revolver for people who don't keep their guns well-maintained."
@@ -74,7 +73,7 @@
 	icon_state = "deckard-empty"
 
 /obj/item/weapon/gun/projectile/revolver/deckard/emp
-	ammo_type = /obj/item/ammo_casing/c38/emp
+	ammo_type = /obj/item/ammo_casing/pistol/emp/small
 
 /obj/item/weapon/gun/projectile/revolver/deckard/on_update_icon()
 	..()

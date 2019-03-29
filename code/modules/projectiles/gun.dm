@@ -94,7 +94,7 @@
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
-	
+
 	if(scope_zoom)
 		verbs += /obj/item/weapon/gun/proc/scope
 
@@ -321,16 +321,13 @@
 	var/acc_mod = burst_accuracy[min(burst, burst_accuracy.len)]
 	var/disp_mod = dispersion[min(burst, dispersion.len)]
 	var/stood_still = last_handled
-	//Not keeping gun active will throw off aim (for non-Masters)
-	if(user.skill_check(SKILL_WEAPONS, SKILL_PROF))
-		stood_still = min(user.l_move_time, last_handled)
-	else
-		stood_still = max(user.l_move_time, last_handled)
+	//Not keeping gun active will throw off aim
+	stood_still = min(user.l_move_time, last_handled)
 
 	stood_still = max(0,round((world.time - stood_still)/10) - 1)
 	if(stood_still)
 		acc_mod += min(max(2, accuracy), stood_still)
-	else 
+	else
 		acc_mod -= w_class - ITEM_SIZE_NORMAL
 		acc_mod -= bulk
 
@@ -338,7 +335,7 @@
 		acc_mod -= one_hand_penalty/2
 		disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
 
-	if(burst > 1 && !user.skill_check(SKILL_WEAPONS, SKILL_ADEPT))
+	if(burst > 1)
 		acc_mod -= 1
 		disp_mod += 0.5
 
@@ -349,7 +346,6 @@
 		//As opposed to no-delay pew pew
 		acc_mod += 2
 
-	acc_mod += user.ranged_accuracy_mods()
 	acc_mod += accuracy
 	P.hitchance_mod = accuracy_power*acc_mod
 	P.dispersion = disp_mod
@@ -539,11 +535,3 @@
 			if(istype(gun) && gun.can_autofire())
 				M.set_dir(get_dir(M, over_object))
 				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
-
-/obj/item/weapon/gun/proc/check_accidents(mob/living/user)
-	if(istype(user))
-		if(!safety() && user.skill_fail_prob(SKILL_WEAPONS, 20, SKILL_EXPERT, 2) && special_check(user))
-			to_chat(user, "<span class='warning'>[src] fires on its own!</span>")
-			var/list/targets = list(user)
-			targets += trange(2, src)
-			afterattack(pick(targets), user)

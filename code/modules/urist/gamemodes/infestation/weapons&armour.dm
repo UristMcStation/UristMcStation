@@ -182,7 +182,7 @@
 	caliber = "a556"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 3500)
-	ammo_type = /obj/item/ammo_casing/a556
+	ammo_type = /obj/item/ammo_casing/rifle
 	max_ammo = 20
 
 /obj/item/ammo_magazine/a556/a22/empty
@@ -220,7 +220,7 @@
 	scoped = 1
 	icon_state = "FALrifle-scope"
 
-/obj/item/weapon/gun/projectile/a18/verb/scope()
+/obj/item/weapon/gun/projectile/a18/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -344,7 +344,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "FALmag"
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = CALIBER_ANTIQUE_RIFLE
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
@@ -390,7 +390,7 @@
 	caliber = "9mm"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 30
 //	multiple_sprites = 1
 
@@ -420,7 +420,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	name = "A7 magazine (.45)"
 	icon_state = "COLT45MAG"
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/pistol
 	caliber = ".45"
 	max_ammo = 8
 
@@ -454,7 +454,7 @@
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "13.2x108mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/a145
+	projectile_type = /obj/item/projectile/bullet/rifle/shell
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
 /obj/item/projectile/bullet/rifle/a132x108mm
