@@ -1,8 +1,27 @@
 /material/cloth/generate_recipes()
 	..()
-	recipes += new/datum/stack_recipe("makeshift bandage", /obj/item/stack/medical/bruise_pack/makeshift_bandage)
-	recipes += new/datum/stack_recipe("makeshift mask", /obj/item/clothing/mask/surgical/makeshift_mask)
-	recipes += new/datum/stack_recipe("rag", /obj/item/weapon/reagent_containers/glass/rag)
+
+	recipes += new/datum/stack_recipe/makeshiftbandage(src)
+	recipes += new/datum/stack_recipe/makeshiftmask(src)
+	recipes += new/datum/stack_recipe/rag(src)
+
+/datum/stack_recipe/makeshiftbandage
+	title = "rifle stock"
+	result_type = /obj/item/stack/medical/bruise_pack/makeshift_bandage
+	req_amount = 1
+	time = 10
+
+/datum/stack_recipe/makeshiftmask
+	title = "flintlock pistol stock"
+	result_type = /obj/item/clothing/mask/surgical/makeshift_mask
+	req_amount = 1
+	time = 10
+
+/datum/stack_recipe/rag
+	title = "underwear wardrobe"
+	result_type = /obj/item/weapon/reagent_containers/glass/rag
+	req_amount = 1
+	time = 10
 
 /obj/item/clothing/under/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))

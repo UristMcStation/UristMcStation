@@ -562,6 +562,22 @@ the sprite and make my own projectile -Glloyd*/
 		if(9) user << "It has a finished secured bolt in place."
 
 /obj/item/weapon/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
+		if(buildstate == 0)
+			var/obj/item/weapon/gunsmith/gun2/long/I = new()
+			I.forceMove(get_turf(src))
+			to_chat(user, "You put the barrel onto the stock.")
+			qdel(W)
+			qdel(src)
+
+	if(istype(W,/obj/item/weapon/gunsmith/barrel/short))
+		if(buildstate == 0)
+			var/obj/item/weapon/gunsmith/gun2/short/I = new()
+			I.forceMove(get_turf(src))
+			to_chat(user, "You put the barrel onto the stock.")
+			qdel(W)
+			qdel(src)
+
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
 			user.drop_from_inventory(W)

@@ -13,7 +13,7 @@
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
 		/area/engineering/drone_fabrication = NO_SCRUBBER,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/planet/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/aft = NO_SCRUBBER,
 		/area/maintenance/asmaint = NO_SCRUBBER,
@@ -51,7 +51,8 @@
 		/area/syndicate_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/tcommsat/chamber/abandoned = NO_SCRUBBER,
 		/area/tcommsat/chamber/server = NO_SCRUBBER,
-		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT
+		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT,
+		/area/map_template/hydrobase/station/shower = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_coherency_test_exempt_areas = list(
@@ -66,7 +67,8 @@
 			/area/awaymission/maze,
 			/area/maintenance/incinerator,
 			/area/beach,
-			/area/jungle
+			/area/planet/jungle,
+			/area/map_template/hydrobase/station/shower
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -102,8 +104,8 @@
 		/area/holodeck/source_courtroom,
 		/area/holodeck/source_meetinghall,
 		/area/infestation,
-		/area/jungle/explored,
-		/area/jungle/temple_one,
+		/area/planet/jungle/explored,
+		/area/planet/jungle/temple_one,
 		/area/jungleoutpost,
 		/area/maintenance/exterior,
 		/area/maintenance/substation,
@@ -191,5 +193,6 @@
 		/area/turbolift,
 		/area/outpost/engineering/storage,
 		/area/outpost/mining_main/maintenance,
-		/area/outpost/security/lounge
+		/area/outpost/security/lounge,
+		/area/boarding_ship
 	)

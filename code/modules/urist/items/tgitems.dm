@@ -366,7 +366,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "A roll of dried plant matter wrapped in thin paper."
 	icon_state = "spliffoff"
 	icon_on = "spliffon"
-	type_butt = /obj/item/weapon/cigbutt/roach
+	type_butt = /obj/item/trash/cigbutt/roach
 	throw_speed = 0.5
 	item_state = "spliffoff"
 	smoketime = 180
@@ -377,7 +377,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	src.pixel_x = rand(-5, 5)
 	src.pixel_y = rand(-5, 5)
 
-/obj/item/weapon/cigbutt/roach
+/obj/item/trash/cigbutt/roach
 	icon = 'icons/urist/items/tgitems.dmi'
 
 	name = "roach"

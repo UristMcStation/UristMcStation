@@ -158,7 +158,7 @@
 	name = "Planet Base - Engineering"
 	landmark_tag = "pbase_engi"
 	docking_controller = "edock_airlock"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/mining
@@ -177,7 +177,7 @@
 	name = "Planet Base - Mining"
 	landmark_tag = "pbase_mining"
 	docking_controller = "mining_outpost_airlock"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/research
@@ -196,7 +196,7 @@
 	name = "Planet Base - Research"
 	landmark_tag = "pbase_research"
 	docking_controller = "research_outpost_dock"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/security
@@ -216,7 +216,7 @@
 	name = "Planet Base - Security"
 	landmark_tag = "secdock_airlock"
 	docking_controller = "security_docking_planet"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/plating
 
 /datum/shuttle/autodock/ferry/planet
@@ -241,7 +241,7 @@
 	landmark_tag = "public_planet_shuttle_planet"
 	docking_controller = "outpost_planet_dock"
 	base_turf = /turf/simulated/floor/plating
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 
 // Centcom shuttles
 
@@ -449,7 +449,7 @@
 /obj/effect/shuttle_landmark/mercenary/planetside
 	name = "Down on the Planet"
 	landmark_tag = "merc_ship_planet"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /datum/shuttle/autodock/multi/antag/skipjack
@@ -501,7 +501,7 @@
 /obj/effect/shuttle_landmark/raider_skipjack/planetside
 	name = "Planetside"
 	landmark_tag = "raider_planetside"
-	base_area = /area/jungle
+	base_area = /area/planet/jungle
 	base_turf = /turf/simulated/floor/planet/jungle/clear
 
 /*/datum/shuttle/multi_shuttle/rescue

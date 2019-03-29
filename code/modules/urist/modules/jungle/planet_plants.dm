@@ -118,7 +118,7 @@ var/jungle_plants_init = 0
 //	potency = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/New()
-	seed = SSplants.create_random_seed() //it could be anything!
+	seed = plant_controller.create_random_seed() //it could be anything!
 	plantname = seed.name
 	..()
 
@@ -208,3 +208,15 @@ var/jungle_plants_init = 0
 			if(get_dist(user,src) < 2)
 				user << "<span class='notice'> You clear away [src].</span>"
 				qdel(src)
+
+//arid
+
+/obj/structure/flora/grass/arid
+	name = "dry grass"
+	icon = 'icons/urist/jungle/miscflora.dmi'
+	desc = "Some dry, virtually dead grass."
+	icon_state = "tall_grass_1"
+
+/obj/structure/flora/grass/arid/New()
+	..()
+	icon_state = "tall_grass_[rand(1,8)]"

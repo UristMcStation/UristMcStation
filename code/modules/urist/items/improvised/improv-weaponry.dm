@@ -154,10 +154,18 @@
 /obj/item/weapon/shield/riot/scrapper
 	item_icons = DEF_URIST_INHANDS
 	name = "scrapper shield"
-	desc = "A large rectangular shield made out of hastily assembled chuncks of plasteel."
+	desc = "A large rectangular shield made out of hastily assembled chunks of plasteel."
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
+	force = 6.0
+	throwforce = 7.0
+	throw_range = 3
+	w_class = ITEM_SIZE_HUGE
+	matter = list("plasteel" = 8500)
+	max_block = 20
+	can_block_lasers = FALSE
+	slowdown_general = 1.5
 
 //Baseball bat with nails
 

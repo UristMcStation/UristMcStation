@@ -3,21 +3,42 @@
 	var/plants_spawn_chance = 0
 	var/small_trees_chance = 0
 	var/large_trees_chance = 0
-	var/reeds_spawn_chance = 0
+	var/misc_plant_spawn_chance = 0
 	var/trap_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
+	light_max_bright = 0.4
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
 	var/icon_spawn_state = "grass1"
 	var/farmed = 0
 	var/bushspawnchance = 0 //let's try it, why not
 	var/animal_spawn_list
 
+	var/misc_plant_type = /obj/structure/flora/reeds
+	var/bush_type = /obj/structure/bush
+	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
+	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
+
+	var/terrain_type = null
+
+	var/spawn_scrap = 0
+
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
+/turf/simulated/floor/planet/get_footstep_sound()
+	if(terrain_type == "grass")
+		return safepick(footstep_sounds[FOOTSTEP_GRASS])
+	else
+		..()
+
 /turf/simulated/floor/planet/Initialize()
+	var/bushes = FALSE
+
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
 
@@ -42,26 +63,41 @@
 			var/obj/structure/jungle_plant/J = new(src)
 			J.pixel_x = rand(-6,6)
 			J.pixel_y = rand(-6,6)
-	if(reeds_spawn_chance && prob(reeds_spawn_chance))
-		new /obj/structure/flora/reeds(src)
+
+	if(misc_plant_spawn_chance && prob(misc_plant_spawn_chance))
+		new misc_plant_type(src)
+
 	if(bushspawnchance && prob(bushspawnchance))
-		new /obj/structure/bush(src)
+		new bush_type(src)
+		bushes = TRUE
+
 	if(small_trees_chance && prob(small_trees_chance)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
-		new /obj/structure/flora/tree/jungle/small(src)
+		if(!bushes)
+			new small_tree_type(src)
+
 	if(large_trees_chance && prob(large_trees_chance ))
-		new /obj/structure/flora/tree/jungle/large(src)
+		if(!bushes)
+			new large_tree_type(src)
+
 	if(animal_spawn_chance && prob(animal_spawn_chance ))
 		if(prob(50)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
 			var/A = pick(animal_spawn_list) //A conservative estimate for possible spawning tiles in the jungle would be 22500, which is very conservative. This means that roughly 225 animals would spawn.
 			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
+
 	if(trap_spawn_chance)
-		if(prob(1)) //The natives aren't that great
-			var/obj/structure/bush/B = locate() in src
-			if(B) qdel(B)
+		if(!bushes && prob(1))
 			new /obj/structure/pit/punji6/hidden/dull(src)
-//	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi
+
+	if(spawn_scrap)
+		if(prob(4))
+			new	/obj/structure/scrap/random(src)
+		else if(prob(1))
+			new /obj/structure/scrap/vehicle(src)
+
+//	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
 	light_color = SSskybox.BGcolor
+
 	. = ..()
 
 /turf/simulated/floor/planet/ex_act(severity)
@@ -82,6 +118,9 @@
 	else if (istype(M, /mob/living/carbon/human/monkey))
 		var/mob/living/carbon/human/monkey/A = M
 		A.loc = get_turf(src)
+
+	else
+		..()
 
 /turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/shovel))
@@ -131,7 +170,7 @@
 	plants_spawn_chance = 40
 	small_trees_chance = 7.5
 	large_trees_chance = 0
-	reeds_spawn_chance = 0
+	misc_plant_spawn_chance = 0
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
@@ -143,14 +182,17 @@
 	light_falloff_curve = 0.5
 	light_color = "#ffffff"
 	bushspawnchance = 30 //let's try it, why not
+	terrain_type = "grass"
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 	)
 
-/turf/simulated/floor/planet/jungle/get_footstep_sound()
-	return safepick(footstep_sounds[FOOTSTEP_GRASS])
+
+
+///turf/simulated/floor/planet/jungle/get_footstep_sound()
+//	return safepick(footstep_sounds[FOOTSTEP_GRASS])
 
 /turf/simulated/floor/planet/jungle/med
 	large_trees_chance = 1
@@ -201,7 +243,7 @@
 	bushspawnchance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0
-	reeds_spawn_chance = 0
+	misc_plant_spawn_chance = 0
 	icon_state = "grass3" //clear
 //	icon_spawn_state = "grass3"
 	icon_spawn_state = null
@@ -224,7 +266,7 @@
 /turf/simulated/floor/planet/jungle/path
 	bushspawnchance = 0
 	small_trees_chance = 0
-	reeds_spawn_chance = 5
+	misc_plant_spawn_chance = 5
 	name = "wet grass"
 	desc = "thick, long wet grass"
 	icon = 'icons/jungle.dmi'
@@ -255,31 +297,29 @@
 		if(P && prob(probability))
 			P.Spread(probability - prob_loss)
 
-/turf/simulated/floor/planet/jungle/plains
+/turf/simulated/floor/planet/plains
 	bushspawnchance = 0
 	small_trees_chance = 0
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
 	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
 	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
+	spawn_scrap = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
 		/mob/living/simple_animal/hostile/snake
 		)
 
-/turf/simulated/floor/planet/jungle/plains/Initialize()
-	if(prob(4))
-		new	/obj/structure/scrap/random(src)
-	else if(prob(1))
-		new /obj/structure/scrap/vehicle(src)
-	. = ..()
-
-/turf/simulated/floor/planet/jungle/clear/plains
+/turf/simulated/floor/planet/plains/clear
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
 	icon_spawn_state = "g"
 	animal_spawn_chance = 0
+	spawn_scrap = 0
 
 
 /turf/simulated/floor/planet/jungle/impenetrable
@@ -305,12 +345,12 @@
 	. = ..()
 
 //copy paste from asteroid mineral turfs
-/turf/simulated/floor/planet/jungle/rock
+/turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 graham
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
 	animal_spawn_chance = 0
-	reeds_spawn_chance = 0
+	misc_plant_spawn_chance = 0
 	density = 1
 	opacity = 1
 	name = "cliffside wall"
@@ -319,6 +359,7 @@
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null
+	terrain_type = null
 
 //Rocks fall, you die
 /turf/simulated/floor/planet/jungle/rock/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -364,7 +405,7 @@
 	bushspawnchance = 0
 	small_trees_chance = 0 //fucking rivers winning the small tree RNG
 	plants_spawn_chance = 0 //until I get a metric for spawning reeds only
-	reeds_spawn_chance = 15 //get dem reeds boi
+	misc_plant_spawn_chance = 15 //get dem reeds boi
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
@@ -376,6 +417,7 @@
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
 	var/busy = 0
+	terrain_type = null //GLLOYDTODO: water sound
 
 /turf/simulated/floor/planet/jungle/water/Initialize()
 	. = ..()
@@ -552,7 +594,7 @@
 			M.Weaken(1)
 
 		//piranhas - 25% chance to be an omnipresent risk, although they do practically no damage
-		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge.
+		if(prob(25)) //however, I'm going to bump up the risk soon, and add a buildable bridge. //did i bump the risk up? who knows! the bridge is there though.
 			to_chat(M, "<span class='notice'> You feel something slithering around your legs.</span>")
 			spawn(rand(25,50))
 				var/zone = pick(BP_R_LEG, BP_L_LEG)
@@ -563,7 +605,7 @@
 /turf/simulated/floor/planet/jungle/water/deep
 	plants_spawn_chance = 0
 	density = 1
-	reeds_spawn_chance = 0 //too deep for reeds
+	misc_plant_spawn_chance = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
 
@@ -608,13 +650,14 @@
 						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 	return
 
-/turf/simulated/floor/planet/jungle/temple_wall
+/turf/simulated/floor/planet/jungle/temple_wall //again, what the fuck
 	name = "temple wall"
 	desc = ""
 	density = 1
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "phoron0"
 	mineral = "phoron"
+	terrain_type = null
 
 /obj/effect/floor_decal/water_edge
 	name = "murky water"
@@ -624,11 +667,12 @@
 
 /turf/simulated/floor/planet/jungle/clear/underground
 	name = "dirt"
-	desc = "gritty, rough dirt"
+	desc = "gritty, rough dirt, the kind found in a cave."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	light_outer_range = 0
 	light_max_bright = 0
+	terrain_type = null
 
 /turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
 	if(override)
@@ -636,3 +680,54 @@
 
 /turf/simulated/floor/planet/jungle/clear/underground/get_footstep_sound()
 	return safepick(footstep_sounds[FOOTSTEP_ASTEROID])
+
+//dirt
+
+/turf/simulated/floor/planet/dirt
+	name = "dirt"
+	desc = "gritty, rough, dirt, the kind found outside."
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "dirt_full"
+	icon_spawn_state = null
+	misc_plant_spawn_chance = 15
+	misc_plant_type = /obj/structure/flora/ausbushes/fullgrass
+
+/turf/simulated/floor/planet/dirt/clear
+	misc_plant_spawn_chance = 0
+
+//arid dirt
+
+/turf/simulated/floor/planet/ariddirt
+	name = "arid dirt"
+	desc = "Arid, sandy dirt."
+	icon = 'icons/urist/jungle/aridwaste.dmi'
+	icon_state = "wasteland1"
+	icon_spawn_state = null
+	misc_plant_spawn_chance = 10
+	misc_plant_type = /obj/structure/flora/grass/arid
+	temperature = 305.15 //32C
+	small_trees_chance = 0
+	large_trees_chance = 0
+	small_tree_type = /obj/structure/flora/tree/planet/arid/small
+	large_tree_type = /obj/structure/flora/tree/planet/arid/large
+
+/turf/simulated/floor/planet/ariddirt/Initialize()
+	.=..()
+	icon_state = "wasteland[rand(1,33)]"
+
+/turf/simulated/floor/planet/ariddirt/clear
+	misc_plant_spawn_chance = 0
+
+/turf/simulated/floor/planet/ariddirt/path
+	icon_state = "wastelandp"
+
+/turf/simulated/floor/planet/ariddirt/low
+	icon_state = "wastelandl"
+	misc_plant_spawn_chance = 15
+	small_trees_chance = 1
+
+/turf/simulated/floor/planet/ariddirt/high
+	icon_state = "wastelandh"
+	small_trees_chance = 2
+	large_trees_chance = 1
+	misc_plant_spawn_chance = 20

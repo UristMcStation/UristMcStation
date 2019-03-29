@@ -370,9 +370,6 @@
 	if(!organ_to_fix.can_recover())
 		to_chat(user, SPAN_WARNING("The [organ_to_fix.name] is necrotic and can't be saved, it will need to be replaced."))
 		return FALSE
-	if(organ_to_fix.damage >= organ_to_fix.max_damage)
-		to_chat(user, SPAN_WARNING("The [organ_to_fix.name] needs to be repaired before it is regenerated."))
-		return FALSE
 	return organ_to_fix
 
 /decl/surgery_step/internal/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -395,6 +392,7 @@
 	if (trans > 0)
 
 		if(rejuvenate)
+			affected.heal_damage(affected.max_damage/2)
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
 

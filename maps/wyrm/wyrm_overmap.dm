@@ -205,7 +205,7 @@
 /obj/effect/shuttle_landmark/planet
 	name = "Jungle Landing Site"
 	landmark_tag = "planet_away"
-	base_area = /area/jungle/shuttle
+	base_area = /area/planet/jungle/shuttle
 
 // Diona takeover away
 

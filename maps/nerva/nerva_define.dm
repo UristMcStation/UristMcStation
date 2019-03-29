@@ -10,7 +10,7 @@
 	player_levels = list(1,2,3)
 	admin_levels = list(4)
 	empty_levels = list(5)
-	accessible_z_levels = list("1"=5,"2"=5,"3"=5)
+	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"5"=30)
 	overmap_size = 36
 	overmap_event_areas = 32
 

@@ -168,6 +168,9 @@
 	maxcharge = 500
 	matter = list(MATERIAL_STEEL = 700, MATERIAL_GLASS = 50, MATERIAL_PLASTIC = 20)
 
+/obj/item/weapon/cell/apc/empty/New()
+	..()
+	charge = 0
 
 /obj/item/weapon/cell/high
 	name = "advanced power cell"

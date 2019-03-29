@@ -918,7 +918,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "acb" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/table/gamblingtable,
 /turf/simulated/floor/wood,
 /area/maintenance/fsmaint)
@@ -1399,7 +1399,7 @@
 /area/bridge)
 "acU" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/weapon/material/ashtray/plastic,
 /obj/effect/landmark/intelspawn,
 /turf/simulated/floor/wood,
@@ -1650,7 +1650,7 @@
 /turf/simulated/floor/wood,
 /area/maintenance/fsmaint)
 "ady" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/wood,
 /area/maintenance/fsmaint)
 "adz" = (
@@ -1909,7 +1909,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "aeg" = (
@@ -2173,12 +2173,12 @@
 "aeM" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/material/ashtray/plastic,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/random/coin,
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "aeN" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "aeO" = (
@@ -7564,7 +7564,7 @@
 /obj/item/weapon/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/weapon/flame/match,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
@@ -8706,7 +8706,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "asM" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "asN" = (
@@ -11880,8 +11880,8 @@
 	},
 /obj/structure/closet/emsuits,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/emergencysuit,
-/obj/item/clothing/head/emergencyhood,
+/obj/item/clothing/suit/urist/emergencysuit,
+/obj/item/clothing/head/urist/emergencyhood,
 /obj/item/weapon/storage/toolbox/emergency,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -13047,18 +13047,18 @@
 	pixel_y = 0
 	},
 /obj/structure/disposalpipe/segment,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aBD" = (
-/obj/item/weapon/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_x = -6
 	},
-/obj/item/weapon/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_y = 7
 	},
-/obj/item/weapon/cigbutt,
-/obj/item/weapon/cigbutt{
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt{
 	pixel_x = 5;
 	pixel_y = -7
 	},
@@ -14204,7 +14204,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aEc" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/security/range)
 "aEd" = (
@@ -34349,7 +34349,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "bqU" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "bqV" = (
@@ -35796,7 +35796,7 @@
 /area/medical/lounge)
 "btV" = (
 /obj/item/weapon/stool/padded,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/effect/landmark/start{
 	name = "Paramedic"
 	},
@@ -43911,7 +43911,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue)
 "bJw" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue)
 "bJx" = (
@@ -48087,7 +48087,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bRL" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -48913,14 +48913,14 @@
 "bTi" = (
 /obj/structure/table/standard,
 /obj/item/weapon/material/ashtray/plastic,
-/obj/item/weapon/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_y = 3
 	},
-/obj/item/weapon/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/starboard)
 "bTj" = (
@@ -49844,7 +49844,7 @@
 /turf/simulated/wall/r_wall,
 /area/assembly/robotics)
 "bVa" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bVb" = (
@@ -51389,7 +51389,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "bYg" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "bYh" = (
@@ -53132,7 +53132,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/breakroom)
 "cbM" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "cbN" = (
@@ -59610,7 +59610,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "coc" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "cod" = (
@@ -65508,7 +65508,7 @@
 /turf/simulated/floor/plating,
 /area/janitor)
 "cAw" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor,
 /area/maintenance/locker)
 "cAx" = (
@@ -68314,7 +68314,7 @@
 /area/maintenance/cargo)
 "cGo" = (
 /obj/structure/bed/chair,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/light/small/red{
 	tag = "icon-firelight1 (NORTH)";
 	icon_state = "firelight1";
@@ -69599,7 +69599,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "cJc" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "cJd" = (
@@ -78343,7 +78343,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dat" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dau" = (

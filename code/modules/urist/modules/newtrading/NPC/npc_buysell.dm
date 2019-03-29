@@ -1,4 +1,7 @@
 /mob/living/simple_animal/hostile/npc/proc/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
+	if(no_resell)
+		resell = 0
+
 	if(!worth)
 		to_chat(M,"<span class = 'warning'>It's not worth your time to do that.</span>")
 		return
@@ -49,7 +52,7 @@
 	var/datum/trade_item/T = trade_items_inventory_by_type[O.type]
 	if(T)
 		T.quantity += 1
-		T.value = round(T.value * src.sellmodifier)		//price goes down a little
+		T.value = round(T.value * src.sell_modifier)		//price goes down a little
 		update_trade_item_ui(T)
 		return 1
 	return 0
@@ -63,7 +66,7 @@
 		B = M.r_hand
 
 	if(!B || !istype(B) || B.worth < value)
-		var/money_phrases = list("Show me the cR-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
+		var/money_phrases = list("Show me the Th-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
 		var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"[pick(money_phrases)]\"</span></span></span>"
 		M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 	else

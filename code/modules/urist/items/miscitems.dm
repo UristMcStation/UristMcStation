@@ -84,15 +84,15 @@
 	desc = "Box of life sign monitoring implants."
 	icon_state = "implant"
 
-	New()
-		..()
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implanter(src)
-		new /obj/item/weapon/implantpad(src)
+/obj/item/weapon/storage/box/deathimp/New()
+	..()
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implanter(src)
+	new /obj/item/weapon/implantpad(src)
 
 /obj/item/stack/woodrods
 	name = "wood shafts"
@@ -121,10 +121,28 @@
 		new /obj/item/weapon/sharpwoodrod(user.loc)
 		src.use(1)
 
-	else if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
+	if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
 //		var/obj/item/weapon/reagent_containers/glass/rag/R = W
 		var/obj/item/weapon/flame/torch/T = new /obj/item/weapon/flame/torch(get_turf(user))
 		user << "<span class='notice'>You wrap the rag around the shaft forming an improvised torch.</span>"
+		src.use(1)
+		user.drop_from_inventory(W)
+		qdel(W)
+
+		user.put_in_hands(T)
+
+	else if(istype(W, /obj/item/improv/axe_head))
+		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
+		user << "<span class='notice'>You fit the axe head onto the wooden rod..</span>"
+		src.use(1)
+		user.drop_from_inventory(W)
+		qdel(W)
+
+		user.put_in_hands(T)
+
+	else if(istype(W, /obj/item/improv/pickaxe_head))
+		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
+		user << "<span class='notice'>You fit the pickaxe head onto the wooden rod..</span>"
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -374,7 +392,7 @@
 
 
 /obj/item/weapon/welder_tank/empty/Initialize()
-	..()
+	. = ..()
 	max_fuel = 20 //this is a dumb hack and i hate it
 
 //mapping object
@@ -385,3 +403,40 @@
 	pixel_x = rand(1,9)
 	pixel_y = rand(1,9)
 	..()
+
+//pickaxe and axe heads
+
+/obj/item/improv/axe_head
+	name = "axe head"
+	desc = "It's an axe head. Slam it on a wood rod and you got yourself an axe son."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "axehead"
+
+/obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/stack/woodrods))
+		var/obj/item/stack/woodrods/R = W
+		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
+		user << "<span class='notice'>You slam that axe head down onto the wood rod. You got yourself an axe son.</span>"
+		R.use(1)
+
+		user.put_in_hands(T)
+
+/obj/item/improv/pickaxe_head
+	name = "pickaxe head"
+	desc = "It's a pickaxe head. Slam it on a wood rod and you got yourself a pickaxe son."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "pickaxehead"
+
+/obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/stack/woodrods))
+		var/obj/item/stack/woodrods/R = W
+		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
+		user << "<span class='notice'>You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son.</span>"
+		R.use(1)
+
+		user.put_in_hands(T)
+

@@ -109,7 +109,7 @@
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(!(T.z in GLOB.using_map.player_levels))
+		if(!(T.z in GLOB.using_map.player_levels) && !(T.z in GLOB.using_map.empty_levels))
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])

@@ -33,6 +33,7 @@
 
 	var/auto_connect = 1
 	var/list/connected
+	var/halted = 0 //Nax, I know this is going to conflict when we merge Bay. If it's you merging it, just take Bay's version of this whole file. What I'm adding is just temporary, for combat.
 
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
@@ -152,7 +153,7 @@
 		return 0
 	for(var/datum/ship_engine/E in engines)
 		. |= E.can_burn()
-		
+
 //deciseconds to next step
 /obj/effect/overmap/ship/proc/ETA()
 	. = INFINITY

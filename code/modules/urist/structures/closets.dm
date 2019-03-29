@@ -77,8 +77,8 @@
 /obj/structure/closet/emsuits/New()
 	..()
 
-	new /obj/item/clothing/head/emergencyhood(src)
-	new /obj/item/clothing/suit/emergencysuit(src)
+	new /obj/item/clothing/head/urist/emergencyhood(src)
+	new /obj/item/clothing/suit/urist/emergencysuit(src)
 	new /obj/item/weapon/tank/emergency/oxygen(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/weapon/storage/toolbox/emergency(src)

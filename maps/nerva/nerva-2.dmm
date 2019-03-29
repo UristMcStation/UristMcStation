@@ -43,7 +43,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
 "ai" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/security/portgun)
 "aj" = (
@@ -483,10 +483,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Medbay";
-	sortType = "Medbay"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -1437,7 +1435,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock{
 	name = "Bar"
 	},
 /turf/simulated/floor/tiled,
@@ -1575,9 +1573,6 @@
 	dir = 8
 	},
 /obj/machinery/seed_extractor,
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
 "cy" = (
@@ -1586,6 +1581,9 @@
 /obj/item/weapon/material/hatchet,
 /obj/item/device/analyzer/plant_analyzer,
 /obj/item/weapon/shovel/spade,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
 "cz" = (
@@ -2101,12 +2099,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/bar)
 "dx" = (
-/obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/table/woodentable_reinforced,
+/turf/simulated/floor/wood,
 /area/civilian/bar)
 "dy" = (
 /obj/item/weapon/stool/bar/padded,
@@ -2431,6 +2429,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
+"eb" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "infirmaryquar";
+	name = "Infirmary Emergency Quarantine Shutters";
+	opacity = 0
+	},
+/turf/space,
+/area/medical/storage)
 "ee" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2723,7 +2733,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
 "eC" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/woodentable_reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/civilian/bar)
@@ -2743,7 +2753,7 @@
 /area/civilian/bar)
 "eG" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock{
 	name = "Bar"
 	},
 /turf/simulated/floor/tiled,
@@ -2785,8 +2795,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Main";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -2864,21 +2873,11 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mailing Office Main";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "eQ" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "SupermatterPort";
-	layer = 2.7;
-	name = "Reactor Blast Door";
-	opacity = 0
-	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -3085,6 +3084,7 @@
 	dir = 2;
 	pixel_y = 24
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "fh" = (
@@ -3112,8 +3112,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Bar Main";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light/warmtint{
 	tag = "icon-tube_map (EAST)";
@@ -3356,8 +3355,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Starboard - Gun Bay";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
@@ -3369,7 +3367,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/bar)
 "fK" = (
-/obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -3379,7 +3376,8 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/obj/structure/table/woodentable_reinforced,
+/turf/simulated/floor/wood,
 /area/civilian/bar)
 "fL" = (
 /obj/item/weapon/stool/bar/padded,
@@ -3602,6 +3600,14 @@
 /obj/machinery/light/warmtint,
 /turf/simulated/floor/tiled/dark,
 /area/civilian/bar)
+"gi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	req_access = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/monotile,
+/area/logistics/uppercargo)
 "gj" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -3705,7 +3711,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock{
 	name = "Bar"
 	},
 /turf/simulated/floor/tiled,
@@ -3866,8 +3872,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Fore Hallway - Fore Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3994,8 +3999,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mech Bay";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/mechbay)
@@ -4307,7 +4311,7 @@
 	pixel_y = 24
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Fore Port Maintenance APC";
+	c_tag = "Second Deck Fore Port Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -4426,10 +4430,10 @@
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/ladder,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
 "hO" = (
@@ -5103,6 +5107,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/weapon/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "je" = (
@@ -5147,6 +5152,10 @@
 	name = "Station Intercom (General)";
 	pixel_y = 28
 	},
+/obj/effect/floor_decal/corner/black{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/lockers)
 "jm" = (
@@ -5187,8 +5196,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Starboard Gun Bay";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
@@ -5213,6 +5221,15 @@
 "jq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
@@ -5317,8 +5334,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Mailing Office Belt";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
@@ -5451,19 +5467,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
+"jQ" = (
+/obj/structure/table/standard,
+/obj/machinery/recharger,
+/obj/effect/floor_decal/corner/paleblue/three_quarters,
+/turf/simulated/floor/tiled/white,
+/area/medical/hallway)
 "jR" = (
-/obj/machinery/shipweapons/beam/lightlaser{
-	dir = 4;
-	icon_state = "beamcannon";
-	shipid = "nerva";
-	tag = "icon-beamcannon (EAST)"
-	},
 /obj/machinery/light,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/shipweapons/beam/lightlaser,
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "jS" = (
@@ -5744,6 +5761,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
+"kp" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "kq" = (
 /obj/structure/cable,
 /obj/structure/cable{
@@ -5782,6 +5813,8 @@
 	d2 = 4
 	},
 /obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/fancy/vials,
+/obj/item/weapon/storage/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "kt" = (
@@ -5811,7 +5844,9 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/item/weapon/defibrillator/compact/loaded,
+/obj/machinery/light,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
 "kv" = (
@@ -5823,10 +5858,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "kw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	req_access = 1
-	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -5909,6 +5940,23 @@
 "kG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
+/obj/item/clothing/suit/armor/vest/detective,
+/obj/item/clothing/suit/armor/vest/detective,
+/obj/item/clothing/suit/armor/vest/detective,
+/obj/item/clothing/suit/armor/vest/detective,
+/obj/item/clothing/suit/armor/vest/detective,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/machinery/button/remote/blast_door{
+	id = "boarding_armory";
+	name = "Boarding Armory Blast Doors";
+	pixel_x = 0;
+	pixel_y = 22;
+	req_access = list(19)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
 "kH" = (
@@ -6263,8 +6311,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Starboard - Meeting Room";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -6453,6 +6500,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
+"lJ" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/plating,
+/area/engineering/securestorage)
 "lK" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -6823,6 +6878,10 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
+"mt" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/central)
 "mu" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -7159,6 +7218,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/robotics)
+"nb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/organ_printer/flesh/mapped,
+/turf/simulated/floor/tiled/white,
+/area/medical/storage)
 "nc" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/cmo)
@@ -7215,29 +7281,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"nl" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -22;
-	pixel_y = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/lobby)
 "nm" = (
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (EAST)";
@@ -7249,9 +7292,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
-"nn" = (
-/turf/simulated/wall/prepainted,
-/area/maintenance/second_deck/afs)
 "no" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7793,6 +7833,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/disposalpipe/sortjunction{
+	dir = 8;
+	name = "Medbay";
+	sortType = "Medbay"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
 "om" = (
@@ -8007,18 +8052,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "oJ" = (
-/obj/item/device/radio/intercom{
-	broadcasting = 0;
-	dir = 2;
-	listening = 1;
-	name = "Station Intercom (General)";
-	pixel_y = 28
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "Port Gun Bay";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
+	},
+/obj/item/device/radio/intercom{
+	dir = 2;
+	name = "Station Intercom (Command)";
+	pixel_x = 0;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
@@ -8062,6 +8105,10 @@
 "oQ" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "oR" = (
@@ -8276,11 +8323,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
-"pp" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/fadeblue/full,
-/turf/simulated/floor/tiled/dark,
-/area/command/bridge)
 "pq" = (
 /obj/machinery/photocopier,
 /obj/machinery/light{
@@ -8643,6 +8685,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/rnd/office)
+"pX" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/hallway)
 "pY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -8783,7 +8836,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/item/weapon/clipboard,
 /obj/item/weapon/material/coin/silver,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
@@ -8795,9 +8847,9 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Quartermaster's Office";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
+/obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "qm" = (
@@ -8976,18 +9028,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "qD" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -9352,20 +9399,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
-"rs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/logistics/uppercargo)
 "rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -9414,6 +9447,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
+"rx" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/engineering/securestorage)
 "ry" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -9920,7 +9960,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine)
 "sy" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
 "sz" = (
@@ -10063,23 +10103,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "sM" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
-	req_access = list(41)
-	},
-/obj/structure/catwalk,
 /obj/structure/cable{
-	d1 = 4;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "sN" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -10091,6 +10131,9 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
@@ -10451,6 +10494,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"tu" = (
+/obj/effect/urist/projectile_landmark/ship,
+/turf/space,
+/area/space)
 "tw" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -10699,10 +10746,9 @@
 /obj/item/device/multitool,
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/camera/network/command{
-	c_tag = "Bottom Deck Gunnery Room";
+	c_tag = "Bridge Storage";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/item/weapon/storage/box/cleangrenades,
@@ -10822,6 +10868,9 @@
 	},
 /turf/simulated/floor/wood/ebony,
 /area/civilian/bar)
+"ue" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/medical/storage)
 "uf" = (
 /obj/structure/table/reinforced,
 /obj/item/device/floor_painter,
@@ -10989,6 +11038,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
+"us" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "ut" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32;
@@ -11143,6 +11199,12 @@
 /obj/item/weapon/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
+"uJ" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "uK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm{
@@ -11412,6 +11474,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"vn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "vo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/inflatable/door,
@@ -11682,14 +11762,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
-"vK" = (
-/obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/qm)
 "vN" = (
 /turf/simulated/open,
 /area/logistics/uppercargo)
@@ -11762,7 +11834,8 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Station Intercom (Command)";
+	pixel_x = 0;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
@@ -11913,10 +11986,9 @@
 /area/maintenance/second_deck/afp)
 "wo" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Central Hallway - Starboard";
+	c_tag = "Second Deck Central Hallway - Starboard";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -11948,6 +12020,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
+"ws" = (
+/obj/effect/floor_decal/corner/yellow/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/qm)
 "wt" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -12205,6 +12288,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/weapon/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "wN" = (
@@ -12414,6 +12498,30 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
+"xi" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Secure Storage";
+	req_access = list(11);
+	secured_wires = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Secure Storage";
+	name = "Engineering Secure Storage";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/engineering/securestorage)
 "xj" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/fuel{
 	tag = "icon-up (EAST)";
@@ -12545,9 +12653,10 @@
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "xt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12584,6 +12693,7 @@
 	c_tag = "Brig Cell 1";
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "xy" = (
@@ -12729,6 +12839,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes)
+"xK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	req_access = 1
+	},
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "xL" = (
 /obj/machinery/cryopod{
 	tag = "icon-body_scanner_0 (EAST)";
@@ -12866,14 +12983,14 @@
 "xZ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/reagent_containers/dropper,
 /obj/effect/floor_decal/corner/beige/three_quarters,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/weapon/reagent_containers/dropper,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "ya" = (
@@ -12945,10 +13062,40 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
 "yh" = (
-/obj/machinery/telecomms/bus/preset_wyrm,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/telecomms/bus/preset_nerva,
 /turf/simulated/floor/tiled/white/server,
 /area/engineering/tcomms)
+"yi" = (
+/obj/structure/table/rack,
+/obj/item/device/flash/synthetic,
+/obj/item/clothing/gloves/latex,
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/weapon/cell/high{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/device/healthanalyzer,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/obj/machinery/camera/network/cargo{
+	c_tag = "Robotics Lab";
+	dir = 4;
+	icon_state = "camera"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flash/synthetic,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/robotics)
 "yj" = (
 /obj/machinery/door/airlock/medical{
 	name = "Examination Room";
@@ -13208,6 +13355,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"yO" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/disposalpipe/sortjunction{
+	dir = 8;
+	icon_state = "pipe-j2s";
+	name = "Cargo Bay";
+	sortType = "Cargo Bay"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/central/second)
 "yP" = (
 /obj/item/trash/cheesie,
 /turf/simulated/floor/plating,
@@ -13485,6 +13644,12 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
 	},
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "zr" = (
@@ -13543,6 +13708,7 @@
 	c_tag = "Janitor's Closet";
 	dir = 1
 	},
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/plating,
 /area/civilian/janitor)
 "zx" = (
@@ -13822,18 +13988,19 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/disposalpipe/sortjunction{
+	dir = 8;
+	icon_state = "pipe-j2s";
+	name = "Robotics";
+	sortType = "Robotics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	icon_state = "pipe-j2s";
-	name = "Cargo Bay";
-	sortType = "Cargo Bay"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -13866,7 +14033,7 @@
 /area/command/eva)
 "Aa" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Fore Starboard Maintenance APC";
+	c_tag = "Second Deck Fore Starboard Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -14028,7 +14195,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Port Engine Bay"
+	c_tag = "Engineering Storage Port"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
@@ -14133,6 +14300,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/entrance)
+"AB" = (
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "AC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -14237,20 +14408,12 @@
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Secure Storage";
+	name = "Engineering Secure Storage";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
@@ -14509,14 +14672,14 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology";
-	dir = 8
-	},
 /obj/structure/sign/warning/nosmoking_1{
 	dir = 8;
 	icon_state = "nosmoking";
 	pixel_x = 32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Chemistry";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -15110,6 +15273,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
+"Cz" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "CA" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -15145,6 +15312,7 @@
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "CE" = (
@@ -15558,28 +15726,16 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Boarding Armory";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
 "Dp" = (
 /obj/structure/table/standard,
-/obj/item/device/mass_spectrometer/adv,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
+/obj/item/weapon/defibrillator/loaded,
 /obj/effect/floor_decal/corner/pink{
-	dir = 5
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Infirmary - Treatment Centre Port";
-	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_x = -20;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -15645,37 +15801,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
-"Dx" = (
-/obj/structure/table/rack,
-/obj/item/device/flash/synthetic,
-/obj/item/clothing/gloves/latex,
-/obj/item/device/assembly/prox_sensor{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/weapon/cell/high{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/device/healthanalyzer,
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/obj/machinery/camera/network/cargo{
-	c_tag = "Robotics Lab";
-	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/item/device/mmi/radio_enabled,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/robotics)
 "Dy" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -15689,6 +15814,7 @@
 	dir = 4;
 	layer = 2.4
 	},
+/obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
 "DA" = (
@@ -16077,6 +16203,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
+"Ef" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/woodentable_reinforced,
+/turf/simulated/floor/wood,
+/area/civilian/bar)
 "Eg" = (
 /obj/machinery/door/airlock/research{
 	name = "Robotics";
@@ -16466,6 +16597,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"ER" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/medical1,
+/obj/machinery/light_switch{
+	pixel_x = -10;
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/storage)
 "ES" = (
 /obj/machinery/atmospherics/unary/heat_exchanger{
 	dir = 4
@@ -16531,6 +16679,7 @@
 /obj/item/weapon/screwdriver{
 	pixel_y = 10
 	},
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
 "Fc" = (
@@ -16808,6 +16957,13 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
+"Fy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/robotics)
 "Fz" = (
 /obj/machinery/newscaster{
 	pixel_y = -28
@@ -17038,7 +17194,9 @@
 "FT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
 "FU" = (
@@ -17146,8 +17304,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Upper Cargo Bay Entrance";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -17266,16 +17423,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
-"Gl" = (
-/obj/effect/floor_decal/corner/yellow/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
-	dir = 1
-	},
-/obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/logistics/qm)
 "Gm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17293,8 +17440,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Fore Hallway - Fore Starboard";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -17371,6 +17517,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
+"Gw" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "Gx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -17456,6 +17612,14 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"GH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/energy/laser,
+/obj/item/weapon/gun/energy/laser,
+/turf/simulated/floor/tiled/dark,
+/area/security/boardarmoury)
 "GI" = (
 /turf/simulated/wall/prepainted,
 /area/maintenance/second_deck/centp)
@@ -17699,6 +17863,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "packageSort1"
+	},
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
 "Hl" = (
@@ -17936,8 +18104,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Port - Meeting Room";
 	dir = 4;
-	icon_state = "camera";
-	tag = "icon-camera (EAST)"
+	icon_state = "camera"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -17991,8 +18158,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "HU" = (
-/obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
+/obj/item/modular_computer/console/preset/supply{
+	tag = "icon-console (WEST)";
+	icon_state = "console";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "HV" = (
@@ -18007,6 +18178,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"HY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHWEST)";
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/monotile,
+/area/logistics/uppercargo)
 "HZ" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/steel/fifty,
@@ -18259,7 +18440,7 @@
 /turf/simulated/floor/plating,
 /area/command/storage)
 "ID" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -18470,6 +18651,7 @@
 	c_tag = "Brig Cell 2";
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "IX" = (
@@ -18499,7 +18681,7 @@
 "Ja" = (
 /obj/machinery/door/blast/regular{
 	dir = 2;
-	id = "armory";
+	id = "boarding_armory";
 	name = "Armory Blast Door"
 	},
 /turf/simulated/floor/tiled,
@@ -18666,6 +18848,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
+"Jq" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "Jr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6;
@@ -18762,6 +18950,9 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Central Hallway - Medbay"
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
 "JE" = (
@@ -18811,8 +19002,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge Hallway Port - Gun Bay";
 	dir = 2;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -18821,6 +19011,14 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	anchored = 1
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32
+	},
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
 "JL" = (
@@ -18960,6 +19158,28 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
+"Kc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Cargo Bay Maintenance";
+	req_access = list(41)
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/logistics/qm)
 "Kd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -19073,6 +19293,18 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/command/bodyguard)
+"Kp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/hallway)
 "Kq" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	tag = "icon-intact (NORTHWEST)";
@@ -19198,6 +19430,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
+"KF" = (
+/obj/structure/table/standard,
+/obj/item/device/mass_spectrometer/adv,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Infirmary - Treatment Centre Port";
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = -20;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "KG" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -19381,6 +19632,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
+"KU" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/hallway)
 "KV" = (
 /obj/random/maintenance/clean,
 /obj/effect/decal/cleanable/cobweb{
@@ -19549,6 +19811,25 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/lobby)
+"Li" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/pink{
+	tag = "icon-corner_white (EAST)";
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "Lj" = (
 /obj/machinery/atmospherics/unary/heat_exchanger{
 	dir = 4
@@ -19684,6 +19965,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
+"Lv" = (
+/obj/structure/table/standard,
+/obj/item/device/paicard,
+/obj/item/device/mmi,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/robotics)
 "Lw" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -19835,8 +20122,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Upper Cargo Bay Elevator";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -20045,10 +20331,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second)
 "Mf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	req_access = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
 	icon_state = "warning";
@@ -20320,7 +20602,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/organ_printer/flesh/mapped,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/box/cleangrenades,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
 "MG" = (
@@ -20451,7 +20736,7 @@
 "MV" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/material/ashtray/plastic,
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/random/coin,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -20871,6 +21156,16 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
 "NJ" = (
@@ -22144,6 +22439,7 @@
 	id = "brigflasher";
 	pixel_x = -26
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "PX" = (
@@ -22275,6 +22571,25 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/simulated/floor/tiled/dark,
 /area/security/office)
+"Qn" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Qo" = (
 /obj/item/clothing/gloves/rainbow,
 /obj/item/clothing/shoes/rainbow,
@@ -22282,14 +22597,6 @@
 /obj/item/clothing/head/soft/rainbow,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/cents)
-"Qp" = (
-/obj/structure/table/standard,
-/obj/item/weapon/defibrillator/loaded,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/hallway)
 "Qq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8;
@@ -22590,7 +22897,7 @@
 /area/engineering/tool)
 "QR" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/telecomms/hub/preset/wyrm,
+/obj/machinery/telecomms/hub/preset/nerva,
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcomms)
 "QT" = (
@@ -22712,6 +23019,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bodyguard)
+"Rb" = (
+/obj/machinery/vending/assist,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/robotics)
 "Rc" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
@@ -22771,7 +23082,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "Ri" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/warning/corner{
 	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
@@ -22825,8 +23135,14 @@
 /turf/simulated/floor/tiled/white/server,
 /area/engineering/tcomms)
 "Ro" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -22929,8 +23245,7 @@
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Aft Hallway - Main Turbolift";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
@@ -23073,7 +23388,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "RL" = (
-/obj/structure/table/standard,
 /obj/item/roller,
 /obj/item/roller{
 	pixel_y = 8
@@ -23081,13 +23395,20 @@
 /obj/item/roller{
 	pixel_y = 16
 	},
-/obj/effect/floor_decal/corner/paleblue/three_quarters,
 /obj/item/roller,
 /obj/item/roller{
 	pixel_y = 8
 	},
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/roller{
+	pixel_y = 8
+	},
+/obj/item/roller{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
 "RN" = (
@@ -23103,8 +23424,7 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security Office";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/office)
@@ -23215,18 +23535,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
-"RY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/hallway)
 "RZ" = (
 /obj/machinery/door/airlock/glass/engineering{
 	name = "Workshop";
@@ -23436,6 +23744,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
+"St" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Su" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
@@ -23513,7 +23842,6 @@
 	name = "EVA";
 	req_access = list(18)
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -23629,6 +23957,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"SR" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/civilian/hydro)
 "SS" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
@@ -23845,13 +24179,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -24
-	},
 /obj/structure/window/reinforced,
 /obj/machinery/light_switch{
 	pixel_x = 22
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -23863,6 +24197,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
+"Ts" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -24012,6 +24350,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
+"TE" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "TG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24079,6 +24428,10 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security Locker Room"
+	},
+/obj/effect/floor_decal/corner/black{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/lockers)
@@ -24180,20 +24533,11 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"TY" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Secure Storage";
-	req_access = list(11);
-	secured_wires = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/engineering/securestorage)
 "TZ" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/centp)
+/area/maintenance/second_deck/fp)
 "Ua" = (
 /obj/effect/floor_decal/urist/nervalogo{
 	tag = "icon-nerva4 (NORTH)";
@@ -24203,7 +24547,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "Uc" = (
-/turf/simulated/floor/plating,
+/obj/structure/closet/secure_closet/nervasec,
+/turf/simulated/floor/tiled/dark,
 /area/security/lockers)
 "Ud" = (
 /obj/item/device/radio/intercom{
@@ -24275,27 +24620,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/storage)
-"Uh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/beige{
-	dir = 10
-	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	icon_state = "pipe-j2s";
-	name = "Robotics";
-	sortType = "Robotics"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/central/second)
 "Ui" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	tag = "icon-intact (SOUTHWEST)";
@@ -24316,8 +24640,7 @@
 /obj/machinery/camera/network/cargo{
 	c_tag = "Cargo Locker Room";
 	dir = 1;
-	icon_state = "camera";
-	tag = "icon-camera (NORTH)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
@@ -24461,7 +24784,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "Uy" = (
-/obj/structure/bed/roller,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -24469,7 +24791,7 @@
 	desc = "A remote control-switch for shutters.";
 	id = "virologyquar";
 	name = "Virology Emergency Quarantine Control";
-	pixel_x = 36;
+	pixel_x = 28;
 	pixel_y = 6;
 	req_access = list(5)
 	},
@@ -24477,7 +24799,7 @@
 	desc = "A remote control-switch for shutters.";
 	id = "infirmaryquar";
 	name = "Infirmary Emergency Quarantine Control";
-	pixel_x = 36;
+	pixel_x = 28;
 	pixel_y = -6;
 	req_access = list(5)
 	},
@@ -24487,11 +24809,8 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/structure/hygiene/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+/obj/machinery/sleeper{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -24556,6 +24875,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"UI" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/robotics)
 "UJ" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Office";
@@ -24751,6 +25079,19 @@
 /obj/item/weapon/gun/projectile/revolver/hi2521r,
 /obj/item/weapon/gun/projectile/revolver/hi2521r,
 /obj/item/weapon/gun/projectile/revolver/hi2521r,
+/obj/machinery/button/remote/blast_door{
+	id = "armory";
+	name = "Armory Blast Doors";
+	pixel_x = 0;
+	pixel_y = 22;
+	req_access = list(19)
+	},
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/weapon/gun/projectile/automatic/hi2521smg,
+/obj/item/ammo_magazine/hi2521smg9mm,
+/obj/item/ammo_magazine/hi2521smg9mm,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Ve" = (
@@ -24895,6 +25236,11 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "Vo" = (
@@ -24936,6 +25282,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
+"Vt" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "Vu" = (
 /obj/machinery/suit_storage_unit/atmos,
 /obj/effect/floor_decal/corner/blue{
@@ -25043,14 +25401,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
-"VF" = (
-/obj/structure/table/standard,
-/obj/item/weapon/defibrillator/loaded,
-/obj/effect/floor_decal/corner/pink{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/treatment)
 "VG" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/corner/beige{
@@ -25192,7 +25542,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Aft Starboard Maintenance APC";
+	c_tag = "Second Deck Aft Starboard Maintenance APC";
 	dir = 4
 	},
 /obj/structure/cable{
@@ -25363,10 +25713,9 @@
 /area/command/storage)
 "Wf" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Central Hallway - Port";
+	c_tag = "Second Deck Central Hallway - Port";
 	dir = 8;
-	icon_state = "camera";
-	tag = "icon-camera (WEST)"
+	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -25783,24 +26132,19 @@
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
 "WS" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/medical1,
 /obj/machinery/firealarm{
 	dir = 2;
 	pixel_y = 24
 	},
-/obj/machinery/light_switch{
-	pixel_x = -10;
-	pixel_y = 28
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/item/weapon/defibrillator/loaded,
+/obj/item/weapon/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
 "WT" = (
@@ -25926,6 +26270,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
+"Xf" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/space,
+/area/medical/treatment)
 "Xh" = (
 /obj/machinery/button/remote/airlock{
 	desiredstate = 1;
@@ -26113,15 +26461,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "Xu" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
@@ -26312,6 +26651,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"XL" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fp)
 "XM" = (
 /obj/item/weapon/storage/box/mousetraps,
 /obj/machinery/alarm{
@@ -26420,6 +26763,29 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"XY" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -22;
+	pixel_y = -10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/lobby)
 "XZ" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/second_deck/fp)
@@ -26512,12 +26878,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "Yh" = (
-/obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
+	},
+/obj/machinery/sleeper{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -26593,6 +26961,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcommsmon)
+"Yp" = (
+/obj/effect/floor_decal/corner/paleblue,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/hallway)
 "Yq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -26673,6 +27051,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcommsmon)
+"Yx" = (
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/treatment)
 "Yy" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light{
@@ -26688,7 +27070,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Aft Port Maintenance APC";
+	c_tag = "Second Deck Aft Port Maintenance APC";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -26727,6 +27109,18 @@
 	initial_gas = null
 	},
 /area/maintenance/second_deck/afp)
+"YD" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "YE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -26998,6 +27392,18 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
+"Ze" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/central)
 "Zf" = (
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full,
@@ -27162,7 +27568,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Fuel Tank";
+	c_tag = "Engineering Entrance";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -27398,15 +27804,6 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
-"ZS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/logistics/uppercargo)
 "ZV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -36465,13 +36862,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ip
+ip
+Kk
+vi
+Kk
+iP
+iP
 aa
 aa
 aa
@@ -36666,15 +37063,15 @@ aa
 aa
 aa
 aa
-aa
 ip
 ip
-Kk
-vi
-Kk
-iP
-iP
+bN
 aa
+Qk
+aa
+bN
+iP
+iP
 aa
 aa
 aa
@@ -36861,32 +37258,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ip
-ip
+je
+je
+je
+je
+je
+je
+je
+je
+je
 bN
 aa
 Qk
 aa
 bN
-iP
-iP
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+je
+je
+je
+je
+je
+je
+je
+je
+je
+je
+je
+je
 aa
 aa
 aa
@@ -36968,208 +37365,6 @@ aa
 aa
 "}
 (48,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-je
-je
-je
-je
-je
-je
-je
-je
-je
-bN
-aa
-Qk
-aa
-bN
-je
-je
-je
-je
-je
-je
-je
-je
-je
-je
-je
-je
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(49,1,1) = {"
 aa
 aa
 aa
@@ -37371,7 +37566,7 @@ aa
 aa
 aa
 "}
-(50,1,1) = {"
+(49,1,1) = {"
 aa
 aa
 aa
@@ -37573,7 +37768,7 @@ aa
 aa
 aa
 "}
-(51,1,1) = {"
+(50,1,1) = {"
 aa
 aa
 aa
@@ -37775,7 +37970,7 @@ aa
 aa
 aa
 "}
-(52,1,1) = {"
+(51,1,1) = {"
 aa
 aa
 aa
@@ -37977,7 +38172,7 @@ aa
 aa
 aa
 "}
-(53,1,1) = {"
+(52,1,1) = {"
 aa
 aa
 aa
@@ -38098,6 +38293,208 @@ iu
 iA
 qI
 iN
+je
+je
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+je
+je
+bN
+uG
+oa
+oa
+uG
+aa
+aa
+bN
+aa
+aa
+Qk
+aa
+aa
+iA
+qI
+qI
+oC
+qI
+qI
+qI
+iN
+iL
+qI
+iu
 je
 je
 aa
@@ -38277,29 +38674,29 @@ aa
 je
 je
 bN
-uG
 oa
 oa
-uG
-aa
-aa
+oa
+oa
 bN
-aa
-aa
+bN
+bN
+bN
+je
 Qk
-aa
-aa
-iA
-qI
-qI
-oC
-qI
-qI
-qI
-iN
+je
+bN
 iL
-qI
+oC
+oC
+oC
+oC
+oC
+oC
 iu
+iA
+oC
+iN
 je
 je
 aa
@@ -38479,29 +38876,29 @@ aa
 je
 je
 bN
+uG
 oa
 oa
-oa
-oa
+uG
+aa
+aa
 bN
+aa
 bN
+vi
 bN
-bN
-je
-Qk
-je
-bN
-iL
-oC
-oC
-oC
-oC
-oC
-oC
-iu
+aa
 iA
+qI
+qI
 oC
+qI
+qI
+qI
 iN
+iL
+qI
+iu
 je
 je
 aa
@@ -38678,8 +39075,8 @@ aa
 aa
 aa
 aa
-je
-je
+af
+af
 bN
 uG
 oa
@@ -38690,20 +39087,20 @@ aa
 bN
 aa
 bN
-vi
+Qk
 bN
 aa
-iA
+iL
 qI
 qI
 oC
 qI
 qI
 qI
-iN
-iL
-qI
 iu
+iA
+qI
+iN
 je
 je
 aa
@@ -38879,9 +39276,9 @@ aa
 aa
 aa
 aa
-aa
-je
-je
+af
+af
+af
 bN
 uG
 oa
@@ -38890,22 +39287,22 @@ uG
 aa
 aa
 bN
-aa
 bN
+je
 Qk
+je
 bN
-aa
-iL
-qI
-qI
-oC
-qI
-qI
-qI
-iu
 iA
-qI
+oC
+oC
+oC
+oC
+oC
+oC
 iN
+iL
+oC
+iu
 je
 je
 aa
@@ -39085,29 +39482,29 @@ je
 je
 je
 bN
-uG
 oa
 oa
-uG
+oa
+oa
+bN
+bN
+bN
 aa
+bN
+vi
+bN
 aa
-bN
-bN
-je
-Qk
-je
-bN
-iA
-oC
-oC
-oC
-oC
-oC
-oC
-iN
 iL
+qI
+qI
 oC
+qI
+qI
+qI
 iu
+iA
+qI
+iN
 je
 je
 aa
@@ -39273,43 +39670,43 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
 je
 je
 je
-bN
-oa
-oa
-oa
-oa
-bN
-bN
-bN
-aa
-bN
-vi
-bN
-aa
-iL
-qI
-qI
-oC
-qI
-qI
-qI
-iu
-iA
-qI
-iN
+Qk
+Qk
+wl
+wl
+wl
+wl
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Ui
+TX
+TX
+TX
+TX
+TX
+TX
+Qh
+Xn
+TX
+Kq
 je
 je
 aa
@@ -39484,34 +39881,34 @@ Qk
 Qk
 Qk
 Qk
-je
-je
-je
+tU
+tU
+tU
+js
 Qk
-Qk
-wl
-wl
-wl
-wl
-Qk
-Qk
-Qk
+at
+at
+at
+at
 Qk
 Qk
 Qk
 Qk
 Qk
-Ui
-TX
-TX
-TX
-TX
-TX
-TX
-Qh
+Qk
+Qk
+Qk
 Xn
 TX
+TX
+TX
+TX
+TX
+TX
 Kq
+Ui
+TX
+Qh
 je
 je
 aa
@@ -39594,208 +39991,6 @@ aa
 aa
 "}
 (61,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-tU
-tU
-tU
-js
-Qk
-at
-at
-at
-at
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Xn
-TX
-TX
-TX
-TX
-TX
-TX
-Kq
-Ui
-TX
-Qh
-je
-je
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(62,1,1) = {"
 aa
 aa
 aa
@@ -39997,7 +40192,7 @@ aa
 aa
 aa
 "}
-(63,1,1) = {"
+(62,1,1) = {"
 aa
 aa
 aa
@@ -40199,7 +40394,7 @@ aa
 aa
 aa
 "}
-(64,1,1) = {"
+(63,1,1) = {"
 aa
 aa
 aa
@@ -40401,7 +40596,7 @@ aa
 aa
 aa
 "}
-(65,1,1) = {"
+(64,1,1) = {"
 aa
 aa
 aa
@@ -40603,7 +40798,7 @@ aa
 aa
 aa
 "}
-(66,1,1) = {"
+(65,1,1) = {"
 aa
 aa
 aa
@@ -40805,7 +41000,7 @@ aa
 aa
 aa
 "}
-(67,1,1) = {"
+(66,1,1) = {"
 aa
 aa
 aa
@@ -41007,7 +41202,7 @@ aa
 aa
 aa
 "}
-(68,1,1) = {"
+(67,1,1) = {"
 aa
 aa
 aa
@@ -41209,7 +41404,7 @@ aa
 aa
 aa
 "}
-(69,1,1) = {"
+(68,1,1) = {"
 aa
 aa
 aa
@@ -41411,7 +41606,7 @@ aa
 aa
 aa
 "}
-(70,1,1) = {"
+(69,1,1) = {"
 aa
 aa
 aa
@@ -41613,7 +41808,7 @@ aa
 aa
 aa
 "}
-(71,1,1) = {"
+(70,1,1) = {"
 aa
 aa
 aa
@@ -41815,7 +42010,7 @@ aa
 aa
 aa
 "}
-(72,1,1) = {"
+(71,1,1) = {"
 aa
 aa
 aa
@@ -42017,7 +42212,7 @@ aa
 aa
 aa
 "}
-(73,1,1) = {"
+(72,1,1) = {"
 aa
 aa
 aa
@@ -42219,7 +42414,7 @@ aa
 aa
 aa
 "}
-(74,1,1) = {"
+(73,1,1) = {"
 aa
 aa
 aa
@@ -42421,7 +42616,7 @@ aa
 aa
 aa
 "}
-(75,1,1) = {"
+(74,1,1) = {"
 aa
 aa
 aa
@@ -42581,7 +42776,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -42623,7 +42818,7 @@ aa
 aa
 aa
 "}
-(76,1,1) = {"
+(75,1,1) = {"
 aa
 aa
 aa
@@ -42783,7 +42978,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(76,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Qk
+tU
+LN
+ag
+tU
+YS
+AZ
+vJ
+Hh
+Rl
+rx
+AZ
+QO
+QO
+aB
+QO
+QO
+lB
+lB
+lB
+lB
+lB
+xu
+ZD
+fu
+au
+au
+au
+au
+au
+au
+au
+hM
+uz
+wL
+hM
+hM
+hM
+hM
+nL
+uy
+ax
+kD
+ax
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -42871,209 +43268,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qk
-tU
-LN
-ag
-tU
-YS
-AZ
-vJ
-Hh
-Rl
-lZ
-AZ
-QO
-QO
-aB
-QO
-QO
-lB
-lB
-lB
-lB
-lB
-xu
-ZD
-fu
-au
-au
-au
-au
-au
-au
-au
-hM
-uz
-wL
-hM
-hM
-hM
-hM
-nL
-uy
-ax
-kD
-ax
-ax
-ax
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(78,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -43187,7 +43382,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(78,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Qk
+tU
+tU
+qe
+tU
+YS
+AZ
+Cd
+Zv
+pj
+If
+xi
+yL
+FV
+ZN
+nB
+nO
+Kv
+kX
+Nz
+lB
+Mu
+Jd
+HB
+Rw
+Yu
+Ar
+ll
+yV
+Ha
+ll
+yn
+ll
+VH
+Jm
+HJ
+AW
+iz
+xV
+HJ
+OE
+ax
+kD
+VQ
+ax
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -43275,6 +43672,7 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
@@ -43311,54 +43709,53 @@ aa
 aa
 aa
 aa
-aa
-Qk
 tU
 tU
-qe
+tU
+ag
 tU
 YS
 AZ
-Cd
-Zv
-pj
-If
+Zo
+nR
+FP
+lJ
 AP
-yL
-FV
-ZN
-nB
-nO
-Kv
-kX
-Nz
-lB
-Mu
-Jd
-HB
-Rw
-Yu
-Ar
-ll
-yV
-Ha
-ll
-yn
-ll
-VH
-Jm
+Sp
+RK
+Yd
+oL
+TG
+Wj
+PO
+PO
+XY
+Eu
+rU
+wP
+uk
+qP
+Lq
+UA
+et
+OK
+IN
+OX
+tO
+Zz
+nt
 HJ
-AW
-iz
-xV
+Kf
+IJ
+ng
 HJ
-OE
+uy
 ax
 kD
-VQ
+kD
+sj
 ax
 ax
-ax
 aa
 aa
 aa
@@ -43389,7 +43786,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -43477,209 +43874,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-tU
-tU
-tU
-ag
-tU
-YS
-AZ
-Zo
-nR
-FP
-lZ
-TY
-Sp
-RK
-Yd
-oL
-TG
-Wj
-PO
-PO
-nl
-Eu
-rU
-wP
-uk
-qP
-Lq
-UA
-et
-OK
-IN
-OX
-tO
-Zz
-nt
-HJ
-Kf
-IJ
-ng
-HJ
-uy
-ax
-kD
-kD
-sj
-ax
-ax
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(81,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -43793,7 +43988,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -43835,7 +44030,7 @@ aa
 aa
 aa
 "}
-(82,1,1) = {"
+(81,1,1) = {"
 aa
 aa
 aa
@@ -43881,7 +44076,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -43995,7 +44190,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -44037,7 +44232,7 @@ aa
 aa
 aa
 "}
-(83,1,1) = {"
+(82,1,1) = {"
 aa
 aa
 aa
@@ -44083,6 +44278,7 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
@@ -44107,7 +44303,6 @@ aa
 aa
 aa
 aa
-rE
 aa
 aa
 aa
@@ -44197,7 +44392,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -44239,7 +44434,7 @@ aa
 aa
 aa
 "}
-(84,1,1) = {"
+(83,1,1) = {"
 aa
 aa
 aa
@@ -44285,6 +44480,7 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
@@ -44308,8 +44504,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+rE
 aa
 aa
 aa
@@ -44399,7 +44594,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(84,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tU
+tU
+tU
+tU
+tU
+uq
+NU
+rK
+ID
+Zm
+kJ
+tU
+uj
+KD
+JT
+ot
+MZ
+Nm
+kY
+JT
+Qn
+Vt
+zB
+GQ
+lo
+lo
+lo
+lo
+lo
+xL
+zB
+Km
+Pf
+zM
+zM
+zM
+zM
+qO
+OB
+Pz
+Lx
+AT
+Fe
+tI
+tI
+EP
+OB
+OE
+ax
+vo
+ax
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -44487,209 +44884,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-tU
-tU
-tU
-tU
-tU
-uq
-NU
-rK
-ID
-Zm
-kJ
-tU
-uj
-KD
-JT
-ot
-MZ
-Nm
-kY
-JT
-mx
-JB
-zB
-GQ
-lo
-lo
-lo
-lo
-lo
-xL
-zB
-Km
-Pf
-zM
-zM
-zM
-zM
-qO
-OB
-Pz
-Lx
-AT
-Fe
-tI
-tI
-EP
-OB
-OE
-ax
-vo
-ax
-ax
-ax
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(86,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -44803,7 +44998,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -44845,7 +45040,7 @@ aa
 aa
 aa
 "}
-(87,1,1) = {"
+(86,1,1) = {"
 aa
 aa
 aa
@@ -44891,7 +45086,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -45005,7 +45200,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(87,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tU
+tU
+Ek
+iB
+tU
+tU
+tU
+cP
+tU
+tU
+tU
+kJ
+XK
+Oo
+jD
+wK
+lG
+RE
+HT
+JT
+St
+sN
+zB
+AS
+GS
+DR
+kr
+Ne
+kr
+lg
+zB
+GT
+Pk
+BQ
+VW
+sd
+BQ
+qO
+OB
+uP
+iS
+tI
+tI
+tI
+iS
+qb
+OB
+uy
+ax
+kD
+kD
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -45093,209 +45490,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-tU
-tU
-Ek
-iB
-tU
-tU
-tU
-cP
-tU
-tU
-tU
-kJ
-XK
-Oo
-jD
-wK
-lG
-RE
-HT
-JT
-Jg
-sN
-zB
-AS
-GS
-DR
-kr
-Ne
-kr
-lg
-zB
-GT
-Pk
-BQ
-VW
-sd
-BQ
-qO
-OB
-uP
-iS
-tI
-tI
-tI
-iS
-qb
-OB
-uy
-ax
-kD
-kD
-ax
-ax
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(89,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -45409,7 +45604,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -45451,7 +45646,7 @@ aa
 aa
 aa
 "}
-(90,1,1) = {"
+(89,1,1) = {"
 aa
 aa
 aa
@@ -45497,7 +45692,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -45591,6 +45786,208 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(90,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tU
+tU
+tU
+ag
+ag
+tU
+tU
+tU
+ag
+tU
+tU
+tU
+tU
+tU
+Xd
+qA
+Wx
+MN
+JO
+Mt
+bW
+yu
+Mw
+wp
+zO
+Lu
+SO
+jP
+pZ
+wp
+pm
+wp
+Et
+Qt
+BQ
+BQ
+BQ
+BQ
+pt
+iD
+VS
+ZY
+ZY
+Kn
+YD
+jb
+mF
+AL
+uy
+ax
+kD
+PJ
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 rE
 aa
 aa
@@ -45611,7 +46008,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -45699,209 +46096,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-tU
-tU
-tU
-ag
-ag
-tU
-tU
-tU
-ag
-tU
-tU
-tU
-tU
-tU
-Xd
-qA
-Wx
-MN
-JO
-Mt
-bW
-yu
-Mw
-wp
-zO
-Lu
-SO
-jP
-pZ
-wp
-pm
-wp
-Et
-Qt
-BQ
-BQ
-BQ
-BQ
-pt
-iD
-VS
-ZY
-ZY
-Kn
-ZY
-jb
-mF
-AL
-uy
-ax
-kD
-PJ
-ax
-ax
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(92,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -46015,7 +46210,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -46057,7 +46252,7 @@ aa
 aa
 aa
 "}
-(93,1,1) = {"
+(92,1,1) = {"
 aa
 aa
 aa
@@ -46103,7 +46298,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -46217,7 +46412,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(93,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+FW
+FW
+qx
+vr
+jI
+Br
+GP
+OQ
+Na
+tH
+rg
+KF
+rN
+lI
+ut
+xc
+up
+YQ
+UP
+SK
+Wy
+ru
+QI
+nv
+EI
+nv
+EY
+EY
+EY
+nv
+lm
+nv
+qf
+lt
+iO
+Hk
+XJ
+iG
+jA
+XJ
+Vp
+XJ
+XJ
+YG
+vp
+bY
+jG
+ax
+ZO
+Wd
+Ks
+YY
+ax
+ax
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -46305,7 +46702,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -46340,25 +46737,25 @@ FW
 FW
 qx
 vr
-jI
-Br
-GP
-OQ
-Na
-tH
-rg
+xn
+qd
+Si
+KL
+GD
+nz
+Wl
 Dp
 rN
-lI
-ut
-xc
-up
-YQ
-UP
-SK
+mp
+BP
+mB
+PQ
+Oz
+Px
+Zq
 Wy
 ru
-QI
+KT
 nv
 EI
 nv
@@ -46368,28 +46765,28 @@ EY
 nv
 lm
 nv
-qf
+Va
 lt
 iO
-Hk
-XJ
-iG
-jA
-XJ
-Vp
-XJ
-XJ
-YG
-vp
-bY
-jG
-ax
-ZO
-Wd
-Ks
-YY
-ax
-ax
+iO
+zo
+la
+la
+wS
+qY
+qY
+qY
+qY
+qY
+tD
+Tu
+QN
+QN
+QN
+QN
+QN
+QN
+QN
 aa
 aa
 aa
@@ -46419,7 +46816,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -46507,209 +46904,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-FW
-FW
-qx
-vr
-xn
-qd
-Si
-KL
-GD
-nz
-Wl
-VF
-rN
-mp
-BP
-mB
-PQ
-Oz
-Px
-Zq
-Wy
-ru
-KT
-nv
-EI
-nv
-EY
-EY
-EY
-nv
-lm
-nv
-Va
-lt
-iO
-iO
-zo
-la
-la
-wS
-qY
-qY
-qY
-qY
-qY
-tD
-Tu
-QN
-QN
-QN
-QN
-QN
-QN
-QN
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(96,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -46823,7 +47018,209 @@ aa
 aa
 aa
 aa
+tu
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(96,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+FW
+FW
+qx
+vr
+rZ
+Hf
+Tj
+HA
+tb
+nA
+SS
+vs
+HV
+ri
+xy
+Wy
+Cp
+vX
+Wq
+vd
+tC
+ld
+MI
+nv
+mY
+nv
+Tn
+xU
+Tn
+nv
+Dl
+nv
+ry
+lt
+ph
+lV
+sW
+El
+yk
+Bw
+Qb
+KA
+rt
+xT
+JG
+JG
+Kc
+JG
+JG
+JG
+JG
+Gv
+QN
+QN
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+tu
 aa
 aa
 aa
@@ -46911,12 +47308,12 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
 aa
 aa
-vg
 aa
 aa
 aa
@@ -46946,52 +47343,52 @@ FW
 FW
 qx
 vr
-rZ
-Hf
-Tj
-HA
-tb
-nA
-SS
-vs
-HV
-ri
-xy
-Wy
-Cp
-vX
-Wq
-vd
-tC
-ld
-MI
-nv
-mY
-nv
-Tn
-xU
-Tn
-nv
-Dl
-nv
-ry
+mL
+xm
+DU
+tK
+tK
+tK
+uS
+tK
+oB
+kO
+VT
+ny
+VP
+Ih
+me
+zk
+Lh
+EZ
+wG
+Xw
+yX
+Fl
+jz
+jz
+jz
+tG
+CG
+np
+xR
 lt
-ph
-lV
+nI
+yJ
 sW
-El
-yk
-Bw
-Qb
-KA
-rt
-xT
+zR
+wd
+LJ
+qY
+CD
+tB
+Uj
 JG
-JG
+wM
 sM
-JG
-JG
-JG
+oU
+yq
+DZ
 JG
 Gv
 QN
@@ -47025,7 +47422,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47113,6 +47510,7 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
@@ -47127,8 +47525,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+vg
 aa
 aa
 aa
@@ -47148,52 +47545,52 @@ FW
 FW
 qx
 vr
-mL
-xm
-DU
-tK
-tK
-tK
-uS
-tK
-oB
-kO
-VT
-ny
-VP
-Ih
-me
-zk
-Lh
-EZ
-wG
-Xw
-yX
-Fl
-jz
-jz
-jz
-tG
-CG
-np
-xR
+rZ
+OA
+Qr
+tT
+vs
+JX
+Cm
+FF
+rw
+Hj
+mS
+yx
+Ce
+Rv
+Pr
+Jf
+Ca
+Ny
+xU
+xU
+Oq
+ys
+xU
+Ry
+xU
+tF
+Mn
+fA
+ae
 lt
-nI
-yJ
-sW
-zR
-wd
-LJ
+ph
+NW
+Ff
+eP
+Cc
+FY
 qY
-CD
-tB
-Uj
+fg
+za
+Mb
 JG
-wM
+oI
 qD
-oU
-yq
-DZ
+HU
+RH
+ql
 JG
 Gv
 QN
@@ -47227,7 +47624,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47315,7 +47712,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47350,52 +47747,52 @@ FW
 FW
 qx
 vr
-rZ
-OA
-Qr
-tT
+YR
 vs
-JX
-Cm
-FF
-rw
-Hj
-mS
-yx
-Ce
-Rv
-Pr
-Jf
-Ca
-Ny
-xU
-xU
-Oq
-ys
-xU
-Ry
-xU
-tF
-Mn
-fA
-ae
-lt
-ph
-NW
-Ff
-eP
-Cc
-FY
+kp
+AB
+uJ
+uJ
+Li
+Jq
+Xf
+KW
+zX
+Wy
+xz
+OW
+DW
+Uf
+tC
+FE
+Kd
+nv
+tN
+Gj
+WL
+nv
+Oi
+IG
+Ao
+nv
+nq
+DE
+LL
+LL
+LL
+LL
+Eg
+LL
+LL
 qY
-fg
-za
-Mb
+qL
+qY
 JG
-oI
+EE
 xt
-HU
-RH
-ql
+Dh
+oO
+NP
 JG
 Gv
 QN
@@ -47429,7 +47826,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47517,7 +47914,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47552,7 +47949,7 @@ FW
 FW
 qx
 vr
-YR
+Yx
 vs
 to
 zq
@@ -47561,43 +47958,43 @@ Yh
 Yb
 Cl
 rN
-KW
-zX
-Wy
-xz
-OW
-DW
-Uf
+Yq
+Nv
+LS
 tC
-FE
-Kd
-nv
-tN
-Gj
-WL
-nv
-Oi
-IG
-Ao
-nv
-nq
-DE
+ky
+Ea
+tC
+tC
+RQ
+mm
+yG
+yG
+yG
+yG
+yG
+yG
+ja
+DC
+ja
+lE
+Ib
 LL
-LL
-LL
-LL
-Eg
-LL
-LL
-qY
-qL
-qY
-JG
-EE
+sm
+SI
+gU
+AK
+jy
+kP
+Nb
+wa
+DS
+Qw
+ws
 Ro
-Dh
-oO
-NP
+xq
+jt
+mh
 JG
 Gv
 QN
@@ -47631,7 +48028,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47719,7 +48116,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47763,43 +48160,43 @@ XE
 jn
 DD
 Pb
-Yq
-Nv
-LS
-tC
-ky
-Ea
-tC
-tC
+qi
+PS
+jQ
+wm
+op
+uF
+jT
+jU
 DO
-mm
+PP
+AG
+Rp
+di
+gs
+Rp
 yG
-nn
-yG
-yG
-yG
-yG
+mt
+Ze
 ja
-DC
-ja
-lE
-Ib
-LL
-sm
-SI
-gU
-AK
-jy
-kP
-Nb
-wa
-DS
+Eh
+yO
+SL
+Wz
+zt
+qJ
+Pu
+zl
+As
+pu
+PC
+fv
 Qw
-Gl
-vK
-xq
-jt
-mh
+Qw
+Qw
+qQ
+Qw
+Qw
 JG
 Gv
 QN
@@ -47833,7 +48230,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47921,7 +48318,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -47954,7 +48351,7 @@ aa
 aa
 FW
 FW
-qx
+in
 HG
 NO
 kg
@@ -47965,20 +48362,20 @@ qp
 VJ
 VC
 XE
-qi
-PS
+vb
+vI
 RL
 wm
-op
-uF
-jT
-jU
+mq
+yl
+zH
+qj
 RQ
 PP
 AG
 Rp
-di
-gs
+pr
+dj
 Rp
 yG
 Sf
@@ -47987,22 +48384,22 @@ bQ
 sb
 zW
 SL
-Wz
-zt
-qJ
-Pu
-zl
-As
-pu
-PC
-fv
-Qw
-Qw
-Qw
-qQ
-Qw
-Qw
-JG
+Af
+AF
+we
+AK
+Uv
+kP
+kA
+Hu
+zr
+Yl
+wt
+od
+YF
+VG
+wR
+EM
 Gv
 QN
 QN
@@ -48035,7 +48432,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48123,7 +48520,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48156,7 +48553,7 @@ aa
 aa
 FW
 FW
-in
+qx
 HG
 Se
 TC
@@ -48167,13 +48564,13 @@ DL
 Xy
 UK
 XE
-vb
-vI
-Qp
-wm
-mq
-yl
-zH
+UG
+yB
+xW
+zF
+no
+TH
+ti
 qj
 RQ
 PP
@@ -48186,24 +48583,24 @@ yG
 my
 Kx
 ja
-Eh
-Uh
-SL
-Af
-AF
-we
-AK
-Uv
-kP
-kA
-Hu
-zr
-Yl
-wt
-od
-YF
-VG
-wR
+qF
+zK
+LL
+HZ
+Zh
+Tw
+KI
+qq
+LL
+MJ
+JL
+Ka
+IB
+HD
+HD
+us
+HD
+LM
 EM
 Gv
 QN
@@ -48237,7 +48634,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48325,7 +48722,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48358,7 +48755,7 @@ aa
 aa
 FW
 FW
-qx
+if
 HG
 KG
 TC
@@ -48369,43 +48766,43 @@ og
 qv
 GZ
 kb
-UG
-yB
-xW
-zF
-no
-TH
-ti
-qj
+TA
+At
+Fh
+jU
+qT
+NG
+Ml
+jU
 PH
 wr
 AG
 Rp
 pr
 dj
-Rp
+SR
 yG
 wq
 mU
 ja
-qF
-zK
-LL
-HZ
-Zh
-Tw
-KI
-qq
-LL
-MJ
-JL
+GX
+mi
+wN
+wN
+CI
+wN
+wN
+wN
+wN
+se
+uo
 Ka
 IB
-HD
+oY
 yv
 Om
 HD
-LM
+BH
 EM
 Gv
 QN
@@ -48439,7 +48836,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48527,7 +48924,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48560,7 +48957,7 @@ aa
 aa
 FW
 FW
-if
+qx
 HG
 NQ
 tc
@@ -48571,14 +48968,14 @@ sz
 mT
 pA
 DD
-TA
-At
-Fh
-jU
-qT
-NG
-Ml
-jU
+VK
+It
+SF
+NE
+NE
+yj
+NE
+NE
 JD
 PP
 AG
@@ -48590,26 +48987,26 @@ yG
 fB
 Am
 ja
-GX
-mi
+jX
+Ci
 wN
+Rb
+SM
+yi
+oq
+FB
 wN
-CI
-wN
-wN
-wN
-wN
-se
-uo
-Ka
-IB
-oY
-yv
-Om
-HD
-BH
-EM
-Gv
+vC
+SP
+WY
+sZ
+xK
+gi
+HY
+Ts
+Ts
+ok
+PK
 QN
 QN
 aa
@@ -48641,7 +49038,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48729,7 +49126,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48773,15 +49170,15 @@ DD
 DD
 DD
 DD
-VK
-It
-SF
-NE
-NE
-yj
-NE
-NE
-DO
+pX
+Kp
+VR
+Wv
+XU
+Qs
+uI
+Dn
+RQ
 Rk
 yG
 cx
@@ -48792,26 +49189,26 @@ yG
 fC
 yG
 yG
-jX
-Ci
+XN
+Rg
 wN
 ab
-SM
-Dx
-oq
-FB
-wN
-vC
-SP
-WY
-sZ
+Ix
+qg
+AR
+YT
+RC
+WK
+nT
+AJ
+Bc
 kw
 Mf
-rs
-ZS
+Mf
+Mf
 Ri
-ok
-PK
+jV
+Gx
 QN
 QN
 aa
@@ -48843,7 +49240,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48931,7 +49328,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -48975,14 +49372,14 @@ kE
 kT
 td
 Xu
-rc
-RY
-VR
-Wv
-XU
-Qs
-uI
-Dn
+Mp
+NV
+rX
+Ax
+Ut
+jN
+WQ
+MO
 ol
 WR
 yG
@@ -48994,19 +49391,19 @@ Sg
 fa
 fD
 AG
-XN
-Rg
+Eh
+Ci
 wN
 lw
-Ix
-qg
-AR
-YT
-RC
-WK
-nT
-AJ
-Bc
+Ur
+Fy
+UI
+Lv
+wN
+Gw
+vn
+HD
+HD
 Yi
 vN
 vN
@@ -49045,7 +49442,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49133,7 +49530,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49177,14 +49574,14 @@ Qz
 kT
 Ve
 MG
-Mp
-NV
-rX
-Ax
-Ut
-jN
-WQ
-MO
+Tr
+Yp
+NE
+ER
+nw
+nw
+nb
+eb
 aW
 PP
 AG
@@ -49197,7 +49594,7 @@ Qj
 fE
 AG
 Eh
-Ci
+CZ
 wN
 oh
 un
@@ -49247,7 +49644,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49335,7 +49732,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49368,7 +49765,7 @@ aa
 aa
 FW
 FW
-qx
+jK
 qx
 si
 uV
@@ -49399,7 +49796,7 @@ mb
 fF
 AG
 Eh
-CZ
+lr
 wN
 UL
 na
@@ -49449,7 +49846,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49537,7 +49934,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49570,7 +49967,7 @@ aa
 aa
 FW
 FW
-jK
+qx
 qx
 kT
 ZJ
@@ -49601,7 +49998,7 @@ yG
 yG
 yG
 Eh
-lr
+Ci
 wN
 wN
 wN
@@ -49651,7 +50048,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49739,7 +50136,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49783,14 +50180,14 @@ um
 kT
 QJ
 jq
-Tr
+rc
 Qi
 Aw
 Zt
 Ai
 IQ
 ku
-CT
+ue
 Lw
 kl
 bD
@@ -49853,7 +50250,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49941,7 +50338,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -49985,7 +50382,7 @@ mC
 mC
 mC
 mC
-Tr
+KU
 Qe
 Vo
 Vo
@@ -50055,7 +50452,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50143,7 +50540,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50257,7 +50654,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50345,7 +50742,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50459,7 +50856,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50547,7 +50944,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50661,7 +51058,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50749,7 +51146,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50863,7 +51260,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -50951,7 +51348,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51065,7 +51462,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51153,7 +51550,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51267,7 +51664,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51355,7 +51752,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51469,7 +51866,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51557,7 +51954,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51671,7 +52068,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51759,7 +52156,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51873,7 +52270,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -51961,7 +52358,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52075,7 +52472,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52163,7 +52560,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52277,7 +52674,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52365,7 +52762,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52418,7 +52815,7 @@ FN
 LD
 LD
 lX
-Jt
+lF
 cb
 cK
 cD
@@ -52479,7 +52876,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52567,7 +52964,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52620,7 +53017,7 @@ sL
 sv
 mu
 Xq
-lF
+Fa
 ca
 ca
 dq
@@ -52681,7 +53078,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52769,7 +53166,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52822,7 +53219,7 @@ mW
 Ft
 Le
 Xq
-Fa
+Jt
 ca
 cL
 dr
@@ -52883,7 +53280,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -52971,7 +53368,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53005,7 +53402,7 @@ aa
 aa
 aa
 XZ
-aH
+XL
 En
 XZ
 Zj
@@ -53085,7 +53482,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53173,7 +53570,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53207,7 +53604,7 @@ aa
 aa
 aa
 XZ
-oP
+aH
 Zj
 XZ
 YL
@@ -53287,7 +53684,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53375,7 +53772,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53409,7 +53806,7 @@ aa
 aa
 aa
 XZ
-nd
+oP
 UH
 XZ
 Zj
@@ -53489,7 +53886,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53577,7 +53974,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53611,7 +54008,7 @@ aa
 aa
 aa
 XZ
-Dc
+nd
 Zj
 XZ
 Zj
@@ -53691,7 +54088,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53779,7 +54176,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53813,7 +54210,7 @@ aa
 aa
 aa
 XZ
-XZ
+Dc
 Is
 XZ
 wy
@@ -53893,7 +54290,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -53981,7 +54378,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54095,7 +54492,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54183,7 +54580,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54244,7 +54641,7 @@ eC
 eC
 eC
 fK
-eC
+Ef
 ch
 Jt
 qc
@@ -54297,7 +54694,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54385,7 +54782,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54499,7 +54896,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54587,7 +54984,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54701,7 +55098,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54789,7 +55186,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54903,7 +55300,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -54991,7 +55388,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55105,7 +55502,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55193,7 +55590,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55307,7 +55704,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55395,7 +55792,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55509,7 +55906,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55597,7 +55994,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55711,7 +56108,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55799,7 +56196,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -55913,7 +56310,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56001,7 +56398,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56115,7 +56512,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56203,7 +56600,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56317,7 +56714,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56405,7 +56802,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56453,7 +56850,7 @@ WG
 Uc
 XF
 WG
-kG
+GH
 Ti
 JK
 MB
@@ -56519,7 +56916,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56607,7 +57004,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56721,7 +57118,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56809,7 +57206,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -56923,7 +57320,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57011,7 +57408,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57125,7 +57522,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57213,7 +57610,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57327,7 +57724,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57415,7 +57812,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57466,7 +57863,7 @@ nW
 Bs
 fY
 Je
-pp
+bx
 hu
 bH
 al
@@ -57529,7 +57926,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57617,7 +58014,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57668,7 +58065,7 @@ wx
 aj
 ap
 Je
-bx
+TE
 kv
 bH
 cn
@@ -57731,7 +58128,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57819,7 +58216,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -57933,7 +58330,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58021,7 +58418,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58135,7 +58532,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58223,7 +58620,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58337,7 +58734,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58425,7 +58822,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58539,7 +58936,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58627,7 +59024,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58741,7 +59138,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58829,7 +59226,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -58943,7 +59340,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59031,7 +59428,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59103,7 +59500,7 @@ bN
 bN
 bN
 bN
-XZ
+Td
 Td
 RP
 Td
@@ -59145,7 +59542,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59233,7 +59630,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59305,7 +59702,7 @@ aa
 aa
 aa
 aa
-Pt
+Cz
 Gg
 HW
 Td
@@ -59347,7 +59744,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59435,7 +59832,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59507,11 +59904,11 @@ aa
 aa
 aa
 aa
-XZ
 Td
 Td
 Td
 Td
+Td
 aa
 aa
 aa
@@ -59549,7 +59946,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59637,7 +60034,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59709,11 +60106,11 @@ aa
 aa
 aa
 aa
-XZ
 Td
 Td
 Td
 Td
+Td
 aa
 aa
 aa
@@ -59751,7 +60148,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -59839,6 +60236,7 @@ aa
 aa
 aa
 aa
+tu
 aa
 aa
 aa
@@ -59952,8 +60350,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+tu
 aa
 aa
 aa
@@ -60155,7 +60552,7 @@ aa
 aa
 aa
 aa
-aa
+tu
 aa
 aa
 aa
@@ -62091,7 +62488,7 @@ aa
 aa
 aa
 aa
-aa
+rE
 aa
 aa
 aa
@@ -63909,7 +64306,7 @@ aa
 aa
 aa
 aa
-rE
+aa
 aa
 aa
 aa
@@ -64485,10 +64882,52 @@ aa
 aa
 aa
 aa
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
 aa
 aa
 aa
 aa
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
 aa
 aa
 aa
@@ -64512,94 +64951,52 @@ aa
 aa
 aa
 aa
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
 aa
 aa
 aa

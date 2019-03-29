@@ -28,7 +28,7 @@ var/global/remaininggens = 6
 
 	respawntime = 100 //ten second respawn time, instant action
 
-	for(var/obj/effect/template_loader/gamemode/assault/L in world)
+	for(var/obj/effect/template_loader/gamemode/assault/L in landmarks_list)
 		if(maptype == L.maptype)
 			L.Load()
 
@@ -82,7 +82,7 @@ var/global/remaininggens = 6
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
-			for(var/obj/effect/landmark/assault/marinespawn/H in world)
+			for(var/obj/effect/landmark/assault/marinespawn/H in landmarks_list)
 				M.loc = H.loc
 //				qdel(H)
 
@@ -186,12 +186,12 @@ var/global/remaininggens = 6
 
 /mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
 	if(remaininglactera <= 0)
-		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 			var/mob/observer/H = new /mob/observer(S.loc)
 			H.ckey = L.ckey
 
 	else
-		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 	//		L.loc = S.loc
 			var/mob/living/carbon/human/lactera/H = new /mob/living/carbon/human/lactera(S.loc)
 			H.ckey = L.ckey

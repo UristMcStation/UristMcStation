@@ -80,8 +80,9 @@
 
 /obj/item/projectile/forceMove()
 	..()
-	if(istype(loc, /turf/space/) && istype(loc.loc, /area/space))
-		qdel(src)
+	if(!ship)
+		if(istype(loc, /turf/space/) && istype(loc.loc, /area/space))
+			qdel(src)
 
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)

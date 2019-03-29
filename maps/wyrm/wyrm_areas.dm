@@ -432,31 +432,31 @@
 /area/away/virolabs
 	name = "\improper Virology Labratory"
 
-/area/jungle/southruins
+/area/planet/jungle/southruins
 
-/area/jungle/northruins
+/area/planet/jungle/northruins
 
-/area/jungle/southeastruins
+/area/planet/jungle/southeastruins
 
-/area/jungle/southwild
+/area/planet/jungle/southwild
 	dynamic_lighting = FALSE
 
-/area/jungle/northwild
+/area/planet/jungle/northwild
 	dynamic_lighting = FALSE
 
-/area/jungle/northeastwild
+/area/planet/jungle/northeastwild
 	dynamic_lighting = FALSE
 
-/area/jungle/southeastwild
+/area/planet/jungle/southeastwild
 	dynamic_lighting = FALSE
 
-/area/jungle/river
+/area/planet/jungle/river
 	dynamic_lighting = FALSE
 
-/area/jungle/plains
+/area/planet/jungle/plains
 	dynamic_lighting = FALSE
 
-/area/jungle/shack
+/area/planet/jungle/shack
 	name = "\improper Makeshift Building"
 
-/area/jungle/shuttle
+/area/planet/jungle/shuttle

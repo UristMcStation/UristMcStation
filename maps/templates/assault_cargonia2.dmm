@@ -3,7 +3,7 @@
 "c" = (/obj/structure/table/standard/flipped/e,/turf/simulated/floor/tiled,/area/template_noop)
 "d" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/template_noop)
 "e" = (/obj/item/weapon/paper,/turf/simulated/floor/tiled,/area/template_noop)
-"f" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
+"f" = (/obj/item/trash/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
 "g" = (/obj/item/stack/material/cardboard,/turf/simulated/floor/tiled,/area/template_noop)
 "h" = (/obj/machinery/door/firedoor,/turf/simulated/floor/tiled,/area/template_noop)
 "i" = (/obj/structure/disposalpipe/sortjunction{dir = 8; icon_state = "pipe-j2s"; name = "Quartermaster"; sortType = "Quartermaster"},/turf/simulated/floor/tiled,/area/template_noop)
@@ -27,7 +27,7 @@
 "C" = (/obj/machinery/button/remote/blast_door{id = "TradingPost"; name = "Trading Post Door Control"; pixel_x = -28},/turf/simulated/floor/tiled,/area/template_noop)
 "D" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/shield/riot,/obj/item/weapon/storage/box/large/mines,/turf/simulated/floor/tiled,/area/template_noop)
 "E" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/hemostat,/obj/item/weapon/cell/high,/turf/simulated/floor/tiled,/area/template_noop)
-"F" = (/obj/item/weapon/shiv,/obj/item/weapon/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
+"F" = (/obj/item/weapon/shiv,/obj/item/trash/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
 "G" = (/obj/item/weapon/caution,/turf/simulated/floor/tiled,/area/template_noop)
 
 (1,1,1) = {"

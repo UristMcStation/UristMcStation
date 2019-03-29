@@ -109,3 +109,16 @@
 		to_chat(user, "<span class='notice'>You wrap the strip of leather around some pieces of glass, forming an improvised pair of goggles.</span>")
 
 	..()
+
+/obj/item/clothing/mask/gas/terranhalf
+	item_icons = URIST_ALL_ONMOBS
+	name = "face mask"
+	desc = "A compact, durable gas mask that can be connected to an air supply."
+	icon_override = 'icons/uristmob/mask.dmi'
+	icon_state = "halfgas"
+	item_state = "halfgas"
+	siemens_coefficient = 0.7
+	body_parts_covered = FACE
+	w_class = ITEM_SIZE_SMALL
+	armor = list(melee = 15, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 60, rad = 0)
+

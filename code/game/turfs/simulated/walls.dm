@@ -83,10 +83,16 @@
 		else if(Proj.damage_type == BRUTE)
 			proj_damage /= reinf_material.brute_armor
 
-	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	var/damage = min(proj_damage, 100)
+	..() //jesus fuck bay, why isn't this here
 
-	take_damage(damage)
+	if(Proj.ship) //why the fuck would anyone hardcode a cap on weapon damage to walls. fuck bay so hard.
+		take_damage(proj_damage)
+
+	else
+		//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
+		var/damage = min(proj_damage, 100)
+
+		take_damage(damage)
 	return
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)

@@ -207,6 +207,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/nanotrasen_relations = 100 //used to determine if nt hates you
 	var/terran_confederacy_relations = 50 //used to determine if the tc hates you
 	var/list/contracts = list()
+	var/obj/effect/overmap/ship/combat/overmap_ship = null
 
 	// List of /datum/department types to instantiate at roundstart.
 	var/list/departments = list(

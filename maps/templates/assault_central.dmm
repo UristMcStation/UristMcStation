@@ -8,7 +8,7 @@
 "h" = (/obj/machinery/sleeper,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "i" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "j" = (/obj/item/stack/medical/ointment,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
-"k" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
+"k" = (/obj/item/trash/cigbutt,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "l" = (/obj/structure/table/standard/flipped/w,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "m" = (/obj/structure/table/standard/flipped/e,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "n" = (/obj/item/weapon/storage/firstaid/combat,/obj/item/weapon/storage/firstaid/combat,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)

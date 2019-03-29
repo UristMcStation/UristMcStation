@@ -63,16 +63,6 @@
 	icon_state = "ai_chamber"
 	req_access = list(access_ai_upload)
 
-/area/command/aiuploadfoyer
-	name = "\improper AI Upload Foyer"
-	icon_state = "ai_chamber"
-	req_access = list(access_ai_upload)
-
-/area/command/aiatmos
-	name = "\improper AI Atmospherics"
-	icon_state = "ai_chamber"
-	req_access = list(access_engine)
-
 /area/command/aicomputer
 	name = "\improper AI Data Room" //???
 	icon_state = "ai_chamber"
@@ -146,9 +136,6 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
-
-/area/civilian/sbobserve
-	name = "\improper Starboard Observatory"
 
 /area/civilian/abandonedoffice
 	name = "\improper Abandoned Office"
@@ -291,29 +278,16 @@
 	icon_state = "atmos"
 	req_access = list(access_atmospherics)
 
-/area/engineering/atmosmon
-	name = "\improper Atmospherics Monitoring"
-	req_access = list(access_atmospherics)
-
 /area/engineering/engine
 	name = "\improper Engine Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
 	req_access = list(access_engine_equip)
 
-/area/engineering/externalmaint
-	name = "\improper External Engine Maintenance"
-	icon_state = "engine_eva"
-
 /area/engineering/smes
 	name = "\improper SMES Room"
 	sound_env = SMALL_ENCLOSED
 	icon_state = "engine_smes"
-
-/area/engineering/subsmes
-	name = "\improper Sub Deck SMES Room"
-	icon_state = "engine_smes"
-	sound_env = SMALL_ENCLOSED
 
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
@@ -332,12 +306,6 @@
 /area/engineering/tcommsmon
 	name = "\improper Telecommunication Monitoring Room"
 	req_access = list(access_tcomsat)
-
-/area/engineering/extsubmaint
-	name = "\improper External Sub Deck Engine Maintenance"
-
-/area/engineering/teg
-	name = "\improper TEG Room"
 
 /area/engineering/engine_waste
 	name = "\improper Engine Waste Handling"
@@ -531,7 +499,7 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/cents
-	name = "\improper Second Deck Central Port Maintenance"
+	name = "\improper Second Deck Central Starboard Maintenance"
 	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/afs
@@ -757,7 +725,7 @@
 
 /area/away/virolabs
 	name = "\improper Virology Labratory"
-
+/*
 /area/jungle/southruins
 
 /area/jungle/northruins
@@ -786,3 +754,8 @@
 	name = "\improper Makeshift Building"
 
 /area/jungle/shuttle
+*/
+//ship
+
+/area/ship/combat
+	name = "\improper Ship"

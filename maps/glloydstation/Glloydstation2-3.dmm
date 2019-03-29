@@ -1103,7 +1103,7 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "da" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "db" = (
@@ -1423,7 +1423,7 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "dV" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dW" = (
