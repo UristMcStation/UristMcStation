@@ -117,7 +117,7 @@
 		return TOPIC_REFRESH
 
 	if(href_list["push"])
-		if(!connected_displays.len && !FindDisplays())
+		if(!FindDisplays() && !connected_displays.len)
 			to_chat(user, "\icon[src]<span class='warning'>Error: No configured displays detected.</span>")
 			return TOPIC_REFRESH
 		for(var/obj/machinery/body_scan_display/D in connected_displays)

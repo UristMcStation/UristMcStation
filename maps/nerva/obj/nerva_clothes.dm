@@ -283,14 +283,14 @@
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/obj/solgov-head.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
+	icon = 'maps/torch/icons/mob/onmob_head_solgov.dmi'
+	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
 	camera = /obj/machinery/camera/network/command
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-suit.dmi'
-	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/solgov-suit.dmi')
+	icon = 'maps/torch/icons/mob/onmob_suit_solgov.dmi'
+	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/magboots/rig/command/exploration

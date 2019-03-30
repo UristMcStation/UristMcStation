@@ -157,6 +157,17 @@
 #define CULTURE_XENOPHAGE_Q    "Xenophage Queen"
 #define FACTION_XENOPHAGE      "Xenophage Hive"
 
+// Nabber grades.
+#define CULTURE_NABBER_CMINUS "Grade C-"
+#define CULTURE_NABBER_C      "Grade C"
+#define CULTURE_NABBER_CPLUS  "Grade C+"
+#define CULTURE_NABBER_BMINUS "Grade B-"
+#define CULTURE_NABBER_B      "Grade B"
+#define CULTURE_NABBER_BPLUS  "Grade B+"
+#define CULTURE_NABBER_AMINUS "Grade A-"
+#define CULTURE_NABBER_A      "Grade A"
+#define CULTURE_NABBER_APLUS  "Grade A+"
+
 // Teshari culture. TODO?: Add more Factions
 #define CULTURE_TESHARI           "Teshari"
 

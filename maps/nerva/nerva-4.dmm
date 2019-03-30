@@ -2289,8 +2289,9 @@
 	},
 /area/tdome/tdomeadmin)
 "fc" = (
-/turf/simulated/wall,
-/area/merchant_station)
+/obj/structure/closet,
+/turf/space,
+/area/rescue_base/base)
 "fd" = (
 /turf/simulated/floor/asteroid,
 /area/merchant_station)
@@ -2352,10 +2353,19 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "fl" = (
-/obj/structure/table/woodentable,
-/obj/random/plushie,
-/turf/simulated/floor/carpet,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/button/remote/blast_door{
+	id = "heavyrescue";
+	name = "Heavy Gear";
+	pixel_x = -5;
+	pixel_y = 4;
+	req_access = newlist()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/rescue_base/base)
 "fm" = (
 /obj/structure/closet,
 /obj/item/clothing/shoes/black,
@@ -2408,10 +2418,16 @@
 /turf/space,
 /area/drone_test)
 "fu" = (
-/obj/structure/table/woodentable,
-/obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/radio/phone{
+	desc = "Should anything ever go wrong...";
+	frequency = 1345
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/rescue_base/base)
 "fv" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/carpet,
@@ -2427,9 +2443,18 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "fx" = (
-/obj/structure/bookcase/manuals/engineering,
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/button/remote/blast_door{
+	id = "standardrescue";
+	name = "Standard Gear";
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/rescue_base/base)
 "fy" = (
 /turf/simulated/floor/carpet,
 /area/merchant_station)
@@ -2439,22 +2464,22 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "fA" = (
-/obj/structure/table/woodentable,
-/obj/random/action_figure,
-/turf/simulated/floor/carpet,
-/area/merchant_station)
-"fB" = (
-/obj/structure/table/woodentable,
-/obj/random/single{
-	icon = 'icons/obj/items.dmi';
-	icon_state = "lighter-g";
-	name = "randomly spawned lighter";
-	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/material/ashtray/bronze,
+/obj/item/trash/cigbutt/cigarbutt,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
 	},
-/obj/random/toy,
-/turf/simulated/floor/carpet/blue,
-/area/merchant_station)
+/area/rescue_base/base)
+"fB" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/clothing/head/beret/solgov/marcom,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/rescue_base/base)
 "fC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue,
@@ -2467,9 +2492,30 @@
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
 "fE" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/random/junk,
+/obj/random/maintenance,
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	name = "carpet"
+	},
+/area/syndicate_mothership/raider_base)
+"fF" = (
+/obj/structure/table/woodentable/walnut,
+/obj/random/action_figure,
+/obj/random/contraband,
+/obj/random/junk,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	name = "carpet"
+	},
+/area/syndicate_mothership/raider_base)
 "fG" = (
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
@@ -2487,6 +2533,20 @@
 	icon_state = "asteroidfloor"
 	},
 /area/rescue_base/base)
+"fI" = (
+/obj/structure/closet,
+/turf/space,
+/area/syndicate_mothership/raider_base)
+"fJ" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/tray{
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/backpack,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "fK" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/firstaid/surgery,
@@ -2504,6 +2564,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
+"fM" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/glasses/rocks,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "fN" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -2561,19 +2628,20 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "fR" = (
-/obj/structure/bookcase/manuals/medical,
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"fS" = (
-/obj/machinery/door/airlock{
-	name = "Room A";
-	req_access = list(201)
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/wood.dmi';
+	icon_state = "wood_broken6"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/syndicate_mothership/raider_base)
+"fS" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/pizzabox/meat,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "fT" = (
 /obj/item/weapon/storage/secure/safe{
 	pixel_x = -25
@@ -2643,8 +2711,21 @@
 /turf/simulated/floor/tiled/freezer,
 /area/merchant_station)
 "ga" = (
-/turf/simulated/wall/r_wall,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/material/ashtray/bronze,
+/obj/item/trash/cigbutt/cigarbutt,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"gb" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/reagent_containers/glass/rag,
+/obj/random/loot,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
 "gc" = (
 /obj/machinery/teleport/station,
 /turf/unsimulated/floor{
@@ -2659,6 +2740,34 @@
 	icon_state = "wood"
 	},
 /area/wizard_station)
+"ge" = (
+/obj/structure/flora/grass/both,
+/turf/unsimulated/floor/snow,
+/turf/unsimulated/floor/snow{
+	tag = "icon-gravsnow_corner (SOUTHEAST)";
+	icon_state = "gravsnow_corner";
+	dir = 6
+	},
+/area/syndicate_mothership)
+"gf" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/turf/simulated/shuttle/wall{
+	dir = 8;
+	icon_state = "swall_c"
+	},
+/area/space)
+"gg" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_c"
+	},
+/area/space)
 "gh" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 8;
@@ -2696,69 +2805,55 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "gm" = (
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/flashlight/lamp/green{
+	on = 0;
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/turf/simulated/floor/carpet,
+/area/wizard_station)
 "gn" = (
-/obj/machinery/alarm{
-	frequency = 1439;
-	pixel_y = 23
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/backpack/satchel/grey/withwallet,
+/obj/item/clothing/glasses/monocle,
+/turf/simulated/floor/carpet,
+/area/wizard_station)
 "go" = (
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = 24
+/obj/structure/table/woodentable/walnut,
+/obj/effect/landmark{
+	name = "Teleport-Scroll"
 	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/item/toy/figure/ninja,
+/turf/simulated/floor/carpet,
+/area/wizard_station)
 "gp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHEAST)";
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHEAST)";
-	icon_state = "intact-supply";
-	dir = 5
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/backpack/cultpack,
+/turf/simulated/floor/carpet,
+/area/wizard_station)
 "gq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/flora/tree/pine,
+/turf/unsimulated/floor/snow,
+/turf/unsimulated/floor/snow{
+	tag = "icon-gravsnow_corner";
+	icon_state = "gravsnow_corner"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/syndicate_mothership)
 "gr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/structure/flora/grass/both,
+/turf/unsimulated/floor/snow,
+/turf/unsimulated/floor/snow{
+	tag = "icon-gravsnow_corner";
+	icon_state = "gravsnow_corner"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/syndicate_mothership)
 "gs" = (
-/obj/machinery/door/airlock{
-	name = "Room B";
-	req_access = list(201)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/backpack/satchel/grey/withwallet,
+/turf/simulated/floor/carpet,
+/area/wizard_station)
 "gt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2875,6 +2970,9 @@
 	dir = 8
 	},
 /area/rescue_base/base)
+"gG" = (
+/turf/simulated/wall/prepainted,
+/area/merchant_station)
 "gH" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/cell_charger,
@@ -2896,6 +2994,14 @@
 	icon_state = "white"
 	},
 /area/ninja_dojo/dojo)
+"gJ" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/dice,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/wizard_station)
 "gK" = (
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
@@ -2906,12 +3012,8 @@
 	},
 /area/syndicate_station/start)
 "gL" = (
-/obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/bar_soft/full,
-/obj/item/device/radio/intercom/syndicate{
-	dir = 8;
-	pixel_x = 22
-	},
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/dice/d20,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -2967,48 +3069,42 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "gS" = (
-/obj/machinery/media/jukebox,
-/obj/item/device/radio/intercom{
+/obj/structure/table/woodentable/walnut,
+/obj/random/plushie,
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"gT" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/modular_computer/console/preset/library,
+/obj/item/device/radio/intercom/syndicate{
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"gT" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/wizard_station)
 "gU" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/reagent_containers/food/snacks/chawanmushi,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/wizard_station)
 "gV" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/glasses/pint,
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"gW" = (
-/obj/machinery/door/airlock/glass{
-	name = "Lounge"
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/cups,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/wizard_station)
+"gW" = (
+/obj/structure/closet,
+/turf/space,
+/area/wizard_station)
 "gX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -3122,31 +3218,34 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "hn" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet,
 /area/merchant_station)
 "ho" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/wood,
+/obj/structure/bookcase/manuals/engineering,
+/turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "hp" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/obj/random/action_figure,
+/turf/simulated/floor/carpet,
 /area/merchant_station)
 "hq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/obj/random/single{
+	icon = 'icons/obj/items.dmi';
+	icon_state = "lighter-g";
+	name = "randomly spawned lighter";
+	spawn_nothing_percentage = 50;
+	spawn_object = /obj/item/weapon/flame/lighter
+	},
+/obj/random/toy,
+/turf/simulated/floor/carpet/blue,
 /area/merchant_station)
 "hr" = (
-/obj/structure/table/woodentable,
-/obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/prepainted,
 /area/merchant_station)
 "hs" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -3198,6 +3297,14 @@
 	dir = 1
 	},
 /area/rescue_base/base)
+"hA" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/megaphone,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/wizard_station)
 "hB" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Squad Leader's Office";
@@ -3242,85 +3349,60 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "hH" = (
-/obj/machinery/door/airlock/glass/command{
-	name = "Office";
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/donut,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/wizard_station)
+"hI" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/spacecash/bundle/c1,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/wizard_station)
+"hJ" = (
+/obj/structure/bookcase/manuals/medical,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
+"hK" = (
+/obj/machinery/door/airlock{
+	name = "Room A";
 	req_access = list(201)
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"hI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"hJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"hK" = (
-/obj/item/weapon/stool/padded,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "hL" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/material/ashtray/bronze,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/item/clothing/mask/smokable/cigarette/cigar/havana,
-/turf/simulated/floor/wood,
+/turf/simulated/wall/r_wall/prepainted,
 /area/merchant_station)
 "hM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/reagent_containers/food/snacks/milosoup,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
-/area/merchant_station)
+/area/wizard_station)
 "hN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/wood,
-/area/merchant_station)
-"hO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/item/device/radio/intercom/syndicate{
+	dir = 8;
+	pixel_x = 22
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
 	},
-/turf/simulated/floor/wood,
+/area/wizard_station)
+"hO" = (
+/turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "hP" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
@@ -3559,6 +3641,13 @@
 	dir = 2
 	},
 /area/wizard_station)
+"ip" = (
+/obj/machinery/alarm{
+	frequency = 1439;
+	pixel_y = 23
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "iq" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -3573,8 +3662,11 @@
 /turf/space,
 /area/merchant_station)
 "is" = (
-/obj/structure/sign/warning/docking_area,
-/turf/simulated/wall,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "it" = (
 /obj/structure/disposalpipe/segment{
@@ -3653,6 +3745,28 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
+"iD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHEAST)";
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHEAST)";
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
+"iE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "iF" = (
 /obj/machinery/computer/shuttle_control/multi/vox,
 /turf/simulated/floor/shuttle/red,
@@ -3664,6 +3778,15 @@
 	icon_state = "white"
 	},
 /area/ninja_dojo/dojo)
+"iH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "iI" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_s";
@@ -3779,6 +3902,30 @@
 /obj/item/weapon/clipboard,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
+"iT" = (
+/obj/machinery/door/airlock{
+	name = "Room B";
+	req_access = list(201)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
+"iU" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "iV" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
@@ -3885,8 +4032,8 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "ji" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/drinks/dry_ramen,
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/glasses,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -3919,6 +4066,14 @@
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
+"jl" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/sinpockets,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "jm" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_t";
@@ -4026,6 +4181,25 @@
 /obj/machinery/merchant_pad,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
+"jA" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/microwave,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
+"jB" = (
+/obj/machinery/media/jukebox,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "jC" = (
 /obj/structure/window/shuttle{
 	icon_state = "window4"
@@ -4033,6 +4207,24 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/transport1/centcom)
+"jD" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
+"jE" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "jF" = (
 /obj/machinery/vending/coffee{
 	prices = list()
@@ -4072,20 +4264,10 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant/home)
 "jK" = (
-/obj/machinery/vending/wallmed1{
-	pixel_x = 7;
-	pixel_y = 32
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -7;
-	pixel_y = 32
-	},
-/obj/item/weapon/storage/secure/safe{
-	pixel_x = 30
-	},
-/obj/structure/flora/pottedplant/tropical,
-/turf/simulated/floor/wood,
-/area/shuttle/merchant/home)
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/box/glasses/pint,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "jL" = (
 /obj/machinery/light{
 	dir = 8;
@@ -4236,6 +4418,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
+"kd" = (
+/obj/machinery/door/airlock/glass{
+	name = "Lounge"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "ke" = (
 /turf/simulated/shuttle/wall{
 	dir = 8;
@@ -4250,13 +4441,13 @@
 	},
 /area/syndicate_mothership/raider_base)
 "kg" = (
-/obj/structure/table/woodentable,
-/obj/item/device/flashlight/lamp,
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/bag/cash,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/ninja_dojo/dojo)
+/area/wizard_station)
 "kh" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/cigarettes,
@@ -4271,6 +4462,22 @@
 /obj/item/weapon/card/emag,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
+"ki" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/candle_box,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/wizard_station)
+"kj" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/reagent_containers/food/drinks/dry_ramen,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "kk" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/table/rack,
@@ -4286,6 +4493,12 @@
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
+"km" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -4304,6 +4517,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
+"ko" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kp" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4337,15 +4554,13 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant/home)
 "ks" = (
-/turf/simulated/floor/wood,
-/area/shuttle/merchant/home)
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kt" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Cockpit";
-	req_access = list(201)
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/merchant/home)
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "ku" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -4472,6 +4687,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"kH" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/reagent_dispensers/beerkeg,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -4482,14 +4706,28 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"kK" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/snacks/milosoup,
+"kJ" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/device/flashlight/lamp,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/ninja_dojo/dojo)
+"kK" = (
+/obj/machinery/door/airlock/glass/command{
+	name = "Office";
+	req_access = list(201)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kL" = (
 /turf/unsimulated/floor{
 	dir = 2;
@@ -4517,6 +4755,15 @@
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
+"kP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "syndieshutters";
@@ -4526,6 +4773,13 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
+"kR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kS" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4559,21 +4813,15 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant/home)
 "kW" = (
-/obj/structure/closet/secure_closet{
-	name = "merchant's locker";
-	req_access = list(201)
+/obj/item/weapon/stool/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -22
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_y = 8
-	},
-/obj/random/handgun,
-/turf/simulated/floor/wood,
-/area/shuttle/merchant/home)
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "kX" = (
 /turf/simulated/shuttle/wall{
 	dir = 2;
@@ -4656,10 +4904,16 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "li" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/material/ashtray/bronze,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/wall,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar/havana,
+/turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "lj" = (
 /obj/effect/decal/cleanable/ash,
@@ -4727,15 +4981,15 @@
 	},
 /area/ninja_dojo/dojo)
 "lq" = (
-/obj/structure/table/woodentable{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/item/clothing/head/beret/solgov/marcom,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/area/rescue_base/base)
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "lr" = (
 /obj/machinery/teleport/station,
 /turf/unsimulated/floor{
@@ -4758,9 +5012,25 @@
 	icon_state = "bcarpet"
 	},
 /area/ninja_dojo/dojo)
+"lt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "lu" = (
-/obj/structure/closet,
-/area/wizard_station)
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/merchant_station)
 "lv" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle{
@@ -4965,6 +5235,14 @@
 /obj/machinery/vending/security,
 /turf/unsimulated/wall,
 /area/rescue_base/base)
+"lT" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/reagent_containers/food/snacks/soylentgreen,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "lU" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/payday/wolf,
@@ -4972,6 +5250,10 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
+"lV" = (
+/obj/structure/sign/warning/docking_area,
+/turf/simulated/wall/prepainted,
+/area/merchant_station)
 "lW" = (
 /obj/machinery/door/airlock/external{
 	req_access = list(150)
@@ -5064,6 +5346,27 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
+"mh" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/toy/figure/wizard,
+/obj/item/device/radio/intercom/syndicate{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
+"mi" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/mask/balaclava,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "mj" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
@@ -5386,6 +5689,14 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
+"mP" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/flame/candle,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/ninja_dojo/dojo)
 "mQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -5549,6 +5860,21 @@
 /obj/item/clothing/under/resomi/white,
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"nh" = (
+/obj/machinery/vending/wallmed1{
+	pixel_x = 7;
+	pixel_y = 32
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -7;
+	pixel_y = 32
+	},
+/obj/item/weapon/storage/secure/safe{
+	pixel_x = 30
+	},
+/obj/structure/flora/pottedplant/tropical,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/merchant/home)
 "ni" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/steel{
@@ -5758,6 +6084,38 @@
 	dir = 2
 	},
 /area/syndicate_mothership)
+"nC" = (
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/merchant/home)
+"nD" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	req_access = list(201)
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/merchant/home)
+"nE" = (
+/obj/structure/closet/secure_closet{
+	name = "merchant's locker";
+	req_access = list(201)
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/random/handgun,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/merchant/home)
+"nF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/wall/prepainted,
+/area/merchant_station)
 "nG" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/secure/briefcase,
@@ -5846,6 +6204,14 @@
 /obj/random/medical,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
+"nS" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/xenos_claw,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
 "nU" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -6603,16 +6969,6 @@
 	icon_state = "asteroid"
 	},
 /area/rescue_base/base)
-"pI" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall_c"
-	},
-/area/space)
 "pJ" = (
 /obj/machinery/light{
 	tag = "icon-tube1 (NORTH)";
@@ -6671,15 +7027,6 @@
 "pR" = (
 /turf/simulated/shuttle/wall{
 	dir = 1;
-	icon_state = "swall_c"
-	},
-/area/space)
-"pS" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/turf/simulated/shuttle/wall{
 	icon_state = "swall_c"
 	},
 /area/space)
@@ -7321,9 +7668,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"tr" = (
-/obj/structure/closet,
-/area/rescue_base/base)
 "ts" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
@@ -7431,21 +7775,6 @@
 	dir = 1
 	},
 /area/rescue_base/base)
-"tT" = (
-/obj/structure/table/woodentable{
-	dir = 5
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "standardrescue";
-	name = "Standard Gear";
-	pixel_x = 5;
-	pixel_y = 4
-	},
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/rescue_base/base)
 "tU" = (
 /obj/structure/window/shuttle{
 	icon_state = "window8"
@@ -7456,15 +7785,6 @@
 "tV" = (
 /turf/unsimulated/wall,
 /area/syndicate_mothership/raider_base)
-"tW" = (
-/obj/structure/table/woodentable,
-/obj/item/clothing/shoes/sandal,
-/obj/item/clothing/mask/balaclava,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "tX" = (
 /obj/structure/table/rack,
 /obj/item/weapon/shield/riot/metal,
@@ -7565,19 +7885,6 @@
 	dir = 1
 	},
 /area/rescue_base/base)
-"um" = (
-/obj/structure/table/woodentable,
-/obj/random/action_figure,
-/obj/random/contraband,
-/obj/random/junk,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
-/area/syndicate_mothership/raider_base)
 "un" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Command";
@@ -7888,17 +8195,6 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"vu" = (
-/obj/structure/table/woodentable{
-	dir = 5
-	},
-/obj/item/weapon/material/ashtray/bronze,
-/obj/item/trash/cigbutt/cigarbutt,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/rescue_base/base)
 "vw" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -8039,25 +8335,6 @@
 	dir = 4
 	},
 /area/syndicate_mothership)
-"vU" = (
-/obj/structure/flora/grass/both,
-/turf/unsimulated/floor/snow,
-/turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (SOUTHEAST)";
-	icon_state = "gravsnow_corner";
-	dir = 6
-	},
-/area/syndicate_mothership)
-"vV" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/tray{
-	pixel_y = 5
-	},
-/obj/item/weapon/storage/backpack,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "vY" = (
 /obj/machinery/light{
 	dir = 4
@@ -8101,14 +8378,6 @@
 	dir = 2
 	},
 /area/syndicate_mothership)
-"wi" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/sinpockets,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "wj" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/vox/carapace,
@@ -8579,14 +8848,6 @@
 	icon_state = "bcarpet"
 	},
 /area/ninja_dojo/dojo)
-"xI" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/dice/d20,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "xL" = (
 /obj/machinery/door/window{
 	dir = 1;
@@ -8674,18 +8935,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
-"yd" = (
-/obj/structure/table/woodentable,
-/obj/item/modular_computer/console/preset/library,
-/obj/item/device/radio/intercom/syndicate{
-	dir = 4;
-	pixel_x = -22
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "yh" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
@@ -8900,14 +9149,6 @@
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
-	},
-/area/wizard_station)
-"yU" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/dice,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
 	},
 /area/wizard_station)
 "yW" = (
@@ -10256,14 +10497,6 @@
 	dir = 1
 	},
 /area/rescue_base/base)
-"DJ" = (
-/obj/structure/table/woodentable,
-/obj/machinery/microwave,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "DK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -10418,13 +10651,6 @@
 	icon_state = "wood"
 	},
 /area/ninja_dojo/dojo)
-"Es" = (
-/obj/structure/table/woodentable,
-/obj/item/pizzabox/meat,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "Et" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -10928,22 +11154,6 @@
 	icon_state = "wood"
 	},
 /area/ninja_dojo/dojo)
-"FV" = (
-/obj/structure/table/woodentable{
-	dir = 5
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "heavyrescue";
-	name = "Heavy Gear";
-	pixel_x = -5;
-	pixel_y = 4;
-	req_access = newlist()
-	},
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/rescue_base/base)
 "FY" = (
 /obj/machinery/door/window{
 	dir = 1;
@@ -11084,18 +11294,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
-"GH" = (
-/obj/structure/table/woodentable,
-/obj/item/toy/figure/wizard,
-/obj/item/device/radio/intercom/syndicate{
-	dir = 1;
-	pixel_y = -22
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "GI" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -11267,14 +11465,6 @@
 	dir = 1
 	},
 /area/rescue_base/base)
-"Hm" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/flame/candle,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "Hn" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -11319,14 +11509,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"Hv" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/donut,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "HD" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
@@ -11484,18 +11666,6 @@
 	icon_state = "dark"
 	},
 /area/ninja_dojo/start)
-"Id" = (
-/obj/structure/table/woodentable,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/random/junk,
-/obj/random/maintenance,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
-/area/syndicate_mothership/raider_base)
 "Ie" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
@@ -11841,14 +12011,6 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
-"Jn" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/glasses,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "Jo" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave{
@@ -12757,14 +12919,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/wizard_station)
-"Mq" = (
-/obj/structure/table/woodentable,
-/obj/effect/landmark{
-	name = "Teleport-Scroll"
-	},
-/obj/item/toy/figure/ninja,
-/turf/simulated/floor/carpet,
-/area/wizard_station)
 "Ms" = (
 /obj/item/weapon/storage/mirror,
 /turf/unsimulated/wall,
@@ -13075,29 +13229,11 @@
 	icon_state = "wall3"
 	},
 /area/skipjack_station/start)
-"NB" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/glass/rag,
-/obj/random/loot,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "NC" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"NF" = (
-/obj/structure/table/woodentable,
-/obj/item/device/flashlight/lamp/green{
-	on = 0;
-	pixel_x = -3;
-	pixel_y = 8
-	},
-/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
-/turf/simulated/floor/carpet,
-/area/wizard_station)
 "NJ" = (
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
@@ -13990,14 +14126,6 @@
 	dir = 1
 	},
 /area/rescue_base/base)
-"QQ" = (
-/obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken6"
-	},
-/area/syndicate_mothership/raider_base)
 "QR" = (
 /obj/effect/floor_decal/carpet/blue{
 	dir = 4
@@ -14095,14 +14223,6 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
-"Ro" = (
-/obj/structure/flora/tree/pine,
-/turf/unsimulated/floor/snow,
-/turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner";
-	icon_state = "gravsnow_corner"
-	},
-/area/syndicate_mothership)
 "Rq" = (
 /turf/unsimulated/wall{
 	desc = "A secure airlock. Doesn't look like you can get through easily.";
@@ -14233,14 +14353,6 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
-"RT" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/candle_box,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "RU" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
@@ -14348,14 +14460,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"Sl" = (
-/obj/structure/table/woodentable,
-/obj/item/xenos_claw,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/wizard_station)
 "So" = (
 /obj/machinery/light{
 	dir = 4
@@ -14542,14 +14646,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
-"SN" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/snacks/soylentgreen,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "SO" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/medical,
@@ -14563,14 +14659,6 @@
 	dir = 8
 	},
 /area/syndicate_mothership)
-"SQ" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/bag/cash,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "SR" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -14626,14 +14714,6 @@
 	icon_state = "dark"
 	},
 /area/rescue_base/base)
-"Td" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/spacecash/bundle/c1,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "Tf" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/unsimulated/floor{
@@ -14681,14 +14761,6 @@
 	icon_state = "dark"
 	},
 /area/rescue_base/base)
-"Tp" = (
-/obj/structure/flora/grass/both,
-/turf/unsimulated/floor/snow,
-/turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner";
-	icon_state = "gravsnow_corner"
-	},
-/area/syndicate_mothership)
 "Tq" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
@@ -14947,9 +15019,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
-"Un" = (
-/obj/structure/closet,
-/area/syndicate_mothership/raider_base)
 "Up" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -14983,14 +15052,6 @@
 /obj/machinery/washing_machine,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
-"Ut" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/snacks/chawanmushi,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "Uu" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/red,
@@ -15169,19 +15230,6 @@
 	dir = 9
 	},
 /area/skipjack_station/start)
-"Vc" = (
-/obj/structure/table/woodentable{
-	dir = 5
-	},
-/obj/item/device/radio/phone{
-	desc = "Should anything ever go wrong...";
-	frequency = 1345
-	},
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/rescue_base/base)
 "Ve" = (
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/potatoseed,
@@ -15337,19 +15385,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/transport1/centcom)
-"VB" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/backpack/cultpack,
-/turf/simulated/floor/carpet,
-/area/wizard_station)
-"VD" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/cups,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "VF" = (
 /turf/unsimulated/floor/plating,
 /turf/simulated/shuttle/wall{
@@ -15507,14 +15542,6 @@
 	name = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"Wj" = (
-/obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/ninja_dojo/dojo)
 "Wk" = (
 /turf/space{
 	icon_state = "black"
@@ -15641,14 +15668,6 @@
 	icon_state = "asteroid"
 	},
 /area/rescue_base/base)
-"WK" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/material/ashtray/bronze,
-/obj/item/trash/cigbutt/cigarbutt,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "WM" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/firstaid/regular,
@@ -15824,13 +15843,6 @@
 /obj/random/maintenance,
 /turf/simulated/floor/shuttle/white,
 /area/skipjack_station/start)
-"Xv" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/box/glasses/rocks,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/syndicate_mothership/raider_base)
 "Xw" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -16224,14 +16236,6 @@
 	icon_state = "dark"
 	},
 /area/ninja_dojo/start)
-"YV" = (
-/obj/structure/table/woodentable,
-/obj/item/device/megaphone,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/wizard_station)
 "YW" = (
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
@@ -16403,11 +16407,6 @@
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
-"ZA" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/backpack/satchel/grey/withwallet,
-/turf/simulated/floor/carpet,
-/area/wizard_station)
 "ZB" = (
 /obj/effect/floor_decal/chapel{
 	icon_state = "chapel";
@@ -16507,12 +16506,6 @@
 	icon_state = "lino"
 	},
 /area/syndicate_mothership)
-"ZR" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/storage/backpack/satchel/grey/withwallet,
-/obj/item/clothing/glasses/monocle,
-/turf/simulated/floor/carpet,
-/area/wizard_station)
 "ZU" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -17346,9 +17339,9 @@ ab
 aq
 pf
 pD
-pI
+gf
 pN
-pS
+gg
 pR
 pf
 aq
@@ -25234,7 +25227,7 @@ Sa
 HU
 HU
 EZ
-yd
+gT
 pl
 Lr
 NK
@@ -25631,18 +25624,18 @@ Sa
 Sa
 Sa
 ue
-NF
-Mq
-VB
-ZA
+gm
+go
+gp
+gs
 HU
-yU
+gJ
 pl
 Ma
-YV
+hA
 Ma
 pl
-SQ
+kg
 HU
 pl
 pl
@@ -25840,9 +25833,9 @@ JQ
 uy
 pl
 pl
-Ut
-Hv
-kK
+gU
+hH
+hM
 pl
 pl
 gd
@@ -25856,7 +25849,7 @@ lo
 OD
 lo
 Fi
-Sl
+nS
 lo
 Qp
 Qp
@@ -26035,18 +26028,18 @@ Sa
 Sa
 Sa
 Ts
-ZR
+gn
 mB
 Tq
 Ug
 HU
-xI
+gL
 vI
 EI
-Td
+hI
 EI
 pl
-RT
+ki
 HU
 pl
 pl
@@ -26446,9 +26439,9 @@ Sa
 HU
 HU
 IC
-VD
+gV
 pl
-gL
+hN
 La
 HU
 HU
@@ -26850,9 +26843,9 @@ Sa
 Sa
 Sa
 HU
-lu
+gW
 Mh
-lu
+gW
 HU
 Sa
 Sa
@@ -27052,9 +27045,9 @@ Sa
 Sa
 Sa
 HU
-lu
+gW
 Mh
-lu
+gW
 HU
 Sa
 Sa
@@ -27254,9 +27247,9 @@ Sa
 Sa
 Sa
 HU
-lu
+gW
 Mh
-lu
+gW
 HU
 Sa
 Sa
@@ -27456,9 +27449,9 @@ Sa
 Sa
 Sa
 HU
-lu
+gW
 Mh
-lu
+gW
 HU
 Sa
 Sa
@@ -35943,12 +35936,12 @@ VP
 Ed
 Pe
 oG
-Wj
-ji
+iU
+kj
 Ed
 Ed
-SN
-GH
+lT
+mh
 oG
 Ed
 PW
@@ -36145,16 +36138,16 @@ VP
 Ed
 Pe
 oG
-Jn
+ji
 Ed
 Ed
 Ed
 Ed
-tW
+mi
 oG
-Hm
+mP
 Sx
-Hm
+mP
 oG
 Oq
 Be
@@ -36347,7 +36340,7 @@ QR
 Ed
 Pe
 oG
-wi
+jl
 Ed
 Ed
 Wb
@@ -36549,9 +36542,9 @@ Ed
 Ed
 Pe
 oG
-DJ
+jA
 Ed
-kg
+kJ
 Bg
 Ed
 Ed
@@ -42601,7 +42594,7 @@ Ga
 Ga
 Ga
 Ga
-Ro
+gq
 GD
 Dw
 Dw
@@ -43005,7 +42998,7 @@ vT
 vT
 vT
 vT
-Tp
+gr
 uT
 ux
 Oo
@@ -43402,7 +43395,7 @@ uT
 Sb
 Ga
 Ga
-vU
+ge
 uT
 uT
 xR
@@ -48373,8 +48366,8 @@ Wv
 Wv
 Wv
 XO
-FV
-vu
+fl
+fA
 XO
 Wv
 Wv
@@ -48575,7 +48568,7 @@ Wv
 Wv
 Wv
 XO
-Vc
+fu
 yD
 XO
 Wv
@@ -48777,8 +48770,8 @@ Wv
 Wv
 Wv
 XO
-tT
-lq
+fx
+fB
 XO
 Wv
 Wv
@@ -48961,10 +48954,10 @@ IA
 IA
 GQ
 XO
-tr
+fc
 Vg
 Vg
-tr
+fc
 XO
 zK
 zK
@@ -49365,10 +49358,10 @@ uk
 XO
 XO
 XO
-tr
+fc
 Vg
 Vg
-tr
+fc
 XO
 zK
 Kn
@@ -49769,10 +49762,10 @@ IA
 IA
 Vv
 XO
-tr
+fc
 Vg
 Vg
-tr
+fc
 XO
 zK
 zK
@@ -49880,12 +49873,12 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 gN
 gN
 gN
 gN
-fc
+gG
 ab
 iX
 jb
@@ -50080,9 +50073,9 @@ eJ
 eJ
 eJ
 eJ
-fc
-fc
-fc
+gG
+gG
+gG
 gO
 hi
 hD
@@ -50282,7 +50275,7 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 fN
 fN
 gP
@@ -50484,7 +50477,7 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 fO
 gi
 gQ
@@ -50495,9 +50488,9 @@ gN
 ab
 ab
 iY
-jK
-ks
-kW
+nh
+nC
+nE
 iY
 ab
 ab
@@ -50686,7 +50679,7 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 fP
 gj
 gR
@@ -50698,7 +50691,7 @@ gM
 iI
 jo
 jq
-kt
+nD
 kX
 jo
 lZ
@@ -50787,7 +50780,7 @@ Ju
 Gw
 QV
 ln
-tr
+fc
 VT
 Vg
 Vg
@@ -50887,15 +50880,15 @@ ew
 eJ
 eJ
 eJ
-fc
-fc
-fc
-fc
-fc
+gG
+gG
+gG
+gG
+gG
 hm
-hH
-fc
-fc
+kK
+gG
+gG
 ir
 iY
 jp
@@ -51089,14 +51082,14 @@ ew
 eJ
 eJ
 eJ
-fc
-fu
+gG
+hn
 fQ
 gk
-gS
-hn
-hI
-fc
+jB
+km
+kP
+gG
 gM
 ab
 iZ
@@ -51291,13 +51284,13 @@ ew
 eJ
 eJ
 eJ
-fc
+gG
 fv
 fy
 gl
-gT
-gm
-hI
+jD
+hO
+kP
 gN
 ab
 iI
@@ -51493,13 +51486,13 @@ ew
 eJ
 eJ
 eJ
-fc
+gG
 fv
 fy
 gl
-gU
-ho
-hJ
+jE
+ko
+kR
 gN
 ab
 iJ
@@ -51695,13 +51688,13 @@ ew
 eJ
 eJ
 eJ
-fc
+gG
 fw
 fy
-gm
-gm
-gm
-hK
+hO
+hO
+hO
+kW
 gN
 ab
 iK
@@ -51715,11 +51708,11 @@ jb
 ab
 ab
 gM
-fc
+gG
 gN
 oc
 gN
-fc
+gG
 eJ
 ab
 ab
@@ -51897,13 +51890,13 @@ ew
 eJ
 eJ
 eJ
-fc
-fx
-fR
-gm
-gm
-hp
-hL
+gG
+ho
+hJ
+hO
+hO
+ks
+li
 gN
 ab
 ab
@@ -51916,12 +51909,12 @@ lD
 jc
 ab
 mC
-fc
-fc
+gG
+gG
 nI
 od
 ou
-fc
+gG
 eJ
 eJ
 ab
@@ -52097,15 +52090,15 @@ Js
 ew
 ew
 eJ
-fc
-fc
-fc
-fc
-fc
-gn
-gm
-hp
-hM
+gG
+gG
+gG
+gG
+gG
+ip
+hO
+ks
+lq
 gN
 ab
 ab
@@ -52123,8 +52116,8 @@ nm
 nJ
 oe
 ov
-fc
-fc
+gG
+gG
 eJ
 eJ
 ab
@@ -52259,7 +52252,7 @@ tV
 Hg
 xn
 Qj
-Id
+fE
 CZ
 tV
 vk
@@ -52299,15 +52292,15 @@ Js
 ew
 ew
 eJ
-fc
+gG
 ff
 fj
 fy
-fc
-go
-gm
-hq
-hN
+gG
+is
+hO
+kt
+lt
 gN
 ir
 ab
@@ -52326,8 +52319,8 @@ nK
 of
 ow
 oJ
-fc
-fc
+gG
+gG
 eJ
 ew
 ev
@@ -52501,16 +52494,16 @@ Js
 ew
 ew
 eJ
-fc
+gG
 fg
 fk
 fz
-fS
-gp
-gV
-hr
-hO
-fc
+hK
+iD
+jK
+kH
+lu
+gG
 gM
 gM
 ja
@@ -52520,7 +52513,7 @@ ky
 lc
 lF
 iY
-is
+lV
 gN
 gN
 no
@@ -52529,7 +52522,7 @@ og
 ox
 oK
 oV
-fc
+gG
 eJ
 ew
 ew
@@ -52664,7 +52657,7 @@ KE
 RO
 RO
 RO
-Un
+fI
 Ix
 sV
 pu
@@ -52703,17 +52696,17 @@ Js
 ew
 ew
 eJ
-fc
+gG
 fh
-fl
-fA
-fc
-gq
+gS
+hp
+gG
+iE
 gN
 gN
 hP
-fc
-is
+gG
+lV
 gM
 iY
 jt
@@ -52722,7 +52715,7 @@ kx
 ld
 js
 iZ
-fc
+gG
 mD
 mT
 np
@@ -52731,7 +52724,7 @@ oh
 oy
 oL
 oW
-fc
+gG
 eJ
 ew
 ew
@@ -52805,7 +52798,7 @@ Vg
 VT
 BA
 zK
-tr
+fc
 zK
 Cy
 za
@@ -52905,13 +52898,13 @@ Js
 ew
 ew
 eJ
-fc
-fc
-fc
-fc
-fc
-gr
-gW
+gG
+gG
+gG
+gG
+gG
+iH
+kd
 hk
 hQ
 ih
@@ -52924,7 +52917,7 @@ kx
 lc
 lC
 iY
-fc
+gG
 mE
 mU
 nq
@@ -52933,7 +52926,7 @@ oi
 oz
 oM
 oX
-fc
+gG
 eJ
 ew
 ew
@@ -53108,12 +53101,12 @@ ew
 ew
 eJ
 eJ
-fc
+gG
 fm
-fB
-fc
-gs
-fc
+hq
+gG
+iT
+gG
 hs
 hj
 ii
@@ -53126,7 +53119,7 @@ kz
 lc
 lG
 iY
-fc
+gG
 mF
 mV
 nr
@@ -53135,7 +53128,7 @@ oj
 oA
 oN
 oY
-fc
+gG
 eJ
 ew
 ew
@@ -53269,7 +53262,7 @@ tV
 CN
 CU
 DX
-um
+fF
 MU
 tV
 sV
@@ -53310,12 +53303,12 @@ ew
 ew
 eJ
 eJ
-fc
+gG
 fn
 fC
 fT
 gt
-fc
+gG
 ht
 hj
 ii
@@ -53328,7 +53321,7 @@ kA
 js
 jm
 iX
-fc
+gG
 mG
 mW
 ns
@@ -53337,7 +53330,7 @@ ok
 oB
 oO
 oZ
-fc
+gG
 eJ
 ew
 ew
@@ -53512,12 +53505,12 @@ ew
 ew
 eJ
 eJ
-fc
+gG
 fo
 fD
 fU
 gu
-fc
+gG
 hu
 hj
 ii
@@ -53529,17 +53522,17 @@ jS
 kB
 le
 iY
-fc
-fc
-fc
+gG
+gG
+gG
 mX
-fc
+gG
 nN
 ol
 oC
 oC
-fc
-fc
+gG
+gG
 eJ
 ew
 ew
@@ -53714,12 +53707,12 @@ ew
 ew
 eJ
 eJ
-fc
-fc
-fc
-fc
-fc
-fc
+gG
+gG
+gG
+gG
+gG
+gG
 hv
 hR
 ii
@@ -53735,12 +53728,12 @@ ma
 ml
 gN
 ii
-fc
-fc
-fc
-fc
-fc
-fc
+gG
+gG
+gG
+gG
+gG
+gG
 eJ
 eJ
 ew
@@ -53822,7 +53815,7 @@ Vg
 Vg
 Vg
 XO
-tr
+fc
 wU
 vR
 vR
@@ -53878,7 +53871,7 @@ sV
 tV
 zn
 XR
-Es
+fS
 XR
 NC
 Ix
@@ -53918,11 +53911,11 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 fV
 gv
-fc
-fc
+gG
+gG
 hS
 ii
 hj
@@ -53937,7 +53930,7 @@ ma
 mm
 gN
 ii
-fc
+gG
 eJ
 eJ
 eJ
@@ -54078,9 +54071,9 @@ tV
 sV
 sV
 tV
-vV
+fJ
 Pa
-WK
+ga
 kf
 NC
 Ix
@@ -54120,7 +54113,7 @@ eJ
 eJ
 eJ
 eJ
-fc
+gG
 fW
 gw
 gX
@@ -54139,7 +54132,7 @@ jV
 mn
 gN
 iQ
-fc
+gG
 eJ
 eJ
 eJ
@@ -54280,9 +54273,9 @@ Ie
 sV
 sV
 Ix
-Xv
+fM
 XR
-NB
+gb
 XR
 NC
 Ix
@@ -54322,27 +54315,27 @@ eJ
 eJ
 eJ
 fp
-fE
+hr
 fX
 gx
 gY
-fc
+gG
 hU
 ii
 iu
 gN
 gN
-is
+lV
 jV
 jV
 jV
-is
-fc
+lV
+gG
 mo
-fc
+gG
 ii
-fc
-fc
+gG
+gG
 eJ
 eJ
 eJ
@@ -54482,7 +54475,7 @@ Ie
 Pc
 sV
 Ix
-QQ
+fR
 NC
 NC
 NC
@@ -54524,11 +54517,11 @@ eJ
 eJ
 fd
 fq
-fc
+gG
 fY
-fc
+gG
 gZ
-fc
+gG
 hV
 ik
 iv
@@ -54544,7 +54537,7 @@ mp
 mH
 mY
 nt
-fc
+gG
 eJ
 eJ
 eJ
@@ -54726,11 +54719,11 @@ eJ
 eJ
 fd
 fd
-fc
+gG
 fZ
-fc
+gG
 ha
-fc
+gG
 hW
 il
 hj
@@ -54745,8 +54738,8 @@ hj
 iQ
 mI
 mZ
-fc
-fc
+gG
+gG
 eJ
 eJ
 eJ
@@ -54928,26 +54921,26 @@ eJ
 eJ
 fd
 fr
-fc
-ga
-ga
-ga
-ga
-ga
+gG
+hL
+hL
+hL
+hL
+hL
 im
 iw
 iM
 hj
-fc
+gG
 jX
 kD
 jX
-fc
+gG
 mb
 mq
 mJ
 na
-fc
+gG
 eJ
 eJ
 eJ
@@ -55131,27 +55124,27 @@ fd
 fd
 fs
 fd
-ga
+hL
 gy
 gy
 gy
-ga
-ga
-fc
+hL
+hL
+gG
 iN
 je
-fc
+gG
 jY
 kE
 lg
-fc
+gG
 mc
 mr
-fc
-fc
-fc
-fc
-fc
+gG
+gG
+gG
+gG
+gG
 eJ
 eJ
 eJ
@@ -55333,12 +55326,12 @@ fe
 fd
 fd
 fd
-ga
+hL
 gz
 hb
 hx
 hX
-ga
+hL
 ix
 iO
 jf
@@ -55353,7 +55346,7 @@ mK
 nb
 nu
 nO
-fc
+gG
 eJ
 eJ
 eJ
@@ -55535,19 +55528,19 @@ eJ
 fe
 fd
 eJ
-ga
+hL
 gA
 hc
 hx
 hY
-ga
+hL
 iy
 iP
 jg
 hj
 ka
 kE
-li
+nF
 lM
 hj
 mt
@@ -55555,7 +55548,7 @@ hj
 nc
 nc
 hj
-fc
+gG
 eJ
 eJ
 eJ
@@ -55737,19 +55730,19 @@ eJ
 eJ
 eJ
 eJ
-ga
+hL
 gB
 gB
 hx
 hZ
-ga
+hL
 iz
 iQ
 hj
 jy
-fc
+gG
 kE
-fc
+gG
 lN
 hj
 il
@@ -55757,7 +55750,7 @@ mL
 nd
 nv
 nP
-fc
+gG
 eJ
 eJ
 eJ
@@ -55939,7 +55932,7 @@ eJ
 eJ
 eJ
 eJ
-ga
+hL
 gC
 hd
 hy
@@ -55951,7 +55944,7 @@ hj
 hj
 kb
 kG
-fc
+gG
 lO
 hj
 hj
@@ -55959,7 +55952,7 @@ mM
 ne
 nw
 nQ
-fc
+gG
 eJ
 eJ
 eJ
@@ -56141,19 +56134,19 @@ eJ
 eJ
 eJ
 eJ
-ga
+hL
 gD
 he
 he
-ga
-ga
+hL
+hL
 hj
 hj
 hj
 hj
 kc
 kG
-fc
+gG
 lP
 md
 mu
@@ -56161,7 +56154,7 @@ hj
 nf
 nf
 nK
-fc
+gG
 eJ
 eJ
 eJ
@@ -56343,17 +56336,17 @@ eJ
 eJ
 eJ
 eJ
-ga
-ga
-ga
-ga
-ga
-fc
+hL
+hL
+hL
+hL
+hL
+gG
 iB
 iS
 jh
 jz
-fc
+gG
 kE
 lj
 lQ
@@ -56363,7 +56356,7 @@ mN
 ng
 nx
 nR
-fc
+gG
 eJ
 eJ
 eJ
@@ -56550,22 +56543,22 @@ eJ
 eJ
 eJ
 eJ
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
-fc
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
 eJ
 eJ
 eJ
