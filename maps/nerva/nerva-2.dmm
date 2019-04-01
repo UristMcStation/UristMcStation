@@ -8873,15 +8873,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "qm" = (
-/obj/item/device/radio,
-/obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/item/device/radio,
 /obj/effect/floor_decal/corner/black/full,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio,
+/obj/machinery/suit_cycler{
+	departments = list("Medical","Security");
+	name = "Med/Sec Suit Cycler";
+	req_access = newlist();
+	req_one_access = list(1,5)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "qn" = (
@@ -13147,7 +13148,10 @@
 	pixel_x = -22
 	},
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	icon_state = "booze_dispenser";
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/civilian/bar)
 "yn" = (
@@ -15313,6 +15317,10 @@
 /obj/structure/table/rack,
 /obj/item/device/multitool,
 /obj/item/weapon/inflatable_dispenser,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "CB" = (
@@ -27492,12 +27500,15 @@
 /area/maintenance/second_deck/central)
 "Zf" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	icon_state = "intercom";
 	pixel_x = -28;
 	tag = "icon-intercom (EAST)"
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	icon_state = "soda_dispenser";
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/civilian/bar)
