@@ -830,6 +830,13 @@
 /obj/item/weapon/storage/lockbox/station_account,
 /turf/simulated/floor/wood,
 /area/command/captain)
+"cB" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "cC" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -2927,10 +2934,6 @@
 /obj/structure/sign/warning/compressed_gas,
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/atmospherics)
-"jM" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/hallway/aft/first)
 "jN" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
@@ -4588,14 +4591,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ps" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
+/area/hallway/aft/first)
+"pt" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/hallway/aft/first)
 "pw" = (
 /turf/simulated/floor/plating,
@@ -4911,6 +4919,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
+"qI" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "qL" = (
 /obj/random/medical/lite,
 /obj/structure/table/rack,
@@ -5843,6 +5857,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/wall/r_wall,
 /area/engineering/fdengine)
+"uL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "uM" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/fuelbay)
@@ -6125,6 +6145,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
+"vR" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afp)
 "vT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -6667,10 +6691,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
 "xZ" = (
@@ -9890,7 +9911,10 @@
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
 "Kh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
 "Ki" = (
@@ -10053,6 +10077,13 @@
 	icon_state = "wood_broken3"
 	},
 /area/civilian/dorms)
+"Lb" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/first)
 "Ld" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	tag = "icon-intact-supply (SOUTHWEST)";
@@ -11571,6 +11602,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
+"RC" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "RF" = (
 /obj/machinery/door/airlock/glass{
 	name = "General Storage"
@@ -12017,6 +12054,27 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
+"TA" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/aft/first)
 "TB" = (
 /obj/structure/lattice,
 /obj/structure/cable{
@@ -12375,6 +12433,19 @@
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
+"UW" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afs)
 "Vb" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -12592,6 +12663,19 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"VR" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "VT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -12640,6 +12724,16 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
+"We" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/first)
 "Wf" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -12786,6 +12880,25 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
+"WP" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "WQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -12840,6 +12953,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
+"Xg" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/first)
 "Xi" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-21";
@@ -12927,10 +13047,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
@@ -13384,14 +13506,15 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "Port Hallway - Fore-Centre"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/first)
@@ -27219,7 +27342,7 @@ qM
 lU
 fu
 hb
-pM
+lz
 Fa
 lW
 JG
@@ -35087,7 +35210,7 @@ WL
 rK
 xd
 dT
-dT
+UW
 dT
 dT
 dT
@@ -35269,7 +35392,7 @@ xa
 Ig
 Ig
 Ig
-Ig
+vR
 Ig
 oo
 qZ
@@ -35695,7 +35818,7 @@ vr
 VJ
 lW
 lW
-uy
+ae
 uy
 uy
 uy
@@ -36687,8 +36810,8 @@ xa
 xa
 qZ
 BU
-Od
-aN
+TA
+pt
 nd
 nd
 nd
@@ -36698,8 +36821,8 @@ nd
 nd
 nd
 nd
-Gq
-jM
+Lb
+Lb
 Fx
 au
 lW
@@ -36897,7 +37020,7 @@ Tn
 cf
 hR
 ps
-vk
+We
 ew
 vk
 vk
@@ -37099,9 +37222,9 @@ eu
 Gq
 be
 Gq
-ls
-WQ
 Gq
+WQ
+ls
 Gq
 Gq
 jP
@@ -38102,7 +38225,7 @@ hG
 Eq
 rT
 Zf
-Ar
+zs
 ty
 LY
 sI
@@ -38112,7 +38235,7 @@ yT
 yT
 yT
 ty
-Rm
+qI
 rY
 XA
 mm
@@ -40739,7 +40862,7 @@ Bu
 RW
 NC
 Rm
-Rm
+uL
 RF
 Cj
 fm
@@ -40941,7 +41064,7 @@ Md
 iD
 iD
 le
-Rm
+uL
 cL
 Qg
 Bm
@@ -41131,8 +41254,8 @@ wH
 sb
 cp
 Za
-ql
-HW
+WP
+Xg
 iD
 fU
 Nk
@@ -41142,8 +41265,8 @@ et
 ku
 gi
 iD
-Ip
-Rm
+cB
+wz
 cL
 vY
 Bm
@@ -41940,7 +42063,7 @@ hG
 Eq
 rT
 zD
-Ar
+RC
 Ar
 Rm
 Bg
@@ -41950,7 +42073,7 @@ Rm
 Rm
 VG
 Rm
-Rm
+Bg
 Kz
 XA
 mm
@@ -42142,7 +42265,7 @@ hG
 Eq
 rT
 ix
-mU
+VR
 mU
 Gb
 fv

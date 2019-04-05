@@ -1437,7 +1437,7 @@
 	req_access = list(74);
 	tag_exterior_sensor = "antonine_shuttle_sensor_external"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "fD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -1543,7 +1543,8 @@
 	pixel_x = 36;
 	pixel_y = 25
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "fO" = (
 /obj/machinery/porta_turret/stationary,
@@ -1736,6 +1737,10 @@
 	icon_state = "handrail";
 	dir = 4
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -26;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "gn" = (
@@ -1820,6 +1825,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"gx" = (
+/obj/structure/closet,
+/obj/random/maintenance/clean,
+/obj/random/tech_supply,
+/obj/item/weapon/crowbar,
+/obj/random/tool,
+/obj/item/clothing/glasses/welding,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"gA" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "gB" = (
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -2729,6 +2748,10 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
+"jx" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "jy" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -3240,6 +3263,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
+"kQ" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "kV" = (
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -4103,7 +4130,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "ni" = (
 /obj/machinery/atmospherics/valve/digital{
@@ -4132,6 +4159,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
+"nl" = (
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "no" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -4172,6 +4203,13 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
+"nu" = (
+/obj/structure/table/rack,
+/obj/item/weapon/flame/lighter,
+/obj/random/smokes,
+/obj/random/smokes,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "nv" = (
 /obj/structure/disposaloutlet,
 /obj/structure/window/reinforced{
@@ -5954,7 +5992,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "sa" = (
 /obj/machinery/disposal,
@@ -7822,7 +7860,7 @@
 	frequency = 1431;
 	id_tag = "antonine_shuttle_pump_out_internal"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "xf" = (
 /obj/structure/catwalk,
@@ -8346,7 +8384,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
 "yB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -8354,6 +8392,15 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
+"yD" = (
+/obj/structure/bed/nice,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"yE" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
 "yF" = (
 /obj/structure/handrai{
 	tag = "icon-handrail (WEST)";
@@ -8989,7 +9036,7 @@
 	id_tag = "trajan_shuttle_inner";
 	name = "Trajan External Access"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
 "AA" = (
 /turf/simulated/wall/r_wall,
@@ -9510,7 +9557,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "BV" = (
 /obj/structure/table/reinforced,
@@ -11246,6 +11293,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -10
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
 "Ga" = (
@@ -13930,7 +13985,7 @@
 	req_access = list(74);
 	req_one_access = newlist()
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "NB" = (
 /obj/machinery/door/airlock/glass{
@@ -14088,7 +14143,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "NW" = (
 /obj/item/weapon/reagent_containers/dropper,
@@ -14880,7 +14935,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "Qa" = (
 /obj/machinery/light{
@@ -15871,7 +15926,7 @@
 	req_access = list(74)
 	},
 /obj/machinery/shield_diffuser,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "SD" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -17374,6 +17429,7 @@
 	pixel_x = 0;
 	pixel_y = 2
 	},
+/obj/item/device/radio,
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
 "Wb" = (
@@ -17632,6 +17688,13 @@
 /obj/structure/sign/warning/pods/south,
 /turf/simulated/wall/r_wall,
 /area/hallway/centralthird)
+"WQ" = (
+/obj/structure/closet/crate{
+	icon_state = "crateopen";
+	opened = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "WT" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
@@ -18165,7 +18228,7 @@
 	frequency = 1431;
 	id_tag = "antonine_shuttle_pump"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "Ye" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -35537,7 +35600,7 @@ Gk
 DD
 JG
 GW
-EZ
+gA
 EZ
 EZ
 EZ
@@ -35952,7 +36015,7 @@ pE
 Gk
 Gk
 Gk
-aa
+Gk
 aa
 aa
 aa
@@ -36154,7 +36217,7 @@ qj
 EA
 ug
 Gk
-aa
+Gk
 aa
 aa
 aa
@@ -36356,8 +36419,8 @@ Gk
 EA
 If
 Gk
-aa
-aa
+Gk
+Gk
 aa
 aa
 aa
@@ -36558,8 +36621,8 @@ Gk
 EA
 Wq
 Gk
-aa
-aa
+Gk
+Gk
 aa
 aa
 aa
@@ -36759,9 +36822,9 @@ vN
 Gk
 EA
 EA
+sx
+EA
 Gk
-aa
-aa
 aa
 aa
 aa
@@ -36961,9 +37024,9 @@ or
 Gk
 EA
 ly
+oh
+EA
 Gk
-aa
-aa
 aa
 aa
 aa
@@ -37163,9 +37226,9 @@ rg
 Gk
 EA
 QI
+oh
+EA
 Gk
-aa
-aa
 aa
 aa
 aa
@@ -37364,10 +37427,10 @@ dm
 Gk
 Gk
 Dm
+oh
+oh
+EA
 Gk
-Gk
-aa
-aa
 aa
 aa
 aa
@@ -37566,10 +37629,10 @@ or
 Gk
 Gk
 pE
+oh
+gx
+EA
 Gk
-Gk
-aa
-aa
 aa
 aa
 aa
@@ -37766,12 +37829,12 @@ oh
 oh
 oh
 Gk
-Gk
+WQ
 vr
+oh
+nu
+Dm
 Gk
-Gk
-aa
-aa
 aa
 aa
 aa
@@ -37970,10 +38033,10 @@ Ow
 Gk
 QY
 EA
+oh
+oh
+EA
 Gk
-Gk
-aa
-aa
 aa
 aa
 aa
@@ -38172,10 +38235,10 @@ xl
 Gk
 TR
 EA
+oh
+yD
+EA
 Gk
-Gk
-aa
-aa
 aa
 aa
 aa
@@ -38376,8 +38439,8 @@ Gk
 sx
 Gk
 Gk
-aa
-aa
+pE
+Gk
 aa
 aa
 aa
@@ -38578,8 +38641,8 @@ CJ
 CJ
 pq
 Gk
-aa
-aa
+If
+Gk
 aa
 aa
 aa
@@ -38780,8 +38843,8 @@ Rl
 Rl
 kg
 Gk
-aa
-aa
+EA
+Gk
 aa
 aa
 aa
@@ -38982,8 +39045,8 @@ Rk
 Rl
 kg
 Gk
-aa
-aa
+EA
+Gk
 aa
 aa
 aa
@@ -39184,8 +39247,8 @@ xw
 Rl
 kg
 Gk
-aa
-aa
+EA
+Gk
 aa
 aa
 aa
@@ -39386,8 +39449,8 @@ Uf
 Rl
 kg
 Gk
-aa
-aa
+EA
+Gk
 aa
 aa
 aa
@@ -39588,9 +39651,9 @@ Tx
 Rl
 kg
 Gk
-aa
-aa
-aa
+EA
+Gk
+Gk
 aa
 aa
 aa
@@ -39790,9 +39853,9 @@ Rl
 Rl
 kg
 Gk
-aa
-aa
-aa
+Dm
+Gk
+Gk
 aa
 aa
 aa
@@ -39992,9 +40055,9 @@ wD
 uH
 oe
 Gk
-aa
-aa
-aa
+EA
+Gk
+Gk
 aa
 aa
 aa
@@ -40194,9 +40257,9 @@ HQ
 uH
 kg
 Gk
-aa
-aa
-aa
+EA
+Gk
+Gk
 aa
 aa
 aa
@@ -40396,10 +40459,10 @@ Lo
 uH
 pv
 Gk
-aa
-aa
-aa
-aa
+EA
+Gk
+Gk
+Gk
 aa
 aa
 aa
@@ -40598,10 +40661,10 @@ Lo
 uH
 kg
 Gk
-aa
-aa
-aa
-aa
+kQ
+Xx
+Xx
+Xx
 aa
 aa
 aa
@@ -40800,10 +40863,10 @@ Lo
 uH
 kg
 Gk
+nl
+tL
+ZA
 Xx
-aa
-aa
-aa
 aa
 aa
 aa
@@ -41002,10 +41065,10 @@ DA
 OG
 Fj
 Gk
+Yg
 Xx
+jx
 Xx
-aa
-aa
 aa
 aa
 aa
@@ -41206,8 +41269,8 @@ SS
 DT
 ZG
 Xx
-aa
-aa
+Xx
+Xx
 aa
 aa
 aa
@@ -41408,8 +41471,8 @@ JJ
 Aw
 Jj
 Xx
-aa
-aa
+Xx
+Xx
 aa
 aa
 aa
@@ -41610,7 +41673,7 @@ wa
 Aw
 Jj
 Xx
-aa
+Xx
 aa
 aa
 aa
@@ -44191,10 +44254,10 @@ NE
 NE
 NE
 NE
+NE
+NE
+NE
 fI
-NE
-NE
-NE
 NE
 Bz
 BN
@@ -44392,7 +44455,7 @@ Bz
 Qe
 Bz
 Qe
-Bz
+yE
 Qe
 Pp
 Qe
@@ -45808,7 +45871,7 @@ aa
 aa
 aa
 aa
-NE
+aa
 NE
 NE
 NE
@@ -46011,7 +46074,7 @@ aa
 aa
 aa
 aa
-NE
+aa
 NE
 NE
 Bb
