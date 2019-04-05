@@ -246,7 +246,7 @@
 	title = "Stowaway"
 	department = "Civilian"
 	department_flag = CIV
-
+	hud_icon = "hudunknown"
 	total_positions = 1
 	spawn_positions = 1
 	availablity_chance = 15
