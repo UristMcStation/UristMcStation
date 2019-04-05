@@ -138,8 +138,7 @@
 
 						if(prob(component_hit))
 							HitComponents(OM)
-							var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
-							P.Fire(projectile_type)
+							MapFire()
 
 				else if(passshield) //do we pass through the shield? let's do our damage
 					if(OM.shields)
@@ -150,8 +149,7 @@
 
 					if(prob(component_hit))
 						HitComponents(OM)
-					var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
-					P.Fire(projectile_type)
+						MapFire()
 
 				if(OM.health <= (OM.maxHealth * 0.5))
 
@@ -206,6 +204,11 @@
 
 	if(!charged && !recharging)
 		icon_state = "[initial(icon_state)]-empty"
+
+/obj/machinery/shipweapons/proc/MapFire()
+	var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
+	P.Fire(projectile_type)
+
 
 //missiles
 

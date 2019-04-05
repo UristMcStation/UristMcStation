@@ -3,7 +3,7 @@
 	description = "Terraformed during the 22nd century, Mars is the capital of the Terran Confederacy, the largest and most populous human faction\
 	The day to day business of conducting the Confederacy is orchestrated from here, and in addition to its obvious political value, \
 	Mars is also an economic powerhouse. Featuring largescale industry, both planet based and orbital, and extensive agricultural networks, \
-	Mars is the trading hub of Sol. Due to the high level of economic activity on Mars, there is also a large corporate presence. \
+	Mars is the trading hub of the Sol system. Due to the high level of economic activity on Mars, there is also a large corporate presence. \
 	However, corporations are not allowed to maintain a presence in the capital, Olympus, in order to avoid corruption in the government. \
 	That being said, companies like NanoTrasen have huge industrial interests in other large Martian cities, and own large orbital refineries and dockyards. \
 	Mars has been mined of most of its useful minerals, but due to the massive trade routes maintained by the Terran Confederacy's trading fleet, \
@@ -40,7 +40,7 @@
 	distance = "1AU"
 	description = "Luna stands at a strange position in the Terran Confederacy. Officially, Luna is not a part of the Confederacy; it was privately purchased, \
 	and its ownership was never transferred to any real government. Most of Luna is now held under a web of private and corporate ownership; \
-	there is no government or central authority. Contracts rule the day on Luna.n its early days, Luna still held to Earthly rule. \
+	there is no government or central authority. Contracts rule the day on Luna. In its early days, Luna still held to Earthly rule. \
 	The rich were able to escape from Earth's chaos and tension, but not from its iron grip. As Earth collapsed, though, that grip slipped; \
 	the so-called 'Silent Revolution' ousted Earth officials as corporate leaders took over. Their coalition maintained itself \
 	only long enough to establish Luna's new ground rules before allowing the free market to take back its inevitable control. \
@@ -85,7 +85,7 @@
 	for vessels. Ceres is a melting pot and is the primary stopping point for vessels entering the Sol system. It is often said anything worth anything \
 	passes through Ceres, giving it a reputation for having a diverse black market. Commonly called 'Belters' the people of Ceres are today are mostly \
 	employed in shipbuilding, manufacturing, vessel services and hospitality. Belters generally regard themselves as adaptive, proud members of the Terran Confederacy \
-	and some of the best engineers Humanity has to offer. Ceres sustained severe damage during the xeno push on Mars, but has rebounded quickly due to the demands of \
+	and some of the best engineers Humanity has to offer. Ceres sustained severe damage during the xeno push on Mars during the Galactic Crisis, but has rebounded quickly due to the demands of \
 	the Terran Civil War, becoming the main center of the Terran Navy's rebuilding project."
 	capital = "Government Zone, Ceres Station"
 	language = LANGUAGE_SPACER
