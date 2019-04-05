@@ -112,7 +112,7 @@
 		despawnmap()
 		GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] has been destroyed.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
-		spawn(5)
+		spawn(30)
 			adjustBruteLoss(maxHealth)
 			qdel(src)
 

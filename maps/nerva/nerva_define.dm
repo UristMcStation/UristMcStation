@@ -52,7 +52,7 @@
 
 	away_site_budget = 6
 
-	date_offset = 564
+	date_offset = 560
 
 /*	available_cultural_info = list(
 		TAG_HOMEWORLD = list(

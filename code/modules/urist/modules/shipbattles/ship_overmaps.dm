@@ -51,14 +51,14 @@
 		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
 			if(CC.shipid == src.shipid)
 				CC.target = new_target
-			if(!CC.homeship)
-				CC.homeship = src
+				if(!CC.homeship)
+					CC.homeship = src
 
 		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and to the weapons, so they do damage
 			if(SW.shipid == src.shipid)
 				SW.target = new_target
-			if(!SW.homeship)
-				SW.homeship = src
+				if(!SW.homeship)
+					SW.homeship = src
 
 		src.target = new_target
 
@@ -67,6 +67,7 @@
 		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we unassign our targets from the combat computer
 			if(CC.shipid == src.shipid)
 				CC.target = null
+
 		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and the weapons
 			if(SW.shipid == src.shipid)
 				SW.target = null
@@ -77,8 +78,9 @@
 /obj/effect/overmap/ship/combat/proc/leave_combat()
 	if(target)
 		target.incombat = 0
-		src.set_targets()
 		target.stop_automated_movement = 0
+
+		src.set_targets()
 
 	incombat = 0
 	crossed = 0
