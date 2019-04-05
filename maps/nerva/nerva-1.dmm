@@ -1832,6 +1832,7 @@
 /obj/item/weapon/crowbar,
 /obj/random/tool,
 /obj/item/clothing/glasses/welding,
+/obj/item/device/flashlight,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "gA" = (
@@ -4132,6 +4133,13 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
+"nh" = (
+/obj/item/weapon/stool/padded,
+/obj/effect/landmark/start{
+	name = "Stowaway"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "ni" = (
 /obj/machinery/atmospherics/valve/digital{
 	frequency = 1447;
@@ -6695,6 +6703,7 @@
 "ug" = (
 /obj/random/tank,
 /obj/structure/closet/emcloset,
+/obj/item/device/flashlight,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "uh" = (
@@ -14159,6 +14168,13 @@
 /obj/structure/closet/secure_closet/medical1,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
+"NZ" = (
+/obj/item/weapon/stool/urist/bar,
+/obj/effect/landmark/start{
+	name = "Stowaway"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Ob" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -15193,6 +15209,7 @@
 /obj/random/smokes,
 /obj/item/weapon/flame/candle,
 /obj/item/weapon/flame/lighter,
+/obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "QL" = (
@@ -34551,7 +34568,7 @@ aa
 aa
 aa
 aa
-aa
+NZ
 aa
 aa
 aa
@@ -37023,7 +37040,7 @@ ry
 or
 Gk
 EA
-ly
+nh
 oh
 EA
 Gk
