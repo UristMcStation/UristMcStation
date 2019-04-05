@@ -11148,6 +11148,7 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/lipstick/random,
 /obj/item/clothing/suit/urist/meido,
+/obj/item/device/flashlight/flare/glowstick/red,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "uy" = (
@@ -11975,6 +11976,7 @@
 	icon_state = "cobweb2";
 	dir = 1
 	},
+/obj/item/device/flashlight,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "wc" = (
@@ -19028,6 +19030,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"Jy" = (
+/obj/item/weapon/stool/urist/bar,
+/obj/effect/landmark/start{
+	name = "Stowaway"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "Jz" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -19997,6 +20006,9 @@
 /obj/structure/bed/nice,
 /obj/random/plushie,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start{
+	name = "Stowaway"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "Lm" = (
@@ -23763,6 +23775,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
+"Sa" = (
+/obj/structure/closet/emcloset,
+/obj/item/device/flashlight,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "Sb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -25107,6 +25124,9 @@
 "UH" = (
 /obj/structure/bed/chair{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Stowaway"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -44769,7 +44789,7 @@ tU
 tU
 ag
 MV
-rK
+Jy
 iV
 sH
 nh
@@ -45778,7 +45798,7 @@ tU
 DY
 tU
 PD
-Mt
+Sa
 IX
 yR
 tU
