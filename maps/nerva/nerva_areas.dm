@@ -728,3 +728,21 @@
 
 /area/ship/combat
 	name = "\improper Ship"
+
+// Substations
+
+/area/engineering/substation
+	name = "/improper Substation"
+	icon_state = "engine_smes"
+
+/area/engineering/substation/one
+	name = "\improper First Deck Substation"
+
+/area/engineering/substation/two
+	name = "\improper Second Deck Substation"
+
+/area/engineering/substation/three
+	name = "\improper Third Deck Substation"
+
+/area/engineering/substation/atmos
+	name = "\improper Atmospherics Substation"

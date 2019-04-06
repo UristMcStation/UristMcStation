@@ -2,6 +2,80 @@
 "aa" = (
 /turf/space,
 /area/space)
+"ab" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"ac" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch/maintenance{
+	icon_state = "door_closed";
+	id_tag = null;
+	locked = 0;
+	name = "Pipe Access";
+	req_one_access = list(11,24)
+	},
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"ad" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
+	},
+/obj/item/weapon/crowbar,
+/obj/machinery/light/small{
+	icon_state = "bulb1";
+	dir = 1
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"ae" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"af" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Third Deck Substation";
+	req_access = list(10)
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "ag" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
@@ -11,12 +85,6 @@
 	icon_state = "0-2";
 	pixel_y = 1;
 	d2 = 2
-	},
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0";
-	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
@@ -28,15 +96,65 @@
 "ai" = (
 /turf/simulated/wall/r_wall,
 /area/security/forensics)
+"aj" = (
+/obj/item/weapon/wrench,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHWEST)";
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "ak" = (
 /turf/simulated/wall/r_wall,
 /area/security/breakroom)
+"al" = (
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "First Deck Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "am" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(4)
 	},
 /turf/simulated/floor/plating,
 /area/security/forensics)
+"an" = (
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Substation - First Deck"
+	},
+/obj/structure/cable/orange{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "ao" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/plating,
@@ -86,6 +204,27 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/plating,
 /area/security/breakroom)
+"au" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (WEST)";
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/machinery/power/sensor{
+	name_tag = "First Deck Power"
+	},
+/obj/structure/cable/orange{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "av" = (
 /obj/machinery/alarm{
 	pixel_y = 25
@@ -148,6 +287,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/breakroom)
+"aC" = (
+/obj/machinery/door/airlock/hatch/maintenance{
+	icon_state = "door_closed";
+	id_tag = null;
+	locked = 0;
+	name = "Pipe Access";
+	req_one_access = list(11,24)
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "aD" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
@@ -161,6 +316,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/breakroom)
+"aE" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTH)";
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "aF" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -637,10 +806,79 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/bdportengine)
+"bv" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8";
+	tag = ""
+	},
+/obj/machinery/power/terminal{
+	icon_state = "term";
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTH)";
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
+"bw" = (
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/hyper;
+	dir = 4;
+	equipment = 3;
+	name = "east bump";
+	pixel_x = 27;
+	pixel_y = -2
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "bx" = (
 /obj/effect/shuttle_landmark/skipjack/deck3,
 /turf/space,
 /area/space)
+"by" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"bz" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Third Deck Substation";
+	req_access = list(10)
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/one)
 "bA" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/lockbox/vials,
@@ -654,6 +892,83 @@
 /obj/item/device/antibody_scanner,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"bB" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"bC" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"bD" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"bE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
+"bF" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	tag = "icon-up-scrubbers (EAST)";
+	icon_state = "up-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	tag = "icon-up-supply (EAST)";
+	icon_state = "up-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/fuel{
+	tag = "icon-up (NORTH)";
+	icon_state = "up";
+	dir = 1
+	},
+/obj/structure/disposalpipe/up{
+	tag = "icon-pipe-u (EAST)";
+	icon_state = "pipe-u";
+	dir = 4
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "16-0";
+	d1 = 1;
+	d2 = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "bO" = (
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -2379,10 +2694,6 @@
 /obj/effect/floor_decal/industrial/outline/orange,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
-"ie" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "if" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/small,
@@ -3523,10 +3834,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
-"ly" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "lC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/device/radio/intercom{
@@ -4267,19 +4574,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/hangercheckpoint)
-"nE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
-	id_tag = null;
-	locked = 0;
-	name = "Pipe Access";
-	req_one_access = list(11,24)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "nF" = (
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
@@ -5481,18 +5775,6 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
-"qu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 10
-	},
-/obj/item/weapon/crowbar,
-/obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 1
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "qv" = (
 /obj/structure/table/standard,
 /obj/item/device/integrated_electronics/analyzer,
@@ -8704,16 +8986,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
-"zH" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "zI" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -10561,11 +10833,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
-"Er" = (
-/obj/random/maintenance,
-/obj/random/tool,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "Et" = (
 /obj/machinery/button/remote/blast_door{
 	id = "d1portnacelle";
@@ -13817,34 +14084,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
-"Nd" = (
-/obj/item/weapon/wrench,
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "Ne" = (
 /obj/item/weapon/reagent_containers/glass/bottle/antitoxin{
 	pixel_x = -4;
@@ -16112,17 +16351,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
-"Tc" = (
-/obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
-	id_tag = null;
-	locked = 0;
-	name = "Pipe Access";
-	req_one_access = list(11,24)
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "Te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	tag = "icon-intact (EAST)";
@@ -16723,40 +16951,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
-"Up" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	tag = "icon-up-scrubbers (EAST)";
-	icon_state = "up-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	tag = "icon-up-supply (EAST)";
-	icon_state = "up-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/fuel{
-	tag = "icon-up (NORTH)";
-	icon_state = "up";
-	dir = 1
-	},
-/obj/structure/disposalpipe/up{
-	tag = "icon-pipe-u (EAST)";
-	icon_state = "pipe-u";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "Ur" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
@@ -18909,25 +19103,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
-"ZX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
 "ZY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
@@ -33796,7 +33971,7 @@ Gk
 ID
 eb
 EA
-EA
+jE
 EA
 So
 Gk
@@ -33997,9 +34172,9 @@ RZ
 Gk
 LR
 oh
-oh
-oh
-oh
+EA
+EA
+EA
 Dm
 Gk
 EA
@@ -34198,10 +34373,10 @@ aa
 aa
 Gk
 ID
-oh
-Er
-ie
-oh
+Gk
+Gk
+Gk
+Gk
 EA
 Gk
 Dm
@@ -34400,10 +34575,10 @@ aa
 aa
 Gk
 ID
-oh
-ly
-pZ
-oh
+Gk
+al
+aE
+Gk
 EA
 Gk
 EA
@@ -34602,11 +34777,11 @@ aa
 aa
 Gk
 ID
-uL
-jE
-Uz
-oh
-EA
+Gk
+an
+bv
+bz
+bB
 Gk
 EA
 sn
@@ -34803,12 +34978,12 @@ Gk
 RZ
 RZ
 Gk
-ID
-oh
-zH
-Ow
-oh
-EA
+ab
+af
+au
+bw
+Gk
+bC
 Gk
 EA
 eo
@@ -35005,12 +35180,12 @@ Gk
 aa
 aa
 Gk
-nE
+ac
 Gk
 Gk
-oh
-oh
-EA
+Gk
+Gk
+bC
 Gk
 EA
 JT
@@ -35207,12 +35382,12 @@ Gk
 Gk
 Gk
 Gk
-qu
-Up
+ad
+bF
 Gk
 tC
 jV
-EA
+bC
 Gk
 EA
 EA
@@ -35409,12 +35584,12 @@ qG
 Ij
 ps
 qG
-qG
-Nd
-Tc
-EZ
-EZ
-HR
+ae
+aj
+aC
+by
+by
+bD
 Gk
 Gk
 Gk
@@ -36195,7 +36370,7 @@ Fz
 iV
 Qf
 ag
-ZX
+bE
 Sa
 BS
 tu
