@@ -215,6 +215,14 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/machinery/power/sensor{
+	name_tag = "First Deck Power"
+	},
+/obj/structure/cable/orange{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
 "av" = (
@@ -843,9 +851,6 @@
 	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
-	},
-/obj/machinery/power/sensor{
-	name_tag = "First Deck Power"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
