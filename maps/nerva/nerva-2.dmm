@@ -2504,11 +2504,11 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Second Deck"
 	},
-/obj/structure/cable,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/engineering/substation/two)
 "ed" = (
@@ -2686,11 +2686,6 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Second Deck Bypass"
 	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/engineering/substation/two)
 "es" = (

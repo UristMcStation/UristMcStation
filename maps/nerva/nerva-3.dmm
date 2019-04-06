@@ -9260,11 +9260,6 @@
 "rH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
 	dir = 4
@@ -12204,10 +12199,10 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Atmospherics"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
 "wX" = (
@@ -12406,15 +12401,10 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "xt" = (
-/obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Atmospherics Bypass"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
 "xu" = (
@@ -13532,6 +13522,26 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"zu" = (
+/obj/structure/cable/yellow,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (WEST)";
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/substation/three)
 "zv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/drinkbottle,
@@ -13937,23 +13947,8 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/first_deck/afs)
 "Al" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow,
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/machinery/light/small/red{
-	tag = "icon-firelight1 (WEST)";
-	icon_state = "firelight1";
-	dir = 8
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Third Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/three)
@@ -13999,17 +13994,6 @@
 /obj/machinery/power/sensor{
 	name_tag = "Third Deck Power"
 	},
-/turf/simulated/floor/plating,
-/area/engineering/substation/three)
-"Aq" = (
-/obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Third Deck Bypass"
-	},
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/engineering/substation/three)
 
@@ -32318,7 +32302,7 @@ yw
 yz
 zK
 Ai
-Al
+zu
 Ap
 Ao
 pe
@@ -32521,7 +32505,7 @@ yA
 pe
 Aj
 Am
-Aq
+Al
 pe
 pe
 pe

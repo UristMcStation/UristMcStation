@@ -132,14 +132,6 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "First Deck Bypass"
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/orange{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
 "am" = (
@@ -153,13 +145,13 @@
 	RCon_tag = "Substation - First Deck"
 	},
 /obj/structure/cable/orange{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable/orange{
 	d1 = 0;
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
