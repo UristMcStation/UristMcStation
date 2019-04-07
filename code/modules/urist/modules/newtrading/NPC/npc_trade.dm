@@ -61,7 +61,7 @@
 		return total_value
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[tradingobject.type]
+	T = SStrade_controller.trade_items_by_type[tradingobject.type]
 	if(T)
 		if(!T.sellable)
 			return 0

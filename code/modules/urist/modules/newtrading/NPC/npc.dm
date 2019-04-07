@@ -46,7 +46,7 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	//
 	var/list/interact_inventory = list()
 
-	var/datum/controller/process/trade_controller/trade_controller_debug
+	var/datum/controller/process/SStrade_controller/SStrade_controller_debug
 
 	var/sellmodifier = 0.90
 	var/price_increase = 1.02

@@ -330,7 +330,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 // Smuggler's satchel from /tg/.
 
-/obj/item/weapon/storage/backpack/satchel_flat
+/obj/item/weapon/storage/backpack/satchel/flat
 	name = "smuggler's satchel"
 	desc = "A very slim satchel that can easily fit into tight spaces."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -340,9 +340,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 5
 	max_storage_space = 15 //check values!
 	level = 1
-	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
+	cant_hold = list(/obj/item/weapon/storage/backpack/satchel/flat) //muh recursive backpacks
 
-/obj/item/weapon/storage/backpack/satchel_flat/hide(var/intact)
+/obj/item/weapon/storage/backpack/satchel/flat/hide(var/intact)
 	if(intact)
 		invisibility = 101
 		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.
@@ -352,7 +352,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		anchored = 0
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/storage/backpack/satchel_flat/New()
+/obj/item/weapon/storage/backpack/satchel/flat/New()
 	..()
 	new /obj/item/weapon/crowbar(src)
 

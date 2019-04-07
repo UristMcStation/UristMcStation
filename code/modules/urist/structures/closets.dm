@@ -15,7 +15,7 @@
 	sleep(2)
 	new /obj/item/weapon/storage/backpack/duffel/duffel_cap(src)
 	new /obj/item/weapon/storage/backpack/captain(src)
-	new /obj/item/weapon/storage/backpack/satchel_cap(src)
+	new /obj/item/weapon/storage/backpack/satchel/cap(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/storage/capjacket(src)
 	new /obj/item/clothing/under/rank/captain(src)

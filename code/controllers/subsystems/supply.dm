@@ -142,13 +142,12 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					// Sell materials
-					if(istype(A, /obj/item/stack))
-						if(!GLOB.using_map.using_new_cargo) //Bay sucks cock, so now we're just doing it through our price system
-							var/obj/item/stack/P = A
-							var/material/material = P.get_material()
-							if(material.sale_price > 0)
-								material_count[material.display_name] += P.get_amount() * material.sale_price
-							continue
+					if(istype(A, /obj/item/stack/material))
+						var/obj/item/stack/P = A
+						var/material/material = P.get_material()
+						if(material && material.sale_price > 0)
+							material_count[material.display_name] += P.get_amount() * material.sale_price
+						continue
 
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))
@@ -236,6 +235,6 @@ SUBSYSTEM_DEF(supply)
 	var/datum/trade_item/T
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[object.type]
+	T = SStrade_controller.trade_items_by_type[object.type]
 	if(T)
 		return T.value

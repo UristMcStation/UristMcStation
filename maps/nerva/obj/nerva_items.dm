@@ -63,13 +63,13 @@
 
 //station account card
 
-/obj/item/weapon/card/station_account
+/obj/item/weapon/card/id/station_account
 	name = "ICS Nerva account card"
 	desc = "A banking card with access to the ICS Nerva's main account."
 	icon_state = "data"
 
-/obj/item/weapon/card/station_account/Initialize()
-	..()
+/obj/item/weapon/card/id/station_account/Initialize()
+	. = ..()
 	associated_account_number = station_account.account_number
 
 

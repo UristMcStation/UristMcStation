@@ -592,7 +592,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		state_mod -= 30
 	//Handle unintended consequences
 	for(var/obj/item/I in holding)
-		var/hurt_prob = max(holding[I] - 2*skill_mod + state_mod, 0)
+		var/hurt_prob = max(holding[I] + state_mod, 0)
 		if(prob(hurt_prob) && I.on_disarm_attempt(target, attacker))
 			return
 

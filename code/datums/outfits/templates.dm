@@ -8,7 +8,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/mining
 	suit = /obj/item/clothing/suit/space/void/mining
 	suit_store = /obj/item/weapon/tank/oxygen
-	back = /obj/item/weapon/storage/backpack/satchel_eng
+	back = /obj/item/weapon/storage/backpack/satchel/eng
 	shoes = /obj/item/clothing/shoes/magboots
 	id = /obj/item/weapon/card/id/fake/cargo
 
@@ -18,7 +18,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
 	shoes = /obj/item/clothing/shoes/white
 	suit_store = /obj/item/device/healthanalyzer
-	back = /obj/item/weapon/storage/backpack/satchel_med
+	back = /obj/item/weapon/storage/backpack/satchel/med
 	gloves = /obj/item/clothing/gloves/latex
 	id = /obj/item/weapon/card/id/fake/veymed
 	id_pda_assignment = "Physician"

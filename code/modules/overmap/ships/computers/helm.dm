@@ -6,7 +6,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	icon_screen = "helm"
 	light_color = "#7faaff"
 	circuit = /obj/item/weapon/circuitboard/helm
-	core_skill = SKILL_PILOT
 	var/autopilot = 0
 	var/manual_control = 0
 	var/list/known_sectors = list()
@@ -70,10 +69,8 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		manual_control = 0
 		return
 
-	if(!isAI(user))
-		operator_skill = user.get_skill_value(core_skill)
-		if(linked)
-			user.reset_view(linked)
+	if(!isAI(user) && linked)
+		user.reset_view(linked)
 
 /obj/machinery/computer/ship/helm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

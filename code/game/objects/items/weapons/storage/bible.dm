@@ -44,7 +44,7 @@
 
 	//log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
-	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!(istype(user, /mob/living/carbon/human)) && SSticker.mode.name != "monkey")
 		user << "<span class='warning'> You don't have the dexterity to do this!</span>"
 		return
 	if(!chaplain)

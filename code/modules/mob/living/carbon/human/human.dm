@@ -104,7 +104,7 @@
 			if(mind.vampire)
 				stat("Total Blood", mind.vampire.bloodtotal)
 				stat("Usable Blood", mind.vampire.bloodusable)
-		if(master_mode == "assault")
+		if(SSticker.master_mode  == "assault")
 			stat("Remaining Lactera", remaininglactera)
 			stat("Remaining Shieldgens", remaininggens)
 
@@ -875,7 +875,7 @@
 	for(var/obj/item/organ/external/organ in organs)
 		if(clean_feet || (organ.organ_tag in list(BP_L_HAND,BP_R_HAND)))
 			organ.gunshot_residue = null
-	
+
 	if(clean_feet && !shoes)
 		feet_blood_color = null
 		feet_blood_DNA = null

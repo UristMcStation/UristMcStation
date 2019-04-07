@@ -161,7 +161,7 @@ var/global/remaininggens = 6
 		world << "<span class='notice'> Rebooting in fourty five seconds.</span>"
 
 		spawn(450)
-			if(!ticker.delay_end)
+			if(!SSticker.delay_end)
 				world.Reboot()
 			else
 				world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"

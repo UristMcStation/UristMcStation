@@ -65,7 +65,7 @@
 
 	//update_interact_icon()
 
-	trade_controller_debug = trade_controller
+	SStrade_controller_debug = SStrade_controller
 
 //this proc does not check the simple animal type! only use it on human type mobs
 /mob/living/simple_animal/hostile/npc/proc/sprite_set_human()

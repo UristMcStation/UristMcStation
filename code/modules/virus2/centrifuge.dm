@@ -30,7 +30,7 @@
 
 	src.attack_hand(user)
 
-/obj/machinery/computer/centrifuge/on_update_icon()
+/obj/machinery/disease2/centrifuge/on_update_icon()
 	..()
 	if(! (stat & (BROKEN|NOPOWER)))
 		icon_state = (isolating || curing) ? "centrifuge_moving" : "centrifuge"

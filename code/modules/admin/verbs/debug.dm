@@ -433,7 +433,7 @@
 
 	if(!H)	return
 
-	var/dat = H.get_medical_data()
+	var/dat = H.get_raw_medical_data()
 
 	dat += text("<BR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>", usr)
 	show_browser(usr, dat, "window=scanconsole;size=430x600")

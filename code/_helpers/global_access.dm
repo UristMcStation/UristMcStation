@@ -1037,8 +1037,8 @@
 			return global.vsc;
 		if("wax_recipes")
 			return global.wax_recipes;
-		if("weatherProcess")
-			return global.weatherProcess;
+		if("SSweather")
+			return global.SSweather;
 		if("weighted_mundaneevent_locations")
 			return global.weighted_mundaneevent_locations;
 		if("weighted_randomevent_locations")
@@ -1063,7 +1063,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-		
+
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -2102,8 +2102,8 @@
 			global.vsc=newval;
 		if("wax_recipes")
 			global.wax_recipes=newval;
-		if("weatherProcess")
-			global.weatherProcess=newval;
+		if("SSweather")
+			global.SSweather=newval;
 		if("weighted_mundaneevent_locations")
 			global.weighted_mundaneevent_locations=newval;
 		if("weighted_randomevent_locations")
@@ -2128,7 +2128,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-		
+
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2649,7 +2649,7 @@
 	"visual_nets",
 	"vsc",
 	"wax_recipes",
-	"weatherProcess",
+	"SSweather",
 	"weighted_mundaneevent_locations",
 	"weighted_randomevent_locations",
 	"whitelist",

@@ -1,29 +1,26 @@
 #define WEATHER_PLANE ABOVE_HUMAN_PLANE+3
 
-var/datum/controller/process/weather/weatherProcess
-
 /* fuck it, let's store that in a global until the controller wakes the fuck up for now */
 /var/global/list/pending_weathers = list()
 
-//weather controller - handles weather changes
-/datum/controller/process/weather
+SUBSYSTEM_DEF(weather)
+	wait = 1 SECOND
 	var/weather_change_ticks = 50 //delays weather changes by N scheduler intervals
 	var/current_wcticks = 0
 	var/list/weather_cache = list() //meteorologically active weather objects
-	var/list/active_cache = list() //weathers with new objects to process, EVEN STATIC
+	var/list/active_cache = list() //weathers with new objects to subsystem, EVEN STATIC
 	var/area_weather_change_prob = 100 //odds, per area, weather is changed
 
-/datum/controller/process/weather/setup()
-	name = "weather"
-	schedule_interval = 20
-	if(weatherProcess != src)
-		qdel(weatherProcess)
-		weatherProcess = src
+/datum/controller/subsystem/weather/Initialize()
+	if(SSweather != src)
+		qdel(SSweather)
+		SSweather = src
 	update_cache()
 	update_active()
 	//change_weather(1)
+	. = ..()
 
-/datum/controller/process/weather/doWork()
+/datum/controller/subsystem/weather/fire()
 	update_cache()
 	update_active()
 	inflict_effects()
@@ -31,16 +28,15 @@ var/datum/controller/process/weather/weatherProcess
 	if(current_wcticks >= weather_change_ticks)
 		change_weather()
 		current_wcticks = 0
-	SCHECK
 
-/datum/controller/process/weather/proc/update_cache()
+/datum/controller/subsystem/weather/proc/update_cache()
 	if(pending_weathers.len) //uh-oh, we have a backlog
 		for(var/WO in pending_weathers)
 			weather_cache += WO
 			pending_weathers -= WO //transfer from backlog
 	weather_cache = get_weather_objs() //prune dead/VVd safe references
 
-/datum/controller/process/weather/proc/update_active()
+/datum/controller/subsystem/weather/proc/update_active()
 	var/list/responsive = list()
 	for(var/i in active_cache)
 		if(istype(i, /obj/effect/weather))
@@ -54,7 +50,7 @@ var/datum/controller/process/weather/weatherProcess
 	active_cache.Cut()
 	active_cache = responsive //process only 'tripped' weathers
 
-/datum/controller/process/weather/proc/get_weather_objs()
+/datum/controller/subsystem/weather/proc/get_weather_objs()
 	var/act_weathers = list()
 	for(var/i in weather_cache)
 		if(istype(i, /obj/effect/weather))
@@ -68,7 +64,7 @@ var/datum/controller/process/weather/weatherProcess
 	return act_weathers
 
 //handles changes; call with initial=1 to ensure every area is changed
-/datum/controller/process/weather/proc/change_weather(var/initial = 0)
+/datum/controller/subsystem/weather/proc/change_weather(var/initial = 0)
 	var/list/processed = list()
 	for(var/weather_handler in weather_cache)
 		if(istype(weather_handler, /obj/effect/weather))
@@ -127,10 +123,10 @@ var/datum/controller/process/weather/weatherProcess
 				else if(ispath(j))
 					world.log << "Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!"
 			WTu.update_weather_icon()
-			SCHECK
+		CHECK_TICK
 
 
-/datum/controller/process/weather/proc/inflict_effects()
+/datum/controller/subsystem/weather/proc/inflict_effects()
 	for(var/weatherhandler in active_cache)
 		if(istype(weatherhandler, /obj/effect/weather))
 			var/obj/effect/weather/WO = weatherhandler

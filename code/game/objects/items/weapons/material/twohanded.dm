@@ -141,7 +141,7 @@
 
 
 //spears, bay edition
-/*/obj/item/weapon/material/twohanded/spear
+/obj/item/weapon/material/twohanded/spear
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
 	name = "spear"
