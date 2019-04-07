@@ -51,7 +51,7 @@
 
 	away_site_budget = 6
 
-	date_offset = 564
+	date_offset = 560
 
 	base_floor_type = /turf/simulated/floor/reinforced/airless
 	base_floor_area = /area/maintenance/exterior

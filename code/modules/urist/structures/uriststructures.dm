@@ -513,6 +513,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodenbarricade-old"
 	health = 50
 	maxhealth = 50
+	use_material_colour = 0
 
 /obj/structure/barricade/wooden/crude/snow
 	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."

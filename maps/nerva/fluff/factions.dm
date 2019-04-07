@@ -112,9 +112,9 @@
 /decl/cultural_info/faction/free
 	name = FACTION_FREETRADE
 	description = "The Free Trade Union, commonly referred to as the FTU, is is an employee-owned conglomerate of tens of thousands of \
-	various traders and merchants from all over SCG space and beyond. Colloquially known as the 'fifth megacorp', they control a sizeable fleet \
+	various traders and merchants from all over Terran space and beyond. Colloquially known as the 'fifth megacorp', they control a sizeable fleet \
 	of trading ships which are form the backbone of their trading force along with a large contingent of combat capable vessels that cruise the shipping lanes, \
-	keeping FTU members free from pirates. The FTU has a large amount of economic power across Sol space and operates large trade hubs and stations near most \
+	keeping FTU members free from pirates. The FTU has a large amount of economic power across human-controlled space and operates large trade hubs and stations near most \
 	Gateway installations and planets. Somewhat unscrupulous, FTU stations and merchants are known for \
 	selling a great many restricted items and supplying all manner of goods indiscriminately."
 	economic_power = 1.3
@@ -123,7 +123,7 @@
 
 /decl/cultural_info/faction/pcrc
 	name = FACTION_PCRC
-	description = "Proxima Centauri Risk Control, often known as PCRC, is one of the largest suppliers of private security in Sol Space. \
+	description = "Proxima Centauri Risk Control, often known as PCRC, is one of the largest suppliers of private security in human-controlled space. \
 	PCRC handles numerous government, private and corporate contracts and provides a variety of services ranging from private law enforcement, \
 	security, close protection, asset protection, search and rescue and peacekeeping and escort duties. A relatively quiet and new company, \
 	it has quickly established itself as a reliable and effective provider of security solutions. This has often put it at odds with its main \
@@ -137,9 +137,9 @@
 	name = FACTION_ORMA
 	description = "Ostensiably an independent power, the ORMA was formed shortly after the settlement of the Outer Rim. \
 	Originally known as the United Miners Guilds of the Outer Rim, the ORMA is a loose collection of hundreds of semi-independent \
-	mining colonies in the Outer Rim. Following the arrival of Nanotrasen in the area two decades after its formation, \
-	the ORMA began to steadily lose power, as Nanotrasen bought, bartered and in some cases took over many of the various mining colonies. \
-	Nowadays, some say that the ORMA council of 30 is nothing but a puppet of Nanotrasen, despite their fierce proclamations to the contrary. \
+	mining colonies in the Outer Rim. Following the arrival of NanoTrasen in the area two decades after its formation, \
+	the ORMA began to steadily lose power, as NanoTrasen bought, bartered and in some cases took over many of the various mining colonies. \
+	Nowadays, some say that the ORMA council of 30 is nothing but a puppet of NanoTrasen, despite their fierce proclamations to the contrary. \
 	ORMA was hit first by the xeno invasion during the Galactic Crisis, and was virtually destroyed. Indeed, the ORMA was only refounded a few years ago. \
 	They're really just a name at this point, and a loose collection of rebuilt mining colonies in the Outer Rim."
 	subversive_potential = 15

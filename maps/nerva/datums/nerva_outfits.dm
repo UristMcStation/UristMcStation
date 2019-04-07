@@ -164,3 +164,4 @@
 	l_ear = null
 	l_pocket = /obj/item/weapon/wrench
 	r_pocket = /obj/item/weapon/crowbar
+	backpack_contents = list(/obj/item/device/flashlight = 1)

@@ -6,7 +6,7 @@
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor,
 						/datum/job/scientist,
-						/datum/job/merchant,
+						/datum/job/merchant, /datum/job/stowaway,
 						/datum/job/ai, /datum/job/cyborg
 						)
 
@@ -246,7 +246,7 @@
 	title = "Stowaway"
 	department = "Civilian"
 	department_flag = CIV
-
+	hud_icon = "hudunknown"
 	total_positions = 1
 	spawn_positions = 1
 	availablity_chance = 15

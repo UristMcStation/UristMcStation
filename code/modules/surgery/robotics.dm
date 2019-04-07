@@ -25,8 +25,9 @@
 		/obj/item/weapon/material/coin = 50,
 		/obj/item/weapon/material/kitchen/utensil/knife = 50
 	)
-	min_duration = 90
-	max_duration = 110
+
+	min_duration = 50
+	max_duration = 80
 
 /decl/surgery_step/robotics/unscrew_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -60,8 +61,9 @@
 		/obj/item/weapon/material/coin = 50,
 		/obj/item/weapon/material/kitchen/utensil/knife = 50
 	)
-	min_duration = 90
-	max_duration = 110
+
+	min_duration = 50
+	max_duration = 80
 
 /decl/surgery_step/robotics/screw_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -132,8 +134,8 @@
 		/obj/item/weapon/material/kitchen/utensil = 50
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 40
+	max_duration = 60
 
 /decl/surgery_step/robotics/close_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

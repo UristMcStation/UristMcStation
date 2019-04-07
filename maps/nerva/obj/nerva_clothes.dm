@@ -1,5 +1,3 @@
-//A high-tech powered suit adorned with ceremonial frills of crimson and gold. Costed more to produce and manufacture than the station you're on right now.
-
 //Nerva specific clothing. I might move this into the urist folder, but for now, it's here.
 
 /obj/item/clothing/under/urist/nerva/capformal
@@ -196,10 +194,13 @@
 		if(state >= 5)
 			state = 1
 
-		icon_state = "seccloak[state]"
+		update_icon()
 
 		to_chat(usr, "You shift the cloak around.")
 		update_clothing_icon()
+
+/obj/item/clothing/suit/storage/hooded/seccloak/update_icon()
+	icon_state = "seccloak[state]"
 
 /obj/item/clothing/head/urist/seccloakhood
 	name = "cloak hood"

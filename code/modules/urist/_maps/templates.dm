@@ -128,10 +128,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++
 
-	spawn(10)
-		qdel(src)
-
-//	QDEL_IN(src,0)
+	QDEL_IN(src,0)
 
 
 /* MATRIXCOMMENT
