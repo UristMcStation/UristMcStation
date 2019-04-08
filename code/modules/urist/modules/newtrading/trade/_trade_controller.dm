@@ -1,4 +1,7 @@
 SUBSYSTEM_DEF(trade_controller)
+	name = "Trade Controller"
+	flags = SS_NO_FIRE
+
 	var/list/trade_items = list()
 	var/list/trade_items_by_type = list()
 	var/list/trade_categories = list()

@@ -106,7 +106,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 24
 	multiple_sprites = 1
 

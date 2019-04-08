@@ -5,6 +5,14 @@
 "ad" = (
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
+"ae" = (
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "pdoor1";
+	name = "Secure Access"
+	},
+/area/spacestations/nanotrasenspace)
 "af" = (
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
@@ -409,10 +417,6 @@
 "bl" = (
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/white,
-/area/spacestations/nanotrasenspace)
-"bm" = (
-/mob/living/simple_animal/hostile/scom/civ/combat/police,
-/turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "bn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -1326,12 +1330,6 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"gw" = (
-/mob/living/simple_animal/hostile/scom/civ/combat/police,
-/turf/simulated/floor/tiled/dark{
-	color = "#cccccc"
-	},
-/area/spacestations/nanotrasenspace)
 "gW" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/blue/three_quarters{
@@ -1477,10 +1475,21 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"uX" = (
+/turf/unsimulated/wall,
+/area/spacestations/nanotrasenspace)
 "vk" = (
 /obj/effect/floor_decal/ntlogo,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"vr" = (
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "pdoor1";
+	name = "Shuttle Access"
 	},
 /area/spacestations/nanotrasenspace)
 "vW" = (
@@ -3187,7 +3196,7 @@ aa
 bH
 ad
 ad
-bH
+ae
 bN
 bN
 ad
@@ -3726,7 +3735,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (24,1,1) = {"
@@ -3808,7 +3817,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 "}
 (25,1,1) = {"
@@ -3859,7 +3868,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 bE
 bE
 bE
@@ -3887,7 +3896,7 @@ bE
 bE
 bE
 bE
-bH
+vr
 ad
 ad
 bH
@@ -3941,7 +3950,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 bE
 bE
 bE
@@ -3969,7 +3978,7 @@ bE
 bE
 bE
 bE
-bH
+vr
 ad
 ad
 bH
@@ -4023,7 +4032,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 do
 do
 do
@@ -4051,7 +4060,7 @@ do
 do
 do
 do
-bH
+vr
 ad
 ad
 bH
@@ -4105,7 +4114,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 dp
 dp
 dp
@@ -4133,7 +4142,7 @@ dp
 dp
 dp
 dp
-bH
+vr
 ad
 ad
 bH
@@ -4187,7 +4196,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 dq
 dq
 dq
@@ -4215,7 +4224,7 @@ dq
 dq
 dq
 dq
-bH
+vr
 ad
 ad
 bH
@@ -4269,7 +4278,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 bE
 bE
 bE
@@ -4297,7 +4306,7 @@ bE
 bE
 bE
 bE
-bH
+vr
 ad
 ad
 bH
@@ -4351,7 +4360,7 @@ ad
 ad
 ad
 ad
-ae
+vr
 bE
 bE
 bE
@@ -4379,7 +4388,7 @@ bE
 bE
 bE
 bE
-bH
+vr
 ad
 ad
 bH
@@ -4567,7 +4576,7 @@ aa
 bH
 ad
 ad
-bH
+ae
 aL
 aL
 aL
@@ -4970,7 +4979,7 @@ aa
 aa
 bH
 ad
-bH
+vr
 af
 aj
 af
@@ -5018,7 +5027,7 @@ je
 fN
 xd
 vk
-gw
+ar
 ar
 lh
 dE
@@ -5152,7 +5161,7 @@ aL
 aL
 aL
 aL
-bm
+aL
 xl
 lh
 aM
@@ -5602,14 +5611,14 @@ ad
 ad
 ad
 ad
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa
@@ -5691,7 +5700,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -5731,7 +5740,7 @@ ps
 RV
 aI
 ad
-bH
+uX
 ad
 aI
 ps
@@ -5777,6 +5786,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (49,1,1) = {"
 aa
@@ -5799,7 +5809,7 @@ ad
 ad
 ap
 aw
-bH
+vr
 af
 af
 af
@@ -5858,6 +5868,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (50,1,1) = {"
 aa
@@ -5880,11 +5891,11 @@ ad
 ad
 af
 af
-bH
+vr
 af
 af
 af
-bH
+vr
 af
 bj
 bq
@@ -5902,7 +5913,7 @@ aL
 cD
 cJ
 af
-bH
+vr
 af
 af
 ad
@@ -5939,6 +5950,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (51,1,1) = {"
 aa
@@ -5961,7 +5973,7 @@ ad
 ad
 aq
 af
-bH
+vr
 af
 aq
 af
@@ -6017,6 +6029,7 @@ cP
 dd
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6101,6 +6114,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (53,1,1) = {"
 aa
@@ -6179,6 +6193,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6263,6 +6278,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (55,1,1) = {"
 aa
@@ -6341,6 +6357,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6425,6 +6442,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (57,1,1) = {"
 aa
@@ -6503,6 +6521,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6587,6 +6606,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (59,1,1) = {"
 aa
@@ -6665,6 +6685,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6749,6 +6770,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (61,1,1) = {"
 aa
@@ -6827,6 +6849,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -6911,6 +6934,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (63,1,1) = {"
 aa
@@ -6989,6 +7013,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -7073,6 +7098,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (65,1,1) = {"
 aa
@@ -7151,6 +7177,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -7235,6 +7262,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (67,1,1) = {"
 aa
@@ -7313,6 +7341,7 @@ cU
 dg
 ad
 bH
+aa
 aa
 aa
 aa
@@ -7397,6 +7426,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (69,1,1) = {"
 aa
@@ -7478,6 +7508,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (70,1,1) = {"
 aa
@@ -7555,7 +7586,7 @@ ad
 ad
 ad
 ad
-ab
+bH
 aa
 aa
 aa
@@ -7641,6 +7672,7 @@ bH
 aa
 aa
 aa
+aa
 "}
 (72,1,1) = {"
 aa
@@ -7693,6 +7725,36 @@ bH
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (73,1,1) = {"
 aa
@@ -7742,6 +7804,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -7855,6 +7918,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (75,1,1) = {"
 aa
@@ -7904,6 +7968,7 @@ az
 df
 ad
 bH
+aa
 aa
 aa
 aa
@@ -8017,6 +8082,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (77,1,1) = {"
 aa
@@ -8066,6 +8132,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -8179,6 +8246,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (79,1,1) = {"
 aa
@@ -8228,6 +8296,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -8341,6 +8410,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (81,1,1) = {"
 aa
@@ -8390,6 +8460,7 @@ az
 de
 ad
 bH
+aa
 aa
 aa
 aa
@@ -8503,6 +8574,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (83,1,1) = {"
 aa
@@ -8552,6 +8624,7 @@ db
 ar
 ad
 bH
+aa
 aa
 aa
 aa
@@ -8665,6 +8738,7 @@ aa
 aa
 aa
 aa
+aa
 "}
 (85,1,1) = {"
 aa
@@ -8713,8 +8787,7 @@ ad
 ad
 ad
 ad
-ad
-ab
+bH
 aa
 aa
 aa
@@ -8767,36 +8840,36 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa

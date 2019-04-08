@@ -58,7 +58,7 @@
 /obj/machinery/computer/station_alert/on_update_icon()
 	icon_screen = initial(icon_screen)
 	if(!(stat & (BROKEN|NOPOWER)))
-		if(alarm_monitor)
+		if(istype(alarm_monitor, /datum/nano_module/alarm_monitor))
 			if(alarm_monitor.has_major_alarms(get_z(src)))
 				icon_screen = "alert:2"
 	..()

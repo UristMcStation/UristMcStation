@@ -14,6 +14,7 @@
 #define MUTATION_HEAL            9 // Healing people with hands.
 #define MUTATION_SPACERES        10 // Can't be harmed via pressure damage.
 #define MUTATION_SKELETON        11
+#define MUTATION_NOCLONE         12
 
 // Other Mutations:
 #define mNobreath      100 // No need to breathe.
