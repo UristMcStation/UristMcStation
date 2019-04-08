@@ -1381,14 +1381,6 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/rnd/dorms)
-"fk" = (
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
-	icon_state = "handrail";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/monotile,
-/area/shuttle/escape_pod3/station)
 "fl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
@@ -6717,9 +6709,6 @@
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
-"tH" = (
-/turf/space,
-/area/civilian/holodeck)
 "tI" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/monkeycubes,
@@ -13096,7 +13085,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/monotile,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod2/station)
 "Kh" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19071,7 +19060,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/monotile,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod2/station)
 "Zg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -31573,9 +31562,9 @@ ET
 AB
 bu
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 XR
 hK
@@ -31775,9 +31764,9 @@ gc
 gc
 gc
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 GL
 GL
@@ -31977,9 +31966,9 @@ aa
 aa
 aa
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32179,9 +32168,9 @@ aa
 aa
 aa
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32381,9 +32370,9 @@ aa
 aa
 aa
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32583,9 +32572,9 @@ aa
 aa
 aa
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32785,9 +32774,9 @@ aa
 aa
 aa
 aa
-tH
-tH
-tH
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34192,8 +34181,8 @@ Sa
 UD
 Sa
 Kq
-JL
-JL
+Kq
+Kq
 Kq
 Kq
 Kq
@@ -34596,8 +34585,8 @@ Sa
 UD
 Sa
 BS
-fk
-fk
+tu
+tu
 yF
 tu
 tu
@@ -34798,8 +34787,8 @@ Sa
 UD
 Sa
 Kq
-JL
-JL
+Kq
+Kq
 Kq
 Kq
 Kq
