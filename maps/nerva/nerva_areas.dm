@@ -65,6 +65,10 @@
 /area/command/bodyguard
 	name = "\improper Bodyguard's Office"
 
+/area/security/nuke_storage
+	name = "\improper Vault"
+	icon_state = "nuke_storage"
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
@@ -300,6 +304,27 @@
 	name = "\improper Drone Fabrication"
 	icon_state = "drone_fab"
 	sound_env = SMALL_ENCLOSED
+
+
+// Substations
+
+/area/engineering/substation
+	name = "/improper Substation"
+	icon_state = "engine_smes"
+	sound_env = SMALL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/engineering/substation/one
+	name = "\improper First Deck Substation"
+
+/area/engineering/substation/two
+	name = "\improper Second Deck Substation"
+
+/area/engineering/substation/three
+	name = "\improper Third Deck Substation"
+
+/area/engineering/substation/atmos
+	name = "\improper Atmospherics Substation"
 
 //////////////////////////////////////
 //			MEDICAL					//
@@ -585,15 +610,56 @@
 
 /area/holodeck/source_beach
 	name = "\improper Holodeck - Beach Simulation"
+	sound_env = PLAIN
 
 /area/holodeck/source_winter
 	name = "\improper Holodeck - Winter Simulation"
+	sound_env = FOREST
 
 /area/holodeck/source_chapel
 	name = "\improper Holodeck - Chapel"
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+/area/holodeck/source_emptycourt
+	name = "\improper Holodeck - Empty Court"
+	sound_env = ARENA
+
+/area/holodeck/source_boxingcourt
+	name = "\improper Holodeck - Boxing Court"
+	sound_env = ARENA
+
+/area/holodeck/source_basketball
+	name = "\improper Holodeck - Basketball Court"
+	sound_env = ARENA
+
+/area/holodeck/source_thunderdomecourt
+	name = "\improper Holodeck - Thunderdome Court"
+	sound_env = ARENA
+
+/area/holodeck/source_courtroom
+	name = "\improper Holodeck - Courtroom"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source_wildlife
+	name = "\improper Holodeck - Wildlife Simulation"
+
+/area/holodeck/source_meetinghall
+	name = "\improper Holodeck - Meeting Hall"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source_theatre
+	name = "\improper Holodeck - Theatre"
+	sound_env = CONCERT_HALL
+
+/area/holodeck/source_picnicarea
+	name = "\improper Holodeck - Picnic Area"
+	sound_env = PLAIN
+
+/area/holodeck/source_volleyball
+	name = "\improper Holodeck - Volleyball"
+	sound_env = PLAIN
 
 /area/drone_test
 	name = "\improper Biohazard Simulation Arena"
@@ -654,6 +720,12 @@
 
 /area/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
+
+/area/deity_spawn
+	name = "\improper Deity Spawn"
+	icon_state = "yellow"
+	requires_power = 0
+	dynamic_lighting = 0
 
 //////////////////////////////////////
 //			AWAY MISSION			//
@@ -729,20 +801,3 @@
 /area/ship/combat
 	name = "\improper Ship"
 
-// Substations
-
-/area/engineering/substation
-	name = "/improper Substation"
-	icon_state = "engine_smes"
-
-/area/engineering/substation/one
-	name = "\improper First Deck Substation"
-
-/area/engineering/substation/two
-	name = "\improper Second Deck Substation"
-
-/area/engineering/substation/three
-	name = "\improper Third Deck Substation"
-
-/area/engineering/substation/atmos
-	name = "\improper Atmospherics Substation"
