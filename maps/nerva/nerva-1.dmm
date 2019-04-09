@@ -15936,9 +15936,10 @@
 	dir = 1
 	},
 /obj/machinery/computer/HolodeckControl{
-	tag = "icon-computer (EAST)";
-	icon_state = "computer";
-	dir = 4
+	dir = 4;
+	linkedholodeck = /area/holodeck;
+	linkedholodeck_area = /area/holodeck;
+	programs_list_id = "NervaMainPrograms"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
