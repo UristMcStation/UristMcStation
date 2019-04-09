@@ -11881,7 +11881,9 @@
 	pixel_x = 28;
 	tag = "icon-intercom (WEST)"
 	},
-/obj/machinery/vending/urist/autodrobe,
+/obj/machinery/vending/urist/autodrobe{
+	req_access = newlist()
+	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/holodeck)
 "GY" = (
