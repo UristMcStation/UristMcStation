@@ -18,7 +18,7 @@
 	name = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 60
-	default_delay = 3 MINUTES
+	default_delay = 30 SECONDS
 	speed_mod = 0.1 MINUTE
 	burn_delay = 10 SECONDS
 
