@@ -166,6 +166,8 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/damselfly)
 "as" = (
+/obj/item/weapon/pickaxe/hand,
+/obj/item/weapon/storage/ore,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/damselfly)
 "at" = (
@@ -185,16 +187,19 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/damselfly)
 "au" = (
+/turf/simulated/floor/usedup,
+/area/ship/scrap/damselfly)
+"av" = (
 /obj/machinery/door/window/southright,
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/damselfly)
-"av" = (
+"aw" = (
 /obj/machinery/door/window/southleft,
 /obj/machinery/door/window/northleft,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/damselfly)
-"aw" = (
+"ax" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -206,14 +211,14 @@
 	},
 /turf/simulated/floor/usedup,
 /area/space)
-"ax" = (
+"ay" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "cargo_out"
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"ay" = (
+"az" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "cargo_out"
 	},
@@ -225,27 +230,27 @@
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"az" = (
+"aA" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
-/area/space)
-"aA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
 /area/space)
 "aB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"aC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aC" = (
+"aD" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/escape_port)
-"aD" = (
+"aE" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -255,14 +260,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/escape_port)
-"aE" = (
+"aF" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1379;
 	id_tag = "cargo_pump"
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aF" = (
+"aG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1379;
 	id_tag = "cargo_pump"
@@ -280,11 +285,11 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aG" = (
+"aH" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/cargo/lower)
-"aH" = (
+"aI" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -297,7 +302,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aI" = (
+"aJ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -307,24 +312,24 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/escape_star)
-"aJ" = (
+"aK" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/escape_star)
-"aK" = (
+"aL" = (
 /turf/simulated/wall,
 /area/ship/scrap/escape_port)
-"aL" = (
+"aM" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/airless,
 /area/ship/scrap/escape_port)
-"aM" = (
+"aN" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/cargo/lower)
-"aN" = (
+"aO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -336,7 +341,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aO" = (
+"aP" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "cargo_sensor";
 	pixel_x = 25
@@ -352,7 +357,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aP" = (
+"aQ" = (
 /obj/structure/ladder/up,
 /obj/machinery/light/small{
 	icon_state = "bulb1";
@@ -361,7 +366,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"aQ" = (
+"aR" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /obj/item/weapon/paper_bin,
@@ -375,20 +380,20 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"aR" = (
+"aS" = (
 /turf/simulated/wall,
 /area/ship/scrap/cargo/lower)
-"aS" = (
+"aT" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/airless,
 /area/ship/scrap/escape_star)
-"aT" = (
+"aU" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/escape_star)
-"aU" = (
+"aV" = (
 /obj/machinery/light/small/red{
 	icon_state = "bulb1";
 	dir = 8
@@ -408,7 +413,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_port)
-"aV" = (
+"aW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -418,7 +423,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_port)
-"aW" = (
+"aX" = (
 /obj/machinery/light/small/red{
 	icon_state = "bulb1";
 	dir = 4
@@ -439,7 +444,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_port)
-"aX" = (
+"aY" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -450,14 +455,14 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"aY" = (
+"aZ" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "cargo_in"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"aZ" = (
+"ba" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "cargo_in"
 	},
@@ -469,19 +474,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"ba" = (
+"bb" = (
 /obj/machinery/light_switch{
 	pixel_x = -24
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bb" = (
+"bc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bc" = (
+"bd" = (
 /obj/machinery/light/small/red{
 	icon_state = "bulb1";
 	dir = 8
@@ -502,7 +507,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_star)
-"bd" = (
+"be" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -512,7 +517,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_star)
-"be" = (
+"bf" = (
 /obj/machinery/light/small/red{
 	icon_state = "bulb1";
 	dir = 4
@@ -532,13 +537,13 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_star)
-"bf" = (
+"bg" = (
 /turf/simulated/wall,
 /area/ship/scrap/gambling)
-"bg" = (
+"bh" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/gambling)
-"bh" = (
+"bi" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/structure/cable{
 	d1 = 1;
@@ -548,7 +553,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/escape_port)
-"bi" = (
+"bj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
@@ -556,14 +561,14 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bj" = (
+"bk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bk" = (
+"bl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -574,10 +579,10 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bl" = (
+"bm" = (
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bm" = (
+"bn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -590,7 +595,7 @@
 /obj/item/weapon/reagent_containers/glass/paint/random,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bn" = (
+"bo" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/structure/cable{
 	d1 = 1;
@@ -600,17 +605,17 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/escape_star)
-"bo" = (
+"bp" = (
 /turf/simulated/wall,
 /area/ship/scrap/crew/dorms1)
-"bp" = (
+"bq" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/crew/dorms1)
-"bq" = (
+"br" = (
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"br" = (
+"bs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/holostool,
 /obj/machinery/light/small{
@@ -620,7 +625,7 @@
 /obj/item/weapon/hand/missing_card,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bs" = (
+"bt" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1;
@@ -634,7 +639,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bt" = (
+"bu" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -647,7 +652,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"bu" = (
+"bv" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -667,7 +672,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bv" = (
+"bw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -676,7 +681,7 @@
 /obj/random/advdevice,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bw" = (
+"bx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
 	layer = 2.4;
@@ -684,7 +689,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bx" = (
+"by" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/toy,
@@ -695,7 +700,7 @@
 /obj/random/action_figure,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"by" = (
+"bz" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -707,7 +712,7 @@
 /obj/random/closet,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bz" = (
+"bA" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 4
@@ -725,7 +730,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"bA" = (
+"bB" = (
 /obj/machinery/power/apc/derelict{
 	dir = 1
 	},
@@ -747,7 +752,7 @@
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bB" = (
+"bC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -763,7 +768,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bC" = (
+"bD" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
@@ -774,10 +779,10 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bD" = (
+"bE" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"bE" = (
+"bF" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -789,12 +794,12 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bF" = (
+"bG" = (
 /obj/structure/holostool,
 /obj/item/weapon/hand/missing_card,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bG" = (
+"bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -806,7 +811,7 @@
 /obj/item/weapon/dice,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bH" = (
+"bI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -822,7 +827,7 @@
 /obj/item/weapon/hand/missing_card,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bI" = (
+"bJ" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -838,7 +843,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bJ" = (
+"bK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -856,11 +861,11 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"bK" = (
+"bL" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"bL" = (
+"bM" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -872,7 +877,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bM" = (
+"bN" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -880,25 +885,26 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bN" = (
+"bO" = (
 /obj/structure/cable{
 	icon_state = "6-8"
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bO" = (
+"bP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/item/clothing/glasses/material,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bP" = (
+"bQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bQ" = (
+"bR" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -908,7 +914,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"bR" = (
+"bS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -928,7 +934,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"bS" = (
+"bT" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -944,7 +950,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bT" = (
+"bU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -958,7 +964,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bU" = (
+"bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -967,11 +973,11 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bV" = (
+"bW" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"bW" = (
+"bX" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -983,10 +989,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/crew/dorms1)
-"bX" = (
+"bY" = (
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bY" = (
+"bZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -996,7 +1002,7 @@
 /obj/item/weapon/hand/missing_card,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"bZ" = (
+"ca" = (
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -1007,7 +1013,7 @@
 /obj/item/weapon/hand/missing_card,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/gambling)
-"ca" = (
+"cb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1018,7 +1024,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cb" = (
+"cc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	dir = 4;
@@ -1033,13 +1039,13 @@
 /obj/item/stack/tile/carpet/fifty,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cc" = (
+"cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/mecha_wreckage/ripley,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cd" = (
+"ce" = (
 /obj/structure/cable{
 	icon_state = "4-9"
 	},
@@ -1048,7 +1054,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"ce" = (
+"cf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
 	icon_state = "6-8"
@@ -1062,7 +1068,7 @@
 /obj/item/stack/material/phoron/ten,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cf" = (
+"cg" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1074,7 +1080,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cg" = (
+"ch" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1085,7 +1091,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ch" = (
+"ci" = (
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -1098,7 +1104,7 @@
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"ci" = (
+"cj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -1107,7 +1113,7 @@
 /obj/structure/holostool,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"cj" = (
+"ck" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
@@ -1117,7 +1123,7 @@
 /obj/item/weapon/bedsheet/brown,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms1)
-"ck" = (
+"cl" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -1131,7 +1137,7 @@
 /obj/machinery/mining/brace,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cl" = (
+"cm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate,
@@ -1143,25 +1149,25 @@
 /obj/item/weapon/ore/strangerock,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cm" = (
+"cn" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/shuttle_control/lift,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cn" = (
+"co" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"co" = (
+"cp" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cp" = (
+"cq" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1181,7 +1187,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cq" = (
+"cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1206,14 +1212,14 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cr" = (
+"cs" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/broken2)
-"cs" = (
+"ct" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"ct" = (
+"cu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light_construct/small{
 	icon_state = "bulb-construct-stage1";
@@ -1221,7 +1227,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cu" = (
+"cv" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1;
@@ -1235,10 +1241,10 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cv" = (
+"cw" = (
 /turf/simulated/wall,
 /area/ship/scrap/broken2)
-"cw" = (
+"cx" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -1254,7 +1260,7 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cx" = (
+"cy" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 4
@@ -1266,20 +1272,14 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -32
 	},
+/obj/structure/ore_box,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cy" = (
+"cz" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/beige{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/usedup,
-/area/ship/scrap/shuttle/lift)
-"cz" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
@@ -1291,13 +1291,20 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/turf/simulated/floor/tiled/usedup,
+/area/ship/scrap/shuttle/lift)
+"cB" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"cB" = (
+"cC" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1315,7 +1322,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cC" = (
+"cD" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 4
@@ -1330,10 +1337,10 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cD" = (
+"cE" = (
 /turf/simulated/wall,
 /area/ship/scrap/crew/dorms2)
-"cE" = (
+"cF" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1;
@@ -1355,7 +1362,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cF" = (
+"cG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/holostool,
 /obj/machinery/light/small{
@@ -1368,7 +1375,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cG" = (
+"cH" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
 /obj/effect/floor_decal/corner/beige{
@@ -1378,10 +1385,10 @@
 /obj/item/weapon/bedsheet/ce,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cH" = (
+"cI" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/crew/dorms2)
-"cI" = (
+"cJ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -1393,11 +1400,11 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cJ" = (
+"cK" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cK" = (
+"cL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1407,7 +1414,7 @@
 /obj/item/weapon/cell/high/empty,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cL" = (
+"cM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1421,7 +1428,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cM" = (
+"cN" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1432,7 +1439,7 @@
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"cN" = (
+"cO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -1447,7 +1454,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cO" = (
+"cP" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 4
@@ -1459,28 +1466,28 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"cP" = (
+"cQ" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"cQ" = (
+"cR" = (
 /obj/effect/shuttle_landmark/lift/bottom,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"cR" = (
+"cS" = (
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"cS" = (
+"cT" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"cT" = (
+"cU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -1500,7 +1507,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"cU" = (
+"cV" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1516,7 +1523,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cV" = (
+"cW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1530,7 +1537,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cW" = (
+"cX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -1539,12 +1546,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cX" = (
+"cY" = (
 /obj/structure/table/standard,
 /obj/item/weapon/newspaper,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"cY" = (
+"cZ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -1556,10 +1563,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/crew/dorms2)
-"cZ" = (
+"da" = (
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"da" = (
+"db" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -1568,7 +1575,7 @@
 /obj/structure/foamedmetal,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"db" = (
+"dc" = (
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -1578,7 +1585,7 @@
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
-"dc" = (
+"dd" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 4
@@ -1589,7 +1596,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dd" = (
+"de" = (
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -1603,7 +1610,7 @@
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"de" = (
+"df" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -1612,7 +1619,7 @@
 /obj/item/weapon/storage/briefcase,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"df" = (
+"dg" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
 /obj/effect/floor_decal/corner/beige{
@@ -1622,22 +1629,22 @@
 /obj/item/weapon/bedsheet/red,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
-"dg" = (
+"dh" = (
 /turf/space,
 /area/ship/scrap/broken1)
-"dh" = (
+"di" = (
 /obj/structure/lattice,
 /obj/item/remains/mouse,
 /turf/space,
 /area/ship/scrap/broken1)
-"di" = (
+"dj" = (
 /obj/structure/girder,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"dj" = (
+"dk" = (
 /turf/simulated/wall,
 /area/ship/scrap/broken1)
-"dk" = (
+"dl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1649,7 +1656,7 @@
 /obj/machinery/door/airlock/autoname/bearcat,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"dl" = (
+"dm" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 4
@@ -1665,7 +1672,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dm" = (
+"dn" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -1676,14 +1683,14 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"dn" = (
+"do" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"do" = (
+"dp" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1694,7 +1701,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/shuttle/lift)
-"dp" = (
+"dq" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1715,21 +1722,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dq" = (
+"dr" = (
 /obj/structure/lattice,
 /obj/item/stack/nanopaste,
 /turf/space,
 /area/ship/scrap/broken1)
-"dr" = (
+"ds" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"ds" = (
+"dt" = (
 /obj/structure/inflatable/wall,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"dt" = (
+"du" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1;
@@ -1747,10 +1754,10 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"du" = (
+"dv" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/broken1)
-"dv" = (
+"dw" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -1764,7 +1771,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"dw" = (
+"dx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 4
@@ -1778,7 +1785,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dx" = (
+"dy" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -1793,7 +1800,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dy" = (
+"dz" = (
 /obj/structure/stairs/east,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1801,7 +1808,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dz" = (
+"dA" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
@@ -1809,7 +1816,7 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dA" = (
+"dB" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1827,7 +1834,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dB" = (
+"dC" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -1841,10 +1848,10 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"dC" = (
+"dD" = (
 /turf/simulated/wall,
 /area/ship/scrap/crew/dorms3)
-"dD" = (
+"dE" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1;
@@ -1866,7 +1873,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dE" = (
+"dF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -1879,7 +1886,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dF" = (
+"dG" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
@@ -1893,7 +1900,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dG" = (
+"dH" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -1905,7 +1912,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"dH" = (
+"dI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1915,7 +1922,7 @@
 /obj/item/device/robotanalyzer,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"dI" = (
+"dJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1929,7 +1936,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"dJ" = (
+"dK" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1940,7 +1947,7 @@
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"dK" = (
+"dL" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
@@ -1948,16 +1955,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dL" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/usedup,
-/area/ship/scrap/cargo/lower)
 "dM" = (
-/obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
 "dN" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/usedup,
+/area/ship/scrap/cargo/lower)
+"dO" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -1972,7 +1979,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dO" = (
+"dP" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1988,7 +1995,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/crew/dorms3)
-"dP" = (
+"dQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2002,7 +2009,7 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dQ" = (
+"dR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -2011,12 +2018,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dR" = (
+"dS" = (
 /obj/structure/table/standard,
 /obj/random/plushie,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"dS" = (
+"dT" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -2028,11 +2035,11 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/crew/dorms3)
-"dT" = (
+"dU" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/broken1)
-"dU" = (
+"dV" = (
 /obj/structure/mopbucket,
 /obj/structure/table/rack{
 	dir = 8;
@@ -2047,7 +2054,7 @@
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"dV" = (
+"dW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -2055,7 +2062,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"dW" = (
+"dX" = (
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -2066,11 +2073,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"dX" = (
+"dY" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
-"dY" = (
+"dZ" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2082,7 +2089,7 @@
 /obj/machinery/door/airlock/autoname/bearcat,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
-"dZ" = (
+"ea" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -2090,10 +2097,10 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ea" = (
+"eb" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/crew/dorms3)
-"eb" = (
+"ec" = (
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -2105,7 +2112,7 @@
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"ec" = (
+"ed" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	layer = 2.4;
@@ -2114,7 +2121,7 @@
 /obj/structure/holostool,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"ed" = (
+"ee" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
@@ -2124,15 +2131,15 @@
 /obj/item/weapon/bedsheet/brown,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms3)
-"ee" = (
+"ef" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
-"ef" = (
+"eg" = (
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"eg" = (
+"eh" = (
 /obj/machinery/cryopod/robot{
 	dir = 4
 	},
@@ -2143,7 +2150,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
-"eh" = (
+"ei" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -2161,7 +2168,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ei" = (
+"ej" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2177,7 +2184,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ej" = (
+"ek" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2192,7 +2199,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ek" = (
+"el" = (
 /obj/structure/cable{
 	icon_state = "0-4";
 	d2 = 4
@@ -2212,7 +2219,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"el" = (
+"em" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 1
@@ -2230,7 +2237,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"em" = (
+"en" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -2248,7 +2255,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"en" = (
+"eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2262,7 +2269,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"eo" = (
+"ep" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -2278,7 +2285,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"ep" = (
+"eq" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2291,7 +2298,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"eq" = (
+"er" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -2304,20 +2311,20 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/lower)
-"er" = (
+"es" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/crew/dorms3)
-"es" = (
-/turf/simulated/wall,
-/area/ship/scrap/maintenance/techstorage)
 "et" = (
 /turf/simulated/wall,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage)
 "eu" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/ship/scrap/maintenance/storage)
 "ev" = (
+/turf/simulated/wall/r_wall,
+/area/ship/scrap/maintenance/storage)
+"ew" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2329,16 +2336,16 @@
 /obj/machinery/door/airlock/autoname/bearcat,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"ew" = (
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/eva)
 "ex" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/eva)
 "ey" = (
+/turf/simulated/wall,
+/area/ship/scrap/maintenance/eva)
+"ez" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/techstorage)
-"ez" = (
+"eA" = (
 /obj/item/weapon/circuitboard/pacman,
 /obj/item/weapon/circuitboard/recharge_station,
 /obj/item/weapon/circuitboard/shield_generator,
@@ -2350,7 +2357,7 @@
 /obj/item/device/integrated_circuit_printer,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eA" = (
+"eB" = (
 /obj/item/weapon/circuitboard/helm,
 /obj/item/weapon/circuitboard/unary_atmos/cooler,
 /obj/structure/table/rack,
@@ -2369,7 +2376,7 @@
 /obj/item/weapon/circuitboard/mining_unloader,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eB" = (
+"eC" = (
 /obj/item/weapon/circuitboard/autolathe,
 /obj/item/weapon/circuitboard/unary_atmos/heater,
 /obj/structure/table/rack,
@@ -2379,7 +2386,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eC" = (
+"eD" = (
 /obj/item/weapon/storage/toolbox/electrical,
 /obj/item/weapon/storage/toolbox/electrical{
 	pixel_x = 7;
@@ -2405,7 +2412,7 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eD" = (
+"eE" = (
 /obj/structure/closet/crate/plastic,
 /obj/item/weapon/storage/ore,
 /obj/item/weapon/pickaxe,
@@ -2414,7 +2421,7 @@
 /obj/item/weapon/mining_scanner,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eE" = (
+"eF" = (
 /obj/item/weapon/caution,
 /obj/item/weapon/caution,
 /obj/item/weapon/FixOVein,
@@ -2429,7 +2436,7 @@
 /obj/item/weapon/storage/bag/trash,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"eF" = (
+"eG" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 1
@@ -2442,7 +2449,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"eG" = (
+"eH" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2457,13 +2464,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"eH" = (
+"eI" = (
 /obj/structure/table/rack,
 /obj/item/weapon/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"eI" = (
+"eJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	icon_state = "bulb1";
@@ -2474,7 +2481,7 @@
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"eJ" = (
+"eK" = (
 /obj/machinery/power/apc/derelict{
 	dir = 1
 	},
@@ -2491,22 +2498,22 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"eK" = (
+"eL" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/eva)
-"eL" = (
+"eM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/usedup,
 /area/space)
-"eM" = (
+"eN" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /obj/machinery/vending/engineering/bearcat,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eN" = (
+"eO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -2520,7 +2527,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eO" = (
+"eP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2535,7 +2542,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eP" = (
+"eQ" = (
 /obj/machinery/door/airlock/autoname/bearcat,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2545,7 +2552,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"eQ" = (
+"eR" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 9
@@ -2562,7 +2569,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eR" = (
+"eS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2573,14 +2580,14 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eS" = (
+"eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eT" = (
+"eU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2590,7 +2597,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eU" = (
+"eV" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2600,7 +2607,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"eV" = (
+"eW" = (
 /obj/structure/cable{
 	icon_state = "4-10"
 	},
@@ -2613,7 +2620,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"eW" = (
+"eX" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2628,7 +2635,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"eX" = (
+"eY" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2639,7 +2646,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"eY" = (
+"eZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
@@ -2659,7 +2666,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"eZ" = (
+"fa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
 	dir = 4
@@ -2682,7 +2689,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fa" = (
+"fb" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 1
@@ -2711,7 +2718,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fb" = (
+"fc" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1379;
@@ -2723,7 +2730,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fc" = (
+"fd" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "eva_out"
 	},
@@ -2735,7 +2742,7 @@
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fd" = (
+"fe" = (
 /obj/item/weapon/stock_parts/capacitor,
 /obj/item/weapon/stock_parts/capacitor,
 /obj/item/weapon/stock_parts/capacitor/adv,
@@ -2750,7 +2757,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"fe" = (
+"ff" = (
 /obj/item/weapon/stock_parts/console_screen,
 /obj/item/weapon/stock_parts/console_screen,
 /obj/item/weapon/stock_parts/console_screen,
@@ -2772,7 +2779,7 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"ff" = (
+"fg" = (
 /obj/structure/table/rack,
 /obj/item/weapon/circuitboard/pacman/super/potato,
 /obj/item/stack/material/glass/phoronrglass/ten,
@@ -2782,7 +2789,7 @@
 /obj/item/weapon/circuitboard/unary_atmos/engine,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/techstorage)
-"fg" = (
+"fh" = (
 /obj/item/weapon/storage/toolbox/mechanical{
 	pixel_x = 5;
 	pixel_y = -7
@@ -2797,7 +2804,7 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fh" = (
+"fi" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2809,7 +2816,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fi" = (
+"fj" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2817,7 +2824,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fj" = (
+"fk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
@@ -2827,7 +2834,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fk" = (
+"fl" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -2839,7 +2846,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"fl" = (
+"fm" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -22
@@ -2850,14 +2857,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fm" = (
+"fn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"fn" = (
+"fo" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
@@ -2872,11 +2879,11 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"fo" = (
+"fp" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/techstorage)
-"fp" = (
+"fq" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
@@ -2893,7 +2900,7 @@
 /obj/item/taperoll/engineering,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fq" = (
+"fr" = (
 /obj/structure/table/standard,
 /obj/item/weapon/inflatable_dispenser,
 /obj/item/device/radio,
@@ -2904,7 +2911,7 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fr" = (
+"fs" = (
 /obj/item/weapon/tape_roll,
 /obj/item/stack/material/plasteel/fifty,
 /obj/item/stack/rods/fifty,
@@ -2917,7 +2924,7 @@
 /obj/item/stack/material/glass/reinforced/fifty,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
-"fs" = (
+"ft" = (
 /obj/item/clothing/head/welding,
 /obj/item/device/radio,
 /obj/item/weapon/tape_roll,
@@ -2927,20 +2934,20 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"ft" = (
+"fu" = (
 /obj/machinery/vending/tool/bearcat,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
-"fu" = (
+"fv" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
-"fv" = (
+"fw" = (
 /obj/machinery/suit_storage_unit/engineering/salvage/bearcat,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"fw" = (
+"fx" = (
 /obj/machinery/suit_storage_unit/engineering/salvage/bearcat,
 /obj/machinery/alarm{
 	dir = 8;
@@ -2950,7 +2957,7 @@
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
-"fx" = (
+"fy" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -8758,15 +8765,15 @@ aa
 aa
 aa
 aa
-az
-az
-az
-az
-az
-bD
-az
-az
-az
+aA
+aA
+aA
+aA
+aA
+bE
+aA
+aA
+aA
 aa
 aa
 aa
@@ -8879,28 +8886,28 @@ aa
 aa
 aa
 aa
-az
-aC
-aK
-aK
-bf
-bf
-bE
+aA
+aD
+aL
+aL
 bg
 bg
-cr
-cI
-cZ
-dg
-dq
-dG
-dT
-dT
-dT
-az
-az
-az
-az
+bF
+bh
+bh
+cs
+cJ
+da
+dh
+dr
+dH
+dU
+dU
+dU
+aA
+aA
+aA
+aA
 aa
 aa
 aa
@@ -9001,29 +9008,29 @@ aa
 aa
 aa
 aa
+aB
+aE
+aM
+aV
+bg
+br
+bG
+bY
+bg
+ct
+cK
+cK
+di
+ds
+ds
+dV
+ef
+dk
+ez
+ez
+ez
+fp
 aA
-aD
-aL
-aU
-bf
-bq
-bF
-bX
-bf
-cs
-cJ
-cJ
-dh
-dr
-dr
-dU
-ee
-dj
-ey
-ey
-ey
-fo
-az
 aa
 aa
 aa
@@ -9123,29 +9130,29 @@ aa
 aa
 aa
 aa
-aA
-aD
-aL
-aV
+aB
+aE
+aM
+aW
+bh
+bs
+bH
+bZ
 bg
-br
-bG
-bY
-bf
-ct
-cK
-da
-di
-ds
-dH
-dV
-ef
+cu
+cL
+db
 dj
+dt
+dI
+dW
+eg
+dk
+eA
+eN
+fe
 ez
-eM
-fd
-ey
-az
+aA
 aa
 aa
 aa
@@ -9245,29 +9252,29 @@ aa
 aa
 aa
 aa
+aB
+aE
+aM
+aW
+bg
+bt
+bI
+ca
+bg
+cv
+cM
+dc
+dk
+du
+dJ
+dX
+eh
+dk
+eB
+eO
+ff
+ez
 aA
-aD
-aL
-aV
-bf
-bs
-bH
-bZ
-bf
-cu
-cL
-db
-dj
-dt
-dI
-dW
-eg
-dj
-eA
-eN
-fe
-ey
-az
 aa
 aa
 aa
@@ -9367,30 +9374,30 @@ aa
 aa
 aa
 aa
-aA
-aD
-aL
-aV
+aB
+aE
+aM
+aW
+bh
 bg
-bf
-bI
-bf
-bf
-cv
-cM
-cv
-dj
-du
-dJ
-dj
-dj
-dj
-eB
-eO
-ff
-ey
-az
-az
+bJ
+bg
+bg
+cw
+cN
+cw
+dk
+dv
+dK
+dk
+dk
+dk
+eC
+eP
+fg
+ez
+aA
+aA
 aa
 aa
 aa
@@ -9489,30 +9496,30 @@ aa
 aa
 aa
 aa
+aB
+aE
+aM
+aX
+bi
+bu
+bK
+cb
+cb
+cx
+cO
+cb
+dl
+dw
+cO
+cb
+ei
+et
+et
+eQ
+ez
+ez
+ev
 aA
-aD
-aL
-aW
-bh
-bt
-bJ
-ca
-ca
-cw
-cN
-ca
-dk
-dv
-cN
-ca
-eh
-es
-es
-eP
-ey
-ey
-eu
-az
 aa
 aa
 aa
@@ -9611,30 +9618,30 @@ al
 al
 ak
 aa
-az
-aC
-aM
-aM
-aR
-aR
-bK
-aR
-aR
-aR
-bK
-aR
-aR
-aR
-bK
-aR
-ei
-et
-eC
-eQ
-fg
-fp
+aA
+aD
+aN
+aN
+aS
+aS
+bL
+aS
+aS
+aS
+bL
+aS
+aS
+aS
+bL
+aS
+ej
 eu
-az
+eD
+eR
+fh
+fq
+ev
+aA
 aa
 aa
 aa
@@ -9732,31 +9739,31 @@ am
 aq
 at
 ak
-aw
-aw
-aw
-aH
-aX
-bi
-bu
-bL
-cb
-ck
-cx
-cO
-dc
-dl
-dw
-dK
-dX
-ej
-et
-eD
-eR
-fh
-fq
+ax
+ax
+ax
+aI
+aY
+bj
+bv
+bM
+cc
+cl
+cy
+cP
+dd
+dm
+dx
+dL
+dY
+ek
 eu
-az
+eE
+eS
+fi
+fr
+ev
+aA
 aa
 aa
 aa
@@ -9852,33 +9859,33 @@ aa
 ak
 an
 ar
-as
 au
-ax
-aB
-aE
-aN
-aY
-bj
-bv
-bM
-cc
-cl
-cy
-cP
-cP
-dm
-dx
-dL
-aR
-ek
-eu
-eE
-eS
-fi
-fr
-fx
-bD
+av
+ay
+aC
+aF
+aO
+aZ
+bk
+bw
+bN
+cd
+cm
+cz
+cQ
+cQ
+dn
+dy
+dM
+aS
+el
+ev
+eF
+eT
+fj
+fs
+fy
+bE
 aa
 aa
 aa
@@ -9974,33 +9981,33 @@ aa
 ak
 ao
 as
-as
-av
-ay
-aB
-aF
-aO
-aZ
-bk
-bl
-bN
-bl
-cm
-cz
-cQ
-cR
-dn
-dy
-dM
-aR
-el
-eu
-eF
-eT
-fj
-fs
-eu
+au
+aw
 az
+aC
+aG
+aP
+ba
+bl
+bm
+bO
+bm
+cn
+cA
+cR
+cS
+do
+dz
+dN
+aS
+em
+ev
+eG
+eU
+fk
+ft
+ev
+aA
 aa
 aa
 aa
@@ -10098,31 +10105,31 @@ ap
 ap
 ap
 ak
-aw
-aw
-aG
-aM
-aM
-bl
-bw
-bO
-cd
-cn
-cz
-cR
-cR
-dn
-aR
-dL
-aR
-em
+ax
+ax
+aH
+aN
+aN
+bm
+bx
+bP
+ce
+co
+cA
+cS
+cS
+do
+aS
+dM
+aS
+en
+ew
+eH
+eV
+fl
+fu
 ev
-eG
-eU
-fk
-ft
-eu
-az
+aA
 aa
 aa
 aa
@@ -10222,29 +10229,29 @@ aa
 aa
 aa
 aa
-aH
-aP
-ba
-bl
-bx
-bP
-ce
-co
-cA
-cS
-cS
-do
-dz
-dL
-aR
-en
-ew
+aI
+aQ
+bb
+bm
+by
+bQ
+cf
+cp
+cB
+cT
+cT
+dp
+dA
+dM
+aS
+eo
 ex
-eV
-ex
-ex
-ex
-az
+ey
+eW
+ey
+ey
+ey
+aA
 aa
 aa
 aa
@@ -10344,29 +10351,29 @@ aa
 aa
 aa
 aa
-aH
-aQ
-bb
-bm
-by
-bQ
-cf
-cp
-cB
-cB
-cB
-dp
-dA
-dN
-dY
-eo
-ew
-eH
-eW
-fl
-fu
+aI
+aR
+bc
+bn
+bz
+bR
+cg
+cq
+cC
+cC
+cC
+dq
+dB
+dO
+dZ
+ep
 ex
-az
+eI
+eX
+fm
+fv
+ey
+aA
 aa
 aa
 aa
@@ -10465,30 +10472,30 @@ aa
 aa
 aa
 aa
-az
-aG
-aR
-aR
-aR
-aR
-bK
-aR
-aR
-aR
-bK
-aR
-aR
-aR
-bK
-aR
-ep
-ew
-eI
-eX
-fm
-fv
-ew
-az
+aA
+aH
+aS
+aS
+aS
+aS
+bL
+aS
+aS
+aS
+bL
+aS
+aS
+aS
+bL
+aS
+eq
+ex
+eJ
+eY
+fn
+fw
+ex
+aA
 aa
 aa
 aa
@@ -10587,30 +10594,30 @@ aa
 aa
 aa
 aa
-aA
-aI
-aS
-bc
-bn
-bz
-bR
-cg
-cq
-cC
-cT
-cg
-dk
-dB
-cT
-dZ
-eq
+aB
+aJ
+aT
+bd
+bo
+bA
+bS
+ch
+cr
+cD
+cU
+ch
+dl
+dC
+cU
+ea
+er
+ey
+eK
+eZ
+fo
+fx
 ex
-eJ
-eY
-fn
-fw
-ew
-az
+aA
 aa
 aa
 aa
@@ -10709,30 +10716,30 @@ aa
 aa
 aa
 aa
+aB
+aJ
+aT
+be
+bp
+bp
+bT
+bp
+bp
+cE
+cV
+cE
+cE
+dD
+dP
+eb
+eb
+ey
+ey
+fa
+ey
+ey
+eL
 aA
-aI
-aS
-bd
-bo
-bo
-bS
-bo
-bo
-cD
-cU
-cD
-cD
-dC
-dO
-ea
-ea
-ex
-ex
-eZ
-ex
-ex
-eK
-az
 aa
 aa
 aa
@@ -10831,29 +10838,29 @@ aa
 aa
 aa
 aa
-aA
-aI
-aS
-bd
-bo
-bA
-bT
-ch
-bo
+aB
+aJ
+aT
+be
+bp
+bB
+bU
+ci
+bp
+cF
+cW
+de
 cE
-cV
-dd
-cD
-dD
-dP
-eb
-er
-az
-eK
-fa
-eK
-az
-az
+dE
+dQ
+ec
+es
+aA
+eL
+fb
+eL
+aA
+aA
 aa
 aa
 aa
@@ -10953,27 +10960,27 @@ aa
 aa
 aa
 aa
-aA
-aI
-aS
-bd
-bo
-bB
-bU
-ci
-bo
-cF
-cW
-de
-cD
-dE
-dQ
-ec
-er
+aB
+aJ
+aT
+be
+bp
+bC
+bV
+cj
+bp
+cG
+cX
+df
+cE
+dF
+dR
+ed
+es
 aa
-eL
-fb
-eL
+eM
+fc
+eM
 aa
 aa
 aa
@@ -11075,27 +11082,27 @@ aa
 aa
 aa
 aa
-aA
-aI
-aS
-be
+aB
+aJ
+aT
+bf
+bq
+bD
+bW
+ck
 bp
-bC
-bV
-cj
-bo
-cG
-cX
-df
-cD
-dF
-dR
-ed
-er
+cH
+cY
+dg
+cE
+dG
+dS
+ee
+es
 aa
-eL
-fc
-eL
+eM
+fd
+eM
 aa
 aa
 aa
@@ -11197,23 +11204,23 @@ aa
 aa
 aa
 aa
-az
-aJ
-aT
-aT
+aA
+aK
+aU
+aU
+bq
+bq
+bX
 bp
-bp
-bW
-bo
-bp
-cH
-cY
-cD
-cD
-dC
-dS
-ea
-er
+bq
+cI
+cZ
+cE
+cE
+dD
+dT
+eb
+es
 aa
 aa
 aa
@@ -11320,22 +11327,22 @@ aa
 aa
 aa
 aa
-az
-az
-az
-az
-az
-bD
-az
-az
-az
-bD
-az
-az
-az
-bD
-az
-az
+aA
+aA
+aA
+aA
+aA
+bE
+aA
+aA
+aA
+bE
+aA
+aA
+aA
+bE
+aA
+aA
 aa
 aa
 aa
