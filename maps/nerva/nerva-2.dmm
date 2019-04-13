@@ -11,6 +11,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/robotics)
+"ac" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	tag = "icon-intact (SOUTHWEST)";
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/space,
+/area/space)
 "ad" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
@@ -932,6 +940,13 @@
 /obj/effect/engine_setup/filter,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"bt" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/space,
+/area/space)
 "bu" = (
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
@@ -1577,6 +1592,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second)
+"cw" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/space,
+/area/space)
 "cx" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -1802,6 +1822,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/civilian/bar)
+"cS" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+	dir = 1
+	},
+/turf/space,
+/area/space)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2250,6 +2277,10 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"dL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
 "dM" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -2458,6 +2489,15 @@
 	},
 /turf/space,
 /area/medical/storage)
+"ec" = (
+/obj/machinery/shield_diffuser,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"ed" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "ee" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2577,6 +2617,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
+"eo" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/turf/space,
+/area/space)
 "ep" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
@@ -2734,6 +2779,12 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
+"eA" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5148,9 +5199,6 @@
 /obj/item/weapon/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
-"je" = (
-/turf/simulated/wall/r_wall/prepainted,
-/area/space)
 "jf" = (
 /turf/simulated/floor/wood,
 /area/rnd/office)
@@ -20307,13 +20355,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"LQ" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	icon_state = "intact";
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "LR" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -38140,15 +38181,15 @@ bN
 bN
 bN
 aa
-aa
-aa
-bN
-aa
-aa
-Qk
-aa
-aa
-iL
+ar
+qI
+cw
+qI
+qI
+TX
+qI
+qI
+cw
 qI
 qI
 oC
@@ -38342,15 +38383,15 @@ ar
 iN
 iL
 aE
-aa
-aa
-bN
-aa
-aa
-Qk
-aa
-aa
-iA
+ac
+qI
+cw
+qI
+qI
+TX
+qI
+qI
+cw
 oC
 oC
 oC
@@ -38544,15 +38585,15 @@ uG
 oa
 oa
 uG
-aa
-aa
-bN
-aa
-aa
-vi
-aa
-aa
-iL
+ar
+qI
+cw
+qI
+qI
+ec
+qI
+qI
+cw
 qI
 qI
 oC
@@ -38746,15 +38787,15 @@ uG
 oa
 oa
 uG
-aa
-aa
-bN
-aa
-aa
-Qk
-aa
-aa
-iA
+ac
+qI
+cw
+qI
+qI
+TX
+qI
+qI
+cw
 qI
 qI
 oC
@@ -38948,15 +38989,15 @@ oa
 oa
 oa
 oa
-bN
-bN
-bN
-bN
-je
-Qk
-je
-bN
-iL
+bt
+cw
+cw
+cS
+dL
+ed
+dL
+eo
+cw
 oC
 oC
 oC
@@ -39150,15 +39191,15 @@ uG
 oa
 oa
 uG
-aa
-aa
-bN
-aa
-bN
-vi
-bN
-aa
-iA
+ac
+qI
+cw
+qI
+cw
+ec
+cw
+qI
+cw
 qI
 qI
 oC
@@ -39352,15 +39393,15 @@ uG
 oa
 oa
 uG
-aa
-aa
-bN
-aa
-bN
-Qk
-bN
-aa
-iL
+ar
+qI
+cw
+qI
+cw
+TX
+cw
+qI
+cw
 qI
 qI
 oC
@@ -39554,15 +39595,15 @@ uG
 oa
 oa
 uG
-aa
-aa
-bN
-bN
-je
-Qk
-je
-bN
-iA
+ac
+qI
+cw
+cS
+dL
+ed
+dL
+eo
+cw
 oC
 oC
 oC
@@ -39756,15 +39797,15 @@ oa
 oa
 oa
 oa
-bN
-bN
-bN
-aa
-bN
-vi
-bN
-aa
-iL
+bt
+cw
+cw
+qI
+cw
+ec
+cw
+qI
+cw
 qI
 qI
 oC
@@ -39958,15 +39999,15 @@ wl
 wl
 wl
 wl
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
-Qk
 Ui
+TX
+TX
+TX
+TX
+TX
+TX
+TX
+TX
 TX
 TX
 TX
@@ -40168,17 +40209,17 @@ Qk
 Qk
 Qk
 Qk
-Xn
-TX
-TX
-TX
-TX
-TX
-TX
-Kq
-Ui
-TX
-Qh
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+eA
+eA
+Qk
+Qk
 af
 af
 aa
@@ -40370,17 +40411,17 @@ Qk
 vi
 Qk
 Qk
-Ui
-TX
-TX
-TX
-TX
-TX
-TX
-Qh
-Xn
-TX
-LQ
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+eA
+eA
+Qk
+Qk
 af
 af
 aa
