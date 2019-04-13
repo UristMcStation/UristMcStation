@@ -168,7 +168,7 @@
 		failed_inhale = 1
 		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
-		breath_fail_ratio = Clamp(0,breath_fail_ratio/2,1)
+		breath_fail_ratio = Clamp(0,breath_fail_ratio-0.15,1)
 
 	owner.oxygen_alert = failed_inhale * 2
 
