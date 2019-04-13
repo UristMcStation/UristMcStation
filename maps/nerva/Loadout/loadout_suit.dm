@@ -45,7 +45,6 @@
 /datum/gear/suit/wintercoat/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list(/datum/job/hydro)
 
 /datum/gear/suit/wintercoat/cargo
 	display_name = "winter coat, cargo"
