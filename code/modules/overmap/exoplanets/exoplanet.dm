@@ -219,6 +219,8 @@
 			newgases -= "phoron"
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= "aliether"
+		if(atmosphere.temperature <= 308.15)
+			newgases -= "watervapor"
 
 		var/sanity = prob(99.9)
 
@@ -238,8 +240,6 @@
 						if(gas_data.flags[g] & badflag)
 							newgases -= g
 					sanity = 0
-			if(atmosphere.temperature <= 308.15)
-				newgases -= "watervapor"
 			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
 			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
 				part = total_moles
