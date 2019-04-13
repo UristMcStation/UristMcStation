@@ -1,6 +1,7 @@
 #include "bearcat_areas.dm"
 #include "bearcat_jobs.dm"
 #include "bearcat_access.dm"
+#include "bearcat_shuttle.dm"
 
 /obj/effect/submap_landmark/joinable_submap/bearcat
 	name = "FTV Bearcat"
@@ -18,10 +19,12 @@
 	name = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 60
-	default_delay = 3 MINUTES
+	default_delay = 20 SECONDS
 	speed_mod = 0.1 MINUTE
-	burn_delay = 10 SECONDS
-
+	burn_delay = 2 SECONDS
+	initial_restricted_waypoints = list(
+		"Damselfly" = list("nav_bearcat_dock")
+	)
 /obj/effect/overmap/ship/bearcat/New()
 	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
 	for(var/area/ship/scrap/A)
@@ -36,7 +39,7 @@
 	description = "A wrecked light freighter."
 	suffixes = list("bearcat/bearcat-1.dmm", "bearcat/bearcat-2.dmm")
 	cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/lift)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/lift, /datum/shuttle/autodock/overmap/damselfly)
 
 /datum/shuttle/autodock/ferry/lift
 	name = "Cargo Lift"
