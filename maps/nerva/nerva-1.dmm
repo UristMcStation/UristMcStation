@@ -18647,10 +18647,7 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/device/integrated_circuit_printer{
-	anchored = 1;
-	density = 1
-	},
+/obj/item/device/integrated_circuit_printer,
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "XZ" = (

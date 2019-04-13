@@ -13,7 +13,7 @@ datum/event/viral_outbreak/announce()
 datum/event/viral_outbreak/start()
 	var/list/candidates = list()	//list of candidate keys
 	for(var/mob/living/carbon/human/G in GLOB.player_list)
-		if(G.client && G.stat != DEAD)
+		if(G.client && G.stat != DEAD && !G.full_prosthetic)
 			candidates += G
 	if(!candidates.len)	return
 	candidates = shuffle(candidates)//Incorporating Donkie's list shuffle

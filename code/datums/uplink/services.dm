@@ -109,9 +109,9 @@
 		if(AWAITING_ACTIVATION)
 			icon_state = initial(icon_state)
 		if(CURRENTLY_ACTIVE)
-			icon_state = "sflash2"
+			icon_state = "sflash_on"
 		if(HAS_BEEN_ACTIVATED)
-			icon_state = "flashburnt"
+			icon_state = "sflash_burnt"
 
 /obj/item/device/uplink_service/proc/enable(var/mob/user = usr)
 	return TRUE
