@@ -32,3 +32,7 @@
 		"hostile"
 	)
 
+/obj/effect/overmap/ship/combat/nerva/Initialize()
+	GLOB.using_map.overmap_ship = src
+
+	.=..()
