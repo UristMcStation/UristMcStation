@@ -206,7 +206,7 @@
 
 		num--
 		places += T
-		new new_type(T) 
+		new new_type(T)
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new
@@ -238,7 +238,8 @@
 						if(gas_data.flags[g] & badflag)
 							newgases -= g
 					sanity = 0
-
+			if(atmosphere.temperature <= 308.15)
+				newgases -= "watervapor"
 			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
 			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
 				part = total_moles
@@ -337,7 +338,7 @@
 		T.set_density(1)
 		T.set_opacity(1)
 		if(istype(T, /turf/simulated))
-			var/turf/simulated/S = T 
+			var/turf/simulated/S = T
 			S.blocks_air = 1
 	if(T.x <= TRANSITIONEDGE || T.x >= (limit_x - TRANSITIONEDGE + 1) || T.y <= TRANSITIONEDGE || T.y >= (limit_y - TRANSITIONEDGE + 1))
 		new/obj/effect/fogofwar(T)
