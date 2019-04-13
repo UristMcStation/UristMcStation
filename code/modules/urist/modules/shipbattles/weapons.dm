@@ -96,7 +96,7 @@
 
 		for(var/datum/shipcomponents/engines/E in OM.components)
 			if(!E.broken && prob(E.evasion_chance))
-				GLOB.global_announcer.autosay("<b>The [src] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+				GLOB.global_announcer.autosay("<b>The [src.name] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 
 			else
 				if(!passshield)

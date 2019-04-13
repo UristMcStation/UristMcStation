@@ -85,7 +85,7 @@
 			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
 
 	if(trap_spawn_chance)
-		if(!bushes && prob(1))
+		if(!bushes && prob(0.5))
 			new /obj/structure/pit/punji6/hidden/dull(src)
 
 	if(spawn_scrap)
