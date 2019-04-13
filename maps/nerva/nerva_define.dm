@@ -172,6 +172,14 @@
 	base_floor_area = /area/maintenance/exterior
 	post_round_safe_areas = list(/area/shuttle/escape_pod1,/area/shuttle/escape_pod2,/area/shuttle/escape_pod3)
 
+	species_to_job_blacklist = list(
+		/datum/species/unathi  = list(/datum/job/captain),
+		/datum/species/skrell  = list(/datum/job/captain),
+		/datum/species/machine = list(/datum/job/captain),
+		/datum/species/diona   = list(/datum/job/captain),
+		/datum/species/teshari = list(/datum/job/captain)
+	)
+
 /datum/map/nerva/setup_map()
 	..()
 	system_name = generate_system_name()
