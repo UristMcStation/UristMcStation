@@ -36,7 +36,8 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		M.heal_organ_damage(6 * removed, 0)
+		var/logistic_healing = 6/(1+200*2.71828**(-0.05*M.getBruteLoss())) //This is a logistic function that effectively doubles the healing rate as brute amounts get to around 200. Any injury below 60 is essentially unaffected and there's a scaling inbetween.
+		M.heal_organ_damage((6+logistic_healing) * removed, 0)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
@@ -45,7 +46,7 @@
 		M.add_chemical_effect(CE_BLOCKAGE, (15 + volume - overdose)/100)
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+			if(E.status & ORGAN_ARTERY_CUT && prob(2 + volume / overdose))
 				E.status &= ~ORGAN_ARTERY_CUT
 
 /datum/reagent/kelotane
