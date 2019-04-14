@@ -5,8 +5,10 @@
 	shuttle_area = /area/ship/scrap/damselfly
 	current_location = "nav_bearcat_dock"
 	landmark_transition = "nav_bearcat_transit"
+	dock_target = "damselfly"
 	fuel_consumption = 0.5//it's small
 	range = 1
+	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/nav_bearcat/damselfly
 	name = "Damselfly Dock"
