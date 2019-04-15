@@ -30,6 +30,10 @@
 	BITSET(hud_updateflag, STATUS_HUD)
 	BITSET(hud_updateflag, LIFE_HUD)
 
+	if(internal_organs_by_name[BP_HEART])
+		var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
+		H.pulse = PULSE_NONE
+
 	//backs up lace if available.
 	var/obj/item/organ/internal/stack/s = get_organ(BP_STACK)
 	if(s)

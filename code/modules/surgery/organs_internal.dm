@@ -46,6 +46,9 @@
 		return FALSE
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.damage > 0)
+			if(I.status & ORGAN_DEAD)
+				to_chat(user,"<span class='warning'>\The [I] is [I.can_recover() ? "decaying" : "necrotic"] and cannot be treated with \The [tool] alone.</span>")
+				continue
 			if(I.surface_accessible)
 				return TRUE
 			if(affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED))
@@ -65,7 +68,7 @@
 	if(!affected || affected.how_open() < 2)
 		return
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!I.status & ORGAN_DEAD || I.can_recover()) && (I.surface_accessible || affected.how_open() >= (affected.encased ? 3 : 2)))
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && !(I.status & ORGAN_DEAD) && (I.surface_accessible || affected.how_open() >= (affected.encased ? 3 : 2)))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 

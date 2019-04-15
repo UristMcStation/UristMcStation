@@ -76,7 +76,7 @@ var/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
 	can_eat = 1
 	unavailable_at_fab = 1
-	restricted_to = list(SPECIES_HUMAN,SPECIES_IPC)
+	restricted_to = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
 
 /datum/robolimb/zenghu/industrial
 	company = "Zeng-Hu Research Frame"
@@ -162,7 +162,7 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
-	restricted_to = list(SPECIES_HUMAN)
+	restricted_to = list(SPECIES_HUMAN, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
 
 /datum/robolimb/resomi
 	company = "Small prosthetic"
