@@ -4063,7 +4063,6 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/secure_closet/nervacos,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "gX" = (
@@ -4683,7 +4682,6 @@
 	pixel_y = -20
 	},
 /obj/structure/closet/secure_closet/nervaso,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "id" = (
@@ -8694,14 +8692,6 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small{
 	req_one_access = list(73)
 	},
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/weapon/gun/projectile/revolver/hi2521r,
-/obj/item/weapon/gun/projectile/revolver/hi2521r,
 /turf/simulated/floor/tiled/dark,
 /area/command/storage)
 "pS" = (
@@ -24090,7 +24080,6 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/secure_closet/nervafo,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "Sp" = (
