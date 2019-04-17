@@ -219,6 +219,10 @@
 		return 0
 
 	target.op_stage.current_organ = organ_to_remove
+	var/obj/item/organ/O = target.op_stage.current_organ
+	if(O.damage > (O.max_damage * 0.75))
+		if(alert(user, "This organ is too damaged to be reattached if removed. Remove anyways?", "Organ Removal", "No", "Yes") == "No")
+			return 0
 	return ..()
 
 /datum/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
