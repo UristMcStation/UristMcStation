@@ -228,7 +228,7 @@
 						for(var/i = 1, i <= length(.), i++)
 							if(.[i] == "Random")
 								.[i] = pick(choices)
-								to_world("The random antag in [i]\th place is [.[i]].")
+								message_admins("The random antag in [i]\th place is [.[i]].")
 
 						var/antag_type = GLOB.antag_names_to_ids_[.[1]]
 						if(ticker.current_state < GAME_STATE_SETTING_UP)

@@ -530,7 +530,8 @@ var/global/datum/controller/gameticker/ticker
 		if (needs_ghost)
 			looking_for_antags = 1
 			antag_pool.Cut()
-			to_world("<b>A ghost is needed to spawn \a [antag.role_text].</b>\nGhosts may enter the antag pool by making sure their [antag.role_text] preference is set to high, then using the toggle-add-antag-candidacy verb. You have 3 minutes to enter the pool.")
+			for(var/mob/observer/ghost/G in ghost_mob_list)
+				to_chat(G, "<b>A ghost is needed to spawn \a [antag.role_text].</b>\nGhosts may enter the antag pool by making sure their [antag.role_text] preference is set to high, then using the toggle-add-antag-candidacy verb. You have 3 minutes to enter the pool.")
 
 			sleep(3 MINUTES)
 			looking_for_antags = 0
@@ -563,6 +564,10 @@ var/global/datum/controller/gameticker/ticker
 			if(length(antag_choices))
 				antag = antag_choices[1]
 				if(antag)
-					to_world("Attempting to spawn [antag.role_text_plural].")
+					if(antag.flags & (ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB))
+						for(var/mob/observer/ghost/G in ghost_mob_list)
+							to_chat(G, "Attempting to spawn [antag.role_text_plural].")
+					else
+						to_world("Attempting to spawn [antag.role_text_plural].")
 
 	return 0
