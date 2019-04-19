@@ -64,7 +64,7 @@
 
 	user.visible_message("<span class='danger'>\The [user] is attempting to put [cuff_type] on \the [H]!</span>")
 
-	if(!do_after(user,3 SECONDS, target))
+	if(!do_after(user,1 SECONDS, target))
 		return 0
 
 	var/obj/item/weapon/handcuffs/cuffs = src
