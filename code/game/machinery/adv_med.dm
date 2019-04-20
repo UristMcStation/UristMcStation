@@ -235,6 +235,15 @@
 	generate_window(user)
 	return
 
+/obj/machinery/body_scanconsole/attackby(var/obj/item/O, var/mob/user)
+	if(default_deconstruction_screwdriver(user, O))
+		return
+	if(default_deconstruction_crowbar(user, O))
+		return
+	if(default_part_replacement(user, O))
+		return
+	. = ..()
+
 /obj/machinery/body_scanconsole/OnTopic(mob/user, href_list)
 	if (href_list["print"])
 		if (!stored_scan)
@@ -370,9 +379,9 @@
 		else
 			table += "<td>"
 			if(E.brute_dam)
-				table += "[capitalize(get_wound_severity(E.brute_ratio))] ([E.brute_dam]) physical trauma"
+				table += "[capitalize(get_wound_severity(E.brute_ratio))] physical trauma ([E.brute_dam])"
 			if(E.burn_dam)
-				table += " [capitalize(get_wound_severity(E.burn_ratio))] ([E.burn_dam]) burns"
+				table += " [capitalize(get_wound_severity(E.burn_ratio))] burns ([E.burn_dam])"
 			if(E.brute_dam + E.burn_dam == 0)
 				table += "None"
 			table += "</td><td>[english_list(E.get_scan_results(), nothing_text = "", and_text = ", ")]</td></tr>"

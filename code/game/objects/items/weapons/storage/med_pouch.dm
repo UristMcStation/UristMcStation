@@ -6,9 +6,9 @@ Single Use Emergency Pouches
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
 	icon = 'icons/obj/med_pouch.dmi'
-	storage_slots = 7
+	storage_slots = 6
 	w_class = ITEM_SIZE_SMALL
-	max_w_class = ITEM_SIZE_SMALL
+	max_w_class = ITEM_SIZE_TINY
 
 	var/base_icon = "white"
 	var/injury_type = "generic"
@@ -56,8 +56,6 @@ Single Use Emergency Pouches
 	if(!opened)
 		user.visible_message("<span class='notice'>\The [user] tears open [src], breaking the vacuum seal!</span>", "<span class='notice'>You tear open [src], breaking the vacuum seal!</span>")
 		opened = 1
-		max_w_class = ITEM_SIZE_TINY
-		storage_slots = 4
 		update_icon()
 
 /obj/item/weapon/storage/med_pouch/open(mob/user as mob)
@@ -65,6 +63,7 @@ Single Use Emergency Pouches
 		. = ..()
 	else
 		break_seal(user)
+		. = ..()
 
 /obj/item/weapon/storage/med_pouch/trauma
 	name = "trauma pouch"

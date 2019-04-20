@@ -118,7 +118,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	startswith = list(/obj/item/weapon/reagent_containers/pill/bloodloss = 14)
 
 /obj/item/weapon/storage/pill_bottle/peridaxon
-	name = "bottle of peridaxon pills"
+	name = "pill bottle (Peridaxon)"
 	desc = "Contains pills to regenerate organs."
 	startswith = list(/obj/item/weapon/reagent_containers/pill/peridaxon = 14)
 
@@ -133,6 +133,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		)
 
 /obj/item/weapon/storage/pill_bottle/clonefix
-	name = "bottle of clonefix pills"
+	name = "pill bottle (Clonefix)"
 	desc = "Contains pills to repair cloning defaults."
 	startswith = list(/obj/item/weapon/reagent_containers/pill/clonefix = 7)
