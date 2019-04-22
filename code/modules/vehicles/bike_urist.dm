@@ -2,14 +2,21 @@
  *	Urist Edits
  *
  * 2019-04-22 by Irrationalist (Irra)
- *	- Moved the two verbs Toggle Engine and Toggle Kickstand from Object to Vehicle
+ *	- Moved the two verbs "Toggle Engine" and "Toggle Kickstand" from "Object" to "Vehicle"
  *  - Added examination for engine
  *  - Fixed a bug related to inventory and location
  *  - Unloading an engine now puts in inactive hand, else on the ground
  *  - Loading and unloading engine now give messages in chat
+ *  - Added proc 'toggle_engine' for easy engine activation
+ *  - Added proc 'toggle_kickstand' for easy kickstand
+ *  - Removing the engine now turns off the bike
+ *	- Source file formatting
  *
  */
 
+//-------------------------------------------
+// Bike definition
+//-------------------------------------------
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
@@ -47,21 +54,41 @@
 			engine.prefill()
 	update_icon()
 
-/obj/vehicle/bike/examine(var/mob/user)
-	..()
-	if (engine)
-		to_chat(user, "<span class='notice'>It has \an [engine] installed.</span>")
-	else
-		to_chat(user, "<span class='warning'>It does not have an engine installed.</span>")
+/obj/vehicle/bike/update_icon()
+	overlays.Cut()
 
+	if(on)
+		icon_state = "[bike_icon]_on"
+	else
+		icon_state = "[bike_icon]_off"
+	var/image/I = new(src.icon, "[icon_state]_overlay")
+	I.layer = ABOVE_HUMAN_LAYER
+	I.plane = ABOVE_HUMAN_PLANE
+	overlays += I
+	..()
+
+//-------------------------------------------
+// Verb interaction & procs
+//-------------------------------------------
 /obj/vehicle/bike/verb/toggle()
 	set name = "Toggle Engine"
 	set category = "Vehicle"
 	set src in view(0)
 
-	if(usr.incapacitated()) return
+	src.toggle_engine(usr)
+
+/obj/vehicle/bike/verb/kickstand()
+	set name = "Toggle Kickstand"
+	set category = "Vehicle"
+	set src in view(0)
+
+	src.toggle_kickstand(usr)
+
+/obj/vehicle/bike/proc/toggle_engine(var/mob/user)
+	if(!user) return
+	if(user.incapacitated()) return
 	if(!engine)
-		to_chat(usr, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
+		to_chat(user, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
 		return
 
 	if(!on)
@@ -69,26 +96,26 @@
 	else
 		turn_off()
 
-/obj/vehicle/bike/verb/kickstand()
-	set name = "Toggle Kickstand"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated()) return
+/obj/vehicle/bike/proc/toggle_kickstand(var/mob/user)
+	if(!user) return
+	if(user.incapacitated()) return
 
 	if(kickstand)
-		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.")
+		user.visible_message("\The [user] puts up \the [src]'s kickstand.")
 	else
 		if(istype(src.loc,/turf/space))
 			to_chat(usr, "<span class='warning'> You don't think kickstands work in space...</span>")
 			return
-		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.")
+		user.visible_message("\The [user] puts down \the [src]'s kickstand.")
 		if(pulledby)
 			pulledby.stop_pulling()
 
 	kickstand = !kickstand
 	anchored = (kickstand || on)
 
+//-------------------------------------------
+// Engine customization procs
+//-------------------------------------------
 /obj/vehicle/bike/proc/load_engine(var/obj/item/weapon/engine/E, var/mob/user)
 	if(engine)
 		return
@@ -109,7 +136,8 @@
 
 	if (!user || !user.put_in_inactive_hand(engine))
 		engine.forceMove(get_turf(src))
-	. = engine
+	. = engine // set return value to a reference to the engine as a success
+	turn_off()
 	engine = null
 
 	if(trail)
@@ -119,21 +147,9 @@
 
 	return
 
-/obj/vehicle/bike/load(var/atom/movable/C)
-	var/mob/living/M = C
-	if(!istype(C)) return 0
-	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
-		return 0
-	return ..(M)
-
-/obj/vehicle/bike/emp_act(var/severity)
-	if(engine)
-		engine.emp_act(severity)
-	..()
-
-/obj/vehicle/bike/insert_cell(var/obj/item/weapon/cell/C, var/mob/living/carbon/human/H)
-	return
-
+//-------------------------------------------
+// Click interaction procs
+//-------------------------------------------
 /obj/vehicle/bike/attackby(obj/item/W as obj, mob/user as mob)
 	if(open)
 		if(istype(W, /obj/item/weapon/engine))
@@ -166,6 +182,29 @@
 		unload(load)
 		to_chat(user, "You unbuckle yourself from \the [src]")
 
+//-------------------------------------------
+// Interaction procs
+//-------------------------------------------
+/obj/vehicle/bike/examine(var/mob/user)
+	..()
+	if (engine)
+		to_chat(user, "<span class='notice'>It has \an [engine] installed.</span>")
+	else
+		to_chat(user, "<span class='warning'>It does not have an engine installed.</span>")
+
+/obj/vehicle/bike/load(var/atom/movable/C)
+	var/mob/living/M = C
+	if(!istype(C)) return 0
+	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
+		return 0
+	return ..(M)
+
+/obj/vehicle/bike/insert_cell(var/obj/item/weapon/cell/C, var/mob/living/carbon/human/H)
+	return
+
+//-------------------------------------------
+// Movement procs
+//-------------------------------------------
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on)
 		return
@@ -192,6 +231,9 @@
 			return 0
 	return ..()
 
+//-------------------------------------------
+// Engine activation procs
+//-------------------------------------------
 /obj/vehicle/bike/turn_on()
 	if(!engine || on)
 		return
@@ -222,32 +264,28 @@
 
 	..()
 
+//-------------------------------------------
+// Vehicle damage procs
+//-------------------------------------------
+/obj/vehicle/bike/emp_act(var/severity)
+	if(engine)
+		engine.emp_act(severity)
+	..()
+
 /obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
 	if(buckled_mob && prob((100-protection_percent)))
 		buckled_mob.bullet_act(Proj)
 		return
 	..()
 
-/obj/vehicle/bike/update_icon()
-	overlays.Cut()
-
-	if(on)
-		icon_state = "[bike_icon]_on"
-	else
-		icon_state = "[bike_icon]_off"
-	var/image/I = new(src.icon, "[icon_state]_overlay")
-	I.layer = ABOVE_HUMAN_LAYER
-	I.plane = ABOVE_HUMAN_PLANE
-	overlays += I
-	..()
-
-
 /obj/vehicle/bike/Destroy()
 	qdel(trail)
 	qdel(engine)
 	..()
 
-
+//-------------------------------------------
+// Variety defines
+//-------------------------------------------
 /obj/vehicle/bike/thermal
 	engine_type = /obj/item/weapon/engine/thermal
 	prefilled = 1
