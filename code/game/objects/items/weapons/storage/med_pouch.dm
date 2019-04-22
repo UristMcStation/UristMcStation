@@ -6,9 +6,9 @@ Single Use Emergency Pouches
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
 	icon = 'icons/obj/med_pouch.dmi'
-	storage_slots = 7
+	storage_slots = 8
 	w_class = ITEM_SIZE_SMALL
-	max_w_class = ITEM_SIZE_SMALL
+	max_w_class = ITEM_SIZE_TINY
 
 	var/base_icon = "white"
 	var/injury_type = "generic"
@@ -56,8 +56,6 @@ Single Use Emergency Pouches
 	if(!opened)
 		user.visible_message("<span class='notice'>\The [user] tears open [src], breaking the vacuum seal!</span>", "<span class='notice'>You tear open [src], breaking the vacuum seal!</span>")
 		opened = 1
-		max_w_class = ITEM_SIZE_TINY
-		storage_slots = 4
 		update_icon()
 
 /obj/item/weapon/storage/med_pouch/open(mob/user as mob)
@@ -65,6 +63,7 @@ Single Use Emergency Pouches
 		. = ..()
 	else
 		break_seal(user)
+		. = ..()
 
 /obj/item/weapon/storage/med_pouch/trauma
 	name = "trauma pouch"
@@ -75,7 +74,7 @@ Single Use Emergency Pouches
 	/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 	/obj/item/weapon/reagent_containers/pill/pouch_pill/inaprovaline,
 	/obj/item/weapon/reagent_containers/pill/pouch_pill/paracetamol,
-	/obj/item/stack/medical/bruise_pack = 2,
+	/obj/item/stack/medical/bruise_pack/med_pouch = 2,
 		)
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
@@ -97,7 +96,7 @@ Single Use Emergency Pouches
 	/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
 	/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
 	/obj/item/weapon/reagent_containers/pill/pouch_pill/paracetamol,
-	/obj/item/stack/medical/ointment = 2,
+	/obj/item/stack/medical/ointment/med_pouch = 2,
 		)
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
@@ -224,3 +223,10 @@ Single Use Emergency Pouches
 	name = "emergency adrenaline autoinjector"
 	amount_per_transfer_from_this = 8
 	starts_with = list(/datum/reagent/adrenaline = 8)
+
+//TODO: Just bring back real medkits, these things are worthless.
+/obj/item/stack/medical/bruise_pack/med_pouch
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/stack/medical/ointment/med_pouch
+	w_class = ITEM_SIZE_TINY

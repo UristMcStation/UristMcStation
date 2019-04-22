@@ -186,7 +186,7 @@ obj/item/organ/internal/take_general_damage(var/amount, var/silent = FALSE)
 	. = ..()
 	var/scar_level = get_scarring_level()
 	if(scar_level > 0.01)
-		. += "[get_wound_severity(get_scarring_level())] scarring"
+		. += "[get_wound_severity(get_scarring_level())] scarring ([round(scar_level * 100)]%)"
 
 /obj/item/organ/internal/emp_act(severity)
 	if(!BP_IS_ROBOTIC(src))
