@@ -10,6 +10,7 @@
  *  - Added proc 'toggle_engine' for easy engine activation
  *  - Added proc 'toggle_kickstand' for easy kickstand
  *  - Removing the engine now turns off the bike
+ *  - If in any way the engine had been modified that renders it unusuable, the bike will also be turned off
  *	- Source file formatting
  *
  */
@@ -87,14 +88,11 @@
 /obj/vehicle/bike/proc/toggle_engine(var/mob/user)
 	if(!user) return
 	if(user.incapacitated()) return
-	if(!engine)
-		to_chat(user, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
-		return
 
 	if(!on)
-		turn_on()
+		turn_on(user)
 	else
-		turn_off()
+		turn_off(user)
 
 /obj/vehicle/bike/proc/toggle_kickstand(var/mob/user)
 	if(!user) return
@@ -104,7 +102,7 @@
 		user.visible_message("\The [user] puts up \the [src]'s kickstand.")
 	else
 		if(istype(src.loc,/turf/space))
-			to_chat(usr, "<span class='warning'> You don't think kickstands work in space...</span>")
+			to_chat(user, "<span class='warning'> You don't think kickstands work in space...</span>")
 			return
 		user.visible_message("\The [user] puts down \the [src]'s kickstand.")
 		if(pulledby)
@@ -161,7 +159,8 @@
 			return
 
 		else if(engine && engine.attackby(W,user))
-			return
+			if (!engine.can_turn_on() && on)
+				turn_off()
 
 		else if(isCrowbar(W))
 			var/e = unload_engine(user)
@@ -234,9 +233,17 @@
 //-------------------------------------------
 // Engine activation procs
 //-------------------------------------------
-/obj/vehicle/bike/turn_on()
-	if(!engine || on)
-		return
+/obj/vehicle/bike/turn_on(var/mob/user)
+	if(!engine)
+		to_chat(user, "<span class='warning'>\The [src] does not have an engine block installed...</span>")
+		return 0
+
+	if(on)
+		return 0
+
+	if (!engine.can_turn_on())
+		engine.dead_start(src, user)
+		return 0
 
 	engine.rev_engine(src)
 	if(trail)
@@ -249,7 +256,7 @@
 		pulledby.stop_pulling()
 	..()
 
-/obj/vehicle/bike/turn_off()
+/obj/vehicle/bike/turn_off(var/mob/user)
 	if(!on)
 		return
 	if(engine)

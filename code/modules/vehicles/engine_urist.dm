@@ -5,6 +5,11 @@
  *	- Added examine to electric engines for telling whether there is a cell plugged in or not
  *  - Plugging an cell into an electric engine now has a chat message
  *  - Fixed a code error where thermal overrides electrical "putter"
+ *  - Refactored thermal's fuel processing into its own proc
+ *  - Refactored thermal's fuel checks into several procs
+ *  - Added a start-up check proc; "can_turn_on()"
+ *  - Added "dead_start()" sound proc for failing start-ups
+ *  - Added status checking to 'power_use' and 'can_start_up'
  *
  */
 
@@ -28,10 +33,16 @@
 /obj/item/weapon/engine/proc/use_power()
 	return 0
 
-/obj/item/weapon/engine/proc/rev_engine(var/atom/movable/M)
+/obj/item/weapon/engine/proc/can_turn_on()
+	return 0
+
+/obj/item/weapon/engine/proc/dead_start(var/atom/movable/M, var/mob/user = null)
 	return
 
-/obj/item/weapon/engine/proc/putter(var/atom/movable/M)
+/obj/item/weapon/engine/proc/rev_engine(var/atom/movable/M, var/mob/user = null)
+	return
+
+/obj/item/weapon/engine/proc/putter(var/atom/movable/M, var/mob/user = null)
 	return
 
 /obj/item/weapon/engine/electric
@@ -64,9 +75,16 @@
 	cell = new /obj/item/weapon/cell/high(src.loc)
 
 /obj/item/weapon/engine/electric/use_power()
-	if(!cell)
+	if(!cell || stat)
 		return 0
 	return cell.use(cost_per_move * CELLRATE)
+
+/obj/item/weapon/engine/electric/can_turn_on()
+	return !stat && cell && cell.check_charge(cost_per_move * CELLRATE)
+
+/obj/item/weapon/engine/electric/dead_start(var/atom/movable/M, var/mob/user)
+	if(user)
+		to_chat(user, "<i>You try to start the [M], but nothing happens.</i>")
 
 /obj/item/weapon/engine/electric/rev_engine(var/atom/movable/M)
 	M.audible_message("\The [M] beeps, spinning up.")
@@ -115,16 +133,17 @@
 		return 1
 	..()
 
-/obj/item/weapon/engine/thermal/use_power()
-	if(fuel_points >= cost_per_move)
-		fuel_points -= cost_per_move
-		return 1
+/obj/item/weapon/engine/thermal/proc/has_fuel_reagents()
 	if(!reagents || reagents.total_volume <= 0 || stat)
 		return 0
+	return 1
 
+/obj/item/weapon/engine/thermal/proc/process_fuel()
 	reagents.trans_to(temp_reagents_holder,min(reagents.total_volume,15))
+
 	var/multiplier = 1
 	var/actually_flameable = 0
+
 	for(var/datum/reagent/R in temp_reagents_holder.reagents.reagent_list)
 		var/new_multiplier = 1
 		if(istype(R,/datum/reagent/ethanol))
@@ -152,7 +171,27 @@
 		return 0
 	fuel_points += 20 * multiplier * temp_reagents_holder.reagents.total_volume
 	temp_reagents_holder.reagents.clear_reagents()
-	return use_power()
+	return 1
+
+/obj/item/weapon/engine/thermal/use_power()
+	if(stat == DEAD)
+		return 0
+
+	if(fuel_points >= cost_per_move)
+		fuel_points -= cost_per_move
+		return 1
+
+	if (has_fuel_reagents())
+		process_fuel()
+		return use_power()
+	else
+		return 0
+
+/obj/item/weapon/engine/thermal/can_turn_on()
+	return !stat && ((fuel_points >= cost_per_move) || (has_fuel_reagents() && process_fuel()))
+
+/obj/item/weapon/engine/thermal/dead_start(var/atom/movable/M)
+	M.audible_message("\The [M] lets out metallic coughing before going silent.")
 
 /obj/item/weapon/engine/thermal/rev_engine(var/atom/movable/M)
 	M.audible_message("\The [M] rumbles to life.")

@@ -4,6 +4,7 @@
  * 2019-04-22 by Irrationalist (Irra)
  *	- Fixed the 'set_light' proc call in 'turn_on' not using the "light_outer_range" variable properly
  *  - Removed "initial"s from the same proc call
+ *  - Both 'turn_on' and 'turn_off' procs can now take user mob as an optional parameter
  *
  */
 
@@ -178,7 +179,7 @@
 //-------------------------------------------
 // Vehicle procs
 //-------------------------------------------
-/obj/vehicle/proc/turn_on()
+/obj/vehicle/proc/turn_on(var/mob/user = null)
 	if(stat)
 		return 0
 	if(powered && cell.charge < (charge_use * CELLRATE))
@@ -188,7 +189,7 @@
 	update_icon()
 	return 1
 
-/obj/vehicle/proc/turn_off()
+/obj/vehicle/proc/turn_off(var/mob/user = null)
 	on = 0
 	set_light(0)
 	update_icon()
