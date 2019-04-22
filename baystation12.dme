@@ -2909,7 +2909,7 @@
 #include "code\modules\vehicles\cargo_train.dm"
 #include "code\modules\vehicles\engine_urist.dm"
 #include "code\modules\vehicles\train.dm"
-#include "code\modules\vehicles\vehicle.dm"
+#include "code\modules\vehicles\vehicle_urist.dm"
 #include "code\modules\ventcrawl\ventcrawl.dm"
 #include "code\modules\ventcrawl\ventcrawl_atmospherics.dm"
 #include "code\modules\ventcrawl\ventcrawl_multiz.dm"
