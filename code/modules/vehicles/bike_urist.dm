@@ -163,12 +163,12 @@
 		else if(engine && engine.attackby(W,user))
 			return
 
-		else if(isCrowbar(W) && engine)
+		else if(isCrowbar(W))
 			var/e = unload_engine(user)
 			if (e)
 				user.visible_message("<span class='warning'>\The [user] pops out \the [e] from \the [src].</span>")
 			else
-				to_chat(user, "<span class='warning'>There is no engine to remove from \the [src].</span>")
+				to_chat(user, "<span class='warning'>There is no engine in \the [src].</span>")
 			return
 	return ..()
 
