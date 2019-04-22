@@ -4,6 +4,7 @@
  * 2019-04-22 by Irrationalist (Irra)
  *	- Added examine to electric engines for telling whether there is a cell plugged in or not
  *  - Plugging an cell into an electric engine now has a chat message
+ *  - Fixed a code error where thermal overrides electrical "putter"
  *
  */
 
@@ -156,5 +157,5 @@
 /obj/item/weapon/engine/thermal/rev_engine(var/atom/movable/M)
 	M.audible_message("\The [M] rumbles to life.")
 
-/obj/item/weapon/engine/electric/putter(var/atom/movable/M)
+/obj/item/weapon/engine/thermal/putter(var/atom/movable/M)
 	M.audible_message("\The [M] putters before turning off.")
