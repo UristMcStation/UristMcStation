@@ -172,7 +172,7 @@
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
 //	debris_path = /obj/structure/scrap/vehicle
-	light_max_bright = 5
+	light_max_bright = 1 // previously 5, but 1 is the maximum allowed - runtimes if above 1
 	light_outer_range = 6
 	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
 	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
@@ -184,6 +184,11 @@
 	var/moved
 	land_speed = 1 //if 0 it can't go on turf
 
+/*
+ * Override disabled by Irra, 2019-04-22
+ * As part of improvements, this has been taken off in favor of overriding an other proc
+ * Sound moved to the turn_on definition in this file
+ *
 /obj/vehicle/bike/motorcycle/toggle()
 	set name = "Toggle Engine"
 	set category = "Vehicle"
@@ -202,9 +207,11 @@
 	else
 		turn_off()
 //		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+*/
 
 /obj/vehicle/bike/motorcycle/turn_on()
 	..()
+	playsound(src.loc, start_sound, 100)
 	START_PROCESSING(SSobj, src)
 
 /obj/vehicle/bike/motorcycle/turn_off()
