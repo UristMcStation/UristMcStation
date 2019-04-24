@@ -12,7 +12,7 @@
 	return
 
 /client/verb/forum()
-	set name = "Discord"
+	set name = "Forum"
 	set desc = "Visit the Discord server."
 	set hidden = 1
 	if( config.forumurl )
