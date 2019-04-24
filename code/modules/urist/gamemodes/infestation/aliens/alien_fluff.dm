@@ -16,7 +16,7 @@
 	default_language = LANGUAGE_XENOPHAGE
 	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
 	description = "The aliens of the Galactic Crisis are a force from an unknown galaxy that invaded the Milky Way beginning in 2556. Comprising a wide range of species held together \
-	by the psionic control of the Allophylus, the only goal of the alien forces appears to be to wipe out humanity and to mind-slave them to the Allyphylus, as has been done \
+	by the psionic control of the Allophylus, the only goal of the alien forces appears to be to wipe out humanity and to mind-slave them to the Allophylus, as has been done \
 	with the other constituent species of the invading force."
 	mob_faction = "alien"
 	additional_langs = list("Hivemind")

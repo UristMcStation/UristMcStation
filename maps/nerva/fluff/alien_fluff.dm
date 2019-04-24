@@ -19,7 +19,7 @@
 	default_language = LANGUAGE_XENOPHAGE
 	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
 	description = "The aliens of the Galactic Crisis are a force from an unknown galaxy that invaded the Milky Way beginning in 2556. Comprising a wide range of species held together \
-	by the psionic control of the Allophylus, the only goal of the alien forces appeared to be to wipe out humanity and to mind-slave them to the Allyphylus, as had been done \
+	by the psionic control of the Allophylus, the only goal of the alien forces appeared to be to wipe out humanity and to mind-slave them to the Allophylus, as had been done \
 	with the other constituent species of the invading force. With the alien forces broken after the Battle of Qerrbalak in 2565, the Galactic Crisis has ended. However, although the  \
 	psionic control of the Allophylus has been broken, alien forces remain in the Milky Way, directionless and scattered."
 	mob_faction = "alien"
