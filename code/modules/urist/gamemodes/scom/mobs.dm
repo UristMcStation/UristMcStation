@@ -105,11 +105,11 @@
 	will_flee = 1
 	maxHealth = 60
 	health = 60
-	icon_state = "liz1"
+	icon_state = "xeno-troop"
 	name = "Lactera Light Trooper"
 	projectiletype = /obj/item/projectile/beam/scom/alien1
-	icon_living = "liz1"
-	icon_dead = "liz1_dead"
+	icon_living = "xeno-troop"
+	icon_dead = "xeno-troop_dead"
 
 /mob/living/simple_animal/hostile/scom/lactera/medium
 	icon_state = "liz2"
@@ -117,40 +117,56 @@
 	health = 100
 	name = "Lactera Trooper"
 	projectiletype = /obj/item/projectile/beam/scom/alien2
-	icon_living = "liz2"
-	icon_dead = "liz2_dead"
+	icon_state = "xeno-midtroop"
+	icon_living = "xeno-midtroop"
+	icon_dead = "xeno-midtroop_dead"
 	weapon1 = /obj/item/scom/aliengun/a2
 
 /mob/living/simple_animal/hostile/scom/lactera/heavy
 	icon_state = "liz3"
-	name = "Lactera Heavy Trooper"
+	name = "Lactera Assault Trooper"
 	rapid = 1
 	projectiletype = /obj/item/projectile/beam/scom/alien2
 	maxHealth = 150
 	health = 150
-	icon_living = "liz3"
-	icon_dead = "liz3_dead"
+	icon_state = "xeno-bigtroop"
+	icon_living = "xeno-bigtroop"
+	icon_dead = "xeno-bigtroop_dead"
 	weapon1 = /obj/item/scom/aliengun/a3
+
+/mob/living/simple_animal/hostile/scom/lactera/heaviest
+	icon_state = "liz4"
+	name = "Lactera Heavy Trooper"
+	projectiletype = /obj/item/projectile/beam/scom/alien3
+	maxHealth = 250
+	health = 250
+	icon_state = "xeno-maxtroop"
+	icon_living = "xeno-maxtroop"
+	icon_dead = "xeno-maxtroop_dead"
+	weapon1 = /obj/item/scom/aliengun/a4
+	rapid = 1
 
 /mob/living/simple_animal/hostile/scom/lactera/leader
 	icon_state = "liz4"
 	name = "Lactera Officer"
 	projectiletype = /obj/item/projectile/beam/scom/alien3
-	maxHealth = 200
-	health = 200
-	icon_living = "liz4"
-	icon_dead = "liz4_dead"
-	weapon1 = /obj/item/scom/aliengun/a4
+	maxHealth = 250
+	health = 250
+	icon_state = "xeno-commander"
+	icon_living = "xeno-commander"
+	icon_dead = "xeno-commander_dead"
+	weapon1 = /obj/item/scom/aliengun/a3
+	rapid = 1
 
 /mob/living/simple_animal/hostile/scom/lactera/medic
 	can_heal = 1
-	icon_state = "lizm"
+	icon_state = "xeno-medic"
 	name = "Lactera Medic"
 	projectiletype = /obj/item/projectile/beam/scom/alien1
 	maxHealth = 60
 	health = 60
-	icon_living = "lizm"
-	icon_dead = "lizm_dead"
+	icon_living = "xeno-medic"
+	icon_dead = "xeno-medic_dead"
 
 /mob/living/simple_animal/hostile/scom/allophylus
 	icon_state = "allophylus"

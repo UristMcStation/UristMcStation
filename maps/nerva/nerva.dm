@@ -20,6 +20,7 @@
 	#include "fluff/factions.dm"
 	#include "fluff/locations_human.dm"
 	#include "fluff/species_overrides.dm"
+	#include "fluff/alien_fluff.dm"
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"

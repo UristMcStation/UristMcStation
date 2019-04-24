@@ -33,7 +33,7 @@
 /decl/hierarchy/outfit/ANFOR
 	name = "ANFOR Marine"
 	uniform = /obj/item/clothing/under/urist/anfor
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/urist/anforjackboots
 	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	//glasses = /obj/item/clothing/glasses/thermal
@@ -41,8 +41,8 @@
 	head = /obj/item/clothing/head/helmet/urist/anfor
 	//mask = /obj/item/clothing/mask/gas/swat
 	back = /obj/item/weapon/storage/backpack/security
-	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/regular = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1)
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1, /obj/item/weapon/storage/box/survival = 1)
 	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
 	r_pocket = /obj/item/weapon/tank/emergency/oxygen
 	l_pocket = /obj/item/ammo_magazine/a556/a22
@@ -286,6 +286,19 @@
 	r_hand = /obj/item/weapon/gun/energy/lactera/a3
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/regular
+
+/decl/hierarchy/outfit/lactera/heavy
+	name = "Lactera Heavy"
+	uniform = /obj/item/clothing/under/lactera
+	shoes = /obj/item/clothing/shoes/magboots/lactera
+	glasses = /obj/item/clothing/glasses/night
+	suit = /obj/item/clothing/suit/lactera/max
+	belt = /obj/item/weapon/gun/energy/lactera/a1
+	r_hand = /obj/item/weapon/gun/energy/lactera/a4
+	r_pocket = /obj/item/weapon/grenade/aliengrenade
+	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/max
 
 /decl/hierarchy/outfit/lactera/officer
 	name = "Lactera Officer"
@@ -297,6 +310,7 @@
 	r_hand = /obj/item/weapon/gun/energy/lactera/a2
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/cmd
 
 /decl/hierarchy/outfit/terranmarine
 	name = "Terran Marine"
