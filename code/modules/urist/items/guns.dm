@@ -443,6 +443,7 @@ the sprite and make my own projectile -Glloyd*/
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "[initial(icon_state)]_alt"
 	else
@@ -523,11 +524,6 @@ the sprite and make my own projectile -Glloyd*/
 	accuracy = -2
 	jam_chance = 20
 
-/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn/update_icon()
-	if(bolt_open)
-		icon_state = "308boltsawed_alt"
-	else
-		icon_state = "308boltsawed"
 //rifle construction
 
 /obj/item/weapon/imprifleframe/imprifleframesawn
