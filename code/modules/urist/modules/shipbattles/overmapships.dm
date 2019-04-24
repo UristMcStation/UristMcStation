@@ -1,5 +1,5 @@
 /area/boarding_ship
-	name = "Ship"
+	name = "Ship - Boarding"
 	icon_state = "away"
 	requires_power = 0
 
@@ -13,7 +13,7 @@
 	icon_state = "ship"
 	icon_living = "ship"
 	icon_dead = "ship"
-	var/boardingmap = "ship_blank.dmm"
+	var/boardingmap = "maps/shipmaps/ship_blank.dmm"
 	var/list/components = list()
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
@@ -91,7 +91,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
 	for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
-		S.mapfile = "ship_blank.dmm"
+		S.mapfile = "maps/shipmaps/ship_blank.dmm"
 		S.Load()
 	return
 
@@ -176,7 +176,7 @@
 	name = "small pirate ship"
 	ship_category = "small pirate ship"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small/New()
 	components = list(
@@ -201,7 +201,7 @@
 	name = "pirate vessel"
 	ship_category = "medium pirate vessel"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/pirate/med/New()
 	components = list(
@@ -224,7 +224,7 @@
 	health = 800
 	maxHealth = 800
 	ship_category = "NanoTrasen merchant ship"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant/New()
 	components = list(
@@ -274,7 +274,8 @@
 	name = "Unknown"
 	designation = ""
 	ship_category = "small lactera ship"
-	boardingmap = "ship_lactera_small.dmm"
+	boardingmap = "maps/shipmaps/ship_lactera_small.dmm"
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/alien/small/New() //we'll see
 	components = list(
@@ -320,7 +321,7 @@
 	maxHealth = 800
 	ship_category = "Terran Confederacy merchant ship"
 	boardingmap = "maps/shipmaps/ship_light_freighter.dmm"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/terran/tcmerchant/New()
 	components = list(
@@ -345,7 +346,7 @@
 	maxHealth = 1000
 	ship_category = "Terran Confederacy fast attack craft"
 	boardingmap = "maps/shipmaps/ship_fastattackcraft_terran.dmm"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack/New()
 	components = list(
@@ -371,7 +372,7 @@
 	maxHealth = 1000
 	ship_category = "rebel fast attack craft"
 	boardingmap = "maps/shipmaps/ship_rebel_small1.dmm"
-	can_board = 1
+	can_board = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack/New()
 	components = list(

@@ -2895,6 +2895,7 @@
 #include "code\modules\urist\modules\weather\weather_helpers.dm"
 #include "code\modules\urist\modules\weather\weather_objects.dm"
 #include "code\modules\urist\modules\weather\weather_turf.dm"
+#include "code\modules\urist\structures\boardingstructures.dm"
 #include "code\modules\urist\structures\closets.dm"
 #include "code\modules\urist\structures\Couch&UMcSflora.dm"
 #include "code\modules\urist\structures\crates.dm"
