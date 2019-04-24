@@ -102,6 +102,11 @@
 	else
 		dying = 1
 
+		if(GLOB.using_map.using_new_cargo)
+			for(var/datum/contract/shiphunt/A in GLOB.using_map.contracts)
+				if(A.hunt_faction == src.hiddenfaction)
+					A.Complete(1)
+
 		for(var/datum/shipcomponents/S in src.components)
 			S.broken = TRUE
 
@@ -268,8 +273,8 @@
 	maxHealth = 1200
 	name = "Unknown"
 	designation = ""
-	ship_category = "small alien ship"
-	boardingmap = "ship_light_freighter.dmm"
+	ship_category = "small lactera ship"
+	boardingmap = "ship_lactera_small.dmm"
 
 /mob/living/simple_animal/hostile/overmapship/alien/small/New() //we'll see
 	components = list(
@@ -277,7 +282,8 @@
 		new /datum/shipcomponents/engines/alien_light,
 		new /datum/shipcomponents/weapons/alien/light,
 		new /datum/shipcomponents/weapons/alien/light,
-		new /datum/shipcomponents/weapons/alien/heavy
+		new /datum/shipcomponents/weapons/alien/heavy,
+		new /datum/shipcomponents/weapons/smallalienmissile
 	)
 
 	..()
@@ -286,8 +292,8 @@
 	shields = 500 //really weak, but fast charging shields
 	health = 2200 //and beefy hulls
 	maxHealth = 2200
-	name = "small pirate ship"
-	ship_category = "small pirate ship"
+	name = "Unknown"
+	ship_category = "large lactera ship"
 	boardingmap = "ship_light_freighter.dmm"
 
 /mob/living/simple_animal/hostile/overmapship/alien/heavy/New() //TODO

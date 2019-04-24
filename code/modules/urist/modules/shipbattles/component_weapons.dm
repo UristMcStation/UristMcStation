@@ -64,6 +64,11 @@
 	burst = 2
 	firedelay = 40 SECONDS
 
+/datum/shipcomponents/weapons/smallalienmissile
+	name = "small alien missile launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/smallalienmissile
+	firedelay = 26 SECONDS
+
 /datum/shipcomponents/weapons/bigmissile
 	name = "large missile launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/bigmissile

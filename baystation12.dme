@@ -2852,6 +2852,7 @@
 #include "code\modules\urist\modules\mecha\fighters.dm"
 #include "code\modules\urist\modules\mecha\uristpaintkits.dm"
 #include "code\modules\urist\modules\newtrading\contract_computer.dm"
+#include "code\modules\urist\modules\newtrading\contract_papers.dm"
 #include "code\modules\urist\modules\newtrading\contracts.dm"
 #include "code\modules\urist\modules\newtrading\stations.dm"
 #include "code\modules\urist\modules\newtrading\NPC\npc.dm"
