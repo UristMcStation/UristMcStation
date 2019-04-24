@@ -6,7 +6,7 @@
 	Born in a laboratory and raised for the sole purpose of killing, they are creatures genetically modified to be an ideal soldier. \
 	Without fear, or regard for their own lives, they are extremely dangerous, despite being relatively fragile. \
 	Indeed, they do not feel pain, they do not need to breathe, and their feet are implanted with a magnetic traction system. Driven only by a desire to kill, they can psionically \
-	communicate with the other members of their hivemind."
+	communicate with the other members of their hivemind in order to work effectively as a unit."
 	default_language = LANGUAGE_XENOPHAGE
 	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
 
