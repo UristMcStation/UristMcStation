@@ -20,23 +20,6 @@
 		GLOB.using_map.contracts -= src
 		qdel(src)
 
-/obj/item/weapon/paper/contract
-	var/contract_type = null
-	var/datum/contract/Contract = null
-
-/obj/item/weapon/paper/contract/New()
-	..()
-
-	Contract = new contract_type
-
-	name = Contract.name
-	info = Contract.desc
-
-	AddContract(contract_type)
-
-/obj/item/weapon/paper/contract/proc/AddContract(var/contract)
-	GLOB.using_map.contracts += new contract
-
 /datum/contract/nanotrasen
 	faction = "NanoTrasen"
 
@@ -45,13 +28,11 @@
 	desc = "A contract issued by NanoTrasen to research anomalies."
 
 /datum/contract/nanotrasen/anomaly/New()
-	amount = rand(1,5)
+	..()
+	amount = rand(1,3)
 	desc = "A contract issued by NanoTrasen to research [amount] of the anomalies found throughout this sector."
-	money = (amount * rand(300,500))
+	money = (amount * rand(700,1000))
 	rep_points = amount
-
-/obj/item/weapon/paper/contract/nanotrasen/anomaly
-	contract_type = /datum/contract/nanotrasen/anomaly
 
 /datum/contract/terran
 	faction = "terran"
@@ -59,3 +40,28 @@
 /datum/contract/uha //united human alliance
 	faction = "uha"
 
+/datum/contract/shiphunt
+	var/hunt_faction = null
+
+/datum/contract/shiphunt/New()
+	..()
+	if(!amount)
+		amount = rand(1,3)
+		var/oldmoney = money
+		money = (amount * oldmoney)
+
+	name = "[hunt_faction] Ship Hunt Contract"
+	desc = "A contract issued by [faction] to hunt down and destroy [amount] [hunt_faction] ships in this sector."
+
+//money values are very much in flux
+
+/datum/contract/shiphunt/pirate
+	hunt_faction = "pirate"
+	rep_points = 5
+	money = 2000
+
+/datum/contract/shiphunt/alien
+	hunt_faction = "alien"
+	rep_points = 8
+	amount = 1
+	money = 5000

@@ -15,56 +15,57 @@
 /obj/item/organ/external/chest/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/groin/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/arm/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/arm/right/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/leg/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/leg/right/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/foot/lactera
 	limb_flags = null
 	dislocated = -1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/foot/right/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/hand/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/hand/right/lactera
 	limb_flags = null
 	dislocated = -1
-
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/head/lactera
 	limb_flags = null
 	dislocated = -1
-//
+	arterial_bleed_severity = 0
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0
@@ -118,7 +119,7 @@
 	stun_mod =      0.5  // Halved stun times.
 	paralysis_mod = 0.25 // Quartered paralysis times.
 
-	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON
+	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_MINOR_CUT
 	spawn_flags = SPECIES_IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
@@ -132,6 +133,7 @@
 	death_message = "bursts into flames and disappears."
 	death_sound = 'sound/voice/hiss6.ogg'
 
+	pixel_offset_x = 0
 //	default_language = "Xenomorph"
 //	language = "Hivemind"
 
@@ -143,9 +145,9 @@
 	genders = list(NEUTER)
 
 	force_cultural_info = list(
-		TAG_CULTURE =   CULTURE_XENOPHAGE_D,
-		TAG_HOMEWORLD = HOME_SYSTEM_DEEP_SPACE,
-		TAG_FACTION =   FACTION_XENOPHAGE,
+		TAG_CULTURE =   CULTURE_LACTERA,
+		TAG_HOMEWORLD = HOME_SYSTEM_GALACTIC_CRISIS,
+		TAG_FACTION =   FACTION_GALACTIC_CRISIS,
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 

@@ -64,7 +64,7 @@
 "bl" = (/obj/machinery/atmospherics/unary/heater,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
 "bm" = (/obj/machinery/door/blast/regular{dir = 4},/obj/machinery/shield_diffuser,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "bn" = (/obj/machinery/door/blast/regular{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bo" = (/obj/structure/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"bo" = (/obj/structure/boarding/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "bp" = (/obj/machinery/atmospherics/pipe/simple/hidden/green{tag = "icon-intact (NORTH)"; icon_state = "intact"; dir = 1},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "bq" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{tag = "icon-intact-scrubbers (SOUTHEAST)"; icon_state = "intact-scrubbers"; dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/green{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "br" = (/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/airlock/autoname{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/green{tag = "icon-intact (EAST)"; icon_state = "intact"; dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)

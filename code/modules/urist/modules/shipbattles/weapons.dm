@@ -21,6 +21,7 @@
 	var/fire_sound = null
 	var/dam_announced = 0
 	var/obj/effect/overmap/ship/combat/homeship = null
+	var/firing = FALSE
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
@@ -59,16 +60,20 @@
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
 	..()
+
 	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
 		if(homeship.incombat)
 			var/want = input("Fire the [src]?") in list ("Yes", "Cancel")
 			switch(want)
 				if("Yes")
 					if(charged) //just in case, we check again
-						user << "<span class='warning'>You fire the [src.name].</span>"
-						Fire()
+						if(!firing)
+							user << "<span class='warning'>You fire the [src.name].</span>"
+							firing = TRUE
+							Fire()
 					else
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
+
 
 				if("Cancel")
 					return
@@ -85,9 +90,8 @@
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess
-
-
 	if(!target) //maybe make it fire and recharge if people are dumb?
+		firing = FALSE
 		return
 
 	else
@@ -180,6 +184,8 @@
 			charged = 0
 			update_icon()
 			Charging() //time to recharge
+
+		firing = FALSE
 
 /obj/machinery/shipweapons/proc/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship

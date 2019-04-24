@@ -3,7 +3,7 @@
 "ac" = (/obj/effect/wallframe_spawn/reinforced_phoron,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
 "ad" = (/turf/simulated/wall/r_wall,/area/boarding_ship)
 "ae" = (/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
-"af" = (/obj/structure/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"af" = (/obj/structure/boarding/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
 "ag" = (/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "ah" = (/obj/structure/shuttle/engine/propulsion/burst{tag = "icon-propulsion (WEST)"; icon_state = "propulsion"; dir = 8},/turf/space,/area/boarding_ship)
 "ai" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/shuttle/engine/heater{dir = 8},/turf/simulated/floor/plating/airless,/area/boarding_ship)
