@@ -398,6 +398,7 @@
 		)
 
 /obj/item/weapon/gun/projectile/automatic/asmg/update_icon()
+	..()
 	if(ammo_magazine)
 		icon_state = "ANFOR-SMG"
 	else
@@ -453,7 +454,11 @@
 	initial_ammo = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/a50
-	item_icons = list(slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi', slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi', slot_back_str = 'icons/uristmob/back.dmi')
+	item_icons = list(
+		slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi',
+		slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi',
+		slot_back_str = 'icons/uristmob/back.dmi'
+		)
 	name = "A50 Heavy Rifle"
 	icon = 'icons/urist/items/guns48x32.dmi'
 	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
