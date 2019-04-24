@@ -37,14 +37,14 @@
 
 	//Grab some more ore to process this tick.
 	if(input_turf)
-		for(var/obj/item/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
+		for(var/obj/item/weapon/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
 			if(QDELETED(I) || !I.simulated || I.anchored)
 				continue
 			if(LAZYLEN(I.matter))
 				for(var/o_material in I.matter)
 					if(!isnull(ores_stored[o_material]))
 						ores_stored[o_material] += I.matter[o_material]
-			qdel(I)
+						qdel(I)
 
 	if(!active)
 		return
