@@ -639,3 +639,34 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "plunger"
 	path = /obj/item/clothing/mask/plunger
 	category = "General"
+
+/datum/autolathe/recipe/capacitor
+	name = "capacitor"
+	path = /obj/item/weapon/stock_parts/capacitor
+	category = "Replacement Parts"
+	resources = list("glass" = 50, "steel" = 50)
+
+/datum/autolathe/recipe/microlaser
+	name = "micro-laser"
+	path = /obj/item/weapon/stock_parts/micro_laser
+	category = "Replacement Parts"
+	resources = list("glass" = 10, "steel" = 10)
+
+/datum/autolathe/recipe/micromanip
+	name = "micro-manipulator"
+	path = /obj/item/weapon/stock_parts/manipulator
+	category = "Replacement Parts"
+	resources = list("steel" = 30)
+
+/datum/autolathe/recipe/scanningmodule
+	name = "scanning module"
+	path = /obj/item/weapon/stock_parts/scanning_module
+	category = "Replacement Parts"
+	resources = list("glass" = 20, "steel" = 50)
+
+/datum/autolathe/recipe/matterbin
+	name = "matter bin"
+	path = /obj/item/weapon/stock_parts/matter_bin
+	category = "Replacement Parts"
+	resources = list("steel" = 80)
+
