@@ -226,9 +226,6 @@
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/autolathe/CanUseTopic(user, href_list)
-	return ..()
-
 /obj/machinery/autolathe/OnTopic(user, href_list, state)
 	set waitfor = 0
 	if(href_list["change_category"])
@@ -350,9 +347,8 @@
 	//Create the desired item.
 	new making.path(loc)
 	removeFromQueue(1)
-	busy = 0
 
-/obj/machinery/autolathe/verb/extract_materials(var/mob/living/carbon/human/user)
+/obj/machinery/autolathe/verb/extract_materials(var/mob/living/user)
 	set name = "Extract Materials"
 	set category = "Object"
 	set src in view(1)
@@ -366,8 +362,10 @@
 		return
 	var/extraction_choices = list("steel", "glass", "wood")
 	var/material = input(user, "What do you want to extract?", "Materials Extraction") as null|anything in extraction_choices
-	var/mat_number = input(user, "How much do you want to extract? (Max: 50)", "Materials Extraction") as num
-	mat_number = Clamp(mat_number, 0, 50)
+	var/mat_number = input(user, "How much do you want to extract? (Max: 60)", "Materials Extraction") as num
+	if(!mat_number)
+		return
+	mat_number = Clamp(mat_number, 0, 60)
 	var/extraction_path
 	switch(material)
 		if("steel")
@@ -382,14 +380,12 @@
 	if(stored_materials < mat_cost) //Not enough material stored. Settle for the next best thing.
 		var/new_mat_number = stored_materials / SHEET_MATERIAL_AMOUNT
 		mat_number = new_mat_number
-	mat_number = Clamp(mat_number, 0, 50) // Clamp and round to prevent decimal issues.
-	mat_number = round(mat_number, 1)
+	mat_number = Clamp(mat_number, 0, 60) // Clamp and round to prevent decimal issues.
+	mat_number = Floor(mat_number)
 	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
 	if(SHEET_MATERIAL_AMOUNT > stored_materials)
 		return //And all was for naught, because you didn't have enough.
-	var/obj/item/stack/M = new extraction_path(loc)
-	if(mat_number > 1)
-		M.amount = mat_number
+	var/obj/item/stack/M = new extraction_path(loc, mat_number)
 	stored_material[material] -= mat_cost
 
 
