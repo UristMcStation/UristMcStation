@@ -66,6 +66,7 @@
 	limb_flags = null
 	dislocated = -1
 	arterial_bleed_severity = 0
+	eye_icon_location = 'icons/uristmob/species/lactera/eyes.dmi'
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0
@@ -100,7 +101,10 @@
 	name = "Lactera"
 	name_plural = "Lactera"
 
-	icobase = 'icons/uristmob/r_lactera.dmi'
+	icon_template = 'icons/mob/human_races/species/template.dmi'
+	icobase = 'icons/uristmob/species/lactera/body.dmi'
+	preview_icon = 'icons/uristmob/species/lactera/preview.dmi'
+	deform = 'icons/uristmob/species/lactera/deform.dmi'
 
 	natural_armour_values = list(melee = 0, bullet = 0, laser = 0, energy = 10, bomb = 10, bio = 100, rad = 100)
 
@@ -178,3 +182,6 @@
 	spawn(5)
 		qdel(H)
 	return
+
+/datum/species/xenos/lactera/get_bodytype(var/mob/living/carbon/human/H)
+	return name
