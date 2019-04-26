@@ -385,7 +385,7 @@
 	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
 	if(SHEET_MATERIAL_AMOUNT > stored_materials)
 		return //And all was for naught, because you didn't have enough.
-	var/obj/item/stack/M = new extraction_path(loc, mat_number)
+	new extraction_path(loc, mat_number)
 	stored_material[material] -= mat_cost
 
 
