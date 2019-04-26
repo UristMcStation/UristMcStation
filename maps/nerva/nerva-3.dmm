@@ -2161,6 +2161,18 @@
 /obj/effect/landmark{
 	name = "blobstart"
 	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/super;
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
 "eU" = (
@@ -13611,6 +13623,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
+"AY" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/first)
 "BW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
@@ -13625,13 +13641,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"BZ" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor/border_only,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fp)
 "Cc" = (
 /obj/item/weapon/material/coin/silver{
 	pixel_x = 7;
@@ -13661,6 +13670,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"Ch" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass/civilian{
+	name = "Central Access";
+	icon_state = "closed";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
+"Cy" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/obj/machinery/door/firedoor/border_only,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
+"Ds" = (
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afs)
 "Dx" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -13717,15 +13748,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"DS" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	name = "Central Access";
-	icon_state = "closed";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/first)
 "Ed" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13750,6 +13772,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"FV" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/engineering/fdengine)
 "Gy" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -13936,12 +13962,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"No" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/afs)
 "Ny" = (
 /obj/structure/closet/crate{
 	name = "Gold Crate"
@@ -14057,10 +14077,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"Tx" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hallway/aft/first)
 "TE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14073,12 +14089,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"TR" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "Uq" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dorm8";
@@ -14144,10 +14154,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"WI" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced,
-/area/engineering/fdengine)
 "WN" = (
 /obj/structure/sign/warning/secure_area,
 /turf/simulated/wall/r_wall,
@@ -14240,6 +14246,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
+"ZI" = (
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -29904,7 +29916,7 @@ ib
 ej
 ej
 ej
-WI
+FV
 mH
 eZ
 oB
@@ -34150,7 +34162,7 @@ lX
 mS
 hC
 hC
-Tx
+AY
 qC
 rn
 rn
@@ -34165,7 +34177,7 @@ rn
 sh
 pe
 za
-No
+Ds
 zy
 pe
 ah
@@ -37382,7 +37394,7 @@ hH
 hH
 hH
 hH
-Tx
+AY
 gK
 rr
 sj
@@ -37975,7 +37987,7 @@ cf
 cf
 bs
 bs
-BZ
+Cy
 fi
 fY
 gR
@@ -37989,7 +38001,7 @@ hJ
 hJ
 hJ
 pH
-DS
+Ch
 ru
 sm
 sI
@@ -41403,7 +41415,7 @@ ah
 ah
 ah
 ap
-TR
+ZI
 bP
 cn
 cN
@@ -42231,7 +42243,7 @@ hN
 hN
 hN
 pH
-DS
+Ch
 rz
 rz
 tz

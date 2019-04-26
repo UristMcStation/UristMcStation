@@ -2,12 +2,6 @@
 "aa" = (
 /turf/space,
 /area/space)
-"ad" = (
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	name = "Holodeck"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/civilian/holodeck)
 "ag" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
@@ -2088,6 +2082,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"ha" = (
+/obj/machinery/door/airlock/multi_tile/glass/civilian{
+	name = "Holodeck"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/civilian/holodeck)
 "hb" = (
 /obj/machinery/suit_storage_unit/mining,
 /obj/effect/floor_decal/corner/yellow{
@@ -2710,14 +2710,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/centralthird)
-"iU" = (
-/obj/machinery/door/airlock/glass{
-	name = "Central Access"
-	},
-/obj/effect/catwalk_plated,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/hallway/centralthird)
 "iV" = (
 /obj/structure/cable/orange{
@@ -10976,6 +10968,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"EI" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
+/obj/effect/catwalk_plated,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/centralthird)
 "EJ" = (
 /turf/simulated/wall,
 /area/maintenance/third_deck/fs)
@@ -13262,6 +13262,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
+"Kw" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "garbage"
+	},
+/obj/structure/plasticflaps/mining,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/disposals)
 "Ky" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/storage/briefcase/inflatable,
@@ -16346,29 +16354,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/atmos)
-"SH" = (
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
-	req_access = list(31)
-	},
-/obj/structure/catwalk,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/logistics/fabwork)
 "SJ" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
@@ -16650,14 +16635,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/aiupload)
-"To" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "garbage"
-	},
-/obj/structure/plasticflaps/mining,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/disposals)
 "Tp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -17764,6 +17741,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
+"VL" = (
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Cargo Bay Maintenance";
+	req_access = list(31)
+	},
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/logistics/fabwork)
 "VM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -36939,7 +36939,7 @@ Ro
 Lp
 OC
 WH
-iU
+EI
 dV
 yl
 Xz
@@ -37343,7 +37343,7 @@ Ba
 Aq
 JF
 hd
-iU
+EI
 dV
 yl
 Xz
@@ -38346,7 +38346,7 @@ Be
 RI
 zz
 cw
-ad
+ha
 YP
 Dl
 Db
@@ -41385,7 +41385,7 @@ WU
 IE
 gK
 gK
-SH
+VL
 gK
 gK
 gK
@@ -45033,7 +45033,7 @@ NC
 NC
 xf
 Oz
-To
+Kw
 Jo
 MR
 Lk

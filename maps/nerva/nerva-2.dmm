@@ -3280,6 +3280,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"fy" = (
+/obj/item/weapon/stool/urist/bar,
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "fz" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -4428,6 +4435,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
+"hJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced/tinted{
+	tag = "icon-window (EAST)";
+	icon_state = "window";
+	dir = 4
+	},
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/cents)
 "hK" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -5432,13 +5451,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/locker)
-"jE" = (
-/obj/item/weapon/stool/urist/bar,
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
 "jF" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -6540,11 +6552,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
-"lH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
-/area/logistics/uppercargo)
 "lI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7129,6 +7136,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine)
+"mN" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hallway/central/second)
 "mO" = (
 /obj/structure/table/standard,
 /obj/item/device/t_scanner,
@@ -7734,6 +7745,18 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
+"nY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "nZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	tag = "icon-intact-supply (NORTHWEST)";
@@ -8483,12 +8506,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
-"pw" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
 "px" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/extinguisher_cabinet{
@@ -9314,6 +9331,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
+"ra" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass/civilian{
+	dir = 8;
+	icon_state = "closed";
+	name = "Cafeteria"
+	},
+/turf/simulated/floor/tiled,
+/area/civilian/messhall)
 "rc" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9483,6 +9509,12 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
+"rs" = (
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -11728,18 +11760,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"vy" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/window/reinforced/tinted{
-	tag = "icon-window (EAST)";
-	icon_state = "window";
-	dir = 4
-	},
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/cents)
 "vz" = (
 /obj/effect/floor_decal/floordetail/edgedrain{
 	icon_state = "edge";
@@ -13340,6 +13360,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/lobby)
+"yy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "yz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -17795,6 +17822,31 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
+"GC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/cents)
 "GD" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -18263,31 +18315,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"HI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/cents)
 "HJ" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/tcommsmon)
@@ -20602,6 +20629,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"Md" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second)
 "Me" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -22898,10 +22929,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
-"Qg" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second)
 "Qh" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 5
@@ -24421,18 +24448,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/office)
-"SY" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "SZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -25273,10 +25288,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/second)
-"UF" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hallway/central/second)
 "UG" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
@@ -25831,13 +25842,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
-"VF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "VG" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/corner/beige{
@@ -26178,18 +26182,6 @@
 "Wh" = (
 /turf/simulated/wall/r_wall,
 /area/security/cosoffice)
-"Wi" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine waste handling.";
-	id = "EngineEmitterPort";
-	name = "Engine Waste Handling";
-	pixel_x = -6;
-	pixel_y = 7;
-	req_access = list(10);
-	step_x = -24
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine)
 "Wj" = (
 /obj/machinery/door/airlock/multi_tile/glass/engineering{
 	name = "Workshop";
@@ -26604,6 +26596,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
+"WU" = (
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine waste handling.";
+	id = "EngineEmitterPort";
+	name = "Engine Waste Handling";
+	pixel_x = -24;
+	pixel_y = 7;
+	req_access = list(10)
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine)
 "WV" = (
 /turf/simulated/wall,
 /area/civilian/messhall)
@@ -28226,14 +28229,10 @@
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
 "ZT" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	dir = 8;
-	icon_state = "closed";
-	name = "Cafeteria"
-	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
-/area/civilian/messhall)
+/area/logistics/uppercargo)
 "ZV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -41936,7 +41935,7 @@ aC
 sG
 aU
 RU
-Wi
+WU
 Yn
 nu
 dJ
@@ -42125,7 +42124,7 @@ tU
 tU
 tU
 Od
-pw
+rs
 lu
 tU
 Bm
@@ -43777,7 +43776,7 @@ HJ
 HJ
 uy
 ax
-VF
+yy
 ax
 ax
 ax
@@ -45151,7 +45150,7 @@ tU
 tU
 uq
 NU
-jE
+fy
 ID
 Zm
 kJ
@@ -49032,7 +49031,7 @@ us
 HD
 LM
 EM
-HI
+GC
 QN
 Cn
 QN
@@ -49834,7 +49833,7 @@ Gw
 vn
 HD
 HD
-lH
+ZT
 vN
 vN
 vN
@@ -51030,10 +51029,10 @@ BI
 st
 WV
 BI
-ZT
+ra
 cb
 WV
-UF
+mN
 Ma
 Al
 yE
@@ -51253,7 +51252,7 @@ PF
 Gv
 QN
 OD
-vy
+hJ
 Cr
 Cn
 Cn
@@ -56285,7 +56284,7 @@ ch
 ci
 ci
 ch
-Qg
+Md
 eB
 hp
 hp
@@ -59528,7 +59527,7 @@ CQ
 TQ
 lK
 XT
-SY
+nY
 Td
 Td
 aa
