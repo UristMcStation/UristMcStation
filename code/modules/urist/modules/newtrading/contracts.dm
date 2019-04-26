@@ -50,17 +50,18 @@
 		var/oldmoney = money
 		money = (amount * oldmoney)
 
-	name = "[hunt_faction] Ship Hunt Contract"
 	desc = "A contract issued by [faction] to hunt down and destroy [amount] [hunt_faction] ships in this sector."
 
 //money values are very much in flux
 
 /datum/contract/shiphunt/pirate
+	name = "Pirate Ship Hunt Contract"
 	hunt_faction = "pirate"
 	rep_points = 5
 	money = 2000
 
 /datum/contract/shiphunt/alien
+	name = "Alien Ship Hunt Contract"
 	hunt_faction = "alien"
 	rep_points = 8
 	amount = 1

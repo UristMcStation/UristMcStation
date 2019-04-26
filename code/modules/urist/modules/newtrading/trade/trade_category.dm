@@ -48,3 +48,6 @@
 
 /datum/trade_category/tcmedcontract
 	name = "tcmedcontract"
+
+/datum/trade_category/ntshiphuntcontract
+	name = "ntshiphuntcontract"
