@@ -68,10 +68,9 @@
 		)
 
 
-/obj/item/device/floor_painter/resolve_attackby(var/atom/A, var/mob/user, proximity, params)
+/obj/item/device/floor_painter/afterattack(var/atom/A, var/mob/user, proximity, params)
 	if(!proximity)
 		return
-
 	add_fingerprint(user)
 
 	if(color_picker)
