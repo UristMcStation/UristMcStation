@@ -348,10 +348,11 @@
 	new making.path(loc)
 	removeFromQueue(1)
 
-/obj/machinery/autolathe/verb/extract_materials(var/mob/living/user)
+/obj/machinery/autolathe/verb/extract_materials()
 	set name = "Extract Materials"
 	set category = "Object"
 	set src in view(1)
+	var/mob/living/user = usr
 
 	if(user.incapacitated() || !istype(user, /mob/living))
 		to_chat(user, "<span class='warning'>You can't do that.</span>")
