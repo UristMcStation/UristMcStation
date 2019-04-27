@@ -11990,10 +11990,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
 "vZ" = (
-/obj/machinery/door/airlock/glass/security{
-	name = "Security";
-	req_access = list(63)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
@@ -12005,6 +12001,10 @@
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/door/airlock/multi_tile/glass/security{
+	name = "Security";
+	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/entrance)
@@ -14477,7 +14477,6 @@
 /area/engineering/genstorage)
 "AA" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/security,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
@@ -14488,6 +14487,9 @@
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/door/airlock/multi_tile/glass/security{
+	name = "Security"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/entrance)
@@ -14729,10 +14731,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/glass/security{
-	name = "Security";
-	req_access = list(63)
-	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
