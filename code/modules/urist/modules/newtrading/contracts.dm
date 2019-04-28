@@ -61,7 +61,7 @@
 	money = 2000
 
 /datum/contract/shiphunt/alien
-	name = "Alien Ship Hunt Contract"
+	name = "Lactera Ship Hunt Contract"
 	hunt_faction = "alien"
 	rep_points = 8
 	amount = 1
