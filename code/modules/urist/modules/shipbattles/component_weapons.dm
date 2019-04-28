@@ -117,7 +117,7 @@
 	firedelay = 42 SECONDS
 
 /datum/shipcomponents/weapons/alientorpedo
-	name = "alien torpedo"
+	name = "alien torpedo launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/alientorpedo
 	firedelay = 34 SECONDS
 
