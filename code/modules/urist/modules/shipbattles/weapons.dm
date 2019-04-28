@@ -301,13 +301,17 @@
 
 /obj/item/shipweapons/torpedo_warhead/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/crowbar))
-		if(riggedstate == 1)
+		if(riggedstate == 1 && !attached_device) // can't close it if it's got something it's not supposed to have.
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
 			riggedstate = 0
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You carefully lever open the warhead's circuitry panel.</span>")
-		riggedstate++
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		else if(!riggedstate)
+			to_chat(user, "<span class='notice'>You carefully lever open the warhead's circuitry panel.</span>")
+			riggedstate++
+			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		else
+			to_chat(user, "<span class='notice'>You can't close the panel. Remove the [attached_device] first.</span>")
+
 	else if(istype(I, /obj/item/weapon/wirecutters))
 		if(riggedstate == 3)
 			to_chat(user, "<span class='notice'>You snip the wire attached to the warhead's detonation circuit.</span>")
