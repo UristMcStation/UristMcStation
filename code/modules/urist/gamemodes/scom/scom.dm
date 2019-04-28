@@ -96,7 +96,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 			for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
 				C.launch()
 
-/datum/game_mode/scom/process()
+/datum/game_mode/scom/process() //scom was a fucking mistake
 	SCOMplayercount = 0
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.client && H.stat != DEAD && isscom(H))
@@ -155,7 +155,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 
 
-/obj/structure/scom/fuckitall
+/obj/structure/scom/fuckitall //what the fuck was wrong with me
 	name = "mothership central computer"
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "9,8"
@@ -194,6 +194,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	icon_state = "grabbed1"
 	invisibility = 101
 	var/bombdelay = 0
+	var/shipid = null //touching scom code again was a mistake. everything here is vomit inducing.
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
