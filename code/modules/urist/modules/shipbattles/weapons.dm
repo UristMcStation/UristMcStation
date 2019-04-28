@@ -282,6 +282,106 @@
 	desc = "It's a big warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state = "torpedowarhead"
+	var/safety = 1 //Integrated safeties are functioning as intended. This thing's inert.
+	var/is_rigged = 0 //Has this thing been jerry-rigged?
+	var/riggedstate = 0 //What stage of rigging are we in?
+	var/obj/item/device/attached_device //Whatever is attached that'll detonate us.
+
+/obj/item/shipweapons/torpedo_warhead/examine(mob/user)
+	..(user)
+	switch(riggedstate)
+		if(1) to_chat(user, "<span class='notice'>It's control circuitry is exposed.</span>")
+		if(2) to_chat(user, "<span class='notice'>It's control circuitry is exposed, and the internal wiring appears to have been modified.</span>")
+		if(3) to_chat(user, "<span class='notice'>It's control circuitry is exposed, the internal wiring appears to have been modified, and a wire has been rigged to the detonator circuit.</span>")
+	switch(safety)
+		if(0) to_chat(user, "<span class='warning'>The safeties have been disabled.</span>")
+		if(1) to_chat(user, "<span class='notice'>The safeties are enabled.</span>")
+	if(is_rigged)
+		to_chat(user, "<span class='warning'>There is a [attached_device] attached to the warhaed.</span>")
+
+/obj/item/shipweapons/torpedo_warhead/attackby(var/obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/weapon/crowbar))
+		if(riggedstate == 1)
+			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
+			riggedstate = 0
+			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>You carefully lever open the warhead's circuitry panel.</span>")
+		riggedstate++
+		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+	else if(istype(I, /obj/item/weapon/wirecutters))
+		if(riggedstate == 3)
+			to_chat(user, "<span class='notice'>You snip the wire attached to the warhead's detonation circuit.</span>")
+			riggedstate = 2
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		else if(riggedstate == 2)
+			to_chat(user, "<span class='notice'>You carefully undo the modifications to the warhead's circuitry.</span>")
+			riggedstate = 1
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		else if(riggedstate == 1)
+			to_chat(user, "<span class='notice'>You begin to carefully modify the circuitry of the warhead.</span>")
+			if(do_after(user,40))
+				to_chat(user, "<span class='notice'>You have modified the torpedo warhead's internal circuitry. It can now be wired up and attached to something.</span>")
+				riggedstate++
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		else if(is_rigged && attached_device)
+			to_chat(user, "<span class='notice'>You carefully begin to remove [attached_device] from the warhead's internals.</span>")
+			if(do_after(user,40))
+				to_chat(user, "<span class='notice'>You carefully remove [attached_device] from the warhead's internals.</span>")
+				var/obj/item/device/assembly/A = attached_device
+				A.forceMove(get_turf(user))
+				A.holder = null
+				attached_device = null
+				is_rigged = 0
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		return
+	else if(istype(I, /obj/item/device/multitool))
+		if(!safety)
+			to_chat(user, "<span class='notice'>You begin to re-engage the built-in safeties.</span>")
+			if(do_after(user,40))
+				to_chat(user, "<span class='notice'>The warhead beeps softly, indicating you have re-enabled it's safeties!</span>")
+				safety = 1
+				playsound(src.loc, 'sound/machines/buttonbeep.ogg', 25, 0, 10)
+		if(safety)
+			to_chat(user, "<span class='notice'>You begin to disable the built-in safeties...</span>")
+			if(do_after(user,40))
+				to_chat(user, "<span class='danger'>The warhead beeps stridently as you disable the built-in safeties.</span>")
+				safety = 0
+				playsound(src.loc, 'sound/machines/buttonbeep.ogg', 25, 0, 10)
+	else if(istype(I, /obj/item/stack/cable_coil) && riggedstate == 2)
+		to_chat(user, "<span class='notice'>You rig a wire from the torpedo warhead's detonator circuit. You can now attach something to it to detonate it remotely.</span>")
+		riggedstate++
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+	else if(istype(I, /obj/item/device/assembly))
+		if(riggedstate == 3)
+			var/obj/item/device/assembly/A = I
+			if(A.secured)
+				to_chat(user, "<span class='notice'>The [A] is secured, and you can not attach it.</span>")
+				return
+			to_chat(user, "<span class='warning'>You rig the [A] to the torpedo warhead's detonator circuit!</span>")
+			is_rigged = 1
+			if(!user.unEquip(A, src))
+				return
+			A.forceMove(src)
+			attached_device = I
+			A.holder = src
+			log_and_message_admins("[user] has rigged a torpedo IED.")
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+	return
+
+/obj/item/shipweapons/torpedo_warhead/proc/process_activation() // uh oh, time to boom
+	playsound(src.loc, 'sound/machines/buttonbeep.ogg', 25, 0, 10)
+	if(safety)
+		visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
+		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
+	if(!safety)
+		if(prob(15)) // Small chance for the warhead's safeties to engage briefly.
+			visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
+			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
+			return
+		visible_message("<span class='danger'>[src] pings, begining a short countdown!</span>")
+		playsound(src.loc, 'sound/machines/ping.ogg', 25, 0, 10)
+		spawn(40) // 4 seconds to run away.
+		explosion(src, 4, 5, 6)
 
 /obj/machinery/shipweapons/missile/torpedo
 	name = "torpedo launcher"
