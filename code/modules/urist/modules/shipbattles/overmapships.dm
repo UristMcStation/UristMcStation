@@ -264,16 +264,16 @@
 /mob/living/simple_animal/hostile/overmapship/alien
 	wander = 1
 	color = "#660000"
-	hiddenfaction = "xenos"
+	hiddenfaction = "alien"
 	aggressive = 1
+	name = "Unknown"
+	designation = ""
 
 /mob/living/simple_animal/hostile/overmapship/alien/small
 	shields = 200 //really weak, but fast charging shields
 	health = 1200 //and beefy hulls
 	maxHealth = 1200
-	name = "Unknown"
-	designation = ""
-	ship_category = "small lactera ship"
+	ship_category = "Lactera fast attack craft"
 	boardingmap = "maps/shipmaps/ship_lactera_small.dmm"
 	can_board = TRUE
 
@@ -284,24 +284,31 @@
 		new /datum/shipcomponents/weapons/alien/light,
 		new /datum/shipcomponents/weapons/alien/light,
 		new /datum/shipcomponents/weapons/alien/heavy,
+		new /datum/shipcomponents/weapons/smallalienmissile,
 		new /datum/shipcomponents/weapons/smallalienmissile
 	)
 
 	..()
 
-/mob/living/simple_animal/hostile/overmapship/alien/heavy
+/mob/living/simple_animal/hostile/overmapship/alien/heavy //you have to board this motherfucker
 	shields = 500 //really weak, but fast charging shields
 	health = 2200 //and beefy hulls
 	maxHealth = 2200
-	name = "Unknown"
-	ship_category = "large lactera ship"
-	boardingmap = "ship_light_freighter.dmm"
+	ship_category = "Lactera frigate"
+	boardingmap = "maps/shipmaps/ship_lactera_large.dmm"
+	can_board = TRUE
 
-/mob/living/simple_animal/hostile/overmapship/alien/heavy/New() //TODO
+/mob/living/simple_animal/hostile/overmapship/alien/heavy/New() //only for admemes. this will fuck your day up.
 	components = list(
-		new /datum/shipcomponents/shield/light,
-		new /datum/shipcomponents/engines/standard,
-		new /datum/shipcomponents/weapons/smallmissile
+		new /datum/shipcomponents/shield/alien_heavy,
+		new /datum/shipcomponents/engines/alien_heavy,
+		new /datum/shipcomponents/weapons/alien/light,
+		new /datum/shipcomponents/weapons/alien/heavy/burst,
+		new /datum/shipcomponents/weapons/alien/heavy/burst,
+		new /datum/shipcomponents/weapons/bigalienmissile,
+		new /datum/shipcomponents/weapons/bigalienmissile,
+		new /datum/shipcomponents/weapons/smallalienmissile/battery,
+		new /datum/shipcomponents/weapons/alientorpedo
 	)
 
 	..()

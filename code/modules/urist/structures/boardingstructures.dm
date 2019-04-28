@@ -44,13 +44,14 @@
 	teleport_z = 1
 
 //self destruct for boarding //currently commented out until I work out the kinks
-/*
+
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
 	name = "self destruct mechanism"
 	anchored = 1
 	icon = 'icons/urist/turf/scomturfs.dmi' //this only makes sense for lactera right now, i'm going to make others for the other ships
 	icon_state = "9,8"
+	var/shipid = null
 
 /obj/structure/boarding/self_destruct/ex_act()
 	return
@@ -65,15 +66,21 @@
 			if("Cancel")
 				return
 			if("Yes")
-				triggered = TRUE
-				GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "ICS Nerva Automated Defence Computer", "Common")
-				for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
-					B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
+				if(triggered)
+					return
 
-				spawn(1 MINUTE)
-					if(GLOB.using_map.overmap_ship)
-						if(!GLOB.using_map.overmap_ship.target.dying)
-							GLOB.using_map.overmap_ship.target.shipdeath()
+				else
+					triggered = TRUE
+					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "ICS Nerva Automated Defence Computer", "Common")
+					for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+						if(B.shipid == src.shipid)
+							B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
+
+					spawn(1 MINUTE)
+						if(GLOB.using_map.overmap_ship)
+							if(!GLOB.using_map.overmap_ship.target.dying)
+								GLOB.using_map.overmap_ship.target.shipdeath()
 
 
-*/
+/obj/effect/landmark/scom/bomb/biglactship
+	shipid = "biglactship"
