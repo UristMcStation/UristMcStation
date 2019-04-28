@@ -313,7 +313,17 @@
 			to_chat(user, "<span class='notice'>You can't close the panel. Remove the [attached_device] first.</span>")
 
 	else if(istype(I, /obj/item/weapon/wirecutters))
-		if(riggedstate == 3)
+		if(is_rigged && attached_device)
+			to_chat(user, "<span class='notice'>You carefully begin to remove [attached_device] from the warhead's internals.</span>")
+			if(do_after(user,40))
+				to_chat(user, "<span class='notice'>You carefully remove [attached_device] from the warhead's internals.</span>")
+				var/obj/item/device/assembly/A = attached_device
+				A.forceMove(get_turf(user))
+				A.holder = null
+				attached_device = null
+				is_rigged = 0
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		else if(riggedstate == 3)
 			to_chat(user, "<span class='notice'>You snip the wire attached to the warhead's detonation circuit.</span>")
 			riggedstate = 2
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -326,16 +336,6 @@
 			if(do_after(user,40))
 				to_chat(user, "<span class='notice'>You have modified the torpedo warhead's internal circuitry. It can now be wired up and attached to something.</span>")
 				riggedstate++
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		else if(is_rigged && attached_device)
-			to_chat(user, "<span class='notice'>You carefully begin to remove [attached_device] from the warhead's internals.</span>")
-			if(do_after(user,40))
-				to_chat(user, "<span class='notice'>You carefully remove [attached_device] from the warhead's internals.</span>")
-				var/obj/item/device/assembly/A = attached_device
-				A.forceMove(get_turf(user))
-				A.holder = null
-				attached_device = null
-				is_rigged = 0
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		return
 	else if(istype(I, /obj/item/device/multitool))
