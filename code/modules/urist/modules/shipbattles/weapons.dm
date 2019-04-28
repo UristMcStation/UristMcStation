@@ -335,6 +335,8 @@
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		return
 	else if(istype(I, /obj/item/device/multitool))
+		if(!riggedstate)
+			return
 		if(!safety)
 			to_chat(user, "<span class='notice'>You begin to re-engage the built-in safeties.</span>")
 			if(do_after(user,40))
