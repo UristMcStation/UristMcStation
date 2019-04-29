@@ -10724,10 +10724,7 @@
 /area/maintenance/third_deck/fp)
 "Eg" = (
 /obj/structure/disposalpipe/segment,
-<<<<<<< HEAD
 /obj/machinery/shield_diffuser,
-=======
->>>>>>> 752c2d7c6f3afe771b8a050fb51e198953eb5853
 /turf/simulated/wall/r_wall,
 /area/maintenance/third_deck/fs)
 "Ej" = (
@@ -11464,10 +11461,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/storage)
 "FP" = (
-<<<<<<< HEAD
-=======
-/obj/machinery/shield_diffuser,
->>>>>>> 752c2d7c6f3afe771b8a050fb51e198953eb5853
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
