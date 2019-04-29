@@ -8692,6 +8692,14 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small{
 	req_one_access = list(73)
 	},
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/c44,
+/obj/item/weapon/gun/projectile/revolver/hi2521r,
+/obj/item/weapon/gun/projectile/revolver/hi2521r,
 /turf/simulated/floor/tiled/dark,
 /area/command/storage)
 "pS" = (
