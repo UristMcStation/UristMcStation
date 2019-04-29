@@ -14246,12 +14246,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
-"ZI" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -41415,7 +41409,7 @@ ah
 ah
 ah
 ap
-ZI
+ap
 bP
 cn
 cN
