@@ -4063,7 +4063,6 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/secure_closet/nervacos,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "gX" = (
@@ -4683,7 +4682,6 @@
 	pixel_y = -20
 	},
 /obj/structure/closet/secure_closet/nervaso,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "id" = (
@@ -24090,7 +24088,6 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/secure_closet/nervafo,
-/obj/item/ammo_magazine/c44/rubber,
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "Sp" = (
