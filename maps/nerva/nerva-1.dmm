@@ -4143,7 +4143,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "mS" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/antonine_hangar/start)
