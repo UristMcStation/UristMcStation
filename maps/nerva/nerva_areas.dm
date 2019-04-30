@@ -82,10 +82,12 @@
 /area/civilian/cryo1
 	name = "\improper Primary Cryogenic Storage"
 	icon_state = "bluenew"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/cryo2
 	name = "\improper Secondary Cryogenic Storage"
 	icon_state = "bluenew"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/freezer
 	name = "\improper Kitchen Freezer"
