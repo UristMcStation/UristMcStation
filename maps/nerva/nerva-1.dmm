@@ -361,7 +361,6 @@
 	},
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/breakroom)
 "aT" = (
@@ -413,7 +412,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "aZ" = (
@@ -578,7 +576,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "bp" = (
@@ -2082,12 +2079,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
-"ha" = (
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	name = "Holodeck"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/civilian/holodeck)
 "hb" = (
 /obj/machinery/suit_storage_unit/mining,
 /obj/effect/floor_decal/corner/yellow{
@@ -2142,7 +2133,6 @@
 	dir = 4
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "hk" = (
@@ -2958,6 +2948,10 @@
 	name = "Xenobiology Lockdown";
 	opacity = 0
 	},
+/obj/machinery/door/airlock/glass/research{
+	name = "Xenobiology Wing";
+	req_access = list(55)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/orange{
 	d1 = 1;
@@ -2965,10 +2959,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile/glass/research{
-	name = "Xenobiology Wing";
-	req_access = list(55)
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "jO" = (
@@ -3506,7 +3496,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "lh" = (
@@ -4081,7 +4070,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/shuttle_control/liftnerva,
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "mJ" = (
@@ -4143,7 +4131,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "mS" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/border_only,
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/antonine_hangar/start)
@@ -4195,6 +4183,11 @@
 /area/engineering/drone_fabrication)
 "mZ" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Access";
+	req_access = newlist();
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
 "nb" = (
@@ -4240,6 +4233,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "ng" = (
+/obj/machinery/door/airlock/glass{
+	name = "Holodeck"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/orange{
@@ -4804,11 +4800,6 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	tag = "icon-railing0 (EAST)";
-	icon_state = "railing0";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "oE" = (
@@ -5193,6 +5184,10 @@
 /turf/simulated/wall/titanium,
 /area/antonine_hangar/start)
 "pD" = (
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Expedition Storage";
+	req_access = list(31)
+	},
 /obj/structure/cable/orange{
 	d1 = 4;
 	d2 = 8;
@@ -5829,14 +5824,12 @@
 /turf/simulated/wall/titanium,
 /area/antonine_hangar/start)
 "qY" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/white{
 	dir = 4
-	},
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	name = "Central Access";
-	icon_state = "closed";
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
@@ -6065,7 +6058,6 @@
 	name = "Cargo Bay Maintenance";
 	req_access = list(31)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/storage)
 "rH" = (
@@ -6242,6 +6234,10 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
 "se" = (
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Workshop";
+	req_access = list(31)
+	},
 /obj/structure/cable/orange{
 	d1 = 1;
 	d2 = 2;
@@ -6691,7 +6687,6 @@
 	name = "Security Maintenance";
 	req_access = list(1)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/hangercheckpoint)
 "tx" = (
@@ -7104,7 +7099,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "uA" = (
@@ -7416,13 +7410,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "vo" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/mining{
-	dir = 8;
-	icon_state = "closed";
-	name = "Cargo Expedition Equipment";
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Expedition Storage";
 	req_access = list(31)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/prep)
 "vr" = (
@@ -7881,6 +7873,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Access";
+	req_access = newlist();
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
 "wC" = (
@@ -7975,6 +7972,10 @@
 	name = "Xenobiology Lockdown";
 	opacity = 0
 	},
+/obj/machinery/door/airlock/glass/research{
+	name = "Xenobiology Wing";
+	req_access = list(55)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "wP" = (
@@ -8033,11 +8034,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
-	icon_state = "railing0";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8890,7 +8886,6 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "zz" = (
@@ -10506,11 +10501,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
-	icon_state = "railing0";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "DC" = (
@@ -10973,14 +10963,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"EI" = (
-/obj/machinery/door/airlock/glass{
-	name = "Central Access"
-	},
-/obj/effect/catwalk_plated,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/centralthird)
 "EJ" = (
 /turf/simulated/wall,
 /area/maintenance/third_deck/fs)
@@ -11704,6 +11686,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "Gt" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
 	icon_state = "intact-scrubbers";
@@ -11720,11 +11705,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/catwalk_plated,
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	dir = 8;
-	icon_state = "closed";
-	name = "Hangar Access"
-	},
 /turf/simulated/floor/plating,
 /area/hallway/centralthird)
 "Gv" = (
@@ -11845,7 +11825,6 @@
 	pixel_y = 28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/weapon/rig/hazmat/equipped,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
 "GL" = (
@@ -12165,6 +12144,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "HE" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/centralthird)
@@ -12214,11 +12196,10 @@
 /area/rnd/xenobiology/xenoflora)
 "HO" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/engineering{
-	dir = 8;
-	icon_state = "closed";
+/obj/machinery/door/airlock/engineering{
 	name = "Engine Access";
-	req_access = list(11,24)
+	req_access = newlist();
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -12251,11 +12232,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
 	icon_state = "warning";
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	tag = "icon-railing0 (EAST)";
-	icon_state = "railing0";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12437,6 +12413,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "Il" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/hazmat/equipped,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -12446,10 +12424,6 @@
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
-/obj/structure/closet/excavation,
-/obj/item/stack/flag/yellow,
-/obj/item/weapon/wrench,
-/obj/item/weapon/storage/box/samplebags,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
 "In" = (
@@ -12830,7 +12804,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/advwork)
 "Jh" = (
@@ -12995,7 +12968,6 @@
 	name = "Xenobiology Maintenance";
 	req_access = list(55)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "JK" = (
@@ -13277,14 +13249,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
-"Kw" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "garbage"
-	},
-/obj/structure/plasticflaps/mining,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/disposals)
 "Ky" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/storage/briefcase/inflatable,
@@ -14099,7 +14063,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "MR" = (
@@ -14381,6 +14344,9 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "NB" = (
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -14419,7 +14385,6 @@
 	req_access = list(55)
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "NH" = (
@@ -14806,7 +14771,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/lowercargo)
 "OH" = (
@@ -15612,6 +15576,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "QO" = (
+/obj/structure/closet/excavation,
+/obj/item/stack/flag/yellow,
+/obj/item/weapon/storage/box/samplebags,
+/obj/item/weapon/wrench,
 /obj/machinery/light,
 /obj/machinery/atmospherics/valve/shutoff{
 	tag = "icon-map_vclamp0 (WEST)";
@@ -15969,11 +15937,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/substation/three)
 "RE" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass/mining{
+/obj/machinery/door/airlock/mining{
 	name = "Cargo Workshop";
 	req_access = list(31)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "RF" = (
@@ -16221,7 +16189,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralthird)
 "So" = (
@@ -16973,7 +16940,6 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "TR" = (
@@ -17627,11 +17593,6 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	tag = "icon-railing0 (EAST)";
-	icon_state = "railing0";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "Vu" = (
@@ -17756,29 +17717,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
-"VL" = (
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
-	req_access = list(31)
-	},
-/obj/structure/catwalk,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/logistics/fabwork)
 "VM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -18047,10 +17985,10 @@
 /area/rnd/storage)
 "Wo" = (
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	name = "Hangar Access"
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "Wq" = (
@@ -18435,11 +18373,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/multi_tile/engineering{
-	dir = 8;
-	icon_state = "closed";
+/obj/machinery/door/airlock/engineering{
 	name = "Engine Access";
-	req_access = list(11,24)
+	req_access = newlist();
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -19176,6 +19113,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/glass{
+	name = "Central Access"
+	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
@@ -19437,7 +19377,6 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "ZS" = (
@@ -36954,7 +36893,7 @@ Ro
 Lp
 OC
 WH
-EI
+yl
 dV
 yl
 Xz
@@ -37358,7 +37297,7 @@ Ba
 Aq
 JF
 hd
-EI
+yl
 dV
 yl
 Xz
@@ -38361,7 +38300,7 @@ Be
 RI
 zz
 cw
-ha
+SA
 YP
 Dl
 Db
@@ -41400,7 +41339,7 @@ WU
 IE
 gK
 gK
-VL
+RF
 gK
 gK
 gK
@@ -45048,7 +44987,7 @@ NC
 NC
 xf
 Oz
-Kw
+IP
 Jo
 MR
 Lk
