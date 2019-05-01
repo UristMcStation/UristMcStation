@@ -1,61 +1,68 @@
 //vg color-matrix code
-/mob/proc/get_screen_colour()
+GLOBAL_LIST_EMPTY(bad_changing_color_ckeys)
+
+/mob/proc/get_screen_color()
 	if(!client)
 		return 0
 	if(M_NOIR in mutations)
-		return NOIRMATRIX
+		return new /datum/array/matrix_expressionist()
 
-/mob/dead/observer/get_screen_colour()
-	return default_colour_matrix
+/mob/dead/observer/get_screen_color()
+	return new DEFAULT_COLOR_MATRIX()
 
-/mob/living/simple_animal/get_screen_colour()
+/mob/living/simple_animal/get_screen_color()
 	. = ..()
 	if(.)
 		return .
-	else if(src.colourmatrix.len)
-		return src.colourmatrix
+	return new DEFAULT_COLOR_MATRIX()
 
-/mob/living/carbon/human/get_screen_colour()
+/mob/living/carbon/human/get_screen_color()
 	. = ..()
 	if(.)
 		return .
 	//var/datum/organ/internal/eyes/eyes = internal_organs_by_name["eyes"]
-	//if(eyes && eyes.colourmatrix.len && !(eyes.robotic))
-	//	return eyes.colourmatrix
+	//if(eyes && eyes.colormatrix.len && !(eyes.robotic))
+	//	return eyes.colormatrix
 	//else return
-	return default_colour_matrix
+	return new DEFAULT_COLOR_MATRIX()
 
-/mob/proc/update_colour(var/time = 50,var/forceupdate = 0)
-	if(!client || (client.updating_colour && !forceupdate))
+/mob/proc/update_color(var/time = 50,var/forceupdate = 0)
+	if(!client || (client.updating_color && !forceupdate))
 		return
-	var/list/colour_to_apply = get_screen_colour()
-	var/list/difference = difflist(client.color,colour_to_apply)
+
+	var/datum/array/colormatrix = get_screen_color()
+	if(!colormatrix)
+		return
+
+	var/list/color_to_apply = colormatrix.get()
+	var/list/difference = difflist(client.color,color_to_apply)
+
 	if(difference || !(client.color) || !istype(difference) || !difference.len)
-		client.updating_colour = 1
+		client.updating_color = 1
 		var/cached_ckey = client.ckey
 		if(forceupdate)
 			time = 0
-		else if(colour_to_apply == NOIRMATRIX)
+		else
 			time = 170
-		client.colour_transition(colour_to_apply,time = time)
+		client.color_transition(color_to_apply,time = time)
 		spawn(time)
 			if(client && client.mob != src)
 				return
 			if(client)
-				client.color = colour_to_apply
-				client.updating_colour = 0
-				difference = difflist(client.color,get_screen_colour())
+				client.color = color_to_apply
+				client.updating_color = 0
+				difference = difflist(client.color,get_screen_color())
 				if((difference || !(client.color) || !istype(difference) || !difference.len) && !forceupdate) // panic panic panic
-					src.update_colour(forceupdate = 1)
+					src.update_color(forceupdate = 1)
 			else
-				bad_changing_colour_ckeys["[cached_ckey]"] = 1
+				GLOB.bad_changing_color_ckeys["[cached_ckey]"] = 1
 
 /mob/proc/handle_urist_hooks()
 	return
 
 /mob/living/handle_urist_hooks()
 	. = ..()
-	update_colour()
+	update_color()
 	return .
 
 /mob/living/Life()

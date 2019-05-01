@@ -27,7 +27,6 @@
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
-	var/list/colourmatrix = list()
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -278,14 +277,12 @@
 		var/damage = O.force
 		if (O.damtype == PAIN)
 			damage = 0
-
 		if (O.damtype == STUN)
 			damage = (O.force / 8)
 			if(supernatural && istype(O,/obj/item/weapon/nullrod))
 				damage *= 2
 				purge = 3
-			adjustBruteLoss(damage)
-
+		adjustBruteLoss(damage)
 		if(O.edge || O.sharp)
 			adjustBleedTicks(damage)
 
@@ -429,12 +426,10 @@
 /mob/living/simple_animal/proc/adjustBleedTicks(var/amount)
 	if(!can_bleed)
 		return
-
 	if(amount > 0)
 		bleed_ticks = max(bleed_ticks, amount)
 	else
 		bleed_ticks = max(bleed_ticks + amount, 0)
-
 	bleed_ticks = round(bleed_ticks)
 
 /mob/living/simple_animal/proc/handle_bleeding()

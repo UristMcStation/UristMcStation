@@ -95,8 +95,8 @@ Obviously, requires DNA2.
 
 /datum/dna/gene/basic/noir/activate(var/mob/M)
 	..()
-	M.update_colour()
+	M.update_color()
 
 /datum/dna/gene/basic/noir/deactivate(var/mob/M,var/connected,var/flags)
 	if(..())
-		M.update_colour()
+		M.update_color()
