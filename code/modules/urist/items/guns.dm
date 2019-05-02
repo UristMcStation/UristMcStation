@@ -483,6 +483,7 @@ the sprite and make my own projectile -Glloyd*/
 	..()
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A shoddy 7.62 improvised rifle."
@@ -501,10 +502,10 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -1
-	jam_chance = 5
 
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised short rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A crudely cut down 7.62 improvised rifle."
@@ -522,7 +523,6 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -2
-	jam_chance = 20
 
 //rifle construction
 
