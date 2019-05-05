@@ -132,6 +132,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/warpallplayers,
 //	/client/proc/delaymissions,
 	/client/proc/remaininglacterachange,
+	/client/proc/cmd_admin_set_colormatrix,
+    /client/proc/cmd_admin_mass_set_colormatrix,
 	/client/proc/roll_dices
 	)
 

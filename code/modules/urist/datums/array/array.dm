@@ -9,13 +9,11 @@
 	var/cols = 5
 	var/rows = 4
 
-	var/use_json = 1
-
 	// stores the actual array
 	// col-major to make it easier to access whole RGBA channels
 	// e.g. array.get("1,:") returns the whole R channel, "2,:" the whole G
 
-	var/list/grid = null
+	var/list/grid = null // to be set during instantiation
 
 	// NOTE: avoid using bare instance.grid directly unless you want to risk mutating it.
 	//       instance.get() or instance.grid.Copy() are safer options here
@@ -26,10 +24,12 @@
 	// string (params or JSON) decoding to:
 	// > coords=value overrides, for params
 	// > a non-associative list of lists, for JSON
-	var/definition = null
+	var/definition = COLMX_BASIC
+	var/use_json = 1 // class default for the call, overrideable in New()
 
-	/* example for 3 cols, 3 rows
-	(round brackets - indices of a single item):
+	/////////////////////////////////////////////
+	/* example instance for 3 cols, 3 rows
+	  (round brackets - indices of a single item):
 
 	[
 	[(1,1),(2,1),(3,1)],
