@@ -277,7 +277,12 @@ var/const/enterloopsanity = 100
 
 /turf/proc/try_graffiti(var/mob/vandal, var/obj/item/tool)
 
-	if(vandal.a_intent != I_HELP || !tool.sharp || !can_engrave())
+	if(!tool.sharp)
+		to_chat(vandal, "<span class='warning'>You need something sharp to write with.")
+		return FALSE
+
+	if(!can_engrave())
+		to_chat(vandal, "<span class='warning'>You can't write here.")
 		return FALSE
 
 	var/too_much_graffiti = 0
@@ -308,3 +313,20 @@ var/const/enterloopsanity = 100
 		to_chat(vandal, "<span class='notice'>You feel much safer.</span>")
 
 	return TRUE
+
+/turf/verb/engrave()
+	set name = "Engrave floor"
+	set desc = "Writes a message on the floor."
+	set category = "Object"
+	set src in oview(1)
+
+	var/obj/item/I = usr.get_active_hand()
+	if(!I)
+		to_chat(usr, "<span class='notice'>You aren't holding anything to write with.")
+		return
+
+	if (!can_touch(usr))
+		return
+
+	try_graffiti(usr, I)
+	return
