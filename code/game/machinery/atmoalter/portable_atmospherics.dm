@@ -146,8 +146,6 @@
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
 		return ..()
-	if(cell && cell.charge)
-		return 1
 	return 0
 
 /obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)

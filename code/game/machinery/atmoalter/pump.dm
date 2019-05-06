@@ -96,7 +96,7 @@
 		last_power_draw = 0
 	else
 		power_draw = max(power_draw, power_losses)
-		if(!powered())
+		if(!powered() && cell)
 			cell.use(power_draw * CELLRATE)
 		else
 			use_power(power_draw)
