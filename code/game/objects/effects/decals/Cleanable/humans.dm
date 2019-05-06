@@ -223,7 +223,7 @@ var/global/list/image/splatter_cache=list()
 
 
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(var/list/directions)
-	spawn(0)
+	spawn (0)
 		var/direction = pick(directions)
 		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
 			sleep(3)

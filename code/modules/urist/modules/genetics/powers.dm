@@ -526,4 +526,3 @@
 	New()
 		..()
 		block = SUPERFARTBLOCK*/
-
