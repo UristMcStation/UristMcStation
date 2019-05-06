@@ -163,6 +163,7 @@ var/global/list/image/splatter_cache=list()
 	gender = NEUTER
 	random_icon_states = list("writing1","writing2","writing3","writing4","writing5")
 	amount = 0
+	layer = RUNE_LAYER //Right above normal blood
 	var/message
 
 /obj/effect/decal/cleanable/blood/writing/New()
