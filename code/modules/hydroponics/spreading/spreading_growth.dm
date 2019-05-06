@@ -156,6 +156,9 @@
 		child.anchored = 1
 		child.update_icon()
 
+		if(istype(get_turf(src), /turf/simulated/open))
+			forceMove(GetBelow(src))
+
 		//see if anything is there
 		for(var/thing in child.loc)
 			if(thing != child && istype(thing, /obj/effect/vine))

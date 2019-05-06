@@ -16,7 +16,11 @@
 			seed.display_name = "strange plants" //more thematic for the vine infestation event
 
 			//make vine zero start off fully matured
-			new /obj/effect/vine(T,seed, start_matured = 1)
+			var/obj/effect/vine/V = new /obj/effect/vine(T,seed, start_matured = 1)
+			//and make it align with the floor tiles for once
+			V.pixel_z = 0
+			V.pixel_x = 0
+			V.pixel_y = 0
 
 			log_and_message_admins("Spacevines spawned in \the [get_area(T)]", location = T)
 			return
