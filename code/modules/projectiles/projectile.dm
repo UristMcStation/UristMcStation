@@ -386,8 +386,10 @@
 			M.pixel_x = round(location.pixel_x, 1)
 			M.pixel_y = round(location.pixel_y, 1)
 			if(!hitscan) //Bullets don't hit their target instantly, so we can't link the deletion of the muzzle flash to the bullet's Destroy()
+				animate(M, alpha = 0, time = 1, flags = ANIMATION_PARALLEL)//Urist edit
 				QDEL_IN(M,1)
 			else
+				animate(M, alpha = 0, time = SEGMENT_DELETION_DELAY, flags = ANIMATION_PARALLEL) //Urist edit, this was the only way to make this effect work.
 				segments |= M
 
 /obj/item/projectile/proc/tracer_effect(var/matrix/M)
@@ -399,8 +401,10 @@
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
 			if(!hitscan)
+				animate(P, alpha = 0, time = 1, flags = ANIMATION_PARALLEL)
 				QDEL_IN(M,1)
 			else
+				animate(P, alpha = 0, time = SEGMENT_DELETION_DELAY, flags = ANIMATION_PARALLEL)//Urist Edit. Gross.
 				segments |= P
 
 /obj/item/projectile/proc/impact_effect(var/matrix/M)
@@ -411,6 +415,7 @@
 			P.set_transform(M)
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
+			animate(P, alpha = 0, time = SEGMENT_DELETION_DELAY, flags = ANIMATION_PARALLEL) //Urist edit kill me
 			segments |= P
 
 //"Tracing" projectile
