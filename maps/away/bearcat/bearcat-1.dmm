@@ -1276,6 +1276,7 @@
 	dir = 9
 	},
 /obj/item/device/radio/intercom{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/structure/ore_box,
@@ -1755,9 +1756,6 @@
 	dir = 1
 	},
 /obj/machinery/organ_printer/robot/mapped,
-/obj/item/device/radio/intercom{
-	pixel_y = 22
-	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken1)
 "dv" = (
@@ -2143,6 +2141,10 @@
 /area/ship/scrap/broken1)
 "eg" = (
 /obj/item/weapon/stool/padded,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
 "eh" = (
@@ -2936,6 +2938,7 @@
 /obj/item/weapon/tape_roll,
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/usedup,
