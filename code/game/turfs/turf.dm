@@ -277,7 +277,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/try_graffiti(var/mob/vandal, var/obj/item/tool)
 
-	if(!tool.sharp)
+	if(!is_sharp(tool))
 		to_chat(vandal, "<span class='warning'>You need something sharp to write with.</span>")
 		return FALSE
 
