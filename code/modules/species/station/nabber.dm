@@ -129,7 +129,7 @@
 		/datum/mob_descriptor/height = 3,
 		/datum/mob_descriptor/body_length = 0
 		)
-
+/*
 	available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_SERPENTID
@@ -143,7 +143,9 @@
 		TAG_RELIGION =  list(
 			RELIGION_OTHER
 		)
+
 	)
+*/
 
 /datum/species/nabber/get_blood_name()
 	return "haemolymph"

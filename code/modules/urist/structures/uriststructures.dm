@@ -448,7 +448,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	buildstate = 4
 
 //special flaps for shuttles
-/obj/structure/plasticflaps/mining/special/clear_airtight()
+/obj/structure/plasticflaps/mining/special/become_airtight()
 	var/turf/T = get_turf(loc)
 	if(T)
 		if(istype(T, /turf/simulated/floor/plating))

@@ -61,7 +61,7 @@
 			unbuckle()
 		else
 			user.setClickCooldown(100)
-			var/breakouttime = rand(600, 1200) //1 to 2 minutes.
+			var/breakouttime = rand(30 SECONDS, 1 MINUTE)
 
 			user.visible_message(
 				"<span class='danger'>\The [user] attempts to get free from [src]!</span>",

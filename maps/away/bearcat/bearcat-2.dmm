@@ -165,6 +165,7 @@
 "ay" = (
 /obj/machinery/light,
 /obj/item/device/radio/intercom{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/item/modular_computer/console/preset/engineering{
@@ -495,6 +496,7 @@
 /area/ship/scrap/command/hallway)
 "ba" = (
 /obj/item/device/radio/intercom{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/item/weapon/gun/projectile/shotgun/pump/combat{
@@ -858,6 +860,7 @@
 "bA" = (
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/item/device/radio/intercom{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1051,6 +1054,7 @@
 /area/ship/scrap/dock)
 "bN" = (
 /obj/item/device/radio/intercom{
+	dir = 1;
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1075,6 +1079,7 @@
 /area/ship/scrap/dock)
 "bP" = (
 /obj/item/device/radio/intercom{
+	dir = 1;
 	pixel_y = -32
 	},
 /obj/machinery/alarm{
@@ -1485,6 +1490,7 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/structure/closet/wardrobe/pjs,
@@ -3080,13 +3086,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/turf/simulated/floor/tiled/usedup,
-/area/ship/scrap/crew/wash)
-"fp" = (
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 1
 	},
+/turf/simulated/floor/tiled/usedup,
+/area/ship/scrap/crew/wash)
+"fp" = (
 /obj/item/device/radio/intercom{
 	pixel_y = 32
 	},
@@ -5116,9 +5122,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/item/device/radio/intercom{
-	pixel_x = -32
-	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iG" = (
