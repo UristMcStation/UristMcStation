@@ -138,6 +138,7 @@
 	return air_contents
 
 /obj/machinery/portable_atmospherics/powered
+	use_power = 1
 	var/power_rating
 	var/power_losses
 	var/last_power_draw = 0
