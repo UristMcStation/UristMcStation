@@ -4,6 +4,8 @@ var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom
 var/const/NETWORK_COMMAND			= "Command"
 var/const/NETWORK_CARGO				= "Cargo"
 var/const/NETWORK_TRAJAN     		= "Trajan"
+var/const/NETWORK_HADRIAN     		= "Hadrian"
+var/const/NETWORK_ANTONINE     		= "Antonine"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
@@ -21,6 +23,8 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 		NETWORK_RESEARCH,
 		NETWORK_CARGO,
 		NETWORK_TRAJAN,
+		NETWORK_HADRIAN,
+		NETWORK_ANTONINE,
 		NETWORK_MINE,
 		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
@@ -61,6 +65,12 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 
 /obj/machinery/camera/network/trajan
 	network = list(NETWORK_TRAJAN)
+
+/obj/machinery/camera/network/hadrian
+	network = list(NETWORK_HADRIAN)
+
+/obj/machinery/camera/network/antonine
+	network = list(NETWORK_ANTONINE)
 
 // Motion
 /obj/machinery/camera/motion/command

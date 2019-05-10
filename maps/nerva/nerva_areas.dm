@@ -1,6 +1,4 @@
-//Order is as follows Hallways, Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance
-
-//this is just the Wyrm areas right now, but is in flux as I add/remove areas
+//Order is as follows Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance, Hallways
 
 //////////////////////////////////////
 //			COMMAND					//
@@ -161,7 +159,7 @@
 	icon_state = "Warden"
 
 /area/security/breakroom
-	name = "\improper Security Break Room"
+	name = "\improper Security Dorms"
 
 /area/security/office
 	name = "\improper Security Office"
@@ -174,8 +172,8 @@
 	name = "\improper Evidence Storage"
 	icon_state = "detective"
 
-/area/security/tacarmoury
-	name = "\improper Tactical Armory"
+/area/security/interrogation
+	name = "\improper Interrogation Room"
 	icon_state = "Warden"
 
 /area/security/boardarmoury
@@ -590,7 +588,7 @@
 	icon_state = "hallC1"
 
 //////////////////////////////////////
-//			Z-LEVEL 4 / ADMIN		//
+//			Z-LEVEL 5 / ADMIN		//
 //////////////////////////////////////
 
 /area/centcom

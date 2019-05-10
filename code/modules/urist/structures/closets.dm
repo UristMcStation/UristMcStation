@@ -267,3 +267,12 @@
 		/obj/item/weapon/gun/energy/gun/secure = 2,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/gun/energy/gun/secure, /obj/item/weapon/gun/energy/gun/small/secure))
 	)
+
+/obj/structure/closet/medical_wall/engineering
+	name = "radiation treatment closet"
+
+/obj/structure/closet/medical_wall/engineering/WillContain() //for radiation shit
+	return list(
+		/obj/item/weapon/storage/firstaid/rad,
+		/obj/item/weapon/storage/firstaid/toxin,
+		/obj/item/weapon/storage/med_pouch/radiation = 2)
