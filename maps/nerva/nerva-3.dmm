@@ -13422,23 +13422,6 @@
 	},
 /turf/space,
 /area/space)
-"Ac" = (
-/obj/random/maintenance,
-/turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fp)
-"Ar" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/stamp/captain,
-/obj/machinery/button/remote/blast_door{
-	id = "capofficeview";
-	name = "Office Blast Door Control";
-	pixel_x = 0;
-	pixel_y = 22;
-	req_access = list(20)
-	},
-/turf/simulated/floor/wood,
-/area/command/captain)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmospherics Substation";
@@ -13467,31 +13450,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"Bf" = (
-/obj/structure/bedsheetbin,
-/obj/structure/table/standard,
-/turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fp)
-"Bo" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
-	},
-/turf/simulated/wall/r_wall,
-/area/command/teleporter)
-"BC" = (
-/obj/structure/catwalk,
-/obj/item/trash/cigbutt/rand,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fp)
 "BW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
@@ -13506,6 +13464,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
+"BX" = (
+/obj/structure/largecrate,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "Cc" = (
 /obj/item/weapon/material/coin/silver{
 	pixel_x = 7;
@@ -13535,54 +13497,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"Ct" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Boarding Armoury First Deck Access";
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4;
-	luminosity = 2
-	},
-/turf/simulated/floor/reinforced,
-/area/security/boardarmoury)
-"CO" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "Fore Hallway - Port"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/first)
-"CR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
-	icon_state = "warning";
-	dir = 4
+"Dh" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/command/teleporter)
+/area/hallway/aft/first)
 "Dx" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -13650,25 +13570,36 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"EL" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+"En" = (
+/obj/machinery/camera/network/security{
+	c_tag = "Boarding Armoury First Deck Access";
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
+/turf/simulated/floor/reinforced,
+/area/security/boardarmoury)
+"Ep" = (
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/first)
-"Fs" = (
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+/turf/simulated/floor/wood,
+/area/civilian/dorms)
+"FI" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
-/obj/random/toolbox,
-/obj/random/tool,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fp)
+/turf/simulated/floor/tiled/dark,
+/area/hallway/aft/first)
 "FR" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/power/apc{
@@ -13682,10 +13613,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"Gn" = (
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fp)
+"Gj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/teleporter)
 "Gy" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -13700,6 +13640,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
+"GA" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "GF" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -13717,6 +13667,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"GP" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/random/tech_supply,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
 "GR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -13747,31 +13705,36 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"HL" = (
-/obj/machinery/door/airlock/glass{
-	name = "Auxiliary Storage"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+"HP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/logistics/auxtool)
-"If" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
-	},
+/obj/structure/catwalk,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
+"HS" = (
+/obj/item/device/radio/beacon,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/command/teleporter)
+"Ig" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/pen,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/prefab/hand_teleporter,
+/obj/machinery/button/remote/blast_door{
+	id = "boarding_armory";
+	name = "Boarding Armory Blast Doors";
+	pixel_x = 0;
+	pixel_y = 22;
+	req_access = list(20)
+	},
+/turf/simulated/floor/wood,
+/area/command/captain)
 "Io" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -13781,17 +13744,22 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"Is" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/aft/first)
 "IF" = (
-/turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access = list(20)
 	},
-/area/maintenance/first_deck/fp)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood,
+/area/command/captain)
 "IP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -13808,26 +13776,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"IS" = (
-/obj/machinery/washing_machine,
-/turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fp)
-"IW" = (
-/obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access = list(20)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
-/area/command/captain)
 "Js" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
@@ -13849,10 +13797,10 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"Jz" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
+"JQ" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fs)
 "Ka" = (
 /obj/machinery/power/terminal,
 /obj/machinery/light/small/red{
@@ -13866,41 +13814,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"Kb" = (
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fp)
-"Ki" = (
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+"Kw" = (
+/obj/machinery/door/blast/regular{
 	dir = 2;
-	name = "south bump";
-	pixel_y = -24
+	icon_state = "pdoor1";
+	id = "TeleporterHub";
+	layer = 3.3;
+	name = "Teleporter Access"
 	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/wood,
-/area/civilian/dorms)
-"Ko" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/first)
+/turf/simulated/wall/r_wall,
+/area/command/teleporter)
 "KI" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13923,18 +13846,28 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
-"Lz" = (
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+"Lj" = (
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck Fore Port Maintenance APC";
+	dir = 2;
+	icon_state = "camera"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	pixel_x = 0
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/random/soap,
+/obj/random/soap,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
+"LA" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass/civilian{
+	dir = 8;
+	icon_state = "closed";
+	name = "\improper Central Access";
+	tag = "icon-closed (WEST)"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/first)
 "LD" = (
@@ -13951,17 +13884,25 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"Mh" = (
+"LF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (SOUTHEAST)";
-	icon_state = "warning";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/command/teleporter)
+"LQ" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/folder/blue,
+/obj/item/weapon/stamp/captain,
+/obj/machinery/button/remote/blast_door{
+	id = "capofficeview";
+	name = "Office Blast Door Control";
+	pixel_x = 0;
+	pixel_y = 22;
+	req_access = list(20)
+	},
+/turf/simulated/floor/wood,
+/area/command/captain)
 "Mn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/breakerbox/activated{
@@ -13969,12 +13910,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"Mr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/command/teleporter)
 "Mx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13983,44 +13918,24 @@
 	},
 /turf/simulated/floor/blackgrid,
 /area/security/nuke_storage)
-"My" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/prefab/hand_teleporter,
-/obj/machinery/button/remote/blast_door{
-	id = "boarding_armory";
-	name = "Boarding Armory Blast Doors";
-	pixel_x = 0;
-	pixel_y = 22;
-	req_access = list(20)
-	},
-/turf/simulated/floor/wood,
-/area/command/captain)
-"MM" = (
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Fore Port Maintenance APC";
-	dir = 2;
-	icon_state = "camera"
-	},
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/random/soap,
-/obj/random/soap,
+"MK" = (
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
-"MY" = (
-/obj/item/device/radio/beacon,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
+"MV" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/command/teleporter)
+/area/hallway/fore/first)
 "MZ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -14037,11 +13952,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
 "Nk" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/aft/first)
+/obj/structure/bedsheetbin,
+/obj/structure/table/standard,
+/turf/simulated/floor/reinforced,
+/area/maintenance/first_deck/fp)
 "Ny" = (
 /obj/structure/closet/crate{
 	name = "Gold Crate"
@@ -14070,6 +13984,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"NI" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/first)
 "NO" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "First Deck Substation";
@@ -14100,23 +14018,46 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"OE" = (
-/obj/structure/closet/firecloset,
+"Ot" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/weapon/tape_roll,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
-"OO" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
+"Pg" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "Fore Hallway - Port"
 	},
 /turf/simulated/floor/plating,
-/area/command/teleporter)
+/area/hallway/fore/first)
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/substation/atmos)
+"PN" = (
+/obj/random/maintenance,
+/turf/simulated/floor/reinforced,
+/area/maintenance/first_deck/fp)
 "PP" = (
 /obj/structure/safe,
 /obj/item/clothing/head/bearpelt,
@@ -14129,29 +14070,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"PX" = (
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+"PW" = (
+/obj/structure/catwalk,
+/obj/item/trash/cigbutt/rand,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/random/tech_supply,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
-"Qo" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Third Deck"
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/substation/one)
-"Qx" = (
+"Qg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -14172,20 +14101,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/teleporter)
-"QU" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass/civilian{
-	dir = 8;
-	icon_state = "closed";
-	name = "\improper Central Access";
-	tag = "icon-closed (WEST)"
+"Qo" = (
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Substation - Third Deck"
 	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/first)
-"Rf" = (
-/obj/structure/largecrate,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
-/area/civilian/lounge)
+/area/engineering/substation/one)
+"QM" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/security/boardarmoury)
 "Rk" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -14203,6 +14136,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
+"RC" = (
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	icon_state = "pdoor1";
+	id = "TeleporterHub";
+	layer = 3.3;
+	name = "Teleporter Access"
+	},
+/turf/simulated/floor/reinforced,
+/area/security/boardarmoury)
+"RH" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
 "RR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14214,6 +14161,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"SF" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/reinforced,
+/area/maintenance/first_deck/fp)
+"Tc" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHWEST)";
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/first)
 "TE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14226,6 +14195,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"TM" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	icon_state = "pdoor1";
+	id = "TeleporterHub";
+	layer = 3.3;
+	name = "Teleporter Access"
+	},
+/turf/simulated/floor/plating,
+/area/command/teleporter)
 "Uq" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dorm8";
@@ -14247,9 +14226,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"UR" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/plating,
+"UK" = (
+/turf/simulated/wall/r_wall/false{
+	icon_state = "rfalse"
+	},
 /area/maintenance/first_deck/fp)
 "UX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14262,6 +14242,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"Vg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (SOUTHEAST)";
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/teleporter)
 "Vl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -14274,25 +14265,10 @@
 /mob/living/simple_animal/mouse/brown/Tom,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"VU" = (
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/item/weapon/tape_roll,
-/obj/random/tool,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fs)
-"Wc" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
-	},
+"VN" = (
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/reinforced,
-/area/security/boardarmoury)
+/area/maintenance/first_deck/fp)
 "Wh" = (
 /obj/structure/cable/cyan{
 	d2 = 8;
@@ -14317,10 +14293,17 @@
 /obj/structure/sign/warning/secure_area,
 /turf/simulated/wall/r_wall,
 /area/security/nuke_storage)
-"WW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+"WP" = (
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /obj/structure/catwalk,
-/obj/random/tool,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
 "WY" = (
@@ -14342,6 +14325,25 @@
 /obj/structure/cable/cyan,
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
+"Xd" = (
+/obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
+"Xf" = (
+/obj/machinery/door/airlock/glass{
+	name = "Auxiliary Storage"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/logistics/auxtool)
 "Xi" = (
 /turf/simulated/floor/blackgrid,
 /area/security/nuke_storage)
@@ -14368,6 +14370,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
+"XM" = (
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	icon_state = "pdoor1";
+	id = "TeleporterHub";
+	layer = 3.3;
+	name = "Teleporter Access"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fp)
 "XN" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -14387,10 +14399,15 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/one)
-"Yy" = (
-/obj/structure/ladder,
+"Yj" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/random/toolbox,
+/obj/random/tool,
 /turf/simulated/floor/plating,
-/area/security/boardarmoury)
+/area/maintenance/first_deck/fp)
 "YO" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -14415,23 +14432,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
-"ZQ" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/catwalk,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/fp)
-"ZR" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/hallway/aft/first)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -32516,7 +32516,7 @@ bI
 fE
 gG
 hD
-Nk
+Dh
 ii
 jX
 kX
@@ -32719,9 +32719,9 @@ fF
 gG
 hC
 ij
-Is
-Is
-Is
+FI
+FI
+FI
 lW
 hC
 eC
@@ -34342,7 +34342,7 @@ lX
 mS
 hC
 hC
-ZR
+NI
 qC
 rn
 rn
@@ -34943,7 +34943,7 @@ hH
 io
 jk
 jk
-Ki
+Ep
 hH
 mV
 nJ
@@ -37574,7 +37574,7 @@ hH
 hH
 hH
 hH
-ZR
+NI
 gK
 rr
 sj
@@ -38181,7 +38181,7 @@ hJ
 hJ
 hJ
 pH
-QU
+LA
 ru
 sm
 sI
@@ -38380,7 +38380,7 @@ ke
 lj
 me
 nd
-Rf
+BX
 hJ
 iK
 iK
@@ -39590,7 +39590,7 @@ ix
 iz
 iz
 iy
-Jz
+Xd
 kg
 iz
 hK
@@ -39796,8 +39796,8 @@ mh
 nf
 oa
 oQ
-EL
-Lz
+GA
+MV
 ry
 sr
 to
@@ -41400,7 +41400,7 @@ cM
 ds
 ec
 eJ
-HL
+Xf
 gj
 gZ
 hN
@@ -41614,7 +41614,7 @@ mk
 jx
 og
 oR
-Ko
+Tc
 qT
 rC
 sy
@@ -42625,7 +42625,7 @@ ls
 ls
 ls
 pH
-QU
+LA
 ru
 sC
 tA
@@ -43010,13 +43010,13 @@ ah
 ah
 aq
 bs
-IS
-Kb
+SF
+VN
 bs
-Yy
-Wc
+QM
+RC
 cR
-If
+XM
 ge
 hg
 gZ
@@ -43034,7 +43034,7 @@ ru
 sq
 ru
 uh
-OE
+JQ
 tB
 sI
 sI
@@ -43212,13 +43212,13 @@ ah
 ah
 ap
 bs
-Bf
-Ac
+Nk
+PN
 bs
-Ct
-Wc
+En
+RC
 cR
-If
+XM
 gm
 hh
 hR
@@ -43238,7 +43238,7 @@ ru
 tB
 tB
 tB
-VU
+Ot
 sI
 sI
 ah
@@ -43415,7 +43415,7 @@ ah
 ap
 bs
 bs
-IF
+UK
 bs
 bs
 bs
@@ -43424,7 +43424,7 @@ fi
 gn
 gX
 hS
-OO
+TM
 hS
 hS
 hS
@@ -43620,12 +43620,12 @@ bs
 dx
 cS
 bs
-UR
+MK
 cR
 fi
-CO
+Pg
 gZ
-Bo
+Kw
 kr
 lv
 mo
@@ -43822,17 +43822,17 @@ bs
 cT
 dy
 eh
-WW
+HP
 eQ
 fq
 go
 hi
 hT
-Qx
-CR
-Mh
-MY
-Mr
+Qg
+Gj
+Vg
+HS
+LF
 nt
 ol
 oV
@@ -44024,7 +44024,7 @@ bs
 cU
 dz
 bs
-Gn
+RH
 eR
 fi
 gp
@@ -44226,8 +44226,8 @@ bs
 cV
 dA
 bs
-Fs
-BC
+Yj
+PW
 fr
 fr
 fr
@@ -44428,7 +44428,7 @@ bs
 cW
 dB
 bs
-PX
+GP
 eR
 fr
 gq
@@ -44440,7 +44440,7 @@ ku
 ly
 mr
 nv
-IW
+IF
 oX
 qa
 qX
@@ -44630,7 +44630,7 @@ bs
 bs
 bs
 bs
-MM
+Lj
 eS
 fr
 gr
@@ -44833,7 +44833,7 @@ bs
 bs
 dD
 ei
-ZQ
+WP
 fr
 fr
 hm
@@ -45244,7 +45244,7 @@ ho
 hV
 iU
 fr
-Ar
+LQ
 lC
 mv
 ny
@@ -45648,7 +45648,7 @@ hq
 hp
 hp
 fr
-My
+Ig
 lE
 mx
 ny
