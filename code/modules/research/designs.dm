@@ -2046,7 +2046,7 @@ CIRCUITS BELOW
 	id = "securedoor"
 	req_tech = list(TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/pipelayer
-	sort_string = "JDAAB"
+	sort_string = "JDAAX"
 
 /datum/design/circuit/biogenerator
 	name = "biogenerator"
