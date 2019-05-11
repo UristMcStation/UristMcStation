@@ -2040,6 +2040,14 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/airlock_electronics/secure
 	sort_string = "JDAAA"
 
+/datum/design/circuit/pipelayer
+	name = "pipeplayer electronics"
+	desc =  "Allows for the construction of a pipe-laying machine."
+	id = "securedoor"
+	req_tech = list(TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/pipelayer
+	sort_string = "JDAAB"
+
 /datum/design/circuit/biogenerator
 	name = "biogenerator"
 	id = "biogenerator"
