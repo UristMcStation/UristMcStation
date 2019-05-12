@@ -2,76 +2,76 @@
 /proc/TestArrays(var/params, as_json=1)
 	var/datum/array/M = new(params, as_json=1)
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
-	world.log << "SINGLE INDEX TEST"
+	log_debug( "SINGLE INDEX TEST")
 
 	for(var/col=1, col<=M.cols, col++)
 		for(var/row=1, row<=M.rows, row++)
 			var/list/response = M.get("[col],[row]")
 			if(!isnull(response))
-				world.log << "([col],[row]) --> [response.Join(",")]"
+				log_debug( "([col],[row]) --> [response.Join(",")]")
 			else
-				world.log << "([col],[row]) --> MISSING!"
+				log_debug( "([col],[row]) --> MISSING!")
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
-	world.log << "ROW WILDCARD TEST"
+	log_debug( "ROW WILDCARD TEST")
 
 	for(var/col=1, col<=M.cols, col++)
 		var/list/response = M.get("[col]")
 		if(!isnull(response))
-			world.log << "([col],:) --> [response.Join(",")]"
+			log_debug( "([col],:) --> [response.Join(",")]")
 		else
-			world.log << "([col],:) --> MISSING!"
+			log_debug( "([col],:) --> MISSING!")
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
-	world.log << "COL WILDCARD TEST"
+	log_debug( "COL WILDCARD TEST")
 
 	for(var/row=1, row<=M.rows, row++)
 		var/list/response = M.get(":,[row]")
 		if(!isnull(response))
-			world.log << "(:,[row]) --> [response.Join(",")]"
+			log_debug( "(:,[row]) --> [response.Join(",")]")
 		else
-			world.log << "(:,[row]) --> MISSING!"
+			log_debug( "(:,[row]) --> MISSING!")
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
-	world.log << "DUAL WILDCARD TEST"
+	log_debug( "DUAL WILDCARD TEST")
 
 	for(var/col=1, col<=1, col++)
 		var/list/response = M.get(":")
 		if(!isnull(response))
-			world.log << "(:,:) --> [response.Join(",")]"
+			log_debug( "(:,:) --> [response.Join(",")]")
 		else
-			world.log << "(:,:) --> MISSING!"
+			log_debug( "(:,:) --> MISSING!")
 
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
-	world.log << "DEFAULTS TEST"
+	log_debug( "DEFAULTS TEST")
 
 	for(var/col=1, col<=1, col++)
 		var/list/response = M.get()
 		if(!isnull(response))
-			world.log << "() --> [response.Join(",")]"
+			log_debug( "() --> [response.Join(",")]")
 		else
-			world.log << "() --> MISSING!"
+			log_debug( "() --> MISSING!")
 
-	world.log << " "
-	world.log << "=================="
-	world.log << " "
+	log_debug( " ")
+	log_debug( "==================")
+	log_debug( " ")
 
 /mob/verb/test_arrays(var/params as null|text)
 	return TestArrays(params, as_json=1)
@@ -90,10 +90,10 @@
 	var/datum/array/mtrx = new(definition, as_json=1)
 
 	if(!mtrx)
-		world.log << "No matrix :("
+		log_debug( "No matrix :(")
 		return
 
-	world.log << "Matrix: [json_encode(mtrx.get())]"
+	log_debug( "Matrix: [json_encode(mtrx.get())]")
 
 	var/list/matrix_flat = mtrx.get()
 	usr.client.color = matrix_flat

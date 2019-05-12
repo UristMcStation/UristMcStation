@@ -180,5 +180,5 @@
 
 			var/successful = src.assign(coords, value)
 			if(!successful)
-				world.log << "Failed to set array @([col],[row])!"
+				log_debug( "Failed to set array @([col],[row])!")
 
