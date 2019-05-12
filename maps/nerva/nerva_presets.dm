@@ -1,6 +1,7 @@
-var/const/NETWORK_FIRST_DECK		= "First Deck" //top
-var/const/NETWORK_SECOND_DECK		= "Second Deck" //central
-var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom
+var/const/NETWORK_FIRST_DECK		= "First Deck" //new top
+var/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
+var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
+var/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
 var/const/NETWORK_COMMAND			= "Command"
 var/const/NETWORK_CARGO				= "Cargo"
 var/const/NETWORK_TRAJAN     		= "Trajan"
@@ -17,6 +18,7 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 		NETWORK_FIRST_DECK,
 		NETWORK_SECOND_DECK,
 		NETWORK_THIRD_DECK,
+		NETWORK_FOURTH_DECK,
 		NETWORK_COMMAND,
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
@@ -54,6 +56,9 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 /obj/machinery/camera/network/third_deck
 	network = list(NETWORK_THIRD_DECK)
 
+/obj/machinery/camera/network/fourth_deck
+	network = list(NETWORK_FOURTH_DECK)
+
 /obj/machinery/camera/network/research
 	network = list(NETWORK_RESEARCH)
 
@@ -80,7 +85,7 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
 
-/obj/machinery/camera/xray/first_deck //for officers dorms
+/obj/machinery/camera/xray/second_deck //for officers dorms
 	network = list(NETWORK_FIRST_DECK)
 
 /obj/machinery/camera/xray/command //for the bridge

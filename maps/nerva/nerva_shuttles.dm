@@ -124,8 +124,8 @@
 /datum/shuttle/autodock/overmap/hadrian
 	name = "Hadrian"
 	warmup_time = 5
-	move_time = 80
-	shuttle_area = list(/area/hadrian/storage, /area/hadrian/engineering, /area/hadrian/main)
+	move_time = 70
+	shuttle_area = list(/area/hadrian/storage, /area/hadrian/main)
 	dock_target ="hadrian_shuttle"
 	current_location = "nav_hangar_hadrian"
 	landmark_transition = "nav_transit_hadrian"
@@ -134,6 +134,7 @@
 //	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_hadrian"
 	logging_access = access_xenobiology
+	ceiling_type = /turf/simulated/floor/shuttle_ceiling
 
 /obj/effect/shuttle_landmark/nerva/hangar/hadrian
 	name = "Hadrian Dock"
@@ -168,9 +169,6 @@
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
 
-/area/hadrian/engineering
-	name = "\improper Hadrian - Engineering Compartment"
-
 /area/hadrian/main
 	name = "\improper Hadrian - Main Compartment"
 
@@ -180,6 +178,7 @@
 /obj/machinery/computer/shuttle_control/explore/hadrian
 	name = "Hadrian control console"
 	shuttle_tag = "Hadrian"
+	req_access = list(access_xenobiology)
 
 //////////
 //supply//
@@ -406,7 +405,7 @@
 	landmark_tag = "nav_ferry_out"
 	docking_controller = "centcom_shuttle_dock_airlock"
 	base_turf = /turf/simulated/floor/plating
-	base_area = /area/hallway/centralthird
+	base_area = /area/hallway/centralfourth
 
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"

@@ -5,12 +5,12 @@
 
 	lobby_icon = 'maps/nerva/nerva_lobby.dmi'
 
-	station_levels = list(1,2,3)
-	contact_levels = list(1,2,3)
-	player_levels = list(1,2,3)
-	admin_levels = list(4)
-	empty_levels = list(5)
-	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"5"=30)
+	station_levels = list(1,2,3,4)
+	contact_levels = list(1,2,3,4)
+	player_levels = list(1,2,3,4)
+	admin_levels = list(5)
+	empty_levels = list(6)
+	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"4"=5,"6"=30)
 	overmap_size = 36
 	overmap_event_areas = 32
 
@@ -32,7 +32,7 @@
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
-	starting_money = 20000		//Money in station account //tweak this value
+	starting_money = 22000		//Money in station account //tweak this value
 	department_money = 1000		//Money in department accounts
 	salary_modifier	= 1			//Multiplier to starting character money
 

@@ -259,3 +259,11 @@ transit/east is the same thing now AFAIK
 	base_icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
 	base_icon_state = "ice"
+
+//reinf floors
+
+/turf/simulated/floor/shuttle_ceiling
+	name = "hull plating"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "reinforced_light"
+	initial_gas = null

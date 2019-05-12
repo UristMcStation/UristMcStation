@@ -314,14 +314,17 @@
 	sound_env = SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/engineering/substation/one
+/area/engineering/substation/first_deck
 	name = "\improper First Deck Substation"
 
-/area/engineering/substation/two
+/area/engineering/substation/second_deck
 	name = "\improper Second Deck Substation"
 
-/area/engineering/substation/three
+/area/engineering/substation/third_deck
 	name = "\improper Third Deck Substation"
+
+/area/engineering/substation/fourth_deck
+	name = "\improper Fourth Deck Substation"
 
 /area/engineering/substation/atmos
 	name = "\improper Atmospherics Substation"
@@ -458,26 +461,6 @@
 
 //first deck
 
-/area/maintenance/first_deck/fs
-	name = "\improper First Deck Fore Starboard Maintenance"
-	icon_state = "fsmaint"
-
-/area/maintenance/first_deck/fp
-	name = "\improper First Deck Fore Port Maintenance"
-	icon_state = "fpmaint"
-
-/area/maintenance/first_deck/afs
-	name = "\improper First Deck Aft Starboard Maintenance"
-	icon_state = "maint_engineering"
-
-/area/maintenance/first_deck/afp
-	name = "\improper First Deck Aft Port Maintenance"
-	icon_state = "amaint"
-
-/area/maintenance/first_deck/central
-	name = "\improper First Deck Central Maintenance"
-	icon_state = "maintcentral"
-
 //second deck
 
 /area/maintenance/second_deck/fs
@@ -487,14 +470,6 @@
 /area/maintenance/second_deck/fp
 	name = "\improper Second Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
-
-/area/maintenance/second_deck/centp
-	name = "\improper Second Deck Central Port Maintenance"
-	icon_state = "maintcentral"
-
-/area/maintenance/second_deck/cents
-	name = "\improper Second Deck Central Starboard Maintenance"
-	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/afs
 	name = "\improper Second Deck Aft Starboard Maintenance"
@@ -518,6 +493,14 @@
 	name = "\improper Third Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
 
+/area/maintenance/third_deck/centp
+	name = "\improper Third Deck Central Port Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/third_deck/cents
+	name = "\improper Third Deck Central Starboard Maintenance"
+	icon_state = "maintcentral"
+
 /area/maintenance/third_deck/afs
 	name = "\improper Third Deck Aft Starboard Maintenance"
 	icon_state = "maint_engineering"
@@ -530,7 +513,29 @@
 	name = "\improper Third Deck Central Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/third_deck/disposals
+//fourth deck
+
+/area/maintenance/fourth_deck/fs
+	name = "\improper Fourth Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/fourth_deck/fp
+	name = "\improper Fourth Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/fourth_deck/afs
+	name = "\improper Fourth Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/fourth_deck/afp
+	name = "\improper Fourth Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/fourth_deck/central
+	name = "\improper Fourth Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/fourth_deck/disposals
 	name = "\improper Waste Disposal"
 	icon_state = "disposal"
 
@@ -550,24 +555,29 @@
 /area/hallway/aft
 	icon_state = "hallA"
 
-//top deck
-/area/hallway/fore/first
-	name = "\improper Fore First Deck Hallway"
-
-/area/hallway/aft/first
-	name = "\improper Aft First Deck Hallway"
-
-//central deck
-
-/area/hallway/fore/second
-	name = "\improper Fore Second Deck Hallway"
-
-/area/hallway/central/second
-	name = "\improper Central Second Deck Hallway"
+//top/first deck
+/area/hallway/centralfirst
+	name = "\improper Primary First Deck Hallway"
 	icon_state = "hallC1"
 
-/area/hallway/aft/second
+//second deck
+/area/hallway/fore/second_deck
+	name = "\improper Fore Second Deck Hallway"
+
+/area/hallway/aft/second_deck
 	name = "\improper Aft Second Deck Hallway"
+
+//third deck
+
+/area/hallway/fore/third_deck
+	name = "\improper Fore Third Deck Hallway"
+
+/area/hallway/central/third_deck
+	name = "\improper Central Third Deck Hallway"
+	icon_state = "hallC1"
+
+/area/hallway/aft/third_deck
+	name = "\improper Aft Third Deck Hallway"
 
 /area/hallway/commandoffices
 	name = "\improper Command Offices Hallway"
@@ -581,10 +591,10 @@
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
 
-//bottom deck
+//bottom/fourth deck
 
-/area/hallway/centralthird
-	name = "\improper Primary Third Deck Hallway"
+/area/hallway/centralfourth
+	name = "\improper Primary Fourth Deck Hallway"
 	icon_state = "hallC1"
 
 //////////////////////////////////////
