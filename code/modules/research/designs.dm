@@ -16,6 +16,23 @@ Design Guidlines
 other types of metals and chemistry for reagents).
 
 */
+//Used for PROTOLATHE CONSTRUCTABLES
+#define MACHINE_PARTS "Machine Parts"
+#define WEAPON_DESIGNS "Weapon Designs"
+#define BLUESPACE_DEVICES "Bluespace Devices"
+#define BIOMEDICAL_DEVICES "Biomedical Devices"
+#define TOOL_DESIGNS "Tool Designs"
+#define GENERAL_DEVICES "General Devices"
+#define MODULAR_COMPUTER_DEVICES "Modular Computer Components"
+#define RIG_MODULES "RIG Modules"
+//Used for CIRCUIT IMPRINTER CONSTRUCTABLES
+#define GENERAL_CIRCUITS "General Circuitry"
+#define EXOSUIT_CIRCUITS "Exosuit Circuitry"
+#define AI_CIRCUITS "AI Module Circuitry"
+#define MACHINERY_CIRCUITS "Machinery Circuitry"
+#define TELECOMMS_CIRCUITS "Telecommunications Circuitry"
+#define COMPUTER_CIRCUITS "Computer Circuitry"
+
 //Note: More then one of these can be added to a design.
 
 /datum/design						//Datum for object designs, used in construction
@@ -29,7 +46,7 @@ other types of metals and chemistry for reagents).
 	var/list/chemicals = list()		//List of chemicals.
 	var/build_path = null			//The path of the object that gets created.
 	var/time = 10					//How many ticks it requires to build
-	var/category = null 			//Primarily used for Mech Fabricators, but can be used for anything.
+	var/category = null 			//Primarily used for Mech Fabricators, but can be used for anything. Update: defines for this and such, for research catagories. Because, wee.
 	var/sort_string = "ZZZZZ"		//Sorting order
 
 /datum/design/New()
@@ -62,6 +79,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item
 	build_type = PROTOLATHE
+	category = GENERAL_DEVICES
 
 /datum/design/item/disk/AssembleDesignName()
 	..()
@@ -87,6 +105,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/stock_part
 	build_type = PROTOLATHE
+	category = MACHINE_PARTS
 
 /datum/design/item/stock_part/AssembleDesignName()
 	..()
@@ -289,6 +308,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/hud
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	category = TOOL_DESIGNS
 
 /datum/design/item/hud/AssembleDesignName()
 	..()
@@ -310,6 +330,9 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
 	build_path = /obj/item/clothing/glasses/hud/security
 	sort_string = "GAAAB"
+
+/datum/design/item/optical
+	category = TOOL_DESIGNS
 
 /datum/design/item/optical/AssembleDesignName()
 	..()
@@ -339,6 +362,9 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50, "silver" = 50, "gold" = 50)
 	build_path = /obj/item/clothing/glasses/tacgoggles
 	sort_string = "GAAAC"
+
+/datum/design/item/mining
+	category = TOOL_DESIGNS
 
 /datum/design/item/mining/AssembleDesignName()
 	..()
@@ -389,6 +415,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/medical
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 20)
+	category = BIOMEDICAL_DEVICES
 
 /datum/design/item/medical/AssembleDesignName()
 	..()
@@ -454,6 +481,9 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/reagent_containers/hypospray/vial
 	sort_string = "MAEAA"
 
+/datum/design/item/surgery
+	category = BIOMEDICAL_DEVICES
+
 /datum/design/item/surgery/AssembleDesignName()
 	..()
 	name = "Surgical tool design ([item_name])"
@@ -494,6 +524,9 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/scalpel/manager
 	sort_string = "MBEAD"
 
+/datum/design/item/beaker
+	category = BIOMEDICAL_DEVICES
+
 /datum/design/item/beaker/AssembleDesignName()
 	name = "Beaker prototype ([item_name])"
 
@@ -517,6 +550,7 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/implant
 	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	category = BIOMEDICAL_DEVICES
 
 /datum/design/item/implant/AssembleDesignName()
 	..()
@@ -570,6 +604,9 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_ILLEGAL = 4)
 	build_path = /obj/item/weapon/implantcase/explosive
 	sort_string = "MFAAG"
+
+/datum/design/item/weapon
+	category = WEAPON_DESIGNS
 
 /datum/design/item/weapon/AssembleDesignName()
 	..()
@@ -829,6 +866,9 @@ other types of metals and chemistry for reagents).
 	..()
 	name = "Synthetic intelligence storage ([item_name])"
 
+/datum/design/item/synthstorage
+	category = GENERAL_DEVICES
+
 /datum/design/item/synthstorage/paicard
 	name = "pAI"
 	desc = "Personal Artificial Intelligence device."
@@ -860,6 +900,7 @@ other types of metals and chemistry for reagents).
 /datum/design/item/biostorage/AssembleDesignName()
 	..()
 	name = "Biological intelligence storage ([item_name])"
+	category = BIOMEDICAL_DEVICES
 
 /datum/design/item/biostorage/neural_lace
 	id = "neural lace"
@@ -887,6 +928,9 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/device/mmi/radio_enabled
 	category = "Misc"
 	sort_string = "VACCB"
+
+/datum/design/item/bluespace
+	category = BLUESPACE_DEVICES
 
 /datum/design/item/bluespace/AssembleDesignName()
 	..()
@@ -946,6 +990,9 @@ other types of metals and chemistry for reagents).
 	sort_string = "VAEBA"
 
 // tools
+
+/datum/design/item/tool
+	category = TOOL_DESIGNS
 
 /datum/design/item/tool/AssembleDesignName()
 	..()
@@ -1032,6 +1079,9 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/device/oxycandle
 	sort_string = "VAGAI"
 
+/datum/design/item/encryptionkey
+	category = TOOL_DESIGNS
+
 /datum/design/item/encryptionkey/AssembleDesignName()
 	..()
 	name = "Encryption key design ([item_name])"
@@ -1059,6 +1109,10 @@ other types of metals and chemistry for reagents).
 	sort_string = "VASBA"
 
 // Superconductive magnetic coils
+
+/datum/design/item/smes_coil
+	category = MACHINE_PARTS
+
 /datum/design/item/smes_coil/AssembleDesignName()
 	..()
 	name = "Superconductive magnetic coil ([item_name])"
@@ -1091,6 +1145,10 @@ other types of metals and chemistry for reagents).
 
 // Modular computer components
 // Hard drives
+
+/datum/design/item/modularcomponent
+	category = MODULAR_COMPUTER_DEVICES
+
 /datum/design/item/modularcomponent/disk/AssembleDesignName()
 	..()
 	name = "Hard drive design ([item_name])"
@@ -1407,6 +1465,10 @@ other types of metals and chemistry for reagents).
 
 //RIG Modules
 //Sidenote; Try to keep a requirement of 5 engineering for each, but keep the rest as similiar to it's original as possible.
+
+/datum/design/item/rig
+	category = RIG_MODULES
+
 /datum/design/item/rig/AssembleDesignName()
 	..()
 	name = "RIG module ([item_name])"
@@ -1629,6 +1691,7 @@ CIRCUITS BELOW
 	materials = list("glass" = 2000)
 	chemicals = list(/datum/reagent/acid = 20)
 	time = 5
+	category = GENERAL_CIRCUITS
 
 /datum/design/circuit/AssembleDesignName()
 	..()
@@ -1651,6 +1714,8 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 1)
 	build_path = /obj/item/weapon/circuitboard/arcade/battle
 	sort_string = "MAAAA"
+	category = GENERAL_CIRCUITS
+
 
 /datum/design/circuit/oriontrail
 	name = "orion trail arcade machine"
@@ -1658,6 +1723,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 1)
 	build_path = /obj/item/weapon/circuitboard/arcade/orion_trail
 	sort_string = "MABAA"
+	category = GENERAL_CIRCUITS
 
 /datum/design/circuit/prisonmanage
 	name = "prisoner management console"
@@ -1670,6 +1736,7 @@ CIRCUITS BELOW
 	id = "operating"
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/clonecontrol
 	name = "cloning control console"
@@ -1677,6 +1744,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
 	build_path = /obj/item/weapon/circuitboard/cloning
 	sort_string = "FAGAC"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/dnamodifierconsole
 	name = "genetic manipulation console"
@@ -1684,6 +1752,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
 	build_path = /obj/item/weapon/circuitboard/scan_consolenew
 	sort_string = "FAGAD"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/clonepod
 	name = "clone pod"
@@ -1691,6 +1760,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
 	build_path = /obj/item/weapon/circuitboard/clonepod
 	sort_string = "FAGAE"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/clonescanner
 	name = "cloning scanner"
@@ -1698,6 +1768,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
 	build_path = /obj/item/weapon/circuitboard/clonescanner
 	sort_string = "FAGAG"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/optable
 	name = "operating table"
@@ -1705,6 +1776,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 3, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/optable
 	sort_string = "FACAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/cryo_cell
 	name = "cryo cell"
@@ -1712,6 +1784,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_ENGINEERING = 3, TECH_BIO = 5, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/cryo_cell
 	sort_string = "FACAF"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/resleever
 	name = "neural lace resleever"
@@ -1719,6 +1792,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
 	build_path = /obj/item/weapon/circuitboard/resleever
 	sort_string = "FAGAH"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/crewconsole
 	name = "crew monitoring console"
@@ -1726,6 +1800,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 2, TECH_BIO = 2)
 	build_path = /obj/item/weapon/circuitboard/crew
 	sort_string = "FAGAI"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/bioprinter
 	name = "bioprinter"
@@ -1733,6 +1808,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 3, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/bioprinter
 	sort_string = "FAGAK"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/roboprinter
 	name = "prosthetic organ fabricator"
@@ -1740,6 +1816,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/roboprinter
 	sort_string = "FAGAM"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/bodyscanner
 	name = "body scanner"
@@ -1747,6 +1824,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_BIO = 5)
 	build_path = /obj/item/weapon/circuitboard/body_scanner
 	sort_string = "FAGAN"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/bodyscannerconsole
 	name = "body scanner console"
@@ -1754,6 +1832,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/scanner_console
 	sort_string = "FAGAO"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/sleeper
 	name = "sleeper"
@@ -1761,6 +1840,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_BIO = 4)
 	build_path = /obj/item/weapon/circuitboard/sleeper
 	sort_string = "FAGAT"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
@@ -1768,6 +1848,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 5)
 	build_path = /obj/item/weapon/circuitboard/teleporter
 	sort_string = "HAAAA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/robocontrol
 	name = "robotics control console"
@@ -1775,6 +1856,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/robotics
 	sort_string = "HAAAB"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/mechacontrol
 	name = "exosuit control console"
@@ -1782,6 +1864,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/mecha_control
 	sort_string = "HAAAC"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/rdconsole
 	name = "R&D control console"
@@ -1789,6 +1872,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/rdconsole
 	sort_string = "HAAAE"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/comm_monitor
 	name = "telecommunications monitoring console"
@@ -1796,6 +1880,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/comm_monitor
 	sort_string = "HAACA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/comm_server
 	name = "telecommunications server monitoring console"
@@ -1803,6 +1888,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/comm_server
 	sort_string = "HAACB"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/comm_traffic
 	name = "telecommunications traffic control console"
@@ -1810,6 +1896,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 6)
 	build_path = /obj/item/weapon/circuitboard/comm_traffic
 	sort_string = "HAACC"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/message_monitor
 	name = "messaging monitor console"
@@ -1817,6 +1904,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 5)
 	build_path = /obj/item/weapon/circuitboard/message_monitor
 	sort_string = "HAACD"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/aiupload
 	name = "AI upload console"
@@ -1824,6 +1912,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/aiupload
 	sort_string = "HAABA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/borgupload
 	name = "cyborg upload console"
@@ -1831,6 +1920,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/borgupload
 	sort_string = "HAABB"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/destructive_analyzer
 	name = "destructive analyzer"
@@ -1838,6 +1928,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/destructive_analyzer
 	sort_string = "HABAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/protolathe
 	name = "protolathe"
@@ -1845,6 +1936,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/protolathe
 	sort_string = "HABAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/circuit_imprinter
 	name = "circuit imprinter"
@@ -1852,6 +1944,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/circuit_imprinter
 	sort_string = "HABAC"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/autolathe
 	name = "autolathe board"
@@ -1859,6 +1952,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/autolathe
 	sort_string = "HABAD"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mining_console
 	name = "mining console board"
@@ -1866,6 +1960,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/mineral_processing
 	sort_string = "HABAE"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/mining_processor
 	name = "mining processor board"
@@ -1873,6 +1968,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/mining_processor
 	sort_string = "HABAF"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mining_unloader
 	name = "ore unloader board"
@@ -1880,6 +1976,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/mining_unloader
 	sort_string = "HABAG"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mining_stacker
 	name = "sheet stacker board"
@@ -1887,6 +1984,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/mining_stacker
 	sort_string = "HABAH"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
@@ -1894,6 +1992,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/rdservercontrol
 	sort_string = "HABBA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/rdserver
 	name = "R&D server"
@@ -1901,6 +2000,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/rdserver
 	sort_string = "HABBB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mechfab
 	name = "exosuit fabricator"
@@ -1908,6 +2008,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/weapon/circuitboard/mechfab
 	sort_string = "HABAE"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mech_recharger
 	name = "mech recharger"
@@ -1915,6 +2016,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/mech_recharger
 	sort_string = "HACAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/recharge_station
 	name = "cyborg recharge station"
@@ -1922,18 +2024,21 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/recharge_station
 	sort_string = "HACAC"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"
 	id = "atmosalerts"
 	build_path = /obj/item/weapon/circuitboard/atmos_alert
 	sort_string = "JAAAA"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/air_management
 	name = "atmosphere monitoring console"
 	id = "air_management"
 	build_path = /obj/item/weapon/circuitboard/air_management
 	sort_string = "JAAAB"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/rcon_console
 	name = "RCON remote control console"
@@ -1941,18 +2046,21 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_POWER = 5)
 	build_path = /obj/item/weapon/circuitboard/rcon_console
 	sort_string = "JAAAC"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/powermonitor
 	name = "power monitoring console"
 	id = "powermonitor"
 	build_path = /obj/item/weapon/circuitboard/powermonitor
 	sort_string = "JAAAD"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/solarcontrol
 	name = "solar control console"
 	id = "solarcontrol"
 	build_path = /obj/item/weapon/circuitboard/solar_control
 	sort_string = "JAAAE"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/dronecontrol
 	name = "drone control console"
@@ -1960,6 +2068,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/drone_control
 	sort_string = "JAAAF"
+	category = COMPUTER_CIRCUITS
 
 /datum/design/circuit/dronefab
 	name = "drone fabricator"
@@ -1967,6 +2076,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/weapon/circuitboard/drone_fab
 	sort_string = "JAAAG"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/advdronefab
 	name = "advanced drone fabricator"
@@ -1974,6 +2084,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 7, TECH_ENGINEERING = 6)
 	build_path = /obj/item/weapon/circuitboard/adv_drone_fab
 	sort_string = "JAAAH"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/pacman
 	name = "PACMAN-type generator"
@@ -1981,6 +2092,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_PHORON = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/weapon/circuitboard/pacman
 	sort_string = "JBAAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/superpacman
 	name = "SUPERPACMAN-type generator"
@@ -1988,6 +2100,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/weapon/circuitboard/pacman/super
 	sort_string = "JBAAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mrspacman
 	name = "MRSPACMAN-type generator"
@@ -1995,6 +2108,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
 	build_path = /obj/item/weapon/circuitboard/pacman/mrs
 	sort_string = "JBAAC"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/batteryrack
 	name = "cell rack PSU"
@@ -2002,6 +2116,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/batteryrack
 	sort_string = "JBABA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/smes_cell
 	name = "'SMES' superconductive magnetic energy storage"
@@ -2010,6 +2125,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5)
 	build_path = /obj/item/weapon/circuitboard/smes
 	sort_string = "JBABB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/gas_heater
 	name = "gas heating system"
@@ -2017,6 +2133,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 1)
 	build_path = /obj/item/weapon/circuitboard/unary_atmos/heater
 	sort_string = "JCAAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/gas_cooler
 	name = "gas cooling system"
@@ -2024,6 +2141,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/unary_atmos/cooler
 	sort_string = "JCAAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/oxyregenerator
 	name = "oxygen regenerator"
@@ -2031,6 +2149,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/oxyregenerator
 	sort_string = "JCAAC"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/secure_airlock
 	name = "secure airlock electronics"
@@ -2039,6 +2158,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/weapon/airlock_electronics/secure
 	sort_string = "JDAAA"
+	category = GENERAL_CIRCUITS
 
 /datum/design/circuit/biogenerator
 	name = "biogenerator"
@@ -2046,6 +2166,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 2)
 	build_path = /obj/item/weapon/circuitboard/biogenerator
 	sort_string = "KBAAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/miningdrill
 	name = "mining drill head"
@@ -2053,6 +2174,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/weapon/circuitboard/miningdrill
 	sort_string = "KCAAA"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/miningdrillbrace
 	name = "mining drill brace"
@@ -2060,9 +2182,11 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/weapon/circuitboard/miningdrillbrace
 	sort_string = "KCAAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/mecha
 	req_tech = list(TECH_DATA = 3)
+	category = EXOSUIT_CIRCUITS
 
 /datum/design/circuit/mecha/AssembleDesignName()
 	name = "Exosuit module circuit design ([name])"
@@ -2141,6 +2265,7 @@ CIRCUITS BELOW
 
 /datum/design/circuit/tcom
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
+	category = TELECOMMS_CIRCUITS
 
 /datum/design/circuit/tcom/AssembleDesignName()
 	name = "Telecommunications machinery circuit design ([name])"
@@ -2199,6 +2324,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_MAGNET = 3, TECH_POWER = 4)
 	build_path = /obj/item/weapon/circuitboard/shield_generator
 	sort_string = "VAAAC"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/shield_diffuser
 	name = "Shield Diffuser"
@@ -2207,6 +2333,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_MAGNET = 3, TECH_POWER = 4)
 	build_path = /obj/item/weapon/circuitboard/shield_diffuser
 	sort_string = "VAAAB"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/ntnet_relay
 	name = "NTNet Quantum Relay"
@@ -2214,6 +2341,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/ntnet_relay
 	sort_string = "WAAAA"
+	category = TELECOMMS_CIRCUITS
 
 /datum/design/circuit/replicator
 	name = "food replicator"
@@ -2221,6 +2349,7 @@ CIRCUITS BELOW
 	req_tech = list(TECH_BIO = 3, TECH_DATA = 3)
 	build_path = /obj/item/weapon/circuitboard/replicator
 	sort_string = "WAAAR"
+	category = MACHINERY_CIRCUITS
 
 /datum/design/circuit/aicore
 	name = "AI core"
@@ -2228,10 +2357,12 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/weapon/circuitboard/aicore
 	sort_string = "XAAAA"
+	category = AI_CIRCUITS
 
 /datum/design/aimodule
 	build_type = IMPRINTER
 	materials = list("glass" = 2000, "gold" = 100)
+	category = AI_CIRCUITS
 
 /datum/design/aimodule/AssembleDesignName()
 	name = "AI module design ([name])"
@@ -2305,6 +2436,7 @@ CIRCUITS BELOW
 // Core modules
 /datum/design/aimodule/core
 	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 6)
+	category = AI_CIRCUITS
 
 /datum/design/aimodule/core/AssembleDesignName()
 	name = "AI core module design ([name])"
@@ -2346,3 +2478,18 @@ CIRCUITS BELOW
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "diamond" = 2000)
 	build_path = /obj/item/borg/upgrade/uncertified/party
 	category = "Cyborg Upgrade Modules"
+
+#undef MACHINE_PARTS
+#undef WEAPON_DESIGNS
+#undef BLUESPACE_DEVICES
+#undef BIOMEDICAL_DEVICES
+#undef TOOL_DESIGNS
+#undef GENERAL_DEVICES
+#undef MODULAR_COMPUTER_DEVICES
+#undef RIG_MODULES
+#undef GENERAL_CIRCUITS
+#undef EXOSUIT_CIRCUITS
+#undef AI_CIRCUITS
+#undef MACHINERY_CIRCUITS
+#undef TELECOMMS_CIRCUITS
+#undef COMPUTER_CIRCUITS
