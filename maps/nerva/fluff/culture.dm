@@ -30,7 +30,7 @@
 	name = CULTURE_HUMAN_LUNARICH
 	description = "You are from Luna, Earths only natural satellite and home to some of the richest, most highly cultured, or influential people of humanity. Fortunately for you, you are one of this elite and well \
 	off class of people. The rich of Luna are politically and economically influential not just in Luna, but in the various corporations, organizations and government bodies of the Terran Confederacy. \
-	Luna’s upper class isn’t equal; generally divided between new, corporate money and old, dynastic money; many members of the old dynasties look down on the newly wealthy. \
+	Lunaâ€™s upper class isnâ€™t equal; generally divided between new, corporate money and old, dynastic money; many members of the old dynasties look down on the newly wealthy. \
 	Much of the elite of Luna is embroiled in 'The Game' a state of political manoeuvring and intrigue among various factions and persons of influence and power \
 	with implications far beyond the squabbles of the prefectures."
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_LUNAR)
@@ -154,7 +154,7 @@
 	From fledgling colonies to bustling trading hubs, much of the last few centuries of human progress have been wiped off the map indiscriminately during the Galactic Crisis, \
 	which was an invasion of the Milky Way between 2556 and 2565 by an unknown alien force from another galaxy, sometimes referred to colloquially as 'the Scourge,' \
 	but more often just as 'aliens' or 'xenos'. Although the invasion was defeated, Billions are dead or missing, and billions more flood refugee camps throughout human space, \
-	hoping to return to a home that no longer exists. Those displaced by the Galacitic Crisis are derisively referred to as 'Graveworlders' by those lucky enough to \
+	hoping to return to a home that no longer exists. Those displaced by the Galactic Crisis are derisively referred to as 'Graveworlders' by those lucky enough to \
 	be able to return to their homes after the Galactic Crisis. Although they come from a multitude of cultural backgrounds, Graveworlders are united by their \
 	collective trauma, which has come to define their lives. Adrift among the stars or languishing in squalid refugee camps, Graveworlders are generally very poor, \
 	and, in the absence of any significant help from the state, many have turned to piracy or crime."
