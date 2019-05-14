@@ -150,7 +150,7 @@
 
 /decl/cultural_info/culture/human/graveworlder
 	name = CULTURE_HUMAN_GRAVEWORLDER
-	description = "You grew up on one of the many planets ravaged by the Galactic Crisis that have yet to be resettled, referred to as 'Grave Worlds,' \
+	description = "You grew up on one of the many planets ravaged by the Galactic Crisis that have yet to be resettled, referred to as 'Grave Worlds.' \
 	From fledgling colonies to bustling trading hubs, much of the last few centuries of human progress have been wiped off the map indiscriminately during the Galactic Crisis, \
 	which was an invasion of the Milky Way between 2556 and 2565 by an unknown alien force from another galaxy, sometimes referred to colloquially as 'the Scourge,' \
 	but more often just as 'aliens' or 'xenos'. Although the invasion was defeated, Billions are dead or missing, and billions more flood refugee camps throughout human space, \
