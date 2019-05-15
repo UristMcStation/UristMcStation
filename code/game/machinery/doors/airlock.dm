@@ -1333,6 +1333,11 @@ About the new airlock wires panel:
 			brace.electronics.conf_access = req_one_access
 			brace.electronics.one_access = 1
 		update_icon()
+	var/area/doorarea = get_area(src)
+	if(name == initial(name)) //auto-rename based on area.
+		name = "[doorarea.name]"
+		if(doorarea.req_access)
+			req_access += doorarea.req_access
 	. = ..()
 
 /obj/machinery/door/airlock/Destroy()
