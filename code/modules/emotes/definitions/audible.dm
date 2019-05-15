@@ -3,10 +3,34 @@
 	emote_message_3p = "USER burps."
 	message_type = AUDIBLE_MESSAGE
 	var/emote_sound
+//Urist add
+	var/gendered
+	var/male_sound //Give these strings for use through the sound.dm sound lists.
+	var/female_sound
+
+//Audible emotes with sound.
+client/
+	var/sound_cooldown = 0 //Can we do an emote with sound?
 
 /decl/emote/audible/do_extra(var/atom/user)
+	var/client/C = user.get_client()
+	if(!C)
+		return //Dunno how this could happen, let's just be safe.
+	if(C.sound_cooldown == TRUE)
+		to_chat(user, "<span class = notice>Quiet down, you already made a noisy emote!</span>")
+		return
 	if(emote_sound)
-		playsound(user.loc, emote_sound, 50, 0)
+		if(gendered)
+			var/gen = C.mob.get_gender()
+			var/list/soundmap = list( "male" = "male", "neuter" = "male", "female" = "female")
+			playsound(user.loc, "[soundmap[gen]][key]" , 50, 0)
+		else
+			playsound(user.loc, emote_sound, 50, 0)
+		C.sound_cooldown = TRUE
+		addtimer(CALLBACK(src, .proc/sound_cooldown, C), 1 SECOND)
+
+/decl/emote/audible/proc/sound_cooldown(var/client/C)
+	C.sound_cooldown = FALSE
 
 /decl/emote/audible/deathgasp_alien
 	key = "deathgasp"
@@ -136,6 +160,10 @@
 /decl/emote/audible/scream
 	key = "scream"
 	emote_message_3p = "USER screams!"
+	emote_sound = TRUE
+	gendered = TRUE
+	male_sound = "malescream"
+	female_sound = "femalescream"
 
 /decl/emote/audible/grunt
 	key = "grunt"

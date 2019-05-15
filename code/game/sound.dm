@@ -53,6 +53,10 @@ GLOBAL_LIST_INIT(switch_sound,list('sound/machines/switch1.ogg','sound/machines/
 GLOBAL_LIST_INIT(button_sound,list('sound/machines/button1.ogg','sound/machines/button2.ogg','sound/machines/button3.ogg','sound/machines/button4.ogg'))
 GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.ogg','sound/weapons/chop3.ogg'))
 
+//Urist Add
+GLOBAL_LIST_INIT(malescream_sound, list('sound/voice/human/malescream_1.ogg','sound/voice/human/malescream_2.ogg','sound/voice/human/malescream_3.ogg','sound/voice/human/malescream_4.ogg','sound/voice/human/malescream_5.ogg'))
+GLOBAL_LIST_INIT(femalescream_sound,list('sound/voice/human/femalescream_1.ogg','sound/voice/human/femalescream_2.ogg','sound/voice/human/femalescream_3.ogg','sound/voice/human/femalescream_4.ogg','sound/voice/human/femalescream_5.ogg'))
+//urist add end
 /proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/frequency, var/is_ambiance = 0)
 
 	soundin = get_sfx(soundin) // same sound for everyone
@@ -183,4 +187,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("switch") soundin = pick(GLOB.switch_sound)
 			if ("button") soundin = pick(GLOB.button_sound)
 			if ("chop") soundin = pick(GLOB.chop_sound)
+			if ("malescream") soundin = pick(GLOB.malescream_sound)
+			if ("femalescream") soundin = pick(GLOB.femalescream_sound)
 	return soundin
