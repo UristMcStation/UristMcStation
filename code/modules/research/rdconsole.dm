@@ -862,12 +862,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			temp_dat += ", [D.chemicals[T]*linked_imprinter.mat_efficiency] [CallReagentName(T)]"
 		if(temp_dat)
 			temp_dat = " \[[copytext(temp_dat, 3)]\]"
-		if(D.build_type == PROTOLATHE)
+		if(D.build_type & PROTOLATHE)
 			if(linked_lathe.canBuild(D))
 				dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A></B>[temp_dat]"
 			else
 				dat += "<LI><B>[D.name]</B>[temp_dat]"
-		if(D.build_type == IMPRINTER)
+		if(D.build_type & IMPRINTER)
 			if(linked_imprinter.canBuild(D))
 				dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A></B>[temp_dat]"
 			else
