@@ -392,7 +392,7 @@
 		playsound(src.loc, 'sound/machines/ping.ogg', 25, 0, 10)
 		playsound(src.loc, 'sound/items/countdown.ogg', 25, 0, 10)
 		spawn(4 SECONDS)
-			explosion(src, 4, 5, 6)
+			explosion(src, 2, 4, 6)
 
 /obj/machinery/shipweapons/missile/torpedo
 	name = "torpedo launcher"
