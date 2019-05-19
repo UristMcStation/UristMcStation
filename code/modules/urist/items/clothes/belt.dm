@@ -19,7 +19,11 @@
  	/obj/item/device/flashlight,
  	/obj/item/stack/cable_coil,
  	/obj/item/device/analyzer,
- 	/obj/item/device/mmi
+ 	/obj/item/device/mmi,
+	/obj/item/device/integrated_electronics/debugger,
+	/obj/item/device/integrated_electronics/wirer,
+	/obj/item/device/integrated_electronics/analyzer,
+	/obj/item/device/integrated_electronics/detailer
  	)
 
 /obj/item/weapon/storage/belt/robotics/full/New()
