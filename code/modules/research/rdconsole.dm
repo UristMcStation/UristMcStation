@@ -331,8 +331,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					break
 			if(being_built)
 				linked_lathe.addToQueue(being_built)
-
-		screen = 3.1
 		. = TOPIC_REFRESH
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
@@ -344,7 +342,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					break
 			if(being_built)
 				linked_imprinter.addToQueue(being_built)
-		screen = 4.1
 		. = TOPIC_REFRESH
 
 	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
