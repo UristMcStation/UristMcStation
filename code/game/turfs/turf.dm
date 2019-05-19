@@ -277,7 +277,12 @@ var/const/enterloopsanity = 100
 
 /turf/proc/try_graffiti(var/mob/vandal, var/obj/item/tool)
 
-	if(vandal.a_intent != I_HELP || !tool.sharp || !can_engrave())
+	if(!is_sharp(tool))
+		to_chat(vandal, "<span class='warning'>You need something sharp to write with.</span>")
+		return FALSE
+
+	if(!can_engrave())
+		to_chat(vandal, "<span class='warning'>You can't write here.</span>")
 		return FALSE
 
 	var/too_much_graffiti = 0
