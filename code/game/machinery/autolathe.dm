@@ -252,8 +252,6 @@
 			return
 		addToQueue(making)
 		to_chat(user, "<span class='notice'>[src] chimes, '[making.name] added to queue!' </span>")
-	if(. == TOPIC_REFRESH)
-		interact(user)
 
 /obj/machinery/autolathe/update_icon()
 	icon_state = (panel_open ? "autolathe_t" : "autolathe")
