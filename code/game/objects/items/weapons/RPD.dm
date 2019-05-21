@@ -115,21 +115,11 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	activedesign = GLOB.atmos_pipe_recipes[active_category][1]
 
 /obj/item/weapon/rpd/AltClick(mob/user)
-	activedesign = input(user, "Please select design") as null|anything in list(GLOB.atmos_pipe_recipes[active_category])
-	to_chat(user, "<span class='notice'>Selected [activedesign.name].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	active_direction = activedesign.pipedirdefault
-
-
-
-
-/*
-/obj/item/weapon/rpd/AltClick(mob/user)
 	activedesign = next_in_list(activedesign, GLOB.atmos_pipe_recipes[active_category])
 	to_chat(user, "<span class='notice'>Selected [activedesign.name].</span>")
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	active_direction = activedesign.pipedirdefault
-*/
+
 /obj/item/weapon/rpd/CtrlClick(mob/user)
 	active_direction = next_in_list(active_direction, activedesign.pipedirections)
 	var/directionname
