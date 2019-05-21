@@ -138,7 +138,7 @@
 				var/malfsound = pick(soundlist)
 				playsound(src.loc, malfsound, 50, 0, 10)
 				if(prob(20))
-					var/datum/effect/effect/system/smoke_spread/SS = new /datum/effect/effect/system/smoke_spread
+					var/datum/effect/effect/system/smoke_spread/SS = new()
 					SS.set_up(5, 0, src.loc)
 					playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 50, 1, -3)
 					spawn(2 SECONDS)
