@@ -120,35 +120,39 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	active_direction = activedesign.pipedirdefault
 
-/obj/item/weapon/rpd/CtrlClick(mob/user)
-	active_direction = next_in_list(active_direction, activedesign.pipedirections)
-	var/directionname
-	switch(active_direction)
-		if(NORTH)
-			directionname = "Vertical"
-		if(SOUTH)
-			directionname = "Vertical"
-		if(EAST)
-			directionname = "Horizontal"
-		if(WEST)
-			directionname = "Horizontal"
-		if(NORTHEAST)
-			directionname = "North-East"
-		if(SOUTHEAST)
-			directionname = "South-East"
-		if(NORTHWEST)
-			directionname = "North-West"
-		if(SOUTHWEST)
-			directionname = "South-West"
-	to_chat(user, "<span class='notice'>Pipe Direction is now: [directionname].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-
 /obj/item/weapon/rpd/afterattack(var/atom/A, var/mob/user, proximity, params)
 	if(!proximity)
 		return
+	var/list/mouse_control = params2list(params)
+	var/mouse_x = text2num(mouse_control["icon-x"])
+	var/mouse_y = text2num(mouse_control["icon-y"])
+	var/p_dir
+	if(activedesign.pipedirections == activedesign.cardinal)
+		if(isnum(mouse_x) && isnum(mouse_y))
+			if(mouse_x <= 16)
+				if(mouse_y <= 16)
+					p_dir = WEST
+				else
+					p_dir = NORTH
+			else
+				if(mouse_y <= 16)
+					p_dir = SOUTH
+				else
+					p_dir = EAST
+	if(activedesign.pipedirections == activedesign.cornerdirs)
+		if(isnum(mouse_x) && isnum(mouse_y))
+			if(mouse_x <= 16)
+				if(mouse_y <= 16)
+					p_dir = NORTHWEST
+				else
+					p_dir = NORTHEAST
+			else
+				if(mouse_y <= 16)
+					p_dir = SOUTHWEST
+				else
+					p_dir = SOUTHEAST
 	var/obj/item/weapon/wrench/W = new /obj/item/weapon/wrench(src) //This is such a hack, but pipecode is godawful.
 	var/p_type = activedesign.id
-	var/p_dir = active_direction
 	var/obj/item/pipe/P = new (get_turf(A), pipe_type=p_type, dir=p_dir)
 	P.update()
 	P.attackby(W, user)
