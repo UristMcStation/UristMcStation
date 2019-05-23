@@ -54,123 +54,13 @@
 
 	date_offset = 560
 
-/*	available_cultural_info = list(
-		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_LUNA,
-			HOME_SYSTEM_MARS,
-			HOME_SYSTEM_VENUS,
-			HOME_SYSTEM_CERES,
-			HOME_SYSTEM_PLUTO,
-			HOME_SYSTEM_TAU_CETI,
-			HOME_SYSTEM_HELIOS,
-			HOME_SYSTEM_TERRA,
-			HOME_SYSTEM_TERSTEN,
-			HOME_SYSTEM_LORRIMAN,
-			HOME_SYSTEM_CINU,
-			HOME_SYSTEM_YUKLID,
-			HOME_SYSTEM_LORDANIA,
-			HOME_SYSTEM_KINGSTON,
-			HOME_SYSTEM_GAIA,
-			HOME_SYSTEM_RYCLIES,
-			HOME_SYSTEM_READE,
-			HOME_SYSTEM_PROCYON,
-			HOME_SYSTEM_OTHER
-		),
-		TAG_FACTION = list(
-			FACTION_NANOTRASEN,
-			FACTION_XYNERGY,
-			FACTION_HEPHAESTUS,
-			FACTION_TCONFEDERACY,
-			FACTION_UHA,
-			FACTION_PCRC,
-			FACTION_ORMA,
-			FACTION_OTHER
-		),
-		TAG_CULTURE = list(
-			CULTURE_HUMAN,
-			CULTURE_HUMAN_MARTIAN,
-			CULTURE_HUMAN_MARSTUN,
-			CULTURE_HUMAN_LUNAPOOR,
-			CULTURE_HUMAN_LUNARICH,
-			CULTURE_HUMAN_VENUSIAN,
-			CULTURE_HUMAN_VENUSLOW,
-			CULTURE_HUMAN_BELTER,
-			CULTURE_HUMAN_PLUTO,
-			CULTURE_HUMAN_CETI,
-			CULTURE_HUMAN_SPACER,
-			CULTURE_HUMAN_SPAFRO,
-			CULTURE_HUMAN_CONFED,
-			CULTURE_HUMAN_UHA_OFFTERRA,
-			CULTURE_HUMAN_ORMA,
-			CULTURE_HUMAN_NT,
-			CULTURE_HUMAN_OTHER,
-			CULTURE_OTHER
-		),
-		TAG_RELIGION = list(
-			RELIGION_OTHER,
-			RELIGION_JUDAISM,
-			RELIGION_HINDUISM,
-			RELIGION_BUDDHISM,
-			RELIGION_ISLAM,
-			RELIGION_CHRISTIANITY,
-			RELIGION_AGNOSTICISM,
-			RELIGION_DEISM,
-			RELIGION_ATHEISM,
-			RELIGION_THELEMA,
-			RELIGION_SPIRITUALISM
-		)
-	)
-
-	default_cultural_info = list(
-		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
-		TAG_FACTION =   FACTION_SOL_CENTRAL,
-		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
-		TAG_RELIGION =  RELIGION_AGNOSTICISM
-	)
-*/
-/*	citizenship_choices = list(
-		"Earth",
-		"Mars",
-		"New Earth",
-		"Luna",
-		"Ryclies I",
-		"Venus",
-		"Moghes",
-		"Qerrbalak",
-		"Reade III",
-		"Procyon"
-	)
-
-	home_system_choices = list(
-		"Sol",
-		"Nyx",
-		"Tau Ceti",
-		"Epsilon Ursae Minoris",
-		"Gilgamesh",
-		"Ryclies",
-		"Reade"
-		)
-
-	faction_choices = list(
-		"Terran Confederacy",
-		"United Human Alliance",
-		"Outer Rim Miners Alliance",
-		"Vey Med",
-		"Einstein Engines",
-		"Free Trade Union",
-		"NanoTrasen",
-		"Ward-Takahashi GMB",
-		"Gilthari Exports",
-		"Grayson Manufactories Ltd.",
-		"Aether Atmospherics",
-		"Zeng-Hu Pharmaceuticals",
-		"Hephaestus Industries",
-		)*/
-
-
 	base_floor_type = /turf/simulated/floor/reinforced/airless
 	base_floor_area = /area/maintenance/exterior
 	post_round_safe_areas = list(/area/shuttle/escape_pod1,/area/shuttle/escape_pod2,/area/shuttle/escape_pod3)
+
+	species_to_job_whitelist = list(
+		/datum/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
+	)
 
 	species_to_job_blacklist = list(
 		/datum/species/unathi  = list(/datum/job/captain),
