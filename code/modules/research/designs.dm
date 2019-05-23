@@ -1846,7 +1846,7 @@ CIRCUITS BELOW
 	name = "quantum pad"
 	id = "quantumpad"
 	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_BLUESPACE = 4)
-	build_path = /obj/item/weapon/circuitboard/sleeper
+	build_path = /obj/item/weapon/circuitboard/telepad
 	sort_string = "QUPAD"
 	category = MACHINERY_CIRCUITS
 
