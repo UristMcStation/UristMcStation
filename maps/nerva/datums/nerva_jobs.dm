@@ -238,6 +238,25 @@
 	total_positions = 1
 	spawn_positions = 1
 
+/datum/job/chaplain
+	title = "Counselor"
+	department = "Civilian"
+	department_flag = CIV
+
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the second officer and the chief medical officer"
+	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
+	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
+	alt_titles = list(
+	"Chaplain" = /decl/hierarchy/outfit/job/chaplain,
+	"Morale Officer" = /decl/hierarchy/outfit/job/chaplain,
+	"Psychiatrist" = /decl/hierarchy/outfit/job/medical/psychiatrist,
+	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist)
+
+
+	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
+
 /datum/job/merchant
 	total_positions = 0
 	spawn_positions = 0

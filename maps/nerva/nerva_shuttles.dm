@@ -446,6 +446,7 @@
 		"nav_ninja_deck1",
 		"nav_ninja_deck2",
 		"nav_ninja_deck3",
+		"nav_ninja_deck4",
 		"nav_away_6",
 		"nav_derelict_5",
 		"nav_cluster_6",
@@ -475,16 +476,20 @@
 	landmark_tag = "nav_ninja_transition"
 
 /obj/effect/shuttle_landmark/ninja/deck1
-	name = "South of First Deck"
+	name = "South of the First Deck"
 	landmark_tag = "nav_ninja_deck1"
 
 /obj/effect/shuttle_landmark/ninja/deck2
-	name = "Northeast of Second Deck"
+	name = "South of the Second Deck"
 	landmark_tag = "nav_ninja_deck2"
 
 /obj/effect/shuttle_landmark/ninja/deck3
-	name = "East of Third Deck"
+	name = "Northeast of the Third Deck"
 	landmark_tag = "nav_ninja_deck3"
+
+/obj/effect/shuttle_landmark/ninja/deck4
+	name = "East of the Fourth Deck"
+	landmark_tag = "nav_ninja_deck4"
 
 // Ninja areas
 /area/ninja_dojo
@@ -512,10 +517,11 @@
 		"nav_merc_deck1",
 		"nav_merc_deck2",
 		"nav_merc_deck3",
+		"nav_merc_deck4",
 		"nav_away_5",
 		"nav_derelict_6",
 		"nav_cluster_5",
-//		"nav_merc_dock",
+		"nav_merc_dock",
 		"nav_merc_start",
 		"nav_lost_supply_base_antag",
 		"nav_marooned_antag",
@@ -529,15 +535,15 @@
 	dock_target = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
-	announcer = "SEV Torch Sensor Array"
+	announcer = "ICS Nerva Sensor Array"
 	home_waypoint = "nav_merc_start"
-	arrival_message = "Attention, vessel detected entering vessel proximity."
-	departure_message = "Attention, vessel detected leaving vessel proximity."
+	arrival_message = "Attention, unknown vessel detected entering vessel proximity."
+	departure_message = "Attention, unknown vessel detected leaving vessel proximity."
 
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
-//	docking_controller = "merc_base"
+	docking_controller = "merc_shuttle"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/syndicate_mothership
 
@@ -545,24 +551,28 @@
 	name = "In transit"
 	landmark_tag = "nav_merc_transition"
 
-/*/obj/effect/shuttle_landmark/merc/dock //this is going on the new top deck
+/obj/effect/shuttle_landmark/merc/dock //this is going on the new top deck
 	name = "Docking Port"
 	landmark_tag = "nav_merc_dock"
-	docking_controller = "nuke_shuttle_dock_airlock"*/
+	docking_controller = "nuke_shuttle_dock_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/maintenance/exterior
 
 /obj/effect/shuttle_landmark/merc/deck1
-	name = "Northeast of First Deck"
+	name = "Northeast of the First Deck"
 	landmark_tag = "nav_merc_deck1"
 
 /obj/effect/shuttle_landmark/merc/deck2
-	name = "Southeast of the Second deck"
+	name = "Northeast of the Second Deck"
 	landmark_tag = "nav_merc_deck2"
 
 /obj/effect/shuttle_landmark/merc/deck3
-	name = "South of Third deck"
+	name = "Southeast of the Third deck"
 	landmark_tag = "nav_merc_deck3"
 
-//fourth deck
+/obj/effect/shuttle_landmark/merc/deck4
+	name = "South of the Fourth deck"
+	landmark_tag = "nav_merc_deck4"
 
 /area/syndicate_mothership
 	name = "\improper Mercenary Base"
@@ -585,10 +595,11 @@
 		"nav_skipjack_deck1",
 		"nav_skipjack_deck2",
 		"nav_skipjack_deck3",
+		"nav_skipjack_deck4",
 		"nav_away_7",
 		"nav_derelict_7",
 		"nav_cluster_7",
-//		"nav_skipjack_dock",
+		"nav_skipjack_dock",
 		"nav_skipjack_start",
 		"nav_lost_supply_base_antag",
 		"nav_marooned_antag",
@@ -616,24 +627,26 @@
 	name = "In transit"
 	landmark_tag = "nav_skipjack_transition"
 
-/*/obj/effect/shuttle_landmark/skipjack/dock //likewise
+/obj/effect/shuttle_landmark/skipjack/dock //likewise
 	name = "Docking Port"
 	landmark_tag = "nav_skipjack_dock"
-	docking_controller = "skipjack_shuttle_dock_airlock"*/
+	docking_controller = "skipjack_shuttle_dock_airlock"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
-	name = "Northwest of First Deck"
+	name = "Northwest of the Fourth First Deck"
 	landmark_tag = "nav_skipjack_deck1"
 
 /obj/effect/shuttle_landmark/skipjack/deck2
-	name = "Southwest of the Second deck"
+	name = "Northwest of the Second Deck"
 	landmark_tag = "nav_skipjack_deck2"
 
 /obj/effect/shuttle_landmark/skipjack/deck3
-	name = "Southeast of Third deck"
+	name = "Southwest of the Third deck"
 	landmark_tag = "nav_skipjack_deck3"
 
-//fourth deck
+/obj/effect/shuttle_landmark/skipjack/deck4
+	name = "Southeast of the Fourth deck"
+	landmark_tag = "nav_skipjack_deck4"
 
 /area/skipjack_station
 	name = "Raider Outpost"
