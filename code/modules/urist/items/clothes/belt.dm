@@ -19,7 +19,8 @@
  	/obj/item/device/flashlight,
  	/obj/item/stack/cable_coil,
  	/obj/item/device/analyzer,
- 	/obj/item/device/mmi
+ 	/obj/item/device/mmi,
+	/obj/item/device/integrated_electronics
  	)
 
 /obj/item/weapon/storage/belt/robotics/full/New()
