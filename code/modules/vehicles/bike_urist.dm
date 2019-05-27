@@ -288,7 +288,7 @@
 /obj/vehicle/bike/Destroy()
 	qdel(trail)
 	qdel(engine)
-	..()
+	. = ..()
 
 //-------------------------------------------
 // Variety defines
