@@ -172,7 +172,7 @@
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
 //	debris_path = /obj/structure/scrap/vehicle
-	light_max_bright = 1 // previously 5, but 1 is the maximum allowed - runtimes if above 1
+	light_max_bright = 0.6 // previously 5, but 1 is the maximum allowed - runtimes if above 1
 	light_outer_range = 6
 	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
 	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
