@@ -242,7 +242,7 @@
 	title = "Counselor"
 	department = "Civilian"
 	department_flag = CIV
-
+	hud_icon = "hudchaplain"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the second officer and the chief medical officer"
