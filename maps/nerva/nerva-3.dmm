@@ -13495,13 +13495,6 @@
 /obj/item/weapon/papercrafts/oragami/swan,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"Ar" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmospherics Substation";
@@ -13558,9 +13551,9 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"AW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+"AS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -13610,13 +13603,14 @@
 "BZ" = (
 /turf/simulated/wall,
 /area/civilian/counselor)
-"Ci" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 8;
-	target_pressure = 200
+"Cl" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
+/area/maintenance/second_deck/fs)
 "Cu" = (
 /obj/machinery/light_switch{
 	dir = 4;
@@ -13788,6 +13782,13 @@
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"EM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "EO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -13801,9 +13802,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
-"Fd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+"EP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -13928,6 +13929,22 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/teleporter)
+"HU" = (
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	icon_state = "pdoor1";
+	id = "boarding_armory";
+	layer = 3.3;
+	name = "Boarding Armoury Access"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTH)";
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/security/boardarmoury)
 "Ic" = (
 /obj/machinery/light{
 	dir = 8
@@ -14184,6 +14201,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/teleporter)
+"LI" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	target_pressure = 200
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "LQ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
@@ -14204,6 +14228,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/command/captain)
+"LY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "Mn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/breakerbox/activated{
@@ -14226,10 +14257,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/maintenance/second_deck/afp)
-"MD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "MH" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/small/red,
@@ -14274,13 +14301,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"Ni" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "Nk" = (
 /obj/structure/bedsheetbin,
 /obj/structure/table/standard,
@@ -14459,6 +14479,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
+"PU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "PW" = (
 /obj/structure/catwalk,
 /obj/item/trash/cigbutt/rand,
@@ -14562,21 +14586,25 @@
 /turf/simulated/open,
 /area/hallway/aft/second_deck)
 "RC" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	icon_state = "pdoor1";
+	id = "boarding_armory";
+	layer = 3.3;
+	name = "Boarding Armoury Access"
+	},
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
+"RF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "RH" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -14645,9 +14673,9 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
-	id = "TeleporterHub";
+	id = "MainExpeditionPrep";
 	layer = 3.3;
-	name = "Teleporter Access"
+	name = "Expedition Prep Access"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
@@ -14697,10 +14725,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"Ux" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "UJ" = (
 /obj/machinery/power/terminal,
 /obj/effect/floor_decal/industrial/warning,
@@ -14793,6 +14817,21 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
+"WC" = (
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
+"WH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "WL" = (
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
@@ -14919,13 +14958,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Xw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "XF" = (
 /obj/machinery/light,
 /obj/item/weapon/caution/cone,
@@ -14948,18 +14980,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "XM" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	icon_state = "pdoor1";
-	id = "TeleporterHub";
-	layer = 3.3;
-	name = "Teleporter Access"
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
+	},
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	icon_state = "pdoor1";
+	id = "boarding_armory";
+	layer = 3.3;
+	name = "Boarding Armoury Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -14969,13 +15001,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
-"XS" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 2;
-	target_pressure = 200
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "XW" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(22)
@@ -15013,22 +15038,6 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"Yu" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
-"YA" = (
-/obj/structure/sign/warning/vacuum{
-	pixel_y = 32
-	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
 "YF" = (
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
@@ -15062,6 +15071,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"Zu" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 2;
+	target_pressure = 200
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -32928,7 +32944,7 @@ ah
 ah
 al
 al
-YA
+WC
 au
 ay
 aP
@@ -33333,7 +33349,7 @@ ah
 ah
 al
 al
-Ci
+LI
 ay
 aP
 bl
@@ -33535,7 +33551,7 @@ ah
 ah
 al
 al
-AW
+EP
 ay
 aP
 aP
@@ -33737,7 +33753,7 @@ ah
 ah
 al
 al
-Fd
+AS
 az
 aQ
 aQ
@@ -41037,10 +41053,10 @@ qJ
 ru
 st
 tq
-Ux
-MD
-XS
-Ar
+PU
+RF
+Zu
+EM
 wN
 sI
 sI
@@ -41242,7 +41258,7 @@ tr
 rz
 rz
 rz
-Yu
+Cl
 wO
 sI
 sI
@@ -41444,7 +41460,7 @@ ts
 ua
 uR
 rz
-Xw
+LY
 wP
 sI
 sI
@@ -41646,7 +41662,7 @@ tt
 ub
 uS
 rz
-Xw
+LY
 sI
 sI
 sI
@@ -41848,7 +41864,7 @@ tu
 uc
 uT
 rz
-Xw
+LY
 sI
 sI
 sI
@@ -42050,7 +42066,7 @@ tv
 ud
 uU
 rz
-Ni
+WH
 wQ
 xo
 xI
@@ -43846,7 +43862,7 @@ Nk
 PN
 bs
 En
-RC
+HU
 cR
 XM
 gm

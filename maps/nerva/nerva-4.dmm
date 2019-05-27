@@ -7127,7 +7127,7 @@
 "mZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/power/sensor{
-	name_tag = "Third Deck Power"
+	name_tag = "First Deck Power"
 	},
 /obj/structure/cable{
 	d2 = 8;

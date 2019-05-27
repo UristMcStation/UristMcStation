@@ -165,3 +165,13 @@
 	l_pocket = /obj/item/weapon/wrench
 	r_pocket = /obj/item/weapon/crowbar
 	backpack_contents = list(/obj/item/device/flashlight = 1)
+
+//psychiatrist
+
+/decl/hierarchy/outfit/job/medical/psychiatrist/nerva
+	name = OUTFIT_JOB_NAME("Nerva Psychiatrist")
+	id_type = /obj/item/weapon/card/id/medical/psychiatrist/nerva
+
+/decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva
+	name = OUTFIT_JOB_NAME("Nerva Psychologist")
+	id_type = /obj/item/weapon/card/id/medical/psychiatrist/nerva

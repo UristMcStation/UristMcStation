@@ -35,3 +35,6 @@
 	desc = "A card issued to Nanotrasen contract scientists."
 	icon_state = "corporate"
 	job_access_type = /datum/job/scientist
+
+/obj/item/weapon/card/id/medical/psychiatrist/nerva
+	job_access_type = /datum/job/chaplain

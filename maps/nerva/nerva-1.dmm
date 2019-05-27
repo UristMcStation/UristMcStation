@@ -6336,6 +6336,10 @@
 /area/security/forensics)
 "kV" = (
 /obj/machinery/photocopier,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
 /turf/simulated/floor/wood,
 /area/security/forensics)
 "kW" = (
@@ -6721,13 +6725,12 @@
 /obj/item/weapon/rig/command/exploration/equipped,
 /obj/item/clothing/mask/gas/half,
 /obj/machinery/door/window/brigdoor/eastleft{
+	dir = 2;
 	req_access = list(41)
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	health = 1e+006
+	dir = 4
 	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
 "lE" = (
@@ -6735,6 +6738,7 @@
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
 "lF" = (
@@ -7341,17 +7345,6 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
-"mA" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/logistics/hangar)
-"mB" = (
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled/techmaint,
-/area/logistics/genprep)
 "mC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
@@ -8164,6 +8157,13 @@
 /obj/item/weapon/crowbar,
 /obj/item/weapon/screwdriver,
 /obj/item/weapon/mining_scanner,
+/obj/machinery/button/remote/blast_door{
+	id = "MainExpeditionPrep";
+	name = "Expedition Prep Access Control";
+	pixel_x = -25;
+	pixel_y = 0;
+	req_access = list(75)
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
 "nD" = (
@@ -8494,10 +8494,6 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "os" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Expedition Prep";
-	req_access = list(75)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 4
@@ -8511,6 +8507,23 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	icon_state = "pdoor1";
+	id = "MainExpeditionPrep";
+	layer = 3.3;
+	name = "Expedition Prep Access"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (WEST)";
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
@@ -20111,26 +20124,6 @@
 /obj/item/device/spaceflare,
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
-"HU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "HV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -20614,6 +20607,13 @@
 "IN" = (
 /turf/simulated/wall/r_wall,
 /area/command/bottom_hallway)
+"IO" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	target_pressure = 200
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "IS" = (
 /obj/random/drinkbottle,
 /obj/structure/closet/crate,
@@ -20691,13 +20691,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
-"Jn" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 8;
-	target_pressure = 200
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Js" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -20786,30 +20779,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
-"Kt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/light/small/red{
-	icon_state = "firelight1";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -20972,12 +20941,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
-"LU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/maintenance/fourth_deck/fs)
 "Mb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -21075,6 +21038,13 @@
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
+"MH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "MI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -21201,6 +21171,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
+"OP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Pd" = (
 /turf/simulated/wall/r_wall,
 /area/space)
@@ -21261,13 +21255,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hadrian/storage)
-"PH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "PO" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall,
@@ -21304,25 +21291,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/hadrian/storage)
-"QF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "QP" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21443,14 +21411,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"Sa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Sb" = (
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/r_wall,
@@ -21630,6 +21590,46 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
+"Ux" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	icon_state = "pdoor1";
+	id = "MainExpeditionPrep";
+	layer = 3.3;
+	name = "Expedition Prep Access"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (WEST)";
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/genprep)
+"Uy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Uz" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/atmospherics/portables_connector{
@@ -21646,6 +21646,26 @@
 "UA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/r_wall,
+/area/maintenance/fourth_deck/fs)
+"UK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "UM" = (
 /obj/machinery/power/apc{
@@ -21739,6 +21759,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"Wb" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/anomaly_container,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/logistics/genprep)
 "Wo" = (
 /turf/simulated/wall/r_wall,
 /area/command/fourth_emergency_storage)
@@ -21765,6 +21794,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"Wy" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/maintenance/fourth_deck/fs)
 "WK" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/effect/paint/silver,
@@ -21835,6 +21870,10 @@
 /obj/random/tool,
 /obj/random/tech_supply,
 /obj/random/tank,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"Yk" = (
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Ym" = (
@@ -21988,6 +22027,14 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/safe_room)
+"ZQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHWEST)";
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "ZT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
@@ -45538,7 +45585,7 @@ je
 jT
 kP
 lC
-mA
+jT
 nB
 or
 jT
@@ -45740,10 +45787,10 @@ jf
 jU
 kQ
 kQ
-kQ
+po
 kQ
 os
-po
+Ux
 kQ
 kQ
 kQ
@@ -45942,11 +45989,11 @@ jg
 jV
 kQ
 lD
-mB
+pp
 nC
 ot
 pp
-qv
+Wb
 qv
 kQ
 sY
@@ -46174,8 +46221,8 @@ FW
 Gt
 LH
 Bw
-Kt
-PH
+OP
+MH
 oI
 aa
 Pn
@@ -46377,7 +46424,7 @@ Gu
 Vr
 Bw
 GU
-Jn
+IO
 oI
 aa
 aa
@@ -46780,9 +46827,9 @@ FZ
 Gv
 Bw
 Bw
-QF
-Sa
-LU
+Uy
+ZQ
+Wy
 aa
 aa
 aa
@@ -46982,9 +47029,9 @@ Bw
 Bw
 Bw
 uQ
-HU
+UK
 oI
-LU
+Wy
 aa
 aa
 aa
@@ -49583,7 +49630,7 @@ VW
 sj
 Mi
 IS
-KA
+Yk
 sm
 sj
 sj
