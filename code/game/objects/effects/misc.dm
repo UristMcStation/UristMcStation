@@ -94,3 +94,6 @@
 
 /obj/effect/paint/brown
 	color = COLOR_DARK_BROWN
+
+/obj/effect/paint_stripe/beige
+	color = COLOR_BEIGE

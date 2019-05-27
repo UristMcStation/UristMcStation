@@ -4429,6 +4429,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "air" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/hallway/commandport)
 "ais" = (
@@ -4525,10 +4526,6 @@
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "First Deck Substation";
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/third_deck)
@@ -4641,10 +4638,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
-"aiJ" = (
-/obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiK" = (
@@ -5694,6 +5687,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
+	dir = 4
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Third Deck Substation";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -7685,6 +7682,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
 "anw" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/security/boardarmoury)
 "anx" = (
@@ -9771,6 +9769,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "aqM" = (
+/obj/effect/paint_stripe/brown,
 /turf/simulated/wall,
 /area/maintenance/third_deck/afp)
 "aqN" = (
@@ -9909,6 +9908,7 @@
 /turf/simulated/floor/plating,
 /area/medical/storage)
 "aqW" = (
+/obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/storage)
 "aqX" = (
@@ -9946,6 +9946,7 @@
 /area/medical/chemistry)
 "aqZ" = (
 /obj/structure/sign/chemistry,
+/obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
 "ara" = (
@@ -12808,6 +12809,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "auC" = (
+/obj/effect/paint_stripe/green,
 /turf/simulated/wall,
 /area/civilian/hydro)
 "auD" = (
@@ -12953,6 +12955,7 @@
 /turf/simulated/floor/tiled,
 /area/command/meeting)
 "auU" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/command/meeting)
 "auV" = (
@@ -16558,6 +16561,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "aBf" = (
+/obj/effect/paint_stripe/green,
 /turf/simulated/wall,
 /area/maintenance/third_deck/central)
 "aBg" = (
@@ -19869,6 +19873,7 @@
 /area/maintenance/third_deck/cents)
 "aGE" = (
 /obj/machinery/ai_status_display,
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/command/eva)
 "aGF" = (
@@ -19922,12 +19927,15 @@
 /area/command/eva)
 "aGJ" = (
 /obj/machinery/status_display,
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/security/cosoffice)
 "aGK" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/security/cosoffice)
 "aGL" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/command/fo)
 "aGM" = (
@@ -19953,6 +19961,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aGO" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/command/hop)
 "aGP" = (
@@ -21995,6 +22004,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandoffices)
 "aKq" = (
+/obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/hallway/commandoffices)
 "aKr" = (
@@ -27721,6 +27731,7 @@
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
 "aTl" = (
+/obj/effect/paint_stripe/beige,
 /turf/simulated/wall,
 /area/hallway/central/third_deck)
 "aTm" = (
@@ -29198,6 +29209,32 @@
 /obj/effect/shuttle_landmark/skipjack/deck3,
 /turf/space,
 /area/space)
+"bbM" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/hallway/commandstarboard)
+"bqm" = (
+/obj/effect/paint_stripe/mauve,
+/turf/simulated/wall,
+/area/civilian/abandonedoffice)
+"btX" = (
+/obj/structure/lattice,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/maintenance/third_deck/afp)
+"bFA" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall,
+/area/security/evidence)
+"cTb" = (
+/obj/effect/paint_stripe/beige,
+/turf/simulated/wall,
+/area/logistics/mechbay)
+"cWP" = (
+/obj/effect/paint_stripe/green,
+/turf/simulated/wall,
+/area/hallway/aft/third_deck)
 "ddO" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -29218,6 +29255,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
+"emJ" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/command/bridge)
 "eou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -29245,6 +29286,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
+"ezU" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall/prepainted,
+/area/medical/storage)
 "fJb" = (
 /obj/machinery/status_display{
 	density = 0;
@@ -29252,6 +29297,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/command/meeting)
+"fWu" = (
+/obj/effect/paint_stripe/beige,
+/turf/simulated/wall,
+/area/logistics/robotics)
+"hNR" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/command/eva)
 "iFY" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -29286,6 +29339,14 @@
 /obj/effect/shuttle_landmark/nerva/deck3/hadrian,
 /turf/space,
 /area/space)
+"kjn" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/security/lockers)
+"ksl" = (
+/obj/effect/paint_stripe/mauve,
+/turf/simulated/wall,
+/area/rnd/office)
 "kBU" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable,
@@ -29303,6 +29364,30 @@
 	},
 /turf/simulated/open,
 /area/security/office)
+"mdX" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall,
+/area/security/boardarmoury)
+"mAz" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/command/bodyguard)
+"mBH" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/security/starboardgun)
+"mPt" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall,
+/area/security/checkpoint)
+"ngc" = (
+/obj/effect/paint_stripe/brown,
+/turf/simulated/wall/r_wall,
+/area/engineering/locker)
+"nzd" = (
+/obj/effect/paint_stripe/brown,
+/turf/simulated/wall,
+/area/engineering/locker)
 "ogN" = (
 /obj/effect/floor_decal/corner/black/border{
 	tag = "icon-bordercolor (WEST)";
@@ -29344,6 +29429,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
+"qBa" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall/prepainted,
+/area/medical/lobby)
 "qBP" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
@@ -29361,6 +29450,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
+"suK" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall,
+/area/security/entrance)
 "sxE" = (
 /obj/structure/closet/crate{
 	icon_state = "crateopen";
@@ -29368,6 +29461,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
+"sEc" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall/r_wall/prepainted,
+/area/medical/chemistry)
+"sRB" = (
+/obj/effect/paint_stripe/beige,
+/turf/simulated/wall,
+/area/logistics/uppercargo)
 "sSw" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/firealarm{
@@ -29376,9 +29477,38 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
+"tfp" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall,
+/area/security/office)
 "tfy" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/techmaint,
+/area/security/portgun)
+"uyU" = (
+/obj/effect/paint_stripe/beige,
+/turf/simulated/wall,
+/area/logistics/mailing)
+"uzq" = (
+/obj/random/trash,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
+"uSe" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall/prepainted,
+/area/medical/examroom)
+"vaJ" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/command/storage)
+"vTO" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
+/area/medical/cmo)
+"ycr" = (
+/obj/effect/paint_stripe/blue,
+/turf/simulated/wall/r_wall,
 /area/security/portgun)
 
 (1,1,1) = {"
@@ -45834,13 +45964,13 @@ aaj
 aaj
 aaj
 ahn
-abD
+uzq
 akl
 akl
 amz
 anV
-amz
-amz
+ngc
+ngc
 arG
 atb
 auw
@@ -46035,14 +46165,14 @@ adw
 aeO
 afE
 aaj
-ahn
-aiJ
+aho
+aiK
 akl
 alt
 amA
 anW
 apk
-akl
+nzd
 arH
 atc
 aux
@@ -46237,14 +46367,14 @@ adY
 aeP
 afF
 aaj
-aho
-aiK
+ahn
+btX
 akl
 alt
 amB
 anX
 apl
-akl
+nzd
 arI
 atd
 aux
@@ -46850,7 +46980,7 @@ alw
 amE
 aoa
 apo
-akl
+nzd
 arL
 atf
 aux
@@ -47052,7 +47182,7 @@ alx
 amF
 aob
 app
-akl
+nzd
 arM
 atg
 aux
@@ -47254,7 +47384,7 @@ akl
 akl
 akl
 akl
-akl
+nzd
 arN
 ath
 aux
@@ -47860,7 +47990,7 @@ akp
 akp
 akp
 akp
-akp
+qBa
 arQ
 atk
 auA
@@ -47874,7 +48004,7 @@ aCc
 auA
 aDJ
 aEZ
-aGq
+uyU
 aHq
 aGq
 aGq
@@ -48076,7 +48206,7 @@ aCd
 auA
 aDK
 aFa
-aGq
+uyU
 aHr
 aIG
 aJM
@@ -48278,7 +48408,7 @@ aCd
 auA
 aDL
 aFa
-aGq
+uyU
 aGq
 aIH
 aJN
@@ -48466,7 +48596,7 @@ alB
 amJ
 aof
 apt
-akp
+qBa
 arR
 atn
 auA
@@ -48668,7 +48798,7 @@ alC
 amK
 aog
 apu
-akp
+qBa
 arS
 ato
 auA
@@ -49274,21 +49404,21 @@ alF
 amN
 aoj
 apx
-akp
+qBa
 arV
 atr
-auA
+cWP
 avI
 awT
 ayd
-auA
+cWP
 aAe
 aBe
 aCg
-auA
+cWP
 aDQ
 aFb
-aGu
+cTb
 aGu
 aGu
 aGu
@@ -49476,7 +49606,7 @@ akp
 amO
 aok
 akp
-akp
+qBa
 arW
 ats
 auC
@@ -49490,7 +49620,7 @@ aCh
 aBf
 aDR
 aFc
-aGu
+cTb
 aHw
 aIL
 aJS
@@ -49678,7 +49808,7 @@ alG
 amP
 aol
 apy
-alI
+uSe
 arX
 att
 auD
@@ -50096,7 +50226,7 @@ aCk
 aBf
 aDU
 aFf
-aGu
+cTb
 aHz
 aIO
 aJV
@@ -50284,7 +50414,7 @@ alI
 amS
 aoo
 apB
-alI
+uSe
 arY
 atu
 auD
@@ -50298,7 +50428,7 @@ aCl
 aBf
 aDV
 aFg
-aGw
+fWu
 aGw
 aIP
 aGw
@@ -50486,7 +50616,7 @@ akE
 akE
 aop
 akE
-akE
+ezU
 arZ
 att
 auD
@@ -50500,7 +50630,7 @@ aCm
 aBf
 aDW
 aFh
-aGw
+fWu
 aHA
 aIQ
 aJW
@@ -50702,7 +50832,7 @@ auC
 auC
 aDX
 aFi
-aGw
+fWu
 aHB
 aIR
 aJX
@@ -50904,7 +51034,7 @@ aCn
 auD
 aDS
 aFh
-aGw
+fWu
 aHC
 aIS
 aJY
@@ -51106,7 +51236,7 @@ aCo
 auD
 aDS
 aFj
-aGw
+fWu
 aHD
 aIT
 aJZ
@@ -51308,7 +51438,7 @@ aCp
 auD
 aDS
 aFk
-aGw
+fWu
 aHE
 aIU
 aJY
@@ -51510,18 +51640,18 @@ auC
 auC
 aDS
 aFh
-aGw
-aGw
-aGw
+fWu
+fWu
+fWu
 aKa
-aGw
-aGw
-aGw
-aOO
+fWu
+fWu
+fWu
+sRB
 aQc
 aRl
-aOO
-aOO
+sRB
+sRB
 aOO
 aOO
 aOO
@@ -51900,7 +52030,7 @@ akG
 amX
 aot
 akG
-akJ
+sEc
 arW
 atz
 auF
@@ -52102,7 +52232,7 @@ alP
 amY
 aou
 apI
-akJ
+sEc
 asd
 atA
 auG
@@ -52116,13 +52246,13 @@ auH
 auG
 aDZ
 aFn
-aGz
+ksl
 aHH
 aIW
-aGz
+ksl
 aLh
-aGz
-aNz
+ksl
+bqm
 aNz
 aNz
 aRo
@@ -52318,7 +52448,7 @@ aCr
 auH
 aEa
 aFo
-aGz
+ksl
 aHI
 aIX
 aKd
@@ -52722,7 +52852,7 @@ avQ
 auH
 aEb
 aFq
-aGz
+ksl
 aHK
 aIZ
 aIZ
@@ -53112,7 +53242,7 @@ akJ
 akJ
 akJ
 akJ
-akJ
+sEc
 asi
 atE
 auJ
@@ -53516,7 +53646,7 @@ akK
 akK
 akK
 akK
-akK
+suK
 ask
 atF
 auK
@@ -53530,7 +53660,7 @@ aCu
 aDg
 aEc
 aFs
-aGz
+ksl
 aGz
 aGz
 aGz
@@ -53935,15 +54065,15 @@ auH
 atC
 aFu
 aGE
-aHP
-aHP
-aHP
-aHP
-aHP
+hNR
+hNR
+hNR
+hNR
+hNR
 aNC
-aHP
-aHP
-aHP
+hNR
+hNR
+hNR
 aSv
 aHP
 aHP
@@ -54324,7 +54454,7 @@ ddO
 kBU
 aoC
 apQ
-apQ
+mPt
 aso
 atG
 auH
@@ -54952,7 +55082,7 @@ aGK
 aGK
 aNH
 aKq
-aQo
+vaJ
 aQo
 aQo
 aQo
@@ -55132,7 +55262,7 @@ ama
 ani
 aoG
 apU
-apQ
+mPt
 asq
 atJ
 auM
@@ -55334,7 +55464,7 @@ akS
 akS
 akS
 akS
-akS
+bFA
 asl
 atK
 auM
@@ -55536,7 +55666,7 @@ amb
 anj
 aoH
 apV
-akS
+bFA
 asl
 atL
 auM
@@ -55738,7 +55868,7 @@ amc
 ank
 aoI
 apW
-akS
+bFA
 asl
 atM
 auO
@@ -55940,7 +56070,7 @@ amd
 anl
 aoJ
 apX
-akS
+bFA
 asl
 atG
 auO
@@ -56142,7 +56272,7 @@ ame
 akS
 akS
 akS
-akS
+bFA
 iFY
 atC
 auO
@@ -56164,7 +56294,7 @@ aLv
 aGL
 eou
 aPf
-aQo
+vaJ
 aQo
 aQo
 aQo
@@ -56344,7 +56474,7 @@ amf
 sSw
 lAn
 aoK
-aml
+tfp
 asr
 atC
 auO
@@ -56546,7 +56676,7 @@ amg
 ann
 aoL
 apY
-aml
+tfp
 ass
 atN
 auP
@@ -56748,7 +56878,7 @@ amh
 anm
 aoL
 apZ
-aml
+tfp
 ast
 atD
 auQ
@@ -56950,7 +57080,7 @@ ami
 ano
 aoL
 aqa
-aml
+tfp
 asu
 atC
 auQ
@@ -57354,7 +57484,7 @@ amk
 anq
 aoM
 aqc
-aml
+tfp
 asw
 atB
 auQ
@@ -57376,7 +57506,7 @@ aLz
 aMD
 aNS
 aKq
-aQw
+vTO
 aQw
 aQw
 aQw
@@ -57556,7 +57686,7 @@ aml
 aml
 aml
 aml
-aml
+tfp
 asx
 atO
 auO
@@ -57758,7 +57888,7 @@ agZ
 anr
 aoN
 aqd
-anw
+mdX
 asy
 atD
 auR
@@ -57779,7 +57909,7 @@ aKr
 aGO
 aMF
 aNU
-aPk
+mAz
 aPk
 aPk
 aPk
@@ -57981,7 +58111,7 @@ aKs
 aGO
 aMB
 aNV
-aPk
+mAz
 aQy
 aRH
 aSK
@@ -58183,7 +58313,7 @@ aKt
 aGO
 aMB
 aNW
-aPk
+mAz
 aQz
 aRI
 aSL
@@ -58587,7 +58717,7 @@ aKv
 aGO
 aMH
 aNY
-aPk
+mAz
 aQB
 aRK
 aSN
@@ -58761,10 +58891,10 @@ aeJ
 afy
 ago
 agZ
-agZ
-agZ
-agZ
-agZ
+kjn
+kjn
+kjn
+kjn
 anw
 aoS
 anw
@@ -58789,7 +58919,7 @@ aGO
 aGO
 aMI
 aNZ
-aPk
+mAz
 aPk
 aPk
 aPk
@@ -59193,7 +59323,7 @@ aKx
 aLC
 aMK
 aOb
-aIl
+bbM
 aQD
 aRM
 aPs
@@ -59374,8 +59504,8 @@ air
 amp
 air
 air
-anC
-anC
+emJ
+emJ
 atW
 auU
 aws
@@ -59387,15 +59517,15 @@ aBA
 fJb
 auU
 aEr
-anC
-anC
-aIl
-aIl
+emJ
+emJ
+bbM
+bbM
 aKy
-aIl
+bbM
 aML
 aOc
-aIl
+bbM
 aQE
 aRN
 aPs
@@ -59579,25 +59709,25 @@ air
 arl
 asG
 atX
-anC
+emJ
 awt
-anC
-anC
-anC
-anC
-anC
+emJ
+emJ
+emJ
+emJ
+emJ
 awt
-anC
+emJ
 aEs
 aFP
-anC
+emJ
 aIl
 aJx
 aKz
 aKy
 aML
 aOd
-aIl
+bbM
 aQF
 aRN
 aSP
@@ -59771,10 +59901,10 @@ aeL
 aaT
 agr
 ahd
-ahd
+ycr
 ajV
 alg
-ahd
+ycr
 anA
 aoW
 air
@@ -59792,14 +59922,14 @@ awu
 aDl
 aEs
 aFQ
-anC
+emJ
 aIl
 aJy
 aKA
-aLD
+mBH
 aMM
 aOe
-aLD
+mBH
 aLD
 aRN
 aPs
@@ -59976,7 +60106,7 @@ ahe
 ais
 ajW
 alh
-ahd
+ycr
 air
 air
 air
@@ -59994,11 +60124,11 @@ awv
 aDm
 aEt
 aFR
-anC
-anC
-anC
-anC
-aLD
+emJ
+emJ
+emJ
+emJ
+mBH
 aMN
 aOf
 aPn
@@ -60381,10 +60511,10 @@ aiu
 ajY
 ali
 amq
-anC
-anC
-anC
-anC
+emJ
+emJ
+emJ
+emJ
 asJ
 aua
 ava
@@ -60398,10 +60528,10 @@ axF
 ava
 aEv
 aFT
-anC
-anC
-anC
-anC
+emJ
+emJ
+emJ
+emJ
 aLF
 aMP
 aOh
@@ -60586,8 +60716,8 @@ ahd
 anC
 anC
 anC
-anC
-anC
+emJ
+emJ
 aub
 avb
 awy
@@ -60599,8 +60729,8 @@ aBD
 aCL
 avb
 aEw
-anC
-anC
+emJ
+emJ
 aIm
 aGS
 anC
@@ -60788,20 +60918,20 @@ ahd
 anC
 acc
 acc
-anC
-anC
+emJ
+emJ
 auc
 avc
 awz
-anC
+emJ
 aud
 avd
 awA
-anC
+emJ
 aCM
 aDo
 aEx
-anC
+emJ
 aGS
 aGS
 aGS
@@ -60991,19 +61121,19 @@ acc
 acc
 acc
 acc
-anC
+emJ
 aud
 avd
 awA
-anC
+emJ
 acc
 acc
 acc
-anC
+emJ
 aud
 avd
 awA
-anC
+emJ
 acc
 acc
 acc

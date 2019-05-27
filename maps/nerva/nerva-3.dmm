@@ -3569,7 +3569,6 @@
 	dir = 1;
 	icon_state = "camera"
 	},
-/obj/item/weapon/caution/cone,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "hc" = (
@@ -3587,18 +3586,15 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
-"he" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Port Hallway - Fore";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "hf" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Port Hallway - Fore";
+	dir = 1;
+	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
@@ -3615,10 +3611,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "hi" = (
@@ -6736,8 +6730,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "ns" = (
@@ -7124,10 +7120,8 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "ok" = (
@@ -7598,7 +7592,10 @@
 	pixel_x = 30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "oV" = (
@@ -8008,19 +8005,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
-"pS" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Starboard Hallway - Fore";
-	dir = 2;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "pT" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Starboard Hallway - Fore";
+	dir = 2;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "pU" = (
@@ -8034,7 +8028,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "pV" = (
@@ -10553,6 +10549,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/observatory)
 "tY" = (
+/obj/effect/paint/silver,
 /turf/simulated/wall/titanium,
 /area/shuttle/escape_pod1/station)
 "tZ" = (
@@ -13563,10 +13560,27 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/space)
+"Bh" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Bm" = (
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
+"BE" = (
+/obj/item/weapon/caution/cone,
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "BW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
@@ -13613,6 +13627,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/civilian/counselor)
+"CI" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/hallway/fore/second_deck)
 "Df" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13712,13 +13730,13 @@
 /turf/simulated/floor/lino,
 /area/civilian/counselor)
 "En" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Main Docking Port - Exterior";
-	dir = 8
-	},
 /obj/machinery/light/small{
 	dir = 4;
 	luminosity = 2
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Second Deck Boarding Armory Access";
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
@@ -14081,6 +14099,19 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"Lf" = (
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (EAST)";
+	icon_state = "railing0";
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (NORTH)";
+	icon_state = "railing0";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/second_deck/fs)
 "Lg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass/civilian{
@@ -37693,7 +37724,7 @@ aH
 aX
 fg
 fJ
-gJ
+eC
 hH
 ir
 jk
@@ -42339,7 +42370,7 @@ ee
 eL
 fp
 ge
-he
+gZ
 hP
 iI
 jy
@@ -42349,7 +42380,7 @@ ml
 jy
 oh
 oS
-pS
+iK
 qT
 rA
 sz
@@ -43349,7 +43380,7 @@ bs
 cR
 fi
 gg
-gZ
+BE
 hQ
 iJ
 jC
@@ -43551,17 +43582,17 @@ RC
 cR
 XM
 ge
+CI
 hg
-gZ
 iK
 jD
 iK
 lt
 iK
-iK
 oi
 iK
 jD
+iK
 qJ
 ru
 sq
@@ -43754,7 +43785,7 @@ cR
 XM
 gm
 hh
-hR
+Bh
 hR
 jE
 iL
@@ -45182,7 +45213,7 @@ qY
 oW
 sG
 sG
-sI
+Lf
 sI
 vH
 sI
