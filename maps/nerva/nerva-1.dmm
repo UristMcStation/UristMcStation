@@ -8162,7 +8162,7 @@
 	name = "Expedition Prep Access Control";
 	pixel_x = -25;
 	pixel_y = 0;
-	req_access = list(74)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
