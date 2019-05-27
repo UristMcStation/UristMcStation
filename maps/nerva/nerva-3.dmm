@@ -1600,7 +1600,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "dJ" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -1614,7 +1614,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "dL" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1962,14 +1962,14 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/black/three_quarters,
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "et" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/black/three_quarters{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "ev" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2221,7 +2221,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "fe" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -3911,7 +3911,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/techmaint,
 /area/command/teleporter)
 "hU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6201,6 +6201,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/light_switch{
+	on = 1;
 	pixel_x = 10;
 	pixel_y = -25
 	},
@@ -12855,31 +12856,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"yB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (EAST)";
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "yC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13566,7 +13542,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "AP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13615,6 +13591,7 @@
 "Cu" = (
 /obj/machinery/light_switch{
 	dir = 4;
+	on = 1;
 	pixel_x = -25
 	},
 /obj/structure/disposalpipe/segment{
@@ -13673,9 +13650,6 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -13739,7 +13713,7 @@
 /area/civilian/counselor)
 "En" = (
 /obj/machinery/camera/network/security{
-	c_tag = "Boarding Armoury Second Deck Access";
+	c_tag = "Main Docking Port - Exterior";
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -13861,7 +13835,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "GO" = (
 /obj/effect/shuttle_landmark/nerva/deck2/hadrian,
 /turf/space,
@@ -14269,7 +14243,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "NI" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -14558,7 +14532,7 @@
 	name = "Counselor's Office"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "RR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14990,7 +14964,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/civilian/counselor)
+/area/hallway/aft/second_deck)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -33875,11 +33849,11 @@ BZ
 BZ
 BZ
 BZ
-BZ
-BZ
-BZ
-BZ
-BZ
+hC
+hC
+hC
+hC
+hC
 fI
 gI
 hC
@@ -33904,7 +33878,7 @@ wB
 rl
 rl
 rl
-yB
+sh
 Xj
 Rk
 Wz
@@ -34483,9 +34457,9 @@ Xl
 BZ
 Wc
 BZ
-BZ
-BZ
-BZ
+hC
+hC
+hC
 fJ
 gJ
 hF
@@ -38722,7 +38696,7 @@ Xo
 cf
 cf
 ck
-al
+bs
 bs
 bs
 bs
@@ -38744,9 +38718,9 @@ LA
 ru
 sm
 sI
-pe
-pe
-pe
+sI
+sI
+sI
 tV
 uM
 vA
@@ -38924,7 +38898,7 @@ ap
 ci
 cj
 ck
-al
+bs
 bs
 bs
 dU
@@ -38946,9 +38920,9 @@ iK
 ru
 sn
 tl
-pe
-pe
-pe
+sI
+sI
+sI
 tV
 uN
 vw
@@ -39111,7 +39085,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -39148,8 +39122,8 @@ iK
 rv
 so
 tm
-pe
-pe
+sI
+sI
 ah
 tV
 tV
@@ -39313,7 +39287,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -39351,7 +39325,7 @@ ru
 sp
 tn
 sI
-pe
+sI
 ah
 ah
 ah
@@ -39516,7 +39490,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -39718,7 +39692,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -39920,7 +39894,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -40122,7 +40096,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -40324,7 +40298,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -40526,7 +40500,7 @@ ae
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -40728,7 +40702,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -40930,7 +40904,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -41132,7 +41106,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -41334,7 +41308,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -41536,7 +41510,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -41738,7 +41712,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -41940,7 +41914,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -42142,7 +42116,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -42344,7 +42318,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -42546,8 +42520,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ah
+ah
 ah
 ah
 ah
@@ -42749,7 +42723,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -42951,7 +42925,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -43154,11 +43128,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -43356,11 +43330,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -43559,10 +43533,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -43761,10 +43735,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -43963,10 +43937,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -44166,9 +44140,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ah
+ah
+ah
 ah
 ah
 ah
@@ -44369,8 +44343,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ah
+ah
 ah
 ah
 ah
@@ -44571,8 +44545,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ah
+ah
 ah
 ah
 ah
@@ -44773,8 +44747,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ah
+ah
 ah
 ah
 ah
@@ -44976,7 +44950,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -45178,7 +45152,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -45380,7 +45354,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah
@@ -45582,7 +45556,7 @@ aa
 aa
 aa
 aa
-aa
+ah
 ah
 ah
 ah

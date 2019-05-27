@@ -262,7 +262,7 @@
 /obj/effect/shuttle_landmark/merchant/out
 	name = "Docking Bay"
 	landmark_tag = "nav_merchant_out"
-	docking_controller = "lounge_dock"
+	docking_controller = "merchant_shuttle_station_dock"
 
 //////////////
 //escape pod//
@@ -551,7 +551,7 @@
 	name = "In transit"
 	landmark_tag = "nav_merc_transition"
 
-/obj/effect/shuttle_landmark/merc/dock //this is going on the new top deck
+/obj/effect/shuttle_landmark/merc/dock
 	name = "Docking Port"
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"

@@ -278,3 +278,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/stowaway
 	latejoin_at_spawnpoints = 1
 	announced = FALSE
+
+//vox
+/datum/map/nerva
+	species_to_job_whitelist = list(
+		/datum/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
+	)
