@@ -5,7 +5,7 @@
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor,
-						/datum/job/scientist,
+						/datum/job/scientist, /datum/job/chaplain,
 						/datum/job/merchant, /datum/job/stowaway,
 						/datum/job/ai, /datum/job/cyborg
 						)
