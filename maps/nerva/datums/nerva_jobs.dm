@@ -61,7 +61,7 @@
 			            access_medical, access_medical_equip, access_morgue, access_genetics,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist
 						)
 	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
@@ -74,7 +74,7 @@
 			            access_medical, access_medical_equip, access_morgue, access_genetics,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist
 						)
 
 /datum/job/firstofficer/get_description_blurb()
@@ -246,8 +246,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the second officer and the chief medical officer"
-	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
-	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
+	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
+	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
 	alt_titles = list(
 	"Chaplain" = /decl/hierarchy/outfit/job/chaplain,
 	"Morale Officer" = /decl/hierarchy/outfit/job/chaplain,
