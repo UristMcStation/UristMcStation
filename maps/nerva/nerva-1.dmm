@@ -20860,6 +20860,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"KN" = (
+/obj/effect/paint_stripe/mauve,
+/turf/simulated/wall/r_wall,
+/area/rnd/storage)
 "Lc" = (
 /obj/machinery/status_display{
 	density = 0;
@@ -20945,10 +20949,26 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/security/nuke_storage)
-"Md" = (
-/obj/effect/paint_stripe/paleblue,
-/turf/simulated/wall,
-/area/maintenance/fourth_deck/fp)
+"Me" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Mg" = (
 /obj/structure/closet/firecloset,
 /obj/machinery/power/apc{
@@ -20964,6 +20984,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/command/fourth_emergency_storage)
+"Mi" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Mj" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -20988,10 +21021,6 @@
 /obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
-"Mr" = (
-/obj/effect/paint_stripe/mauve,
-/turf/simulated/wall/r_wall,
-/area/rnd/dorms)
 "My" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
@@ -21001,10 +21030,6 @@
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
-"MD" = (
-/obj/effect/paint_stripe/beige,
-/turf/simulated/wall,
-/area/logistics/fabwork)
 "MI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -21028,6 +21053,10 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
+"MY" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall,
+/area/logistics/fabwork)
 "Nh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/techfloor{
@@ -21057,10 +21086,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
-"Ns" = (
-/obj/effect/paint_stripe/paleblue,
-/turf/simulated/wall,
-/area/hallway/centralfourth)
 "NJ" = (
 /obj/machinery/ai_status_display,
 /turf/simulated/wall/r_wall/prepainted,
@@ -21131,11 +21156,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
-"OU" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/paint/silver,
-/turf/simulated/floor/plating,
-/area/shuttle/escape_pod2/station)
 "Pd" = (
 /turf/simulated/wall/r_wall,
 /area/space)
@@ -21196,10 +21216,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hadrian/storage)
-"Pz" = (
+"PO" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall,
-/area/logistics/fabwork)
+/area/hallway/centralfourth)
 "Qq" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21352,6 +21372,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"Sb" = (
+/obj/effect/paint_stripe/mauve,
+/turf/simulated/wall/r_wall,
+/area/rnd/dorms)
+"Se" = (
+/obj/effect/paint_stripe/beige,
+/turf/simulated/wall,
+/area/logistics/fabwork)
 "Sk" = (
 /obj/effect/catwalk_plated/white,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21557,6 +21585,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"Vi" = (
+/obj/effect/paint_stripe/paleblue,
+/turf/simulated/wall,
+/area/maintenance/fourth_deck/fp)
 "Vk" = (
 /obj/item/clothing/mask/plunger,
 /obj/structure/closet/crate,
@@ -21654,6 +21686,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"WK" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/effect/paint/silver,
+/turf/simulated/floor/plating,
+/area/shuttle/escape_pod2/station)
 "Xk" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/nuke_storage)
@@ -21700,10 +21737,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
-"XQ" = (
-/obj/effect/paint_stripe/mauve,
-/turf/simulated/wall/r_wall,
-/area/rnd/storage)
 "XT" = (
 /obj/machinery/door/firedoor/border_only,
 /obj/effect/wallframe_spawn/reinforced/titanium,
@@ -21862,26 +21895,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/safe_room)
-"Zw" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Zy" = (
 /obj/structure/bed/nice,
 /turf/simulated/floor/tiled/techmaint,
@@ -37151,7 +37164,7 @@ dg
 ap
 aB
 ap
-OU
+WK
 gg
 gg
 hm
@@ -41990,7 +42003,7 @@ aa
 Pd
 aq
 aC
-Md
+Vi
 bh
 bh
 bh
@@ -42010,12 +42023,12 @@ bh
 bh
 ls
 mo
-Ns
-Ns
-Ns
-Ns
+PO
+PO
+PO
+PO
 ro
-Ns
+PO
 sP
 tA
 sd
@@ -42192,7 +42205,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bi
 bC
 bC
@@ -42394,7 +42407,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bD
 bZ
@@ -42596,7 +42609,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 ca
@@ -42798,7 +42811,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 cb
@@ -43000,7 +43013,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bk
 bE
 cc
@@ -43202,7 +43215,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bl
 bE
 cd
@@ -43227,8 +43240,8 @@ oj
 pk
 qm
 ru
-Pz
-Pz
+MY
+MY
 tG
 sd
 vB
@@ -43404,7 +43417,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 cc
@@ -43606,7 +43619,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 cc
@@ -43808,7 +43821,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 ce
@@ -43833,12 +43846,12 @@ ol
 ol
 qo
 rv
-Pz
-Pz
+MY
+MY
 tG
-MD
-MD
-MD
+Se
+Se
+Se
 sT
 yi
 sT
@@ -44010,7 +44023,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bm
 bF
 cf
@@ -44212,7 +44225,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 ca
@@ -44414,7 +44427,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 ca
@@ -44441,13 +44454,13 @@ qn
 ry
 si
 sX
-XQ
+KN
 uz
 vE
 uz
-Mr
-Mr
-Mr
+Sb
+Sb
+Sb
 zW
 zW
 zW
@@ -44616,7 +44629,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bn
 bE
 ca
@@ -44818,7 +44831,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bj
 bE
 ca
@@ -45020,7 +45033,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bk
 bG
 cg
@@ -45222,7 +45235,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bo
 bH
 ch
@@ -45424,7 +45437,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bp
 bD
 ci
@@ -45626,7 +45639,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bp
 bE
 cj
@@ -45828,7 +45841,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bq
 bI
 ck
@@ -46030,7 +46043,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 br
 bE
 ck
@@ -46232,7 +46245,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bs
 bJ
 ck
@@ -46434,7 +46447,7 @@ aa
 Pd
 aq
 aD
-Md
+Vi
 bt
 bE
 cl
@@ -46838,23 +46851,23 @@ aa
 Pd
 aq
 aD
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
-Md
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
+Vi
 ji
-Md
+Vi
 kQ
 lH
 mF
@@ -47470,7 +47483,7 @@ nE
 nE
 rI
 sj
-Zw
+Me
 tM
 uL
 vR
@@ -49486,7 +49499,7 @@ hY
 mM
 VW
 sj
-rI
+Mi
 IS
 KA
 sm
