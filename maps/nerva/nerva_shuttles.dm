@@ -141,6 +141,7 @@
 	landmark_tag = "nav_hangar_hadrian"
 	base_area = /area/space
 	base_turf = /turf/space
+	docking_controller = "hadrian_shuttle_dock_airlock"
 
 /obj/effect/shuttle_landmark/nerva/transit/hadrian
 	name = "In transit"
