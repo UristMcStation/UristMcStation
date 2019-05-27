@@ -34,6 +34,7 @@
 	#include "nerva-3.dmm"
 	#include "nerva-4.dmm"
 	#include "nerva-5.dmm"
+	#include "nerva-6.dmm"
 
 	#include "../away/mining/mining.dm"
 //	#include "../away/derelict/derelict.dm"

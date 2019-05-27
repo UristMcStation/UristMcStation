@@ -59,15 +59,19 @@
 
 //i fucking hate myself
 
-/area/turbolift/mainbottom
-	name = "Third Deck"
+/area/turbolift/main_fourth_deck
+	name = "Fourth Deck"
 	base_turf = /turf/simulated/floor/plating
 
-/area/turbolift/mainmiddle
+/area/turbolift/main_third_deck
+	name = "Third Deck"
+	base_turf = /turf/simulated/open
+
+/area/turbolift/main_second_deck
 	name = "Second Deck"
 	base_turf = /turf/simulated/open
 
-/area/turbolift/maintop
+/area/turbolift/main_first_deck
 	name = "First Deck"
 	base_turf = /turf/simulated/open
 
@@ -76,7 +80,7 @@
 //	icon = 'icons/obj/turbolift_preview_3x3.dmi'
 	icon_state = "bleh"
 	dir = EAST         // Direction of the holder determines the placement of the lift control panel and doors.
-	var/depth = 3       // Number of floors to generate, including the initial floor.
+	var/depth = 4       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
 	var/lift_size_y = 2 // ie. a 3x3 lift would have a value of 2 in each of these variables.
 
@@ -85,7 +89,7 @@
 	var/floor_type = /turf/simulated/floor/tiled/dark
 	var/door_type =  /obj/machinery/door/airlock/lift
 
-	var/list/areas_to_use = list(/area/turbolift/mainbottom,/area/turbolift/mainmiddle,/area/turbolift/maintop)
+	var/list/areas_to_use = list(/area/turbolift/main_fourth_deck,/area/turbolift/main_third_deck,/area/turbolift/main_second_deck, /area/turbolift/main_first_deck)
 
 /obj/nerva_lift_map_holder/Destroy()
 	turbolifts -= src

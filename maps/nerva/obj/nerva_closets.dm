@@ -203,3 +203,19 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/toxins, /obj/item/weapon/storage/backpack/satchel_tox)),
 		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 50)
 		)
+
+/obj/structure/closet/secure_closet/nervaammo
+	name = "ammunition locker"
+	req_access = list(access_hos)
+	icon_state = "hossecure1"
+	icon_closed = "hossecure"
+	icon_locked = "hossecure1"
+	icon_opened = "hossecureopen"
+	icon_off = "hossecureoff"
+
+/obj/structure/closet/secure_closet/nervaammo/WillContain()
+	return list(
+		/obj/item/weapon/storage/box/nervaammo = 3,
+		/obj/item/weapon/storage/box/shotgunammo,
+		/obj/item/weapon/storage/box/shotgunshells
+		)

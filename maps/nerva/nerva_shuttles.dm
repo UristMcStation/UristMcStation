@@ -47,13 +47,17 @@
 	name = "Space near First Deck"
 	landmark_tag = "nav_deck1_trajan"
 
+/obj/effect/shuttle_landmark/nerva/deck2/exploration_shuttle
+	name = "Space near Second Deck"
+	landmark_tag = "nav_deck2_trajan"
+
 /obj/effect/shuttle_landmark/nerva/deck3/exploration_shuttle
 	name = "Space near Third Deck"
 	landmark_tag = "nav_deck3_trajan"
 
-/obj/effect/shuttle_landmark/nerva/deck2/exploration_shuttle
-	name = "Space near Second Deck"
-	landmark_tag = "nav_deck2_trajan"
+/obj/effect/shuttle_landmark/nerva/deck4/exploration_shuttle
+	name = "Space near Fourth Deck"
+	landmark_tag = "nav_deck4_trajan"
 
 /obj/effect/shuttle_landmark/nerva/transit/exploration_shuttle
 	name = "In transit"
@@ -90,13 +94,17 @@
 	name = "Space near First Deck"
 	landmark_tag = "nav_deck1_antonine"
 
+/obj/effect/shuttle_landmark/nerva/deck2/antonine
+	name = "Space near Second Deck"
+	landmark_tag = "nav_deck2_antonine"
+
 /obj/effect/shuttle_landmark/nerva/deck3/antonine
 	name = "Space near Third Deck"
 	landmark_tag = "nav_deck3_antonine"
 
-/obj/effect/shuttle_landmark/nerva/deck2/antonine
-	name = "Space near Second Deck"
-	landmark_tag = "nav_deck2_antonine"
+/obj/effect/shuttle_landmark/nerva/deck4/antonine
+	name = "Space near Fourth Deck"
+	landmark_tag = "nav_deck4_antonine"
 
 /area/antonine_hangar/start
 	name = "\improper Antonine"
@@ -106,8 +114,71 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
 
 /obj/machinery/computer/shuttle_control/explore/antonine
-	name = "antonine control console"
+	name = "Antonine control console"
 	shuttle_tag = "Antonine"
+
+///////////
+//science//
+///////////
+
+/datum/shuttle/autodock/overmap/hadrian
+	name = "Hadrian"
+	warmup_time = 5
+	move_time = 70
+	shuttle_area = list(/area/hadrian/storage, /area/hadrian/main)
+	dock_target ="hadrian_shuttle"
+	current_location = "nav_hangar_hadrian"
+	landmark_transition = "nav_transit_hadrian"
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
+//	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_hadrian"
+	logging_access = access_xenobiology
+	ceiling_type = /turf/simulated/floor/shuttle_ceiling
+
+/obj/effect/shuttle_landmark/nerva/hangar/hadrian
+	name = "Hadrian Dock"
+	landmark_tag = "nav_hangar_hadrian"
+	base_area = /area/space
+	base_turf = /turf/space
+
+/obj/effect/shuttle_landmark/nerva/transit/hadrian
+	name = "In transit"
+	landmark_tag = "nav_transit_hadrian"
+
+/obj/effect/shuttle_landmark/nerva/deck1/hadrian
+	name = "Space near First Deck"
+	landmark_tag = "nav_deck1_hadrian"
+
+/obj/effect/shuttle_landmark/nerva/deck2/hadrian
+	name = "Space near Second Deck"
+	landmark_tag = "nav_deck2_hadrian"
+
+/obj/effect/shuttle_landmark/nerva/deck3/hadrian
+	name = "Space near Third Deck"
+	landmark_tag = "nav_deck3_hadrian"
+
+/obj/effect/shuttle_landmark/nerva/deck4/hadrian
+	name = "Space near Fourth Deck"
+	landmark_tag = "nav_deck4_hadrian"
+
+/area/hadrian
+	name = "\improper Hadrian"
+	icon_state = "shuttlered"
+	requires_power = 1
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/area/hadrian/main
+	name = "\improper Hadrian - Main Compartment"
+
+/area/hadrian/storage
+	name = "\improper Hadrian - Storage Compartment"
+
+/obj/machinery/computer/shuttle_control/explore/hadrian
+	name = "Hadrian control console"
+	shuttle_tag = "Hadrian"
+	req_access = list(access_xenobiology)
 
 //////////
 //supply//
@@ -191,7 +262,7 @@
 /obj/effect/shuttle_landmark/merchant/out
 	name = "Docking Bay"
 	landmark_tag = "nav_merchant_out"
-	docking_controller = "lounge_dock"
+	docking_controller = "merchant_shuttle_station_dock"
 
 //////////////
 //escape pod//
@@ -334,7 +405,7 @@
 	landmark_tag = "nav_ferry_out"
 	docking_controller = "centcom_shuttle_dock_airlock"
 	base_turf = /turf/simulated/floor/plating
-	base_area = /area/hallway/centralthird
+	base_area = /area/hallway/centralfourth
 
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
@@ -375,6 +446,7 @@
 		"nav_ninja_deck1",
 		"nav_ninja_deck2",
 		"nav_ninja_deck3",
+		"nav_ninja_deck4",
 		"nav_away_6",
 		"nav_derelict_5",
 		"nav_cluster_6",
@@ -404,16 +476,20 @@
 	landmark_tag = "nav_ninja_transition"
 
 /obj/effect/shuttle_landmark/ninja/deck1
-	name = "South of First Deck"
+	name = "South of the First Deck"
 	landmark_tag = "nav_ninja_deck1"
 
 /obj/effect/shuttle_landmark/ninja/deck2
-	name = "Northeast of Second Deck"
+	name = "South of the Second Deck"
 	landmark_tag = "nav_ninja_deck2"
 
 /obj/effect/shuttle_landmark/ninja/deck3
-	name = "East of Third Deck"
+	name = "Northeast of the Third Deck"
 	landmark_tag = "nav_ninja_deck3"
+
+/obj/effect/shuttle_landmark/ninja/deck4
+	name = "East of the Fourth Deck"
+	landmark_tag = "nav_ninja_deck4"
 
 // Ninja areas
 /area/ninja_dojo
@@ -441,10 +517,11 @@
 		"nav_merc_deck1",
 		"nav_merc_deck2",
 		"nav_merc_deck3",
+		"nav_merc_deck4",
 		"nav_away_5",
 		"nav_derelict_6",
 		"nav_cluster_5",
-//		"nav_merc_dock",
+		"nav_merc_dock",
 		"nav_merc_start",
 		"nav_lost_supply_base_antag",
 		"nav_marooned_antag",
@@ -458,15 +535,15 @@
 	dock_target = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
-	announcer = "SEV Torch Sensor Array"
+	announcer = "ICS Nerva Sensor Array"
 	home_waypoint = "nav_merc_start"
-	arrival_message = "Attention, vessel detected entering vessel proximity."
-	departure_message = "Attention, vessel detected leaving vessel proximity."
+	arrival_message = "Attention, unknown vessel detected entering vessel proximity."
+	departure_message = "Attention, unknown vessel detected leaving vessel proximity."
 
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
-//	docking_controller = "merc_base"
+	docking_controller = "merc_shuttle"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/syndicate_mothership
 
@@ -474,22 +551,28 @@
 	name = "In transit"
 	landmark_tag = "nav_merc_transition"
 
-/*/obj/effect/shuttle_landmark/merc/dock
+/obj/effect/shuttle_landmark/merc/dock
 	name = "Docking Port"
 	landmark_tag = "nav_merc_dock"
-	docking_controller = "nuke_shuttle_dock_airlock"*/
+	docking_controller = "nuke_shuttle_dock_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/maintenance/exterior
 
 /obj/effect/shuttle_landmark/merc/deck1
-	name = "Northeast of First Deck"
+	name = "Northeast of the First Deck"
 	landmark_tag = "nav_merc_deck1"
 
 /obj/effect/shuttle_landmark/merc/deck2
-	name = "Southeast of the Second deck"
+	name = "Northeast of the Second Deck"
 	landmark_tag = "nav_merc_deck2"
 
 /obj/effect/shuttle_landmark/merc/deck3
-	name = "South of Third deck"
+	name = "Southeast of the Third deck"
 	landmark_tag = "nav_merc_deck3"
+
+/obj/effect/shuttle_landmark/merc/deck4
+	name = "South of the Fourth deck"
+	landmark_tag = "nav_merc_deck4"
 
 /area/syndicate_mothership
 	name = "\improper Mercenary Base"
@@ -512,10 +595,11 @@
 		"nav_skipjack_deck1",
 		"nav_skipjack_deck2",
 		"nav_skipjack_deck3",
+		"nav_skipjack_deck4",
 		"nav_away_7",
 		"nav_derelict_7",
 		"nav_cluster_7",
-//		"nav_skipjack_dock",
+		"nav_skipjack_dock",
 		"nav_skipjack_start",
 		"nav_lost_supply_base_antag",
 		"nav_marooned_antag",
@@ -543,22 +627,26 @@
 	name = "In transit"
 	landmark_tag = "nav_skipjack_transition"
 
-/*/obj/effect/shuttle_landmark/skipjack/dock
+/obj/effect/shuttle_landmark/skipjack/dock //likewise
 	name = "Docking Port"
 	landmark_tag = "nav_skipjack_dock"
-	docking_controller = "skipjack_shuttle_dock_airlock"*/
+	docking_controller = "skipjack_shuttle_dock_airlock"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
-	name = "Northwest of First Deck"
+	name = "Northwest of the Fourth First Deck"
 	landmark_tag = "nav_skipjack_deck1"
 
 /obj/effect/shuttle_landmark/skipjack/deck2
-	name = "Southwest of the Second deck"
+	name = "Northwest of the Second Deck"
 	landmark_tag = "nav_skipjack_deck2"
 
 /obj/effect/shuttle_landmark/skipjack/deck3
-	name = "Southeast of Third deck"
+	name = "Southwest of the Third deck"
 	landmark_tag = "nav_skipjack_deck3"
+
+/obj/effect/shuttle_landmark/skipjack/deck4
+	name = "Southeast of the Fourth deck"
+	landmark_tag = "nav_skipjack_deck4"
 
 /area/skipjack_station
 	name = "Raider Outpost"
@@ -621,88 +709,3 @@
 /obj/effect/shuttle_landmark/nerva/third/aft
 	name = "Second Deck - Aft"
 	landmark_tag = "wyrm_sub_aft"*/
-
-
-
-
-
-
-/*/area/rescue/start
-	name = "\improper Rescue Pod"
-	icon_state = "shuttlered"
-	requires_power = 1
-	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED
-
-
-/obj/machinery/computer/shuttle_control/explore/lanius
-	name = "Aura Control Console"
-	shuttle_tag = "Aura"
-
-/obj/machinery/computer/shuttle_control/explore/escape
-	name = "Pod Control"
-	shuttle_tag = "Escape Pod"
-
-/obj/machinery/computer/shuttle_control/explore/rescue
-	name = "Rescue Pod Control"
-	shuttle_tag = "Rescue Pod"
-
-/obj/machinery/computer/shuttle_control/explore/admin
-	shuttle_tag = "CHANGE_ME"
-
-/datum/shuttle/autodock/overmap/hatchling
-	name = "Hatchling"
-	move_time = 90
-	shuttle_area = /area/hatchling/start
-	dock_target = "hatchling_dock"
-	current_location = "wyrm_docked_hatchling"
-	landmark_transition = "nav_transit_hatchling"
-
-/datum/shuttle/autodock/ferry/escape_pod/pod
-	name = "Escape Pod"
-	shuttle_area = /area/pod/start
-	dock_target = "escape_pod"
-	arming_controller = "escape_pod_berth"
-	waypoint_station = "nav_docked_pod"
-	landmark_transition = "nav_transit_pod"
-	waypoint_offsite = "nav_escaped_pod"
-
-/datum/shuttle/autodock/overmap/rescue
-	name = "Rescue Pod"
-	move_time = 30
-	shuttle_area = /area/rescue/start
-	current_location = "wyrm_docked_rescue"
-	landmark_transition = "nav_transit_rescue"
-
-/obj/effect/shuttle_landmark/pod/docked
-	name = "Docking Port"
-	landmark_tag = "nav_docked_pod"
-
-/obj/effect/shuttle_landmark/wyrm/docked/hatchling
-	name = "Docking Port"
-	landmark_tag = "wyrm_docked_hatchling"
-	docking_controller = "wyrm_docking_hatch"
-
-/obj/effect/shuttle_landmark/wyrm/docked/rescue
-	name = "Docking Port"
-	landmark_tag = "wyrm_docked_rescue"
-
-/obj/effect/shuttle_landmark/pod/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_pod"
-
-/obj/effect/shuttle_landmark/wyrm/transit/hatchling
-	name = "In transit"
-	landmark_tag = "nav_transit_hatchling"
-
-/obj/effect/shuttle_landmark/wyrm/transit/lanius
-	name = "In transit"
-	landmark_tag = "nav_transit_lanius"
-
-/obj/effect/shuttle_landmark/wyrm/transit/rescue
-	name = "In transit"
-	landmark_tag = "nav_transit_rescue"
-
-/obj/effect/shuttle_landmark/pod/escaped
-	name = "Escaped"
-	landmark_tag = "nav_escaped_pod"*/

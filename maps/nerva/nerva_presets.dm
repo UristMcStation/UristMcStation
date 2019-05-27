@@ -1,9 +1,12 @@
-var/const/NETWORK_FIRST_DECK		= "First Deck" //top
-var/const/NETWORK_SECOND_DECK		= "Second Deck" //central
-var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom
+var/const/NETWORK_FIRST_DECK		= "First Deck" //new top
+var/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
+var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
+var/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
 var/const/NETWORK_COMMAND			= "Command"
 var/const/NETWORK_CARGO				= "Cargo"
 var/const/NETWORK_TRAJAN     		= "Trajan"
+var/const/NETWORK_HADRIAN     		= "Hadrian"
+var/const/NETWORK_ANTONINE     		= "Antonine"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
@@ -15,12 +18,15 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 		NETWORK_FIRST_DECK,
 		NETWORK_SECOND_DECK,
 		NETWORK_THIRD_DECK,
+		NETWORK_FOURTH_DECK,
 		NETWORK_COMMAND,
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
 		NETWORK_RESEARCH,
 		NETWORK_CARGO,
 		NETWORK_TRAJAN,
+		NETWORK_HADRIAN,
+		NETWORK_ANTONINE,
 		NETWORK_MINE,
 		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
@@ -50,6 +56,9 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 /obj/machinery/camera/network/third_deck
 	network = list(NETWORK_THIRD_DECK)
 
+/obj/machinery/camera/network/fourth_deck
+	network = list(NETWORK_FOURTH_DECK)
+
 /obj/machinery/camera/network/research
 	network = list(NETWORK_RESEARCH)
 
@@ -62,6 +71,12 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 /obj/machinery/camera/network/trajan
 	network = list(NETWORK_TRAJAN)
 
+/obj/machinery/camera/network/hadrian
+	network = list(NETWORK_HADRIAN)
+
+/obj/machinery/camera/network/antonine
+	network = list(NETWORK_ANTONINE)
+
 // Motion
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
@@ -70,7 +85,7 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
 
-/obj/machinery/camera/xray/first_deck //for officers dorms
+/obj/machinery/camera/xray/second_deck //for officers dorms
 	network = list(NETWORK_FIRST_DECK)
 
 /obj/machinery/camera/xray/command //for the bridge
