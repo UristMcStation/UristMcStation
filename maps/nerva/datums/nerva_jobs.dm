@@ -259,7 +259,7 @@
 	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva)
 
 
-	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
+	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva
 
 /datum/job/merchant
 	total_positions = 0
