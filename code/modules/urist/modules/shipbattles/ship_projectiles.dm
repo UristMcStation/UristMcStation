@@ -206,3 +206,23 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	damage = 1800
 	armor_penetration = 200
+
+/obj/item/projectile/beam/ship/shield_disruptor
+	name = "shield disruptor beam"
+	icon_state = "heavylaser"
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+	damage = 100
+	armor_penetration = 100
+
+	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
+	tracer_type = /obj/effect/projectile/laser/heavy/tracer
+	impact_type = /obj/effect/projectile/laser/heavy/impact
+
+/obj/item/projectile/beam/ship/shield_disruptor/on_hit(var/atom/target, var/blocked = 0)
+	if(istype(target, /obj/effect/shield)) //You dun fucked up now.
+		for(var/obj/effect/shield/A in orange(7))
+			A.fail(1 MINUTE) //knock out a fair chunk of shielding
+			explosion(A, -1, 1, 2) //All that energy has to go somewhere.
+	..()
+
+
