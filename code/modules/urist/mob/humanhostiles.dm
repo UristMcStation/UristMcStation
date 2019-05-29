@@ -144,7 +144,9 @@
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
-	new /obj/effect/effect/smoke/bad(loc)
+	var/datum/effect/effect/system/smoke_spread/bad/deathsmoke = new
+	deathsmoke.set_up(5,0,src.loc,null)
+	deathsmoke.start()
 	qdel(src)
 
 //Spess Jason Bourne

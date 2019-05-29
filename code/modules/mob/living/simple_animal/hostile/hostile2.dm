@@ -51,12 +51,10 @@
 				GiveTarget(new_target)
 
 			if(HOSTILE_STANCE_ATTACK)
-				MoveToTarget()
-				DestroySurroundings()
+				MoveToTarget() || DestroySurroundings()
 
 			if(HOSTILE_STANCE_ATTACKING)
-				AttackTarget()
-				DestroySurroundings()
+				AttackTarget() || DestroySurroundings()
 
 
 //////////////HOSTILE MOB TARGETTING AND AGGRESSION////////////
@@ -85,9 +83,6 @@
 			Targets = FoundTarget
 			break
 		if(CanAttack(A))//Can we attack it?
-			//if(istype(src, /mob/living/simple_animal/hostile/scarybat))
-			//	if(A == src.owner)
-			//		continue
 			Targets += A
 			continue
 	Target = PickTarget(Targets)
@@ -157,7 +152,8 @@
 			Goto(target,move_to_delay,minimum_distance)
 		if(isturf(loc) && target.Adjacent(src))	//If they're next to us, attack
 			AttackingTarget()
-		return
+		return 1
+
 	if(target.loc != null && get_dist(src, target.loc) <= vision_range)//We can't see our target, but he's in our vision range still
 		if(FindHidden(target) && environment_smash)//Check if he tried to hide in something to lose us
 			var/atom/A = target.loc
@@ -168,6 +164,7 @@
 		else
 			LostTarget()
 	LostTarget()
+	return
 
 /mob/living/simple_animal/hostile/proc/Goto(var/atom/target, var/delay, var/minimum_distance)
 	if(get_dist(src, target.loc) > minimum_distance)
