@@ -23,6 +23,7 @@ var/global/list/image/splatter_cache=list()
 	var/drytime
 	var/dryname = "dried blood"
 	var/drydesc = "It's dry and crusty. Someone is not doing their job."
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
