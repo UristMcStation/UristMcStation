@@ -274,17 +274,17 @@
 		to_chat(user, "<span class='danger'>This weapon is ineffective; it does no damage.</span>")
 		return 2
 
-		var/damage = O.force
-		if (O.damtype == PAIN)
-			damage = 0
-		if (O.damtype == STUN)
-			damage = (O.force / 8)
-			if(supernatural && istype(O,/obj/item/weapon/nullrod))
-				damage *= 2
-				purge = 3
-		adjustBruteLoss(damage)
-		if(O.edge || O.sharp)
-			adjustBleedTicks(damage)
+	var/damage = O.force
+	if (O.damtype == PAIN)
+		damage = 0
+	if (O.damtype == STUN)
+		damage = (O.force / 8)
+		if(supernatural && istype(O,/obj/item/weapon/nullrod))
+			damage *= 2
+			purge = 3
+	adjustBruteLoss(damage)
+	if(O.edge || O.sharp)
+		adjustBleedTicks(damage)
 
 	return 0
 
