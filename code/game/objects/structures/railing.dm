@@ -21,7 +21,7 @@
 
 /obj/structure/railing/mapped/Initialize()
 	. = ..()
-	color = COLOR_GUNMETAL // They're not painted!
+	color = initial(color)
 
 /obj/structure/railing/New(var/newloc, var/material_key = "steel")
 	material = material_key // Converted to datum in initialize().

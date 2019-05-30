@@ -53,6 +53,7 @@
 	#include "../away/unishi/unishi.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/destroyed_colony/destroyed_colony.dm"
+	#include "../away/noctis/noctis.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
