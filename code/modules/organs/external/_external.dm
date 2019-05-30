@@ -880,12 +880,24 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(src && istype(loc,/turf))
 					throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 				dir = 2
+
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
+
+			// URIST EDIT BY IRRA, 2019-05-25
+			for(var/obj/item/organ/O in internal_organs)
+				if(!O.can_disintegrate())
+					O.owner = victim
+					O.removed()
+					internal_organs -= O
+			// END URIST EDIT
+
 			for(var/obj/item/I in src)
 				if(I.w_class > ITEM_SIZE_SMALL && !istype(I,/obj/item/organ))
 					I.loc = get_turf(src)
+
 			qdel(src)
+
 		if(DROPLIMB_BLUNT)
 			var/obj/gore
 			if(BP_IS_CRYSTAL(src))
