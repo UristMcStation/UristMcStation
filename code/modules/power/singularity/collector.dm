@@ -179,6 +179,7 @@ var/global/list/rad_collectors = list()
 	if(anchored)
 		locate_pipenet()
 		connect_to_network()
+	. = ..()
 
 /obj/machinery/power/rad_collector/pipenet/Process()
 	//so that we don't zero out the meter if the SM is processed first.
