@@ -24,9 +24,9 @@
 
 /datum/design/circuit/teg
 	name = "thermal energy generator"
-	id = "radiation_collector"
+	id = "teg"
 	build_path = /obj/item/weapon/circuitboard/constructable/teg
-	sort_string = "RADCO"
+	sort_string = "THERM"
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
 	category = "Machinery Circuitry"
 
