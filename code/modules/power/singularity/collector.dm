@@ -170,15 +170,10 @@ var/global/list/rad_collectors = list()
 	var/obj/machinery/atmospherics/pipe/cap/pipe = null
 	var/datum/gas_mixture/removed = null
 
-/obj/machinery/power/rad_collector/pipenet/New()
-	..()
-	rad_collectors += src
-	if(anchored)
-		locate_pipenet()
-
 /obj/machinery/power/rad_collector/pipenet/Destroy()
-	rad_collectors -= src
-	. = ..()
+	QDEL_NULL(removed)
+	pipe = null
+	..()
 
 /obj/machinery/power/rad_collector/pipenet/Process()
 	//so that we don't zero out the meter if the SM is processed first.
@@ -231,22 +226,11 @@ var/global/list/rad_collectors = list()
 			disconnect_from_network()
 			P = null
 		return 1
-	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
-		if (src.allowed(user))
-			if(active)
-				src.locked = !src.locked
-				to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
-			else
-				src.locked = 0 //just in case it somehow gets locked
-				to_chat(user, "<span class='warning'>The controls can only be locked when the [src] is active</span>")
-		else
-			to_chat(user, "<span class='warning'>Access denied!</span>")
-		return 1
 	return ..()
 
 
 /obj/machinery/power/rad_collector/pipenet/proc/locate_pipenet()
-	var/T = src.loc
+	var/turf/T = get_turf(src)
 	pipe = locate(/obj/machinery/atmospherics/pipe/cap) in T
 
 /obj/machinery/power/rad_collector/pipenet/update_icons()
