@@ -144,7 +144,7 @@
 						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1, -3)
 						for(var/mob/living/M in view(7, src))
 							shake_camera(M, 1, 2)
-						spawn(5)
+						spawn(0.5 SECONDS)
 							SM.start()
 							playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	//Power
