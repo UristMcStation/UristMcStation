@@ -3290,7 +3290,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/medical{
+/obj/machinery/door/airlock/multi_tile/glass/medical{
 	id_tag = "MedbayER";
 	name = "\improper Emergency Treatment Room";
 	req_access = list(5)
@@ -4894,7 +4894,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/medical{
+/obj/machinery/door/airlock/multi_tile/glass/medical{
 	dir = 8;
 	icon_state = "closed";
 	name = "\improper Medbay Hallway";
@@ -5707,7 +5707,7 @@
 /area/engineering/substation/third_deck)
 "akd" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Third Deck"
+	RCon_tag = "Substation - First Deck"
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -5862,7 +5862,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/medical{
+/obj/machinery/door/airlock/multi_tile/glass/medical{
 	id_tag = "MedbayFoyer";
 	name = "\improper Medical Lobby";
 	req_access = list(5)
@@ -6374,7 +6374,7 @@
 /area/engineering/substation/third_deck)
 "alm" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Third Deck Bypass"
+	RCon_tag = "First Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/third_deck)
@@ -23992,9 +23992,6 @@
 "aNz" = (
 /turf/simulated/wall,
 /area/civilian/abandonedoffice)
-"aNA" = (
-/turf/simulated/wall,
-/area/maintenance/third_deck/cents)
 "aNB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -50866,7 +50863,7 @@ aUc
 aUc
 aUc
 aVs
-aNA
+aOO
 aVV
 aTq
 aVv
@@ -51067,8 +51064,8 @@ aTj
 aUd
 aUd
 aUd
-aNA
-aNA
+aOO
+aOO
 aVV
 aTq
 aVv
@@ -51269,7 +51266,7 @@ aTj
 aUd
 aUJ
 aUd
-aNA
+aOO
 aVF
 aVV
 aTq
@@ -51471,7 +51468,7 @@ aTk
 aUd
 aUd
 aUd
-aNA
+aOO
 aVG
 aVV
 aTq
@@ -51673,7 +51670,7 @@ sRB
 aOO
 aOO
 aOO
-aNA
+aOO
 aVH
 aVV
 aTq

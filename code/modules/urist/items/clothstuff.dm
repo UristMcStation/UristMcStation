@@ -6,19 +6,19 @@
 	recipes += new/datum/stack_recipe/rag(src)
 
 /datum/stack_recipe/makeshiftbandage
-	title = "rifle stock"
+	title = "makeshift bandage"
 	result_type = /obj/item/stack/medical/bruise_pack/makeshift_bandage
 	req_amount = 1
 	time = 10
 
 /datum/stack_recipe/makeshiftmask
-	title = "flintlock pistol stock"
+	title = "makeshift mask"
 	result_type = /obj/item/clothing/mask/surgical/makeshift_mask
 	req_amount = 1
 	time = 10
 
 /datum/stack_recipe/rag
-	title = "underwear wardrobe"
+	title = "rag"
 	result_type = /obj/item/weapon/reagent_containers/glass/rag
 	req_amount = 1
 	time = 10

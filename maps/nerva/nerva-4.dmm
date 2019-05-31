@@ -7460,7 +7460,7 @@
 /area/engineering/substation/first_deck)
 "nD" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Third Deck"
+	RCon_tag = "Substation - First Deck"
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -7629,7 +7629,7 @@
 /area/engineering/substation/first_deck)
 "nS" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Third Deck Bypass"
+	RCon_tag = "First Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/first_deck)

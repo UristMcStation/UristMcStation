@@ -5543,15 +5543,14 @@
 	icon_state = "map_vent_out";
 	dir = 8
 	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "Holodeck Control";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/effect/floor_decal/corner/white/three_quarters{
 	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
+	},
+/obj/machinery/camera/network/fourth_deck{
+	c_tag = "Holodeck Control";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/holodeck)
@@ -14678,13 +14677,13 @@
 /area/maintenance/fourth_deck/afs)
 "yG" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "First Deck Bypass"
+	RCon_tag = "Fourth Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/fourth_deck)
 "yH" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - First Deck"
+	RCon_tag = "Substation - Fourth Deck"
 	},
 /obj/structure/cable{
 	d1 = 0;
