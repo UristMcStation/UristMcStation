@@ -14302,7 +14302,7 @@
 /area/hallway/aft/second_deck)
 "Ne" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "First Deck Bypass"
+	RCon_tag = "Second Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
@@ -14528,7 +14528,7 @@
 /area/command/teleporter)
 "Qo" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - First Deck"
+	RCon_tag = "Substation - Second Deck"
 	},
 /obj/structure/cable{
 	d2 = 8;
