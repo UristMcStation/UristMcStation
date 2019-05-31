@@ -5707,7 +5707,7 @@
 /area/engineering/substation/third_deck)
 "akd" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - First Deck"
+	RCon_tag = "Substation - Third Deck"
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -5764,7 +5764,7 @@
 /area/engineering/locker)
 "akm" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
+	name = "Third Deck Substation";
 	req_access = list(10)
 	},
 /obj/structure/cable{
