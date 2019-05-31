@@ -5922,6 +5922,11 @@
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Engineering Lobby";
+	dir = 1;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "lV" = (
@@ -14297,7 +14302,7 @@
 /area/hallway/aft/second_deck)
 "Ne" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Third Deck Bypass"
+	RCon_tag = "First Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
@@ -14523,7 +14528,7 @@
 /area/command/teleporter)
 "Qo" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Third Deck"
+	RCon_tag = "Substation - First Deck"
 	},
 /obj/structure/cable{
 	d2 = 8;
