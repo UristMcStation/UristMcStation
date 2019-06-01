@@ -10,9 +10,9 @@
 
 #define COLMX_NOIR          "\[\[ 1.30, 0.25, 0.25, 0.00,-0.70],\[ 0.30, 0.60, 0.60, 0.00,-0.30],\[ 0.30, 0.60, 0.60, 0.00,-0.30],\[0,0,0,1,0]]"
 
-#define DEFAULT_COLOR_MATRIX new /datum/array(COLMX_BASIC, 1)
+#define DEFAULT_COLOR_MATRIX new /datum/array(COLMX_BASIC)
 
 /client
 	//vg color code
-	var/cached_colormatrix = null
+	var/datum/array/cached_colormatrix = null
 	var/updating_color = 0

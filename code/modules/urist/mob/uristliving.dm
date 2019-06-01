@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 
 
 /mob/dead/observer/get_screen_color()
-	return DEFAULT_COLOR_MATRIX
+	return client.holder ? client.cached_colormatrix : DEFAULT_COLOR_MATRIX //Simple aghost support
 
 
 /mob/living/simple_animal/get_screen_color()
@@ -59,10 +59,10 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 
 	if(src && src.mob != src)
 		if(src)
-			var/list/difference = difflist(src.color,color_to_apply)
+			var/list/difference = difflist(cached_colormatrix.get(), color_to_apply)
 			src.color = color_to_apply
 			src.updating_color = 0
-			if((difference || !(src.color) || !istype(difference) || !difference.len)) // panic panic panic
+			if((!istype(difference) || difference.len > 0)) // panic panic panic
 				src.mob.update_color(forceupdate = 1)
 		else
 			GLOB.bad_changing_color_ckeys["[src.ckey]"] = 1
@@ -77,9 +77,11 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 		return
 
 	var/list/color_to_apply = colormatrix.get()
-	var/list/difference = difflist(client.color,color_to_apply)
+	if(!client.cached_colormatrix)
+		client.cached_colormatrix = DEFAULT_COLOR_MATRIX
+	var/list/difference = difflist(client.cached_colormatrix.get(), color_to_apply)
 
-	if(difference || !(client.color) || !istype(difference) || !difference.len)
+	if(!istype(difference) || difference.len > 0)
 		client.updating_color = 1
 		if(forceupdate)
 			time = 0
@@ -88,20 +90,3 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 		client.cached_colormatrix = colormatrix
 		client.color_transition(colormatrix, time = time)
 		addtimer(CALLBACK(client, /client/proc/_update_client_color_callback, color_to_apply), time, TIMER_UNIQUE)
-
-
-/mob/proc/handle_urist_hooks()
-	return
-
-
-/mob/living/handle_urist_hooks()
-	. = ..()
-	update_color()
-	return .
-
-
-/mob/living/Life()
-	. = ..()
-	handle_urist_hooks()
-	return .
-

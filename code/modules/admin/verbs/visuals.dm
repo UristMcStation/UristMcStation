@@ -4,6 +4,7 @@
 							"greyscale"=COLMX_GREYSCALE,
 							"wasteland"=COLMX_GRIMDARK,
 							"matrix"=COLMX_CYBERPUNK,
+							"standard"=COLMX_BASIC,
 							"custom"=null)
 	var/definition = input("Select preset or custom matrix:", "Matrix", usr.client) as null|anything in options
 
