@@ -4,7 +4,6 @@
 	extended_round_description = "The AI will attempt to hack the APCs in order to gain as much control as possible."
 	config_tag = "malfunction"
 	required_players = 2
-	maximum_players = 9
 	required_enemies = 1
 	end_on_antag_death = 0
 	auto_recall_shuttle = 0
