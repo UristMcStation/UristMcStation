@@ -366,3 +366,20 @@
 	name = "fancy trimmed ferny potted plant"
 	desc = "This leafy desk fern seems to have been trimmed too much."
 	icon_state = "plant-30"
+
+// Space/Asteroid Flora
+
+/obj/structure/flora/shimmering_orb
+	name = "shimmering orb"
+	desc = "A floating stone shaped in the form of an orb, small cracks of bioluminescent growths within give off a calming light."
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "shimmering_orb"
+	plane = ABOVE_HUMAN_PLANE
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/flora/shimmering_orb/Initialize()
+	. = ..()
+	set_light(1, 1, 4, 2, "#0066ff")
+	light_inner_range = 5
+	light_max_bright = 1
+	light_outer_range = 3
