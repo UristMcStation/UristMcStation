@@ -14678,9 +14678,9 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
-	id = "MainExpeditionPrep";
+	id = "TeleporterHub";
 	layer = 3.3;
-	name = "Expedition Prep Access"
+	name = "Teleporter Blast Door Control"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
