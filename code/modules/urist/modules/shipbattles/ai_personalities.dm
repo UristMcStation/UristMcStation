@@ -1,9 +1,9 @@
-#define PERSONALITY_STEADY "Steady"
-#define PERSONALITY_AGGRESSIVE "Aggressive"
-#define PERSONALITY_COWARD "Coward"
-#define PERSONALITY_AI "AI"
-#define PERSONALITY_RECKLESS "Reckless"
-#define PERSONALITY_ALIEN "Alien"
+#define PERSONALITY_STEADY "Steady" //Steady. Balance of aggression and cowardice.
+#define PERSONALITY_AGGRESSIVE "Aggressive" //Aggressive. No retreat, generally.
+#define PERSONALITY_COWARD "Coward" //Wants to AVOID fighting you at all costs.
+#define PERSONALITY_AI "AI" //Special AI Type, reckless and spouts nonsense. Not implemented.
+#define PERSONALITY_RECKLESS "Reckless" //WAAAAAGH!
+#define PERSONALITY_ALIEN "Alien" //Lactera.
 
 GLOBAL_LIST_INIT(global_ship_personalities, list(
 	"Steady" = list(datum/ship_personality),
@@ -24,24 +24,31 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 	switch(hiddenfaction)
 		if("pirate")
 			if(prob(50)
-				personality = PERSONALITY_STEADY
+				personality_define = PERSONALITY_STEADY
 			else
-				personality = PERSONALITY_AGGRESSIVE
+				personality_define = PERSONALITY_AGGRESSIVE
 		if("alien")
 			if(prob(50))
-				personality = PERSONALITY_AGGRESSIVE
+				personality_define = PERSONALITY_AGGRESSIVE
 			else
-				personality = PERSONALITY_RECKLESS
+				personality_define = PERSONALITY_RECKLESS
 		if("nanotrasen")
 			if(prob(75))
-				personality = PERSONALITY_COWARD
+				personality_define = PERSONALITY_COWARD
 			else
-				personality = PERSONALITY_STEADY
+				personality_define = PERSONALITY_STEADY
 		if("terran")
 			personality = PERSONALITY_STEADY
 		if("rebel")
 			personality = PERSONALITY_RECKLESS
-
+	personality = pick(GLOB.global_ship_personalities[personality_define])
+	//Sanity check to make sure we're not picking a personality we shouldn't be.
+	if(personality.faction)
+		if(hiddenfaction != personality.faction)
+			get_name_and_personality() //Call it again and move on.
+			return
+	//Personality picked. Generate our name now.
+	name = "[pick(personality.ship_names.prefixes)] [pick(personality.ship_names.shipnames)] - [ship_category]"
 
 
 //SHIP AI PERSONALITIES
@@ -54,13 +61,12 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 	var/reckless = 0 //Recklessness means the AI has zero regard for survival, and will attack at all costs.
 	var/datum/ship_taunts/taunt_datum = datum/ship_taunts
 	var/datum/ship_name/ship_names = datum/ship_name
+	var/faction = null //Is this one related to a specific faction? It won't be picked if the ship's hiddenfaction isn't the same.
 
 /datum/ship_personality/aggressive
 	personality = PERSONALITY_AGGRESSIVE
 	aggressiveness = 2
 	cowardice = 0
-//	taunt_datum =
-//	ship_names =
 
 /datum/ship_personality/coward
 	personality = PERSONALITY_COWARD
@@ -78,6 +84,7 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 /datum/ship_personality/alien //Aliens don't taunt.
 	personality = PERSONALITY_ALIEN
 	reckless = 1
+	taunt_datum = null
 
 //TAUNTS FOR AI PERSONALITIES
 
