@@ -2885,6 +2885,7 @@
 #include "code\modules\urist\modules\resourcetech\hunter.dm"
 #include "code\modules\urist\modules\resourcetech\planer.dm"
 #include "code\modules\urist\modules\resourcetech\tools.dm"
+#include "code\modules\urist\modules\shipbattles\ai_personalities.dm"
 #include "code\modules\urist\modules\shipbattles\combatcomputer.dm"
 #include "code\modules\urist\modules\shipbattles\component_weapons.dm"
 #include "code\modules\urist\modules\shipbattles\components.dm"

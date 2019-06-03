@@ -6,7 +6,7 @@
 #define PERSONALITY_ALIEN "Alien" //Lactera.
 
 GLOBAL_LIST_INIT(global_ship_personalities, list(
-	"Steady" = list(datum/ship_personality),
+	"Steady" = list(/datum/ship_personality),
 	"Aggressive" = list(/datum/ship_personality/aggressive),
 	"Coward" = list(/datum/ship_personality/coward),
 	"AI" = list(/datum/ship_personality/AI),
@@ -16,14 +16,13 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 
 //SHIP NAME GENERATION
 /datum/ship_name
-	name = "Default Naming scheme"
 	var/list/prefixes = list("IMV", "ICS", "ICV", "CS")
 	var/list/ship_names = list("Kestrel", "Starhawk", "Voyager", "Enterprise", "Unstoppable", "Undefeatable", "Clear Skies", "Skyranger", "Big Sky", "Menace")
 
 /mob/living/simple_animal/hostile/overmapship/proc/get_name_and_personality()
 	switch(hiddenfaction)
 		if("pirate")
-			if(prob(50)
+			if(prob(50))
 				personality_define = PERSONALITY_STEADY
 			else
 				personality_define = PERSONALITY_AGGRESSIVE
@@ -48,19 +47,18 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 			get_name_and_personality() //Call it again and move on.
 			return
 	//Personality picked. Generate our name now.
-	name = "[pick(personality.ship_names.prefixes)] [pick(personality.ship_names.shipnames)] - [ship_category]"
+	name = "[pick(personality.ship_names.prefixes)] [pick(personality.ship_names.ship_names)] - [ship_category]"
 
 
 //SHIP AI PERSONALITIES
 
 /datum/ship_personality //base type
-	name = "Default"
 	var/personality = PERSONALITY_STEADY
 	var/aggressiveness = 1 //Aggressive AIs are more likely to attack.
 	var/cowardice = 1 //Cowardly AIs will try to avoid combat, and dodge shots.
 	var/reckless = 0 //Recklessness means the AI has zero regard for survival, and will attack at all costs.
-	var/datum/ship_taunts/taunt_datum = datum/ship_taunts
-	var/datum/ship_name/ship_names = datum/ship_name
+	var/datum/ship_taunts/taunt_datum = /datum/ship_taunts
+	var/datum/ship_name/ship_names = /datum/ship_name
 	var/faction = null //Is this one related to a specific faction? It won't be picked if the ship's hiddenfaction isn't the same.
 
 /datum/ship_personality/aggressive
@@ -89,7 +87,6 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 //TAUNTS FOR AI PERSONALITIES
 
 /datum/ship_taunts
-	name = "Default Taunts"
 	var/list/normal_taunts = list(
 	"Power down your weapons and shields, and surrender.", "You can't hope to defeat me. You're outmatched.", "The more you fight, the less likely i'm to let the survivors live.",
 	"We're both out here to make some money, I just intend to make it by destroying you.", "It's a dangerous world. And i'm the danger.", "Keep struggling. It's fun to watch you panic.") //What it says normally.
@@ -104,9 +101,9 @@ GLOBAL_LIST_INIT(global_ship_personalities, list(
 
 	var/list/on_weapons_fire = list("All guns, fire!", "Take that!", "Let's see how you like this.", "I spent good money on these guns. Money well spent.", "Keep firing.") //What it says after firing one of it's weapons.
 
-	var/list/on_component_destroyed = list("Gah! You'll pay for that!", "That won't stop us. Keep firing!", "You may have damaged my ship, but i'l kill you all!", "Do you know how ANGRY you're making me?"
+	var/list/on_component_destroyed = list("Gah! You'll pay for that!", "That won't stop us. Keep firing!", "You may have damaged my ship, but i'l kill you all!", "Do you know how ANGRY you're making me?",
 	"This isn't over until I say it's over!", "Amusing. You might actually put up a decent  fight!")
-	) //What it says when something critical has been destroyed.
+	 //What it says when something critical has been destroyed.
 
 	var/list/on_defeat = list("The Captain goes down with the ship.", "All hands, abandon ship, they beat us!", "Damn you all to hell!", "NOOOOOOO!",
 	"The reactor is breach-ZZZZZZ!", "Our weapons are fused and hull damage is critical, all hands abandon ship!") //What it says when the ship is destroyed.
