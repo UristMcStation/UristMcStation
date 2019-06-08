@@ -82,7 +82,7 @@ GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 
 /obj/item/weapon/rpd
 	name = "rapid piping device"
-	desc = "A rapid piping device. This is a miniturized piping dispenser mounted onto a portable frame and power supply, and employs advanced technology - such a robotic arm holding a wrench, to automatically fasten pipes."
+	desc = "A rapid piping device. This is a miniaturized piping dispenser mounted onto a portable frame and power supply, and employs advanced technology - such as a robotic arm holding a wrench, to automatically fasten pipes."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "rcd"
 	opacity = 0
