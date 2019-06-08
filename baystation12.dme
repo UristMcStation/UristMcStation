@@ -2836,6 +2836,8 @@
 #include "code\modules\urist\modules\donate.dm"
 #include "code\modules\urist\modules\ghost_powers.dm"
 #include "code\modules\urist\modules\mining.dm"
+#include "code\modules\urist\modules\constructable\constructable_circuits.dm"
+#include "code\modules\urist\modules\constructable\constructable_designs.dm"
 #include "code\modules\urist\modules\events\break.dm"
 #include "code\modules\urist\modules\genetics\_genetics.dm"
 #include "code\modules\urist\modules\genetics\disabilities.dm"
