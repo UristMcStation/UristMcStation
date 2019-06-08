@@ -1756,6 +1756,16 @@
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 10;
+	icon_state = "1-10"
+	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "ea" = (
@@ -1986,9 +1996,9 @@
 	dir = 9
 	},
 /obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d1 = 5;
+	d2 = 6;
+	icon_state = "5-6"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -1998,11 +2008,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -2201,11 +2206,6 @@
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "fa" = (
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/cap/hidden/fuel{
 	icon_state = "cap";
 	dir = 4
@@ -2218,16 +2218,16 @@
 	icon_state = "map";
 	dir = 4
 	},
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0";
 	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 9;
+	icon_state = "2-9"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -3867,7 +3867,9 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/prismngt)
 "hT" = (
-/obj/structure/closet/crate/secure/biohazard/blanks,
+/obj/structure/closet/crate/secure/biohazard/blanks{
+	req_access = list(850)
+	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)
@@ -3925,6 +3927,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/asm)
 "ic" = (
+/obj/structure/closet/secure_closet/engineering_electrical/noctis,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/asm)
 "id" = (
@@ -4345,6 +4348,10 @@
 /obj/effect/floor_decal/industrial/danger,
 /turf/simulated/floor/reinforced,
 /area/space)
+"nG" = (
+/obj/structure/closet/secure_closet/engineering_welding/noctis,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
 "qg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -7455,7 +7462,7 @@ Hq
 hs
 ia
 hP
-ic
+nG
 iq
 aa
 eq
