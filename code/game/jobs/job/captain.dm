@@ -1,13 +1,13 @@
 var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain
-	title = "Captain"
+	title = "Consul"
 	department = "Command"
 	head_position = 1
 	department_flag = COM
 
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#1d1d4f"
 	req_admin_notify = 1
