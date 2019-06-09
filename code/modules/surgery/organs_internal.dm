@@ -32,8 +32,8 @@
 	/obj/item/weapon/tape_roll = 20
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /datum/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
@@ -44,16 +44,25 @@
 		return FALSE
 	if(BP_IS_ROBOTIC(affected) || BP_IS_CRYSTAL(affected))
 		return FALSE
+
+	var/list/accessible_organs = list()
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.damage > 0)
 			if(I.status & ORGAN_DEAD)
 				to_chat(user,"<span class='warning'>\The [I] is [I.can_recover() ? "decaying" : "necrotic"] and cannot be treated with \The [tool] alone.</span>")
 				continue
+			if(BP_IS_ROBOTIC(I))
+				continue
 			if(I.surface_accessible)
-				return TRUE
+				accessible_organs += I
 			if(affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED))
-				return TRUE
-	return FALSE
+				accessible_organs += I
+	if(!accessible_organs.len)
+		to_chat(user, "<span class='notice'>There aren't any organs to fix!</span>")
+		return FALSE
+	target.op_stage.current_organ = input(user, "Which organ would you like to heal?", "Organ Selection", null) as null|anything in accessible_organs
+	if(target.op_stage.current_organ)
+		return TRUE
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -67,10 +76,9 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || affected.how_open() < 2)
 		return
-	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && !(I.status & ORGAN_DEAD) && (I.surface_accessible || affected.how_open() >= (affected.encased ? 3 : 2)))
-			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-			"You start treating damage to [target]'s [I.name] with [tool_name]." )
+	var/obj/item/organ/internal/I = target.op_stage.current_organ
+	user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
+	"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
 	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
 	..()
@@ -87,15 +95,14 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || affected.how_open() < 2)
 		return
-	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
-			if(I.status & ORGAN_DEAD && I.can_recover())
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>", \
-				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>" )
-			else
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
-				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
-			I.surgical_fix(user)
+
+	var/obj/item/organ/internal/I = target.op_stage.current_organ
+	if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)) && !(I.status & ORGAN_DEAD))
+		user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+		"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
+		I.surgical_fix(user)
+	else
+		to_chat(user, "<span class='notice'>\The [I.name] can no longer be fixed.</span>")
 
 /datum/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
