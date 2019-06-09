@@ -1,3 +1,7 @@
+/datum/map/nerva
+	base_floor_area = /area/maintenance/exterior
+	post_round_safe_areas = list(/area/shuttle/escape_pod1,/area/shuttle/escape_pod2,/area/shuttle/escape_pod3)
+
 //Order is as follows Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance, Hallways
 
 //////////////////////////////////////
