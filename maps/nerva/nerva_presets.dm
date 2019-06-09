@@ -107,3 +107,6 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 	_input_on = TRUE
 	_output_on = TRUE
 	_fully_charged = TRUE
+
+/obj/item/clothing/head/helmet/space/rig/command/exploration
+	camera = /obj/machinery/camera/network/command

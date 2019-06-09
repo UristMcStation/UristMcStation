@@ -55,8 +55,6 @@
 	date_offset = 560
 
 	base_floor_type = /turf/simulated/floor/reinforced/airless
-	base_floor_area = /area/maintenance/exterior
-	post_round_safe_areas = list(/area/shuttle/escape_pod1,/area/shuttle/escape_pod2,/area/shuttle/escape_pod3)
 
 	species_to_job_blacklist = list(
 		/datum/species/unathi  = list(/datum/job/captain),
