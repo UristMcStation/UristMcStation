@@ -126,7 +126,8 @@
 		/area/spacestations,
 		/area/unishi,
 		/area/jungleoutpost,
-		/area/planet
+		/area/planet,
+		/area/noctis
 	)
 
 	area_coherency_test_exempt_areas = list(
@@ -138,5 +139,6 @@
 		/area/exoplanet/desert,
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
-		/area/exoplanet/garbage
+		/area/exoplanet/garbage,
+		/area/noctis/exteriorl
 	)

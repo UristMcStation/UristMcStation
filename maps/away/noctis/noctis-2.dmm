@@ -1,0 +1,14746 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/obj/effect/paint/black,
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"ac" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"ad" = (
+/obj/machinery/power/tracker,
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"ae" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/atmos)
+"af" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"ag" = (
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
+"ah" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"ai" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"aj" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/orange,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"ak" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"al" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/fpm)
+"am" = (
+/obj/structure/grille/broken,
+/obj/effect/scorcher,
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"an" = (
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"ao" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"ap" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"aq" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/structure/table/standard,
+/obj/random/powercell,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"ar" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"as" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"at" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"au" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"av" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 4;
+	tag_north = 6;
+	tag_south = 1;
+	tag_west = 2
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"aw" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"ax" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/open,
+/area/space)
+"ay" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"az" = (
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"aA" = (
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/open,
+/area/space)
+"aB" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/open,
+/area/space)
+"aC" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"aD" = (
+/obj/machinery/space_heater,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"aE" = (
+/obj/structure/table/steel,
+/obj/item/weapon/extinguisher{
+	max_water = 0
+	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 4
+	},
+/obj/item/weapon/extinguisher{
+	max_water = 0
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"aF" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/reinforced,
+/area/space)
+"aG" = (
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/open,
+/area/space)
+"aH" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"aI" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/fpm)
+"aJ" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 8
+	},
+/obj/machinery/alarm{
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/item/weapon/grenade/smokebomb,
+/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"aK" = (
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"aL" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"aM" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/reinforced,
+/area/space)
+"aN" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/fpm)
+"aO" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"aP" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"aQ" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/fpm)
+"aR" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"aS" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"aT" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"aU" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"aV" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"aW" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"aX" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue,
+/turf/simulated/floor/plating,
+/area/space)
+"aY" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"aZ" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"ba" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"bb" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
+"bc" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"bd" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"be" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/barricade/wooden,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"bf" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	icon_state = "map";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bg" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 4;
+	tag_north = 2;
+	tag_west = 1
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/atmospherics/pipe/cap/hidden{
+	icon_state = "cap";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bi" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bj" = (
+/obj/item/weapon/stool/padded,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bk" = (
+/turf/simulated/floor/reinforced,
+/area/space)
+"bl" = (
+/obj/structure/table/standard,
+/obj/item/weapon/deck/cards,
+/obj/effect/floor_decal/rust,
+/obj/random/snack,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bm" = (
+/obj/item/weapon/stool/padded,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bn" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bo" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bp" = (
+/obj/structure/table/rack/dark,
+/obj/item/weapon/weldingtool/largetank,
+/obj/item/weapon/weldingtool/empty,
+/obj/effect/scorcher,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bq" = (
+/obj/effect/floor_decal/corner_techfloor_grid{
+	icon_state = "corner_techfloor_grid";
+	dir = 4
+	},
+/obj/effect/floor_decal/techfloor/corner{
+	icon_state = "techfloor_corners";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"br" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
+"bs" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"bt" = (
+/obj/effect/floor_decal/corner_techfloor_grid{
+	icon_state = "corner_techfloor_grid";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/corner{
+	icon_state = "techfloor_corners";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"bu" = (
+/obj/effect/floor_decal/corner_techfloor_grid{
+	icon_state = "corner_techfloor_grid";
+	dir = 4
+	},
+/obj/effect/floor_decal/techfloor/corner{
+	icon_state = "techfloor_corners";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"bv" = (
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"bw" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"bx" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"by" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"bz" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 9
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"bA" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 1
+	},
+/obj/structure/cable/blue,
+/obj/machinery/power/apc{
+	req_access = list(850)
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"bB" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"bC" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	icon_state = "map";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bD" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bE" = (
+/obj/machinery/light/small/red,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bF" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/effect/paint/silver,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bJ" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"bK" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"bN" = (
+/obj/machinery/door/airlock/external/bolted{
+	frequency = 1379;
+	id_tag = "pirate_con_ext"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"bO" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"bP" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/weapon/material/shard,
+/turf/simulated/floor/plating,
+/area/space)
+"bQ" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bR" = (
+/obj/effect/scorcher,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bS" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/danger/corner{
+	icon_state = "dangercorner";
+	dir = 8
+	},
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/exteriorl)
+"bT" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/green_grey,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bU" = (
+/obj/effect/spawner/bomb_simulator{
+	_low = 3;
+	_med = 2
+	},
+/turf/space,
+/area/space)
+"bV" = (
+/obj/structure/wall_frame/titanium,
+/obj/effect/paint/green_grey,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bW" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
+	},
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/exteriorl)
+"bX" = (
+/obj/structure/table/steel,
+/obj/item/weapon/weldingtool/mini,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"bY" = (
+/obj/machinery/alarm,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"bZ" = (
+/obj/item/device/radio/intercom,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"ca" = (
+/obj/machinery/door/blast/regular/open{
+	maxhealth = 0
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/fpm)
+"cb" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/gasestore)
+"cc" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"cd" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/noctis/gasestore)
+"ce" = (
+/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"cf" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/atmosc)
+"cg" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/atmosc)
+"ch" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"ci" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/atmosc)
+"cj" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/atmos)
+"ck" = (
+/obj/structure/barricade/wooden/crude,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cl" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/danger/corner{
+	icon_state = "dangercorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"cm" = (
+/obj/structure/cable/yellow{
+	d1 = 32;
+	d2 = 4;
+	icon_state = "32-4"
+	},
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/atmos)
+"cn" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"co" = (
+/obj/effect/floor_decal/industrial/danger/corner{
+	icon_state = "dangercorner";
+	dir = 1
+	},
+/obj/structure/handrai{
+	icon_state = "handrail";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"cp" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cq" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small/red,
+/obj/item/device/analyzer,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cr" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	icon_state = "air_map";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cs" = (
+/obj/effect/scorcher,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"ct" = (
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cu" = (
+/obj/item/weapon/extinguisher,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cv" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/barricade/wooden/crude,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cw" = (
+/obj/random/soap,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cx" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cy" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"cz" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cA" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/space)
+"cB" = (
+/obj/item/device/multitool,
+/obj/item/stack/cable_coil/blue,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cC" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/reinforced,
+/area/space)
+"cD" = (
+/obj/machinery/shipsensors,
+/turf/simulated/floor/reinforced,
+/area/noctis/fpm)
+"cE" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	health = 0;
+	icon_state = "pdoor0";
+	maxhealth = 0
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/fpm)
+"cF" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"cG" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/gasestore)
+"cH" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/rust,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"cI" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"cJ" = (
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"cK" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"cL" = (
+/obj/structure/table/standard,
+/obj/item/weapon/deck/cah,
+/obj/item/weapon/deck/cah/black,
+/obj/item/weapon/pen/chameleon,
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cM" = (
+/turf/simulated/floor/plating,
+/area/noctis/atmos)
+"cN" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/blue,
+/turf/simulated/floor/plating,
+/area/space)
+"cO" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/table/steel,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"cP" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
+"cQ" = (
+/obj/effect/paint/silver,
+/obj/structure/sign/warning/radioactive,
+/turf/simulated/wall/titanium,
+/area/noctis/reactorov)
+"cR" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"cS" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/reactorov)
+"cT" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/extconn)
+"cU" = (
+/obj/structure/catwalk,
+/turf/simulated/open,
+/area/space)
+"cV" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/extconn)
+"cW" = (
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"cX" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/space)
+"cY" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/fpm)
+"cZ" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/bridge)
+"da" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/noctis/fpm)
+"db" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"dc" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"dd" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"de" = (
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"df" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"dg" = (
+/obj/effect/floor_decal/industrial/danger/corner{
+	icon_state = "dangercorner";
+	dir = 8
+	},
+/obj/structure/handrai{
+	icon_state = "handrail";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"dh" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/bridge)
+"di" = (
+/turf/simulated/wall/voxshuttle,
+/area/noctis/bridge)
+"dj" = (
+/obj/machinery/power/smes/buildable/outpost_substation,
+/obj/structure/cable/blue,
+/turf/simulated/floor/plating,
+/area/space)
+"dk" = (
+/obj/item/stack/rods,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"dl" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dm" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dn" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"do" = (
+/obj/item/stack/rods,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"dp" = (
+/obj/machinery/power/terminal{
+	icon_state = "term";
+	dir = 1
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"dq" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"dr" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"ds" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dt" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/combint)
+"du" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 32;
+	d2 = 8;
+	icon_state = "32-8"
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"dv" = (
+/obj/structure/closet/firecloset,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"dw" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/space)
+"dx" = (
+/obj/machinery/atmospherics/tvalve/mirrored/bypass{
+	icon_state = "map_tvalvem1";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"dy" = (
+/obj/random/closet,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"dz" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
+"dA" = (
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/open,
+/area/space)
+"dB" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/space)
+"dC" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 32;
+	d2 = 8;
+	icon_state = "32-8"
+	},
+/turf/simulated/open,
+/area/space)
+"dD" = (
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"dE" = (
+/obj/machinery/atmospherics/unary/heater{
+	icon_state = "heater_0";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/atmosc)
+"dF" = (
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"dG" = (
+/obj/structure/catwalk,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/bed/chair/padded/green,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"dH" = (
+/turf/simulated/open,
+/area/noctis/reactorov)
+"dI" = (
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"dJ" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/obj/machinery/access_button/airlock_exterior{
+	master_tag = "pirate_con_controller";
+	pixel_x = -24;
+	pixel_y = -24
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"dK" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/noctis/extconn)
+"dL" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"dM" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"dN" = (
+/obj/machinery/door/blast/regular/open,
+/obj/structure/ladder,
+/obj/effect/catwalk_plated/dark,
+/turf/simulated/open,
+/area/noctis/bridge)
+"dO" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/turf/simulated/open,
+/area/space)
+"dP" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/item/device/radio/intercom,
+/obj/machinery/computer/shuttle_control/explore/raptor,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"dQ" = (
+/obj/structure/foamedmetal/iron,
+/turf/simulated/floor/plating/airless,
+/area/noctis/bridge)
+"dR" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"dS" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dT" = (
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"dU" = (
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"dV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"dW" = (
+/obj/structure/table/steel,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/item/weapon/wrench,
+/obj/item/weapon/wirecutters,
+/obj/item/device/analyzer,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"dX" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 1
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dY" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/binary/pump,
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"dZ" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 10;
+	icon_state = "1-10"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"ea" = (
+/obj/structure/catwalk,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/noctis/reactorov)
+"eb" = (
+/obj/machinery/atmospherics/unary/engine{
+	icon_state = "nozzle";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"ec" = (
+/obj/structure/catwalk,
+/obj/machinery/light/colored/blue{
+	icon_state = "blue1";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/noctis/reactorov)
+"ed" = (
+/obj/structure/catwalk,
+/turf/simulated/open,
+/area/noctis/reactorov)
+"ee" = (
+/obj/structure/catwalk,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"ef" = (
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1379;
+	id_tag = "pirate_con_vent"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"eg" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"eh" = (
+/turf/simulated/open,
+/area/noctis/extconn)
+"ei" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"ej" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"ek" = (
+/obj/machinery/atmospherics/pipe/zpipe/down/fuel{
+	icon_state = "down";
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/noctis/exteriorl)
+"el" = (
+/obj/effect/floor_decal/borderfloorgrey/corner{
+	icon_state = "borderfloorcorner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"em" = (
+/obj/effect/floor_decal/borderfloorgrey/corner{
+	icon_state = "borderfloorcorner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"en" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/catwalk,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"eo" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
+"ep" = (
+/obj/machinery/power/solar_control{
+	icon_state = "solar";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/noctis/exteriorl)
+"eq" = (
+/turf/simulated/open,
+/area/space)
+"er" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"es" = (
+/obj/structure/catwalk,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"et" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/catwalk,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"eu" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/bed/chair{
+	icon_state = "chair_preview";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"ev" = (
+/obj/machinery/computer/sensors{
+	icon_state = "computer";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"ew" = (
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/noctis/bridge)
+"ex" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/meter,
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"ey" = (
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"ez" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eA" = (
+/obj/machinery/atmospherics/omni/mixer{
+	tag_east = 2;
+	tag_north = 1;
+	tag_north_con = 0.33;
+	tag_south = 1;
+	tag_south_con = 0.34;
+	tag_west = 1;
+	tag_west_con = 0.33
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eB" = (
+/obj/machinery/atmospherics/tvalve{
+	icon_state = "map_tvalve0";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 6
+	},
+/obj/random/trash,
+/obj/machinery/atmospherics/pipe/cap/hidden/fuel{
+	icon_state = "cap";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	d1 = 5;
+	d2 = 6;
+	icon_state = "5-6"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eE" = (
+/obj/machinery/atmospherics/valve,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eF" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eG" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/turf/simulated/open,
+/area/noctis/reactorov)
+"eH" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"eI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "pirate_con_controller";
+	pixel_x = 24;
+	pixel_y = 6;
+	tag_airpump = "pirate_con_vent";
+	tag_chamber_sensor = "pirate_con_sensor";
+	tag_exterior_door = "pirate_con_ext";
+	tag_interior_door = "pirate_con_int"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"eJ" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"eK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"eL" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"eM" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"eN" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"eO" = (
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"eP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"eQ" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"eR" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"eS" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/item/device/radio/intercom,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"eT" = (
+/turf/simulated/open,
+/area/noctis/bridge)
+"eU" = (
+/obj/effect/paint/black,
+/turf/simulated/wall/titanium,
+/area/noctis/combint)
+"eV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	icon_state = "intact";
+	dir = 6
+	},
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eW" = (
+/obj/machinery/atmospherics/omni/mixer{
+	tag_east = 2;
+	tag_south = 1;
+	tag_south_con = 0.5;
+	tag_west = 1;
+	tag_west_con = 0.5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"eZ" = (
+/obj/machinery/atmospherics/tvalve{
+	icon_state = "map_tvalve0";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fa" = (
+/obj/machinery/atmospherics/pipe/cap/hidden/fuel{
+	icon_state = "cap";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fb" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 9;
+	icon_state = "2-9"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fc" = (
+/turf/simulated/open,
+/area/noctis/combint)
+"fd" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/open,
+/area/noctis/reactorov)
+"fe" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/access_button/airlock_interior{
+	master_tag = "pirate_con_controller";
+	pixel_x = 24;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"ff" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	id_tag = "pirate_con_int"
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fg" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fh" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	id_tag = "pirate_con_int"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fi" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fj" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fk" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fl" = (
+/obj/machinery/door/airlock/glass,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"fm" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"fn" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"fo" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"fp" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"fq" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fs" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/item/device/radio,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"ft" = (
+/obj/machinery/hologram/holopad/longrange,
+/obj/effect/floor_decal/rust/mono/high{
+	color = "#b95a00"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/noctis/bridge)
+"fu" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fv" = (
+/obj/effect/floor_decal/techfloor/corner{
+	icon_state = "techfloor_corners";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/corner{
+	icon_state = "techfloor_corners";
+	dir = 8
+	},
+/obj/structure/bed/chair{
+	icon_state = "chair_preview";
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"fw" = (
+/obj/machinery/computer/helm{
+	icon_state = "computer";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"fx" = (
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fy" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	icon_state = "map";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fz" = (
+/obj/machinery/atmospherics/binary/pump{
+	icon_state = "map_off";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fA" = (
+/obj/effect/floor_decal/industrial/hatch/blue,
+/turf/simulated/floor/reinforced,
+/area/space)
+"fB" = (
+/obj/machinery/shipweapons/beam/ion,
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/reinforced,
+/area/space)
+"fC" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"fD" = (
+/obj/effect/floor_decal/industrial/hatch/blue,
+/turf/simulated/floor/plating,
+/area/space)
+"fE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fG" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down/fuel{
+	icon_state = "down";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/noctis/combint)
+"fH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"fI" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"fJ" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"fK" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"fL" = (
+/obj/structure/catwalk,
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/access_button/airlock_interior{
+	master_tag = "pirate_con_controller";
+	pixel_x = -24;
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"fM" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/exteriorl)
+"fN" = (
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"fO" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/effect/decal/cleanable/blood/xeno,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"fP" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"fQ" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
+"fR" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"fS" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"fT" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fU" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fV" = (
+/obj/structure/table/steel,
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/effect/floor_decal/rust,
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/random/powercell,
+/obj/item/device/flashlight,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fW" = (
+/obj/structure/table/steel,
+/obj/prefab/bluespace_radio,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fX" = (
+/obj/effect/floor_decal/borderfloorgrey/corner,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fY" = (
+/obj/effect/floor_decal/borderfloorgrey,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"fZ" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"ga" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 10
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"gb" = (
+/obj/effect/floor_decal/techfloor,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/bridge)
+"gc" = (
+/obj/structure/catwalk,
+/obj/structure/ladder,
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"gd" = (
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"ge" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	icon_state = "intact";
+	dir = 5
+	},
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"gf" = (
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"gg" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/combint)
+"gh" = (
+/obj/structure/lattice,
+/obj/structure/cable/yellow{
+	d1 = 32;
+	d2 = 4;
+	icon_state = "32-4"
+	},
+/turf/simulated/open,
+/area/noctis/reactorov)
+"gi" = (
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"gj" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"gk" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"gl" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"gm" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gn" = (
+/obj/effect/floor_decal/borderfloorgrey/corner{
+	icon_state = "borderfloorcorner_white";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"go" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gp" = (
+/obj/effect/floor_decal/borderfloorgrey/corner,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gq" = (
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gr" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"gs" = (
+/obj/machinery/computer/engines{
+	icon_state = "computer";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"gt" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight/flashdark,
+/obj/item/device/flashlight/flare/glowstick/green,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"gu" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"gv" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
+"gw" = (
+/obj/random/closet,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
+"gx" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/noctis/reactorov)
+"gy" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/ocabin)
+"gz" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"gA" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/ocabin)
+"gB" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(850)
+	},
+/obj/random/energy,
+/obj/random/handgun,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"gC" = (
+/obj/machinery/light/small/red,
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gD" = (
+/obj/effect/floor_decal/borderfloorgrey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gE" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/borderfloorgrey{
+	icon_state = "borderfloor_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"gF" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"gG" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/computer/navigation{
+	icon_state = "computer";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
+"gH" = (
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"gI" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/wall/titanium,
+/area/noctis/asm)
+"gJ" = (
+/obj/structure/closet/crate,
+/obj/item/weapon/circuitboard/prisoner,
+/obj/item/weapon/circuitboard/rdconsole,
+/obj/item/weapon/circuitboard/operating,
+/obj/item/weapon/circuitboard/circuit_imprinter,
+/obj/item/weapon/circuitboard/protolathe,
+/obj/item/weapon/circuitboard/broken,
+/obj/item/weapon/circuitboard/autolathe,
+/obj/item/weapon/circuitboard/broken,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"gK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"gL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"gM" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"gN" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"gO" = (
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/obj/structure/wall_frame/titanium,
+/obj/effect/paint/silver,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"gP" = (
+/obj/structure/table/rack/dark,
+/obj/item/weapon/handcuffs,
+/obj/item/weapon/handcuffs/cable/blue,
+/obj/item/weapon/handcuffs/cable/red,
+/obj/item/weapon/handcuffs/cable/yellow,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"gQ" = (
+/obj/structure/table/rack/dark,
+/obj/item/weapon/melee/baton,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/random/maintenance/clean,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"gR" = (
+/obj/effect/paint/silver,
+/turf/simulated/wall/titanium,
+/area/noctis/prismngt)
+"gS" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"gT" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"gU" = (
+/obj/structure/barricade/wooden,
+/obj/structure/ladder,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/open,
+/area/noctis/prismngt)
+"gV" = (
+/obj/random/closet,
+/obj/random/cash,
+/obj/random/cash,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"gW" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/prismngt)
+"gX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"gY" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/bridge)
+"gZ" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/noctis/ocabin)
+"ha" = (
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hb" = (
+/obj/structure/table/standard,
+/obj/item/weapon/material/ashtray/plastic,
+/obj/random/drinkbottle,
+/obj/random/smokes,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hc" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/asm)
+"hd" = (
+/obj/structure/closet/crate,
+/obj/random/maintenance/clean,
+/obj/random/maintenance,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"he" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hf" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hg" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hh" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/random/maintenance,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/powercell,
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"hi" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hj" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/item/stack/cable_coil/blue,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hk" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/item/weapon/material/shard,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hl" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hn" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"ho" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/standard/flipped/e,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hr" = (
+/obj/machinery/light/small/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hs" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"ht" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hu" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hv" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hw" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hx" = (
+/obj/structure/ladder,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/open,
+/area/noctis/ocabin)
+"hy" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
+"hz" = (
+/turf/simulated/open,
+/area/noctis/asm)
+"hA" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/space,
+/area/space)
+"hB" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"hC" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hD" = (
+/obj/structure/closet/body_bag,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"hE" = (
+/obj/structure/bed/chair/office/dark{
+	icon_state = "officechair_preview";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"hF" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hG" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hH" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hI" = (
+/obj/structure/foamedmetal/iron,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hJ" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"hK" = (
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 1
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hL" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hM" = (
+/obj/effect/paint/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/asm)
+"hN" = (
+/obj/item/device/integrated_circuit_printer/upgraded,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"hO" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
+"hP" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hQ" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hR" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hS" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hT" = (
+/obj/structure/closet/crate/secure/biohazard/blanks{
+	req_access = list(850)
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"hU" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"hV" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"hW" = (
+/obj/random/maintenance,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hX" = (
+/obj/random/handgun,
+/obj/structure/foamedmetal/iron,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"hY" = (
+/obj/structure/bed,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"hZ" = (
+/obj/structure/foamedmetal,
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"ia" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/obj/structure/closet/crate,
+/obj/random/maintenance/clean,
+/obj/random/maintenance/clean,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"ib" = (
+/obj/effect/paint/black,
+/turf/simulated/wall/titanium,
+/area/noctis/asm)
+"ic" = (
+/obj/structure/closet/secure_closet/engineering_electrical/noctis,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
+"id" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22;
+	req_access = list(850);
+	req_one_access = newlist()
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
+"ie" = (
+/obj/item/weapon/gun/launcher/net,
+/obj/structure/table/steel,
+/obj/item/weapon/handcuffs,
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"if" = (
+/obj/structure/bed/chair/office/dark,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"ig" = (
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"ih" = (
+/obj/machinery/light/small/red,
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"ii" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	icon_state = "apc0";
+	req_access = list(850)
+	},
+/obj/structure/cable/blue,
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/prismngt)
+"ij" = (
+/obj/structure/closet/crate,
+/obj/random/maintenance/clean,
+/obj/random/maintenance,
+/turf/simulated/floor/plating,
+/area/noctis/prismngt)
+"ik" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"il" = (
+/obj/structure/closet/crate/trashcart,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/contraband,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"im" = (
+/obj/machinery/computer/arcade,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"in" = (
+/obj/structure/bed/chair/office/dark{
+	icon_state = "officechair_preview";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"io" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/green,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"ip" = (
+/obj/random/closet,
+/turf/simulated/floor/plating,
+/area/noctis/asm)
+"iq" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
+/area/noctis/asm)
+"ir" = (
+/obj/random/cash,
+/obj/random/cash,
+/obj/structure/table/steel,
+/obj/random/cash,
+/obj/item/weapon/spacecash/bundle/c1000,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"is" = (
+/obj/item/modular_computer/console/preset/merchant{
+	icon_state = "console";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"it" = (
+/obj/machinery/merchant_pad,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/prismngt)
+"iu" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/green_grey,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iv" = (
+/obj/effect/landmark/map_data{
+	height = 2
+	},
+/turf/space,
+/area/space)
+"iw" = (
+/obj/structure/closet/secure_closet/personal/empty,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/smokes,
+/obj/item/stack/material/gold/ten,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"ix" = (
+/obj/random/trash,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iy" = (
+/obj/structure/closet/secure_closet/personal/empty,
+/obj/item/clothing/accessory/scarf{
+	color = "#34d0fa"
+	},
+/obj/random/snack,
+/obj/item/clothing/ears/earring/dangle/diamond,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iz" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/noctis/bridge)
+"iA" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/noctis/exteriorl)
+"iB" = (
+/obj/structure/lattice,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 5
+	},
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/space)
+"iC" = (
+/turf/simulated/floor/reinforced,
+/area/noctis/extconn)
+"iD" = (
+/obj/effect/scorcher,
+/obj/effect/floor_decal/techfloor,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"iE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"iF" = (
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/extconn)
+"iG" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/valve/shutoff,
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"iH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc,
+/obj/structure/cable/blue{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/obj/random/trash,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iJ" = (
+/obj/machinery/light/small/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iK" = (
+/obj/structure/hygiene/shower{
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"iM" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
+"iN" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/simulated/open,
+/area/space)
+"iO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	icon_state = "map_vent";
+	id_tag = "pirate_con_vent"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/extconn)
+"iP" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 8
+	},
+/obj/machinery/access_button/airlock_exterior{
+	master_tag = "pirate_con_controller";
+	pixel_x = -24;
+	pixel_y = 24
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"iQ" = (
+/obj/effect/submap_landmark/joinable_submap/noctis,
+/turf/simulated/floor/tiled/dark,
+/area/noctis/bridge)
+"ki" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"ks" = (
+/obj/effect/paint/silver,
+/obj/effect/overmap/ship/noctis,
+/turf/simulated/wall/titanium,
+/area/noctis/bridge)
+"nb" = (
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/reinforced,
+/area/space)
+"nG" = (
+/obj/structure/closet/secure_closet/engineering_welding/noctis,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/noctis/asm)
+"qg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"ql" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"qv" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"qJ" = (
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled/techfloor,
+/area/noctis/fpm)
+"sc" = (
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/exteriorl)
+"sN" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"wc" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/noctis/ocabin)
+"xP" = (
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"yr" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/space)
+"zs" = (
+/obj/structure/catwalk,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/space)
+"Bn" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
+"Ci" = (
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"Fh" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/space,
+/area/space)
+"Gv" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/space,
+/area/space)
+"Hq" = (
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled/techmaint,
+/area/noctis/asm)
+"JW" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/noctis/extconn)
+"KY" = (
+/obj/structure/grille,
+/turf/simulated/open,
+/area/space)
+"NI" = (
+/obj/effect/floor_decal/industrial/danger{
+	icon_state = "danger";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Qq" = (
+/obj/structure/lattice,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"Rd" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/silver,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/noctis/fpm)
+"Tl" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
+"Tn" = (
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/noctis/exteriorl)
+"TD" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"WR" = (
+/obj/machinery/light/small/d_green{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/open,
+/area/noctis/exteriorl)
+"WV" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/space)
+"XG" = (
+/obj/structure/lattice,
+/obj/structure/closet/crate,
+/obj/item/weapon/ore/diamond,
+/obj/item/weapon/ore/diamond,
+/obj/item/weapon/ore/diamond,
+/obj/item/weapon/ore/diamond,
+/turf/simulated/open,
+/area/noctis/reactorov)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+iv
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Bn
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cP
+Fh
+Fh
+aa
+cP
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+eq
+eq
+aR
+ek
+es
+es
+es
+gc
+aR
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+eq
+eq
+dR
+en
+et
+et
+et
+iA
+iB
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+eb
+eb
+eb
+eb
+dl
+dS
+ex
+eU
+eU
+eU
+dl
+eb
+eb
+eb
+eb
+ib
+aa
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aS
+bw
+cb
+cb
+dm
+dT
+ey
+eV
+fx
+gd
+dS
+gI
+hc
+hc
+hM
+ib
+ib
+ib
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+am
+aT
+bx
+cc
+cF
+dn
+dU
+ez
+eW
+fy
+ge
+dn
+gJ
+hh
+hB
+hN
+ib
+ip
+ib
+WR
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+an
+aU
+by
+cd
+cd
+dr
+dV
+eA
+eX
+fz
+fz
+dn
+gK
+he
+hU
+fC
+ib
+ib
+ib
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ao
+aY
+bz
+ce
+cG
+dn
+dW
+eB
+eY
+fE
+gf
+dn
+hd
+dM
+hz
+hz
+ic
+iq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ap
+ba
+bA
+cf
+cf
+ds
+dX
+eC
+eZ
+fF
+dn
+dn
+gL
+hg
+fI
+hf
+id
+iq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aq
+bd
+bB
+cf
+cH
+dv
+dY
+eD
+fa
+fG
+dn
+gt
+Hq
+hs
+ia
+hP
+nG
+iq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ac
+ar
+be
+ar
+cf
+cI
+dx
+dZ
+eE
+fb
+fH
+gg
+gu
+gM
+hi
+gR
+hQ
+gR
+gW
+gW
+WR
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ai
+at
+bf
+bC
+cg
+cJ
+dy
+dn
+eF
+fc
+dt
+dn
+gv
+gN
+gN
+gR
+hR
+ie
+ir
+gW
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aj
+av
+bg
+bD
+ch
+cK
+dE
+cS
+cS
+cS
+cS
+cS
+gw
+gN
+hj
+hC
+hS
+if
+is
+gW
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ak
+aw
+bh
+bE
+ci
+cf
+cS
+cS
+dH
+dH
+XG
+cS
+cS
+gO
+hk
+hD
+hT
+ig
+it
+gW
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ae
+ay
+bi
+bF
+cj
+cL
+cS
+ea
+dH
+dH
+dH
+dH
+cS
+gP
+hl
+hE
+il
+ih
+gW
+gW
+dw
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+az
+bj
+bG
+ck
+cM
+cS
+ec
+dH
+dH
+dH
+dH
+cS
+gQ
+hm
+hF
+hV
+ii
+gW
+eq
+sN
+eq
+aa
+aa
+aZ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aC
+bl
+bH
+cm
+cQ
+cS
+ed
+dH
+dH
+dH
+gh
+cS
+gR
+gR
+hG
+gR
+gR
+gW
+dw
+yr
+dw
+aZ
+dw
+yr
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+aD
+bm
+bI
+cp
+cR
+dF
+dF
+eG
+fd
+fd
+gi
+cS
+gS
+hn
+hH
+hW
+ij
+gW
+aa
+aZ
+eq
+aa
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ae
+bn
+bK
+bn
+cS
+dG
+ee
+cS
+cQ
+fJ
+gj
+cS
+gT
+gR
+gR
+gR
+gW
+gW
+aa
+aZ
+eq
+aa
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+bo
+bL
+cq
+cS
+dH
+dH
+eH
+fe
+fK
+gk
+gx
+gU
+gR
+hI
+hX
+gW
+aa
+aa
+aZ
+eq
+eq
+eq
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ah
+aa
+aa
+ae
+ae
+bM
+cr
+cS
+cT
+cT
+cT
+ff
+cT
+cT
+cS
+gR
+gR
+hI
+gW
+gW
+aa
+aa
+ah
+eq
+aa
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ah
+aa
+aV
+aa
+aa
+aa
+ae
+ae
+ae
+cT
+dI
+ef
+eI
+fg
+iO
+dI
+cT
+gV
+gW
+gW
+gW
+aa
+aa
+aa
+au
+dw
+ah
+dw
+dw
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+as
+ag
+aV
+aa
+aa
+aa
+aa
+bk
+ae
+cV
+bN
+cV
+cV
+fh
+cV
+bN
+cV
+gW
+gW
+bk
+aa
+aa
+aa
+aa
+au
+aa
+au
+eq
+aZ
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+aa
+aV
+aa
+aa
+aa
+aa
+aa
+bk
+co
+dJ
+bS
+eJ
+fL
+cl
+iP
+dg
+sc
+bk
+dw
+aa
+aa
+aa
+aa
+as
+ag
+cN
+eq
+eq
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+aa
+aW
+ag
+ag
+aA
+eq
+br
+br
+br
+aF
+aL
+bJ
+fi
+cC
+aL
+do
+dz
+dO
+fQ
+fQ
+dA
+hO
+ag
+cN
+xP
+au
+dw
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ag
+ax
+cU
+cU
+cU
+TD
+aB
+cU
+cU
+cU
+cU
+bc
+bO
+bP
+fj
+cn
+dj
+dp
+cU
+cU
+cU
+cU
+dB
+cU
+cU
+aB
+cU
+aB
+eq
+eq
+eq
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aO
+ag
+aX
+dw
+KY
+aG
+bb
+bb
+bb
+bb
+aH
+ep
+bW
+fk
+fM
+dk
+dq
+dw
+iM
+hJ
+cA
+dC
+eq
+eq
+au
+dD
+au
+dw
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+bU
+aV
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aM
+cV
+cV
+fl
+cV
+cV
+Tn
+eq
+eq
+iN
+hy
+hy
+eq
+eq
+au
+eq
+au
+eq
+eq
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+aa
+aV
+aa
+aa
+aa
+aa
+al
+al
+al
+al
+cV
+eK
+iF
+fN
+cV
+gy
+gy
+gy
+gy
+eq
+eq
+eq
+eq
+au
+dw
+au
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aP
+aa
+aV
+aa
+aa
+aa
+al
+al
+cW
+fm
+fn
+iD
+iE
+iG
+fO
+gl
+gz
+gX
+ho
+gy
+gy
+eq
+eq
+eq
+au
+eq
+aP
+eq
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aP
+aa
+aa
+al
+al
+al
+eg
+cY
+cY
+cT
+Ci
+eh
+fP
+cT
+gA
+gA
+qg
+gy
+gy
+gy
+eq
+cU
+aP
+eq
+dw
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+al
+bp
+bQ
+eg
+cY
+dK
+eh
+eh
+eh
+du
+JW
+dK
+gA
+hq
+gA
+hY
+gy
+gy
+cU
+Tl
+eq
+sN
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aE
+bq
+cs
+eL
+cY
+iC
+iC
+iC
+iC
+iC
+iC
+dK
+gA
+hp
+hw
+ha
+ik
+iu
+zs
+WV
+dw
+yr
+dw
+dw
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aI
+bs
+al
+cu
+cY
+iC
+iC
+iC
+iC
+iC
+iC
+eh
+gA
+iJ
+gA
+iK
+iy
+gy
+cX
+Tl
+eq
+Qq
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aJ
+bt
+bT
+ct
+cY
+iC
+iC
+iC
+iC
+iC
+iC
+dK
+gA
+iH
+gA
+hZ
+gy
+gy
+fD
+eq
+eq
+eq
+eq
+aa
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aK
+bu
+bV
+bR
+Rd
+iC
+iC
+iC
+iC
+iC
+iC
+dK
+wc
+hr
+gA
+iw
+im
+iu
+cX
+eq
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aN
+qJ
+bX
+ct
+Rd
+dK
+iC
+iC
+iC
+iC
+iC
+dK
+wc
+ht
+hw
+ix
+in
+iu
+cU
+Tl
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(57,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+aQ
+bv
+bT
+ct
+cY
+ql
+eh
+eh
+fo
+fR
+ki
+dK
+gA
+hx
+gA
+hY
+io
+gy
+cU
+Tl
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(58,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+al
+al
+al
+cv
+cZ
+cZ
+cZ
+eM
+fp
+fS
+cZ
+cZ
+cZ
+hq
+gy
+gy
+gy
+gy
+cU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(59,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bk
+al
+bY
+ct
+cZ
+dL
+ei
+eN
+fq
+fT
+gm
+gB
+cZ
+iI
+hK
+gy
+bk
+aa
+cU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(60,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bk
+al
+bZ
+ct
+cZ
+cy
+ej
+eO
+fr
+fU
+gn
+gC
+cZ
+hu
+hL
+gy
+bk
+aa
+Gv
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(61,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+al
+qv
+cZ
+dN
+el
+eO
+ks
+fV
+go
+gD
+gY
+iL
+gy
+gy
+eo
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(62,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+cw
+cZ
+dN
+em
+eP
+fs
+fW
+gp
+gE
+cZ
+ha
+gy
+eo
+eo
+hA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(63,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+cx
+cZ
+cO
+er
+em
+iQ
+fX
+gq
+gF
+cZ
+hv
+gy
+eo
+Gv
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(64,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+ct
+cZ
+dP
+eu
+ej
+ft
+fY
+gr
+gG
+cZ
+ha
+gy
+eo
+hA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(65,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+cz
+cZ
+cZ
+ev
+eQ
+fu
+fZ
+gs
+cZ
+cZ
+hw
+gy
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(66,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+ct
+da
+cZ
+cZ
+eR
+fv
+ga
+cZ
+cZ
+gZ
+ha
+gy
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(67,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+cB
+db
+ct
+cZ
+eS
+fw
+gb
+cZ
+gH
+ha
+ha
+gy
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(68,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+al
+dc
+cZ
+cZ
+eM
+eM
+eM
+cZ
+cZ
+hb
+gy
+gy
+eo
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(69,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ca
+cD
+dd
+cZ
+iz
+eT
+eT
+eT
+iz
+cZ
+dh
+gy
+nb
+eo
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(70,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+cE
+de
+cZ
+ew
+eT
+eT
+eT
+ew
+cZ
+dh
+NI
+fB
+eo
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(71,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bk
+bk
+df
+cZ
+ew
+eT
+eT
+eT
+ew
+cZ
+dh
+NI
+nb
+Gv
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(72,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bk
+dh
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+dh
+fA
+fA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(73,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+dh
+dQ
+dQ
+dQ
+dQ
+dQ
+dQ
+dQ
+dh
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(74,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+di
+di
+dQ
+dQ
+dQ
+dQ
+dQ
+di
+di
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(75,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+di
+di
+di
+di
+di
+di
+di
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(76,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Bn
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(77,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(78,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(79,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(80,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(81,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(82,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(83,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(84,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(85,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(86,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(87,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(88,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(89,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(90,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(91,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(92,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(93,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(94,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(95,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(96,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(97,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(98,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(99,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(100,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

@@ -172,6 +172,40 @@
 	push_data()
 	activate_pin(2)
 
+/obj/item/integrated_circuit/converter/concatenator/verify_save(list/component_params)
+//This is an incredibly obscure false positive, and due to this I don't feel bad about boilerplate.
+//If for some reason the parent verify_save() gets updated this'll need to be remade.
+	var/init_name = initial(name)
+	// Validate name
+	if(component_params["name"])
+		sanitizeName(component_params["name"],allow_numbers=TRUE)
+	// Validate input values
+	if(component_params["inputs"])
+		var/list/loaded_inputs = component_params["inputs"]
+		if(!islist(loaded_inputs))
+			return "Malformed input values list at [init_name]."
+
+		// Too many inputs? Inputs for input-less component? This is not good.
+		if(!number_of_pins || number_of_pins < length(loaded_inputs))
+			return "Input values list out of bounds at [init_name]."
+
+		for(var/list/input in loaded_inputs)
+			if(input.len != 3)
+				return "Malformed input data at [init_name]."
+
+			var/input_id = input[1]
+			var/input_type = input[2]
+			//var/input_value = input[3]
+
+			// No special type support yet.
+			if(input_type)
+				return "Unidentified input type at [init_name]!"
+			// TODO: support for special input types, such as typepaths and internal refs
+
+			// Input ID is a list index, make sure it's sane.
+			if(!isnum(input_id) || input_id % 1 || input_id > number_of_pins || input_id < 1)
+				return "Invalid input index at [init_name]."
+
 /obj/item/integrated_circuit/converter/concatenator/small
 	name = "small concatenator"
 	desc = "This can join up to 4 strings together to get one big string."

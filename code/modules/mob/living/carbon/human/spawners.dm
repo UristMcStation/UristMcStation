@@ -7,9 +7,10 @@
 	var/language = LANGUAGE_GALCOM
 	var/new_name
 	var/new_gender
-	var/hair_style           // Regular name
-	var/list/skin_color      // RGB
+	var/hair_style           // /datum/sprite_accessory/hair name var
+	var/facial_hair          // /datum/sprite_accessory/facial_hair
 	var/list/tone = "RAND"   // 0-255, multiple leads to randomized
+	var/list/skin_color      // RGB
 	var/list/eye_color       // RGB
 	var/list/hair_color = "RAND" // RGB
 	var/clothing             // /decl/hierarchy/outfit
@@ -17,7 +18,6 @@
 	var/assignment           // Outfit assignment
 	var/killed               // Brain dead on spawn
 	var/list/damage          // Use BP defines = damage
-	var/list/viruses         // Enter severities of 1-5 to add a new virus
 	var/post_setup           // Do everything except qdel self
 
 	var/mob/living/carbon/human/H
@@ -25,8 +25,10 @@
 /obj/effect/spawner/carbon/human/Initialize()
 	. = ..()
 	H = new /mob/living/carbon/human(loc)
-	var/datum/language/L = all_languages[language]
+	H.set_dir(dir)
 	H.set_species(species)
+
+	var/datum/language/L = all_languages[language]
 
 	if(new_gender)
 		H.change_gender(new_gender)
@@ -40,6 +42,10 @@
 			H.reset_hair()
 	else
 		H.reset_hair()
+
+	if(facial_hair)
+		if(!H.change_facial_hair(facial_hair))
+			log_debug("Invalid facial hair [facial_hair]")
 
 	if(new_name)
 		H.real_name = new_name
@@ -71,7 +77,7 @@
 		O.equip(H)
 
 	if(killed)
-		H.setBrainLoss(200)
+		H.setBrainLoss(H.maxHealth)
 
 	if(damage)
 		if(damage["damage_all_brute"] || damage["damage_all_burn"])
@@ -82,20 +88,15 @@
 				if(O)
 					O.take_external_damage(damage[limb])
 
-		if(damage["impale"] && ispath(damage["impale"]))
+		if(damage["impale"])
 			var/turf/T = H.near_wall(dir,2)
-			var/obj/item/weapon/arrow/rod/R = new(H)
 
 			if(T)
+				var/obj/item/weapon/arrow/rod/R = new(H)
+				H.set_dir(GLOB.reverse_dir[dir])
 				H.loc = T
 				H.anchored = 1
 				H.pinned += R
-
-	if(viruses)
-		for(var/V in viruses)
-			var/datum/disease2/disease/D = new /datum/disease2/disease
-			D.makerandom(V)
-			infect_virus2(H,D,1)
 
 	var/turf/T = get_turf(src)
 	var/obj/structure/bed/B = locate() in T.contents
