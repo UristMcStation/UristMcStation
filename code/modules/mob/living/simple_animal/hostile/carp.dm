@@ -44,9 +44,9 @@
 	if(.)
 		custom_emote(1,"nashes at [.]")
 
-/mob/living/simple_animal/hostile/carp/AttackingTarget()
+/mob/living/simple_animal/hostile/carp/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
-	var/mob/living/L = .
+	var/mob/living/L = A
 	if(istype(L))
 		if(prob(15))
 			L.Weaken(3)
