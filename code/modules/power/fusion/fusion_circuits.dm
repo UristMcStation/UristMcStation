@@ -29,6 +29,7 @@
 	name = "circuit board (gyrotron)"
 	build_path = /obj/machinery/power/emitter/gyrotron
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
+	board_type = "machine"
 	req_components = list(
 						/obj/item/weapon/stock_parts/manipulator/pico = 2,
 						/obj/item/weapon/stock_parts/micro_laser/ultra = 1,
