@@ -29399,10 +29399,32 @@
 /obj/effect/paint_stripe/brown,
 /turf/simulated/wall/r_wall,
 /area/engineering/locker)
+"njx" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/cents)
 "nzd" = (
 /obj/effect/paint_stripe/brown,
 /turf/simulated/wall,
 /area/engineering/locker)
+"nUv" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/landmark/start{
+	name = "Consul"
+	},
+/turf/simulated/floor/carpet/green,
+/area/command/meeting)
 "ogN" = (
 /obj/effect/floor_decal/corner/black/border{
 	tag = "icon-bordercolor (WEST)";
@@ -29517,10 +29539,21 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/command/storage)
+"vDr" = (
+/obj/structure/table/rack,
+/obj/random/maintenance/clean,
+/obj/random/bomb_supply,
+/obj/random/toolbox,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/cents)
 "vTO" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
 /area/medical/cmo)
+"xah" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/cents)
 "ycr" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall,
@@ -53888,9 +53921,9 @@ aMu
 aQk
 aRu
 aSu
-aTq
-aTq
-aTq
+xah
+njx
+vDr
 aTq
 aTq
 aTq
@@ -59121,9 +59154,9 @@ atU
 auV
 awq
 axz
+nUv
 ayJ
-ayJ
-ayJ
+nUv
 axz
 aCK
 aDk
