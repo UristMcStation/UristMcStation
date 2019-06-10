@@ -372,7 +372,7 @@
 /obj/structure/flora/shimmering_orb
 	name = "shimmering orb"
 	desc = "A floating stone shaped in the form of an orb, small cracks of bioluminescent growths within give off a calming light."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/urist/asteroidflora.dmi'
 	icon_state = "shimmering_orb"
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
