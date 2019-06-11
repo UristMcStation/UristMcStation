@@ -103,6 +103,8 @@
 			cell = thing
 			playsound(loc, 'sound/machines/click.ogg', 10, 1)
 			user.visible_message("<span class='notice'>\The [user] slots \the [cell] into \the [src].</span>")
+			user.unEquip(cell, get_turf(src))
+			cell.forceMove(src)
 			update_icon()
 			return
 
@@ -128,6 +130,8 @@
 			playsound(loc, 'sound/machines/click.ogg', 10, 1)
 			power_per_tick = (power_cost*0.15) * capacitor.rating
 			user.visible_message("<span class='notice'>\The [user] slots \the [capacitor] into \the [src].</span>")
+			user.unEquip(capacitor, get_turf(src))
+			capacitor.forceMove(src)
 			update_icon()
 			return
 
