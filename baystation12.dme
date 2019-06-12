@@ -2898,6 +2898,7 @@
 #include "code\modules\urist\modules\shipbattles\ship_landmarks.dm"
 #include "code\modules\urist\modules\shipbattles\ship_overmaps.dm"
 #include "code\modules\urist\modules\shipbattles\ship_projectiles.dm"
+#include "code\modules\urist\modules\shipbattles\torpedo_warhead.dm"
 #include "code\modules\urist\modules\shipbattles\weapons.dm"
 #include "code\modules\urist\modules\weather\area_climates.dm"
 #include "code\modules\urist\modules\weather\weather_controller.dm"
