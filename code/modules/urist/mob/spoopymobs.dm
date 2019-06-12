@@ -26,7 +26,6 @@
 	var/regen_delay = 900 //delay for regen revive
 
 /datum/reagent/toxin/zombie/uristzombie
-	flags = AFFECTS_DEAD
 	metabolism = REM
 	target_organ = BP_BRAIN
 
@@ -66,12 +65,12 @@
 		var/true_dose = H.chem_doses[type] + volume
 		var/idlemsg_proba = 10
 
-		if(true_dose > 10 && prob(50*(true_dose-10)/(true_dose+15)))
+		if(true_dose > 10 && prob(Clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
 			if(prob(1))
 				// psych!
 				to_chat(H, "<span class='warning'>[pick(transformation_msgs)]</span>")
 
-			else if(prob(min(25, true_dose+0.1*H.getBrainLoss())))
+			else if(prob(Clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
 				idlemsg_proba = 5 // symptom spam avoidance
 				var/organs = list(BP_R_ARM,BP_L_LEG,BP_L_ARM,BP_R_LEG,BP_GROIN,BP_CHEST)
 				var/undecayed_ctr = length(organs) // make your own immature joke here
@@ -92,14 +91,15 @@
 						to_chat(H, "<span class='warning'>[decay_msg]</span>")
 
 						for (var/obj/item/organ/external/C in E.children)
-							C.status |= ORGAN_DEAD
+							if (C && !(C.status & ORGAN_DEAD) && !(BP_IS_ROBOTIC(C) || BP_IS_CRYSTAL(C)))
+								C.status |= ORGAN_DEAD
 						break
 					else
 						undecayed_ctr--
 
 				H.update_body(1)
 
-				if(prob(max(0, 100-100*(undecayed_ctr/length(organs)))))
+				if(prob(Clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
 					// NOTE: this *deliberately* does not care if the mob lost the limb.
 					// So, reverse necromorph - less limbs => less tissue to infect.
 					var/obj/item/organ/external/Head = H.organs_by_name[BP_HEAD]
@@ -111,7 +111,7 @@
 						else
 							H.uZombify(1, 1, transformation_msgs)
 		else
-			// straight copy of plain reagent/toxin/affect_blood()
+			// almost straight copy of plain reagent/toxin/affect_blood()
 			if(strength && alien != IS_DIONA)
 				M.add_chemical_effect(CE_TOXIN, strength)
 				var/dam = (1 + rand(5))
@@ -127,27 +127,29 @@
 								I.take_internal_damage(dam, silent=TRUE)
 								dam = 0
 				if(dam)
-					M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
+					// nerfed damage w/ target_organ here -scr
+					M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
+			// endcopy
 
 		// custom sadism
-		if(prob(max(0, idlemsg_proba)))
+		if(prob(Clamp(idlemsg_proba, 0, 100)))
 			to_chat(H, "<span class='warning'>[pick(symptom_msgs)]</span>")
 
-		if(prob(true_dose))
-			H.reagents.add_reagent(src.type, rand(10*removed))
+		if(prob(Clamp(true_dose, 0, 100)))
+			H.reagents.add_reagent(src.type, rand(removed, 0.1*true_dose))
 
 		H.add_chemical_effect(CE_PAINKILLER, 40)
 
 		// transforming sanics the victim's metabolism:
 		H.add_chemical_effect(CE_PULSE, 4)
 		H.nutrition -= min(H.nutrition, true_dose)
-		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5,10))
-		if(prob(min(1+true_dose, 10)))
+		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5, 15))
+		if(prob(Clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
-	var/acount = rand(2,6)
+	var/acount = rand(2,8)
 	var/astring = "a"
 	for(var/i, i<acount, i++)
 		astring += "a"
@@ -213,8 +215,11 @@
 			var/mob/living/carbon/human/victim = A
 
 			if(victim.reagents)
-				victim.reagents.add_reagent(/datum/reagent/toxin/zombie/uristzombie, rand(1, 15))
-				uZombieInfect(victim)
+				var/biosafety = victim.getarmor(null, "bio")
+				if(prob(Clamp(100-biosafety, 0, 100)))
+					victim.reagents.add_reagent(/datum/reagent/toxin/zombie/uristzombie, rand(5, 10))
+
+			uZombieInfect(victim)
 
 		else if(istype(A, /mob/living/simple_animal/hostile/scom/civ))
 			var/mob/living/simple_animal/hostile/scom/civ/victim = A
