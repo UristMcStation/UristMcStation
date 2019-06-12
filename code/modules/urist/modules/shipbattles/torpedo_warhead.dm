@@ -1,6 +1,5 @@
 //TORPEDO WARHEAD BEGIN//
 //Torpedo IEDs begin
-#define PANEL_CLOSED 1
 #define CIRCUITRY_EXPOSED 2
 #define CIRCUITRY_MODIFIED 3
 #define CIRCUITRY_RIGGED 4
@@ -21,8 +20,10 @@
 	wires = new/datum/wires/torpedowarhead(src)
 
 /obj/item/shipweapons/torpedo_warhead/Destroy()
-	qdel(wires)
+	QDEL_NULL(wires)
 	wires = null
+	QDEL_NULL(attached_device)
+	attached_device = null
 
 /obj/item/shipweapons/torpedo_warhead/examine(mob/user)
 	..(user)
@@ -34,7 +35,7 @@
 		if(0) to_chat(user, "<span class='warning'>The safeties have been disabled.</span>")
 		if(1) to_chat(user, "<span class='notice'>The safeties are enabled.</span>")
 	if(is_rigged)
-		to_chat(user, "<span class='warning'>There is a [attached_device] attached to the warhaed.</span>")
+		to_chat(user, "<span class='warning'>There is \a [attached_device] attached to the warhead.</span>")
 
 /obj/item/shipweapons/torpedo_warhead/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/crowbar))
@@ -82,7 +83,7 @@
 				icon_state = "torpedowarhead-open-mod"
 		return
 	else if(istype(I, /obj/item/device/multitool))
-		if(riggedstate < CIRCUITRY_EXPOSED)
+		if(riggedstate == CIRCUITRY_EXPOSED)
 			wires.Interact(user)
 	else if(istype(I, /obj/item/stack/cable_coil) && riggedstate == CIRCUITRY_MODIFIED)
 		to_chat(user, "<span class='notice'>You rig a wire from the torpedo warhead's detonator circuit. You can now attach something to it to detonate it remotely.</span>")
@@ -105,7 +106,7 @@
 
 /obj/item/shipweapons/torpedo_warhead/attack_self(mob/user as mob)
 	..()
-	if(riggedstate < CIRCUITRY_EXPOSED)
+	if(riggedstate == CIRCUITRY_EXPOSED)
 		wires.Interact(user)
 
 /obj/item/shipweapons/torpedo_warhead/proc/process_activation() // uh oh, time to boom
@@ -132,6 +133,10 @@
 		playsound(src.loc, 'sound/machines/ping.ogg', 25, 0, 10)
 		playsound(src.loc, 'sound/items/countdown.ogg', 25, 0, 10)
 		spawn(4 SECONDS)
+			if(safety) //if the madlads somehow disarm this thing BEFORE detonation ...
+				visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
+				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
+				return
 			explosion(src, 1, 3, 5)
 			qdel(src)
 
@@ -143,12 +148,11 @@
 var/const/TWARHEAD_SAFE		= 1
 var/const/TWARHEAD_SAFE_2	= 2
 var/const/TWARHEAD_DETONATE = 4
-var/const/TWARHEAD_HINT = 8
 
 /datum/wires/torpedowarhead/GetInteractWindow()
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	. += ..()
-	. += "Admid he various components, you see the safety interlocks are [N.safety ? "engaged" : "disengaged"].<BR>"
+	. += "Amid the various components, you see the safety interlocks are [N.safety ? "engaged" : "disengaged"].<BR>"
 
 /datum/wires/torpedowarhead/UpdatePulsed(var/index)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
@@ -169,7 +173,6 @@ var/const/TWARHEAD_HINT = 8
 				N.icon_state = "torpedowarhead-open-mod[N.safety ? "" : "-armed"]"
 		if(TWARHEAD_DETONATE)
 			N.detonate()
-		if(TWARHEAD_HINT)
 
 /datum/wires/torpedowarhead/UpdateCut(var/index, var/mended)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
@@ -187,7 +190,6 @@ var/const/TWARHEAD_HINT = 8
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin
-#undef PANEL_CLOSED
 #undef CIRCUITRY_EXPOSED
 #undef CIRCUITRY_MODIFIED
 #undef CIRCUITRY_RIGGED
