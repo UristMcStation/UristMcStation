@@ -69,6 +69,17 @@
 	name = "bluespace radio"
 	prefab_type = /decl/prefab/ic_assembly/bluespace_radio
 
+/obj/prefab/bluespace_radio/Initialize() //The circuit verify absolutely hates this prefab
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/prefab/bluespace_radio/LateInitialize()
+	var/decl/prefab/prefab = decls_repository.get_decl(prefab_type)
+	prefab.create(loc)
+	qdel(src)
+
+/obj/structure/closet/secure_closet/engineering_electrical/noctis
+	req_access = access_noctis
+
 /obj/structure/closet/secure_closet/engineering_electrical/noctis/WillContain()
 	return list(
 		/obj/item/clothing/gloves/insulated = 1,
@@ -78,6 +89,9 @@
 		/obj/item/weapon/module/power_control = 2,
 		/obj/item/device/multitool = 2
 	)
+
+/obj/structure/closet/secure_closet/engineering_welding/noctis
+	req_access = access_noctis
 
 /obj/structure/closet/secure_closet/engineering_welding/noctis/WillContain()
 	return list(
