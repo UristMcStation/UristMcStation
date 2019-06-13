@@ -1,7 +1,7 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	icon = 'icons/urist/turf/wall_masks.dmi'
+	icon = 'icons/turf/wall_masks.dmi'
 	icon_state = "generic"
 	opacity = 1
 	density = 1
@@ -30,17 +30,17 @@
 	var/list/noblend_objects = list(/obj/machinery/door/window) //Objects to avoid blending with (such as children of listed blend objects.
 
 /turf/simulated/wall/New(var/newloc, var/materialtype, var/rmaterialtype)
+	..(newloc)
 	icon_state = "blank"
 	if(!materialtype)
 		materialtype = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(materialtype)
 	if(!isnull(rmaterialtype))
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
-	..(newloc)
-
-/turf/simulated/wall/Initialize()
 	update_material()
 	hitsound = material.hitsound
+
+/turf/simulated/wall/Initialize()
 	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
 	START_PROCESSING(SSturf, src) //Used for radiation.
 	. = ..()
