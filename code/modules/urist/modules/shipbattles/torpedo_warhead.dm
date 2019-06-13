@@ -21,9 +21,8 @@
 
 /obj/item/shipweapons/torpedo_warhead/Destroy()
 	QDEL_NULL(wires)
-	wires = null
 	QDEL_NULL(attached_device)
-	attached_device = null
+	. = ..()
 
 /obj/item/shipweapons/torpedo_warhead/examine(mob/user)
 	..(user)
