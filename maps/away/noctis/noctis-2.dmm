@@ -151,7 +151,6 @@
 /area/noctis/atmos)
 "ax" = (
 /obj/structure/catwalk,
-/obj/structure/lattice,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 4;
@@ -162,7 +161,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/space)
 "ay" = (
 /obj/machinery/door/airlock/hatch,
@@ -184,15 +183,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
-"aA" = (
-/obj/structure/lattice,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/open,
-/area/space)
 "aB" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
@@ -246,26 +236,15 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/reinforced,
 /area/space)
-"aG" = (
-/obj/structure/lattice,
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/open,
-/area/space)
 "aH" = (
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/rust,
-/obj/structure/cable/blue,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -393,18 +372,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"aW" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/blue{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/blue{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "aX" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/blue{
@@ -443,26 +410,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
-"bb" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/open,
-/area/space)
 "bc" = (
-/obj/structure/cable/blue{
+/obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -480,7 +437,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	icon_state = "intact";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
@@ -498,7 +455,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	icon_state = "intact";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
@@ -1470,6 +1427,7 @@
 	icon_state = "intact";
 	dir = 6
 	},
+/obj/machinery/meter,
 /turf/simulated/wall/titanium,
 /area/noctis/combint)
 "dt" = (
@@ -1506,8 +1464,9 @@
 /area/space)
 "dx" = (
 /obj/machinery/atmospherics/tvalve/mirrored/bypass{
+	dir = 8;
 	icon_state = "map_tvalvem1";
-	dir = 8
+	initialize_directions = 14
 	},
 /obj/effect/floor_decal/rust,
 /obj/structure/cable/blue{
@@ -1779,7 +1738,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/noctis/gasestore)
 "ec" = (
 /obj/structure/catwalk,
 /obj/machinery/light/colored/blue{
@@ -1973,8 +1932,9 @@
 /area/noctis/combint)
 "eB" = (
 /obj/machinery/atmospherics/tvalve{
+	dir = 4;
 	icon_state = "map_tvalve0";
-	dir = 4
+	initialize_directions = 14
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -2065,6 +2025,11 @@
 	tag_chamber_sensor = "pirate_con_sensor";
 	tag_exterior_door = "pirate_con_ext";
 	tag_interior_door = "pirate_con_int"
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "pirate_con_sensor";
+	pixel_x = 24;
+	pixel_y = -6
 	},
 /turf/simulated/floor/plating,
 /area/noctis/extconn)
@@ -2195,22 +2160,22 @@
 	icon_state = "intact";
 	dir = 5
 	},
-/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "eZ" = (
 /obj/machinery/atmospherics/tvalve{
+	dir = 8;
 	icon_state = "map_tvalve0";
-	dir = 8
+	initialize_directions = 13
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "fa" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/cap/hidden/fuel{
 	icon_state = "cap";
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "fb" = (
@@ -2229,6 +2194,7 @@
 	d2 = 9;
 	icon_state = "2-9"
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "fc" = (
@@ -2818,6 +2784,7 @@
 /obj/structure/table/steel,
 /obj/prefab/bluespace_radio,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/bridge)
 "fX" = (
@@ -3709,6 +3676,9 @@
 	icon_state = "intact-supply";
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/noctis/prismngt)
 "hH" = (
@@ -4078,8 +4048,9 @@
 /area/noctis/prismngt)
 "is" = (
 /obj/item/modular_computer/console/preset/merchant{
-	icon_state = "console";
-	dir = 1
+	computer_emagged = 1;
+	dir = 1;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)
@@ -4404,6 +4375,15 @@
 	},
 /turf/simulated/open,
 /area/noctis/exteriorl)
+"uu" = (
+/obj/structure/catwalk,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/blue,
+/turf/simulated/floor/plating,
+/area/space)
 "wc" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/silver,
@@ -4431,6 +4411,14 @@
 /obj/effect/shuttle_landmark/automatic,
 /turf/space,
 /area/space)
+"BL" = (
+/obj/structure/cable/green,
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Ci" = (
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
@@ -4447,6 +4435,13 @@
 	},
 /turf/space,
 /area/space)
+"Gm" = (
+/obj/machinery/atmospherics/unary/engine{
+	icon_state = "nozzle";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
 "Gv" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
@@ -4515,8 +4510,31 @@
 	icon_state = "bulb_map";
 	dir = 4
 	},
-/turf/simulated/open,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
 /area/noctis/exteriorl)
+"Ue" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"VY" = (
+/obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "WR" = (
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
@@ -6846,10 +6864,10 @@ eU
 eU
 eU
 dl
-eb
-eb
-eb
-eb
+Gm
+Gm
+Gm
+Gm
 ib
 aa
 aa
@@ -8973,10 +8991,10 @@ aa
 aa
 au
 aa
-aW
-ag
-ag
-aA
+aV
+dw
+dw
+dw
 eq
 br
 br
@@ -9072,19 +9090,19 @@ aa
 aa
 aa
 ad
-ag
+bO
 ax
 cU
-cU
-cU
+Ue
+VY
 TD
-aB
-cU
-cU
-cU
-cU
+VY
+VY
+VY
+VY
+uu
 bc
-bO
+BL
 bP
 fj
 cn
@@ -9180,11 +9198,11 @@ ag
 aX
 dw
 KY
-aG
-bb
-bb
-bb
-bb
+dw
+iM
+iM
+iM
+iM
 aH
 ep
 bW
