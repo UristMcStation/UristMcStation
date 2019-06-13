@@ -3002,6 +3002,7 @@
 "gr" = (
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/bed/chair,
+/obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "gs" = (

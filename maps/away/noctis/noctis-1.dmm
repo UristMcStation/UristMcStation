@@ -574,7 +574,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/random/handgun,
 /obj/effect/floor_decal/borderfloor{
 	icon_state = "borderfloor_white";
 	dir = 4
@@ -3576,13 +3575,13 @@
 /obj/structure/closet/crate/secure/boobytrapped/weapon{
 	req_access = list(999)
 	},
-/obj/item/weapon/gun/projectile/automatic/spaceak,
 /obj/item/weapon/gun/projectile/heavysniper/ant,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
 "gE" = (
@@ -4878,6 +4877,7 @@
 /obj/item/weapon/tank/emergency/oxygen{
 	starting_pressure = list()
 	},
+/obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "iN" = (
@@ -5238,7 +5238,7 @@
 	req_access = list(850);
 	req_one_access = newlist()
 	},
-/obj/effect/submap_landmark/spawnpoint/hijacker,
+/obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "jA" = (
