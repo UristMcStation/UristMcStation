@@ -297,6 +297,10 @@
 	name = "\improper Atmospherics"
 	icon_state = "atmos"
 
+/area/engineering/atmospherics/turbine
+	name = "\improper Gas Turbine"
+	icon_state = "atmos"
+
 /area/engineering/engine
 	name = "\improper Engine Room"
 	icon_state = "engine"

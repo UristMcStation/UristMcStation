@@ -4499,6 +4499,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"jj" = (
+/obj/machinery/button/remote/blast_door{
+	id = "burnchambervent";
+	name = "Burn Chamber Vent";
+	pixel_x = -24;
+	pixel_y = -8
+	},
+/obj/machinery/button/ignition{
+	id = "turbineignition";
+	pixel_x = -24
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "jk" = (
 /turf/simulated/floor/wood,
 /area/civilian/dorms)
@@ -9038,9 +9053,13 @@
 /turf/simulated/floor/plating,
 /area/command/fobedroom)
 "rF" = (
-/obj/item/weapon/tank/emergency/oxygen/double,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
+/obj/machinery/power/smes,
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "rG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/item/device/radio/intercom{
@@ -10366,15 +10385,18 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"tD" = (
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "tE" = (
-/obj/item/trash/cigbutt/rand,
-/obj/item/trash/cigbutt/rand,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "tF" = (
 /obj/machinery/status_display,
 /turf/simulated/wall/r_wall,
@@ -11065,11 +11087,11 @@
 	},
 /area/maintenance/second_deck/fs)
 "vb" = (
-/obj/structure/closet,
-/obj/random/maintenance,
-/obj/random/smokes,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "vc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -13495,6 +13517,14 @@
 /obj/effect/shuttle_landmark/ninja/deck2,
 /turf/space,
 /area/space)
+"Ab" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 4409;
+	id = "turbine_in"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "Aq" = (
 /obj/structure/bed/chair/couch/right/black,
 /obj/item/weapon/papercrafts/oragami/swan,
@@ -13657,6 +13687,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"Do" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	icon_state = "map_off";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "Dx" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -13666,10 +13703,17 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"Dy" = (
-/obj/random/toolbox,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
+"DH" = (
+/obj/machinery/igniter{
+	id = "turbineignition"
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "DP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -13794,6 +13838,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"EN" = (
+/obj/machinery/door/airlock/glass/atmos{
+	frequency = 4410;
+	id_tag = "turbine_interior"
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/embedded_controller/radio/airlock/access_controller{
+	frequency = 4410;
+	pixel_x = 8;
+	pixel_y = -24;
+	req_access = list(24);
+	tag_exterior_door = "turbine_exterior";
+	tag_interior_door = "turbine_interior"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "EO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -13813,16 +13877,42 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"Fh" = (
+/obj/machinery/door/blast/regular{
+	id = "burnchambervent"
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmospherics/turbine)
 "Fx" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"FD" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/wall/ocp_wall,
+/area/engineering/atmospherics/turbine)
 "FI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"FM" = (
+/obj/machinery/door/airlock/glass/atmos{
+	frequency = 4410;
+	id_tag = "turbine_exterior"
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "FR" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/power/apc{
@@ -13849,6 +13939,22 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
+"Gx" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "Gy" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -13893,6 +13999,13 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"GR" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	icon_state = "map_off";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "Hq" = (
 /obj/machinery/light{
 	dir = 8
@@ -13921,6 +14034,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
+"HB" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics/turbine)
 "HP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
@@ -14050,10 +14166,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
+"Jm" = (
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "Js" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
 /area/engineering/substation/second_deck)
+"JF" = (
+/obj/machinery/power/turbine{
+	icon_state = "turbine";
+	dir = 8
+	},
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "JQ" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -14124,6 +14259,9 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
+"KB" = (
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "KM" = (
 /obj/structure/closet/wardrobe/chaplain_black{
 	name = "chapel closet"
@@ -14138,10 +14276,18 @@
 /turf/simulated/floor/wood,
 /area/civilian/counselor)
 "Le" = (
-/obj/item/weapon/tank/emergency/oxygen/double,
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "Lf" = (
 /obj/structure/railing/mapped{
 	tag = "icon-railing0 (EAST)";
@@ -14176,6 +14322,27 @@
 /obj/random/soap,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"Lq" = (
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics";
+	req_access = list(24)
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "LA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass/civilian{
@@ -14415,6 +14582,24 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"OE" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 4409;
+	icon_state = "map_vent_in";
+	id_tag = "turbine_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "Pg" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -14442,6 +14627,32 @@
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/substation/atmos)
+"Pk" = (
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
+"PH" = (
+/obj/machinery/compressor{
+	comp_id = "turbine";
+	dir = 4;
+	icon_state = "compressor"
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmospherics/turbine)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -14540,6 +14751,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
+"Qz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "QM" = (
 /obj/structure/ladder,
 /turf/simulated/floor/plating,
@@ -14586,6 +14803,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
+"Rr" = (
+/obj/machinery/computer/turbine_computer{
+	dir = 1;
+	id = "turbine"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "RB" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -14640,6 +14864,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"Sz" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "turbine"
+	},
+/obj/structure/grille,
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmospherics/turbine)
 "SF" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/reinforced,
@@ -14662,6 +14895,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
+"Tr" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/weapon/cell/high;
+	dir = 4;
+	name = "east bump";
+	pixel_x = 26
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "TE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14792,6 +15043,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
+"Vw" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "VN" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/reinforced,
@@ -15006,6 +15264,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
+"XV" = (
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/valve,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 "XW" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(22)
@@ -15034,6 +15301,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
+"Yh" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics/turbine)
 "Yj" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -15043,6 +15317,9 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"Yu" = (
+/turf/simulated/wall/ocp_wall,
+/area/maintenance/second_deck/afs)
 "YF" = (
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
@@ -15076,6 +15353,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"Zj" = (
+/turf/simulated/wall/ocp_wall,
+/area/engineering/atmospherics/turbine)
 "Zu" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 2;
@@ -15083,10 +15363,52 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"ZW" = (
-/obj/random/tool,
+"Zy" = (
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	tag = "icon-map-scrubbers (EAST)";
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"ZV" = (
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
+"ZW" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 1;
+	frequency = 4409;
+	input_tag = "turbine_in";
+	output_tag = "turbine_out"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics/turbine)
 
 (1,1,1) = {"
 aa
@@ -26914,9 +27236,9 @@ eU
 aa
 eU
 aa
-aa
-aa
-aa
+Zj
+Sz
+Zj
 aa
 aa
 aa
@@ -27116,9 +27438,9 @@ eU
 aa
 eU
 aa
-aa
-aa
-aa
+Zj
+JF
+Zj
 aa
 aa
 aa
@@ -27317,11 +27639,11 @@ aa
 eU
 aa
 eU
-aa
-aa
-aa
-aa
-aa
+Zj
+Zj
+PH
+Zj
+Zj
 aa
 aa
 aa
@@ -27519,11 +27841,11 @@ aa
 eU
 aa
 eU
-aa
-aa
-aa
-aa
-aa
+Zj
+OE
+DH
+Ab
+Fh
 aa
 aa
 aa
@@ -27721,11 +28043,11 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-pe
-pe
+Zj
+FD
+FM
+FD
+Yu
 pe
 pe
 pe
@@ -27923,10 +28245,10 @@ ah
 ah
 ah
 ah
-ah
-ah
-pe
-pe
+HB
+GR
+Jm
+Do
 pe
 pe
 pe
@@ -28125,15 +28447,15 @@ ah
 ah
 ah
 ah
-ah
-ah
+HB
+Yh
+EN
+Yh
 pe
 pe
 qh
-Dy
-zQ
 qh
-qi
+pe
 wj
 pf
 pf
@@ -28327,11 +28649,11 @@ hr
 hr
 hr
 hr
-pe
-pe
-pe
-pe
-zQ
+HB
+Pk
+XV
+jj
+Rr
 Ph
 Ph
 Ph
@@ -28529,10 +28851,10 @@ hY
 hY
 hY
 ot
-pe
-pe
-pe
-pe
+HB
+ZV
+KB
+Vw
 ZW
 Ph
 HA
@@ -28731,11 +29053,11 @@ lF
 hZ
 nz
 ej
-pe
+HB
 Le
-tD
+KB
 vb
-qh
+Qz
 Ph
 UJ
 Wh
@@ -28933,11 +29255,11 @@ lG
 my
 ej
 ej
-pe
+HB
 rF
-qh
+Tr
 tE
-uk
+Gx
 Ph
 BW
 Mn
@@ -29135,11 +29457,11 @@ lH
 mz
 ej
 ej
-pe
-qi
-pe
-pe
-pe
+HB
+HB
+HB
+HB
+Lq
 Ph
 Ax
 Ph
@@ -29341,7 +29663,7 @@ UX
 UX
 UX
 UX
-UX
+Zy
 UX
 RR
 pf

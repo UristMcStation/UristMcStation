@@ -14,46 +14,20 @@
 	var/capacity = 1e6
 	var/comp_id = 0
 
-/obj/machinery/power/turbine
-	name = "gas turbine generator"
-	desc = "A gas turbine used for backup power generation."
-	icon = 'icons/obj/pipes.dmi'
-	icon_state = "turbine"
-	anchored = 1
-	density = 1
-	var/obj/machinery/compressor/compressor
-	var/turf/simulated/outturf
-	var/lastgen
-
-/obj/machinery/computer/turbine_computer
-	name = "Gas turbine control computer"
-	desc = "A computer to remotely control a gas turbine."
-	icon = 'icons/obj/computer.dmi'
-	icon_keyboard = "tech_key"
-	icon_screen = "turbinecomp"
-	circuit = /obj/item/weapon/circuitboard/turbine_control
-	anchored = 1
-	density = 1
-	var/obj/machinery/compressor/compressor
-	var/list/obj/machinery/door/blast/doors
-	var/id = 0
-	var/door_status = 0
-
 // the inlet stage of the gas turbine electricity generator
 
-/obj/machinery/compressor/New()
-	..()
+/obj/machinery/compressor/Initialize()
+	. = ..()
 
 	gas_contained = new
 	inturf = get_step(src, dir)
-
-	spawn(5)
-		turbine = locate() in get_step(src, get_dir(inturf, src))
-		if(!turbine)
-			stat |= BROKEN
-		else
-			turbine.stat &= !BROKEN
-			turbine.compressor = src
+	turbine = locate() in get_step(src, get_dir(inturf, src))
+	if(!turbine)
+		stat |= BROKEN
+	else
+		turbine.stat &= !BROKEN
+		turbine.compressor = src
+		START_PROCESSING(SSmachines, src)
 
 
 #define COMPFRICTION 5e5
@@ -98,24 +72,41 @@
 		overlays += image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
 	 //TODO: DEFERRED
 
-/obj/machinery/power/turbine/New()
-	..()
+
+/obj/machinery/compressor/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	return 0
+
+
+/obj/machinery/power/turbine
+	name = "gas turbine generator"
+	desc = "A gas turbine used for backup power generation."
+	icon = 'icons/obj/pipes.dmi'
+	icon_state = "turbine"
+	anchored = 1
+	density = 1
+	var/obj/machinery/compressor/compressor
+	var/turf/simulated/outturf
+	var/lastgen
+
+
+/obj/machinery/power/turbine/Initialize()
+	. = ..()
 
 	outturf = get_step(src, dir)
 
-	spawn(5)
 
-		compressor = locate() in get_step(src, get_dir(outturf, src))
-		if(!compressor)
-			stat |= BROKEN
-		else
-			compressor.stat &= !BROKEN
-			compressor.turbine = src
+	compressor = locate() in get_step(src, get_dir(outturf, src))
+	if(!compressor)
+		stat |= BROKEN
+	else
+		compressor.stat &= !BROKEN
+		compressor.turbine = src
+		START_PROCESSING(SSmachines, src)
 
 
 #define TURBPRES 9000000
 #define TURBGENQ 20000
-#define TURBGENG 0.8
+#define TURBGENG 2
 
 /obj/machinery/power/turbine/Process()
 	if(!compressor.starter)
@@ -192,14 +183,34 @@
 	if(. == TOPIC_REFRESH)
 		interact(user)
 
+/obj/machinery/power/turbine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	return 0
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+/obj/machinery/computer/turbine_computer
+	name = "Gas turbine control computer"
+	desc = "A computer to remotely control a gas turbine."
+	icon = 'icons/obj/computer.dmi'
+	icon_keyboard = "tech_key"
+	icon_screen = "turbinecomp"
+	circuit = /obj/item/weapon/circuitboard/turbine_control
+	anchored = 1
+	density = 1
+	var/obj/machinery/compressor/compressor
+	var/list/obj/machinery/door/blast/doors
+	var/id = 0
+	var/door_status = 0
 
+/*
 /obj/machinery/computer/turbine_computer/Initialize()
 	. = ..()
+	spawn(5 SECONDS) //this will have to do until I learn how to write Hrefs.
+		turbine_search()
+*/
+/obj/machinery/computer/turbine_computer/proc/turbine_search()
 	for(var/obj/machinery/compressor/C in SSmachines.machinery)
 		if(id == C.comp_id)
 			compressor = C
@@ -207,7 +218,6 @@
 	for(var/obj/machinery/door/blast/P in SSmachines.machinery)
 		if(P.id == id)
 			doors += P
-
 /*
 /obj/machinery/computer/turbine_computer/attackby(I as obj, user as mob)
 	if(istype(I, /obj/item/weapon/screwdriver))
@@ -245,6 +255,7 @@
 
 /obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
 	user.machine = src
+
 	var/dat
 	if(src.compressor)
 		dat += {"<BR><B>Gas turbine remote control system</B><HR>
@@ -259,7 +270,7 @@
 		\n<BR>
 		\n"}
 	else
-		dat += "<span class='danger'>No compatible attached compressor found.</span>"
+		dat += "<span class='danger'>No compatible attached compressor found. <A href='?src=\ref[src];search=1'>Search.</A></span>"
 
 	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
@@ -284,13 +295,13 @@
 				spawn( 0 )
 					D.close()
 					door_status = 0
-		. = TOPIC_REFRESH
+		return TOPIC_REFRESH
+	else if( href_list["search"])
+		turbine_search()
+		return TOPIC_REFRESH
 	else if( href_list["close"] )
 		user << browse(null, "window=computer")
 		return TOPIC_HANDLED
-
-	if(. == TOPIC_REFRESH)
-		interact(user)
 
 /obj/machinery/computer/turbine_computer/Process()
 	src.updateDialog()
