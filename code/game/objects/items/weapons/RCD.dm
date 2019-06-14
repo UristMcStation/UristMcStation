@@ -22,11 +22,12 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	var/datum/effect/effect/system/spark_spread/spark_system
 	var/stored_matter = 0
-	var/max_stored_matter = 30
+	var/max_stored_matter = 300
 
 	var/work_id = 0
 	var/decl/hierarchy/rcd_mode/work_mode
 	var/static/list/work_modes
+	var/working = FALSE
 
 	var/canRwall = 0
 	var/disabled = 0
@@ -66,7 +67,7 @@
 
 	if(istype(W, /obj/item/weapon/rcd_ammo))
 		var/obj/item/weapon/rcd_ammo/cartridge = W
-		if((stored_matter + cartridge.remaining) > 30)
+		if((stored_matter + cartridge.remaining) > max_stored_matter)
 			to_chat(user, "<span class='notice'>The RCD can't hold that many additional matter-units.</span>")
 			return
 		stored_matter += cartridge.remaining
@@ -90,7 +91,11 @@
 		return 0
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
 		return 0
+	if(working == TRUE) //Urist Add: RCD Burf.
+		to_chat(user, "<span class='notice'>One at a time!</span>")
+		return 0
 	work_id++
+
 	work_mode.do_work(src, A, user)
 
 /obj/item/weapon/rcd/proc/useResource(var/amount, var/mob/user)
@@ -171,20 +176,25 @@
 		var/decl/hierarchy/rcd_mode/rcdm = child
 		if(!rcdm.can_handle_work(rcd, target))
 			continue
-		if(!rcd.useResource(rcdm.cost, user))
-			to_chat(user, "<span class='warning'>Insufficient resources.</span>")
-			return FALSE
 
 		playsound(get_turf(user), 'sound/machines/click.ogg', 50, 1)
 		rcdm.work_message(target, user, rcd)
+		rcd.working = TRUE
 
 		if(rcdm.delay)
 			var/work_id = rcd.work_id
 			if(!(do_after(user, rcdm.delay, target) && work_id == rcd.work_id && rcd.can_use(user, target) && rcdm.can_handle_work(rcd, target)))
+				rcd.working = FALSE
 				return FALSE
+
+		if(!rcd.useResource(rcdm.cost, user))
+			to_chat(user, "<span class='warning'>Insufficient resources.</span>")
+			rcd.working = FALSE
+			return FALSE
 
 		rcdm.do_handle_work(target)
 		playsound(get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
+		rcd.working = FALSE
 		return TRUE
 
 	return FALSE
