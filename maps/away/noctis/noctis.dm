@@ -10,7 +10,7 @@
 	descriptor = "derelict"
 	map = "Pirate Ship"
 	crew_jobs = list(
-		/datum/job/submap/lost_pirate
+		/datum/job/submap/noctis_crew
 	)
 
 /datum/map_template/ruin/away_site/pirate_ship
