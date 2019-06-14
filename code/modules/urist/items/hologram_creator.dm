@@ -64,7 +64,7 @@
 
 
 /obj/structure/hologramsign/barrier/walk/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!ismob(mover)) //Supposed to let objects through. Doesn't.
+	if(!ismob(mover))
 		return ..()
 	var/mob/M = mover
 	if(M.move_intent.flags & MOVE_INTENT_DELIBERATE)
@@ -104,10 +104,13 @@
 /obj/structure/hologramsign/barrier/atmos
 	name = "ATMOS holofan"
 	icon_state = "holo_fan"
-	desc = "A holographic barrier that prevent changes in atmosphere conditions."
+	desc = "A holographic barrier that prevent changes in atmosphere conditions. <b>Not safe to stand in!</b>"
 
 
-/obj/structure/hologramsign/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) //Block air.
-		return
-	return ..()
+/obj/structure/hologramsign/barrier/atmos/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(!height || air_group) return 0
+	else return ..()
+
+/obj/structure/hologramsign/barrier/atmos/Destroy()
+	SSair.mark_for_update(get_turf(src))
+	..()
