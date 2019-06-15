@@ -69,7 +69,7 @@
 	var/mob/M = mover
 	if(M.move_intent.flags & MOVE_INTENT_DELIBERATE)
 		return ..()
-	to_chat(M, "<span class = notice>Slow down, if you intend to blatantly violate this posted warning!</span>")
+	to_chat(M, "<span class = 'notice' >Slow down, if you intend to blatantly violate this posted warning!</span>")
 	return FALSE
 
 /obj/item/weapon/holosign_creator/security
