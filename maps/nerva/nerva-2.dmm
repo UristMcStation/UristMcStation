@@ -1690,9 +1690,6 @@
 	pixel_y = 22;
 	req_access = list(19)
 	},
-/obj/item/weapon/gun/projectile/automatic/hi2521smg,
-/obj/item/weapon/gun/projectile/automatic/hi2521smg,
-/obj/item/weapon/gun/projectile/automatic/hi2521smg,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "adS" = (
