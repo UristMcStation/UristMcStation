@@ -265,6 +265,7 @@
 					return
 				else if(fast_clone)
 					if(debug || metal >= program["metal_cost"])
+						metal -= program["metal_cost"]
 						cloning = TRUE
 						print_program(usr)
 					else
@@ -273,6 +274,7 @@
 					if(metal < program["metal_cost"])
 						to_chat(usr, "<span class='warning'>You need [program["metal_cost"]] metal to build that!</span>")
 						return
+					metal -= program["metal_cost"]
 					var/cloning_time = round(program["metal_cost"] / 15)
 					cloning_time = min(cloning_time, MAX_CIRCUIT_CLONE_TIME)
 					cloning = TRUE
