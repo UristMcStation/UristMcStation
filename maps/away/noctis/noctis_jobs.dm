@@ -53,7 +53,7 @@
 	hair_style = "Buzzcut 2"
 	facial_hair = "5 O'clock Shadow"
 	clothing = /decl/hierarchy/outfit/freightercap
-	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = TRUE)
+	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = BP_CHEST)
 	killed = TRUE
 
 /decl/hierarchy/outfit/freightercap
