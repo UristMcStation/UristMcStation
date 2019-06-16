@@ -1848,7 +1848,7 @@
 /datum/chemical_reaction/changelingsting
 	name = "Changeling Sting"
 	result = /datum/reagent/ethanol/changelingsting
-	required_reagents = list("screwdrivercocktail" = 1, /datum/reagent/drink/juice/lime = 1, /datum/reagent/drink/juice/lemon = 1)
+	required_reagents = list(/datum/reagent/ethanol/screwdrivercocktail = 1, /datum/reagent/drink/juice/lime = 1, /datum/reagent/drink/juice/lemon = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/aloe
