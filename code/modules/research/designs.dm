@@ -247,6 +247,7 @@ other types of metals and chemistry for reagents).
 /datum/design/item/powercell/Fabricate()
 	var/obj/item/weapon/cell/C = ..()
 	C.charge = 0 //shouldn't produce power out of thin air.
+	C.update_icon()
 	return C
 
 /datum/design/item/powercell/basic
@@ -1041,6 +1042,11 @@ other types of metals and chemistry for reagents).
 	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 100)
 	build_path = /obj/item/inducer
+
+/datum/design/item/tool/inducer/Fabricate()
+	var/obj/item/inducer/I = ..()
+	QDEL_NULL(I.cell)
+	return I
 
 /datum/design/item/tool/price_scanner
 	name = "price scanner"
