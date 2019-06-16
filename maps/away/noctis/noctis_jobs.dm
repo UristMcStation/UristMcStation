@@ -35,7 +35,7 @@
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/workboots
 	belt = /obj/item/weapon/storage/belt/utility/full
-	id = /obj/item/weapon/card/id/noctis
+	id_type = /obj/item/weapon/card/id/noctis
 
 /obj/item/clothing/suit/armor/pcarrier/light/hijacker
 	color = "#ff0000"
