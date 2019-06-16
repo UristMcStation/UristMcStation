@@ -50,7 +50,7 @@
 	return capitalize(pick(gender==FEMALE ? GLOB.first_names_female : GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 /decl/cultural_info/proc/sanitize_name(var/new_name)
-	return sanitizeName(new_name)
+	return sanitizeName(new_name, allow_numbers=TRUE))
 
 /decl/cultural_info/proc/get_description(var/header, var/append, var/verbose = TRUE)
 	var/list/dat = list()
