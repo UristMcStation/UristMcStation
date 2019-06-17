@@ -120,7 +120,7 @@
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.nutrition += nutriment_factor * removed
-	var/strength_mod = 1
+	var/strength_mod = 0.2 //Urist edit: Nerfs alcohol strength by a factor of 5. Original was 1.
 	if(alien == IS_SKRELL)
 		strength_mod *= 5
 	if(alien == IS_DIONA)
