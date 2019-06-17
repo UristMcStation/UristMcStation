@@ -87,7 +87,9 @@
 	scannable = 1
 	flags = IGNORE_MOB_SIZE
 	var/static/list/remove_toxins = list(
-		/datum/reagent/toxin/zombiepowder
+		/datum/reagent/toxin/zombiepowder,
+		/datum/reagent/soporific,
+		/datum/reagent/chloralhydrate
 	)
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
