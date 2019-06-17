@@ -438,6 +438,7 @@
 	pixel_y = 28
 	},
 /obj/structure/catwalk,
+/obj/machinery/portable_atmospherics/reagent_sublimator,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "bl" = (

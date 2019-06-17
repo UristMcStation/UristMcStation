@@ -33,7 +33,7 @@
 /obj/machinery/portable_atmospherics/reagent_sublimator
 	name = "reagent sublimator"
 	desc = "An advanced machine that converts liquid or solid reagents into gasses."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/urist/structures&machinery/reagent_sublimator.dmi' //Urist add: Better sprite.
 	icon_state = "sublimator-off-unloaded-notank"
 	density = TRUE
 	use_power = 1
