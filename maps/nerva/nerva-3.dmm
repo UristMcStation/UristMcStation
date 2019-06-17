@@ -5272,7 +5272,7 @@
 /area/command/captain)
 "kA" = (
 /obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics - West";
+	c_tag = "Atmospherics - East";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -10988,7 +10988,7 @@
 /obj/item/weapon/storage/backpack/duffel/duffel_eng,
 /obj/item/weapon/tank/emergency/oxygen/engi,
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering Locker Room"
+	c_tag = "Atmospherics Locker Room"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)

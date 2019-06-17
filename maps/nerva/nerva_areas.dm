@@ -387,18 +387,9 @@
 	name = "\improper Main Solar Array"
 	icon_state = "panelsS"
 
-/area/solar/auxaft
-	name = "\improper Aft Auxiliary Solar Array"
-	icon_state = "panelsA"
-
 /area/maintenance/mainsolar
 	name = "\improper Solar Maintenance - Main"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
-
-/area/maintenance/aftsolar
-	name = "\improper Solar Maintenance - Aft Auxiliary"
-	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////

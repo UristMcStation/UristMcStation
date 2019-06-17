@@ -9063,16 +9063,21 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "qU" = (
-/obj/machinery/atmospherics/portables_connector{
-	icon_state = "map_connector";
-	dir = 1
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "N2 To Port"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics - West";
+	c_tag = "Atmospherics Upper - East";
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "qV" = (
@@ -9552,29 +9557,24 @@
 /turf/simulated/open,
 /area/engineering/atmospherics)
 "rO" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	name = "N2 To Port"
-	},
+/obj/machinery/light,
 /obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics - West";
+	c_tag = "Atmospherics Upper";
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "rP" = (
-/obj/machinery/light,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics - West";
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Atmospherics Upper - West";
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "rQ" = (
@@ -23674,7 +23674,7 @@ pr
 rL
 qp
 qE
-qU
+rP
 qB
 og
 fE
@@ -25491,7 +25491,7 @@ pm
 pV
 rN
 qz
-rP
+rO
 qB
 og
 og
@@ -27307,7 +27307,7 @@ oG
 pL
 pu
 rz
-rO
+qU
 ra
 re
 og
