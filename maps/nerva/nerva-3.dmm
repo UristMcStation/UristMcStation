@@ -760,11 +760,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "bX" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Tech Storage";
-	req_access = list(23);
-	secured_wires = 1
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -1033,10 +1028,10 @@
 /area/maintenance/second_deck/afp)
 "cv" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Tech Storage";
-	req_access = list(23);
-	secured_wires = 1
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
+	name = "Engineering Access";
+	req_access = list(23)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
@@ -2453,10 +2448,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "fC" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -3379,10 +3370,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "gF" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHWEST)";
@@ -3397,6 +3384,11 @@
 	opacity = 0;
 	density = 0;
 	id = "Engineering Lockdown"
+	},
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
+	name = "Engineering Access";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -6341,17 +6333,17 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist();
-	req_one_access = list(11,24)
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_x = 0;
 	tag = ""
+	},
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
+	name = "Engine Access";
+	req_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -7348,10 +7340,6 @@
 	icon_state = "intact-supply";
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
@@ -7390,10 +7378,6 @@
 	tag = "icon-intact-supply (EAST)";
 	icon_state = "intact-supply";
 	dir = 4
-	},
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -7737,7 +7721,8 @@
 /area/engineering/atmospherics)
 "pl" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
 	name = "Engineering Access";
 	req_access = list(10)
 	},
@@ -7758,13 +7743,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "po" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
 	name = "Engineering Access";
 	req_access = list(10)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -7800,10 +7782,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "pt" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -14415,6 +14393,10 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"OO" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/engineering/fdengine)
 "Pg" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -30747,7 +30729,7 @@ ib
 ej
 ej
 ej
-lO
+OO
 mH
 eZ
 oB

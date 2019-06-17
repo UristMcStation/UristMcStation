@@ -1630,11 +1630,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist();
-	req_one_access = list(11,24)
-	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
 "dc" = (
@@ -2162,9 +2157,9 @@
 /area/engineering/bdportengine)
 "dV" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
 	name = "Engine Access";
-	req_access = newlist();
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,
@@ -13059,11 +13054,6 @@
 /area/engineering/bdstarengine)
 "wj" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist();
-	req_one_access = list(11,24)
-	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
 "wk" = (
@@ -13563,9 +13553,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/door/airlock/multi_tile/engineering{
+	dir = 8;
 	name = "Engine Access";
-	req_access = newlist();
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,

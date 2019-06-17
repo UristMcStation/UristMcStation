@@ -7148,11 +7148,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "amw" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Secure Storage";
-	req_access = list(11);
-	secured_wires = 1
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7168,14 +7163,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/multi_tile/engineering{
+	req_access = list(11)
+	},
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
 "amx" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Secure Storage";
-	req_access = list(11);
-	secured_wires = 1
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -9750,23 +9743,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "aqK" = (
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering Storage";
-	req_access = list(32)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	req_access = list(10)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "aqL" = (
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering Storage";
-	req_access = list(32)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -10374,10 +10362,6 @@
 /area/engineering/tool)
 "arG" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Workshop";
-	req_access = list(10)
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -10540,10 +10524,6 @@
 	opacity = 0;
 	density = 0;
 	id = "Engineering Lockdown"
-	},
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
@@ -11861,14 +11841,15 @@
 /area/engineering/tool)
 "atb" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Workshop";
-	req_access = list(10)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	dir = 8;
+	name = "Workshop";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
@@ -11954,7 +11935,8 @@
 	density = 0;
 	id = "Engineering Lockdown"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	dir = 8;
 	name = "Engineering Access";
 	req_access = list(10)
 	},
@@ -12691,10 +12673,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/lobby)
 "aut" = (
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Workshop";
-	req_access = list(10)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -12718,14 +12696,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	name = "Workshop";
+	req_access = list(10)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "auu" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Workshop";
-	req_access = list(10)
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -17656,10 +17634,6 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/genstorage)
 "aCY" = (
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering Storage";
-	req_access = list(32)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
@@ -17674,13 +17648,13 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
 	},
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	name = "Engineering Storage";
+	req_access = list(10)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
 "aCZ" = (
-/obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering Storage";
-	req_access = list(32)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -18036,10 +18010,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
 "aDB" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
@@ -18810,10 +18780,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
 "aEQ" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list(10)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
@@ -18830,6 +18796,11 @@
 	opacity = 0;
 	density = 0;
 	id = "Engineering Lockdown"
+	},
+/obj/machinery/door/airlock/multi_tile/glass/engineering{
+	dir = 8;
+	name = "Engineering Storage";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
