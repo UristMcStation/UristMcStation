@@ -29522,6 +29522,15 @@
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
+"usp" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/tool)
 "uyU" = (
 /obj/effect/paint_stripe/beige,
 /turf/simulated/wall,
@@ -46626,7 +46635,7 @@ anY
 apm
 aqK
 arJ
-ata
+usp
 aux
 avy
 awM
