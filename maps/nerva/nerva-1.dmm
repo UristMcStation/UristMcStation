@@ -1630,6 +1630,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Access";
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
 "dc" = (
@@ -2152,15 +2156,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/bdportengine)
-"dV" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/engineering{
-	dir = 8;
-	name = "Engine Access";
-	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -13052,10 +13047,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
-"wj" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced,
-/area/engineering/bdstarengine)
 "wk" = (
 /obj/machinery/telecomms/relay/preset/fourthdeck,
 /turf/simulated/floor/plating,
@@ -13553,8 +13544,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/multi_tile/engineering{
-	dir = 8;
+/obj/machinery/door/airlock/engineering{
 	name = "Engine Access";
 	req_one_access = list(11,24)
 	},
@@ -21149,6 +21139,18 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"OF" = (
+/obj/machinery/atmospherics/valve/digital{
+	frequency = 1447;
+	id = "fuelmode"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/bdstarengine)
 "OI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21236,6 +21238,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
+"Pu" = (
+/obj/machinery/atmospherics/valve/digital{
+	frequency = 1447;
+	id = "fuelmode"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/bdportengine)
 "Pw" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -36067,7 +36081,7 @@ aa
 bw
 bw
 da
-dS
+Pu
 eF
 bw
 bw
@@ -36091,7 +36105,7 @@ nR
 nR
 nR
 vi
-wg
+OF
 wW
 nR
 nR
@@ -36269,7 +36283,7 @@ aa
 bw
 bw
 db
-dV
+bw
 bw
 bw
 bw
@@ -36293,7 +36307,7 @@ nR
 nR
 nR
 nR
-wj
+nR
 wX
 nR
 nR

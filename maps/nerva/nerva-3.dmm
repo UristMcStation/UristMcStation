@@ -5181,9 +5181,6 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "kK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
@@ -5193,24 +5190,20 @@
 	icon_state = "warning";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "kL" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "kM" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 10
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "d1centrenacelle";
 	name = "combustion chamber blast door controll";
@@ -5218,9 +5211,8 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHEAST)";
 	icon_state = "warning";
-	dir = 5
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -5847,8 +5839,16 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "lM" = (
+/obj/machinery/atmospherics/valve/digital{
+	frequency = 1447;
+	id = "fuelmode"
+	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -5862,6 +5862,13 @@
 	name = "Engine Access";
 	req_access = newlist();
 	req_one_access = list(11,24)
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6278,37 +6285,20 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
-"mE" = (
-/obj/machinery/meter,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0;
-	tag = ""
-	},
-/obj/machinery/button/ignition{
-	id = "engines";
-	pixel_y = -26
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/fdengine)
 "mF" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 4;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0;
-	tag = ""
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6328,38 +6318,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
-"mH" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0;
-	tag = ""
-	},
-/obj/machinery/door/airlock/multi_tile/engineering{
-	dir = 8;
-	name = "Engine Access";
-	req_access = list(11,24)
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/fdengine)
 "mI" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	pixel_x = 0
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "mJ" = (
@@ -6812,7 +6780,6 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "nA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
@@ -6822,6 +6789,12 @@
 	locked = 0;
 	name = "Engine Access";
 	req_one_access = list(11,24)
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
@@ -7326,6 +7299,15 @@
 	icon_state = "intact-supply";
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
 "oA" = (
@@ -7341,6 +7323,15 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
 "oB" = (
@@ -7358,13 +7349,31 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Atmospherics Hallway"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "oC" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0;
+	tag = ""
+	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "oD" = (
@@ -14393,10 +14402,6 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"OO" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced,
-/area/engineering/fdengine)
 "Pg" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -14424,6 +14429,13 @@
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/substation/atmos)
+"PE" = (
+/obj/machinery/button/ignition{
+	id = "engines";
+	pixel_y = -26
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/fdengine)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -14774,6 +14786,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
+"Vw" = (
+/turf/simulated/floor/reinforced,
+/area/engineering/fdengine)
 "VN" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/reinforced,
@@ -30124,7 +30139,7 @@ jc
 jO
 kK
 lM
-mE
+mG
 ej
 oy
 pj
@@ -30527,8 +30542,8 @@ ej
 ej
 ej
 kM
-lL
-mG
+Vw
+PE
 ej
 oA
 pl
@@ -30729,8 +30744,8 @@ ib
 ej
 ej
 ej
-OO
-mH
+ej
+ej
 eZ
 oB
 pm
