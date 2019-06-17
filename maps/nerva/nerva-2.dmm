@@ -4644,6 +4644,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"aiJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/weapon/storage/backpack/duffel/duffel_eng,
+/obj/item/weapon/tank/emergency/oxygen/engi,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering Locker Room"
+	},
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/locker)
 "aiK" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -6444,17 +6458,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "alv" = (
-/obj/structure/closet/secure_closet/atmos_personal,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos,
-/obj/item/weapon/storage/backpack/duffel/duffel_eng,
-/obj/item/weapon/tank/emergency/oxygen/engi,
-/obj/machinery/light{
-	dir = 1
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27;
+	pixel_y = 1
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering Locker Room"
+/obj/effect/floor_decal/corner/beige{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
 	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/suit_storage_unit/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "alw" = (
@@ -7253,22 +7269,6 @@
 	tag = "icon-intact-scrubbers (NORTHWEST)";
 	icon_state = "intact-scrubbers";
 	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/locker)
-"amF" = (
-/obj/machinery/suit_storage_unit/atmos,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27;
-	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
@@ -46822,7 +46822,7 @@ agz
 ahq
 aiM
 akl
-alv
+aiJ
 amD
 anZ
 apn
@@ -47227,7 +47227,7 @@ aaj
 aiO
 akl
 alx
-amF
+alv
 aob
 app
 nzd

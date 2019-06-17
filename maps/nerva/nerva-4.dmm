@@ -7101,8 +7101,10 @@
 	icon_state = "pipe-c";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHWEST)";
+	icon_state = "intact-supply";
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
@@ -7437,7 +7439,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nC" = (
@@ -7543,32 +7544,29 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "nM" = (
-/obj/effect/floor_decal/solarpanel,
-/obj/machinery/power/solar{
-	id = "portsolar";
-	name = "Aft Auxiliary Solar Array"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
-"nN" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/orange{
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/orange{
-	icon_state = "2-4";
+/obj/structure/cable/yellow{
 	d1 = 1;
-	d2 = 4
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afs)
+"nN" = (
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/random/tech_supply,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afs)
 "nO" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/storage/firstaid/fire{
@@ -7584,18 +7582,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nP" = (
+/obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nQ" = (
@@ -7773,16 +7766,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "og" = (
-/obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/random/tech_supply,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/afs)
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics)
 "oh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -7988,16 +7973,18 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "oH" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 2;
+	frequency = 1441;
+	icon_state = "computer";
+	input_tag = "co2_in";
+	name = "Carbon Dioxide Supply Control";
+	output_tag = "co2_out";
+	sensors = list("co2_sensor" = "Tank")
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/afs)
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "oI" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -8109,12 +8096,32 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "oT" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 2;
+	frequency = 1441;
+	input_tag = "h2_in";
+	name = "Hydrogen Supply Control";
+	output_tag = "h2_out";
+	sensors = list("tox_sensor" = "Tank")
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "oU" = (
-/turf/simulated/wall/r_wall,
-/area/maintenance/aftsolar)
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 2;
+	frequency = 1441;
+	input_tag = "n2o_in";
+	name = "Nitrous Oxide Supply Control";
+	output_tag = "n2o_out";
+	sensors = list("n2o_sensor" = "Tank")
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "oV" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -8136,55 +8143,53 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "oZ" = (
-/obj/structure/sign/warning/secure_area{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 9;
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = -32;
-	pixel_y = 0
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 2;
+	frequency = 1441;
+	input_tag = "o2_in";
+	name = "Oxygen Supply Control";
+	output_tag = "o2_out";
+	sensors = list("o2_sensor" = "Tank")
 	},
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pa" = (
-/obj/machinery/power/terminal{
+/obj/machinery/computer/general_air_control/large_tank_control{
+	dir = 2;
+	frequency = 1441;
+	input_tag = "n2_in";
+	name = "Nitrogen Supply Control";
+	output_tag = "n2_out";
+	sensors = list("n2_sensor" = "Tank")
+	},
+/obj/effect/decal/warning_stripes,
+/obj/item/device/radio/intercom{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"pb" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "air_in";
+	name = "Air Mix Supply Control";
+	output_tag = "air_out";
+	sensors = list("air_sensor" = "Tank")
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"pc" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 1;
-	luminosity = 2
-	},
-/obj/structure/cable/orange{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
-"pb" = (
-/obj/machinery/power/smes/buildable{
-	charge = 0
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
+/obj/structure/lattice,
 /obj/item/device/radio/intercom{
-	pixel_y = 23
+	pixel_y = 28
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
-"pc" = (
-/obj/structure/sign/warning/secure_area{
-	desc = "A warning sign which reads 'HIGH VOLTAGE'";
-	icon_state = "shock";
-	name = "HIGH VOLTAGE";
-	pixel_y = 0
-	},
-/turf/simulated/wall/r_wall,
-/area/maintenance/aftsolar)
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pd" = (
 /obj/random/toolbox,
 /turf/simulated/floor/plating,
@@ -8239,257 +8244,132 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "pl" = (
-/obj/machinery/power/tracker,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 6;
+	tag_west = 2
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pm" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 4
 	},
-/obj/structure/cable/orange{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (WEST)";
+	icon_state = "railing0";
+	dir = 8
 	},
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (EAST)";
+	icon_state = "railing0";
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/railing/mapped,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "po" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (WEST)";
+	icon_state = "railing0";
+	dir = 8
 	},
-/obj/structure/cable/orange{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/structure/railing/mapped{
+	tag = "icon-railing0 (EAST)";
+	icon_state = "railing0";
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/railing/mapped,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down{
+	icon_state = "down";
+	dir = 8
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pp" = (
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/catwalk,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pq" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list(13)
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pr" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "robotics_solar_outer";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list(10,13)
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
 	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "ps" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	id_tag = "robotics_solar_pump"
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 5;
+	tag_west = 2
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "robotics_solar_pump";
-	tag_exterior_door = "robotics_solar_outer";
-	frequency = 1379;
-	id_tag = "robotics_solar_airlock";
-	tag_interior_door = "robotics_solar_inner";
-	layer = 3.3;
-	pixel_x = 0;
-	pixel_y = -25;
-	req_access = list(13);
-	tag_chamber_sensor = "robotics_solar_sensor"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1379;
-	id_tag = "robotics_solar_sensor";
-	layer = 3.3;
-	pixel_x = 12;
-	pixel_y = -25
-	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/techfloor,
-/obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
+/obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pt" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "robotics_solar_inner";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pu" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
-	name = "interior access button";
-	pixel_x = -25;
-	pixel_y = -25;
-	req_access = list(13)
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 5;
+	level = 2
 	},
-/obj/structure/cable/orange{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/orange{
-	icon_state = "2-8";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pv" = (
-/obj/structure/cable/orange{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 4
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4;
+	icon_state = "intact"
 	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 8;
-	target_pressure = 200
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4;
+	icon_state = "intact"
 	},
-/obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "px" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Aft Auxiliary Solar Access";
-	req_access = list(10)
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	icon_state = "4-8";
-	d1 = 1;
-	d2 = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "py" = (
 /obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	icon_state = "4-8";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "pz" = (
-/obj/structure/catwalk,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/afs)
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pA" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -8557,79 +8437,40 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "pG" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/obj/machinery/power/solar{
-	id = "portsolar";
-	name = "Aft Auxiliary Solar Array"
-	},
-/obj/effect/floor_decal/solarpanel,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
 "pH" = (
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 6
 	},
-/obj/structure/cable/orange{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pI" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
 	},
-/obj/machinery/power/solar{
-	id = "portsolar";
-	name = "Aft Auxiliary Solar Array"
-	},
-/obj/effect/floor_decal/solarpanel,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pJ" = (
-/obj/machinery/power/solar_control{
-	dir = 4;
-	id = "portsolar";
-	name = "Aft Auxiliary Solar Control";
-	track = 0
-	},
-/obj/structure/cable/orange,
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
 "pK" = (
-/obj/machinery/camera/network/engineering{
-	c_tag = "Solar Control - Aft Auxiliary";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 "pL" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 27;
-	pixel_y = 0
-	},
-/obj/structure/cable/yellow,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/maintenance/aftsolar)
+/area/engineering/atmospherics)
 "pM" = (
 /obj/machinery/light/small/red,
 /obj/structure/cable/yellow{
@@ -8907,19 +8748,13 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "qp" = (
-/obj/structure/cable/orange{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 4
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 4
 	},
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
-/area/solar/auxaft)
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
 "qq" = (
 /obj/machinery/camera/network/security{
 	c_tag = "Starboard Docking Port - Exterior"
@@ -8990,6 +8825,703 @@
 	},
 /turf/space,
 /area/space)
+"qy" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"qz" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/engineering/atmospherics)
+"qA" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "N2 To Port"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Atmospherics - West";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qB" = (
+/obj/structure/sign/warning/compressed_gas,
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics)
+"qC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qD" = (
+/turf/simulated/open,
+/area/engineering/atmospherics)
+"qE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qK" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qL" = (
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qM" = (
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qO" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"qP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "O2 To Port"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qR" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/engineering/atmospherics)
+"qS" = (
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qT" = (
+/obj/effect/floor_decal/corner/white{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qU" = (
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Atmospherics - West";
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qV" = (
+/obj/effect/floor_decal/corner/black{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qW" = (
+/obj/effect/floor_decal/corner/white{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "N2O To Port"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qX" = (
+/obj/effect/floor_decal/corner/orange{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qY" = (
+/obj/effect/floor_decal/corner/black{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "CO2 To Port"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"qZ" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/open,
+/area/engineering/atmospherics)
+"ra" = (
+/obj/structure/sign/warning/compressed_gas,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics)
+"rb" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rc" = (
+/obj/structure/sign/warning/compressed_gas,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics)
+"rd" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/green{
+	icon_state = "map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"re" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmospherics)
+"rf" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "air_in";
+	pixel_y = 1;
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/airmix,
+/area/engineering/atmospherics)
+"rg" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "air_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "air_sensor"
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/engineering/atmospherics)
+"rh" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "o2_in";
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmospherics)
+"ri" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "o2_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "o2_sensor"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmospherics)
+"rj" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "n2_in";
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmospherics)
+"rk" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "n2_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "n2_sensor"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmospherics)
+"rl" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "n2o_in";
+	pixel_y = 1;
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmospherics)
+"rm" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "n2o_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "n2o_sensor"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/n20,
+/area/engineering/atmospherics)
+"rn" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "co2_in";
+	pixel_y = 1;
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmospherics)
+"ro" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "co2_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "co2_sensor"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/engineering/atmospherics)
+"rp" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "h2_in";
+	pixel_y = 1;
+	use_power = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmospherics)
+"rq" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "h2_out";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "tox_sensor"
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmospherics)
+"rr" = (
+/turf/simulated/floor/reinforced/airmix,
+/area/engineering/atmospherics)
+"rs" = (
+/turf/simulated/floor/reinforced/oxygen,
+/area/engineering/atmospherics)
+"rt" = (
+/turf/simulated/floor/reinforced/nitrogen,
+/area/engineering/atmospherics)
+"ru" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"rv" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"rw" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/atmospherics/pipe/manifold/visible/green{
+	icon_state = "map";
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"rx" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"ry" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"rz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics";
+	req_access = list(24)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rA" = (
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics";
+	req_access = list(24)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Atmospherics Lockdown";
+	name = "Atmospherics Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmospherics)
+"rB" = (
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics";
+	req_access = list(24)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rC" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rD" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rE" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/omni/mixer{
+	active_power_usage = 7500;
+	tag_east = 1;
+	tag_east_con = 0.79;
+	tag_north = 0;
+	tag_north_con = null;
+	tag_south = 1;
+	tag_south_con = 0.21;
+	tag_west = 2;
+	tag_west_con = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rF" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 8;
+	tag_west = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rG" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 3;
+	tag_west = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rH" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 4;
+	tag_west = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	icon_state = "officechair_preview";
+	tag = "icon-officechair_preview (WEST)"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rJ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/bed/chair/office/dark{
+	tag = "icon-officechair_preview (WEST)";
+	icon_state = "officechair_preview";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rK" = (
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 1;
+	icon_state = "console"
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"rL" = (
+/obj/item/modular_computer/console/preset/engineering{
+	dir = 1;
+	icon_state = "console"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rM" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light_switch{
+	on = 1;
+	pixel_x = 10;
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rO" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rP" = (
+/obj/machinery/light,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Atmospherics - West";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
+"rQ" = (
+/obj/effect/floor_decal/corner/orange{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "H2 To Port"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmospherics)
 
 (1,1,1) = {"
 aa
@@ -21836,14 +22368,14 @@ ar
 ar
 ar
 ar
-ar
-ar
-ar
-pl
-ar
-ar
-ar
-aa
+fE
+fE
+fE
+fE
+fE
+fE
+fE
+fE
 aa
 aa
 aa
@@ -22038,15 +22570,15 @@ ar
 ar
 ar
 ar
-ar
-ar
-ar
-pm
-ar
-ar
-ar
-ar
-aa
+fE
+og
+og
+og
+og
+og
+og
+og
+fE
 aa
 aa
 aa
@@ -22237,19 +22769,19 @@ ar
 ar
 ar
 ar
-nM
-nM
-nM
-nM
-nM
-nM
-pm
-pG
-pG
-pG
-pG
-pG
-pG
+ar
+ar
+ar
+fE
+og
+oH
+pq
+pz
+rB
+rD
+og
+og
+fE
 aa
 aa
 aa
@@ -22439,19 +22971,19 @@ ar
 ar
 ar
 ar
-nN
-nN
-nN
-nN
-nN
-nN
-pn
-pH
-pH
-pH
-pH
-pH
-qp
+ar
+ar
+ar
+fE
+og
+oT
+rI
+rK
+pL
+qC
+qS
+og
+fE
 ar
 aa
 aa
@@ -22641,20 +23173,20 @@ ar
 ar
 ar
 ar
-nM
-nM
-nM
-nM
-nM
-nM
-pm
-pI
-pI
-pI
-pI
-pI
-pI
 ar
+ar
+ar
+fE
+og
+oU
+pq
+rL
+qO
+rb
+qS
+og
+og
+fE
 aa
 aa
 aa
@@ -22846,18 +23378,18 @@ ar
 ar
 ar
 ar
-ar
-ar
-ar
-pm
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+fE
+og
+oZ
+pr
+rL
+qp
+qE
+qU
+qB
+og
+fE
+fE
 aa
 aa
 aa
@@ -23049,17 +23581,17 @@ gZ
 gZ
 gZ
 oF
-ar
-ar
-pm
-pG
-pG
-pG
-pG
-pG
-pG
-ar
-aa
+og
+pa
+rJ
+rM
+qp
+qF
+qT
+ru
+rl
+og
+fE
 aa
 aa
 aa
@@ -23251,17 +23783,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-po
-pH
-pH
-pH
-pH
-pH
+og
+pb
+rN
+rM
 qp
-ar
-aa
+qG
+qW
+rx
+rm
+og
+fE
 aa
 aa
 aa
@@ -23453,17 +23985,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pm
-pI
-pI
-pI
-pI
-pI
-pI
-ar
-aa
+og
+qO
+rz
+pG
+qy
+qH
+rD
+qB
+og
+og
+fE
 aa
 aa
 aa
@@ -23655,17 +24187,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pm
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+pl
+qK
+qK
+qK
+qI
+qV
+ry
+rn
+og
+fE
 aa
 aa
 aa
@@ -23857,17 +24389,17 @@ ar
 ar
 ar
 oG
-ar
-ar
+pL
 pm
-pG
-pG
-pG
-pG
-pG
-pG
-ar
-aa
+pp
+pp
+pp
+qJ
+qY
+rx
+ro
+og
+fE
 aa
 aa
 aa
@@ -24059,17 +24591,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pm
+pL
+pn
+pu
 pH
-pH
-pH
-pH
-pH
-qp
-ar
-aa
+pt
+qK
+qI
+qB
+og
+og
+fE
 aa
 aa
 aa
@@ -24261,17 +24793,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pm
+og
+ps
+pv
 pI
-pI
-pI
-pI
-pI
-pI
-ar
-aa
+pH
+qK
+qX
+ru
+rp
+og
+fE
 aa
 aa
 aa
@@ -24463,17 +24995,17 @@ ar
 ar
 ar
 oG
-ar
-ar
+pL
 pm
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+pw
+pp
+qz
+qJ
+rQ
+rx
+rq
+og
+fE
 aa
 aa
 aa
@@ -24665,17 +25197,17 @@ ar
 ar
 ar
 oG
-ar
-ar
+pL
 pm
-pG
-pG
-pG
-pG
-pG
-pG
-ar
-aa
+pw
+pp
+qz
+rP
+qB
+og
+og
+og
+fE
 aa
 aa
 aa
@@ -24867,17 +25399,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-po
-pH
-pH
-pH
-pH
-pH
-qp
-ar
-aa
+pL
+rF
+pv
+pt
+pI
+qL
+ru
+rf
+rr
+og
+fE
 aa
 aa
 aa
@@ -25069,17 +25601,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pp
-pI
-pI
-pI
-pI
-pI
-pI
-ar
-aa
+og
+pc
+px
+pJ
+qZ
+qM
+rv
+rg
+rr
+og
+fE
 aa
 aa
 aa
@@ -25271,17 +25803,17 @@ ar
 ar
 ar
 oG
-ar
-ar
-pq
-ar
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+pm
+pp
+pp
+pp
+qH
+qB
+og
+og
+og
+fE
 aa
 aa
 aa
@@ -25473,17 +26005,17 @@ ar
 ar
 ar
 oG
-ar
-oT
-pr
-oT
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+rG
+pt
+pt
+pt
+qN
+ru
+rh
+rs
+og
+fE
 aa
 aa
 aa
@@ -25675,17 +26207,17 @@ ar
 ar
 ar
 oG
-ar
-oT
-ps
-oT
-ar
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+pm
+pp
+pp
+pp
+rE
+rw
+ri
+rs
+og
+fE
 aa
 aa
 aa
@@ -25877,17 +26409,17 @@ ar
 ar
 ar
 oG
-oT
-oT
-pt
-oT
-oT
-ar
-ar
-ar
-ar
-ar
-aa
+og
+qR
+qD
+qD
+pK
+qP
+rc
+og
+og
+og
+fE
 aa
 aa
 aa
@@ -26079,17 +26611,17 @@ ar
 ar
 ar
 oG
-oU
-oZ
-pu
-pJ
-oU
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+rH
+pt
+pt
+pt
+qQ
+ru
+rj
+rt
+og
+fE
 aa
 aa
 aa
@@ -26281,17 +26813,17 @@ ar
 ar
 ar
 oG
-oU
-pa
-pv
-pK
-oU
-ar
-ar
-ar
-ar
-ar
-aa
+pL
+po
+pz
+pz
+rC
+rd
+ru
+rk
+rt
+og
+fE
 aa
 aa
 aa
@@ -26483,17 +27015,17 @@ ar
 ar
 ar
 oG
-oU
-pb
-pw
 pL
-oU
-kh
-kh
-kh
-kh
-ar
-aa
+pz
+rO
+qA
+ra
+re
+og
+og
+og
+og
+fE
 aa
 aa
 aa
@@ -26685,16 +27217,16 @@ kh
 kh
 kh
 kh
-oU
-pc
-px
-oU
-oU
+og
+og
+og
+rA
+og
 na
 na
 ql
 kh
-ar
+fE
 aa
 aa
 aa
@@ -26896,7 +27428,7 @@ pX
 qf
 qm
 kh
-ar
+fE
 aa
 aa
 aa
@@ -27085,13 +27617,13 @@ mm
 mD
 mX
 nB
+nM
+nN
+nB
 nP
-og
-nB
-oH
 nB
 nB
-pz
+nB
 pM
 kh
 na
