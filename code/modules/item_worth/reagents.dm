@@ -52,7 +52,7 @@
 	value = 1
 
 /datum/reagent/radium
-	value = 50 //Radium is crazy expensive, like 100k+ per gram. So probably a bit less expensive in the future.
+	value = 0.5 //Unfortunately, radium has become nearly worthless due to the flooding of the market from xenobotany departments everywhere.
 
 /datum/reagent/acid
 	value = 0.2

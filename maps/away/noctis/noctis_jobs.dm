@@ -35,7 +35,7 @@
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/workboots
 	belt = /obj/item/weapon/storage/belt/utility/full
-	id = /obj/item/weapon/card/id/noctis
+	id_type = /obj/item/weapon/card/id/noctis
 
 /obj/item/clothing/suit/armor/pcarrier/light/hijacker
 	color = "#ff0000"
@@ -53,7 +53,7 @@
 	hair_style = "Buzzcut 2"
 	facial_hair = "5 O'clock Shadow"
 	clothing = /decl/hierarchy/outfit/freightercap
-	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = TRUE)
+	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = BP_CHEST)
 	killed = TRUE
 
 /decl/hierarchy/outfit/freightercap

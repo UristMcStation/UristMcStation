@@ -78,6 +78,7 @@
 	desc = desc_list[current_stage]
 	min_damage = damage_list[current_stage]
 	damage = min(min_damage, damage)
+	autoheal_cutoff = initial(autoheal_cutoff)
 
 /datum/wound/cut/small
 	// link wound descriptions to amounts of damage

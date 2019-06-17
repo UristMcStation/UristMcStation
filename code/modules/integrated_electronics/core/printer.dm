@@ -101,6 +101,7 @@
 				playsound(src, 'sound/items/crowbar.ogg', 50, TRUE)
 				if(EA.try_remove_component(IC, user, TRUE))
 					metal += IC.matter[DEFAULT_WALL_MATERIAL]
+					qdel(IC)
 			to_chat(user, "<span class='notice'>You recycle all the components[EA.assembly_components.len ? " you could " : " "]from [EA]!</span>")
 			playsound(src, 'sound/items/electronic_assembly_empty.ogg', 50, TRUE)
 			recycling = FALSE
@@ -264,6 +265,7 @@
 					return
 				else if(fast_clone)
 					if(debug || metal >= program["metal_cost"])
+						metal -= program["metal_cost"]
 						cloning = TRUE
 						print_program(usr)
 					else
@@ -272,6 +274,7 @@
 					if(metal < program["metal_cost"])
 						to_chat(usr, "<span class='warning'>You need [program["metal_cost"]] metal to build that!</span>")
 						return
+					metal -= program["metal_cost"]
 					var/cloning_time = round(program["metal_cost"] / 15)
 					cloning_time = min(cloning_time, MAX_CIRCUIT_CLONE_TIME)
 					cloning = TRUE
