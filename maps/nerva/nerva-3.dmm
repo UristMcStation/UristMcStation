@@ -386,6 +386,33 @@
 /obj/item/weapon/paper,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"bd" = (
+/turf/simulated/open,
+/obj/machinery/atmospherics/pipe/zpipe/down/fuel{
+	tag = "icon-down (WEST)";
+	icon_state = "down";
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/disposalpipe/down{
+	tag = "icon-pipe-d (WEST)";
+	icon_state = "pipe-d";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	tag = "icon-down-supply (WEST)";
+	icon_state = "down-supply";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	tag = "icon-down-scrubbers (WEST)";
+	icon_state = "down-scrubbers";
+	dir = 8
+	},
+/turf/simulated/open{
+	initial_gas = null
+	},
+/area/maintenance/second_deck/afp)
 "be" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/fuelbay)
@@ -518,33 +545,6 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
-"bu" = (
-/turf/simulated/open,
-/obj/machinery/atmospherics/pipe/zpipe/down/fuel{
-	tag = "icon-down (WEST)";
-	icon_state = "down";
-	dir = 8
-	},
-/obj/structure/lattice,
-/obj/structure/disposalpipe/down{
-	tag = "icon-pipe-d (WEST)";
-	icon_state = "pipe-d";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	tag = "icon-down-supply (WEST)";
-	icon_state = "down-supply";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	tag = "icon-down-scrubbers (WEST)";
-	icon_state = "down-scrubbers";
-	dir = 8
-	},
-/turf/simulated/open{
-	initial_gas = null
-	},
 /area/maintenance/second_deck/afp)
 "bv" = (
 /obj/item/weapon/circuitboard/aiupload,
@@ -7756,6 +7756,9 @@
 	dir = 8;
 	name = "Engineering Access";
 	req_access = list(10)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -32547,7 +32550,7 @@ as
 aw
 aO
 bi
-bu
+bd
 bI
 bX
 cv
