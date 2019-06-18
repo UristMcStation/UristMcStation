@@ -230,21 +230,22 @@
 		target.cells.screen_loc = ui_nutrition
 		hud_elements |= target.cells
 
-	else if(hud_data.has_nutrition)
-		mymob.nutrition_icon = new /obj/screen()
-		mymob.nutrition_icon.icon = ui_style
-		mymob.nutrition_icon.icon_state = "nutrition0"
-		mymob.nutrition_icon.SetName("nutrition")
-		mymob.nutrition_icon.screen_loc = ui_nutrition
-		hud_elements |= mymob.nutrition_icon
+	else
+		if(hud_data.has_nutrition)
+			mymob.nutrition_icon = new /obj/screen()
+			mymob.nutrition_icon.icon = ui_style
+			mymob.nutrition_icon.icon_state = "nutrition0"
+			mymob.nutrition_icon.SetName("nutrition")
+			mymob.nutrition_icon.screen_loc = ui_nutrition
+			hud_elements |= mymob.nutrition_icon
 
-	else if(hud_data.has_hydration)
-		mymob.hydration_icon = new /obj/screen()
-		mymob.hydration_icon.icon = 'icons/uristmob/hydration.dmi'
-		mymob.hydration_icon.icon_state = "hydration0"
-		mymob.hydration_icon.SetName("hydration")
-		mymob.hydration_icon.screen_loc = ui_hydration //Mess with this a little.
-		hud_elements |= mymob.hydration_icon
+		if(hud_data.has_hydration)
+			mymob.hydration_icon = new /obj/screen()
+			mymob.hydration_icon.icon = 'icons/uristmob/hydration.dmi'
+			mymob.hydration_icon.icon_state = "hydration0"
+			mymob.hydration_icon.SetName("hydration")
+			mymob.hydration_icon.screen_loc = ui_hydration //Mess with this a little.
+			hud_elements |= mymob.hydration_icon
 
 	mymob.pain = new /obj/screen/fullscreen/pain( null )
 	hud_elements |= mymob.pain
