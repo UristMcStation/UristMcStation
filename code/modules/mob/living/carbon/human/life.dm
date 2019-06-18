@@ -450,10 +450,11 @@
 //		log_debug("Norm. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
 		bodytemperature += recovery_amt
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
-		//We totally need a sweat system cause it totally makes sense...~
-		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-//		log_debug("Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
-		bodytemperature += recovery_amt
+		if(hydration >= 2)
+			hydration -= 2 //Sweat
+			var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
+	//		log_debug("Hot. Difference = [body_temperature_difference]. Recovering [recovery_amt]")
+			bodytemperature += recovery_amt
 
 	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
@@ -643,6 +644,10 @@
 		if (nutrition > 0)
 			nutrition = max (0, nutrition - species.hunger_factor)
 
+		// hydration decrease
+		if (hydration > 0)
+			hydration = max (0, nutrition - species.thirst_factor)
+
 		if(stasis_value > 1 && drowsyness < stasis_value * 4)
 			drowsyness += min(stasis_value, 3)
 			if(!stat && prob(1))
@@ -753,6 +758,15 @@
 				if(250 to 350)					nutrition_icon.icon_state = "nutrition2"
 				if(150 to 250)					nutrition_icon.icon_state = "nutrition3"
 				else							nutrition_icon.icon_state = "nutrition4"
+
+		if(nutrition_icon)
+			switch(nutrition)
+				if(450 to INFINITY)				nutrition_icon.icon_state = "nutrition0"
+				if(350 to 450)					nutrition_icon.icon_state = "nutrition1"
+				if(250 to 350)					nutrition_icon.icon_state = "nutrition2"
+				if(150 to 250)					nutrition_icon.icon_state = "nutrition3"
+				if(50 to 150)					nutrition_icon.icon_state = "nutrition4"
+				else 							nutrition_icon.icon_state = "nutrition5"
 
 		if(isSynthetic())
 			var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]

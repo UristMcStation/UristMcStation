@@ -139,6 +139,7 @@
 
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M, /mob/living/carbon/slime) && alien != IS_SLIME)
+		M.hydration += hydration * removed
 		return
 	M.adjustToxLoss(2 * removed)
 

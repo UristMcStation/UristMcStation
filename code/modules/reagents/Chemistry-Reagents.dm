@@ -29,7 +29,7 @@
 	var/gas_burn_product
 	var/gas_overlay = "generic"
 	// END GAS DATA
-
+	var/hydration = 0// Urist add: hydration.
 /datum/reagent/New(var/datum/reagents/holder)
 	if(!istype(holder))
 		CRASH("Invalid reagents holder: [log_info_line(holder)]")

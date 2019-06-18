@@ -37,6 +37,8 @@
 		filter_effect -= 1
 	if(is_broken())
 		filter_effect -= 2
+	if(owner.hydration <= 0)
+		filter_effect -= 3 //Fully dehydrated? Goodbye liver.
 	// Robotic organs filter better but don't get benefits from dylovene for filtering.
 	if(BP_IS_ROBOTIC(src))
 		filter_effect += 1

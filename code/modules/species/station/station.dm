@@ -145,6 +145,7 @@
 	heat_level_1 = 420 //Default 360 - Higher is better
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
+	thirst_factor = 1.5 //Sippysip, frogboy.
 
 	reagent_tag = IS_SKRELL
 
