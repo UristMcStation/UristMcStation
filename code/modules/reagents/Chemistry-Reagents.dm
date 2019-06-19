@@ -10,6 +10,7 @@
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
+	var/patch_met = 0
 	var/overdose = 0
 	var/scannable = 0 // Shows up on health analyzers.
 	var/color = "#000000"
@@ -54,7 +55,7 @@
 		return
 	if(!(flags & AFFECTS_DEAD) && M.stat == DEAD && (world.time - M.timeofdeath > 150))
 		return
-	if(overdose && (location != CHEM_TOUCH))
+	if(overdose && (location != (CHEM_TOUCH || CHEM_PATCH)))
 		var/overdose_threshold = overdose * (flags & IGNORE_MOB_SIZE? 1 : MOB_MEDIUM/M.mob_size)
 		if(volume > overdose_threshold)
 			overdose(M, alien)
@@ -65,11 +66,13 @@
 		removed = ingest_met
 	if(touch_met && (location == CHEM_TOUCH))
 		removed = touch_met
+	if(patch_met && (location == CHEM_PATCH))
+		removed = patch_met
 	removed = M.get_adjusted_metabolism(removed)
 
 	//adjust effective amounts - removed, dose, and max_dose - for mob size
 	var/effective = removed
-	if(!(flags & IGNORE_MOB_SIZE) && location != CHEM_TOUCH)
+	if(!(flags & IGNORE_MOB_SIZE) && location != (CHEM_TOUCH || CHEM_PATCH))
 		effective *= (MOB_MEDIUM/M.mob_size)
 
 	M.chem_doses[type] = M.chem_doses[type] + effective
@@ -81,6 +84,8 @@
 				affect_ingest(M, alien, effective)
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, effective)
+			if(CHEM_PATCH)
+				affect_patch(M, alien, effective)
 
 	if(volume)
 		remove_self(removed)
@@ -94,6 +99,11 @@
 	return
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	return
+
+/datum/reagent/proc/affect_patch(var/mob/living/carbon/M, var/alien, var/removed)
+	//M.patch.trans_to_holder(M.bloodstr, removed * 0.5)
+	affect_blood(M, alien, removed * 0.5)
 	return
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.

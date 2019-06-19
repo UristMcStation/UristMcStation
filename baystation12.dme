@@ -2777,6 +2777,7 @@
 #include "code\modules\urist\items\food.dm"
 #include "code\modules\urist\items\grenades.dm"
 #include "code\modules\urist\items\guns.dm"
+#include "code\modules\urist\items\medpatches.dm"
 #include "code\modules\urist\items\miscitems.dm"
 #include "code\modules\urist\items\papercrafts.dm"
 #include "code\modules\urist\items\razor.dm"

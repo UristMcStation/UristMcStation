@@ -3,6 +3,7 @@
 	bloodstr = new/datum/reagents/metabolism(120, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(240, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
+	patch = new/datum/reagents/metabolism(1000, src, CHEM_PATCH)
 	reagents = bloodstr
 
 	if (!default_language && species_language)

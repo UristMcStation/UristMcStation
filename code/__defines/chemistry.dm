@@ -5,6 +5,7 @@
 #define CHEM_TOUCH 1
 #define CHEM_INGEST 2
 #define CHEM_BLOOD 3
+#define CHEM_PATCH 4 //Urist add: transdermals.
 
 #define MINIMUM_CHEMICAL_VOLUME 0.01
 
