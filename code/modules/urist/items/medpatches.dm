@@ -30,7 +30,7 @@
 		user.visible_message("<span class='danger'>[user] starts to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You start to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 		if(do_after(user, 10, M))
 			user.remove_from_mob(src)
-			reagents.trans_to_mob(affecting_mob, reagents.total_volume, CHEM_PATCH)
+			reagents.trans_to_mob(H, reagents.total_volume, CHEM_PATCH)
 
 			if (M != user)
 				user.visible_message("<span class='danger'>\The [user] finishes applying [src] to [M]'s [limb].</span>", "<span class='danger'>You finish applying \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
