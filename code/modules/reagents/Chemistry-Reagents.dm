@@ -102,8 +102,7 @@
 	return
 
 /datum/reagent/proc/affect_patch(var/mob/living/carbon/M, var/alien, var/removed)
-	//M.patch.trans_to_holder(M.bloodstr, removed * 0.5)
-	affect_blood(M, alien, removed * 0.5)
+	affect_blood(M, alien, removed * 0.1)
 	return
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.

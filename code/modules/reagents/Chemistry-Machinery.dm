@@ -24,10 +24,12 @@
 	var/condi = 0
 	var/useramount = 30 // Last used amount
 	var/pillamount = 10
+	var/patchamount = 10
 	var/bottlesprite = "bottle-1" //yes, strings
 	var/pillsprite = "1"
 	var/client/has_sprites = list()
 	var/max_pill_count = 20
+	var/max_patch_count = 20
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_ANCHORABLE
 
@@ -186,6 +188,33 @@
 						P.loc = loaded_pill_bottle
 						src.updateUsrDialog()
 
+		else if (href_list["createpatch"] || href_list["createpatch_multiple"]) //Urist add: Meipatches.
+			var/count = 1
+
+			if(reagents.total_volume/count < 1) //Sanity checking.
+				return
+
+			if (href_list["createpatch_multiple"])
+				count = input("Select the number of patches to make.", "Max [max_patch_count]", patchamount) as num
+				count = Clamp(count, 1, max_patch_count)
+
+			if(reagents.total_volume/count < 1) //Sanity checking.
+				return
+
+			var/amount_per_patch = reagents.total_volume/count
+			if (amount_per_patch > 60) amount_per_patch = 60
+
+			var/name = sanitizeSafe(input(usr,"Name:","Name your patch!","[reagents.get_master_reagent_name()] ([amount_per_patch]u)"), MAX_NAME_LEN)
+
+			if(reagents.total_volume/count < 1) //Sanity checking.
+				return
+			while (count-- && count >= 0)
+				var/obj/item/stack/medical/chem_patch/P = new/obj/item/stack/medical/chem_patch/(src.loc)
+				if(!name) name = reagents.get_master_reagent_name()
+				P.SetName("[name] medpatch")
+				reagents.trans_to_obj(P,amount_per_patch)
+
+
 		else if (href_list["createbottle"])
 			if(!condi)
 				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name()), MAX_NAME_LEN)
@@ -278,6 +307,8 @@
 		if(!condi)
 			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\"><img src=\"pill[pillsprite].png\" /></a><BR>"
 			dat += "<A href='?src=\ref[src];createpill_multiple=1'>Create multiple pills</A><BR>"
+			dat += "<HR><BR><A href='?src=\ref[src];createpatch=1'>Create patch (60 units max)</A><a href=\"?src=\ref[src]&change_patch=1\"><img src=\"patch.png\" /></a><BR>"
+			dat += "<A href='?src=\ref[src];createpatch_multiple=1'>Create multiple patches</A><BR>"
 			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\"><img src=\"[bottlesprite].png\" /></A>"
 		else
 			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (50 units max)</A>"

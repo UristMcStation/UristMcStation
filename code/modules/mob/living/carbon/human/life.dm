@@ -526,6 +526,7 @@
 		if(touching) touching.metabolize()
 		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(patch) patch.metabolize()
 
 	// Trace chemicals
 	for(var/T in chem_doses)
