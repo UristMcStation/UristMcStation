@@ -7,7 +7,7 @@
 	w_class = ITEM_SIZE_TINY
 	amount = 1
 	max_amount = 1
-	icon = 'icons\urist\items\medpatch.dmi'
+	icon = 'icons/urist/items/medpatch.dmi'
 	icon_state = "bandaid"
 	var/mob/living/carbon/affecting_mob // what mob are we affecting?
 	var/transfer_per_tick = 0.5
@@ -30,7 +30,7 @@
 		var/limb = affecting.name
 		user.visible_message("<span class='danger'>[user] starts to apply \the [src] to  [M]'s [limb].</span>", "<span class='danger'>You start to apply \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 		var/is_it_me = 0
-		if(M = user)	is_it_me = TRUE
+		if(M == user)	is_it_me = TRUE
 		if(is_it_me || do_after(user, 5, M)) //SC Eval will skip this do after.
 			user.remove_from_mob(src)
 			reagents.trans_to_mob(H, reagents.total_volume, CHEM_PATCH)
