@@ -68,11 +68,11 @@
 		"Your scales bristle against the cold."
 		)
 	breathing_sound = 'sound/voice/lizard.ogg'
-
+/*Urist Edit: Disables Unathi Regen.
 	base_auras = list(
 		/obj/aura/regenerating/human/unathi
 		)
-/*Urist Edit: Removes Unathi Regen.
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/diona_heal_toggle
 		)
