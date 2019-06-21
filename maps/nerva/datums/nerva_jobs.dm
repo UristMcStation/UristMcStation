@@ -14,7 +14,10 @@
 
 /datum/job/ai
 	minimal_player_age = 7
-
+	
+/datum/job/cyborg
+	minimal_player_age = 0
+	
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
@@ -120,7 +123,7 @@
 //eng
 
 /datum/job/chief_engineer
-	minimal_player_age = 3
+	minimal_player_age = 1
 	supervisors = "the captain and the first officer."
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
@@ -134,13 +137,14 @@
 			            access_expedition_shuttle_helm, access_expedition)
 
 /datum/job/engineer
+	minimal_player_age = 0
 	total_positions = 5
 	spawn_positions = 3
 
 //cargo
 
 /datum/job/qm
-	minimal_player_age = 3
+	minimal_player_age = 1
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain and the first officer."
@@ -153,6 +157,7 @@
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
 
 /datum/job/cargo_tech
+	minimal_player_age = 0
 	title = "Supply Technician"
 	supervisors = "the quartermaster"
 	alt_titles = list("Cargo Technician", "Resource Technician", "Fabrication Technician", "Salvage Technician",
@@ -169,7 +174,7 @@
 //medbay
 
 /datum/job/cmo
-	minimal_player_age = 3
+	minimal_player_age = 1
 	supervisors = "the captain and the first officer."
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
@@ -181,6 +186,7 @@
 			access_expedition_shuttle_helm, access_expedition)
 
 /datum/job/doctor
+	minimal_player_age = 0
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
@@ -246,13 +252,16 @@
 	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/nervabartender)
 	supervisors = "the quartermaster and the second officer."
-
+	minimal_player_age = 0
+	
 /datum/job/janitor
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
-
+	minimal_player_age = 0
+	
 /datum/job/chaplain
+	minimal_player_age = 0
 	title = "Counselor"
 	department = "Medical"
 	department_flag = MED|CIV
