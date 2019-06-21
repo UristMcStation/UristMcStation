@@ -78,6 +78,8 @@
 				S.recharging = 1
 				spawn(S.recharge_delay)
 					S.recharging = 0
+	for(var/datum/shipcomponents/M in src.components)
+		M.DoActivate()
 
 	..()
 
