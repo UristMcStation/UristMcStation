@@ -556,8 +556,13 @@
 /obj/item/weapon/light/attackby(obj/item/W, mob/user)
 	..()
 	if(istype(W, /obj/item/device/multitool/) )//Urist edit: Recolorable lights.
-		b_colour = input(user, "Choose a color.", "Color selection") as color
-		to_chat(usr, "<span class='notice'>You grant \the [src]<font color='[b_colour]'>a new colour</font>.</span>")
+		var/new_colour = input(usr, "Choose a colour.", "[src]", b_colour) as color|null
+		if(new_colour && new_colour != b_colour)
+			b_colour = new_colour
+			to_chat(usr, "<span class='notice'>You grant \the [src]<font color='[b_colour]'> a new colour</font>.</span>")
+			update_icon()
+
+
 
 /obj/item/weapon/light/tube
 	name = "light tube"
