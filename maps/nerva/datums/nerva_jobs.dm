@@ -12,6 +12,9 @@
 
 //general command
 
+/datum/job/ai
+	minimal_player_age = 7
+
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
@@ -20,7 +23,7 @@
 	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting."
 	selection_color = "#004a7f"
 	req_admin_notify = 1
-	minimal_player_age = 8
+	minimal_player_age = 3
 	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
 	hud_icon = "hudbodyguard"
@@ -46,7 +49,7 @@
 	spawn_positions = 1
 	selection_color = "#004a7f"
 	req_admin_notify = 1
-	minimal_player_age = 18
+	minimal_player_age = 5
 	economic_power = 15
 	outfit_type = /decl/hierarchy/outfit/job/nerva/firstofficer
 	hud_icon = "hudheadofpersonnel"
@@ -82,7 +85,7 @@
 
 /datum/job/captain
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
-	minimal_player_age = 21
+	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/nerva/captain
 	economic_power = 24
 
@@ -90,6 +93,7 @@
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded at certain stations in the sector. Good luck."
 
 /datum/job/hop
+	minimal_player_age = 3
 	title = "Second Officer"
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/nerva/secondofficer
@@ -116,6 +120,7 @@
 //eng
 
 /datum/job/chief_engineer
+	minimal_player_age = 3
 	supervisors = "the captain and the first officer."
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
@@ -135,6 +140,7 @@
 //cargo
 
 /datum/job/qm
+	minimal_player_age = 3
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain and the first officer."
@@ -163,6 +169,7 @@
 //medbay
 
 /datum/job/cmo
+	minimal_player_age = 3
 	supervisors = "the captain and the first officer."
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
@@ -184,6 +191,7 @@
 //sec
 
 /datum/job/hos
+	minimal_player_age = 5
 	title = "Chief of Security"
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/security/nervacos
