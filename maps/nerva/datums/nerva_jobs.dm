@@ -23,7 +23,7 @@
 	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting."
 	selection_color = "#004a7f"
 	req_admin_notify = 1
-	minimal_player_age = 3
+	minimal_player_age = 0
 	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
 	hud_icon = "hudbodyguard"
@@ -208,6 +208,7 @@
 			            access_expedition_shuttle_helm, access_expedition)
 
 /datum/job/officer
+	minimal_player_age = 0
 	supervisors = "the chief of security."
 	alt_titles = list("Detective")
 	outfit_type = /decl/hierarchy/outfit/job/security/nervasecofficer
@@ -217,6 +218,7 @@
 //sci
 
 /datum/job/scientist
+	minimal_player_age = 0
 	title = "Nanotrasen Scientist"
 	supervisors = "Nanotrasen Central Command and the captain."
 	total_positions = 2
