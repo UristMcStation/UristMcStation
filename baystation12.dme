@@ -2813,6 +2813,7 @@
 #include "code\modules\urist\kingrescues\smithing.dm"
 #include "code\modules\urist\loadout\loadout_uniform_urist.dm"
 #include "code\modules\urist\machinery\atmos.dm"
+#include "code\modules\urist\machinery\beam_mirror.dm"
 #include "code\modules\urist\machinery\misc.dm"
 #include "code\modules\urist\machinery\monkey_recycler.dm"
 #include "code\modules\urist\machinery\party.dm"
