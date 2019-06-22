@@ -141,7 +141,6 @@
 			if(S.running == SHIELD_RUNNING)
 				boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
-	world << "[boarding_failure_chance]"
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
@@ -150,10 +149,8 @@
 				beacon_list += B
 				world << "populating list"
 		active_beacon = pick(beacon_list)
-		world << "[active_beacon.name]"
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
-		world << "[boarding_area.name]"
 		GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name].</b>", "ICS Nerva Automated Defence Computer", "Common")
 
 	if(prob(boarding_failure_chance))
