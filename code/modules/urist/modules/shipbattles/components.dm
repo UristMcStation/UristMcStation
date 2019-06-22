@@ -127,7 +127,7 @@
 	var/list/boarding_mobs = list(/mob/living/simple_animal/hostile/russian, /mob/living/simple_animal/hostile/russian/ranged) //What mobs do we spawn on boarding?
 	var/boarding_number = 4 //We'll spawn this many every time we board.
 	var/last_boarding = 0 //How long since we boarded last?
-	var/boarding_turf //Where do we spawn our mobs?
+	var/boarding_turf = null//Where do we spawn our mobs?
 	var/boarding_failure_chance = 0 //more shields = more chance of preventing teleportation.
 
 /datum/shipcomponents/teleporter/DoActivate()
@@ -136,31 +136,45 @@
 
 	boarding_failure_chance = 0 //Zero this var out.
 
-	for(var/obj/machinery/power/shield_generator/S in GLOB.using_map.station_levels) //Calculate our failure chance.
-		if(S.running == SHIELD_RUNNING)
-			boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
+	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
+		if(S.z in GLOB.using_map.station_levels)
+			if(S.running == SHIELD_RUNNING)
+				boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
+	world << "[boarding_failure_chance]"
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
-		var/active_beacon //what beacon are we locking onto?
-		for(var/obj/item/device/radio/beacon/B in GLOB.using_map.station_levels)
-			var/list/beacon_list
-			beacon_list += B
-			active_beacon = pick(beacon_list)
-			boarding_turf = get_turf(active_beacon)
-			var/area/boarding_area = get_area(active_beacon)
-			GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name]", "ICS Nerva Automated Defence Computer", "Common")
+		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
+		var/list/beacon_list = list()
+		for(var/obj/item/device/radio/beacon/B in world)
+			if(B.z in GLOB.using_map.station_levels)
+				beacon_list += B
+				world << "populating list"
+		active_beacon = pick(beacon_list)
+		world << "[active_beacon.name]"
+		boarding_turf = get_turf(active_beacon)
+		var/area/boarding_area = get_area(active_beacon)
+		world << "[boarding_area.name]"
+		GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name].</b>", "ICS Nerva Automated Defence Computer", "Common")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in GLOB.using_map.station_levels)
 			S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
-		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.", "ICS Nerva Automated Defence Computer", "Engineering")
+		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "ICS Nerva Automated Defence Computer", "Engineering")
 		return //Stop here, the boarding failed.
 
 	//Let's handle boarding.
-	for(0 to boarding_number)
+	var/list/things_in_range = orange(3, boarding_turf)
+	var/list/turfs_in_range = list()
+	for (var/turf/T in things_in_range)
+		if(!istype(T, /turf/simulated/floor))
+			continue
+		turfs_in_range.Add(T)
+	for(var/S = 1 to boarding_number)
 		var/boarding_type = pick(boarding_mobs)
-		new boarding_type(boarding_turf)
-		if(prob(15))
-			boarding_turf = null //pick somewhere new to board.
+		var/spawnturf = pick(turfs_in_range)
+		new boarding_type(spawnturf)
+		playsound(spawnturf, 'sound/effects/teleport.ogg', 90, 1)
+	if(prob(15))
+		boarding_turf = null //pick somewhere new to board.
 
 	last_boarding = world.time + boarding_delay
