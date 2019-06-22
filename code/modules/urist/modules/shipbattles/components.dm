@@ -147,7 +147,6 @@
 		for(var/obj/item/device/radio/beacon/B in world)
 			if(B.z in GLOB.using_map.station_levels)
 				beacon_list += B
-				world << "populating list"
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
