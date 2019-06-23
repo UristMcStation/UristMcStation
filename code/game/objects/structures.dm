@@ -2,6 +2,7 @@
 	icon = 'icons/obj/structures.dmi'
 	w_class = ITEM_SIZE_NO_CONTAINER
 	layer = STRUCTURE_LAYER
+	var/health = 100
 	var/breakable
 	var/parts
 
@@ -128,3 +129,8 @@
 
 	connections = dirs_to_corner_states(dirs)
 	other_connections = dirs_to_corner_states(other_dirs)
+
+// Urist addition - stub proc to define the interface
+/obj/structure/proc/take_damage(damage)
+	src.health -= damage
+	return (src.health > 0)

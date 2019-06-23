@@ -21,13 +21,14 @@
 	move_to_delay = 7
 	stat_attack = 1
 	ranged = 0
+	environment_smash = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
 	var/regen_delay = 900 //delay for regen revive
 
-/datum/reagent/toxin/zombie/uristzombie
+/datum/reagent/xenomicrobes/uristzombie
 	metabolism = REM
-	target_organ = BP_BRAIN
+	var/target_organ = BP_BRAIN
 
 	var/symptom_msgs = list(
 		"Your teeth feel loose.",
@@ -56,10 +57,10 @@
 		"Your tongue swells up and turns black."
 	)
 
-/datum/reagent/toxin/zombie/uristzombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
 
-/datum/reagent/toxin/zombie/uristzombie/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/true_dose = H.chem_doses[type] + volume
@@ -112,9 +113,9 @@
 							H.uZombify(1, 1, transformation_msgs)
 		else
 			// almost straight copy of plain reagent/toxin/affect_blood()
-			if(strength && alien != IS_DIONA)
-				M.add_chemical_effect(CE_TOXIN, strength)
-				var/dam = (1 + rand(5))
+			if(alien != IS_DIONA)
+				M.add_chemical_effect(CE_TOXIN, 5)
+				var/dam = 0.05 * rand(1, 20)
 				if(target_organ)
 					var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
 					if(I)
@@ -147,6 +148,10 @@
 		if(prob(Clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
+/mob/living/simple_animal/hostile/urist/zombie/Aggro()
+	if(prob(35))
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
+	..()
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
 	var/acount = rand(2,8)
@@ -216,8 +221,8 @@
 
 			if(victim.reagents)
 				var/biosafety = victim.getarmor(null, "bio")
-				if(prob(Clamp(100-biosafety, 0, 100)))
-					victim.reagents.add_reagent(/datum/reagent/toxin/zombie/uristzombie, rand(5, 10))
+				if(!prob(Clamp(biosafety, 0, 100)))
+					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
 			uZombieInfect(victim)
 
@@ -332,7 +337,14 @@
 		else
 			drop_from_inventory(W)
 	new_mob.update_icons()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg')
+
+	playsound(src.loc, pick(
+		'sound/hallucinations/wail.ogg',
+		'sound/hallucinations/screech.ogg',
+		'sound/hallucinations/growl1.ogg',
+		'sound/hallucinations/growl2.ogg',
+		'sound/hallucinations/growl3.ogg')
+	)
 
 	spawn()
 		qdel(src)

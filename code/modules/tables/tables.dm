@@ -4,6 +4,7 @@
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
+	breakable = 1
 	anchored = 1
 	atom_flags = ATOM_FLAG_CLIMBABLE
 	obj_flags = OBJ_FLAG_SURGICAL
@@ -11,7 +12,7 @@
 	throwpass = 1
 	var/flipped = 0
 	var/maxhealth = 10
-	var/health = 10
+	health = 10
 
 	// For racks.
 	var/can_reinforce = 1
@@ -46,7 +47,7 @@
 
 	health += maxhealth - old_maxhealth
 
-/obj/structure/table/proc/take_damage(amount)
+/obj/structure/table/take_damage(amount)
 	// If the table is made of a brittle material, and is *not* reinforced with a non-brittle material, damage is multiplied by TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	if(material && material.is_brittle())
 		if(reinforced)

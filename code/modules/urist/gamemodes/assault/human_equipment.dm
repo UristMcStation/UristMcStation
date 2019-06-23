@@ -96,7 +96,7 @@
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-	var/health = 300
+	health = 300
 	var/maxhealth = 300
 	anchored = 1
 	density = 1

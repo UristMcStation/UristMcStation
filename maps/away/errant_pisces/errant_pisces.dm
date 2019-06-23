@@ -84,7 +84,7 @@
 	anchored = 1
 	plane = ABOVE_TURF_PLANE//on the floor
 	layer = CATWALK_LAYER//probably? Should cover cables, pipes and the rest of objects that are secured on the floor
-	var/health = 100
+	health = 100
 
 obj/structure/net/Initialize(var/mapload)
 	. = ..()
