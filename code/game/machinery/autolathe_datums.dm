@@ -541,9 +541,33 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_c20r_rubber
+	name = "ammunition (10mm, rubber)"
+	path = /obj/item/ammo_magazine/a10mm/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_c20r_flash
+	name = "ammunition (10mm, flash)"
+	path = /obj/item/ammo_magazine/a10mm/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_arifle
 	name = "ammunition (5.56mm)"
 	path = /obj/item/ammo_magazine/c556
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_arifle_rubber
+	name = "ammunition (5.56mm, rubber)"
+	path = /obj/item/ammo_magazine/c556/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_arifle_flash
+	name = "ammunition (5.56mm, flash)"
+	path = /obj/item/ammo_magazine/c556/flash
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -556,6 +580,18 @@ var/const/EXTRA_COST_FACTOR = 1.25
 /datum/autolathe/recipe/magazine_carbine
 	name = "ammunition (7.62mm)"
 	path = /obj/item/ammo_magazine/a762
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_carbine_flash
+	name = "ammunition (7.62mm, flash)"
+	path = /obj/item/ammo_magazine/a762/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_carbine_rubber
+	name = "ammunition (7.62mm, rubber)"
+	path = /obj/item/ammo_magazine/a762/rubber
 	hidden = 1
 	category = "Arms and Ammunition"
 
