@@ -7,7 +7,7 @@ var/datum/controller/payment_controller/payment_controller
 	var/moneybuffer = 0 //how much money are we removing from the nerva's account?
 
 /datum/controller/payment_controller/New()
-	timerbuffer = 6 MINUTES
+	timerbuffer = 60 MINUTES
 	START_PROCESSING(SSprocessing, src)
 
 /datum/controller/payment_controller/Destroy()
