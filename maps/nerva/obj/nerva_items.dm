@@ -68,7 +68,7 @@
 /obj/item/device/encryptionkey/nerva/so
 	name = "second officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Service" = 1, "Command" = 1, "Security" = 1, "Combat" = 0)
+	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0)
 
 /obj/item/device/encryptionkey/nerva/qm
 	name = "quatermaster's encryption key"

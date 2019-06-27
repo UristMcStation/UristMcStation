@@ -69,7 +69,7 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 		return 0
 	return 1
 
-/mob/living/simple_animal/npc/death(gibbed, deathmessage = "dies!", show_dead_message)
+/mob/living/simple_animal/hostile/npc/death(gibbed, deathmessage = "dies!", show_dead_message)
 	. = ..()
 
 	//fall over

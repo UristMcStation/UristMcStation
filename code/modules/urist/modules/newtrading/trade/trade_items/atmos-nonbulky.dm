@@ -9,7 +9,7 @@
 
 /datum/trade_item/atmospherics/emergsuit
 	name = "emergency space suit"
-	item_type = /obj/item/weapon/tank/emergency/oxygen/engi
+	item_type = /obj/item/clothing/suit/space/emergency
 	category = "atmospherics"
 	quantity = 5
 	value = 100

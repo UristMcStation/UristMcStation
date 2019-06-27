@@ -39,6 +39,7 @@ datum/controller/game_controller/proc/setup()
 	setupgenetics()
 
 	transfer_controller = new
+	payment_controller = new
 
 	report_progress("Initializations complete")
 	initialization_stage |= INITIALIZATION_COMPLETE

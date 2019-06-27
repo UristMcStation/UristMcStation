@@ -222,3 +222,16 @@
 		if(src.shipid == CC.shipid)
 			CC.linkedweapons += src
 			linkedcomputer = CC
+
+/obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
+	if(isScrewdriver(W))
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
+		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
+		S.state = 4
+		S.update_icon()
+		S.weapon_type = src.type
+		S.name = "[src.name] assembly"
+		S.shipid = src.shipid
+		linkedcomputer.linkedweapons -= src
+		qdel(src)

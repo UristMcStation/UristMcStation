@@ -135,6 +135,7 @@
 //cargo
 
 /datum/job/qm
+	economic_power = 9
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain and the first officer."
@@ -147,6 +148,7 @@
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
 
 /datum/job/cargo_tech
+	economic_power = 4
 	title = "Supply Technician"
 	supervisors = "the quartermaster"
 	alt_titles = list("Cargo Technician", "Resource Technician", "Fabrication Technician", "Salvage Technician",
@@ -211,8 +213,8 @@
 /datum/job/scientist
 	title = "Nanotrasen Scientist"
 	supervisors = "Nanotrasen Central Command and the captain."
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	hud_icon = "hudblueshield"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition)
@@ -232,17 +234,20 @@
 	)
 
 /datum/job/chef
+	economic_power = 3
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/nervabartender)
 	supervisors = "the quartermaster and the second officer."
 
 /datum/job/janitor
+	economic_power = 2
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
 
 /datum/job/chaplain
+	economic_power = 4
 	title = "Counselor"
 	department = "Medical"
 	department_flag = MED|CIV

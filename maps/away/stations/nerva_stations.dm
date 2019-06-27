@@ -11,7 +11,8 @@
 
 	initial_generic_waypoints = list(
 		"nav_nanotrading_1",
-		"nav_nanotrading_2"
+		"nav_nanotrading_2",
+		"nav_nanotrading_3"
 		)
 
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1
@@ -23,6 +24,12 @@
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2
 	name = "Loading Bay"
 	landmark_tag = "nav_nanotrading_2"
+	base_area = /area/spacestations/nanotrasenspace
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav3
+	name = "Auxiliary Docking Bay"
+	landmark_tag = "nav_nanotrading_3"
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/plating
 
