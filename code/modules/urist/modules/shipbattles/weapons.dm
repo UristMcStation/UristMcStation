@@ -260,7 +260,7 @@
 		if(istype(user,/mob/living/silicon))
 			return
 		user.put_in_hands(warhead)
-		user << "<span class='notice'>You remove the torpedo warhead.</span>"
+		to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
 		warhead = null
 		loaded = 0
 		icon_state = "bigtorpedo-unloaded"
