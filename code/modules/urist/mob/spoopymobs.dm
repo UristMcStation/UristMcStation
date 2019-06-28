@@ -24,7 +24,7 @@
 	environment_smash = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
-	var/regen_delay = 900 //delay for regen revive
+	var/regen_delay = 90 //delay for regen revive
 
 /datum/reagent/xenomicrobes/uristzombie
 	metabolism = REM
@@ -164,13 +164,15 @@
 /mob/living/simple_animal/hostile/urist/zombie/death()
 	. = ..()
 
+	src.transform = null
+	var/matrix/N = matrix()
+	N.Turn(90)
+	src.transform = N
+
 	if(regen)
-		to_chat(src, "You begin to regenerate. This will take about [regen_delay/600] minutes.")
-		spawn(regen_delay)
-			var/matrix/N = matrix()
-			N.Turn(270)
-			src.transform = N
-			rejuvenate()
+		to_chat(src, "You begin to regenerate. This will take about [regen_delay/60] minutes.")
+		to_chat(src, "If you ghost, you can re-enter the mob assuming it still exists.")
+		addtimer(CALLBACK(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
 
 	if(src.contents)
 		var/inv_size = contents.len
@@ -182,10 +184,11 @@
 		update_icons()
 
 /mob/living/simple_animal/hostile/urist/zombie/ghostize(var/can_reenter_corpse=1)
-	if(can_reenter_corpse)
-		if(src.client)
-			to_chat(src.client, "You can re-enter the mob as long as it still exists.")
-	. = ..(max(1, can_reenter_corpse)) // always re-enterable
+	return ..(max(1, can_reenter_corpse)) // always re-enterable
+
+/mob/living/simple_animal/hostile/urist/zombie/proc/deathregen()
+	src.transform = null
+	rejuvenate()
 	return
 
 /mob/living/simple_animal/hostile/urist/zombie/Destroy()
