@@ -247,6 +247,7 @@
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state = "bigtorpedo-unloaded"
 	var/loaded = 0
+	var/obj/item/shipweapons/torpedo_warhead/warhead = null
 	matter = list(DEFAULT_WALL_MATERIAL = 2500)
 	dir = 4
 
@@ -254,15 +255,24 @@
 	..()
 	pixel_y = rand(-20,2)
 
+/obj/structure/shipammo/torpedo/attack_hand(mob/user as mob)
+	if(warhead)
+		if(istype(user,/mob/living/silicon))
+			return
+		user.put_in_hands(warhead)
+		user << "<span class='notice'>You remove the torpedo warhead.</span>"
+		warhead = null
+		loaded = 0
+		icon_state = "bigtorpedo-unloaded"
+
 /obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
-		if(!src.loaded)
+		if(!src.loaded && user.unEquip(I, src))
 
 			icon_state = "bigtorpedo"
 			loaded = 1
 
-			user.remove_from_mob(I)
-			qdel(I)
+			warhead = I
 
 			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
 
