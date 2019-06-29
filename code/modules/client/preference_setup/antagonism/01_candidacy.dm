@@ -34,6 +34,8 @@
 	. = list()
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
+	. += "<tr><td>Set All: </td><td>"
+	. += "<a href='?src=\ref[src];set_all=high'>High</a> <a href='?src=\ref[src];set_all=low'>Low</a> <a href='?src=\ref[src];set_all=never'>Never</a></br></br>"
 	var/list/all_antag_types = GLOB.all_antag_types_
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
@@ -91,6 +93,22 @@
 	if(href_list["add_never"])
 		pref.be_special_role -= href_list["add_never"]
 		pref.never_be_special_role |= href_list["add_never"]
+		return TOPIC_REFRESH
+
+	if(href_list["set_all"])
+		switch(href_list["set_all"])
+			if("high")
+				for(var/role in valid_special_roles())
+					pref.be_special_role |= role
+					pref.never_be_special_role -= role
+			if("low")
+				for(var/role in valid_special_roles())
+					pref.be_special_role -= role
+					pref.never_be_special_role -= role
+			if("never")
+				for(var/role in valid_special_roles())
+					pref.be_special_role -= role
+					pref.never_be_special_role |= role
 		return TOPIC_REFRESH
 
 	return ..()
