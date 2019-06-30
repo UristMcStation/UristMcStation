@@ -7,7 +7,7 @@
 	anchored = 1
 	unacidable = 1//Dissolving the case would also delete the gun.
 	alpha = 150
-	var/health = 14
+	health = 14
 	var/destroyed = 0
 
 /obj/structure/displaycase/Initialize()
@@ -41,7 +41,7 @@
 	..()
 	take_damage(Proj.get_structure_damage())
 
-/obj/structure/displaycase/proc/take_damage(damage)
+/obj/structure/displaycase/take_damage(damage)
 	health -= damage
 	if(health <= 0)
 		if (!destroyed)

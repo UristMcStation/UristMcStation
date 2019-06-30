@@ -60,10 +60,10 @@ Small, little HP, poisonous.
 	chest.embed(holder,0,"\The [src] latches itself onto \the [H]!")
 	holder.sync(src)
 
-/mob/living/simple_animal/hostile/voxslug/AttackingTarget()
+/mob/living/simple_animal/hostile/voxslug/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(istype(., /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = .
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
 		if(prob(H.getBruteLoss()/2))
 			attach(H)
 

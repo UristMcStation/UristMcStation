@@ -8,7 +8,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = BELOW_OBJ_LAYER
 	explosion_resistance = 1
-	var/health = 10
+	health = 10
 	var/destroyed = 0
 	var/rodpath = /obj/item/stack/rods //modularity
 	var/on_frame = FALSE

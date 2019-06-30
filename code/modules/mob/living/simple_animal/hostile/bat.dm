@@ -46,9 +46,14 @@
 		return 0
 	return ..()
 
-/mob/living/simple_animal/hostile/scarybat/AttackingTarget()
+/mob/living/simple_animal/hostile/scarybat/UnarmedAttack(var/atom/A, var/proximity)
+	if(A && A == owner)
+		// No attacking the owner! Bad bat!
+		return 0
+
 	. =..()
-	var/mob/living/L = .
+
+	var/mob/living/L = A
 	if(istype(L))
 		if(prob(15))
 			L.Stun(1)

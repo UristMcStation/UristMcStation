@@ -96,10 +96,10 @@
 		set_light(0.2, 0.1, 3)
 		move_to_delay = 2
 
-/mob/living/simple_animal/hostile/vagrant/AttackingTarget()
+/mob/living/simple_animal/hostile/vagrant/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
 		if(gripping == H)
 			H.Weaken(3)
 			H.Stun(3)

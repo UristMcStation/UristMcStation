@@ -276,7 +276,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				available_cultural_info[token] = list()
 			available_cultural_info[token] |= additional_available_cultural_info[token]
 
-		else if(!LAZYLEN(available_cultural_info[token]))
+		else if(!available_cultural_info || !LAZYLEN(available_cultural_info[token]))
 			var/list/map_systems = GLOB.using_map.available_cultural_info[token]
 			available_cultural_info[token] = map_systems.Copy()
 
