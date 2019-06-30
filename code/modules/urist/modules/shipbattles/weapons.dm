@@ -264,7 +264,7 @@
 		warhead = null
 		loaded = 0
 		icon_state = "bigtorpedo-unloaded"
-
+	. = ..()
 /obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
 		if(!src.loaded && user.unEquip(I, src))
