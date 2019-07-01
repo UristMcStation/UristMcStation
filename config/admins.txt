@@ -6,7 +6,6 @@
 ######################################################################
 
 Nyxodile - Host
-KorPhaeron - Host
 glloyd - Head Admin
 CoraiUnki - Game Master
 Gale212 - Game Master

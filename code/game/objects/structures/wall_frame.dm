@@ -170,6 +170,9 @@
 
 	take_damage(tforce)
 
+/obj/structure/wall_frame/blob_act()
+	dismantle()
+
 /obj/structure/wall_frame/proc/dismantle()
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
