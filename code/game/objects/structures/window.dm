@@ -75,6 +75,9 @@
 			visible_message("Cracks begin to appear in [src]!" )
 	return
 
+/obj/structure/window/blob_act()
+	take_damage(50)
+
 /obj/structure/window/proc/apply_silicate(var/amount)
 	if(health < maxhealth) // Mend the damage
 		health = min(health + amount * 3, maxhealth)

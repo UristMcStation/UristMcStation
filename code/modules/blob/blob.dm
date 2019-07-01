@@ -131,6 +131,8 @@
 /obj/effect/blob/proc/pulse(var/forceLeft, var/list/dirs)
 	if(!dirs)	return
 	regen()
+	animate(src, color = "#FF0000", time=1)
+	animate(color = "#FFFFFF", time=4, easing=ELASTIC_EASING)
 	sleep(4)
 	var/pushDir = pick(dirs)
 	var/turf/T = get_step(src, pushDir)

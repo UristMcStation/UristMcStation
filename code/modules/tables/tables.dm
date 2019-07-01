@@ -86,6 +86,9 @@
 		T.update_icon()
 	. = ..()
 
+/obj/structure/table/blob_act()
+	take_damage(100)
+
 /obj/structure/table/examine(mob/user)
 	. = ..()
 	if(health < maxhealth)

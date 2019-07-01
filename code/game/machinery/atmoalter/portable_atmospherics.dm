@@ -185,3 +185,6 @@
 		else
 			gases = gas
 	log_and_message_admins("opened [src.name], containing [gases].")
+
+/obj/machinery/portable_atmospherics/blob_act()
+	qdel(src)

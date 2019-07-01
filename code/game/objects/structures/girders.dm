@@ -48,6 +48,9 @@
 
 	return
 
+/obj/structure/girder/blob_act()
+	dismantle()
+
 /obj/structure/girder/CanFluidPass(var/coming_from)
 	return TRUE
 

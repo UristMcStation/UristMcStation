@@ -209,6 +209,14 @@ Checks if a list has the same entries and values as an element of big.
 		L.Swap(i, rand(i,L.len))
 	return L
 
+//same, but returns nothing and acts on list in place
+/proc/shuffle_inplace(list/L)
+	if(!L)
+		return
+
+	for(var/i=1, i<L.len, ++i)
+		L.Swap(i,rand(i,L.len))
+
 //Return a list with no duplicate entries
 /proc/uniquelist(var/list/L)
 	. = list()

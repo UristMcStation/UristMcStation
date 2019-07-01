@@ -197,6 +197,9 @@
 	on = powered()
 	update_icon(0)
 
+/obj/machinery/light/blob_act()
+	broken()
+
 /obj/machinery/light/Destroy()
 	QDEL_NULL(lightbulb)
 	QDEL_NULL(s)

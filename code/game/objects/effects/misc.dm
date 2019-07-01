@@ -97,3 +97,16 @@
 
 /obj/effect/paint_stripe/beige
 	color = COLOR_BEIGE
+
+/obj/effect/temporary_effect
+	name = "self deleting effect"
+	desc = "How are you examining what which cannot be seen?"
+	icon = 'icons/effects/effects.dmi'
+	invisibility = 0
+	var/time_to_die = 10 SECONDS // Afer which, it will delete itself.
+
+/obj/effect/temporary_effect/New()
+	..()
+	if(time_to_die)
+		spawn(time_to_die)
+			qdel(src)

@@ -66,6 +66,9 @@
 		deflate(1)
 	return
 
+/obj/structure/inflatable/blob_act()
+	deflate(1)
+
 /obj/structure/inflatable/ex_act(severity)
 	switch(severity)
 		if(1.0)

@@ -388,6 +388,13 @@
 				take_damage(100)
 			take_damage(100)
 
+/obj/machinery/door/blob_act()
+	if(density) // If it's closed.
+		if(stat & BROKEN)
+			spawn(0)
+				open(1)
+		else
+			take_damage(100)
 
 /obj/machinery/door/update_icon()
 	if(connections in list(NORTH, SOUTH, NORTH|SOUTH))
