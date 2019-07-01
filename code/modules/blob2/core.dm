@@ -134,8 +134,8 @@ var/list/blob_cores = list()
 	if(overmind_get_delay > world.time && !override_delay)
 		return
 	if(!ai_controlled) // Do we want a bona fide player blob?
-		return
-		/*overmind_get_delay = world.time + 15 SECONDS //if this fails, we'll try again in 15 seconds
+
+		overmind_get_delay = world.time + 15 SECONDS //if this fails, we'll try again in 15 seconds
 
 		if(overmind)
 			qdel(overmind)
@@ -146,7 +146,7 @@ var/list/blob_cores = list()
 			var/datum/ghost_query/Q = new /datum/ghost_query/blob()
 			var/list/winner = Q.query()
 			if(winner.len)
-				var/mob/observer/dead/D = winner[1]
+				var/mob/observer/D = winner[1]
 				C = D.client
 
 		else
@@ -164,7 +164,7 @@ var/list/blob_cores = list()
 				B.mind.special_role = "Blob Overmind"
 			return TRUE
 		return FALSE
-		*/
+
 	else // An AI opponent.
 		if(!desired_blob_type && !isnull(difficulty_threshold))
 			desired_blob_type = get_random_blob_type()

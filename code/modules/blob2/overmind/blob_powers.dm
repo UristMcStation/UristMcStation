@@ -22,6 +22,10 @@
 		to_chat(src, "<span class='warning'>There is no blob here!</span>")
 		return
 
+	if(needsNode && !(locate(/obj/structure/blob/node) in range(T, BLOB_NODE_PULSE_RANGE) ) && !(locate(/obj/structure/blob/core) in range(T, BLOB_CORE_PULSE_RANGE) ))
+		to_chat(src, "<span class='warning'>There must be a node within [BLOB_NODE_PULSE_RANGE] tiles or a core within [BLOB_CORE_PULSE_RANGE] tiles.</span>")
+		return
+
 	if(!istype(B, /obj/structure/blob/normal))
 		to_chat(src, "<span class='warning'>Unable to use this blob, find a normal one.</span>")
 		return
@@ -71,7 +75,7 @@
 		var/obj/structure/blob/temp = pick(potential_blobs)
 		if(!(locate(/obj/structure/blob/node) in range(temp, BLOB_NODE_PULSE_RANGE) ) && !(locate(/obj/structure/blob/core) in range(temp, BLOB_CORE_PULSE_RANGE) ))
 			potential_blobs -= temp // Can't be pulsed.
-		else if(locate(/obj/structure/blob/resource) in range(temp, 4) )
+		if(locate(/obj/structure/blob/resource) in range(temp, 4) )
 			potential_blobs -= temp // Too close to another resource blob.
 		else if(locate(/obj/structure/blob/core) in range(temp, 1) )
 			potential_blobs -= temp // Don't take up the core's shield spot.
@@ -112,7 +116,7 @@
 		var/obj/structure/blob/temp = pick(potential_blobs)
 		if(!(locate(/obj/structure/blob/node) in range(temp, BLOB_NODE_PULSE_RANGE) ) && !(locate(/obj/structure/blob/core) in range(temp, BLOB_CORE_PULSE_RANGE) ))
 			potential_blobs -= temp // Can't be pulsed.
-		else if(locate(/obj/structure/blob/factory) in range(temp, 7) )
+		if(locate(/obj/structure/blob/factory) in range(temp, 7) )
 			potential_blobs -= temp // Too close to another factory blob.
 		else if(locate(/obj/structure/blob/core) in range(temp, 1) )
 			potential_blobs -= temp // Don't take up the core's shield spot.

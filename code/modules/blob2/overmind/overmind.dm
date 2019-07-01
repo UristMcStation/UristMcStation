@@ -12,6 +12,7 @@ var/list/overminds = list()
 	layer = FLY_LAYER + 0.1
 
 	faction = "blob"
+	stat = 0
 	var/obj/structure/blob/core/blob_core = null // The blob overmind's core
 	var/blob_points = 0
 	var/max_blob_points = 200
@@ -42,6 +43,19 @@ var/list/overminds = list()
 	if(blob_core)
 		blob_core.update_icon()
 		level_seven_blob_announcement(blob_core)
+
+	if(!(blob_type.can_build_resources))
+		verbs -= /mob/observer/blob/verb/create_resource
+		verbs -= /mob/observer/blob/verb/auto_resource
+
+	if(!(blob_type.can_build_factories))
+		verbs -= /mob/observer/blob/verb/create_factory
+		verbs -= /mob/observer/blob/verb/auto_factory
+
+
+	if(!(blob_type.can_build_nodes))
+		verbs -= /mob/observer/blob/verb/create_node
+		verbs -= /mob/observer/blob/verb/auto_node
 
 	..(newloc)
 
@@ -93,5 +107,9 @@ var/list/overminds = list()
 			auto_attack()
 
 		if(blob_points >= 100)
-			if(!auto_factory() && !auto_resource())
-				auto_node()
+			if(blob_type.can_build_factories && auto_factory())
+				return
+			if(blob_type.can_build_resources && auto_resource())
+				return
+			if(blob_type.can_build_nodes && auto_node())
+				return //pointless right now but if anyone ever tries to add new blob types this is already in the correct format

@@ -36,11 +36,14 @@ var/list/blobs = list()
 	overmind = null
 	return ..()
 
+/obj/structure/blob/blob_act()
+	return
+
 /obj/structure/blob/update_icon() //Updates color based on overmind color if we have an overmind.
 	if(overmind)
 		name = "[overmind.blob_type.name] [base_name]" // This is in update_icon() because inert blobs can turn into other blobs with magic if another blob core claims it with pulsing.
 		color = overmind.blob_type.color
-		set_light(3, 3, 1, color)
+		set_light(1, 0.3, 2, 2, color)
 	else
 		name = "inert [base_name]"
 		color = null

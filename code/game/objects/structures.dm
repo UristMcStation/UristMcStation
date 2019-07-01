@@ -49,6 +49,9 @@
 /obj/structure/attack_tk()
 	return
 
+/obj/structure/blob_act()
+	qdel(src)
+
 /obj/structure/ex_act(severity)
 	switch(severity)
 		if(1.0)

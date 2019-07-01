@@ -12,9 +12,7 @@
 	melee_damage_lower = 2
 	melee_damage_upper = 4
 	layer = MOB_LAYER + 0.2 // Over the blob.
-	attacktext = list("slams into")
 //	attack_sound = 'sound/effects/slime_squish.ogg'
-	emote_see = list("sways", "inflates briefly")
 	var/mob/living/carbon/human/infested = null // The human this thing is totally not making into a zombie.
 	var/can_infest = FALSE
 	var/is_infesting = FALSE
@@ -55,7 +53,7 @@
 /mob/living/simple_animal/hostile/blob/spore/update_icons()
 	if(overmind)
 		color = overmind.blob_type.complementary_color
-		set_light(3, 5, color)
+		set_light(1, 0.3, 2, 2, color)
 	else
 		color = null
 		set_light(0)
