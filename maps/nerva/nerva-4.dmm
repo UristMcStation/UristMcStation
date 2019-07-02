@@ -9007,6 +9007,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
+"Xf" = (
+/obj/structure/shipweapons/hardpoint,
+/turf/simulated/floor/reinforced,
+/area/security/topgun)
 
 (1,1,1) = {"
 aa
@@ -40217,14 +40221,14 @@ ar
 fE
 gr
 gs
-gs
+Xf
 gs
 iR
 ib
 jI
 gs
 gs
-gs
+Xf
 gs
 fE
 ar

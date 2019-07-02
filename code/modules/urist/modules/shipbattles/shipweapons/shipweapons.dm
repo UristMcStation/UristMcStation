@@ -5,6 +5,7 @@
 	active_power_usage = 1000
 	use_power = 1
 	anchored = 1
+	density = 1
 	var/passshield = 0
 	var/shielddamage = 0
 	var/hulldamage = 0
@@ -233,5 +234,6 @@
 		S.weapon_type = src.type
 		S.name = "[src.name] assembly"
 		S.shipid = src.shipid
+		S.anchored = 1
 		linkedcomputer.linkedweapons -= src
 		qdel(src)

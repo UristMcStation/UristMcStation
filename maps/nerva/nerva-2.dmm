@@ -19860,10 +19860,11 @@
 /area/rnd/office)
 "aGC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/northright{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/brigdoor/southleft{
 	req_access = list(57)
 	},
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/northleft,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
@@ -19871,7 +19872,6 @@
 	name = "Science Lockdown Shutters";
 	tag = "icon-shutter1"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/rnd/office)
 "aGD" = (
@@ -24684,6 +24684,7 @@
 /area/security/starboardgun)
 "aOi" = (
 /obj/item/trash/cheesie,
+/obj/structure/shipweapons/hardpoint/nerva,
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
 "aOj" = (
