@@ -33,7 +33,7 @@ var/global/list/rad_collectors = list()
 	if(P && active)
 		var/rads = SSradiation.get_rads_at_turf(get_turf(src))
 		if(rads)
-			receive_pulse(rads * (1+50/rads)) //Maths is hard
+			receive_pulse(rads * (1+4*(250/rads))) //Maths is hard
 
 	if(P)
 		if(P.air_contents.gas["phoron"] == 0)
