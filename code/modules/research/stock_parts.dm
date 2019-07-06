@@ -18,6 +18,7 @@
 /obj/item/weapon/storage/part_replacer/bluespace //from tg... somewhat
 	name = "bluespace rapid part exchange device"
 	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
+	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "BS_RPED"
 	w_class = ITEM_SIZE_NORMAL
 	storage_slots = 91 //400 originally but that many item slots makes the screen go screwy
