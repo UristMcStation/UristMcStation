@@ -254,17 +254,9 @@
 /obj/structure/shipammo/torpedo/New()
 	..()
 	pixel_y = rand(-20,2)
+	if(ispath(warhead))
+		warhead = new warhead(src)
 
-/obj/structure/shipammo/torpedo/attack_hand(mob/user as mob)
-	if(warhead)
-		if(istype(user,/mob/living/silicon))
-			return
-		user.put_in_hands(warhead)
-		to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
-		warhead = null
-		loaded = 0
-		icon_state = "bigtorpedo-unloaded"
-	. = ..()
 /obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
 		if(!src.loaded && user.unEquip(I, src))
@@ -278,7 +270,13 @@
 
 		else
 			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
-
+	else if(isCrowbar(I))
+		if(warhead)
+			warhead.dropInto(loc)
+			to_chat(user, "<span class='notice'>You remove the torpedo warhead.</span>")
+			warhead = null
+			loaded = 0
+			icon_state = "bigtorpedo-unloaded"
 	else
 		..()
 
@@ -287,6 +285,7 @@
 	loaded = 1
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state = "bigtorpedo"
+	warhead = /obj/item/shipweapons/torpedo_warhead
 
 /obj/machinery/shipweapons/missile/torpedo
 	name = "torpedo launcher"
