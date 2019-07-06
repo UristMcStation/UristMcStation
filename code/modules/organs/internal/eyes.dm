@@ -56,6 +56,10 @@
 	robotize()
 
 /obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
+	if(status & ORGAN_ROBOTIC && istype(target.species, /datum/species/machine))
+		organ_tag = BP_OPTICS
+	else
+		organ_tag = BP_EYES
 
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)
