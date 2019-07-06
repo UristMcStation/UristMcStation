@@ -13,6 +13,7 @@
 	encased = "skull"
 	artery_name = "carotid artery"
 	cavity_name = "cranial"
+	cavity_max_w_class = 2
 
 	limb_flags = ORGAN_FLAG_CAN_AMPUTATE | ORGAN_FLAG_GENDERED_ICON | ORGAN_FLAG_HEALS_OVERKILL | ORGAN_FLAG_CAN_BREAK
 
