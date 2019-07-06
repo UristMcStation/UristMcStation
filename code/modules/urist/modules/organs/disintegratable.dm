@@ -39,9 +39,10 @@
 // Special override for MMI holder organ objects
 /obj/item/organ/internal/mmi_holder/drop_organ()
 	..()
+	// This line has to be always be run before the function below. Otherwise, you risk working with null references.
+	var/turf/T = get_turf(src)
 	var/obj/item/device/mmi/M = transfer_and_delete()
-	M.loc = src.loc
-
+	M.forceMove(T)
 
 /obj/item/organ/proc/can_disintegrate()
 	return 1
