@@ -157,12 +157,6 @@
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/silicon = 1, /datum/reagent/acetone = 1)
 	result_amount = 4
 
-/datum/chemical_reaction/pacid
-	name = "Polytrinic acid"
-	result = /datum/reagent/acid/polyacid
-	required_reagents = list(/datum/reagent/acid = 1, /datum/reagent/acid/hydrochloric = 1, /datum/reagent/potassium = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/synaptizine
 	name = "Synaptizine"
 	result = /datum/reagent/synaptizine
@@ -322,7 +316,7 @@
 /datum/chemical_reaction/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
 	result = /datum/reagent/toxin/potassium_chlorophoride
-	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/toxin/carpotoxin = 1)
+	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/zombiepowder
@@ -447,6 +441,51 @@
 	required_reagents = list(/datum/reagent/toxin/bromide = 1, /datum/reagent/ethanol = 1, /datum/reagent/hydrazine = 1)
 	result_amount = 3
 	result = /datum/reagent/toxin/methyl_bromide
+
+
+
+
+/*Acid Synthesis*/
+
+/datum/chemical_reaction/sulfuric_acid
+	name = "Sulfuric Acid"
+	required_reagents list(/datum/reagent/sulfur = 1, /datum/reagent/water = 1, /datum/reagent/acid/hydrochloric = 1)
+	result_amount = 2
+	result = /datum/reagent/acid	
+/datum/chemical_reaction/sulfuric_acid2
+	name = "Sulfuric Acid2"
+	required_reagents list(/datum/reagent/sulfur = 1, /datum/reagent/water = 1)
+	result_amount = 2
+	result = /datum/reagent/acid	
+	catalysts = list(/datum/reagent/copper = 1)
+/datum/chemical_reaction/sulfuric_acid3
+	name = "Sulfuric Acid3"
+	required_reagents list(/datum/reagent/sulfur = 1, /datum/reagent/water = 1)
+	result_amount = 2
+	result = /datum/reagent/acid	
+	catalysts = list(/datum/reagent/iron = 1)
+
+
+/datum/chemical_reaction/hydrochloric_acid
+	name = "Hydrochloric Acid"
+	required_reagents list(/datum/reagent/water = 1, /datum/reagent/sodium_chloride = 1)
+	result_amount = 2
+	catalysts = list(/datum/reagent/copper = 1)
+	result = /datum/reagent/acid/hydrochloric
+/datum/chemical_reaction/hydrochloric_acid2
+	name = "Hydrochloric Acid2"
+	required_reagents list(/datum/reagent/water = 1, /datum/reagent/sodium_chloride = 1)
+	result_amount = 2
+	catalysts = list(/datum/reagent/iron = 1)
+	result = /datum/reagent/acid/hydrochloric
+
+
+/datum/chemical_reaction/pacid
+	name = "Polytrinic acid"
+	result = /datum/reagent/acid/polyacid
+	required_reagents = list(/datum/reagent/acid = 1, /datum/reagent/acid/hydrochloric = 1, /datum/reagent/potassium = 1)
+	result_amount = 3
+
 
 /* Solidification */
 /datum/chemical_reaction/phoronsolidification
@@ -1465,6 +1504,13 @@
 	required_reagents = list(/datum/reagent/nutriment = 10)
 	catalysts = list(/datum/reagent/enzyme = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/ethanol
+	name = "Ethanol"
+	result = /datum/reagent/ethanol
+	required_reagents = list(/datum/reagent/glycerol = 5)
+	catalysts = list(/datum/reagent/enzyme = 5)
+	result_amount = 5
 
 /datum/chemical_reaction/grenadine
 	name = "Grenadine Syrup"
