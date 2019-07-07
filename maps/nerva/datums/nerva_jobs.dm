@@ -225,7 +225,7 @@
 
 /datum/job/assistant
 	alt_titles = list(
-	"Visitor", "Technical Assistant","Medical Intern","Cargo Assistant",
+	"Passenger", "Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /decl/hierarchy/outfit/job/service/gardener,
 	"Clown" = /decl/hierarchy/outfit/job/clown,
 	"Mime" = /decl/hierarchy/outfit/job/mime
