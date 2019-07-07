@@ -21,8 +21,10 @@
 	var/busy = 0
 
 	var/mat_efficiency = 1
-	var/build_time = 50
-	var/list/datum/autolathe/recipe/queue = list()
+	var/print_time_rating = 1
+
+	var/datum/autolathe/printjob/current_job
+	var/list/datum/autolathe/printjob/job_queue = list()
 	var/max_queue_length = 12
 
 	var/datum/wires/autolathe/wires = null
@@ -50,78 +52,6 @@
 /obj/machinery/autolathe/proc/update_recipe_list()
 	if(!machine_recipes)
 		machine_recipes = autolathe_recipes
-
-/obj/machinery/autolathe/interact(mob/user as mob)
-
-	update_recipe_list()
-
-	if(..() || (disabled && !panel_open))
-		to_chat(user, "<span class='danger'>\The [src] is disabled!</span>")
-		return
-
-	if(shocked)
-		shock(user, 50)
-
-	var/dat = "<center><h1>Autolathe Control Panel</h1><hr/>"
-
-	if(!disabled)
-		dat += "<table width = '100%'>"
-		var/material_top = "<tr>"
-		var/material_bottom = "<tr>"
-
-		for(var/material in stored_material)
-			material_top += "<td width = '25%' align = center><b>[material]</b></td>"
-			material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
-
-		dat += "[material_top]</tr>[material_bottom]</tr></table><hr>"
-		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
-
-		var/index = 0
-		dat += "<h2> Designs in Queue: </h2>"
-		var/tmp = 1
-		for(var/datum/autolathe/recipe/D in queue)
-			dat += "<b>[tmp]: [D.name]</b><BR>"
-			++tmp
-		dat += "<hr>"
-		for(var/datum/autolathe/recipe/R in machine_recipes)
-			index++
-			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
-				continue
-			var/can_make = 1
-			var/material_string = ""
-			var/multiplier_string = ""
-			var/max_sheets
-			var/comma
-			if(!R.resources || !R.resources.len)
-				material_string = "No resources required.</td>"
-			else
-				//Make sure it's buildable and list requires resources.
-				for(var/material in R.resources)
-					var/sheets = round(stored_material[material]/round(R.resources[material]*mat_efficiency))
-					if(isnull(max_sheets) || max_sheets > sheets)
-						max_sheets = sheets
-					if(!isnull(stored_material[material]) && stored_material[material] < round(R.resources[material]*mat_efficiency))
-						can_make = 0
-					if(!comma)
-						comma = 1
-					else
-						material_string += ", "
-					material_string += "[round(R.resources[material] * mat_efficiency)] [material]"
-				material_string += ".<br></td>"
-				//Build list of multipliers for sheets
-
-			dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
-
-		dat += "</table><hr>"
-	//Hacking.
-	if(panel_open)
-		dat += "<h2>Maintenance Panel</h2>"
-		dat += wires.GetInteractWindow()
-
-		dat += "<hr>"
-
-	user << browse(dat, "window=autolathe")
-	onclose(user, "autolathe")
 
 /obj/machinery/autolathe/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -223,16 +153,21 @@
 	updateUsrDialog()
 
 /obj/machinery/autolathe/attack_hand(mob/user as mob)
-	user.set_machine(src)
-	interact(user)
+	if(..() || (disabled && !panel_open))
+		to_chat(user, "<span class='danger'>\The [src] is disabled!</span>")
+		return
+
+	if(shocked)
+		shock(user, 50)
+
+	wires.Interact(user)
+	ui_interact(user)
 
 /obj/machinery/autolathe/OnTopic(user, href_list, state)
 	set waitfor = 0
-	if(href_list["change_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in autolathe_categories+"All"
-		if(!choice)
-			return TOPIC_HANDLED
-		show_category = choice
+
+	if(href_list["show"])
+		show_category = href_list["show"]
 		. = TOPIC_REFRESH
 
 	else if(href_list["make"] && machine_recipes)
@@ -247,11 +182,15 @@
 		if(!making)
 			log_and_message_admins("tried to exploit an autolathe to duplicate an item!", user)
 			return TOPIC_HANDLED
-		if(queue.len > max_queue_length)
+		if(job_queue.len > max_queue_length)
 			to_chat(user, "<span class='warning'>[src] buzzes, 'Queue full!' </span>")
 			return
 		addToQueue(making)
 		to_chat(user, "<span class='notice'>[src] chimes, '[making.name] added to queue!' </span>")
+
+	else if (href_list["eject"] && stored_material)
+		var/amount = Clamp(text2num(href_list["eject_amount"]),0,60)
+		world.log << "[src] got href 'eject' with the amount [amount]"
 
 /obj/machinery/autolathe/update_icon()
 	icon_state = (panel_open ? "autolathe_t" : "autolathe")
@@ -269,7 +208,7 @@
 	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating  * 25000
 	storage_capacity["glass"] = mb_rating  * 12500
 	storage_capacity["wood"] = mb_rating  * 12500
-	build_time = 50 / man_rating
+	print_time_rating = man_rating
 	mat_efficiency = 1.1 - man_rating * 0.1// Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 
 /obj/machinery/autolathe/dismantle()
@@ -297,54 +236,37 @@
 			attempt_fill(O, usr)
 
 /obj/machinery/autolathe/proc/addToQueue(var/datum/autolathe/recipe/D)
-	queue += D
+	job_queue += new /datum/autolathe/printjob(src, D)
 	return
 
+/obj/machinery/autolathe/proc/popFromQueue()
+	var/datum/autolathe/printjob/J = job_queue[1]
+	job_queue.Cut(1, 2)
+	return J
+
 /obj/machinery/autolathe/proc/removeFromQueue(var/index)
-	queue.Cut(index, index + 1)
+	job_queue.Cut(index, index + 1)
 	return
 
 /obj/machinery/autolathe/Process()
-	if(queue.len == 0)
+	..()
+	if (stat)
 		return
-	if(busy)
-		return
-	var/datum/autolathe/recipe/D = queue[1]
-	if(queue.len)
-		build(D)
+	if (!current_job && job_queue.len)
+		current_job = popFromQueue()
 
-/obj/machinery/autolathe/proc/build(var/datum/autolathe/recipe/D)
-	busy = 1
-	update_use_power(2)
-	var/datum/autolathe/recipe/making
-	making = D
+	if (current_job && !QDELING(current_job))
+		if (!current_job.started)
+			if (current_job.can_make())
+				current_job.start()
+		else
+			current_job.tick(print_time_rating)
 
-	//Check if we still have the materials.
-	for(var/material in making.resources)
-		if(!isnull(stored_material[material]))
-			if(stored_material[material] < round(making.resources[material] * mat_efficiency))
-				visible_message("<span class='warning'>[src] buzzes, 'Not enough materials for [making.name], flushing queue.'</span>")
-				queue.Cut(1)
-				return TOPIC_REFRESH
-
-	//Consume materials.
-	for(var/material in making.resources)
-		if(!isnull(stored_material[material]))
-			stored_material[material] = max(0, stored_material[material] - round(making.resources[material] * mat_efficiency))
-
-	//Fancy autolathe animation.
-	flick("autolathe_n", src)
-
-	sleep(build_time)
-
-	busy = 0
-	update_use_power(1)
-
-	//Sanity check.
-	if(!making || QDELETED(src)) return TOPIC_HANDLED
-	//Create the desired item.
-	new making.path(loc)
-	removeFromQueue(1)
+/obj/machinery/autolathe/proc/on_job_finished(var/atom/movable/product)
+	product.forceMove(src.loc)
+	visible_message("\The [src] pings, indicating that \the [product] is complete.", "You hear a ping.")
+	qdel(current_job)
+	current_job = null
 
 /obj/machinery/autolathe/verb/extract_materials()
 	set name = "Extract Materials"

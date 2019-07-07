@@ -1,0 +1,52 @@
+<!-- 
+	Template for Autolathe machines
+	See:	code/game/machinery/autolathe.dm
+			code/game/machinery/autolathe_ui.dm
+ -->
+<h2>Autolathe</h2>
+<hr />
+<table>
+	<tr>
+		{{for data.storage}}
+		<td>
+			{{:value.name}}<br />
+			{{:value.amount}} / {{:value.capacity}}<br />
+			{{:helper.link('1', null, { 'eject' : value.name, 'eject_amount' : 1}, value.sheets >= 1 ? null : 'disabled')}}
+			{{:helper.link('5', null, { 'eject' : value.name, 'eject_amount' : 5}, value.sheets >= 5 ? null : 'disabled')}}
+			{{:helper.link('10', null, { 'eject' : value.name, 'eject_amount' : 10}, value.sheets >= 10 ? null : 'disabled')}}
+		</td>
+		{{/for}}
+	</tr>
+</table>
+<hr />
+<h3>Fabrication queue</h3>
+<h2>Printable designs</h2>
+<h3>Showing:</h3>
+<div>
+	{{for data.categories}}
+		{{:helper.link(value, null, { 'show' : value }, value == data.show_category ? 'disabled' : null)}}
+	{{/for}}
+</div>
+<br />
+<hr />
+<table>
+{{for data.recipes: recipe}}
+	{{if data.show_category == 'All' || recipe.category == data.show_category}}
+	<tr>
+		<td>
+		{{:recipe.name}}
+		</td>
+		<td>
+		{{:recipe.resources}}
+		</td>
+		<td>
+		{{:helper.link('Queue', null, { 'make' : recipe.key })}}
+		</td>
+	</tr>
+	{{/if}}
+{{empty}}
+<h3>No designs available for fabrication</h3>
+{{/for}}
+</table>
+
+ 

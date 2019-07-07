@@ -1,6 +1,10 @@
 /var/global/list/autolathe_recipes
 /var/global/list/autolathe_categories
 
+// long name just to spite picky developers and maintainers
+// you are welcome, gentlemen
+var/const/PRINT_TIME_TOTAL_MATTER_RELATION_COEFFICIENT = 1/100
+
 var/const/EXTRA_COST_FACTOR = 1.25
 // Items are more expensive to produce than they are to recycle.
 
@@ -9,9 +13,11 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	//Create global autolathe recipe list if it hasn't been made already.
 	autolathe_recipes = list()
 	autolathe_categories = list()
+
+	var/list/unsorted_recipes = list()
 	for(var/R in typesof(/datum/autolathe/recipe)-/datum/autolathe/recipe)
 		var/datum/autolathe/recipe/recipe = new R
-		autolathe_recipes += recipe
+		unsorted_recipes[recipe.name] += recipe
 		autolathe_categories |= recipe.category
 
 		var/obj/item/I = new recipe.path
@@ -21,6 +27,12 @@ var/const/EXTRA_COST_FACTOR = 1.25
 				recipe.resources[material] = I.matter[material] * EXTRA_COST_FACTOR
 		qdel(I)
 
+		recipe.calculate_print_time()
+
+	var/list/sorted_recipes = sortAssoc(unsorted_recipes)
+	for(var/key in sorted_recipes)
+		autolathe_recipes += sorted_recipes[key]
+
 /datum/autolathe/recipe
 	var/name = "object"
 	var/path
@@ -29,6 +41,14 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	var/category
 	var/power_use = 0
 	var/is_stack
+	var/print_time = 0
+
+/datum/autolathe/recipe/proc/calculate_print_time()
+	var/total_matter = 0
+	for (var/material in resources)
+		total_matter += resources[material]
+
+	print_time = total_matter * PRINT_TIME_TOTAL_MATTER_RELATION_COEFFICIENT
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"
@@ -86,6 +106,11 @@ var/const/EXTRA_COST_FACTOR = 1.25
 /datum/autolathe/recipe/jar
 	name = "jar"
 	path = /obj/item/glass_jar
+	category = "General"
+
+/datum/autolathe/recipe/tape_roll
+	name = "duct tape"
+	path = /obj/item/weapon/tape_roll
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
@@ -153,6 +178,16 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/weapon/material/minihoe
 	category = "Tools"
 
+/datum/autolathe/recipe/gasanalyzer
+	name = "gas analyzer"
+	path = /obj/item/device/analyzer
+	category = "Tools"
+
+/datum/autolathe/recipe/plant_analyzer
+	name = "plant analyzer"
+	path = /obj/item/device/analyzer/plant_analyzer
+	category = "Tools"
+
 /datum/autolathe/recipe/radio_headset
 	name = "radio headset"
 	path = /obj/item/device/radio/headset
@@ -178,14 +213,14 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/stack/material/steel
 	category = "General"
 	is_stack = 1
-	resources = list("steel" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
+	resources = list("steel" = SHEET_MATERIAL_AMOUNT)
 
 /datum/autolathe/recipe/glass
 	name = "glass sheets"
 	path = /obj/item/stack/material/glass
 	category = "General"
 	is_stack = 1
-	resources = list("glass" = SHEET_MATERIAL_AMOUNT * EXTRA_COST_FACTOR)
+	resources = list("glass" = SHEET_MATERIAL_AMOUNT)
 
 /datum/autolathe/recipe/rglass
 	name = "reinforced glass sheets"
@@ -239,6 +274,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "matter cartridge"
 	path = /obj/item/weapon/rcd_ammo
 	category = "Engineering"
+
 /datum/autolathe/recipe/rcd_ammo_large
 	name = "high-capacity matter cartridge"
 	path = /obj/item/weapon/rcd_ammo/large
@@ -252,6 +288,11 @@ var/const/EXTRA_COST_FACTOR = 1.25
 /datum/autolathe/recipe/circularsaw
 	name = "circular saw"
 	path = /obj/item/weapon/circular_saw
+	category = "Medical"
+
+/datum/autolathe/recipe/bonesetter
+	name = "bone setter"
+	path = /obj/item/weapon/bonesetter
 	category = "Medical"
 
 /datum/autolathe/recipe/surgicaldrill
@@ -400,7 +441,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 
 /datum/autolathe/recipe/cable_coil
 	name = "cable coil"
-	path = /obj/item/stack/cable_coil/single
+	path = /obj/item/stack/cable_coil
 	category = "Devices and Components"
 	is_stack = 1
 
@@ -464,7 +505,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	path = /obj/item/device/destTagger
 	category = "General"
 
-/datum/autolathe/recipe/labeler
+/datum/autolathe/recipe/hand_labeler
 	name = "hand labeler"
 	path = /obj/item/weapon/hand_labeler
 	category = "General"
