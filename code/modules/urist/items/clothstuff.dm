@@ -43,6 +43,8 @@
 			to_chat(usr, "<span class='notice'>You cut \the [src] into pieces!</span>")
 			for(var/i in 2 to rand(3,5))
 				new /obj/item/stack/material/cloth(get_turf(src))
+			for(var/obj/O in src.contents)
+				O.dropInto(loc)
 			qdel(src)
 	else
 		to_chat(usr, "<span class='notice'>You need something sharper to cut with!</span>")
