@@ -17,6 +17,7 @@
 		)))
 
 	data["storage"] = storage
+	data["eject_amount_options"] = list(1,5,10)
 
 	// Make category data
 	var/list/categories = list("All") // initialize with "All" added
@@ -56,10 +57,15 @@
 		for (var/key = 1 to job_queue.len)
 			if (!job_queue[key])
 				break
-			Q += list(job_queue[key].get_ui_data())
+			var/datum/autolathe/printjob/job = job_queue[key]
+			var/list/J = job.get_ui_data()
+			J["time_left"] = time2text(10 * (job.target.print_time - job.progress)  / print_time_rating, "mm:ss")
+			Q += list(J)
 
 	if (current_job)
-		data["current"] = list(current_job.get_ui_data())
+		var/list/C = current_job.get_ui_data()
+		C["time_left"] = time2text(10 * (current_job.target.print_time - current_job.progress)  / print_time_rating, "mm:ss")
+		data["current"] = C
 	data["queue"] = Q
 
 	// END DATA STRUCTURING
@@ -70,4 +76,5 @@
 		ui = new(user, src, ui_key, "autolathe.tmpl", "Autolathe Control Panel", 800, 600)
 		ui.set_initial_data(data)
 		ui.open()
+		ui.set_auto_update(1)
 

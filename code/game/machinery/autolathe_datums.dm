@@ -1,9 +1,9 @@
 /var/global/list/autolathe_recipes
 /var/global/list/autolathe_categories
 
-// long name just to spite picky developers and maintainers
-// you are welcome, gentlemen
-var/const/PRINT_TIME_TOTAL_MATTER_RELATION_COEFFICIENT = 1/100
+var/const/PRINT_TIME_BASE_TIME = 0
+var/const/PRINT_TIME_ROUNDING_TARGET = 25
+var/const/PRINT_TIME_COEFFICIENT = 2/10
 
 var/const/EXTRA_COST_FACTOR = 1.25
 // Items are more expensive to produce than they are to recycle.
@@ -48,7 +48,14 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	for (var/material in resources)
 		total_matter += resources[material]
 
-	print_time = total_matter * PRINT_TIME_TOTAL_MATTER_RELATION_COEFFICIENT
+	print_time = PRINT_TIME_BASE_TIME + 3*(total_matter**(1/2.5)) * PRINT_TIME_COEFFICIENT
+
+	if (!print_time)
+		print_time = 1
+	else if (print_time >= PRINT_TIME_ROUNDING_TARGET)
+		print_time = Floor(print_time)
+	else
+		print_time = Ceiling(print_time)
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"

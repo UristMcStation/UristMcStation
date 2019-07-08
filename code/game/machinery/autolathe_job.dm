@@ -8,7 +8,7 @@
 	var/started = 0
 	var/finished = 0
 	var/paused = 0
-	var/remaining_ticks
+	var/progress
 
 /datum/autolathe/printjob/New(var/obj/machinery/autolathe/master ,var/datum/autolathe/recipe/target)
 	src.master = master
@@ -60,7 +60,7 @@
 		force_start()
 
 /datum/autolathe/printjob/proc/force_start()
-	remaining_ticks = target.print_time
+	progress = 0
 	started = 1
 
 /datum/autolathe/printjob/proc/tick(var/delta)
@@ -69,8 +69,8 @@
 	if (finished || paused)
 		return
 
-	remaining_ticks -= delta
-	if (remaining_ticks <= 0)
+	progress += delta
+	if (progress >= target.print_time)
 		on_finish()
 
 /datum/autolathe/printjob/proc/on_finish()
@@ -91,6 +91,7 @@
 /datum/autolathe/printjob/proc/get_ui_data()
 	. = list(
 		"name" = target.name,
-		"time" = target.print_time,
-		"remaining" = remaining_ticks
-	)
+		"target" = target.print_time,
+		"progress" = progress,
+		"percent" = (progress/target.print_time)*100
+		)
