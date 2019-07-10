@@ -858,10 +858,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(!D.build_path || !(D.build_type))
 			continue
 		var/temp_dat
+		var/resource_mult = 1
+		if(linked_lathe && D.build_type & PROTOLATHE)
+			resource_mult = linked_lathe.mat_efficiency
+		else if(linked_imprinter && D.build_type & IMPRINTER)
+			resource_mult = linked_imprinter.mat_efficiency
 		for(var/M in D.materials)
-			temp_dat += ", [D.materials[M]] [CallMaterialName(M)]"
+			temp_dat += ", [D.materials[M]*resource_mult] [CallMaterialName(M)]"
 		for(var/T in D.chemicals)
-			temp_dat += ", [D.chemicals[T]*linked_imprinter.mat_efficiency] [CallReagentName(T)]"
+			temp_dat += ", [D.chemicals[T]*resource_mult] [CallReagentName(T)]"
 		if(temp_dat)
 			temp_dat = " \[[copytext(temp_dat, 3)]\]"
 		if(D.build_type & PROTOLATHE)
