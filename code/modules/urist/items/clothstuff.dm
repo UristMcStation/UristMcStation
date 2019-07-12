@@ -23,16 +23,32 @@
 	req_amount = 1
 	time = 10
 
-/obj/item/clothing/under/attackby(obj/item/I, mob/user)
+/obj/item/clothing/under/verb/cut()
+	set name = "Cut up clothing"
+	set desc = "Cut some clothes into cloth."
+	set category = "Object"
+	set src in oview(1)
+
+	if (!can_touch(usr))
+		return
+
+	var/obj/item/I = usr.get_active_hand()
+	if(!I)
+		to_chat(usr, "<span class='notice'>You aren't holding anything to cut with.</span>")
+		return
+
 	if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
-		if(do_after(user, 50, src))
-			to_chat(user, "<span class='notice'>You cut \the [src] into pieces!</span>")
+		usr.visible_message("<span class='notice'>\The [usr] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
+		if(do_after(usr, 50, src))
+			to_chat(usr, "<span class='notice'>You cut \the [src] into pieces!</span>")
 			for(var/i in 2 to rand(3,5))
 				new /obj/item/stack/material/cloth(get_turf(src))
+			for(var/obj/O in src.contents)
+				O.dropInto(loc)
 			qdel(src)
-		return
-	..()
+	else
+		to_chat(usr, "<span class='notice'>You need something sharper to cut with!</span>")
+	return
 
 /obj/item/clothing/mask/surgical/makeshift_mask
 	name = "makeshift mask"

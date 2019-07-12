@@ -338,7 +338,12 @@
 		return
 
 	if(check_blood_level(H))
-		make_announcement("buzzes, \"Warning - Patient is in hypovolemic shock and may require a blood transfusion.\"", "warning") //also includes heart damage
+		make_announcement("buzzes, \"Warning - Patient is in hypovolemic shock and may require a blood transfusion.\"", "warning")
+
+	if(H.internal_organs_by_name[BP_HEART]) //People may need more direct instruction
+		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+		if(heart.is_bruised())
+			make_announcement("buzzes, \"Danger! The patient has sustained a cardiac contusion and will require surgical treatment for full recovery!\"", "danger")
 
 	//placed on chest and short delay to shock for dramatic effect, revive time is 5sec total
 	if(!do_after(user, chargetime, H))
@@ -439,7 +444,7 @@
 	H.setBrainLoss(brain_damage)
 
 /obj/item/weapon/shockpaddles/proc/make_announcement(var/message, var/msg_class)
-	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
+	audible_message("<b>\The [src]</b> <span class='[msg_class]'>[message]</span>", "\The [src] vibrates slightly.")
 
 /obj/item/weapon/shockpaddles/emag_act(var/uses, var/mob/user, var/obj/item/weapon/defibrillator/base)
 	if(istype(src, /obj/item/weapon/shockpaddles/linked))
@@ -524,7 +529,7 @@
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
 
 /obj/item/weapon/shockpaddles/linked/make_announcement(var/message, var/msg_class)
-	base_unit.audible_message("<b>\The [base_unit]</b> [message]", "\The [base_unit] vibrates slightly.")
+	base_unit.audible_message("<b>\The [base_unit]</b> <span class='[msg_class]'>[message]</span>", "\The [base_unit] vibrates slightly.")
 
 /*
 	Standalone Shockpaddles

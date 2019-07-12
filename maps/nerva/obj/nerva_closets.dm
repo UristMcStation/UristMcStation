@@ -141,7 +141,7 @@
 
 /obj/structure/closet/secure_closet/nervacos/WillContain()
 	return list(
-		/obj/item/clothing/suit/urist/armor/nerva/sec_cos,
+		/obj/item/clothing/suit/armor/pcarrier/merc/cos,
 		/obj/item/clothing/under/urist/nerva/cosregular,
 		/obj/item/clothing/head/HoS/dermal,
 		/obj/item/clothing/head/helmet,

@@ -16,7 +16,7 @@
 
 	var/damage = 0
 	var/maxhealth = 10
-	var/health = 10
+	health = 10
 	var/stripe_color
 
 	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
@@ -174,7 +174,7 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
-/obj/structure/wall_frame/proc/take_damage(dam)
+/obj/structure/wall_frame/take_damage(dam)
 	if(dam)
 		damage = max(0, damage + dam)
 		update_damage()

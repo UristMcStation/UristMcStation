@@ -42,6 +42,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 #define MACHINERY_CIRCUITS "Machinery Circuitry"
 #define TELECOMMS_CIRCUITS "Telecommunications Circuitry"
 #define COMPUTER_CIRCUITS "Computer Circuitry"
+#define MODULAR_COMPUTER_CIRCUIT "Modular Computer Circuitry"
 
 /obj/machinery/computer/rdconsole
 	name = "fabrication control console"
@@ -742,6 +743,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<li><A href='?src=\ref[src];menu=6.3'>Machinery Circuitry Fabrication</A> <BR> "
 			dat += "<li><A href='?src=\ref[src];menu=6.4'>Telecommunication Circuitry Fabrication</A> <BR> "
 			dat += "<li><A href='?src=\ref[src];menu=6.5'>Computer Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.6'>Modular Computer Circuitry Fabrication</A> <BR> "
 			dat += "</UL>"
 
 		if(4.2)
@@ -840,6 +842,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(6.5)
 			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(COMPUTER_CIRCUITS)
+		if(6.6)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(MODULAR_COMPUTER_CIRCUIT)
 
 	user << browse("<TITLE>Fabrication Control Console</TITLE><HR>[dat]", "window=rdconsole;size=850x600")
 	onclose(user, "rdconsole")
@@ -853,10 +858,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(!D.build_path || !(D.build_type))
 			continue
 		var/temp_dat
+		var/resource_mult = 1
+		if(linked_lathe && D.build_type & PROTOLATHE)
+			resource_mult = linked_lathe.mat_efficiency
+		else if(linked_imprinter && D.build_type & IMPRINTER)
+			resource_mult = linked_imprinter.mat_efficiency
 		for(var/M in D.materials)
-			temp_dat += ", [D.materials[M]] [CallMaterialName(M)]"
+			temp_dat += ", [D.materials[M]*resource_mult] [CallMaterialName(M)]"
 		for(var/T in D.chemicals)
-			temp_dat += ", [D.chemicals[T]*linked_imprinter.mat_efficiency] [CallReagentName(T)]"
+			temp_dat += ", [D.chemicals[T]*resource_mult] [CallReagentName(T)]"
 		if(temp_dat)
 			temp_dat = " \[[copytext(temp_dat, 3)]\]"
 		if(D.build_type & PROTOLATHE)
@@ -894,3 +904,4 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 #undef MACHINERY_CIRCUITS
 #undef TELECOMMS_CIRCUITS
 #undef COMPUTER_CIRCUITS
+#undef MODULAR_COMPUTER_CIRCUIT

@@ -61,7 +61,8 @@ for reference:
 	icon_state = "barricade"
 	anchored = 1.0
 	density = 1
-	var/health = 100
+	breakable = 1
+	health = 100
 	var/maxhealth = 100
 	var/material/material
 	atom_flags = ATOM_FLAG_CLIMBABLE

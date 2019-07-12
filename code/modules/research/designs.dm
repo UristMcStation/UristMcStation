@@ -32,6 +32,7 @@ other types of metals and chemistry for reagents).
 #define MACHINERY_CIRCUITS "Machinery Circuitry"
 #define TELECOMMS_CIRCUITS "Telecommunications Circuitry"
 #define COMPUTER_CIRCUITS "Computer Circuitry"
+#define MODULAR_COMPUTER_CIRCUIT "Modular Computer Circuitry"
 
 //Note: More then one of these can be added to a design.
 
@@ -1214,6 +1215,9 @@ other types of metals and chemistry for reagents).
 	sort_string = "VBAAF"
 
 // Network cards
+/datum/design/item/modularcomponent/netcard
+	category = MODULAR_COMPUTER_CIRCUIT
+
 /datum/design/item/modularcomponent/netcard/AssembleDesignName()
 	..()
 	name = "Network card design ([item_name])"
@@ -1249,6 +1253,9 @@ other types of metals and chemistry for reagents).
 	sort_string = "VBABC"
 
 // Data crystals (USB flash drives)
+/datum/design/item/modularcomponent/portabledrive
+	category = MODULAR_COMPUTER_CIRCUIT
+
 /datum/design/item/modularcomponent/portabledrive/AssembleDesignName()
 	..()
 	name = "Portable drive design ([item_name])"
@@ -1306,6 +1313,7 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	chemicals = list(/datum/reagent/acid = 20)
 	build_path = /obj/item/weapon/computer_hardware/ai_slot
+	category = MODULAR_COMPUTER_CIRCUIT
 	sort_string = "VBADB"
 
 // Nano printer
@@ -1425,6 +1433,9 @@ other types of metals and chemistry for reagents).
 	sort_string = "VBAEF"
 
 // Processor unit
+/datum/design/item/modularcomponent/cpu
+	category = MODULAR_COMPUTER_CIRCUIT
+
 /datum/design/item/modularcomponent/cpu/AssembleDesignName()
 	..()
 	name = "CPU design ([item_name])"
@@ -2507,3 +2518,4 @@ CIRCUITS BELOW
 #undef MACHINERY_CIRCUITS
 #undef TELECOMMS_CIRCUITS
 #undef COMPUTER_CIRCUITS
+#undef MODULAR_COMPUTER_CIRCUIT

@@ -144,7 +144,9 @@
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
-	new /obj/effect/effect/smoke/bad(loc)
+	var/datum/effect/effect/system/smoke_spread/bad/deathsmoke = new
+	deathsmoke.set_up(5,0,src.loc,null)
+	deathsmoke.start()
 	qdel(src)
 
 //Spess Jason Bourne
@@ -166,9 +168,9 @@
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
+/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
-	..()
+	. = ..()
 
 //terran
 

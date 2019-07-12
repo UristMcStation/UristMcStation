@@ -72,20 +72,20 @@
 	get_light_and_color(parent)
 	..()
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(isliving(.))
-		var/mob/living/L = .
+	if(isliving(A))
+		var/mob/living/L = A
 		if(L.reagents)
 			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
 		if(prob(poison_per_bite))
 			var/obj/item/organ/external/O = pick(H.organs)
 			if(!BP_IS_ROBOTIC(O))
