@@ -8214,7 +8214,11 @@
 /obj/item/trash/sosjerky,
 /obj/item/trash/syndi_cakes,
 /obj/item/trash/chips,
+/obj/item/weapon/gunsmith/parts,
 /obj/item/trash/chips,
+/obj/random/junk,
+/obj/item/trash/cigbutt/rand,
+/obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "nL" = (
@@ -9708,6 +9712,10 @@
 /obj/item/clothing/accessory/storage/bandolier/safari,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/weapon/cell/super,
+/obj/item/weapon/net_shell,
+/obj/item/weapon/net_shell,
+/obj/item/weapon/net_shell,
+/obj/item/weapon/net_shell,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
 "qz" = (
@@ -14260,8 +14268,8 @@
 "xZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
-	name = "Advanced Fabrication Lab";
-	req_access = list(29)
+	name = "Advanced Fabrication Workshop";
+	req_one_access = list(29,55)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -14412,7 +14420,7 @@
 "yi" = (
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Workshop";
-	req_access = list(31)
+	req_one_access = list(31,55)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -16296,6 +16304,9 @@
 /obj/effect/floor_decal/corner/purple{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "Nanotrasen Scientist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
@@ -20048,6 +20059,8 @@
 	name = "west bump";
 	pixel_x = -25
 	},
+/obj/item/weapon/net_shell,
+/obj/item/weapon/net_shell,
 /turf/simulated/floor/tiled/white,
 /area/hadrian/storage)
 "HO" = (
@@ -21329,6 +21342,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
+"QZ" = (
+/obj/item/weapon/extinguisher,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fp)
 "Ra" = (
 /obj/structure/closet/crate,
 /obj/random/advdevice,
@@ -22032,6 +22049,9 @@
 	icon_state = "intact-supply";
 	dir = 9
 	},
+/obj/structure/table/rack,
+/obj/random/tank,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "ZT" = (
@@ -44554,7 +44574,7 @@ aa
 aa
 Pd
 aq
-aD
+QZ
 Vi
 bj
 bE
@@ -47592,7 +47612,7 @@ bv
 cQ
 bv
 es
-bv
+fA
 fx
 aq
 fz
@@ -48607,7 +48627,7 @@ fA
 aD
 aD
 aq
-aD
+bv
 hX
 iF
 jp

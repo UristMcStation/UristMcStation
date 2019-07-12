@@ -7,6 +7,6 @@
 	var/trader_weight = 1
 	var/list/bonus_items = list()
 	var/is_template = 1
-	var/sellable = 0 //can we sell this item to the trader
+	var/sellable = 1 //can we sell this item to the trader
 	var/is_bulky = 0
 	var/req_access = null

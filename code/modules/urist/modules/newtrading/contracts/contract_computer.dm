@@ -14,18 +14,34 @@
 	name = "Contract Database"
 //	var/selected_category
 //	var/list/category_names
-	var/list/category_contents
+//	var/list/category_contents
 
 /datum/nano_module/contract_database/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
 	var/list/data = host.initial_data()
-	generate_categories()
+
+//	category_contents = list()
+	var/list/category[0]
+	for(var/datum/contract/C in GLOB.using_map.contracts)
+//		if(C.is_category())
+//		category_names.Add(C.faction)
+//			category_names.Add(C.name)
+		category.Add(list(list(
+			"name" = C.name,
+			"desc" = C.desc,
+			"issuer" = C.faction,
+			"money" = C.money,
+			"amount" = C.amount,
+			"progress" = C.completed
+		)))
+		data["existing_contracts"] = category
+//		category_contents = category
 
 	data["credits"] = "[SSsupply.points]"
 	data["currency"] = GLOB.using_map.supply_currency_name
 //	data["categories"] = category_names
 //	if(selected_category)
 //	data["category"] = selected_category
-	data["existing_contracts"] = category_contents
+//	data["existing_contracts"] = category_contents
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -60,22 +76,3 @@
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Contract overview<field></i></center><hr>"
 	print_text(t, user)
 */
-
-
-/datum/nano_module/contract_database/proc/generate_categories()
-//	category_names = list()
-	category_contents = list()
-	for(var/datum/contract/C in GLOB.using_map.contracts)
-//		if(C.is_category())
-//		category_names.Add(C.faction)
-//			category_names.Add(C.name)
-		var/list/category[0]
-		category.Add(list(list(
-			"name" = C.name,
-			"desc" = C.desc,
-			"issuer" = C.faction,
-			"money" = C.money,
-			"amount" = C.amount,
-			"progress" = C.completed
-		)))
-		category_contents[C.name] = category

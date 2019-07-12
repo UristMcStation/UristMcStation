@@ -4,14 +4,15 @@
 	name = "Nanotrasen trading station"
 	desc = "A Nanotrasen trading station, dock here to trade with its many merchants."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	start_x = 6
 	start_y = 7
 	spawn_type = /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 
 	initial_generic_waypoints = list(
 		"nav_nanotrading_1",
-		"nav_nanotrading_2"
+		"nav_nanotrading_2",
+		"nav_nanotrading_3"
 		)
 
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1
@@ -23,6 +24,12 @@
 /obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2
 	name = "Loading Bay"
 	landmark_tag = "nav_nanotrading_2"
+	base_area = /area/spacestations/nanotrasenspace
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav3
+	name = "Auxiliary Docking Bay"
+	landmark_tag = "nav_nanotrading_3"
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/plating
 
@@ -41,7 +48,7 @@
 	name = "Nanotrasen mining outpost"
 	desc = "A Nanotrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	spawn_type = list(
 	/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	)
@@ -74,7 +81,7 @@
 	name = "Terran Confederacy colony"
 	desc = "A small Terran Confederacy colony on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	spawn_type = list(
 	/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	)

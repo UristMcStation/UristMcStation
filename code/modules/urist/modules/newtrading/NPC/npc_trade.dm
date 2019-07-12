@@ -13,6 +13,11 @@
 				return 0
 		return 1
 
+	var/datum/trade_item/T = trade_controller.trade_items_by_type[O.type]
+	if(T)
+		if(!T.sellable)
+			return 0
+
 	if(O.trader_category && O.trader_category in trade_categories_by_name)
 		return 1
 

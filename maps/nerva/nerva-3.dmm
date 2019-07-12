@@ -1432,10 +1432,6 @@
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"do" = (
-/obj/structure/girder,
-/turf/simulated/floor/plating,
-/area/logistics/auxtool)
 "dp" = (
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/wood,
@@ -1773,7 +1769,6 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "ef" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1782,6 +1777,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "eg" = (
@@ -4279,7 +4275,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/techmaint,
 /area/command/captain)
 "iQ" = (
 /obj/structure/disposalpipe/segment{
@@ -7611,7 +7607,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/techmaint,
 /area/command/teleporter)
 "oW" = (
 /turf/simulated/wall/r_wall,
@@ -8237,7 +8233,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/fadeblue/full,
+/turf/simulated/floor/tiled/dark,
 /area/command/fobedroom)
 "qe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13169,6 +13166,7 @@
 	},
 /obj/random/drinkbottle,
 /obj/random/smokes,
+/obj/item/ammo_casing/musket/flintlock,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "ze" = (
@@ -14050,10 +14048,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"Js" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/r_wall,
-/area/engineering/substation/second_deck)
 "JQ" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -14124,6 +14118,10 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
+"KK" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fp)
 "KM" = (
 /obj/structure/closet/wardrobe/chaplain_black{
 	name = "chapel closet"
@@ -33192,7 +33190,7 @@ yy
 Xj
 NO
 Xj
-Js
+Xj
 za
 zT
 pe
@@ -41038,7 +41036,7 @@ bs
 bO
 cm
 cI
-cR
+KK
 dY
 cR
 fi
@@ -41240,7 +41238,7 @@ bs
 bO
 cn
 cn
-do
+cn
 cn
 eG
 cn
@@ -41841,7 +41839,7 @@ ah
 ah
 ah
 ah
-ap
+aq
 bs
 bP
 cn
@@ -43260,7 +43258,7 @@ bs
 bO
 cm
 cR
-cI
+KK
 dY
 cR
 fi

@@ -51,3 +51,9 @@
 
 /datum/trade_category/ntshiphuntcontract
 	name = "ntshiphuntcontract"
+
+/datum/trade_category/ntseccontract
+	name = "ntseccontract"
+
+/datum/trade_category/ntkitchencontract
+	name = "ntkitchencontract"

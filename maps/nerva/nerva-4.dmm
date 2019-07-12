@@ -929,6 +929,12 @@
 	dir = 4;
 	icon_state = "intact"
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "ce" = (
@@ -1021,6 +1027,7 @@
 /obj/random/storage,
 /obj/random/medical,
 /obj/random/ammo_magazine_smug,
+/obj/item/ammo_casing/musket/flintlock,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cm" = (
@@ -1063,6 +1070,11 @@
 	req_access = list(1)
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/security/dockingcheckpoint)
 "ct" = (
@@ -1179,6 +1191,12 @@
 	icon_state = "pipe-c";
 	dir = 8
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = ""
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "cH" = (
@@ -1191,6 +1209,11 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
@@ -1344,7 +1367,7 @@
 "dc" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "dd" = (
 /obj/structure/cable{
@@ -3233,6 +3256,7 @@
 	pixel_y = -6;
 	req_one_access = list(13,80)
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gw" = (
@@ -5607,19 +5631,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kF" = (
-/obj/structure/bed/chair/office/comfy/blue,
-/obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/hostile/mimic/sleeping,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kG" = (
-/obj/structure/bed/chair/office/comfy/green,
+/obj/item/weapon/material/shard,
+/obj/item/weapon/hammer/smithing,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kH" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/bed/chair/office/comfy/red,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -6048,18 +6069,12 @@
 /obj/structure/bed/chair/office/comfy/lime,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/gibspawner/human,
-/obj/item/weapon/paper/crumpled/bloody{
-	info = "I fucking warned you."
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ll" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/mine/frag,
-/obj/structure/bed/chair/office/comfy/teal,
+/obj/item/weapon/material/shard,
+/mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lm" = (
@@ -6215,19 +6230,15 @@
 /area/maintenance/first_deck/central)
 "lB" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/mimic/sleeping{
-	health = 150;
-	maxHealth = 150
-	},
+/obj/item/weapon/gunsmith/barrel/flintlock,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lC" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/mine/frag,
 /obj/structure/bed/chair/office/comfy/purple,
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lD" = (
@@ -8990,6 +9001,16 @@
 	},
 /turf/space,
 /area/space)
+"Fd" = (
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/central)
+"Xf" = (
+/obj/structure/shipweapons/hardpoint,
+/turf/simulated/floor/reinforced,
+/area/security/topgun)
 
 (1,1,1) = {"
 aa
@@ -31723,7 +31744,7 @@ jg
 bE
 jX
 kv
-dI
+Fd
 lm
 lD
 kv
@@ -40200,14 +40221,14 @@ ar
 fE
 gr
 gs
-gs
+Xf
 gs
 iR
 ib
 jI
 gs
 gs
-gs
+Xf
 gs
 fE
 ar

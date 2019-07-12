@@ -25,7 +25,7 @@
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
 
-	map_admin_faxes = list("Automated Announcement System")
+	map_admin_faxes = list("NanoTrasen Central Office")
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
@@ -39,8 +39,8 @@
 	supply_currency_name = "Thalers"
 	supply_currency_name_short = "Th."
 
-	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
-	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing
+	using_new_cargo = TRUE //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing //i didn't make this clear, it's the original point value times this number
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -68,7 +68,6 @@
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
-	contracts += new /datum/contract/nanotrasen/anomaly
 
 /datum/map/nerva/map_info(victim)
 	to_chat(victim, "<h2>Current map information</h2>")

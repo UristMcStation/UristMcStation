@@ -498,6 +498,7 @@ var/global/datum/controller/gameticker/ticker
 
 		if(GLOB.using_map.using_new_cargo)
 			to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>T[stationmoney]</b> in revenue today.")
+			to_world("In addition, the crew of the <b>[GLOB.using_map.station_name]</b> completed <b>[GLOB.using_map.completed_contracts]</b> contracts today.")
 
 	mode.declare_completion()//To declare normal completion.
 

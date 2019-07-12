@@ -1701,6 +1701,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/nervaammo,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "adT" = (
@@ -5500,6 +5501,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/black/border,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
 "ajN" = (
@@ -7618,9 +7620,6 @@
 /area/security/office)
 "anq" = (
 /obj/machinery/photocopier,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/corner/black{
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
@@ -7630,6 +7629,9 @@
 	tag = "icon-bordercolorhalf (WEST)";
 	icon_state = "bordercolorhalf";
 	dir = 8
+	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
@@ -15581,9 +15583,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bridge)
 "azE" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
 	dir = 6
@@ -15597,6 +15596,11 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/item/modular_computer/console/preset/nervacommand{
+	tag = "icon-console (WEST)";
+	icon_state = "console";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bridge)
@@ -19580,9 +19584,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "aFT" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 1
-	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
@@ -19597,6 +19598,11 @@
 	dir = 1;
 	icon_state = "xraycam";
 	tag = "icon-xraycam (NORTH)"
+	},
+/obj/item/modular_computer/console/preset/nervacommand{
+	tag = "icon-console (NORTH)";
+	icon_state = "console";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -19779,6 +19785,7 @@
 	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "aGs" = (
@@ -19853,10 +19860,11 @@
 /area/rnd/office)
 "aGC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/northright{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/brigdoor/southleft{
 	req_access = list(57)
 	},
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/northleft,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
@@ -19864,7 +19872,6 @@
 	name = "Science Lockdown Shutters";
 	tag = "icon-shutter1"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/rnd/office)
 "aGD" = (
@@ -20496,11 +20503,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/office)
-"aHI" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/folder/nt,
-/turf/simulated/floor/wood,
-/area/rnd/office)
 "aHJ" = (
 /turf/simulated/floor/wood,
 /area/rnd/office)
@@ -20523,7 +20525,8 @@
 "aHL" = (
 /obj/structure/table/woodentable,
 /obj/machinery/photocopier/faxmachine{
-	department = "Nanotrasen Scientists"
+	department = "Nanotrasen Scientists";
+	req_one_access = list(38,19,3,41,55)
 	},
 /turf/simulated/floor/wood,
 /area/rnd/office)
@@ -20541,7 +20544,9 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/machinery/computer/navigation{
+/obj/item/modular_computer/console/preset/nervasci{
+	tag = "icon-console (WEST)";
+	icon_state = "console";
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -22872,6 +22877,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aLM" = (
@@ -22891,6 +22901,11 @@
 	pixel_y = 26;
 	req_access = list(10)
 	},
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aLN" = (
@@ -22899,6 +22914,9 @@
 	icon_state = "console"
 	},
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23699,16 +23717,25 @@
 "aNb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow/three_quarters,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aNc" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aNd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/yellow/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aNe" = (
@@ -23913,6 +23940,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "aNu" = (
@@ -24656,6 +24684,7 @@
 /area/security/starboardgun)
 "aOi" = (
 /obj/item/trash/cheesie,
+/obj/structure/shipweapons/hardpoint/nerva,
 /turf/simulated/floor/plating,
 /area/security/starboardgun)
 "aOj" = (
@@ -25383,15 +25412,28 @@
 /obj/structure/table/reinforced,
 /obj/item/device/radio,
 /obj/item/clothing/glasses/meson,
+/obj/effect/floor_decal/corner/yellow/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aPB" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aPC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25606,6 +25648,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "aPS" = (
@@ -25626,6 +25669,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
@@ -26205,6 +26252,7 @@
 "aQJ" = (
 /obj/item/weapon/book/manual/supermatter_engine,
 /obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/yellow/three_quarters,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aQK" = (
@@ -26213,9 +26261,17 @@
 	icon_state = "console"
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aQL" = (
+/obj/effect/floor_decal/corner/yellow/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aQM" = (
@@ -28363,8 +28419,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aUB" = (
-/obj/item/weapon/paper_bin,
-/obj/item/modular_computer/console/preset/supply{
+/obj/item/modular_computer/console/preset/nervasupply{
 	tag = "icon-console (WEST)";
 	icon_state = "console";
 	dir = 8
@@ -28747,6 +28802,7 @@
 /obj/item/weapon/contraband/poster,
 /obj/random/drinkbottle,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/musket/flintlock,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aVk" = (
@@ -29349,6 +29405,11 @@
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall,
 /area/rnd/office)
+"kuf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/borderfloor,
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "kAp" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -50702,7 +50763,7 @@ aTh
 aUb
 aUI
 aVc
-aVc
+kuf
 aVE
 aVU
 aTq
@@ -52506,7 +52567,7 @@ auH
 aEa
 aFo
 ksl
-aHI
+aHJ
 aIX
 aKd
 aHJ
@@ -59547,9 +59608,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
+alk
 aam
-aam
+aaU
 abY
 aam
 agp
@@ -59749,7 +59810,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+alk
 aam
 aam
 aaU
