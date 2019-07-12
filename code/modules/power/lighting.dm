@@ -553,6 +553,17 @@
 	var/list/lighting_modes = list()
 	var/sound_on
 
+/obj/item/weapon/light/attackby(obj/item/W, mob/user)
+	..()
+	if(istype(W, /obj/item/device/multitool/) )//Urist edit: Recolorable lights.
+		var/new_colour = input(usr, "Choose a colour.", "[src]", b_colour) as color|null
+		if(new_colour && new_colour != b_colour)
+			b_colour = new_colour
+			to_chat(usr, "<span class='notice'>You grant \the [src]<font color='[b_colour]'> a new colour</font>.</span>")
+			update_icon()
+
+
+
 /obj/item/weapon/light/tube
 	name = "light tube"
 	desc = "A replacement light tube."
