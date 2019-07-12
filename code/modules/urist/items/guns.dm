@@ -790,7 +790,8 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
