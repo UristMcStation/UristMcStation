@@ -298,12 +298,12 @@ Class Procs:
 	update_icon()
 	return 1
 
-/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
+/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R, var/override = 0)
 	if(!istype(R))
 		return 0
 	if(!component_parts)
 		return 0
-	if(panel_open)
+	if(panel_open || override)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
 		for(var/obj/item/weapon/stock_parts/A in component_parts)
