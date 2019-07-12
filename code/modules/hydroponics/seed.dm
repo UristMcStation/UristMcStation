@@ -450,7 +450,6 @@
 		banned_chems += typesof(/datum/reagent/toxin/fertilizer)
 		banned_chems += typesof(/datum/reagent/crayon_dust)
 		banned_chems += typesof(/datum/reagent/xenomicrobes/uristzombie)
-		banned_chems += typesof(/datum/reagent/nanites)
 		banned_chems += typesof(/datum/reagent/toxin/zombie)
 		banned_chems += typesof(/datum/reagent/hell_water)
 

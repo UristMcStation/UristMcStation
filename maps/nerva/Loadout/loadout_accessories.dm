@@ -1,4 +1,4 @@
-#define ARMED_ROLES list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
+#define ARMED_ROLES list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"

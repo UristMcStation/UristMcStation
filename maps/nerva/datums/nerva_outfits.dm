@@ -20,7 +20,6 @@
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/modular_computer/pda/mime
 	id_type = /obj/item/weapon/card/id/civilian/mime
 
