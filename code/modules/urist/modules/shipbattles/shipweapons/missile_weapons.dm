@@ -63,9 +63,9 @@
 	name = "torpedo launcher"
 	icon_state = "torpedo"
 	hulldamage = 350 //maybe
-//	active_power_usage = 1000
+	active_power_usage = 2500
 	component_hit = 25
-	rechargerate = 15 SECONDS
+	rechargerate = 16 SECONDS
 	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 

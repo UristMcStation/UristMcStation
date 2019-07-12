@@ -4,7 +4,7 @@
 	name = "Nanotrasen trading station"
 	desc = "A Nanotrasen trading station, dock here to trade with its many merchants."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	start_x = 6
 	start_y = 7
 	spawn_type = /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
@@ -48,7 +48,7 @@
 	name = "Nanotrasen mining outpost"
 	desc = "A Nanotrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	spawn_type = list(
 	/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	)
@@ -81,7 +81,7 @@
 	name = "Terran Confederacy colony"
 	desc = "A small Terran Confederacy colony on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
-	nospawn = 0
+	spawn_ships = FALSE
 	spawn_type = list(
 	/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 	)

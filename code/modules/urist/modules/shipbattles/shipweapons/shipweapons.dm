@@ -225,7 +225,8 @@
 			linkedcomputer = CC
 
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
-	if(isScrewdriver(W))
+	var/turf/T = get_turf(src)
+	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
 		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
@@ -237,3 +238,6 @@
 		S.anchored = 1
 		linkedcomputer.linkedweapons -= src
 		qdel(src)
+
+	else
+		..()
