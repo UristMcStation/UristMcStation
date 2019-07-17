@@ -23,11 +23,16 @@
 		spawn() V.manual_unbuckle(src)
 		return TRUE
 
-	if(..())
-		return TRUE
+	if(src.handcuffed && istype(src.buckled, /obj/effect/energy_net))	
+		var/obj/effect/energy_net/N = src.buckled	
+		N.escape_net(src) //super snowflake but is literally used NOWHERE ELSE.-Luke	
+		return
 
 	if(handcuffed)
 		spawn() escape_handcuffs()
+
+	if(..())
+		return TRUE
 
 /mob/living/carbon/proc/escape_handcuffs()
 	//if(!(last_special <= world.time)) return
