@@ -28,7 +28,7 @@
 	darksight_tint = DARKTINT_GOOD
 	slowdown = -0.08
 	total_health = 150
-	brute_mod = 1.2
+	brute_mod = 1.25
 	burn_mod =  1.25
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
