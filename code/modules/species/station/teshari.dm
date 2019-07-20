@@ -29,7 +29,7 @@
 	slowdown = -0.08
 	total_health = 150
 	brute_mod = 1.2
-	burn_mod =  1.2
+	burn_mod =  1.25
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
 	strength = STR_HIGH
