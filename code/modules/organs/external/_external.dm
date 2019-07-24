@@ -885,11 +885,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
 
 			// URIST EDIT BY IRRA, 2019-05-25
+			// EDITED AGAIN BY IRRA, 2019-06-13
 			for(var/obj/item/organ/O in internal_organs)
 				if(!O.can_disintegrate())
-					O.owner = victim
-					O.removed()
-					internal_organs -= O
+					O.drop_organ(victim, src)
 			// END URIST EDIT
 
 			for(var/obj/item/I in src)
@@ -915,8 +914,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 			gore.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
 			for(var/obj/item/organ/I in internal_organs)
-				I.owner = victim
-				I.removed()
+				// URIST EDIT BY IRRA 2019-07-06
+				// - Old code -
+				//I.owner = victim
+				//I.removed()
+				//
+				// - New code -
+				I.drop_organ(victim, src)
+				// END URIST EDIT
 				if(istype(loc,/turf))
 					I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 			internal_organs = null //Let's just not take chances
