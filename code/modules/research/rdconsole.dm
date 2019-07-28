@@ -323,26 +323,36 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 		. = TOPIC_REFRESH
 
-	else if(href_list["build"]) //Causes the Protolathe to build something.
+	else if(href_list["build"] || href_list["buildmult"]) //Causes the Protolathe to build something.
 		if(linked_lathe)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["build"])
+				if(D.id == href_list["build"] || D.id == href_list["buildmult"])
 					being_built = D
 					break
 			if(being_built)
-				linked_lathe.addToQueue(being_built)
+				var/count = 1
+				if(href_list["buildmult"])
+					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
+					count = Clamp(count, 1, 100)
+				for(var/i=1, i<=count, i++)
+					linked_lathe.addToQueue(being_built)
 		. = TOPIC_REFRESH
 
-	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
+	else if(href_list["imprint"] || href_list["imprintmult"]) //Causes the Circuit Imprinter to build something.
 		if(linked_imprinter)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["imprint"])
+				if(D.id == href_list["imprint"] || D.id == href_list["imprintmult"])
 					being_built = D
 					break
 			if(being_built)
-				linked_imprinter.addToQueue(being_built)
+				var/count = 1
+				if(href_list["imprintmult"])
+					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
+					count = Clamp(count, 1, 100)
+				for(var/i=1, i<=count, i++)
+					linked_imprinter.addToQueue(being_built)
 		. = TOPIC_REFRESH
 
 	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
@@ -871,12 +881,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			temp_dat = " \[[copytext(temp_dat, 3)]\]"
 		if(D.build_type & PROTOLATHE)
 			if(linked_lathe.canBuild(D))
-				dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A></B>[temp_dat]"
+				dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A> <A href='?src=\ref[src];buildmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
 			else
 				dat += "<LI><B>[D.name]</B>[temp_dat]"
 		if(D.build_type & IMPRINTER)
 			if(linked_imprinter.canBuild(D))
-				dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A></B>[temp_dat]"
+				dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A> <A href='?src=\ref[src];imprintmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
 			else
 				dat += "<LI><B>[D.name]</B>[temp_dat]"
 	return dat
