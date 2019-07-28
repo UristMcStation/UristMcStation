@@ -42,7 +42,7 @@
 	desc = "The headset of the man who protects your worthless lives."
 	icon_state = "com_headset"
 	item_state = "headset"
-	ks1type = /obj/item/device/encryptionkey/nerva/so
+	ks1type = /obj/item/device/encryptionkey/nerva/cos
 
 /obj/item/device/radio/headset/heads/nerva_qm
 	name = "quatermaster's headset"
