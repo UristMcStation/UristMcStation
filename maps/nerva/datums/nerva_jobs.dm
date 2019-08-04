@@ -189,8 +189,8 @@
 
 /datum/job/doctor
 	minimal_player_age = 0
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels,)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels,)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels)
 	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
 		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
 		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
