@@ -2,6 +2,13 @@
 // DISABILITIES //
 //////////////////
 
+//
+// CHANGELOG
+//
+//
+// 2019-08-14	Corrected how the radioactive mutation acted on its surroundings - Irra
+//
+
 //genetics disabilities, ported from vg who took them from goon, edited by UMcS
 
 ////////////////////////////////////////
@@ -38,10 +45,11 @@
 
 	OnMobLife(var/mob/owner)
 		owner.radiation = max(owner.radiation, 20)
-		for(var/mob/living/L in range(1, owner))
+		for(var/atom/L in range(1, owner))
 			if(L == owner) continue
-			L << "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>"
-			L.radiation += 5
+			if (istype(L, /mob/living))
+				L << "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>"
+			L.rad_act(5)
 		return
 
 	OnDrawUnderlays(var/mob/M,var/g,var/fat)
