@@ -144,17 +144,6 @@
 		close_ui()
 
 /mob/living/simple_animal/hostile/npc/proc/handle_question(var/mob/living/carbon/user)
-//	user.say(ask_question)
-
-//	var/list/selectable = list()
-
-	//check if we have a speech trigger
-//	for(var/datum/npc_speech_trigger/T in src.speech_triggers)
-//		if(T.trigger_word || T.trigger_phrase)
-//			selectable += T
-
-//	world << "\red \b question handled."
-
 	for(var/trigger in src.speech_triggers)
 
 		var/datum/npc_speech_trigger/S = new trigger
@@ -173,27 +162,3 @@
 
 	else
 		src.say(T.get_response_phrase())
-
-/*
-	var/choice = input("What do you want to ask about?") as null|anything in speech_triggers
-
-	if(!choice)
-		return
-
-//	var/datum/npc_speech_trigger/S = choice
-
-//	var/datum/npc_speech_trigger/S = speech_triggers[choice]
-
-	var/datum/npc_speech_trigger/S = new choice
-
-	if(angryspeak)
-		src.say(S.get_angryresponse_phrase())
-
-	else
-		src.say(S.get_response_phrase())
-*/
-	//default response
-//	if(!say_next)
-//		say_next = pick(confused_responses)
-
-//random_maps[choice]
