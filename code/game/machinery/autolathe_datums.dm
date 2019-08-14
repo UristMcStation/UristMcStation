@@ -1,9 +1,9 @@
 /var/global/list/autolathe_recipes
 /var/global/list/autolathe_categories
 
-var/const/PRINT_TIME_BASE_TIME = 0
+var/const/PRINT_TIME_BASE_TIME = 1
 var/const/PRINT_TIME_ROUNDING_TARGET = 25
-var/const/PRINT_TIME_COEFFICIENT = 2/10
+var/const/PRINT_TIME_COEFFICIENT = 1/25
 
 var/const/EXTRA_COST_FACTOR = 1.25
 // Items are more expensive to produce than they are to recycle.
@@ -48,7 +48,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	for (var/material in resources)
 		total_matter += resources[material]
 
-	print_time = PRINT_TIME_BASE_TIME + 3*(total_matter**(1/2.5)) * PRINT_TIME_COEFFICIENT
+	print_time = PRINT_TIME_BASE_TIME + (total_matter**(1/3)) * PRINT_TIME_COEFFICIENT
 
 	if (!print_time)
 		print_time = 1

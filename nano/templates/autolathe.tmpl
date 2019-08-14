@@ -28,6 +28,21 @@
 	<hr />
 </div>
 <div>
+	<table>
+		<tr>
+		{{for data.pages: page: i}}
+			<td>
+				{{:helper.link(page, null, { 'change_page' : page }, data.show_page == page ? 'disabled' : null)}}
+			</td>
+		{{/for}}
+		</tr>
+	</table>
+</div>
+{{if data.show_page == "Jobs"}}
+<!--
+	Display mode for Print Jobs
+-->
+<div>
 	<h3>Fabrication queue</h3>
 	<div>
 		<table>
@@ -93,12 +108,19 @@
 		</table>
 	</div>
 </div>
+<!-- 
+	End display of Print Jobs
+-->
+{{else}}
+<!--
+	Display mode of Printing Designs
+-->
 <div>
 	<h2>Printable designs</h2>
 	<h3>Showing:</h3>
 	<div>
 		{{for data.categories}}
-			{{:helper.link(value, null, { 'show' : value }, value == data.show_category ? 'disabled' : null)}}
+			{{:helper.link(value, null, { 'change_category' : value }, value == data.show_category ? 'disabled' : null)}}
 		{{/for}}
 	</div>
 	<br />
@@ -119,7 +141,7 @@
 			</th>
 		</tr>
 	{{for data.recipes: recipe}}
-		{{if data.show_category == 'All' || recipe.category == data.show_category}}
+		{{if (!recipe.hidden || data.show_hidden) && (data.show_category == 'All' || recipe.category == data.show_category)}}
 		<tr>
 			<td>
 			{{:recipe.name}}
@@ -140,5 +162,6 @@
 	{{/for}}
 	</table>
 </div>
+{{/if}}
 
  

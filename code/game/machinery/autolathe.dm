@@ -13,7 +13,9 @@
 	var/list/machine_recipes
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, "glass" = 0, "wood" = 0)
 	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, "glass" = 0, "wood" = 0)
+
 	var/show_category = "All"
+	var/show_page = "Recipes"
 
 	var/hacked = 0
 	var/disabled = 0
@@ -162,35 +164,6 @@
 
 	wires.Interact(user)
 	ui_interact(user)
-
-/obj/machinery/autolathe/OnTopic(user, href_list, state)
-	set waitfor = 0
-
-	if(href_list["show"])
-		show_category = href_list["show"]
-		. = TOPIC_REFRESH
-
-	else if(href_list["make"] && machine_recipes)
-		. = TOPIC_REFRESH
-		var/index = text2num(href_list["make"])
-		var/datum/autolathe/recipe/making
-
-		if(index > 0 && index <= machine_recipes.len)
-			making = machine_recipes[index]
-
-		//Exploit detection, not sure if necessary after rewrite.
-		if(!making)
-			log_and_message_admins("tried to exploit an autolathe to duplicate an item!", user)
-			return TOPIC_HANDLED
-		if(job_queue.len > max_queue_length)
-			to_chat(user, "<span class='warning'>[src] buzzes, 'Queue full!' </span>")
-			return
-		addToQueue(making)
-		to_chat(user, "<span class='notice'>[src] chimes, '[making.name] added to queue!' </span>")
-
-	else if (href_list["eject"] && stored_material)
-		var/amount = Clamp(text2num(href_list["eject_amount"]),0,60)
-		world.log << "[src] got href 'eject' with the amount [amount]"
 
 /obj/machinery/autolathe/update_icon()
 	icon_state = (panel_open ? "autolathe_t" : "autolathe")

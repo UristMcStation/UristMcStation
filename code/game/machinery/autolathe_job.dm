@@ -70,8 +70,11 @@
 		return
 
 	progress += delta
-	if (progress >= target.print_time)
+	if (finished())
 		on_finish()
+
+/datum/autolathe/printjob/proc/finished()
+	return progress >= target.print_time
 
 /datum/autolathe/printjob/proc/on_finish()
 	var/product = new target.path()
@@ -94,4 +97,5 @@
 		"target" = target.print_time,
 		"progress" = progress,
 		"percent" = (progress/target.print_time)*100
+		"is_paused" = paused
 		)

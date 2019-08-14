@@ -6,6 +6,10 @@
 	// START DATA STRUCTURING
 	var/list/data = list()
 
+	// Make display mode data
+	data["show_page"] = show_page
+	data["pages"] = list("Recipes", "Jobs")
+
 	// Make storage data
 	var/list/storage = list()
 	for (var/material in stored_material)
@@ -28,6 +32,8 @@
 	data["show_category"] = show_category
 
 	// Make available recipes data
+	data["show_hidden"] = hacked
+
 	var/list/recipes = list()
 	for (var/key = 1 to src.machine_recipes.len)
 		var/datum/autolathe/recipe/R = src.machine_recipes[key]
@@ -46,6 +52,7 @@
 			"category" = R.category,
 			"resources" = english_list(resources, and_text = ", "),
 			"is_stack" = R.is_stack,
+			"hidden" = R.hidden
 			"time" = time2text(round(10 * R.print_time / print_time_rating), "mm:ss")
 		))
 
@@ -78,3 +85,86 @@
 		ui.open()
 		ui.set_auto_update(1)
 
+
+/obj/machinery/autolathe/OnTopic(user, href_list, state)
+	set waitfor = 0
+
+	// COMMON HREFS
+
+	if(href_list["change_category"])
+		show_category = href_list["change_category"]
+		. = TOPIC_REFRESH
+
+	else if(href_list["change_page"])
+		show_page = href_list["change_page"]
+		. = TOPIC_REFRESH
+
+	// RECIPE PAGE HREFS
+
+	else if (href_list["eject"] && stored_material)
+		var/amount = Clamp(text2num(href_list["eject_amount"]),0,60)
+		world.log << "[src] got href 'eject' on [href_list["eject"]] with the amount [amount]"
+
+		else if(href_list["make"] && machine_recipes)
+		. = TOPIC_REFRESH
+		var/index = text2num(href_list["make"])
+		var/datum/autolathe/recipe/making
+
+		if(index > 0 && index <= machine_recipes.len)
+			making = machine_recipes[index]
+
+		//Exploit detection, not sure if necessary after rewrite.
+		if(!making)
+			log_and_message_admins("tried to exploit an autolathe to duplicate an item!", user)
+			return TOPIC_HANDLED
+		if(job_queue.len > max_queue_length)
+			to_chat(user, "<span class='warning'>[src] buzzes, 'Queue full!' </span>")
+			return
+		addToQueue(making)
+		to_chat(user, "<span class='notice'>[src] chimes, '[making.name] added to queue!' </span>")
+
+	// JOB PAGE HREFS
+
+	else if (href_list["pause"] && current_job)
+		pause_job()
+
+	else if (href_list["abort"] && current_job)
+		abort_job()
+
+	else if (href_list["move_up"] && job_queue.len)
+		var/argument = txt2num(href_list["move_down"])
+		if (argument && job_queue[argument])
+			move_job(argument, argument - 1)
+
+	else if (href_list["move_down"] && job_queue.len)
+		var/argument = txt2num(href_list["move_down"])
+		if (argument && job_queue[argument])
+			move_job(argument, argument + 1)
+
+	else if (href_list["cancel"] && job_queue.len)
+		var/argument = txt2num(href_list["cancel"])
+		if (argument && job_queue[argument])
+			cancel_job(argument)
+
+
+/obj/machinery/autolathe/proc/abort_job()
+	if (!current_job.finished() && !QDELING(current_job))
+		current_job.abort()
+		current_job = null
+
+/obj/machinery/autolathe/proc/pause_job()
+	if (!QDELING(current_job))
+		current_job.pause()
+
+/obj/machinery/autolathe/proc/move_job(var/source, var/destination)
+	if (source < 1 || source > job_queue.len)
+		return
+	if (destination > 1 && destination <= job_queue.len)
+		var/T = job_queue[destination]
+		job_queue[destination] = job_queue[source]
+		job_queue[source] = T
+
+
+/obj/machinery/autolathe/proc/cancel_job(var/target)
+	if (target > 1 && target < job_queue.len)
+		removeFromQueue(target)
