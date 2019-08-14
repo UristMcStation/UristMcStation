@@ -170,7 +170,10 @@ Class Procs:
 				condensation--
 				var/turf/flooding = pick(contents)
 				air.adjust_gas(g, -1)
-				flooding.add_fluid(air.group_multiplier * REAGENT_GAS_EXCHANGE_FACTOR, product)
+				//Each tile 1x1x2.5m; water is 0.01801kg/mol, and 1000kg/m^3; ideal gas 0.022411 m/mol @stp (good enough to use here)
+				//Therefore 2.5m^3/0.022411m^3/mol gives moles in whole tile, multiplied by 0.01801kg/mol/1000kg/m^3 gives vapor to water conversion. 
+				//Might need tweaking from realistic to gamey, but condensation should be less absurd. -Luke
+				flooding.add_fluid( ((2.5/0.22411) * (0.01801/1000)) * air.group_multiplier * REAGENT_GAS_EXCHANGE_FACTOR, product)
 
 /zone/proc/dbg_data(mob/M)
 	to_chat(M, name)
