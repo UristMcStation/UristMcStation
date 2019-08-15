@@ -17,8 +17,7 @@
 	else
 		real_name = random_name(gender) //fallback
 
-	if(language_override)
-		species_language = all_languages[C.default_language]
+	species_language = all_languages[C.default_language]
 
 	if(npc_job_title)
 		name = "[real_name] ([npc_job_title])"

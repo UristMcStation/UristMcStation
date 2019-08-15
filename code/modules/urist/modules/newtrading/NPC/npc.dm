@@ -94,7 +94,7 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 
 	var/species_type = /datum/species/human
 	var/datum/species/my_species
-	var/language_override = 0
+//	var/language_override = 0
 
 
 
