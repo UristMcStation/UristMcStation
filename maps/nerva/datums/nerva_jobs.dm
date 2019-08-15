@@ -6,6 +6,7 @@
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor,
 						/datum/job/scientist, /datum/job/chaplain,
+						/datum/job/mime, /datum/job/clown,
 						/datum/job/merchant, /datum/job/stowaway,
 						/datum/job/ai, /datum/job/cyborg
 						)
@@ -14,10 +15,10 @@
 
 /datum/job/ai
 	minimal_player_age = 7
-	
+
 /datum/job/cyborg
 	minimal_player_age = 0
-	
+
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
@@ -256,18 +257,18 @@
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/nervabartender)
 	supervisors = "the quartermaster and the second officer."
 	minimal_player_age = 0
-	
+
 /datum/job/janitor
 	economic_power = 2
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
-	
+
 /datum/job/chaplain
 	minimal_player_age = 0
 	economic_power = 4
-	title = "Counselor"
+	title = "Chaplain"
 	department = "Medical"
 	department_flag = MED|CIV
 	hud_icon = "hudchaplain"
@@ -277,13 +278,13 @@
 	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
 	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
 	alt_titles = list(
-	"Chaplain" = /decl/hierarchy/outfit/job/chaplain,
+	"Counselor" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
 	"Morale Officer" = /decl/hierarchy/outfit/job/chaplain,
 	"Psychiatrist" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
 	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva)
 
 
-	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva
+	outfit_type = /decl/hierarchy/outfit/job/chaplain
 
 /datum/job/merchant
 	total_positions = 0
@@ -312,3 +313,45 @@
 	species_to_job_whitelist = list(
 		/datum/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
 	)
+
+//Mime
+
+/datum/job/mime
+	title = "Mime"
+	department = "Civilian"
+	department_flag = CIV
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the second officer"
+	selection_color = "#515151"
+	access = list(access_maint_tunnels, access_theatre)
+	minimal_player_age = 0
+	outfit_type = /decl/hierarchy/outfit/job/mime
+
+/datum/job/mime/equip(var/mob/living/carbon/human/H)
+	. = ..()
+	if(.)
+		H.miming = 1
+		H.verbs += /client/proc/mimespeak
+		H.verbs += /client/proc/mimewall
+		H.mind.special_verbs += /client/proc/mimespeak
+		H.mind.special_verbs += /client/proc/mimewall
+
+//Clown :^)
+
+/datum/job/clown
+	title = "Clown"
+	department = "Civilian"
+	department_flag = CIV
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the second officer"
+	selection_color = "#515151"
+	access = list(access_maint_tunnels, access_theatre)
+	minimal_player_age = 1
+	outfit_type = /decl/hierarchy/outfit/job/clown
+
+/datum/job/clown/equip(var/mob/living/carbon/human/H)
+	. = ..()
+	if(.)
+		H.mutations.Add(CLUMSY)
