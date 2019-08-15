@@ -5,8 +5,8 @@
 				if(T.trigger_phrase)
 					if(message == T.trigger_phrase)
 						do_react(T)
-				else if(T.trigger_words)
-					for(var/triggerword in T.trigger_words)
+				else if(T.trigger_word)
+					for(var/triggerword in T.trigger_word)
 						if(findtext(message,triggerword))
 							do_react(T)
 
@@ -14,34 +14,16 @@
 	if(prob(T.response_chance))
 		if(!angryspeak)
 			if(T.response_phrase)
-				var/resp_phrase = T.get_response_phrase()
-				var/speech_bubble_test = say_test(resp_phrase)
-				var/msg = "<span class='game say'><span class='name'>[src.name]</span> says, <span class='message'><span class='body'>\"[resp_phrase]\"</span></span></span>"
-				src.audible_message(msg)
-				var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-				for(var/mob/M in view(7, src))
-					to_chat(M, speech_bubble)
-				spawn(30) qdel(speech_bubble)
+				say_next = T.get_response_phrase()
+				say_time = world.time + 2 SECONDS
 
 		else
 			if(T.angryresponse_phrase)
-				var/resp_phrase = T.get_angryresponse_phrase()
-				var/speech_bubble_test = say_test(resp_phrase)
-				var/msg = "<span class='game say'><span class='name'>[src.name]</span> says, <span class='message'><span class='body'>\"[resp_phrase]\"</span></span></span>"
-				src.audible_message(msg)
-				var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-				for(var/mob/M in view(7, src))
-					to_chat(M, speech_bubble)
-				spawn(30) qdel(speech_bubble)
+				say_next = T.get_angryresponse_phrase()
+				say_time = world.time + 2 SECONDS
 
 			else if(T.response_phrase)
-				var/resp_phrase = T.get_response_phrase()
-				var/speech_bubble_test = say_test(resp_phrase)
-				var/msg = "<span class='game say'><span class='name'>[src.name]</span> says, <span class='message'><span class='body'>\"[resp_phrase]\"</span></span></span>"
-				src.audible_message(msg)
-				var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-				for(var/mob/M in view(7, src))
-					to_chat(M, speech_bubble)
-				spawn(30) qdel(speech_bubble)
+				say_next = T.get_response_phrase()
+				say_time = world.time + 2 SECONDS
 
 

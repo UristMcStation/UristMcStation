@@ -1,6 +1,14 @@
+/mob/living/simple_animal/hostile/npc/colonist/contract
+	angryprob = 0
+	randomize_value = 0
+	randomize_quantity = 0
+	no_resell = 1
+	interact_screen = 2
+	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)
+
 //nt scientist
 
-/mob/living/simple_animal/hostile/npc/colonist/ntscientist
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist
 	name = "scientist"
 	npc_job_title = "NanoTrasen Chief Scientist"
 	desc = "A human from one of Earth's diverse cultures. They are a Chief Scientist."
@@ -21,10 +29,11 @@
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
+	interact_screen = 2
 
 //nt hos
 
-/mob/living/simple_animal/hostile/npc/colonist/nthos
+/mob/living/simple_animal/hostile/npc/colonist/contract/nthos
 	name = "security"
 	npc_job_title = "NanoTrasen Head of Security"
 	desc = "A human from one of Earth's diverse cultures. They are a Head of Security."
@@ -51,10 +60,11 @@
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
+	interact_screen = 2
 
 //nt chef
 
-/mob/living/simple_animal/hostile/npc/colonist/ntchef
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef
 	name = "chef"
 	npc_job_title = "NanoTrasen Head Chef"
 	desc = "A human from one of Earth's diverse cultures. They are a Head Chef."
@@ -78,8 +88,9 @@
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
+	interact_screen = 2
 
-/mob/living/simple_animal/hostile/npc/colonist/terran_doctor
+/mob/living/simple_animal/hostile/npc/colonist/contract/terran_doctor
 	name = "Chief Doctor"
 	npc_job_title = "Chief Doctor"
 	desc = "A human from one of Earth's diverse cultures. They are the colony's chief doctor. They look stressed and very tired."
@@ -100,4 +111,4 @@
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
-
+	interact_screen = 2

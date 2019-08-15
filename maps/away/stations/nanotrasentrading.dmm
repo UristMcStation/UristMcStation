@@ -879,7 +879,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cN" = (
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cO" = (
@@ -1088,7 +1088,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dn" = (
-/mob/living/simple_animal/hostile/npc/colonist/tool_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "do" = (
@@ -1260,7 +1260,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nthos,
+/mob/living/simple_animal/hostile/npc/colonist/contract/nthos,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1340,7 +1340,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hM" = (
-/mob/living/simple_animal/hostile/npc/colonist/atmos_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/atmos_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "iD" = (
@@ -1398,7 +1398,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "ky" = (
-/mob/living/simple_animal/hostile/npc/colonist/bartender_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "kz" = (
@@ -1727,7 +1727,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/npc/colonist/ntchef,
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "xl" = (
@@ -1918,6 +1918,11 @@
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
+	},
+/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+	tag = "icon-body_m_s (WEST)";
+	icon_state = "body_m_s";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -2158,7 +2163,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/npc/colonist/ntscientist{
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist{
 	tag = "icon-body_m_s (EAST)";
 	icon_state = "body_m_s";
 	dir = 4
@@ -2365,11 +2370,6 @@
 	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
-	},
-/mob/living/simple_animal/hostile/npc/colonist{
-	tag = "icon-body_m_s (EAST)";
-	icon_state = "body_m_s";
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
