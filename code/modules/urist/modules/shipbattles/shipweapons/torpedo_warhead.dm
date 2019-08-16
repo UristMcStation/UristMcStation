@@ -129,7 +129,7 @@
 				visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
 				return
-			explosion(get_turf(src), 1, 3, 5)
+			explosion(get_turf(src), 0, 2, 4)
 			qdel(src)
 
 /datum/wires/torpedowarhead
