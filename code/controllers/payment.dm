@@ -39,7 +39,7 @@ var/datum/controller/payment_controller/payment_controller
 		if(H.mind)
 			if(H.mind.initial_account && H.mind.assigned_role) //this excludes stowaways and other non-crew roles including derelict ships
 				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva") //todo, make a map var for captain ownership if we have other ship maps in a similar situation (never)
-					return
+					continue
 
 				else
 					var/datum/job/job = job_master.occupations_by_title[H.mind.assigned_role]
@@ -52,8 +52,7 @@ var/datum/controller/payment_controller/payment_controller
 	//				H.mind.initial_account.money += economic_modifier
 
 					if(H.mind.assigned_role == "Nanotrasen Scientist" && GLOB.using_map.name == "Nerva") //NanoTrasen pays the scientists
-						return
+						continue
 
 					else
 						moneybuffer += economic_modifier
-						return

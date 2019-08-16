@@ -162,6 +162,14 @@
 /area/civilian/counselor
 	name = "\improper Counselor's Office"
 
+/area/civilian/entertainer
+	name = "\improper Entertainer's Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/civilian/exercise
+	name = "\improper Exercise Room"
+	sound_env = SMALL_ENCLOSED
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////

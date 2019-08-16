@@ -7,6 +7,7 @@ var/const/NETWORK_CARGO				= "Cargo"
 var/const/NETWORK_TRAJAN     		= "Trajan"
 var/const/NETWORK_HADRIAN     		= "Hadrian"
 var/const/NETWORK_ANTONINE     		= "Antonine"
+var/const/NETWORK_PRISON            = "Prison"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
@@ -30,6 +31,7 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 		NETWORK_MINE,
 		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
+		NETWORK_PRISON,
 		NETWORK_ALARM_ATMOS,
 		NETWORK_ALARM_CAMERA,
 		NETWORK_ALARM_FIRE,
@@ -76,6 +78,9 @@ var/const/NETWORK_ANTONINE     		= "Antonine"
 
 /obj/machinery/camera/network/antonine
 	network = list(NETWORK_ANTONINE)
+
+/obj/machinery/camera/network/prison
+	network = list(NETWORK_PRISON)
 
 // Motion
 /obj/machinery/camera/motion/command
