@@ -429,6 +429,10 @@
 	if(user.get_active_hand() != I) return		//Person has switched hands or the item in their hands
 
 	O.clean_blood()
+	if(istype(O, /obj/item/organ/external/head))
+		var/obj/item/organ/external/head/head = O
+		head.forehead_graffiti = null
+		head.graffiti_style = null
 	user.visible_message( \
 		"<span class='notice'>[user] washes \a [I] using \the [src].</span>", \
 		"<span class='notice'>You wash \a [I] using \the [src].</span>")
