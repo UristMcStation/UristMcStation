@@ -21646,7 +21646,7 @@
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
 	name = "Cargo Workshop";
-	req_access = list(31,55)
+	req_one_access = list(31,55)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
