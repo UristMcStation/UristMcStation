@@ -178,6 +178,7 @@
 	icon_state = "mime"
 	item_state = "ba_suit"
 	worn_state = "mime"
+	starting_accessories = list(/obj/item/clothing/accessory/suspenders)
 
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."

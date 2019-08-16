@@ -45,8 +45,8 @@
 		/obj/item/weapon/gun/projectile/colt/a7 = 20,
 		/obj/item/weapon/gun/projectile/manualcycle/a50 = 2,
 		//attachments,
-		/obj/item/weapon/gunattachment/grenadelauncher = 10,
-		/obj/item/weapon/gunattachment/scope/a18 = 10,
+//		/obj/item/weapon/gunattachment/grenadelauncher = 10,
+//		/obj/item/weapon/gunattachment/scope/a18 = 10,
 		//grenades and mines,
 		/obj/item/weapon/storage/box/anforgrenade = 10,
 		/obj/item/weapon/storage/box/large/mines = 3

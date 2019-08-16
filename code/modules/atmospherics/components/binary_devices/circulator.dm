@@ -87,6 +87,11 @@
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isWrench(W))
+		var/air1pressure = air1.return_pressure()
+		var/air2pressure = air2.return_pressure()
+		if((air1pressure > ONE_ATMOSPHERE) || (air2pressure > ONE_ATMOSPHERE))
+			to_chat(user, "<span class='warning'>You can't unbolt the circulator while it's pressurized!</span>")
+			return
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

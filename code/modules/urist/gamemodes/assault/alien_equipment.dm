@@ -49,31 +49,36 @@
 
 /obj/item/weapon/gun/energy/lactera/a1
 	name = "alien pistol"
-	icon_state = "alienpistol"
-	item_state = "alienpistol"
+	icon_state = "xeno-pistol"
+	item_state = "xeno-pistol"
 	projectile_type = /obj/item/projectile/beam/scom/alien2
 	max_shots = 4
 	origin_tech = "combat=6;magnets=4;materials=3;engineering=1;powerstorage=3;"
 	inertstate = /obj/item/scom/aliengun/a1
+	w_class = 2
 
 /obj/item/weapon/gun/energy/lactera/a2
 	name = "alien carbine"
-	icon_state = "lightalienrifle"
-	item_state = "lightalienrifle"
+	icon_state = "xeno-carbine"
+	item_state = "xeno-carbine"
+	wielded_item_state = "xeno-carbine-wielded"
+	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 	inertstate = /obj/item/scom/aliengun/a2
-	max_shots = 12
+	max_shots = 16
 	one_hand_penalty = 1
 
 /obj/item/weapon/gun/energy/lactera/a3
 	name = "alien rifle"
-	item_state = "alienrifle"
-	icon_state = "alienrifle"
+	item_state = "xeno-rifle"
+	icon_state = "xeno-rifle"
+	wielded_item_state = "xeno-rifle-wielded"
+	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/scom/alien2
 	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
 	inertstate = /obj/item/scom/aliengun/a3
 	one_hand_penalty = 2
-
+	max_shots = 12
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null, one_hand_penalty = 2),
@@ -83,13 +88,16 @@
 
 /obj/item/weapon/gun/energy/lactera/a4
 	name = "alien LMG"
-	item_state = "alienrifle" //temporary
-	icon_state = "alienlmg"
+	item_state = "xeno-hmg"
+	icon_state = "xeno-hmg"
+	wielded_item_state = "xeno-hmg-wielded"
+	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/scom/alien1
 	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
 	inertstate = /obj/item/scom/aliengun/a4
-	max_shots = 16
+	max_shots = 20
 	one_hand_penalty = 6
+	w_class = 4
 
 	firemodes = list(
 		list(mode_name="short bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 8, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(0.6, 1.0, 1.2, 1.4, 1.4)),
@@ -171,7 +179,7 @@
 	item_state = "lactera_under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
-	species_restricted = list("Xenomorph")
+	species_restricted = list("Lactera")
 
 /obj/item/clothing/under/lactera/MouseDrop(obj/over_object as obj)
 	return
@@ -184,197 +192,101 @@
 	icon_override = 'icons/uristmob/scommobs.dmi'
 	item_state = "lactera_shoes"
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 5, bio = 80, rad = 60)
-	species_restricted = list("Xenomorph")
+	species_restricted = list("Lactera")
 
 /obj/item/clothing/shoes/magboots/lactera/attack_hand(mob/user as mob)
 	return
 
 /obj/item/clothing/suit/lactera
-	icon = 'icons/uristmob/scommobs.dmi'
+	icon = 'icons/urist/items/clothes/lactera.dmi'
 	icon_override = 'icons/uristmob/r_lactera.dmi'
-	species_restricted = list("Xenomorph")
+	species_restricted = list("Lactera")
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/grenade,/obj/item/weapon/plastique)
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/suit/lactera/light
+	name = "lactera light armoured vest"
+	desc = "A light armoured vest worn by lactera soldiers, made out of unknown materials. Fairly resistant, but doesn't give good coverage."
+	icon_state = "xeno-lightsuit"
+	body_parts_covered = UPPER_TORSO
+	armor = list(melee = 30, bullet = 20, laser = 20, energy = 20, bomb = 15, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/lactera/regular
 	name = "lactera armoured vest"
-	desc = "An armoured vest worn by lactera soldiers made out of unknown materials. Fairly resistant, but doesn't give good coverage."
-	icon_state = "bulletproof"
+	desc = "An armoured vest worn by lactera soldiers, made out of unknown materials. Fairly resistant, but doesn't give good coverage."
+	icon_state = "xeno-suit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	armor = list(melee = 35, bullet = 25, laser = 25, energy = 20, bomb = 20, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/lactera/mid
+	name = "lactera full armoured vest"
+	desc = "An armoured vest worn by lactera soldiers, made out of unknown materials. Fairly resistant, and gives decent coverage."
+	icon_state = "xeno-midsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	armor = list(melee = 40, bullet = 30, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/lactera/big
+	name = "lactera heavy armoured vest"
+	desc = "An armoured vest worn by lactera soldiers, made out of unknown materials. Fairly resistant, and gives good coverage."
+	icon_state = "xeno-bigsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 45, bullet = 35, laser = 35, energy = 25, bomb = 30, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/lactera/max
+	name = "lactera heavy armoured suit"
+	desc = "An armoured vest worn by lactera soldiers, made out of unknown materials. Fairly resistant, and gives full coverage."
+	icon_state = "xeno-maxsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	armor = list(melee = 55, bullet = 45, laser = 45, energy = 30, bomb = 40, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/lactera/officer
 	name = "lactera officer's armour"
-	desc = "An armoured suit worn by lactera officers made out of unknown materials. Fairly resistant, and gives good coverage."
-	icon_state = "officerarmour"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 60, bullet = 50, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+	desc = "An armoured suit worn by lactera officers, made out of unknown materials. Fairly resistant, and gives full coverage."
+	icon_state = "xeno-cmdsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	armor = list(melee = 65, bullet = 55, laser = 55, energy = 35, bomb = 50, bio = 0, rad = 0)
 
-//human
+/obj/item/clothing/head/lactera
+	icon = 'icons/urist/items/clothes/lactera.dmi'
+	icon_override = 'icons/uristmob/r_lactera.dmi'
+	species_restricted = list("Lactera")
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	cold_protection = HEAD
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = HEAD
+	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.7
+	w_class = ITEM_SIZE_NORMAL
 
-/obj/item/weapon/grenade/frag/anforgrenade
-	desc = "A small explosive meant for anti-personnel use."
-	name = "ANFOR grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
-	icon_state = "large_grenade"
-	item_state = "flashbang"
-	origin_tech = "materials=3;magnets=3"
+/obj/item/clothing/head/lactera/regular
+	name = "lactera helmet"
+	desc = "An armoured helmet worn by lactera soldiers, made out of unknown materials. It's fairly reistant."
+	icon_state = "xeno-helm"
+	armor = list(melee = 35, bullet = 25, laser = 25, energy = 20, bomb = 20, bio = 0, rad = 0)
 
-///obj/item/weapon/grenade/anforgrenade/detonate()
-//	explosion(src.loc, 0, 0, 2, 2)
-//	qdel(src)
+/obj/item/clothing/head/lactera/mid
+	name = "lactera reinforced helmet"
+	desc = "An armoured helmet worn by lactera soldiers, made out of unknown materials. It's fairly reistant."
+	icon_state = "xeno-midhelm"
+	armor = list(melee = 45, bullet = 35, laser = 35, energy = 25, bomb = 30, bio = 0, rad = 0)
 
-/obj/item/weapon/storage/box/anforgrenade
-	name = "box of frag grenades (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause cause death within a short radius.</B>"
-	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/grenade/frag/anforgrenade = 5)
+/obj/item/clothing/head/lactera/max
+	name = "lactera full helmet"
+	desc = "An armoured helmet worn by lactera soldiers, made out of unknown materials. It's fairly reistant and gives full coverage."
+	icon_state = "xeno-maxhelm"
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 55, bullet = 45, laser = 45, energy = 30, bomb = 40, bio = 0, rad = 0)
 
-/obj/item/weapon/mine/frag
-	name = "frag mine"
-	desc = "A frag mine. Press the button to set it up and move the fuck away."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
-
-/obj/item/weapon/mine/attack_self(mob/user as mob)
-	var/obj/effect/mine/frag/M = new /obj/effect/mine/frag(user.loc)
-	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
-	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
-	qdel(src)
-	user.regenerate_icons()
-	spawn(35)
-		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
-
-/obj/item/weapon/storage/box/large/mines
-	name = "box of frag mines (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause death within a short radius.</B>"
-	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/mine/frag = 3)
-
-/obj/effect/mine/proc/explode2(obj)
-	/* oldcode, pre-fragification -scr
-	explosion(loc, 0, 0, 2, 2)
-	spawn(1)
-		qdel(src)*/
-	//vars stolen for fragification
-	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
-	var/num_fragments = 72  //total number of fragments produced by the grenade
-	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
-	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
-
-	//blatant copypaste from frags, but those are a whole different type so vOv
-	set waitfor = 0
-	..()
-
-	var/turf/O = get_turf(src)
-	if(!O) return
-
-	var/list/target_turfs = getcircle(O, spread_range)
-	var/fragments_per_projectile = round(num_fragments/target_turfs.len)
-
-	for(var/turf/T in target_turfs)
-		sleep(0)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(O)
-
-		P.pellets = fragments_per_projectile
-		P.shot_from = src.name
-
-		P.launch(T)
-
-		//Make sure to hit any mobs in the source turf
-		for(var/mob/living/M in O)
-			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
-			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
-			if(M.lying && isturf(src.loc))
-				P.attack_mob(M, 0, 0)
-			else
-				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
-
-	qdel(src)
-
-/obj/effect/mine/frag
-	name = "Frag Mine"
-	triggerproc = "explode2"
-
-/obj/effect/mine/frag/attack_hand(mob/user as mob)
-	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span class='warning'>You start to disarm the mine. Just stay very still.</span>")
-	if (do_after(user, 30, src))
-		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span class='warning'>You disarm the mine. It's safe to pick up now!</span>")
-		new /obj/item/weapon/mine/frag(src.loc)
-		qdel(src)
-
-/obj/structure/assaultshieldgen
-	name = "shield generator"
-	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "bbox_on"
-	var/health = 300
-	var/maxhealth = 300
-	anchored = 1
-	density = 1
-
-/obj/structure/assaultshieldgen/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/weldingtool))
-		var/obj/item/weapon/weldingtool/WT = W
-		if (WT.remove_fuel(0,user))
-			if(health >= maxhealth)
-				user << "<span class='warning'>The shield generator is fully repaired alredy!</span>"
-			else
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
-					"You start to patch some dents on the shield generator", \
-					"You hear welding")
-				if (do_after(user,20))
-					if(!src || !WT.isOn()) return
-					health += 10
-
-		else
-			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
-
-	else
-		switch(W.damtype)
-			if("fire")
-				src.health -= W.force * 1
-			if("brute")
-				src.health -= W.force * 0.50
-			else
-		if (src.health <= 0)
-			visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
-			kaboom()
-			return
-		..()
-
-/obj/structure/assaultshieldgen/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			kaboom()
-			return
-		if(2.0)
-			if(prob(75))
-				kaboom()
-				return
-			else
-				health -= 150
-		if(3.0)
-			if(prob(5))
-				kaboom()
-				return
-			else
-				health -= 50
-
-	if(src.health <=0)
-		visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
-		qdel(src)
-
-	return
-
-/obj/structure/assaultshieldgen/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
-
-	if(health <= 0)
-		kaboom()
-
-	..()
-
-/obj/structure/assaultshieldgen/proc/kaboom()
-	remaininggens -= 1
-	qdel(src)
+/obj/item/clothing/head/lactera/cmd
+	name = "lactera officer's helmet"
+	desc = "An armoured helmet worn by lactera officers, made out of unknown materials. It's fairly reistant and gives full coverage."
+	icon_state = "xeno-cmdhelm"
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 65, bullet = 55, laser = 55, energy = 35, bomb = 50, bio = 0, rad = 0)

@@ -36,7 +36,8 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
-		M.heal_organ_damage(6 * removed, 0)
+		var/logistic_healing = 6/(1+200*2.71828**(-0.05*M.getBruteLoss())) //This is a logistic function that effectively doubles the healing rate as brute amounts get to around 200. Any injury below 60 is essentially unaffected and there's a scaling inbetween.
+		M.heal_organ_damage((6+logistic_healing) * removed, 0)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
@@ -45,7 +46,7 @@
 		M.add_chemical_effect(CE_BLOCKAGE, (15 + volume - overdose)/100)
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+			if(E.status & ORGAN_ARTERY_CUT && prob(2 + volume / overdose))
 				E.status &= ~ORGAN_ARTERY_CUT
 
 /datum/reagent/kelotane
@@ -910,13 +911,14 @@
 
 /datum/reagent/latrazine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	var/obj/item/organ/external/E = pick(M.bad_external_organs)
-	if(E.status & ORGAN_BROKEN)
+	if(E.status & ORGAN_BROKEN && prob(40))
 		E.status &= ~ORGAN_BROKEN
-		M.custom_pain("You suddenly feel EXCRUCIATING pain as your [E.name] <i>SNAPS</i> back into place.", 120, 1, E)
+		M.custom_pain("You suddenly feel <b>EXCRUCIATING</b> pain as your [E.name] <i>SNAPS</i> back into place.", 120, 1, E)
 
-	if(prob(5) && M.hallucination_duration < 10)
+	if(prob(10) && M.hallucination_power < 60)
 		to_chat(M, "<span class = 'danger'><font size = 3>Your vision of reality suddenly snaps!</font></span>")
-		M.adjust_hallucination(240)
+		M.adjust_hallucination(240,60)
+
 // Sleeping agent, produced by breathing N2O.
 /datum/reagent/nitrous_oxide
 	name = "Nitrous Oxide"

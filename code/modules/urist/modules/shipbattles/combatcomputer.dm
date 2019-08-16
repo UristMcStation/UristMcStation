@@ -29,8 +29,12 @@
 	//		to_chat(usr, "<font color='blue'><b>You don't do anything.</b></font>")
 			return
 
-		SW.Fire()
-		to_chat(user, "<span class='warning'>You fire the [SW.name].</span>")
+		if(SW.charged && !SW.firing)
+			SW.Fire()
+			to_chat(user, "<span class='warning'>You fire the [SW.name].</span>")
+
+		else
+			to_chat(user, "<span class='warning'>The [SW.name] cannot be fired right now.</span>")
 
 	else
 		to_chat(user, "<span class='warning'>The ship is not in combat.</span>")

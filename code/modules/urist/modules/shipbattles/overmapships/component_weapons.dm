@@ -22,11 +22,18 @@
 			spawn(5)
 				P.Fire(projectile_type)
 
-		if(burst == 2)
+		if(burst >= 2)
 			spawn(5)
 				P.Fire(projectile_type)
 			spawn(10)
 				P.Fire(projectile_type)
+			if(burst >= 3) //for the autocannon currently
+				spawn(15)
+					P.Fire(projectile_type)
+				spawn(20)
+					P.Fire(projectile_type)
+
+
 
 		ready = FALSE
 		spawn(firedelay)
@@ -50,9 +57,9 @@
 
 /datum/shipcomponents/weapons/autocannon
 	name = "autocannon"
-	firedelay = 15 SECONDS
+	firedelay = 16 SECONDS
 	projectile_type = /obj/item/projectile/bullet/ship/cannon
-	burst = 2
+	burst = 3
 
 /datum/shipcomponents/weapons/smallmissile
 	name = "small missile launcher"
@@ -64,6 +71,21 @@
 	burst = 2
 	firedelay = 40 SECONDS
 
+/datum/shipcomponents/weapons/smallalienmissile
+	name = "small alien missile launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/smallalienmissile
+	firedelay = 26 SECONDS
+
+/datum/shipcomponents/weapons/smallalienmissile/dual
+	name = "small alien dual missile launcher"
+	firedelay = 32 SECONDS
+	burst = 1
+
+/datum/shipcomponents/weapons/smallalienmissile/battery
+	name = "small alien missile battery"
+	firedelay = 38 SECONDS
+	burst = 2
+
 /datum/shipcomponents/weapons/bigmissile
 	name = "large missile launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/bigmissile
@@ -72,22 +94,32 @@
 /datum/shipcomponents/weapons/bigmissile/battery
 	name = "large missile battery"
 	firedelay = 50 SECONDS
+	burst = 2
+
+/datum/shipcomponents/weapons/bigalienmissile
+	name = "large alien missile launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/bigalienmissile
+	firedelay = 36 SECONDS
+
+/datum/shipcomponents/weapons/bigalienmissile/dual
+	name = "large alien dual missile launcher"
+	firedelay = 44 SECONDS
 	burst = 1
 
 /datum/shipcomponents/weapons/smalltorpedo
 	name = "small torpedo launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/smalltorpedo
-	firedelay = 25 SECONDS
+	firedelay = 26 SECONDS
 
 /datum/shipcomponents/weapons/bigtorpedo
 	name = "large torpedo launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/smalltorpedo
-	firedelay = 40 SECONDS
+	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
+	firedelay = 42 SECONDS
 
-/datum/shipcomponents/weapons/smalltorpedo
-	name = "large missile launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/bigmissile
-	firedelay = 30 SECONDS
+/datum/shipcomponents/weapons/alientorpedo
+	name = "alien torpedo launcher"
+	projectile_type = /obj/item/projectile/bullet/ship/alientorpedo
+	firedelay = 34 SECONDS
 
 /datum/shipcomponents/weapons/lightlaser
 	name = "light laser cannon"
@@ -96,22 +128,22 @@
 
 /datum/shipcomponents/weapons/lightlaser/dual
 	name = "dual light laser cannon"
-	firedelay = 15 SECONDS
+	firedelay = 14 SECONDS
 	burst = 1
 
 /datum/shipcomponents/weapons/lightlaser/auto
 	name = "light laser autocannon"
-	firedelay = 20 SECONDS
+	firedelay = 18 SECONDS
 	burst = 2
 
 /datum/shipcomponents/weapons/heavylaser
 	name = "heavy laser cannon"
-	firedelay = 20 SECONDS
+	firedelay = 18 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
 
 /datum/shipcomponents/weapons/heavylaser/dual
 	name = "dual heavy laser cannon"
-	firedelay = 25 SECONDS
+	firedelay = 24 SECONDS
 	burst = 1
 
 /datum/shipcomponents/weapons/heavylaser/auto
@@ -124,7 +156,7 @@
 /datum/shipcomponents/weapons/alien/light
 	name = "alien rapid-fire beam cannon"
 	firedelay = 22 SECONDS
-	burst = 2
+	burst = 3
 	projectile_type = /obj/item/projectile/beam/ship/alien/light
 
 /datum/shipcomponents/weapons/alien/heavy

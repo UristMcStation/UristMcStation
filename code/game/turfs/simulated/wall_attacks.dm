@@ -127,9 +127,6 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	if(!construction_stage && try_graffiti(user, W))
-		return
-
 	if (!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return

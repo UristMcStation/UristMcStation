@@ -4,6 +4,7 @@
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
+	breakable = 1
 	anchored = 1
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	obj_flags = OBJ_FLAG_SURGICAL
@@ -11,7 +12,7 @@
 	throwpass = 1
 	var/flipped = 0
 	var/maxhealth = 10
-	var/health = 10
+	health = 10
 
 	// For racks.
 	var/can_reinforce = 1

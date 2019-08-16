@@ -290,7 +290,7 @@
 #define SPECIES_NABBER      "giant armoured serpentid"
 #define SPECIES_PROMETHEAN  "Promethean"
 #define SPECIES_XENO        "Xenophage"
-#define SPECIES_RESOMI "Teshari"
+#define SPECIES_RESOMI      "Teshari"
 #define SPECIES_ALIEN       "Humanoid"
 #define SPECIES_ADHERENT    "Adherent"
 #define SPECIES_GOLEM       "Golem"

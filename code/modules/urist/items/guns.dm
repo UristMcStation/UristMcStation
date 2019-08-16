@@ -443,6 +443,7 @@ the sprite and make my own projectile -Glloyd*/
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "[initial(icon_state)]_alt"
 	else
@@ -482,6 +483,7 @@ the sprite and make my own projectile -Glloyd*/
 	..()
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A shoddy 7.62 improvised rifle."
@@ -500,10 +502,10 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -1
-	jam_chance = 5
 
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised short rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A crudely cut down 7.62 improvised rifle."
@@ -521,13 +523,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -2
-	jam_chance = 20
 
-/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn/update_icon()
-	if(bolt_open)
-		icon_state = "308boltsawed_alt"
-	else
-		icon_state = "308boltsawed"
 //rifle construction
 
 /obj/item/weapon/imprifleframe/imprifleframesawn
@@ -783,19 +779,19 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS
-	name = "\improper HI-2521 SMG"
-	desc = "A light, compact bullpup SMG chambered in 7mm with a sleek design. Manufactured by Hephaestus Industries, this model is a relatively recent design, popular among wealthier spacers."
+	name = "\improper HI-2521-SMG"
+	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "combatSMG"
 	item_state = "combatSMG"
 	w_class = 3
 	force = 10
-	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	caliber = "9mm"
+	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	allowed_magazines = list(/obj/item/ammo_magazine/hi2521smg9mm)
-	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
 	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
@@ -813,7 +809,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "combatSMG_empty"
 
 /obj/item/ammo_magazine/hi2521smg9mm
-	name = "HI-2521 SMG magazine (7mm)"
+	name = "HI-2521-SMG magazine (9mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
@@ -864,8 +860,8 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/weapon/gun/projectile/revolver/hi2521r
 	icon = 'icons/urist/items/guns.dmi'
 	item_icons = DEF_URIST_INHANDS
-	name = "HI-2521 revolver"
-	desc = "A sleek modern revolver manufactured by Hephaestus Industries. Chambered in 10mm, this sucker packs a punch."
+	name = "HI-2521-R revolver"
+	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series. Chambered in .44, this sucker packs a punch."
 	icon_state = "combatrevolver"
 	item_state = "combatrevolver"
 	max_shells = 6
@@ -881,4 +877,40 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "combatrevolver_empty"
 
 /obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
-	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	ammo_type = /obj/item/ammo_casing/c44/rubber
+
+/obj/item/weapon/gun/projectile/hi2521pistol
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper HI-2521-P pistol"
+	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "crewpistol"
+	item_state = "crewpistol"
+	w_class = 2
+	caliber = "9mm"
+	origin_tech = "combat=2;materials=2;syndicate=1"
+	slot_flags = SLOT_BELT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+
+/obj/item/weapon/gun/projectile/hi2521pistol/update_icon()
+	if(ammo_magazine)
+		icon_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
+		item_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
+	else
+		icon_state = "crewpistol-empty"
+		item_state = "crewpistol-0"
+	..()
+
+/obj/item/ammo_magazine/hi2521pistol9mm
+	name = "HI-2521-P pistol magazine (9mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "crewpistol-mag"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	origin_tech = "combat=2"
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 10
+	multiple_sprites = 1

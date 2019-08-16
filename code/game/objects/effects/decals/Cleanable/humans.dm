@@ -26,6 +26,7 @@ var/global/list/image/splatter_cache=list()
 	var/dryname = "dried blood"
 	var/drydesc = "It's dry and crusty. Someone is not doing their job."
 	var/blood_size = BLOOD_SIZE_MEDIUM // A relative size; larger-sized blood will not override smaller-sized blood, except maybe at mapload.
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
@@ -184,6 +185,7 @@ var/global/list/image/splatter_cache=list()
 	gender = NEUTER
 	random_icon_states = list("writing1","writing2","writing3","writing4","writing5")
 	amount = 0
+	layer = RUNE_LAYER //Right above normal blood
 	var/message
 	blood_size = BLOOD_SIZE_BIG
 

@@ -38,7 +38,7 @@
 
 	if(scanning)
 		scanning -= 1
-		if(scanning == 0)
+		if(scanning <= 0)
 			if(!container.reagents.has_reagent(/datum/reagent/antibodies)) //if there are no antibody reagents, return false
 				return 0
 

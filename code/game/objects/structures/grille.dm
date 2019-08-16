@@ -9,8 +9,8 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = BELOW_OBJ_LAYER
 	explosion_resistance = 1
+	health = 10
 	var/init_material = MATERIAL_STEEL
-	var/health = 10
 	var/destroyed = 0
 
 	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with

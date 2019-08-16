@@ -140,6 +140,7 @@
 	return air_contents
 
 /obj/machinery/portable_atmospherics/powered
+	use_power = 1
 	var/power_rating
 	var/power_losses
 	var/last_power_draw = 0
@@ -148,8 +149,6 @@
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
 		return ..()
-	if(cell && cell.charge)
-		return 1
 	return 0
 
 /obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)

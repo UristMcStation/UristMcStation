@@ -28,11 +28,6 @@
 
 	.=..()
 
-/obj/effect/overmap/ship/combat/nerva/Initialize()
-	GLOB.using_map.overmap_ship = src
-
-	.=..()
-
 /obj/effect/overmap/ship/combat/proc/enter_combat()
 	src.incombat = 1
 	target.incombat = 1

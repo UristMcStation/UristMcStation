@@ -151,6 +151,8 @@
 /obj/item/clothing/suit/armor/pcarrier/medium/nerva
 	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
 
+/obj/item/clothing/suit/armor/pcarrier/merc/cos
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/merc, /obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 //tag
 
@@ -284,8 +286,8 @@
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/mob/onmob_head_solgov.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
+	icon = 'maps/torch/icons/obj/solgov-head.dmi'
+	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
 	camera = /obj/machinery/camera/network/command
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 

@@ -37,7 +37,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/storage/firstaid/tactical
 	name = "tactical medicine kit"
-	desc = "Contains experimental medicine and advanced tools."
+	desc = "Contains experimental medicines and advanced tools."
 	icon = 'icons/urist/items/misc.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "tactical"
@@ -117,7 +117,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/stabilization
 	name = "Stabilization mix"
-	desc = "Inaprovaline | Dexalin Plus 1|1"
+	desc = "A label on the side reads 'Inaprovaline | Dexalin Plus 1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/stabilization/New()
 	..()
@@ -127,7 +128,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute
 	name = "Brute treatment mix"
-	desc = "Bicaridine | Tricordrazine 3|1"
+	desc = "A label on the side reads 'Bicaridine | Tricordrazine 3|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute/New()
 	..()
@@ -137,7 +139,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns
 	name = "Burn treatment mix"
-	desc = "Kelotane | Dermaline 1|1"
+	desc = "A label on the side reads 'Kelotane | Dermaline 1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns/New()
 	..()
@@ -147,7 +150,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation
 	name = "Radiation treatment mix"
-	desc = "Arithrazine | Hyronalin | Dylovene 2|1|1"
+	desc = "A label on the side reads 'Arithrazine | Hyronalin | Dylovene 2|1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation/New()
 	..()
@@ -158,7 +162,8 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller
 	name = "Painkillers"
-	desc = "Oxycodone | Dexalin Plus 3|1"
+	desc = "A label on the side reads 'Oxycodone | Dexalin Plus 3|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller/New()
 	..()

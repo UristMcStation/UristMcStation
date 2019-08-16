@@ -22,22 +22,10 @@
 /datum/access/blueshield
 	desc = "Bodyguard Access"
 
-/datum/access/chapel_office
-	access_type = ACCESS_TYPE_NONE
-
 /datum/access/rd
 	access_type = ACCESS_TYPE_NONE
 
 /datum/access/gateway
-	access_type = ACCESS_TYPE_NONE
-
-/datum/access/psychiatrist
-	access_type = ACCESS_TYPE_NONE
-
-/datum/access/gateway
-	access_type = ACCESS_TYPE_NONE
-
-/datum/access/psychiatrist
 	access_type = ACCESS_TYPE_NONE
 
 /datum/access/hop

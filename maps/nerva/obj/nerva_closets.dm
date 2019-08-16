@@ -17,7 +17,6 @@
 		/obj/item/clothing/under/urist/nerva/capformal,
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/weapon/gun/energy/gun/secure,
-		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
@@ -44,8 +43,7 @@
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/clothing/under/urist/nerva/foregular,
 		/obj/item/clothing/head/urist/beret/nervafo,
-		/obj/item/weapon/gun/energy/gun/secure,
-		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber,
+		/obj/item/weapon/gun/energy/gun/small/secure,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
@@ -70,14 +68,13 @@
 		/obj/item/clothing/suit/armor/pcarrier/light,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/secondofficer,
-		/obj/item/weapon/gun/projectile/pistol/sec,
 		/obj/item/device/flash,
 		/obj/item/weapon/storage/box/large/ids,
 		/obj/item/weapon/storage/box/PDAs,
 		/obj/item/weapon/clipboard,
 		/obj/item/clothing/under/urist/nerva/soregular,
 		/obj/item/clothing/head/urist/beret/nervaso,
-		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
+		/obj/item/weapon/gun/energy/gun/small/secure,
 	)
 
 //CDN
@@ -102,7 +99,7 @@
 		/obj/item/taperoll/police,
 		/obj/item/device/hailer,
 		/obj/item/clothing/accessory/storage/black_vest,
-		/obj/item/weapon/gun/energy/gun/small/secure,
+		/obj/item/weapon/gun/energy/gun/secure,
 		/obj/item/device/megaphone,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/clothing/accessory/storage/holster/thigh,
@@ -119,7 +116,7 @@
 
 /obj/structure/closet/secure_closet/nervacos/WillContain()
 	return list(
-		/obj/item/clothing/suit/urist/armor/nerva/sec_cos,
+		/obj/item/clothing/suit/armor/pcarrier/merc/cos,
 		/obj/item/clothing/under/urist/nerva/cosregular,
 		/obj/item/clothing/head/HoS/dermal,
 		/obj/item/clothing/head/helmet,
@@ -133,7 +130,6 @@
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee/baton/loaded,
 		/obj/item/weapon/gun/energy/gun/secure,
-		/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/weapon/reagent_containers/spray/pepper,
@@ -176,4 +172,20 @@
 		/obj/item/device/flashlight/lantern,
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/toxins, /obj/item/weapon/storage/backpack/satchel/tox)),
 		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 50)
+		)
+
+/obj/structure/closet/secure_closet/nervaammo
+	name = "ammunition locker"
+	req_access = list(access_hos)
+	icon_state = "hossecure1"
+	icon_closed = "hossecure"
+	icon_locked = "hossecure1"
+	icon_opened = "hossecureopen"
+	icon_off = "hossecureoff"
+
+/obj/structure/closet/secure_closet/nervaammo/WillContain()
+	return list(
+		/obj/item/weapon/storage/box/nervaammo = 3,
+		/obj/item/weapon/storage/box/shotgunammo,
+		/obj/item/weapon/storage/box/shotgunshells
 		)

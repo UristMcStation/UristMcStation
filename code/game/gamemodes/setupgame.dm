@@ -74,6 +74,7 @@
 //	SWEDEBLOCK     = getAssignedBlock("SWEDE",      numsToAssign)
 //	SCRAMBLEBLOCK  = getAssignedBlock("SCRAMBLE",   numsToAssign)
 	HORNSBLOCK     = getAssignedBlock("HORNS",      numsToAssign)
+	NOIRBLOCK      = getAssignedBlock("NOIR",       numsToAssign)
 
 	// Powers
 	SOBERBLOCK     = getAssignedBlock("SOBER",      numsToAssign, good=1)

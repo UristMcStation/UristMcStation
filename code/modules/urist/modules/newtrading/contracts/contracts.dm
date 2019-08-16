@@ -16,46 +16,53 @@
 	completed += number
 	if(completed >= amount)
 		station_account.money += money
-
+		GLOB.using_map.completed_contracts += 1
 		GLOB.using_map.contracts -= src
 		qdel(src)
-
-/obj/item/weapon/paper/contract
-	var/contract_type = null
-	var/datum/contract/Contract = null
-
-/obj/item/weapon/paper/contract/New()
-	..()
-
-	Contract = new contract_type
-
-	name = Contract.name
-	info = Contract.desc
-
-	AddContract(contract_type)
-
-/obj/item/weapon/paper/contract/proc/AddContract(var/contract)
-	GLOB.using_map.contracts += new contract
 
 /datum/contract/nanotrasen
 	faction = "NanoTrasen"
 
 /datum/contract/nanotrasen/anomaly //code\modules\xenoarcheaology\tools\artifact_analyser.dm
 	name = "Anomaly Research Contract"
-	desc = "A contract issued by NanoTrasen to research anomalies."
 
 /datum/contract/nanotrasen/anomaly/New()
-	amount = rand(1,5)
-	desc = "A contract issued by NanoTrasen to research [amount] of the anomalies found throughout this sector."
-	money = (amount * rand(300,500))
+	..()
+	amount = rand(1,3)
+	money = (amount * rand(850,1400))
 	rep_points = amount
-
-/obj/item/weapon/paper/contract/nanotrasen/anomaly
-	contract_type = /datum/contract/nanotrasen/anomaly
+	desc = "The Galactic Crisis has nearly eliminated NanoTrasen's presence in this sector. That's why NanoTrasen has contracted the [GLOB.using_map.station_name] to analyze [amount] of the anomalies in this sector for us. Good luck."
 
 /datum/contract/terran
-	faction = "terran"
+	faction = "the Terran Confederacy"
 
 /datum/contract/uha //united human alliance
-	faction = "uha"
+	faction = "the United Human Alliance"
 
+/datum/contract/shiphunt
+	var/hunt_faction = null
+
+/datum/contract/shiphunt/New()
+	..()
+	if(!amount)
+		amount = rand(1,3)
+
+	var/oldmoney = money
+	money = (amount * oldmoney)
+
+	desc = "This sector is plagued by [hunt_faction]s, [faction] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [hunt_faction] ships in this sector."
+
+//money values are very much in flux
+
+/datum/contract/shiphunt/pirate
+	name = "Pirate Ship Hunt Contract"
+	hunt_faction = "pirate"
+	rep_points = 5
+	money = 3500
+
+/datum/contract/shiphunt/alien
+	name = "Lactera Ship Hunt Contract"
+	hunt_faction = "alien"
+	rep_points = 8
+	amount = 1
+	money = 7500

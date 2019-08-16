@@ -106,7 +106,7 @@
 		N.escape_net(src) //super snowflake but is literally used NOWHERE ELSE.-Luke
 		return
 
-	setClickCooldown(100)
+	setClickCooldown(1 SECOND)
 	if(!buckled) return
 
 	if(!restrained())

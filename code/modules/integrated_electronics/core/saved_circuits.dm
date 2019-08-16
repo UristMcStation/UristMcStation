@@ -321,12 +321,12 @@
 			var/list/wire = w
 
 			if(!islist(wire) || wire.len != 2)
-				return "Invalid wire data."
+				return "Invalid wire data. List was [islist(wire) ? "[wire.len] long" : "empty"]."
 
 			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire[1], assembly_components)
 			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire[2], assembly_components)
 			if(!IO || !IO2)
-				return "Invalid wire data."
+				return "Invalid wire data. Lacks [IO ? "IO2" : "IO1"]."
 
 			if(initial(IO.io_type) != initial(IO2.io_type))
 				return "Wire type mismatch."

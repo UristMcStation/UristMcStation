@@ -173,3 +173,10 @@
 
 #define FACTION_TESHARI_QERRBALAK "Qerrbalak Packs"
 #define FACTION_TESHARI_SPACEBORN "Spaceborn Teshari"
+
+//galactic crisis stuff
+#define CULTURE_LACTERA				"Lactera Trooper"
+
+#define FACTION_GALACTIC_CRISIS		"Galactic Crisis Aliens"
+
+#define HOME_SYSTEM_GALACTIC_CRISIS	"Beyond the Milky Way"

@@ -288,7 +288,6 @@
 						if(gas_data.flags[g] & badflag)
 							newgases -= g
 					sanity = 0
-
 			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
 			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
 				part = total_moles
@@ -497,6 +496,8 @@
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
+	if(isWelder(C))
+		return
 	if(diggable && istype(C,/obj/item/weapon/shovel))
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
 		if(do_after(user, 50))

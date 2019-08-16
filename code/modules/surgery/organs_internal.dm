@@ -19,8 +19,9 @@
 		/obj/item/stack/medical/bruise_pack = 40,
 		/obj/item/weapon/tape_roll = 20
 	)
-	min_duration = 70
-	max_duration = 90
+
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP
 
 /decl/surgery_step/internal/fix_organ/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -162,6 +163,10 @@
 			if(organ_to_remove)
 				return organ_to_remove
 	return FALSE
+
+	if(O.damage > (O.max_damage * 0.75))
+		if(alert(user, "This organ is too damaged to be reattached if removed. Remove anyways?", "Organ Removal", "No", "Yes") == "No")
+			return 0
 
 /decl/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

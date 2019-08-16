@@ -92,3 +92,4 @@
 	if(default_language) owner.default_language = default_language
 	owner.languages = languages.Copy()
 	to_chat(owner, "<span class='notice'>Consciousness slowly creeps over you as your new body awakens.</span>")
+	to_chat(owner, "<span class='warning'>All memories from 5 minutes before your death to the moment you died have been lost.</span>")

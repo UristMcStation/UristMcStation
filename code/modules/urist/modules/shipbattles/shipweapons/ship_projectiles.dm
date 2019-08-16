@@ -17,13 +17,13 @@
 	name ="autocannon shell"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "cannon"
-	damage = 200
+	damage = 100
 	check_armour = "bullet"
 	sharp = 1
 	edge = 1
 	stun = 1
 	weaken = 1
-	penetrating = 2
+//	penetrating = 2 //let's try this out
 	armor_penetration = 100
 	penetration_modifier = 1.5
 
@@ -39,10 +39,24 @@
 	shake_range = 15
 
 /obj/item/projectile/bullet/ship/smallmissile/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, 0, 2, 4)
 	for(var/mob/M in range(shake_range, src))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
+	explosion(target, 0, 2, 4)
+	return 1
+
+/obj/item/projectile/bullet/ship/smallalienmissile
+	name = "small alien missile"
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon_state= "smallalienmissile"
+	damage = 150
+	shake_range = 20
+
+/obj/item/projectile/bullet/ship/smallalienmissile/on_hit(var/atom/target, var/blocked = 0)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
+	explosion(target, 0, 3, 6)
 	return 1
 
 /obj/item/projectile/bullet/ship/bigmissile
@@ -53,10 +67,24 @@
 	shake_range = 25
 
 /obj/item/projectile/bullet/ship/bigmissile/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, 1, 3, 7)
 	for(var/mob/M in range(shake_range, src))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
+	explosion(target, 1, 3, 7)
+	return 1
+
+/obj/item/projectile/bullet/ship/bigalienmissile
+	name = "big alien missile"
+	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon_state= "bigalienmissile"
+	damage = 250
+	shake_range = 30
+
+/obj/item/projectile/bullet/ship/bigalienmissile/on_hit(var/atom/target, var/blocked = 0)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
+	explosion(target, 1, 4, 9)
 	return 1
 
 /obj/item/projectile/bullet/ship/smalltorpedo
@@ -67,10 +95,24 @@
 	shake_range = 20
 
 /obj/item/projectile/bullet/ship/smalltorpedo/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, 3, 4, 5)
 	for(var/mob/M in range(shake_range, src))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
+	explosion(target, 3, 4, 5)
+	return 1
+
+/obj/item/projectile/bullet/ship/alientorpedo
+	name = "alien torpedo"
+	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
+	icon_state= "alientorpedo"
+	damage = 150
+	shake_range = 25
+
+/obj/item/projectile/bullet/ship/alientorpedo/on_hit(var/atom/target, var/blocked = 0)
+	for(var/mob/M in range(shake_range, src))
+		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+			shake_camera(M, 3, 1)
+	explosion(target, 4, 5, 6)
 	return 1
 
 /obj/item/projectile/bullet/ship/bigtorpedo
@@ -81,10 +123,10 @@
 	shake_range = 30
 
 /obj/item/projectile/bullet/ship/bigtorpedo/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, 5, 6, 7)
 	for(var/mob/M in range(shake_range, src))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
+	explosion(target, 5, 6, 7)
 	return 1
 
 //beam weapons
@@ -110,9 +152,9 @@
 	ship = 1
 	kill_count = 300
 
-/obj/item/projectile/beam/ship/destroy/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/beam/ship/on_hit(var/atom/target, var/blocked = 0)
 	if(isturf(target))
-		target.ex_act(2)
+		explosion(target, -1, 0, 1)
 	..()
 /*
 /obj/item/projectile/beam/ship/Bump(atom/A)

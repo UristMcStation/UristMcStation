@@ -95,6 +95,8 @@ SUBSYSTEM_DEF(supply)
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
 		return 1
+	if(istype(A,/obj/machinery/power/supermatter))
+		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
 		var/atom/B = A.contents[i]
@@ -108,6 +110,14 @@ SUBSYSTEM_DEF(supply)
 		for(var/atom/movable/AM in subarea)
 			if(AM.anchored)
 				continue
+
+			if(GLOB.using_map.using_new_cargo) //this allows for contracts that call for obj/structures
+				for(var/datum/contract/cargo/CC in GLOB.using_map.contracts)
+					if(AM.type in CC.wanted_types)
+						CC.Complete(1)
+						qdel(AM)
+						continue
+
 			if(istype(AM, /obj/structure/closet/crate/))
 				var/obj/structure/closet/crate/CR = AM
 				callHook("sell_crate", list(CR, subarea))
@@ -118,6 +128,12 @@ SUBSYSTEM_DEF(supply)
 					var/atom/A = atom
 
 					if(GLOB.using_map.using_new_cargo)
+						for(var/datum/contract/cargo/CC in GLOB.using_map.contracts) //just in case someone shoved it in a crate
+							if(A.type in CC.wanted_types)
+								CC.Complete(1)
+								//qdel(AM)
+								continue
+
 						if(istype(A, /obj/item/stack/material))
 							var/obj/item/stack/material/P = A
 							var/material/material = P.get_material()
@@ -132,7 +148,7 @@ SUBSYSTEM_DEF(supply)
 						else
 
 							var/obj/O = A
-							var/addvalue = (find_item_value(O) * 0.8) //we get even less for selling in bulk
+							var/addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
 							add_points_from_source(addvalue, "trade")
 //							station_account.money += addvalue
 //							points = station_account.money

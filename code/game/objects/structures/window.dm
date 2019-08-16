@@ -13,7 +13,6 @@
 	var/init_material = MATERIAL_GLASS
 	var/init_reinf_material = null
 	var/maxhealth
-	var/health
 	var/damage_per_fire_tick = 2 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
 	var/construction_state = 2
 	var/id

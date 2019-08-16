@@ -7,9 +7,12 @@
 	Indeed, the deal with the Unathi to join the allied human forces during the Galactic Crisis came at the price of numerous trade concessions, \
 	and the removal of longstanding immigration restrictions on Unathi. There is growing resistance to these concessions, and it is one of the main causes \
 	behind the breakaway of the United Human Alliance planets. As a response to the growing militancy and ongoing civil war, the TC government has become \
-	increasingly repressive and dictatorial. \
-	The Terran Confederacy is nominally ruled by a president (who is little more than a figurehead). Underneath him is the Council of Ten, \
-	comprised of ten generals, admirals and colonial governors elected by the lower bodies. The real power is here, \
+	increasingly repressive and dictatorial. Recent miners' uprisings, and protests surrounding the upcoming presidential elections have \
+	only exacerbated this situation.\
+	The Terran Confederacy is nominally ruled by a president, who are Constitutionally limited to one eight-year term. The Terran president is little more than a figurehead, \
+	although strong-willed Terran Presidents have been able to use their veto power and their prominent position to significantly influence politics in the past. \
+	The current president, Mark Jacobs, is not one of these presidents, and has largely bent to the will of the politically powerful Terran Navy throughout his term. \
+	Underneath him is the Council of Ten, comprised of ten generals, admirals and colonial governors elected by the lower bodies. The real power is here, \
 	and their purpose is to guide the general expansion of the Confederacy and to dictate military and political strategy. \
 	Underneath the Council of Ten is the Grand Council. The Grand Council features representatives from each system controlled by the TC. \
 	The Grand Council makes and passes laws, as well as advising the Council of Ten. Finally, at the bottom of the central government is \
@@ -22,6 +25,7 @@
 	most advanced and powerful civilisations in the known galaxy."
 	language = LANGUAGE_SOL_COMMON
 
+/*
 /decl/cultural_info/faction/scg/fleet
 	name = FACTION_FLEET
 	description = "The SCG DF Fleet, commonly referred to as the Fleet, is the SCG's primary component of the Defence Forces. \
@@ -33,7 +37,7 @@
 	It is well funded, but seen as complacent and bloated. Until recently the Fleet have not had a serious enemy to deal with, \
 	but is generally respected by the populace due to their work keeping away pirates, putting down insurrections, destroying \
 	smugglers and taking potshots at the ocassional Vox. Currently undergoing major \
-	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation."
+	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation." */
 
 /decl/cultural_info/faction/tcc
 	name = FACTION_TERRAN_CONFED //this is dumb, but I'm just gonna use this def for the UHA
@@ -46,17 +50,20 @@
 	A number of UHA leaders even advocate a conspiracy theory that the Unathi were behind the Galactic Crisis, a xenophobic sentiment \
 	that likely stems from the apparent similarity between Lactera and Unathi. While the UHA has seen rapid initial gains in the civil war \
 	with the Terran Confederacy	the damage done to their infrastructure and the poor economic state of the planets they hold has led to a \
-	stalemate between the two sides. However, there are numerous UHA supporters across the Terran Confederacy, and there has \
+	stalemate between the two sides. What is now called the 'Terran Civil War' has turned into a cold war of sorts, as both sides struggle to \
+	amass the strength to deliver a decisive blow on the other. However, there are numerous UHA supporters across the Terran Confederacy, and there has \
 	been an increasing amount of terrorist attacks and bombings by UHA supporters over the last few years, mostly targeting \
 	Unathi and other alien races, along with Terran government locations. \
 	The capital of the Alliance is the city of Ameranth on the planet of Terra (formerly known as New Earth) \
-	in the Gilgamesh system. Externally heavily militant, extremely xenophobic and isolationist, the UHA, internally, is heavily libertarian, with \
-	a strong focus on independent planetary government with the TCC itself only handling defence, foreign relations and some intergalactic trade."
+	in the Gilgamesh system. Externally heavily militant, extremely xenophobic and isolationist, the UHA, internally, is, in theory, heavily libertarian, with \
+	a strong focus on independent planetary government with the UHA central government itself only handling defence, foreign relations and some intergalactic trade. \
+	However, the central government and planetary governments are almost entirely dominated by the military, and civil rights have been extremely curtailed, in the name of winning the ongoing civil war."
 	economic_power = 0.9
 	subversive_potential = 50
 	language = LANGUAGE_INDEPENDENT
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
+/*
 /decl/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY
 	description = "The Expeditionary Corps, commonly referred to as the EC and made up of 'expeds', is a non-military, uniformed \
@@ -69,6 +76,7 @@
 	often considered a motivated, starry-eyed organisation that genuinely strives to be the best it can."
 	language = LANGUAGE_GALCOM
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
+*/
 
 /decl/cultural_info/faction/remote/nanotrasen
 	name = FACTION_NANOTRASEN
@@ -90,8 +98,7 @@
 	name = FACTION_XYNERGY
 	description = "Xynergy is a privately held company known for their work with xenobiological organisms. They develop and \
 	produce products such as the netgun and dociler used for capturing or taming xenofauna. In addition, they are the largest \
-	fisher of space faring animals such as space carp and pike. They recently gained media presence by discovering and \
-	training the giant armoured serpentids."
+	fisher of space faring animals such as space carp and pike."
 	economic_power = 1.1
 	subversive_potential = 15
 	secondary_langs = list(LANGUAGE_SIGN)

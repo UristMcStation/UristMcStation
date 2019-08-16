@@ -176,12 +176,12 @@
 			if(prob(15))
 				custom_emote(1,"locks its eyes on [.]")
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(isliving(.))
+	if(isliving(A))
 		if(health < maxHealth)
 			health += (0.2 * rand(melee_damage_lower, melee_damage_upper)) //heal a bit on hit
-		var/mob/living/L = .
+		var/mob/living/L = A
 		if(L.reagents)
 			L.reagents.add_reagent(poison_type, rand(0.5 * poison_per_bite, poison_per_bite))
 			if(prob(poison_per_bite))
@@ -285,10 +285,10 @@ Nurse caste procs
 	. = ..()
 	divorce()
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
 		if(prob(infest_chance) && max_eggs)
 			var/obj/item/organ/external/O = pick(H.organs)
 			if(!BP_IS_ROBOTIC(O) && !BP_IS_CRYSTAL(O) && (LAZYLEN(O.implants) < 2))

@@ -133,7 +133,7 @@
 		return 1
 
 	if(!breath || (max_damage <= 0))
-		handle_failed_breath()
+		handle_failed_breath(TRUE)
 		return 1
 
 	var/breath_pressure = breath.return_pressure()
@@ -144,7 +144,7 @@
 		last_ext_pressure = environment.return_pressure()
 		last_int_pressure = breath_pressure
 	if(breath.total_moles == 0)
-		handle_failed_breath()
+		handle_failed_breath(TRUE)
 		return 1
 
 	var/safe_pressure_min = min_breath_pressure // Minimum safe partial pressure of breathable gas in kPa
@@ -167,7 +167,7 @@
 		failed_inhale = 1
 		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
-		breath_fail_ratio = Clamp(0,breath_fail_ratio/2-0.05,1)
+		breath_fail_ratio = Clamp(0,breath_fail_ratio-0.15,1)
 
 	owner.oxygen_alert = failed_inhale * 2
 
@@ -234,8 +234,9 @@
 		owner.oxygen_alert = 0
 	return failed_breath
 
-/obj/item/organ/internal/lungs/proc/handle_failed_breath()
-	breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
+/obj/item/organ/internal/lungs/proc/handle_failed_breath(var/complete_failure)
+	if(complete_failure) //If we never got any air to try and process we'll need to update our failure rate here.
+		breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)
@@ -243,7 +244,7 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
+	if(((damage / max_damage * species.total_health) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS] || world.time > last_failed_breath + 8 MINUTES)
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)

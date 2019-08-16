@@ -11,7 +11,7 @@
 	name = "Hyper Capacity Silicon Depolarization Quantum Relay"
 	desc = "You're not sure what this does, but it does something, probably."
 	icon_state = "relay"
-	var/health = 100
+	health = 100
 	var/obj/machinery/button/alternate/biohazard/reset_button
 
 /obj/structure/showcase/blob_hazard/Initialize()

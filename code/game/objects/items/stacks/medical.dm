@@ -95,6 +95,9 @@
 					continue
 				if(used == amount)
 					break
+				if(W.is_surgical() && user.a_intent == I_HELP)
+					to_chat(user, "<span class='notice'>You refrain from closing the incision as your intent is set to help.</span>")
+					continue
 				if(!do_mob(user, M, W.damage/5))
 					to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 					break
@@ -186,6 +189,9 @@
 					continue
 				if(used == amount)
 					break
+				if(W.is_surgical() && user.a_intent == I_HELP)
+					to_chat(user, "<span class='notice'>You refrain from closing the incision as your intent is set to help.</span>")
+					continue
 				if(!do_mob(user, M, W.damage/5))
 					to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 					break

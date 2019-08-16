@@ -1162,6 +1162,7 @@ var/list/random_useful_
 			random_junk_ -= /obj/item/trash/snack_bowl
 			random_junk_ -= /obj/item/trash/syndi_cakes
 			random_junk_ -= /obj/item/trash/tray
+			random_junk_ -= /obj/item/trash/urist
 		return pick(random_junk_)
 
 	// Misc. actually useful stuff or perhaps even food

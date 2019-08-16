@@ -2,6 +2,15 @@
 "aa" = (
 /turf/space,
 /area/space)
+"ab" = (
+/turf/space,
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/machines/shielding.dmi';
+	icon_state = "shield_normal";
+	name = "Heavy Shielding"
+	},
+/area/spacestations/nanotrasenspace)
 "ad" = (
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
@@ -405,15 +414,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"bk" = (
-/obj/structure/sign/urist/nt{
-	pixel_x = 32
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
 "bl" = (
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/white,
@@ -432,31 +432,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/spacestations/nanotrasenspace)
-"bp" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"bq" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/folder,
-/obj/machinery/door/window/southleft{
-	name = "Transit Checkpoint";
-	req_access = list(101)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"br" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced,
-/obj/item/modular_computer/laptop/preset/records,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
 "bs" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-22";
@@ -466,11 +441,6 @@
 /area/spacestations/nanotrasenspace)
 "bt" = (
 /obj/structure/bed/chair/urist/bench/bench1/left,
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"bu" = (
-/obj/structure/bed/chair/urist/bench/bench1/right,
-/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "bv" = (
@@ -658,25 +628,7 @@
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
-"cb" = (
-/obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (EAST)";
-	icon_state = "benchmid";
-	dir = 4
-	},
-/obj/structure/sign/urist/transitmap{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
 "cd" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
-/area/spacestations/nanotrasenspace)
-"ce" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/structure/table/woodentable,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
@@ -813,17 +765,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
-"cx" = (
-/obj/structure/sign/urist/ad/sign5{
-	pixel_y = -32
-	},
-/obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
-	icon_state = "benchleft";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
 "cy" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (NORTH)";
@@ -860,35 +801,6 @@
 "cB" = (
 /obj/machinery/atm,
 /turf/simulated/wall/r_wall/hull,
-/area/spacestations/nanotrasenspace)
-"cC" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"cD" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/folder,
-/obj/machinery/door/window/northleft{
-	name = "Transit Checkpoint";
-	req_access = list(101)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"cE" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/modular_computer/laptop/preset/records,
-/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cF" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -934,7 +846,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cN" = (
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cO" = (
@@ -1143,7 +1055,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dn" = (
-/mob/living/simple_animal/hostile/npc/colonist/tool_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "do" = (
@@ -1290,17 +1202,6 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"dN" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/nanotrasenspace)
-"dO" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/plating,
-/area/spacestations/nanotrasenspace)
 "dP" = (
 /obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
@@ -1315,6 +1216,40 @@
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"eW" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/npc/colonist/contract/nthos,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"fj" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"fI" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1341,6 +1276,24 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"hn" = (
+/obj/effect/shuttle_landmark/nav_nanotrasentrading,
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"hw" = (
+/obj/item/modular_computer/laptop/preset/records,
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "hx" = (
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark{
@@ -1348,7 +1301,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hM" = (
-/mob/living/simple_animal/hostile/npc/colonist/atmos_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/atmos_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "iD" = (
@@ -1362,6 +1315,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
+"iV" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 6;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
 "je" = (
 /obj/effect/floor_decal/corner/blue{
 	tag = "icon-corner_white (NORTHWEST)";
@@ -1372,18 +1335,41 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"jC" = (
-/obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
-	icon_state = "benchleft";
+"jB" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
+"jL" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/modular_computer/laptop/preset/records,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "ky" = (
-/mob/living/simple_animal/hostile/npc/colonist/bartender_trader,
+/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,
 /turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"kz" = (
+/obj/structure/filingcabinet,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "kE" = (
 /obj/machinery/light{
@@ -1398,6 +1384,24 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"kP" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (WEST)";
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"kR" = (
+/obj/effect/floor_decal/ntlogo{
+	tag = "icon-ntlogo (EAST)";
+	icon_state = "ntlogo";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "lh" = (
 /obj/effect/floor_decal/corner/blue{
 	tag = "icon-corner_white (SOUTHWEST)";
@@ -1408,10 +1412,49 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"lN" = (
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"ol" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"oq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "oQ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/condiment/small/peppermill,
 /turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"pc" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
 /area/spacestations/nanotrasenspace)
 "ps" = (
 /obj/machinery/door/blast/regular{
@@ -1440,6 +1483,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
+"pY" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "rt" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light{
@@ -1464,6 +1520,29 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"sA" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 10;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"ta" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "tw" = (
 /obj/effect/overmap/sector/station/nanotrasentrading,
 /obj/effect/floor_decal/corner/blue{
@@ -1475,8 +1554,27 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"uX" = (
-/turf/unsimulated/wall,
+"uk" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"uK" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "vk" = (
 /obj/effect/floor_decal/ntlogo,
@@ -1484,13 +1582,47 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"vr" = (
-/turf/unsimulated/wall{
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	name = "Shuttle Access"
+"vs" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/folder,
+/obj/machinery/door/window/southleft{
+	name = "Transit Checkpoint";
+	req_access = list(101)
 	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"vu" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"vK" = (
+/obj/structure/filingcabinet,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"vT" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "vW" = (
 /obj/machinery/light{
@@ -1513,6 +1645,35 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"wF" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"xb" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (EAST)";
+	icon_state = "benchmid";
+	dir = 4
+	},
+/obj/structure/sign/urist/transitmap{
+	pixel_x = -32
+	},
+/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen{
+	tag = "icon-body_m_s (EAST)";
+	icon_state = "body_m_s";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
 "xd" = (
 /obj/effect/floor_decal/ntlogo{
 	tag = "icon-ntlogo (NORTH)";
@@ -1522,6 +1683,13 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
+/area/spacestations/nanotrasenspace)
+"xk" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,
+/turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "xl" = (
 /obj/effect/floor_decal/corner/blue{
@@ -1563,6 +1731,76 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"xu" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"yg" = (
+/obj/effect/floor_decal/ntlogo,
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"yn" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"yr" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"yH" = (
+/obj/effect/floor_decal/ntlogo{
+	tag = "icon-ntlogo (WEST)";
+	icon_state = "ntlogo";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"yU" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"za" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTH)";
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"zz" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/southleft{
+	name = "Transit Checkpoint";
+	req_access = list(101)
+	},
+/obj/item/weapon/folder,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "zF" = (
 /obj/structure/bed/chair/armchair/black{
 	tag = "icon-armchair_preview (WEST)";
@@ -1570,6 +1808,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"AB" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
 /area/spacestations/nanotrasenspace)
 "AQ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
@@ -1592,6 +1841,34 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Bv" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"BS" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Cm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "Cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	tag = "icon-benchleft (WEST)";
@@ -1602,6 +1879,27 @@
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
+	},
+/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+	tag = "icon-body_m_s (WEST)";
+	icon_state = "body_m_s";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Cp" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"CC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1618,6 +1916,19 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"CV" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "DM" = (
 /obj/effect/floor_decal/corner/blue{
 	tag = "icon-corner_white (WEST)";
@@ -1627,6 +1938,29 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
+/area/spacestations/nanotrasenspace)
+"DN" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 9;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"DS" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (NORTH)";
+	icon_state = "benchleft";
+	dir = 1
+	},
+/obj/machinery/newscaster{
+	layer = 3.3;
+	pixel_x = 0;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "EU" = (
 /obj/structure/table/woodentable,
@@ -1641,6 +1975,12 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Fq" = (
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "FC" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/corner/blue{
@@ -1650,6 +1990,15 @@
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Gm" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
 "Hf" = (
@@ -1666,11 +2015,29 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Ii" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 5;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
 "IS" = (
 /obj/effect/floor_decal/corner/blue/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
+/area/spacestations/nanotrasenspace)
+"Ji" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "JY" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -1687,19 +2054,41 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Kd" = (
+/turf/unsimulated/wall{
+	tag = "icon-pdoor1 (EAST)";
+	name = "Secure Access";
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "pdoor1";
+	dir = 4
+	},
+/area/spacestations/nanotrasenspace)
+"LM" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/modular_computer/laptop/preset/records,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"Nf" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (EAST)";
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "Nk" = (
 /obj/machinery/vending/urist/nanotrasen,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
-"Nv" = (
-/obj/structure/bed/chair/urist/bench/bench1/left,
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
@@ -1720,11 +2109,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"Og" = (
+"Oi" = (
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	dir = 8
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Ok" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist{
+	tag = "icon-body_m_s (EAST)";
+	icon_state = "body_m_s";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "Op" = (
 /obj/effect/floor_decal/corner/blue{
@@ -1736,11 +2141,114 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"OE" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/folder,
+/obj/machinery/door/window/northleft{
+	name = "Transit Checkpoint";
+	req_access = list(101)
+	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"OV" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e"
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"Pn" = (
+/obj/structure/filingcabinet,
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"Pr" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Pz" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"PB" = (
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"PJ" = (
+/obj/structure/sign/urist/nt{
+	pixel_x = 32
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"Qi" = (
+/obj/effect/floor_decal/industrial/warning{
+	color = "#d2af6e";
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
 "QZ" = (
 /obj/effect/floor_decal/ntlogo{
 	tag = "icon-ntlogo (WEST)";
 	icon_state = "ntlogo";
 	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Rq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"RN" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1784,10 +2292,34 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"SR" = (
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -29
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"Tk" = (
+/obj/effect/floor_decal/ntlogo{
+	tag = "icon-ntlogo (NORTH)";
+	icon_state = "ntlogo";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "TZ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/condiment/small/saltshaker,
 /turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"Vo" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "Vx" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -1800,14 +2332,19 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/npc/colonist{
-	tag = "icon-body_m_s (EAST)";
-	icon_state = "body_m_s";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
+/area/spacestations/nanotrasenspace)
+"VJ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "VO" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -1837,6 +2374,42 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Ws" = (
+/obj/item/modular_computer/laptop/preset/records,
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"WC" = (
+/obj/structure/sign/urist/ad/sign5{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"WK" = (
+/obj/item/modular_computer/laptop/preset/records,
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"WN" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
 "WV" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-22";
@@ -1846,6 +2419,88 @@
 	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"XC" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/modular_computer/laptop/preset/records,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"YH" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
+"YJ" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"YO" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Zl" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"Zo" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"Zr" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"ZL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTH)";
+	icon_state = "warning";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -3029,23 +3684,23 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3111,23 +3766,23 @@ aa
 aa
 aa
 aa
-bH
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-aI
-aI
-aI
-aI
-ad
-ad
-ad
-ad
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -3173,6 +3828,982 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bH
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+aI
+aI
+aI
+aI
+ad
+ad
+ad
+ad
+bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
 aa
 aa
 aa
@@ -3245,16 +4876,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(18,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(30,1,1) = {"
 aa
 aa
 aa
@@ -3327,16 +4958,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(19,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(31,1,1) = {"
 aa
 aa
 aa
@@ -3409,16 +5040,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(20,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(32,1,1) = {"
 aa
 aa
 aa
@@ -3491,16 +5122,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(21,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(33,1,1) = {"
 aa
 aa
 aa
@@ -3573,16 +5204,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(22,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(34,1,1) = {"
 aa
 aa
 aa
@@ -3655,16 +5286,16 @@ bH
 bH
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(23,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(35,1,1) = {"
 aa
 aa
 aa
@@ -3737,16 +5368,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(24,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(36,1,1) = {"
 aa
 aa
 aa
@@ -3819,16 +5450,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(25,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(37,1,1) = {"
 aa
 aa
 aa
@@ -3855,7 +5486,7 @@ bH
 ad
 bN
 bN
-ce
+xk
 bN
 bN
 bN
@@ -3901,16 +5532,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(26,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(38,1,1) = {"
 aa
 aa
 aa
@@ -3983,16 +5614,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(27,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(39,1,1) = {"
 aa
 aa
 aa
@@ -4065,16 +5696,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(28,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(40,1,1) = {"
 aa
 aa
 aa
@@ -4098,23 +5729,23 @@ bc
 bc
 bb
 bh
-bD
-bE
-bE
-bD
-aL
-xl
+Ny
+Zo
+oq
+Ny
+je
+fN
 lh
-cx
+WC
+ad
+ta
+YH
+Ok
+fj
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-vr
+ae
 dp
 dp
 dp
@@ -4147,16 +5778,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(29,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(41,1,1) = {"
 aa
 aa
 aa
@@ -4180,23 +5811,23 @@ bb
 bb
 bb
 bh
-bD
-bE
-bE
-bD
-aL
-xl
-lh
-bK
+Ny
+uk
+Rq
+Ny
+eT
+Op
+DM
+je
+ol
+za
+Tk
+yg
+Vo
+bG
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-vr
+ae
 dq
 dq
 dq
@@ -4229,16 +5860,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(30,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(42,1,1) = {"
 aa
 aa
 aa
@@ -4268,17 +5899,17 @@ ad
 ad
 cj
 xl
-lh
-cr
+hx
+eT
+BS
+Nf
+yH
+kR
+Vo
+bG
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-vr
+ae
 bE
 bE
 bE
@@ -4311,16 +5942,16 @@ ad
 ad
 bH
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(31,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(43,1,1) = {"
 aa
 aa
 aa
@@ -4351,74 +5982,74 @@ aI
 aL
 xl
 lh
-cs
+SR
+ad
+CV
+yU
+xu
+uK
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+ae
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
+bE
 vr
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-bE
-vr
 ad
 ad
-bH
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
 aa
 "}
-(32,1,1) = {"
+(44,1,1) = {"
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aK
 aT
 bc
@@ -4433,7 +6064,7 @@ aI
 aL
 xl
 lh
-bJ
+DS
 ad
 ad
 ad
@@ -4473,25 +6104,25 @@ ad
 ad
 ad
 ad
-bH
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
+aa
 aa
 "}
-(33,1,1) = {"
+(45,1,1) = {"
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ad
@@ -4548,32 +6179,32 @@ aL
 aL
 dP
 ad
+DN
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+Gm
+sA
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-bH
+ab
+aa
 aa
 "}
-(34,1,1) = {"
+(46,1,1) = {"
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ae
@@ -4590,12 +6221,12 @@ bc
 bc
 bb
 bh
+Ny
+Zo
+oq
 bD
-bE
-bE
-bD
-aL
-xl
+je
+fN
 lh
 cy
 ad
@@ -4630,32 +6261,32 @@ aL
 aL
 dQ
 ad
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
+aa
 aa
 "}
-(35,1,1) = {"
+(47,1,1) = {"
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ad
@@ -4672,12 +6303,12 @@ bb
 bb
 by
 bh
-bD
-bE
-bE
-bD
-aL
-xl
+Ny
+uk
+Rq
+Ny
+eT
+Op
 lh
 bL
 ad
@@ -4712,32 +6343,32 @@ aL
 aL
 dP
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(36,1,1) = {"
+(48,1,1) = {"
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ad
@@ -4794,32 +6425,32 @@ ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(37,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+(49,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ad
 ad
 ad
@@ -4874,28 +6505,28 @@ ad
 ad
 ad
 ad
-bH
-bH
-bH
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+YO
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(38,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(50,1,1) = {"
+ab
 ad
 ad
 ad
@@ -4956,28 +6587,28 @@ ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+EW
+vu
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(39,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(51,1,1) = {"
+ab
 ad
 vr
 af
@@ -5034,32 +6665,32 @@ dE
 aL
 dK
 bD
-bE
-bE
-bE
-dO
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Cm
+CC
+Bv
+bD
+ar
+vu
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(40,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(52,1,1) = {"
+ab
 ad
 ad
 ag
@@ -5116,32 +6747,32 @@ dE
 aL
 dK
 bD
-bE
-dN
-bE
-dO
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uk
+AB
+Rq
+bD
+ar
+vu
+Qi
+az
+az
+az
+az
+az
+hn
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(41,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(53,1,1) = {"
+ab
 ad
 ad
 af
@@ -5202,28 +6833,28 @@ ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+EW
+vu
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(42,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(54,1,1) = {"
+ab
 ad
 ad
 ah
@@ -5284,28 +6915,28 @@ ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+Oi
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(43,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+(55,1,1) = {"
+ab
 ad
 ad
 ad
@@ -5365,35 +6996,35 @@ ad
 ad
 ad
 ad
-bH
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(44,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+(56,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ad
 ad
 ad
 ad
@@ -5441,41 +7072,41 @@ ad
 ad
 ad
 ad
-ar
-ar
+Cm
+Bv
 ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+bG
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(45,1,1) = {"
+(57,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ad
 ad
 ad
 ad
@@ -5523,47 +7154,47 @@ ad
 ad
 ad
 ad
-EW
-ar
+ZL
+vu
 ad
 ad
 ad
 ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+bG
+Qi
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+OV
+ad
+ab
 aa
 aa
 "}
-(46,1,1) = {"
+(58,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
-ad
-ad
-ad
-ad
-ad
+ai
+ai
+ai
+ai
+ai
+ai
 ad
 ad
 aN
@@ -5605,47 +7236,47 @@ ad
 ad
 ad
 ad
-ar
-ar
+uk
+Rq
 ad
 ad
 ad
 ad
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-aa
-aa
+ad
+ad
+bG
+Ii
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+aF
+iV
+ad
+ab
 aa
 aa
 "}
-(47,1,1) = {"
+(59,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ad
+ai
 ad
 ad
 ad
 ad
-ad
-ad
+ai
 ad
 ad
 ad
@@ -5690,6 +7321,9 @@ ad
 Ny
 Ny
 ad
+Kd
+Kd
+Kd
 ad
 ad
 ad
@@ -5700,37 +7334,33 @@ ad
 ad
 ad
 ad
-bH
-aa
-aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
 aa
 aa
 "}
-(48,1,1) = {"
+(60,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+ap
+aw
+ae
+aE
+af
+af
+af
 ad
 ad
 ad
@@ -5782,41 +7412,40 @@ ar
 ar
 ar
 ad
-bH
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 "}
-(49,1,1) = {"
+(61,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
-ad
-ap
-aw
-vr
+af
+af
+ae
+aE
 af
 af
 af
 ad
-ao
-Og
-bp
+kz
+VJ
+vT
 aL
 xl
 lh
@@ -5828,9 +7457,9 @@ bt
 xl
 lh
 aL
-cC
-Og
-ao
+Pz
+VJ
+Pn
 ad
 af
 af
@@ -5869,36 +7498,35 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(50,1,1) = {"
+(62,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
-ad
+aq
+af
+ae
+aE
 af
 af
-vr
 af
-af
-af
-vr
-af
+bG
+Ji
 bj
-bq
+vs
 aL
 xl
 lh
@@ -5910,10 +7538,10 @@ cl
 xl
 lh
 aL
-cD
+OE
 cJ
-af
-vr
+Cp
+bG
 af
 af
 ad
@@ -5951,36 +7579,35 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(51,1,1) = {"
+(63,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ad
-aq
+ad
+ad
+ai
 af
-vr
 af
-aq
 af
 ad
-ah
-bk
-br
+Ws
+PJ
+LM
 aL
 xl
 lh
@@ -5992,9 +7619,9 @@ cm
 xl
 lh
 aL
-cE
-bk
-ah
+jL
+PJ
+WK
 ad
 af
 af
@@ -6033,30 +7660,32 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(52,1,1) = {"
+(64,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ad
+ai
+ai
+ai
+ai
+ai
+ai
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+Kd
 ad
 ad
 ad
@@ -6115,23 +7744,22 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(53,1,1) = {"
+(65,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
 ad
@@ -6141,21 +7769,22 @@ ad
 ad
 ad
 ad
+WN
+Zr
+Pr
+Fq
 ad
-ad
-ad
-ad
-bs
+jB
 xl
 lh
 bM
 iD
-cb
+xb
 iD
 cn
 xl
 lh
-bs
+Zl
 ad
 ad
 ad
@@ -6197,38 +7826,38 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(54,1,1) = {"
+(66,1,1) = {"
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ab
+ab
+ab
+ab
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-Nv
-xl
+vK
+Pr
+Zr
+pY
+eW
+ar
+ar
+kP
+yn
+je
+fN
 lh
 aL
 aL
@@ -6237,7 +7866,7 @@ aL
 aL
 xl
 lh
-jC
+bJ
 ad
 ad
 ad
@@ -6279,8 +7908,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(55,1,1) = {"
+(67,1,1) = {"
 aa
 aa
 aa
@@ -6290,27 +7927,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+ab
 ad
-ad
-ad
-ad
-ad
-bu
-xl
+yr
+ar
+PB
+zz
+yr
+ar
+ar
+lN
+pc
+eT
+Op
 lh
 aL
 aL
@@ -6361,8 +7990,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(56,1,1) = {"
+(68,1,1) = {"
 aa
 aa
 aa
@@ -6372,24 +8009,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
-ad
-ad
-ad
+hw
+RN
+RN
+XC
+YJ
+RN
+wF
+fI
 ad
 pO
 xl
@@ -6443,8 +8072,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(57,1,1) = {"
+(69,1,1) = {"
 aa
 aa
 aa
@@ -6454,22 +8091,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
 ad
 ad
+Kd
+ad
+ad
+Kd
+Kd
 ad
 ad
 ad
@@ -6525,8 +8154,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(58,1,1) = {"
+(70,1,1) = {"
 aa
 aa
 aa
@@ -6536,20 +8173,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ad
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -6607,8 +8236,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(59,1,1) = {"
+(71,1,1) = {"
 aa
 aa
 aa
@@ -6618,20 +8255,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ab
+ab
+ab
+ab
+ad
 ad
 ad
 ad
@@ -6689,8 +8318,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(60,1,1) = {"
+(72,1,1) = {"
 aa
 aa
 aa
@@ -6704,16 +8341,8 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
+ab
+ad
 ad
 ad
 ad
@@ -6771,8 +8400,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(61,1,1) = {"
+(73,1,1) = {"
 aa
 aa
 aa
@@ -6782,20 +8419,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
+ab
+ab
+ab
+ab
+ab
+ad
 ad
 ad
 ad
@@ -6853,16 +8482,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(62,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(74,1,1) = {"
 aa
 aa
 aa
@@ -6878,7 +8507,14 @@ ad
 ad
 ad
 ad
+Kd
+Kd
+Kd
 ad
+ad
+ad
+ar
+ar
 ad
 ad
 ad
@@ -6890,16 +8526,9 @@ ad
 ad
 ad
 ad
-ad
-ar
-ar
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+Kd
+Kd
+Kd
 ad
 ad
 ad
@@ -6935,16 +8564,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(63,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(75,1,1) = {"
 aa
 aa
 aa
@@ -7017,16 +8646,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(64,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(76,1,1) = {"
 aa
 aa
 aa
@@ -7099,16 +8728,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(65,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(77,1,1) = {"
 aa
 aa
 aa
@@ -7181,16 +8810,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(66,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(78,1,1) = {"
 aa
 aa
 aa
@@ -7263,16 +8892,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(67,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(79,1,1) = {"
 aa
 aa
 aa
@@ -7345,16 +8974,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(68,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(80,1,1) = {"
 aa
 aa
 aa
@@ -7427,16 +9056,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(69,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(81,1,1) = {"
 aa
 aa
 aa
@@ -7509,16 +9138,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(70,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(82,1,1) = {"
 aa
 aa
 aa
@@ -7591,16 +9220,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(71,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(83,1,1) = {"
 aa
 aa
 aa
@@ -7673,8 +9302,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(72,1,1) = {"
+(84,1,1) = {"
 aa
 aa
 aa
@@ -7683,6 +9320,80 @@ aa
 aa
 aa
 aa
+aa
+bH
+ad
+at
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+az
+de
+ad
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(85,1,1) = {"
 aa
 aa
 aa
@@ -7755,80 +9466,6 @@ aa
 aa
 aa
 aa
-"}
-(73,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-ad
-at
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-az
-de
-ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -7838,15 +9475,7 @@ aa
 aa
 aa
 "}
-(74,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(86,1,1) = {"
 aa
 aa
 aa
@@ -7919,16 +9548,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(75,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(87,1,1) = {"
 aa
 aa
 aa
@@ -8001,16 +9630,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(76,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(88,1,1) = {"
 aa
 aa
 aa
@@ -8083,16 +9712,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(77,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(89,1,1) = {"
 aa
 aa
 aa
@@ -8165,16 +9794,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(78,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(90,1,1) = {"
 aa
 aa
 aa
@@ -8247,16 +9876,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(79,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(91,1,1) = {"
 aa
 aa
 aa
@@ -8329,16 +9958,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(80,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(92,1,1) = {"
 aa
 aa
 aa
@@ -8411,16 +10040,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(81,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(93,1,1) = {"
 aa
 aa
 aa
@@ -8493,16 +10122,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(82,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(94,1,1) = {"
 aa
 aa
 aa
@@ -8575,16 +10204,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
-(83,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+(95,1,1) = {"
 aa
 aa
 aa
@@ -8657,982 +10286,6 @@ aa
 aa
 aa
 aa
-"}
-(84,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-ad
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-aG
-ar
-ar
-aG
-ar
-ar
-ar
-ar
-aG
-ar
-ar
-ar
-ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(85,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(86,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(87,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(88,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(89,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(90,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(91,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(92,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(93,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(94,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(95,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -9652,36 +10305,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bH
+ad
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+aG
+ar
+ar
+aG
+ar
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+ad
+bH
 aa
 aa
 aa
@@ -9734,36 +10387,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bH
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+bH
 aa
 aa
 aa
@@ -9816,36 +10469,36 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
+bH
 aa
 aa
 aa

@@ -34,6 +34,8 @@
 	. = list()
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
+	. += "<tr><td>Set All: </td><td>"
+	. += "<a href='?src=\ref[src];set_all=high'>High</a> <a href='?src=\ref[src];set_all=low'>Low</a> <a href='?src=\ref[src];set_all=never'>Never</a></br></br>"
 	var/list/all_antag_types = GLOB.all_antag_types_
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]

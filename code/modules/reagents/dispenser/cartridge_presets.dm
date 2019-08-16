@@ -54,6 +54,7 @@
 	spaceup		spawn_reagent = /datum/reagent/drink/space_up
 	tonic		spawn_reagent = /datum/reagent/drink/tonic
 	sodawater	spawn_reagent = /datum/reagent/drink/sodawater
+	lemon		spawn_reagent = /datum/reagent/drink/juice/lemon
 	lemon_lime	spawn_reagent = /datum/reagent/drink/lemon_lime
 	orange		spawn_reagent = /datum/reagent/drink/juice/orange
 	lime		spawn_reagent = /datum/reagent/drink/juice/lime

@@ -1,9 +1,11 @@
+
 /obj/machinery/shipweapons
 	name = "shipweapon"
 	idle_power_usage = 10
 	active_power_usage = 1000
 	use_power = 1
 	anchored = 1
+	density = 1
 	var/passshield = 0
 	var/shielddamage = 0
 	var/hulldamage = 0
@@ -21,14 +23,13 @@
 	var/fire_sound = null
 	var/dam_announced = 0
 	var/obj/effect/overmap/ship/combat/homeship = null
+	var/firing = FALSE
+	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
 
-	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
-		if(src.shipid == CC.shipid)
-			CC.linkedweapons += src
-
+	ConnectWeapons()
 
 /obj/machinery/shipweapons/Process()
 	if(!charged && !recharging)
@@ -59,16 +60,20 @@
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
 	..()
+
 	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
 		if(homeship.incombat)
 			var/want = input("Fire the [src]?") in list ("Yes", "Cancel")
 			switch(want)
 				if("Yes")
 					if(charged) //just in case, we check again
-						user << "<span class='warning'>You fire the [src.name].</span>"
-						Fire()
+						if(!firing)
+							user << "<span class='warning'>You fire the [src.name].</span>"
+							firing = TRUE
+							Fire()
 					else
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
+
 
 				if("Cancel")
 					return
@@ -85,10 +90,12 @@
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess
-
-
 	if(!target) //maybe make it fire and recharge if people are dumb?
+		firing = FALSE
 		return
+
+	if(shipid && !linkedcomputer)
+		ConnectWeapons()
 
 	else
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
@@ -96,7 +103,7 @@
 
 		for(var/datum/shipcomponents/engines/E in OM.components)
 			if(!E.broken && prob(E.evasion_chance))
-				GLOB.global_announcer.autosay("<b>The [src] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+				GLOB.global_announcer.autosay("<b>The [src.name] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 
 			else
 				if(!passshield)
@@ -181,6 +188,8 @@
 			update_icon()
 			Charging() //time to recharge
 
+		firing = FALSE
+
 /obj/machinery/shipweapons/proc/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 
@@ -209,142 +218,26 @@
 	var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
 	P.Fire(projectile_type)
 
+/obj/machinery/shipweapons/proc/ConnectWeapons()
+	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
+		if(src.shipid == CC.shipid)
+			CC.linkedweapons += src
+			linkedcomputer = CC
 
-//missiles
-
-/obj/machinery/shipweapons/missile
-	icon = 'icons/urist/96x96.dmi'
-	passshield = 1
-	var/loaded = 0
-	var/maxload = 1 //in case we have missile arrays
-
-/obj/machinery/shipweapons/missile/Fire()
-	loaded -= 1
-	..()
-
-/obj/machinery/shipweapons/missile/attack_hand(mob/user as mob)
-	if(loaded)
-		..()
-
-	else
-		user << "<span class='warning'>The [src.name] isn't loaded!</span>"
-		return
-
-
-//torpedo
-
-/obj/structure/shipammo/torpedo //TODO: Make this generic
-	name = "torpedo casing"
-	density = 0
-	anchored = 0
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
-	icon_state = "bigtorpedo-unloaded"
-	var/loaded = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 2500)
-	dir = 4
-
-/obj/structure/shipammo/torpedo/New()
-	..()
-	pixel_y = rand(-20,2)
-
-/obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
-		if(!src.loaded)
-
-			icon_state = "bigtorpedo"
-			loaded = 1
-
-			user.remove_from_mob(I)
-			qdel(I)
-
-			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
-
-		else
-			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+/obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
+	var/turf/T = get_turf(src)
+	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
+		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
+		S.state = 4
+		S.update_icon()
+		S.weapon_type = src.type
+		S.name = "[src.name] assembly"
+		S.shipid = src.shipid
+		S.anchored = 1
+		linkedcomputer.linkedweapons -= src
+		qdel(src)
 
 	else
 		..()
-
-/obj/structure/shipammo/torpedo/loaded
-	name = "loaded torpedo"
-	loaded = 1
-	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
-	icon_state = "bigtorpedo"
-
-/obj/item/shipweapons/torpedo_warhead
-	name = "torpedo warhead"
-	desc = "It's a big warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
-	icon = 'icons/urist/items/ship_projectiles.dmi'
-	icon_state = "torpedowarhead"
-
-/obj/machinery/shipweapons/missile/torpedo
-	name = "torpedo launcher"
-	icon_state = "torpedo"
-	hulldamage = 350 //maybe
-//	active_power_usage = 1000
-	component_hit = 25
-	rechargerate = 15 SECONDS
-	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
-	fire_sound = 'sound/weapons/railgun.ogg'
-
-/obj/machinery/shipweapons/missile/torpedo/Bumped(atom/movable/M as mob|obj)
-	..()
-	if(istype(M, /obj/structure/shipammo/torpedo))
-		var/obj/structure/shipammo/torpedo/L = M
-		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
-			qdel(L)
-			src.loaded += 1
-
-/obj/machinery/shipweapons/missile/torpedo/Crossed(O as obj)
-	..()
-	if(istype(O, /obj/structure/shipammo/torpedo))
-		var/obj/structure/shipammo/torpedo/L = O
-		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
-			qdel(L)
-			src.loaded += 1
-
-/obj/machinery/shipweapons/missile/torpedo/update_icon()
-	..()
-
-	if(charged && loaded)
-		icon_state = "[initial(icon_state)]-loaded"
-
-//beams
-
-/obj/machinery/shipweapons/beam
-	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
-
-/obj/machinery/shipweapons/beam/lightlaser
-	name = "light laser cannon"
-	shielddamage = 200
-	hulldamage = 100
-	icon_state = "lasercannon"
-	idle_power_usage = 10
-	active_power_usage = 2000
-	component_hit = 20
-	rechargerate = 15 SECONDS
-	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_anim = 5
-	fire_sound = 'sound/weapons/marauder.ogg'
-
-/obj/machinery/shipweapons/beam/ion
-	name = "ion cannon"
-	icon_state = "ioncannon"
-	shielddamage = 400
-	active_power_usage = 2000
-	component_hit = 35
-	rechargerate = 12 SECONDS
-	fire_sound = 'sound/weapons/marauder.ogg'
-	projectile_type = /obj/item/projectile/ion/ship
-
-/obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)
-	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
-
-//	for(var/datum/shipcomponents/SC in OM.components)
-//		health -= 1
-
-	var/datum/shipcomponents/targetcomponent = pick(OM.components)
-	if(!targetcomponent.broken)
-		targetcomponent.broken = TRUE
-		spawn(45 SECONDS)
-			targetcomponent.broken = FALSE

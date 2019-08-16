@@ -72,7 +72,9 @@
 	the other five followed shortly thereafter. The terraforming projects intended to make the atmosphere breathable never came to pass, but the aerostats remain.\
 	The aerostats' need for buoyancy makes open air a necessity. As a result, high ceilings and wide-open areas abound within. \
 	Public entertainment in these open plazas is a constant fixture; essentially, they're the beating heart of the aerostat. \
-	Dwellings tend to be open, with a marked lack of privacy compared to other human holdings."
+	Dwellings tend to be open, with a marked lack of privacy compared to other human holdings. With the Allied victory at the Battle of Mars in 2564, \
+	Venus was spared from the devestation of the Galactic Crisis. However, not even Venus was safe from Post-Galactic Crisis economic downturn, and the \
+	economic and political impact of the ongoing Terran Civil War."
 	capital = "Selenia"
 	economic_power = 1.4
 
@@ -101,7 +103,9 @@
 	syndicates. In spite of a number of modernisation efforts the Pluto of today has seen very little in the way of improvement.<br><br>The people \
 	of Pluto are, surprisingly, some of the worst off in the Terran Confederacy. Downtrodden, poor, and from a locale that is so infested with crime it has become \
 	part of the local culture. Most of the people of Pluto are very rough around the edges, hardened by years of poverty or criminality. Those that \
-	manage to escape rarely wish to return, though often possess a looser set of morales as a result of their time on the planet."
+	manage to escape rarely wish to return, though often possess a looser set of morales as a result of their time on the planet. Most of Pluto's infrastructure was destroyed \
+	during the alien push on Mars in 2564, and even now, much of the formerly settled areas on Pluto lay in ruins. \
+	This, along with the economic downturn following the Galactic Crisis, has only exacerbated the crushing poverty on Pluto."
 	capital = "New Santa Domingo"
 	economic_power = 0.8
 	language = LANGUAGE_GUTTER
@@ -116,7 +120,7 @@
 	Ceti Epsilon was virtually razed by the xeno forces during the Galactic Crisis. Although many were evacuated in the face of the \
 	alien advance, most of the population was killed or husked during the invasion, and many of those who survived have yet to return. \
 	Even over a decade after the end of the Galactic Crisis, cleanup efforts are still ongoing in some areas of the planet, as previously \
-	undiscovered alien hives are uncovered. Although separated from their hivemind, individual aliens still area a threat to those trying \
+	undiscovered alien hives are uncovered. Although separated from their hivemind, individual aliens still are a threat to those trying \
 	to return to their lives that were torn apart by war. The bright point of the rebuilding process is the Ceti Institute of Technology, which \
 	has been completely rebuilt, and is slowly returning to its former glory. br><br>The people of Ceti Epsilon are some of the most, well, average in the TC. Being from a largely built up world with a focus on \
 	the cutting edge, most Episoloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
@@ -188,7 +192,7 @@
 	Largely due to its isolation, the Scientific Institute of Gessshire remains amicable with both the Terran Confederacy and the UHA, placing itself as a sort of neutral party in the conflict, \
 	despite nominally being part of the Terran Confederacy. The Institute is a sort of technocratic republic led by Dr. Johan Montgomery. \
 	It is known by most Defence Forces personnel to act begrudgingly towards any requests given, and only a select few have visited the planet itself. Indeed, the isolation and harsh conditions of Lorriman \
-	allowed the planet to reamin untouched by the Galactic Crisis. <br><br> Lorrimanians are a quiet, unassuming, academically-driven bunch. \
+	allowed the planet to remain untouched by the Galactic Crisis. <br><br> Lorrimanians are a quiet, unassuming, academically-driven bunch. \
 	They are often sought as researchers or other scientifically-driven career.  It is rare for anyone to immigrate to the planet, but exceptions have been made. \
 	A scientifically driven people, they have served many organisations loyally."
 	capital = "The Hub"
@@ -312,7 +316,7 @@
 	distance = "11.46 light years"
 	description = "Located in the eponymous Procyon system (also known as Alpha Canis Minoris), Procyon is the chief planet of NanoTrasen, and is home to the NanoTrasen \
 	corporate headquarters, along with the primary residence of NanoTrasen's CEO. One of the first planets outside of Sol settled by human colonists, Procyon is a lovely garden world \
-	with a relatively high standard on living. Although Procyon was one of the first planets settled by humanity, it has been controlled by NanoTrasen since the mid-23rd century, \
+	with a relatively high standard of living. Although Procyon was one of the first planets settled by humanity, it has been controlled by NanoTrasen since the mid-23rd century, \
 	and as such, it has seen intense development by the corporation. Indeed, it is home to some of the foremost research facilities in human-controlled space, along with extensive orbital dockyards. \
 	The fact that Procyon was largely untouched by the Galactic Crisis has allowed NanoTrasen to bounce back far quicker than the Terran Confederacy."
 	capital = "Trasen City"

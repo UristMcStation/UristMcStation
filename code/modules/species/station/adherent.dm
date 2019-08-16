@@ -51,7 +51,7 @@
 	slowdown = -1
 	hud_type = /datum/hud_data/adherent
 	pixel_offset_y = -4
-
+/*
 	available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_ADHERENT
@@ -69,7 +69,7 @@
 			RELIGION_OTHER
 		)
 	)
-
+*/
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/crystal),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/crystal),

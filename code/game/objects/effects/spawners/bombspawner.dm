@@ -237,4 +237,4 @@
 
 /obj/effect/spawner/bomb_simulator/Initialize()
 	. = ..()
-	explosion(loc,_high,_med,_low)
+	explosion(loc,_high,_med,_low,adminlog = FALSE)

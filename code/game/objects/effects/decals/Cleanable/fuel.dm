@@ -4,6 +4,8 @@
 	icon_state = "fuel"
 	plane = ABOVE_TURF_PLANE
 	layer = BLOOD_LAYER
+	anchored = 1
+	persistent = FALSE
 	var/amount = 1
 
 /obj/effect/decal/cleanable/liquid_fuel/proc/Spread(exclude=list())

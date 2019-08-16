@@ -251,3 +251,21 @@ transit/east is the same thing now AFAIK
 	name = "alien flooring"
 	desc = "This obviously wasn't made for your feet."
 	icon = 'icons/urist/turf/scomturfs.dmi'
+
+//holofloors
+
+/turf/simulated/floor/holofloor/ice
+	name = "ice"
+	base_name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	base_icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+	base_icon_state = "ice"
+
+//reinf floors
+
+/turf/simulated/floor/shuttle_ceiling
+	name = "hull plating"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "reinforced_light"
+	initial_gas = null

@@ -32,9 +32,12 @@
 
 	if(!(language && (language.flags & INNATE))) // skip understanding checks for INNATE languages
 		if(!say_understands(speaker,language))
-			if(istype(speaker,/mob/living/simple_animal))
+			/*if(istype(speaker,/mob/living/simple_animal))
 				var/mob/living/simple_animal/S = speaker
 				message = pick(S.speak)
+			else */
+			if(language)
+				message = language.scramble(message)
 			else
 				if(language)
 					message = language.scramble(message, languages)

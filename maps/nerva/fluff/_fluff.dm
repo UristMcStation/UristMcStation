@@ -12,6 +12,7 @@
 #define CULTURE_HUMAN_VENUSLOW "Venusian, Lower Class"
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
 #define CULTURE_HUMAN_NT	"NanoTrasen Spacer"
+#define CULTURE_HUMAN_GRAVEWORLDER "Graveworlder"
 
 /datum/map/nerva
 	available_cultural_info = list(
@@ -64,6 +65,7 @@
 			CULTURE_HUMAN_ORMA,
 			CULTURE_HUMAN_NT,
 			CULTURE_HUMAN_OTHER,
+			CULTURE_HUMAN_GRAVEWORLDER,
 			CULTURE_OTHER
 		),
 		TAG_RELIGION = list(

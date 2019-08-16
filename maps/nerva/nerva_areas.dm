@@ -1,6 +1,8 @@
-//Order is as follows Hallways, Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance
+/datum/map/nerva
+	base_floor_area = /area/maintenance/exterior
+	post_round_safe_areas = list(/area/shuttle/escape_pod1,/area/shuttle/escape_pod2,/area/shuttle/escape_pod3)
 
-//this is just the Wyrm areas right now, but is in flux as I add/remove areas
+//Order is as follows Command, Civilian, Security, Science, Engineering, Medical, Cargo, Maintenance, Hallways
 
 //////////////////////////////////////
 //			COMMAND					//
@@ -77,6 +79,23 @@
 	name = "\improper Bodyguard's Office"
 	req_access = list(access_blueshield)
 
+/area/security/nuke_storage
+	name = "\improper Vault"
+	icon_state = "nuke_storage"
+
+/area/command/bottom_hallway
+	name = "\improper Fourth Deck Command Hallway"
+	icon_state = "hallC1"
+
+/area/command/fourth_emergency_storage
+	name = "\improper Fourth Deck Emergency Storage"
+	sound_env = SMALL_ENCLOSED
+	icon_state = "green"
+
+/area/command/safe_room
+	name = "\improper Safe Room"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
@@ -90,10 +109,12 @@
 /area/civilian/cryo1
 	name = "\improper Primary Cryogenic Storage"
 	icon_state = "bluenew"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/cryo2
 	name = "\improper Secondary Cryogenic Storage"
 	icon_state = "bluenew"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/civilian/freezer
 	name = "\improper Kitchen Freezer"
@@ -140,6 +161,28 @@
 /area/civilian/abandonedoffice
 	name = "\improper Abandoned Office"
 
+/area/civilian/abandonedwarehouse
+	name = "\improper Abandoned Warehouse"
+	sound_env = LARGE_ENCLOSED
+
+/area/civilian/first_deck_lobby
+	name = "\improper First Deck Lobby"
+
+/area/civilian/first_emergency_storage
+	name = "\improper First Emergency Storage"
+	sound_env = SMALL_ENCLOSED
+
+/area/civilian/counselor
+	name = "\improper Counselor's Office"
+
+/area/civilian/entertainer
+	name = "\improper Entertainer's Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/civilian/exercise
+	name = "\improper Exercise Room"
+	sound_env = SMALL_ENCLOSED
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////
@@ -160,6 +203,14 @@
 	name = "\improper Hangar Checkpoint"
 	icon_state = "checkpoint1"
 
+/area/security/dockingcheckpoint
+	name = "\improper Docking Area Checkpoint"
+	icon_state = "checkpoint1"
+
+/area/security/abandonedcheckpoint
+	name = "\improper Abandoned Checkpoint"
+	icon_state = "checkpoint1"
+
 /area/security/cosoffice
 	name = "\improper Chief of Security's Office"
 	icon_state = "Warden"
@@ -171,7 +222,7 @@
 	req_access = list(access_armory)
 
 /area/security/breakroom
-	name = "\improper Security Break Room"
+	name = "\improper Security Dorms"
 
 /area/security/office
 	name = "\improper Security Office"
@@ -186,8 +237,8 @@
 	icon_state = "detective"
 	req_access = list(access_forensics_lockers)
 
-/area/security/tacarmoury
-	name = "\improper Tactical Armory"
+/area/security/interrogation
+	name = "\improper Interrogation Room"
 	icon_state = "Warden"
 	req_access = list(access_armory)
 
@@ -208,7 +259,11 @@
 	icon_state = "LP"
 
 /area/security/bottomgun
-	name = "\improper Bottom Deck Gunnery Room"
+	name = "\improper Fourth Deck Gunnery Room"
+	icon_state = "LP"
+
+/area/security/topgun
+	name = "\improper First Deck Gunnery Room"
 	icon_state = "LP"
 
 //////////////////////////////////////
@@ -326,6 +381,59 @@
 /area/engineering/drone_fabrication
 	name = "\improper Drone Fabrication"
 	icon_state = "drone_fab"
+	sound_env = SMALL_ENCLOSED
+
+/area/engineering/first_deck_storage
+	name = "\improper Auxiliary Engineering Storage"
+	icon_state = "engineering_storage"
+	sound_env = SMALL_ENCLOSED
+
+/area/engineering/first_deck_atmos
+	name = "\improper First Deck Atmospherics Storage"
+	icon_state = "engineering_storage"
+	sound_env = SMALL_ENCLOSED
+
+// Substations
+
+/area/engineering/substation
+	name = "/improper Substation"
+	icon_state = "engine_smes"
+	sound_env = SMALL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/engineering/substation/first_deck
+	name = "\improper First Deck Substation"
+
+/area/engineering/substation/second_deck
+	name = "\improper Second Deck Substation"
+
+/area/engineering/substation/third_deck
+	name = "\improper Third Deck Substation"
+
+/area/engineering/substation/fourth_deck
+	name = "\improper Fourth Deck Substation"
+
+/area/engineering/substation/atmos
+	name = "\improper Atmospherics Substation"
+
+//solars
+
+/area/solar/main
+	name = "\improper Main Solar Array"
+	icon_state = "panelsS"
+
+/area/solar/auxaft
+	name = "\improper Aft Auxiliary Solar Array"
+	icon_state = "panelsA"
+
+/area/maintenance/mainsolar
+	name = "\improper Solar Maintenance - Main"
+	icon_state = "SolarcontrolS"
+	sound_env = SMALL_ENCLOSED
+
+/area/maintenance/aftsolar
+	name = "\improper Solar Maintenance - Aft Auxiliary"
+	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////
@@ -484,6 +592,10 @@
 	name = "\improper First Deck Central Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/first_deck/fore
+	name = "\improper First Deck Fore Maintenance"
+	icon_state = "maintcentral"
+
 //second deck
 
 /area/maintenance/second_deck/fs
@@ -493,14 +605,6 @@
 /area/maintenance/second_deck/fp
 	name = "\improper Second Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
-
-/area/maintenance/second_deck/centp
-	name = "\improper Second Deck Central Port Maintenance"
-	icon_state = "maintcentral"
-
-/area/maintenance/second_deck/cents
-	name = "\improper Second Deck Central Starboard Maintenance"
-	icon_state = "maintcentral"
 
 /area/maintenance/second_deck/afs
 	name = "\improper Second Deck Aft Starboard Maintenance"
@@ -524,6 +628,14 @@
 	name = "\improper Third Deck Fore Port Maintenance"
 	icon_state = "fpmaint"
 
+/area/maintenance/third_deck/centp
+	name = "\improper Third Deck Central Port Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/third_deck/cents
+	name = "\improper Third Deck Central Starboard Maintenance"
+	icon_state = "maintcentral"
+
 /area/maintenance/third_deck/afs
 	name = "\improper Third Deck Aft Starboard Maintenance"
 	icon_state = "maint_engineering"
@@ -536,7 +648,29 @@
 	name = "\improper Third Deck Central Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/third_deck/disposals
+//fourth deck
+
+/area/maintenance/fourth_deck/fs
+	name = "\improper Fourth Deck Fore Starboard Maintenance"
+	icon_state = "fsmaint"
+
+/area/maintenance/fourth_deck/fp
+	name = "\improper Fourth Deck Fore Port Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/fourth_deck/afs
+	name = "\improper Fourth Deck Aft Starboard Maintenance"
+	icon_state = "maint_engineering"
+
+/area/maintenance/fourth_deck/afp
+	name = "\improper Fourth Deck Aft Port Maintenance"
+	icon_state = "amaint"
+
+/area/maintenance/fourth_deck/central
+	name = "\improper Fourth Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/fourth_deck/disposals
 	name = "\improper Waste Disposal"
 	icon_state = "disposal"
 
@@ -556,24 +690,29 @@
 /area/hallway/aft
 	icon_state = "hallA"
 
-//top deck
-/area/hallway/fore/first
-	name = "\improper Fore First Deck Hallway"
-
-/area/hallway/aft/first
-	name = "\improper Aft First Deck Hallway"
-
-//central deck
-
-/area/hallway/fore/second
-	name = "\improper Fore Second Deck Hallway"
-
-/area/hallway/central/second
-	name = "\improper Central Second Deck Hallway"
+//top/first deck
+/area/hallway/centralfirst
+	name = "\improper Primary First Deck Hallway"
 	icon_state = "hallC1"
 
-/area/hallway/aft/second
+//second deck
+/area/hallway/fore/second_deck
+	name = "\improper Fore Second Deck Hallway"
+
+/area/hallway/aft/second_deck
 	name = "\improper Aft Second Deck Hallway"
+
+//third deck
+
+/area/hallway/fore/third_deck
+	name = "\improper Fore Third Deck Hallway"
+
+/area/hallway/central/third_deck
+	name = "\improper Central Third Deck Hallway"
+	icon_state = "hallC1"
+
+/area/hallway/aft/third_deck
+	name = "\improper Aft Third Deck Hallway"
 
 /area/hallway/commandoffices
 	name = "\improper Command Offices Hallway"
@@ -587,14 +726,14 @@
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
 
-//bottom deck
+//bottom/fourth deck
 
-/area/hallway/centralthird
-	name = "\improper Primary Third Deck Hallway"
+/area/hallway/centralfourth
+	name = "\improper Primary Fourth Deck Hallway"
 	icon_state = "hallC1"
 
 //////////////////////////////////////
-//			Z-LEVEL 4 / ADMIN		//
+//			Z-LEVEL 5 / ADMIN		//
 //////////////////////////////////////
 
 /area/centcom
@@ -616,15 +755,56 @@
 
 /area/holodeck/source_beach
 	name = "\improper Holodeck - Beach Simulation"
+	sound_env = PLAIN
 
 /area/holodeck/source_winter
 	name = "\improper Holodeck - Winter Simulation"
+	sound_env = FOREST
 
 /area/holodeck/source_chapel
 	name = "\improper Holodeck - Chapel"
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+/area/holodeck/source_emptycourt
+	name = "\improper Holodeck - Empty Court"
+	sound_env = ARENA
+
+/area/holodeck/source_boxingcourt
+	name = "\improper Holodeck - Boxing Court"
+	sound_env = ARENA
+
+/area/holodeck/source_basketball
+	name = "\improper Holodeck - Basketball Court"
+	sound_env = ARENA
+
+/area/holodeck/source_thunderdomecourt
+	name = "\improper Holodeck - Thunderdome Court"
+	sound_env = ARENA
+
+/area/holodeck/source_courtroom
+	name = "\improper Holodeck - Courtroom"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source_wildlife
+	name = "\improper Holodeck - Wildlife Simulation"
+
+/area/holodeck/source_meetinghall
+	name = "\improper Holodeck - Meeting Hall"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source_theatre
+	name = "\improper Holodeck - Theatre"
+	sound_env = CONCERT_HALL
+
+/area/holodeck/source_picnicarea
+	name = "\improper Holodeck - Picnic Area"
+	sound_env = PLAIN
+
+/area/holodeck/source_volleyball
+	name = "\improper Holodeck - Volleyball"
+	sound_env = PLAIN
 
 /area/drone_test
 	name = "\improper Biohazard Simulation Arena"
@@ -685,6 +865,12 @@
 
 /area/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
+
+/area/deity_spawn
+	name = "\improper Deity Spawn"
+	icon_state = "yellow"
+	requires_power = 0
+	dynamic_lighting = 0
 
 //////////////////////////////////////
 //			AWAY MISSION			//
@@ -760,20 +946,3 @@
 /area/ship/combat
 	name = "\improper Ship"
 
-// Substations
-
-/area/engineering/substation
-	name = "/improper Substation"
-	icon_state = "engine_smes"
-
-/area/engineering/substation/one
-	name = "\improper First Deck Substation"
-
-/area/engineering/substation/two
-	name = "\improper Second Deck Substation"
-
-/area/engineering/substation/three
-	name = "\improper Third Deck Substation"
-
-/area/engineering/substation/atmos
-	name = "\improper Atmospherics Substation"

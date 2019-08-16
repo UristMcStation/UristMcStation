@@ -101,6 +101,8 @@
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
 
+	current.update_color()
+
 /datum/mind/proc/store_memory(new_text)
 	memory += "[new_text]<BR>"
 

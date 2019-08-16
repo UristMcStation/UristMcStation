@@ -544,21 +544,57 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/magazine_smg_topmounted
-	name = "ammunition (SMG, top mounted)"
-	path = /obj/item/ammo_magazine/smg_top
+/datum/autolathe/recipe/magazine_c20r_rubber
+	name = "ammunition (10mm, rubber)"
+	path = /obj/item/ammo_magazine/a10mm/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_c20r_flash
+	name = "ammunition (10mm, flash)"
+	path = /obj/item/ammo_magazine/a10mm/flash
 	hidden = 1
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_arifle
-	name = "ammunition (rifle magazine)"
-	path = /obj/item/ammo_magazine/rifle
+	name = "ammunition (5.56mm)"
+	path = /obj/item/ammo_magazine/c556
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_arifle_rubber
+	name = "ammunition (5.56mm, rubber)"
+	path = /obj/item/ammo_magazine/c556/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_arifle_flash
+	name = "ammunition (5.56mm, flash)"
+	path = /obj/item/ammo_magazine/c556/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smg
+	name = "ammunition (9mm) top mounted"
+	path = /obj/item/ammo_magazine/mc9mmt
 	hidden = 1
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_carbine
 	name = "ammunition (military rifle)"
 	path = /obj/item/ammo_magazine/mil_rifle
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_carbine_flash
+	name = "ammunition (7.62mm, flash)"
+	path = /obj/item/ammo_magazine/a762/flash
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_carbine_rubber
+	name = "ammunition (7.62mm, rubber)"
+	path = /obj/item/ammo_magazine/a762/rubber
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -630,3 +666,34 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	name = "plunger"
 	path = /obj/item/clothing/mask/plunger
 	category = "General"
+
+/datum/autolathe/recipe/capacitor
+	name = "capacitor"
+	path = /obj/item/weapon/stock_parts/capacitor
+	category = "Replacement Parts"
+	resources = list("glass" = 50, "steel" = 50)
+
+/datum/autolathe/recipe/microlaser
+	name = "micro-laser"
+	path = /obj/item/weapon/stock_parts/micro_laser
+	category = "Replacement Parts"
+	resources = list("glass" = 10, "steel" = 10)
+
+/datum/autolathe/recipe/micromanip
+	name = "micro-manipulator"
+	path = /obj/item/weapon/stock_parts/manipulator
+	category = "Replacement Parts"
+	resources = list("steel" = 30)
+
+/datum/autolathe/recipe/scanningmodule
+	name = "scanning module"
+	path = /obj/item/weapon/stock_parts/scanning_module
+	category = "Replacement Parts"
+	resources = list("glass" = 20, "steel" = 50)
+
+/datum/autolathe/recipe/matterbin
+	name = "matter bin"
+	path = /obj/item/weapon/stock_parts/matter_bin
+	category = "Replacement Parts"
+	resources = list("steel" = 80)
+

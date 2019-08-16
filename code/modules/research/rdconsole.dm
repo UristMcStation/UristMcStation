@@ -42,6 +42,23 @@ cause a ton of data to be lost, an admin can go send it back.
 it's entirety. You can then take the disk to any R&D console and upload it's data to it. This method is a lot more secure (since it
 won't update every console in existence) but it's more of a hassle to do. Also, the disks can be stolen.
 */
+//Used for PROTOLATHE CONSTRUCTABLES
+#define MACHINE_PARTS "Machine Parts"
+#define WEAPON_DESIGNS "Weapon Designs"
+#define BLUESPACE_DEVICES "Bluespace Devices"
+#define BIOMEDICAL_DEVICES "Biomedical Devices"
+#define TOOL_DESIGNS "Tool Designs"
+#define GENERAL_DEVICES "General Devices"
+#define MODULAR_COMPUTER_DEVICES "Modular Computer Components"
+#define RIG_MODULES "RIG Modules"
+//Used for CIRCUIT IMPRINTER CONSTRUCTABLES
+#define GENERAL_CIRCUITS "General Circuitry"
+#define EXOSUIT_CIRCUITS "Exosuit Circuitry"
+#define AI_CIRCUITS "AI Module Circuitry"
+#define MACHINERY_CIRCUITS "Machinery Circuitry"
+#define TELECOMMS_CIRCUITS "Telecommunications Circuitry"
+#define COMPUTER_CIRCUITS "Computer Circuitry"
+#define MODULAR_COMPUTER_CIRCUIT "Modular Computer Circuitry"
 
 /obj/machinery/computer/rdconsole
 	name = "fabrication control console"
@@ -320,30 +337,36 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 		. = TOPIC_REFRESH
 
-	else if(href_list["build"]) //Causes the Protolathe to build something.
+	else if(href_list["build"] || href_list["buildmult"]) //Causes the Protolathe to build something.
+		if(linked_lathe)
+			var/datum/design/being_built = null
+			for(var/datum/design/D in files.known_designs)
+				if(D.id == href_list["build"] || D.id == href_list["buildmult"])
+					being_built = D
+					break
+			if(being_built)
+				var/count = 1
+				if(href_list["buildmult"])
+					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
+					count = Clamp(count, 1, 100)
+				for(var/i=1, i<=count, i++)
+					linked_lathe.addToQueue(being_built)
 		. = TOPIC_REFRESH
-		CHECK_LATHE
-		var/datum/design/being_built = null
-		for(var/datum/design/D in files.known_designs)
-			if(D.id == href_list["build"])
-				being_built = D
-				break
-		if(being_built)
-			linked_lathe.addToQueue(being_built)
-		screen = 3.1
 
-	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
-		. = TOPIC_REFRESH
-		CHECK_IMPRINTER
-		var/datum/design/being_built = null
-		for(var/datum/design/D in files.known_designs)
-			if(D.id == href_list["imprint"])
-				being_built = D
-				break
-		if(being_built)
-			linked_imprinter.addToQueue(being_built)
-		screen = 4.1
-
+	else if(href_list["imprint"] || href_list["imprintmult"]) //Causes the Circuit Imprinter to build something.
+		if(linked_imprinter)
+			var/datum/design/being_built = null
+			for(var/datum/design/D in files.known_designs)
+				if(D.id == href_list["imprint"] || D.id == href_list["imprintmult"])
+					being_built = D
+					break
+			if(being_built)
+				var/count = 1
+				if(href_list["imprintmult"])
+					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
+					count = Clamp(count, 1, 100)
+				for(var/i=1, i<=count, i++)
+					linked_imprinter.addToQueue(being_built)
 	else if(href_list["disposeI"])  //Causes the circuit imprinter to dispose of a single reagent (all of it)
 		. = TOPIC_REFRESH
 		CHECK_IMPRINTER
@@ -729,20 +752,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<B>Material Amount:</B> [linked_lathe.TotalMaterials()] cm<sup>3</sup> (MAX: [linked_lathe.max_material_storage])<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] (MAX: [linked_lathe.reagents.maximum_volume])<HR>"
 			dat += "<UL>"
-			for(var/datum/design/D in files.known_designs)
-				if(!D.build_path || !(D.build_type & PROTOLATHE))
-					continue
-				var/temp_dat
-				for(var/M in D.materials)
-					temp_dat += ", [D.materials[M]] [CallMaterialName(M)]"
-				for(var/T in D.chemicals)
-					temp_dat += ", [D.chemicals[T]*(linked_imprinter ? linked_imprinter.mat_efficiency : 1)] [CallReagentName(T)]"
-				if(temp_dat)
-					temp_dat = " \[[copytext(temp_dat, 3)]\]"
-				if(linked_lathe.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A></B>[temp_dat]"
-				else
-					dat += "<LI><B>[D.name]</B>[temp_dat]"
+			dat += "<li><A href='?src=\ref[src];menu=5.1'>Machine Parts Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=5.2'>Weapon Design Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.3'>Bluespace Device Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.4'>Biomedical Device Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.5'>Tool Design Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.6'>General Device Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.7'>Modular Computer Component Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.8'>RIG Module Fabrication</A> <BR>"
+			dat += "<li><A href='?src=\ref[src];menu=5.9'>Miscellaneous Fabrication</A> <BR>"
 			dat += "</UL>"
 
 		if(3.2) //Protolathe Material Storage Sub-menu
@@ -809,20 +827,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()] cm<sup>3</sup><BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
 			dat += "<UL>"
-			for(var/datum/design/D in files.known_designs)
-				if(!D.build_path || !(D.build_type & IMPRINTER))
-					continue
-				var/temp_dat
-				for(var/M in D.materials)
-					temp_dat += ", [D.materials[M]*linked_imprinter.mat_efficiency] [CallMaterialName(M)]"
-				for(var/T in D.chemicals)
-					temp_dat += ", [D.chemicals[T]*linked_imprinter.mat_efficiency] [CallReagentName(T)]"
-				if(temp_dat)
-					temp_dat = " \[[copytext(temp_dat,3)]\]"
-				if(linked_imprinter.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A></B>[temp_dat]"
-				else
-					dat += "<LI><B>[D.name]</B>[temp_dat]"
+			dat += "<li><A href='?src=\ref[src];menu=6'>General Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.1'>Exosuit Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.2'>AI Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.3'>Machinery Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.4'>Telecommunication Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.5'>Computer Circuitry Fabrication</A> <BR> "
+			dat += "<li><A href='?src=\ref[src];menu=6.6'>Modular Computer Circuitry Fabrication</A> <BR> "
 			dat += "</UL>"
 
 		if(4.2)
@@ -877,10 +888,92 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];print=2'>Print This Page</A><HR>"
 			dat += "List of Available Designs:"
 			dat += GetResearchListInfo()
+		//PROTOLATHE SUBMENUS START HERE. Kind of awful, but better than my first idea.
+		if(5.1)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(MACHINE_PARTS)
+		if(5.2)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(WEAPON_DESIGNS)
+		if(5.3)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(BLUESPACE_DEVICES)
+		if(5.4)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(BIOMEDICAL_DEVICES)
+		if(5.5)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(TOOL_DESIGNS)
+		if(5.6)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(GENERAL_DEVICES)
+		if(5.7)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(MODULAR_COMPUTER_DEVICES)
+		if(5.8)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns(RIG_MODULES)
+		if(5.9)
+			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += GetCategoryDesigns("Misc")
+		//CIRCUIT IMPRINTER SUBMENUS START HERE
+		if(6)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(GENERAL_CIRCUITS)
+		if(6.1)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(EXOSUIT_CIRCUITS)
+		if(6.2)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(AI_CIRCUITS)
+		if(6.3)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(MACHINERY_CIRCUITS)
+		if(6.4)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(TELECOMMS_CIRCUITS)
+		if(6.5)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(COMPUTER_CIRCUITS)
+		if(6.6)
+			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += GetCategoryDesigns(MODULAR_COMPUTER_CIRCUIT)
 
 	var/datum/browser/popup = new(user, "rdconsolenew", "Research Console", 850, 600)
 	popup.set_content(JOINTEXT(dat))
 	popup.open()
+
+/obj/machinery/computer/rdconsole/proc/GetCategoryDesigns(var/category)
+	var/dat = ""
+	dat += "[category] Fabrication Submenu<BR><HR>"
+	for(var/datum/design/D in files.known_designs)
+		if(D.category != category)
+			continue
+		if(!D.build_path || !(D.build_type))
+			continue
+		var/temp_dat
+		var/resource_mult = 1
+		if(linked_lathe && D.build_type & PROTOLATHE)
+			resource_mult = linked_lathe.mat_efficiency
+		else if(linked_imprinter && D.build_type & IMPRINTER)
+			resource_mult = linked_imprinter.mat_efficiency
+		for(var/M in D.materials)
+			temp_dat += ", [D.materials[M]*resource_mult] [CallMaterialName(M)]"
+		for(var/T in D.chemicals)
+			temp_dat += ", [D.chemicals[T]*resource_mult] [CallReagentName(T)]"
+		if(temp_dat)
+			temp_dat = " \[[copytext(temp_dat, 3)]\]"
+		if(D.build_type & PROTOLATHE)
+			if(linked_lathe.canBuild(D))
+				dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A> <A href='?src=\ref[src];buildmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
+			else
+				dat += "<LI><B>[D.name]</B>[temp_dat]"
+		if(D.build_type & IMPRINTER)
+			if(linked_imprinter.canBuild(D))
+				dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A> <A href='?src=\ref[src];imprintmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
+			else
+				dat += "<LI><B>[D.name]</B>[temp_dat]"
+	return dat
 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics fabrication console"
@@ -893,6 +986,21 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	id = 1
 	
 
+#undef MACHINE_PARTS
+#undef WEAPON_DESIGNS
+#undef BLUESPACE_DEVICES
+#undef BIOMEDICAL_DEVICES
+#undef TOOL_DESIGNS
+#undef GENERAL_DEVICES
+#undef MODULAR_COMPUTER_DEVICES
+#undef RIG_MODULES
+#undef GENERAL_CIRCUITS
+#undef EXOSUIT_CIRCUITS
+#undef AI_CIRCUITS
+#undef MACHINERY_CIRCUITS
+#undef TELECOMMS_CIRCUITS
+#undef COMPUTER_CIRCUITS
+#undef MODULAR_COMPUTER_CIRCUIT
 #undef CHECK_LATHE
 #undef CHECK_IMPRINTER
 #undef CHECK_DESTROY

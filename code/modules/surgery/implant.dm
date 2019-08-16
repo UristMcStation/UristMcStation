@@ -176,7 +176,9 @@
 	var/find_prob = 0
 	var/list/loot = list()
 	if(exposed)
-		loot = affected.implants
+		loot |= affected.implants
+		for(var/obj/item/organ/internal/O in loot)
+			loot -= O
 	else
 		for(var/datum/wound/wound in affected.wounds)
 			loot |= wound.embedded_objects

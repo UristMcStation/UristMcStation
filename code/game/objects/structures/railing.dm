@@ -11,17 +11,18 @@
 	icon_state = "railing0-1"
 
 	var/broken =    FALSE
-	var/health =    70
+	health =    70
 	var/maxhealth = 70
 	var/neighbor_status = 0
 
 /obj/structure/railing/mapped
+	var/mapped_color = COLOR_GUNMETAL //Eterenally tormented by colors
 	color = COLOR_GUNMETAL
 	anchored = TRUE
 
 /obj/structure/railing/mapped/Initialize()
 	. = ..()
-	color = COLOR_GUNMETAL // They're not painted!
+	color = mapped_color
 
 /obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_FURNITURE_MATERIAL)
 	material = material_key // Converted to datum in initialize().

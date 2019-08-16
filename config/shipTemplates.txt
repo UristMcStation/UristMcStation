@@ -8,3 +8,5 @@ maps/shipmaps/ship_fastattackcraft_terran.dmm
 maps/shipmaps/ship_light_freighter.dmm
 maps/shipmaps/ship_pirate_small1.dmm
 maps/shipmaps/ship_rebel_small1.dmm
+maps/shipmaps/ship_lactera_small.dmm
+maps/shipmaps/ship_lactera_large.dmm

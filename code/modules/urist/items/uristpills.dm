@@ -46,20 +46,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "pill12"
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 15)
+		reagents.add_reagent(/datum/reagent/nanoblood, 15)
 		reagents.add_reagent(/datum/reagent/iron, 15)
 		reagents.add_reagent(/datum/reagent/sugar, 15)
 
 /obj/item/weapon/reagent_containers/pill/peridaxon
-	name = "Peridaxon pill"
-	desc = "Rapidly regenerates internal organs."
+	name = "Peridaxon (10u)"
+	desc = "Regenerates internal organs and reverses organ decay."
 	icon_state = "pill8"
 	New()
 		..()
 		reagents.add_reagent(/datum/reagent/peridaxon, 10)
 
 /obj/item/weapon/reagent_containers/pill/rezadone
-	name = "Emergency recovery pill"
+	name = "Rezadone (15u)"
 	desc = "Only to be used in absolute emergencies."
 	icon_state = "pill18"
 	New()
@@ -75,7 +76,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		reagents.add_reagent(/datum/reagent/spaceacillin, 45)
 
 /obj/item/weapon/reagent_containers/pill/exbicaridine
-	name = "Extreme bicaridine pill"
+	name = "Bicaridine (45u)"
 	desc = "For arterial bleeding cases only."
 	icon_state = "pill10"
 	New()
@@ -83,7 +84,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		reagents.add_reagent(/datum/reagent/bicaridine, 45)
 
 /obj/item/weapon/reagent_containers/pill/latrazine
-	name = "latrazine pill"
+	name = "Latrazine (5u)"
 	desc = "WARNING: Unstable mixture. Do not consume under normal conditions. Only for use in critical non-compound fractures."
 	icon_state = "pill2"
 	New()
@@ -117,7 +118,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	startswith = list(/obj/item/weapon/reagent_containers/pill/bloodloss = 14)
 
 /obj/item/weapon/storage/pill_bottle/peridaxon
-	name = "bottle of peridaxon pills"
+	name = "pill bottle (Peridaxon)"
 	desc = "Contains pills to regenerate organs."
 	startswith = list(/obj/item/weapon/reagent_containers/pill/peridaxon = 14)
 
@@ -132,6 +133,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		)
 
 /obj/item/weapon/storage/pill_bottle/clonefix
-	name = "bottle of clonefix pills"
+	name = "pill bottle (Clonefix)"
 	desc = "Contains pills to repair cloning defaults."
 	startswith = list(/obj/item/weapon/reagent_containers/pill/clonefix = 7)

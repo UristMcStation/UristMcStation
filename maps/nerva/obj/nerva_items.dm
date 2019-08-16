@@ -42,7 +42,7 @@
 	desc = "The headset of the man who protects your worthless lives."
 	icon_state = "com_headset"
 	item_state = "headset"
-	ks1type = /obj/item/device/encryptionkey/nerva/so
+	ks1type = /obj/item/device/encryptionkey/nerva/cos
 
 /obj/item/device/radio/headset/heads/nerva_qm
 	name = "quatermaster's headset"
@@ -68,7 +68,7 @@
 /obj/item/device/encryptionkey/nerva/so
 	name = "second officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Service" = 1, "Command" = 1, "Security" = 1, "Combat" = 0)
+	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0)
 
 /obj/item/device/encryptionkey/nerva/qm
 	name = "quatermaster's encryption key"
@@ -129,13 +129,14 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/id/station_account)
-	var/linked = 0 //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
+	startswith = list(/obj/item/weapon/card/station_account)
+	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
 /obj/item/weapon/storage/lockbox/station_account/attack_hand(mob/living/user as mob)
 	if(!linked)
 		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
+			linked = TRUE
 
 	..()
 
@@ -143,6 +144,7 @@
 	if(!linked)
 		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
+			linked = TRUE
 
 	..()
 
@@ -150,4 +152,23 @@
 	if(!linked)
 		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
+			linked = TRUE
+
 	..()
+
+//ammo boxes
+
+/obj/item/weapon/storage/box/nervaammo
+	name = "box of combat ammunition"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death. \
+	Contains everything you need to kill hostiles boarding the ICS Nerva."
+	startswith = list(
+		/obj/item/ammo_magazine/c44 = 1,
+		/obj/item/ammo_magazine/hi2521smg9mm = 2
+		)
+
+/obj/item/weapon/storage/box/boardingammo
+	name = "box of HI-2521-P pistol magazines"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death. \
+	Contains everything you need to kill hostiles boarding the ICS Nerva."
+	startswith = list(/obj/item/ammo_magazine/hi2521pistol9mm = 2)

@@ -279,7 +279,7 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 /obj/item/organ/external/proc/sever_artery()
 	if(species && species.has_organ[BP_HEART])
 		var/obj/item/organ/internal/heart/O = species.has_organ[BP_HEART]
-		if(!BP_IS_ROBOTIC(src) && !(status & ORGAN_ARTERY_CUT) && !initial(O.open))
+		if(!BP_IS_ROBOTIC(src) && !(status & ORGAN_ARTERY_CUT) && !initial(O.open) && !(encased && !(status & ORGAN_BROKEN)))
 			status |= ORGAN_ARTERY_CUT
 			return TRUE
 	return FALSE

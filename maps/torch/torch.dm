@@ -1,4 +1,4 @@
-#if !defined(using_map_DATUM)
+#if !defined(USING_MAP_DATUM)
 
 	#include "torch_announcements.dm"
 	#include "torch_antagonism.dm"
@@ -134,7 +134,7 @@
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 
-	#define using_map_DATUM /datum/map/torch
+	#define USING_MAP_DATUM /datum/map/torch
 
 #elif !defined(MAP_OVERRIDE)
 

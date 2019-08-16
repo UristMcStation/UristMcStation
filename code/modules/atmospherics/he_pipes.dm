@@ -66,7 +66,7 @@ obj/machinery/atmospherics/pipe/simple/heat_exchanging/Process()
 				environment_temperature = environment.temperature
 			if(abs(environment_temperature-pipe_air.temperature) > minimum_temperature_difference)
 				parent.temperature_interact(loc, volume, thermal_conductivity)
-		else if(istype(loc, /turf/space/))
+		else if(istype(loc, /turf/space/) || istype(get_area(src), /area/space))
 			parent.radiate_heat_to_space(surface, 1)
 
 		if(buckled_mob)

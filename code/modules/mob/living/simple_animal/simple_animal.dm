@@ -295,9 +295,9 @@
 		damage = 0
 	if (O.damtype == STUN)
 		damage = (O.force / 8)
-	if(supernatural && istype(O,/obj/item/weapon/nullrod))
-		damage *= 2
-		purge = 3
+		if(supernatural && istype(O,/obj/item/weapon/nullrod))
+			damage *= 2
+			purge = 3
 	adjustBruteLoss(damage)
 	if(O.edge || O.sharp)
 		adjustBleedTicks(damage)
@@ -399,7 +399,7 @@
 
 	message = sanitize(message)
 
-	..(message, null, verb)
+	..(message, species_language, verb)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb

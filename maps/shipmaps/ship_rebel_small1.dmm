@@ -248,7 +248,7 @@
 "eN" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 1},/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/plating,/area/boarding_ship)
 "eO" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
 "eP" = (/obj/structure/handrai{icon_state = "handrail"; dir = 8},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{pixel_y = 1; pixel_y = 25},/turf/simulated/floor/plating,/area/boarding_ship)
-"eQ" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/shipportal{layer = 3.1},/turf/simulated/floor/plating,/area/boarding_ship)
+"eQ" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/boarding/shipportal{layer = 3.1},/turf/simulated/floor/plating,/area/boarding_ship)
 "eR" = (/obj/structure/table/rack/dark,/obj/random/firstaid,/obj/random/firstaid,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "eS" = (/obj/structure/table/rack/dark,/obj/random/projectile,/obj/random/projectile,/obj/random/handgun,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "eT" = (/obj/structure/table/rack/dark,/obj/random/ammo_magazine_smug,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo_magazine_smug,/obj/random/ammo,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)

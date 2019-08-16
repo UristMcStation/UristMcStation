@@ -44,6 +44,18 @@
 /obj/effect/urist/triggers/ai_defender_landmark/rebel
 	spawn_type = /mob/living/simple_animal/hostile/urist/rebel
 
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/medium
+	spawn_type = /mob/living/simple_animal/hostile/scom/lactera/medium
+
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/light
+	spawn_type = /mob/living/simple_animal/hostile/scom/lactera/light
+
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy
+	spawn_type = /mob/living/simple_animal/hostile/scom/lactera/heavy
+
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/leader
+	spawn_type = /mob/living/simple_animal/hostile/scom/lactera/leader
+
 //humans
 
 /obj/effect/urist/triggers/defender_landmark
@@ -84,3 +96,6 @@
 
 /obj/effect/urist/triggers/defender_landmark/rebel/miner
 	defender_outfit = /decl/hierarchy/outfit/grayson/miner
+
+/obj/effect/urist/triggers/defender_landmark/lactera
+	defender_outfit = /decl/hierarchy/outfit/lactera

@@ -322,7 +322,7 @@
 */
 /mob/living/carbon/human/proc/apply_pressure(mob/living/user, var/target_zone)
 	var/obj/item/organ/external/organ = get_organ(target_zone)
-	if(!organ || !(organ.status & ORGAN_BLEEDING) || BP_IS_ROBOTIC(organ))
+	if(!organ || !(organ.status & ORGAN_BLEEDING || organ.status & ORGAN_ARTERY_CUT) || BP_IS_ROBOTIC(organ))
 		return 0
 
 	if(organ.applied_pressure)
@@ -351,26 +351,28 @@
 	if(!O || !user || !O.owner)
 		qdel(src)
 	O.applied_pressure = user
-	O.arterial_bleed_severity -= 0.5
 	applied = O
 	H = O.owner
 	name = "\proper[H == loc ? "[H.gender == "male" ? "his" : "her"]" : "[O.owner.name]'s"] [O.name]" //this will end as expected
 	START_PROCESSING(SSobj, src)
 
 /obj/item/pressure/Process()
-	if(!Adjacent(H))
+	if(loc != H)
 		if(!QDELETED(src))
 			qdel(src)
 
 /obj/item/pressure/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	H.visible_message("<span class = 'notice'>\The [H] stops applying pressure to \his [applied.name]!", "You stop applying pressure to your [applied.name]!</span>")
+	H.visible_message("<span class = 'notice'>\The [H] stops applying pressure to \his [applied.name]!</span>", "<span class = 'notice'>You stop applying pressure to your [applied.name]!</span>")
 	applied.applied_pressure = null
+	applied = null
+	H = null
 	. = ..()
 
 /obj/item/pressure/dropped()
-	spawn(1)
-		H.drop_item(get_turf(loc))
-	applied.applied_pressure = null //just in case
-	applied.arterial_bleed_severity = initial(applied.arterial_bleed_severity)
-	qdel(src)
+	if(!QDELETED(src))
+		qdel(src)
+	. = ..()
+
+/obj/item/pressure/add_blood()
+	return

@@ -71,7 +71,7 @@
 	icon_state = "shortrifle"
 	item_state = "mosin"
 	caliber = "ballshort"
-	ammo_type = /obj/item/ammo_casing/musket
+	ammo_type = /obj/item/ammo_casing/musket/short
 	w_class = ITEM_SIZE_NORMAL
 
 /obj/item/weapon/gun/projectile/manualcycle/musket/flintlock

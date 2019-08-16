@@ -5,12 +5,12 @@
 
 	lobby_icon = 'maps/nerva/nerva_lobby.dmi'
 
-	station_levels = list(1,2,3)
-	contact_levels = list(1,2,3)
-	player_levels = list(1,2,3)
-	admin_levels = list(4)
-	empty_levels = list(5)
-	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"5"=30)
+	station_levels = list(1,2,3,4)
+	contact_levels = list(1,2,3,4)
+	player_levels = list(1,2,3,4)
+	admin_levels = list(5)
+	empty_levels = list(6)
+	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"4"=5,"6"=30)
 	overmap_size = 36
 	overmap_event_areas = 32
 
@@ -25,22 +25,22 @@
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
 
-	map_admin_faxes = list("Automated Announcement System")
+	map_admin_faxes = list("NanoTrasen Central Office")
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
-	starting_money = 20000		//Money in station account //tweak this value
+	starting_money = 22000		//Money in station account //tweak this value
 	department_money = 1000		//Money in department accounts
 	salary_modifier	= 1			//Multiplier to starting character money
 
 	supply_currency_name = "Thalers"
 	supply_currency_name_short = "Th."
 
-	using_new_cargo = 1 //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
-	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing
+	using_new_cargo = TRUE //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing //i didn't make this clear, it's the original point value times this number
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -56,11 +56,18 @@
 	base_floor_type = /turf/simulated/floor/reinforced/airless
 	base_floor_area = /area/maintenance/exterior
 
+	species_to_job_blacklist = list(
+		/datum/species/unathi  = list(/datum/job/captain),
+		/datum/species/skrell  = list(/datum/job/captain),
+		/datum/species/machine = list(/datum/job/captain),
+		/datum/species/diona   = list(/datum/job/captain),
+		/datum/species/teshari = list(/datum/job/captain)
+	)
+
 /datum/map/nerva/setup_map()
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
-	contracts += new /datum/contract/nanotrasen/anomaly
 
 /datum/map/nerva/map_info(victim)
 	to_chat(victim, "<h2>Current map information</h2>")

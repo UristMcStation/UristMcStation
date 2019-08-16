@@ -31,7 +31,7 @@
 	density = 1
 	anchored = 0
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
-	var/health = 500
+	health = 500
 
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"

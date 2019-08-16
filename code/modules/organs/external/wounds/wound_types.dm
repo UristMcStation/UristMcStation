@@ -81,6 +81,7 @@
 	desc = desc_list[current_stage]
 	min_damage = damage_list[current_stage]
 	damage = min(min_damage, damage)
+	autoheal_cutoff = initial(autoheal_cutoff)
 
 /datum/wound/cut/small
 	// link wound descriptions to amounts of damage
@@ -103,7 +104,7 @@
 		"deep cut" = 15,
 		"clotted cut" = 8,
 		"scab" = 2,
-		"fresh skin" = 0
+		"fresh patch of skin" = 0
 		)
 
 /datum/wound/cut/flesh
@@ -114,7 +115,7 @@
 		"flesh wound" = 25,
 		"blood soaked clot" = 15,
 		"large scab" = 5,
-		"fresh skin" = 0
+		"fresh patch of skin" = 0
 		)
 
 /datum/wound/cut/gaping
@@ -231,7 +232,7 @@ datum/wound/puncture/massive
 		"ripped burn" = 10,
 		"moderate burn" = 5,
 		"healing moderate burn" = 2,
-		"fresh skin" = 0
+		"fresh patch of skin" = 0
 		)
 
 /datum/wound/burn/large
@@ -239,7 +240,7 @@ datum/wound/puncture/massive
 		"ripped large burn" = 20,
 		"large burn" = 15,
 		"healing large burn" = 5,
-		"fresh skin" = 0
+		"fresh patch of skin" = 0
 		)
 
 /datum/wound/burn/severe

@@ -15,7 +15,7 @@
 
 	icon_state = "reinforce"
 
-	break_chance_table = list(15, 60, 100)
+	break_chance_table = list(25, 60, 100)
 
 /datum/grab/normal/passive/on_hit_disarm(var/obj/item/grab/normal/G)
 	to_chat(G.assailant, "<span class='warning'>Your grip isn't strong enough to pin.</span>")

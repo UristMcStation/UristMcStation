@@ -171,11 +171,11 @@ Class Procs:
 			while(condensation_area > 0)
 				condensation_area--
 				var/turf/flooding = pick(contents)
-				var/condense_amt = min(air.gas[g], rand(3,5))
-				if(condense_amt < 1)
-					break
-				air.adjust_gas(g, -condense_amt)
-				flooding.add_fluid(condense_amt, product)
+				air.adjust_gas(g, -1)
+				//Each tile 1x1x2.5m; water is 0.01801kg/mol, and 1000kg/m^3; ideal gas 0.022411 m/mol @stp (good enough to use here)
+				//Therefore 2.5m^3/0.022411m^3/mol gives moles in whole tile, multiplied by 0.01801kg/mol/1000kg/m^3 gives vapor to water conversion. 
+				//Might need tweaking from realistic to gamey, but condensation should be less absurd. -Luke
+				flooding.add_fluid( ((2.5/0.22411) * (0.01801/1000)) * air.group_multiplier * REAGENT_GAS_EXCHANGE_FACTOR, product)
 
 	// Update atom temperature.
 	if(abs(air.temperature - last_air_temperature) >= ATOM_TEMPERATURE_EQUILIBRIUM_THRESHOLD)

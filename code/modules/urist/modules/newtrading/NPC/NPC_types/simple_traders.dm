@@ -1,6 +1,11 @@
+/mob/living/simple_animal/hostile/npc/colonist/trader
+	interact_screen = 2
+	angryprob = 0
+	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)
+
 //tool trader
 
-/mob/living/simple_animal/hostile/npc/colonist/tool_trader
+/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader
 	name = "Tool Trader"
 	npc_job_title = "Tool Trader"
 	desc = "A human from one of Earth's diverse cultures. They are a trader who buys and sells tools for cash"
@@ -15,10 +20,11 @@
 	hat_chance = 50
 	glove_chance = 50
 	wander = 0
+	interact_screen = 2
 
 //crop trader
 
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader
 	name = "Crop Trader"
 	npc_job_title = "Crop Trader"
 	desc = "A human from one of Earth's diverse cultures. They are a trader who buys crops for cash"
@@ -33,11 +39,12 @@
 	hat_chance = 50
 	glove_chance = 50
 	wander = 0
+	interact_screen = 2
 
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader/get_trade_value(var/obj/O)
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/get_trade_value(var/obj/O)
 	. = get_value(O) * 25
 
-/mob/living/simple_animal/hostile/npc/colonist/crop_trader/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
 	return ..(O, M, worth, 0)
 
 
@@ -62,7 +69,7 @@
 
 //bartender
 
-/mob/living/simple_animal/hostile/npc/colonist/bartender_trader
+/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader
 	name = "Bartender"
 	npc_job_title = "Bartender"
 	desc = "A human from one of Earth's diverse cultures. They are a bartender."
@@ -78,10 +85,11 @@
 	npc_item_amount = 26
 	randomize_value = 0
 	price_increase = 1 //no price increase
+	interact_screen = 2
 
 //TC guy
 
-/mob/living/simple_animal/hostile/npc/colonist/terran_assistant_doctor
+/mob/living/simple_animal/hostile/npc/colonist/trader/terran_assistant_doctor
 	name = "doctor"
 	npc_job_title = "doctor"
 	desc = "A human from one of Earth's diverse cultures. They are a doctor. They look stressed and very tired."
@@ -102,3 +110,4 @@
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
+	interact_screen = 2

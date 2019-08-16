@@ -390,6 +390,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			pref.cultural_info = mob_species.default_cultural_info.Copy()
 
+			//So you want to check your languages huh?
+			var/datum/category_collection/player_setup_collection/pref_collection = pref.player_setup
+			var/datum/category_group/player_setup_category/background_preferences/pref_background = pref_collection.categories_by_name["Background"]
+			var/datum/category_item/player_setup_item/background/languages/endless_accesses = pref_background.items_by_name["Languages"]
+			endless_accesses.sanitize_alt_languages()
+
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_color"])
