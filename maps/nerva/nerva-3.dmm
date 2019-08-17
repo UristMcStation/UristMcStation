@@ -936,6 +936,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/prison)
 "co" = (
@@ -14077,6 +14080,11 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "Fu" = (
@@ -14270,6 +14278,9 @@
 	layer = 2.9
 	},
 /obj/effect/landmark/costume,
+/obj/machinery/alarm{
+	pixel_y = 25
+	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "GS" = (
@@ -14821,6 +14832,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "KX" = (
@@ -14890,6 +14906,13 @@
 "Ls" = (
 /obj/item/device/flashlight/lamp/lava/pink{
 	on = 1
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
@@ -15113,6 +15136,11 @@
 /obj/item/weapon/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
 	},
 /turf/simulated/floor/reinforced,
 /area/security/prison)
@@ -15388,6 +15416,12 @@
 	name = "Entertainer's Room";
 	req_access = list(46)
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "Ob" = (
@@ -15564,6 +15598,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0;
+	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
@@ -15782,6 +15823,11 @@
 	c_tag = "Prison Observatory";
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "QK" = (
@@ -15819,6 +15865,11 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
@@ -16235,6 +16286,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"UC" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "UI" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -16895,6 +16953,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"ZI" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "ZK" = (
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
@@ -41249,9 +41315,9 @@ aq
 IE
 IE
 VX
-Rh
+ZI
 UQ
-Rh
+UC
 Rh
 PS
 cR
