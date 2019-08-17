@@ -28,12 +28,17 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
-	var/poison_type = "toxin"
+	var/poison_type = /datum/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	move_to_delay = 6
 	speed = 3
+	max_gas = list("phoron" = 1, "carbon_dioxide" = 5, "methyl_bromide" = 1)
+	mob_size = MOB_LARGE
+	pass_flags = PASS_FLAG_TABLE
+
+	bleed_colour = "#0d5a71"
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -47,7 +52,7 @@
 	melee_damage_upper = 10
 	poison_per_bite = 10
 	var/atom/cocoon_target
-	poison_type = "stoxin"
+	poison_type = /datum/reagent/soporific
 	var/fed = 0
 
 //hunters have the most poison and move the fastest, so they can find prey
@@ -67,23 +72,23 @@
 	get_light_and_color(parent)
 	..()
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(isliving(.))
-		var/mob/living/L = .
+	if(isliving(A))
+		var/mob/living/L = A
 		if(L.reagents)
-			L.reagents.add_reagent("toxin", poison_per_bite)
+			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/nurse/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
 		if(prob(poison_per_bite))
 			var/obj/item/organ/external/O = pick(H.organs)
-			if(!(O.robotic >= ORGAN_ROBOT))
+			if(!BP_IS_ROBOTIC(O))
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
 

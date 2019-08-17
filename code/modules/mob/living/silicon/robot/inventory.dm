@@ -51,7 +51,7 @@
 		module_state_3:loc = module
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/uneq_all()
 	module_active = null
@@ -83,7 +83,7 @@
 		module_state_3:loc = module
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
 	if(module_state_1 == O)
@@ -94,7 +94,7 @@
 		return 1
 	else
 		return 0
-	updateicon()
+	update_icon()
 
 //Helper procs for cyborg modules on the UI.
 //These are hackish but they help clean up code elsewhere.
@@ -248,4 +248,12 @@
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // No hands.
 	W.forceMove(get_turf(src))
+	return 1
+
+//Robots don't use inventory slots, so we need to override this.
+/mob/living/silicon/robot/canUnEquip(obj/item/I)
+	if(!I)
+		return 1
+	if((I in module) || (I in src)) //Includes all modules and installed components.
+		return I.canremove          //Will be 0 for modules, but items held by grippers will also be checked here.
 	return 1

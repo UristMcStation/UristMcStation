@@ -1,0 +1,185 @@
+"aa" = (/turf/space,/area/space)
+"ab" = (/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
+"ac" = (/obj/effect/wallframe_spawn/reinforced_phoron,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"ad" = (/turf/simulated/wall/r_wall,/area/boarding_ship)
+"ae" = (/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"af" = (/obj/structure/boarding/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"ag" = (/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ah" = (/obj/structure/shuttle/engine/propulsion/burst{tag = "icon-propulsion (WEST)"; icon_state = "propulsion"; dir = 8},/turf/space,/area/boarding_ship)
+"ai" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/shuttle/engine/heater{dir = 8},/turf/simulated/floor/plating/airless,/area/boarding_ship)
+"aj" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ak" = (/obj/machinery/shipweapons/beam/lightlaser{shipid = null},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"al" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"am" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"an" = (/obj/structure/closet/crate/secure/phoron,/obj/item/weapon/tank/phoron,/obj/item/weapon/tank/phoron,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ao" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"ap" = (/obj/structure/table/standard,/obj/item/stack/material/glass{amount = 50},/obj/item/stack/material/glass{amount = 50},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aq" = (/obj/machinery/door/airlock/hatch{hackProof = 1; heat_proof = 1; req_access = list(101)},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ar" = (/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"as" = (/obj/machinery/door/airlock/hatch{hackProof = 1; req_access = list(101)},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"at" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"au" = (/obj/structure/table/rack{dir = 8; layer = 2.9},/obj/item/weapon/storage/belt/utility,/obj/item/clothing/suit/storage/hazardvest,/obj/item/clothing/suit/storage/hazardvest,/obj/item/weapon/tank/emergency/oxygen/engi,/obj/item/weapon/storage/toolbox/electrical,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"av" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/shuttle/engine/heater{icon_state = "heater"; dir = 8},/turf/simulated/floor/plating/airless,/area/boarding_ship)
+"aw" = (/obj/structure/closet/toolcloset,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ax" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ay" = (/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"az" = (/obj/structure/assaultshieldgen,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aA" = (/obj/structure/closet/secure_closet/engineering_electrical,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aB" = (/obj/structure/hygiene/toilet{dir = 4},/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"aC" = (/obj/machinery/door/airlock/hatch{hackProof = 1; heat_proof = 1; req_access = list(101)},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"aD" = (/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"aE" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/o2{layer = 2.8; pixel_x = 4; pixel_y = 6},/obj/item/weapon/storage/firstaid/toxin,/obj/item/weapon/storage/firstaid/fire{layer = 2.9; pixel_x = 2; pixel_y = 3},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"aF" = (/obj/machinery/vending/coffee,/obj/structure/window/reinforced/tinted/frosted,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aG" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aH" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (EAST)"; icon_state = "shuttlechair"; dir = 4},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aI" = (/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"aJ" = (/obj/item/modular_computer/console/preset/security,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"aK" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/fire,/obj/item/weapon/storage/firstaid/regular{pixel_x = 2; pixel_y = 3},/obj/item/weapon/crowbar,/obj/item/weapon/extinguisher,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"aL" = (/obj/item/modular_computer/console/preset/command,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"aM" = (/obj/structure/table/standard,/obj/item/weapon/storage/lockbox,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"aN" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aO" = (/obj/structure/table/rack/dark,/obj/random/firstaid,/obj/random/firstaid,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aP" = (/obj/structure/table/rack/dark,/obj/random/projectile,/obj/random/projectile,/obj/random/handgun,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aQ" = (/obj/structure/table/rack/dark,/obj/random/ammo_magazine_smug,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo_magazine_smug,/obj/random/ammo,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aR" = (/obj/structure/closet/secure_closet/engineering_welding,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aS" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{pixel_x = -5; pixel_y = -1},/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{pixel_x = -5; pixel_y = -1},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"aT" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/purple,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aU" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aV" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"aW" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (NORTH)"; icon_state = "shuttlechair"; dir = 1},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"aX" = (/obj/machinery/door/airlock/hatch,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"aY" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aZ" = (/obj/structure/hygiene/toilet{dir = 4},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"ba" = (/obj/structure/iv_drip,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"bb" = (/obj/structure/bed/chair{dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"bc" = (/obj/structure/table/standard,/obj/item/device/radio/off,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bd" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"be" = (/obj/structure/artilleryplaceholder{tag = "icon-4"; icon_state = "4"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bf" = (/obj/structure/artilleryplaceholder{tag = "icon-5"; icon_state = "5"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bg" = (/obj/structure/artilleryplaceholder{tag = "icon-3"; icon_state = "3"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bh" = (/obj/structure/artilleryplaceholder{tag = "icon-8"; icon_state = "8"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bi" = (/obj/structure/artilleryplaceholder{tag = "icon-6"; icon_state = "6"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bj" = (/obj/structure/artilleryplaceholder{tag = "icon-7"; icon_state = "7"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bk" = (/obj/structure/artilleryplaceholder{tag = "icon-9"; icon_state = "9"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bl" = (/obj/structure/artilleryplaceholder{tag = "icon-10"; icon_state = "10"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bm" = (/obj/structure/artilleryplaceholder{tag = "icon-11"; icon_state = "11"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bn" = (/obj/structure/artilleryplaceholder{tag = "icon-12"; icon_state = "12"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bo" = (/obj/effect/wallframe_spawn/reinforced_phoron,/turf/space,/area/boarding_ship)
+"bp" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bq" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"br" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/o2{pixel_x = 2; pixel_y = 2},/obj/item/weapon/storage/firstaid/regular,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"bs" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bt" = (/obj/structure/bed/chair/urist/shuttle{tag = "icon-shuttlechair (EAST)"; icon_state = "shuttlechair"; dir = 4},/obj/effect/urist/triggers/ai_defender_landmark/terran/officer,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bu" = (/obj/item/modular_computer/console/preset/command{dir = 8},/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bv" = (/obj/structure/artilleryplaceholder{tag = "icon-16"; icon_state = "16"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bw" = (/obj/structure/artilleryplaceholder{tag = "icon-17"; icon_state = "17"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bx" = (/obj/structure/artilleryplaceholder{tag = "icon-15"; icon_state = "15"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"by" = (/obj/structure/artilleryplaceholder{tag = "icon-21"; icon_state = "21"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bz" = (/obj/structure/artilleryplaceholder{tag = "icon-18"; icon_state = "18"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bA" = (/obj/structure/artilleryplaceholder{tag = "icon-19"; icon_state = "19"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bB" = (/obj/structure/artilleryplaceholder{tag = "icon-20"; icon_state = "20"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bC" = (/obj/structure/artilleryplaceholder{tag = "icon-22"; icon_state = "22"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bD" = (/obj/structure/artilleryplaceholder{tag = "icon-23"; icon_state = "23"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bE" = (/obj/structure/artilleryplaceholder{tag = "icon-24"; icon_state = "24"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bF" = (/obj/structure/closet/crate/secure/phoron,/obj/item/weapon/tank/phoron,/obj/item/weapon/tank/phoron,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bG" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 5},/obj/structure/curtain/open/shower,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"bH" = (/obj/machinery/sleeper{dir = 8},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"bI" = (/obj/structure/table/standard,/obj/item/weapon/clipboard,/obj/item/weapon/pen,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bJ" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-27"; icon_state = "27"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bK" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-26"; icon_state = "26"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bL" = (/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bM" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-29"; icon_state = "29"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bN" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-30"; icon_state = "30"},/obj/structure/artilleryplaceholder/decorative{tag = "icon-28"; icon_state = "28"},/obj/structure/computerframe,/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bO" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-31"; icon_state = "31"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bP" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-34"; icon_state = "34"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
+"bQ" = (/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/obj/machinery/power/apc/high{cell_type = /obj/item/weapon/cell/infinite; dir = 8; name = "west bump"; pixel_x = -24},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bR" = (/obj/structure/reagent_dispensers/watertank,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bS" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
+"bT" = (/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"bU" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bV" = (/obj/effect/template_loader/ships,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bW" = (/obj/structure/bed/chair/urist/shuttle,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"bX" = (/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bY" = (/obj/machinery/power/smes/buildable,/obj/structure/cable,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bZ" = (/obj/structure/reagent_dispensers/fueltank,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ca" = (/obj/machinery/vending/medical{req_access = newlist()},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"cb" = (/obj/machinery/vending/urist/sustenance,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"cc" = (/obj/machinery/vending/hotfood,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"cd" = (/obj/machinery/vending/snix,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"ce" = (/obj/machinery/microwave,/obj/structure/table/standard,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"cf" = (/obj/item/modular_computer/console/preset/command{dir = 1},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"cg" = (/obj/structure/table/standard,/obj/machinery/microwave,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"ch" = (/obj/structure/table/standard,/obj/item/weapon/storage/box/donkpockets,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"ci" = (/obj/structure/table/standard,/obj/item/weapon/paper_bin,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"cj" = (/obj/structure/bed/chair{dir = 1},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ck" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/tool,/obj/random/tool,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"cl" = (/obj/structure/table/rack,/obj/random/material,/obj/random/powercell,/obj/random/powercell,/obj/random/material,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"cm" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"cn" = (/obj/structure/closet/crate/secure/weapon,/obj/item/weapon/gun/energy/laser,/obj/item/weapon/gun/energy/ionrifle,/obj/item/weapon/gun/energy/gun/small,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"co" = (/obj/structure/table/standard,/obj/item/stack/rods{amount = 50},/obj/item/weapon/storage/toolbox/mechanical,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"cp" = (/obj/structure/table/standard,/obj/item/weapon/storage/toolbox/mechanical{pixel_x = -2; pixel_y = -1},/obj/item/stack/material/steel{amount = 50},/obj/item/stack/rods{amount = 50},/obj/item/stack/material/glass{amount = 50},/obj/item/clothing/gloves/insulated,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"cq" = (/obj/effect/urist/triggers/defender_landmark/terran,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababacacacacabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababadaeaeaeaeadadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabadadadadadadadadadadadadadaeafaeaeagagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahaiagagagagagagagagagagajaeaeaeaeakagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaababababababababababababadadadadalamanagagagagagajaeaeaeaeadadababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabadadadadadadadadadadadadadadadadadadadadadajadadadaoaoadadadadadadadadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaabababababadapagagagaqararararararasaratarararararararararararararararararararadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaabadadadadadauagagagaqararararararasarararararararararararararararararararararadababababababababababaaaaaaaaaaaaaa
+aaaaaaaaahavadadadadawagaxadadadadadayayadadadaoadadadadadaoaoadadadadaoadadadadadasasadadadadadadadadadadababaaaaaaaaaaaa
+aaaaaaaaahavadagazadaAagaxadaBaCaDadayayaEadaFararaGadaHaHaIaIaJaKaKaLaIaMadaNaNagagagagagagagagagaOaPaQadadabaaaaaaaaaaaa
+aaaaaaaaahavadagagadaRagaxadadadaDadayayaSadaTaraUaVadagagaIaIaWaeaeaWaIaIaXagagagagagagagagagagagagagagagadabaaaaaaaaaaaa
+aaaaaaaaahavadagagadaYagaxadaZaCaDadayaybaadaTararbbadaHaHaIaIaeaeaeaeaIbcbdagagagbebfbgbhbibjbhbkblbmbnagagboaaaaaaaaaaaa
+aaaaaaaaahavadagagajagbpaxadadadaDadbqaybradaTatararaoaIaIaIaIaIbsaIaIbtbubdagagagbvbwbxbybzbAbBbybCbDbEagagboaaaaaaaaaaaa
+aaaaaaaaahavadagagadbFagaxadbGaDaDaCayaybHadaTarararadaHaHaIaIaeaeaeaeaIbIbdagagagbJbKbKbLbMbNbObLbLbPbLagagboaaaaaaaaaaaa
+aaaaaaaaahavadbQagadbRagaxadbGaDbSadayaybHadbTarararadagagbUbVbWaeaebWaIaIaXagagagagagagagbXagagagagagagagadabaaaaaaaaaaaa
+aaaaaaaaahavadbYazadbZagaxadbGaDbSadayaycaadcbcccdceadaHaHaIaIcfcgchcfaIciadcjcjagagagagagagagagagckclcmadadabaaaaaaaaaaaa
+aaaaaaaaahavadadadadcnagaxadadadadadayayadadadadadadadadadaoaoadadadadaoadadadadadasasadadadadadadadadadadababaaaaaaaaaaaa
+aaaaaaaaabadadadadadcoagagagaqararararararasarararararararararararararararararararararadababababababababababaaaaaaaaaaaaaa
+aaaaaaaaabababababadcpagagagaqararararararasarararararatarararararararararararararararadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabadadadadadadadadadadadadadadadadadadadadadajadadadaoaoadadadadadadadadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaababababababababababababadadadadalamanagagagagagajaeaeaeaeadadababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahaiagagagagagagagagagagajaeaeaeaeagagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabadadadadadadadadadadadadadaeaecqaeakagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababababababababababababababaeaeaeaeadadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

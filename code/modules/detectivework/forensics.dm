@@ -11,9 +11,12 @@ proc/is_complete_print(var/print)
 atom/var/list/suit_fibers
 atom/var/var/list/fingerprints
 atom/var/var/list/fingerprintshidden
-atom/var/var/fingerprintslast = null
+atom/var/var/fingerprintslast
+obj/item/var/list/trace_DNA
+mob/living/carbon/human/var/gunshot_residue
+obj/item/clothing/var/gunshot_residue
 
-/atom/proc/add_hiddenprint(mob/living/M)
+/atom/proc/add_hiddenprint(mob/M)
 	if(!M || !M.key)
 		return
 	if(fingerprintslast == M.key)
@@ -30,10 +33,12 @@ atom/var/var/fingerprintslast = null
 	src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 	return 1
 
-/atom/proc/add_fingerprint(mob/living/M, ignoregloves)
+/atom/proc/add_fingerprint(mob/M, ignoregloves, obj/item/tool)
 	if(isnull(M)) return
 	if(isAI(M)) return
 	if(!M || !M.key)
+		return
+	if(istype(tool) && (tool.item_flags & ITEM_FLAG_NO_PRINT))
 		return
 
 	add_hiddenprint(M)
@@ -54,12 +59,14 @@ atom/var/var/fingerprintslast = null
 
 	if(!ignoregloves && ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if (H.gloves && H.gloves != src)
-			H.gloves.add_fingerprint(M)
-			if(!istype(H.gloves, /obj/item/clothing/gloves/latex))
-				return 0
+		if (H.gloves && H.gloves.body_parts_covered & HANDS && H.gloves != src)
+			if(istype(H.gloves, /obj/item/clothing/gloves)) //Don't add prints if you are wearing gloves.
+				var/obj/item/clothing/gloves/G = H.gloves
+				if(!G.clipped) //Fingerless gloves leave prints.
+					return 0
 			else if(prob(75))
 				return 0
+			H.gloves.add_fingerprint(M)
 
 	// Add the fingerprints
 	add_partial_print(full_print)
@@ -102,14 +109,26 @@ atom/var/var/fingerprintslast = null
 
 /atom/proc/transfer_fingerprints_to(var/atom/A)
 	if(fingerprints)
-		if(!A.fingerprints)
-			A.fingerprints = list()
-		A.fingerprints |= fingerprints.Copy()            //detective
+		LAZYDISTINCTADD(A.fingerprints, fingerprints)
 	if(fingerprintshidden)
-		if(!A.fingerprintshidden)
-			A.fingerprintshidden = list()
-		A.fingerprintshidden |= fingerprintshidden.Copy()    //admin
+		LAZYDISTINCTADD(A.fingerprintshidden, fingerprintshidden)
 		A.fingerprintslast = fingerprintslast
+	if(suit_fibers)
+		LAZYDISTINCTADD(A.suit_fibers, suit_fibers)
+	if(blood_DNA)
+		A.blood_DNA |= blood_DNA
+
+/obj/item/transfer_fingerprints_to(var/atom/A)
+	..()
+	if(istype(A,/obj/item) && trace_DNA)
+		var/obj/item/I = A
+		LAZYDISTINCTADD(I.trace_DNA, trace_DNA)
+
+/obj/item/clothing/transfer_fingerprints_to(var/atom/A)
+	..()
+	if(istype(A,/obj/item/clothing) && gunshot_residue)
+		var/obj/item/clothing/C = A
+		C.gunshot_residue = gunshot_residue
 
 atom/proc/add_fibers(mob/living/carbon/human/M)
 	if(!istype(M))
@@ -127,50 +146,45 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 	var/fibertext
 	var/item_multiplier = istype(src,/obj/item)?1.2:1
 	var/suit_coverage = 0
-	if(M.wear_suit)
-		fibertext = "Material from \a [M.wear_suit]."
-		if(prob(10*item_multiplier) && !(fibertext in suit_fibers))
-			suit_fibers += fibertext
-		suit_coverage = M.wear_suit.body_parts_covered
+	if(istype(M.wear_suit, /obj/item/clothing))
+		var/obj/item/clothing/C = M.wear_suit
+		fibertext = C.get_fibers()
+		if(fibertext && prob(10*item_multiplier))
+			suit_fibers |= fibertext
+		suit_coverage = C.body_parts_covered
 
-	if(M.w_uniform && (M.w_uniform.body_parts_covered & ~suit_coverage))
-		fibertext = "Fibers from \a [M.w_uniform]."
-		if(prob(15*item_multiplier) && !(fibertext in suit_fibers))
-			suit_fibers += fibertext
+	if(istype(M.w_uniform, /obj/item/clothing) && (M.w_uniform.body_parts_covered & ~suit_coverage))
+		var/obj/item/clothing/C = M.w_uniform
+		fibertext = C.get_fibers()
+		if(fibertext && prob(15*item_multiplier))
+			suit_fibers |= fibertext
 
-	if(M.gloves && (M.gloves.body_parts_covered & ~suit_coverage))
-		fibertext = "Material from a pair of [M.gloves.name]."
-		if(prob(20*item_multiplier) && !(fibertext in suit_fibers))
-			suit_fibers += fibertext
+	if(istype(M.gloves, /obj/item/clothing) && (M.gloves.body_parts_covered & ~suit_coverage))
+		var/obj/item/clothing/C = M.gloves
+		fibertext = C.get_fibers()
+		if(fibertext && prob(20*item_multiplier))
+			suit_fibers |= fibertext
 
-/mob/living/proc/get_full_print()
-	return
+/obj/item/proc/add_trace_DNA(mob/living/carbon/M)
+	if(!istype(M))
+		return
+	if(M.isSynthetic())
+		return
+	if(istype(M.dna))
+		LAZYDISTINCTADD(trace_DNA, M.dna.unique_enzymes)
+
+/mob/proc/get_full_print()
+	return FALSE
 
 /mob/living/carbon/get_full_print()
-	if (mFingerprints in mutations)
-		return
+	if (!dna || (mFingerprints in mutations))
+		return FALSE
 	return md5(dna.uni_identity)
 
 /mob/living/carbon/human/get_full_print(ignoregloves)
 	if(!..())
-		return
+		return FALSE
 
 	var/obj/item/organ/external/E = organs_by_name[hand ? BP_L_HAND : BP_R_HAND]
 	if(E)
 		return E.get_fingerprint()
-
-/obj/item/organ/external/proc/get_fingerprint()
-	return
-
-/obj/item/organ/external/arm/get_fingerprint()
-	for(var/obj/item/organ/external/hand/H in children)
-		return H.get_fingerprint()
-
-/obj/item/organ/external/hand/get_fingerprint()
-	if(dna && !is_stump())
-		return md5(dna.uni_identity)
-
-/obj/item/organ/external/afterattack(atom/A, mob/user, proximity)
-	..()
-	if(proximity && get_fingerprint())
-		A.add_partial_print(get_fingerprint())

@@ -1,5 +1,9 @@
 // Attempts to install the hardware into apropriate slot.
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
+	if(!(H.usage_flags & hardware_flag))
+		to_chat(user, "This computer isn't compatible with [H].")
+		return
+
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
 		if(portable_drive)
@@ -55,12 +59,18 @@
 			return
 		found = 1
 		tesla_link = H
-	if(found)
+	else if(istype(H, /obj/item/weapon/computer_hardware/scanner))
+		if(scanner)
+			to_chat(user, "This computer's scanner slot is already occupied by \the [scanner].")
+			return
+		found = 1
+		scanner = H
+		scanner.do_after_install(user, src)
+	if(found && user.unEquip(H, src))
 		to_chat(user, "You install \the [H] into \the [src]")
 		H.holder2 = src
-		user.drop_from_inventory(H)
-		H.forceMove(src)
 		update_verbs()
+		return TRUE
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
 /obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0, var/critical = 0)
@@ -92,6 +102,10 @@
 		found = 1
 	if(tesla_link == H)
 		tesla_link = null
+		found = 1
+	if(scanner == H)
+		scanner.do_before_uninstall()
+		scanner = null
 		found = 1
 	if(found)
 		if(user)
@@ -126,6 +140,8 @@
 		return ai_slot
 	if(tesla_link && (tesla_link.name == name))
 		return tesla_link
+	if(scanner && (scanner.name == name))
+		return scanner
 	return null
 
 // Returns list of all components
@@ -149,4 +165,6 @@
 		all_components.Add(ai_slot)
 	if(tesla_link)
 		all_components.Add(tesla_link)
+	if(scanner)
+		all_components.Add(scanner)
 	return all_components

@@ -4,7 +4,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "soap"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	w_class = ITEM_SIZE_SMALL
 	throwforce = 0
 	throw_speed = 4
@@ -13,16 +13,17 @@
 
 /obj/item/weapon/soap/New()
 	..()
-	create_reagents(10)
+	create_reagents(30)
 	wet()
 
 /obj/item/weapon/soap/proc/wet()
-	reagents.add_reagent("cleaner", 5)
+	reagents.add_reagent(/datum/reagent/space_cleaner, 15)
 
-/obj/item/weapon/soap/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
-		var/mob/living/M =	AM
-		M.slip("the [src.name]",3)
+/obj/item/weapon/soap/Crossed(var/mob/living/AM)
+	if (istype(AM))
+		if(AM.pulledby)
+			return
+		AM.slip("the [src.name]",3)
 
 /obj/item/weapon/soap/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity) return
@@ -36,11 +37,13 @@
 	else if(istype(target,/obj/effect/decal/cleanable))
 		to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
 		qdel(target)
-	else if(istype(target,/turf))
-		to_chat(user, "<span class='notice'>You scrub \the [target.name] clean.</span>")
-		var/turf/T = target
-		T.clean(src, user)
-	else if(istype(target,/obj/structure/sink))
+	else if(istype(target,/turf) || istype(target, /obj/structure/catwalk))
+		var/turf/T = get_turf(target)
+		if(!T)
+			return
+		user.visible_message("<span class='warning'>[user] starts scrubbing \the [T].</span>")
+		T.clean(src, user, 80, "<span class='notice'>You scrub \the [target.name] clean.</span>")
+	else if(istype(target,/obj/structure/hygiene/sink))
 		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
 		wet()
 	else

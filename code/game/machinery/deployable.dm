@@ -24,7 +24,7 @@ for reference:
 	access_ai_upload = 16
 	access_teleporter = 17
 	access_eva = 18
-	access_heads = 19
+	access_bridge = 19
 	access_captain = 20
 	access_all_personal_lockers = 21
 	access_chapel_office = 22
@@ -61,21 +61,26 @@ for reference:
 	icon_state = "barricade"
 	anchored = 1.0
 	density = 1
-	var/health = 100
+	breakable = 1
+	health = 100
 	var/maxhealth = 100
 	var/material/material
+	atom_flags = ATOM_FLAG_CLIMBABLE
+	layer = ABOVE_WINDOW_LAYER
+	var/use_material_colour = 1
 
 /obj/structure/barricade/New(var/newloc, var/material_name)
 	..(newloc)
 	if(!material_name)
 		material_name = "wood"
-	material = get_material_by_name("[material_name]")
+	material = SSmaterials.get_material_by_name("[material_name]")
 	if(!material)
 		qdel(src)
 		return
 	name = "[material.display_name] barricade"
 	desc = "This space is blocked off by a barricade made of [material.display_name]."
-	color = material.icon_colour
+	if(use_material_colour)
+		color = material.icon_colour
 	maxhealth = material.integrity
 	health = maxhealth
 
@@ -134,7 +139,7 @@ for reference:
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
 		return 1
 	else
 		return 0
@@ -183,7 +188,7 @@ for reference:
 					visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 					return
 			return
-		else if (istype(W, /obj/item/weapon/wrench))
+		else if(isWrench(W))
 			if (src.health < src.maxhealth)
 				src.health = src.maxhealth
 				src.emagged = 0
@@ -228,7 +233,7 @@ for reference:
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 		if(air_group || (height==0))
 			return 1
-		if(istype(mover) && mover.checkpass(PASSTABLE))
+		if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
 			return 1
 		else
 			return 0

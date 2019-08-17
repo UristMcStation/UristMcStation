@@ -2,12 +2,12 @@
 	name = "Magic Missile"
 	desc = "This spell fires several, slow moving, magic projectiles at nearby targets."
 	feedback = "MM"
-	school = "evocation"
+	school = "conjuration"
 	charge_max = 150
 	spell_flags = NEEDSCLOTHES
 	invocation = "Forti Gy-Ama!"
 	invocation_type = SpI_SHOUT
-	range = 7
+	range = 1
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 3)
 	cooldown_min = 90 //15 deciseconds reduction per rank
 
@@ -23,7 +23,6 @@
 	amt_stunned = 3
 
 	amt_dam_fire = 10
-	cast_prox_range = 0
 
 /spell/targeted/projectile/magic_missile/prox_cast(var/list/targets, atom/spell_holder)
 	spell_holder.visible_message("<span class='danger'>\The [spell_holder] pops with a flash!</span>")

@@ -34,83 +34,30 @@ datum/controller/game_controller/New()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
 
 datum/controller/game_controller/proc/setup()
-	world.tick_lag = config.Ticklag
-
-	spawn(20)
-		createRandomZlevel()
-
-
-	preloadTemplates()
 
 	setup_objects()
 	setupgenetics()
-	SetupXenoarch()
 
 	transfer_controller = new
+	payment_controller = new
 
 	report_progress("Initializations complete")
 	initialization_stage |= INITIALIZATION_COMPLETE
 
-#ifdef UNIT_TEST
-#define CHECK_SLEEP_MASTER // For unit tests we don't care about a smooth lobby screen experience. We care about speed.
-#else
-#define CHECK_SLEEP_MASTER if(!(initialization_stage & INITIALIZATION_NOW) && ++initialized_objects > 500) { initialized_objects=0;sleep(world.tick_lag); }
-#endif
-
 datum/controller/game_controller/proc/setup_objects()
-#ifndef UNIT_TEST
-	var/initialized_objects = 0
-#endif
+	set background=1
 
 	// Do these first since character setup will rely on them
 
-	//Set up spawn points.
-	populate_spawn_points()
-
 	initialization_stage |= INITIALIZATION_HAS_BEGUN
 
-	report_progress("Initializing turbolifts")
-	for(var/thing in turbolifts)
-		if(!deleted(thing))
-			var/obj/turbolift_map_holder/lift = thing
-			lift.initialize()
-			CHECK_SLEEP_MASTER
-
-	report_progress("Initializing objects")
-	for(var/atom/movable/object)
-		if(!deleted(object))
-			object.initialize()
-			CHECK_SLEEP_MASTER
-
-	report_progress("Initializing areas")
-	for(var/area/area)
-		area.initialize()
-		CHECK_SLEEP_MASTER
-
-	if(using_map.use_overmap)
+	if(GLOB.using_map.use_overmap)
 		report_progress("Initializing overmap events")
-		overmap_event_handler.create_events(using_map.overmap_z, using_map.overmap_size, using_map.overmap_event_areas)
-		CHECK_SLEEP_MASTER
+		overmap_event_handler.create_events(GLOB.using_map.overmap_z, GLOB.using_map.overmap_size, GLOB.using_map.overmap_event_areas)
 
-	report_progress("Initializing pipe networks")
-	for(var/obj/machinery/atmospherics/machine in machines)
-		machine.build_network()
-		CHECK_SLEEP_MASTER
+	report_progress("Initializing lathe recipes")
+	populate_lathe_recipes()
 
-	report_progress("Initializing atmos machinery")
-	for(var/obj/machinery/atmospherics/unary/U in machines)
-		if(istype(U, /obj/machinery/atmospherics/unary/vent_pump))
-			var/obj/machinery/atmospherics/unary/vent_pump/T = U
-			T.broadcast_status()
-		else if(istype(U, /obj/machinery/atmospherics/unary/vent_scrubber))
-			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
-			T.broadcast_status()
-		CHECK_SLEEP_MASTER
-
-#undef CHECK_SLEEP_MASTER
-
-datum/controller/game_controller/proc/report_progress(var/progress_message)
-	admin_notice("<span class='danger'>[progress_message]</span>", R_DEBUG)
-#ifdef UNIT_TEST
-	to_world_log("\[[time2text(world.realtime, "hh:mm:ss")]\] [progress_message]")
-#endif
+/proc/report_progress(var/progress_message)
+	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
+	to_world_log(progress_message)

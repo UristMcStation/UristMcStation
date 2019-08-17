@@ -5,11 +5,12 @@
 	icon_state = "candle1"
 	item_state = "candle1"
 	w_class = ITEM_SIZE_TINY
-	light_color = "#E09D37"
-	var/wax = 2000
+	light_color = "#e09d37"
+	var/wax
 
 /obj/item/weapon/flame/candle/New()
-	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
+	wax = rand(27 MINUTES, 33 MINUTES) / SSobj.wait // Enough for 27-33 minutes. 30 minutes on average, adjusted for subsystem tickrate.
+
 	..()
 
 /obj/item/weapon/flame/candle/update_icon()
@@ -24,39 +25,29 @@
 
 /obj/item/weapon/flame/candle/attackby(obj/item/weapon/W as obj, mob/user as mob) //who wrote this, jesus fuck
 	..()
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
-	else if(istype(W, /obj/item/weapon/flame/lighter))
-		var/obj/item/weapon/flame/lighter/L = W
-		if(L.lit)
-			light()
-	else if(istype(W, /obj/item/weapon/flame/match))
-		var/obj/item/weapon/flame/match/M = W
-		if(M.lit)
-			light()
-	else if(istype(W, /obj/item/weapon/flame/candle))
-		var/obj/item/weapon/flame/candle/C = W
-		if(C.lit)
-			light()
-	else if(istype(W, /obj/item/weapon/flame/torch))
-		var/obj/item/weapon/flame/candle/T = W
-		if(T.lit)
-			light()
+	if(is_hot(W))
+		light(user)
 
+/obj/item/weapon/flame/candle/resolve_attackby(var/atom/A, mob/user)
+	. = ..()
+	if(istype(A, /obj/item/weapon/flame/candle/) && is_hot(src))
+		var/obj/item/weapon/flame/candle/other_candle = A
+		other_candle.light()
 
-/obj/item/weapon/flame/candle/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/weapon/flame/candle/proc/light(mob/user)
 	if(!src.lit)
 		src.lit = 1
 		//src.damtype = "fire"
-		for(var/mob/O in viewers(usr, null))
-			O.show_message(flavor_text, 1)
-		set_light(CANDLE_LUM)
-		processing_objects.Add(src)
+		src.visible_message("<span class='notice'>\The [user] lights the [name].</span>")
+		set_light(0.3, 0.1, 4, 2)
+		START_PROCESSING(SSobj, src)
 
 
-/obj/item/weapon/flame/candle/process()
+/obj/item/weapon/flame/candle/Process()
 	if(!lit)
 		return
 	wax--

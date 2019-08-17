@@ -16,8 +16,8 @@
 	var/obj/item/weapon/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
 
-/obj/machinery/computer/cloning/initialize()
-	..()
+/obj/machinery/computer/cloning/Initialize()
+	. = ..()
 	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(/proc/is_operable))
 	updatemodules()
 
@@ -34,8 +34,8 @@
 	var/obj/machinery/dna_scannernew/scannerf = null
 
 	//Try to find scanner on adjacent tiles first
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
+	for(var/direction in list(NORTH,EAST,SOUTH,WEST))
+		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, direction))
 		if (scannerf)
 			return scannerf
 
@@ -266,7 +266,7 @@
 
 		else if (src.menu == 4)
 			var/obj/item/weapon/card/id/C = usr.get_active_hand()
-			if (istype(C)||istype(C, /obj/item/device/pda))
+			if (istype(C)||istype(C, /obj/item/modular_computer/pda))
 				if(src.check_access(C))
 					src.records.Remove(src.active_record)
 					qdel(src.active_record)
@@ -398,7 +398,7 @@
 	if (NOCLONE in subject.mutations)
 		scantemp = "Error: Major genetic degradation."
 		return
-	if (subject.species && subject.species.flags & NO_SCAN)
+	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)
 		scantemp = "Error: Incompatible species."
 		return
 	if (subject.ckey && !isnull(find_record(subject.ckey)))
@@ -439,4 +439,4 @@
 		if (R.ckey == find_key)
 			selected_record = R
 			break
-	return selected_record
+			return selected_record

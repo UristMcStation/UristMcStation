@@ -3,6 +3,11 @@
 		return 0
 	..(prob_slip)
 
+/mob/living/silicon/robot/Check_Shoegrip()
+	if(module && module.no_slip)
+		return 1
+	return 0
+
 /mob/living/silicon/robot/Allow_Spacemove()
 	if(module)
 		for(var/obj/item/weapon/tank/jetpack/J in module.modules)
@@ -21,12 +26,3 @@
 		tally-=3
 
 	return tally+config.robot_delay
-
-// NEW: Use power while moving.
-/mob/living/silicon/robot/SelfMove(turf/n, direct)
-	if (!is_component_functioning("actuator"))
-		return 0
-
-	var/datum/robot_component/actuator/A = get_component("actuator")
-	if (cell_use_power(A.active_usage))
-		return ..()

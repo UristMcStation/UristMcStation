@@ -32,7 +32,7 @@
 			init_controllers() //Find control pads
 			gen_collision() //Generate collision system
 
-/obj/tram/tram_controller/Del()
+/obj/tram/tram_controller/Destroy()
 	for(var/obj/tram/floor/F in tram_floors)
 		remove_floor(F)
 	for(var/obj/tram/wall/TW in tram_walls)

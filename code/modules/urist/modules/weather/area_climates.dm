@@ -5,7 +5,7 @@
 	var/list/climate = list(/obj/weathertype/clear) //all potential area weather types
 	var/list/weather = list(/obj/weathertype/clear) //current pick for all objects in area
 
-/area/jungle
+/area/planet/jungle
 	climate = list(/obj/weathertype/rain, /obj/weathertype/fog, /obj/weathertype/clear)
 
 /area/awaymission/train/snow

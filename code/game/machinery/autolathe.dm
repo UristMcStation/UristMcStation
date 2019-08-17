@@ -7,6 +7,8 @@
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 2000
+	clicksound = "keyboard"
+	clickvol = 30
 
 	var/list/machine_recipes
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, "glass" = 0, "wood" = 0)
@@ -20,6 +22,8 @@
 
 	var/mat_efficiency = 1
 	var/build_time = 50
+	var/list/datum/autolathe/recipe/queue = list()
+	var/max_queue_length = 12
 
 	var/datum/wires/autolathe/wires = null
 
@@ -37,7 +41,7 @@
 	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
 	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
 	RefreshParts()
-	
+
 /obj/machinery/autolathe/Destroy()
 	qdel(wires)
 	wires = null
@@ -73,6 +77,12 @@
 		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
 
 		var/index = 0
+		dat += "<h2> Designs in Queue: </h2>"
+		var/tmp = 1
+		for(var/datum/autolathe/recipe/D in queue)
+			dat += "<b>[tmp]: [D.name]</b><BR>"
+			++tmp
+		dat += "<hr>"
 		for(var/datum/autolathe/recipe/R in machine_recipes)
 			index++
 			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
@@ -98,13 +108,7 @@
 						material_string += ", "
 					material_string += "[round(R.resources[material] * mat_efficiency)] [material]"
 				material_string += ".<br></td>"
-				//Build list of multipliers for sheets.
-				if(R.is_stack)
-					if(max_sheets && max_sheets > 0)
-						multiplier_string  += "<br>"
-						for(var/i = 5;i<max_sheets;i*=2) //5,10,20,40...
-							multiplier_string  += "<a href='?src=\ref[src];make=[index];multiplier=[i]'>\[x[i]\]</a>"
-						multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[max_sheets]'>\[x[max_sheets]\]</a>"
+				//Build list of multipliers for sheets
 
 			dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
 
@@ -138,11 +142,14 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(istype(O, /obj/item/device/multitool) || istype(O, /obj/item/weapon/wirecutters))
+		if(isMultitool(O) || isWirecutter(O))
 			attack_hand(user)
 			return
 
-	if(O.loc != user && !(istype(O,/obj/item/stack)))
+	attempt_fill(O,user)
+
+/obj/machinery/autolathe/proc/attempt_fill(var/obj/item/O, var/mob/user)
+	if(!(O.Adjacent(user)))
 		return 0
 
 	if(is_robot_module(O))
@@ -150,23 +157,37 @@
 
 	//Resources are being loaded.
 	var/obj/item/eating = O
-	if(!eating.matter)
-		to_chat(user, "\The [eating] does not contain significant amounts of useful materials and cannot be accepted.")
+
+	var/list/taking_matter
+	if(istype(eating, /obj/item/stack/material))
+		var/obj/item/stack/material/mat = eating
+		taking_matter = list()
+		for(var/matname in eating.matter)
+			taking_matter[matname] = Floor(eating.matter[matname]/mat.amount)
+	else
+		taking_matter = eating.matter
+
+	var/found_useful_mat
+	if(LAZYLEN(taking_matter))
+		for(var/material in taking_matter)
+			if(!isnull(stored_material[material]) && !isnull(storage_capacity[material]))
+				found_useful_mat = TRUE
+				break
+
+	if(!found_useful_mat)
+		to_chat(user, "<span class='warning'>\The [eating] does not contain any accessible useful materials and cannot be accepted.</span>")
 		return
 
 	var/filltype = 0       // Used to determine message.
 	var/total_used = 0     // Amount of material used.
 	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
 
-	for(var/material in eating.matter)
-
-		if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
-			continue
+	for(var/material in taking_matter)
 
 		if(stored_material[material] >= storage_capacity[material])
 			continue
 
-		var/total_material = eating.matter[material]
+		var/total_material = taking_matter[material]
 
 		//If it's a stack, we eat multiple sheets.
 		if(istype(eating,/obj/item/stack))
@@ -181,7 +202,7 @@
 
 		stored_material[material] += total_material
 		total_used += total_material
-		mass_per_sheet += eating.matter[material]
+		mass_per_sheet += taking_matter[material]
 
 	if(!filltype)
 		to_chat(user, "<span class='notice'>\The [src] is full. Please remove material from the autolathe in order to insert more.</span>")
@@ -196,83 +217,41 @@
 	if(istype(eating,/obj/item/stack))
 		var/obj/item/stack/stack = eating
 		stack.use(max(1, round(total_used/mass_per_sheet))) // Always use at least 1 to prevent infinite materials.
-	else
-		user.remove_from_mob(O)
+	else if(user.unEquip(O))
 		qdel(O)
 
 	updateUsrDialog()
-	return
 
 /obj/machinery/autolathe/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/autolathe/Topic(href, href_list)
-
-	if(..())
-		return
-
-	usr.set_machine(src)
-	add_fingerprint(usr)
-
-	if(busy)
-		to_chat(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
-		return
-
+/obj/machinery/autolathe/OnTopic(user, href_list, state)
+	set waitfor = 0
 	if(href_list["change_category"])
-
 		var/choice = input("Which category do you wish to display?") as null|anything in autolathe_categories+"All"
-		if(!choice) return
+		if(!choice)
+			return TOPIC_HANDLED
 		show_category = choice
+		. = TOPIC_REFRESH
 
-	if(href_list["make"] && machine_recipes)
-
+	else if(href_list["make"] && machine_recipes)
+		. = TOPIC_REFRESH
 		var/index = text2num(href_list["make"])
-		var/multiplier = text2num(href_list["multiplier"])
 		var/datum/autolathe/recipe/making
 
 		if(index > 0 && index <= machine_recipes.len)
 			making = machine_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
-		if(!making || multiplier < 0 || multiplier > 100)
-			var/turf/exploit_loc = get_turf(usr)
-			message_admins("[key_name_admin(usr)] tried to exploit an autolathe to duplicate an item! ([exploit_loc ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[exploit_loc.x];Y=[exploit_loc.y];Z=[exploit_loc.z]'>JMP</a>" : "null"])", 0)
-			log_admin("EXPLOIT : [key_name(usr)] tried to exploit an autolathe to duplicate an item!")
+		if(!making)
+			log_and_message_admins("tried to exploit an autolathe to duplicate an item!", user)
+			return TOPIC_HANDLED
+		if(queue.len > max_queue_length)
+			to_chat(user, "<span class='warning'>[src] buzzes, 'Queue full!' </span>")
 			return
-
-		busy = 1
-		update_use_power(2)
-
-		//Check if we still have the materials.
-		for(var/material in making.resources)
-			if(!isnull(stored_material[material]))
-				if(stored_material[material] < round(making.resources[material] * mat_efficiency) * multiplier)
-					return
-
-		//Consume materials.
-		for(var/material in making.resources)
-			if(!isnull(stored_material[material]))
-				stored_material[material] = max(0, stored_material[material] - round(making.resources[material] * mat_efficiency) * multiplier)
-
-		//Fancy autolathe animation.
-		flick("autolathe_n", src)
-
-		sleep(build_time)
-
-		busy = 0
-		update_use_power(1)
-
-		//Sanity check.
-		if(!making || !src) return
-
-		//Create the desired item.
-		var/obj/item/I = new making.path(loc)
-		if(multiplier > 1 && istype(I, /obj/item/stack))
-			var/obj/item/stack/S = I
-			S.amount = multiplier
-
-	updateUsrDialog()
+		addToQueue(making)
+		to_chat(user, "<span class='notice'>[src] chimes, '[making.name] added to queue!' </span>")
 
 /obj/machinery/autolathe/update_icon()
 	icon_state = (panel_open ? "autolathe_t" : "autolathe")
@@ -296,13 +275,116 @@
 /obj/machinery/autolathe/dismantle()
 
 	for(var/mat in stored_material)
-		var/material/M = get_material_by_name(mat)
+		var/material/M = SSmaterials.get_material_by_name(mat)
 		if(!istype(M))
 			continue
-		var/obj/item/stack/material/S = new M.stack_type(get_turf(src))
+		var/obj/item/stack/material/S = M.place_sheet(get_turf(src), 1, M.name)
 		if(stored_material[mat] > S.perunit)
 			S.amount = round(stored_material[mat] / S.perunit)
 		else
 			qdel(S)
 	..()
 	return 1
+
+/obj/machinery/autolathe/MouseDrop(var/over_location)
+	..()
+	if(!isliving(usr))
+		return
+	if(!isturf(over_location))
+		over_location = get_turf(over_location)
+	if(Adjacent(over_location) && Adjacent(usr))
+		for(var/obj/item/O in over_location)
+			attempt_fill(O, usr)
+
+/obj/machinery/autolathe/proc/addToQueue(var/datum/autolathe/recipe/D)
+	queue += D
+	return
+
+/obj/machinery/autolathe/proc/removeFromQueue(var/index)
+	queue.Cut(index, index + 1)
+	return
+
+/obj/machinery/autolathe/Process()
+	if(queue.len == 0)
+		return
+	if(busy)
+		return
+	var/datum/autolathe/recipe/D = queue[1]
+	if(queue.len)
+		build(D)
+
+/obj/machinery/autolathe/proc/build(var/datum/autolathe/recipe/D)
+	busy = 1
+	update_use_power(2)
+	var/datum/autolathe/recipe/making
+	making = D
+
+	//Check if we still have the materials.
+	for(var/material in making.resources)
+		if(!isnull(stored_material[material]))
+			if(stored_material[material] < round(making.resources[material] * mat_efficiency))
+				visible_message("<span class='warning'>[src] buzzes, 'Not enough materials for [making.name], flushing queue.'</span>")
+				queue.Cut(1)
+				return TOPIC_REFRESH
+
+	//Consume materials.
+	for(var/material in making.resources)
+		if(!isnull(stored_material[material]))
+			stored_material[material] = max(0, stored_material[material] - round(making.resources[material] * mat_efficiency))
+
+	//Fancy autolathe animation.
+	flick("autolathe_n", src)
+
+	sleep(build_time)
+
+	busy = 0
+	update_use_power(1)
+
+	//Sanity check.
+	if(!making || QDELETED(src)) return TOPIC_HANDLED
+	//Create the desired item.
+	new making.path(loc)
+	removeFromQueue(1)
+
+/obj/machinery/autolathe/verb/extract_materials()
+	set name = "Extract Materials"
+	set category = "Object"
+	set src in view(1)
+	var/mob/living/user = usr
+
+	if(user.incapacitated() || !istype(user, /mob/living))
+		to_chat(user, "<span class='warning'>You can't do that.</span>")
+		return
+
+	if(!Adjacent(user))
+		to_chat(user, "<span class='warning'>You can't reach it.</span>")
+		return
+	var/extraction_choices = list("steel", "glass", "wood")
+	var/material = input(user, "What do you want to extract?", "Materials Extraction") as null|anything in extraction_choices
+	var/mat_number = input(user, "How much do you want to extract? (Max: 60)", "Materials Extraction") as num
+	if(!mat_number)
+		return
+	mat_number = Clamp(mat_number, 0, 60)
+	var/extraction_path
+	switch(material)
+		if("steel")
+			extraction_path = /obj/item/stack/material/steel
+		if("glass")
+			extraction_path = /obj/item/stack/material/glass
+		if("wood")
+			extraction_path = /obj/item/stack/material/wood
+	//We have all the info we need now - calculate how much it'll cost.
+	var/mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
+	var/stored_materials = stored_material[material]
+	if(stored_materials < mat_cost) //Not enough material stored. Settle for the next best thing.
+		var/new_mat_number = stored_materials / SHEET_MATERIAL_AMOUNT
+		mat_number = new_mat_number
+	mat_number = Clamp(mat_number, 0, 60) // Clamp and round to prevent decimal issues.
+	mat_number = Floor(mat_number)
+	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
+	if(SHEET_MATERIAL_AMOUNT > stored_materials)
+		return //And all was for naught, because you didn't have enough.
+	new extraction_path(loc, mat_number)
+	stored_material[material] -= mat_cost
+
+

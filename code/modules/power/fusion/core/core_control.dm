@@ -1,8 +1,10 @@
 /obj/machinery/computer/fusion_core_control
 	name = "\improper R-UST Mk. 8 core control"
-	icon = 'icons/obj/machines/power/fusion.dmi'
-	icon_state = "core_control"
+	icon_keyboard = "power_key"
+	icon_screen = "rust_screen"
 	light_color = COLOR_ORANGE
+	idle_power_usage = 250
+	active_power_usage = 500
 
 	var/id_tag
 	var/scan_range = 25
@@ -10,7 +12,7 @@
 	var/obj/machinery/power/fusion_core/cur_viewed_device
 
 /obj/machinery/computer/fusion_core_control/attackby(var/obj/item/thing, var/mob/user)
-	if(ismultitool(thing))
+	if(isMultitool(thing))
 		var/new_ident = input("Enter a new ident tag.", "Core Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
@@ -68,8 +70,8 @@
 				<b>Fuel:</b><br>
 				<table><tr><th><b>Name</b></th><th><b>Amount</b></th></tr>
 			"}
-			for(var/reagent in cur_viewed_device.owned_field.dormant_reactant_quantities)
-				dat += "<tr><td>[reagent]</td><td>[cur_viewed_device.owned_field.dormant_reactant_quantities[reagent]]</td></tr>"
+			for(var/reagent in cur_viewed_device.owned_field.reactants)
+				dat += "<tr><td>[reagent]</td><td>[cur_viewed_device.owned_field.reactants[reagent]]</td></tr>"
 			dat += "</table><hr>"
 
 	else
@@ -130,31 +132,27 @@
 	popup.open()
 	user.set_machine(src)
 
-/obj/machinery/computer/fusion_core_control/Topic(href, href_list)
-	. = ..()
-	if(.)
-		return
-
+/obj/machinery/computer/fusion_core_control/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
 	if(href_list["access_device"])
 		var/idx = Clamp(text2num(href_list["toggle_active"]), 1, connected_devices.len)
 		cur_viewed_device = connected_devices[idx]
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 	//All HREFs from this point on require a device anyways.
 	if(!cur_viewed_device || !check_core_status(cur_viewed_device) || cur_viewed_device.id_tag != id_tag || get_dist(src, cur_viewed_device) > scan_range)
-		return
+		return TOPIC_NOACTION
 
 	if(href_list["goto_scanlist"])
 		cur_viewed_device = null
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 	if(href_list["toggle_active"])
 		if(!cur_viewed_device.Startup()) //Startup() whilst the device is active will return null.
 			cur_viewed_device.Shutdown()
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 	if(href_list["str"])
 		var/val = text2num(href_list["str"])
@@ -163,7 +161,7 @@
 		else
 			cur_viewed_device.set_strength(cur_viewed_device.field_strength + val)
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 //Returns 1 if the machine can be interacted with via this console.
 /obj/machinery/computer/fusion_core_control/proc/check_core_status(var/obj/machinery/power/fusion_core/C)

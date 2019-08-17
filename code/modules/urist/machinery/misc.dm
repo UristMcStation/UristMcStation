@@ -9,34 +9,20 @@
 		sleep(25) //so the sm can land
 		drive()
 
-/obj/machinery/door/airlock/multi_tile/security
-	name = "Security Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1security.dmi'
-	opacity = 0
-	glass = 1
+/obj/machinery/door/airlock/multi_tile/ror
+	name = "Rusted Airlock"
+	icon = 'maps/wyrm/icons/awaymission.dmi'
+	layer = ABOVE_HUMAN_LAYER
+	plane = ABOVE_HUMAN_PLANE
+	width = 2
 
+/obj/structure/curtain/var/id = null
 
-/obj/machinery/door/airlock/multi_tile/command
-	name = "Command Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1command.dmi'
-	opacity = 0
-	glass = 1
+/obj/machinery/button/remote/curtains
+	name = "remote curtains-control"
+	desc = "It controls curtains, remotely."
 
-/obj/machinery/door/airlock/multi_tile/medical
-	name = "Medical Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1medbay.dmi'
-	opacity = 0
-	glass = 1
-
-/obj/machinery/door/airlock/multi_tile/engineering
-	name = "Engineering Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1engine.dmi'
-	opacity = 0
-	glass = 1
-
-
-/obj/machinery/door/airlock/multi_tile/research
-	name = "Research Airlock"
-	icon = 'icons/urist/structures&machinery/doors/Door2x1research.dmi'
-	opacity = 0
-	glass = 1
+/obj/machinery/button/remote/curtains/trigger()
+	for(var/obj/structure/curtain/D in world)
+		if(D.id == src.id)
+			D.toggle()

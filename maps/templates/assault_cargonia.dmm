@@ -5,8 +5,8 @@
 "ae" = (/obj/structure/disposalpipe/segment{dir = 1; icon_state = "pipe-c"},/obj/item/stack/cable_coil,/turf/simulated/floor/tiled,/area/template_noop)
 "af" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/tiled,/area/template_noop)
 "ag" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/item/stack/material/wood{amount = 10},/turf/simulated/floor/tiled,/area/template_noop)
-"ah" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "cargo_bay"; name = "cargo bay hatch controller"; pixel_x = -30; pixel_y = 0; req_one_access = list(13,31); tag_door = "cargo_bay_door"},/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/c762,/obj/item/ammo_magazine/c762,/obj/item/ammo_magazine/c762,/obj/item/ammo_magazine/a556,/obj/item/ammo_magazine/a556,/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/mc9mmt,/turf/simulated/floor/tiled,/area/template_noop)
-"ai" = (/obj/item/weapon/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
+"ah" = (/obj/machinery/embedded_controller/radio/simple_docking_controller{frequency = 1380; id_tag = "cargo_bay"; name = "cargo bay hatch controller"; pixel_x = -30; pixel_y = 0; req_one_access = list(13,31); tag_door = "cargo_bay_door"},/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/a762,/obj/item/ammo_magazine/a762,/obj/item/ammo_magazine/a762,/obj/item/ammo_magazine/a556,/obj/item/ammo_magazine/a556,/obj/item/ammo_magazine/mc9mmt,/obj/item/ammo_magazine/mc9mmt,/turf/simulated/floor/tiled,/area/template_noop)
+"ai" = (/obj/item/trash/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
 "aj" = (/turf/simulated/floor/tiled,/area/template_noop)
 "ak" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/emergency,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/stack/cable_coil,/turf/simulated/floor/tiled,/area/template_noop)
 "al" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/storage/pill_bottle/kelotane,/obj/item/weapon/storage/pill_bottle/inaprovaline,/obj/item/weapon/storage/pill_bottle/dexalin_plus,/obj/item/weapon/storage/pill_bottle/tramadol,/obj/item/weapon/storage/pill_bottle/spaceacillin,/obj/item/weapon/storage/pill_bottle/bicaridine,/obj/item/weapon/storage/pill_bottle/antitox,/obj/item/weapon/storage/pill_bottle/bloodloss,/obj/item/weapon/reagent_containers/syringe/inaprovaline,/turf/simulated/floor/tiled,/area/template_noop)
@@ -22,20 +22,17 @@
 "av" = (/obj/machinery/camera{c_tag = "Cargo Recieving Dock"; dir = 1},/obj/machinery/button/remote/blast_door{id = "QMLoaddoor"; layer = 4; name = "Loading Doors"; pixel_x = 8; pixel_y = -24},/obj/machinery/button/remote/blast_door{dir = 2; id = "QMLoaddoor2"; layer = 4; name = "Loading Doors"; pixel_x = -8; pixel_y = -24},/obj/item/stack/cable_coil,/turf/simulated/floor/tiled,/area/template_noop)
 "aw" = (/obj/machinery/conveyor{dir = 1; id = "QMLoad"},/turf/simulated/floor/tiled,/area/template_noop)
 "ax" = (/obj/machinery/conveyor{dir = 4; id = "QMLoad"},/turf/simulated/floor/tiled,/area/template_noop)
-"ay" = (/obj/machinery/conveyor{dir = 4; id = "QMLoad"},/obj/item/weapon/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
+"ay" = (/obj/machinery/conveyor{dir = 4; id = "QMLoad"},/obj/item/trash/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
 "az" = (/obj/machinery/conveyor{dir = 4; id = "QMLoad"},/obj/machinery/light,/turf/simulated/floor/tiled,/area/template_noop)
 "aA" = (/turf/space,/area/template_noop)
 "aB" = (/obj/structure/lattice,/turf/space,/area/template_noop)
-"aC" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
+"aC" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
 "aD" = (/obj/machinery/conveyor{dir = 1; id = "QMLoad2"},/obj/machinery/door/blast/regular{icon_state = "pdoor1"; id = "QMLoaddoor2"; name = "supply dock loading door"},/turf/simulated/floor/plating,/area/template_noop)
 "aE" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/tiled,/area/template_noop)
 "aF" = (/obj/machinery/door/blast/regular{icon_state = "pdoor1"; id = "QMLoaddoor"; name = "supply dock loading door"; opacity = 1},/obj/machinery/conveyor{dir = 1; id = "QMLoad"},/turf/simulated/floor/plating,/area/template_noop)
-"aG" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
-"aH" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
-"aI" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
+"aG" = (/obj/effect/wallframe_spawn/reinforced,/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'EXTERNAL AIRLOCK'"; icon_state = "space"; layer = 4; name = "EXTERNAL AIRLOCK"; pixel_x = 0},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
 "aJ" = (/obj/structure/plasticflaps,/obj/machinery/conveyor{dir = 1; id = "QMLoad2"},/turf/simulated/floor/plating,/area/template_noop)
 "aK" = (/obj/structure/plasticflaps,/obj/machinery/conveyor{dir = 1; id = "QMLoad"},/turf/simulated/floor/plating,/area/template_noop)
-"aL" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/sign/warning/secure_area{desc = "A warning sign which reads 'EXTERNAL AIRLOCK'"; icon_state = "space"; layer = 4; name = "EXTERNAL AIRLOCK"; pixel_x = 0},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/template_noop)
 "aM" = (/turf/space,/turf/simulated/shuttle/wall/corner/smoothwhite/nw,/area/template_noop)
 "aN" = (/turf/simulated/shuttle/wall{tag = "icon-swall_straight (WEST)"; icon_state = "swall_straight"; dir = 8},/area/template_noop)
 "aO" = (/obj/machinery/conveyor{dir = 1; id = "QMLoad2"},/obj/machinery/door/blast/regular{id = "QMLoaddoor2"; name = "supply dock loading door"},/turf/simulated/shuttle/plating,/area/template_noop)
@@ -53,7 +50,7 @@
 "ba" = (/obj/structure/shuttle/engine/heater{tag = "icon-heater (WEST)"; icon_state = "heater"; dir = 8},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating/airless,/area/template_noop)
 "bb" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/stack/material/steel{amount = 50},/obj/item/stack/material/steel{amount = 50},/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bc" = (/obj/item/weapon/weldingtool,/turf/simulated/floor/shuttle/blue,/area/template_noop)
-"bd" = (/obj/item/weapon/cigbutt,/obj/item/stack/cable_coil,/turf/simulated/floor/shuttle/blue,/area/template_noop)
+"bd" = (/obj/item/trash/cigbutt,/obj/item/stack/cable_coil,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "be" = (/obj/item/weapon/material/butterfly,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bf" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/stack/material/plasteel{amount = 10},/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bg" = (/obj/item/weapon/wrench,/turf/simulated/floor/shuttle/blue,/area/template_noop)
@@ -63,7 +60,7 @@
 "bk" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/weapon/grenade/frag/anforgrenade,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/weapon/gun/projectile/colt/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/obj/item/ammo_magazine/c45m/a7,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bl" = (/obj/item/ammo_magazine/c45m/a7,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bm" = (/obj/item/ammo_magazine/mc9mmt,/turf/simulated/floor/shuttle/blue,/area/template_noop)
-"bn" = (/obj/machinery/light,/obj/item/weapon/cigbutt,/turf/simulated/floor/shuttle/blue,/area/template_noop)
+"bn" = (/obj/machinery/light,/obj/item/trash/cigbutt,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bo" = (/obj/item/weapon/lipstick,/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bp" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/stack/rods{amount = 50},/obj/item/stack/rods{amount = 50},/turf/simulated/floor/shuttle/blue,/area/template_noop)
 "bq" = (/obj/machinery/light,/turf/simulated/floor/shuttle/blue,/area/template_noop)
@@ -75,9 +72,9 @@ aaabaaacaaadaeafagafafafaf
 aaaaaaacaaahaiajajakalamaj
 acanacacaaaoapaqarasaiajat
 aaaaaaaaaaauajavajawaxayaz
-aaaAaBaAaCaDaEaCaEaFaGaHaH
-aBaAaBaAaIaJajaIajaKaIaAaA
-aBaBaBaBaLaDaEaLaEaFaLaBaB
+aaaAaBaAaCaDaEaCaEaFaCaCaC
+aBaAaBaAaCaJajaCajaKaCaAaA
+aBaBaBaBaGaDaEaGaEaFaGaBaB
 aAaMaNaNaNaOaPaNaPaQaNaRaB
 aSaTaUaVaUaWaUaXaUaUaYaZaB
 aSbabbaUbcaUaUbdbeaUaUaZaB

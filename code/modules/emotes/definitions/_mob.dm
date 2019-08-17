@@ -11,7 +11,7 @@
 	if(!skip_sort)
 		usable_emotes = sortAssoc(usable_emotes)
 
-/mob/initialize()
+/mob/Initialize()
 	. = ..()
 	update_emotes()
 
@@ -39,7 +39,31 @@
 		/decl/emote/audible/scretch,
 		/decl/emote/audible/choke,
 		/decl/emote/audible/moan,
+		/decl/emote/audible/gnarl
+		)
+
+/mob/living/carbon/alien/diona
+	default_emotes = list(
+		/decl/emote/visible,
+		/decl/emote/visible/scratch,
+		/decl/emote/visible/drool,
+		/decl/emote/visible/nod,
+		/decl/emote/visible/sway,
+		/decl/emote/visible/sulk,
+		/decl/emote/visible/twitch,
+		/decl/emote/visible/dance,
+		/decl/emote/visible/roll,
+		/decl/emote/visible/shake,
+		/decl/emote/visible/jump,
+		/decl/emote/visible/hiss,
+		/decl/emote/visible/shiver,
+		/decl/emote/visible/collapse,
+		/decl/emote/audible,
+		/decl/emote/audible/scretch,
+		/decl/emote/audible/choke,
 		/decl/emote/audible/gnarl,
+		/decl/emote/audible/bug_hiss,
+		/decl/emote/audible/bug_chitter,
 		/decl/emote/audible/chirp
 		)
 
@@ -86,6 +110,7 @@
 		/decl/emote/audible/grumble,
 		/decl/emote/audible/groan,
 		/decl/emote/audible/moan,
+		/decl/emote/audible/grunt,
 		/decl/emote/human,
 		/decl/emote/human/deathgasp,
 		/decl/emote/audible/giggle,

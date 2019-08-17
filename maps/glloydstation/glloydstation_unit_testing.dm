@@ -13,7 +13,7 @@
 		/area/engineering/atmos/storage = NO_SCRUBBER|NO_VENT,
 		/area/engineering/drone_fabrication = NO_SCRUBBER,
 		/area/holodeck = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/planet/jungle = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/aft = NO_SCRUBBER,
 		/area/maintenance/asmaint = NO_SCRUBBER,
@@ -51,14 +51,14 @@
 		/area/syndicate_station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/tcommsat/chamber/abandoned = NO_SCRUBBER,
 		/area/tcommsat/chamber/server = NO_SCRUBBER,
-		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT
+		/area/tcommsat/pirate = NO_SCRUBBER|NO_VENT,
+		/area/map_template/hydrobase/station/shower = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_coherency_test_exempt_areas = list(
 			/area/space,
 			/area/mine/explored,
 			/area/mine/unexplored,
-			/area/centcom/control,
 			/area/engineering/atmos,
 			/area/constructionsite,
 			/area/constructionsite/maintenance,
@@ -67,7 +67,8 @@
 			/area/awaymission/maze,
 			/area/maintenance/incinerator,
 			/area/beach,
-			/area/jungle
+			/area/planet/jungle,
+			/area/map_template/hydrobase/station/shower
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -95,13 +96,21 @@
 		/area/engineering/foyer,
 		/area/engineering/engineering_monitoring,
 		/area/engineering/engine_eva,
+		/area/exoplanet,
+		/area/exoplanet/desert,
+		/area/exoplanet/garbage,
+		/area/exoplanet/grass,
+		/area/exoplanet/snow,
 		/area/holodeck/source_courtroom,
+		/area/holodeck/source_meetinghall,
 		/area/infestation,
-		/area/jungle/explored,
-		/area/jungle/temple_one,
+		/area/planet/jungle/explored,
+		/area/planet/jungle/temple_one,
 		/area/jungleoutpost,
 		/area/maintenance/exterior,
 		/area/maintenance/substation,
+		/area/map_template,
+		/area/map_template/little_house,
 		/area/medical/biostorage,
 		/area/medical/exam_room,
 		/area/medical/sleeper,
@@ -128,6 +137,7 @@
 		/area/security/range,
 		/area/solar/constructionsite,
 		/area/shuttle/,
+		/area/shuttle/constructionsite/site,
 		/area/shuttle/event1/,
 		/area/shuttle/event2/,
 		/area/shuttle/scom/s1/mission,
@@ -183,5 +193,6 @@
 		/area/turbolift,
 		/area/outpost/engineering/storage,
 		/area/outpost/mining_main/maintenance,
-		/area/outpost/security/lounge
+		/area/outpost/security/lounge,
+		/area/boarding_ship
 	)

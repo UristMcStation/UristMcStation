@@ -17,26 +17,19 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	can_escape = 1
 	attacktext = "punched"
 	a_intent = I_HURT
-	var/corpse = /obj/effect/landmark/mobcorpse/syndicatesoldier
+	var/corpse = /obj/effect/landmark/corpse/syndicate
 	var/weapon1
 	var/weapon2
-	min_oxy = 5
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 1
-	min_co2 = 0
-	max_co2 = 5
-	min_n2 = 0
-	max_n2 = 0
-	unsuitable_atoms_damage = 15
+	unsuitable_atmos_damage = 15
 	environment_smash = 1
 	faction = "syndicate"
 	status_flags = CANPUSH
 
-/mob/living/simple_animal/hostile/syndicate/death()
-	..()
+/mob/living/simple_animal/hostile/syndicate/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (src.loc)
 	if(weapon1)
@@ -44,7 +37,6 @@
 	if(weapon2)
 		new weapon2 (src.loc)
 	qdel(src)
-	return
 
 ///////////////Sword and shield////////////
 
@@ -93,19 +85,13 @@
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	icon_state = "syndicatemeleespace"
 	icon_living = "syndicatemeleespace"
 	name = "Syndicate Commando"
-	corpse = /obj/effect/landmark/mobcorpse/syndicatecommando
+	corpse = /obj/effect/landmark/corpse/syndicate
 	speed = 0
 
 /mob/living/simple_animal/hostile/syndicate/ranged
@@ -123,16 +109,10 @@
 	icon_state = "syndicaterangedpsace"
 	icon_living = "syndicaterangedpsace"
 	name = "Syndicate Commando"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
-	corpse = /obj/effect/landmark/mobcorpse/syndicatecommando
+	corpse = /obj/effect/landmark/corpse/syndicate/commando
 	speed = 0
 
 /mob/living/simple_animal/hostile/viscerator
@@ -141,7 +121,7 @@
 	icon = 'icons/mob/critter.dmi'
 	icon_state = "viscerator_attack"
 	icon_living = "viscerator_attack"
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	health = 15
 	maxHealth = 15
 	melee_damage_lower = 15
@@ -149,16 +129,10 @@
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = "syndicate"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
-/mob/living/simple_animal/hostile/viscerator/death()
-	..(null,"is smashed into pieces!")
+/mob/living/simple_animal/hostile/viscerator/death(gibbed, deathmessage, show_dead_message)
+	..(null,"is smashed into pieces!", show_dead_message)
 	qdel(src)

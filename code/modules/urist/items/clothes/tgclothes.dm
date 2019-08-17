@@ -153,7 +153,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	desc = "A professional suit jacket."
 	icon_state = "suitjacket_black"
 	item_state = "suitjacket_black"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 
 /obj/item/clothing/head/helmet/urist/hopformal
 	name = "head of personnel cap"

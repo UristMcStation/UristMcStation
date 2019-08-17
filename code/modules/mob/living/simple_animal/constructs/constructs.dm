@@ -16,14 +16,8 @@
 	universal_speak = 0
 	universal_understand = 1
 	attack_sound = 'sound/weapons/spiderlunge.ogg'
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	show_stat_health = 1
 	faction = "cult"
@@ -35,6 +29,8 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
+	bleed_colour = "#331111"
+
 	var/list/construct_spells = list()
 
 /mob/living/simple_animal/construct/cultify()
@@ -42,21 +38,21 @@
 
 /mob/living/simple_animal/construct/New()
 	..()
-	name = text("[initial(name)] ([rand(1, 1000)])")
+	name = text("[initial(name)] ([random_id(/mob/living/simple_animal/construct, 1000, 9999)])")
 	real_name = name
 	add_language("Cult")
-	add_language("Occult")
+	add_language(LANGUAGE_OCCULT)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
-	updateicon()
+	update_icon()
 
-/mob/living/simple_animal/construct/death()
+/mob/living/simple_animal/construct/death(gibbed, deathmessage, show_dead_message)
 	new /obj/item/weapon/ectoplasm (src.loc)
-	..(null,"collapses in a shattered heap.")
+	..(null,"collapses in a shattered heap.","The bonds tying you to this mortal plane have been severed.")
 	ghostize()
 	qdel(src)
 
-/mob/living/simple_animal/construct/updateicon()
+/mob/living/simple_animal/construct/update_icon()
 	overlays.Cut()
 	..()
 	add_glow()
@@ -118,6 +114,7 @@
 	status_flags = 0
 	resistance = 10
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
+	can_escape = 1
 
 /mob/living/simple_animal/construct/armoured/Life()
 	weakened = 0
@@ -224,6 +221,7 @@
 	var/energy = 0
 	var/max_energy = 1000
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
+	can_escape = 1
 
 ////////////////////////Harvester////////////////////////////////
 
@@ -257,7 +255,7 @@
 	eye_glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	eye_glow.layer = EYE_GLOW_LAYER
 	overlays += eye_glow
-	set_light(2, -2, l_color = "#FFFFFF")
+	set_light(-10, 0.1, 3, l_color = "#ffffff")
 
 ////////////////HUD//////////////////////
 

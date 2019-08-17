@@ -4,7 +4,7 @@
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = ITEM_SIZE_TINY
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 	var/use_message = "Halt! Security!"
 	var/spamcheck = 0
@@ -26,8 +26,8 @@
 		use_message = capitalize(copytext(sanitize(new_message), 1, MAX_MESSAGE_LEN))
 
 	to_chat(usr, "You configure the hailer to shout \"[use_message]\".")
-/
-obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
+
+/obj/item/device/hailer/attack_self(mob/living/carbon/user as mob)
 	if (spamcheck)
 		return
 

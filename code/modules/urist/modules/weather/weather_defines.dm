@@ -7,7 +7,7 @@
 	appearance_flags = RESET_COLOR | RESET_ALPHA
 	color = null
 	alpha = 255
-	mouse_opacity = 0
+	mouse_opacity = 2
 	anchored = 1
 	layer = EFFECTS_LAYER
 	plane = WEATHER_PLANE
@@ -71,11 +71,11 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	ReagentEffect(T)
 
 /obj/weathertype/rain/acid
-	color = "#91C82F"
+	color = "#91c82f"
 	init_reagents = list("sacid")
 
 /obj/weathertype/rain/blood //spoop
-	color = "#8A0707"
+	color = "#8a0707"
 	init_reagents = list("blood")
 
 /obj/weathertype/rain/fallout
@@ -165,6 +165,6 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 /* error indicator weather, abuss at own peril */
 /obj/weathertype/error
 	icon_state = "splash"
-	color = "#FF0000"
+	color = "#ff0000"
 
 #undef WEATHER_ACTION_VOLUME

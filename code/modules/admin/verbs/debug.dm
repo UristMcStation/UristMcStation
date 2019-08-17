@@ -38,7 +38,7 @@
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_robotize(var/mob/M in mob_list)
+/client/proc/cmd_admin_robotize(var/mob/M in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Make Robot"
 
@@ -53,7 +53,7 @@
 	else
 		alert("Invalid mob")
 
-/client/proc/cmd_admin_animalize(var/mob/M in mob_list)
+/client/proc/cmd_admin_animalize(var/mob/M in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
@@ -74,13 +74,13 @@
 		M.Animalize()
 
 
-/client/proc/makepAI(var/turf/T in mob_list)
+/client/proc/makepAI(var/turf/T in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Make pAI"
 	set desc = "Specify a location to spawn a pAI device, then specify a key to play that pAI"
 
 	var/list/available = list()
-	for(var/mob/C in mob_list)
+	for(var/mob/C in SSmobs.mob_list)
 		if(C.key)
 			available.Add(C)
 	var/mob/choice = input("Choose a player to play the pAI", "Spawn pAI") in available
@@ -92,7 +92,7 @@
 			return 0
 	var/obj/item/device/paicard/card = new(T)
 	var/mob/living/silicon/pai/pai = new(card)
-	pai.name = sanitizeSafe(input(choice, "Enter your pAI name:", "pAI Name", "Personal AI") as text)
+	pai.SetName(sanitizeSafe(input(choice, "Enter your pAI name:", "pAI Name", "Personal AI") as text))
 	pai.real_name = pai.name
 	pai.key = choice.key
 	card.setPersonality(pai)
@@ -101,7 +101,7 @@
 			paiController.pai_candidates.Remove(candidate)
 	feedback_add_details("admin_verb","MPAI") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
+/client/proc/cmd_admin_slimeize(var/mob/M in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Make slime"
 
@@ -227,7 +227,7 @@
 /client/proc/cmd_debug_make_powernets()
 	set category = "Debug"
 	set name = "Make Powernets"
-	makepowernets()
+	SSmachines.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -241,7 +241,7 @@
 	message_admins("[key_name_admin(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].", 0)
 	feedback_add_details("admin_verb","TAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_grantfullaccess(var/mob/M in mob_list)
+/client/proc/cmd_admin_grantfullaccess(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set name = "Grant Full Access"
 
@@ -250,20 +250,17 @@
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if (H.wear_id)
-			var/obj/item/weapon/card/id/id = H.wear_id
-			if(istype(H.wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = H.wear_id
-				id = pda.id
+		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		if(id)
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
-			var/obj/item/weapon/card/id/id = new/obj/item/weapon/card/id(M);
+			id = new/obj/item/weapon/card/id(M);
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 			id.registered_name = H.real_name
 			id.assignment = "Captain"
-			id.name = "[id.registered_name]'s ID Card ([id.assignment])"
+			id.SetName("[id.registered_name]'s ID Card ([id.assignment])")
 			H.equip_to_slot_or_del(id, slot_wear_id)
 			H.update_inv_wear_id()
 	else
@@ -271,7 +268,7 @@
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_and_message_admins("has granted [M.key] full access.")
 
-/client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
+/client/proc/cmd_assume_direct_control(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
@@ -383,14 +380,14 @@
 	for(var/areatype in areas_without_camera)
 		log_debug("* [areatype]")
 
-/client/proc/cmd_admin_dress(var/mob/living/carbon/human/H in mob_list)
+/client/proc/cmd_admin_dress(var/mob/living/carbon/human/H in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Select equipment"
 
 	if(!check_rights(R_FUN))
 		return
 
-//	H = input("Select mob.", "Select equipment.") as null|anything in human_mob_list
+//	H = input("Select mob.", "Select equipment.") as null|anything in GLOB.human_mob_list
 	if(!H)
 		return
 
@@ -398,8 +395,12 @@
 	if(!outfit)
 		return
 
+	var/reset_equipment = (outfit.flags&OUTFIT_RESET_EQUIPMENT)
+	if(!reset_equipment)
+		reset_equipment = alert("Do you wish to delete all current equipment first?", "Delete Equipment?","Yes", "No") == "Yes"
+
 	feedback_add_details("admin_verb","SEQ")
-	dressup_human(H, outfit)
+	dressup_human(H, outfit, reset_equipment)
 
 /proc/dressup_human(var/mob/living/carbon/human/H, var/decl/hierarchy/outfit/outfit, var/undress = TRUE)
 	if(!H || !outfit)
@@ -464,19 +465,21 @@
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
-	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Clients"))
+	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Ghost Mobs", "Clients"))
 		if("Players")
-			to_chat(usr, jointext(player_list,","))
+			to_chat(usr, jointext(GLOB.player_list,","))
 		if("Admins")
-			to_chat(usr, jointext(admins,","))
+			to_chat(usr, jointext(GLOB.admins,","))
 		if("Mobs")
-			to_chat(usr, jointext(mob_list,","))
+			to_chat(usr, jointext(SSmobs.mob_list,","))
 		if("Living Mobs")
-			to_chat(usr, jointext(living_mob_list_,","))
+			to_chat(usr, jointext(GLOB.living_mob_list_,","))
 		if("Dead Mobs")
-			to_chat(usr, jointext(dead_mob_list_,","))
+			to_chat(usr, jointext(GLOB.dead_mob_list_,","))
+		if("Ghost Mobs")
+			to_chat(usr, jointext(GLOB.ghost_mob_list,","))
 		if("Clients")
-			to_chat(usr, jointext(clients,","))
+			to_chat(usr, jointext(GLOB.clients,","))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
@@ -502,4 +505,70 @@
 	if(!check_rights(R_DEBUG))
 		return
 
-	error_cache.showTo(usr)
+	GLOB.error_cache.show_to(usr.client)
+
+/client/proc/cmd_analyse_health_panel()
+	set category = "Debug"
+	set name = "Analyse Health"
+	set desc = "Get an advanced health reading on a human mob."
+
+	var/mob/living/carbon/human/H = input("Select mob.", "Analyse Health") as null|anything in GLOB.human_mob_list
+	if(!H)	return
+
+	cmd_analyse_health(H)
+
+/client/proc/cmd_analyse_health(var/mob/living/carbon/human/H)
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	if(!H)	return
+
+	var/dat = H.get_medical_data()
+
+	dat += text("<BR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>", usr)
+	show_browser(usr, dat, "window=scanconsole;size=430x600")
+
+/client/proc/cmd_analyse_health_context(mob/living/carbon/human/H as mob in GLOB.human_mob_list)
+	set category = null
+	set name = "Analyse Human Health"
+
+	if(!check_rights(R_DEBUG))
+		return
+	if(!ishuman(H))	return
+	cmd_analyse_health(H)
+	feedback_add_details("admin_verb","ANLS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/obj/effect/debugmarker
+	icon = 'icons/effects/lighting_overlay.dmi'
+	icon_state = "transparent"
+	plane = ABOVE_TURF_PLANE
+	layer = HOLOMAP_LAYER
+	alpha = 127
+
+/client/var/list/image/powernet_markers = list()
+/client/proc/visualpower()
+	set category = "Debug"
+	set name = "Visualize Powernets"
+
+	if(!check_rights(R_DEBUG)) return
+	visualpower_remove()
+	powernet_markers = list()
+
+	for(var/datum/powernet/PN in SSmachines.powernets)
+		var/netcolor = rgb(rand(100,255),rand(100,255),rand(100,255))
+		for(var/obj/structure/cable/C in PN.cables)
+			var/image/I = image('icons/effects/lighting_overlay.dmi', get_turf(C), "transparent")
+			I.plane = ABOVE_TURF_PLANE
+			I.alpha = 127
+			I.color = netcolor
+			I.maptext = "\ref[PN]"
+			powernet_markers += I
+	images += powernet_markers
+
+/client/proc/visualpower_remove()
+	set category = "Debug"
+	set name = "Remove Powernets Visuals"
+
+	images -= powernet_markers
+	QDEL_NULL_LIST(powernet_markers)

@@ -107,26 +107,35 @@ var/datum/antagonist/agent/agents
 	var/loc = ""
 	var/obj/item/R = locate() //Hide the uplink in a PDA if available, otherwise radio
 
-	if(agent_mob.client.prefs.uplinklocation == "Headset")
+	var/list/priority_order
+	if(agent_mob.client && agent_mob.client.prefs)
+		priority_order = agent_mob.client.prefs.uplink_sources
+
+	if(!priority_order || !priority_order.len)
+		priority_order = list()
+		for(var/entry in GLOB.default_uplink_source_priority)
+			priority_order += decls_repository.get_decl(entry)
+
+	if(priority_order[1] == "Headset")
 		R = locate(/obj/item/device/radio) in agent_mob.contents
 		if(!R)
-			R = locate(/obj/item/device/pda) in agent_mob.contents
+			R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 			agent_mob << "Could not locate a Radio, installing in PDA instead!"
 		if (!R)
 			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
-	else if(agent_mob.client.prefs.uplinklocation == "PDA")
-		R = locate(/obj/item/device/pda) in agent_mob.contents
+	else if(priority_order[1] == "PDA")
+		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
 			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
 		if(!R)
 			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
-	else if(agent_mob.client.prefs.uplinklocation == "None")
+	else if(priority_order[1] == "None")
 		agent_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
 		R = null
 	else
 		agent_mob << "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!"
-		R = locate(/obj/item/device/pda) in agent_mob.contents
+		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
 			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
@@ -154,12 +163,6 @@ var/datum/antagonist/agent/agents
 		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
 		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
-	else if (istype(R, /obj/item/device/pda))
-		// generate a passcode if the uplink is hidden in a PDA
-		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
-		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
-		R.hidden_uplink = T
-		var/obj/item/device/pda/P = R
-		P.lock_code = pda_pass
-		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features."
-		agent_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
+	else if (istype(R, /obj/item/modular_computer/pda))
+		var/decl/uplink_source/pda/uplink_source = new
+		uplink_source.setup_uplink_source(agent_mob, 0)

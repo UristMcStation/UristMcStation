@@ -56,7 +56,7 @@ Class Procs:
 /zone/var/list/graphic_remove = list()
 
 /zone/New()
-	air_master.add_zone(src)
+	SSair.add_zone(src)
 	air.temperature = TCMB
 	air.group_multiplier = 1
 	air.volume = CELL_VOLUME
@@ -65,7 +65,7 @@ Class Procs:
 #ifdef ZASDBG
 	ASSERT(!invalid)
 	ASSERT(istype(T))
-	ASSERT(!air_master.has_valid_zone(T))
+	ASSERT(!SSair.has_valid_zone(T))
 #endif
 
 	var/datum/gas_mixture/turf_air = T.return_air()
@@ -75,7 +75,7 @@ Class Procs:
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
 		fire_tiles.Add(T)
-		air_master.active_fire_zones |= src
+		SSair.active_fire_zones |= src
 		if(fuel) fuel_objs += fuel
 	T.update_graphic(air.graphic)
 
@@ -118,11 +118,11 @@ Class Procs:
 		if(E.contains_zone(into))
 			continue //don't need to rebuild this edge
 		for(var/turf/T in E.connecting_turfs)
-			air_master.mark_for_update(T)
+			SSair.mark_for_update(T)
 
 /zone/proc/c_invalidate()
 	invalid = 1
-	air_master.remove_zone(src)
+	SSair.remove_zone(src)
 	#ifdef ZASDBG
 	for(var/turf/simulated/T in contents)
 		T.dbg(invalid_zone)
@@ -135,7 +135,7 @@ Class Procs:
 		T.update_graphic(graphic_remove = air.graphic) //we need to remove the overlays so they're not doubled when the zone is rebuilt
 		//T.dbg(invalid_zone)
 		T.needs_air_update = 0 //Reset the marker so that it will be added to the list.
-		air_master.mark_for_update(T)
+		SSair.mark_for_update(T)
 
 /zone/proc/add_tile_air(datum/gas_mixture/tile_air)
 	//air.volume += CELL_VOLUME
@@ -146,7 +146,7 @@ Class Procs:
 	air.group_multiplier = contents.len+1
 
 /zone/proc/tick()
-	if(air.temperature >= PHORON_FLASHPOINT && !(src in air_master.active_fire_zones) && air.check_combustability() && contents.len)
+	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && air.check_combustability() && contents.len)
 		var/turf/T = pick(contents)
 		if(istype(T))
 			T.create_fire(vsc.fire_firelevel_multiplier)
@@ -160,6 +160,20 @@ Class Procs:
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
 			E.recheck()
+
+	// Handle condensation from the air.
+	for(var/g in air.gas)
+		var/product = gas_data.condensation_products[g]
+		if(product && air.temperature <= gas_data.condensation_points[g])
+			var/condensation = min(air.gas[g], 5)
+			while(condensation > 0)
+				condensation--
+				var/turf/flooding = pick(contents)
+				air.adjust_gas(g, -1)
+				//Each tile 1x1x2.5m; water is 0.01801kg/mol, and 1000kg/m^3; ideal gas 0.022411 m/mol @stp (good enough to use here)
+				//Therefore 2.5m^3/0.022411m^3/mol gives moles in whole tile, multiplied by 0.01801kg/mol/1000kg/m^3 gives vapor to water conversion. 
+				//Might need tweaking from realistic to gamey, but condensation should be less absurd. -Luke
+				flooding.add_fluid( ((2.5/0.22411) * (0.01801/1000)) * air.group_multiplier * REAGENT_GAS_EXCHANGE_FACTOR, product)
 
 /zone/proc/dbg_data(mob/M)
 	to_chat(M, name)

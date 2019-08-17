@@ -37,3 +37,10 @@
 
 //And that's that for presets... I really need more stuff here.
 
+/obj/machinery/telecomms/relay/long_range_planetary
+	name = "Planetary Signal Relay"
+	desc = "A massive tower used to send signals an extreme range."
+	icon = 'icons/urist/structures&machinery/radio_tower.dmi'
+	icon_state = "tower_on"
+	bounds = "96;96"
+	id = "Relay-PSR"

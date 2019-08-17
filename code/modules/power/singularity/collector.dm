@@ -23,16 +23,17 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/Destroy()
 	rad_collectors -= src
-	..()
+	. = ..()
 
-/obj/machinery/power/rad_collector/process()
+/obj/machinery/power/rad_collector/Process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0
 
-	var/turf/T = get_turf(src)
-	if(T in radiation_repository.irradiated_turfs)
-		receive_pulse((radiation_repository.irradiated_turfs[T] * 5)) //Maths is hard
+	if(P && active)
+		var/rads = SSradiation.get_rads_at_turf(get_turf(src))
+		if(rads)
+			receive_pulse(rads * 5) //Maths is hard
 
 	if(P)
 		if(P.air_contents.gas["phoron"] == 0)
@@ -54,7 +55,6 @@ var/global/list/rad_collectors = list()
 		else
 			to_chat(user, "<span class='warning'>The controls are locked!</span>")
 			return
-..()
 
 
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
@@ -65,19 +65,23 @@ var/global/list/rad_collectors = list()
 		if(src.P)
 			to_chat(user, "<span class='warning'>There's already a phoron tank loaded.</span>")
 			return 1
-		user.drop_item()
+		if(!user.unEquip(W, src))
+			return
 		src.P = W
-		W.loc = src
 		update_icons()
 		return 1
-	else if(istype(W, /obj/item/weapon/crowbar))
+	else if(isCrowbar(W))
 		if(P && !src.locked)
 			eject()
 			return 1
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(isWrench(W))
 		if(P)
 			to_chat(user, "<span class='notice'>Remove the phoron tank first.</span>")
 			return 1
+		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
+			if(R != src)
+				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
+				return 1
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
@@ -88,7 +92,7 @@ var/global/list/rad_collectors = list()
 		else
 			disconnect_from_network()
 		return 1
-	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
 		if (src.allowed(user))
 			if(active)
 				src.locked = !src.locked
@@ -159,3 +163,91 @@ var/global/list/rad_collectors = list()
 		flick("ca_deactive", src)
 	update_icons()
 	return
+
+/obj/machinery/power/rad_collector/pipenet
+	name = "Modular Radiation Collector Array"
+	desc = "A variant of the radiation collector array which connects to a pipecap underneath it."
+	var/obj/machinery/atmospherics/pipe/cap/pipe = null
+	var/datum/gas_mixture/removed = null
+
+/obj/machinery/power/rad_collector/pipenet/Destroy()
+	QDEL_NULL(removed)
+	pipe = null
+	. = ..()
+
+/obj/machinery/power/rad_collector/pipenet/Initialize()
+	if(anchored)
+		locate_pipenet()
+		connect_to_network()
+	. = ..()
+
+/obj/machinery/power/rad_collector/pipenet/Process()
+	//so that we don't zero out the meter if the SM is processed first.
+	last_power = last_power_new
+	last_power_new = 0
+	if(!pipe || !anchored)
+		return
+	var/datum/gas_mixture/env = pipe.return_air()
+	removed = env.remove(0.75 * env.total_moles)
+	if(pipe && active)
+		var/rads = SSradiation.get_rads_at_turf(get_turf(src))
+		if(rads)
+			receive_pulse(rads * 5) //Maths is hard
+
+	if(pipe && removed)
+		if(removed.gas["phoron"] == 0)
+			investigate_log("<font color='red'>out of fuel</font>.","singulo")
+			active = 0
+			update_icons()
+		else
+			removed.adjust_gas("phoron", -0.001*drainratio)
+			env.merge(removed)
+	return
+
+/obj/machinery/power/rad_collector/pipenet/receive_pulse(var/pulse_strength)
+	if(pipe && active)
+		var/power_produced = 0
+		power_produced = removed.gas["phoron"]*pulse_strength*20
+		add_avail(power_produced)
+		last_power_new = power_produced
+		return
+	return
+
+
+/obj/machinery/power/rad_collector/pipenet/attackby(obj/item/W, mob/user)
+	if(isWrench(W))
+		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
+			if(R != src)
+				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
+				return 1
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		src.anchored = !src.anchored
+		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
+			"You [anchored? "secure":"undo"] the external bolts.", \
+			"You hear a ratchet")
+		if(anchored)
+			connect_to_network()
+			locate_pipenet()
+		else
+			disconnect_from_network()
+			P = null
+		return 1
+	return ..()
+
+
+/obj/machinery/power/rad_collector/pipenet/proc/locate_pipenet()
+	var/turf/T = get_turf(src)
+	pipe = locate(/obj/machinery/atmospherics/pipe/cap) in T
+
+/obj/machinery/power/rad_collector/pipenet/update_icons()
+	overlays.Cut()
+	if(pipe)
+		overlays += image('icons/obj/singularity.dmi', "ptank")
+	if(stat & (NOPOWER|BROKEN))
+		return
+	if(active)
+		overlays += image('icons/obj/singularity.dmi', "on")
+
+
+
+

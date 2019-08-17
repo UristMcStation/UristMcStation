@@ -1,7 +1,7 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
-	icon = 'icons/obj/doors/door_assembly.dmi'
-	icon_state = "door_as_0"
+	icon = 'icons/obj/doors/station/door.dmi'
+	icon_state = "construction"
 	anchored = 0
 	density = 1
 	w_class = ITEM_SIZE_NO_CONTAINER
@@ -13,118 +13,44 @@
 	var/glass_type = "/glass"
 	var/glass = 0 // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
 	var/created_name = null
+	var/panel_icon = 'icons/obj/doors/station/panel.dmi'
+	var/fill_icon = 'icons/obj/doors/station/fill_steel.dmi'
+	var/glass_icon = 'icons/obj/doors/station/fill_glass.dmi'
 
 	New()
 		update_state()
 
-/obj/structure/door_assembly/door_assembly_com
-	base_icon_state = "com"
-	base_name = "Command Airlock"
-	glass_type = "/glass_command"
-	airlock_type = "/command"
-
-/obj/structure/door_assembly/door_assembly_sec
-	base_icon_state = "sec"
-	base_name = "Security Airlock"
-	glass_type = "/glass_security"
-	airlock_type = "/security"
-
-/obj/structure/door_assembly/door_assembly_eng
-	base_icon_state = "eng"
-	base_name = "Engineering Airlock"
-	glass_type = "/glass_engineering"
-	airlock_type = "/engineering"
-
-/obj/structure/door_assembly/door_assembly_min
-	base_icon_state = "min"
-	base_name = "Mining Airlock"
-	glass_type = "/glass_mining"
-	airlock_type = "/mining"
-
-/obj/structure/door_assembly/door_assembly_atmo
-	base_icon_state = "atmo"
-	base_name = "Atmospherics Airlock"
-	glass_type = "/glass_atmos"
-	airlock_type = "/atmos"
-
-/obj/structure/door_assembly/door_assembly_research
-	base_icon_state = "res"
-	base_name = "Research Airlock"
-	glass_type = "/glass_research"
-	airlock_type = "/research"
-
-/obj/structure/door_assembly/door_assembly_science
-	base_icon_state = "sci"
-	base_name = "Science Airlock"
-	glass_type = "/glass_science"
-	airlock_type = "/science"
-
-/obj/structure/door_assembly/door_assembly_med
-	base_icon_state = "med"
-	base_name = "Medical Airlock"
-	glass_type = "/glass_medical"
-	airlock_type = "/medical"
-
-/obj/structure/door_assembly/door_assembly_viro
-	base_icon_state = "viro"
-	base_name = "Virology Airlock"
-	glass_type = "/glass_virology"
-	airlock_type = "/virology"
-
-/obj/structure/door_assembly/door_assembly_sol
-	base_icon_state = "sol"
-	base_name = "Sol Central Government Airlock"
-	glass_type = "/glass_sol"
-	airlock_type = "/sol"
-
-/obj/structure/door_assembly/door_assembly_mai
-	base_icon_state = "mai"
-	base_name = "Maintenance Airlock"
-	airlock_type = "/maintenance"
-	glass = -1
-
-/obj/structure/door_assembly/door_assembly_ext
-	base_icon_state = "ext"
-	base_name = "External Airlock"
-	airlock_type = "/external"
-	glass = -1
-
-/obj/structure/door_assembly/door_assembly_fre
-	base_icon_state = "fre"
-	base_name = "Freezer Airlock"
-	airlock_type = "/freezer"
-	glass = -1
-
 /obj/structure/door_assembly/door_assembly_hatch
-	base_icon_state = "hatch"
+	icon = 'icons/obj/doors/hatch/door.dmi'
+	panel_icon = 'icons/obj/doors/hatch/panel.dmi'
+	fill_icon = 'icons/obj/doors/hatch/fill_steel.dmi'
 	base_name = "Airtight Hatch"
 	airlock_type = "/hatch"
 	glass = -1
 
-/obj/structure/door_assembly/door_assembly_mhatch
-	base_icon_state = "mhatch"
-	base_name = "Maintenance Hatch"
-	airlock_type = "/maintenance_hatch"
-	glass = -1
-
 /obj/structure/door_assembly/door_assembly_highsecurity // Borrowing this until WJohnston makes sprites for the assembly
-	base_icon_state = "highsec"
+	icon = 'icons/obj/doors/secure/door.dmi'
+	fill_icon = 'icons/obj/doors/secure/fill_steel.dmi'
 	base_name = "High Security Airlock"
 	airlock_type = "/highsecurity"
 	glass = -1
 
+/obj/structure/door_assembly/door_assembly_ext
+	icon = 'icons/obj/doors/external/door.dmi'
+	fill_icon = 'icons/obj/doors/external/fill_steel.dmi'
+	glass_icon = 'icons/obj/doors/external/fill_glass.dmi'
+	base_name = "External Airlock"
+	airlock_type = "/external"
+
 /obj/structure/door_assembly/multi_tile
-	icon = 'icons/obj/doors/door_assembly2x1.dmi'
+	icon = 'icons/obj/doors/double/door.dmi'
+	fill_icon = 'icons/obj/doors/double/fill_steel.dmi'
+	glass_icon = 'icons/obj/doors/double/fill_glass.dmi'
+	panel_icon = 'icons/obj/doors/double/panel.dmi'
 	dir = EAST
 	var/width = 1
-
-/*Temporary until we get sprites.
+	airlock_type = "/multi_tile"
 	glass_type = "/multi_tile/glass"
-	airlock_type = "/multi_tile/maint"
-	glass = 1*/
-	base_icon_state = "g" //Remember to delete this line when reverting "glass" var to 1.
-	airlock_type = "/multi_tile/glass"
-	glass = -1 //To prevent bugs in deconstruction process.
 
 	New()
 		if(dir in list(EAST, WEST))
@@ -154,7 +80,7 @@
 		created_name = t
 		return
 
-	if(istype(W, /obj/item/weapon/weldingtool) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
+	if(isWelder(W) && ( (istext(glass)) || (glass == 1) || (!anchored) ))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -184,7 +110,7 @@
 			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
 			return
 
-	else if(istype(W, /obj/item/weapon/wrench) && state == 0)
+	else if(isWrench(W) && state == 0)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
@@ -196,7 +122,7 @@
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured the airlock assembly!</span>")
 			anchored = !anchored
 
-	else if(istype(W, /obj/item/stack/cable_coil) && state == 0 && anchored)
+	else if(isCoil(W) && state == 0 && anchored)
 		var/obj/item/stack/cable_coil/C = W
 		if (C.get_amount() < 1)
 			to_chat(user, "<span class='warning'>You need one length of coil to wire the airlock assembly.</span>")
@@ -207,7 +133,7 @@
 				src.state = 1
 				to_chat(user, "<span class='notice'>You wire the airlock.</span>")
 
-	else if(istype(W, /obj/item/weapon/wirecutters) && state == 1 )
+	else if(isWirecutter(W) && state == 1 )
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
@@ -223,14 +149,14 @@
 
 		if(do_after(user, 40,src))
 			if(!src) return
-			user.drop_item()
-			W.loc = src
+			if(!user.unEquip(W, src))
+				return
 			to_chat(user, "<span class='notice'>You installed the airlock electronics!</span>")
 			src.state = 2
-			src.name = "Near finished Airlock Assembly"
+			src.SetName("Near finished Airlock Assembly")
 			src.electronics = W
 
-	else if(istype(W, /obj/item/weapon/crowbar) && state == 2 )
+	else if(isCrowbar(W) && state == 2 )
 		//This should never happen, but just in case I guess
 		if (!electronics)
 			to_chat(user, "<span class='notice'>There was nothing to remove.</span>")
@@ -244,7 +170,7 @@
 			if(!src) return
 			to_chat(user, "<span class='notice'>You removed the airlock electronics!</span>")
 			src.state = 1
-			src.name = "Wired Airlock Assembly"
+			src.SetName("Wired Airlock Assembly")
 			electronics.loc = src.loc
 			electronics = null
 
@@ -273,7 +199,7 @@
 								to_chat(user, "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>")
 								glass = material_name
 
-	else if(istype(W, /obj/item/weapon/screwdriver) && state == 2 )
+	else if(isScrewdriver(W) && state == 2 )
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now finishing the airlock.</span>")
 
@@ -295,14 +221,25 @@
 	update_state()
 
 /obj/structure/door_assembly/proc/update_state()
-	icon_state = "door_as_[glass == 1 ? "g" : ""][istext(glass) ? glass : base_icon_state][state]"
-	name = ""
+	overlays.Cut()
+	var/image/filling_overlay
+	var/image/panel_overlay
+	var/final_name = ""
+	if(glass == 1)
+		filling_overlay = image(glass_icon, "construction")
+	else
+		filling_overlay = image(fill_icon, "construction")
 	switch (state)
 		if(0)
 			if (anchored)
-				name = "Secured "
+				final_name = "Secured "
 		if(1)
-			name = "Wired "
+			final_name = "Wired "
+			panel_overlay = image(panel_icon, "construction0")
 		if(2)
-			name = "Near Finished "
-	name += "[glass == 1 ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
+			final_name = "Near Finished "
+			panel_overlay = image(panel_icon, "construction1")
+	final_name += "[glass == 1 ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
+	SetName(final_name)
+	overlays += filling_overlay
+	overlays += panel_overlay

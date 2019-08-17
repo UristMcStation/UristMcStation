@@ -1,7 +1,7 @@
 /datum/language/xenocommon
-	name = "Xenomorph"
+	name = LANGUAGE_XENOPHAGE
 	colour = "alien"
-	desc = "The common tongue of the xenomorphs."
+	desc = "The common tongue of the xenophages."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
@@ -9,23 +9,25 @@
 	flags = RESTRICTED
 	syllables = list("sss","sSs","SSS")
 	machine_understands = 0
+	shorthand = "Xeno"
 
 /datum/language/xenos
-	name = "Hivemind"
-	desc = "Xenomorphs have the strange ability to commune over a psychic hivemind."
+	name = LANGUAGE_XENOPHAGE_HIVE
+	desc = "Xenophages have the strange ability to commune over a psychic hivemind."
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
 	colour = "alien"
 	key = "a"
 	flags = RESTRICTED | HIVEMIND
+	shorthand = "N/A"
 
 /datum/language/xenos/check_special_condition(var/mob/other)
 
 	var/mob/living/carbon/M = other
 	if(!istype(M))
 		return 1
-	if(locate(/obj/item/organ/internal/xenos/hivenode) in M.internal_organs)
+	if(locate(/obj/item/organ/internal/xeno/hivenode) in M.internal_organs)
 		return 1
 
 	return 0
@@ -37,6 +39,7 @@
 	colour = "changeling"
 	key = "g"
 	flags = RESTRICTED | HIVEMIND
+	shorthand = "N/A"
 
 /datum/language/ling/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
@@ -54,6 +57,7 @@
 	colour = "alien"
 	key = "x"
 	flags = RESTRICTED | HIVEMIND
+	shorthand = "N/A"
 
 /datum/language/corticalborer/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
@@ -70,17 +74,18 @@
 	..(speaker,message,speaker_mask)
 
 /datum/language/vox
-	name = "Vox-pidgin"
+	name = LANGUAGE_VOX
 	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
 	speech_verb = "shrieks"
 	ask_verb = "creels"
 	exclaim_verb = "SHRIEKS"
 	colour = "vox"
 	key = "5"
-	flags = WHITELISTED
+	flags = RESTRICTED
 	syllables = list("ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", \
 	"SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA")
 	machine_understands = 0
+	shorthand = "Vox"
 
 /datum/language/vox/get_random_name()
 	return ..(FEMALE,1,6)
@@ -103,9 +108,10 @@
 		"gal'h'rfikk", "harfrandid", "mud'gib", "fuu", "ma'jin", "dedo", "ol'btoh", "n'ath", "reth", "sh'yro", "eth", \
 		"d'rekkathnor", "khari'd", "gual'te", "nikka", "nikt'o", "barada", "kla'atu", "barhah", "hra" ,"zar'garis")
 	machine_understands = 0
+	shorthand = "CT"
 
 /datum/language/cult
-	name = "Occult"
+	name = LANGUAGE_OCCULT
 	desc = "The initiated can share their thoughts by means defying all reason."
 	speech_verb = "intones"
 	ask_verb = "intones"
@@ -113,3 +119,27 @@
 	colour = "cult"
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
+	shorthand = "N/A"
+
+/datum/language/alium
+	name = LANGUAGE_ALIUM
+	colour = "cult"
+	speech_verb = "hisses"
+	key = "c"
+	flags = RESTRICTED
+	syllables = list("qy","bok","mok","yok","dy","gly","ryl","byl","dok","forbici", "tarem", "n'ath", "reth", "sh'yro", "eth", "d'raggathnor","niii",
+	"d'rekkathnor", "khari'd", "gual'te", "ki","ki","ki","ki","ya","ta","wej","nym","assah","qwssa","nieasl","qyno","shaffar",
+	"eg","bog","voijs","nekks","bollos","qoulsan","borrksakja","neemen","aka","nikka","qyegno","shafra","beolas","Byno")
+	machine_understands = 0
+	shorthand = "AL"
+
+/datum/language/alium/New()
+	speech_verb = pick("hisses","growls","whistles","blubbers","chirps","skreeches","rumbles","clicks")
+	..()
+
+/datum/language/alium/get_random_name()
+	var/new_name = ""
+	var/length = rand(1,3)
+	for(var/i=0 to length)
+		new_name += pick(syllables)
+	return capitalize(new_name)

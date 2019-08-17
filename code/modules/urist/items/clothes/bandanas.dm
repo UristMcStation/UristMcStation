@@ -3,7 +3,7 @@
 
 //bandana
 
-/obj/item/clothing/mask/bandana
+/obj/item/clothing/mask/urist/bandana
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/masks.dmi'
 //	icon_override = 'icons/uristmob/mask.dmi'
@@ -14,12 +14,13 @@
 	var/is_flipped = 1
 	var/on = 1
 
-/obj/item/clothing/mask/bandana/verb/togglemask()
+/obj/item/clothing/mask/urist/bandana/verb/togglemask()
 	set name = "Toggle Bandana"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
+		return 0
 	if(!can_flip)
 		usr << "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down."
 		return
@@ -27,7 +28,7 @@
 		src.icon_state = initial(icon_state)
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		permeability_coefficient = initial(permeability_coefficient)
-		flags = initial(flags)
+		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
 		usr << "You push down [src]."
 		src.is_flipped = 1
@@ -36,17 +37,17 @@
 		usr << "You push up [src]."
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
-		flags = null
+		obj_flags = null
 		flags_inv = null
 		src.is_flipped = 2
 	usr.update_inv_wear_mask()
 
-/obj/item/clothing/mask/bandana/attack_self()
+/obj/item/clothing/mask/urist/bandana/attack_self()
 	togglemask()
 
 //botany bandana
 
-/obj/item/clothing/mask/bandana/botany
+/obj/item/clothing/mask/urist/bandana/botany
 	name = "green bandana"
 	desc = "It's a green bandana with some fine nanotech lining."
 	icon_state = "bandbotany"
@@ -55,17 +56,18 @@
 
 //bedsheet bandana
 
-/obj/item/clothing/mask/bandana/bedsheet
+/obj/item/clothing/mask/urist/bandana/bedsheet
 	can_flip = 1
 	var/can_roll = 1
 	var/is_rolled = 1
 
-/obj/item/clothing/mask/bandana/bedsheet/verb/rollmask()
+/obj/item/clothing/mask/urist/bandana/bedsheet/verb/rollmask()
 	set name = "Roll Bandana"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
+		return 0
 	if(!can_roll)
 		usr << "You try rolling up [src], but it doesn't work!"
 		return
@@ -73,7 +75,7 @@
 		src.icon_state = initial(icon_state)
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		permeability_coefficient = initial(permeability_coefficient)
-		flags = initial(flags)
+		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
 		usr << "You unroll [src]."
 		src.is_rolled = 1
@@ -82,124 +84,124 @@
 		usr << "You roll up [src]."
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
-		flags = null
+		obj_flags = null
 		flags_inv = null
 		src.is_rolled = 2
 	usr.update_inv_wear_mask()
 
 //bedsheet bandanas.
 
-/obj/item/clothing/mask/bandana/bedsheet/white
+/obj/item/clothing/mask/urist/bandana/bedsheet/white
 	name = "white bedsheet bandana"
 	desc = "It's a bandana made out of a white bedsheet."
 	icon_state = "white"
 
-/obj/item/clothing/mask/bandana/bedsheet/blue
+/obj/item/clothing/mask/urist/bandana/bedsheet/blue
 	name = "blue bedsheet bandana"
 	desc = "It's a bandana made out of a blue bedsheet."
 	icon_state = "blue"
 
-/obj/item/clothing/mask/bandana/bedsheet/orange
+/obj/item/clothing/mask/urist/bandana/bedsheet/orange
 	name = "orange bedsheet bandana"
 	desc = "It's a bandana made out of an orange bedsheet."
 	icon_state = "orange"
 
-/obj/item/clothing/mask/bandana/bedsheet/red
+/obj/item/clothing/mask/urist/bandana/bedsheet/red
 	name = "red bedsheet bandana"
 	desc = "It's a bandana made out of a red bedsheet."
 	icon_state = "red"
 
-/obj/item/clothing/mask/bandana/bedsheet/purple
+/obj/item/clothing/mask/urist/bandana/bedsheet/purple
 	name = "purple bedsheet bandana"
 	desc = "It's a bandana made out of a purple bedsheet."
 	icon_state = "purple"
 
-/obj/item/clothing/mask/bandana/bedsheet/green
+/obj/item/clothing/mask/urist/bandana/bedsheet/green
 	name = "green bedsheet bandana"
 	desc = "It's a bandana made out of a green bedsheet."
 	icon_state = "green"
 
-/obj/item/clothing/mask/bandana/bedsheet/yellow
+/obj/item/clothing/mask/urist/bandana/bedsheet/yellow
 	name = "yellow bedsheet bandana"
 	desc = "It's a bandana made out of a yellow bedsheet."
 	icon_state = "yellow"
 
-/obj/item/clothing/mask/bandana/bedsheet/rainbow
+/obj/item/clothing/mask/urist/bandana/bedsheet/rainbow
 	name = "rainbow bedsheet bandana"
 	desc = "It's a bandana made out of a rainbow bedsheet."
 	icon_state = "rainbow"
 
-/obj/item/clothing/mask/bandana/bedsheet/brown
+/obj/item/clothing/mask/urist/bandana/bedsheet/brown
 	name = "brown bedsheet bandana"
 	desc = "It's a bandana made out of a brown bedsheet."
 	icon_state = "brown"
 
-/obj/item/clothing/mask/bandana/bedsheet/captain
+/obj/item/clothing/mask/urist/bandana/bedsheet/captain
 	name = "captain's bedsheet bandana"
 	desc = "It's a bandana made out of the captain's bedsheet."
 	icon_state = "captain"
 
-/obj/item/clothing/mask/bandana/bedsheet/hop
+/obj/item/clothing/mask/urist/bandana/bedsheet/hop
 	name = "HoP's bedsheet bandana"
 	desc = "It's a bandana made out of the HoP's bedsheet."
 	icon_state = "hop"
 
-/obj/item/clothing/mask/bandana/bedsheet/ce
+/obj/item/clothing/mask/urist/bandana/bedsheet/ce
 	name = "CE's bedsheet bandana"
 	desc = "It's a bandana made out of the CE's bedsheet."
 	icon_state = "ce"
 
-/obj/item/clothing/mask/bandana/bedsheet/hos
+/obj/item/clothing/mask/urist/bandana/bedsheet/hos
 	name = "HoS's bedsheet bandana"
 	desc = "It's a bandana made out of the HoS's bedsheet."
 	icon_state = "hos"
 
-/obj/item/clothing/mask/bandana/bedsheet/medical
+/obj/item/clothing/mask/urist/bandana/bedsheet/medical
 	name = "medical bedsheet bandana"
 	desc = "It's a bandana made out of a medical bedsheet."
 	icon_state = "medical"
 
-/obj/item/clothing/mask/bandana/bedsheet/cmo
+/obj/item/clothing/mask/urist/bandana/bedsheet/cmo
 	name = "CMO's bedsheet bandana"
 	desc = "It's a bandana made out of the CMO's bedsheet."
 	icon_state = "cmo"
 
-/obj/item/clothing/mask/bandana/bedsheet/rd
+/obj/item/clothing/mask/urist/bandana/bedsheet/rd
 	name = "RD's bedsheet bandana"
 	desc = "It's a bandana made out of the RD's bedsheet."
 	icon_state = "rd"
 
-/obj/item/clothing/mask/bandana/bedsheet/qm
+/obj/item/clothing/mask/urist/bandana/bedsheet/qm
 	name = "Quartermaster's bedsheet bandana"
 	desc = "It's a bandana made out of the QM's bedsheet."
 	icon_state = "qm"
 
-/obj/item/clothing/mask/bandana/bedsheet/centcom
+/obj/item/clothing/mask/urist/bandana/bedsheet/centcom
 	name = "CentComm bedsheet bandana"
 	desc = "It's a bandana made out of a CentComm bedsheet."
 	icon_state = "cent"
 
-/obj/item/clothing/mask/bandana/bedsheet/syndie
+/obj/item/clothing/mask/urist/bandana/bedsheet/syndie
 	name = "Syndicate bedsheet bandana"
 	desc = "It's a bandana made out of a Syndicate bedsheet."
 	icon_state = "syndi"
 
-/obj/item/clothing/mask/bandana/bedsheet/cult
+/obj/item/clothing/mask/urist/bandana/bedsheet/cult
 	name = "cult bedsheet bandana"
 	desc = "It's a bandana made out of a cultist's bedsheet."
 	icon_state = "cult"
 
-/obj/item/clothing/mask/bandana/bedsheet/wiz
+/obj/item/clothing/mask/urist/bandana/bedsheet/wiz
 	name = "wizard's bedsheet bandana"
 	desc = "It's a bandana made out of a wizard's bedsheet."
 	icon_state = "wiz"
 
-/obj/item/clothing/mask/bandana/bedsheet/clown
+/obj/item/clothing/mask/urist/bandana/bedsheet/clown
 	name = "clown's bedsheet bandana"
 	desc = "It's a bandana made out of a clown's bedsheet."
 	icon_state = "clown"
 
-/obj/item/clothing/mask/bandana/bedsheet/mime
+/obj/item/clothing/mask/urist/bandana/bedsheet/mime
 	name = "mime's bedsheet bandana"
 	desc = "It's a bandana made out of a mime's bedsheet."
 	icon_state = "mime"
@@ -221,7 +223,7 @@
 		qdel(src)*/
 
 //I fixed the bugs. I'll clean this up too when I get a chance.
-
+/*
 /obj/item/clothing/mask/bandana/bedsheet/white/verb/toggle_bandana()
 	set name = "Unfold Bedsheet"
 	set category = "Object"
@@ -544,4 +546,4 @@
 		user.put_in_hands(B)
 		user << "<span class='notice'>You unfold the bandana back into a bedsheet.</span>"
 		qdel(src)
-
+*/

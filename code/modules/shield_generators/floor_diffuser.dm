@@ -13,7 +13,7 @@
 	var/alarm = 0
 	var/enabled = 1
 
-/obj/machinery/shield_diffuser/process()
+/obj/machinery/shield_diffuser/Process()
 	if(alarm)
 		alarm--
 		if(!alarm)
@@ -22,7 +22,7 @@
 
 	if(!enabled)
 		return
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
 		for(var/obj/effect/shield/S in shielded_tile)
 			S.diffuse(5)

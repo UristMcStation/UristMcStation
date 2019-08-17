@@ -1,0 +1,12 @@
+#List the potential ship files here. This file is for small things that would appear in space, like an asteroid or broken escape pod.
+#Maps must be the full path to them
+#Ruins should be 101x101 at max. Anymore than that will break the game.
+#SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
+
+maps/shipmaps/ship_blank.dmm
+maps/shipmaps/ship_fastattackcraft_terran.dmm
+maps/shipmaps/ship_light_freighter.dmm
+maps/shipmaps/ship_pirate_small1.dmm
+maps/shipmaps/ship_rebel_small1.dmm
+maps/shipmaps/ship_lactera_small.dmm
+maps/shipmaps/ship_lactera_large.dmm

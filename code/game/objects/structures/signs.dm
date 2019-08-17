@@ -21,10 +21,10 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
+	if(isScrewdriver(tool) && !istype(src, /obj/structure/sign/double))
 		to_chat(user, "You unfasten the sign with your [tool.name].")
 		var/obj/item/sign/S = new(src.loc)
-		S.name = name
+		S.SetName(name)
 		S.desc = desc
 		S.icon_state = icon_state
 		S.sign_state = icon_state
@@ -53,7 +53,7 @@
 			if("West")
 				S.pixel_x = -32
 			else return
-		S.name = name
+		S.SetName(name)
 		S.desc = desc
 		S.icon_state = sign_state
 		to_chat(user, "You fasten \the [S] with your [tool].")
@@ -82,6 +82,9 @@
 /obj/structure/sign/warning
 	name = "\improper WARNING"
 	icon_state = "securearea"
+
+/obj/structure/sign/warning/detailed
+	icon_state = "securearea2"
 
 /obj/structure/sign/warning/New()
 	..()
@@ -141,7 +144,7 @@
 
 /obj/structure/sign/warning/lethal_turrets/New()
 	..()
-	desc += " Enter at own risk!."
+	desc += " Enter at own risk!"
 
 /obj/structure/sign/warning/mail_delivery
 	name = "\improper MAIL DELIVERY"
@@ -149,6 +152,7 @@
 
 /obj/structure/sign/warning/moving_parts
 	name = "\improper MOVING PARTS"
+	icon_state = "movingparts"
 
 /obj/structure/sign/warning/nosmoking_1
 	name = "\improper NO SMOKING"
@@ -158,9 +162,37 @@
 	name = "\improper NO SMOKING"
 	icon_state = "nosmoking2"
 
+/obj/structure/sign/warning/nosmoking_burned
+	name = "\improper NO SMOKING"
+	icon_state = "nosmoking2_b"
+
+/obj/structure/sign/warning/nosmoking_burned/Initialize()
+	. = ..()
+	desc += " It looks charred."
+
+/obj/structure/sign/warning/smoking
+	name = "\improper SMOKING"
+	icon_state = "smoking"
+
+/obj/structure/sign/warning/smoking/Initialize()
+	. = ..()
+	desc += " Hell yeah."
+
 /obj/structure/sign/warning/pods
 	name = "\improper ESCAPE PODS"
-	icon_state = "pods"
+	icon_state = "podsnorth"
+
+/obj/structure/sign/warning/pods/south
+	name = "\improper ESCAPE PODS"
+	icon_state = "podssouth"
+
+/obj/structure/sign/warning/pods/east
+	name = "\improper ESCAPE PODS"
+	icon_state = "podseast"
+
+/obj/structure/sign/warning/pods/west
+	name = "\improper ESCAPE PODS"
+	icon_state = "podswest"
 
 /obj/structure/sign/warning/radioactive
 	name = "\improper RADIOACTIVE AREA"
@@ -171,9 +203,11 @@
 
 /obj/structure/sign/warning/secure_area/armory
 	name = "\improper ARMORY"
+	icon_state = "armory"
 
 /obj/structure/sign/warning/server_room
 	name = "\improper SERVER ROOM"
+	icon_state = "server"
 
 /obj/structure/sign/warning/siphon_valve
 	name = "\improper SIPHON VALVE"
@@ -233,16 +267,6 @@
 	desc = "A list of dead explorers who gave their lives in search of the next great discovery. Hope you don't join them."
 	icon_state = "floorplaque"
 
-/obj/structure/sign/double/solgovflag
-	name = "Sol Central Government Flag"
-	desc = "The flag of the Sol Central Government, a symbol of many things to many people."
-
-/obj/structure/sign/double/solgovflag/left
-	icon_state = "solgovflag-left"
-
-/obj/structure/sign/double/solgovflag/right
-	icon_state = "solgovflag-right"
-
 /obj/structure/sign/double/maltesefalcon	//The sign is 64x32, so it needs two tiles. ;3
 	name = "The Maltese Falcon"
 	desc = "The Maltese Falcon, Space Bar and Grill."
@@ -255,7 +279,7 @@
 
 /obj/structure/sign/warning/science
 	name = "\improper SCIENCE!"
-	icon_state = "science1"
+	icon_state = "science"
 
 /obj/structure/sign/warning/science/anomalous_materials
 	name = "\improper ANOMALOUS MATERIALS"
@@ -266,7 +290,7 @@
 /obj/structure/sign/science_1
 	name = "\improper RESEARCH WING"
 	desc = "A sign labelling the research wing."
-	icon_state = "science1"
+	icon_state = "science"
 
 /obj/structure/sign/science_2
 	name = "\improper RESEARCH"
@@ -301,7 +325,7 @@
 /obj/structure/sign/chemistry
 	name = "\improper CHEMISTRY"
 	desc = "A sign labelling an area containing chemical equipment."
-	icon_state = "chemistry1"
+	icon_state = "chemistry"
 
 /obj/structure/sign/xenoflora
 	name = "\improper XENOFLORA"
@@ -316,7 +340,7 @@
 /obj/structure/sign/hydro
 	name = "\improper HYDROPONICS"
 	desc = "A sign labelling an area as a place where plants are grown."
-	icon_state = "hydro1"
+	icon_state = "hydro"
 
 /obj/structure/sign/hydrostorage
 	name = "\improper HYDROPONICS STORAGE"
@@ -364,6 +388,10 @@
 	name = "\improper Infirmary"
 	icon_state = "direction_infirm"
 
+/obj/structure/sign/directions/virology
+	name = "\improper Virology"
+	icon_state = "direction_viro"
+
 /obj/structure/sign/directions/examroom
 	name = "\improper Exam Room"
 	icon_state = "examroom"
@@ -388,3 +416,23 @@
 	name = "\improper Fourth Deck"
 	icon_state = "deck-4"
 
+/obj/item/sign/medipolma
+	name = "medical diploma"
+	desc = "A fancy print laminated paper that certifies that its bearer is indeed a Doctor of Medicine, graduated from a medical school in one of fringe systems. You don't recognize the name though, and half of latin words they used do not actually exist."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "goldenplaque"
+	sign_state = "goldenplaque"
+	var/claimant
+
+/obj/item/sign/medipolma/attack_self(mob/user)
+	if(!claimant)
+		to_chat(user, "<span class='notice'>You fill in your name in the blanks with a permanent marker.</span>")
+		claimant = user.real_name
+	..()
+
+/obj/item/sign/medipolma/examine(mob/user)
+	..()
+	if(claimant)
+		to_chat(user,"This one belongs to Dr.[claimant], MD.")
+	else
+		to_chat(user,"The name is left blank for some reason.")

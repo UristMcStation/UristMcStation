@@ -2,26 +2,26 @@
 // parent class for pipes //
 ////////////////////////////
 obj/machinery/atmospherics/pipe/zpipe
-		icon = 'icons/obj/structures.dmi'
-		icon_state = "up"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "up"
 
-		name = "upwards pipe"
-		desc = "A pipe segment to connect upwards."
+	name = "upwards pipe"
+	desc = "A pipe segment to connect upwards."
 
-		volume = 70
+	volume = 70
 
-		dir = SOUTH
-		initialize_directions = SOUTH
+	dir = SOUTH
+	initialize_directions = SOUTH
 
-		var/minimum_temperature_difference = 300
-		var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
+	var/minimum_temperature_difference = 300
+	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
 
-		var/maximum_pressure = 70*ONE_ATMOSPHERE
-		var/fatigue_pressure = 55*ONE_ATMOSPHERE
-		alert_pressure = 55*ONE_ATMOSPHERE
+	var/maximum_pressure = 70*ONE_ATMOSPHERE
+	var/fatigue_pressure = 55*ONE_ATMOSPHERE
+	alert_pressure = 55*ONE_ATMOSPHERE
 
 
-		level = 1
+	level = 1
 
 obj/machinery/atmospherics/pipe/zpipe/New()
 	..()
@@ -45,10 +45,10 @@ obj/machinery/atmospherics/pipe/zpipe/New()
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
-		invisibility = i ? 101 : 0
+		set_invisibility(i ? 101 : 0)
 	update_icon()
 
-obj/machinery/atmospherics/pipe/up/process()
+obj/machinery/atmospherics/pipe/zpipe/Process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -78,17 +78,17 @@ obj/machinery/atmospherics/pipe/zpipe/proc/burst()
 	qdel(src) // NOT qdel.
 
 obj/machinery/atmospherics/pipe/zpipe/proc/normalize_dir()
-	if(dir==3)
-		set_dir(1)
-	else if(dir==12)
-		set_dir(4)
+	if(dir == (NORTH|SOUTH))
+		set_dir(NORTH)
+	else if(dir == (EAST|WEST))
+		set_dir(EAST)
 
 obj/machinery/atmospherics/pipe/zpipe/Destroy()
 	if(node1)
 		node1.disconnect(src)
 	if(node2)
 		node2.disconnect(src)
-	..()
+	. = ..()
 
 obj/machinery/atmospherics/pipe/zpipe/pipeline_expansion()
 	return list(node1, node2)
@@ -112,17 +112,18 @@ obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/refe
 // the elusive up pipe //
 /////////////////////////
 obj/machinery/atmospherics/pipe/zpipe/up
-		icon = 'icons/obj/structures.dmi'
-		icon_state = "up"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "up"
 
-		name = "upwards pipe"
-		desc = "A pipe segment to connect upwards."
+	name = "upwards pipe"
+	desc = "A pipe segment to connect upwards."
 
-obj/machinery/atmospherics/pipe/zpipe/up/initialize()
+obj/machinery/atmospherics/pipe/zpipe/up/atmos_init()
+	..()
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction
@@ -150,17 +151,18 @@ obj/machinery/atmospherics/pipe/zpipe/up/initialize()
 ///////////////////////
 
 obj/machinery/atmospherics/pipe/zpipe/down
-		icon = 'icons/obj/structures.dmi'
-		icon_state = "down"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "down"
 
-		name = "downwards pipe"
-		desc = "A pipe segment to connect downwards."
+	name = "downwards pipe"
+	desc = "A pipe segment to connect downwards."
 
-obj/machinery/atmospherics/pipe/zpipe/down/initialize()
+obj/machinery/atmospherics/pipe/zpipe/down/atmos_init()
+	..()
 	normalize_dir()
 	var/node1_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions)
 			if (!node1_dir)
 				node1_dir = direction

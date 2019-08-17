@@ -14,7 +14,7 @@
 	if(!preserve_appearance && (flags & ANTAG_SET_APPEARANCE))
 		spawn(3)
 			var/mob/living/carbon/human/H = player.current
-			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = z_state)
+			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = GLOB.z_state)
 	return player.current
 
 /datum/antagonist/proc/update_access(var/mob/living/player)
@@ -34,8 +34,12 @@
 	var/indicator = (faction_indicator && (other in faction_members)) ? faction_indicator : antag_indicator
 	if(src.uristantag)
 		return image('icons/urist/uristicons.dmi', loc = other.current, icon_state = indicator)
-	else
-		return image('icons/mob/hud.dmi', loc = other.current, icon_state = indicator)
+	var/image/I = image('icons/mob/hud.dmi', loc = other.current, icon_state = indicator, layer = LIGHTING_LAYER+0.1)
+	if(ishuman(other.current))
+		var/mob/living/carbon/human/H = other.current
+		I.pixel_x = H.species.antaghud_offset_x
+		I.pixel_y = H.species.antaghud_offset_y
+	return I
 
 /datum/antagonist/proc/update_all_icons()
 	if(!antag_indicator)
@@ -85,7 +89,7 @@
 	if(ticker.mode.antag_scaling_coeff)
 
 		var/count = 0
-		for(var/mob/living/M in player_list)
+		for(var/mob/living/M in GLOB.player_list)
 			if(M.client)
 				count++
 

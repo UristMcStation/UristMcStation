@@ -17,6 +17,7 @@
 <A href='?src=\ref[src];make=1;dir=5'>Bent Pipe</A><BR>
 <A href='?src=\ref[src];make=5;dir=1'>Manifold</A><BR>
 <A href='?src=\ref[src];make=8;dir=1'>Manual Valve</A><BR>
+<A href='?src=\ref[src];make=9;dir=1'>Digital Valve</A><BR>
 <A href='?src=\ref[src];make=44;dir=1'>Automatic Shutoff Valve</A><BR>
 <A href='?src=\ref[src];make=20;dir=1'>Pipe Cap</A><BR>
 <A href='?src=\ref[src];make=19;dir=1'>4-Way Manifold</A><BR>
@@ -52,10 +53,10 @@
 <A href='?src=\ref[src];make=28;dir=1'>Universal pipe adapter</A><BR>
 <A href='?src=\ref[src];make=4;dir=1'>Connector</A><BR>
 <A href='?src=\ref[src];make=7;dir=1'>Unary Vent</A><BR>
-<A href='?src=\ref[src];make=9;dir=1'>Gas Pump</A><BR>
+<A href='?src=\ref[src];make=10;dir=1'>Gas Pump</A><BR>
 <A href='?src=\ref[src];make=15;dir=1'>Pressure Regulator</A><BR>
 <A href='?src=\ref[src];make=16;dir=1'>High Power Gas Pump</A><BR>
-<A href='?src=\ref[src];make=10;dir=1'>Scrubber</A><BR>
+<A href='?src=\ref[src];make=11;dir=1'>Scrubber</A><BR>
 <A href='?src=\ref[src];makemeter=1'>Meter</A><BR>
 <A href='?src=\ref[src];make=13;dir=1'>Gas Filter</A><BR>
 <A href='?src=\ref[src];make=23;dir=1'>Gas Filter - Mirrored</A><BR>
@@ -78,21 +79,17 @@
 	onclose(user, "pipedispenser")
 	return
 
-/obj/machinery/pipedispenser/Topic(href, href_list)
-	if(..())
-		return
-	if(unwrenched || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
+/obj/machinery/pipedispenser/Topic(href, href_list, state = GLOB.physical_state)
+	if((. = ..()) || unwrenched)
 		usr << browse(null, "window=pipedispenser")
 		return
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
+
 	if(href_list["make"])
 		if(!wait)
 			var/p_type = text2num(href_list["make"])
 			var/p_dir = text2num(href_list["dir"])
 			var/obj/item/pipe/P = new (/*usr.loc*/ src.loc, pipe_type=p_type, dir=p_dir)
 			P.update()
-			P.add_fingerprint(usr)
 			wait = 1
 			spawn(10)
 				wait = 0
@@ -102,16 +99,17 @@
 			wait = 1
 			spawn(15)
 				wait = 0
-	return
 
 /obj/machinery/pipedispenser/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	src.add_fingerprint(usr)
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter))
+		if(!user.unEquip(W))
+			return
 		to_chat(usr, "<span class='notice'>You put \the [W] back into \the [src].</span>")
-		user.drop_item()
+		add_fingerprint(usr)
 		qdel(W)
 		return
-	else if (istype(W, /obj/item/weapon/wrench))
+	else if(isWrench(W))
+		add_fingerprint(usr)
 		if (unwrenched==0)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			to_chat(user, "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>")
@@ -157,11 +155,11 @@ Nah
 */
 
 //Allow you to drag-drop disposal pipes into it
-/obj/machinery/pipedispenser/disposal/MouseDrop_T(var/obj/structure/disposalconstruct/pipe as obj, mob/usr as mob)
-	if(!usr.canmove || usr.stat || usr.restrained())
+/obj/machinery/pipedispenser/disposal/MouseDrop_T(var/obj/structure/disposalconstruct/pipe as obj, mob/user as mob)
+	if(!CanPhysicallyInteract(user))
 		return
 
-	if (!istype(pipe) || get_dist(usr, src) > 1 || get_dist(src,pipe) > 1 )
+	if (!istype(pipe) || get_dist(src,pipe) > 1 )
 		return
 
 	if (pipe.anchored)
@@ -201,15 +199,12 @@ Nah
 // 0=straight, 1=bent, 2=junction-j1, 3=junction-j2, 4=junction-y, 5=trunk
 
 
-/obj/machinery/pipedispenser/disposal/Topic(href, href_list)
-	if(..())
+/obj/machinery/pipedispenser/disposal/Topic(href, href_list, state = GLOB.physical_state)
+	if((. = ..()) || unwrenched)
+		usr << browse(null, "window=pipedispenser")
 		return
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
+
 	if(href_list["dmake"])
-		if(unwrenched || !usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
-			usr << browse(null, "window=pipedispenser")
-			return
 		if(!wait)
 			var/p_type = text2num(href_list["dmake"])
 			if(p_type == 15)
@@ -257,7 +252,6 @@ Nah
 					if(22)
 						C.ptype = 12
 ///// Z-Level stuff
-				C.add_fingerprint(usr)
 				C.update()
 			wait = 1
 			spawn(15)

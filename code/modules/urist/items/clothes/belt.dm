@@ -19,7 +19,8 @@
  	/obj/item/device/flashlight,
  	/obj/item/stack/cable_coil,
  	/obj/item/device/analyzer,
- 	/obj/item/device/mmi
+ 	/obj/item/device/mmi,
+	/obj/item/device/integrated_electronics
  	)
 
 /obj/item/weapon/storage/belt/robotics/full/New()
@@ -36,7 +37,7 @@
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 	storage_slots = 1
 	can_hold = list(
-		/obj/item/device/pda
+		/obj/item/modular_computer/pda
 		)
 
 /obj/item/weapon/storage/belt/vanity/leather

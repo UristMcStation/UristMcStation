@@ -6,10 +6,14 @@
 	layer = BELOW_OBJ_LAYER
 	w_class = ITEM_SIZE_NO_CONTAINER
 	var/state = 0
-	var/health = 200
+	health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
 	var/material/reinf_material
 	var/reinforcing = 0
+
+/obj/structure/girder/Initialize()
+	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/simple, 100)
+	. = ..()
 
 /obj/structure/girder/displaced
 	icon_state = "displaced"
@@ -44,6 +48,9 @@
 
 	return
 
+/obj/structure/girder/CanFluidPass(var/coming_from)
+	return TRUE
+
 /obj/structure/girder/proc/reset_girder()
 	anchored = 1
 	cover = initial(cover)
@@ -55,7 +62,7 @@
 		reinforce_girder()
 
 /obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench) && state == 0)
+	if(isWrench(W) && state == 0)
 		if(anchored && !reinf_material)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
@@ -70,7 +77,7 @@
 				to_chat(user, "<span class='notice'>You secured the girder!</span>")
 				reset_girder()
 
-	else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
+	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
 		if(do_after(user,30,src))
 			if(!src) return
@@ -81,7 +88,7 @@
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isScrewdriver(W))
 		if(state == 2)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
@@ -94,17 +101,20 @@
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
 
-	else if(istype(W, /obj/item/weapon/wirecutters) && state == 1)
+	else if(isWirecutter(W) && state == 1)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user, 40,src))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You removed the support struts!</span>")
-			reinf_material.place_dismantled_product(get_turf(src))
-			reinf_material = null
+
+			if(reinf_material)
+				reinf_material.place_dismantled_product(get_turf(src))
+				reinf_material = null
+
 			reset_girder()
 
-	else if(istype(W, /obj/item/weapon/crowbar) && state == 0 && anchored)
+	else if(isCrowbar(W) && state == 0 && anchored)
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40,src))
@@ -131,7 +141,7 @@
 		to_chat(user, "<span class='notice'>There isn't enough material here to construct a wall.</span>")
 		return 0
 
-	var/material/M = name_to_material[S.default_type]
+	var/material/M = SSmaterials.get_material_by_name(S.default_type)
 	if(!istype(M))
 		return 0
 
@@ -172,7 +182,7 @@
 		to_chat(user, "<span class='notice'>There isn't enough material here to reinforce the girder.</span>")
 		return 0
 
-	var/material/M = name_to_material[S.default_type]
+	var/material/M = S.material
 	if(!istype(M) || M.integrity < 50)
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0
@@ -228,18 +238,17 @@
 	cover = 70
 
 /obj/structure/girder/cult/dismantle()
-	new /obj/item/remains/human(get_turf(src))
 	qdel(src)
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(isWrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
 		if(do_after(user,40,src))
 			to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
+	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
 		if(do_after(user,30,src))
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")

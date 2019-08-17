@@ -7,7 +7,7 @@
 	density = 1
 	use_power = 1
 	idle_power_usage = 4
-	active_power_usage = 4000 // 4 Kw. A CT scan machine uses 1-15 kW depending on the model and equipment involved.
+	active_power_usage = 4000 // 4 kW. A CT scan machine uses 1-15 kW depending on the model and equipment involved.
 	req_access = list(access_medical)
 
 	icon_state = "body_scanner_0"
@@ -28,13 +28,7 @@
 
 /obj/machinery/resleever/New()
 	..()
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src, 3)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-
-	RefreshParts()
+	build_default_parts(/obj/item/weapon/circuitboard/resleever)
 	update_icon()
 
 /obj/machinery/resleever/Destroy()
@@ -43,7 +37,7 @@
 	return ..()
 
 
-obj/machinery/resleever/process()
+obj/machinery/resleever/Process()
 
 	if(occupant)
 		occupant.Paralyse(4) // We need to always keep the occupant sleeping if they're in here.
@@ -108,8 +102,8 @@ obj/machinery/resleever/process()
 	return ..()
 
 
-/obj/machinery/resleever/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = default_state)
-	ui = tgui_process.try_update_ui(user, src, ui_key, ui, force_open)
+/obj/machinery/resleever/tg_ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
+	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "resleever", "Neural Lace Resleever", 300, 300, master_ui, state)
 		ui.open()
@@ -167,17 +161,15 @@ obj/machinery/resleever/process()
 			to_chat(user, "<span class='warning'>You need to remove the occupant first!</span>")
 			return
 	if(istype(W, /obj/item/organ/internal/stack))
-		if(isnull(lace))
+		if(isnull(lace) && user.unEquip(W, src))
 			to_chat(user, "<span class='notice'>You insert \the [W] into [src].</span>")
-			user.drop_from_inventory(W)
 			lace = W
-			W.forceMove(src)
 			if(lace.backup)
 				lace_name = lace.backup.name
 		else
 			to_chat(user, "<span class='warning'>\The [src] already has a neural lace inside it!</span>")
 			return
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(isWrench(W))
 		if(isnull(occupant))
 			if(anchored)
 				anchored = 0
@@ -189,8 +181,8 @@ obj/machinery/resleever/process()
 		else
 			to_chat(user, "<span class='warning'>Can not do that while [src] is occupied.</span>")
 
-	else if(istype(W, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/grab = W
+	else if(istype(W, /obj/item/grab))
+		var/obj/item/grab/grab = W
 		if(occupant)
 			to_chat(user, "<span class='notice'>\The [src] is in use.</span>")
 			return

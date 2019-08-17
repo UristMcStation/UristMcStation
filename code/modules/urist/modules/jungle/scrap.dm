@@ -57,12 +57,12 @@
 	..()
 
 /obj/structure/scrap/Destroy()
-	qdel(loot)
-	loot = null
-	..()
+	QDEL_NULL(loot)
+	. = ..()
 
 /obj/structure/scrap/proc/shuffle_loot()
-	loot.close_all()
+	if(loot.atom_flags & ATOM_FLAG_INITIALIZED)
+		loot.close_all()
 	for(var/A in loot)
 		loot.remove_from_storage(A,src)
 	if(contents.len)
@@ -178,10 +178,11 @@
 		/obj/structure/scrap/large
 		)
 
-/obj/structure/scrap/random/New()
+/obj/structure/scrap/random/Initialize()
+	. = ..()
 	var/A = pick(scrap_list)
 	new A(src.loc)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/storage/internal/updating/update_icon()
 	master_item.update_icon()
@@ -217,11 +218,11 @@
 	icon = 'icons/urist/items/vehicle_parts.dmi'
 	w_class = 3
 
-/obj/item/vehicle_part/random/New()
-	..()
+/obj/item/vehicle_part/random/Initialize()
+	. = ..()
 	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric, /obj/item/vehicle_part/tire)
 	new part(src.loc)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 /obj/item/vehicle_part/battery
 	name = "battery"

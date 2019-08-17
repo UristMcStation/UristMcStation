@@ -6,12 +6,12 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_pocket = /obj/item/weapon/melee/energy/sword
-	mask = /obj/item/clothing/mask/bandana/bedsheet/red
+	mask = /obj/item/clothing/mask/urist/bandana/bedsheet/red
 
 	id_slot = slot_wear_id
 	id_type = /obj/item/weapon/card/id/syndicate/station_access
 	pda_slot = slot_belt
-	pda_type = /obj/item/device/pda/heads
+	pda_type = /obj/item/modular_computer/pda/heads
 	id_pda_assignment = "ANTAG Operative"
 
 /decl/hierarchy/outfit/ANTAG/post_equip(var/mob/living/carbon/human/H)
@@ -33,7 +33,7 @@
 /decl/hierarchy/outfit/ANFOR
 	name = "ANFOR Marine"
 	uniform = /obj/item/clothing/under/urist/anfor
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/urist/anforjackboots
 	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	//glasses = /obj/item/clothing/glasses/thermal
@@ -41,8 +41,8 @@
 	head = /obj/item/clothing/head/helmet/urist/anfor
 	//mask = /obj/item/clothing/mask/gas/swat
 	back = /obj/item/weapon/storage/backpack/security
-	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/regular = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1)
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1, /obj/item/weapon/storage/box/survival = 1)
 	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
 	r_pocket = /obj/item/weapon/tank/emergency/oxygen
 	l_pocket = /obj/item/ammo_magazine/a556/a22
@@ -286,6 +286,19 @@
 	r_hand = /obj/item/weapon/gun/energy/lactera/a3
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/regular
+
+/decl/hierarchy/outfit/lactera/heavy
+	name = "Lactera Heavy"
+	uniform = /obj/item/clothing/under/lactera
+	shoes = /obj/item/clothing/shoes/magboots/lactera
+	glasses = /obj/item/clothing/glasses/night
+	suit = /obj/item/clothing/suit/lactera/max
+	belt = /obj/item/weapon/gun/energy/lactera/a1
+	r_hand = /obj/item/weapon/gun/energy/lactera/a4
+	r_pocket = /obj/item/weapon/grenade/aliengrenade
+	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/max
 
 /decl/hierarchy/outfit/lactera/officer
 	name = "Lactera Officer"
@@ -297,3 +310,60 @@
 	r_hand = /obj/item/weapon/gun/energy/lactera/a2
 	r_pocket = /obj/item/weapon/grenade/aliengrenade
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
+	head = /obj/item/clothing/head/lactera/cmd
+
+/decl/hierarchy/outfit/terranmarine
+	name = "Terran Marine"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	mask = /obj/item/clothing/mask/gas/terranhalf
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/storage/urist/terran_marine
+	head = /obj/item/clothing/head/helmet/urist/terran_marine
+	back = /obj/item/weapon/storage/backpack/rucksack/tan
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a556/a22
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom
+
+/decl/hierarchy/outfit/terranmarinespace
+	name = "Terran Marine - Space"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	mask = /obj/item/clothing/mask/gas/terranhalf
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/space/void/terran_marine
+	head = /obj/item/clothing/head/helmet/space/void/terran_marine
+	back = /obj/item/weapon/storage/backpack/security
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/weapon/plastique = 1, /obj/item/weapon/gun/projectile/colt/a7 = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a556/a22
+	suit_store = /obj/item/weapon/tank/oxygen
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom
+
+/decl/hierarchy/outfit/terranofficer
+	name = "Terran Officer"
+	uniform = /obj/item/clothing/under/urist/terran/marine
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/thick/swat
+	l_ear = /obj/item/device/radio/headset
+	suit = /obj/item/clothing/suit/storage/urist/terran_officer
+	head = /obj/item/clothing/head/urist/terran/officercap
+	back = /obj/item/weapon/storage/backpack/urist/explorersatchel
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/weapon/tank/emergency/oxygen = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/asmg
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a9mm
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/centcom

@@ -20,7 +20,7 @@
 	..()
 	if(!material_name)
 		material_name = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_name(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -118,7 +118,7 @@
 
 
 /obj/machinery/door/unpowered/simple/attackby(obj/item/I as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	src.add_fingerprint(user, 0, I)
 	if(istype(I, /obj/item/weapon/key) && lock)
 		var/obj/item/weapon/key/K = I
 		if(!lock.toggle(I))
@@ -216,9 +216,12 @@
 /obj/machinery/door/unpowered/simple/diamond/New(var/newloc,var/material_name,var/complexity)
 	..(newloc, "diamond", complexity)
 
+/obj/machinery/door/unpowered/simple/phoron/New(var/newloc,var/material_name,var/complexity)
+	..(newloc, "phoron", complexity)
+
 /obj/machinery/door/unpowered/simple/wood
 	icon_state = "wood"
-	color = "#824B28"
+	color = "#824b28"
 
 /obj/machinery/door/unpowered/simple/wood/New(var/newloc,var/material_name,var/complexity)
 	..(newloc, "wood", complexity)
@@ -238,3 +241,9 @@
 
 /obj/machinery/door/unpowered/simple/cult/New(var/newloc,var/material_name,var/complexity)
 	..(newloc, "cult", complexity)
+
+/obj/machinery/door/unpowered/simple/alium/New(var/newloc,var/material_name,var/complexity)
+	..(newloc, "alien alloy", complexity)
+
+/obj/machinery/door/unpowered/simple/biomass/New(var/newloc,var/material_name,var/complexity)
+	..(newloc, "biomass", complexity)

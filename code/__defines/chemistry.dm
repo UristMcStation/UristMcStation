@@ -21,20 +21,32 @@
 #define IS_VOX     2
 #define IS_SKRELL  3
 #define IS_UNATHI  4
-#define IS_TAJARA  5
-#define IS_XENOS   6
-#define IS_RESOMI  7
-#define IS_SLIME   8
+#define IS_XENOS   5
+#define IS_SLIME   6
+#define IS_NABBER  7
+#define IS_RESOMI  8
 
-#define CE_STABLE "stable" // Inaprovaline
-#define CE_ANTIBIOTIC "antibiotic" // Spaceacilin
-#define CE_BLOODRESTORE "bloodrestore" // Iron/nutriment
-#define CE_PAINKILLER "painkiller"
-#define CE_ALCOHOL "alcohol" // Liver filtering
-#define CE_ALCOHOL_TOXIC "alcotoxic" // Liver damage
-#define CE_SPEEDBOOST "gofast" // Hyperzine
-#define CE_PULSE      "xcardic" // increases or decreases heart rate
-#define CE_NOPULSE    "heartstop" // stops heartbeat
+#define CE_STABLE        "stable"       // Inaprovaline
+#define CE_ANTIBIOTIC    "antibiotic"   // Spaceacilin
+#define CE_BLOODRESTORE  "bloodrestore" // Iron/nutriment
+#define CE_PAINKILLER    "painkiller"
+#define CE_ALCOHOL       "alcohol"      // Liver filtering
+#define CE_ALCOHOL_TOXIC "alcotoxic"    // Liver damage
+#define CE_SPEEDBOOST    "gofast"       // Hyperzine
+#define CE_SLOWDOWN      "goslow"       // Slowdown
+#define CE_PULSE         "xcardic"      // increases or decreases heart rate
+#define CE_NOPULSE       "heartstop"    // stops heartbeat
+#define CE_ANTITOX       "antitox"      // Dylovene
+#define CE_OXYGENATED    "oxygen"       // Dexalin.
+#define CE_BRAIN_REGEN   "brainfix"     // Alkysine.
+#define CE_ANTIVIRAL     "antiviral"    // Anti-virus effect.
+#define CE_TOXIN         "toxins"       // Generic toxins, stops autoheal.
+#define CE_BREATHLOSS    "breathloss"   // Breathing depression, makes you need more air
+#define CE_MIND    		 "mindbending"  // Stabilizes or wrecks mind. Used for hallucinations
+#define CE_CRYO 	     "cryogenic"    // Prevents damage from being frozen
+#define CE_BLOCKAGE	     "blockage"     // Gets in the way of blood circulation, higher the worse
+#define CE_SQUEAKY		 "squeaky"      // Helium voice. Squeak squeak.
+#define CE_ANTIBIOTIC    "antibiotic"   // Fights wound-based infections.
 
 //reagent flags
 #define IGNORE_MOB_SIZE 0x1

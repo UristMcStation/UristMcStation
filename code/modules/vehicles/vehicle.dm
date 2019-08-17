@@ -12,12 +12,13 @@
 	density = 1
 	anchored = 1
 	animate_movement=1
-	light_range = 3
+	light_max_bright = 0.4
+	light_outer_range = 3
 
 	can_buckle = 1
 	buckle_movable = 1
 	buckle_lying = 0
-	
+
 	var/attack_log = null
 	var/on = 0
 	var/health = 0	//do not forget to set health for your vehicle!
@@ -79,17 +80,17 @@
 /obj/vehicle/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/hand_labeler))
 		return
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isScrewdriver(W))
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(istype(W, /obj/item/weapon/crowbar) && cell && open)
+	else if(isCrowbar(W) && cell && open)
 		remove_cell(user)
 
 	else if(istype(W, /obj/item/weapon/cell) && !cell && open)
 		insert_cell(W, user)
-	else if(istype(W, /obj/item/weapon/weldingtool))
+	else if(isWelder(W))
 		var/obj/item/weapon/weldingtool/T = W
 		if(T.welding)
 			if(health < maxhealth)
@@ -144,9 +145,9 @@
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
 	pulse2.icon = 'icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
-	pulse2.name = "emp sparks"
+	pulse2.SetName("emp sparks")
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	spawn(10)
 		qdel(pulse2)
@@ -174,7 +175,7 @@
 	if(powered && cell.charge < (charge_use * CELLRATE))
 		return 0
 	on = 1
-	set_light(initial(light_range))
+	set_light(initial(light_max_bright), 1, 3)
 	update_icon()
 	return 1
 
@@ -241,9 +242,8 @@
 		return
 	if(!istype(C))
 		return
-
-	H.drop_from_inventory(C)
-	C.forceMove(src)
+	if(!H.unEquip(C, src))
+		return
 	cell = C
 	powercheck()
 	to_chat(usr, "<span class='notice'>You install [C] in [src].</span>")
@@ -323,7 +323,7 @@
 	//if these all result in the same turf as the vehicle or nullspace, pick a new turf with open space
 	if(!dest || dest == get_turf(src))
 		var/list/options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
 			if(new_dir && load.Adjacent(new_dir))
 				options += new_dir
@@ -351,6 +351,7 @@
 		unbuckle_mob(load)
 
 	load = null
+	update_icon()
 
 	return 1
 

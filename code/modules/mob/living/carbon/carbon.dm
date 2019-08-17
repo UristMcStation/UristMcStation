@@ -1,7 +1,7 @@
 /mob/living/carbon/New()
 	//setup reagent holders
-	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
-	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
+	bloodstr = new/datum/reagents/metabolism(120, src, CHEM_BLOOD)
+	ingested = new/datum/reagents/metabolism(240, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
 
@@ -9,23 +9,13 @@
 		default_language = all_languages[species_language]
 	..()
 
-/mob/living/carbon/Life()
-	..()
-
-	handle_viruses()
-
-	// Increase germ_level regularly
-	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
-		germ_level++
-
 /mob/living/carbon/Destroy()
-	qdel(ingested)
-	qdel(touching)
+	QDEL_NULL(ingested)
+	QDEL_NULL(touching)
 	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
-	for(var/guts in internal_organs)
-		qdel(guts)
-	for(var/food in stomach_contents)
-		qdel(food)
+	QDEL_NULL_LIST(internal_organs)
+	QDEL_NULL_LIST(stomach_contents)
+	QDEL_NULL_LIST(hallucinations)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -37,17 +27,19 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
-	if(.)
-		if(src.nutrition && src.stat != 2)
-			src.nutrition -= DEFAULT_HUNGER_FACTOR/10
-			if(src.m_intent == "run")
-				src.nutrition -= DEFAULT_HUNGER_FACTOR/10
-		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
-			src.bodytemperature += 2
+	if(!.)
+		return
 
-		// Moving around increases germ_level faster
-		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
-			germ_level++
+	if (src.nutrition && src.stat != 2)
+		src.nutrition -= DEFAULT_HUNGER_FACTOR/10
+		if (move_intent.flags & MOVE_INTENT_EXERTIVE)
+			src.nutrition -= DEFAULT_HUNGER_FACTOR/10
+	if((FAT in src.mutations) && (move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= 360)
+		src.bodytemperature += 2
+
+	// Moving around increases germ_level faster
+	if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
+		germ_level++
 
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
 	if((user in src.stomach_contents) && istype(user))
@@ -61,7 +53,7 @@
 					var/mob/living/carbon/human/H = src
 					var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
 					if (istype(organ))
-						organ.take_damage(d, 0)
+						organ.take_external_damage(d, 0)
 					H.updatehealth()
 				else
 					src.take_organ_damage(d)
@@ -99,12 +91,13 @@
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
-	shock_damage *= siemens_coeff
-	if (shock_damage<1)
+
+	shock_damage = apply_shock(shock_damage, def_zone, siemens_coeff)
+
+	if(!shock_damage)
 		return 0
 
 	stun_effect_act(agony_amount=shock_damage, def_zone=def_zone)
-	apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
 
 	playsound(loc, "sparks", 50, 1, -1)
 	if (shock_damage > 15)
@@ -130,11 +123,22 @@
 		if(31 to INFINITY)
 			Weaken(10) //This should work for now, more is really silly and makes you lay there forever
 
+	make_jittery(min(shock_damage*5, 200))
+
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(5, 1, loc)
 	s.start()
 
 	return shock_damage
+
+/mob/living/carbon/proc/apply_shock(var/shock_damage, var/def_zone, var/siemens_coeff = 1.0)
+	shock_damage *= siemens_coeff
+	if(shock_damage < 0.5)
+		return 0
+	if(shock_damage < 1)
+		shock_damage = 1
+	apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+	return(shock_damage)
 
 /mob/proc/swap_hand()
 	return
@@ -164,7 +168,7 @@
 		swap_hand()
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
-	if (src.health >= config.health_threshold_crit)
+	if(!is_asystole())
 		if (on_fire)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			if (M.on_fire)
@@ -222,9 +226,11 @@
 					M.fire_stacks -= 1
 				if(M.on_fire)
 					src.IgniteMob()
-			AdjustParalysis(-3)
-			AdjustStunned(-3)
-			AdjustWeakened(-3)
+
+			if(stat != DEAD)
+				AdjustParalysis(-3)
+				AdjustStunned(-3)
+				AdjustWeakened(-3)
 
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
@@ -255,8 +261,8 @@
 				H.update_inv_gloves(0)
 			H.gloves.germ_level = 0
 		else
-			if(H.bloody_hands)
-				H.bloody_hands = 0
+			if(!isnull(H.bloody_hands))
+				H.bloody_hands = null
 				H.update_inv_gloves(0)
 			H.germ_level = 0
 	update_icons()	//apply the now updated overlays to the mob
@@ -276,15 +282,16 @@
 	if(!item) return
 
 	var/throw_range = item.throw_range
-	if (istype(item, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = item
+	var/itemsize
+	if (istype(item, /obj/item/grab))
+		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item))
 			var/mob/M = item
 
 			//limit throw range by relative mob size
 			throw_range = round(M.throw_range * min(src.mob_size/M.mob_size, 1))
-
+			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
@@ -292,18 +299,24 @@
 				var/end_T_descriptor = "<font color='#6b4400'>[start_T] \[[end_T.x],[end_T.y],[end_T.z]\] ([end_T.loc])</font>"
 				admin_attack_log(usr, M, "Threw the victim from [start_T_descriptor] to [end_T_descriptor].", "Was from [start_T_descriptor] to [end_T_descriptor].", "threw, from [start_T_descriptor] to [end_T_descriptor], ")
 
-	src.drop_from_inventory(item)
+	else if (istype(item, /obj/item/))
+		var/obj/item/I = item
+		itemsize = I.w_class
+
+	if(!unEquip(item))
+		return
 	if(!item || !isturf(item.loc))
 		return
 
 	//actually throw it!
-	src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
+	src.visible_message("<span class='warning'>[src] has thrown [item].</span>", range = min(itemsize*2,world.view))
 
 	if(!src.lastarea)
 		src.lastarea = get_area(src.loc)
 	if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity == 0))
-		src.inertia_dir = get_dir(target, src)
-		step(src, inertia_dir)
+		if(prob((itemsize * itemsize * 10) * MOB_MEDIUM/src.mob_size))
+			src.inertia_dir = get_dir(target, src)
+			step(src, inertia_dir)
 
 
 /*
@@ -377,13 +390,15 @@
 	else
 		chem_effects[effect] = magnitude
 
+/mob/living/carbon/proc/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
+	if(effect in chem_effects)
+		chem_effects[effect] = max(magnitude, chem_effects[effect])
+	else
+		chem_effects[effect] = magnitude
+
 /mob/living/carbon/get_default_language()
 	if(default_language && can_speak(default_language))
 		return default_language
-
-	if(!species)
-		return null
-	return species.default_language ? all_languages[species.default_language] : null
 
 /mob/living/carbon/show_inv(mob/user as mob)
 	user.set_machine(src)
@@ -428,7 +443,42 @@
 /mob/living/carbon/proc/can_feel_pain(var/check_organ)
 	if(isSynthetic())
 		return 0
-	return !(species && species.flags & NO_PAIN)
+	return !(species && species.species_flags & SPECIES_FLAG_NO_PAIN)
 
 /mob/living/carbon/proc/get_adjusted_metabolism(metabolism)
 	return metabolism
+
+/mob/living/carbon/proc/need_breathe()
+	return
+
+/mob/living/carbon/check_has_mouth()
+	// carbon mobs have mouths by default
+	// behavior of this proc for humans is overridden in human.dm
+	return 1
+
+/mob/living/carbon/proc/check_mouth_coverage()
+	// carbon mobs do not have blocked mouths by default
+	// overridden in human_defense.dm
+	return null
+
+/mob/living/carbon/proc/SetStasis(var/factor, var/source = "misc")
+	if((species && (species.species_flags & SPECIES_FLAG_NO_SCAN)) || isSynthetic())
+		return
+	stasis_sources[source] = factor
+
+/mob/living/carbon/proc/InStasis()
+	if(!stasis_value)
+		return FALSE
+	return life_tick % stasis_value
+
+// call only once per run of life
+/mob/living/carbon/proc/UpdateStasis()
+	stasis_value = 0
+	if((species && (species.species_flags & SPECIES_FLAG_NO_SCAN)) || isSynthetic())
+		return
+	for(var/source in stasis_sources)
+		stasis_value += stasis_sources[source]
+	stasis_sources.Cut()
+
+/mob/living/carbon/has_chem_effect(chem, threshold)
+	return (chem_effects[chem] >= threshold)

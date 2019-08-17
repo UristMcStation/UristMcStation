@@ -13,59 +13,60 @@
 	return //can't strip lactera
 
 /obj/item/organ/external/chest/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/groin/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/arm/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/arm/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/leg/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/leg/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/foot/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/foot/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/hand/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/hand/right/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-	cannot_amputate = 1
+	arterial_bleed_severity = 0
 
 /obj/item/organ/external/head/lactera
-	cannot_break = 1
+	limb_flags = null
 	dislocated = -1
-//	cannot_amputate = 1
+	arterial_bleed_severity = 0
+	eye_icon_location = 'icons/uristmob/species/lactera/eyes.dmi'
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0
@@ -100,7 +101,12 @@
 	name = "Lactera"
 	name_plural = "Lactera"
 
-	icobase = 'icons/uristmob/r_lactera.dmi'
+	icon_template = 'icons/mob/human_races/species/template.dmi'
+	icobase = 'icons/uristmob/species/lactera/body.dmi'
+	preview_icon = 'icons/uristmob/species/lactera/preview.dmi'
+	deform = 'icons/uristmob/species/lactera/deform.dmi'
+
+	natural_armour_values = list(melee = 0, bullet = 0, laser = 0, energy = 10, bomb = 10, bio = 100, rad = 100)
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws/strong)
 
@@ -111,38 +117,50 @@
 	spawns_with_stack = 0
 
 	brute_mod = 1.6
-	burn_mod = 1
+	burn_mod = 1.1
+	radiation_mod = 0    // No feasible way of curing radiation.
+	flash_mod =     0    // Denied.
+	stun_mod =      0.5  // Halved stun times.
+	paralysis_mod = 0.25 // Quartered paralysis times.
 
-	flags = NO_SCAN | NO_PAIN | NO_POISON
+	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_MINOR_CUT
 	spawn_flags = SPECIES_IS_RESTRICTED
 
 	reagent_tag = IS_XENOS
 
-	blood_color = "#A10808"
+	blood_color = "#a10808"
 
-	blood_color = "#05EE05"
+	blood_color = "#05ee05"
 	flesh_color = "null"
 	gibbed_anim = "blank"
 	dusted_anim = "blank"
 	death_message = "bursts into flames and disappears."
 	death_sound = 'sound/voice/hiss6.ogg'
 
-	default_language = "Xenomorph"
-	language = "Hivemind"
+	pixel_offset_x = 0
+//	default_language = "Xenomorph"
+//	language = "Hivemind"
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
 
 	vision_flags = SEE_SELF
 
+	genders = list(NEUTER)
+
+	force_cultural_info = list(
+		TAG_CULTURE =   CULTURE_LACTERA,
+		TAG_HOMEWORLD = HOME_SYSTEM_GALACTIC_CRISIS,
+		TAG_FACTION =   FACTION_GALACTIC_CRISIS,
+		TAG_RELIGION =  RELIGION_OTHER
+	)
+
 	has_organ = list(
 		BP_HEART =           /obj/item/organ/internal/heart,
 		BP_BRAIN =           /obj/item/organ/internal/brain/xeno,
-		BP_HIVE =       /obj/item/organ/internal/xenos/hivenode,
+		BP_HIVE =       /obj/item/organ/internal/xeno/hivenode,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
-
-	caste_name = "lactera" // Used to update alien name.
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/lactera),
@@ -164,3 +182,6 @@
 	spawn(5)
 		qdel(H)
 	return
+
+/datum/species/xenos/lactera/get_bodytype(var/mob/living/carbon/human/H)
+	return name

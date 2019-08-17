@@ -2,7 +2,19 @@
 // Abstract Class
 //
 
-var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/cable, /obj/structure/window, /obj/item/projectile/animate)
+var/global/list/protected_objects = list(/obj/machinery,
+										 /obj/structure/table,
+										 /obj/structure/cable,
+										 /obj/structure/window,
+										 /obj/structure/wall_frame,
+										 /obj/structure/grille,
+										 /obj/structure/catwalk,
+										 /obj/structure/ladder,
+										 /obj/structure/stairs,
+										 /obj/structure/sign,
+										 /obj/structure/railing,
+										 /obj/item/modular_computer,
+										 /obj/item/projectile/animate)
 
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
@@ -11,7 +23,7 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	icon_state = "crate"
 	icon_living = "crate"
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/fish
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"
@@ -25,14 +37,8 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	attacktext = "attacked"
 	attack_sound = 'sound/weapons/bite.ogg'
 
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 	faction = "mimic"
@@ -42,6 +48,7 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	var/weakref/creator // the creator
 	var/destroy_objects = 0
 	var/knockdown_people = 0
+	pass_flags = PASS_FLAG_TABLE
 
 /mob/living/simple_animal/hostile/mimic/New(newloc, var/obj/o, var/mob/living/creator)
 	..()
@@ -119,10 +126,10 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	if(destroy_objects)
 		..()
 
-/mob/living/simple_animal/hostile/mimic/AttackingTarget()
+/mob/living/simple_animal/hostile/mimic/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
 	if(knockdown_people)
-		var/mob/living/L = .
+		var/mob/living/L = A
 		if(istype(L))
 			if(prob(15))
 				L.Weaken(1)

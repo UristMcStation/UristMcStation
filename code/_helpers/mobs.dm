@@ -30,78 +30,84 @@
 proc/random_hair_style(gender, species = SPECIES_HUMAN)
 	var/h_style = "Bald"
 
-	var/list/valid_hairstyles = list()
-	for(var/hairstyle in hair_styles_list)
-		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-
-		if(gender != NEUTER && gender != PLURAL)
-			if(gender == MALE && S.gender == FEMALE)
-				continue
-			if(gender == FEMALE && S.gender == MALE)
-				continue
-
-		if( !(species in S.species_allowed))
-			continue
-		valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
-
+	var/datum/species/mob_species = all_species[species]
+	var/list/valid_hairstyles = mob_species.get_hair_styles()
 	if(valid_hairstyles.len)
 		h_style = pick(valid_hairstyles)
 
 	return h_style
 
-proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
+proc/random_facial_hair_style(gender, var/species = SPECIES_HUMAN)
 	var/f_style = "Shaved"
-
-	var/list/valid_facialhairstyles = list()
-	for(var/facialhairstyle in facial_hair_styles_list)
-		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
-
-		if(gender != NEUTER && gender != PLURAL)
-			if(gender == MALE && S.gender == FEMALE)
-				continue
-			if(gender == FEMALE && S.gender == MALE)
-				continue
-
-		if( !(species in S.species_allowed))
-			continue
-
-		valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
-
+	var/datum/species/mob_species = all_species[species]
+	var/list/valid_facialhairstyles = mob_species.get_facial_hair_styles(gender)
 	if(valid_facialhairstyles.len)
 		f_style = pick(valid_facialhairstyles)
-
 		return f_style
 
-proc/sanitize_name(name, species = SPECIES_HUMAN)
-	var/datum/species/current_species
-	if(species)
-		current_species = all_species[species]
-
-	return current_species ? current_species.sanitize_name(name) : sanitizeName(name)
-
 proc/random_name(gender, species = SPECIES_HUMAN)
-
-	var/datum/species/current_species
 	if(species)
-		current_species = all_species[species]
+		var/datum/species/current_species = all_species[species]
+		if(current_species)
+			var/decl/cultural_info/current_culture = SSculture.get_culture(current_species.default_cultural_info[TAG_CULTURE])
+			if(current_culture)
+				return current_culture.get_random_name(gender)
+	return capitalize(pick(gender == FEMALE ? GLOB.first_names_female : GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
-	if(!current_species)
-		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
-		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
-	else
-		return current_species.get_random_name(gender)
-
-proc/random_skin_tone()
+proc/random_skin_tone(var/datum/species/current_species)
+	var/species_tone = current_species ? 35 - current_species.max_skin_tone() : -185
 	switch(pick(60;"caucasian", 15;"afroamerican", 10;"african", 10;"latino", 5;"albino"))
 		if("caucasian")		. = -10
 		if("afroamerican")	. = -115
 		if("african")		. = -165
 		if("latino")		. = -55
 		if("albino")		. = 34
-		else				. = rand(-185,34)
-	return min(max( .+rand(-25, 25), -185),34)
+		else				. = rand(species_tone,34)
+
+	return min(max(. + rand(-25, 25), species_tone), 34)
+
+/proc/random_hair_color()
+	var/list/rgb[3]
+	var/col = pick("blonde", "black", "chestnut", "copper", "brown", "wheat", "old", "punk")
+	switch(col)
+		if("blonde")
+			rgb[1] = 255
+			rgb[2] = 255
+			rgb[3] = 0
+		if("black")
+			rgb[1] = 0
+			rgb[2] = 0
+			rgb[3] = 0
+		if("chestnut")
+			rgb[1] = 153
+			rgb[2] = 102
+			rgb[3] = 51
+		if("copper")
+			rgb[1] = 255
+			rgb[2] = 153
+			rgb[3] = 0
+		if("brown")
+			rgb[1] = 102
+			rgb[2] = 51
+			rgb[3] = 0
+		if("wheat")
+			rgb[1] = 255
+			rgb[2] = 255
+			rgb[3] = 153
+		if("old")
+			rgb[1] = rand (100, 255)
+			rgb[2] = rgb[1]
+			rgb[3] = rgb[1]
+		if("punk")
+			rgb[1] = rand (0, 255)
+			rgb[2] = rand (0, 255)
+			rgb[3] = rand (0, 255)
+
+	rgb[1] = max(min(rgb[1] + rand (-25, 25), 255), 0)
+	rgb[2] = max(min(rgb[2] + rand (-25, 25), 255), 0)
+	rgb[3] = max(min(rgb[3] + rand (-25, 25), 255), 0)
+
+	return rgb
 
 proc/skintone2racedescription(tone)
 	switch (tone)
@@ -143,13 +149,9 @@ proc/age2agedescription(age)
 	return (thing in R.module.modules)
 
 /proc/get_exposed_defense_zone(var/atom/movable/target)
-	var/obj/item/weapon/grab/G = locate() in target
-	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
-		return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
-	else
-		return pick(BP_CHEST, BP_GROIN)
+	return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN)
 
-/proc/do_mob(mob/user , mob/target, time = 30, target_zone = 0, uninterruptible = 0, progress = 1)
+/proc/do_mob(mob/user , mob/target, time = 30, target_zone = 0, uninterruptible = 0, progress = 1, var/incapacitation_flags = INCAPACITATION_DEFAULT)
 	if(!user || !target)
 		return 0
 	var/user_loc = user.loc
@@ -173,7 +175,7 @@ proc/age2agedescription(age)
 		if(uninterruptible)
 			continue
 
-		if(!user || user.incapacitated() || user.loc != user_loc)
+		if(!user || user.incapacitated(incapacitation_flags) || user.loc != user_loc)
 			. = 0
 			break
 
@@ -192,11 +194,13 @@ proc/age2agedescription(age)
 	if (progbar)
 		qdel(progbar)
 
-/proc/do_after(mob/user, delay, atom/target = null, needhand = 1, progress = 1, var/incapacitation_flags = INCAPACITATION_DEFAULT)
+/proc/do_after(mob/user, delay, atom/target = null, needhand = 1, progress = 1, var/incapacitation_flags = INCAPACITATION_DEFAULT, var/same_direction = 0, var/can_move = 0)
 	if(!user)
 		return 0
 	var/atom/target_loc = null
 	var/target_type = null
+
+	var/original_dir = user.dir
 
 	if(target)
 		target_loc = target.loc
@@ -218,11 +222,11 @@ proc/age2agedescription(age)
 		if (progress)
 			progbar.update(world.time - starttime)
 
-		if(!user || user.incapacitated(incapacitation_flags) || user.loc != original_loc)
+		if(!user || user.incapacitated(incapacitation_flags) || (user.loc != original_loc && !can_move) || (same_direction && user.dir != original_dir))
 			. = 0
 			break
 
-		if(target_loc && (!target || deleted(target) || target_loc != target.loc || target_type != target.type))
+		if(target_loc && (!target || QDELETED(target) || target_loc != target.loc || target_type != target.type))
 			. = 0
 			break
 
@@ -255,24 +259,53 @@ proc/age2agedescription(age)
 /mob/proc/add_to_living_mob_list()
 	return FALSE
 /mob/living/add_to_living_mob_list()
-	if((src in living_mob_list_) || (src in dead_mob_list_))
+	if((src in GLOB.living_mob_list_) || (src in GLOB.dead_mob_list_))
 		return FALSE
-	living_mob_list_ += src
+	GLOB.living_mob_list_ += src
 	return TRUE
 
 // Returns true if the mob was removed from the living list
 /mob/proc/remove_from_living_mob_list()
-	return living_mob_list_.Remove(src)
+	return GLOB.living_mob_list_.Remove(src)
 
 // Returns true if the mob was in neither the dead or living list
 /mob/proc/add_to_dead_mob_list()
 	return FALSE
 /mob/living/add_to_dead_mob_list()
-	if((src in living_mob_list_) || (src in dead_mob_list_))
+	if((src in GLOB.living_mob_list_) || (src in GLOB.dead_mob_list_))
 		return FALSE
-	dead_mob_list_ += src
+	GLOB.dead_mob_list_ += src
 	return TRUE
 
 // Returns true if the mob was removed form the dead list
 /mob/proc/remove_from_dead_mob_list()
-	return dead_mob_list_.Remove(src)
+	return GLOB.dead_mob_list_.Remove(src)
+
+//Find a dead mob with a brain and client.
+/proc/find_dead_player(var/find_key, var/include_observers = 0)
+	if(isnull(find_key))
+		return
+
+	var/mob/selected = null
+
+	if(include_observers)
+		for(var/mob/M in GLOB.player_list)
+			if((M.stat != DEAD) || (!M.client))
+				continue
+			if(M.ckey == find_key)
+				selected = M
+				break
+	else
+		for(var/mob/living/M in GLOB.player_list)
+			//Dead people only thanks!
+			if((M.stat != DEAD) || (!M.client))
+				continue
+			//They need a brain!
+			if(istype(M, /mob/living/carbon/human))
+				var/mob/living/carbon/human/H = M
+				if(H.should_have_organ(BP_BRAIN) && !H.has_brain())
+					continue
+			if(M.ckey == find_key)
+				selected = M
+				break
+	return selected

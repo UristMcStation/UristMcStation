@@ -22,7 +22,7 @@ var/list/ghost_traps
 /datum/ghosttrap
 	var/object = "positronic brain"
 	var/minutes_since_death = 0     // If non-zero the ghost must have been dead for this many minutes to be allowed to spawn
-	var/list/ban_checks = list("AI","Cyborg")
+	var/list/ban_checks = list("AI","Robot")
 	var/pref_check = BE_SYNTH
 	var/ghost_trap_message = "They are occupying a positronic brain now."
 	var/ghost_trap_role = "Positronic Brain"
@@ -51,11 +51,11 @@ var/list/ghost_traps
 /datum/ghosttrap/proc/request_player(var/mob/target, var/request_string, var/request_timeout)
 	if(request_timeout)
 		request_timeouts[target] = world.time + request_timeout
-		destroyed_event.register(target, src, /datum/ghosttrap/proc/unregister_target)
+		GLOB.destroyed_event.register(target, src, /datum/ghosttrap/proc/unregister_target)
 	else
 		unregister_target(target)
 
-	for(var/mob/observer/ghost/O in player_list)
+	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(!assess_candidate(O, target, FALSE))
 			return
 		if(pref_check && !O.client.wishes_to_be_role(pref_check))
@@ -65,7 +65,7 @@ var/list/ghost_traps
 
 /datum/ghosttrap/proc/unregister_target(var/target)
 	request_timeouts -= target
-	destroyed_event.unregister(target, src, /datum/ghosttrap/proc/unregister_target)
+	GLOB.destroyed_event.unregister(target, src, /datum/ghosttrap/proc/unregister_target)
 
 // Handles a response to request_player().
 /datum/ghosttrap/Topic(href, href_list)
@@ -107,13 +107,13 @@ var/list/ghost_traps
 	to_chat(target, "<b>Remember, the purpose of your existence is to serve the crew and the [station_name()]. Above all else, do no harm.</b>")
 	to_chat(target, "<b>Use say [target.get_language_prefix()]b to speak to other artificial intelligences.</b>")
 	var/turf/T = get_turf(target)
-	var/obj/item/device/mmi/digital/posibrain/P = target.loc
+	var/obj/item/organ/internal/posibrain/P = target.loc
 	T.visible_message("<span class='notice'>\The [P] chimes quietly.</span>")
 	if(!istype(P)) //wat
 		return
 	P.searching = 0
-	P.name = "positronic brain ([P.brainmob.name])"
-	P.icon_state = "posibrain-occupied"
+	P.SetName("positronic brain ([P.brainmob.name])")
+	P.update_icon()
 
 // Allows people to set their own name. May or may not need to be removed for posibrains if people are dumbasses.
 /datum/ghosttrap/proc/set_new_name(var/mob/target)
@@ -123,7 +123,7 @@ var/list/ghost_traps
 	var/newname = sanitizeSafe(input(target,"Enter a name, or leave blank for the default name.", "Name change",target.real_name) as text, MAX_NAME_LEN)
 	if (newname && newname != "")
 		target.real_name = newname
-		target.name = target.real_name
+		target.SetName(target.real_name)
 
 /***********************************
 * Diona pods and walking mushrooms *
@@ -215,6 +215,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	object = "cultist"
 	ban_checks = list("cultist")
 	pref_check = MODE_CULTIST
+	can_set_own_name = FALSE
 	ghost_trap_message = "They are occupying a cultist's body now."
 	ghost_trap_role = "Cultist"
 
@@ -222,7 +223,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	var/obj/item/device/soulstone/S = target.loc
 	if(istype(S))
 		if(S.is_evil)
-			cult.add_antagonist(target.mind)
+			GLOB.cult.add_antagonist(target.mind)
 			to_chat(target, "<b>Remember, you serve the one who summoned you first, and the cult second.</b>")
 		else
 			to_chat(target, "<b>This soultone has been purified. You do not belong to the cult.</b>")

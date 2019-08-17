@@ -4,6 +4,8 @@
 	icon = 'icons/obj/inflatable.dmi'
 	var/deploy_path = null
 
+	atmos_canpass = CANPASS_DENSITY
+
 /obj/item/inflatable/attack_self(mob/user)
 	if(!deploy_path)
 		return
@@ -37,7 +39,7 @@
 	icon_state = "wall"
 
 	var/undeploy_path = null
-	var/health = 50.0
+	health = 50.0
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -49,7 +51,7 @@
 
 /obj/structure/inflatable/Destroy()
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
@@ -138,6 +140,9 @@
 	else
 		user.visible_message("<span class='danger'>[user] [attack_verb] at [src]!</span>")
 	return 1
+
+/obj/structure/inflatable/CanFluidPass(var/coming_from)
+	return !density
 
 /obj/structure/inflatable/door //Based on mineral door code
 	name = "inflatable door"

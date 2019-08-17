@@ -3,7 +3,7 @@
 	desc = "Some rods. Can be used for building, or something."
 	singular_name = "metal rod"
 	icon_state = "rods"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_LARGE
 	force = 9.0
 	throwforce = 15.0
@@ -14,6 +14,12 @@
 	center_of_mass = null
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+
+/obj/item/stack/rods/ten
+	amount = 10
+
+/obj/item/stack/rods/fifty
+	amount = 50
 
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"
@@ -29,7 +35,7 @@
 	update_icon()
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/weldingtool))
+	if(isWelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(get_amount() < 2)

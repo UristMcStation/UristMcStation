@@ -2,6 +2,7 @@
 
 /obj/structure/closet/secure_closet/miner
 	name = "miner's equipment"
+	icon = 'icons/urist/restored/closet.dmi'
 	icon_state = "miningsec1"
 	icon_closed = "miningsec"
 	icon_locked = "miningsec1"
@@ -28,21 +29,14 @@
 	new /obj/item/weapon/pickaxe(src)
 	new /obj/item/clothing/glasses/meson(src)
 
-/******************************Lantern*******************************/
-
-/obj/item/device/flashlight/lantern
-	name = "lantern"
-	icon_state = "lantern"
-	desc = "A mining lantern."
-	brightness_on = 6			// luminosity when on
 
 /*****************************Pickaxe********************************/
 
 /obj/item/weapon/pickaxe
 	name = "mining drill"
 	desc = "The most basic of mining drills, for short excavations and small mineral extractions."
-	icon = 'icons/obj/items.dmi'
-	flags = CONDUCT
+	icon = 'icons/obj/tools.dmi'
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 15.0
 	throwforce = 4.0
@@ -55,7 +49,7 @@
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	var/drill_sound = 'sound/weapons/Genhit.ogg'
 	var/drill_verb = "drilling"
-	sharp = 1
+	sharp = 0
 
 	var/excavation_amount = 200
 
@@ -71,6 +65,7 @@
 	digspeed = 30
 	origin_tech = list(TECH_MATERIAL = 3)
 	desc = "This makes no metallurgic sense."
+	sharp = 1
 
 /obj/item/weapon/pickaxe/drill
 	name = "advanced mining drill" // Can dig sand as well!
@@ -98,20 +93,7 @@
 	origin_tech = list(TECH_MATERIAL = 4)
 	desc = "This makes no metallurgic sense."
 	drill_verb = "picking"
-
-/obj/item/weapon/pickaxe/plasmacutter
-	name = "plasma cutter"
-	icon_state = "plasmacutter"
-	item_state = "gun"
-	w_class = ITEM_SIZE_NORMAL //it is smaller than the pickaxe
-	damtype = "fire"
-	digspeed = 20 //Can slice though normal walls, all girders, or be used in reinforced wall deconstruction/ light thermite on fire
-	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
-	desc = "A rock cutter that uses bursts of hot plasma. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
-	drill_verb = "cutting"
-	drill_sound = 'sound/items/Welder.ogg'
 	sharp = 1
-	edge = 1
 
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
@@ -121,6 +103,7 @@
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 4)
 	desc = "A pickaxe with a diamond pick head."
 	drill_verb = "picking"
+	sharp = 1
 
 /obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
@@ -144,9 +127,9 @@
 /obj/item/weapon/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "shovel"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
@@ -213,6 +196,14 @@
 	fringe = "greenflag_fringe"
 	light_color = COLOR_LIME
 
+/obj/item/stack/flag/solgov
+	name = "sol gov flags"
+	singular_name = "sol gov flag"
+	icon_state = "solgovflag"
+	fringe = "solgovflag_fringe"
+	desc = "A portable flag with the Sol Government symbol on it. I claim this land for Sol!"
+	light_color = COLOR_BLUE
+
 /obj/item/stack/flag/attackby(var/obj/item/W, var/mob/user)
 	if(upright)
 		attack_hand(user)
@@ -229,19 +220,22 @@
 /obj/item/stack/flag/attack_self(var/mob/user)
 	var/turf/T = get_turf(src)
 
-	if(!istype(T, /turf/simulated/floor/asteroid))
-		to_chat(user, "The flag won't stand up in this terrain.")
+	if(istype(T, /turf/space) || istype(T, /turf/simulated/open))
+		to_chat(user, "<span class='warning'>There's no solid surface to plant the flag on.</span>")
 		return
 
 	for(var/obj/item/stack/flag/F in T)
 		if(F.upright)
-			to_chat(user, "\The [F] is already planted here.")
+			to_chat(user, "<span class='warning'>\The [F] is already planted here.</span>")
 			return
 
 	if(use(1)) // Don't skip use() checks even if you only need one! Stacks with the amount of 0 are possible, e.g. on synthetics!
 		var/obj/item/stack/flag/newflag = new src.type(T, 1)
 		newflag.set_up()
-		user.visible_message("\The [user] plants \the [newflag.singular_name] firmly in the ground.")
+		if(istype(T, /turf/simulated/floor/asteroid) || istype(T, /turf/simulated/floor/exoplanet))
+			user.visible_message("\The [user] plants \the [newflag.singular_name] firmly in the ground.")
+		else
+			user.visible_message("\The [user] attaches \the [newflag.singular_name] firmly to the ground.")
 
 /obj/item/stack/flag/proc/set_up()
 	pixel_x = 0
@@ -250,10 +244,10 @@
 	anchored = 1
 	icon_state = "[initial(icon_state)]_open"
 	if(fringe)
-		set_light(2, 0.1) // Very dim so the rest of the flag is barely visible - if the turf is completely dark, you can't see anything on it, no matter what
+		set_light(0.2, 0.1, 1) // Very dim so the rest of the flag is barely visible - if the turf is completely dark, you can't see anything on it, no matter what
 		var/image/addon = image(icon = src.icon, icon_state = fringe) // Bright fringe
 		addon.layer = ABOVE_LIGHTING_LAYER
-		addon.plane = LIGHTING_PLANE
+		addon.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		overlays += addon
 
 /obj/item/stack/flag/proc/knock_down()

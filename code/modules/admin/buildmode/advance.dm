@@ -15,6 +15,10 @@
 	to_chat(user, "<span class='notice'>change the direction of built objects.</span>")
 	to_chat(user, "<span class='notice'>***********************************************************</span>")
 
+/datum/build_mode/advanced/Destroy()
+	build_type = null
+	. = ..()
+
 /datum/build_mode/advanced/Configurate()
 	SetBuildType(select_subpath(build_type || /obj/structure/closet))
 

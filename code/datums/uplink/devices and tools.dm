@@ -32,18 +32,13 @@
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
-	item_cost = 16
+	item_cost = 1
 	path = /obj/item/device/encryptionkey/syndicate
 
 /datum/uplink_item/item/tools/shield_diffuser
 	name = "Handheld Shield Diffuser"
 	item_cost = 16
 	path = /obj/item/weapon/shield_diffuser
-
-/datum/uplink_item/item/tools/flashdark
-	name = "Flashdark"
-	item_cost = 16
-	path = /obj/item/device/flashlight/flashdark
 
 /datum/uplink_item/item/tools/suit_sensor_mobile
 	name = "Suit Sensor Jamming Device"
@@ -79,6 +74,11 @@
 	item_cost = 24
 	path = /obj/item/clothing/glasses/thermal/syndi
 
+/datum/uplink_item/item/tools/flashdark
+	name = "Flashdark"
+	item_cost = 32
+	path = /obj/item/device/flashlight/flashdark
+
 /datum/uplink_item/item/tools/powersink
 	name = "Powersink (DANGER!)"
 	item_cost = 40
@@ -109,15 +109,8 @@
 	antag_costs = list(MODE_MERCENARY = 30)
 	path = /obj/item/clothing/mask/ai
 
-/datum/uplink_item/item/tools/intel_uplink
-	name = "Intel Uplink"
-	item_cost = 16000 //deliberately absurdly high in case anybody sees it outside paranoia
-	antag_costs = list(MODE_PARANOIA = 80)
-	path = /obj/item/device/inteluplink
-	antag_roles = list(/datum/antagonist/agent)
-
-/datum/uplink_item/item/tools/jet_fuel
-	name = "Jet Fuel"
-	item_cost = 5
-	antag_roles = list(/datum/antagonist/agent)
-	path = /obj/item/weapon/storage/box/syndie_kit/jetfuel
+/datum/uplink_item/item/tools/interceptor
+	name = "Radio Interceptor"
+	item_cost = 30
+	path = /obj/item/device/radio/intercept
+	desc = "A radio that can intercept secure radio channels. Doesn't fit in pockets."

@@ -46,9 +46,9 @@
 			source_mineral = container.mineral.xarch_source_mineral
 
 	if(prob(75))
-		find_presence["phosphorus"] = rand(1, 500) / 100
+		find_presence[/datum/reagent/phosphorus] = rand(1, 500) / 100
 	if(prob(25))
-		find_presence["mercury"] = rand(1, 500) / 100
+		find_presence[/datum/reagent/mercury] = rand(1, 500) / 100
 	find_presence["chlorine"] = rand(500, 2500) / 100
 
 	for(var/datum/find/F in container.finds)
@@ -69,15 +69,14 @@
 		artifact_distance = rand()
 		artifact_id = container.artifact_find.artifact_id
 	else
-		if(master_controller) //Sanity check due to runtimes ~Z
-			for(var/turf/simulated/mineral/T in master_controller.artifact_spawning_turfs)
-				if(T.artifact_find)
-					var/cur_dist = get_dist(container, T) * 2
-					if( (artifact_distance < 0 || cur_dist < artifact_distance))
-						artifact_distance = cur_dist + rand() * 2 - 1
-						artifact_id = T.artifact_find.artifact_id
-				else
-					master_controller.artifact_spawning_turfs.Remove(T)
+		for(var/turf/simulated/mineral/T in SSxenoarch.artifact_spawning_turfs)
+			if(T.artifact_find)
+				var/cur_dist = get_dist(container, T) * 2
+				if( (artifact_distance < 0 || cur_dist < artifact_distance))
+					artifact_distance = cur_dist + rand() * 2 - 1
+					artifact_id = T.artifact_find.artifact_id
+			else
+				SSxenoarch.artifact_spawning_turfs.Remove(T)
 
 /obj/item/device/core_sampler
 	name = "core sampler"
@@ -128,7 +127,7 @@
 		else
 			//create a new sample bag which we'll fill with rock samples
 			filled_bag = new /obj/item/weapon/evidencebag(src)
-			filled_bag.name = "sample bag"
+			filled_bag.SetName("sample bag")
 			filled_bag.desc = "a bag for holding research samples."
 
 			icon_state = "sampler1"

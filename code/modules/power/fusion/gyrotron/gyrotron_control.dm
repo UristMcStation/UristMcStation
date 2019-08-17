@@ -1,8 +1,10 @@
 /obj/machinery/computer/gyrotron_control
 	name = "gyrotron control console"
-	icon = 'icons/obj/machines/power/fusion.dmi'
-	icon_state = "engine"
+	icon_keyboard = "med_key"
+	icon_screen = "gyrotron_screen"
 	light_color = COLOR_BLUE
+	idle_power_usage = 250
+	active_power_usage = 500
 
 	var/id_tag
 	var/scan_range = 25
@@ -50,14 +52,7 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 
-/obj/machinery/computer/gyrotron_control/Topic(var/href, var/list/href_list)
-	. = ..()
-	if(.)
-		return
-
-	if(stat & (NOPOWER | BROKEN))
-		return
-
+/obj/machinery/computer/gyrotron_control/OnTopic(var/mob/user, var/href_list, var/datum/topic_state/state)
 	var/obj/machinery/power/emitter/gyrotron/G = locate(href_list["machine"])
 	if(!G || G.id_tag != id_tag || get_dist(src, G) > scan_range)
 		return
@@ -65,31 +60,31 @@
 	if(href_list["modifypower"])
 		var/new_val = input("Enter new emission power level (1 - 50)", "Modifying power level", G.mega_energy) as num
 		if(!new_val)
-			to_chat(usr, "<span class='warning'>That's not a valid number.</span>")
-			return 1
+			to_chat(user, "<span class='warning'>That's not a valid number.</span>")
+			return TOPIC_REFRESH
 		G.mega_energy = Clamp(new_val, 1, 50)
 		G.active_power_usage = G.mega_energy * 1500
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 	if(href_list["modifyrate"])
 		var/new_val = input("Enter new emission delay between 1 and 10 seconds.", "Modifying emission rate", G.rate) as num
 		if(!new_val)
-			to_chat(usr, "<span class='warning'>That's not a valid number.</span>")
+			to_chat(user, "<span class='warning'>That's not a valid number.</span>")
 			return 1
 		G.rate = Clamp(new_val, 1, 10)
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
 	if(href_list["toggle"])
-		G.activate(usr)
+		G.activate(user)
 		updateUsrDialog()
-		return 1
+		return TOPIC_REFRESH
 
-	return 0
+	return TOPIC_NOACTION
 
 /obj/machinery/computer/gyrotron_control/attackby(var/obj/item/W, var/mob/user)
-	if(ismultitool(W))
+	if(isMultitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Gyrotron Control", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident

@@ -4,7 +4,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
-	icon_dead = ""
+	icon_dead = null
 	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 5
@@ -21,15 +21,9 @@
 	attacktext = "punched"
 	a_intent = "harm"
 	ranged = 1
-	min_oxy = 5
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 1
-	min_co2 = 0
-	max_co2 = 5
-	min_n2 = 0
-	max_n2 = 0
-	unsuitable_atoms_damage = 15
+	min_gas = list("oxygen" = 5)
+	max_gas = null
+	unsuitable_atmos_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
 	stat_attack = 1
@@ -66,6 +60,7 @@
 /mob/living/simple_animal/hostile/urist/ntagent
 	icon_state = "agent"
 	icon_living = "agent"
+	icon_dead = "agentdead"
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
@@ -96,6 +91,7 @@
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
 	icon_living = "skrellorist"
+	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
 	casingtype = /obj/item/ammo_casing/a10mm
@@ -148,7 +144,9 @@
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
-	new /obj/effect/effect/smoke/bad(loc)
+	var/datum/effect/effect/system/smoke_spread/bad/deathsmoke = new
+	deathsmoke.set_up(5,0,src.loc,null)
+	deathsmoke.start()
 	qdel(src)
 
 //Spess Jason Bourne
@@ -169,8 +167,98 @@
 	attacktext = "brutalized"
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
-	tele_effect = /obj/effect/sparks
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
+/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
-	..()
+	. = ..()
+
+//terran
+
+/mob/living/simple_animal/hostile/urist/terran/marine
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine"
+	desc = "A Terran Confederacy Marine."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_marine"
+	icon_living = "terran_marine"
+	icon_dead = "terran_marine_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/a556
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a556
+	maxHealth = 150
+	health = 150
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine/event
+	faction = "neutral"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine Officer"
+	desc = "A Terran Confederacy Marine Officer."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_officer"
+	icon_living = "terran_officer"
+	icon_dead = "terran_officer_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/c9mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol
+	maxHealth = 120
+	health = 120
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/event
+	faction = "neutral"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space
+	faction = "terran"
+	name = "\improper Terran Confederacy Marine"
+	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 2
+	icon_state = "terran_heavy"
+	icon_living = "terran_heavy"
+	icon_dead = "terran_heavy_dead"
+	icon_gib = "syndicate_gib"
+	casingtype = /obj/item/ammo_casing/a556
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a556
+	maxHealth = 200
+	health = 200
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space/event
+	faction = "neutral"
+
+
+/mob/living/simple_animal/hostile/urist/rebel
+	icon_state = "ANTAG"
+	icon_living = "ANTAG"
+	name = "\improper Rebel"
+	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
+	casingtype = /obj/item/ammo_casing/a762
+	faction = "rebels"
+	rapid = 0
+	maxHealth = 130
+	health = 130
+	minimum_distance = 4
+	retreat_distance = 2
+	ranged_cooldown_cap = 2
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+
+/mob/living/simple_animal/hostile/urist/rebel/event
+	faction = "neutral"

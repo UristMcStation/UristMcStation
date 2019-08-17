@@ -6,7 +6,7 @@
 	icon_state = "health"
 	w_class = ITEM_SIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 /obj/item/device/antibody_scanner/attack(mob/M as mob, mob/user as mob)
 	if(!istype(M,/mob/living/carbon/))
@@ -47,18 +47,19 @@
 
 /obj/item/weapon/virusdish/random
 	name = "virus sample"
+	var/severity = 3
 
 /obj/item/weapon/virusdish/random/New()
 	..()
 	src.virus2 = new /datum/disease2/disease
-	src.virus2.makerandom()
+	src.virus2.makerandom(severity)
 	growth = rand(5, 50)
 
 /obj/item/weapon/virusdish/attackby(var/obj/item/weapon/W as obj,var/mob/living/carbon/user as mob)
 	if(istype(W,/obj/item/weapon/hand_labeler) || istype(W,/obj/item/weapon/reagent_containers/syringe))
 		return
 	..()
-	if(prob(50))
+	if(prob(50) && W.force >= 5)
 		to_chat(user, "<span class='danger'>\The [src] shatters!</span>")
 		if(virus2.infectionchance > 0)
 			for(var/mob/living/carbon/target in view(1, get_turf(src)))
@@ -71,13 +72,10 @@
 	if(basic_info)
 		to_chat(user, "[basic_info] : <a href='?src=\ref[src];info=1'>More Information</a>")
 
-/obj/item/weapon/virusdish/Topic(href, href_list)
-	. = ..()
-	if(.) return 1
-
+/obj/item/weapon/virusdish/OnTopic(user, href_list)
 	if(href_list["info"])
-		usr << browse(info, "window=info_\ref[src]")
-		return 1
+		show_browser(user, info, "window=info_\ref[src]")
+		return TOPIC_HANDLED
 
 /obj/item/weapon/ruinedvirusdish
 	name = "ruined virus sample"
@@ -89,7 +87,7 @@
 	if(istype(W,/obj/item/weapon/hand_labeler) || istype(W,/obj/item/weapon/reagent_containers/syringe))
 		return ..()
 
-	if(prob(50))
+	if(prob(50) && W.force >= 5)
 		to_chat(user, "\The [src] shatters!")
 		qdel(src)
 
@@ -100,13 +98,12 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0"
 	w_class = ITEM_SIZE_TINY
-	var/datum/disease2/effectholder/effect = null
+	var/datum/disease2/effect/effect = null
 	var/list/species = null
 	var/stage = 1
 	var/analysed = 1
 
 /obj/item/weapon/diseasedisk/premade/New()
 	name = "blank GNA disk (stage: [stage])"
-	effect = new /datum/disease2/effectholder
-	effect.effect = new /datum/disease2/effect/invisible
+	effect = new /datum/disease2/effect/invisible
 	effect.stage = stage

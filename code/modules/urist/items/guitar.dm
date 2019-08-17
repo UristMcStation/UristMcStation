@@ -208,7 +208,7 @@
 
 /obj/item/device/guitar/Topic(href, href_list)
 
-	if(!in_range(src, usr) || issilicon(usr) || !isliving(usr) || !usr.canmove || usr.restrained())
+	if(!in_range(src, usr) || issilicon(usr) || !isliving(usr) || usr.incapacitated())
 		usr << browse(null, "window=guitar;size=700x300")
 		onclose(usr, "guitar")
 		return

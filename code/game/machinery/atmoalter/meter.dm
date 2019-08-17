@@ -3,7 +3,7 @@
 	desc = "A gas flow meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meterX"
-	var/obj/machinery/atmospherics/pipe/target = null
+	var/atom/target = null //A pipe for the base type
 	anchored = 1.0
 	power_channel = ENVIRON
 	var/frequency = 0
@@ -11,16 +11,26 @@
 	use_power = 1
 	idle_power_usage = 15
 
-/obj/machinery/meter/New()
-	..()
-	src.target = locate(/obj/machinery/atmospherics/pipe) in loc
-	return 1
-
-/obj/machinery/meter/initialize()
+/obj/machinery/meter/Initialize()
+	. = ..()
 	if (!target)
-		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
+		set_target(locate(/obj/machinery/atmospherics/pipe) in loc)
 
-/obj/machinery/meter/process()
+/obj/machinery/meter/proc/set_target(atom/new_target)
+	clear_target()
+	target = new_target
+	GLOB.destroyed_event.register(target, src, .proc/clear_target)
+
+/obj/machinery/meter/proc/clear_target()
+	if(target)
+		GLOB.destroyed_event.unregister(target, src)
+		target = null	
+
+/obj/machinery/meter/Destroy()
+	clear_target()
+	. = ..()
+
+/obj/machinery/meter/Process()
 	if(!target)
 		icon_state = "meterX"
 		return 0
@@ -93,7 +103,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if(!isWrench(W))
 		return ..()
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
@@ -107,15 +117,9 @@
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
-/obj/machinery/meter/turf/New()
-	..()
-	src.target = loc
-	return 1
-
-
-/obj/machinery/meter/turf/initialize()
+/obj/machinery/meter/turf/Initialize()
 	if (!target)
-		src.target = loc
+		set_target(loc)
+	. = ..()
 
 /obj/machinery/meter/turf/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	return

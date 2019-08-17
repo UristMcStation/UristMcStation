@@ -27,12 +27,25 @@
 /mob/observer/ghost/ClickOn(var/atom/A, var/params)
 	if(!canClick()) return
 	setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+
 	// You are responsible for checking config.ghost_interaction when you override this function
 	// Not all of them require checking, see below
-	A.attack_ghost(src)
+	var/list/modifiers = params2list(params)
+	if(modifiers["alt"])
+		// I'd rather call ..() but who knows what will break if we do that
+		var/datum/extension/on_click/alt = get_extension(A, /datum/extension/on_click/alt)
+		if(alt && alt.on_click(src))
+			return
+		var/target_turf = get_turf(A)
+		if(target_turf)
+			AltClickOn(target_turf)
+	else
+		A.attack_ghost(src)
 
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
 /atom/proc/attack_ghost(mob/observer/ghost/user as mob)
+	if(!istype(user))
+		return
 	if(user.client && user.client.inquisitive_ghost)
 		user.examinate(src)
 	return

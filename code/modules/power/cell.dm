@@ -24,8 +24,8 @@
 	c_uid = sequential_id(/obj/item/weapon/cell)
 	..()
 
-/obj/item/weapon/cell/initialize()
-	..()
+/obj/item/weapon/cell/Initialize()
+	. = ..()
 	update_icon()
 
 /obj/item/weapon/cell/drain_power(var/drain_check, var/surge, var/power = 0)
@@ -80,7 +80,6 @@
 	return 1
 
 /obj/item/weapon/cell/proc/give(var/amount)
-	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
 	update_icon()
@@ -119,6 +118,8 @@
 		else
 			return 0
 
+/obj/item/weapon/cell/get_cell()
+	return src //no shit Sherlock
 
 // SUBTYPES BELOW
 
@@ -178,6 +179,9 @@
 	maxcharge = 500
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 50)
 
+/obj/item/weapon/cell/apc/empty/New()
+	..()
+	charge = 0
 
 /obj/item/weapon/cell/high
 	name = "advanced power cell"
@@ -259,3 +263,16 @@
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 200
 	matter = null
+
+/obj/item/weapon/cell/bluespace //super powerful cell, RnD only
+	name = "bluespace power cell"
+	desc = "Combining the peak of power storage technology with the insights from a Bag of Holding, this amazing cell holds substantially more power then should be possible for one of it's size."
+	icon_state = "icell"
+	origin_tech = list(TECH_POWER = 7, TECH_BLUESPACE = 4)
+	maxcharge = 10000
+	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 80)
+
+/obj/item/weapon/cell/bluespace/old //Same cell as above, for placing in maps, has less origin tech so it's not RnD fodder
+	name = "old bluespace power cell"
+	desc = "This cell seems to hold way more power then should be possible for it's size. It looks almost entirely self-contained, so there's probably not much to be learned from it."
+	origin_tech = list(TECH_POWER = 2, TECH_BLUESPACE = 2)

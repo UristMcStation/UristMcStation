@@ -13,9 +13,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/rad/New()
 	..()
-	reagents.remove_reagent("inaprovaline", 5)
-	reagents.add_reagent("hyronalin", 3)
-	reagents.add_reagent("anti_toxin", 2)
+	reagents.remove_reagent(/datum/reagent/inaprovaline, 5)
+	reagents.add_reagent(/datum/reagent/hyronalin, 3)
+	reagents.add_reagent(/datum/reagent/dylovene, 2)
 	update_icon()
 	return
 
@@ -37,7 +37,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/storage/firstaid/tactical
 	name = "tactical medicine kit"
-	desc = "Contains experimental medicine and advanced tools."
+	desc = "Contains experimental medicines and advanced tools."
 	icon = 'icons/urist/items/misc.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "tactical"
@@ -68,9 +68,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/adv/New()
 	..()
-	reagents.add_reagent("tricordrazine", 5)
-	reagents.add_reagent("tramadol", 5)
-	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+	reagents.add_reagent(/datum/reagent/tramadol, 5)
+	reagents.add_reagent(/datum/reagent/dexalinp, 5)
 	update_icon()
 	return
 
@@ -85,9 +85,9 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/admin/New()
 	..()
-	reagents.add_reagent("adminordrazine", 5)
-	reagents.add_reagent("tramadol", 5)
-	reagents.add_reagent("dexalinp", 5)
+	reagents.add_reagent(/datum/reagent/adminordrazine, 5)
+	reagents.add_reagent(/datum/reagent/tramadol, 5)
+	reagents.add_reagent(/datum/reagent/dexalinp, 5)
 	update_icon()
 	return
 
@@ -117,51 +117,56 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/weapon/reagent_containers/glass/beaker/stabilization
 	name = "Stabilization mix"
-	desc = "Inaprovaline | Dexalin Plus 1|1"
+	desc = "A label on the side reads 'Inaprovaline | Dexalin Plus 1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/stabilization/New()
 	..()
-	reagents.add_reagent("inaprovaline", 30)
-	reagents.add_reagent("dexalinp", 30)
+	reagents.add_reagent(/datum/reagent/inaprovaline, 30)
+	reagents.add_reagent(/datum/reagent/dexalinp, 30)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute
 	name = "Brute treatment mix"
-	desc = "Bicaridine | Tricordrazine 3|1"
+	desc = "A label on the side reads 'Bicaridine | Tricordrazine 3|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/brute/New()
 	..()
-	reagents.add_reagent("bicaridine", 45)
-	reagents.add_reagent("tricordrazine", 15)
+	reagents.add_reagent(/datum/reagent/bicaridine, 45)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 15)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns
 	name = "Burn treatment mix"
-	desc = "Kelotane | Dermaline 1|1"
+	desc = "A label on the side reads 'Kelotane | Dermaline 1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/burns/New()
 	..()
-	reagents.add_reagent("kelotane", 30)
-	reagents.add_reagent("dermaline", 30)
+	reagents.add_reagent(/datum/reagent/kelotane, 30)
+	reagents.add_reagent(/datum/reagent/dermaline, 30)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation
 	name = "Radiation treatment mix"
-	desc = "Arithrazine | Hyronalin | Dylovene 2|1|1"
+	desc = "A label on the side reads 'Arithrazine | Hyronalin | Dylovene 2|1|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/radiation/New()
 	..()
-	reagents.add_reagent("arithrazine", 30)
-	reagents.add_reagent("hyronalin", 15)
-	reagents.add_reagent("anti_toxin", 15)
+	reagents.add_reagent(/datum/reagent/arithrazine, 30)
+	reagents.add_reagent(/datum/reagent/hyronalin, 15)
+	reagents.add_reagent(/datum/reagent/dylovene, 15)
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller
 	name = "Painkillers"
-	desc = "Oxycodone | Dexalin Plus 3|1"
+	desc = "A label on the side reads 'Oxycodone | Dexalin Plus 3|1'."
+	icon_state = "bottle-3"
 
 /obj/item/weapon/reagent_containers/glass/beaker/painkiller/New()
 	..()
-	reagents.add_reagent("oxycodone", 45)
-	reagents.add_reagent("dexalinp", 15)
+	reagents.add_reagent(/datum/reagent/tramadol/oxycodone, 45)
+	reagents.add_reagent(/datum/reagent/dexalinp, 15)
 	update_icon()

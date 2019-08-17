@@ -18,7 +18,7 @@
 	if(istype(O, /obj/item/stack/hide/hairless))
 		return 1
 
-/obj/machinery/smartfridge/tanningrack/process()
+/obj/machinery/smartfridge/tanningrack/Process()
 	..()
 	if(inoperable())
 		return
@@ -49,7 +49,7 @@
 				I.instances.Remove(S)
 				qdel(S)
 				stock_item(L)
-				nanomanager.update_uis(src)
+				SSnano.update_uis(src)
 				return
 
 			else
@@ -88,11 +88,7 @@
 //we're skipping curing and going straight to soaking. Skipping liming and going straight to dehairing, and skipping all the stages with the chemicals and just going straight to our tanning rack.
 
 /obj/item/stack/hide/wet/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(	istype(W, /obj/item/weapon/material/knife) || \
-		istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || \
-		istype(W, /obj/item/weapon/material/twohanded/fireaxe) || \
-		istype(W, /obj/item/weapon/material/hatchet))
-
+	if(is_sharp(W))
 		if(!busy)
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
 			busy = 1
@@ -126,13 +122,15 @@
 	max_amount = 10
 	var/busy = 0
 
+/*
+
 /material/leather/generate_recipes()
 	recipes = list()
 
 	recipes += new/datum/stack_recipe_list("holsters", list( \
-		new/datum/stack_recipe("hip holster", /obj/item/clothing/accessory/holster/hip, 2, time = 40), \
-		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/holster/waist, 2, time = 40), \
-		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/holster/armpit, 2, time = 40), \
+		new/datum/stack_recipe("hip holster", /obj/item/clothing/accessory/storage/holster/hip, 2, time = 40), \
+		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/storage/holster/waist, 2, time = 40), \
+		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/storage/holster/armpit, 2, time = 40), \
 		))
 	recipes += new/datum/stack_recipe("tool belt", /obj/item/weapon/storage/belt/utility, 3, time = 45)
 	recipes += new/datum/stack_recipe("briefcase", /obj/item/weapon/storage/briefcase, 1, time = 30)
@@ -162,4 +160,6 @@
 	recipes += new/datum/stack_recipe("leather overalls", /obj/item/clothing/suit/storage/urist/overalls/leather, 3, time = 40)
 	recipes += new/datum/stack_recipe("factory worker's apron", /obj/item/clothing/suit/storage/urist/apron, 3, time = 40)
 	recipes += new/datum/stack_recipe("welder apron", /obj/item/clothing/suit/urist/welderapron, 2, time = 30)
-	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/bandana/leather, 1, time = 30)
+	recipes += new/datum/stack_recipe("leather mask", /obj/item/clothing/mask/urist/bandana/leather, 1, time = 30)
+
+*/

@@ -5,7 +5,14 @@
 	opacity = 0
 	autoclose = 0
 	glass = 1
-	icon = 'icons/obj/doors/doorlift.dmi'
+	icon = 'icons/obj/doors/elevator/door.dmi'
+	fill_file = 'icons/obj/doors/elevator/fill_steel.dmi'
+	glass_file = 'icons/obj/doors/elevator/fill_glass.dmi'
+	bolts_file = 'icons/obj/doors/elevator/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/elevator/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/elevator/lights_green.dmi'
+
+	paintable = 0
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor
@@ -28,7 +35,7 @@
 		for(var/mob/living/LM in turf)
 			if(LM.mob_size <= MOB_TINY)
 				var/moved = 0
-				for(dir in shuffle(cardinal.Copy()))
+				for(dir in shuffle(GLOB.cardinal.Copy()))
 					var/dest = get_step(LM,dir)
 					if(!(locate(/obj/machinery/door/airlock/lift) in dest))
 						if(LM.Move(dest))

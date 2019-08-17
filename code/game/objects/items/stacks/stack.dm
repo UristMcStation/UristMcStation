@@ -23,12 +23,11 @@
 	var/list/datum/matter_synth/synths = null
 
 /obj/item/stack/New(var/loc, var/amount=null)
-	..()
 	if (!stacktype)
 		stacktype = type
-	if (amount)
+	if (amount >= 1)
 		src.amount = amount
-	return
+	..()
 
 /obj/item/stack/Destroy()
 	if(uses_charge)
@@ -57,30 +56,29 @@
 	if (recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
 		var/datum/stack_recipe_list/srl = recipe_list[recipes_sublist]
 		recipe_list = srl.recipes
-	var/t1 = text("<HTML><HEAD><title>Constructions from []</title></HEAD><body><TT>Amount Left: []<br>", src, src.get_amount())
+	var/t1 = list()
+	t1 += "<HTML><HEAD><title>Constructions from [src]</title></HEAD><body><TT>Amount Left: [src.get_amount()]<br>"
 	for(var/i=1;i<=recipe_list.len,i++)
 		var/E = recipe_list[i]
 		if (isnull(E))
-			t1 += "<hr>"
 			continue
 
-		if (i>1 && !isnull(recipe_list[i-1]))
-			t1+="<br>"
-
 		if (istype(E, /datum/stack_recipe_list))
+			t1+="<br>"
 			var/datum/stack_recipe_list/srl = E
 			t1 += "<a href='?src=\ref[src];sublist=[i]'>[srl.title]</a>"
 
 		if (istype(E, /datum/stack_recipe))
 			var/datum/stack_recipe/R = E
+			t1+="<br>"
 			var/max_multiplier = round(src.get_amount() / R.req_amount)
 			var/title as text
 			var/can_build = 1
 			can_build = can_build && (max_multiplier>0)
 			if (R.res_amount>1)
-				title+= "[R.res_amount]x [R.title]\s"
+				title+= "[R.res_amount]x [R.display_name()]\s"
 			else
-				title+= "[R.title]"
+				title+= "[R.display_name()]"
 			title+= " ([R.req_amount] [src.singular_name]\s)"
 			if (can_build)
 				t1 += text("<A href='?src=\ref[src];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  ")
@@ -98,9 +96,8 @@
 					t1 += " <A href='?src=\ref[src];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
 
 	t1 += "</TT></body></HTML>"
-	user << browse(t1, "window=stack")
+	user << browse(JOINTEXT(t1), "window=stack")
 	onclose(user, "stack")
-	return
 
 /obj/item/stack/proc/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)
 	var/required = quantity*recipe.req_amount
@@ -108,44 +105,39 @@
 
 	if (!can_use(required))
 		if (produced>1)
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [produced] [recipe.title]\s!</span>")
+			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [produced] [recipe.display_name()]\s!</span>")
 		else
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [recipe.title]!</span>")
+			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [recipe.display_name()]!</span>")
 		return
 
 	if (recipe.one_per_turf && (locate(recipe.result_type) in user.loc))
-		to_chat(user, "<span class='warning'>There is another [recipe.title] here!</span>")
+		to_chat(user, "<span class='warning'>There is another [recipe.display_name()] here!</span>")
 		return
 
 	if (recipe.on_floor && !isfloor(user.loc))
-		to_chat(user, "<span class='warning'>\The [recipe.title] must be constructed on the floor!</span>")
+		to_chat(user, "<span class='warning'>\The [recipe.display_name()] must be constructed on the floor!</span>")
 		return
 
 	if (recipe.time)
-		to_chat(user, "<span class='notice'>Building [recipe.title] ...</span>")
-		if (!do_after(user, recipe.time))
+		to_chat(user, "<span class='notice'>Building [recipe.display_name()] ...</span>")
+		if (!do_after(user, recipe.time, user))
 			return
 
 	if (use(required))
 		var/atom/O
-		if(recipe.use_material)
+		if(recipe.send_material_data && recipe.use_material)
 			O = new recipe.result_type(user.loc, recipe.use_material)
 		else
 			O = new recipe.result_type(user.loc)
 		O.set_dir(user.dir)
 		O.add_fingerprint(user)
 
+		user.put_in_hands(O)
+
 		if (istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
 			S.amount = produced
-			S.add_to_stacks(user)
-
-		if (recipe.goes_in_hands)
-			user.put_in_hands(O)
-			if (istype(O, /obj/item/stack))
-				var/obj/item/stack/S = O
-				S.amount = produced
-				S.add_to_stacks(user)
+			S.add_to_stacks(user, 1)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -189,8 +181,6 @@
 	if(!uses_charge)
 		amount -= used
 		if (amount <= 0)
-			if(usr)
-				usr.remove_from_mob(src)
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 		return 1
 	else
@@ -238,16 +228,14 @@
 		S.add(transfer)
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(S)
-			if(blood_DNA)
-				S.blood_DNA |= blood_DNA
 		return transfer
 	return 0
 
 //creates a new stack with the specified amount
-/obj/item/stack/proc/split(var/tamount)
+/obj/item/stack/proc/split(var/tamount, var/force=FALSE)
 	if (!amount)
 		return null
-	if(uses_charge)
+	if(uses_charge && !force)
 		return null
 
 	var/transfer = max(min(tamount, src.amount, initial(max_amount)), 0)
@@ -258,8 +246,6 @@
 		newstack.color = color
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
-			if(blood_DNA)
-				newstack.blood_DNA |= blood_DNA
 		return newstack
 	return null
 
@@ -289,8 +275,16 @@
 		return
 	return max_amount
 
-/obj/item/stack/proc/add_to_stacks(mob/user as mob)
+/obj/item/stack/proc/add_to_stacks(mob/user, check_hands)
+	var/list/stacks = list()
+	if(check_hands)
+		if(isstack(user.l_hand))
+			stacks += user.l_hand
+		if(isstack(user.r_hand))
+			stacks += user.r_hand
 	for (var/obj/item/stack/item in user.loc)
+		stacks += item
+	for (var/obj/item/stack/item in stacks)
 		if (item==src)
 			continue
 		var/transfer = src.transfer_to(item)
@@ -313,6 +307,8 @@
 				user.put_in_hands(F)
 				src.add_fingerprint(user)
 				F.add_fingerprint(user)
+				if(istype(F,/obj/item/stack/tile))
+					F.throwforce = src.throwforce
 				spawn(0)
 					if (src && usr.machine==src)
 						src.interact(usr)
@@ -346,19 +342,18 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
-	var/goes_in_hands = 1
+	var/difficulty = 1 // higher difficulty requires higher skill level to make.
+	var/send_material_data = 0 //Whether the recipe will send the material name as an argument when creating product.
 
-	New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, goes_in_hands = 1)
-		src.title = title
-		src.result_type = result_type
-		src.req_amount = req_amount
-		src.res_amount = res_amount
-		src.max_res_amount = max_res_amount
-		src.time = time
-		src.one_per_turf = one_per_turf
-		src.on_floor = on_floor
-		src.use_material = supplied_material
-		src.goes_in_hands = goes_in_hands
+/datum/stack_recipe/New(material/material)
+	if(material)
+		use_material = material.name
+		difficulty += material.construction_difficulty
+
+/datum/stack_recipe/proc/display_name()
+	if(!use_material)
+		return title
+	return "[material_display_name(use_material)] [title]"
 
 /*
  * Recipe list datum
@@ -366,6 +361,7 @@
 /datum/stack_recipe_list
 	var/title = "ERROR"
 	var/list/recipes = null
-	New(title, recipes)
-		src.title = title
-		src.recipes = recipes
+
+/datum/stack_recipe_list/New(title, recipes)
+	src.title = title
+	src.recipes = recipes

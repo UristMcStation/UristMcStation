@@ -13,7 +13,7 @@
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
 			to_chat(user, "You wipe the disk data.")
-			name = initial(name)
+			SetName(initial(name))
 			desc = initial(name)
 			genes = list()
 			genesource = "unknown"
@@ -41,7 +41,7 @@
 	var/failed_task = 0
 	var/disk_needs_genes = 0
 
-/obj/machinery/botany/process()
+/obj/machinery/botany/Process()
 
 	..()
 	if(!active) return
@@ -78,20 +78,18 @@
 		var/obj/item/seeds/S =W
 		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
 			to_chat(user, "That seed is not compatible with our genetics technology.")
-		else
-			user.drop_from_inventory(W)
-			W.loc = src
+		else if(user.unEquip(W, src))
 			seed = W
 			to_chat(user, "You load [W] into [src].")
 		return
 
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isScrewdriver(W))
 		open = !open
 		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
 		return
 
 	if(open)
-		if(istype(W, /obj/item/weapon/crowbar))
+		if(isCrowbar(W))
 			dismantle()
 			return
 
@@ -110,9 +108,8 @@
 				if(disk_needs_genes)
 					to_chat(user, "That disk does not have any gene data loaded.")
 					return
-
-			user.drop_from_inventory(W)
-			W.loc = src
+			if(!user.unEquip(W, src))
+				return
 			loaded_disk = W
 			to_chat(user, "You load [W] into [src].")
 
@@ -159,7 +156,7 @@
 		data["hasGenetics"] = 0
 		data["sourceName"] = 0
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "botany_isolator.tmpl", "Lysis-isolation Centrifuge UI", 470, 450)
 		ui.set_initial_data(data)
@@ -289,7 +286,7 @@
 	else
 		data["loaded"] = 0
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "botany_editor.tmpl", "Bioballistic Delivery UI", 470, 450)
 		ui.set_initial_data(data)

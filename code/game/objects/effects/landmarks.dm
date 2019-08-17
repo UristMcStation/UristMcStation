@@ -10,51 +10,52 @@
 
 /obj/effect/landmark/New()
 	..()
-	tag = text("landmark*[]", name)
+	tag = "landmark*[name]"
 
+	//TODO clean up this mess
 	switch(name)			//some of these are probably obsolete
 		if("monkey")
-			monkeystart += loc
+			GLOB.monkeystart += loc
 			delete_me = 1
 			return
 		if("start")
-			newplayer_start += loc
+			GLOB.newplayer_start += loc
 			delete_me = 1
 			return
 		if("JoinLate")
-			latejoin += loc
+			GLOB.latejoin += loc
 			delete_me = 1
 			return
 		if("JoinLateGateway")
-			latejoin_gateway += loc
+			GLOB.latejoin_gateway += loc
 			delete_me = 1
 			return
 		if("JoinLateCryo")
-			latejoin_cryo += loc
+			GLOB.latejoin_cryo += loc
+			delete_me = 1
+			return
+		if("JoinLateCryo2")
+			GLOB.latejoin_cryo2 += loc
 			delete_me = 1
 			return
 		if("JoinLateCyborg")
-			latejoin_cyborg += loc
+			GLOB.latejoin_cyborg += loc
 			delete_me = 1
 			return
 		if("prisonwarp")
-			prisonwarp += loc
+			GLOB.prisonwarp += loc
 			delete_me = 1
 			return
 		if("tdome1")
-			tdome1 += loc
+			GLOB.tdome1 += loc
 		if("tdome2")
-			tdome2 += loc
+			GLOB.tdome2 += loc
 		if("tdomeadmin")
-			tdomeadmin += loc
+			GLOB.tdomeadmin += loc
 		if("tdomeobserve")
-			tdomeobserve += loc
+			GLOB.tdomeobserve += loc
 		if("prisonsecuritywarp")
-			prisonsecuritywarp += loc
-			delete_me = 1
-			return
-		if("xeno_spawn")
-			xeno_spawn += loc
+			GLOB.prisonsecuritywarp += loc
 			delete_me = 1
 			return
 		if("endgame_exit")
@@ -105,10 +106,10 @@
 /obj/effect/landmark/proc/delete()
 	delete_me = 1
 
-/obj/effect/landmark/initialize()
-	..()
+/obj/effect/landmark/Initialize()
+	. = ..()
 	if(delete_me)
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/Destroy()
 	landmarks_list -= src
@@ -191,11 +192,6 @@
 		new /obj/item/clothing/head/cueball(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/highlander/New()
-	new /obj/item/clothing/under/kilt(src.loc)
-	new /obj/item/clothing/head/beret(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/prig/New()
 	new /obj/item/clothing/accessory/wcoat(src.loc)
 	new /obj/item/clothing/glasses/monocle(src.loc)
@@ -227,7 +223,7 @@
 /obj/effect/landmark/costume/pirate/New()
 	new /obj/item/clothing/under/pirate(src.loc)
 	new /obj/item/clothing/suit/pirate(src.loc)
-	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/head/bandana )
+	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/mask/bandana/red)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/glasses/eyepatch(src.loc)
 	delete_me = 1
@@ -273,3 +269,56 @@
 	new /obj/item/clothing/mask/gas/sexymime(src.loc)
 	new /obj/item/clothing/under/sexymime(src.loc)
 	delete_me = 1
+
+/obj/effect/landmark/costume/savagehunter/New()
+	new /obj/item/clothing/mask/spirit(src.loc)
+	new /obj/item/clothing/under/savage_hunter(src.loc)
+	delete_me = 1
+
+/obj/effect/landmark/costume/savagehuntress/New()
+	new /obj/item/clothing/mask/spirit(src.loc)
+	new /obj/item/clothing/under/savage_hunter/female(src.loc)
+	delete_me = 1
+
+/obj/effect/landmark/ruin
+	var/datum/map_template/ruin/ruin_template
+
+/obj/effect/landmark/ruin/New(loc, my_ruin_template)
+	name = "ruin_[sequential_id(/obj/effect/landmark/ruin)]"
+	..(loc)
+	ruin_template = my_ruin_template
+	GLOB.ruin_landmarks |= src
+
+/obj/effect/landmark/ruin/Destroy()
+	GLOB.ruin_landmarks -= src
+	ruin_template = null
+	. = ..()
+
+/obj/effect/landmark/random_gen
+	var/generation_width
+	var/generation_height
+	var/seed
+	delete_me = TRUE
+
+/obj/effect/landmark/random_gen/asteroid/Initialize()
+	. = ..()
+
+	if (!config.generate_map)
+		return
+
+	var/min_x = 1
+	var/min_y = 1
+	var/max_x = world.maxx
+	var/max_y = world.maxy
+
+	if (generation_width)
+		min_x = max(src.x, min_x)
+		max_x = min(src.x + generation_width, max_x)
+	if (generation_height)
+		min_y = max(src.y, min_y)
+		max_y = min(src.y + generation_height, max_y)
+
+	new /datum/random_map/automata/cave_system(seed, min_x, min_y, src.z, max_x, max_y)
+	new /datum/random_map/noise/ore(seed, min_x, min_y, src.z, max_x, max_y)
+
+	GLOB.using_map.refresh_mining_turfs(src.z)

@@ -10,22 +10,22 @@
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/weapon/storage/backpack/duffel/duffel_cap(src)
-		new /obj/item/weapon/storage/backpack/captain(src)
-		new /obj/item/weapon/storage/backpack/satchel_cap(src)
-		new /obj/item/clothing/suit/captunic(src)
-		new /obj/item/clothing/suit/storage/capjacket(src)
-		new /obj/item/clothing/under/rank/captain(src)
-		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/clothing/gloves/captain(src)
-		new /obj/item/clothing/under/dress/dress_cap(src)
-		new /obj/item/clothing/suit/storage/hooded/wintercoat/captain(src)
-		new /obj/item/clothing/head/caphat/cap(src)
-		new /obj/item/clothing/under/urist/rank/capdressalt(src)
-		return
+/obj/structure/closet/secure_closet/captainsclothes/New()
+	..()
+	sleep(2)
+	new /obj/item/weapon/storage/backpack/duffel/duffel_cap(src)
+	new /obj/item/weapon/storage/backpack/captain(src)
+	new /obj/item/weapon/storage/backpack/satchel_cap(src)
+	new /obj/item/clothing/suit/captunic(src)
+	new /obj/item/clothing/suit/storage/capjacket(src)
+	new /obj/item/clothing/under/rank/captain(src)
+	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/gloves/captain(src)
+	new /obj/item/clothing/under/dress/dress_cap(src)
+	new /obj/item/clothing/suit/storage/hooded/wintercoat/captain(src)
+	new /obj/item/clothing/head/caphat/cap(src)
+	new /obj/item/clothing/under/urist/rank/capdressalt(src)
+	return
 
 /obj/structure/closet/secure_closet/captainsequipment
 	name = "Captain's Equipment Locker"
@@ -37,22 +37,22 @@
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/clothing/suit/armor/vest(src)
-		new /obj/item/weapon/cartridge/captain(src)
-		new /obj/item/clothing/head/helmet/swat(src)
-		new /obj/item/device/radio/headset/heads/captain(src)
-		new /obj/item/weapon/gun/energy/gun(src)
-		new /obj/item/clothing/suit/armor/captain(src)
-		new /obj/item/weapon/melee/telebaton(src)
-		new /obj/item/clothing/suit/armor/vest/capcarapace(src)
-		new /obj/item/clothing/head/caphat/cap(src)
-		new /obj/item/clothing/head/helmet/space/capspace(src)
-		new /obj/item/weapon/tank/jetpack/oxygen(src)
-		new /obj/item/clothing/mask/gas(src)
-		return
+/obj/structure/closet/secure_closet/captainsequipment/New()
+	..()
+	sleep(2)
+	new /obj/item/clothing/suit/armor/vest(src)
+	new /obj/item/clothing/head/helmet/swat(src)
+	new /obj/item/device/radio/headset/heads/captain(src)
+	new /obj/item/weapon/gun/projectile/revolver/webley(src)
+	new /obj/item/ammo_magazine/c44(src)
+	new /obj/item/clothing/suit/armor/captain(src)
+	new /obj/item/weapon/melee/telebaton(src)
+	new /obj/item/clothing/suit/armor/vest/capcarapace(src)
+	new /obj/item/clothing/head/caphat/cap(src)
+	new /obj/item/clothing/head/helmet/space/capspace(src)
+	new /obj/item/weapon/tank/jetpack/oxygen(src)
+	new /obj/item/clothing/mask/gas(src)
+	return
 
 //blooshield locker
 
@@ -67,22 +67,23 @@
 	icon_broken = "bssecurebroken"
 	icon_off = "bssecureoff"
 
-	New()
-		..()
-		sleep(2)
-		new	/obj/item/weapon/storage/firstaid/adv(src)
-		new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
-		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/weapon/grenade/flashbang(src)
-		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/taser(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
-		new /obj/item/clothing/under/rank/centcom(src)
-		new /obj/item/device/flash(src)
-		new /obj/item/weapon/handcuffs(src)
-		new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
-		return
+/obj/structure/closet/secure_closet/blueshield/New()
+	..()
+	sleep(2)
+	new	/obj/item/weapon/storage/firstaid/adv(src)
+	new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
+	new /obj/item/weapon/storage/belt/holster/security(src)
+	new /obj/item/weapon/grenade/flashbang(src)
+	new /obj/item/weapon/melee/baton/loaded(src)
+	new /obj/item/weapon/gun/energy/taser(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/under/rank/centcom(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
+	new /obj/item/clothing/suit/armor/pcarrier/medium(src)
+	return
 
 //Emergency suits locker
 
@@ -97,8 +98,8 @@
 /obj/structure/closet/emsuits/New()
 	..()
 
-	new /obj/item/clothing/head/emergencyhood(src)
-	new /obj/item/clothing/suit/emergencysuit(src)
+	new /obj/item/clothing/head/urist/emergencyhood(src)
+	new /obj/item/clothing/suit/urist/emergencysuit(src)
 	new /obj/item/weapon/tank/emergency/oxygen(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/weapon/storage/toolbox/emergency(src)
@@ -192,13 +193,14 @@
 /obj/structure/closet/scom/generic
 	name = "S-COM Closet"
 
-/obj/structure/closet/scom/generic/New()
-	..()
-	new /obj/item/device/radio/headset/syndicate(src)
-	new /obj/item/clothing/under/rank/centcom(src)
-	new /obj/item/clothing/shoes/swat(src)
-	new /obj/item/clothing/gloves/thick/swat(src)
-	new /obj/item/weapon/storage/belt/urist/military/scom(src)
+/obj/structure/closet/scom/generic/WillContain()
+	return list(
+		/obj/item/device/radio/headset/syndicate,
+		/obj/item/clothing/under/rank/centcom,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/gloves/thick/swat,
+		/obj/item/weapon/storage/belt/urist/military/scom
+	)
 
 //for the map
 
@@ -208,42 +210,69 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/wardrobe/tactical/New()
-	..()
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	new /obj/item/clothing/under/tactical(src)
-	new /obj/item/clothing/suit/storage/vest/tactical(src)
-	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/goggles(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/gloves/thick(src)
-	return
+/obj/structure/closet/wardrobe/tactical/double/WillContain()
+	return list(
+		/obj/item/clothing/suit/armor/pcarrier/green = 2,
+		/obj/item/clothing/accessory/armorplate/medium = 2,
+		/obj/item/clothing/under/tactical = 2,
+		/obj/item/clothing/head/helmet/nt/tactical = 2,
+		/obj/item/clothing/accessory/armguards/green = 2,
+		/obj/item/clothing/accessory/legguards/green = 2,
+		/obj/item/clothing/mask/balaclava/tactical = 2,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
+		/obj/item/weapon/storage/belt/holster/security/tactical = 2,
+		/obj/item/clothing/shoes/jackboots = 2,
+		/obj/item/clothing/gloves/thick = 2,
+	)
 
 /obj/structure/closet/secure_closet/hunter
 	name = "hunting gear"
 	req_access = list(access_mining)
 
-/obj/structure/closet/secure_closet/hunter/New()
-	..()
-	sleep(2)
-	if(prob(20))
-		new /obj/item/weapon/gunattachment/scope/huntrifle(src)
-	new /obj/item/weapon/gun/projectile/manualcycle/hunterrifle(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/ammo_magazine/a762mm/stripper(src)
-	if(prob(25)) //you get 15 shots, with a chance of 20. Past that, you'll have to go make your own in cargonia.
-		new /obj/item/ammo_magazine/a762mm/stripper(src)
-	new /obj/item/device/flashlight/lantern(src)
-	new /obj/item/weapon/shovel(src)
-	new /obj/item/weapon/material/hatchet(src)
-	new /obj/item/weapon/material/knife/hunting(src)
+/obj/structure/closet/secure_closet/hunter/WillContain()
+	return list(
+		/obj/item/weapon/gunattachment/scope/huntrifle,
+		/obj/item/weapon/gun/projectile/manualcycle/hunterrifle,
+		/obj/item/ammo_magazine/a762mm/stripper = 3,
+		/obj/item/device/flashlight/lantern,
+		/obj/item/weapon/shovel,
+		/obj/item/weapon/material/hatchet,
+		/obj/item/weapon/material/knife/hunting
+	)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm
+	name = "sidearm cabinet"
+	req_access = list()
+	req_one_access = list(access_armory,access_hos,access_hop,access_ce,access_cmo,access_rd)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
+	return list(
+			/obj/item/clothing/accessory/storage/holster/thigh = 2,
+			/obj/item/weapon/gun/energy/gun/secure = 3,
+	)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/small
+	name = "personal sidearm cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/small/WillContain()
+	return list(/obj/item/weapon/gun/energy/gun/small/secure = 4)
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/combined
+	name = "combined sidearm cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
+	return list(
+		/obj/item/weapon/gun/energy/gun/small/secure = 2,
+		/obj/item/clothing/accessory/storage/holster/thigh = 2,
+		/obj/item/weapon/gun/energy/gun/secure = 2,
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/gun/energy/gun/secure, /obj/item/weapon/gun/energy/gun/small/secure))
+	)
+
+/obj/structure/closet/medical_wall/engineering
+	name = "radiation treatment closet"
+
+/obj/structure/closet/medical_wall/engineering/WillContain() //for radiation shit
+	return list(
+		/obj/item/weapon/storage/firstaid/rad,
+		/obj/item/weapon/storage/firstaid/toxin,
+		/obj/item/weapon/storage/med_pouch/radiation = 2)

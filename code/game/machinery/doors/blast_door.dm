@@ -19,6 +19,9 @@
 	var/icon_state_closed = null
 	var/icon_state_closing = null
 
+	var/open_sound = 'sound/machines/blastdoor_open.ogg'
+	var/close_sound = 'sound/machines/blastdoor_close.ogg'
+
 	closed_layer = ABOVE_WINDOW_LAYER
 	var/id = 1.0
 	dir = 1
@@ -33,8 +36,8 @@
 	var/datum/wifi/receiver/button/door/wifi_receiver
 	var/material/implicit_material
 
-/obj/machinery/door/blast/initialize()
-	..()
+/obj/machinery/door/blast/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -44,7 +47,7 @@
 		set_opacity(0)
 		layer = open_layer
 
-	implicit_material = get_material_by_name("plasteel")
+	implicit_material = SSmaterials.get_material_by_name("plasteel")
 
 /obj/machinery/door/airlock/Destroy()
 	qdel(wifi_receiver)
@@ -68,8 +71,7 @@
 		icon_state = icon_state_closed
 	else
 		icon_state = icon_state_open
-	var/turf/T = get_turf(src)
-	T.calc_rad_resistance()
+	SSradiation.resistance_cache.Remove(get_turf(src))
 	return
 
 // Proc: force_open()
@@ -77,6 +79,7 @@
 // Description: Opens the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_open()
 	src.operating = 1
+	playsound(src.loc, open_sound, 100, 1)
 	flick(icon_state_opening, src)
 	src.set_density(0)
 	update_nearby_tiles()
@@ -91,6 +94,7 @@
 // Description: Closes the door. No checks are done inside this proc.
 /obj/machinery/door/blast/proc/force_close()
 	src.operating = 1
+	playsound(src.loc, close_sound, 100, 1)
 	src.layer = closed_layer
 	flick(icon_state_closing, src)
 	src.set_density(1)
@@ -117,8 +121,8 @@
 // Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
-	src.add_fingerprint(user)
-	if(istype(C, /obj/item/weapon/crowbar) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1))
+	src.add_fingerprint(user, 0, C)
+	if(isCrowbar(C) || istype(C,/obj/item/weapon/melee/arm_blade) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1))
 		if(((stat & NOPOWER) || (stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -140,6 +144,7 @@
 				src.repair()
 			else
 				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+	check_force(C, user)
 
 
 
@@ -187,21 +192,30 @@
 	icon_state_closed = "pdoor1"
 	icon_state_closing = "pdoorc1"
 	icon_state = "pdoor1"
-	maxhealth = 600
+	min_force = 30
+	maxhealth = 1000
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	icon_state = "pdoor0"
 	begins_closed = FALSE
 
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
 /obj/machinery/door/blast/shutters
 	name = "shutters"
+	desc = "A set of mechanized shutters made of a pretty sturdy material."
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
+	open_sound = 'sound/machines/shutters_open.ogg'
+	close_sound = 'sound/machines/shutters_close.ogg'
+	min_force = 15
+	maxhealth = 500
+	explosion_resistance = 10
 
 /obj/machinery/door/blast/shutters/open
+	icon_state = "shutter0"
 	begins_closed = FALSE

@@ -168,7 +168,7 @@
 				return
 
 		if( href_list["on2"] )
-			var/obj/item/weapon/packageWrap/W = new /obj/item/weapon/packageWrap(src.loc)
+			var/obj/item/stack/package_wrap/W = new(get_turf(src))
 			if(sheets >= 25)
 				sheets -= 25
 				W.amount = 25
@@ -178,12 +178,12 @@
 				return
 
 		if( href_list["on3"] )
-			new /obj/item/weapon/paper(src.loc)
+			new /obj/item/weapon/paper(get_turf(src))
 			sheets -= 1
 			return
 
 		if( href_list["on4"] )
-			new /obj/item/weapon/storage/fancy/rollingpapers(src.loc)
+			new /obj/item/weapon/storage/fancy/rollingpapers(get_turf(src))
 			sheets -= 1
 			return
 

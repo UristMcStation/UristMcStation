@@ -2,6 +2,9 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
+	layer = BELOW_OBJ_LAYER //Beakers were appearing below it
+	clicksound = "button"
+	clickvol = 20
 
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 
@@ -17,7 +20,7 @@
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
-	flags = OBJ_ANCHORABLE
+	obj_flags = OBJ_FLAG_ANCHORABLE
 
 /obj/machinery/chemical_dispenser/New()
 	..()
@@ -52,24 +55,26 @@
 		return
 
 	if(user)
-		user.drop_from_inventory(C)
-		to_chat(user, "<span class='notice'>You add \the [C] to \the [src].</span>")
+		if(user.unEquip(C))
+			to_chat(user, "<span class='notice'>You add \the [C] to \the [src].</span>")
+		else
+			return
 
-	C.loc = src
+	C.forceMove(src)
 	cartridges[C.label] = C
 	cartridges = sortAssoc(cartridges)
-	nanomanager.update_uis(src)
+	SSnano.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
-	nanomanager.update_uis(src)
+	SSnano.update_uis(src)
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/reagent_containers/chem_disp_cartridge))
 		add_cartridge(W, user)
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isScrewdriver(W))
 		var/label = input(user, "Which cartridge would you like to remove?", "Chemical Dispenser") as null|anything in cartridges
 		if(!label) return
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
@@ -95,8 +100,9 @@
 		container =  RC
 		user.drop_from_inventory(RC)
 		RC.loc = src
+		update_icon()
 		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnano.update_uis(src) // update all UIs attached to src
 
 	else
 		..()
@@ -128,37 +134,45 @@
 	data["chemicals"] = chemicals
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/chemical_dispenser/Topic(href, href_list)
-	if(..())
-		return 1
-
+/obj/machinery/chemical_dispenser/OnTopic(user, href_list)
 	if(href_list["amount"])
 		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
 		amount = max(0, min(120, amount)) // Since the user can actually type the commands himself, some sanity checking
+		return TOPIC_REFRESH
 
-	else if(href_list["dispense"])
+	if(href_list["dispense"])
 		var/label = href_list["dispense"]
 		if(cartridges[label] && container && container.is_open_container())
 			var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 			C.reagents.trans_to(container, amount)
+			return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	else if(href_list["ejectBeaker"])
 		if(container)
 			var/obj/item/weapon/reagent_containers/B = container
-			B.loc = loc
+			B.dropInto(loc)
 			container = null
-
-	add_fingerprint(usr)
-	return 1 // update UIs attached to this object
+			update_icon()
+			return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	ui_interact(user)
 
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
 	ui_interact(user)
+
+/obj/machinery/chemical_dispenser/update_icon()
+	overlays.Cut()
+	if(container)
+		var/mutable_appearance/beaker_overlay
+		beaker_overlay = image('icons/obj/chemical.dmi', src, "lil_beaker")
+		beaker_overlay.pixel_x = rand(-10, 5)
+		overlays += beaker_overlay

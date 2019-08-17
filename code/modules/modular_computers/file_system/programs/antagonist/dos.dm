@@ -2,12 +2,15 @@
 	filename = "ntn_dos"
 	filedesc = "DoS Traffic Generator"
 	program_icon_state = "hostile"
-	extended_desc = "This advanced script can perform denial of service attacks against NTNet quantum relays. The system administrator will probably notice this. Multiple devices can run this program together against same relay for increased effect"
+	program_key_state = "security_key"
+	program_menu_icon = "arrow-4-diag"
+	extended_desc = "This advanced script can perform denial of service attacks against NTNet quantum relays. The system administrator will probably notice this. Multiple devices can run this program together against same relay for increased effect."
 	size = 20
 	requires_ntnet = 1
 	available_on_ntnet = 0
 	available_on_syndinet = 1
 	nanomodule_path = /datum/nano_module/program/computer_dos/
+	usage_flags = PROGRAM_ALL
 	var/obj/machinery/ntnet_relay/target = null
 	var/dos_speed = 0
 	var/error = ""
@@ -40,7 +43,7 @@
 /datum/nano_module/program/computer_dos
 	name = "DoS Traffic Generator"
 
-/datum/nano_module/program/computer_dos/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/computer_dos/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	if(!ntnet_global)
 		return
 	var/datum/computer_file/program/ntnet_dos/PRG = program
@@ -73,7 +76,7 @@
 		data["relays"] = relays
 		data["focus"] = PRG.target ? PRG.target.uid : null
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_dos.tmpl", "DoS Traffic Generator", 400, 250, state = state)
 		ui.auto_update_layout = 1

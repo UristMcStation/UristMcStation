@@ -12,10 +12,11 @@
 	var/damage_malfunction = 20		// "Malfunction" threshold. When damage exceeds this value the hardware piece will semi-randomly fail and do !!FUN!! things
 	var/damage_failure = 50			// "Failure" threshold. When damage exceeds this value the hardware piece will not work at all.
 	var/malfunction_probability = 10// Chance of malfunction when the component is damaged
+	var/usage_flags = PROGRAM_ALL
 
 /obj/item/weapon/computer_hardware/attackby(var/obj/item/W as obj, var/mob/living/user as mob)
 	// Multitool. Runs diagnostics
-	if(istype(W, /obj/item/device/multitool))
+	if(isMultitool(W))
 		to_chat(user, "***** DIAGNOSTICS REPORT *****")
 		diagnostics(user)
 		to_chat(user, "******************************")
@@ -31,7 +32,7 @@
 			damage = 0
 		return 1
 	// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
-	if(istype(S, /obj/item/stack/cable_coil))
+	if(isCoil(S))
 		if(!damage)
 			to_chat(user, "\The [src] doesn't seem to require repairs.")
 			return 1
@@ -62,10 +63,10 @@
 	if(!enabled)
 		return 0
 	// Too damaged to work at all.
-	if(damage > damage_failure)
+	if(damage >= damage_failure)
 		return 0
 	// Still working. Well, sometimes...
-	if(damage > damage_malfunction)
+	if(damage >= damage_malfunction)
 		if(prob(malfunction_probability))
 			return 0
 	// Good to go.
@@ -84,4 +85,3 @@
 /obj/item/weapon/computer_hardware/proc/take_damage(var/amount)
 	damage += round(amount) 					// We want nice rounded numbers here.
 	damage = between(0, damage, max_damage)		// Clamp the value.
-

@@ -6,10 +6,12 @@
 /area
 	var/global/global_uid = 0
 	var/uid
-	var/novents = 0 //to bypass the vent ambience check
+	var/area_flags
 
 /area/New()
 	icon_state = ""
+	plane = EFFECTS_BELOW_LIGHTING_PLANE
+	layer = ALARM_LAYER
 	uid = ++global_uid
 
 	if(!requires_power)
@@ -17,14 +19,15 @@
 		power_equip = 0
 		power_environ = 0
 
-	if(lighting_use_dynamic)
+	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
 	..()
 
-/area/proc/initialize()
+/area/Initialize()
+	. = ..()
 	if(!requires_power || !apc)
 		power_light = 0
 		power_equip = 0
@@ -71,6 +74,8 @@
 /area/proc/air_doors_close()
 	if(!air_doors_activated)
 		air_doors_activated = 1
+		if(!all_doors)
+			return
 		for(var/obj/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
@@ -82,20 +87,25 @@
 /area/proc/air_doors_open()
 	if(air_doors_activated)
 		air_doors_activated = 0
+		if(!all_doors)
+			return
 		for(var/obj/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
 					spawn(0)
-						E.open()
+						if(E.can_safely_open())
+							E.open()
 
 
 /area/proc/fire_alert()
 	if(!fire)
 		fire = 1	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
+		if(!all_doors)
+			return
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -107,8 +117,10 @@
 /area/proc/fire_reset()
 	if (fire)
 		fire = 0	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
+		if(!all_doors)
+			return
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -120,19 +132,19 @@
 /area/proc/readyalert()
 	if(!eject)
 		eject = 1
-		updateicon()
+		update_icon()
 	return
 
 /area/proc/readyreset()
 	if(eject)
 		eject = 0
-		updateicon()
+		update_icon()
 	return
 
 /area/proc/partyalert()
 	if (!( party ))
 		party = 1
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
 	return
 
@@ -140,7 +152,7 @@
 	if (party)
 		party = 0
 		mouse_opacity = 0
-		updateicon()
+		update_icon()
 		for(var/obj/machinery/door/firedoor/D in src)
 			if(!D.blocked)
 				if(D.operating)
@@ -150,7 +162,7 @@
 					D.open()
 	return
 
-/area/proc/updateicon()
+/area/update_icon()
 	if ((fire || eject || party) && (!requires_power||power_environ))//If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)
 			icon_state = "blue"
@@ -193,7 +205,7 @@
 	for(var/obj/machinery/M in src)	// for each machine in the area
 		M.power_change()			// reverify power status (to update icons etc.)
 	if (fire || eject || party)
-		updateicon()
+		update_icon()
 
 /area/proc/usage(var/chan)
 	var/used = 0
@@ -225,7 +237,9 @@
 /area/proc/set_lightswitch(var/new_switch)
 	if(lightswitch != new_switch)
 		lightswitch = new_switch
-		updateicon()
+		for(var/obj/machinery/light_switch/L in src)
+			L.sync_state()
+		update_icon()
 		power_change()
 
 /area/proc/set_emergency_lighting(var/enable)
@@ -246,51 +260,43 @@ var/list/mob/living/forced_ambiance_list = new
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
 	if(oldarea.has_gravity != newarea.has_gravity)
-		if(newarea.has_gravity == 1 && L.m_intent == "run") // Being ready when you change areas allows you to avoid falling.
+		if(newarea.has_gravity == 1 && !MOVING_DELIBERATELY(L)) // Being ready when you change areas allows you to avoid falling.
 			thunk(L)
 		L.update_floating()
 
-	L.lastarea = newarea
 	play_ambience(L)
+	L.lastarea = newarea
 
 /area/proc/play_ambience(var/mob/living/L)
 	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(!(L && L.is_preference_enabled(/datum/client_preference/play_ambiance)))	return
-
-
-	// If we previously were in an area with force-played ambiance, stop it.
-	if(L in forced_ambiance_list)
-		sound_to(L, sound(null, channel = 1))
-		forced_ambiance_list -= L
+	if(!(L && L.client && L.get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_YES))	return
 
 	var/turf/T = get_turf(L)
 	var/hum = 0
-	if(!L.ear_deaf || !src.novents)
+	if(!L.ear_deaf && !always_unpowered && power_environ && !isplanet(src))
 		for(var/obj/machinery/atmospherics/unary/vent_pump/vent in src)
 			if(vent.can_pump())
 				hum = 1
 				break
-
 	if(hum)
 		if(!L.client.ambience_playing)
 			L.client.ambience_playing = 1
-			L.playsound_local(T,sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 25, channel = 2))
+			L.playsound_local(T,sound('sound/ambience/vents.ogg', repeat = 1, wait = 0, volume = 20, channel = GLOB.ambience_sound_channel))
 	else
 		if(L.client.ambience_playing)
 			L.client.ambience_playing = 0
 			sound_to(L, sound(null, channel = 2))
 
-	if(forced_ambience)
-		if(forced_ambience.len)
+	if(L.lastarea != src)
+		if(LAZYLEN(forced_ambience))
 			forced_ambiance_list |= L
-			L.playsound_local(T,sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = 1))
-		else
+			L.playsound_local(T,sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = GLOB.lobby_sound_channel))
+		else	//stop any old area's forced ambience, and try to play our non-forced ones
 			sound_to(L, sound(null, channel = 1))
-	else if(src.ambience.len && prob(35))
-		if((world.time >= L.client.played + 600))
-			var/sound = pick(ambience)
-			L.playsound_local(T, sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1))
-			L.client.played = world.time
+			forced_ambiance_list -= L
+			if(ambience.len && prob(35) && (world.time >= L.client.played + 3 MINUTES))
+				L.playsound_local(T, sound(pick(ambience), repeat = 0, wait = 0, volume = 15, channel = GLOB.lobby_sound_channel))
+				L.client.played = world.time
 
 /area/proc/gravitychange(var/gravitystate = 0)
 	has_gravity = gravitystate
@@ -300,21 +306,19 @@ var/list/mob/living/forced_ambiance_list = new
 			thunk(M)
 		M.update_floating()
 
-/area/proc/thunk(mob)
+/area/proc/thunk(mob/mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
+		return
+
+	if(mob.Check_Shoegrip())
 		return
 
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
-		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
-			return
-
-		if(H.m_intent == "run")
-			H.AdjustStunned(6)
-			H.AdjustWeakened(6)
-		else
-			H.AdjustStunned(3)
+		if(!MOVING_DELIBERATELY(H))
 			H.AdjustWeakened(3)
+		else
+			H.AdjustWeakened(2)
 		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()
@@ -341,13 +345,6 @@ var/list/mob/living/forced_ambiance_list = new
 		return 1
 	return 0
 
-//Can shuttle go here without doing weird stuff?
-/area/proc/free()
-	for(var/atom/A in src)
-		if(A.density)
-			return 0
-	return 1
-
 /area/proc/get_dimensions()
 	var/list/res = list("x"=1,"y"=1)
 	var/list/min = list("x"=world.maxx,"y"=world.maxy)
@@ -362,4 +359,3 @@ var/list/mob/living/forced_ambiance_list = new
 
 /area/proc/has_turfs()
 	return !!(locate(/turf) in src)
-

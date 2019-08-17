@@ -7,8 +7,11 @@
 
 /obj/machinery/telecomms/relay/preset/station
 	id = "Primary Relay"
-	listening_level = 2
 	autolinkers = list("s_relay")
+
+/obj/machinery/telecomms/relay/preset/station/Initialize()
+	listening_levels = GLOB.using_map.contact_levels
+	return ..()
 
 /obj/machinery/telecomms/relay/preset/telecomms
 	id = "Telecomms Relay"
@@ -58,6 +61,26 @@
 	produces_heat = 0
 	autolinkers = list("c_relay")
 
+/obj/machinery/telecomms/relay/preset/wyrm_prim
+	id = "Primary Deck Relay"
+	autolinkers = list("prim_relay")
+
+/obj/machinery/telecomms/relay/preset/wyrm_sub
+	id = "Sub Deck Relay"
+	autolinkers = list("sub_relay")
+
+/obj/machinery/telecomms/relay/preset/department_level
+	id = "Departmental Level Relay"
+	autolinkers = list("dep_relay")
+
+/obj/machinery/telecomms/relay/preset/construction_level
+	id = "Construction Level Relay"
+	autolinkers = list("con_relay")
+
+/obj/machinery/telecomms/relay/preset/supply_level
+	id = "Supply Level Relay"
+	autolinkers = list("sup_relay")
+
 //HUB
 
 /obj/machinery/telecomms/hub/preset
@@ -73,6 +96,12 @@
 	produces_heat = 0
 	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay", "s1_relay", "s2_relay",
 	 "centcomm", "receiverCent", "broadcasterCent")
+
+/obj/machinery/telecomms/hub/preset/wyrm
+	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
+
+/obj/machinery/telecomms/hub/preset/nerva
+	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "1_relay", "2_relay", "3_relay","4_relay", "Relay-PSR")
 
 //Receivers
 
@@ -95,6 +124,11 @@
 	autolinkers = list("receiverCent")
 	freq_listening = list(ERT_FREQ, DTH_FREQ)
 
+/obj/machinery/telecomms/receiver/preset_wyrm
+	id = "Wyrm Receiver"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	autolinkers = list("receiverWyrm")
 
 //Buses
 
@@ -136,6 +170,18 @@
 	produces_heat = 0
 	autolinkers = list("processorCent", "centcomm")
 
+/obj/machinery/telecomms/bus/preset_wyrm
+	id = "Main Bus"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	autolinkers = list("processorWyrm", "busWyrm")
+
+/obj/machinery/telecomms/bus/preset_nerva
+	id = "Main Bus"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ, COMB_FREQ)
+	autolinkers = list("processorWyrm", "busWyrm")
+
 //Processors
 
 /obj/machinery/telecomms/processor/preset_one
@@ -164,6 +210,11 @@
 	produces_heat = 0
 	autolinkers = list("processorCent")
 
+/obj/machinery/telecomms/processor/preset_wyrm
+	id = "Main Processor"
+	network = "tcommsat"
+	autolinkers = list("processorWyrm")
+
 //Servers
 
 /obj/machinery/telecomms/server/presets
@@ -173,26 +224,35 @@
 /obj/machinery/telecomms/server/presets/science
 	id = "Science Server"
 	freq_listening = list(SCI_FREQ)
+	channel_tags = list(list(SCI_FREQ, "Science", COMMS_COLOR_SCIENCE))
 	autolinkers = list("science")
 
 /obj/machinery/telecomms/server/presets/medical
 	id = "Medical Server"
 	freq_listening = list(MED_FREQ)
+	channel_tags = list(list(MED_FREQ, "Medical", COMMS_COLOR_MEDICAL))
 	autolinkers = list("medical")
 
 /obj/machinery/telecomms/server/presets/supply
 	id = "Supply Server"
 	freq_listening = list(SUP_FREQ)
+	channel_tags = list(list(SUP_FREQ, "Supply", COMMS_COLOR_SUPPLY))
 	autolinkers = list("supply")
 
 /obj/machinery/telecomms/server/presets/service
 	id = "Service Server"
 	freq_listening = list(SRV_FREQ)
+	channel_tags = list(list(SRV_FREQ, "Service", COMMS_COLOR_SERVICE))
 	autolinkers = list("service")
 
 /obj/machinery/telecomms/server/presets/common
 	id = "Common Server"
 	freq_listening = list(PUB_FREQ, AI_FREQ, ENT_FREQ) // AI Private and Common
+	channel_tags = list(
+		list(PUB_FREQ, "Common", COMMS_COLOR_COMMON),
+		list(AI_FREQ, "AI Private", COMMS_COLOR_AI),
+		list(ENT_FREQ, "Entertainment", COMMS_COLOR_ENTERTAIN)
+	)
 	autolinkers = list("common")
 
 // "Unused" channels, AKA all others.
@@ -211,24 +271,62 @@
 /obj/machinery/telecomms/server/presets/command
 	id = "Command Server"
 	freq_listening = list(COMM_FREQ)
+	channel_tags = list(list(COMM_FREQ, "Command", COMMS_COLOR_COMMAND))
 	autolinkers = list("command")
 
 /obj/machinery/telecomms/server/presets/engineering
 	id = "Engineering Server"
 	freq_listening = list(ENG_FREQ)
+	channel_tags = list(list(ENG_FREQ, "Engineering", COMMS_COLOR_ENGINEER))
 	autolinkers = list("engineering")
 
 /obj/machinery/telecomms/server/presets/security
 	id = "Security Server"
 	freq_listening = list(SEC_FREQ)
+	channel_tags = list(list(SEC_FREQ, "Security", COMMS_COLOR_SECURITY))
 	autolinkers = list("security")
 
 /obj/machinery/telecomms/server/presets/centcomm
 	id = "CentComm Server"
 	freq_listening = list(ERT_FREQ, DTH_FREQ)
+	channel_tags = list(list(ERT_FREQ, "Response Team", COMMS_COLOR_CENTCOMM), list(DTH_FREQ, "Special Ops", COMMS_COLOR_SYNDICATE))
 	produces_heat = 0
 	autolinkers = list("centcomm")
 
+/obj/machinery/telecomms/server/presets/wyrm
+	id = "Wyrm NAS"
+	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
+	channel_tags = list(
+		list(AI_FREQ, "AI Private", "#ff00ff"),
+		list(COMM_FREQ, "Command", "#395a9a"),
+		list(ENG_FREQ, "Engineering", "#a66300"),
+		list(ENT_FREQ, "Entertainment", "#6eaa2c"),
+		list(MED_FREQ, "Medical", "#008160"),
+		list(PUB_FREQ, "Common", "#008000"),
+		list(SCI_FREQ, "Science", "#993399"),
+		list(SEC_FREQ, "Security", "#a30000"),
+		list(SRV_FREQ, "Service", "#6eaa2c"),
+		list(SUP_FREQ, "Supply", "#7f6539")
+	)
+	autolinkers = list("serverWyrm", "busWyrm")
+
+/obj/machinery/telecomms/server/presets/nerva //the same, but with combat
+	id = "Wyrm NAS"
+	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
+	channel_tags = list(
+		list(AI_FREQ, "AI Private", "#ff00ff"),
+		list(COMM_FREQ, "Command", "#395a9a"),
+		list(ENG_FREQ, "Engineering", "#a66300"),
+		list(ENT_FREQ, "Entertainment", "#6eaa2c"),
+		list(MED_FREQ, "Medical", "#008160"),
+		list(PUB_FREQ, "Common", "#008000"),
+		list(SCI_FREQ, "Science", "#993399"),
+		list(SEC_FREQ, "Security", "#a30000"),
+		list(SRV_FREQ, "Service", "#6eaa2c"),
+		list(SUP_FREQ, "Supply", "#7f6539"),
+		list(COMB_FREQ, "Combat", "#db135c"), //pank
+	)
+	autolinkers = list("serverWyrm", "busWyrm")
 
 //Broadcasters
 
@@ -244,3 +342,8 @@
 	network = "tcommsat"
 	produces_heat = 0
 	autolinkers = list("broadcasterCent")
+
+/obj/machinery/telecomms/broadcaster/preset_wyrm
+	id = "Wyrm Broadcaster"
+	network = "tcommsat"
+	autolinkers = list("broadcasterWyrm")

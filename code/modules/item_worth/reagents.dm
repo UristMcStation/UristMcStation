@@ -52,7 +52,7 @@
 	value = 1
 
 /datum/reagent/radium
-	value = 50 //Radium is crazy expensive, like 100k+ per gram. So probably a bit less expensive in the future.
+	value = 0.5 //Unfortunately, radium has become nearly worthless due to the flooding of the market from xenobotany departments everywhere.
 
 /datum/reagent/acid
 	value = 0.2
@@ -405,7 +405,7 @@
 /datum/reagent/tramadol
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/tramadol/oxycodone
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -455,6 +455,9 @@
 
 /datum/reagent/nicotine
 	value = 2
+
+/datum/reagent/tobacco
+	value = 3
 
 /datum/reagent/rezadone
 	value = 5
@@ -511,6 +514,12 @@
 
 /datum/reagent/toxin
 	value = 2
+
+/datum/reagent/toxin/bromide
+	value = 2
+
+/datum/reagent/toxin/methyl_bromide
+	value = 3
 
 /datum/reagent/toxin/plasticide
 	value = 2.1

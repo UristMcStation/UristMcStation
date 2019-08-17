@@ -75,10 +75,21 @@
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
+/obj/machinery/porta_turret/malf_upgrade(var/mob/living/silicon/ai/user)
+	..()
+	ailock = 0
+	malf_upgraded = 1
+	to_chat(user, "\The [src] has been upgraded. It's damage and rate of fire has been increased. Auto-regeneration system has been enabled. Power usage has increased.")
+	maxhealth = round(initial(maxhealth) * 1.5)
+	shot_delay = round(initial(shot_delay) / 2)
+	auto_repair = 1
+	active_power_usage = round(initial(active_power_usage) * 5)
+	return 1
+
 /obj/machinery/porta_turret/New()
 	..()
 	req_access.Cut()
-	req_one_access = list(access_security, access_heads)
+	req_one_access = list(access_security, access_bridge)
 
 	//Sets up a spark system
 	spark_system = new /datum/effect/effect/system/spark_spread
@@ -214,7 +225,7 @@ var/list/turret_icons
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
 		ui.set_initial_data(data)
@@ -277,7 +288,7 @@ var/list/turret_icons
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
-		if(istype(I, /obj/item/weapon/crowbar))
+		if(isCrowbar(I))
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
@@ -296,7 +307,7 @@ var/list/turret_icons
 					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
 				qdel(src) // qdel
 
-	else if((istype(I, /obj/item/weapon/wrench)))
+	else if(isWrench(I))
 		if(enabled || raised)
 			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
 			return
@@ -327,7 +338,7 @@ var/list/turret_icons
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/device/pda))
+	else if(istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/modular_computer))
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
@@ -427,8 +438,9 @@ var/list/turret_icons
 	stat |= BROKEN	//enables the BROKEN bit
 	spark_system.start()	//creates some sparks because they look cool
 	update_icon()
+	atom_flags |= ATOM_FLAG_CLIMBABLE // they're now climbable
 
-/obj/machinery/porta_turret/process()
+/obj/machinery/porta_turret/Process()
 	//the main machinery process
 
 	if(stat & (NOPOWER|BROKEN))
@@ -592,14 +604,14 @@ var/list/turret_icons
 	return
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+	set waitfor = FALSE
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(!(emagged || attacked))		//if it hasn't been emagged or attacked, it has to obey a cooldown rate
 		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 			return
 		last_fired = 1
-		spawn()
-			sleep(shot_delay)
-			last_fired = 0
+		sleep(shot_delay)
+		last_fired = 0
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
@@ -677,14 +689,14 @@ var/list/turret_icons
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
-			if(istype(I, /obj/item/weapon/wrench) && !anchored)
+			if(isWrench(I) && !anchored)
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
 				anchored = 1
 				build_step = 1
 				return
 
-			else if(istype(I, /obj/item/weapon/crowbar) && !anchored)
+			else if(isCrowbar(I) && !anchored)
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
@@ -717,7 +729,7 @@ var/list/turret_icons
 				build_step = 3
 				return
 
-			else if(istype(I, /obj/item/weapon/weldingtool))
+			else if(isWelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
@@ -771,7 +783,7 @@ var/list/turret_icons
 			//attack_hand() removes the gun
 
 		if(5)
-			if(istype(I, /obj/item/weapon/screwdriver))
+			if(isScrewdriver(I))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the internal access hatch.</span>")
@@ -796,7 +808,7 @@ var/list/turret_icons
 				return
 
 		if(7)
-			if(istype(I, /obj/item/weapon/weldingtool))
+			if(isWelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
@@ -811,7 +823,7 @@ var/list/turret_icons
 
 					//The final step: create a full turret
 					var/obj/machinery/porta_turret/Turret = new target_type(loc)
-					Turret.name = finish_name
+					Turret.SetName(finish_name)
 					Turret.installation = installation
 					Turret.gun_charge = gun_charge
 					Turret.enabled = 0
@@ -819,7 +831,7 @@ var/list/turret_icons
 
 					qdel(src) // qdel
 
-			else if(istype(I, /obj/item/weapon/crowbar))
+			else if(isCrowbar(I))
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
@@ -863,6 +875,8 @@ var/list/turret_icons
 
 /atom/movable/porta_turret_cover
 	icon = 'icons/obj/turrets.dmi'
+
+
 
 
 #undef TURRET_PRIORITY_TARGET

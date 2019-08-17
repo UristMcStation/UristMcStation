@@ -9,15 +9,15 @@
 	var/obj/machinery/embedded_controller/radio/airlock/master_controller
 	var/id_tag
 
-/obj/machinery/dummy_airlock_controller/process()
+/obj/machinery/dummy_airlock_controller/Process()
 	if(master_controller)
 		appearance = master_controller
 	. = ..()
 
-/obj/machinery/dummy_airlock_controller/initialize()
+/obj/machinery/dummy_airlock_controller/Initialize()
 	. = ..()
 	if(id_tag)
-		for(var/obj/machinery/embedded_controller/radio/airlock/_master in machines)
+		for(var/obj/machinery/embedded_controller/radio/airlock/_master in SSmachines.machinery)
 			if(_master.id_tag == id_tag)
 				master_controller = _master
 				master_controller.dummy_terminals += src

@@ -72,7 +72,7 @@
 	..()
 
 /obj/item/weapon/computer_hardware/battery_module/Destroy()
-	qdel_null(battery)
+	QDEL_NULL(battery)
 	if(holder2 && (holder2.battery_module == src))
 		holder2.ai_slot = null
 	return ..()
@@ -80,3 +80,6 @@
 /obj/item/weapon/computer_hardware/battery_module/proc/charge_to_full()
 	if(battery)
 		battery.charge = battery.maxcharge
+
+/obj/item/weapon/computer_hardware/battery_module/get_cell()
+	return battery

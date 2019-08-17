@@ -14,8 +14,8 @@ var/list/holder_mob_icon_cache = list()
 
 	origin_tech = null
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_holder.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_holder.dmi',
+		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_holder.dmi',
+		slot_r_hand_str = 'icons/mob/onmob/items/righthand_holder.dmi',
 		)
 	pixel_y = 8
 
@@ -23,16 +23,21 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/weapon/holder/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
+
+/obj/item/weapon/holder/proc/destroy_all()
+	for(var/atom/movable/AM in src)
+		qdel(AM)
+	qdel(src)
 
 /obj/item/weapon/holder/Destroy()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(get_turf(src))
 	last_holder = null
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/weapon/holder/process()
+/obj/item/weapon/holder/Process()
 	update_state()
 
 /obj/item/weapon/holder/dropped()
@@ -106,10 +111,6 @@ var/list/holder_mob_icon_cache = list()
 	update_held_icon()
 
 //Mob specific holders.
-/obj/item/weapon/holder/diona
-	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
-	slot_flags = SLOT_HEAD | SLOT_OCLOTHING | SLOT_HOLSTER
-
 /obj/item/weapon/holder/drone
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 
@@ -118,6 +119,10 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/weapon/holder/borer
 	origin_tech = list(TECH_BIO = 6)
+
+//need own subtype to work with recipies
+/obj/item/weapon/holder/corgi
+	origin_tech = list(TECH_BIO = 4)
 
 /obj/item/weapon/holder/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	for(var/mob/M in src.contents)

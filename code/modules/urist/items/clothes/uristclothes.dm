@@ -12,15 +12,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
+
+//this is important EXPLICITLY for all the dresses -Vakothu
+/obj/item/clothing/under/urist/dress
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	icon_state = "blackdress" //for travis purposes
+	name = "dress" //likewise
 
 //backtracking and putting this here to clean things up
 
 /obj/item/clothing/suit/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
+	species_restricted = list("exclude","Lactera") //no more lactera wearing armour
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
-/obj/item/clothing/suit/armor/species_restricted = list("exclude","Xenomorph") //no more lactera wearing armour
+/obj/item/clothing/suit/armor/species_restricted = list("exclude","Lactera") //no more lactera wearing armour
 
 //SciRIG. It's hip, it's happening and it protects against space and some other shit. You fuckers said you wanted more EVA.
 //It's totally not just a reskin of the medrig...
@@ -32,7 +40,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "science hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. Looks like it could hold up against an explosion."
 	item_state = "Scirig"
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/box/monkeycubes,/obj/item/weapon/aicard,/obj/item/device/paicard,/obj/item/electronic_assembly_shell)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/box/monkeycubes,/obj/item/weapon/aicard,/obj/item/device/paicard)
 	armor = list(melee = 10, bullet = 5, laser = 10,energy = 5, bomb = 60, bio = 100, rad = 30)
 
 /obj/item/clothing/suit/space/void/science/New()
@@ -42,8 +50,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Emergency Suit. It's really shitty, but better than a firesuit when it comes to space or biological hazards. Will need a special "emergency locker" for this.
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
 
-/obj/item/clothing/suit/emergencysuit
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/suit/urist/emergencysuit
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -56,12 +63,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency)
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	flags = STOPPRESSUREDAMAGE
+	item_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	species_restricted = list("exclude","Vox")
+	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
 
-/obj/item/clothing/suit/emergencysuit/New()
+/obj/item/clothing/suit/urist/emergencysuit/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1.5
 
@@ -79,6 +86,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	permeability_coefficient = 0.01
 	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen)
 	armor = list(melee = 20, bullet = 15, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/bio_suit/asec/New()
 	..()
@@ -93,7 +101,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "welderapron"
 	item_state = "welderapron"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //Naval Space suit. Or something like that. I don't fucking know.
@@ -103,7 +111,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "naval space suit"
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navyspace"
-	desc = "A high quality space suit used by the Nanotrasen Navy. Smells like oppression."
+	desc = "A high quality space suit used by the NanoTrasen Navy. Smells like oppression."
 	w_class = 3
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
@@ -117,7 +125,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/space/void/commando
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando suit"
-	desc = "A heavily armored suit that protects against moderate damage. Worn by the Nanotrasen Naval Commandos. It reeks of oppression."
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the NanoTrasen Naval Commandos. It reeks of oppression."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
@@ -160,16 +168,17 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A tweed jacket worn by the station's psychologist. It looks a tad worn at the elbows."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "tweedjacket"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
 
 	verb/toggle()
 		set name = "Toggle Coat Buttons"
 		set category = "Object"
 		set src in usr
 
-		if(!usr.canmove || usr.stat || usr.restrained())
+		var/mob/living/carbon/human/user = usr
+		if(user.incapacitated())
 			return 0
 
 		switch(icon_state)
@@ -186,22 +195,20 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 //Terran Confederacy Trader outfit
 
-/obj/item/clothing/under/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/under/urist/terran //why was this a weirdass path
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
-/obj/item/clothing/suit/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/clothes.dmi'
+/obj/item/clothing/suit/urist/terran
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
-/obj/item/clothing/under/terran/trader
+/obj/item/clothing/under/urist/terran/trader
 	name = "Terran Confederacy trader's outfit"
 	desc = "An opulent outfit worn by a Terran Confederacy trader"
 	icon_state = "TCToutfit"
 	item_state = "TCToutfit"
 	//item_color = "TCToutfit"
 
-/obj/item/clothing/suit/terran/trader
+/obj/item/clothing/suit/urist/terran/trader
 	name = "Terran Confederacy trader's cloak"
 	desc = "An opulent cloak worn by a Terran Confederacy trader"
 	icon_state = "TCTRobes"
@@ -213,6 +220,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/wizrobe/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/wizrobe/urist/necro
 	name = "necromancer's robes"
@@ -255,7 +263,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "tealdress"
 	//item_color = "tealdress"
 	item_state = "tealdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/yellow
 	name = "floral yellow dress"
@@ -263,7 +270,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "yellowdress"
 	//item_color = "yellowdress"
 	item_state = "yellowdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/white1
 	name = "short white dress"
@@ -279,7 +285,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "wd2"
 	//item_color = "wd2"
 	item_state = "wd2"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/princess
 	name = "princess dress"
@@ -287,7 +292,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "princess"
 	//item_color = "princess"
 	item_state = "princess"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/red
 	name = "red cocktail dress"
@@ -327,6 +331,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "sakura_hokkaido_kimono"
 	//item_color = "sakura_hokkaido_kimono"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
 //Super hero/villain stuff
 
@@ -404,6 +409,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	//item_color = "captainfemaleformal"
 	item_state = "captainfemaleformal"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
 //'legacy' labcoat for non-togglable labcoats
 
@@ -412,9 +418,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A suit that protects against minor chemical spills."
 	icon_state = "labcoat_open"
 	item_state = "labcoat" //Is this even used for anything?
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/dnainjector,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 
@@ -429,6 +435,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "aeneasrinil_open"
 	icon_open = "aeneasrinil_open"
 	icon_closed = "aeneasrinil"
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 //for the carpenter
 
@@ -443,6 +450,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/toggle/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
@@ -453,14 +461,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_open = "blackcoat_open"
 	icon_closed = "blackcoat_closed"
 	item_state = "blackcoat_open"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -469,7 +479,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat_open"
 	item_state = "charcoal_suit"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/navycoat
@@ -512,7 +522,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
-	desc = "An very heavy, very warm belted fur coat made out of furs of a long-extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?."
+	desc = "A very heavy, very warm belted fur coat made out of furs of an extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?"
 	icon_state = "tajcoat_open"
 
 /obj/item/clothing/suit/storage/urist/coat/journocoat
@@ -567,7 +577,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "whitedress"
 	item_state = "whitedress"
 	//item_color = "whitedress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/pink
 	name = "pink dress"
@@ -575,7 +584,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "pinkdress"
 	item_state = "pinkdress"
 	//item_color = "pinkdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/gold
 	name = "gold dress"
@@ -583,7 +591,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "golddress"
 	item_state = "golddress"
 	//item_color = "golddress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/green
 	name = "green dress"
@@ -591,7 +598,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "greendress"
 	item_state = "greendress"
 	//item_color = "greendress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/purple
 	name = "purple dress"
@@ -599,7 +605,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "purpledress"
 	item_state = "purpledress"
 	//item_color = "purpledress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/urist/dress/black
 	name = "black dress"
@@ -607,7 +612,51 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "blackdress"
 	item_state = "blackdress"
 	//item_color = "blackdress"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+//Even MORE dresses! -Dresses are sprited by Deer (2018) -Teshari sprites by Vakothu
+
+/obj/item/clothing/under/urist/dress/pinksun
+	name = "pink sundress"
+	desc = "A cute pink sundress."
+	icon_state = "pinksun"
+	item_state = "pinksun"
+
+/obj/item/clothing/under/urist/dress/whitesun
+	name = "short white sundress"
+	desc = "A white sundress, it's short."
+	icon_state = "whitesun"
+	item_state = "whitesun"
+
+/obj/item/clothing/under/urist/dress/bowsun
+	name = "bowed pink sundress"
+	desc = "A cute pink sundress with a bow."
+	icon_state = "bowsun"
+	item_state = "bowsun"
+
+/obj/item/clothing/under/urist/dress/bluesun
+	name = "long blue sundress"
+	desc = "A long blue sun dress with white frills towards the bottom."
+	icon_state = "bluesun"
+	item_state = "bluesun"
+
+/obj/item/clothing/under/urist/dress/shortpink
+	name = "short pink sundress"
+	desc = "A very short pink sundress, it's more like a chemise."
+	icon_state = "shortpink"
+	item_state = "shortpink"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/urist/dress/twopiece
+	name = "two-piece dress"
+	desc = "A fancy two-piece dress, the pieces are sewn together."
+	icon_state = "twopiece"
+	item_state = "twopiece"
+
+/obj/item/clothing/under/urist/dress/gothic
+	name = "gothic dress"
+	desc = "An elegant gothic dress with lace decorations."
+	icon_state = "gothic"
+	item_state = "gothic"
 
 //pinstripe suit
 
@@ -635,7 +684,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "polkaskirt"
 	item_state = "polkaskirt"
 	//item_color = "polkaskirt"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 //dress blouse
 
@@ -675,7 +723,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A resistant, tan trenchcoat, typically worn by pre-War generals."
 	icon_state = "autumn"
 	item_state = "autumn"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
 	allowed = list(/obj/item/weapon/material/knife, /obj/item/weapon/material/knife/butch, /obj/item/weapon/stamp, /obj/item/weapon/reagent_containers/food/drinks/flask, /obj/item/weapon/melee, /obj/item/device/flash, /obj/item/weapon/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/tank/emergency, /obj/item/device/flashlight, /obj/item/weapon/gun/energy, /obj/item/weapon/gun/projectile, /obj/item/weapon/scalpel, /obj/item/weapon/cautery, /obj/item/weapon/hemostat, /obj/item/weapon/retractor)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -687,7 +735,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "NT deluxe ripoff. You finally have your own coat."
 	icon_state = "blueshieldcoat"
 	item_state = "det_suit"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight,/obj/item/weapon/melee/telebaton)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
@@ -767,9 +815,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "warden_jacket"
 	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
-	//flags =
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	blood_overlay_type = "armorblood"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium)
 
 /obj/item/clothing/under/urist/blackwarden
 	name = "black Warden's jumpsuit"
@@ -850,10 +899,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "luna"
 
 /obj/item/clothing/suit/urist/armor
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	flags = THICKMATERIAL
-
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
@@ -868,8 +916,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "fo"
 	item_state = "fo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
-	flags = THICKMATERIAL
+	blood_overlay_type = "armorblood"
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 //Actual armour
@@ -880,8 +928,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "trash"
 	item_state = "trash"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	blood_overlay_type = "armor"
-	flags = THICKMATERIAL
+	blood_overlay_type = "armorblood"
+	item_flags = ITEM_FLAG_THICKMATERIAL
 
 /obj/item/clothing/suit/urist/armor/trash/blue //Isn't actually good
 	name = "heavy metal blue armour"
@@ -1038,7 +1086,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "suit_bronze"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	w_class = 4
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/urist/armor/addyarmor
@@ -1049,7 +1097,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	w_class = 4
 	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 
 
 /obj/item/clothing/suit/urist/armor/runearmor
@@ -1060,7 +1108,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	w_class = 4
 	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 
 //why is this not storage? Duplicate item, but it makes way more sense as a storage item.
 
@@ -1094,7 +1142,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15 //sure?
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 
 /obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
 	name = "grey hoodie"
@@ -1155,6 +1203,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "sandsuit"
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 /obj/item/clothing/under/urist/cowboy
 	name = "cowboy's outfit"
@@ -1173,3 +1222,61 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
 	icon_state = "rnd"
+
+//terran stuff
+
+/obj/item/clothing/suit/space/void/terran_marine
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Confederacy Marine voidsuit"
+	desc = "A heavily armored suit that protects against moderate damage. Worn by the Terran Marines. It reeks of oppression, and also corruption somehow."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "terran_void_marine"
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
+	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
+	can_breach = 0
+
+/obj/item/clothing/suit/space/void/commando/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/suit/storage/urist/terran_marine
+	name = "Terran Confederacy Marine armour"
+	desc = "A heavy armour vest worn by Terran Confederacy Marines."
+	icon_state = "terran_armour"
+	item_state = "terran_armour"
+	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/suit/storage/urist/terran_officer
+	name = "Terran Confederacy Marine Officer armour"
+	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
+	icon_state = "terran_armour_officer"
+	item_state = "terran_armour_officer"
+	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/under/urist/terran/marine
+	name = "Terran Confederacy Marine uniform"
+	desc = "A grey uniform worn by the Terran Confederacy Marines."
+	icon_state = "terran_uniform"
+	item_state = "terran_uniform"

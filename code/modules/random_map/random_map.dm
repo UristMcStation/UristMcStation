@@ -31,7 +31,7 @@ var/global/list/map_count = list()
 	// Test to see if rand_seed() can be used reliably.
 	var/priority_process
 
-/datum/random_map/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce)
+/datum/random_map/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0)
 
 	// Store this for debugging.
 	if(!map_count[descriptor])
@@ -54,12 +54,12 @@ var/global/list/map_count = list()
 
 	var/start_time = world.timeofday
 	if(!do_not_announce) admin_notice("<span class='danger'>Generating [name].</span>", R_DEBUG)
-	sleep(-1)
+	CHECK_TICK
 
 	// Testing needed to see how reliable this is (asynchronous calls, called during worldgen), DM ref is not optimistic
 	if(seed)
 		rand_seed(seed)
-		priority_process = 1
+		priority_process = !never_be_priority
 
 	for(var/i = 0;i<max_attempts;i++)
 		if(generate())
@@ -154,7 +154,8 @@ var/global/list/map_count = list()
 
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
-			if(!priority_process) sleep(-1)
+			if(!priority_process)
+				CHECK_TICK
 			apply_to_turf(x,y)
 
 /datum/random_map/proc/apply_to_turf(var/x,var/y)

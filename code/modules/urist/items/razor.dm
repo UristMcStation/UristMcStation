@@ -11,13 +11,13 @@
 		for(var/obj/item/clothing/I in list(C.back, C.wear_mask))
 			covered_locations |= I.body_parts_covered
 			face_covered |= I.flags_inv
-			eyesmouth_covered |= I.flags
+			eyesmouth_covered |= I.item_flags
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
 			for(var/obj/item/I in list(H.wear_suit, H.w_uniform, H.shoes, H.belt, H.gloves, H.glasses, H.head, H.r_ear, H.l_ear))
 				covered_locations |= I.body_parts_covered
 				face_covered |= I.flags_inv
-				eyesmouth_covered |= I.flags
+				eyesmouth_covered |= I.item_flags
 
 	switch(location)
 		if("head")
@@ -68,7 +68,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "razor"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = 1.0
 
 /obj/item/weapon/razor/attack(mob/living/carbon/M as mob, mob/user as mob)

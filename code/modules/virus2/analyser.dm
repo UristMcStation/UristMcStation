@@ -10,20 +10,23 @@
 
 	var/obj/item/weapon/virusdish/dish = null
 
+/obj/machinery/disease2/diseaseanalyser/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/diseaseanalyser)
+	. = ..()
+
 /obj/machinery/disease2/diseaseanalyser/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(!istype(O,/obj/item/weapon/virusdish)) return
+	if(!istype(O,/obj/item/weapon/virusdish)) return ..()
 
 	if(dish)
 		to_chat(user, "\The [src] is already loaded.")
 		return
-
+	if(!user.unEquip(O, src))
+		return
 	dish = O
-	user.drop_item()
-	O.loc = src
 
 	user.visible_message("[user] adds \a [O] to \the [src]!", "You add \a [O] to \the [src]!")
 
-/obj/machinery/disease2/diseaseanalyser/process()
+/obj/machinery/disease2/diseaseanalyser/Process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -34,7 +37,7 @@
 				ping("\The [src] pings, \"New pathogen added to data bank.\"")
 
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
-			P.name = "paper - [dish.virus2.name()]"
+			P.SetName("paper - [dish.virus2.name()]")
 
 			var/r = dish.virus2.get_info()
 			P.info = {"
@@ -45,7 +48,7 @@
 "}
 			dish.basic_info = dish.virus2.get_basic_info()
 			dish.info = r
-			dish.name = "[initial(dish.name)] ([dish.virus2.name()])"
+			dish.SetName("[initial(dish.name)] ([dish.virus2.name()])")
 			dish.analysed = 1
 			dish.loc = src.loc
 			dish = null

@@ -1,32 +1,32 @@
-#define CULTINESS_PER_CULTIST 20
-#define CULTINESS_PER_SACRIFICE 20
+#define CULTINESS_PER_CULTIST 40
+#define CULTINESS_PER_SACRIFICE 40
 #define CULTINESS_PER_TURF 1
 
-#define CULT_RUNES_1 100
-#define CULT_RUNES_2 200
-#define CULT_RUNES_3 500
+#define CULT_RUNES_1 200
+#define CULT_RUNES_2 400
+#define CULT_RUNES_3 1000
 
-#define CULT_GHOSTS_1 200
-#define CULT_GHOSTS_2 400
-#define CULT_GHOSTS_3 600
+#define CULT_GHOSTS_1 400
+#define CULT_GHOSTS_2 800
+#define CULT_GHOSTS_3 1200
 
-#define CULT_MAX_CULTINESS 600 // When this value is reached, the game stops checking for updates so we don't recheck every time a tile is converted in endgame
+#define CULT_MAX_CULTINESS 1200 // When this value is reached, the game stops checking for updates so we don't recheck every time a tile is converted in endgame
 
-var/datum/antagonist/cultist/cult
+GLOBAL_DATUM_INIT(cult, /datum/antagonist/cultist, new)
 
 /proc/iscultist(var/mob/player)
-	if(!cult || !player.mind)
+	if(!GLOB.cult || !player.mind)
 		return 0
-	if(player.mind in cult.current_antagonists)
+	if(player.mind in GLOB.cult.current_antagonists)
 		return 1
 
 /datum/antagonist/cultist
 	id = MODE_CULTIST
 	role_text = "Cultist"
 	role_text_plural = "Cultists"
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain")
-	protected_jobs = list("Security Officer", "Warden", "Detective")
-	blacklisted_jobs = list("AI", "Cyborg", "Chaplain")
+	restricted_jobs = list(/datum/job/lawyer, /datum/job/captain, /datum/job/hos)
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/blueshield)
+	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain, /datum/job/psychiatrist)
 	feedback_tag = "cult_objective"
 	antag_indicator = "hudcultist"
 	welcome_text = "You have a tome in your possession; one that will help you start the cult. Use it well and remember - there are others. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
@@ -40,6 +40,7 @@ var/datum/antagonist/cultist/cult
 	initial_spawn_req = 4
 	initial_spawn_target = 6
 	antaghud_indicator = "hudcultist"
+	skill_setter = /datum/antag_skill_setter/station
 
 	var/allow_narsie = 1
 	var/powerless = 0
@@ -53,10 +54,6 @@ var/datum/antagonist/cultist/cult
 	var/conversion_blurb = "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back."
 
 	faction = "cult"
-
-/datum/antagonist/cultist/New()
-	..()
-	cult = src
 
 /datum/antagonist/cultist/create_global_objectives()
 
@@ -138,23 +135,23 @@ var/datum/antagonist/cultist/cult
 
 /datum/antagonist/cultist/proc/update_cult_magic(var/list/to_update)
 	if(CULT_RUNES_1 in to_update)
-		for(var/datum/mind/H in cult.current_antagonists)
+		for(var/datum/mind/H in GLOB.cult.current_antagonists)
 			if(H.current)
 				to_chat(H.current, "<span class='cult'>The veil between this world and beyond grows thin, and your power grows.</span>")
 				add_cult_magic(H.current)
 	if(CULT_RUNES_2 in to_update)
-		for(var/datum/mind/H in cult.current_antagonists)
+		for(var/datum/mind/H in GLOB.cult.current_antagonists)
 			if(H.current)
 				to_chat(H.current, "<span class='cult'>You feel that the fabric of reality is tearing.</span>")
 				add_cult_magic(H.current)
 	if(CULT_RUNES_3 in to_update)
-		for(var/datum/mind/H in cult.current_antagonists)
+		for(var/datum/mind/H in GLOB.cult.current_antagonists)
 			if(H.current)
 				to_chat(H.current, "<span class='cult'>The world is at end. The veil is as thin as ever.</span>")
 				add_cult_magic(H.current)
 
 	if((CULT_GHOSTS_1 in to_update) || (CULT_GHOSTS_2 in to_update) || (CULT_GHOSTS_3 in to_update))
-		for(var/mob/observer/ghost/D in mob_list)
+		for(var/mob/observer/ghost/D in SSmobs.mob_list)
 			add_ghost_magic(D)
 
 /datum/antagonist/cultist/proc/offer_uncult(var/mob/M)
@@ -165,7 +162,7 @@ var/datum/antagonist/cultist/cult
 
 /datum/antagonist/cultist/Topic(href, href_list)
 	if(href_list["confirmleave"])
-		cult.remove_antagonist(usr.mind, 1)
+		GLOB.cult.remove_antagonist(usr.mind, 1)
 
 /datum/antagonist/cultist/proc/remove_cultiness(var/amount)
 	cult_rating = max(0, cult_rating - amount)

@@ -17,14 +17,8 @@
 	attacktext = "slashes"
 	attack_sound = 'sound/weapons/slash.ogg'
 	faction = "alien" //luv u corai. scom 5eva
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 
 //Baby Necromorph

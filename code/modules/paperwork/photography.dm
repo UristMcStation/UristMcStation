@@ -11,7 +11,7 @@
 *******/
 /obj/item/device/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/photography.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/photography.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	randpixel = 10
@@ -65,6 +65,8 @@ var/global/photo_count = 0
 	..()
 
 /obj/item/weapon/photo/examine(mob/user)
+	if(!img)
+		return
 	if(in_range(user, src))
 		show(user)
 		to_chat(user, desc)
@@ -89,7 +91,7 @@ var/global/photo_count = 0
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(( (loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
-		name = "[(n_name ? text("[n_name]") : "photo")]"
+		SetName("[(n_name ? text("[n_name]") : "photo")]")
 	add_fingerprint(usr)
 	return
 
@@ -99,7 +101,7 @@ var/global/photo_count = 0
 **************/
 /obj/item/weapon/storage/photo_album
 	name = "Photo album"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/photography.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
 	w_class = ITEM_SIZE_NORMAL //same as book
@@ -135,12 +137,12 @@ var/global/photo_count = 0
 *********/
 /obj/item/device/camera
 	name = "camera"
-	icon = 'icons/obj/items.dmi'
-	desc = "A polaroid camera. 10 photos left."
+	icon = 'icons/obj/photography.dmi'
+	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
 	w_class = ITEM_SIZE_SMALL
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	var/pictures_max = 10
@@ -149,6 +151,16 @@ var/global/photo_count = 0
 	var/icon_on = "camera"
 	var/icon_off = "camera_off"
 	var/size = 3
+/obj/item/device/camera/update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
+	if(on)
+		icon_state = "[bis.base_icon_state]"
+	else
+		icon_state = "[bis.base_icon_state]_off"
+/obj/item/device/camera/Initialize()
+	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
+	update_icon()
+	. = ..()
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
@@ -163,10 +175,7 @@ var/global/photo_count = 0
 
 /obj/item/device/camera/attack_self(mob/user as mob)
 	on = !on
-	if(on)
-		src.icon_state = icon_on
-	else
-		src.icon_state = icon_off
+	update_icon()
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
@@ -176,7 +185,6 @@ var/global/photo_count = 0
 			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
 			return
 		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
-		user.drop_item()
 		qdel(I)
 		pictures_left = pictures_max
 		return
@@ -216,13 +224,16 @@ var/global/photo_count = 0
 	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
 
 	pictures_left--
-	desc = "A polaroid camera. It has [pictures_left] photos left."
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
-	icon_state = icon_off
+
 	on = 0
-	spawn(64)
-		icon_state = icon_on
-		on = 1
+	update_icon()
+
+/obj/item/device/camera/examine(mob/user)
+	if(!..(user))
+		return
+
+	to_chat(user, "It has [pictures_left] photo\s left.")
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
@@ -253,7 +264,7 @@ var/global/photo_count = 0
 	var/x_c = target.x - (size-1)/2
 	var/y_c = target.y - (size-1)/2
 	var/z_c	= target.z
-	var/icon/photoimage = generate_image(x_c, y_c, z_c, size, CAPTURE_MODE_REGULAR, user)
+	var/icon/photoimage = generate_image(x_c, y_c, z_c, size, CAPTURE_MODE_REGULAR, user, 0)
 
 	var/obj/item/weapon/photo/p = new()
 	p.img = photoimage
@@ -271,7 +282,7 @@ var/global/photo_count = 0
 /obj/item/weapon/photo/proc/copy(var/copy_id = 0)
 	var/obj/item/weapon/photo/p = new/obj/item/weapon/photo()
 
-	p.name = name
+	p.SetName(name)
 	p.icon = icon(icon, icon_state)
 	p.tiny = icon(tiny)
 	p.img = icon(img)

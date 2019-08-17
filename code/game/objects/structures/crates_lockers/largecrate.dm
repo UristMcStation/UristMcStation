@@ -4,9 +4,10 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "densecrate"
 	density = 1
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
-/obj/structure/largecrate/initialize()
-	..()
+/obj/structure/largecrate/Initialize()
+	. = ..()
 	for(var/obj/I in src.loc)
 		if(I.density || I.anchored || I == src || !I.simulated)
 			continue
@@ -17,7 +18,7 @@
 	return
 
 /obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(isCrowbar(W))
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
@@ -38,7 +39,7 @@
 	icon_state = "mulecrate"
 
 /obj/structure/largecrate/hoverpod/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(isCrowbar(W))
 		var/obj/item/mecha_parts/mecha_equipment/ME
 		var/obj/mecha/working/hoverpod/H = new (loc)
 
@@ -55,8 +56,9 @@
 
 /obj/structure/largecrate/animal/New()
 	..()
-	for(var/i = 1;i<=held_count;i++)
-		new held_type(src)
+	if(held_type)
+		for(var/i = 1;i<=held_count;i++)
+			new held_type(src)
 
 /obj/structure/largecrate/animal/mulebot
 	name = "Mulebot crate"

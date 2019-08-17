@@ -15,9 +15,10 @@
 	user.visible_message("<span class='notice'>\The [user] begins setting up \the [src].</span>")
 	if(!do_after(user, deploy_time, src))
 		return
+	if(!user.unEquip(src))
+		return
 	var/obj/S = new deploy_path(get_turf(user))
 	user.visible_message("<span class='notice'>\The [user] deploys \the [S].</span>")
-	user.unEquip(src)
 	qdel(src)
 
 /obj/machinery/power/supply_beacon
@@ -44,7 +45,7 @@
 	drop_type = "supermatter"
 
 /obj/machinery/power/supply_beacon/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(!use_power && istype(W, /obj/item/weapon/wrench))
+	if(!use_power && isWrench(W))
 		if(!anchored && !connect_to_network())
 			to_chat(user, "<span class='warning'>This device must be placed over an exposed cable.</span>")
 			return
@@ -77,7 +78,7 @@
 	if(surplus() < 500)
 		if(user) to_chat(user, "<span class='notice'>The connected wire doesn't have enough current.</span>")
 		return
-	set_light(3, 3, "#00CCAA")
+	set_light(1, 0.5, 2, 2, "#00ccaa")
 	icon_state = "beacon_active"
 	use_power = 1
 	if(user) to_chat(user, "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>")
@@ -98,7 +99,7 @@
 		deactivate()
 	..()
 
-/obj/machinery/power/supply_beacon/process()
+/obj/machinery/power/supply_beacon/Process()
 	if(expended)
 		return PROCESS_KILL
 	if(!use_power)

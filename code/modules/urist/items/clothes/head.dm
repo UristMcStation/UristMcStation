@@ -9,6 +9,7 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/head.dmi'
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
 //sci rig helmet
 
@@ -19,20 +20,20 @@ to avoid worrying about the sprites -Glloyd*/
 	item_state = "medical_helm"
 	//item_color = "medical"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 60, bio = 100, rad = 30)
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
 //emergency suit hood
 
-/obj/item/clothing/head/emergencyhood
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/head/urist/emergencyhood
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "emergency_hood"
 	item_state = "emergency_hood"
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
-	flags = STOPPRESSUREDAMAGE
+	obj_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
 	cold_protection = HEAD
-	species_restricted = list("exclude","Vox")
+	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
 
 //armored biosuit hood
 
@@ -41,17 +42,19 @@ to avoid worrying about the sprites -Glloyd*/
 	name = "armoured bio hood"
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "Armouredbiohood"
-	desc = "An armoured hood that protects the head and face from biological comtaminants and minor damage."
+	desc = "An armoured hood that protects the head and face from biological contaminants and minor damage."
 	permeability_coefficient = 0.01
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+
 
 //naval space suit helmet
 
 /obj/item/clothing/head/helmet/space/naval
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval space helmet"
-	desc = "A high quality space helmet used by the Nanotrasen Navy."
+	desc = "A high quality space helmet used by the NanoTrasen Navy."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "navyspacehelm"
 	armor = list(melee = 55, bullet = 45, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
@@ -61,7 +64,7 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/helmet/space/void/commando
 	item_icons = URIST_ALL_ONMOBS
 	name = "naval commando helmet"
-	desc = "An extremely intimidating helmet worn by the Nanotrasen Naval Commandos"
+	desc = "An extremely intimidating helmet worn by the NanoTrasen Naval Commandos"
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "rig0-commando"
 	//item_color = "commando"
@@ -69,11 +72,10 @@ to avoid worrying about the sprites -Glloyd*/
 
 //TC trader hat
 
-/obj/item/clothing/head/terran
-	item_icons = URIST_ALL_ONMOBS
-	icon = 'icons/urist/items/clothes/head.dmi'
+/obj/item/clothing/head/urist/terran
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
-/obj/item/clothing/head/terran/trader
+/obj/item/clothing/head/urist/terran/trader
 	name = "Terran Confederacy trader's hat"
 	desc = "An opulent hat worn by a Terran Confederacy trader"
 	icon_state = "TCTHat"
@@ -126,6 +128,7 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "princess_bow"
 	//item_color = "princess_bow"
 	item_state = "princess_bow"
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
 //fixing hats
 
@@ -244,10 +247,10 @@ to avoid worrying about the sprites -Glloyd*/
 	set name = "Unfold Bandana"
 	set category = "Object"
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
 		return 0
 
-	var/mob/living/carbon/human/user = usr
 	var/obj/item/clothing/suit/storage/hazardvest/H = new /obj/item/clothing/suit/storage/hazardvest
 
 	user.remove_from_mob(src)
@@ -260,10 +263,10 @@ to avoid worrying about the sprites -Glloyd*/
 	set name = "Fold Bandana"
 	set category = "Object"
 
-	if(!usr.canmove || usr.stat || usr.restrained())
+	var/mob/living/carbon/human/user = usr
+	if(user.incapacitated())
 		return 0
 
-	var/mob/living/carbon/human/user = usr
 	for(var/obj/item/O in contents)
 		O.loc = (get_turf(src))
 	var/obj/item/clothing/head/urist/hazardbandana/H = new /obj/item/clothing/head/urist/hazardbandana
@@ -297,6 +300,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = 0
 	body_parts_covered = 0
 	item_state = "policehelm"
+	sprite_sheets = list("Unathi" = 'icons/uristmob/species/unathi/head.dmi')
 
 //First Order
 
@@ -395,7 +399,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "A full face helm."
 	icon_state = "helmet_bronze"
 	item_state = "helmet_bronze"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 15, bullet = 6.6, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
@@ -405,7 +409,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "Provides modest protection."
 	icon_state = "helmet_green"
 	item_state = "helmet_green"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 25, bullet = 16, laser = 20, energy = 12, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
@@ -416,7 +420,7 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "Provides excelent protection."
 	icon_state = "helmet_blue"
 	item_state = "helmet_blue"
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 75, bullet = 40, laser = 50, energy = 25, bomb = 40, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
@@ -447,4 +451,26 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = HIDEEARS | BLOCKHAIR
 	min_cold_protection_temperature = 243.15
 	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
 
+//terran stuff
+
+/obj/item/clothing/head/urist/terran/officercap
+	name = "Terran Confederacy Marine officer cap"
+	desc = "A grey cap bearing the crest of the Terran Confederacy Marines."
+	icon_state = "greyutility"
+
+/obj/item/clothing/head/helmet/space/void/terran_marine
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Confederacy Marine voidsuit"
+	desc = "A reinforced helmet worn by Terran Confederacy Marines."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "terran_void_helm"
+	armor = list(melee = 65, bullet = 60, laser = 35,energy = 20, bomb = 35, bio = 100, rad = 30)
+
+/obj/item/clothing/head/helmet/urist/terran_marine
+	name = "Terram Confederacy Marine helmet"
+	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines."
+	icon_state = "terran_helm"
+	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
+	var/obj/item/weapon/storage/fancy/cigarettes/cigs

@@ -6,15 +6,17 @@
 	damage_type = BURN
 	nodamage = 1
 	check_armour = "energy"
-	var/pulse_range = 1
+	var/heavy_effect_range = 1
+	var/light_effect_range = 2
 
-	on_hit(var/atom/target, var/blocked = 0)
-		empulse(target, pulse_range, pulse_range)
+	on_impact(var/atom/A)
+		empulse(A, heavy_effect_range, light_effect_range)
 		return 1
 
 /obj/item/projectile/ion/small
 	name = "ion pulse"
-	pulse_range = 0
+	heavy_effect_range = 0
+	light_effect_range = 1
 
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
@@ -29,21 +31,28 @@
 		return 1
 
 /obj/item/projectile/temp
-	name = "freeze beam"
+	name = "temperature beam"
 	icon_state = "ice_2"
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	damage = 0
+	damage = 10
 	damage_type = BURN
-	nodamage = 1
 	check_armour = "energy"
 	var/temperature = 300
 
+/obj/item/projectile/temp/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
+	var/obj/item/weapon/gun/energy/temperature/T = launcher
+	if(!T)
+		..(target, user, launcher, target_zone, x_offset, y_offset)
+		return
+	temperature = T.current_temperature
+	..(target, user, launcher, target_zone, x_offset, y_offset)
 
-	on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
-		if(istype(target, /mob/living))
-			var/mob/M = target
-			M.bodytemperature = temperature
-		return 1
+
+/obj/item/projectile/temp/on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
+	if(istype(target, /mob/living))
+		var/mob/M = target
+		M.bodytemperature = temperature
+	return 1
 
 /obj/item/projectile/meteor
 	name = "meteor"
@@ -67,7 +76,7 @@
 				A.ex_act(2)
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
-				for(var/mob/M in range(10, src))
+				for(var/mob/M in range(20, src))
 					if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 						shake_camera(M, 3, 1)
 				qdel(src)
@@ -88,7 +97,7 @@
 		var/mob/living/M = target
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = M
-			if((H.species.flags & IS_PLANT) && (H.nutrition < 500))
+			if((H.species.species_flags & SPECIES_FLAG_IS_PLANT) && (H.nutrition < 500))
 				if(prob(15))
 					H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 					H.Weaken(5)
@@ -108,7 +117,7 @@
 			M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")
 		else
 			return 1
-			
+
 /obj/item/projectile/energy/floramut/gene
 	name = "gamma somatoray"
 	icon_state = "energy2"
@@ -132,7 +141,7 @@
 		var/mob/M = target
 		if(ishuman(target)) //These rays make plantmen fat.
 			var/mob/living/carbon/human/H = M
-			if((H.species.flags & IS_PLANT) && (H.nutrition < 500))
+			if((H.species.species_flags & SPECIES_FLAG_IS_PLANT) && (H.nutrition < 500))
 				H.nutrition += 30
 		else if (istype(target, /mob/living/carbon/))
 			M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")

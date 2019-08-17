@@ -35,7 +35,7 @@
 /obj/effect/spresent/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
-	if (!istype(W, /obj/item/weapon/wirecutters))
+	if(!isWirecutter(W))
 		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
 		return
 
@@ -90,18 +90,16 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 		/obj/item/device/paicard,
-		/obj/item/device/violin,
+		/obj/item/device/synthesized_instrument/violin,
 		/obj/item/weapon/storage/belt/utility/full,
 		/obj/item/clothing/accessory/horrible)
 
 	if(!ispath(gift_type,/obj/item))	return
 
 	var/obj/item/I = new gift_type(M)
-	M.remove_from_mob(src)
 	M.put_in_hands(I)
 	I.add_fingerprint(M)
 	qdel(src)
-	return
 
 /*
  * Wrapping Paper and Gifts
@@ -155,7 +153,7 @@
 	if (!( locate(/obj/structure/table, src.loc) ))
 		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
 	if (W.w_class < ITEM_SIZE_HUGE)
-		if ((istype(user.l_hand, /obj/item/weapon/wirecutters) || istype(user.r_hand, /obj/item/weapon/wirecutters)))
+		if(isWirecutter(user.l_hand) || isWirecutter(user.r_hand))
 			var/a_used = W.get_storage_cost()
 			if (a_used == ITEM_SIZE_NO_CONTAINER)
 				to_chat(user, "<span class='warning'>You can't wrap that!</span>")//no gift-wrapping lit welders
@@ -168,11 +166,10 @@
 				if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/weapon/gift)) //No gift wrapping gifts!
 					return
 
-				if(user.drop_from_inventory(W))
+				if(user.unEquip(W))
 					var/obj/item/weapon/gift/G = new /obj/item/weapon/gift( src.loc, W )
 					G.add_fingerprint(user)
 					W.add_fingerprint(user)
-					src.add_fingerprint(user)
 					src.amount -= a_used
 
 			if (src.amount <= 0)

@@ -1,33 +1,26 @@
+#define ROOM_ERR_SPACE 0
+#define ROOM_ERR_TOOLARGE 1
+#define BORDER_NONE 0
+#define BORDER_SPACE 1
+#define BORDER_BETWEEN 2
+#define BORDER_2NDTILE 3
+
 /obj/item/blueprints
 	name = "blueprints"
-	desc = "Blueprints..."
+	desc = "Blueprints for building a station. There is a \"Classified\" stamp and several coffee stains on it."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
-	var/const/AREA_ERRNONE = 0
-	var/const/AREA_STATION = 1
-	var/const/AREA_SPACE =   2
-	var/const/AREA_SPECIAL = 3
-
-	var/const/BORDER_ERROR = 0
-	var/const/BORDER_NONE = 1
-	var/const/BORDER_BETWEEN =   2
-	var/const/BORDER_2NDTILE = 3
-	var/const/BORDER_SPACE = 4
-
-	var/const/ROOM_ERR_LOLWAT = 0
-	var/const/ROOM_ERR_SPACE = -1
-	var/const/ROOM_ERR_TOOLARGE = -2
 
 /obj/item/blueprints/New()
 	..()
 	desc = "Blueprints of the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
 
 /obj/item/blueprints/attack_self(mob/M as mob)
-	if (!istype(M,/mob/living/carbon/human))
+	if(!istype(M,/mob/living/carbon/human))
 		to_chat(M, "This stack of blue paper means nothing to you.")//monkeys cannot into projecting
-
 		return
+
 	interact()
 	return
 
@@ -37,79 +30,43 @@
 		return
 	if (!href_list["action"])
 		return
+
 	switch(href_list["action"])
-		if ("create_area")
-			if (get_area_type()!=AREA_SPACE)
-				interact()
-				return
+		if("create_area")
 			create_area()
 		if ("edit_area")
-			if (get_area_type()!=AREA_STATION)
-				interact()
-				return
 			edit_area()
-		if ("delete_area")
-			//skip the sanity checking, delete_area() does it anyway
+		if("merge_area")
+			merge_area()
+		if("add_to_area")
+			add_to_area()
+		if ("remove_area")
 			delete_area()
 
-/obj/item/blueprints/interact()
-	var/area/A = get_area()
-	var/text = {"<HTML><head><title>[src]</title></head><BODY>
-<h2>[station_name()] blueprints</h2>
-<small>Property of [using_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
-"}
-	switch (get_area_type())
-		if (AREA_SPACE)
-			text += {"
-<p>According the blueprints, you are now in <b>outer space</b>.  Hold your breath.</p>
-<p><a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a></p>
-"}
-		if (AREA_STATION)
-			if (A.apc)
-				text += {"
-<p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
-<p>You may <a href='?src=\ref[src];action=edit_area'>
-move an amendment</a> to the drawing.</p>
-<p>You can't erase this area, because it has an APC.</p>
-"}
-			else
-				text += {"
-<p>According the blueprints, you are now in <b>\"[A.name]\"</b>.</p>
-<p>You may <a href='?src=\ref[src];action=edit_area'>
-move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_area'>erase part of it</a>.</p>
-"}
-		if (AREA_SPECIAL)
-			text += {"
-<p>This place isn't noted on the blueprint.</p>
-"}
-		else
-			return
-	text += "</BODY></HTML>"
+/obj/item/blueprints/interact() //test
+	var/area/A = getArea(usr)
+	var/text = "<HTML><head><title>[src]</title></head><BODY>"
+	text += "<p>According to the blueprints, you are now in <b>[A.name]</b>.</p>"
+	if(!istype(A, /area/turbolift))
+		text += "<br>" + (CheckArea(A) ? "<a href='?src=\ref[src];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
+		text += "<br>" + (CheckArea(A) ? "Modify Area - You can't edit this area!" : "<a href='?src=\ref[src];action=edit_area'>Modify Area</a>")
+		text += "<br>" + (CheckArea(A) ? "Merge Areas - You can't combine this area!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=\ref[src];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
+		text += "<br>" + (CheckArea(A) ? "Add to Area - You can't add to this area!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=\ref[src];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
+		text += "<br>" + (CheckArea(A) ? "Remove Area - You can't remove this area!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=\ref[src];action=remove_area'>Remove Area</a>")
+	else
+		text += "You may not touch turbolifts"
+		text += "</BODY></HTML>"
 	usr << browse(text, "window=blueprints")
 	onclose(usr, "blueprints")
 
+/obj/item/blueprints/proc/CheckArea(var/area/A)
+	if(isspace(A) || isplanet(A))
+		return 1
 
-/obj/item/blueprints/proc/get_area()
-	var/turf/T = get_turf(usr)
+/obj/item/blueprints/proc/getArea(var/o)
+	var/turf/T = get_turf(o)
 	var/area/A = T.loc
 	return A
-
-/obj/item/blueprints/proc/get_area_type(var/area/A = get_area())
-	if(istype(A, /area/space))
-		return AREA_SPACE
-	if(istype(A, /area/jungle))
-		return AREA_SPACE
-	var/list/SPECIALS = list(
-		/area/shuttle
-	)
-
-	if(is_type_in_list(A, SPECIALS))
-		return AREA_SPECIAL
-
-	if(A.z in using_map.station_levels)
-		return AREA_STATION
-
-	return AREA_SPECIAL
 
 /obj/item/blueprints/proc/create_area()
 //	log_debug("create_area")
@@ -134,7 +91,7 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 		to_chat(usr, "<span class='warning'>Name too long.</span>")
 		return
 	var/area/A = new
-	A.name = str
+	A.SetName(str)
 	//var/ma
 	//ma = A.master ? "[A.master]" : "(null)"
 //	log_debug(create_area: <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]")
@@ -157,12 +114,10 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 
 /obj/item/blueprints/proc/move_turfs_to_area(var/list/turf/turfs, var/area/A)
 	A.contents.Add(turfs)
-		//oldarea.contents.Remove(usr.loc) // not needed
-		//T.loc = A //error: cannot change constant value
 
 
 /obj/item/blueprints/proc/edit_area()
-	var/area/A = get_area()
+	var/area/A = getArea(usr)
 //	log_debug(edit_area")
 
 	var/prevname = "[A.name]"
@@ -173,22 +128,78 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 		to_chat(usr, "<span class='warning'>Text too long.</span>")
 		return
 	set_area_machinery_title(A,str,prevname)
-	A.name = str
+	A.SetName(str)
 	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
 	interact()
 	return
 
+/obj/item/blueprints/proc/merge_area()
+	var/area/A = getArea(usr)
+	var/list/areas = getAdjacentAreas()
+	if(areas)
+		var/area/oldArea = input("Choose area to merge into [A.name]", "Area") as null|anything in areas
+		if(!oldArea)
+			interact()
+			return
+		for(var/turf/T in oldArea.contents)
+			move_turfs_to_area(T, A)
+		to_chat(usr, "<span class='notice'>You merge [oldArea.name] into [A.name]</span>")
+		deleteArea(oldArea)
+	else
+		to_chat(usr, "<span class='notice'>No valid areas could be found. Make sure they don't have an APC.</span>")
+	interact()
+	return
+
+/obj/item/blueprints/proc/add_to_area()
+	var/area/A = getArea(usr)
+	var/list/turfs = list()
+	for(var/dir in GLOB.cardinal)
+		var/turf/T = get_step(usr, dir)
+		var/area/area = getArea(T)
+		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
+			turfs["[dir2text(dir)]"] = T
+	var/turf/T = turfs[input("Choose turf to merge into [A.name]", "Area") as null|anything in turfs]
+	if(!T)
+		interact()
+		return
+	var/area/ar = T.loc
+	move_turfs_to_area(T, A)
+	if(!ar.contents.len)
+		deleteArea(ar)
+	interact()
+	return
+
+/obj/item/blueprints/proc/getAdjacentAreas(var/n = 0)
+	var/area/A = getArea(usr)
+	var/list/areas = list()
+	for(var/dir in GLOB.cardinal)
+		var/turf/T = get_step(usr, dir)
+		var/area/area = getArea(T)
+		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
+			if(n || !isspace(area) || !isplanet(area))
+				areas.Add(area)
+	if(!areas.len)
+		return 0
+	else
+		return areas
 
 /obj/item/blueprints/proc/delete_area()
-	var/area/A = get_area()
-	if (get_area_type(A)!=AREA_STATION || A.apc) //let's just check this one last time, just in case
+	var/area/A = getArea(usr)
+	if (isspace(A) || isplanet(A) || A.apc) //let's just check this one last time, just in case
 		interact()
 		return
 	to_chat(usr, "<span class='notice'>You scrub [A.name] off the blueprint.</span>")
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	qdel(A)
+	deleteArea(A)
 	interact()
 
+/obj/item/blueprints/proc/deleteArea(var/area/A)
+	var/area/newArea = locate(world.area)
+	for(var/turf/T in A.contents)
+		move_turfs_to_area(T, newArea)
+	spawn(10)
+		A.contents.Cut()
+		qdel(A)
 
 
 /obj/item/blueprints/proc/set_area_machinery_title(var/area/A,var/title,var/oldtitle)
@@ -196,15 +207,15 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 		return
 
 	for(var/obj/machinery/alarm/M in A)
-		M.name = replacetext(M.name,oldtitle,title)
+		M.SetName(replacetext(M.name,oldtitle,title))
 	for(var/obj/machinery/power/apc/M in A)
-		M.name = replacetext(M.name,oldtitle,title)
+		M.SetName(replacetext(M.name,oldtitle,title))
 	for(var/obj/machinery/atmospherics/unary/vent_scrubber/M in A)
-		M.name = replacetext(M.name,oldtitle,title)
+		M.SetName(replacetext(M.name,oldtitle,title))
 	for(var/obj/machinery/atmospherics/unary/vent_pump/M in A)
-		M.name = replacetext(M.name,oldtitle,title)
+		M.SetName(replacetext(M.name,oldtitle,title))
 	for(var/obj/machinery/door/M in A)
-		M.name = replacetext(M.name,oldtitle,title)
+		M.SetName(replacetext(M.name,oldtitle,title))
 	//TODO: much much more. Unnamed airlocks, cameras, etc.
 
 /obj/item/blueprints/proc/check_tile_is_border(var/turf/T2,var/dir)
@@ -212,12 +223,15 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (istype(T2, /turf/simulated/shuttle))
 		return BORDER_SPACE
-	if (get_area_type(T2.loc)!=AREA_SPACE)
+	if(istype(T2, /turf/simulated/floor/planet))
+		return BORDER_SPACE
+	if (!isspace(T2.loc) || !isplanet(T2.loc))
 		return BORDER_BETWEEN
 	if (istype(T2, /turf/simulated/wall))
 		return BORDER_2NDTILE
 	if (!istype(T2, /turf/simulated))
 		return BORDER_BETWEEN
+
 
 	for (var/obj/structure/window/W in T2)
 		if(turn(dir,180) == W.dir)
@@ -236,11 +250,11 @@ move an amendment</a> to the drawing, or <a href='?src=\ref[src];action=delete_a
 	var/list/turf/found = new
 	var/list/turf/pending = list(first)
 	while(pending.len)
-		if (found.len+pending.len > 300)
-			return ROOM_ERR_TOOLARGE
+	//	if (found.len+pending.len > 300)
+	//		return ROOM_ERR_TOOLARGE
 		var/turf/T = pending[1] //why byond havent list::pop()?
 		pending -= T
-		for (var/dir in cardinal)
+		for (var/dir in GLOB.cardinal)
 			var/skip = 0
 			for (var/obj/structure/window/W in T)
 				if(dir == W.dir || (W.dir in list(NORTHEAST,SOUTHEAST,NORTHWEST,SOUTHWEST)))

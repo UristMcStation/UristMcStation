@@ -12,6 +12,7 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"			// Just few icons patched together. If someone wants to make better icon, feel free to do so!
 	w_class = ITEM_SIZE_LARGE							// It's LARGE (backpack size)
+	origin_tech = list(TECH_MATERIAL = 7, TECH_POWER = 7, TECH_ENGINEERING = 5)
 	var/ChargeCapacity = 50 KILOWATTS
 	var/IOCapacity = 250 KILOWATTS
 
@@ -37,12 +38,14 @@
 	IOCapacity = 1.25 MEGAWATTS
 
 
-// SMES SUBTYPES - THESE ARE MAPPED IN AND CONTAIN DIFFERENT TYPES OF COILS
-
+// DEPRECATED
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
+/obj/machinery/power/smes/buildable/outpost_substation
+	cur_coils = 0
+
 /obj/machinery/power/smes/buildable/outpost_substation/New()
-	..(0)
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
 	recalc_coils()
 
@@ -72,11 +75,22 @@
 	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
 	var/RCon = 1				// Cut to disable AI and remote control.
 	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
+	var/emp_proof = 0			// Whether the SMES is EMP proof
+
 	charge = 0
 	should_be_mapped = 1
 
-/obj/machinery/power/smes/buildable/max_cap_in_out/initialize()
+/obj/machinery/power/smes/buildable/malf_upgrade(var/mob/living/silicon/ai/user)
 	..()
+	malf_upgraded = 1
+	emp_proof = 1
+	recalc_coils()
+	to_chat(user, "\The [src] has been upgraded. It's transfer rate and capacity has increased, and it is now resistant against EM pulses.")
+	return 1
+
+
+/obj/machinery/power/smes/buildable/max_cap_in_out/Initialize()
+	. = ..()
 	charge = capacity
 	input_attempt = TRUE
 	output_attempt = TRUE
@@ -86,6 +100,9 @@
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
+	for(var/obj/machinery/power/terminal/T in terminals)
+		T.master = null
+	terminals = null
 	for(var/datum/nano_module/rcon/R in world)
 		R.FindDevices()
 	return ..()
@@ -94,7 +111,7 @@
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
-/obj/machinery/power/smes/buildable/process()
+/obj/machinery/power/smes/buildable/Process()
 	if(!grounding && (Percentage() > 5))
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(5, 1, src)
@@ -121,14 +138,14 @@
 // Proc: New()
 // Parameters: None
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/New(var/install_coils = 1)
+/obj/machinery/power/smes/buildable/New()
 	component_parts = list()
 	component_parts += new /obj/item/stack/cable_coil(src,30)
 	component_parts += new /obj/item/weapon/circuitboard/smes(src)
 	src.wires = new /datum/wires/smes(src)
 
 	// Allows for mapped-in SMESs with larger capacity/IO
-	if(install_coils)
+	if(cur_coils)
 		for(var/i = 1, i <= cur_coils, i++)
 			component_parts += new /obj/item/weapon/smes_coil(src)
 		recalc_coils()
@@ -146,18 +163,20 @@
 // Parameters: None
 // Description: Updates properties (IO, capacity, etc.) of this SMES by checking internal components.
 /obj/machinery/power/smes/buildable/proc/recalc_coils()
-	if ((cur_coils <= max_coils) && (cur_coils >= 1))
-		capacity = 0
-		input_level_max = 0
-		output_level_max = 0
-		for(var/obj/item/weapon/smes_coil/C in component_parts)
-			capacity += C.ChargeCapacity
-			input_level_max += C.IOCapacity
-			output_level_max += C.IOCapacity
-		charge = between(0, charge, capacity)
-		return 1
-	else
-		return 0
+	cur_coils = 0
+	capacity = 0
+	input_level_max = 0
+	output_level_max = 0
+	for(var/obj/item/weapon/smes_coil/C in component_parts)
+		cur_coils++
+		capacity += C.ChargeCapacity
+		input_level_max += C.IOCapacity
+		output_level_max += C.IOCapacity
+	if(malf_upgraded)
+		capacity *= 1.2
+		input_level_max *= 2
+		output_level_max *= 2
+	charge = between(0, charge, capacity)
 
 // Proc: total_system_failure()
 // Parameters: 2 (intensity - how strong the failure is, user - person which caused the failure)
@@ -321,7 +340,7 @@
 	if (..())
 
 		// Multitool - change RCON tag
-		if(istype(W, /obj/item/device/multitool))
+		if(isMultitool(W))
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -344,14 +363,14 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(istype(W, /obj/item/weapon/crowbar))
-			if (terminal)
+		if(isCrowbar(W))
+			if (terminals.len)
 				to_chat(user, "<span class='warning'>You have to disassemble the terminal first!</span>")
 				return
 
 			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 			to_chat(user, "<span class='warning'>You begin to disassemble the [src]!</span>")
-			if (do_after(usr, 100 * cur_coils, src)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
+			if (do_after(usr, 50 * cur_coils, src)) // More coils = takes longer to disassemble. It's complex so largest one with 6 coils will take 30s
 
 				if (failure_probability && prob(failure_probability))
 					total_system_failure(failure_probability, user)
@@ -374,12 +393,10 @@
 				if (failure_probability && prob(failure_probability))
 					total_system_failure(failure_probability, user)
 					return
-
+				if(!user.unEquip(W, src))
+					return
 				to_chat(usr, "You install the coil into the SMES unit!")
-				user.drop_item()
-				cur_coils ++
 				component_parts += W
-				W.loc = src
 				recalc_coils()
 			else
 				to_chat(usr, "<span class='warning'>You can't insert more coils to this SMES unit!</span>")
@@ -411,3 +428,8 @@
 /obj/machinery/power/smes/buildable/proc/set_output(var/new_output = 0)
 	output_level = between(0, new_output, output_level_max)
 	update_icon()
+
+/obj/machinery/power/smes/buildable/emp_act(var/severity)
+	if(emp_proof)
+		return
+	..(severity)

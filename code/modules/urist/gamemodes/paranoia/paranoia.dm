@@ -23,7 +23,7 @@
 
 //INTEL-DROPPING CODE BEGIN//
 
-/datum/game_mode/paranoia/process()
+/datum/game_mode/paranoia/Process()
 	if(world.time > next_intel_drop)
 		process_intel_drop()
 	..()
@@ -57,7 +57,7 @@
 
 	if(use_random_drops)
 		var/landmarkspawns = 0
-		for(var/obj/effect/landmark/intelspawn/IS in world)
+		for(var/obj/effect/landmark/intelspawn/IS in landmarks_list)
 			if(landmarkspawns < max_landmark_spawns)
 				var/spawnprob = 50
 				if(IS.probability)

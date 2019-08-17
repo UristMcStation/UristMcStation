@@ -7,8 +7,8 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi',
+		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'icons/mob/onmob/items/righthand_backpacks.dmi',
 		)
 	icon_state = "backpack"
 	item_state = null
@@ -49,7 +49,6 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
-	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = 56
 
 	New()
@@ -119,6 +118,11 @@
 	desc = "It's a light backpack modeled for use in laboratories and other scientific institutions."
 	icon_state = "toxpack"
 
+/obj/item/weapon/storage/backpack/nt
+	name = "\improper NanoTrasen backpack"
+	desc = "It's a light backpack modeled for use in laboratories and other scientific institutions."
+	icon_state = "ntpack"
+
 /obj/item/weapon/storage/backpack/hydroponics
 	name = "herbalist's backpack"
 	desc = "It's a green backpack with many pockets to store plants and tools in."
@@ -139,6 +143,32 @@
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
+/obj/item/weapon/storage/backpack/rucksack
+	name = "black rucksack"
+	desc = "A sturdy military-grade backpack with low-profile straps. Designed to work well with armor."
+	icon_state = "rucksack"
+	item_state_slots = list(slot_l_hand_str = "rucksack", slot_r_hand_str = "rucksack",)
+
+/obj/item/weapon/storage/backpack/rucksack/blue
+	name = "blue rucksack"
+	icon_state = "rucksack_blue"
+	item_state_slots = list(slot_l_hand_str = "rucksack_blue", slot_r_hand_str = "rucksack_blue",)
+
+/obj/item/weapon/storage/backpack/rucksack/green
+	name = "green rucksack"
+	icon_state = "rucksack_green"
+	item_state_slots = list(slot_l_hand_str = "rucksack_green", slot_r_hand_str = "rucksack_green",)
+
+/obj/item/weapon/storage/backpack/rucksack/navy
+	name = "navy rucksack"
+	icon_state = "rucksack_navy"
+	item_state_slots = list(slot_l_hand_str = "rucksack_navy", slot_r_hand_str = "rucksack_navy",)
+
+/obj/item/weapon/storage/backpack/rucksack/tan
+	name = "tan rucksack"
+	icon_state = "rucksack_tan"
+	item_state_slots = list(slot_l_hand_str = "rucksack_tan", slot_r_hand_str = "rucksack_tan",)
+
 /*
  * Duffle Types
  */
@@ -148,21 +178,17 @@
 	desc = "A large dufflebag for holding extra things."
 	icon_state = "duffle"
 	item_state_slots = null
-	w_class = ITEM_SIZE_HUGE
-	max_storage_space = DEFAULT_BACKPACK_STORAGE + 10
 
 /obj/item/weapon/storage/backpack/dufflebag/New()
 	..()
 	slowdown_per_slot[slot_back] = 3
+	slowdown_per_slot[slot_r_hand] = 1
+	slowdown_per_slot[slot_l_hand] = 1
 
 /obj/item/weapon/storage/backpack/dufflebag/syndie
 	name = "black dufflebag"
 	desc = "A large dufflebag for holding extra tactical supplies."
 	icon_state = "duffle_syndie"
-
-/obj/item/weapon/storage/backpack/dufflebag/syndie/New()
-	..()
-	slowdown_per_slot[slot_back] = 1
 
 /obj/item/weapon/storage/backpack/dufflebag/syndie/med
 	name = "medical dufflebag"
@@ -199,19 +225,59 @@
  */
 
 /obj/item/weapon/storage/backpack/satchel
-	name = "brown leather satchel"
-	desc = "It's a very fancy satchel made with fine brown leather."
-	icon_state = "satchel"
-
-/obj/item/weapon/storage/backpack/satchel/withwallet
-	New()
-		..()
-		new /obj/item/weapon/storage/wallet/random( src )
-
-/obj/item/weapon/storage/backpack/satchel_norm
 	name = "satchel"
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-norm"
+
+/obj/item/weapon/storage/backpack/satchel/grey
+	name = "grey satchel"
+
+/obj/item/weapon/storage/backpack/satchel/grey/withwallet
+	startswith = list(/obj/item/weapon/storage/wallet/random)
+
+/obj/item/weapon/storage/backpack/satchel/leather //brown, master type
+	name = "brown leather satchel"
+	desc = "A very fancy satchel made of some kind of leather."
+	icon_state = "satchel"
+	color = "#3d2711"
+
+/obj/item/weapon/storage/backpack/satchel/leather/khaki
+	name = "khaki leather satchel"
+	color = "#baa481"
+
+/obj/item/weapon/storage/backpack/satchel/leather/black
+	name = "black leather satchel"
+	color = "#212121"
+
+/obj/item/weapon/storage/backpack/satchel/leather/navy
+	name = "navy leather satchel"
+	color = "#1c2133"
+
+/obj/item/weapon/storage/backpack/satchel/leather/olive
+	name = "olive leather satchel"
+	color = "#544f3d"
+
+/obj/item/weapon/storage/backpack/satchel/leather/reddish
+	name = "auburn leather satchel"
+	color = "#512828"
+
+/obj/item/weapon/storage/backpack/satchel/pocketbook //black, master type
+	name = "black pocketbook"
+	desc = "A neat little folding clasp pocketbook with a shoulder sling."
+	icon_state = "pocketbook"
+	w_class = ITEM_SIZE_HUGE // to avoid recursive backpacks
+	slot_flags = SLOT_BACK
+	max_w_class = ITEM_SIZE_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	color = "#212121"
+
+/obj/item/weapon/storage/backpack/satchel/pocketbook/brown
+	name = "brown pocketbook"
+	color = "#3d2711"
+
+/obj/item/weapon/storage/backpack/satchel/pocketbook/reddish
+	name = "auburn pocketbook"
+	color = "#512828"
 
 /obj/item/weapon/storage/backpack/satchel_eng
 	name = "industrial satchel"
@@ -251,6 +317,11 @@
 	desc = "Useful for holding research materials."
 	icon_state = "satchel-tox"
 
+/obj/item/weapon/storage/backpack/satchel_nt
+	name = "\improper NanoTrasen satchel"
+	desc = "Useful for holding research materials."
+	icon_state = "satchel-nt"
+
 /obj/item/weapon/storage/backpack/satchel_sec
 	name = "security satchel"
 	desc = "A robust satchel for security related needs."
@@ -273,11 +344,6 @@
 		slot_l_hand_str = "satchel-cap",
 		slot_r_hand_str = "satchel-cap",
 		)
-
-/obj/item/weapon/storage/backpack/satchel_black
-	name = "black leather satchel"
-	desc = "It's a very fancy satchel made with fine black leather."
-	icon_state = "satchel_black"
 
 //ERT backpacks.
 /obj/item/weapon/storage/backpack/ert
@@ -340,6 +406,11 @@
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
 	icon_state = "courierbagtox"
+
+/obj/item/weapon/storage/backpack/messenger/nt
+	name = "\improper NanoTrasen messenger bag"
+	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
+	icon_state = "courierbagnt"
 
 /obj/item/weapon/storage/backpack/messenger/com
 	name = "captain's messenger bag"

@@ -1,11 +1,12 @@
 /mob/living/silicon
 	gender = NEUTER
 	voice_name = "synthesized voice"
+	skillset = /datum/skillset/silicon
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
 	var/lawchannel = MAIN_CHANNEL // Default channel on which to state laws
 	var/list/stating_laws = list()// Channels laws are currently being stated on
-	var/obj/item/device/radio/common_radio
+	var/obj/item/device/radio/silicon_radio
 
 	var/list/hud_list[10]
 	var/list/speech_synthesizer_langs = list()	//which languages can be vocalized by the speech synthesizer
@@ -15,7 +16,7 @@
 	var/speak_exclamation = "declares"
 	var/speak_query = "queries"
 	var/pose //Yes, now AIs can pose too.
-	var/obj/item/device/camera/siliconcam/aiCamera = null //photography
+	var/obj/item/device/camera/siliconcam/silicon_camera = null //photography
 	var/local_transmit //If set, can only speak to others of the same type within a short range.
 
 	var/sensor_mode = 0 //Determines the current HUD.
@@ -30,17 +31,32 @@
 	#define MED_HUD 2 //Medical HUD mode
 
 /mob/living/silicon/New()
-	silicon_mob_list |= src
+	GLOB.silicon_mob_list += src
 	..()
+
+	if(silicon_radio)
+		silicon_radio = new silicon_radio(src)
+	if(silicon_camera)
+		silicon_camera = new silicon_camera(src)
+
 	add_language(LANGUAGE_GALCOM)
+	default_language = all_languages[LANGUAGE_GALCOM]
 	init_id()
 	init_subsystems()
 
 /mob/living/silicon/Destroy()
-	silicon_mob_list -= src
-	for(var/datum/alarm_handler/AH in alarm_manager.all_handlers)
+	GLOB.silicon_mob_list -= src
+	QDEL_NULL(silicon_radio)
+	QDEL_NULL(silicon_camera)
+	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.unregister_alarm(src)
+	return ..()
+
+/mob/living/silicon/fully_replace_character_name(new_name)
 	..()
+	create_or_rename_email(new_name, "root.rt")
+	if(istype(idcard))
+		idcard.registered_name = new_name
 
 /mob/living/silicon/proc/init_id()
 	if(ispath(idcard))
@@ -56,10 +72,11 @@
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
 		if(1)
-			src.take_organ_damage(0,20,emp=1)
-			Stun(rand(5,10))
+			src.take_organ_damage(0,16,emp=1)
+			if(prob(50)) Stun(rand(5,10))
+			else confused = (min(confused + 2, 40))
 		if(2)
-			src.take_organ_damage(0,10,emp=1)
+			src.take_organ_damage(0,7,emp=1)
 			confused = (min(confused + 2, 30))
 	flash_eyes(affect_silicon = 1)
 	to_chat(src, "<span class='danger'><B>*BZZZT*</B></span>")
@@ -147,8 +164,7 @@
 /mob/living/silicon/proc/show_station_manifest()
 	var/dat
 	dat += "<h4>Crew Manifest</h4>"
-	if(data_core)
-		dat += data_core.get_manifest(1) // make it monochrome
+	dat += html_crew_manifest(1) // make it monochrome
 	dat += "<br>"
 	src << browse(dat, "window=airoster")
 	onclose(src, "airoster")
@@ -165,7 +181,7 @@
 	return universal_speak || (speaking in src.speech_synthesizer_langs)	//need speech synthesizer support to vocalize a language
 
 /mob/living/silicon/add_language(var/language, var/can_speak=1)
-	var/var/datum/language/added_language = all_languages[language]
+	var/datum/language/added_language = all_languages[language]
 	if(!added_language)
 		return
 
@@ -323,10 +339,10 @@
 
 
 /mob/living/silicon/proc/is_traitor()
-	return mind && (mind in traitors.current_antagonists)
+	return mind && (mind in GLOB.traitors.current_antagonists)
 
 /mob/living/silicon/proc/is_malf()
-	return mind && (mind in malf.current_antagonists)
+	return mind && (mind in GLOB.malf.current_antagonists)
 
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()
@@ -347,7 +363,6 @@
 	var/job = mind.assigned_role
 
 	job_master.FreeRole(job)
-	data_core.ResetPDAManifest()
 
 	if(mind.objectives.len)
 		qdel(mind.objectives)

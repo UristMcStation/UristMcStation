@@ -4,62 +4,41 @@
 
 	..()
 
-	if (transforming)
+	if (HasMovementHandler(/datum/movement_handler/mob/transformation/))
 		return
-	if(!loc)
+	if (!loc)
 		return
 
 	if(machine && !CanMouseDrop(machine, src))
 		machine = null
 
-	var/datum/gas_mixture/environment = loc.return_air()
-
-	if(stat != DEAD)
-		//Breathing, if applicable
-		handle_breathing()
-
-		//Mutations and radiation
-		handle_mutations_and_radiation()
-
-		//Chemicals in the body
-		handle_chemicals_in_body()
-
-		//Random events (vomiting etc)
-		handle_random_events()
-
-		//stuff in the stomach
-		handle_stomach()
-
-		. = 1
-	else if(timeofdeath && (world.time - timeofdeath < 150))
-		//This is to make dead people process reagents for a few ticks, so they can be treated and defibrilated
-		handle_chemicals_in_body()
-
-		. = 1
-
 	//Handle temperature/pressure differences between body and environment
+	var/datum/gas_mixture/environment = loc.return_air()
 	if(environment)
 		handle_environment(environment)
+
+	blinded = 0 // Placing this here just show how out of place it is.
+	// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
+	handle_regular_status_updates() // Status & health update, are we dead or alive etc.
+
+	if(stat != DEAD)
+		aura_check(AURA_TYPE_LIFE)
 
 	//Check if we're on fire
 	handle_fire()
 
 	update_pulling()
 
-	for(var/obj/item/weapon/grab/G in src)
-		G.process()
-
-	blinded = 0 // Placing this here just show how out of place it is.
-	// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
-	if(handle_regular_status_updates()) // Status & health update, are we dead or alive etc.
-		handle_disabilities() // eye, ear, brain damages
-		handle_statuses() //all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+	for(var/obj/item/grab/G in src)
+		G.Process()
 
 	handle_actions()
 
-	update_canmove()
+	UpdateLyingBuckledAndVerbStatus()
 
 	handle_regular_hud_updates()
+
+	return 1
 
 /mob/living/proc/handle_breathing()
 	return
@@ -104,6 +83,7 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_confused()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -149,6 +129,11 @@
 /mob/living/proc/handle_disabilities()
 	handle_impaired_vision()
 	handle_impaired_hearing()
+
+/mob/living/proc/handle_confused()
+	if(confused)
+		confused = max(0, confused - 1)
+	return confused
 
 /mob/living/proc/handle_impaired_vision()
 	//Eyes

@@ -10,9 +10,9 @@
 
 	var/active = 0
 	var/power_gen = 5000
-	var/open = 0
 	var/recent_fault = 0
 	var/power_output = 1
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 /obj/machinery/power/port_gen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -29,7 +29,7 @@
 /obj/machinery/power/port_gen/proc/handleInactive()
 	return
 
-/obj/machinery/power/port_gen/process()
+/obj/machinery/power/port_gen/Process()
 	if(active && HasFuel() && !IsBroken() && anchored && powernet)
 		add_avail(power_gen * power_output)
 		UseFuel()
@@ -114,9 +114,10 @@
 	var/sheet_left = 0		//How much is left of the current sheet
 	var/temperature = 0		//The current temperature
 	var/overheating = 0		//if this gets high enough the generator explodes
+	var/max_overheat = 150
 
-/obj/machinery/power/port_gen/pacman/initialize()
-	..()
+/obj/machinery/power/port_gen/pacman/Initialize()
+	. = ..()
 	if(anchored)
 		connect_to_network()
 
@@ -151,6 +152,12 @@
 	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
 	if(IsBroken()) to_chat(user, "<span class='warning'>\The [src] seems to have broken down.</span>")
 	if(overheating) to_chat(user, "<span class='danger'>\The [src] is overheating!</span>")
+
+/obj/machinery/power/port_gen/pacman/proc/process_exhaust()
+	var/datum/gas_mixture/environment = loc.return_air()
+	if(environment)
+		environment.adjust_gas("carbon_monoxide", 0.05*power_output)
+
 /obj/machinery/power/port_gen/pacman/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
 	if(sheets >= needed_sheets - sheet_left)
@@ -182,7 +189,6 @@
 	//This should probably depend on the external temperature somehow, but whatever.
 	var/lower_limit = 56 + power_output * temperature_gain
 	var/upper_limit = 76 + power_output * temperature_gain
-
 	/*
 		Hot or cold environments can affect the equilibrium temperature
 		The lower the pressure the less effect it has. I guess it cools using a radiator or something when in vacuum.
@@ -191,6 +197,14 @@
 	*/
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
+		var/outer_temp = 0.1 * temperature + T0C
+		if(outer_temp > environment.temperature) //sharing the heat
+			var/heat_transfer = environment.get_thermal_energy_change(outer_temp)
+			if(heat_transfer > 1)
+				var/heating_power = 0.1 * power_gen * power_output
+				heat_transfer = min(heat_transfer, heating_power)
+				environment.add_thermal_energy(heat_transfer)
+
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
 		var/ambient = environment.temperature - T20C
 		lower_limit += ambient*ratio
@@ -206,6 +220,7 @@
 		overheat()
 	else if (overheating > 0)
 		overheating--
+	process_exhaust()
 
 /obj/machinery/power/port_gen/pacman/handleInactive()
 	var/cooling_temperature = 20
@@ -226,7 +241,7 @@
 
 /obj/machinery/power/port_gen/pacman/proc/overheat()
 	overheating++
-	if (overheating > 150)
+	if (overheating > max_overheat)
 		explode()
 
 /obj/machinery/power/port_gen/pacman/explode()
@@ -263,7 +278,7 @@
 		updateUsrDialog()
 		return
 	else if(!active)
-		if(istype(O, /obj/item/weapon/wrench))
+		if(isWrench(O))
 
 			if(!anchored)
 				connect_to_network()
@@ -275,23 +290,17 @@
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(istype(O, /obj/item/weapon/screwdriver))
-			open = !open
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if(open)
-				to_chat(user, "<span class='notice'>You open the access panel.</span>")
-			else
-				to_chat(user, "<span class='notice'>You close the access panel.</span>")
-		else if(istype(O, /obj/item/weapon/crowbar) && open)
-			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
-			for(var/obj/item/I in component_parts)
-				I.loc = src.loc
-			while ( sheets > 0 )
-				DropFuel()
+		if(default_deconstruction_screwdriver(user, O))
+			return
+		if(default_deconstruction_crowbar(user, O))
+			return
+		if(default_part_replacement(user, O))
+			return
 
-			new_frame.state = 2
-			new_frame.icon_state = "box_1"
-			qdel(src)
+/obj/machinery/power/port_gen/pacman/dismantle()
+	while ( sheets > 0 )
+		DropFuel()
+	return ..()
 
 /obj/machinery/power/port_gen/pacman/attack_hand(mob/user as mob)
 	..()
@@ -320,7 +329,10 @@
 	data["output_watts"] = power_output * power_gen
 	data["temperature_current"] = src.temperature
 	data["temperature_max"] = src.max_temperature
-	data["temperature_overheat"] = overheating
+	if(overheating)
+		data["temperature_overheat"] = ((overheating / max_overheat) * 100)		// Overheat percentage. Generator explodes at 100%
+	else
+		data["temperature_overheat"] = 0
 	// 1 sheet = 1000cm3?
 	data["fuel_stored"] = round((sheets * 1000) + (sheet_left * 1000))
 	data["fuel_capacity"] = round(max_sheets * 1000, 0.1)
@@ -329,7 +341,7 @@
 
 
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "pacman.tmpl", src.name, 500, 560)
 		ui.set_initial_data(data)
@@ -374,11 +386,11 @@
 		if(href_list["action"] == "enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = 1
-				icon_state = "portgen1"
+				update_icon()
 		if(href_list["action"] == "disable")
 			if (active)
 				active = 0
-				icon_state = "portgen0"
+				update_icon()
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()
@@ -397,34 +409,94 @@
 	sheet_name = "Uranium Sheets"
 	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
 	board_path = /obj/item/weapon/circuitboard/pacman/super
+	var/rad_power = 2
+
+//nuclear energy is green energy!
+/obj/machinery/power/port_gen/pacman/super/process_exhaust()
+	return
 
 /obj/machinery/power/port_gen/pacman/super/UseFuel()
 	//produces a tiny amount of radiation when in use
-	if (prob(2*power_output))
-		radiation_repository.radiate(src, 4)
+	if (prob(rad_power*power_output))
+		SSradiation.radiate(src, 2*rad_power)
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/update_icon()
 	if(..())
 		set_light(0)
-		return
-	if(icon_state != "[initial(icon_state)]onrad")
-		if(power_output >= 3)
-			icon_state = "[initial(icon_state)]onrad"
-			set_light(2,1,"#3b97ca")
+		return 1
+	overlays.Cut()
+	if(power_output >= max_safe_output)
+		var/image/I = image(icon,"[initial(icon_state)]rad")
+		I.blend_mode = BLEND_ADD
+		I.alpha = round(255*power_output/max_power_output)
+		overlays += I
+		set_light(0.7, 0.1, rad_power + power_output - max_safe_output, 2, "#3b97ca")
 	else
-		if(power_output < 3)
-			icon_state = "[initial(icon_state)]on"
-			set_light(0)
+		set_light(0)
 
 
 /obj/machinery/power/port_gen/pacman/super/explode()
 	//a nice burst of radiation
-	var/rads = 50 + (sheets + sheet_left)*1.5
-	radiation_repository.radiate(src, (max(20, rads)))
+	var/rads = rad_power*25 + (sheets + sheet_left)*1.5
+	SSradiation.radiate(src, (max(20, rads)))
 
-	explosion(src.loc, 3, 3, 5, 3)
+	explosion(src.loc, rad_power+1, rad_power+1, rad_power*2, 3)
 	qdel(src)
+
+/obj/machinery/power/port_gen/pacman/super/potato
+	name = "nuclear reactor"
+	desc = "PTTO-3, an industrial all-in-one nuclear power plant by Neo-Chernobyl GmbH. It uses uranium and vodka as a fuel source. Rated for 150 kW max safe output."
+	power_gen = 30000			//Watts output per power_output level
+	icon_state = "potato"
+	max_safe_output = 4
+	max_power_output = 8	//The maximum power setting without emagging.
+	temperature_gain = 80	//how much the temperature increases per power output level, in degrees per level
+	max_temperature = 450
+	time_per_sheet = 400
+	rad_power = 6
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	board_path = /obj/item/weapon/circuitboard/pacman/super/potato
+	anchored = 1
+
+/obj/machinery/power/port_gen/pacman/super/potato/New()
+	create_reagents(120)
+	..()
+
+/obj/machinery/power/port_gen/pacman/super/potato/examine(mob/user)
+	..()
+	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
+
+/obj/machinery/power/port_gen/pacman/super/potato/UseFuel()
+	if(reagents.has_reagent("vodka"))
+		rad_power = 2
+		temperature_gain = 60
+		reagents.remove_any(1)
+		if(prob(2))
+			audible_message("<span class='notice'>[src] churns happily</span>")
+	else
+		rad_power = initial(rad_power)
+		temperature_gain = initial(temperature_gain)
+	..()
+
+/obj/machinery/power/port_gen/pacman/super/potato/update_icon()
+	if(..())
+		return 1
+	if(power_output > max_safe_output)
+		icon_state = "potatodanger"
+
+/obj/machinery/power/port_gen/pacman/super/potato/attackby(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/weapon/reagent_containers/))
+		var/obj/item/weapon/reagent_containers/R = O
+		if(R.standard_pour_into(src,user))
+			if(reagents.has_reagent("vodka"))
+				audible_message("<span class='notice'>[src] blips happily</span>")
+				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
+			else
+				audible_message("<span class='warning'>[src] blips in disappointment</span>")
+				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
+		return
+	..()
 
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "M.R.S.P.A.C.M.A.N.-type Portable Generator"

@@ -8,11 +8,12 @@
 			return !density
 		else
 			return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.checkpass(PASS_FLAG_TABLE))
 		return 1
-	if(locate(/obj/structure/table) in get_turf(mover))
-		return 1
-	return 0
+	var/obj/structure/table/T = (locate() in get_turf(mover))
+	return (T && !T.flipped) 	//If we are moving from a table, check if it is flipped.
+								//If the table we are standing on is not flipped, then we can move freely to another table.
+
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/table/proc/check_cover(obj/item/projectile/P, turf/from)
@@ -42,6 +43,9 @@
 	return 1
 
 /obj/structure/table/bullet_act(obj/item/projectile/P)
+	if(!flipped)
+		return 0
+
 	if(!(P.damage_type == BRUTE || P.damage_type == BURN))
 		return 0
 
@@ -53,7 +57,7 @@
 	return 0
 
 /obj/structure/table/CheckExit(atom/movable/O as mob|obj, target as turf)
-	if(istype(O) && O.checkpass(PASSTABLE))
+	if(istype(O) && O.checkpass(PASS_FLAG_TABLE))
 		return 1
 	if (flipped==1)
 		if (get_dir(loc, target) == dir)
@@ -69,7 +73,7 @@
 		return ..()
 	if(isrobot(user))
 		return
-	user.drop_item()
+	user.unequip_item()
 	if (O.loc != src.loc)
 		step(O, get_dir(O, src))
 	return
@@ -79,39 +83,21 @@
 	if (!W) return
 
 	// Handle harm intent grabbing/tabling.
-	if(istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
-		if (istype(G.affecting, /mob/living))
-			var/mob/living/M = G.affecting
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
+		if (istype(G.affecting, /mob/living/carbon/human))
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
 				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
 				return
-			if (G.state < GRAB_AGGRESSIVE)
-				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
-			else if (G.state > GRAB_AGGRESSIVE || world.time >= (G.last_action + UPGRADE_COOLDOWN))
-				if(user.a_intent == I_HURT)
-					var/blocked = M.run_armor_check(BP_HEAD, "melee")
-					if (prob(30 * blocked_mult(blocked)))
-						M.Weaken(5)
-					M.apply_damage(8, BRUTE, BP_HEAD, blocked)
-					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
-					if(material)
-						playsound(loc, material.tableslam_noise, 50, 1)
-					else
-						playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
-					var/list/L = take_damage(rand(1,5))
-					// Shards. Extra damage, plus potentially the fact YOU LITERALLY HAVE A PIECE OF GLASS/METAL/WHATEVER IN YOUR FACE
-					for(var/obj/item/weapon/material/shard/S in L)
-						if(S.sharp && prob(50))
-							M.visible_message("<span class='danger'>\The [S] slices into [M]'s face!</span>",
-							                  "<span class='danger'>\The [S] slices into your face!</span>")
-							M.standard_weapon_hit_effects(S, G.assailant, S.force*2, blocked, BP_HEAD) //standard weapon hit effects include damage and embedding
-				else
-					G.affecting.forceMove(src.loc)
-					G.affecting.Weaken(rand(2,5))
-					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
+
+			if(G.force_danger())
+				G.affecting.forceMove(src.loc)
+				G.affecting.Weaken(rand(2,5))
+				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
 				qdel(W)
+			else
+				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 			return
 
 	// Handle dismantling or placing things on the table from here on.
@@ -136,11 +122,9 @@
 		return
 
 	// Placing stuff on tables
-	if(user.drop_from_inventory(W, src.loc))
+	if(user.unEquip(W, src.loc))
 		auto_align(W, click_params)
 		return 1
-
-	return
 
 /*
 Automatic alignment of items to an invisible grid, defined by CELLS and CELLSIZE, defined in code/__defines/misc.dm.
@@ -190,8 +174,8 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 		if (I.anchored || !I.center_of_mass)
 			continue
 		i++
-		I.pixel_x = max(3-i*3, -3) + 1 // There's a sprite layering bug for 0/0 pixelshift, so we avoid it.
-		I.pixel_y = max(4-i*4, -4) + 1
+		I.pixel_x = 1  // There's a sprite layering bug for 0/0 pixelshift, so we avoid it.
+		I.pixel_y = max(3-i*3, -3) + 1
 		I.pixel_z = 0
 
 /obj/structure/table/attack_tk() // no telehulk sorry

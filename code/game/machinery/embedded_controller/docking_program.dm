@@ -1,15 +1,4 @@
 
-#define STATE_UNDOCKED		0
-#define STATE_DOCKING		1
-#define STATE_UNDOCKING		2
-#define STATE_DOCKED		3
-
-#define MODE_NONE			0
-#define MODE_SERVER			1
-#define MODE_CLIENT			2	//The one who initiated the docking, and who can initiate the undocking. The server cannot initiate undocking, and is the one responsible for deciding to accept a docking request and signals when docking and undocking is complete. (Think server == station, client == shuttle)
-
-#define MESSAGE_RESEND_TIME 5	//how long (in seconds) do we wait before resending a message
-
 /*
 	*** STATE TABLE ***
 	
@@ -70,16 +59,23 @@
 	
 	var/override_enabled = 0	//when enabled, do not open/close doors or cycle airlocks and wait for the player to do it manually
 	var/received_confirm = 0	//for undocking, whether the server has recieved a confirmation from the client
+	var/docking_codes			//would only allow docking when receiving signal with these, if set
+	var/display_name			//how would it show up on docking monitoring program, area name + coordinates if unset
 
-/datum/computer/file/embedded_program/docking/New()
+/datum/computer/file/embedded_program/docking/New(var/obj/machinery/embedded_controller/M)
 	..()
-	var/datum/existing = locate(id_tag) //in case a datum already exists with our tag
-	if(existing)
-		existing.tag = null //take it from them
+	if(id_tag)
+		tag = id_tag //set tags for initialization
+
+/datum/computer/file/embedded_program/docking/receive_user_command(command)
+	if(command == "dock" || command == "undock")
+		var/datum/signal/signal = new()
+		signal.data["tag"] = tag_target
+		signal.data["command"] = "request_[command]"
+		signal.data["recipient"] = id_tag
+		signal.data["code"] = docking_codes
+		receive_signal(signal)
 	
-	tag = id_tag //Greatly simplifies shuttle initialization
-
-
 /datum/computer/file/embedded_program/docking/receive_signal(datum/signal/signal, receive_method, receive_param)
 	var/receive_tag = signal.data["tag"]		//for docking signals, this is the sender id
 	var/command = signal.data["command"]
@@ -107,12 +103,18 @@
 		
 		if ("request_dock")
 			if (control_mode == MODE_NONE && dock_state == STATE_UNDOCKED)
+				tag_target = receive_tag
+				
+				if(docking_codes)
+					var/code = signal.data["code"]
+					if(code != docking_codes)
+						return
+
 				control_mode = MODE_SERVER
 				
 				dock_state = STATE_DOCKING
 				broadcast_docking_status()
 				
-				tag_target = receive_tag
 				if (!override_enabled)
 					prepare_for_docking()
 				send_docking_command(tag_target, "confirm_dock")	//acknowledge the request
@@ -268,6 +270,7 @@
 	signal.data["tag"] = id_tag
 	signal.data["command"] = command
 	signal.data["recipient"] = recipient
+	signal.data["code"] = docking_codes
 	post_signal(signal)
 
 /datum/computer/file/embedded_program/docking/proc/broadcast_docking_status()
@@ -284,12 +287,5 @@
 		if (STATE_UNDOCKING) return "undocking"
 		if (STATE_DOCKED) return "docked"
 
-
-#undef STATE_UNDOCKED
-#undef STATE_DOCKING
-#undef STATE_UNDOCKING
-#undef STATE_DOCKED
-
-#undef MODE_NONE
-#undef MODE_SERVER
-#undef MODE_CLIENT
+/datum/computer/file/embedded_program/docking/proc/get_name()
+	return display_name ? display_name : "[get_area(master)] ([master.x], [master.y])"

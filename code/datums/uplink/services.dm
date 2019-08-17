@@ -91,7 +91,7 @@
 	log_and_message_admins("has activated the service '[service_label]'", user)
 
 	if(service_duration)
-		schedule_task_with_source_in(service_duration, src, /obj/item/device/uplink_service/proc/deactivate)
+		addtimer(CALLBACK(src,/obj/item/device/uplink_service/proc/deactivate), service_duration)
 	else
 		deactivate()
 
@@ -109,9 +109,9 @@
 		if(AWAITING_ACTIVATION)
 			icon_state = initial(icon_state)
 		if(CURRENTLY_ACTIVE)
-			icon_state = "sflash2"
+			icon_state = "sflash_on"
 		if(HAS_BEEN_ACTIVATED)
-			icon_state = "flashburnt"
+			icon_state = "sflash_burnt"
 
 /obj/item/device/uplink_service/proc/enable(var/mob/user = usr)
 	return TRUE
@@ -132,9 +132,9 @@
 	ssjm = new ssjm()
 
 /obj/item/device/uplink_service/jamming/Destroy()
-	. = ..()
 	qdel(ssjm)
 	ssjm = null
+	. = ..()
 
 /obj/item/device/uplink_service/jamming/enable(var/mob/user = usr)
 	ssjm.enable()
@@ -182,7 +182,7 @@
 	if(!message)
 		return
 
-	if(CanUseTopic(user, hands_state) != STATUS_INTERACTIVE)
+	if(CanUseTopic(user, GLOB.hands_state) != STATUS_INTERACTIVE)
 		return FALSE
 	command_announcement.Announce(message, title, msg_sanitized = 1)
 	return TRUE
@@ -193,59 +193,36 @@
 /obj/item/device/uplink_service/fake_crew_announcement
 	service_label = "Crew Arrival Announcement and Records"
 
+#define COPY_VALUE(KEY) new_record.set_##KEY(random_record.get_##KEY())
+
 /obj/item/device/uplink_service/fake_crew_announcement/enable(var/mob/user = usr)
+	var/datum/computer_file/report/crew_record/random_record
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	var/datum/data/record/random_general_record
-	var/datum/data/record/random_medical_record
-
-	while(null in data_core.general)
-		data_core.general -= null
-		log_error("Found a null entry in data_core.general")
-
-	if(data_core.general.len)
-		random_general_record	= pick(data_core.general)
-		random_medical_record	= find_medical_record("id", random_general_record.fields["id"])
-
-	var/datum/data/record/general = data_core.CreateGeneralRecord(user)
+	if(GLOB.all_crew_records.len)
+		random_record = pick(GLOB.all_crew_records)
+	var/datum/computer_file/report/crew_record/new_record = CreateModularRecord(user)
 	if(I)
-		general.fields["age"] = I.age
-		general.fields["rank"] = I.assignment
-		general.fields["real_rank"] = I.assignment
-		general.fields["name"] = I.registered_name
-		general.fields["sex"] = I.sex
-	else
-		var/mob/living/carbon/human/H
-		if(istype(user,/mob/living/carbon/human))
-			H = user
-			general.fields["age"] = H.age
-		else
-			general.fields["age"] = initial(H.age)
-		var/assignment = GetAssignment(user)
-		general.fields["rank"] = assignment
-		general.fields["real_rank"] = assignment
-		general.fields["name"] = user.real_name
-		general.fields["sex"] = capitalize(user.gender)
-
-	general.fields["species"] = user.get_species()
-	var/datum/data/record/medical = data_core.CreateMedicalRecord(general.fields["name"], general.fields["id"])
-	data_core.CreateSecurityRecord(general.fields["name"], general.fields["id"])
-
-	if(random_general_record)
-		general.fields["citizenship"]	= random_general_record.fields["citizenship"]
-		general.fields["faction"] 		= random_general_record.fields["faction"]
-		general.fields["fingerprint"] 	= random_general_record.fields["fingerprint"]
-		general.fields["home_system"] 	= random_general_record.fields["home_system"]
-		general.fields["religion"] 		= random_general_record.fields["religion"]
-	if(random_medical_record)
-		medical.fields["b_type"]		= random_medical_record.fields["b_type"]
-		medical.fields["b_dna"]			= random_medical_record.fields["b_type"]
-
-	if(I)
-		general.fields["fingerprint"] 	= I.fingerprint_hash
-		medical.fields["b_type"]	= I.blood_type
-		medical.fields["b_dna"]		= I.dna_hash
-
-	var/datum/job/job = job_master.GetJob(general.fields["rank"])
-	if(job && job.announced)
-		AnnounceArrivalSimple(general.fields["name"], general.fields["rank"])
+		new_record.set_name(I.registered_name)
+		new_record.set_sex(I.sex)
+		new_record.set_age(I.age)
+		new_record.set_job(I.assignment)
+		new_record.set_fingerprint(I.fingerprint_hash)
+		new_record.set_bloodtype(I.blood_type)
+		new_record.set_dna(I.dna_hash)
+		if(I.military_branch)
+			new_record.set_branch(I.military_branch.name)
+			if(I.military_rank)
+				new_record.set_rank(I.military_rank.name)
+	if(random_record)
+		COPY_VALUE(faction)
+		COPY_VALUE(religion)
+		COPY_VALUE(homeSystem)
+		COPY_VALUE(fingerprint)
+		COPY_VALUE(dna)
+		COPY_VALUE(bloodtype)
+	var/datum/job/job = job_master.GetJob(new_record.get_job())
+	if(istype(job) && job.announced)
+		AnnounceArrivalSimple(new_record.get_name(), new_record.get_job(), get_announcement_frequency(job))
 	. = ..()
+
+#undef COPY_VALUE

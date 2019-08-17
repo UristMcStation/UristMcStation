@@ -31,7 +31,7 @@ var/list/fuel_injectors = list()
 /obj/machinery/fusion_fuel_injector/mapped
 	anchored = 1
 
-/obj/machinery/fusion_fuel_injector/process()
+/obj/machinery/fusion_fuel_injector/Process()
 	if(injecting)
 		if(stat & (BROKEN|NOPOWER))
 			StopInjecting()
@@ -40,7 +40,7 @@ var/list/fuel_injectors = list()
 
 /obj/machinery/fusion_fuel_injector/attackby(obj/item/W, mob/user)
 
-	if(ismultitool(W))
+	if(isMultitool(W))
 		var/new_ident = input("Enter a new ident tag.", "Fuel Injector", id_tag) as null|text
 		if(new_ident && user.Adjacent(src))
 			id_tag = new_ident
@@ -51,22 +51,19 @@ var/list/fuel_injectors = list()
 		if(injecting)
 			to_chat(user, "<span class='warning'>Shut \the [src] off before playing with the fuel rod!</span>")
 			return
-
+		if(!user.unEquip(W, src))
+			return
 		if(cur_assembly)
-			cur_assembly.forceMove(get_turf(src))
 			visible_message("<span class='notice'>\The [user] swaps \the [src]'s [cur_assembly] for \a [W].</span>")
 		else
 			visible_message("<span class='notice'>\The [user] inserts \a [W] into \the [src].</span>")
-
-		user.drop_from_inventory(W)
-		W.forceMove(src)
 		if(cur_assembly)
 			cur_assembly.forceMove(get_turf(src))
 			user.put_in_hands(cur_assembly)
 		cur_assembly = W
 		return
 
-	if(iswrench(W))
+	if(isWrench(W))
 		if(injecting)
 			to_chat(user, "<span class='warning'>Shut \the [src] off first!</span>")
 			return

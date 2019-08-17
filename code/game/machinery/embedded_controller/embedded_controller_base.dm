@@ -3,9 +3,10 @@
 
 	name = "Embedded Controller"
 	anchored = 1
-
 	use_power = 1
 	idle_power_usage = 10
+
+	layer = ABOVE_WINDOW_LAYER
 
 	var/on = 1
 
@@ -24,7 +25,7 @@ obj/machinery/embedded_controller/radio/Destroy()
 		program.receive_signal(signal, receive_method, receive_param)
 			//spawn(5) program.process() //no, program.process sends some signals and machines respond and we here again and we lag -rastaf0
 
-/obj/machinery/embedded_controller/process()
+/obj/machinery/embedded_controller/Process()
 	if(program)
 		program.process()
 
@@ -57,23 +58,23 @@ obj/machinery/embedded_controller/radio/Destroy()
 	var/datum/radio_frequency/radio_connection
 	unacidable = 1
 
-/obj/machinery/embedded_controller/radio/initialize()
+/obj/machinery/embedded_controller/radio/Initialize()
 	set_frequency(frequency)
+	. = ..()
 
 /obj/machinery/embedded_controller/radio/update_icon()
-	if(on && program)
-		if(program.memory["processing"])
-			icon_state = "airlock_control_process"
-		else
-			icon_state = "airlock_control_standby"
-	else
+	if(!on || !program)
 		icon_state = "airlock_control_off"
+	else if(program.memory["processing"])
+		icon_state = "airlock_control_process"
+	else
+		icon_state = "airlock_control_standby"
 
-/obj/machinery/embedded_controller/radio/post_signal(datum/signal/signal, var/filter = null)
+/obj/machinery/embedded_controller/radio/post_signal(datum/signal/signal, var/radio_filter = null)
 	signal.transmission_method = TRANSMISSION_RADIO
 	if(radio_connection)
 		//use_power(radio_power_use)	//neat idea, but causes way too much lag.
-		return radio_connection.post_signal(src, signal, filter)
+		return radio_connection.post_signal(src, signal, radio_filter)
 	else
 		qdel(signal)
 

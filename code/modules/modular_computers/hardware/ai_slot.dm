@@ -24,11 +24,11 @@
 		if(stored_card)
 			to_chat(user, "\The [src] is already occupied.")
 			return
-		user.drop_from_inventory(W)
+		if(!user.unEquip(W, src))
+			return
 		stored_card = W
-		W.forceMove(src)
 		update_power_usage()
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isScrewdriver(W))
 		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
 		stored_card.forceMove(get_turf(src))
 		stored_card = null

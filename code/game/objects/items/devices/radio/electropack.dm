@@ -4,7 +4,7 @@
 	icon_state = "electropack0"
 	item_state = "electropack"
 	frequency = 1449
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
 
@@ -24,21 +24,20 @@
 		if(!b_stat)
 			to_chat(user, "<span class='notice'>[src] is not ready to be attached!</span>")
 			return
+		if(!user.unEquip(W) || !user.unEquip(src))
+			return
 		var/obj/item/assembly/shock_kit/A = new /obj/item/assembly/shock_kit( user )
 		A.icon = 'icons/obj/assemblies.dmi'
 
-		user.drop_from_inventory(W)
-		W.loc = A
+		W.forceMove(A)
 		W.master = A
 		A.part1 = W
 
-		user.drop_from_inventory(src)
-		loc = A
+		forceMove(A)
 		master = A
 		A.part2 = src
 
 		user.put_in_hands(A)
-		A.add_fingerprint(user)
 
 /obj/item/device/radio/electropack/Topic(href, href_list)
 	//..()

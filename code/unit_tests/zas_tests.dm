@@ -111,32 +111,36 @@ datum/unit_test/zas_supply_shuttle_moved
 	name = "ZAS: Supply Shuttle (When Moved)"
 	async=1				// We're moving the shuttle using built in procs.
 
-	var/datum/shuttle/ferry/supply/shuttle = null
+	var/datum/shuttle/autodock/ferry/supply/shuttle = null
 
 	var/testtime = 0	//Used as a timer.
 
 datum/unit_test/zas_supply_shuttle_moved/start_test()
 
-	if(!shuttle_controller)
+	if(!SSshuttle)
 		fail("Shuttle Controller not setup at time of test.")
 		return 1
-	if(!shuttle_controller.shuttles.len)
+	if(!SSshuttle.shuttles.len)
 		skip("No shuttles have been setup for this map.")
 		return 1
 
-	shuttle = supply_controller.shuttle
+	shuttle = SSsupply.shuttle
 	if(isnull(shuttle))
 		return 1
 
 	// Initiate the Move.
-	supply_controller.movetime = 5 // Speed up the shuttle movement.
-	shuttle.short_jump(shuttle.area_offsite, shuttle.area_station)
+	SSsupply.movetime = 5 // Speed up the shuttle movement.
+	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location)) //TODO
 
 	return 1
 
 datum/unit_test/zas_supply_shuttle_moved/check_result()
 	if(!shuttle)
 		skip("This map has no supply shuttle.")
+		return 1
+
+	if(GLOB.using_map.using_new_cargo)
+		skip("This map is using the new cargo system, supply shuttle must be manually verified.")
 		return 1
 
 	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
@@ -151,16 +155,16 @@ datum/unit_test/zas_supply_shuttle_moved/check_result()
 
 	if(world.time < testtime)
 		return 0
+	for(var/area/A in shuttle.shuttle_area)
+		var/list/test = test_air_in_area(A.type)
+		if(isnull(test))
+			fail("Check Runtimed")
+			return 1
 
-	var/list/test = test_air_in_area(/area/supply/station)
-	if(isnull(test))
-		fail("Check Runtimed")
-		return 1
-
-	switch(test["result"])
-		if(SUCCESS) pass(test["msg"])
-		if(SKIP)    skip(test["msg"])
-		else        fail(test["msg"])
+		switch(test["result"])
+			if(SUCCESS) pass(test["msg"])
+			if(SKIP)    skip(test["msg"])
+			else        fail(test["msg"])
 	return 1
 
 #undef UT_NORMAL

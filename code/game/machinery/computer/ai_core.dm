@@ -8,19 +8,29 @@
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
 	var/obj/item/weapon/circuitboard/circuit = null
 	var/obj/item/device/mmi/brain = null
+	var/authorized
 
+/obj/structure/AIcore/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+	if(!authorized)
+		to_chat(user, "<span class='warning'>You swipe [emag_source] at [src] and jury rig it into the systems of [GLOB.using_map.full_name]!</span>")
+		authorized = 1
+		return 1
+	. = ..()
 
 /obj/structure/AIcore/attackby(obj/item/P as obj, mob/user as mob)
-
+	if(!authorized)
+		if(access_ai_upload in P.GetAccess())
+			to_chat(user, "<span class='notice'>You swipe [P] at [src] and authorize it to connect into the systems of [GLOB.using_map.full_name].</span>")
+			authorized = 1
 	switch(state)
 		if(0)
-			if(istype(P, /obj/item/weapon/wrench))
+			if(isWrench(P))
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					anchored = 1
 					state = 1
-			if(istype(P, /obj/item/weapon/weldingtool))
+			if(isWelder(P))
 				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
@@ -33,25 +43,23 @@
 					qdel(src)
 					return
 		if(1)
-			if(istype(P, /obj/item/weapon/wrench))
+			if(isWrench(P))
 				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				if(do_after(user, 20, src))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					anchored = 0
 					state = 0
-			if(istype(P, /obj/item/weapon/circuitboard/aicore) && !circuit)
+			if(istype(P, /obj/item/weapon/circuitboard/aicore) && !circuit && user.unEquip(P, src))
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")
 				icon_state = "1"
 				circuit = P
-				user.drop_item()
-				P.loc = src
-			if(istype(P, /obj/item/weapon/screwdriver) && circuit)
+			if(isScrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
 				state = 2
 				icon_state = "2"
-			if(istype(P, /obj/item/weapon/crowbar) && circuit)
+			if(isCrowbar(P) && circuit)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
@@ -59,12 +67,12 @@
 				circuit.loc = loc
 				circuit = null
 		if(2)
-			if(istype(P, /obj/item/weapon/screwdriver) && circuit)
+			if(isScrewdriver(P) && circuit)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
 				state = 1
 				icon_state = "1"
-			if(istype(P, /obj/item/stack/cable_coil))
+			if(isCoil(P))
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
 					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
@@ -78,7 +86,7 @@
 						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 				return
 		if(3)
-			if(istype(P, /obj/item/weapon/wirecutters))
+			if(isWirecutter(P))
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
@@ -124,29 +132,34 @@
 				laws.add_inherent_law(M.newFreeFormLaw)
 				to_chat(usr, "Added a freeform law.")
 
-			if(istype(P, /obj/item/device/mmi))
-				var/obj/item/device/mmi/M = P
-				if(!M.brainmob)
+			if(istype(P, /obj/item/device/mmi) || istype(P, /obj/item/organ/internal/posibrain))
+				var/mob/living/carbon/brain/B
+				if(istype(P, /obj/item/device/mmi))
+					var/obj/item/device/mmi/M = P
+					B = M.brainmob
+				else
+					var/obj/item/organ/internal/posibrain/PB = P
+					B = PB.brainmob
+				if(!B)
 					to_chat(user, "<span class='warning'>Sticking an empty [P] into the frame would sort of defeat the purpose.</span>")
 					return
-				if(M.brainmob.stat == 2)
+				if(B.stat == 2)
 					to_chat(user, "<span class='warning'>Sticking a dead [P] into the frame would sort of defeat the purpose.</span>")
 					return
 
-				if(jobban_isbanned(M.brainmob, "AI"))
+				if(jobban_isbanned(B, "AI"))
 					to_chat(user, "<span class='warning'>This [P] does not seem to fit.</span>")
 					return
+				if(!user.unEquip(P, src))
+					return
+				if(B.mind)
+					clear_antag_roles(B.mind, 1)
 
-				if(M.brainmob.mind)
-					clear_antag_roles(M.brainmob.mind, 1)
-
-				user.drop_item()
-				P.loc = src
 				brain = P
 				to_chat(usr, "Added [P].")
 				icon_state = "3b"
 
-			if(istype(P, /obj/item/weapon/crowbar) && brain)
+			if(isCrowbar(P) && brain)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
 				brain.loc = loc
@@ -154,7 +167,7 @@
 				icon_state = "3"
 
 		if(4)
-			if(istype(P, /obj/item/weapon/crowbar))
+			if(isCrowbar(P))
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				state = 3
@@ -165,7 +178,11 @@
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
 				return
 
-			if(istype(P, /obj/item/weapon/screwdriver))
+			if(isScrewdriver(P))
+				if(!authorized)
+					to_chat(user, "<span class='warning'>Core fails to connect to the systems of [GLOB.using_map.full_name]!</span>")
+					return
+
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
 				if(!brain)
@@ -189,9 +206,8 @@
 	state = 20//So it doesn't interact based on the above. Not really necessary.
 
 /obj/structure/AIcore/deactivated/Destroy()
-	if(src in empty_playable_ai_cores)
-		empty_playable_ai_cores -= src
-	..()
+	empty_playable_ai_cores -= src
+	. = ..()
 
 /obj/structure/AIcore/deactivated/proc/load_ai(var/mob/living/silicon/ai/transfer, var/obj/item/weapon/aicard/card, var/mob/user)
 
@@ -200,7 +216,7 @@
 
 	transfer.aiRestorePowerRoutine = 0
 	transfer.control_disabled = 0
-	transfer.aiRadio.disabledAi = 0
+	transfer.ai_radio.disabledAi = 0
 	transfer.loc = get_turf(src)
 	transfer.create_eyeobj()
 	transfer.cancel_camera()
@@ -214,7 +230,7 @@
 
 /obj/structure/AIcore/deactivated/proc/check_malf(var/mob/living/silicon/ai/ai)
 	if(!ai) return
-	for (var/datum/mind/malfai in malf.current_antagonists)
+	for (var/datum/mind/malfai in GLOB.malf.current_antagonists)
 		if (ai.mind == malfai)
 			return 1
 

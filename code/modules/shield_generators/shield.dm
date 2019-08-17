@@ -1,18 +1,3 @@
-/obj/effect/shield_impact
-	name = "shield impact"
-	icon = 'icons/obj/machines/shielding.dmi'
-	icon_state = "shield_impact"
-	anchored = 1
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
-	density = 0
-
-
-/obj/effect/shield_impact/New()
-	spawn(2 SECONDS)
-		qdel(src)
-
-
 /obj/effect/shield
 	name = "energy shield"
 	desc = "An impenetrable field of energy, capable of blocking anything as long as it's active."
@@ -26,6 +11,7 @@
 	var/obj/machinery/power/shield_generator/gen = null
 	var/disabled_for = 0
 	var/diffused_for = 0
+	atmos_canpass = CANPASS_PROC
 
 
 /obj/effect/shield/update_icon()
@@ -73,7 +59,7 @@
 		gen.damaged_segments |= src
 	disabled_for += duration
 	set_density(0)
-	invisibility = INVISIBILITY_MAXIMUM
+	set_invisibility(INVISIBILITY_MAXIMUM)
 	update_nearby_tiles()
 	update_icon()
 	update_explosion_resistance()
@@ -89,7 +75,7 @@
 
 	if(!disabled_for && !diffused_for)
 		set_density(1)
-		invisibility = 0
+		set_invisibility(0)
 		update_nearby_tiles()
 		update_icon()
 		update_explosion_resistance()
@@ -98,14 +84,14 @@
 
 /obj/effect/shield/proc/diffuse(var/duration)
 	// The shield is trying to counter diffusers. Cause lasting stress on the shield.
-	if(gen.check_flag(MODEFLAG_BYPASS) && !diffused_for && !disabled_for)
+	if(gen.check_flag(MODEFLAG_BYPASS) && !disabled_for)
 		take_damage(duration * rand(8, 12), SHIELD_DAMTYPE_EM)
 		return
 
 	diffused_for = max(duration, 0)
 	gen.damaged_segments |= src
 	set_density(0)
-	invisibility = INVISIBILITY_MAXIMUM
+	set_invisibility(INVISIBILITY_MAXIMUM)
 	update_nearby_tiles()
 	update_icon()
 	update_explosion_resistance()
@@ -142,7 +128,7 @@
 
 	damage = round(damage)
 
-	new/obj/effect/shield_impact(get_turf(src))
+	new /obj/effect/temporary(get_turf(src), 2 SECONDS,'icons/obj/machines/shielding.dmi',"shield_impact")
 
 	var/list/field_segments = gen.field_segments
 	switch(gen.take_damage(damage, damtype))
@@ -184,7 +170,7 @@
 
 
 /obj/effect/shield/c_airblock(turf/other)
-	return gen.check_flag(MODEFLAG_ATMOSPHERIC)
+	return gen.check_flag(MODEFLAG_ATMOSPHERIC) ? BLOCKED : 0
 
 
 // EMP. It may seem weak but keep in mind that multiple shield segments are likely to be affected.
@@ -264,6 +250,8 @@
 	else
 		explosion_resistance = 0
 
+/obj/effect/shield/get_explosion_resistance()
+	return explosion_resistance
 
 // Shield collision checks below
 

@@ -79,7 +79,7 @@
 
 					var/amount = rand(2,6)
 					var/list/possible_spawns = list()
-					for(var/coin_type in typesof(/obj/item/weapon/coin))
+					for(var/coin_type in typesof(/obj/item/weapon/material/coin))
 						possible_spawns += coin_type
 
 					var/coin_type = pick(possible_spawns)
@@ -375,8 +375,6 @@
 	name = "fake trap"
 
 	New()
-		if(prob(10))
-			new /obj/effect/plant(src.loc)
 		if(prob(90))
 			var/turf/T = get_turf(src)
 			T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
@@ -392,8 +390,6 @@
 		if(prob(50))
 			..()
 		else
-			if(prob(10))
-				new /obj/effect/plant(src.loc)
 			qdel(src)
 
 //structures

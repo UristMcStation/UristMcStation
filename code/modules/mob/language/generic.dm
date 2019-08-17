@@ -27,6 +27,11 @@
 	key = "0"
 	flags = RESTRICTED
 	syllables = list("blah","blah","blah","bleh","meh","neh","nah","wah")
+	shorthand = "GC"
+
+// Otherwise we end up with Blahblehmeh Nehnahwahblah, Captain.
+/datum/language/common/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
+	return capitalize(pick(gender == FEMALE ? GLOB.first_names_female : GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 //TODO flag certain languages to use the mob-type specific say_quote and then get rid of these.
 /datum/language/common/get_spoken_verb(var/msg_end)
@@ -38,11 +43,11 @@
 	return speech_verb
 
 // Galactic common languages (systemwide accepted standards).
-/datum/language/trader
-	name = "Tradeband"
+/datum/language/lunar
+	name = LANGUAGE_LUNAR
 	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
 	speech_verb = "enunciates"
-	colour = "say_quote"
+	colour = "moon"
 	key = "2"
 	space_chance = 100
 	syllables = list("lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
@@ -53,15 +58,17 @@
 					 "voluptate", "velit", "esse", "cillum", "dolore", "eu", "fugiat", "nulla",
 					 "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non", "proident", "sunt",
 					 "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id", "est", "laborum")
+	shorthand = "TB"
 
 // Criminal language.
 /datum/language/gutter
 	name = "Gutter"
-	desc = "Much like Standard, this crude pidgin tongue descended from numerous languages and serves as Tradeband for criminal elements."
+	desc = "Much like Common, this crude pidgin tongue descended from numerous languages and serves as a trade language for criminal elements."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
 	syllables = list ("gra","ba","ba","breh","bra","rah","dur","ra","ro","gro","go","ber","bar","geh","heh", "gra")
+	shorthand = "GT"
 
 /datum/language/sign
 	name = LANGUAGE_SIGN
@@ -69,4 +76,5 @@
 	signlang_verb = list("gestures")
 	colour = "say_quote"
 	key = "s"
-	flags = SIGNLANG | NO_STUTTER | NONVERBAL
+	flags = SIGNLANG | NO_STUTTER | NONVERBAL | RESTRICTED
+	shorthand = "HS"

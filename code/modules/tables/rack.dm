@@ -14,9 +14,9 @@
 	verbs -= /obj/structure/table/verb/do_flip
 	verbs -= /obj/structure/table/proc/do_put
 
-/obj/structure/table/rack/initialize()
+/obj/structure/table/rack/Initialize()
 	auto_align()
-	..()
+	. = ..()
 
 /obj/structure/table/rack/update_connections()
 	return
@@ -33,3 +33,6 @@
 /obj/structure/table/rack/holorack/dismantle(obj/item/weapon/wrench/W, mob/user)
 	to_chat(user, "<span class='warning'>You cannot dismantle \the [src].</span>")
 	return
+
+/obj/structure/table/rack/dark
+	color = COLOR_GRAY40

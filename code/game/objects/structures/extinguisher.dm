@@ -16,9 +16,7 @@
 	if(isrobot(user))
 		return
 	if(istype(O, /obj/item/weapon/extinguisher))
-		if(!has_extinguisher && opened)
-			user.remove_from_mob(O)
-			contents += O
+		if(!has_extinguisher && opened && user.unEquip(O, src))
 			has_extinguisher = O
 			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
 			playsound(src.loc, 'sound/effects/extin.ogg', 50, 0)
@@ -71,3 +69,9 @@
 			icon_state = "extinguisher_full"
 	else
 		icon_state = "extinguisher_empty"
+
+/obj/structure/extinguisher_cabinet/AltClick(var/mob/user)
+	if(CanPhysicallyInteract(user))
+		opened = !opened
+		update_icon()
+

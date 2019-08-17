@@ -3,6 +3,7 @@
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 	icon_state = "riotgun"
 	item_state = "riotgun"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 
@@ -11,6 +12,7 @@
 	screen_shake = 0
 	throw_distance = 7
 	release_force = 5
+	combustion = 1
 
 	var/obj/item/weapon/grenade/chambered
 	var/list/grenades = new/list()
@@ -56,7 +58,8 @@
 	if(grenades.len >= max_grenades)
 		to_chat(user, "<span class='warning'>\The [src] is full.</span>")
 		return
-	user.drop_from_inventory(G, src)
+	if(!user.unEquip(G, src))
+		return
 	grenades.Insert(1, G) //add to the head of the list, so that it is loaded on the next pump
 	user.visible_message("\The [user] inserts \a [G] into \the [src].", "<span class='notice'>You insert \a [G] into \the [src].</span>")
 
@@ -91,8 +94,8 @@
 	return chambered
 
 /obj/item/weapon/gun/launcher/grenade/handle_post_fire(mob/user)
-	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
-	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")
+	log_and_message_admins("fired a grenade ([chambered.name]) from a grenade launcher.")
+
 	chambered = null
 	..()
 
@@ -140,7 +143,8 @@
 	if(chambered)
 		to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")
 		return
-	user.drop_from_inventory(G, src)
+	if(!user.unEquip(G, src))
+		return
 	chambered = G
 	user.visible_message("\The [user] load \a [G] into \the [src].", "<span class='notice'>You load \a [G] into \the [src].</span>")
 

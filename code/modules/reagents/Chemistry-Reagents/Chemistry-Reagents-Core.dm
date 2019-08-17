@@ -1,10 +1,20 @@
 /datum/reagent/blood
-	data = new/list("donor" = null, "species" = SPECIES_HUMAN, "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "trace_chem" = null, "virus2" = list(), "antibodies" = list())
+	data = new/list(
+		"donor" = null,
+		"species" = SPECIES_HUMAN,
+		"blood_DNA" = null,
+		"blood_type" = null,
+		"blood_colour" = COLOR_BLOOD_HUMAN,
+		"trace_chem" = null,
+		"dose_chem" = null,
+		"virus2" = list(),
+		"antibodies" = list(),
+		"has_oxy" = 1
+	)
 	name = "Blood"
-	id = "blood"
 	reagent_state = LIQUID
 	metabolism = REM * 5
-	color = "#C80000"
+	color = "#c80000"
 	taste_description = "iron"
 	taste_mult = 1.3
 	glass_name = "tomato juice"
@@ -17,7 +27,7 @@
 	return
 
 /datum/reagent/blood/proc/sync_to(var/mob/living/carbon/C)
-	data["donor"] = C
+	data["donor"] = weakref(C)
 	if (!data["virus2"])
 		data["virus2"] = list()
 	data["virus2"] |= virus_copylist(C.virus2)
@@ -25,11 +35,12 @@
 	data["blood_DNA"] = C.dna.unique_enzymes
 	data["blood_type"] = C.dna.b_type
 	data["species"] = C.species.name
+	data["has_oxy"] = C.species.blood_oxy
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in C.reagents.reagent_list)
-		temp_chem += R.id
-		temp_chem[R.id] = R.volume
-	data["trace_chem"] = list2params(temp_chem)
+		temp_chem[R.type] = R.volume
+	data["trace_chem"] = temp_chem
+	data["dose_chem"] = C.chem_doses.Copy()
 	data["blood_colour"] = C.species.get_blood_colour(C)
 	color = data["blood_colour"]
 
@@ -53,18 +64,22 @@
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
 	if(!istype(T) || volume < 3)
 		return
-	if(!data["donor"] || istype(data["donor"], /mob/living/carbon/human))
+	var/weakref/W = data["donor"]
+	if (!W)
 		blood_splatter(T, src, 1)
-	else if(istype(data["donor"], /mob/living/carbon/alien))
+	W = W.resolve()
+	if(istype(W, /mob/living/carbon/human))
+		blood_splatter(T, src, 1)
+	else if(istype(W, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
 /datum/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 
-	if(dose > 5)
+	if(M.chem_doses[type] > 5)
 		M.adjustToxLoss(removed)
-	if(dose > 15)
+	if(M.chem_doses[type] > 15)
 		M.adjustToxLoss(removed)
 	if(data && data["virus2"])
 		var/list/vlist = data["virus2"]
@@ -98,22 +113,20 @@
 	data = list("antibodies"=list())
 	name = "Antibodies"
 	taste_description = "slime"
-	id = "antibodies"
 	reagent_state = LIQUID
-	color = "#0050F0"
+	color = "#0050f0"
 
 /datum/reagent/antibodies/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(src.data)
 		M.antibodies |= src.data["antibodies"]
 	..()
 
-#define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
+#define WATER_LATENT_HEAT 9500 // How much heat is removed when applied to a hot turf, in J/unit (9500 makes 120 u of water roughly equivalent to 2L
 /datum/reagent/water
 	name = "Water"
-	id = "water"
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
-	color = "#0064C877"
+	color = "#0064c877"
 	metabolism = REM * 10
 	taste_description = "water"
 	glass_name = "water"
@@ -134,7 +147,7 @@
 		return
 
 	var/datum/gas_mixture/environment = T.return_air()
-	var/min_temperature = T0C + 100 // 100C, the boiling point of water
+	var/min_temperature = T20C + rand(0, 20) // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
@@ -147,15 +160,12 @@
 	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
 		var/removed_heat = between(0, volume * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
-		if (prob(5))
+		if (prob(5) && environment && environment.temperature > T100C)
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
 	else if(volume >= 10)
 		var/turf/simulated/S = T
-		if(!S.wet > 5)
-			S.wet_floor(1)
-		else
-			S.wet = round(S.wet * 0.75)
+		S.wet_floor(8, TRUE)
 
 
 /datum/reagent/water/touch_obj(var/obj/O)
@@ -185,13 +195,12 @@
 			S.Target = null
 		if(S.Victim)
 			S.Feedstop()
-	if(dose == removed)
+	if(M.chem_doses[type] == removed)
 		M.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 		M.confused = max(M.confused, 2)
 
 /datum/reagent/fuel
 	name = "Welding fuel"
-	id = "fuel"
 	description = "Required for welders. Flamable."
 	taste_description = "gross metal"
 	reagent_state = LIQUID

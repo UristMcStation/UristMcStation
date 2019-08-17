@@ -13,13 +13,11 @@
 	species_restricted = list(SPECIES_HUMAN, SPECIES_IPC)
 	sprite_sheets = list(
 		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
-		SPECIES_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
 		SPECIES_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/helmet.dmi',
 		)
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
-		SPECIES_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
 		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/hats.dmi',
 		)
@@ -41,13 +39,11 @@
 	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC)
 	sprite_sheets = list(
 		SPECIES_UNATHI = 'icons/mob/species/unathi/suit.dmi',
-		SPECIES_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
 		SPECIES_SKRELL = 'icons/mob/species/skrell/suit.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi',
 		)
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
-		SPECIES_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
 		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/suits.dmi',
 		)
@@ -63,6 +59,28 @@
 	var/obj/item/weapon/tank/tank = null              // Deployable tank, if any.
 
 	action_button_name = "Toggle Helmet"
+
+#define VOIDSUIT_INIT_EQUIPMENT(equipment_var, expected_path) \
+if(ispath(##equipment_var, ##expected_path )){\
+	##equipment_var = new equipment_var (src);\
+}\
+else if(##equipment_var) {\
+	CRASH("[log_info_line(src)] has an invalid [#equipment_var] type: [log_info_line(##equipment_var)]");\
+}
+
+/obj/item/clothing/suit/space/void/Initialize()
+	. = ..()
+	VOIDSUIT_INIT_EQUIPMENT(boots,  /obj/item/clothing/shoes/magboots)
+	VOIDSUIT_INIT_EQUIPMENT(helmet, /obj/item/clothing/head/helmet)
+	VOIDSUIT_INIT_EQUIPMENT(tank,   /obj/item/weapon/tank)
+
+#undef VOIDSUIT_INIT_EQUIPMENT
+
+/obj/item/clothing/suit/space/void/Destroy()
+	. = ..()
+	QDEL_NULL(boots)
+	QDEL_NULL(helmet)
+	QDEL_NULL(tank)
 
 /obj/item/clothing/suit/space/void/examine(user)
 	. = ..(user)
@@ -119,16 +137,14 @@
 		H = helmet.loc
 		if(istype(H))
 			if(helmet && H.head == helmet)
-				H.drop_from_inventory(helmet)
-				helmet.forceMove(src)
+				H.drop_from_inventory(helmet, src)
 
 	if(boots)
 		boots.canremove = 1
 		H = boots.loc
 		if(istype(H))
 			if(boots && H.shoes == boots)
-				H.drop_from_inventory(boots)
-				boots.forceMove(src)
+				H.drop_from_inventory(boots, src)
 
 	if(tank)
 		tank.canremove = 1
@@ -155,8 +171,7 @@
 	if(H.head == helmet)
 		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
 		helmet.canremove = 1
-		H.drop_from_inventory(helmet)
-		helmet.forceMove(src)
+		H.drop_from_inventory(helmet, src)
 	else
 		if(H.head)
 			to_chat(H, "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>")
@@ -197,7 +212,7 @@
 	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/weapon/hand_labeler))
 		return ..()
 
-	if(istype(src.loc,/mob/living))
+	if(user.get_inventory_slot(src) == slot_wear_suit)
 		to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
 		return
 
@@ -225,18 +240,18 @@
 		if(helmet)
 			to_chat(user, "\The [src] already has a helmet installed.")
 		else
+			if(!user.unEquip(W, src))
+				return
 			to_chat(user, "You attach \the [W] to \the [src]'s helmet mount.")
-			user.drop_item()
-			W.forceMove(src)
 			src.helmet = W
 		return
 	else if(istype(W,/obj/item/clothing/shoes/magboots))
 		if(boots)
 			to_chat(user, "\The [src] already has magboots installed.")
 		else
+			if(!user.unEquip(W, src))
+				return
 			to_chat(user, "You attach \the [W] to \the [src]'s boot mounts.")
-			user.drop_item()
-			W.forceMove(src)
 			boots = W
 		return
 	else if(istype(W,/obj/item/weapon/tank))
@@ -245,9 +260,9 @@
 		else if(istype(W,/obj/item/weapon/tank/phoron))
 			to_chat(user, "\The [W] cannot be inserted into \the [src]'s storage compartment.")
 		else
+			if(!user.unEquip(W, src))
+				return
 			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
-			user.drop_item()
-			W.forceMove(src)
 			tank = W
 		return
 

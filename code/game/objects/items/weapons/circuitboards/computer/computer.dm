@@ -17,27 +17,15 @@
 	build_path = /obj/machinery/computer/borgupload
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/weapon/circuitboard/med_data
-	name = T_BOARD("medical records console")
-	build_path = /obj/machinery/computer/med_data
-
 /obj/item/weapon/circuitboard/scan_consolenew
 	name = T_BOARD("DNA machine")
 	build_path = /obj/machinery/computer/scan_consolenew
-	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4) //You're a crime now, genetics -Vak
 
 /obj/item/weapon/circuitboard/teleporter
 	name = T_BOARD("teleporter control console")
 	build_path = /obj/machinery/computer/teleporter
-	origin_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 2)
-
-/obj/item/weapon/circuitboard/secure_data
-	name = T_BOARD("security records console")
-	build_path = /obj/machinery/computer/secure_data
-
-/obj/item/weapon/circuitboard/skills
-	name = T_BOARD("employment records console")
-	build_path = /obj/machinery/computer/skills
+	origin_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 4)
 
 /obj/item/weapon/circuitboard/atmos_alert
 	name = T_BOARD("atmospheric alert console")
@@ -126,6 +114,18 @@
 /obj/item/weapon/circuitboard/splicer
 	name = T_BOARD("disease splicer")
 	build_path = /obj/machinery/computer/diseasesplicer
+
+/obj/item/weapon/circuitboard/helm
+	name = T_BOARD("helm control console")
+	build_path = /obj/machinery/computer/helm
+
+/obj/item/weapon/circuitboard/engine
+	name = T_BOARD("engine control console")
+	build_path = /obj/machinery/computer/engines
+
+/obj/item/weapon/circuitboard/nav
+	name = T_BOARD("navigation console")
+	build_path = /obj/machinery/computer/navigation
 
 /obj/item/weapon/circuitboard/mining_shuttle
 	name = T_BOARD("mining shuttle console")

@@ -44,25 +44,14 @@ var/global/datum/controller/gameticker/ticker
 			if(!isnull(secondary_mode))
 				master_mode = secondary_mode
 				secondary_mode = null
-				to_world("Trying to start the second top game mode...")
-
-				if(!hide_mode)
-					to_world("<b>The game mode is now: [master_mode]</b>")
-
 			else if(!isnull(tertiary_mode))
 				master_mode = tertiary_mode
 				tertiary_mode = null
-				to_world("Trying to start the third top game mode...")
-
-				if(!hide_mode)
-					to_world("<b>The game mode is now: [master_mode]</b>")
-
 			else
 				master_mode = "extended"
-				to_world("<b>Forcing the game mode to extended...</b>")
 
+		to_world("<b>Trying to start [master_mode]...</b>")
 		to_world("<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
-
 		to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds")
 
 		while(current_state == GAME_STATE_PREGAME)
@@ -79,11 +68,20 @@ var/global/datum/controller/gameticker/ticker
 						for(var/i=0, i<10, i++)
 							sleep(1)
 							vote.process()
-			if(pregame_timeleft == 90 && master_mode=="scom")
-//				LoadScom()
-				world << "<span class='danger'> Welcome to the Beta version of S-COM. Remember to set up your character properly: Captains become commanders, scientists and the RD become researchers, all other heads become squad leaders and everyone else becomes soldiers to choose their class ingame. <BR><BR> I'm counting on you to report bugs and balance issues either on github, the forums or the B12 thread.<BR><BR> Coming in the next update: More mission variance, more enemies, bugfixes, expanded failure states and the return of the psionic trooper. There are also three major updates planned for the future, which I will outline on the steam group later.</span>"
+			if(pregame_timeleft == config.vote_autogamemode_timeleft - 1 && gamemode_voted)
+				var/datum/game_mode/GM = gamemode_cache[master_mode]
+				if(GM)
+					GM.on_selection()
 			if(pregame_timeleft <= 0 || ((initialization_stage & INITIALIZATION_NOW_AND_COMPLETE) == INITIALIZATION_NOW_AND_COMPLETE))
-				current_state = GAME_STATE_SETTING_UP
+				if (Master.current_runlevel >= RUNLEVEL_LOBBY)
+					current_state = GAME_STATE_SETTING_UP
+					Master.SetRunLevel(RUNLEVEL_SETUP)
+				else
+					var/additional_time = 20
+					to_world("<B><FONT color='blue'>Waiting an additional [additional_time] seconds for initializations to complete...</FONT></B>")
+					log_world("Master initializations were not complete by the time the round was due to start! Waiting an additional [additional_time] seconds...")
+					pregame_timeleft += additional_time // yeah, this will repeat, but it's not good to go into a round with stuff not initialized!
+
 	while (!setup())
 
 
@@ -91,11 +89,14 @@ var/global/datum/controller/gameticker/ticker
 	//Create and announce mode
 	if(master_mode=="secret")
 		src.hide_mode = 1
+	else
+		src.hide_mode = 0
 
 	var/list/runnable_modes = config.get_runnable_modes()
 	if((master_mode=="random") || (master_mode=="secret"))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
+			Master.SetRunLevel(RUNLEVEL_LOBBY)
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
 
 			return 0
@@ -111,6 +112,7 @@ var/global/datum/controller/gameticker/ticker
 
 	if(!src.mode)
 		current_state = GAME_STATE_PREGAME
+		Master.SetRunLevel(RUNLEVEL_LOBBY)
 		to_world("<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby.")
 
 		return 0
@@ -125,6 +127,7 @@ var/global/datum/controller/gameticker/ticker
 		to_world("<B>Unable to start [mode.name].</B> [t] Reverting to pre-game lobby.")
 
 		current_state = GAME_STATE_PREGAME
+		Master.SetRunLevel(RUNLEVEL_LOBBY)
 		mode.fail_setup()
 		mode = null
 		job_master.ResetOccupations()
@@ -144,34 +147,26 @@ var/global/datum/controller/gameticker/ticker
 	else
 		src.mode.announce()
 
-	setup_economy()
+	GLOB.using_map.setup_economy()
 	current_state = GAME_STATE_PLAYING
+	Master.SetRunLevel(RUNLEVEL_GAME)
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	data_core.manifest()
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!H.mind || player_is_antag(H.mind, only_offstation_roles = 1) || !job_master.ShouldCreateRecords(H.mind.assigned_role))
+			continue
+		CreateModularRecord(H)
 
 	callHook("roundstart")
 
-	shuttle_controller.setup_shuttle_docks()
-
 	spawn(0)//Forking here so we dont have to wait for this to finish
 		mode.post_setup()
-		//Cleanup some stuff
-		for(var/obj/effect/landmark/start/S in landmarks_list)
-			//Deleting Startpoints but we need the ai point to AI-ize people later
-			if (S.name != "AI")
-				qdel(S)
 		to_world("<FONT color='blue'><B>Enjoy the game!</B></FONT>")
-		sound_to(world, sound('sound/AI/welcome.ogg'))// Skie
+		sound_to(world, sound(GLOB.using_map.welcome_sound))
 
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
-
-		BNews_Game_Start()
-
-	//start_events() //handles random events and space dust.
-	//new random event system is handled from the MC.
 
 	var/admins_number = 0
 	for(var/client/C)
@@ -180,10 +175,6 @@ var/global/datum/controller/gameticker/ticker
 	if(admins_number == 0)
 		send2adminirc("Round has started with no admins online.")
 
-/*	supply_controller.process() 		//Start the supply shuttle regenerating points -- TLE // handled in scheduler
-	master_controller.process()		//Start master_controller.process()
-	lighting_controller.process()	//Start processing DynamicAreaLighting updates
-	*/
 
 	processScheduler.start()
 
@@ -213,12 +204,12 @@ var/global/datum/controller/gameticker/ticker
 		var/obj/structure/bed/temp_buckle = new(src)
 		//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 		if(station_missed)
-			for(var/mob/living/M in living_mob_list_)
+			for(var/mob/living/M in GLOB.living_mob_list_)
 				M.buckled = temp_buckle				//buckles the mob so it can't do anything
 				if(M.client)
 					M.client.screen += cinematic	//show every client the cinematic
 		else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
-			for(var/mob/living/M in living_mob_list_)
+			for(var/mob/living/M in GLOB.living_mob_list_)
 				M.buckled = temp_buckle
 				if(M.client)
 					M.client.screen += cinematic
@@ -226,7 +217,7 @@ var/global/datum/controller/gameticker/ticker
 				switch(M.z)
 					if(0)	//inside a crate or something
 						var/turf/T = get_turf(M)
-						if(T && T.z in using_map.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
+						if(T && T.z in GLOB.using_map.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
 							M.health = 0
 							M.set_stat(DEAD)
 					if(1)	//on a z-level 1 turf.
@@ -283,7 +274,7 @@ var/global/datum/controller/gameticker/ticker
 						flick("station_explode_fade_red", cinematic)
 						sound_to(world, sound('sound/effects/explosionfar.ogg'))
 						cinematic.icon_state = "summary_selfdes"
-				for(var/mob/living/M in living_mob_list_)
+				for(var/mob/living/M in GLOB.living_mob_list_)
 					if(is_station_turf(get_turf(M)))
 						M.death()//No mercy
 		//If its actually the end of the round, wait for it to end.
@@ -296,7 +287,7 @@ var/global/datum/controller/gameticker/ticker
 
 
 	proc/create_characters()
-		for(var/mob/new_player/player in player_list)
+		for(var/mob/new_player/player in GLOB.player_list)
 			if(player && player.ready && player.mind)
 				if(player.mind.assigned_role=="AI")
 					player.close_spawn_windows()
@@ -309,23 +300,22 @@ var/global/datum/controller/gameticker/ticker
 
 
 	proc/collect_minds()
-		for(var/mob/living/player in player_list)
+		for(var/mob/living/player in GLOB.player_list)
 			if(player.mind)
 				ticker.minds += player.mind
 
 
 	proc/equip_characters()
 		var/captainless=1
-		for(var/mob/living/carbon/human/player in player_list)
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
 			if(player && player.mind && player.mind.assigned_role)
 				if(player.mind.assigned_role == "Captain")
 					captainless=0
 				if(!player_is_antag(player.mind, only_offstation_roles = 1))
 					job_master.EquipRank(player, player.mind.assigned_role, 0)
-					UpdateFactionList(player)
 					equip_custom_items(player)
 		if(captainless)
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				if(!istype(M,/mob/new_player))
 					to_chat(M, "Captainship not forced on anyone.")
 
@@ -349,13 +339,14 @@ var/global/datum/controller/gameticker/ticker
 
 		if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 			current_state = GAME_STATE_FINISHED
+			Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 			spawn
 				declare_completion()
 
 
 			spawn(50)
-				if(config.allow_map_switching && config.auto_map_vote && all_maps.len > 1)
+				if(config.allow_map_switching && config.auto_map_vote && GLOB.all_maps.len > 1)
 					vote.automap()
 					while(vote.time_remaining)
 						sleep(50)
@@ -374,19 +365,34 @@ var/global/datum/controller/gameticker/ticker
 					if(!delay_end)
 						to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
 
-
-
 				if(blackbox)
 					blackbox.save_all_data_to_sql()
+
+				var/wait_for_tickets
+				var/delay_notified = 0
+				do
+					wait_for_tickets = 0
+					for(var/datum/ticket/ticket in tickets)
+						if(ticket.is_active())
+							wait_for_tickets = 1
+							break
+					if(wait_for_tickets)
+						if(!delay_notified)
+							delay_notified = 1
+							message_staff("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
+							to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+						sleep(15 SECONDS)
+					else if(delay_notified)
+						message_staff("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+				while(wait_for_tickets)
 
 				if(!delay_end)
 					sleep(restart_timeout)
 					if(!delay_end)
 						world.Reboot()
-					else
+					else if(!delay_notified)
 						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
-
-				else
+				else if(!delay_notified)
 					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 
 
@@ -398,17 +404,17 @@ var/global/datum/controller/gameticker/ticker
 			//call a transfer shuttle vote
 			spawn(50)
 				if(!round_end_announced) // Spam Prevention. Now it should announce only once.
-					to_world("<span class='danger'>The round has ended!</span>")
-
-					round_end_announced = 1
+					log_and_message_admins(": All antagonists are deceased or the gamemode has ended.") //Outputs as "Event: All antagonists are deceased or the gamemode has ended."
 				vote.autotransfer()
 
 		return 1
 
 /datum/controller/gameticker/proc/declare_completion()
 	to_world("<br><br><br><H1>A round of [mode.name] has ended!</H1>")
-
-	for(var/mob/Player in player_list)
+	for(var/client/C)
+		if(!C.credits)
+			C.RollCredits()
+	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
@@ -433,7 +439,7 @@ var/global/datum/controller/gameticker/ticker
 	to_world("<br>")
 
 
-	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
+	for (var/mob/living/silicon/ai/aiPlayer in SSmobs.mob_list)
 		if (aiPlayer.stat != 2)
 			to_world("<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the round were:</b>")
 
@@ -451,7 +457,7 @@ var/global/datum/controller/gameticker/ticker
 
 	var/dronecount = 0
 
-	for (var/mob/living/silicon/robot/robo in mob_list)
+	for (var/mob/living/silicon/robot/robo in SSmobs.mob_list)
 
 		if(istype(robo,/mob/living/silicon/robot/drone))
 			dronecount++
@@ -474,6 +480,7 @@ var/global/datum/controller/gameticker/ticker
 	if(all_money_accounts.len)
 		var/datum/money_account/max_profit = all_money_accounts[1]
 		var/datum/money_account/max_loss = all_money_accounts[1]
+		var/stationmoney
 		for(var/datum/money_account/D in all_money_accounts)
 			if(D == vendor_account) //yes we know you get lots of money
 				continue
@@ -482,13 +489,21 @@ var/global/datum/controller/gameticker/ticker
 				max_profit = D
 			if(saldo <= max_loss.get_balance())
 				max_loss = D
+			if(D == station_account)
+				stationmoney = station_account.money
+				stationmoney -= GLOB.using_map.starting_money //how much money did we make from the start of the round
+
 		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance()]</b>.")
 		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
+
+		if(GLOB.using_map.using_new_cargo)
+			to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>T[stationmoney]</b> in revenue today.")
+			to_world("In addition, the crew of the <b>[GLOB.using_map.station_name]</b> completed <b>[GLOB.using_map.completed_contracts]</b> contracts today.")
 
 	mode.declare_completion()//To declare normal completion.
 
 	//Ask the event manager to print round end information
-	event_manager.RoundEnd()
+	SSevent.RoundEnd()
 
 	//Print a list of antagonists to the server log
 	var/list/total_antagonists = list()
@@ -516,7 +531,8 @@ var/global/datum/controller/gameticker/ticker
 		if (needs_ghost)
 			looking_for_antags = 1
 			antag_pool.Cut()
-			to_world("<b>A ghost is needed to spawn \a [antag.role_text].</b>\nGhosts may enter the antag pool by making sure their [antag.role_text] preference is set to high, then using the toggle-add-antag-candidacy verb. You have 3 minutes to enter the pool.")
+			for(var/mob/observer/ghost/G in GLOB.ghost_mob_list)
+				to_chat(G, "<b>A ghost is needed to spawn \a [antag.role_text].</b>\nGhosts may enter the antag pool by making sure their [antag.role_text] preference is set to high, then using the toggle-add-antag-candidacy verb. You have 3 minutes to enter the pool.")
 
 			sleep(3 MINUTES)
 			looking_for_antags = 0
@@ -549,6 +565,10 @@ var/global/datum/controller/gameticker/ticker
 			if(length(antag_choices))
 				antag = antag_choices[1]
 				if(antag)
-					to_world("Attempting to spawn [antag.role_text_plural].")
+					if(antag.flags & (ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB))
+						for(var/mob/observer/ghost/G in GLOB.ghost_mob_list)
+							to_chat(G, "Attempting to spawn [antag.role_text_plural].")
+					else
+						to_world("Attempting to spawn [antag.role_text_plural].")
 
 	return 0

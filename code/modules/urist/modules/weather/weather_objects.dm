@@ -10,7 +10,7 @@
 
 	layer = 5
 	anchored = 1 //prevents weather from being /draggable/
-	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
+	mouse_opacity = 2 //doesn't need to be clickable and is less of an annoyance for players
 	var/weather_safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
 	var/weather_dynamic = 1 //if 1, changes periodically
@@ -31,6 +31,11 @@
 			var/obj/weathertype/WT = i
 			active_weathers[index] = new WT //instantiate all types
 			*/
+
+	var/list/new_weathers = list()
+	for(var/i in active_weathers)
+		new_weathers += new i
+	active_weathers = new_weathers
 	update_icon()
 	..()
 
@@ -71,7 +76,7 @@
 	/* now, add new ones */
 	for(var/obj/weathertype/WT in active_weathers)
 		weather_overlays += WT
-		overlays += weather_overlays
+	overlays += weather_overlays
 
 //Handles all weather effects
 /obj/effect/weather/proc/inflictW()

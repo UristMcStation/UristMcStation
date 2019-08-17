@@ -1,4 +1,7 @@
-#define FUSION_ENERGY_PER_K 20
+#define FUSION_ENERGY_PER_K        20
+#define FUSION_INSTABILITY_DIVISOR 50000
+#define FUSION_RUPTURE_THRESHOLD   10000
+#define FUSION_REACTANT_CAP        10000
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -8,7 +11,6 @@
 	alpha = 50
 	layer = 4
 	light_color = COLOR_BLUE
-	rad_power = 1
 
 	var/size = 1
 	var/energy = 0
@@ -19,20 +21,22 @@
 	var/percent_unstable = 0
 
 	var/obj/machinery/power/fusion_core/owned_core
-	var/list/dormant_reactant_quantities = list()
+	var/list/reactants = list()
 	var/list/particle_catchers = list()
 
 	var/list/ignore_types = list(
 		/obj/item/projectile,
 		/obj/effect,
 		/obj/structure/cable,
-		/obj/machinery/atmospherics
+		/obj/machinery/atmospherics,
+		/obj/machinery/air_sensor,
+		/obj/machinery/door/blast/regular
 		)
 
 	var/light_min_range = 2
-	var/light_min_power = 3
-	var/light_max_range = 10
-	var/light_max_power = 10
+	var/light_min_power = 0.2
+	var/light_max_range = 12
+	var/light_max_power = 1
 
 	var/last_range
 	var/last_power
@@ -40,7 +44,7 @@
 /obj/effect/fusion_em_field/New(loc, var/obj/machinery/power/fusion_core/new_owned_core)
 	..()
 
-	set_light(light_min_range,light_min_power)
+	set_light(light_min_power, light_min_range / 10, light_min_range)
 	last_range = light_min_range
 	last_power = light_min_power
 
@@ -56,62 +60,32 @@
 	catcher.SetSize(1)
 	particle_catchers.Add(catcher)
 
-	catcher = new (locate(src.x-1,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(3)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x+1,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(3)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y+1,src.z))
-	catcher.parent = src
-	catcher.SetSize(3)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y-1,src.z))
-	catcher.parent = src
-	catcher.SetSize(3)
-	particle_catchers.Add(catcher)
+	for(var/iter=1,iter<=6,iter++)
+		catcher = new (locate(src.x-iter,src.y,src.z))
+		catcher.parent = src
+		catcher.SetSize((iter*2)+1)
+		particle_catchers.Add(catcher)
 
-	catcher = new (locate(src.x-2,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(5)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x+2,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(5)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y+2,src.z))
-	catcher.parent = src
-	catcher.SetSize(5)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y-2,src.z))
-	catcher.parent = src
-	catcher.SetSize(5)
-	particle_catchers.Add(catcher)
+		catcher = new (locate(src.x+iter,src.y,src.z))
+		catcher.parent = src
+		catcher.SetSize((iter*2)+1)
+		particle_catchers.Add(catcher)
 
-	catcher = new (locate(src.x-3,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(7)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x+3,src.y,src.z))
-	catcher.parent = src
-	catcher.SetSize(7)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y+3,src.z))
-	catcher.parent = src
-	catcher.SetSize(7)
-	particle_catchers.Add(catcher)
-	catcher = new (locate(src.x,src.y-3,src.z))
-	catcher.parent = src
-	catcher.SetSize(7)
-	particle_catchers.Add(catcher)
+		catcher = new (locate(src.x,src.y+iter,src.z))
+		catcher.parent = src
+		catcher.SetSize((iter*2)+1)
+		particle_catchers.Add(catcher)
 
-	processing_objects.Add(src)
+		catcher = new (locate(src.x,src.y-iter,src.z))
+		catcher.parent = src
+		catcher.SetSize((iter*2)+1)
+		particle_catchers.Add(catcher)
 
-/obj/effect/fusion_em_field/process()
+	START_PROCESSING(SSobj, src)
+
+/obj/effect/fusion_em_field/Process()
 	//make sure the field generator is still intact
-	if(!owned_core || deleted(owned_core))
+	if(!owned_core || QDELETED(owned_core))
 		qdel(src)
 		return
 
@@ -122,7 +96,7 @@
 		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(50,100))
 	if(uptake_gas && uptake_gas.total_moles)
 		for(var/gasname in uptake_gas.gas)
-			if(uptake_gas.gas[gasname]*10 > dormant_reactant_quantities[gasname])
+			if(uptake_gas.gas[gasname]*10 > reactants[gasname])
 				AddParticles(gasname, uptake_gas.gas[gasname]*10)
 				uptake_gas.adjust_gas(gasname, -(uptake_gas.gas[gasname]), update=FALSE)
 				added_particles = TRUE
@@ -142,13 +116,13 @@
 		plasma_temperature -= lost
 
 	//handle some reactants formatting
-	for(var/reactant in dormant_reactant_quantities)
-		var/amount = dormant_reactant_quantities[reactant]
+	for(var/reactant in reactants)
+		var/amount = reactants[reactant]
 		if(amount < 1)
-			dormant_reactant_quantities.Remove(reactant)
-		else if(amount >= 1000000)
+			reactants.Remove(reactant)
+		else if(amount >= FUSION_REACTANT_CAP)
 			var/radiate = rand(3 * amount / 4, amount / 4)
-			dormant_reactant_quantities[reactant] -= radiate
+			reactants[reactant] -= radiate
 			radiation += radiate
 
 	var/use_range
@@ -165,25 +139,26 @@
 		use_power = light_min_power + ceil((light_max_power-light_min_power)*temp_mod)
 
 	if(last_range != use_range || last_power != use_power)
-		set_light(use_range,use_power)
+		set_light(min(use_power, 1), use_range / 6, use_range) //cap first arg at 1 to avoid breaking lighting stuff.
 		last_range = use_range
 		last_power = use_power
 
 	check_instability()
 	Radiate()
-	rad_power = radiation
+	if(radiation)
+		SSradiation.radiate(src, round(radiation*0.001))
 	return 1
 
 /obj/effect/fusion_em_field/proc/check_instability()
 	if(tick_instability > 0)
-		percent_unstable += (tick_instability*size)/10000
+		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
 		tick_instability = 0
 	else
 		if(percent_unstable < 0)
 			percent_unstable = 0
 		else
-			if(percent_unstable > 100)
-				percent_unstable = 100
+			if(percent_unstable > 1)
+				percent_unstable = 1
 			if(percent_unstable > 0)
 				percent_unstable = max(0, percent_unstable-rand(0.01,0.03))
 
@@ -191,7 +166,7 @@
 		owned_core.Shutdown(force_rupture=1)
 	else
 		if(percent_unstable > 0.5 && prob(percent_unstable*100))
-			if(plasma_temperature < 2000)
+			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
 				visible_message("<span class='danger'>\The [src] ripples uneasily, like a disturbed pond.</span>")
 			else
 				var/flare
@@ -221,18 +196,18 @@
 					plasma_temperature -= lost_plasma
 
 					if(fuel_loss)
-						for(var/particle in dormant_reactant_quantities)
-							var/lost_fuel = dormant_reactant_quantities[particle]*percent_unstable
+						for(var/particle in reactants)
+							var/lost_fuel = reactants[particle]*percent_unstable
 							radiation += lost_fuel
-							dormant_reactant_quantities[particle] -= lost_fuel
-							if(dormant_reactant_quantities[particle] <= 0)
-								dormant_reactant_quantities.Remove(particle)
+							reactants[particle] -= lost_fuel
+							if(reactants[particle] <= 0)
+								reactants.Remove(particle)
 					Radiate()
 	return
 
 /obj/effect/fusion_em_field/proc/Rupture()
 	visible_message("<span class='danger'>\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!</span>")
-	set_light(15, 15, "#CCCCFF")
+	set_light(1, 0.1, 15, 2, "#ccccff")
 	empulse(get_turf(src), ceil(plasma_temperature/1000), ceil(plasma_temperature/300))
 	sleep(5)
 	RadiateAll()
@@ -247,8 +222,14 @@
 		calc_size = 3
 	else if(new_strength <= 500)
 		calc_size = 5
-	else
+	else if(new_strength <= 1000)
 		calc_size = 7
+	else if(new_strength <= 2000)
+		calc_size = 9
+	else if(new_strength <= 5000)
+		calc_size = 11
+	else
+		calc_size = 13
 	field_strength = new_strength
 	change_size(calc_size)
 
@@ -264,20 +245,26 @@
 		plasma_temperature += 1
 
 /obj/effect/fusion_em_field/proc/AddParticles(var/name, var/quantity = 1)
-	if(name in dormant_reactant_quantities)
-		dormant_reactant_quantities[name] += quantity
+	if(name in reactants)
+		reactants[name] += quantity
 	else if(name != "proton" && name != "electron" && name != "neutron")
-		dormant_reactant_quantities.Add(name)
-		dormant_reactant_quantities[name] = quantity
+		reactants.Add(name)
+		reactants[name] = quantity
 
 /obj/effect/fusion_em_field/proc/RadiateAll(var/ratio_lost = 1)
 
 	// Create our plasma field and dump it into our environment.
 	var/turf/T = get_turf(src)
 	if(istype(T))
-		var/datum/gas_mixture/plasma = new
-		plasma.adjust_gas("oxygen", (size*100), 0)
-		plasma.adjust_gas("phoron", (size*100), 0)
+		var/datum/gas_mixture/plasma
+		for(var/reactant in reactants)
+			if(!gas_data.name[reactant])
+				continue
+			if(!plasma)
+				plasma = new
+			plasma.adjust_gas(reactant, max(1,round(reactants[reactant]*0.1)), 0) // *0.1 to compensate for *10 when uptaking gas.
+		if(!plasma)
+			return
 		plasma.temperature = (plasma_temperature/2)
 		plasma.update_values()
 		T.assume_air(plasma)
@@ -285,13 +272,13 @@
 		plasma = null
 
 	// Radiate all our unspent fuel and energy.
-	for(var/particle in dormant_reactant_quantities)
-		radiation += dormant_reactant_quantities[particle]
-		dormant_reactant_quantities.Remove(particle)
+	for(var/particle in reactants)
+		radiation += reactants[particle]
+		reactants.Remove(particle)
 	radiation += plasma_temperature/2
 	plasma_temperature = 0
 
-	radiation_repository.radiate(src, radiation)
+	SSradiation.radiate(src, round(radiation*0.001))
 	Radiate()
 
 /obj/effect/fusion_em_field/proc/Radiate()
@@ -310,9 +297,8 @@
 			if(skip_obstacle)
 				continue
 
-			log_debug("R-UST DEBUG: [AM] is [AM.type]")
 			AM.visible_message("<span class='danger'>The field buckles visibly around \the [AM]!</span>")
-			tick_instability += rand(15,30)
+			tick_instability += rand(30,50)
 			AM.emp_act(empsev)
 
 	if(owned_core && owned_core.loc)
@@ -323,39 +309,25 @@
 
 /obj/effect/fusion_em_field/proc/change_size(var/newsize = 1)
 	var/changed = 0
-	switch(newsize)
-		if(1)
-			size = 1
-			icon = 'icons/obj/machines/power/fusion.dmi'
-			icon_state = "emfield_s1"
-			pixel_x = 0
-			pixel_y = 0
-			//
-			changed = 1
-		if(3)
-			size = 3
-			icon = 'icons/effects/96x96.dmi'
-			icon_state = "emfield_s3"
-			pixel_x = -32 * PIXEL_MULTIPLIER
-			pixel_y = -32 * PIXEL_MULTIPLIER
-			//
-			changed = 3
-		if(5)
-			size = 5
-			icon = 'icons/effects/160x160.dmi'
-			icon_state = "emfield_s5"
-			pixel_x = -64 * PIXEL_MULTIPLIER
-			pixel_y = -64 * PIXEL_MULTIPLIER
-			//
-			changed = 5
-		if(7)
-			size = 7
-			icon = 'icons/effects/224x224.dmi'
-			icon_state = "emfield_s7"
-			pixel_x = -96 * PIXEL_MULTIPLIER
-			pixel_y = -96 * PIXEL_MULTIPLIER
-			//
-			changed = 7
+	var/static/list/size_to_icon = list(
+			"3" = 'icons/effects/96x96.dmi', 
+			"5" = 'icons/effects/160x160.dmi', 
+			"7" = 'icons/effects/224x224.dmi', 
+			"9" = 'icons/effects/288x288.dmi', 
+			"11" = 'icons/effects/352x352.dmi', 
+			"13" = 'icons/effects/416x416.dmi'
+			)
+
+	if( ((newsize-1)%2==0) && (newsize<=13) )
+		icon = 'icons/obj/machines/power/fusion.dmi'
+		if(newsize>1)
+			icon = size_to_icon["[newsize]"]
+		icon_state = "emfield_s[newsize]"
+		pixel_x = ((newsize-1) * -16) * PIXEL_MULTIPLIER
+		pixel_y = ((newsize-1) * -16) * PIXEL_MULTIPLIER
+		size = newsize
+		changed = newsize
+
 	for(var/obj/effect/fusion_particle_catcher/catcher in particle_catchers)
 		catcher.UpdateSize()
 	return changed
@@ -363,7 +335,7 @@
 //the !!fun!! part
 /obj/effect/fusion_em_field/proc/React()
 	//loop through the reactants in random order
-	var/list/react_pool = dormant_reactant_quantities.Copy()
+	var/list/react_pool = reactants.Copy()
 
 	//cant have any reactions if there aren't any reactants present
 	if(react_pool.len)
@@ -371,7 +343,7 @@
 		//this is a hack, and quite nonrealistic :(
 		for(var/reactant in react_pool)
 			react_pool[reactant] = rand(Floor(react_pool[reactant]/2),react_pool[reactant])
-			dormant_reactant_quantities[reactant] -= react_pool[reactant]
+			reactants[reactant] -= react_pool[reactant]
 			if(!react_pool[reactant])
 				react_pool -= reactant
 
@@ -480,7 +452,7 @@
 	if(owned_core)
 		owned_core.owned_field = null
 		owned_core = null
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
 /obj/effect/fusion_em_field/bullet_act(var/obj/item/projectile/Proj)
@@ -489,3 +461,6 @@
 	return 0
 
 #undef FUSION_HEAT_CAP
+#undef FUSION_INSTABILITY_DIVISOR
+#undef FUSION_RUPTURE_THRESHOLD
+#undef FUSION_REACTANT_CAP

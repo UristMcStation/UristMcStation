@@ -10,7 +10,7 @@
 	speak_emote = list("squeeks","squeeks","squiks")
 	emote_hear = list("squeeks","squeaks","squiks")
 	emote_see = list("runs in a circle", "shakes", "scritches at something")
-	pass_flags = PASSTABLE
+	pass_flags = PASS_FLAG_TABLE
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
@@ -22,7 +22,6 @@
 	response_harm   = "stamps on"
 	density = 0
 	var/body_color //brown, gray and white, leave blank for random
-	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
@@ -30,6 +29,7 @@
 	holder_type = /obj/item/weapon/holder/mouse
 	mob_size = MOB_MINISCULE
 	possession_candidate = 1
+	can_escape = 1
 
 	can_pull_size = ITEM_SIZE_TINY
 	can_pull_mobs = MOB_PULL_NONE
@@ -113,5 +113,5 @@
 /mob/living/simple_animal/mouse/brown/Tom/New()
 	..()
 	// Change my name back, don't want to be named Tom (666)
-	name = initial(name)
+	SetName(initial(name))
 	real_name = name

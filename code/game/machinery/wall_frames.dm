@@ -3,14 +3,14 @@
 	desc = "Used for building machines."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire_bitem"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	var/build_machine_type
 	var/refund_amt = 2
 	var/refund_type = /obj/item/stack/material/steel
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 
 /obj/item/frame/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/wrench))
+	if(isWrench(W))
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
 		return
@@ -29,7 +29,7 @@
 	else
 		ndir = get_dir(on_wall,usr)
 
-	if (!(ndir in cardinal))
+	if (!(ndir in GLOB.cardinal))
 		return
 
 	var/turf/loc = get_turf(usr)
@@ -37,7 +37,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		to_chat(usr, "<span class='danger'>\The [src] cannot be placed on this spot.</span>")
 		return
-	if (A.requires_power == 0 || A.name == "Space")
+	if ((A.requires_power == 0 || A.name == "Space") && !isLightFrame())
 		to_chat(usr, "<span class='danger'>\The [src] cannot be placed in this area.</span>")
 		return
 
@@ -48,6 +48,9 @@
 	new build_machine_type(loc, ndir, src)
 	qdel(src)
 
+/obj/item/frame/proc/isLightFrame()
+	return FALSE
+
 /obj/item/frame/fire_alarm
 	name = "fire alarm frame"
 	desc = "Used for building fire alarms."
@@ -55,6 +58,7 @@
 
 /obj/item/frame/air_alarm
 	name = "air alarm frame"
+	icon_state = "alarm_bitem"
 	desc = "Used for building air alarms."
 	build_machine_type = /obj/machinery/alarm
 
@@ -65,6 +69,9 @@
 	icon_state = "tube-construct-item"
 	build_machine_type = /obj/machinery/light_construct
 	reverse = 1
+
+/obj/item/frame/light/isLightFrame()
+	return TRUE
 
 /obj/item/frame/light/small
 	name = "small light fixture frame"

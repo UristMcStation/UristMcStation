@@ -9,7 +9,12 @@ var/list/ventcrawl_machinery = list(
 	/obj/item/device/radio/borg,
 	/obj/item/weapon/holder,
 	/obj/machinery/camera,
-	/mob/living/simple_animal/borer
+	/mob/living/simple_animal/borer,
+	/obj/item/clothing/head/culthood,
+	/obj/item/clothing/suit/cultrobes,
+	/obj/item/weapon/book/tome,
+	/obj/item/weapon/paper/,
+	/obj/item/weapon/melee/cultblade
 	)
 
 /mob/living/var/list/icon/pipes_shown = list()
@@ -53,6 +58,10 @@ var/list/ventcrawl_machinery = list(
 /mob/living/carbon/human/is_allowed_vent_crawl_item(var/obj/item/carried_item)
 	if(carried_item in organs)
 		return 1
+	if(carried_item in list(w_uniform, gloves, glasses, wear_mask, l_ear, r_ear, belt, l_store, r_store))
+		return 1
+	if(carried_item in list(l_hand,r_hand))
+		return carried_item.w_class <= ITEM_SIZE_NORMAL
 	return ..()
 
 /mob/living/simple_animal/spiderbot/is_allowed_vent_crawl_item(var/obj/item/carried_item)
@@ -86,7 +95,7 @@ var/list/ventcrawl_machinery = list(
 		pipe = pipes[1]
 	else
 		pipe = input("Crawl Through Vent", "Pick a pipe") as null|anything in pipes
-	if(canmove && pipe)
+	if(!is_physically_disabled() && pipe)
 		return pipe
 
 /mob/living/carbon/alien/ventcrawl_carry()
@@ -162,7 +171,7 @@ var/list/ventcrawl_machinery = list(
 			if(!A.pipe_image)
 				A.pipe_image = image(A, A.loc, dir = A.dir)
 			A.pipe_image.layer = ABOVE_LIGHTING_LAYER
-			A.pipe_image.plane = LIGHTING_PLANE
+			A.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 

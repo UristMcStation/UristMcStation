@@ -15,14 +15,14 @@
 		kill()
 
 /datum/event/money_hacker/announce()
-	var/message = "A brute force hack has been detected (in progress since [stationtime2text()]). The target of the attack is: Financial account #[affected_account.account_number], \
-	without intervention this attack will succeed in approximately 10 minutes. Required intervention: temporary suspension of affected accounts until the attack has ceased. \
-	Notifications will be sent as updates occur.<br>"
-	var/my_department = "[station_name()] firewall subroutines"
-
-	for(var/obj/machinery/message_server/MS in world)
-		if(!MS.active) continue
-		MS.send_rc_message("Head of Personnel's Desk", my_department, message, "", "", 2)
+	var/obj/machinery/message_server/MS = get_message_server()
+	if(MS)
+		// Hide the account number for now since it's all you need to access a standard-security account. Change when that's no longer the case.
+		var/message = "A brute force hack has been detected (in progress since [stationtime2text()]). The target of the attack is: Financial account #[affected_account.account_number], \
+		without intervention this attack will succeed in approximately 10 minutes. Required intervention: temporary suspension of affected accounts until the attack has ceased. \
+		Notifications will be sent as updates occur."
+		var/my_department = "[location_name()] Firewall Subroutines"
+		MS.send_rc_message("XO's Desk", my_department, message, "", "", 2)
 
 
 /datum/event/money_hacker/tick()
@@ -32,8 +32,8 @@
 		endWhen = activeFor + 10
 
 /datum/event/money_hacker/end()
-	var/message
-	if(affected_account && !affected_account)
+	var/message = "The attack has ceased, the affected accounts can now be brought online."
+	if(affected_account && !affected_account.suspended)
 		//hacker wins
 		message = "The hack attempt has succeeded."
 
@@ -47,20 +47,14 @@
 		T.amount = -lost
 		var/date1 = "31 December, 1999"
 		var/date2 = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [rand(1000,3000)]"
-		T.date = pick("", current_date_string, date1, date2)
+		T.date = pick("", stationdate2text(), date1, date2)
 		var/time1 = rand(0, 99999999)
 		var/time2 = "[round(time1 / 36000)+12]:[(time1 / 600 % 60) < 10 ? add_zero(time1 / 600 % 60, 1) : time1 / 600 % 60]"
 		T.time = pick("", stationtime2text(), time2)
 		T.source_terminal = pick("","[pick("Biesel","New Gibson")] GalaxyNet Terminal #[rand(111,999)]","your mums place","nantrasen high CommanD")
 
 		affected_account.do_transaction(T)
-
-	else
-		//crew wins
-		message = "The attack has ceased, the affected accounts can now be brought online."
-
-	var/my_department = "[station_name()] firewall subroutines"
-
-	for(var/obj/machinery/message_server/MS in world)
-		if(!MS.active) continue
-		MS.send_rc_message("Head of Personnel's Desk", my_department, message, "", "", 2)
+	var/obj/machinery/message_server/MS = get_message_server()
+	if(MS)
+		var/my_department = "[location_name()] Firewall Subroutines"
+		MS.send_rc_message("XO's Desk", my_department, message, "", "", 2)

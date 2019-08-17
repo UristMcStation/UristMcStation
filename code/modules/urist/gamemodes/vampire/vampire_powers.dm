@@ -86,7 +86,8 @@
 		H << "<span class='notice'>You are now waking up from your sleep.</span>"
 		H.paralysis += 2 //as above
 		H.status_flags &= ~(FAKEDEATH)
-		H.update_canmove()
+		H.resuscitate()
+		H.UpdateLyingBuckledAndVerbStatus()
 		H.drowsyness += 10 //so they don't spring back up immediately fully conscious
 
 	do
@@ -192,7 +193,7 @@
 		M.current << "<span class='warning'>You try to stare into your own eyes. Oddly, it doesn't work.</span>"
 		return
 
-	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as he stares into [C.name]'s eyes</span>")
+	M.current.visible_message("<span class='warning'>[M.current.name]'s eyes flash briefly as they stare into [C.name]'s eyes</span>")
 	M.current.verbs -= /client/proc/vampire_hypnotise
 	spawn(1800)
 		M.current.verbs += /client/proc/vampire_hypnotise
@@ -234,9 +235,9 @@
 		M.current << "<span class='warning'> They seem to be unaffected.</span>"
 		return
 	var/datum/disease2/disease/shutdown = new /datum/disease2/disease
-	var/datum/disease2/effectholder/holder = new /datum/disease2/effectholder
+	var/datum/disease2/effect/holder = new /datum/disease2/effect
 	var/datum/disease2/effect/organs/vampire/O = new /datum/disease2/effect/organs/vampire
-	holder.effect += O
+	holder += O
 	holder.chance = 10
 	shutdown.infectionchance = 100
 	shutdown.antigen |= text2num(pick(ALL_ANTIGENS))
@@ -420,7 +421,7 @@
 		src << "<b><span class='warning'> SOMETHING WENT WRONG, YELL AT SCRDEST OR GLLOYD</span></b>"
 		return 0
 
-	if(vamps.add_antagonist(H,1,0,0,1,1))
+	if(GLOB.vamps.add_antagonist(H,1,0,0,1,1))
 		H.current << "<span class='sinister'> World seems to screech to a halt as an otherworldly presence takes root in your mind... a flash of pain from your gums brings you back to your senses as you notice two sharp fangs growing in your mouth. [name] has turned you into a vampire!</span>"
 		src << "<span class='warning'> You have successfully vampirized [H.current.name].</span>"
 		log_admin("[ckey(src.key)] has turned [ckey(H.key)] into a vampire.")
@@ -438,7 +439,7 @@
 	if(M.current.vampire_power(75, 0))
 		var/list/turf/locs = new
 		var/number = 0
-		for(var/direction in alldirs) //looking for bat spawns
+		for(var/direction in GLOB.alldirs) //looking for bat spawns
 			if(locs.len == 2) //we found 2 locations and thats all we need
 				break
 			var/turf/T = get_step(M.current,direction) //getting a loc in that direction
@@ -466,7 +467,7 @@
 	var/datum/mind/M = usr.mind
 	if(!M) return
 
-	if(usr.z == 2)
+	if(usr.z in GLOB.using_map.admin_levels)
 		return 0
 
 	else if(M.current.vampire_power(15, 0))
@@ -496,7 +497,6 @@
 			animation.loc = mobloc
 			steam.location = mobloc
 			steam.start()
-			M.current.canmove = 0
 			sleep(20)
 			flick("reappear",animation)
 			sleep(5)
@@ -506,7 +506,6 @@
 					if(T)
 						if(M.current.Move(T))
 							break
-			M.current.canmove = 1
 			M.current.client.eye = M.current
 			qdel(animation)
 			qdel(holder)

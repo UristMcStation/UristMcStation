@@ -6,6 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 1000)
 	var/obj/item/weapon/implant/imp = null
 
 /obj/item/weapon/implanter/New()
@@ -56,9 +57,8 @@
 	return 0
 
 /obj/item/weapon/implanter/attackby(obj/item/weapon/I, mob/user)
-	if(!imp && istype(I, /obj/item/weapon/implant))
+	if(!imp && istype(I, /obj/item/weapon/implant) && user.unEquip(I,src))
 		to_chat(usr, "<span class='notice'>You slide \the [I] into \the [src].</span>")
-		user.drop_from_inventory(I,src)
 		imp = I
 		update_icon()
 	else

@@ -5,7 +5,7 @@ var/list/sounds_cache = list()
 	set name = "Play Global Sound"
 	if(!check_rights(R_SOUNDS))	return
 
-	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = 777)
+	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = GLOB.admin_sound_channel)
 	uploaded_sound.priority = 250
 
 	sounds_cache += S
@@ -15,8 +15,8 @@ var/list/sounds_cache = list()
 
 	log_admin("[key_name(src)] played sound [S]")
 	message_admins("[key_name_admin(src)] played sound [S]", 1)
-	for(var/mob/M in player_list)
-		if(M.is_preference_enabled(/datum/client_preference/play_admin_midis))
+	for(var/mob/M in GLOB.player_list)
+		if(M.get_preference_value(/datum/client_preference/play_admin_midis) == GLOB.PREF_YES)
 			sound_to(M, uploaded_sound)
 
 	feedback_add_details("admin_verb","PGS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

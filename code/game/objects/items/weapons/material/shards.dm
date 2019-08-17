@@ -9,7 +9,7 @@
 	sharp = 1
 	edge = 1
 	w_class = ITEM_SIZE_SMALL
-	force_divisor = 0.2 // 6 with hardness 30 (glass)
+	force_divisor = 0.12 // 6 with hardness 30 (glass)
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
@@ -26,7 +26,7 @@
 	update_icon()
 
 	if(material.shard_type)
-		name = "[material.display_name] [material.shard_type]"
+		SetName("[material.display_name] [material.shard_type]")
 		desc = "A small piece of [material.display_name]. It looks sharp, you wouldn't want to step on it barefoot. Could probably be used as ... a throwing weapon?"
 		switch(material.shard_type)
 			if(SHARD_SPLINTER, SHARD_SHRAPNEL)
@@ -46,7 +46,7 @@
 		alpha = 255
 
 /obj/item/weapon/material/shard/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/weldingtool) && material.shard_can_repair)
+	if(isWelder(W) && material.shard_can_repair)
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			material.place_sheet(loc)
@@ -66,7 +66,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 
-			if(H.species.siemens_coefficient<0.5 || (H.species.flags & NO_EMBED)) //Thick skin.
+			if(H.species.siemens_coefficient<0.5 || (H.species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT))) //Thick skin.
 				return
 
 			if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
@@ -79,9 +79,9 @@
 				var/picked = pick(check)
 				var/obj/item/organ/external/affecting = H.get_organ(picked)
 				if(affecting)
-					if(affecting.robotic >= ORGAN_ROBOT)
+					if(BP_IS_ROBOTIC(affecting))
 						return
-					affecting.take_damage(5, 0)
+					affecting.take_external_damage(5, 0)
 					H.updatehealth()
 					if(affecting.can_feel_pain())
 						H.Weaken(3)
@@ -90,8 +90,13 @@
 			return
 
 // Preset types - left here for the code that uses them
+/obj/item/weapon/material/shrapnel
+	name = "shrapnel"
+	default_material = DEFAULT_WALL_MATERIAL
+	w_class = ITEM_SIZE_TINY	//it's real small
+
 /obj/item/weapon/material/shard/shrapnel/New(loc)
-	..(loc, "steel")
+	..(loc, DEFAULT_WALL_MATERIAL)
 
 /obj/item/weapon/material/shard/phoron/New(loc)
 	..(loc, "phglass")

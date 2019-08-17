@@ -1,5 +1,8 @@
-/obj/effect/decal/urist
+/obj/effect/floor_decal/urist
 	icon = 'icons/urist/decals/urist.dmi'
 
-/obj/effect/decal/urist/uristlogo
+/obj/effect/floor_decal/urist/uristlogo
 	icon_state = "1"
+
+/obj/effect/floor_decal/urist/nervalogo
+	icon_state = "nerva1"

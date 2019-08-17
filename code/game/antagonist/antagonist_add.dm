@@ -1,4 +1,4 @@
-/datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance)
+/datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance, var/do_not_greet)
 
 	if(!add_antagonist_mind(player, ignore_role))
 		return
@@ -6,12 +6,13 @@
 	//do this again, just in case
 	if(flags & ANTAG_OVERRIDE_JOB)
 		player.assigned_role = role_text
+		player.role_alt_title = null
 	player.special_role = role_text
 
 	if(isghostmind(player))
 		create_default(player.current)
 	else
-		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)
+		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance, do_not_greet)
 		if(!do_not_equip)
 			equip(player.current)
 
@@ -35,7 +36,7 @@
 	if(config.objectives_disabled == CONFIG_OBJECTIVE_VERB)
 		player.current.verbs += /mob/proc/add_objectives
 
-//	player.current.client.verbs += /client/verb/aooc
+	player.current.client.verbs += /client/verb/aooc
 
 	spawn(1 SECOND) //Added a delay so that this should pop up at the bottom and not the top of the text flood the new antag gets.
 		to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to \
@@ -68,7 +69,7 @@
 
 		if(!is_special_character(player))
 			player.current.verbs -= /mob/living/proc/write_ambition
-//			player.current.client.verbs -= /client/verb/aooc
+			player.current.client.verbs -= /client/verb/aooc
 			player.ambitions = ""
 		return 1
 	return 0

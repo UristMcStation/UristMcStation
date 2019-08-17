@@ -47,8 +47,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containertype = /obj/structure/closet/crate
 	containername = "Mail supplies crate"
 	contains = list(/obj/item/device/destTagger,
-					/obj/item/weapon/packageWrap,
-					/obj/item/weapon/packageWrap)
+					/obj/item/stack/package_wrap/twenty_five,
+					/obj/item/stack/package_wrap/twenty_five)
 
 //Xenobio supplies crate - for when the slimes all die. One extinguisher, one monkeycube box, two grey extracts - Octobomb
 /decl/hierarchy/supply_pack/science/xenobio_supplies

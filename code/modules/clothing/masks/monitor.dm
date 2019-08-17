@@ -29,7 +29,19 @@
 		"purple" =   "ipc_purple",
 		"shower" =   "ipc_shower",
 		"static" =   "ipc_static",
-		"yellow" =   "ipc_yellow"
+		"yellow" =   "ipc_yellow",
+		"smiley" =   "ipc_smiley",
+		"list" =     "ipc_database",
+		"yes" =      "ipc_yes",
+		"no" =       "ipc_no",
+		"frown" =    "ipc_frowny",
+		"stars" =    "ipc_stars",
+		"crt" =      "ipc_crt",
+		"scroll" =   "ipc_scroll",
+		"console" =  "ipc_console",
+		"rgb" =      "ipc_rgb",
+		"tetris" =   "ipc_tetris",
+		"doom" =     "ipc_doom"
 		)
 
 /obj/item/clothing/mask/monitor/set_dir()
@@ -52,7 +64,7 @@
 		return 0
 	if(istype(user))
 		var/obj/item/organ/external/E = user.organs_by_name[BP_HEAD]
-		if(istype(E) && (E.robotic >= ORGAN_ROBOT))
+		if(istype(E) && BP_IS_ROBOTIC(E))
 			return 1
 		to_chat(user, "<span class='warning'>You must have a robotic head to install this upgrade.</span>")
 	return 0

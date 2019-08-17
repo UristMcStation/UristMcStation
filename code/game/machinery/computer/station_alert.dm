@@ -18,10 +18,10 @@
 /obj/machinery/computer/station_alert/all
 	monitor_type = /datum/nano_module/alarm_monitor/all
 
-/obj/machinery/computer/station_alert/initialize()
+/obj/machinery/computer/station_alert/Initialize()
 	alarm_monitor = new monitor_type(src)
 	alarm_monitor.register_alarm(src, /obj/machinery/computer/station_alert/update_icon)
-	..()
+	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
 
@@ -59,7 +59,6 @@
 	icon_screen = initial(icon_screen)
 	if(!(stat & (BROKEN|NOPOWER)))
 		if(alarm_monitor)
-			var/list/alarms = alarm_monitor.major_alarms()
-			if(alarms.len)
+			if(alarm_monitor.has_major_alarms(get_z(src)))
 				icon_screen = "alert:2"
 	..()

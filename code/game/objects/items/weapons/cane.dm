@@ -4,7 +4,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 5.0
 	throwforce = 7.0
 	w_class = ITEM_SIZE_SMALL
@@ -36,10 +36,8 @@
 		..()
 
 /obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/material/butterfly/W, var/mob/user)
-	if(!src.concealed_blade && istype(W))
+	if(!src.concealed_blade && istype(W) && user.unEquip(W, src))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [src]!</span>", "You sheathe \the [W] into [src].")
-		user.drop_from_inventory(W)
-		W.loc = src
 		src.concealed_blade = W
 		update_icon()
 		user.update_inv_l_hand()
@@ -49,10 +47,10 @@
 
 /obj/item/weapon/cane/concealed/update_icon()
 	if(concealed_blade)
-		name = initial(name)
+		SetName(initial(name))
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
 	else
-		name = "cane shaft"
+		SetName("cane shaft")
 		icon_state = "nullrod"
 		item_state = "foldcane"

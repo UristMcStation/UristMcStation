@@ -13,7 +13,7 @@
 	locked = 0
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
-	var/protection_percent = 60
+	var/protection_percent = 40 //0 is no protection, 100 is full protection (afforded to the pilot) from projectiles fired at this vehicle
 
 	var/land_speed = 10 //if 0 it can't go on turf
 	var/space_speed = 2
@@ -73,8 +73,8 @@
 /obj/vehicle/bike/proc/load_engine(var/obj/item/weapon/engine/E, var/mob/user)
 	if(engine)
 		return
-	if(user)
-		user.drop_from_inventory(E)
+	if(user && !user.unEquip(E))
+		return
 	engine = E
 	engine.forceMove(src)
 	if(trail)
@@ -118,7 +118,7 @@
 			return
 		else if(engine && engine.attackby(W,user))
 			return 1
-		else if(istype(W, /obj/item/weapon/crowbar) && engine)
+		else if(isCrowbar(W) && engine)
 			to_chat(user, "You pop out \the [engine] from \the [src].")
 			unload_engine()
 			return 1
@@ -135,7 +135,11 @@
 		to_chat(user, "You unbuckle yourself from \the [src]")
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
-	if(user != load || !on || user.incapacitated())
+	if(user != load || !on)
+		return
+	if(user.incapacitated())
+		unload(user)
+		visible_message("<span class='warning'>\The [user] falls off \the [src]!</span>")
 		return
 	return Move(get_step(src, direction))
 
@@ -187,7 +191,7 @@
 	..()
 
 /obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob && prob(protection_percent))
+	if(buckled_mob && prob((100-protection_percent)))
 		buckled_mob.bullet_act(Proj)
 		return
 	..()
@@ -212,8 +216,6 @@
 	..()
 
 
-
-
 /obj/vehicle/bike/thermal
 	engine_type = /obj/item/weapon/engine/thermal
 	prefilled = 1
@@ -221,3 +223,17 @@
 /obj/vehicle/bike/electric
 	engine_type = /obj/item/weapon/engine/electric
 	prefilled = 1
+
+/obj/vehicle/bike/gyroscooter
+	name = "gyroscooter"
+	desc = "A fancy space scooter."
+	icon_state = "gyroscooter_off"
+
+	land_speed = 1.5
+	space_speed = 0
+	bike_icon = "gyroscooter"
+
+	trail = null
+	engine_type = /obj/item/weapon/engine/electric
+	prefilled = 1
+	protection_percent = 5

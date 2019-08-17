@@ -10,6 +10,10 @@
 	var/obj/item/weapon/sample = null
 	var/report_num = 0
 
+/obj/machinery/microscope/Initialize()
+	build_default_parts(/obj/item/weapon/circuitboard/microscope)
+	. = ..()
+
 /obj/machinery/microscope/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(sample)
@@ -18,11 +22,18 @@
 
 	if(istype(W, /obj/item/weapon/forensics/swab)|| istype(W, /obj/item/weapon/sample/fibers) || istype(W, /obj/item/weapon/sample/print))
 		to_chat(user, "<span class='notice'>You insert \the [W] into the microscope.</span>")
-		user.unEquip(W)
-		W.forceMove(src)
+		if(!user.unEquip(W, src))
+			return
 		sample = W
 		update_icon()
+
+	else if(default_deconstruction_crowbar(user, W))
 		return
+	else if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user,W))
+		return
+	. = ..()
 
 /obj/machinery/microscope/attack_hand(mob/user)
 
@@ -45,7 +56,7 @@
 	if(istype(sample, /obj/item/weapon/forensics/swab))
 		var/obj/item/weapon/forensics/swab/swab = sample
 
-		report.name = "GSR report #[++report_num]: [swab.name]"
+		report.SetName("GSR report #[++report_num]: [swab.name]")
 		report.info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
 
 		if(swab.gsr)
@@ -55,23 +66,23 @@
 
 	else if(istype(sample, /obj/item/weapon/sample/fibers))
 		var/obj/item/weapon/sample/fibers/fibers = sample
-		report.name = "Fiber report #[++report_num]: [fibers.name]"
-		report.info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
+		report.SetName("Fiber report #[++report_num]: [fibers.name]")
+		report.info = "<b>Scanned item:</b><br>[fibers.object]<br><br>"
 		if(fibers.evidence)
-			report.info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
+			report.info += "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
 			for(var/fiber in fibers.evidence)
 				report.info += "<span class='notice'>Most likely match for fibers: [fiber]</span><br><br>"
 		else
 			report.info += "No fibers found."
 	else if(istype(sample, /obj/item/weapon/sample/print))
-		report.name = "Fingerprint report #[report_num]: [sample.name]"
-		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
+		report.SetName("Fingerprint report #[report_num]: [sample.name]")
 		var/obj/item/weapon/sample/print/card = sample
+		report.info = "<b>Fingerprint analysis report #[report_num]</b>: [card.object ? card.object : card.name]<br>"
 		if(card.evidence && card.evidence.len)
 			report.info += "Surface analysis has determined unique fingerprint strings:<br><br>"
 			for(var/prints in card.evidence)
 				report.info += "<span class='notice'>Fingerprint string: </span>"
-				if(!is_complete_print(prints))
+				if(!is_complete_print(card.evidence[prints]))
 					report.info += "INCOMPLETE PRINT"
 				else
 					report.info += "[prints]"

@@ -46,20 +46,17 @@
 			to_chat(user, "<span class='warning'>There is already a cell in the charger.</span>")
 			return
 		else
-			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
-			if(!isarea(a))
-				return
+			var/area/a = get_area(loc)
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
 				to_chat(user, "<span class='warning'>The [name] blinks red as you try to insert the cell!</span>")
 				return
-
-			user.drop_item()
-			W.loc = src
+			if(!user.unEquip(W, src))
+				return
 			charging = W
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 		update_icon()
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(isWrench(W))
 		if(charging)
 			to_chat(user, "<span class='warning'>Remove the cell first!</span>")
 			return
@@ -99,7 +96,7 @@
 	..(severity)
 
 
-/obj/machinery/cell_charger/process()
+/obj/machinery/cell_charger/Process()
 //	log_debug("ccpt [charging] [stat]")
 
 	if((stat & (BROKEN|NOPOWER)) || !anchored)

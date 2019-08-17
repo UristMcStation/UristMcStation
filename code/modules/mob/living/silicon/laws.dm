@@ -5,14 +5,14 @@
 /mob/living/silicon/New()
 	..()
 	if(!laws)
-		laws = using_map.default_law_type
+		laws = GLOB.using_map.default_law_type
 	if(ispath(laws))
 		laws = new laws()
 	laws_sanity_check()
 
 /mob/living/silicon/proc/laws_sanity_check()
 	if (!src.laws)
-		laws = new using_map.default_law_type
+		laws = new GLOB.using_map.default_law_type
 
 /mob/living/silicon/proc/has_zeroth_law()
 	return laws.zeroth_law != null
@@ -96,8 +96,8 @@
 		to_chat(src, "<span class='danger'>[method]: Unable to state laws. Communication method unavailable.</span>")
 	stating_laws[prefix] = 0
 
-/mob/living/silicon/proc/statelaw(var/law)
-	if(src.say(law))
+/mob/living/silicon/proc/statelaw(var/law, var/mob/living/L = src)
+	if(L.say(law))
 		sleep(10)
 		return 1
 
@@ -106,7 +106,7 @@
 /mob/living/silicon/proc/law_channels()
 	var/list/channels = new()
 	channels += MAIN_CHANNEL
-	channels += common_radio.channels
+	channels += silicon_radio.channels
 	channels += additional_law_channels
 	channels += "Binary"
 	return channels
@@ -117,4 +117,4 @@
 
 /mob/living/silicon/proc/log_law(var/law_message)
 	log_and_message_admins(law_message)
-	lawchanges += "[stationtime2text()] - [usr ? "[key_name(usr)]" : "EVENT"] [law_message]"
+	GLOB.lawchanges += "[stationtime2text()] - [usr ? "[key_name(usr)]" : "EVENT"] [law_message]"

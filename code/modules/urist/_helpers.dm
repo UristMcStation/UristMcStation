@@ -239,14 +239,14 @@ B --><-- A
 	var/initial_chance = chance
 	while(steps > 0)
 		if(prob(chance))
-			step(AM, pick(alldirs))
+			step(AM, pick(GLOB.alldirs))
 		chance = max(chance - (initial_chance / steps), 0)
 		steps--
 
 /proc/living_player_count()
 	var/living_player_count = 0
-	for(var/mob in player_list)
-		if(mob in living_mob_list_)
+	for(var/mob in GLOB.player_list)
+		if(mob in GLOB.living_mob_list_)
 			living_player_count += 1
 	return living_player_count
 

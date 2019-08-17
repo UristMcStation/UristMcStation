@@ -3,6 +3,16 @@ var/const/NETWORK_PRISON              = "Prison"
 var/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
 var/const/NETWORK_TELECOM             = "Tcomsat"
 var/const/NETWORK_URIST               = "Urist"
+var/const/NETWORK_COMMAND             = "Command"
+var/const/NETWORK_ENGINE              = "Engine"
+var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
+
+/datum/map/proc/get_shared_network_access(var/network)
+	switch(network)
+		if(NETWORK_COMMAND)
+			return access_heads
+		if(NETWORK_ENGINE, NETWORK_ENGINEERING_OUTPOST)
+			return access_engine
 
 /datum/map/glloydstation/get_network_access(var/network)
 	switch(network)
@@ -38,12 +48,12 @@ var/const/NETWORK_URIST               = "Urist"
 		NETWORK_TELECOM
 	)
 
+
 //
 // Cameras
 //
 
 // Networks
-
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
@@ -65,7 +75,19 @@ var/const/NETWORK_URIST               = "Urist"
 /obj/machinery/camera/network/telecom
 	network = list(NETWORK_TELECOM)
 
+/obj/machinery/camera/network/crescent
+	network = list(NETWORK_CRESCENT)
+
+/obj/machinery/camera/network/engine
+	network = list(NETWORK_ENGINE)
+
+/obj/machinery/camera/network/engineering_outpost
+	network = list(NETWORK_ENGINEERING_OUTPOST)
+
 // Motion
+/obj/machinery/camera/motion/engineering_outpost
+	network = list(NETWORK_ENGINEERING_OUTPOST)
+
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
 
@@ -88,3 +110,7 @@ var/const/NETWORK_URIST               = "Urist"
 //emp proof
 /obj/machinery/camera/emp_proof/engine
 	network = list(NETWORK_ENGINE)
+
+// All Upgrades
+/obj/machinery/camera/all/command
+	network = list(NETWORK_COMMAND)

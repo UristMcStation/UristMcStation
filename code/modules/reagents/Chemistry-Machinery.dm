@@ -3,8 +3,6 @@
 #define GAS 3
 
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
-#define REAGENTS_PER_SHEET 20
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -15,8 +13,11 @@
 	anchored = 1
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
+	layer = BELOW_OBJ_LAYER //Beakers were appearing below it
 	use_power = 1
 	idle_power_usage = 20
+	clicksound = "button"
+	clickvol = 20
 	var/beaker = null
 	var/obj/item/weapon/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = 0
@@ -27,13 +28,12 @@
 	var/pillsprite = "1"
 	var/client/has_sprites = list()
 	var/max_pill_count = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_ANCHORABLE
 
 /obj/machinery/chem_master/New()
+	create_reagents(120)
 	..()
-	var/datum/reagents/R = new/datum/reagents(120)
-	reagents = R
-	R.my_atom = src
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
@@ -52,9 +52,9 @@
 		if(src.beaker)
 			to_chat(user, "A beaker is already loaded into the machine.")
 			return
+		if(!user.unEquip(B, src))
+			return
 		src.beaker = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
@@ -64,15 +64,15 @@
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
-
+		if(!user.unEquip(B, src))
+			return
 		src.loaded_pill_bottle = B
-		user.drop_item()
-		B.loc = src
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	return
+	else
+		. = ..()
 
-/obj/machinery/chem_master/Topic(href, href_list)
+/obj/machinery/chem_master/Topic(href, href_list, state)
 	if(..())
 		return 1
 
@@ -108,36 +108,38 @@
 			return
 
 		else if (href_list["add"])
-
 			if(href_list["amount"])
-				var/id = href_list["add"]
-				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
-				R.trans_id_to(src, id, amount)
+				var/datum/reagent/their_reagent = locate(href_list["add"]) in R.reagent_list
+				if(their_reagent)
+					var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
+					R.trans_type_to(src, their_reagent.type, amount)
 
 		else if (href_list["addcustom"])
-
-			var/id = href_list["addcustom"]
-			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "add" = "[id]"))
+			var/datum/reagent/their_reagent = locate(href_list["addcustom"]) in R.reagent_list
+			if(their_reagent)
+				useramount = input("Select the amount to transfer.", 30, useramount) as null|num
+				if(useramount)
+					useramount = Clamp(useramount, 0, 200)
+					src.Topic(href, list("amount" = "[useramount]", "add" = href_list["addcustom"]), state)
 
 		else if (href_list["remove"])
-
 			if(href_list["amount"])
-				var/id = href_list["remove"]
-				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
-				if(mode)
-					reagents.trans_id_to(beaker, id, amount)
-				else
-					reagents.remove_reagent(id, amount)
+				var/datum/reagent/my_reagents = locate(href_list["remove"]) in reagents.reagent_list
+				if(my_reagents)
+					var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
+					if(mode)
+						reagents.trans_type_to(beaker, my_reagents.type, amount)
+					else
+						reagents.remove_reagent(my_reagents.type, amount)
 
 
 		else if (href_list["removecustom"])
-
-			var/id = href_list["removecustom"]
-			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "remove" = "[id]"))
+			var/datum/reagent/my_reagents = locate(href_list["removecustom"]) in reagents.reagent_list
+			if(my_reagents)
+				useramount = input("Select the amount to transfer.", 30, useramount) as null|num
+				if(useramount)
+					useramount = Clamp(useramount, 0, 200)
+					src.Topic(href, list("amount" = "[useramount]", "remove" = href_list["removecustom"]), state)
 
 		else if (href_list["toggle"])
 			mode = !mode
@@ -167,18 +169,20 @@
 			var/amount_per_pill = reagents.total_volume/count
 			if (amount_per_pill > 60) amount_per_pill = 60
 
-			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_master_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_master_reagent_name()] ([amount_per_pill]u)"), MAX_NAME_LEN)
 
 			if(reagents.total_volume/count < 1) //Sanity checking.
 				return
-			while (count--)
+			while (count-- && count >= 0)
 				var/obj/item/weapon/reagent_containers/pill/P = new/obj/item/weapon/reagent_containers/pill(src.loc)
 				if(!name) name = reagents.get_master_reagent_name()
-				P.name = "[name] pill"
+				P.SetName("[name] pill")
 				P.icon_state = "pill"+pillsprite
+				if(P.icon_state in list("pill1", "pill2", "pill3", "pill4", "pill5")) // if using greyscale, take colour from reagent
+					P.color = reagents.get_color()
 				reagents.trans_to_obj(P,amount_per_pill)
 				if(src.loaded_pill_bottle)
-					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.storage_slots)
+					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.max_storage_space)
 						P.loc = loaded_pill_bottle
 						src.updateUsrDialog()
 
@@ -187,7 +191,7 @@
 				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name()), MAX_NAME_LEN)
 				var/obj/item/weapon/reagent_containers/glass/bottle/P = new/obj/item/weapon/reagent_containers/glass/bottle(src.loc)
 				if(!name) name = reagents.get_master_reagent_name()
-				P.name = "[name] bottle"
+				P.SetName("[name] bottle")
 				P.icon_state = bottlesprite
 				reagents.trans_to_obj(P,60)
 				P.update_icon()
@@ -195,7 +199,7 @@
 				var/obj/item/weapon/reagent_containers/food/condiment/P = new/obj/item/weapon/reagent_containers/food/condiment(src.loc)
 				reagents.trans_to_obj(P,50)
 		else if(href_list["change_pill"])
-			#define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
+			#define MAX_PILL_SPRITE 25 //max icon state of the pill sprites
 			var/dat = "<table>"
 			for(var/i = 1 to MAX_PILL_SPRITE)
 				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\"><img src=\"pill[i].png\" /></a></td></tr>"
@@ -235,7 +239,7 @@
 	if(!beaker)
 		dat = "Please insert beaker.<BR>"
 		if(src.loaded_pill_bottle)
-			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.storage_slots]\]</A><BR><BR>"
+			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
 		else
 			dat += "No pill bottle inserted.<BR><BR>"
 		dat += "<A href='?src=\ref[src];close=1'>Close</A>"
@@ -243,7 +247,7 @@
 		var/datum/reagents/R = beaker:reagents
 		dat += "<A href='?src=\ref[src];eject=1'>Eject beaker and Clear Buffer</A><BR>"
 		if(src.loaded_pill_bottle)
-			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.storage_slots]\]</A><BR><BR>"
+			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
 		else
 			dat += "No pill bottle inserted.<BR><BR>"
 		if(!R.total_volume)
@@ -253,22 +257,22 @@
 			for(var/datum/reagent/G in R.reagent_list)
 				dat += "[G.name] , [G.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=[G.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];addcustom=[G.id]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];add=\ref[G];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];add=\ref[G];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];add=\ref[G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=\ref[G];amount=[G.volume]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];addcustom=\ref[G]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
 			for(var/datum/reagent/N in reagents.reagent_list)
 				dat += "[N.name] , [N.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=[N.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];removecustom=[N.id]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];remove=\ref[N];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];remove=\ref[N];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];remove=\ref[N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=\ref[N];amount=[N.volume]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];removecustom=\ref[N]'>(Custom)</A><BR>"
 		else
 			dat += "Empty<BR>"
 		if(!condi)
@@ -305,15 +309,6 @@
 	var/obj/item/weapon/reagent_containers/beaker = null
 	var/limit = 10
 	var/list/holdingitems = list()
-	var/list/sheet_reagents = list(
-		/obj/item/stack/material/iron = "iron",
-		/obj/item/stack/material/uranium = "uranium",
-		/obj/item/stack/material/phoron = "phoron",
-		/obj/item/stack/material/phoron/fifty = "phoron",
-		/obj/item/stack/material/gold = "gold",
-		/obj/item/stack/material/silver = "silver",
-		/obj/item/stack/material/mhydrogen = "hydrogen"
-		)
 
 /obj/machinery/reagentgrinder/New()
 	..()
@@ -333,9 +328,9 @@
 		if (beaker)
 			return 1
 		else
+			if(!user.unEquip(O, src))
+				return
 			src.beaker =  O
-			user.drop_item()
-			O.loc = src
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -371,12 +366,26 @@
 		src.updateUsrDialog()
 		return 0
 
-	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
+	if(istype(O,/obj/item/stack/material))
+		var/obj/item/stack/material/stack = O
+		var/material/material = stack.material
+		if(!material.chem_products.len)
+			to_chat(user, "\The [material.name] is unable to produce any usable reagents.")
+			return 1
+		else
+			add_item(O,user)
+			return 0
+
+	if(!O.reagents || !O.reagents.total_volume)
 		to_chat(user, "\The [O] is not suitable for blending.")
 		return 1
 
-	user.remove_from_mob(O)
-	O.loc = src
+	add_item(O,user)
+	return 0
+
+/obj/machinery/reagentgrinder/proc/add_item(var/obj/item/O as obj, var/mob/user as mob)
+	if(!user.unEquip(O, src))
+		return
 	holdingitems += O
 	src.updateUsrDialog()
 	return 0
@@ -442,34 +451,26 @@
 	return
 
 
-/obj/machinery/reagentgrinder/Topic(href, href_list)
-	if(..())
-		return 1
-
-	switch(href_list["action"])
-		if ("grind")
-			grind()
-		if("eject")
-			eject()
-		if ("detach")
-			detach()
-	src.updateUsrDialog()
-	return 1
+/obj/machinery/reagentgrinder/OnTopic(user, href_list)
+	if(href_list["action"])
+		switch(href_list["action"])
+			if ("grind")
+				grind()
+			if("eject")
+				eject()
+			if ("detach")
+				detach()
+		interact(user)
+		return TOPIC_REFRESH
 
 /obj/machinery/reagentgrinder/proc/detach()
-
-	if (usr.stat != 0)
-		return
 	if (!beaker)
 		return
-	beaker.loc = src.loc
+	beaker.dropInto(loc)
 	beaker = null
 	update_icon()
 
 /obj/machinery/reagentgrinder/proc/eject()
-
-	if (usr.stat != 0)
-		return
 	if (!holdingitems || holdingitems.len == 0)
 		return
 
@@ -503,16 +504,25 @@
 		if(remaining_volume <= 0)
 			break
 
-		if(sheet_reagents[O.type])
-			var/obj/item/stack/stack = O
-			if(istype(stack))
-				var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/REAGENTS_PER_SHEET)))
-				if(amount_to_take)
-					stack.use(amount_to_take)
-					if(deleted(stack))
-						holdingitems -= stack
-					beaker.reagents.add_reagent(sheet_reagents[stack.type], (amount_to_take*REAGENTS_PER_SHEET))
-					continue
+		var/obj/item/stack/material/stack = O
+		if(istype(stack))
+			var/material/material = stack.material
+			if(!material.chem_products.len)
+				break
+
+			var/list/chem_products = material.chem_products
+			var/sheet_volume = 0
+			for(var/chem in chem_products)
+				sheet_volume += chem_products[chem]
+
+			var/amount_to_take = max(0,min(stack.amount,round(remaining_volume/sheet_volume)))
+			if(amount_to_take)
+				stack.use(amount_to_take)
+				if(QDELETED(stack))
+					holdingitems -= stack
+				for(var/chem in chem_products)
+					beaker.reagents.add_reagent(chem, (amount_to_take*chem_products[chem]))
+				continue
 
 		if(O.reagents)
 			O.reagents.trans_to(beaker, min(O.reagents.total_volume, remaining_volume))
@@ -521,5 +531,3 @@
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
-
-#undef REAGENTS_PER_SHEET

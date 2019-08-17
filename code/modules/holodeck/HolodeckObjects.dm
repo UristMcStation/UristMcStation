@@ -6,6 +6,10 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
+// the new Diona Death Prevention Feature: gives an average amount of lumination
+/turf/simulated/floor/holofloor/get_lumcount(var/minlum = 0, var/maxlum = 1)
+	return 0.8
+
 /turf/simulated/floor/holofloor/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
@@ -14,10 +18,22 @@
 	return
 
 /turf/simulated/floor/holofloor/carpet
-	name = "carpet"
+	name = "brown carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
-	icon_state = "carpet"
+	icon_state = "brown"
 	initial_flooring = /decl/flooring/carpet
+
+/turf/simulated/floor/holofloor/concrete
+	name = "brown carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "brown"
+	initial_flooring = /decl/flooring/carpet
+
+/turf/simulated/floor/holofloor/concrete
+	name = "floor"
+	icon = 'icons/turf/flooring/misc.dmi'
+	icon_state = "concrete"
+	initial_flooring = null
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -29,6 +45,11 @@
 	name = "dark floor"
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
+
+/turf/simulated/floor/holofloor/tiled/white
+	name = "white floor"
+	icon_state = "white"
+	initial_flooring = /decl/flooring/tiling/white
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
@@ -79,8 +100,8 @@
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
-	icon_state = "desert"
-	base_icon_state = "desert"
+	icon_state = "desert0"
+	base_icon_state = "desert0"
 
 /turf/simulated/floor/holofloor/beach/coastline
 	name = "coastline"
@@ -122,18 +143,19 @@
 	icon_state = "boxing"
 	item_state = "boxing"
 
+/obj/structure/window/holowindow/full
+	dir = 5
+	icon_state = "window_full"
+
+/obj/structure/window/holowindow/full/Destroy()
+	..()
+
 /obj/structure/window/reinforced/holowindow/Destroy()
 	..()
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
-		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, PAIN)
-			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(!istype(W) || W.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
 	if(istype(W, /obj/item/weapon/screwdriver))
 		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
@@ -222,7 +244,8 @@
 	throw_range = 5
 	throwforce = 0
 	w_class = ITEM_SIZE_SMALL
-	flags = NOBLOODY
+	atom_flags = ATOM_FLAG_NO_BLOOD
+	base_parry_chance = 50
 	var/active = 0
 	var/blade_color
 
@@ -235,15 +258,15 @@
 		blade_color = "red"
 
 /obj/item/weapon/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
+	. = ..()
+	if(.)
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, user.loc)
 		spark_system.start()
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
-		return 1
-	return 0
+
+/obj/item/weapon/holo/esword/get_parry_chance(mob/user)
+	return active ? ..() : 0
 
 /obj/item/weapon/holo/esword/New()
 	blade_color = pick("red","blue","green","purple")
@@ -287,22 +310,6 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
-		if(G.state<2)
-			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
-			return
-		G.affecting.loc = src.loc
-		G.affecting.Weaken(5)
-		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", 3)
-		qdel(W)
-		return
-	else if (istype(W, /obj/item) && get_dist(src,user)<2)
-		user.drop_item(src.loc)
-		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>", 3)
-		return
-
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
@@ -317,6 +324,43 @@
 	else
 		return ..(mover, target, height, air_group)
 
+//VOLEYBALL OBJECTS
+
+/obj/item/weapon/beach_ball/holovolleyball
+	icon = 'icons/obj/basketball.dmi'
+	icon_state = "volleyball"
+	name = "voleyball"
+	item_state = "volleyball"
+	desc = "You can be my wingman anytime."
+	w_class = ITEM_SIZE_LARGE //Stops people from hiding it in their pockets
+
+/obj/structure/holonet
+	name = "net"
+	desc = "Bullshit, you can be mine!"
+	icon = 'icons/obj/basketball.dmi'
+	icon_state = "volleynet_mid"
+	density = 1
+	anchored = 1
+	layer = TABLE_LAYER
+	throwpass = 1
+	dir = 4
+
+/obj/structure/holonet/end
+	icon_state = "volleynet_end"
+
+/obj/structure/holonet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (istype(mover,/obj/item) && mover.throwing)
+		var/obj/item/I = mover
+		if(istype(I, /obj/item/projectile))
+			return
+		if(prob(10))
+			I.forceMove(get_turf(src))
+			visible_message("<span class='notice'>Swish! \the [I] gets caught in \the [src].</span>", 3)
+			return 0
+		else
+			return 1
+	else
+		return ..(mover, target, height, air_group)
 
 /obj/machinery/readybutton
 	name = "Ready Declaration Device"
@@ -405,7 +449,7 @@
 
 /mob/living/simple_animal/hostile/carp/holodeck/New()
 	..()
-	set_light(2) //hologram lighting
+	set_light(0.5, 0.1, 2) //hologram lighting
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -422,12 +466,8 @@
 		environment_smash = initial(environment_smash)
 
 /mob/living/simple_animal/hostile/carp/holodeck/gib()
-	derez() //holograms can't gib
+	death()
 
 /mob/living/simple_animal/hostile/carp/holodeck/death()
-	..()
-	derez()
-
-/mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	..(null, "fades away!", "You have been destroyed.")
 	qdel(src)

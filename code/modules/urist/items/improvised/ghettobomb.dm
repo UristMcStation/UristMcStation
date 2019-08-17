@@ -23,7 +23,7 @@
 	item_state = "flashbang"
 	throw_speed = 4
 	throw_range = 20
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	var/assembled = 0
 	active = 1
@@ -38,7 +38,7 @@
 				user << "<span  class='notice'>There's not enough fuel left to work with.</span>"
 				return
 			var/obj/structure/reagent_dispensers/fueltank/F = target
-			F.reagents.remove_reagent("fuel", 50, 1)//Deleting 50 fuel from the welding fuel tank,
+			F.reagents.remove_reagent(/datum/reagent/fuel, 50, 1)//Deleting 50 fuel from the welding fuel tank,
 			assembled = 1
 			user << "<span  class='notice'>You've filled the makeshift explosive with welding fuel.</span>"
 			playsound(get_turf(src), 'sound/effects/refill.ogg', 50, 1, -6)

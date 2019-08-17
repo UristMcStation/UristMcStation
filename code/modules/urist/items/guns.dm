@@ -1,6 +1,6 @@
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/gun/small
+/obj/item/weapon/gun/energy/gun/tiny
 	item_icons = DEF_URIST_INHANDS
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
@@ -161,6 +161,16 @@ the sprite and make my own projectile -Glloyd*/
 
 //NamERT
 
+/obj/item/ammo_magazine/box/a762
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	mag_type = MAGAZINE
+
+/obj/item/ammo_magazine/a556
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	mag_type = MAGAZINE
+
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
 	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
@@ -171,6 +181,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 75
 	allowed_magazines = list(/obj/item/ammo_magazine/box/a762/m60)
 	magazine_type = /obj/item/ammo_magazine/box/a762/m60
+	ammo_type = /obj/item/ammo_casing/a762
 	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
 	caliber = "a762"
@@ -242,7 +253,9 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/m16)
 	magazine_type = /obj/item/ammo_magazine/a556/m16
+	ammo_type = /obj/item/ammo_casing/a556
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -430,6 +443,7 @@ the sprite and make my own projectile -Glloyd*/
 	var/bolt_open = 0
 
 /obj/item/weapon/gun/projectile/manualcycle/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "[initial(icon_state)]_alt"
 	else
@@ -469,6 +483,7 @@ the sprite and make my own projectile -Glloyd*/
 	..()
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A shoddy 7.62 improvised rifle."
@@ -487,10 +502,10 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -1
-	jam_chance = 5
 
 
 /obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn
+	item_icons = URIST_ALL_ONMOBS
 	name = "improvised short rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A crudely cut down 7.62 improvised rifle."
@@ -508,13 +523,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 3
 	ammo_type = /obj/item/ammo_casing/a762
 	accuracy = -2
-	jam_chance = 20
 
-/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn/update_icon()
-	if(bolt_open)
-		icon_state = "308boltsawed_alt"
-	else
-		icon_state = "308boltsawed"
 //rifle construction
 
 /obj/item/weapon/imprifleframe/imprifleframesawn
@@ -549,6 +558,22 @@ the sprite and make my own projectile -Glloyd*/
 		if(9) user << "It has a finished secured bolt in place."
 
 /obj/item/weapon/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
+		if(buildstate == 0)
+			var/obj/item/weapon/gunsmith/gun2/long/I = new()
+			I.forceMove(get_turf(src))
+			to_chat(user, "You put the barrel onto the stock.")
+			qdel(W)
+			qdel(src)
+
+	if(istype(W,/obj/item/weapon/gunsmith/barrel/short))
+		if(buildstate == 0)
+			var/obj/item/weapon/gunsmith/gun2/short/I = new()
+			I.forceMove(get_turf(src))
+			to_chat(user, "You put the barrel onto the stock.")
+			qdel(W)
+			qdel(src)
+
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
 			user.drop_from_inventory(W)
@@ -699,3 +724,193 @@ the sprite and make my own projectile -Glloyd*/
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+/*
+/obj/item/weapon/gun/projectile/
+	name = ""
+	desc = ""
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = ""
+	caliber = "c45m"
+	ammo_type = /obj/item/ammo_casing/c45m
+*/
+
+
+//nerva guns
+
+/obj/item/weapon/gun/projectile/automatic/spaceak
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "sexyrifle"
+	item_state = "sexyrifle"
+	w_class = 4
+	force = 10
+	caliber = "a762"
+	origin_tech = "combat=4;materials=1;syndicate=1"
+	slot_flags = SLOT_BACK
+	ammo_type = "/obj/item/ammo_casing/a762"
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a762mm/spaceak
+	one_hand_penalty = 4
+	wielded_item_state = "sexyrifle-wielded"
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/spaceak/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "sexyrifle"
+	else
+		icon_state = "sexyrifle_empty"
+	return
+
+/obj/item/ammo_magazine/a762mm/spaceak
+	name = "U2442 magazine box (7.62mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "sexyrifle-mag"
+	max_ammo = 30
+
+
+/obj/item/weapon/gun/projectile/automatic/hi2521smg
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper HI-2521-SMG"
+	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "combatSMG"
+	item_state = "combatSMG"
+	w_class = 3
+	force = 10
+	caliber = "9mm"
+	origin_tech = "combat=4;materials=1;syndicate=1"
+	slot_flags = SLOT_BELT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
+	one_hand_penalty = 1
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/hi2521smg/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "combatSMG"
+	else
+		icon_state = "combatSMG_empty"
+
+/obj/item/ammo_magazine/hi2521smg9mm
+	name = "HI-2521-SMG magazine (9mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "combatSMG-mag"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	origin_tech = "combat=2"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/hi2521smg9mm/empty
+	initial_ammo = 0
+
+/obj/item/weapon/gun/projectile/revolver/coltsaa
+	icon = 'icons/urist/items/guns.dmi'
+	item_icons = DEF_URIST_INHANDS
+	name = "Colt Single Action Army"
+	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector. Uses .45 magnum rounds."
+	icon_state = "antiquerevolver"
+	item_state = "antiquerevolver"
+	max_shells = 6
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c45
+
+/obj/item/weapon/gun/projectile/revolver/coltsaa/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "antiquerevolver"
+	else
+		icon_state = "antiquerevolver_empty"
+
+/obj/item/ammo_magazine/c45r
+	name = "speed loader (.45 magnum)"
+	desc = "A speed loader for revolvers."
+	icon_state = "38"
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	caliber = ".45"
+	max_ammo = 6
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45r/rubber
+	name = "speed loader (.45 magnum, rubber)"
+	icon_state = "R38"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r
+	icon = 'icons/urist/items/guns.dmi'
+	item_icons = DEF_URIST_INHANDS
+	name = "HI-2521-R revolver"
+	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series. Chambered in .44, this sucker packs a punch."
+	icon_state = "combatrevolver"
+	item_state = "combatrevolver"
+	max_shells = 6
+	caliber = ".44"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c44
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "combatrevolver"
+	else
+		icon_state = "combatrevolver_empty"
+
+/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
+	ammo_type = /obj/item/ammo_casing/c44/rubber
+
+/obj/item/weapon/gun/projectile/hi2521pistol
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper HI-2521-P pistol"
+	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "crewpistol"
+	item_state = "crewpistol"
+	w_class = 2
+	caliber = "9mm"
+	origin_tech = "combat=2;materials=2;syndicate=1"
+	slot_flags = SLOT_BELT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+
+/obj/item/weapon/gun/projectile/hi2521pistol/update_icon()
+	if(ammo_magazine)
+		icon_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
+		item_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
+	else
+		icon_state = "crewpistol-empty"
+		item_state = "crewpistol-0"
+	..()
+
+/obj/item/ammo_magazine/hi2521pistol9mm
+	name = "HI-2521-P pistol magazine (9mm)"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "crewpistol-mag"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	origin_tech = "combat=2"
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 10
+	multiple_sprites = 1

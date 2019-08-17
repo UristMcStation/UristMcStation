@@ -14,6 +14,7 @@
 	var/list/req_components = null
 	var/list/req_component_names = null
 	var/state = 1
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 	proc/update_desc()
 		var/D
@@ -29,7 +30,7 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-				if(istype(P, /obj/item/stack/cable_coil))
+				if(isCoil(P))
 					var/obj/item/stack/cable_coil/C = P
 					if (C.get_amount() < 5)
 						to_chat(user, "<span class='warning'>You need five lengths of cable to add them to the frame.</span>")
@@ -42,7 +43,7 @@
 							state = 2
 							icon_state = "box_1"
 				else
-					if(istype(P, /obj/item/weapon/wrench))
+					if(isWrench(P))
 						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 						to_chat(user, "<span class='notice'>You dismantle the frame</span>")
 						new /obj/item/stack/material/steel(src.loc, 5)
@@ -51,11 +52,11 @@
 				if(istype(P, /obj/item/weapon/circuitboard))
 					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
+						if(!user.unEquip(P, src))
+							return
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						to_chat(user, "<span class='notice'>You add the circuit board to the frame.</span>")
 						circuit = P
-						user.drop_item()
-						P.loc = src
 						icon_state = "box_2"
 						state = 3
 						components = list()
@@ -71,7 +72,7 @@
 					else
 						to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
 				else
-					if(istype(P, /obj/item/weapon/wirecutters))
+					if(isWirecutter(P))
 						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 						to_chat(user, "<span class='notice'>You remove the cables.</span>")
 						state = 1
@@ -80,7 +81,7 @@
 						A.amount = 5
 
 			if(3)
-				if(istype(P, /obj/item/weapon/crowbar))
+				if(isCrowbar(P))
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					state = 2
 					circuit.loc = src.loc
@@ -96,7 +97,7 @@
 					components = null
 					icon_state = "box_1"
 				else
-					if(istype(P, /obj/item/weapon/screwdriver))
+					if(isScrewdriver(P))
 						var/component_check = 1
 						for(var/R in req_components)
 							if(req_components[R] > 0)
@@ -131,8 +132,7 @@
 						if(istype(P, /obj/item))
 							for(var/I in req_components)
 								if(istype(P, I) && (req_components[I] > 0))
-									playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-									if(istype(P, /obj/item/stack/cable_coil))
+									if(isCoil(P))
 										var/obj/item/stack/cable_coil/CP = P
 										if(CP.get_amount() > 1)
 											var/camt = min(CP.amount, req_components[I]) // amount of cable to take, idealy amount required, but limited by amount provided
@@ -144,24 +144,25 @@
 											req_components[I] -= camt
 											update_desc()
 											break
-									if(istype(P, /obj/item/stack/material/wood))
-										var/obj/item/stack/material/wood/W = P
-										if(W.get_amount() > 1)
-											var/camt = min(W.amount, req_components[I]) // amount of wood to take, idealy amount required, but limited by amount provided
-											var/obj/item/stack/material/wood/CC = new /obj/item/stack/material/wood(src)
-											CC.amount = camt
-											CC.update_icon()
-											W.use(camt)
-											components += CC
+									if(istype(P, /obj/item/stack/material))
+										var/obj/item/stack/material/M = P
+										if(M.get_amount() > 1)
+											var/camt = min(M.amount, req_components[I]) // amount of material to take, idealy amount required, but limited by amount provided
+											var/obj/item/stack/material/MA = new P.type(src)
+											MA.amount = camt
+											MA.update_icon()
+											M.use(camt)
+											components += MA
 											req_components[I] -= camt
 											update_desc()
 											break
-									user.drop_item()
-									P.loc = src
+									if(!user.unEquip(P, src))
+										return
 									components += P
 									req_components[I]--
 									update_desc()
 									break
+							playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 							to_chat(user, desc)
 							if(P && P.loc != src && !istype(P, /obj/item/stack/cable_coil))
 								to_chat(user, "<span class='warning'>You cannot add that component to the machine!</span>")

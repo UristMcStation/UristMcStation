@@ -2,7 +2,7 @@
 	name = "Summon Shield"
 	desc = "Summons the most holy of shields, the riot shield. Commonly used during wizard riots."
 	feedback = "SH"
-	school = "evocation"
+	school = "conjuration"
 	invocation = "Sia helda!"
 	invocation_type = SpI_SHOUT
 	spell_flags = INCLUDEUSER | NEEDSCLOTHES
@@ -27,7 +27,7 @@
 	var/obj/item/weapon/shield/I = new new_type()
 	I.icon_state = "buckler"
 	I.color = item_color
-	I.name = "Wizard's Shield"
+	I.SetName("Wizard's Shield")
 	I.base_block_chance = block_chance
 	return I
 

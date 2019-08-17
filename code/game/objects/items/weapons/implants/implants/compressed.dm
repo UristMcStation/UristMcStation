@@ -2,13 +2,14 @@
 	name = "compressed matter implant"
 	desc = "Based on compressed matter technology, can store a single item."
 	icon_state = "implant_evil"
+	origin_tech = list(TECH_MATERIAL = 4, TECH_BIO = 2, TECH_ILLEGAL = 2)
 	var/activation_emote
 	var/obj/item/scanned
 
 /obj/item/weapon/implant/compressed/get_data()
 	var/dat = {"
 	<b>Implant Specifications:</b><BR>
-	<b>Name:</b> [using_map.company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
+	<b>Name:</b> [GLOB.using_map.company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
 	<b>Life:</b> Activates upon death.<BR>
 	<b>Important Notes:</b> Alerts crew to crewmember death.<BR>
 	<HR>
@@ -67,10 +68,10 @@
 		return
 	..()
 
-/obj/item/weapon/implanter/compressed/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/weapon/implanter/compressed/afterattack(obj/item/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
-	if(istype(A,/obj/item) && imp)
+	if(istype(A) && imp)
 		var/obj/item/weapon/implant/compressed/c = imp
 		if (c.scanned)
 			if (!istype(A,/obj/item/weapon/storage))
@@ -80,14 +81,15 @@
 			if (!istype(A,/obj/item/weapon/storage))
 				to_chat(user, "<span class='warning'>The matter compressor safeties prevent you from doing that.</span>")
 			return
-		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = A.loc
-			H.remove_from_mob(A)
+			if(!H.unEquip(A))
+				return
 		else if(istype(A.loc,/obj/item/weapon/storage))
 			var/obj/item/weapon/storage/S = A.loc
 			S.remove_from_storage(A)
-		A.loc.contents.Remove(A)
+		c.scanned = A
+		A.forceMove(src)  //Store it inside
 		safe = 2
 		desc = "It currently contains some matter."
 		update_icon()

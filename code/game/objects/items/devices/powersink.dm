@@ -6,10 +6,11 @@
 	icon_state = "powersink0"
 	item_state = "electronic"
 	w_class = ITEM_SIZE_LARGE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
+	randpixel = 0
 
 	matter = list(DEFAULT_WALL_MATERIAL = 750,"waste" = 750)
 
@@ -26,12 +27,12 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/Destroy()
-	processing_objects.Remove(src)
-	processing_power_items.Remove(src)
-	..()
+	if(mode == 2)
+		STOP_PROCESSING_POWER_OBJECT(src)
+	. = ..()
 
 /obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isScrewdriver(I))
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
@@ -49,8 +50,7 @@
 				return
 		else
 			if (mode == 2)
-				processing_objects.Remove(src) // Now the power sink actually stops draining the station's power if you unhook it. --NeoFite
-				processing_power_items.Remove(src)
+				STOP_PROCESSING_POWER_OBJECT(src)
 			anchored = 0
 			mode = 0
 			src.visible_message("<span class='notice'>[user] detaches [src] from the cable!</span>")
@@ -72,30 +72,24 @@
 			src.visible_message("<span class='notice'>[user] activates [src]!</span>")
 			mode = 2
 			icon_state = "powersink1"
-			processing_objects.Add(src)
-			processing_power_items.Add(src)
+			START_PROCESSING_POWER_OBJECT(src)
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			src.visible_message("<span class='notice'>[user] deactivates [src]!</span>")
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
-			processing_objects.Remove(src)
-			processing_power_items.Remove(src)
+			STOP_PROCESSING_POWER_OBJECT(src)
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)
 		return 0
-
 	if(drained_this_tick)
 		return 1
 	drained_this_tick = 1
-
 	var/drained = 0
-
 	if(!PN)
 		return 1
-
-	set_light(12)
+	set_light(0.5, 0.1, 12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
 	drained = PN.draw_power(drain_rate)
@@ -117,7 +111,7 @@
 	return 1
 
 
-/obj/item/device/powersink/process()
+/obj/item/device/powersink/Process()
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 	if(power_drained > max_power * 0.95)

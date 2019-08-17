@@ -24,7 +24,7 @@
 	if(response == "Analyze")
 		if(loaded_item)
 			var/confirm = alert(user, "This will destroy the item inside forever.  Are you sure?","Confirm Analyze","Yes","No")
-			if(confirm == "Yes") //This is pretty copypasta-y
+			if(confirm == "Yes" && !QDELETED(loaded_item)) //This is pretty copypasta-y
 				to_chat(user, "You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down.")
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -54,7 +54,7 @@
 			to_chat(user, "The [src] is empty.  Put something inside it first.")
 	if(response == "Sync")
 		var/success = 0
-		for(var/obj/machinery/r_n_d/server/S in machines)
+		for(var/obj/machinery/r_n_d/server/S in SSmachines.machinery)
 			for(var/datum/tech/T in files.known_tech) //Uploading
 				S.files.AddTech2Known(T)
 			for(var/datum/tech/T in S.files.known_tech) //Downloading
@@ -96,6 +96,69 @@
 		desc = initial(desc) + "<br>It is holding \the [loaded_item]."
 		flick("portable_analyzer_load", src)
 		icon_state = "portable_analyzer_full"
+
+/obj/item/weapon/party_light
+	name = "party light"
+	desc = "An array of LEDs in tons of colors."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "partylight-off"
+	item_state = "partylight-off"
+	var/activated = 0
+	var/strobe_effect = null
+
+/obj/item/weapon/party_light/attack_self()
+	if (activated)
+		deactivate_strobe()
+	else
+		activate_strobe()
+
+/obj/item/weapon/party_light/update_icon()
+	if (activated)
+		icon_state = "partylight-on"
+		set_light(1, 1, 7)
+	else
+		icon_state = "partylight_off"
+		set_light(0)
+
+/obj/item/weapon/party_light/proc/activate_strobe()
+	activated = 1
+
+	// Create the party light effect and place it on the turf of who/whatever has it.
+	var/turf/T = get_turf(src)
+	var/obj/effect/party_light/L = new(T)
+	strobe_effect = L
+
+	// Make the light effect follow this party light object.
+	GLOB.moved_event.register(src, L, /atom/movable/proc/move_to_turf_or_null)
+
+	update_icon()
+
+/obj/item/weapon/party_light/proc/deactivate_strobe()
+	activated = 0
+
+	// Cause the party light effect to stop following this object, and then delete it.
+	GLOB.moved_event.unregister(src, strobe_effect, /atom/movable/proc/move_to_turf_or_null)
+	QDEL_NULL(strobe_effect)
+
+	update_icon()
+
+/obj/item/weapon/party_light/Destroy()
+	deactivate_strobe()
+	. = .. ()
+
+/obj/effect/party_light
+	name = "party light"
+	desc = "This is probably bad for your eyes."
+	icon = 'icons/effects/lens_flare.dmi'
+	icon_state = "party_strobe"
+	simulated = 0
+	anchored = 1
+	pixel_x = -30
+	pixel_y = -4
+
+/obj/effect/party_light/Initialize()
+	update_icon()
+	. = ..()
 
 //This is used to unlock other borg covers.
 /obj/item/weapon/card/robot //This is not a child of id cards, as to avoid dumb typechecks on computers.
@@ -251,7 +314,7 @@
 
 	//n_name = copytext(n_name, 1, 32)
 	if(( get_dist(user,paper) <= 1  && user.stat == 0))
-		paper.name = "paper[(n_name ? text("- '[n_name]'") : null)]"
+		paper.SetName("paper[(n_name ? text("- '[n_name]'") : null)]")
 	add_fingerprint(user)
 	return
 
@@ -404,3 +467,50 @@
 
 	to_chat(user, "You fail to pick up \the [A] with \the [src]")
 	return
+
+/obj/item/weapon/reagent_containers/spray/cleaner/drone
+	name = "space cleaner"
+	desc = "BLAM!-brand non-foaming space cleaner!"
+	volume = 150
+
+/obj/item/robot_rack
+	name = "a generic robot rack"
+	desc = "A rack for carrying large items as a robot."
+	var/object_type                    //The types of object the rack holds (subtypes are allowed).
+	var/interact_type                  //Things of this type will trigger attack_hand when attacked by this.
+	var/capacity = 1                   //How many objects can be held.
+	var/list/obj/item/held = list()    //What is being held.
+
+/obj/item/robot_rack/examine(mob/user)
+	. = ..()
+	to_chat(user, "It can hold up to [capacity] item[capacity == 1 ? "" : "s"].")
+
+/obj/item/robot_rack/Initialize(mapload, starting_objects = 0)
+	. = ..()
+	for(var/i = 1, i <= min(starting_objects, capacity), i++)
+		held += new object_type(src)
+
+/obj/item/robot_rack/attack_self(mob/user)
+	if(!length(held))
+		to_chat(user, "<span class='notice'>The rack is empty.</span>")
+		return
+	var/obj/item/R = held[length(held)]
+	R.forceMove(get_turf(src))
+	held -= R
+	R.attack_self(user) // deploy it
+	to_chat(user, "<span class='notice'>You deploy [R].</span>")
+	R.add_fingerprint(user)
+
+/obj/item/robot_rack/resolve_attackby(obj/O, mob/user, click_params)
+	if(istype(O, object_type))
+		if(length(held) < capacity)
+			to_chat(user, "<span class='notice'>You collect [O].</span>")
+			O.forceMove(src)
+			held += O
+			return
+		to_chat(user, "<span class='notice'>\The [src] is full and can't store any more items.</span>")
+		return
+	if(istype(O, interact_type))
+		O.attack_hand(user)
+		return
+	. = ..()

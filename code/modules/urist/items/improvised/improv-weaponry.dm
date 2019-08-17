@@ -173,10 +173,18 @@
 /obj/item/weapon/shield/riot/scrapper
 	item_icons = DEF_URIST_INHANDS
 	name = "scrapper shield"
-	desc = "A large rectangular shield made out of hastily assembled chuncks of plasteel."
+	desc = "A large rectangular shield made out of hastily assembled chunks of plasteel."
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
+	force = 6.0
+	throwforce = 7.0
+	throw_range = 3
+	w_class = ITEM_SIZE_HUGE
+	matter = list("plasteel" = 8500)
+	max_block = 20
+	can_block_lasers = FALSE
+	slowdown_general = 1.5
 
 //Baseball bat with nails
 
@@ -213,8 +221,8 @@
 	name = "Knife"
 	desc = "The seperated part of a scissor. Where's the other half?"
 	icon = 'icons/urist/items/improvised.dmi'
-	icon_state = "scissor-knife"
-	item_state = "scissor"
+	icon_state = "scissors_knife"
+	item_state = "scissors" // Sure, it's the same icon as the whole one, but at that scale it doesn't matter too much
 	force = 11
 	throwforce = 10.0
 	throw_speed = 4
@@ -250,9 +258,22 @@
 
 /obj/item/weapon/improvised/scissorknife/barber
 	desc = "The seperated part of a scissor. Where's the other half? This one is from barber's scissors"
-	icon_state = "scissor-knife-barber"
+	icon_state = "scissors_knife_barber"
+	item_state = "scissors_barber" // Same reasoning as the main knife. Looks identical
 	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
 	parentassembly = /obj/item/weapon/improvised/scissorsassembly/barber
+
+/obj/item/weapon/improvised/scissorknife/craft
+	name = "\"Knife\""
+	desc = "The seperated part of a scissor. Where's the other half? This one is from children's craft scissors"
+	icon_state = "scissors_knife_craft_left" //Left/Right is determined by the attackby proc in weapon/scissors
+	item_state = "scissors_knife_craft_left" //This tiny scale does matter when it comes to color. The full assembly has two colors, a knife has one
+	force = 0 // Totally harmless. It's pretty much just edgeless plastic garbage
+	throwforce = 0
+	attack_verb = list("pokes", "prods", "nudges", "annoys")
+	sharp = 0
+	edge = 0
+	parentassembly = /obj/item/weapon/improvised/scissorsassembly/craft
 
 /obj/item/weapon/improvised/mbrick
 	name = "Millwall brick"

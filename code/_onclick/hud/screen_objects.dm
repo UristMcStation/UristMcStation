@@ -13,8 +13,9 @@
 	layer = HUD_BASE_LAYER
 	appearance_flags = NO_CLIENT_COLOR
 	unacidable = 1
-	var/obj/master = null    //A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
+	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy()
 	master = null
@@ -65,21 +66,6 @@
 
 	owner.ui_action_click()
 	return 1
-
-/obj/screen/grab
-	name = "grab"
-
-/obj/screen/grab/Click()
-	var/obj/item/weapon/grab/G = master
-	G.s_click(src)
-	return 1
-
-/obj/screen/grab/attack_hand()
-	return
-
-/obj/screen/grab/attackby()
-	return
-
 
 /obj/screen/storage
 	name = "storage"
@@ -174,6 +160,30 @@
 	overlays.Cut()
 	overlays += image('icons/mob/zone_sel.dmi', "[selecting]")
 
+/obj/screen/intent
+	name = "intent"
+	icon = 'icons/mob/screen1_White.dmi'
+	icon_state = "intent_help"
+	screen_loc = ui_acti
+	var/intent = I_HELP
+
+/obj/screen/intent/Click(var/location, var/control, var/params)
+	var/list/P = params2list(params)
+	var/icon_x = text2num(P["icon-x"])
+	var/icon_y = text2num(P["icon-y"])
+	intent = I_DISARM
+	if(icon_x <= world.icon_size/2)
+		if(icon_y <= world.icon_size/2)
+			intent = I_HURT
+		else
+			intent = I_HELP
+	else if(icon_y <= world.icon_size/2)
+		intent = I_GRAB
+	update_icon()
+	usr.a_intent = intent
+
+/obj/screen/intent/update_icon()
+	icon_state = "intent_[intent]"
 
 /obj/screen/Click(location, control, params)
 	if(!usr)	return 1
@@ -201,13 +211,9 @@
 				L.resist()
 
 		if("mov_intent")
-			switch(usr.m_intent)
-				if("run")
-					usr.m_intent = "walk"
-					usr.hud_used.move_intent.icon_state = "walking"
-				if("walk")
-					usr.m_intent = "run"
-					usr.hud_used.move_intent.icon_state = "running"
+			var/move_intent_type = next_in_list(usr.move_intent.type, usr.move_intents)
+			usr.move_intent = decls_repository.get_decl(move_intent_type)
+			usr.hud_used.move_intent.icon_state = usr.move_intent.hud_icon_state
 
 		if("Reset Machine")
 			usr.unset_machine()
@@ -223,9 +229,9 @@
 					else
 
 						var/no_mask
-						if(!(C.wear_mask && C.wear_mask.item_flags & AIRTIGHT))
+						if(!(C.wear_mask && C.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 							var/mob/living/carbon/human/H = C
-							if(!(H.head && H.head.item_flags & AIRTIGHT))
+							if(!(H.head && H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 								no_mask = 1
 
 						if(no_mask)
@@ -315,18 +321,6 @@
 								to_chat(C, "<span class='notice'>You don't have a[breathes=="oxygen" ? "n oxygen" : addtext(" ",breathes)] tank.</span>")
 		if("act_intent")
 			usr.a_intent_change("right")
-		if(I_HELP)
-			usr.a_intent = I_HELP
-			usr.hud_used.action_intent.icon_state = "intent_help"
-		if(I_HURT)
-			usr.a_intent = I_HURT
-			usr.hud_used.action_intent.icon_state = "intent_harm"
-		if(I_GRAB)
-			usr.a_intent = I_GRAB
-			usr.hud_used.action_intent.icon_state = "intent_grab"
-		if(I_DISARM)
-			usr.a_intent = I_DISARM
-			usr.hud_used.action_intent.icon_state = "intent_disarm"
 
 		if("pull")
 			usr.stop_pulling()

@@ -1,5 +1,5 @@
 /mob/living/simple_animal/lizard
-	name = "Lizard"
+	name = "lizard"
 	desc = "A cute tiny lizard."
 	icon = 'icons/mob/critter.dmi'
 	icon_state = "lizard"
@@ -16,3 +16,5 @@
 	response_harm   = "stomps on"
 	mob_size = MOB_MINISCULE
 	possession_candidate = 1
+	can_escape = 1
+	pass_flags = PASS_FLAG_TABLE

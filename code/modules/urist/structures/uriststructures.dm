@@ -132,7 +132,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "Keep away from fire, and keep near seedy dealers."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "poker_tableparts"
-	flags = null
+	obj_flags = null
 
 /*/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -263,7 +263,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/obj/items.dmi'
 	icon_state = "table_parts"
 	matter = list("metal" = 3750)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	var/tabletype = /obj/structure/table/standard
 
@@ -315,7 +315,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //mapping objects
 
 /obj/structure/table/standard/flipped
-	climbable = 0
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 	flipped = 1
 	icon_state = "flip0"
@@ -325,7 +325,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 	verbs -=/obj/structure/table/verb/do_flip
 	verbs +=/obj/structure/table/proc/do_put
-	flags |= ON_BORDER
+	atom_flags |= ATOM_FLAG_CHECKS_BORDER
 	update_connections(1)
 	update_icon()
 
@@ -446,3 +446,33 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "raft_frame4"
 	built = 1
 	buildstate = 4
+
+//special flaps for shuttles
+/obj/structure/plasticflaps/mining/special/become_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating))
+			T.ChangeTurf(/turf/simulated/floor/plating/flaps)
+
+/obj/structure/plasticflaps/mining/special/clear_airtight()
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor/plating/flaps))
+			T.ChangeTurf(/turf/simulated/floor/plating)
+
+//this file is a fucking mess. anyways, here's a random barricade
+
+/obj/structure/barricade/wooden/crude
+	name = "crude plank barricade"
+	desc = "This space is blocked off by a crude assortment of planks."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "woodenbarricade-old"
+	health = 50
+	maxhealth = 50
+	use_material_colour = 0
+
+/obj/structure/barricade/wooden/crude/snow
+	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
+	icon_state = "woodenbarricade-snow-old"
+	health = 75
+	maxhealth = 75

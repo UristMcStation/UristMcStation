@@ -14,6 +14,8 @@
 
 	//List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
 	var/list/graphic = list()
+	//List of airborne viruses to kill people with. Handled by lung's handle_breath().
+	var/list/viruses = list()
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
 	volume = _volume
@@ -103,6 +105,8 @@
 		for(var/g in giver.gas)
 			gas[g] += giver.gas[g]
 
+	viruses |= giver.viruses
+
 	update_values()
 
 // Used to equalize the mixture between two zones before sleeping an edge.
@@ -124,6 +128,9 @@
 	if(our_heatcap + share_heatcap)
 		temperature = ((temperature * our_heatcap) + (sharer.temperature * share_heatcap)) / (our_heatcap + share_heatcap)
 	sharer.temperature = temperature
+
+	viruses |= sharer.viruses
+	sharer.viruses |= viruses
 
 	update_values()
 	sharer.update_values()
@@ -265,15 +272,15 @@
 
 //Removes moles from the gas mixture, limited by a given flag.  Returns a gax_mixture containing the removed air.
 /datum/gas_mixture/proc/remove_by_flag(flag, amount)
+	var/datum/gas_mixture/removed = new
+
 	if(!flag || amount <= 0)
-		return
+		return removed
 
 	var/sum = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & flag)
 			sum += gas[g]
-
-	var/datum/gas_mixture/removed = new
 
 	for(var/g in gas)
 		if(gas_data.flags[g] & flag)
@@ -297,6 +304,7 @@
 /datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample)
 	gas = sample.gas.Copy()
 	temperature = sample.temperature
+	viruses |= sample.viruses
 
 	update_values()
 
@@ -339,11 +347,6 @@
 			return 0
 
 	return 1
-
-
-/datum/gas_mixture/proc/react()
-	zburn(null, force_burn=0, no_check=0) //could probably just call zburn() here with no args but I like being explicit.
-
 
 //Rechecks the gas_mixture and adjusts the graphic list if needed.
 //Two lists can be passed by reference if you need know specifically which graphics were added and removed.

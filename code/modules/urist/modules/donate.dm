@@ -1,6 +1,6 @@
-//For Vactor
+//For Vactor //Payments go to Glloyd now
 
-#define DONATE "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FP35B3S54PLEQ"
+#define DONATE "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TXECE4EB7E22G&source=url"
 /client/verb/donate()
 	set name = "Donate"
 	set desc = "Donate to help with server costs."

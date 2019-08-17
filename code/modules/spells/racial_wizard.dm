@@ -9,9 +9,14 @@
 	throw_speed = 1
 	throw_range = 3
 	force = 15
-	var/list/potentials = list(SPECIES_RESOMI = /spell/aoe_turf/conjure/summon/resomi, SPECIES_HUMAN = /obj/item/weapon/storage/bag/cash/infinite, SPECIES_VOX = /spell/targeted/shapeshift/true_form,
-		SPECIES_TAJARA = /spell/messa_shroud, SPECIES_UNATHI = /spell/moghes_blessing, SPECIES_DIONA = /spell/aoe_turf/conjure/grove/gestalt, SPECIES_SKRELL = /obj/item/weapon/contract/apprentice/skrell,
-		SPECIES_IPC = /spell/camera_connection)
+	var/list/potentials = list(
+		SPECIES_HUMAN = /obj/item/weapon/storage/bag/cash/infinite,
+		SPECIES_VOX = /spell/targeted/shapeshift/true_form,
+		SPECIES_UNATHI = /spell/moghes_blessing,
+		SPECIES_DIONA = /spell/aoe_turf/conjure/grove/gestalt,
+		SPECIES_SKRELL = /obj/item/weapon/contract/apprentice/skrell,
+		SPECIES_IPC = /spell/camera_connection,
+		SPECIES_RESOMI = /spell/aoe_turf/conjure/summon/resomi)
 
 /obj/item/weapon/magic_rock/attack_self(mob/user)
 	if(!istype(user,/mob/living/carbon/human))
@@ -26,7 +31,6 @@
 		if(istype(S,reward))
 			to_chat(user, "\The [src] can do no more for you.")
 			return
-	user.drop_from_inventory(src)
 	var/a = new reward()
 	if(ispath(reward,/spell))
 		H.add_spell(a)
@@ -82,25 +86,6 @@
 			var/obj/item/I = new /obj/item/weapon/spacecash/bundle/c1000()
 			src.handle_item_insertion(I,1)
 
-
-//Tajaran
-/spell/messa_shroud
-	name = "Messa's Shroud"
-	desc = "This spell causes darkness at the point of the caster for a duration of time."
-
-	school = "racial"
-	spell_flags = 0
-	invocation_type = SpI_EMOTE
-	invocation = "mutters a small prayer, the light around them darkening."
-	charge_max = 300 //30 seconds
-
-	range = 5
-	duration = 150 //15 seconds
-
-	cast_sound = 'sound/effects/bamf.ogg'
-
-	hud_state = "wiz_tajaran"
-
 /spell/messa_shroud/choose_targets()
 	return list(get_turf(holder))
 
@@ -111,8 +96,7 @@
 		return
 
 	var/obj/O = new /obj(T)
-	playsound(T,cast_sound,50,1)
-	O.set_light(range, -10, "#FFFFFF")
+	O.set_light(-10, 0.1, 10, 2, "#ffffff")
 
 	spawn(duration)
 		qdel(O)
@@ -188,12 +172,12 @@
 //DIONA
 /spell/aoe_turf/conjure/grove/gestalt
 	name = "Convert Gestalt"
-	desc = "Converts the surrounding area into a Dionaea gestalt."
+	desc = "Converts the surrounding area into a diona gestalt."
 
 	school = "racial"
 	spell_flags = 0
 	invocation_type = SpI_EMOTE
-	invocation = "rumbles as green alien plants grow quickly along the floor."
+	invocation = "rumbles as strange alien growth quickly overtakes their surroundings."
 
 	charge_type = Sp_HOLDVAR
 	holder_var_type = "bruteloss"
@@ -256,11 +240,12 @@
 
 	spell_flags = Z2NOCAST
 	hud_state = "wiz_IPC"
-	var/mob/observer/eye/wizard_eye/vision
+	var/mob/observer/eye/vision
+	var/eye_type = /mob/observer/eye/wizard_eye
 
 /spell/camera_connection/New()
 	..()
-	vision = new(src)
+	vision = new eye_type(src)
 
 /spell/camera_connection/Destroy()
 	qdel(vision)
@@ -277,7 +262,15 @@
 	var/mob/living/L = targets[1]
 
 	vision.possess(L)
+	GLOB.destroyed_event.register(L, src, /spell/camera_connection/proc/release)
+	GLOB.logged_out_event.register(L, src, /spell/camera_connection/proc/release)
 	L.verbs += /mob/living/proc/release_eye
+
+/spell/camera_connection/proc/release(var/mob/living/L)
+	vision.release(L)
+	L.verbs -= /mob/living/proc/release_eye
+	GLOB.destroyed_event.unregister(L, src)
+	GLOB.logged_out_event.unregister(L, src)
 
 /mob/observer/eye/wizard_eye
 	name_sufix = "Wizard Eye"
@@ -296,3 +289,10 @@
 	if(!eyeobj)
 		return
 	eyeobj.release(src)
+
+/mob/observer/eye/wizard_eye/Destroy()
+	if(istype(eyeobj.owner, /mob/living))
+		var/mob/living/L = eyeobj.owner
+		L.release_eye()
+	qdel(eyeobj)
+	return ..()

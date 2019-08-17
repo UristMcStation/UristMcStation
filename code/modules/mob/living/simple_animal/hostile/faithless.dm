@@ -19,18 +19,13 @@
 	attacktext = "gripped"
 	attack_sound = 'sound/hallucinations/growl1.ogg'
 
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
+	min_gas = null
+	max_gas = null
 	minbodytemp = 0
 	speed = 4
 
-	faction = "alien"
+	faction = "faithless"
+	supernatural = 1
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -40,9 +35,9 @@
 	if(.)
 		audible_emote("wails at [.]")
 
-/mob/living/simple_animal/hostile/faithless/AttackingTarget()
+/mob/living/simple_animal/hostile/faithless/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
-	var/mob/living/L = .
+	var/mob/living/L = A
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)

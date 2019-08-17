@@ -100,14 +100,6 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/greenbandana
-	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
-	icon_state = "greenbandana"
-	item_state = "greenbandana"
-	flags_inv = 0
-	body_parts_covered = 0
-
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
 	desc = "A helmet made out of a box."
@@ -116,8 +108,8 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/cardborg/initialize()
-	..()
+/obj/item/clothing/head/cardborg/Initialize()
+	. = ..()
 	set_extension(src, /datum/extension/appearance, /datum/extension/appearance/cardborg)
 
 /obj/item/clothing/head/justice
@@ -171,6 +163,18 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
+	body_parts_covered = 0
+
+/obj/item/clothing/head/bandana/green
+	name = "green bandana"
+	desc = "It's a green bandana with some fine nanotech lining."
+	icon_state = "greenbandana"
+	item_state = "greenbandana"
+
+/obj/item/clothing/head/bandana/orange //themij: Taryn Kifer
+	name = "orange bandana"
+	desc = "An orange piece of cloth, worn on the head."
+	icon_state = "orange_bandana"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -263,12 +267,6 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 
-/obj/item/clothing/head/orangebandana //themij: Taryn Kifer
-	name = "orange bandana"
-	desc = "An orange piece of cloth, worn on the head."
-	icon_state = "orange_bandana"
-	body_parts_covered = 0
-
 /obj/item/clothing/head/hijab
 	name = "hijab"
 	desc = "A veil which is wrapped to cover the head and chest."
@@ -295,3 +293,33 @@
 	icon_state = "cowboyhat"
 	item_state = "cowboy_hat"
 	body_parts_covered = 0
+
+/obj/item/clothing/head/taqiyah
+	name = "taqiyah"
+	desc = "A short, rounded skullcap usually worn for religious purposes."
+	icon_state = "taqiyah"
+	item_state = "taqiyah"
+	body_parts_covered = 0
+
+/obj/item/clothing/head/tank
+	name = "padded cap"
+	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR
+	color = "#5f5f5f"
+	armor = list(melee = 20)
+
+/obj/item/clothing/head/tank/olive
+	color = "#727c58"
+
+/obj/item/clothing/head/tank/tan
+	color = "#ae9f79"
+
+/obj/item/clothing/head/helmet/facecover
+	name = "face cover"
+	desc = "A helmet made of plastic. It's completely opaque. This will stop the stare."
+	icon_state = "facecover"
+	tint = TINT_BLIND
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	flash_protection = FLASH_PROTECTION_MAJOR

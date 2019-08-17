@@ -8,85 +8,11 @@
 	icon_state = "necrostaff"
 	item_state = "necrostaff"
 
-//glowsticks dunno where else to put thiese
-/* Bay has'em now too
-/obj/item/device/flashlight/glowstick //this should never be seen
-	name = "glowstick"
-	desc = "A glowstick, provides a small amount of light when it "
-	icon = 'icons/urist/items/misc.dmi'
-	brightness_on = 2
-	light_power = 2
-	icon_state = "glowstick"
-	item_state = "glowstick"
-	var/fuel = 0
-	action = null
-	w_class = 2
-
-/obj/item/device/flashlight/glowstick/New()
-	fuel = rand(800, 1000)
-	..()
-
-/obj/item/device/flashlight/glowstick/process()
-	fuel = max(fuel - 1, 0)
-	if(!fuel || !on)
-		on = 0
-		update_icon()
-		if(!fuel)
-			src.icon_state = "[initial(icon_state)]-empty"
-			name = "dead glowstick"
-		processing_objects -= src
-
-/obj/item/device/flashlight/glowstick/attack_self(mob/user)
-
-	if(!fuel)
-		user << "<span class='notice'>The glowstick is dead.</span>"
-		return
-	if(on)
-		return
-
-	. = ..()
-	// All good, turn it on.
-	if(.)
-		user.visible_message("<span class='notice'>[user] cracks the glowstick!</span>", "<span class='notice'>You crack the glowstick, activating it!</span>")
-		processing_objects += src
-
-/obj/item/device/flashlight/glowstick/random
-	var/red = 0
-	var/green = 0
-	var/blue = 0
-
-
-/obj/item/device/flashlight/glowstick/random/New() //IT COULD BE ANYTHING
-	red = rand(0,255)
-	green = rand(0,255)
-	blue = rand(0,255)
-	color = rgb(red,green,blue)
-	light_color = color
-	..()
-
-/obj/item/device/flashlight/glowstick/red
-	light_color = "#e60000"
-	color = "#e60000"
-
-/obj/item/device/flashlight/glowstick/blue
-	light_color = "#0000ff"
-	color = "#0000ff"*/
-
-/obj/item/device/flashlight/glowstick/green
-	//light_color = "#00b300"
-	color = "#00b300"
-
-/obj/item/device/flashlight/glowstick/purple
-	//light_color = "#ac00e6"
-	color = "#ac00e6"
-/*
-/obj/item/device/flashlight/glowstick/orange
-	light_color = "#ff8000"
-	color = "#ff8000"
-
-/obj/item/device/flashlight/glowstick/yellow
-	light_color = "#ffff00"
-	color = "#ffff00"*/
+/obj/item/weapon/card/id/blueshield
+	name = "identification card"
+	desc = "A card issued to the station's blueshield."
+	icon_state = "centcom"
+	job_access_type = /datum/job/blueshield
 
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of glowsticks"
@@ -94,16 +20,15 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "gsbox"
 
-
-/obj/item/weapon/storage/box/glowsticks/New()
-		..()
-		new /obj/item/device/flashlight/glowstick/green(src)
-		new /obj/item/device/flashlight/glowstick/red(src)
-		new /obj/item/device/flashlight/glowstick/blue(src)
-		new /obj/item/device/flashlight/glowstick/orange(src)
-		new /obj/item/device/flashlight/glowstick/purple(src)
-		new /obj/item/device/flashlight/glowstick/yellow(src)
-		new /obj/item/device/flashlight/glowstick/random(src)
+	startswith = list(
+		/obj/item/device/flashlight/flare/glowstick/green,
+		/obj/item/device/flashlight/flare/glowstick/red,
+		/obj/item/device/flashlight/flare/glowstick/blue,
+		/obj/item/device/flashlight/flare/glowstick/orange,
+		/obj/item/device/flashlight/flare/glowstick/purple,
+		/obj/item/device/flashlight/flare/glowstick/yellow,
+		/obj/item/device/flashlight/flare/glowstick/random
+		)
 
 //wood stuff
 
@@ -152,12 +77,6 @@
 /obj/item/weapon/material/ashtray/wood/New(var/newloc)
 	..(newloc, "wood")
 
-/obj/item/weapon/wrench/New()
-	..()
-
-	if(prob(50))
-		icon = 'icons/urist/items/tools.dmi'
-
 //for the blueshield
 
 /obj/item/weapon/storage/box/deathimp
@@ -165,15 +84,15 @@
 	desc = "Box of life sign monitoring implants."
 	icon_state = "implant"
 
-	New()
-		..()
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implantcase/death_alarm(src)
-		new /obj/item/weapon/implanter(src)
-		new /obj/item/weapon/implantpad(src)
+/obj/item/weapon/storage/box/deathimp/New()
+	..()
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implantcase/death_alarm(src)
+	new /obj/item/weapon/implanter(src)
+	new /obj/item/weapon/implantpad(src)
 
 /obj/item/stack/woodrods
 	name = "wood shafts"
@@ -202,10 +121,28 @@
 		new /obj/item/weapon/sharpwoodrod(user.loc)
 		src.use(1)
 
-	else if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
+	if(istype(W, /obj/item/weapon/reagent_containers/glass/rag))
 //		var/obj/item/weapon/reagent_containers/glass/rag/R = W
 		var/obj/item/weapon/flame/torch/T = new /obj/item/weapon/flame/torch(get_turf(user))
 		user << "<span class='notice'>You wrap the rag around the shaft forming an improvised torch.</span>"
+		src.use(1)
+		user.drop_from_inventory(W)
+		qdel(W)
+
+		user.put_in_hands(T)
+
+	else if(istype(W, /obj/item/improv/axe_head))
+		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
+		user << "<span class='notice'>You fit the axe head onto the wooden rod..</span>"
+		src.use(1)
+		user.drop_from_inventory(W)
+		qdel(W)
+
+		user.put_in_hands(T)
+
+	else if(istype(W, /obj/item/improv/pickaxe_head))
+		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
+		user << "<span class='notice'>You fit the pickaxe head onto the wooden rod..</span>"
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -275,7 +212,7 @@
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
 	item_state = "rods"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force_divisor = 0.55
 	throwforce = 10
 	w_class = 3
@@ -341,13 +278,13 @@
 	force = 7
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("hit", "bashed", "smacked")
-	light_color = "#E09D37"
+	light_color = "#e09d37"
 
 /obj/item/weapon/flame/torch/New()
 	smoketime = rand(500, 600)
 	..()
 
-/obj/item/weapon/flame/torch/process()
+/obj/item/weapon/flame/torch/Process()
 	if(isliving(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
@@ -382,7 +319,7 @@
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
-		processing_objects.Add(src)
+		START_PROCESSING(SSobj, src)
 		attack_verb = list("hit", "burnt", "singed")
 		w_class = 4
 		icon_state = "torch_lit"
@@ -398,7 +335,7 @@
 	item_state = "woodrod"
 	name = "burnt torch"
 	desc = "A burnt out torch."
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	w_class = 3
 	force = 7
 	attack_verb = list("hit", "bashed", "smacked")
@@ -444,3 +381,62 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "medradio"
 	frequency = MED_I_FREQ
+
+//jeez this file is a mess. anyways, here's an empty welder for merchants
+
+/obj/item/weapon/weldingtool/empty
+	tank = /obj/item/weapon/welder_tank/empty
+
+/obj/item/weapon/welder_tank/empty
+	max_fuel = 0
+
+
+/obj/item/weapon/welder_tank/empty/Initialize()
+	. = ..()
+	max_fuel = 20 //this is a dumb hack and i hate it
+
+//mapping object
+
+/obj/item/trash/cigbutt/rand
+
+/obj/item/trash/cigbutt/rand/New()
+	pixel_x = rand(1,9)
+	pixel_y = rand(1,9)
+	..()
+
+//pickaxe and axe heads
+
+/obj/item/improv/axe_head
+	name = "axe head"
+	desc = "It's an axe head. Slam it on a wood rod and you got yourself an axe son."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "axehead"
+
+/obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/stack/woodrods))
+		var/obj/item/stack/woodrods/R = W
+		var/obj/item/weapon/carpentry/axe/T = new /obj/item/weapon/carpentry/axe(get_turf(user))
+		user << "<span class='notice'>You slam that axe head down onto the wood rod. You got yourself an axe son.</span>"
+		R.use(1)
+
+		user.put_in_hands(T)
+
+/obj/item/improv/pickaxe_head
+	name = "pickaxe head"
+	desc = "It's a pickaxe head. Slam it on a wood rod and you got yourself a pickaxe son."
+	icon = 'icons/urist/items/improvised.dmi'
+	icon_state = "pickaxehead"
+
+/obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+
+	if(istype(W, /obj/item/stack/woodrods))
+		var/obj/item/stack/woodrods/R = W
+		var/obj/item/weapon/pickaxe/old/T = new /obj/item/weapon/pickaxe/old(get_turf(user))
+		user << "<span class='notice'>You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son.</span>"
+		R.use(1)
+
+		user.put_in_hands(T)
+

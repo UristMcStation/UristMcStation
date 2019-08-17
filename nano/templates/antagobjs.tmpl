@@ -1,0 +1,15 @@
+{{:helper.syndicateMode()}}
+<div class="item">
+  <div class="itemLabel">
+    Available objectives
+  </div>
+  <div class="itemContent">
+    <ul style ="list-style-type:none">
+      {{for data.aval_objs}}
+        <li>{{:helper.link(value.objname,'plus',{'take_obj' : value.objname})}} Reward:{{:value.reward}}</li>
+      {{empty}}
+        <div class ="bad">No available missions</div>
+      {{/for}}
+    </ul>
+  </div>
+</div>

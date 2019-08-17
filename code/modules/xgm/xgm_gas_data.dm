@@ -15,6 +15,14 @@
 	var/list/overlay_limit = list()
 	//Flags.
 	var/list/flags = list()
+	//Products created when burned. For fuel only for now (not oxidizers)
+	var/list/burn_product = list()
+	// Reagent created when inhaled by lungs.
+	var/list/breathed_product = list()
+	// Temperature in K that the gas will condense.
+	var/list/condensation_points = list()
+	// Reagent path resulting from condesation.
+	var/list/condensation_products = list()
 
 /decl/xgm_gas
 	var/id = ""
@@ -26,6 +34,10 @@
 	var/overlay_limit = null
 
 	var/flags = 0
+	var/burn_product = "carbon_dioxide"
+	var/breathed_product
+	var/condensation_point = INFINITY
+	var/condensation_product
 
 /hook/startup/proc/generateGasData()
 	gas_data = new
@@ -39,8 +51,19 @@
 		gas_data.name[gas.id] = gas.name
 		gas_data.specific_heat[gas.id] = gas.specific_heat
 		gas_data.molar_mass[gas.id] = gas.molar_mass
-		if(gas.tile_overlay) gas_data.tile_overlay[gas.id] = image('icons/effects/tile_effects.dmi', gas.tile_overlay, FLY_LAYER)
+		if(gas.tile_overlay)
+			var/image/I = image('icons/effects/tile_effects.dmi', gas.tile_overlay, ABOVE_PROJECTILE_LAYER)
+			I.plane = EFFECTS_BELOW_LIGHTING_PLANE
+			I.appearance_flags = RESET_COLOR
+			gas_data.tile_overlay[gas.id] = I
 		if(gas.overlay_limit) gas_data.overlay_limit[gas.id] = gas.overlay_limit
 		gas_data.flags[gas.id] = gas.flags
+		gas_data.burn_product[gas.id] = gas.burn_product
+
+		if(!isnull(gas.condensation_product) && !isnull(gas.condensation_point))
+			gas_data.condensation_points[gas.id] = gas.condensation_point
+			gas_data.condensation_products[gas.id] = gas.condensation_product
+
+		gas_data.breathed_product[gas.id] = gas.breathed_product
 
 	return 1

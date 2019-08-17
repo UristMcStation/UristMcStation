@@ -3,36 +3,35 @@
 	head_position = 1
 	department = "Medical"
 	department_flag = MED|COM
-	faction = "Station"
+
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#026865"
 	req_admin_notify = 1
-	economic_modifier = 10
-	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
+	economic_power = 10
+	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks)
 
 	minimal_player_age = 14
 	ideal_character_age = 50
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
-	announced = 1
 
 /datum/job/doctor
 	title = "Medical Doctor"
 	department = "Medical"
 	department_flag = MED
-	faction = "Station"
+
 	minimal_player_age = 3
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the chief medical officer"
 	selection_color = "#013d3b"
-	economic_modifier = 7
+	economic_power = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology)
 	alt_titles = list(
@@ -47,13 +46,13 @@
 	title = "Chemist"
 	department = "Medical"
 	department_flag = MED
-	faction = "Station"
+
 	minimal_player_age = 7
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#013d3b"
-	economic_modifier = 5
+	economic_power = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_chemistry)
 	alt_titles = list("Pharmacist")
@@ -63,13 +62,13 @@
 	title = "Geneticist"
 	department = "Medical"
 	department_flag = MED
-	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+
+	total_positions = 0
+	spawn_positions = 0
 	minimal_player_age = 7
 	supervisors = "the chief medical officer and research director"
 	selection_color = "#013d3b"
-	economic_modifier = 7
+	economic_power = 7
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_research)
 	minimal_access = list(access_medical, access_morgue, access_genetics, access_research)
 	outfit_type = /decl/hierarchy/outfit/job/medical/geneticist
@@ -78,10 +77,10 @@
 	title = "Psychiatrist"
 	department = "Medical"
 	department_flag = MED
-	faction = "Station"
+
 	total_positions = 1
 	spawn_positions = 1
-	economic_modifier = 5
+	economic_power = 5
 	minimal_player_age = 3
 	supervisors = "the chief medical officer"
 	selection_color = "#013d3b"
@@ -94,12 +93,12 @@
 	title = "Paramedic"
 	department = "Medical"
 	department_flag = MED
-	faction = "Station"
+
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#013d3b"
-	economic_modifier = 4
+	economic_power = 4
 	minimal_player_age = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks)

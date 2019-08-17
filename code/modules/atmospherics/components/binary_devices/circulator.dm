@@ -67,7 +67,7 @@
 	stored_energy = 0
 	return last_stored_energy_transferred
 
-/obj/machinery/atmospherics/binary/circulator/process()
+/obj/machinery/atmospherics/binary/circulator/Process()
 	..()
 
 	if(last_worldtime_transfer < world.time - 50)
@@ -88,7 +88,12 @@
 	return 1
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(isWrench(W))
+		var/air1pressure = air1.return_pressure()
+		var/air2pressure = air2.return_pressure()
+		if((air1pressure > ONE_ATMOSPHERE) || (air2pressure > ONE_ATMOSPHERE))
+			to_chat(user, "<span class='warning'>You can't unbolt the circulator while it's pressurized!</span>")
+			return
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
@@ -101,13 +106,13 @@
 			else if(dir & (EAST|WEST))
 				initialize_directions = EAST|WEST
 
-			initialize()
+			atmos_init()
 			build_network()
 			if (node1)
-				node1.initialize()
+				node1.atmos_init()
 				node1.build_network()
 			if (node2)
-				node2.initialize()
+				node2.atmos_init()
 				node2.build_network()
 		else
 			if(node1)

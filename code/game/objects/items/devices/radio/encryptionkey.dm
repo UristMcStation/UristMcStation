@@ -66,11 +66,6 @@
 	icon_state = "com_cypherkey"
 	channels = list("Command" = 1)
 
-/obj/item/device/encryptionkey/pilot
-	name = "pilot's encryption key"
-	icon_state = "com_cypherkey"
-	channels = list( "Command" = 1, "Engineering" = 1)
-
 /obj/item/device/encryptionkey/heads/captain
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
@@ -130,3 +125,8 @@
 /obj/item/device/encryptionkey/entertainment
 	name = "entertainment radio key"
 	channels = list("Entertainment" = 1)
+
+/obj/item/device/encryptionkey/headset_mining
+	name = "prospector radio encryption key"
+	icon_state = "srv_cypherkey"
+	channels = list("Supply" = 1)

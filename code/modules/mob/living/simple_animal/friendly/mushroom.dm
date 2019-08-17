@@ -18,6 +18,7 @@
 	var/harvest_time
 	var/min_explode_time = 1200
 	var/global/total_mushrooms = 0
+	pass_flags = PASS_FLAG_TABLE
 
 /mob/living/simple_animal/mushroom/New()
 	..()
@@ -45,8 +46,8 @@
 
 	spore_explode()
 
-/mob/living/simple_animal/mushroom/death()
-	. = ..()
+/mob/living/simple_animal/mushroom/death(gibbed, deathmessage, show_dead_message)
+	. = ..(gibbed, deathmessage, show_dead_message)
 	if(.)
 		total_mushrooms--
 		if(total_mushrooms < config.maximum_mushrooms && prob(30))

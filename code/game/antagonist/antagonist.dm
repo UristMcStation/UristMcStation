@@ -14,8 +14,7 @@
 	var/loss_feedback_tag                   // Used by the database for end of round loss.
 
 	// Role data.
-	var/id = "traitor"                      // Unique datum identifier.
-	var/role_type                           // Preferences option for this role. Defaults to the id if unset
+	var/id = "traitor"                      // Unique datum identifier. Also preferences option for this role.
 	var/role_text = "Traitor"               // special_role text.
 	var/role_text_plural = "Traitors"       // As above but plural.
 
@@ -51,9 +50,10 @@
 	var/suspicion_chance = 50               // Prob of being on the initial Command report
 	var/flags = 0                           // Various runtime options.
 	var/show_objectives_on_creation = 1     // Whether or not objectives are shown when a player is added to this antag datum
+	var/datum/antag_skill_setter/skill_setter = /datum/antag_skill_setter/generic // Used to set up skills.
 
 	// Used for setting appearance.
-	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_SKRELL,SPECIES_HUMAN)
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_SKRELL,SPECIES_HUMAN,SPECIES_VOX)
 	var/min_player_age = 14
 
 	// Runtime vars.
@@ -83,10 +83,13 @@
 
 
 /datum/antagonist/New()
+	GLOB.all_antag_types_[id] = src
+	GLOB.all_antag_spawnpoints_[landmark_id] = list()
+	GLOB.antag_names_to_ids_[role_text] = id
+	skill_setter = new skill_setter
 	..()
-	if(!role_type)
-		role_type = id
 
+/datum/antagonist/proc/Initialize()
 	cur_max = hard_cap
 	get_starting_locations()
 	if(!role_text_plural)
@@ -94,10 +97,10 @@
 	if(config.protect_roles_from_antagonist)
 		restricted_jobs |= protected_jobs
 	if(antaghud_indicator)
-		if(!hud_icon_reference)
-			hud_icon_reference = list()
-		if(role_text) hud_icon_reference[role_text] = antaghud_indicator
-		if(faction_role_text) hud_icon_reference[faction_role_text] = antaghud_indicator
+		if(!GLOB.hud_icon_reference)
+			GLOB.hud_icon_reference = list()
+		if(role_text) GLOB.hud_icon_reference[role_text] = antaghud_indicator
+		if(faction_role_text) GLOB.hud_icon_reference[faction_role_text] = antaghud_indicator
 
 /datum/antagonist/proc/tick()
 	return 1
@@ -108,7 +111,7 @@
 
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
-	for(var/datum/mind/player in ticker.mode.get_players_for_role(role_type, id))
+	for(var/datum/mind/player in ticker.mode.get_players_for_role(id))
 		if(ghosts_only && !(isghostmind(player) || isnewplayer(player.current)))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
@@ -122,7 +125,24 @@
 		else if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
 		else
-			candidates += player
+			candidates |= player
+
+	return candidates
+
+// Builds a list of potential antags without actually setting them. Used to test mode viability.
+/datum/antagonist/proc/get_potential_candidates(var/datum/game_mode/mode, var/ghosts_only)
+	var/candidates = list()
+
+	// Keeping broken up for readability
+	for(var/datum/mind/player in mode.get_players_for_role(id))
+		if(ghosts_only && !(isghostmind(player) || isnewplayer(player.current)))
+		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
+		else if(player.special_role)
+		else if (player in pending_antagonists)
+		else if(!can_become_antag(player))
+		else if(player_is_antag(player))
+		else
+			candidates |= player
 
 	return candidates
 
@@ -205,6 +225,7 @@
 	//Ensure that antags with ANTAG_OVERRIDE_JOB do not occupy job slots.
 	if(flags & ANTAG_OVERRIDE_JOB)
 		player.assigned_role = role_text
+		player.role_alt_title = null
 
 	//Ensure that a player cannot be drafted for multiple antag roles, taking up slots for antag roles that they will not fill.
 	player.special_role = role_text
@@ -222,6 +243,10 @@
 
 	reset_antag_selection()
 
+//Procced after /ALL/ antagonists have finished setting up and spawning.
+/datum/antagonist/proc/post_spawn()
+	return
+
 //Resets the antag selection, clearing all pending_antagonists and their special_role
 //(and assigned_role if ANTAG_OVERRIDE_JOB is set) as well as clearing the candidate list.
 //Existing antagonists are left untouched.
@@ -229,6 +254,5 @@
 	for(var/datum/mind/player in pending_antagonists)
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
-		player.special_role = null
 	pending_antagonists.Cut()
 	candidates.Cut()

@@ -69,7 +69,7 @@
 	amount_per_transfer_from_this = 50
 	possible_transfer_amounts = list(25,50,100)
 	volume = 500
-	can_be_placed_into = list(/obj/structure/sink)
+	can_be_placed_into = list(/obj/structure/hygiene/sink)
 
 	var/obj/item/weapon/watertank/tank
 

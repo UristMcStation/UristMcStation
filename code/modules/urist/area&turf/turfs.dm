@@ -39,8 +39,8 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
 
 /turf/simulated/floor/plating/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
+
 /*//Space! Because fuck /tg/!
 transit/east is the same thing now AFAIK
 /turf/space/transit/west // moving to the west
@@ -95,13 +95,9 @@ transit/east is the same thing now AFAIK
 
 // VOX SHUTTLE SHIT
 /turf/simulated/shuttle/floor/vox
-	oxygen=0 // BIRDS HATE OXYGEN FOR SOME REASON
-	nitrogen = MOLES_O2STANDARD+MOLES_N2STANDARD // So it totals to the same pressure
 	//icon = 'icons/turf/shuttle-debug.dmi'
 
 /turf/simulated/shuttle/plating/vox
-	oxygen=0 // BIRDS HATE OXYGEN FOR SOME REASON
-	nitrogen = MOLES_O2STANDARD+MOLES_N2STANDARD // So it totals to the same pressure
 	//icon = 'icons/turf/shuttle-debug.dmi'
 
 
@@ -135,7 +131,7 @@ transit/east is the same thing now AFAIK
 	underlays += new /icon('icons/turf/space.dmi',"[((x + y) ^ ~(x * y) + z) % 25]")
 
 	var/dirs = 0
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(src,direction)
 		if(T.is_catwalk())
 			var/turf/simulated/floor/plating/airless/catwalk/C=T
@@ -166,8 +162,6 @@ transit/east is the same thing now AFAIK
 	name = "Moon"
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "moon"
-	oxygen = 0.01
-	nitrogen = 0.01
 	temperature = T0C
 
 
@@ -239,3 +233,37 @@ transit/east is the same thing now AFAIK
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+
+/turf/simulated/floor/plating/flaps //this is hacky, but it'll prevent the airtight flaps from resetting every time the ship takes off
+	blocks_air = 1
+
+//alium space ships
+
+/turf/simulated/wall/alium/ship
+	icon = 'icons/urist/turf/scomturfs.dmi'
+
+/turf/simulated/wall/alium/ship/see
+	opacity = 0
+
+/turf/simulated/floor/fixed/alium/ship
+	name = "alien flooring"
+	desc = "This obviously wasn't made for your feet."
+	icon = 'icons/urist/turf/scomturfs.dmi'
+
+//holofloors
+
+/turf/simulated/floor/holofloor/ice
+	name = "ice"
+	base_name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	base_icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+	base_icon_state = "ice"
+
+//reinf floors
+
+/turf/simulated/floor/shuttle_ceiling
+	name = "hull plating"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "reinforced_light"
+	initial_gas = null

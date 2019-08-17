@@ -28,23 +28,19 @@ var/global/remaininggens = 6
 
 	respawntime = 100 //ten second respawn time, instant action
 
-	for(var/obj/effect/template_loader/gamemode/assault/L in world)
+	for(var/obj/effect/template_loader/gamemode/assault/L in landmarks_list)
 		if(maptype == L.maptype)
 			L.Load()
 
-	for(var/obj/machinery/computer/shuttle_control/S in machines)
+	for(var/obj/machinery/computer/shuttle_control/S in SSmachines.machinery)
 		if(S.shuttle_tag == "Mining" || S.shuttle_tag == "Engineering" || S.shuttle_tag == "Research" || S.shuttle_tag == "Security" || S.shuttle_tag == "Planet")
-			new /obj/structure/computerframe(S.loc)
+			new /obj/machinery/computer(S.loc)
 			qdel(S)
-
-	for(var/obj/machinery/computer/supply/S in machines)
-		new /obj/structure/computerframe(S.loc)
-		qdel(S)
 
 	for(var/obj/structure/reagent_dispensers/fueltank/S in world) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
-	for(var/mob/living/carbon/human/M in living_mob_list_)
+	for(var/mob/living/carbon/human/M in GLOB.living_mob_list_)
 		if(prob(16))
 	//		if(M.Species == "Human")
 
@@ -86,7 +82,7 @@ var/global/remaininggens = 6
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
-			for(var/obj/effect/landmark/assault/marinespawn/H in world)
+			for(var/obj/effect/landmark/assault/marinespawn/H in landmarks_list)
 				M.loc = H.loc
 //				qdel(H)
 
@@ -100,7 +96,7 @@ var/global/remaininggens = 6
 			command_announcement.Announce("ATTENTION URIST MCSTATION: Looks like the alien forces are about four minutes out. Get ready, and good luck.", "ANFOR Nyx Command")
 			sleep(rand(2000,2400))
 			command_announcement.Announce("ATTENTION URIST MCSTATION: We're detecting multiple ships pulling into orbit of [defencearea]. Looks like they're here. We'll do our best to take out as many as we can, but expect hostile contacts imminently.", "ANFOR Nyx Command")
-			for(var/obj/machinery/computer/shuttle_control/assault/A in machines)
+			for(var/obj/machinery/computer/shuttle_control/assault/A in SSmachines.machinery)
 				A.readytogo = 1 //it's go time bois
 
 /datum/game_mode/assault/process()
@@ -109,7 +105,7 @@ var/global/remaininggens = 6
 	aliensurvivors = 0
 
 	//For each survivor, add one to the count. Should work accurately enough.
-	for(var/mob/living/carbon/human/H in living_mob_list_)
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
 				if(H.species == "Xenomorph")
@@ -190,12 +186,12 @@ var/global/remaininggens = 6
 
 /mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
 	if(remaininglactera <= 0)
-		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 			var/mob/observer/H = new /mob/observer(S.loc)
 			H.ckey = L.ckey
 
 	else
-		for(var/obj/effect/landmark/assault/lacteraspawn/S in world)
+		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 	//		L.loc = S.loc
 			var/mob/living/carbon/human/lactera/H = new /mob/living/carbon/human/lactera(S.loc)
 			H.ckey = L.ckey

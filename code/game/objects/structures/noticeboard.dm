@@ -6,22 +6,22 @@
 	density = 0
 	anchored = 1
 	var/notices = 0
+	layer = ABOVE_WINDOW_LAYER
 
-/obj/structure/noticeboard/initialize()
+/obj/structure/noticeboard/Initialize()
 	for(var/obj/item/I in loc)
 		if(notices > 4) break
 		if(istype(I, /obj/item/weapon/paper))
-			I.loc = src
+			I.forceMove(src)
 			notices++
 	icon_state = "nboard0[notices]"
+	. = ..()
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo))
-		if(notices < 5)
-			O.add_fingerprint(user)
+		if((notices < 5) && user.unEquip(O, src))
 			add_fingerprint(user)
-			user.drop_from_inventory(O,src)
 			notices++
 			icon_state = "nboard0[notices]"	//update sprite
 			to_chat(user, "<span class='notice'>You pin the paper to the noticeboard.</span>")
@@ -41,7 +41,7 @@
 		for(var/obj/item/weapon/paper/P in src)
 			dat += "<A href='?src=\ref[src];read=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
 		for(var/obj/item/weapon/photo/P in src)
-			dat += "<A href='?src=\ref[src];look=\ref[P]'>[P.name]</A> <A href='?src=\ref[src]; <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
+			dat += "<A href='?src=\ref[src];look=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
 		user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 		onclose(user, "noticeboard")
 	else

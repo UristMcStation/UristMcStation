@@ -1,3 +1,4 @@
+/*
 /obj/machinery/computer/shuttle_control/arrivals
 	name = "arrival shuttle console"
 	shuttle_tag = "Arrivals"
@@ -31,3 +32,4 @@
 		launch()
 
 	return
+*/

@@ -130,7 +130,7 @@
 	var/artillery = 0
 	var/fire = 0
 
-/obj/machinery/scom/artillerycontrol/process()
+/obj/machinery/scom/artillerycontrol/Process()
 	if(src.reload<120)
 		src.reload++
 
@@ -162,7 +162,7 @@
 			if("Cancel")
 				return
 			if("Yes")
-				for(var/obj/effect/landmark/scom/target/T in world)
+				for(var/obj/effect/landmark/scom/target/T in landmarks_list)
 					if(T.artillery == artillery && T.fire == fire)
 						explosion(T.loc, 1, 2, 5)
 						reload = 0
@@ -178,7 +178,7 @@
 			return
 		if("Yes")
 			world << "<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated.</span></FONT>"
-			for(var/obj/effect/landmark/scom/bomb/B in world)
+			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0
 				spawn(300)

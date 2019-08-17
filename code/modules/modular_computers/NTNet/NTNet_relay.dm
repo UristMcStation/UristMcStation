@@ -15,9 +15,18 @@
 
 	// Denial of Service attack variables
 	var/dos_overload = 0		// Amount of DoS "packets" in this relay's buffer
-	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
-	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
+	var/dos_capacity = 300		// Amount of DoS "packets" in buffer required to crash the relay
+	var/dos_dissipate = 2		// Amount of DoS "packets" dissipated over time.
 
+/obj/machinery/ntnet_relay/RefreshParts()
+	var/relative_voltage = 0
+	var/max_open_connections = 0
+	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+		relative_voltage += C.rating
+	for(var/obj/item/weapon/stock_parts/matter_bin/M  in component_parts)
+		max_open_connections += 100 * M.rating
+	dos_dissipate = relative_voltage
+	dos_capacity = max_open_connections
 
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
@@ -35,7 +44,7 @@
 	else
 		icon_state = "bus_off"
 
-/obj/machinery/ntnet_relay/process()
+/obj/machinery/ntnet_relay/Process()
 	if(operable())
 		use_power = 2
 	else
@@ -56,14 +65,14 @@
 		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_relay.tmpl", "NTNet Quantum Relay", 500, 300, state = state)
 		ui.set_initial_data(data)
@@ -81,17 +90,22 @@
 		dos_failure = 0
 		update_icon()
 		ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
+		return 1
 	else if(href_list["toggle"])
 		enabled = !enabled
 		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
+		return 1
+	else if(href_list["purge"])
+		ntnet_global.banned_nids.Cut()
+		ntnet_global.add_log("Manual override: Network blacklist cleared.")
+		return 1
 
 /obj/machinery/ntnet_relay/New()
 	uid = gl_uid
 	gl_uid++
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,15)
-	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
+	build_default_parts(/obj/item/weapon/circuitboard/ntnet_relay)
+	RefreshParts()
 
 	if(ntnet_global)
 		ntnet_global.relays.Add(src)
@@ -110,21 +124,10 @@
 	..()
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/screwdriver))
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		panel_open = !panel_open
-		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance hatch")
+	if(default_deconstruction_screwdriver(user, W))
 		return
-	if(istype(W, /obj/item/weapon/crowbar))
-		if(!panel_open)
-			to_chat(user, "Open the maintenance panel first.")
-			return
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "You disassemble \the [src]!")
-
-		for(var/atom/movable/A in component_parts)
-			A.forceMove(src.loc)
-		new/obj/machinery/constructable_frame/machine_frame(src.loc)
-		qdel(src)
+	if(default_deconstruction_crowbar(user, W))
 		return
-	..()
+	if(default_part_replacement(user, W))
+		return
+	. = ..()

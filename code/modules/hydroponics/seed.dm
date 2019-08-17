@@ -7,7 +7,7 @@
 	var/uid                        // Unique identifier.
 	var/name                       // Index for global list.
 	var/seed_name                  // Plant name for seed packet.
-	var/seed_noun = "seeds"        // Descriptor for packet.
+	var/seed_noun = SEED_NOUN_SEEDS// Descriptor for packet.
 	var/display_name               // Prettier name.
 	var/roundstart                 // If set, seed will not display variety number.
 	var/mysterious                 // Only used for the random seed packets.
@@ -60,11 +60,15 @@
 	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)          // High pressure capacity.
 	set_trait(TRAIT_IDEAL_HEAT,           293)          // Preferred temperature in Kelvin.
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
-	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
+	set_trait(TRAIT_PLANT_COLOUR,         "#46b543")    // Colour of the plant icon.
 
 	spawn(5)
 		sleep(-1)
 		update_growth_stages()
+	
+	uid = plant_controller.seeds.len + 1
+
+	uid = plant_controller.seeds.len + 1
 
 /datum/seed/proc/get_trait(var/trait)
 	return traits["[trait]"]
@@ -86,7 +90,7 @@
 	if(!T)
 		return
 
-	var/datum/reagents/R = new/datum/reagents(100)
+	var/datum/reagents/R = new/datum/reagents(100, GLOB.temp_reagents_holder)
 	if(chems.len)
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
@@ -96,6 +100,7 @@
 	S.attach(T)
 	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T)
 	S.start()
+	qdel(R)
 
 // Does brute damage to a target.
 /datum/seed/proc/do_thorns(var/mob/living/carbon/human/target, var/obj/item/fruit, var/target_limb)
@@ -115,10 +120,12 @@
 
 	if(!target_limb) target_limb = pick(BP_ALL_LIMBS)
 	var/blocked = target.run_armor_check(target_limb, "melee")
-	if(blocked >= 100)
+	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
+
+	if(blocked >= 100 || (target.species && target.species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT)))
+		to_chat(target, "<span class='danger'>\The [fruit]'s thorns scratch against the armour on your [affecting.name]!</span>")
 		return
 
-	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
 	var/damage = 0
 	var/has_edge = 0
 	if(get_trait(TRAIT_CARNIVOROUS) >= 2)
@@ -137,39 +144,42 @@
 		has_edge = prob(get_trait(TRAIT_POTENCY)/5)
 
 	var/damage_flags = DAM_SHARP|(has_edge? DAM_EDGE : 0)
-	target.apply_damage(damage, BRUTE, target_limb, blocked, "Thorns", damage_flags)
+	target.apply_damage(damage, BRUTE, target_limb, blocked, damage_flags, "Thorns")
 
 // Adds reagents to a target.
 /datum/seed/proc/do_sting(var/mob/living/carbon/human/target, var/obj/item/fruit)
 	if(!get_trait(TRAIT_STINGS))
 		return
-	if(chems && chems.len)
 
-		var/body_coverage = HEAD|FACE|EYES|UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	if(chems && chems.len && target.reagents)
 
-		for(var/obj/item/clothing/clothes in target)
-			if(target.l_hand == clothes|| target.r_hand == clothes)
-				continue
-			body_coverage &= ~(clothes.body_parts_covered)
+		var/obj/item/organ/external/affecting = pick(target.organs)
 
-		if(!body_coverage)
-			return
-		to_chat(target, "<span class='danger'>You are stung by \the [fruit]!</span>")
-		for(var/rid in chems)
-			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
-			target.reagents.add_reagent(rid,injecting)
+		for(var/obj/item/clothing/C in list(target.head, target.wear_mask, target.wear_suit, target.w_uniform, target.gloves, target.shoes))
+			if(C && (C.body_parts_covered & affecting) && (C.item_flags & ITEM_FLAG_THICKMATERIAL))
+				affecting = null
+
+		if(!(target.species && target.species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT)))	affecting = null
+
+		if(affecting)
+			to_chat(target, "<span class='danger'>You are stung by \the [fruit] in your [affecting.name]!</span>")
+			for(var/rid in chems)
+				var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
+				target.reagents.add_reagent(rid,injecting)
+		else
+			to_chat(target, "<span class='danger'>Sharp spines scrape against your armour!</span>")
 
 //Splatter a turf.
 /datum/seed/proc/splatter(var/turf/T,var/obj/item/thrown)
-	if(splat_type && !(locate(/obj/effect/plant) in T))
-		var/obj/effect/plant/splat = new splat_type(T, src)
+	if(splat_type && !(locate(/obj/effect/vine) in T))
+		var/obj/effect/vine/splat = new splat_type(T, src)
 		if(!istype(splat)) // Plants handle their own stuff.
-			splat.name = "[thrown.name] [pick("smear","smudge","splatter")]"
+			splat.SetName("[thrown.name] [pick("smear","smudge","splatter")]")
 			if(get_trait(TRAIT_BIOLUM))
 				var/clr
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				splat.set_light(get_trait(TRAIT_BIOLUM), l_color = clr)
+				splat.set_light(0.5, 0.1, 3, l_color = clr)
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -216,7 +226,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in alldirs)
+			for(var/dir in GLOB.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue
@@ -303,11 +313,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in current_turf
-		if(L)
-			light_supplied = max(0,min(10,L.lum_r + L.lum_g + L.lum_b)-5)
-		else
-			light_supplied =  5
+		light_supplied = current_turf.get_lumcount() * 5
 	if(light_supplied)
 		if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
 			health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
@@ -345,7 +351,7 @@
 		//These are various plant/mushroom genuses.
 		//I realize these might not be entirely accurate, but it could facilitate RP.
 		var/list/possible_prefixes
-		if(seed_noun == "cuttings" || seed_noun == "seeds" || (seed_noun == "nodes" && prob(50)))
+		if(seed_noun == SEED_NOUN_CUTTINGS || seed_noun == SEED_NOUN_SEEDS || (seed_noun == SEED_NOUN_NODES && prob(50)))
 			possible_prefixes = list("amelanchier", "saskatoon",
 										"magnolia", "angiosperma", "osmunda", "scabiosa", "spigelia", "psydrax", "chastetree",
 										"strychnos", "treebine", "caper", "justica", "ragwortus", "everlasting", "combretum",
@@ -383,7 +389,7 @@
 
 	roundstart = 0
 	mysterious = 1
-	seed_noun = pick("spores","nodes","cuttings","seeds")
+	seed_noun = pick(SEED_NOUN_SEEDS, SEED_NOUN_PITS, SEED_NOUN_NODES, SEED_NOUN_CUTTINGS)
 
 	set_trait(TRAIT_POTENCY,rand(5,30),200,0)
 	set_trait(TRAIT_PRODUCT_ICON,pick(plant_controller.plant_product_sprites))
@@ -424,20 +430,35 @@
 
 	chems = list()
 	if(prob(80))
-		chems["nutriment"] = list(rand(1,10),rand(10,20))
+		chems[/datum/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/banned_chems = list(
-			"adminordrazine",
-			"nutriment",
-			"nanites"
+			/datum/reagent/adminordrazine,
+			/datum/reagent/nutriment,
+			/datum/reagent/nanites,
+			/datum/reagent/water/holywater,
+			/datum/reagent/toxin/plantbgone,
+			/datum/reagent/chloralhydrate/beer2
 			)
+		banned_chems += subtypesof(/datum/reagent/ethanol)
+		banned_chems += subtypesof(/datum/reagent/tobacco)
+		banned_chems += typesof(/datum/reagent/drink)
+		banned_chems += typesof(/datum/reagent/nutriment)
+		banned_chems += typesof(/datum/reagent/toxin/fertilizer)
+		banned_chems += typesof(/datum/reagent/crayon_dust)
+		banned_chems += typesof(/datum/reagent/xenomicrobes/uristzombie)
+		banned_chems += typesof(/datum/reagent/toxin/zombie)
+		banned_chems += typesof(/datum/reagent/hell_water)
+
+		if(prob(30))	banned_chems |= typesof(/datum/reagent/toxin)
 
 		for(var/x=1;x<=additional_chems;x++)
-			var/new_chem = pick(chemical_reagents_list)
+			var/new_chem = pick(subtypesof(/datum/reagent))
 			if(new_chem in banned_chems)
+				x--
 				continue
 			banned_chems += new_chem
 			chems[new_chem] = list(rand(1,10),rand(10,20))
@@ -492,7 +513,7 @@
 	set_trait(TRAIT_ENDURANCE,rand(60,100))
 	set_trait(TRAIT_YIELD,rand(3,15))
 	set_trait(TRAIT_MATURATION,rand(5,15))
-	set_trait(TRAIT_PRODUCTION,get_trait(TRAIT_MATURATION)+rand(2,5))
+	set_trait(TRAIT_PRODUCTION,rand(1,10))
 
 	generate_name()
 
@@ -657,9 +678,9 @@
 		if(GENE_ENVIRONMENT)
 			traits_to_copy = list(TRAIT_IDEAL_HEAT,TRAIT_IDEAL_LIGHT,TRAIT_LIGHT_TOLERANCE)
 		if(GENE_PIGMENT)
-			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR)
+			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR,TRAIT_LEAVES_COLOUR)
 		if(GENE_STRUCTURE)
-			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT)
+			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT,TRAIT_LARGE)
 		if(GENE_FRUIT)
 			traits_to_copy = list(TRAIT_STINGS,TRAIT_EXPLOSIVE,TRAIT_FLESH_COLOUR,TRAIT_JUICY)
 		if(GENE_SPECIAL)
@@ -711,7 +732,7 @@
 			else
 				product = new /obj/item/weapon/reagent_containers/food/snacks/grown(get_turf(user),name)
 			. += product
-				
+
 			if(get_trait(TRAIT_PRODUCT_COLOUR))
 				if(!istype(product, /mob))
 					product.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -727,7 +748,7 @@
 				var/clr
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				product.set_light(get_trait(TRAIT_BIOLUM), l_color = clr)
+				product.set_light(0.5, 0.1, 3, l_color = clr)
 
 			//Handle spawning in living, mobile products (like dionaea).
 			if(istype(product,/mob/living))
@@ -771,3 +792,43 @@
 		growth_stages = plant_controller.plant_sprites[get_trait(TRAIT_PLANT_ICON)]
 	else
 		growth_stages = 0
+
+/datum/seed/proc/get_growth_type()
+	if(get_trait(TRAIT_SPREAD) == 2)
+		switch(seed_noun)
+			if(SEED_NOUN_CUTTINGS)
+				return GROWTH_WORMS
+			if(SEED_NOUN_NODES)
+				return GROWTH_BIOMASS
+			if(SEED_NOUN_SPORES)
+				return GROWTH_MOLD
+			else
+				return GROWTH_VINES
+	return 0
+
+/datum/seed/proc/get_icon(growth_stage)
+	var/plant_icon = get_trait(TRAIT_PLANT_ICON)
+	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[plant_icon]-[growth_stage]")
+	if(get_growth_type())
+		res.icon_state = "[get_growth_type()]-[growth_stage]"
+	else
+		res.icon_state = "[plant_icon]-[growth_stage]"
+
+	if(get_growth_type())
+		res.icon = 'icons/obj/hydroponics_vines.dmi'
+
+	res.color = get_trait(TRAIT_PLANT_COLOUR)
+
+	if(get_trait(TRAIT_LARGE))
+		res.icon = 'icons/obj/hydroponics_large.dmi'
+		res.pixel_x = -8
+		res.pixel_y = -16
+
+	var/leaves = get_trait(TRAIT_LEAVES_COLOUR)
+	if(leaves)
+		var/image/I = image(res.icon, "[plant_icon]-[growth_stage]-leaves")
+		I.color = leaves
+		I.appearance_flags = RESET_COLOR
+		res.overlays += I
+
+	return res

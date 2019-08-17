@@ -102,6 +102,16 @@
 		return
 	return ..()
 
+/obj/item/weapon/material/kitchen/utensil/knife/unathiknife
+	name = "dueling knife"
+	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "unathiknife"
+	item_state = "knife"
+	attack_verb = list("ripped", "torn", "cut")
+	applies_material_colour = 0
+	unbreakable = 1
+
 /obj/item/weapon/material/kitchen/utensil/knife/plastic
 	default_material = "plastic"
 
@@ -119,9 +129,8 @@
 	thrown_force_divisor = 1 // as above
 
 /obj/item/weapon/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob)
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((CLUMSY in user.mutations) && prob(50) && user.unEquip(src))
 		to_chat(user, "<span class='warning'>\The [src] slips out of your hand and hits your head.</span>")
-		user.drop_from_inventory(src)
 		user.take_organ_damage(10)
 		user.Paralyse(2)
 		return

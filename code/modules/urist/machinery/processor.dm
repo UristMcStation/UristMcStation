@@ -1,3 +1,4 @@
+/* TODO: Update to refactored grab system
 /obj/machinery/processor
 	name = "Food Processor"
 	icon = 'icons/obj/kitchen.dmi'
@@ -153,3 +154,4 @@
 		src.processing = 0
 	src.visible_message("<span class='notice'> \the [src] finished processing.</span>", \
 		"You hear the food processor stopping/")
+*/

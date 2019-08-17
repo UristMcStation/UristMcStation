@@ -32,7 +32,7 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 		far_dist += heavy_impact_range * 5
 		far_dist += devastation_range * 20
 		var/frequency = get_rand_frequency()
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			if(M.z == epicenter.z)
 				var/turf/M_turf = get_turf(M)
 				var/dist = get_dist(M_turf, epicenter)
@@ -47,11 +47,6 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 		if(adminlog)
 			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 			log_game("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ")
-
-		var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
-		// Large enough explosion. For performance reasons, powernets will be rebuilt manually
-		if(!defer_powernet_rebuild && (approximate_intensity > 25))
-			defer_powernet_rebuild = 1
 
 		if(heavy_impact_range > 1)
 			var/datum/effect/system/explosion/E = new/datum/effect/system/explosion()
@@ -73,13 +68,13 @@ proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impa
 				else if(dist < light_impact_range)	dist = 3
 				else								continue
 
+				T.ex_act(dist)
 				if(!T)
 					T = locate(x0,y0,z0)
 				for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 					var/atom/movable/AM = atom_movable
-					if(AM && AM.simulated)	AM.ex_act(dist)
-
-				T.ex_act(dist)
+					if(AM && AM.simulated && !T.protects_atom(AM))
+						AM.ex_act(dist)
 
 		var/took = (world.timeofday-start)/10
 		//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare

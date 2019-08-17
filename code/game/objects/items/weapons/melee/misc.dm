@@ -3,7 +3,7 @@
 	desc = "A generic whip."
 	icon_state = "chain"
 	item_state = "chain"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
@@ -17,7 +17,7 @@
 	desc = "A weapon from the abyss. Requires 70 attack to wield."
 	icon_state = "whip"
 	item_state = "whip"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 16 //max hit with 60 strength and no equipment. Duel Arena no No forfeit - Snapshot
 	throwforce = 7
@@ -40,16 +40,16 @@
 	slot_flags = SLOT_BELT
 	applies_material_colour = FALSE
 
-/obj/item/weapon/material/sword/replica/officersword/marine
-	name = "marine NCO's sword"
-	desc = "A polished sword issued to SCG Marine NCOs."
-	icon_state = "marinesword"
+/obj/item/weapon/material/sword/replica/officersword/army
+	name = "army NCO's sword"
+	desc = "A polished sword issued to SCG Army NCOs."
+	icon_state = "armysword"
 
-/obj/item/weapon/material/sword/replica/officersword/marineofficer
-	name = "marine officer's sword"
-	desc = "A curved sword issued to SCG Marine officers."
-	icon_state = "marineofficersword"
-	item_state = "marineofficersword"
+/obj/item/weapon/material/sword/replica/officersword/armyofficer
+	name = "army officer's sword"
+	desc = "A curved sword issued to SCG Army officers."
+	icon_state = "armyofficersword"
+	item_state = "armyofficersword"
 
 /obj/item/weapon/material/sword/replica/officersword/pettyofficer
 	name = "chief petty officer's cutlass"

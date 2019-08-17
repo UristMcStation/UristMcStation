@@ -36,26 +36,26 @@
 	if(owner.gun_move_icon)
 		if(!(target_permissions & TARGET_CAN_MOVE))
 			owner.gun_move_icon.icon_state = "no_walk0"
-			owner.gun_move_icon.name = "Allow Movement"
+			owner.gun_move_icon.SetName("Allow Movement")
 		else
 			owner.gun_move_icon.icon_state = "no_walk1"
-			owner.gun_move_icon.name = "Disallow Movement"
+			owner.gun_move_icon.SetName("Disallow Movement")
 
 	if(owner.item_use_icon)
 		if(!(target_permissions & TARGET_CAN_CLICK))
 			owner.item_use_icon.icon_state = "no_item0"
-			owner.item_use_icon.name = "Allow Item Use"
+			owner.item_use_icon.SetName("Allow Item Use")
 		else
 			owner.item_use_icon.icon_state = "no_item1"
-			owner.item_use_icon.name = "Disallow Item Use"
+			owner.item_use_icon.SetName("Disallow Item Use")
 
 	if(owner.radio_use_icon)
 		if(!(target_permissions & TARGET_CAN_RADIO))
 			owner.radio_use_icon.icon_state = "no_radio0"
-			owner.radio_use_icon.name = "Allow Radio Use"
+			owner.radio_use_icon.SetName("Allow Radio Use")
 		else
 			owner.radio_use_icon.icon_state = "no_radio1"
-			owner.radio_use_icon.name = "Disallow Radio Use"
+			owner.radio_use_icon.SetName("Disallow Radio Use")
 
 	var/message = "no longer permitted to "
 	var/use_span = "warning"
@@ -77,7 +77,7 @@
 	to_chat(owner, aim_message)
 	if(aiming_at)
 		to_chat(aiming_at, "<span class='[use_span]'>You are [message].</span>")
-/obj/aiming_overlay/process()
+/obj/aiming_overlay/Process()
 	if(!owner)
 		qdel(src)
 		return
@@ -167,16 +167,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
-	processing_objects |= src
+	START_PROCESSING(SSobj, src)
 
 	aiming_at.aimed |= src
 	toggle_active(1)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	GLOB.moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
+	GLOB.moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
+	GLOB.destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -212,16 +212,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	moved_event.unregister(owner, src)
+	GLOB.moved_event.unregister(owner, src)
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
+		GLOB.moved_event.unregister(aiming_at, src)
+		GLOB.destroyed_event.unregister(aiming_at, src)
 		aiming_at.aimed -= src
 		aiming_at = null
 
 	aiming_with = null
 	loc = null
-	processing_objects -= src
+	STOP_PROCESSING(SSobj, src)
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()

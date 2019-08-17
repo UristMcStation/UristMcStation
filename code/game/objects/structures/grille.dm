@@ -1,26 +1,55 @@
 /obj/structure/grille
 	name = "grille"
 	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/grille.dmi'
 	icon_state = "grille"
 	density = 1
 	anchored = 1
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	layer = BELOW_OBJ_LAYER
 	explosion_resistance = 1
-	var/health = 10
+	health = 10
 	var/destroyed = 0
 	var/rodpath = /obj/item/stack/rods //modularity
+	var/on_frame = FALSE
 
+	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
+	noblend_objects = list(/obj/machinery/door/window)
+
+/obj/structure/grille/New()
+	. = ..()
+	update_connections(1)
+	update_icon()
 
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
 
 /obj/structure/grille/update_icon()
+	update_onframe()
+
+	overlays.Cut()
 	if(destroyed)
-		icon_state = "[initial(icon_state)]-b"
+		if(on_frame)
+			icon_state = "broke_onframe"
+		else
+			icon_state = "broken"
 	else
-		icon_state = initial(icon_state)
+		var/image/I
+		icon_state = ""
+		if(on_frame)
+			for(var/i = 1 to 4)
+				if(other_connections[i] != "0")
+					I = image(icon, "grille_other_onframe[connections[i]]", dir = 1<<(i-1))
+				else
+					I = image(icon, "grille_onframe[connections[i]]", dir = 1<<(i-1))
+				overlays += I
+		else
+			for(var/i = 1 to 4)
+				if(other_connections[i] != "0")
+					I = image(icon, "grille_other[connections[i]]", dir = 1<<(i-1))
+				else
+					I = image(icon, "grille[connections[i]]", dir = 1<<(i-1))
+				overlays += I
 
 /obj/structure/grille/Bumped(atom/user)
 	if(ismob(user)) shock(user, 70)
@@ -51,7 +80,7 @@
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover) && mover.checkpass(PASSGRILLE))
+	if(istype(mover) && mover.checkpass(PASS_FLAG_GRILLE))
 		return 1
 	else
 		if(istype(mover, /obj/item/projectile))
@@ -94,17 +123,19 @@
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
 /obj/structure/grille/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswirecutter(W))
+	if(isWirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new rodpath (list(get_turf(src), destroyed ? 1 : 2))
 			qdel(src)
-	else if((isscrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
+	else if((isScrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
+			update_connections(1)
+			update_icon()
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM
@@ -113,24 +144,25 @@
 		if(!ST.material.created_window)
 			return 0
 
-		var/dir_to_set = 1
-		if(loc == user.loc)
-			dir_to_set = user.dir
-		else
-			if( ( x == user.x ) || (y == user.y) ) //Only supposed to work for cardinal directions.
-				if( x == user.x )
-					if( y > user.y )
-						dir_to_set = 2
-					else
-						dir_to_set = 1
-				else if( y == user.y )
-					if( x > user.x )
-						dir_to_set = 8
-					else
-						dir_to_set = 4
+		var/dir_to_set = 5
+		if(!on_frame)
+			if(loc == user.loc)
+				dir_to_set = user.dir
 			else
-				to_chat(user, "<span class='notice'>You can't reach.</span>")
-				return //Only works for cardinal direcitons, diagonals aren't supposed to work like this.
+				if( ( x == user.x ) || (y == user.y) ) //Only supposed to work for cardinal directions.
+					if( x == user.x )
+						if( y > user.y )
+							dir_to_set = 2
+						else
+							dir_to_set = 1
+					else if( y == user.y )
+						if( x > user.x )
+							dir_to_set = 8
+						else
+							dir_to_set = 4
+				else
+					to_chat(user, "<span class='notice'>You can't reach.</span>")
+					return //Only works for cardinal direcitons, diagonals aren't supposed to work like this.
 		for(var/obj/structure/window/WINDOW in loc)
 			if(WINDOW.dir == dir_to_set)
 				to_chat(user, "<span class='notice'>There is already a window facing this way there.</span>")
@@ -150,7 +182,7 @@
 		return
 //window placing end
 
-	else if(!(W.flags & CONDUCT) || !shock(user, 70))
+	else if(!(W.obj_flags & OBJ_FLAG_CONDUCTIBLE) || !shock(user, 70))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
@@ -213,16 +245,17 @@
 	..()
 
 /obj/structure/grille/attack_generic(var/mob/user, var/damage, var/attack_verb)
-	visible_message("<span class='danger'>[user] [attack_verb] the [src]!</span>")
+	visible_message("<span class='danger'>[user] [attack_verb] \the [src]!</span>")
 	attack_animation(user)
 	health -= damage
 	spawn(1) healthcheck()
+	shock(user, 70)
 	return 1
 
 // Used in mapping to avoid
 /obj/structure/grille/broken
 	destroyed = 1
-	icon_state = "grille-b"
+	icon_state = "broken"
 	density = 0
 	New()
 		..()
@@ -232,10 +265,18 @@
 /obj/structure/grille/cult
 	name = "cult grille"
 	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it."
-	icon_state = "grillecult"
+	icon = 'icons/obj/grille_cult.dmi'
 	health = 40 //Make it strong enough to avoid people breaking in too easily
 
 /obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group)
 		return 0 //Make sure air doesn't drain
 	..()
+
+/obj/structure/grille/proc/update_onframe()
+	on_frame = FALSE
+	var/turf/T = get_turf(src)
+	for(var/obj/O in T)
+		if(istype(O, /obj/structure/wall_frame))
+			on_frame = TRUE
+			break

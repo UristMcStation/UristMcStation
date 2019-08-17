@@ -6,12 +6,11 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
 	down_body_parts_covered = HEAD
-	down_item_flags = BLOCKHAIR
+	down_flags_inv = BLOCKHEADHAIR
 	down_icon_state = "balaclava_r"
 	pull_mask = 1
 	w_class = ITEM_SIZE_SMALL
 	sprite_sheets = list(
-		SPECIES_TAJARA = 'icons/mob/species/tajaran/mask.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/mask.dmi',
 		)
 

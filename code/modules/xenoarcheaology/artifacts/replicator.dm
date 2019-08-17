@@ -82,7 +82,7 @@
 		[pick("front","side","top","bottom","rear","inside")] of [src]. A [pick("slot","funnel","chute","tube")] opens up in the \
 		[pick("front","side","top","bottom","rear","inside")].</span>"
 
-/obj/machinery/replicator/process()
+/obj/machinery/replicator/Process()
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
@@ -93,7 +93,7 @@
 			var/obj/spawned_obj = new spawn_type(src.loc)
 			if(source_material)
 				if(lentext(source_material.name) < MAX_MESSAGE_LEN)
-					spawned_obj.name = "[source_material] " +  spawned_obj.name
+					spawned_obj.SetName("[source_material] " +  spawned_obj.name)
 				if(lentext(source_material.desc) < MAX_MESSAGE_LEN * 2)
 					if(spawned_obj.desc)
 						spawned_obj.desc += " It is made of [source_material]."
@@ -125,13 +125,12 @@
 	user << browse(dat, "window=alien_replicator")
 
 /obj/machinery/replicator/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
-	user.drop_item()
-	W.forceMove(src)
+	if(!user.unEquip(W, src))
+		return
 	stored_materials.Add(W)
 	src.visible_message("<span class='notice'>\The [user] inserts \the [W] into \the [src].</span>")
 
-/obj/machinery/replicator/Topic(href, href_list)
-
+/obj/machinery/replicator/OnTopic(user, href_list)
 	if(href_list["activate"])
 		var/index = text2num(href_list["activate"])
 		if(index > 0 && index <= construction.len)
@@ -147,3 +146,4 @@
 				icon_state = "borgcharger1(old)"
 			else
 				src.visible_message(fail_message)
+		. = TOPIC_REFRESH

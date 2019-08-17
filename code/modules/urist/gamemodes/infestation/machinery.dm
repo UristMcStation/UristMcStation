@@ -12,9 +12,9 @@
 
 /obj/machinery/suit_storage_unit/anfor
 	name = "ANFOR Voidsuit Storage Unit"
-	SUIT_TYPE = /obj/item/clothing/suit/space/void/anfor
-	HELMET_TYPE = /obj/item/clothing/head/helmet/space/void/anfor
-	MASK_TYPE = /obj/item/clothing/mask/breath
+	suit_type = /obj/item/clothing/suit/space/void/anfor
+	helmet_type = /obj/item/clothing/head/helmet/space/void/anfor
+	mask_type = /obj/item/clothing/mask/breath
 	req_access = list(access_cent_general)
 	islocked = 1
 
@@ -45,8 +45,8 @@
 		/obj/item/weapon/gun/projectile/colt/a7 = 20,
 		/obj/item/weapon/gun/projectile/manualcycle/a50 = 2,
 		//attachments,
-		/obj/item/weapon/gunattachment/grenadelauncher = 10,
-		/obj/item/weapon/gunattachment/scope/a18 = 10,
+//		/obj/item/weapon/gunattachment/grenadelauncher = 10,
+//		/obj/item/weapon/gunattachment/scope/a18 = 10,
 		//grenades and mines,
 		/obj/item/weapon/storage/box/anforgrenade = 10,
 		/obj/item/weapon/storage/box/large/mines = 3
@@ -56,8 +56,8 @@
 		/obj/item/weapon/storage/box/beanbags = 5,
 		/obj/item/ammo_magazine/c38 = 10,
 		/obj/item/ammo_magazine/c45m = 10,
-		/obj/item/ammo_magazine/a556 = 10,
-		/obj/item/ammo_magazine/c762 = 10
+		/obj/item/ammo_magazine/a762 = 10,
+		/obj/item/ammo_magazine/c556 = 10
 		)
 
 //Assault mode clothing and armor vender
@@ -75,7 +75,7 @@
 		/obj/item/clothing/under/urist/anfor = 20,
 		/obj/item/clothing/head/helmet/urist/anfor = 20,
 		/obj/item/clothing/shoes/urist/anforjackboots = 20,
-		/obj/item/weapon/storage/belt/security/tactical = 20
+		/obj/item/weapon/storage/belt/holster/security/tactical = 20
 		)
 	contraband = list(
 		/obj/item/weapon/storage/fancy/cigar = 1

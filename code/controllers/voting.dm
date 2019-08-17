@@ -1,6 +1,6 @@
-var/datum/controller/vote/vote = new()
+/var/datum/controller/vote/vote = new()
 
-datum/controller/vote
+/datum/controller/vote
 	var/initiator = null
 	var/started_time = null
 	var/time_remaining = 0
@@ -16,6 +16,7 @@ datum/controller/vote
 	var/list/additional_text = list()
 	var/auto_muted = 0
 	var/auto_add_antag = 0
+	var/current_vote_type = null
 
 	New()
 		if(vote != src)
@@ -41,12 +42,12 @@ datum/controller/vote
 				result()
 				for(var/client/C in voting)
 					if(C)
-						C << browse(null,"window=vote")
+						C << browse(null,"window=vote;size=450x740")
 				reset()
 			else
 				for(var/client/C in voting)
 					if(C)
-						C << browse(vote.interface(C),"window=vote")
+						C << browse(vote.interface(C),"window=vote;size=450x740")
 
 				voting.Cut()
 
@@ -72,6 +73,7 @@ datum/controller/vote
 		time_remaining = 0
 		mode = null
 		question = null
+		current_vote_type = null
 		choices.Cut()
 		voted.Cut()
 		voting.Cut()
@@ -89,7 +91,7 @@ datum/controller/vote
 
 		//default-vote for everyone who didn't vote
 		if(!config.vote_no_default && choices.len)
-			var/non_voters = (clients.len - total_votes)
+			var/non_voters = (GLOB.clients.len - total_votes)
 			if(non_voters > 0)
 				if(mode == "restart")
 					choices["Continue Playing"] += non_voters
@@ -199,14 +201,17 @@ datum/controller/vote
 					if(.[1] == "Restart Round")
 						restart = 1
 				if("gamemode")
-					if(master_mode != .[1])
-						world.save_mode(.[1])
-						if(ticker && ticker.mode)
-							restart = 1
-						else
-							master_mode = .[1]
-					secondary_mode = .[2]
-					tertiary_mode = .[3]
+					// set gamemode
+					// inconclusive vote -> do nothing
+					if(.[1])
+						if(master_mode != .[1])
+							world.save_mode(.[1])
+							if(ticker && ticker.mode)
+								restart = 1
+							else
+								master_mode = .[1]
+						secondary_mode = .[2]
+						tertiary_mode = .[3]
 				if("crew_transfer")
 					if(.[1] == "Initiate Crew Transfer")
 						init_autotransfer()
@@ -223,19 +228,19 @@ datum/controller/vote
 						for(var/i = 1, i <= length(.), i++)
 							if(.[i] == "Random")
 								.[i] = pick(choices)
-								to_world("The random antag in [i]\th place is [.[i]].")
+								message_admins("The random antag in [i]\th place is [.[i]].")
 
-						var/antag_type = antag_names_to_ids()[.[1]]
+						var/antag_type = GLOB.antag_names_to_ids_[.[1]]
 						if(ticker.current_state < GAME_STATE_SETTING_UP)
 							additional_antag_types |= antag_type
 						else
 							spawn(0) // break off so we don't hang the vote process
-								var/list/antag_choices = list(all_antag_types()[antag_type], all_antag_types()[antag_names_to_ids()[.[2]]], all_antag_types()[antag_names_to_ids()[.[3]]])
+								var/list/antag_choices = list(GLOB.all_antag_types_[antag_type], GLOB.all_antag_types_[GLOB.antag_names_to_ids_[.[2]]], GLOB.all_antag_types_[GLOB.antag_names_to_ids_[.[3]]])
 								if(ticker.attempt_late_antag_spawn(antag_choices))
 									antag_add_finished = 1
 									if(auto_add_antag)
 										auto_add_antag = 0
-										// the buffer will already have an hour added to it, so we'll give it one more
+										// the buffer will already have half an hour added to it, so we'll give it one more
 										transfer_controller.timerbuffer = transfer_controller.timerbuffer + config.vote_autotransfer_interval
 								else
 									to_world("<b>No antags were added.</b>")
@@ -245,7 +250,7 @@ datum/controller/vote
 										spawn(10)
 											autotransfer()
 				if("map")
-					var/datum/map/M = all_maps[.[1]]
+					var/datum/map/M = GLOB.all_maps[.[1]]
 					fdel("use_map")
 					text2file(M.path, "use_map")
 
@@ -300,8 +305,8 @@ datum/controller/vote
 				var/next_allowed_time = (started_time + config.vote_delay)
 				if(next_allowed_time > world.time)
 					return 0
-
 			reset()
+			current_vote_type = vote_type
 			switch(vote_type)
 				if("restart")
 					choices.Add("Restart Round","Continue Playing")
@@ -317,20 +322,23 @@ datum/controller/vote
 						additional_text.Add("<td align = 'center'>[M.required_players]</td>")
 					gamemode_names["secret"] = "Secret"
 				if("crew_transfer")
+					if(!evacuation_controller || !evacuation_controller.should_call_autotransfer_vote())
+						return 0
 					if(check_rights(R_ADMIN|R_MOD, 0))
 						question = "End the shift?"
-						choices.Add("Initiate Crew Transfer", "Continue The Round")
+						choices.Add("Initiate Crew Transfer", "Extend the Round ([config.vote_autotransfer_interval / 600] minutes)")
 						if (config.allow_extra_antags && !antag_add_finished)
 							choices.Add("Add Antagonist")
 					else
-						if (get_security_level() == "red" || get_security_level() == "delta")
+						var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+						if (security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level) && !automatic)
 							to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 							return 0
 						if(ticker.current_state <= GAME_STATE_SETTING_UP)
 							return 0
 							to_chat(initiator_key, "The crew transfer button has been disabled!")
 						question = "End the shift?"
-						choices.Add("Initiate Crew Transfer", "Continue The Round")
+						choices.Add("Initiate Crew Transfer", "Extend the Round ([config.vote_autotransfer_interval / 600] minutes)")
 						if (config.allow_extra_antags && is_addantag_allowed(1))
 							choices.Add("Add Antagonist")
 				if("add_antagonist")
@@ -341,7 +349,7 @@ datum/controller/vote
 
 					if(!config.allow_extra_antags)
 						return 0
-					var/list/all_antag_types = all_antag_types()
+					var/list/all_antag_types = GLOB.all_antag_types_
 					for(var/antag_type in all_antag_types)
 						var/datum/antagonist/antag = all_antag_types[antag_type]
 						if(!(antag.id in additional_antag_types) && antag.is_votable())
@@ -352,7 +360,7 @@ datum/controller/vote
 				if("map")
 					if(!config.allow_map_switching)
 						return 0
-					for(var/name in all_maps)
+					for(var/name in GLOB.all_maps)
 						choices.Add(name)
 				if("custom")
 					question = sanitizeSafe(input(usr,"What is the vote for?") as text|null)
@@ -373,7 +381,7 @@ datum/controller/vote
 			log_vote(text)
 			to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
 
-			to_world(sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
+			to_world(sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = GLOB.vote_sound_channel))
 
 			if(mode == "gamemode" && round_progressing)
 				round_progressing = 0
@@ -396,50 +404,56 @@ datum/controller/vote
 
 		. = "<html><head><title>Voting Panel</title></head><body>"
 		if(mode)
-			if(question)	. += "<h2>Vote: '[question]'</h2>"
-			else			. += "<h2>Vote: [capitalize(mode)]</h2>"
-			. += "Time Left: [time_remaining] s<hr>"
-			. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td colspan='3' align = 'center'><b>Vote</b></td><td align = 'center'><b>Votes</b></td>"
-			if(capitalize(mode) == "Gamemode") .+= "<td align = 'center'><b>Minimum Players</b></td></tr>"
+			var/is_transfer = current_vote_type == "crew_transfer"
+			var/no_dead_votes = config.vote_no_dead_crew_transfer
+			var/is_dead = !isliving(C.mob) || ismouse(C.mob) || is_drone(C.mob)
+			if (no_dead_votes && is_transfer && is_dead)
+				. += "<h2>You can't participate in this vote unless you're participating in the round.</h2><br>"
+			else
+				if(question)	. += "<h2>Vote: '[question]'</h2>"
+				else			. += "<h2>Vote: [capitalize(mode)]</h2>"
+				. += "Time Left: [time_remaining] s<hr>"
+				. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td colspan='3' align = 'center'><b>Votex</b></td><td align = 'center'><b>Votes</b></td>"
+				if(capitalize(mode) == "Gamemode") .+= "<td align = 'center'><b>Minimum Players</b></td></tr>"
 
-			var/totalvotes = 0
-			for(var/i = 1, i <= choices.len, i++)
-				totalvotes += choices[choices[i]]
+				var/totalvotes = 0
+				for(var/i = 1, i <= choices.len, i++)
+					totalvotes += choices[choices[i]]
 
-			for(var/i = 1, i <= choices.len, i++)
-				var/votes = choices[choices[i]]
-				var/votepercent
-				if(totalvotes)
-					votepercent = round((votes/totalvotes)*100)
-				else
-					votepercent = 0
-				if(!votes)	votes = 0
-				. += "<tr><td>"
-				if(mode == "gamemode")
-					. += "[gamemode_names[choices[i]]]"
-				else
-					. += "[choices[i]]"
-				. += "</td><td>"
-				if(current_high_votes[C.ckey] == i)
-					. += "<b><a href='?src=\ref[src];high_vote=[i]'>First</a></b>"
-				else
-					. += "<a href='?src=\ref[src];high_vote=[i]'>First</a>"
-				. += "</td><td>"
-				if(current_med_votes[C.ckey] == i)
-					. += "<b><a href='?src=\ref[src];med_vote=[i]'>Second</a></b>"
-				else
-					. += "<a href='?src=\ref[src];med_vote=[i]'>Second</a>"
-				. += "</td><td>"
-				if(current_low_votes[C.ckey] == i)
-					. += "<b><a href='?src=\ref[src];low_vote=[i]'>Third</a></b>"
-				else
-					. += "<a href='?src=\ref[src];low_vote=[i]'>Third</a>"
-				. += "</td><td align = 'center'>[votepercent]%</td>"
-				if (additional_text.len >= i)
-					. += additional_text[i]
-				. += "</tr>"
+				for(var/i = 1, i <= choices.len, i++)
+					var/votes = choices[choices[i]]
+					var/votepercent
+					if(totalvotes)
+						votepercent = round((votes/totalvotes)*100)
+					else
+						votepercent = 0
+					if(!votes)	votes = 0
+					. += "<tr><td>"
+					if(mode == "gamemode")
+						. += "[gamemode_names[choices[i]]]"
+					else
+						. += "[choices[i]]"
+					. += "</td><td>"
+					if(current_high_votes[C.ckey] == i)
+						. += "<b><a href='?src=\ref[src];high_vote=[i]'>First</a></b>"
+					else
+						. += "<a href='?src=\ref[src];high_vote=[i]'>First</a>"
+					. += "</td><td>"
+					if(current_med_votes[C.ckey] == i)
+						. += "<b><a href='?src=\ref[src];med_vote=[i]'>Second</a></b>"
+					else
+						. += "<a href='?src=\ref[src];med_vote=[i]'>Second</a>"
+					. += "</td><td>"
+					if(current_low_votes[C.ckey] == i)
+						. += "<b><a href='?src=\ref[src];low_vote=[i]'>Third</a></b>"
+					else
+						. += "<a href='?src=\ref[src];low_vote=[i]'>Third</a>"
+					. += "</td><td align = 'center'>[votepercent]%</td>"
+					if (additional_text.len >= i)
+						. += additional_text[i]
+					. += "</tr>"
 
-			. += "</table><hr>"
+				. += "</table><hr>"
 			if(admin)
 				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
 		else
@@ -491,7 +505,7 @@ datum/controller/vote
 			switch(href_list["vote"])
 				if("close")
 					voting -= usr.client
-					usr << browse(null, "window=vote")
+					usr << browse(null, "window=vote;size=450x740")
 					return
 				if("cancel")
 					if(usr.client.holder)
@@ -536,7 +550,7 @@ datum/controller/vote
 		usr.vote()
 
 // Helper proc for determining whether addantag vote can be called.
-datum/controller/vote/proc/is_addantag_allowed(var/automatic)
+/datum/controller/vote/proc/is_addantag_allowed(var/automatic)
 	// Gamemode has to be determined before we can add antagonists, so we can respect gamemode's add antag vote settings.
 	if(!ticker || (ticker.current_state <= 2) || !ticker.mode)
 		return 0
@@ -554,4 +568,4 @@ datum/controller/vote/proc/is_addantag_allowed(var/automatic)
 	set name = "Vote"
 
 	if(vote)
-		src << browse(vote.interface(client),"window=vote")
+		src << browse(vote.interface(client),"window=vote;size=450x740")

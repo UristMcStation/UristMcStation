@@ -33,6 +33,7 @@
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "tries to hurt"
 	var/harm_intent_damage = 3
+	var/can_escape = 0 // 'smart' simple animals such as human enemies, or things small, big, sharp or strong enough to power out of a net
 
 	//Temperature effect
 	var/minbodytemp = 250
@@ -42,37 +43,41 @@
 	var/fire_alert = 0
 
 	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
-	var/min_oxy = 5
-	var/max_oxy = 0					//Leaving something at 0 means it's off - has no maximum
-	var/min_tox = 0
-	var/max_tox = 1
-	var/min_co2 = 0
-	var/max_co2 = 5
-	var/min_n2 = 0
-	var/max_n2 = 0
-	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
+	var/min_gas = list("oxygen" = 5)
+	var/max_gas = list("phoron" = 1, "carbon_dioxide" = 5)
+
+	var/unsuitable_atmos_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
 
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/damage_type = BRUTE
 	var/attacktext = "attacked"
 	var/attack_sound = null
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
+	var/damtype = BRUTE
+	var/defense = "melee" //what armor protects against its attacks
 
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
 
-	var/simplify_dead_icon = 0 //Set to 1 to create an icon_dead from a 90 deg turn of icon_state
+	var/bleed_ticks = 0
+	var/bleed_colour = COLOR_BLOOD_HUMAN
+	var/can_bleed = TRUE
 
+	// contained in a cage
+	var/in_stasis = 0
 
+	var/simplify_dead_icon
 
 /mob/living/simple_animal/Life()
 	..()
-
+	if(!living_observers_present(GetConnectedZlevels(z)))
+		return
 	//Health
 	if(stat == DEAD)
 		if(health > 0)
@@ -85,6 +90,7 @@
 			set_density(1)
 		return 0
 
+	handle_atmos()
 
 	if(health <= 0)
 		death()
@@ -96,18 +102,29 @@
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
+	handle_confused()
 	handle_supernatural()
+	handle_impaired_vision()
+
+	if(can_bleed && bleed_ticks > 0)
+		handle_bleeding()
+
+	if(buckled && can_escape)
+		if(istype(buckled, /obj/effect/energy_net))
+			var/obj/effect/energy_net/Net = buckled
+			Net.escape_net(src)
+		else if(prob(50))
+			escape(src, buckled)
+		else if(prob(50))
+			visible_message("<span class='warning'>\The [src] struggles against \the [buckled]!</span>")
 
 	//Movement
 	if(!client && !stop_automated_movement && wander && !anchored)
-		if(isturf(src.loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
-				if(!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
-					var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-					moving_to = pick(cardinal)
-					set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
-					Move(get_step(src,moving_to))
+				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+					SelfMove(pick(GLOB.cardinal))
 					turns_since_move = 0
 
 	//Speaking
@@ -126,46 +143,32 @@
 					audible_emote("[pick(emote_hear)].")
 				if("emote_see")
 					visible_emote("[pick(emote_see)].")
+	return 1
 
+/mob/living/simple_animal/proc/handle_atmos(var/atmos_suitable = 1)
 	//Atmos
-	var/atmos_suitable = 1
 
-	var/atom/A = src.loc
+	if(!loc)
+		return
 
-	if(istype(A,/turf))
-		var/turf/T = A
+	var/datum/gas_mixture/environment = loc.return_air()
+	if(!(SPACERES in mutations) && environment)
 
-		var/datum/gas_mixture/Environment = T.return_air()
+		if(abs(environment.temperature - bodytemperature) > 40 )
+			bodytemperature += ((environment.temperature - bodytemperature) / 5)
 
-		if(Environment)
-
-			if( abs(Environment.temperature - bodytemperature) > 40 )
-				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
-
-			if(min_oxy)
-				if(Environment.gas["oxygen"] < min_oxy)
-					atmos_suitable = 0
-			if(max_oxy)
-				if(Environment.gas["oxygen"] > max_oxy)
-					atmos_suitable = 0
-			if(min_tox)
-				if(Environment.gas["phoron"] < min_tox)
-					atmos_suitable = 0
-			if(max_tox)
-				if(Environment.gas["phoron"] > max_tox)
-					atmos_suitable = 0
-			if(min_n2)
-				if(Environment.gas["nitrogen"] < min_n2)
-					atmos_suitable = 0
-			if(max_n2)
-				if(Environment.gas["nitrogen"] > max_n2)
-					atmos_suitable = 0
-			if(min_co2)
-				if(Environment.gas["carbon_dioxide"] < min_co2)
-					atmos_suitable = 0
-			if(max_co2)
-				if(Environment.gas["carbon_dioxide"] > max_co2)
-					atmos_suitable = 0
+		 // don't bother checking it twice if we got a supplied 0 val.
+		if(atmos_suitable)
+			if(LAZYLEN(min_gas))
+				for(var/gas in min_gas)
+					if(environment.gas[gas] < min_gas[gas])
+						atmos_suitable = FALSE
+						break
+			if(atmos_suitable && LAZYLEN(max_gas))
+				for(var/gas in max_gas)
+					if(environment.gas[gas] > max_gas[gas])
+						atmos_suitable = FALSE
+						break
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -178,8 +181,11 @@
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		adjustBruteLoss(unsuitable_atoms_damage)
-	return 1
+		adjustBruteLoss(unsuitable_atmos_damage)
+
+/mob/living/simple_animal/proc/escape(mob/living/M, obj/O)
+	O.unbuckle_mob(M)
+	visible_message("<span class='danger'>\The [M] escapes from \the [O]!</span>")
 
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
@@ -198,7 +204,12 @@
 	if(!Proj || Proj.nodamage)
 		return
 
-	adjustBruteLoss(Proj.damage)
+	var/damage = Proj.damage
+	if(Proj.damtype == STUN)
+		damage = (Proj.damage / 8)
+
+	adjustBruteLoss(damage)
+	Proj.on_hit(src)
 	return 0
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
@@ -208,33 +219,25 @@
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
 			M.do_attack_animation(src)
 			//TODO: Push the mob away or something
 
-		if(I_GRAB)
-			if (M == src)
-				return
-			if (!(status_flags & CANPUSH))
-				return
-
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
-
-			M.put_in_active_hand(G)
-
-			G.synch()
-			G.affecting = src
-			LAssailant = M
-
-			M.visible_message("<span class='warning'>[M] has grabbed \the [src] passively!</span>")
-			M.do_attack_animation(src)
-
 		if(I_HURT)
-			adjustBruteLoss(harm_intent_damage)
-			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
+			var/dealt_damage = harm_intent_damage
+			var/harm_verb = response_harm
+			if(ishuman(M) && M.species)
+				var/datum/unarmed_attack/attack = M.get_unarmed_attack(src)
+				dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
+				harm_verb = pick(attack.attack_verb)
+				if(attack.sharp || attack.edge)
+					adjustBleedTicks(dealt_damage)
+
+			adjustBruteLoss(dealt_damage)
+			M.visible_message("<span class='warning'>[M] [harm_verb] \the [src]!</span>")
 			M.do_attack_animation(src)
 
 	return
@@ -247,19 +250,15 @@
 				to_chat(user, "<span class='notice'>That [MED] won't help \the [src] at all!</span>")
 				return
 			if(health < maxHealth)
-				if(MED.amount >= 1)
+				if(MED.can_use(1))
 					adjustBruteLoss(-MED.animal_heal)
-					MED.amount -= 1
-					if(MED.amount <= 0)
-						qdel(MED)
-					for(var/mob/M in viewers(src, null))
-						if ((M.client && !( M.blinded )))
-							M.show_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
+					visible_message("<span class='notice'>[user] applies the [MED] on [src].</span>")
+					MED.use(1)
 		else
 			to_chat(user, "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>")
 		return
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/hatchet))
+		if(O.edge)
 			harvest(user)
 	else
 		if(!O.force)
@@ -269,19 +268,23 @@
 
 /mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 
-	visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by [user].</span>")
+	visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by [user]!</span>")
 
 	if(O.force <= resistance)
-		to_chat(user, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
+		to_chat(user, "<span class='danger'>This weapon is ineffective; it does no damage.</span>")
 		return 2
 
 	var/damage = O.force
 	if (O.damtype == PAIN)
 		damage = 0
-	if(supernatural && istype(O,/obj/item/weapon/nullrod))
-		damage *= 2
-		purge = 3
+	if (O.damtype == STUN)
+		damage = (O.force / 8)
+		if(supernatural && istype(O,/obj/item/weapon/nullrod))
+			damage *= 2
+			purge = 3
 	adjustBruteLoss(damage)
+	if(O.edge || O.sharp)
+		adjustBleedTicks(damage)
 
 	return 0
 
@@ -302,18 +305,13 @@
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
 
-/mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	if(simplify_dead_icon)
-		var/matrix/M = matrix() //shamelessly stolen from human update_icons
-		M.Turn(90)
-		M.Translate(1,-6)
-		src.transform = M
-	else
-		icon_state = icon_dead
+/mob/living/simple_animal/death(gibbed, deathmessage = "dies!", show_dead_message)
+	icon_state = icon_dead
+	update_icon()
 	density = 0
 	adjustBruteLoss(maxHealth) //Make sure dey dead.
 	walk_to(src,0)
-	return ..(gibbed,deathmessage)
+	return ..(gibbed,deathmessage,show_dead_message)
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
@@ -350,6 +348,23 @@
 	..()
 	updatehealth()
 
+/mob/living/simple_animal/electrocute_act(damage, var/obj/source)
+	health -= damage
+	playsound(loc, "sparks", 50, 1, -1)
+	if (damage > 15)
+		src.visible_message(
+			"<span class='warning'>[src] was electrocuted[source ? " by the [source]" : ""]!</span>", \
+			"<span class='danger'>You feel a powerful shock course through your body!</span>", \
+			"<span class='warning'>You hear a heavy electrical crack.</span>" \
+		)
+	else
+		src.visible_message(
+			"<span class='warning'>[src] was shocked[source ? " by the [source]" : ""].</span>", \
+			"<span class='warning'>You feel a shock course through your body.</span>", \
+			"<span class='warning'>You hear a zapping sound.</span>" \
+		)
+	updatehealth()
+
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
@@ -368,7 +383,7 @@
 
 	message = sanitize(message)
 
-	..(message, null, verb)
+	..(message, species_language, verb)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -383,10 +398,13 @@
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
 			var/obj/item/meat = new meat_type(get_turf(src))
-			meat.name = "[src.name] [meat.name]"
+			meat.SetName("[src.name] [meat.name]")
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			if(can_bleed)
+				var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
+				splat.basecolor = bleed_colour
+				splat.update_icon()
 			qdel(src)
 		else
 			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
@@ -401,3 +419,25 @@
 	return
 /mob/living/simple_animal/ExtinguishMob()
 	return
+
+/mob/living/simple_animal/is_burnable()
+	return heat_damage_per_tick
+
+/mob/living/simple_animal/proc/adjustBleedTicks(var/amount)
+	if(!can_bleed)
+		return
+
+	if(amount > 0)
+		bleed_ticks = max(bleed_ticks, amount)
+	else
+		bleed_ticks = max(bleed_ticks + amount, 0)
+
+	bleed_ticks = round(bleed_ticks)
+
+/mob/living/simple_animal/proc/handle_bleeding()
+	bleed_ticks--
+	adjustBruteLoss(1)
+
+	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
+	drip.basecolor = bleed_colour
+	drip.update_icon()

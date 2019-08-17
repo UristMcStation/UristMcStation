@@ -7,6 +7,7 @@
 
 /var/global/respawntime = 12000 //default 20 mins, adding the var so we can change it for different roundtypes. gotta keep the action rollin'
 
-/obj/effect/landmark/costume/monkeysuit/New()
+/obj/effect/landmark/costume/monkeysuit/Initialize()
+	. = ..()
 	new /obj/item/clothing/suit/monkeysuit(src.loc)
-	qdel(src)
+	return INITIALIZE_HINT_QDEL

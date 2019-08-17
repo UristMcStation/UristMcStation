@@ -1,3 +1,11 @@
+GLOBAL_LIST_INIT(borer_reagent_types_by_name, setup_borer_reagents())
+
+/proc/setup_borer_reagents()
+	. = list()
+	for(var/reagent_type in list(/datum/reagent/alkysine, /datum/reagent/bicaridine, /datum/reagent/hyperzine, /datum/reagent/tramadol))
+		var/datum/reagent/R = reagent_type
+		.[initial(R.name)] = reagent_type
+
 /mob/living/simple_animal/borer/verb/release_host()
 	set category = "Abilities"
 	set name = "Release Host"
@@ -109,7 +117,7 @@
 
 		//Update their traitor status.
 		if(host.mind)
-			borers.add_antagonist_mind(host.mind, 1, borers.faction_role_text, borers.faction_welcome)
+			GLOB.borers.add_antagonist_mind(host.mind, 1, GLOB.borers.faction_role_text, GLOB.borers.faction_welcome)
 
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
@@ -218,13 +226,13 @@
 	if(chemicals < 50)
 		to_chat(src, "You don't have enough chemicals!")
 
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("anti_toxin","bicaridine","kelotane","alkysine","hyperzine","tramadol")
+	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in GLOB.borer_reagent_types_by_name
 
 	if(!chem || chemicals < 50 || !host || controlling || !src || stat) //Sanity check.
 		return
 
 	to_chat(src, "<span class='danger'>You squirt a measure of [chem] from your reservoirs into \the [host]'s bloodstream.</span>")
-	host.reagents.add_reagent(chem, 10)
+	host.reagents.add_reagent(GLOB.borer_reagent_types_by_name[chem], 10)
 	chemicals -= 50
 
 /mob/living/simple_animal/borer/verb/secrete_advanced_chemicals()
@@ -335,7 +343,7 @@
 
 			host_brain.ckey = host.ckey
 
-			host_brain.name = host.name
+			host_brain.SetName(host.name)
 
 			if(!host_brain.computer_id)
 				host_brain.computer_id = h2b_id
@@ -380,4 +388,4 @@
 	rejuvenate()
 	restore_blood()
 	fixblood()
-	update_canmove()
+	UpdateLyingBuckledAndVerbStatus()

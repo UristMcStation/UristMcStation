@@ -49,10 +49,10 @@
 					M.apply_damage(rand(force/2, force), BRUTE, hit_zone, blocked)
 				if("tox")
 					if(M.reagents)
-						if(M.reagents.get_reagent_amount("carpotoxin") + force < force*2)
-							M.reagents.add_reagent("carpotoxin", force)
-						if(M.reagents.get_reagent_amount("cryptobiolin") + force < force*2)
-							M.reagents.add_reagent("cryptobiolin", force)
+						if(M.reagents.get_reagent_amount(/datum/reagent/toxin/carpotoxin) + force < force*2)
+							M.reagents.add_reagent(/datum/reagent/toxin/carpotoxin, force)
+						if(M.reagents.get_reagent_amount(/datum/reagent/cryptobiolin) + force < force*2)
+							M.reagents.add_reagent(/datum/reagent/cryptobiolin, force)
 
 			src.occupant_message("You hit [target].")
 			src.visible_message("<font color='red'><b>[src.name] hits [target].</b></font>")
@@ -229,8 +229,8 @@
 
 /obj/mecha/combat/Topic(href,href_list)
 	..()
-	var/datum/topic_input/filter = new (href,href_list)
-	if(filter.get("close"))
+	var/datum/topic_input/F = new (href,href_list)
+	if(F.get("close"))
 		am = null
 		return
 	/*

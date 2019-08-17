@@ -3,35 +3,6 @@
 
 //Potential replacement for genetics revives or something I dunno (?)
 
-//Find a dead mob with a brain and client.
-/proc/find_dead_player(var/find_key, var/include_observers = 0)
-	if(isnull(find_key))
-		return
-
-	var/mob/selected = null
-
-	if(include_observers)
-		for(var/mob/M in player_list)
-			if((M.stat != DEAD) || (!M.client))
-				continue
-			if(M.ckey == find_key)
-				selected = M
-				break
-	else
-		for(var/mob/living/M in player_list)
-			//Dead people only thanks!
-			if((M.stat != DEAD) || (!M.client))
-				continue
-			//They need a brain!
-			if(istype(M, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(H.should_have_organ(BP_BRAIN) && !H.has_brain())
-					continue
-			if(M.ckey == find_key)
-				selected = M
-				break
-	return selected
-
 #define CLONE_BIOMASS 150
 
 /obj/machinery/clonepod
@@ -52,19 +23,14 @@
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
+/obj/machinery/clonepod/Initialize()
+	. = ..()
+	build_default_parts(/obj/item/weapon/circuitboard/clonepod)
+
 /obj/machinery/clonepod/New()
 	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
 	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
-	RefreshParts()
 	update_icon()
 
 /obj/machinery/clonepod/RefreshParts()
@@ -105,7 +71,7 @@
 		if(!istype(clonemind, /datum/mind))	//not a mind
 			return 0
 	else
-		for(var/mob/observer/ghost/G in player_list)
+		for(var/mob/observer/ghost/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -127,7 +93,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.adjustCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
+	H.adjustCloneLoss(H.maxHealth/2) // We want to put them exactly at the crit level, so we deal this much clone damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
@@ -172,10 +138,10 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.health - occupant.maxHealth * config.health_threshold_crit / 100) / (occupant.maxHealth * (heal_level - config.health_threshold_crit) / 100), 100)
+	return between(0, 100 * (occupant.getCloneLoss() - occupant.maxHealth / 100) / (occupant.maxHealth * heal_level / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/process()
+/obj/machinery/clonepod/Process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)
@@ -207,8 +173,8 @@
 		occupant.adjustBrainLoss(-(ceil(0.5*heal_rate)))
 
 		//So clones don't die of oxyloss in a running pod.
-		if(occupant.reagents.get_reagent_amount("inaprovaline") < 30)
-			occupant.reagents.add_reagent("inaprovaline", 60)
+		if(occupant.reagents.get_reagent_amount(/datum/reagent/inaprovaline) < 30)
+			occupant.reagents.add_reagent(/datum/reagent/inaprovaline, 60)
 		occupant.Sleeping(30)
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
@@ -380,23 +346,6 @@
 	else if (mess)
 		icon_state = "pod_g"
 
-//Upgraded parts for mapping
-
-/obj/machinery/clonepod/advanced/New()
-	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module/phasic(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-
-	RefreshParts()
-	update_icon()
-
 //Health Tracker Implant
 
 /obj/item/weapon/implant/health
@@ -458,7 +407,7 @@
 		for(var/i=new_SE.len;i<=DNA_SE_LENGTH;i++)
 			new_SE += rand(1,1024)
 		buf.dna.SE=new_SE
-		buf.dna.SetSEValueRange(MONKEYBLOCK,0xDAC, 0xFFF)
+		buf.dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
 
 /obj/item/weapon/disk/data/New()
 	..()
@@ -496,7 +445,7 @@
  *	Manual -- A big ol' manual.
  */
 
-/obj/item/weapon/paper/Cloning
+/* /obj/item/weapon/paper/Cloning
 	name = "H-87 Cloning Apparatus Manual"
 	info = {"<h4>Getting Started</h4>
 	Congratulations, your station has purchased the H-87 industrial cloning device!<br>
@@ -518,10 +467,19 @@
 	A load/save dialog will become available in each profile if a disk is inserted.</p><br>
 	<i>A good diskette is a great way to counter aforementioned genetic drift!</i><br>
 	<br>
-	<font size=1>This technology produced under license from Thinktronic Systems, LTD.</font>"}
+	<font size=1>This technology produced under license from Thinktronic Systems, LTD.</font>"} */ //Hasn't been right ever since laces were added. -Vak
 
 //SOME SCRAPS I GUESS
 /* EMP grenade/spell effect
 		if(istype(A, /obj/machinery/clonepod))
 			A:malfunction()
 */
+
+//Used for new human mobs created by cloning/goleming/etc.
+/mob/living/carbon/human/proc/set_cloned_appearance()
+	f_style = "Shaved"
+	if(dna.species == SPECIES_HUMAN) //no more xenos losing ears/tentacles
+		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
+	QDEL_NULL_LIST(worn_underwear)
+	worn_underwear = list()
+	regenerate_icons()

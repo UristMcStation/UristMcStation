@@ -14,10 +14,10 @@
 		new new_type(get_turf(src))
 		qdel(src)
 
-	processing_objects.Add(src)
+	START_PROCESSING(SSobj, src)
 	spawned_animal = new spawn_type(get_turf(src))
 
-/obj/effect/landmark/animal_spawner/process()
+/obj/effect/landmark/animal_spawner/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
 		spawned_animal = new spawn_type(src)
@@ -26,7 +26,7 @@
 			spawned_animal.loc = locate(src.x + rand(-12,12), src.y + rand(-12,12), src.z)
 
 /obj/effect/landmark/animal_spawner/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSobj, src)
 	..()
 
 /obj/effect/landmark/animal_spawner/panther
@@ -56,11 +56,11 @@
 		return
 
 	else
-		processing_objects.Add(src)
+		START_PROCESSING(SSobj, src)
 		spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(get_turf(src))
 
-/obj/effect/landmark/animal_spawner/random/process()
+/obj/effect/landmark/animal_spawner/random/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
 		spawn_type = pick(spawn_list)
@@ -73,7 +73,7 @@
 	if(crosstrigger) //if an animal crosses this thing, they "leave" the map, and then this landmark starts spawning animals
 		if (istype(M, /mob/living/simple_animal) || istype(M, /mob/living/carbon/human/monkey))
 			qdel(M)
-			processing_objects.Add(src)
+			START_PROCESSING(SSobj, src)
 			return
 
 	else
@@ -150,7 +150,7 @@
 	icon = 'icons/uristmob/monkey.dmi'
 	icon_state = "preview"
 	icon_living = "preview"
-	icon_dead = "preview"
+	icon_dead = "preview_dead"
 	faction = "hostile"
 	mob_size = MOB_SMALL
 	speak_emote = list("chirps")
@@ -218,7 +218,7 @@
 	if(.)
 		emote("nashes at [.]")
 
-/mob/living/simple_animal/hostile/huntable/panther/AttackingTarget()
+/mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))
@@ -276,10 +276,10 @@
 	if(.)
 		emote("hisses wickedly")
 
-/mob/living/simple_animal/hostile/snake/AttackingTarget()
+/mob/living/simple_animal/hostile/snake/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
-	if(istype(target, /mob/living/carbon))
-		var/mob/living/carbon/L = target
+	if(istype(A, /mob/living/carbon))
+		var/mob/living/carbon/L = A
 		bite(L)
 
 /mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)

@@ -3,10 +3,11 @@
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/white
-	pda_type = /obj/item/device/pda/science
-	backpack = /obj/item/weapon/storage/backpack/toxins
-	satchel_one = /obj/item/weapon/storage/backpack/satchel_tox
-	messenger_bag = /obj/item/weapon/storage/backpack/messenger/tox
+	pda_type = /obj/item/modular_computer/pda/science
+
+/decl/hierarchy/outfit/job/science/New()
+	..()
+	BACKPACK_OVERRIDE_RESEARCH
 
 /decl/hierarchy/outfit/job/science/rd
 	name = OUTFIT_JOB_NAME("Research Director")
@@ -15,7 +16,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_hand = /obj/item/weapon/clipboard
 	id_type = /obj/item/weapon/card/id/science/head
-	pda_type = /obj/item/device/pda/heads/rd
+	pda_type = /obj/item/modular_computer/pda/heads/rd
 
 /decl/hierarchy/outfit/job/science/scientist
 	name = OUTFIT_JOB_NAME("Scientist")
@@ -32,11 +33,13 @@
 /decl/hierarchy/outfit/job/science/roboticist
 	name = OUTFIT_JOB_NAME("Roboticist")
 	uniform = /obj/item/clothing/under/rank/roboticist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/robotics
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/weapon/storage/belt/robotics/full
-	id_type = /obj/item/weapon/card/id/science/roboticist
+	id_type = /obj/item/weapon/card/id/science
 	pda_slot = slot_r_store
-	pda_type = /obj/item/device/pda/roboticist
-	backpack = /obj/item/weapon/storage/backpack/urist/robo
-	satchel_one = /obj/item/weapon/storage/backpack/urist/satchel_robo
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/robotics
+	pda_type = /obj/item/modular_computer/pda/roboticist
+
+/decl/hierarchy/outfit/job/science/roboticist/New()
+	..()
+	backpack_overrides.Cut()

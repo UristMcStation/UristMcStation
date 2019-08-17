@@ -1,4 +1,4 @@
-var/datum/antagonist/rogue_ai/malf
+GLOBAL_DATUM_INIT(malf, /datum/antagonist/rogue_ai, new)
 
 /datum/antagonist/rogue_ai
 	id = MODE_MALFUNCTION
@@ -16,10 +16,7 @@ var/datum/antagonist/rogue_ai/malf
 	initial_spawn_target = 1
 	antaghud_indicator = "hudmalai"
 	min_player_age = 18
-
-/datum/antagonist/rogue_ai/New()
-	..()
-	malf = src
+	skill_setter = /datum/antag_skill_setter/ai
 
 /datum/antagonist/rogue_ai/can_become_antag(var/datum/mind/player, var/ignore_role)
 	. = ..(player, ignore_role)
@@ -45,12 +42,13 @@ var/datum/antagonist/rogue_ai/malf
 	return 0
 
 // Malf setup things have to be here, since game tends to break when it's moved somewhere else. Don't blame me, i didn't design this system.
-/datum/antagonist/rogue_ai/greet(var/datum/mind/player)
+/datum/antagonist/rogue_ai/greet(var/datum/mind/player, var/skip_initial)
 
 	// Initializes the AI's malfunction stuff.
 	spawn(0)
-		if(!..())
-			return
+		if(!skip_initial)
+			if(!..())
+				return
 
 		var/mob/living/silicon/ai/A = player.current
 		if(!istype(A))
