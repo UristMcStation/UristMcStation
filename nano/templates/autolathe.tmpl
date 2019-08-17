@@ -18,7 +18,7 @@
 				{{:material.name}}<br />
 				{{:material.amount}} / {{:material.capacity}}<br />
 				{{for data.eject_amount_options: option: j}}
-					{{:helper.link(option, null, { 'eject' : material.name, 'eject_amount' : option}, material.sheets >= option ? null : 'disabled')}}
+					{{:helper.link(option, null, { 'eject' : material.id, 'eject_amount' : option}, material.sheets >= option ? null : 'disabled')}}
 				{{/for}}
 				<br/>
 			</td>
@@ -32,7 +32,7 @@
 		<tr>
 		{{for data.pages: page: i}}
 			<td>
-				{{:helper.link(page, null, { 'change_page' : page }, data.show_page == page ? 'disabled' : null)}}
+				{{:helper.link(page, null, { 'change_page' : page }, data.show_page == page ? 'selected' : null)}}
 			</td>
 		{{/for}}
 		</tr>
@@ -64,11 +64,16 @@
 			</td>
 			<td>
 			{{:helper.displayBar(data.current.progress, 0, data.current.target, 'good')}}<br>
-				{{:data.current.time_left}} - {{:data.current.percent}} %
+			{{if data.current.is_paused}}
+				PAUSED
+			{{else}}
+				{{:data.current.time_left}}
+			{{/if}}
+				 - {{:data.current.percent}} %
 			</td>
 			<td>
-				{{:helper.link("Abort", 'circlesmall-close', {'action' : "abort"})}}
-				{{:helper.link("Pause", 'pause', {'action' : "pause"} )}}
+				{{:helper.link("Pause", 'pause', {'pause' : 1}, null, data.current.is_paused ? 'yellowButton' : null)}}
+				{{:helper.link("Abort", 'circlesmall-close', {'abort' : 1})}}
 			</td>
 		{{else}}
 			<td colspan="5">
@@ -91,9 +96,9 @@
 				{{:pending.time_left}}
 			</td>
 			<td>
-				{{:helper.link("", 'circle-arrow-n', { 'action' : "move-up", 'index' : index+1 }, index < 1 ? 'disabled' : null)}}
-				{{:helper.link("", 'circle-arrow-s', { 'action' : "move-down", 'index' : index+1 }, index < data.queue.length-1 ? null : 'disabled')}} 
-				{{:helper.link("Cancel", 'circlesmall-close', { 'action' : "cancel", 'index' : index+1 })}}
+				{{:helper.link("", 'circle-arrow-n', { 'move_up' : index+1 }, index < 1 ? 'disabled' : null)}}
+				{{:helper.link("", 'circle-arrow-s', { 'move_down' : index+1 }, index < data.queue.length-1 ? null : 'disabled')}} 
+				{{:helper.link("Cancel", 'circlesmall-close', { 'cancel' : index+1 })}}
 			</td>
 		</tr>
 		{{empty}}
@@ -120,7 +125,7 @@
 	<h3>Showing:</h3>
 	<div>
 		{{for data.categories}}
-			{{:helper.link(value, null, { 'change_category' : value }, value == data.show_category ? 'disabled' : null)}}
+			{{:helper.link(value, null, { 'change_category' : value }, value == data.show_category ? 'selected' : null)}}
 		{{/for}}
 	</div>
 	<br />

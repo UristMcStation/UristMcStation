@@ -3,6 +3,7 @@
 
 var/const/PRINT_TIME_BASE_TIME = 1
 var/const/PRINT_TIME_ROUNDING_TARGET = 25
+var/const/PRINT_TIME_EXPOTENCY_POWER = 1/2.5
 var/const/PRINT_TIME_COEFFICIENT = 1/25
 
 var/const/EXTRA_COST_FACTOR = 1.25
@@ -48,7 +49,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 	for (var/material in resources)
 		total_matter += resources[material]
 
-	print_time = PRINT_TIME_BASE_TIME + (total_matter**(1/3)) * PRINT_TIME_COEFFICIENT
+	print_time = PRINT_TIME_BASE_TIME + (total_matter**(PRINT_TIME_EXPOTENCY_POWER)) * PRINT_TIME_COEFFICIENT
 
 	if (!print_time)
 		print_time = 1

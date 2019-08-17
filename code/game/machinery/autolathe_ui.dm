@@ -15,6 +15,7 @@
 	for (var/material in stored_material)
 		storage.Add(list(list(
 			"name" = capitalize(material),
+			"id" = material,
 			"amount" = stored_material[material],
 			"capacity" = storage_capacity[material],
 			"sheets" = stored_material[material]/SHEET_MATERIAL_AMOUNT
@@ -52,7 +53,7 @@
 			"category" = R.category,
 			"resources" = english_list(resources, and_text = ", "),
 			"is_stack" = R.is_stack,
-			"hidden" = R.hidden
+			"hidden" = R.hidden,
 			"time" = time2text(round(10 * R.print_time / print_time_rating), "mm:ss")
 		))
 
@@ -99,13 +100,15 @@
 		show_page = href_list["change_page"]
 		. = TOPIC_REFRESH
 
-	// RECIPE PAGE HREFS
-
 	else if (href_list["eject"] && stored_material)
 		var/amount = Clamp(text2num(href_list["eject_amount"]),0,60)
-		world.log << "[src] got href 'eject' on [href_list["eject"]] with the amount [amount]"
+		if (amount)
+			if(eject_material(href_list["eject"], amount))
+				. = TOPIC_REFRESH
 
-		else if(href_list["make"] && machine_recipes)
+	// RECIPE PAGE HREFS
+
+	else if(href_list["make"] && machine_recipes)
 		. = TOPIC_REFRESH
 		var/index = text2num(href_list["make"])
 		var/datum/autolathe/recipe/making
@@ -127,24 +130,29 @@
 
 	else if (href_list["pause"] && current_job)
 		pause_job()
+		. = TOPIC_REFRESH
 
 	else if (href_list["abort"] && current_job)
 		abort_job()
+		. = TOPIC_REFRESH
 
 	else if (href_list["move_up"] && job_queue.len)
-		var/argument = txt2num(href_list["move_down"])
+		var/argument = text2num(href_list["move_up"])
 		if (argument && job_queue[argument])
 			move_job(argument, argument - 1)
+		. = TOPIC_REFRESH
 
 	else if (href_list["move_down"] && job_queue.len)
-		var/argument = txt2num(href_list["move_down"])
+		var/argument = text2num(href_list["move_down"])
 		if (argument && job_queue[argument])
 			move_job(argument, argument + 1)
+		. = TOPIC_REFRESH
 
 	else if (href_list["cancel"] && job_queue.len)
-		var/argument = txt2num(href_list["cancel"])
+		var/argument = text2num(href_list["cancel"])
 		if (argument && job_queue[argument])
 			cancel_job(argument)
+		. = TOPIC_REFRESH
 
 
 /obj/machinery/autolathe/proc/abort_job()
@@ -157,14 +165,12 @@
 		current_job.pause()
 
 /obj/machinery/autolathe/proc/move_job(var/source, var/destination)
-	if (source < 1 || source > job_queue.len)
+	if (source == destination || source < 1 || source > job_queue.len)
 		return
-	if (destination > 1 && destination <= job_queue.len)
-		var/T = job_queue[destination]
-		job_queue[destination] = job_queue[source]
-		job_queue[source] = T
+	if (destination >= 1 && destination <= job_queue.len)
+		job_queue.Swap(source, destination)
 
 
 /obj/machinery/autolathe/proc/cancel_job(var/target)
-	if (target > 1 && target < job_queue.len)
+	if (target >= 1 && target <= job_queue.len)
 		removeFromQueue(target)

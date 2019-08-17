@@ -178,9 +178,9 @@
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
 		man_rating += M.rating
 
-	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating  * 25000
-	storage_capacity["glass"] = mb_rating  * 12500
-	storage_capacity["wood"] = mb_rating  * 12500
+	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating  * SHEET_MATERIAL_AMOUNT * 10 // 10 times the total matter bin rating, default example: 10 * 3 = 30 sheets total
+	storage_capacity["glass"] = mb_rating  * SHEET_MATERIAL_AMOUNT * 6
+	storage_capacity["wood"] = mb_rating  * SHEET_MATERIAL_AMOUNT * 6
 	print_time_rating = man_rating
 	mat_efficiency = 1.1 - man_rating * 0.1// Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 
@@ -254,12 +254,23 @@
 	if(!Adjacent(user))
 		to_chat(user, "<span class='warning'>You can't reach it.</span>")
 		return
-	var/extraction_choices = list("steel", "glass", "wood")
+	var/extraction_choices = list()
+	for (var/material in stored_material)
+		extraction_choices += capitalize(material)
 	var/material = input(user, "What do you want to extract?", "Materials Extraction") as null|anything in extraction_choices
 	var/mat_number = input(user, "How much do you want to extract? (Max: 60)", "Materials Extraction") as num
+
+	mat_number = Clamp(mat_number, 0, 60)
 	if(!mat_number)
 		return
-	mat_number = Clamp(mat_number, 0, 60)
+
+	eject_material(lowertext(material), mat_number)
+
+/obj/machinery/autolathe/proc/eject_material(var/material, var/amount)
+	var/stored_material_amount = stored_material[material]
+	if(!stored_material_amount || SHEET_MATERIAL_AMOUNT > stored_material_amount)
+		return 0
+
 	var/extraction_path
 	switch(material)
 		if("steel")
@@ -268,18 +279,23 @@
 			extraction_path = /obj/item/stack/material/glass
 		if("wood")
 			extraction_path = /obj/item/stack/material/wood
+		else
+			return 0
+
 	//We have all the info we need now - calculate how much it'll cost.
-	var/mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
-	var/stored_materials = stored_material[material]
-	if(stored_materials < mat_cost) //Not enough material stored. Settle for the next best thing.
-		var/new_mat_number = stored_materials / SHEET_MATERIAL_AMOUNT
-		mat_number = new_mat_number
-	mat_number = Clamp(mat_number, 0, 60) // Clamp and round to prevent decimal issues.
-	mat_number = Floor(mat_number)
-	mat_cost = mat_number * SHEET_MATERIAL_AMOUNT
-	if(SHEET_MATERIAL_AMOUNT > stored_materials)
-		return //And all was for naught, because you didn't have enough.
-	new extraction_path(loc, mat_number)
+	var/mat_cost = amount * SHEET_MATERIAL_AMOUNT
+
+	if(stored_material_amount < mat_cost) //Not enough material stored. Settle for the next best thing.
+		var/new_amount = stored_material_amount / SHEET_MATERIAL_AMOUNT
+		amount = new_amount
+		amount = Clamp(amount, 0, 60) // Clamp and round to prevent decimal issues.
+		amount = Floor(amount)
+		if (!amount)
+			return 0
+		mat_cost = amount * SHEET_MATERIAL_AMOUNT
+
+	new extraction_path(loc, amount)
 	stored_material[material] -= mat_cost
+	return 1
 
 

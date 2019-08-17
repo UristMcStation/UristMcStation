@@ -96,6 +96,6 @@
 		"name" = target.name,
 		"target" = target.print_time,
 		"progress" = progress,
-		"percent" = (progress/target.print_time)*100
+		"percent" = (progress/target.print_time)*100,
 		"is_paused" = paused
 		)
