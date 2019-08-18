@@ -112,3 +112,25 @@
 	display_name = "blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blindfold
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/*
+ * URIST EDIT BY IRRA IN 2019-08-18
+ *
+ * Fashionista!!
+ */
+/datum/gear/eyes/welding
+	display_name = "welding goggles"
+	path = /obj/item/clothing/glasses/welding
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer, /datum/job/qm,/datum/job/cargo_tech)
+
+/datum/gear/eyes/welding/superior
+	display_name = "welding goggles, superior"
+	path = /obj/item/clothing/glasses/welding/superior
+	allowed_roles = list(/datum/job/chief_engineer)
+
+/datum/gear/eyes/security/goggles
+	display_name = "Security HUD Goggles"
+	path = /obj/item/clothing/glasses/sunglasses/sechud/goggles
+/*
+ * END URIST EDIT
+ */
