@@ -20,6 +20,8 @@
 	allowed_roles = list(/datum/job/captain)
 
 /datum/gear/suit/wintercoat/security
+	display_name = "winter coat, security"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	allowed_roles = list(/datum/job/officer, /datum/job/hos, /datum/job/warden, /datum/job/detective)
 
 /datum/gear/suit/wintercoat/medical
@@ -55,3 +57,4 @@
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list(/datum/job/mining)
+
