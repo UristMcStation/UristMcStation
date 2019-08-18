@@ -58,3 +58,13 @@
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list(/datum/job/mining)
 
+/*
+ * Loadout definitions unique to NERVA
+ */
+
+/datum/gear/suit/cloak_security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/suit/storage/hooded/seccloak
+	allowed_roles = list(/datum/job/officer, /datum/job/hos, /datum/job/warden, /datum/job/detective)
+
+
