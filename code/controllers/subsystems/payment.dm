@@ -1,20 +1,12 @@
-var/datum/controller/payment_controller/payment_controller
-
-/datum/controller/payment_controller
-	var/timerbuffer = 0 //buffer for time check
+SUBSYSTEM_DEF(payment_controller)
+	name = "Payment"
+	wait = 15 SECONDS
+	var/timerbuffer = 60 MINUTES //buffer for time check
 	var/list/brand = list("Cheesie Honkers", "Men At Arms Tobacco", "Lucky Stars Cigarettes", "Carcinoma Angels Cigarettes", "Robust Coffee", "Getmore Chocolate Corp products", "4no Raisins", "SweatMax products", "Space Cola", "Space Mountain Wind", "Dr.Gibb", "ClothingLord 9000 Clothes", "NanoTrasen Personal Computers", "Rougelady Chewing Tobacco", "Robust Softdrinks products") //this is just for the jokes
 	var/payment_modifier = 4 //economic_power * this number = pay. tweak this number!
 	var/moneybuffer = 0 //how much money are we removing from the nerva's account?
 
-/datum/controller/payment_controller/New()
-	timerbuffer = 60 MINUTES
-	START_PROCESSING(SSprocessing, src)
-
-/datum/controller/payment_controller/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	. = ..()
-
-/datum/controller/payment_controller/Process()
+/datum/controller/subsystem/payment_controller/fire()
 	if (TimeUntilPayday() <= 0)
 		timerbuffer += 60 MINUTES
 
@@ -23,7 +15,6 @@ var/datum/controller/payment_controller/payment_controller
 			return
 
 		else
-
 			PayPeople()
 			var/newbrand = pick(brand) //this is a dumb meme
 			GLOB.global_announcer.autosay("<b>Hourly salary payments have been processed and deposited into your accounts. Thank you for your service to the [GLOB.using_map.station_name]. This message is brought to you by [newbrand]: make sure to buy [newbrand] at your nearest vending machine.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
@@ -31,10 +22,10 @@ var/datum/controller/payment_controller/payment_controller
 			GLOB.global_announcer.autosay("<b>[moneybuffer]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
 			moneybuffer = 0
 
-/datum/controller/payment_controller/proc/TimeUntilPayday()
+/datum/controller/subsystem/payment_controller/proc/TimeUntilPayday()
 	return timerbuffer - round_duration_in_ticks
 
-/datum/controller/payment_controller/proc/PayPeople()
+/datum/controller/subsystem/payment_controller/proc/PayPeople()
 	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_) //we don't pay dead people
 		if(H.mind)
 			if(H.mind.initial_account && H.mind.assigned_role) //this excludes stowaways and other non-crew roles including derelict ships
