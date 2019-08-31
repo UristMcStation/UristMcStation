@@ -73,7 +73,7 @@
 
 /datum/scomscience/recipe/c20r
 	name = "C-20r SMG"
-	path = /obj/item/weapon/gun/projectile/automatic/merc_smg
+	path = /obj/item/weapon/gun/projectile/automatic/c20r
 	category = "Medic"
 	resources = 100
 

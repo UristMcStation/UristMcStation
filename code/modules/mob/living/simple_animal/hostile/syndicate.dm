@@ -99,11 +99,11 @@
 	rapid = 2
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/pistol
+	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
-	weapon1 = /obj/item/weapon/gun/projectile/automatic/merc_smg
+	weapon1 = /obj/item/weapon/gun/projectile/automatic/c20r
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"

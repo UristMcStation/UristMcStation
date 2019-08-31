@@ -178,14 +178,10 @@
 	name = "ammunition locker"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_off = "hossecureoff"
 
 /obj/structure/closet/secure_closet/nervaammo/WillContain()
 	return list(
 		/obj/item/weapon/storage/box/nervaammo = 3,
-		/obj/item/weapon/storage/box/shotgunammo,
-		/obj/item/weapon/storage/box/shotgunshells
+		/obj/item/weapon/storage/box/ammo/shotgunammo,
+		/obj/item/weapon/storage/box/ammo/shotgunshells
 		)

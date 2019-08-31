@@ -196,7 +196,7 @@
 	name = "\improper LBX AC 10 \"Scattershot\""
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
-	projectile = /obj/item/projectile/bullet/pistol
+	projectile = /obj/item/projectile/bullet/pistol/medium
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 	fire_volume = 80
 	projectiles = 40
@@ -208,7 +208,7 @@
 	name = "\improper Ultra AC 2"
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
-	projectile = /obj/item/projectile/bullet/pistol
+	projectile = /obj/item/projectile/bullet/pistol/medium
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiles = 300
 	projectiles_per_shot = 3

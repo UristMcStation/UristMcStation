@@ -184,12 +184,13 @@
 	startswith = list(/obj/item/ammo_magazine/shotholder/stun = 2)
 
 /obj/item/weapon/storage/box/ammo/sniperammo
-	name = "box of sniper shells"
-	startswith = list(/obj/item/ammo_casing/shell = 7)
+	name = "box of 14.5mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	startswith = list(/obj/item/ammo_casing/a145 = 7)
 
 /obj/item/weapon/storage/box/ammo/sniperammo/apds
-	name = "box of sniper APDS shells"
-	startswith = list(/obj/item/ammo_casing/shell/apds = 3)
+	name = "box of 14.5mm APDS shells"
+	startswith = list(/obj/item/ammo_casing/a145/apds = 3)
 
 /obj/item/weapon/storage/box/flashbangs
 	name = "box of flashbangs"

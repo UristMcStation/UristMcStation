@@ -121,7 +121,7 @@
 	icon_state = "rifle-casing" //maybe change this
 	spent_icon = "rifle-casing-spent"
 	caliber = "7.92x57mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/military //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
 
 /obj/item/weapon/gun/projectile/automatic/stg44
 	item_icons = DEF_URIST_INHANDS
@@ -173,7 +173,7 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = "7.92x33mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/military //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
 
 /obj/item/weapon/gun/projectile/automatic/mp40
 	item_icons = DEF_URIST_INHANDS
@@ -209,7 +209,7 @@
 	name = "MP 40 (9mm)"
 	icon_state = "mpmag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 32
 
 /obj/item/ammo_magazine/mc9mm/mp40/empty
@@ -242,7 +242,7 @@
 	name = "Walther P38 magazine (9mm)"
 	icon_state = "p38mag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 8
 
 /obj/item/ammo_magazine/mc9mm/p38/empty
@@ -490,7 +490,7 @@
 	icon_state = "ppsh_drum"
 	icon = 'icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 71
 
 /obj/item/ammo_magazine/mc9mm/ppsh/empty
@@ -523,7 +523,7 @@
 	name = "TT-33 magazine (7.62x25mm)"
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 8
 
 /obj/item/ammo_magazine/mc9mm/tt33/empty

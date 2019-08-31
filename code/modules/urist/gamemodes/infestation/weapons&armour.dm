@@ -239,13 +239,14 @@
 	scoped = 1
 	icon_state = "FALrifle-scope"
 */
+/*
 /obj/item/weapon/gun/projectile/a18/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
 	toggle_scope(usr, 2.0)
-
+*/
 /obj/item/weapon/gun/projectile/a18/update_icon()
 	..()
 /*
@@ -365,7 +366,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
-	caliber = CALIBER_ANTIQUE_RIFLE
+	caliber = "a762"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
@@ -485,7 +486,7 @@
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "13.2x108mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/shell
+	projectile_type = /obj/item/projectile/bullet/rifle/a145
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
 /obj/item/projectile/bullet/rifle/a132x108mm

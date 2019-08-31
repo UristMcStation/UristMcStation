@@ -37,7 +37,7 @@
 	caliber = "9mm"
 	silenced = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	load_method = 2
 
 //BANG BANG BANG, BANG BANG
@@ -128,8 +128,8 @@ the sprite and make my own projectile -Glloyd*/
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/pistol
-	magazine_type = /obj/item/ammo_magazine/pistol
+	ammo_type = /obj/item/ammo_casing/c45
+	magazine_type = /obj/item/ammo_magazine/c45m
 	auto_eject = 1
 
 /obj/item/weapon/gun/projectile/silenced/knight/update_icon()
@@ -168,7 +168,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/a556
 	caliber = "a556"
-	ammo_type = /obj/item/ammo_casing/rifle
+	ammo_type = /obj/item/ammo_casing/a556
 	mag_type = MAGAZINE
 
 /obj/item/weapon/gun/projectile/automatic/l6_saw/m60
@@ -255,7 +255,7 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/m16)
 	magazine_type = /obj/item/ammo_magazine/a556/m16
-	ammo_type = /obj/item/ammo_casing/rifle
+	ammo_type = /obj/item/ammo_casing/a556
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -344,7 +344,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 3
 	force = 10
-	caliber = CALIBER_ANTIQUE_MAGNUM
+	caliber = ".45"
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
@@ -371,7 +371,7 @@ the sprite and make my own projectile -Glloyd*/
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/pistol
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
-	caliber = CALIBER_ANTIQUE_MAGNUM
+	caliber = ".45"
 	max_ammo = 32
 
 /obj/item/ammo_magazine/c45m/m3/empty
@@ -384,7 +384,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "brownhp"
 	item_state = "pistol"
 	w_class = 2
-	caliber = CALIBER_PISTOL
+	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=2"
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
@@ -404,7 +404,7 @@ the sprite and make my own projectile -Glloyd*/
 	name = "Browning HP magazine (10mm)"
 	icon_state = "BROWNHPMAG"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 15
 
 /obj/item/ammo_magazine/mc9mm/bhp/empty
@@ -716,7 +716,7 @@ the sprite and make my own projectile -Glloyd*/
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = CALIBER_ANTIQUE_RIFLE
+	caliber = "a762"
 	handle_casings = HOLD_CASINGS
 //	load_method = SINGLE_CASING
 	max_shells = 5
@@ -746,7 +746,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "sexyrifle"
 	w_class = 4
 	force = 10
-	caliber = CALIBER_ANTIQUE_RIFLE
+	caliber = "a762"
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
@@ -813,10 +813,10 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
-	caliber = CALIBER_PISTOL_SMALL
+	caliber = "9mm"
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 	multiple_sprites = 1
 
@@ -831,9 +831,9 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "antiquerevolver"
 	item_state = "antiquerevolver"
 	max_shells = 6
-	caliber = CALIBER_ANTIQUE_MAGNUM
+	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/pistol/magnum
+	ammo_type = /obj/item/ammo_casing/c45
 
 /obj/item/weapon/gun/projectile/revolver/coltsaa/update_icon()
 	..()
@@ -844,18 +844,18 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/c45r
 	name = "speed loader (.45 magnum)"
-	desc = "A speed loader for antique revolvers."
+	desc = "A speed loader for revolvers."
 	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/pistol
+	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
-	caliber = CALIBER_ANTIQUE_MAGNUM
+	caliber = ".45"
 	max_ammo = 6
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45r/rubber
 	name = "speed loader (.45 magnum, rubber)"
 	icon_state = "R38"
-	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	ammo_type = /obj/item/ammo_casing/c45/rubber
 
 /obj/item/weapon/gun/projectile/revolver/hi2521r
 	icon = 'icons/urist/items/guns.dmi'
@@ -865,9 +865,9 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "combatrevolver"
 	item_state = "combatrevolver"
 	max_shells = 6
-	caliber = CALIBER_PISTOL
+	caliber = ".44"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/pistol
+	ammo_type = /obj/item/ammo_casing/c44
 
 /obj/item/weapon/gun/projectile/revolver/hi2521r/update_icon()
 	..()

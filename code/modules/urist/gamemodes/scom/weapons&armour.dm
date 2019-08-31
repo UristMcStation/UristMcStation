@@ -174,9 +174,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/smg(src)
-		new /obj/item/ammo_magazine/smg(src)
-		new /obj/item/ammo_magazine/smg(src)
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/a10mm(src)
 
 /obj/item/weapon/storage/box/sniperammo
 	name = "box of sniper ammo"
@@ -184,9 +184,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/mil_rifle(src)
-		new /obj/item/ammo_magazine/mil_rifle(src)
-		new /obj/item/ammo_magazine/mil_rifle(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
 
 /obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
@@ -194,9 +194,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/box/machinegun(src)
-		new /obj/item/ammo_magazine/box/machinegun(src)
-		new /obj/item/ammo_magazine/box/machinegun(src)
+		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/a762(src)
 
 /obj/item/weapon/storage/box/knightammo
 	name = "box of Knight ammo"
@@ -204,10 +204,10 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/pistol(src)
-		new /obj/item/ammo_magazine/pistol(src)
-		new /obj/item/ammo_magazine/pistol(src)
-		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/c45m(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

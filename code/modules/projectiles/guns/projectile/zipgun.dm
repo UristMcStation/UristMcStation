@@ -11,7 +11,7 @@
 	w_class = ITEM_SIZE_NORMAL
 
 	var/global/list/ammo_types = list(
-		/obj/item/ammo_casing/pistol,
+		/obj/item/ammo_casing/c9mm,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_casing/shotgun/pellet,
@@ -20,8 +20,8 @@
 		/obj/item/ammo_casing/shotgun/beanbag ,
 		/obj/item/ammo_casing/shotgun/stunshell,
 		/obj/item/ammo_casing/shotgun/flash,
-		/obj/item/ammo_casing/rifle/military,
-		/obj/item/ammo_casing/rifle
+		/obj/item/ammo_casing/a556,
+		/obj/item/ammo_casing/a762
 		)
 
 /obj/item/weapon/gun/projectile/pirate/Initialize()

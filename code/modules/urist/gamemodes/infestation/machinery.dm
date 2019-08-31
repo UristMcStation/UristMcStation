@@ -54,10 +54,10 @@
 	contraband = list(
 		/obj/item/weapon/storage/box/ammo/flashshells = 5,
 		/obj/item/weapon/storage/box/ammo/beanbags = 5,
-		/obj/item/ammo_magazine/pistol/small = 10,
-		/obj/item/ammo_magazine/pistol = 10,
-		/obj/item/ammo_magazine/mil_rifle = 10,
-		/obj/item/ammo_magazine/rifle = 10
+		/obj/item/ammo_magazine/c38 = 10,
+		/obj/item/ammo_magazine/c45m = 10,
+		/obj/item/ammo_magazine/a762 = 10,
+		/obj/item/ammo_magazine/a556 = 10
 		)
 
 //Assault mode clothing and armor vender

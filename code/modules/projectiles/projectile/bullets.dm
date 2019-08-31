@@ -123,17 +123,30 @@
 
 /obj/item/projectile/bullet/pistol
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	damage = 30
+	damage = 25 //9mm, .38, etc
 	distance_falloff = 3
 
-/obj/item/projectile/bullet/pistol/holdout
-	damage = 25
+/obj/item/projectile/bullet/pistol/medium
+	damage = 26.5 //.45
 	penetration_modifier = 1.2
 	distance_falloff = 4
 
-/obj/item/projectile/bullet/pistol/strong
+/obj/item/projectile/bullet/pistol/medium/smg
+	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	damage = 28 //10mm
+	penetration_modifier = 0.8
+
+/obj/item/projectile/bullet/pistol/medium/revolver
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	damage = 50
+	damage = 30 //.44 magnum or something
+
+/obj/item/projectile/bullet/pistol/strong //matebas
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	damage = 60 //.50AE
+	armor_penetration = 30
+
+/obj/item/projectile/bullet/pistol/strong/revolver //revolvers
+	damage = 50 //Revolvers get snowflake bullets, to keep them relevant
 	armor_penetration = 20
 	penetration_modifier = 0.8
 	distance_falloff = 2.5
@@ -151,7 +164,7 @@
 	sharp = 0
 
 //4mm. Tiny, very low damage, does not embed, but has very high penetration. Only to be used for the experimental SMG.
-/obj/item/projectile/bullet/flechette
+/obj/item/projectile/bullet/c4mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
 	damage = 8
 	penetrating = 1
@@ -189,20 +202,20 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
-	damage = 30
 	armor_penetration = 25
-	penetration_modifier = 1.5
 	penetrating = 1
 	distance_falloff = 1.5
 
-/obj/item/projectile/bullet/rifle/military
-	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
-	damage = 25
-	armor_penetration = 40
-	penetration_modifier = 1
+/obj/item/projectile/bullet/rifle/a556
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	damage = 30
 
-/obj/item/projectile/bullet/rifle/shell
+/obj/item/projectile/bullet/rifle/a762
+	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
+	damage = 35
+	armor_penetration = 30
+
+/obj/item/projectile/bullet/rifle/a145
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
 	damage = 80
 	stun = 3
@@ -213,15 +226,31 @@
 	penetration_modifier = 1.25
 	distance_falloff = 0.5
 
-/obj/item/projectile/bullet/rifle/shell/apds
+/obj/item/projectile/bullet/rifle/a145/apds
 	damage = 75
 	penetrating = 6
 	armor_penetration = 95
 	penetration_modifier = 1.5
 
 /* Miscellaneous */
+
+/obj/item/projectile/bullet/suffocationbullet//How does this even work?
+	name = "co bullet"
+	damage = 25
+	damage_type = OXY
+
+/obj/item/projectile/bullet/cyanideround
+	name = "poison bullet"
+	damage = 45
+	damage_type = TOX
+
+/obj/item/projectile/bullet/burstbullet
+	name = "exploding bullet"
+	damage = 25
+	embed = 0
+	edge = 1
+
 /obj/item/projectile/bullet/gyro
-	name = "minirocket"
 	fire_sound = 'sound/effects/Explosion1.ogg'
 
 /obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
@@ -239,7 +268,7 @@
 /obj/item/projectile/bullet/pistol/practice
 	damage = 5
 
-/obj/item/projectile/bullet/rifle/military/practice
+/obj/item/projectile/bullet/rifle/a762/practice
 	damage = 5
 
 /obj/item/projectile/bullet/shotgun/practice

@@ -33,8 +33,8 @@
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
-	new /obj/item/weapon/gun/projectile/revolver/medium(src)
-	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/weapon/gun/projectile/revolver/webley(src)
+	new /obj/item/ammo_magazine/c44(src)
 	new /obj/item/clothing/suit/armor/captain(src)
 	new /obj/item/weapon/melee/telebaton(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace(src)
@@ -113,10 +113,10 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/pistol/magnum_pistol(src)
-	new /obj/item/ammo_magazine/magnum(src)
-	new /obj/item/ammo_magazine/magnum(src)
-	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/ammo_magazine/a50(src)
 
 /obj/structure/closet/scom/assault
 	name = "S-COM Assault"
@@ -127,10 +127,10 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/pistol/magnum_pistol(src)
-	new /obj/item/ammo_magazine/magnum(src)
-	new /obj/item/ammo_magazine/magnum(src)
-	new /obj/item/ammo_magazine/magnum(src)
+	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/ammo_magazine/a50(src)
+	new /obj/item/ammo_magazine/a50(src)
 
 /obj/structure/closet/scom/heavy
 	name = "S-COM Heavy"

@@ -1,15 +1,15 @@
 /obj/item/weapon/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
-	icon = 'icons/obj/guns/pistol.dmi'
-	icon_state = "secguncomp"
+	icon = 'icons/obj/guns/pistols.dmi'
+	icon_state = "colt"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1000)
 	screen_shake = 1
 	combustion = 1
 
-	var/caliber = CALIBER_PISTOL		//determines which casings will fit
+	var/caliber = ".44"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
 	var/obj/item/ammo_casing/chambered = null
@@ -29,6 +29,7 @@
 	var/auto_eject_sound = null
 	var/mag_insert_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
 	var/mag_remove_sound = 'sound/weapons/guns/interaction/pistol_magout.ogg'
+
 
 	var/is_jammed = 0           //Whether this gun is jammed
 	var/jam_chance = 0          //Chance it jams on fire
