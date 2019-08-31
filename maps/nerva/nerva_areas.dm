@@ -194,6 +194,7 @@
 /area/security/entrance
 	name = "\improper Brig Entrance"
 	icon_state = "checkpoint1"
+	req_access = list()
 
 /area/security/checkpoint
 	name = "\improper Brig Checkpoint"
@@ -240,7 +241,6 @@
 /area/security/interrogation
 	name = "\improper Interrogation Room"
 	icon_state = "Warden"
-	req_access = list(access_armory)
 
 /area/security/boardarmoury
 	name = "\improper Boarding Armory"
@@ -400,6 +400,7 @@
 	icon_state = "engine_smes"
 	sound_env = SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	req_access = list(access_engine)
 
 /area/engineering/substation/first_deck
 	name = "\improper First Deck Substation"
@@ -417,6 +418,9 @@
 	name = "\improper Atmospherics Substation"
 
 //solars
+
+/area/solar
+	req_access = list(access_maint_tunnels)
 
 /area/solar/main
 	name = "\improper Main Solar Array"
@@ -442,9 +446,11 @@
 
 /area/medical
 	icon_state = "medbay"
+	req_access = list(access_medical)
 
 /area/medical/cmo
 	name = "\improper Chief Medical Officer's Office"
+	req_access = list(access_cmo)
 
 /area/medical/lobby
 	name = "\improper Medical Lobby"
@@ -461,6 +467,7 @@
 /area/medical/morgue
 	name = "\improper Morgue"
 	icon_state = "morgue"
+	req_access = list(access_morgue)
 
 /area/medical/examroom
 	name = "\improper Exam Room"
@@ -476,17 +483,21 @@
 /area/medical/storage
 	name = "\improper Medical Storage"
 	icon_state = "medbay4"
+	req_access = list(access_medical_equip)
 
 /area/medical/chemistry
 	name = "\improper Chemistry Lab"
 	icon_state = "chem"
+	req_access = list(access_chemistry)
 
 /area/medical/surgery
 	name = "\improper Operating Theatre"
 	icon_state = "surgery"
+	req_access = list(access_surgery)
 
 /area/medical/virology
 	name = "\improper Virology Lab"
+	req_access = list(access_virology)
 
 /area/medical/cloning
 	name = "\improper Cloning Bay"
@@ -495,6 +506,7 @@
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"
 	icon_state = "bluenew"
+	req_access = list(access_medical_equip)
 
 //////////////////////////////////////
 //			LOGISTICS				//
@@ -553,13 +565,16 @@
 /area/logistics/robotics
 	name = "\improper Robotics Lab"
 	icon_state = "research"
+	req_access = list(access_robotics)
 
 /area/logistics/mechbay
 	name = "\improper Mech Bay"
 	icon_state = "mechbay"
+	req_access = list(access_robotics)
 
 /area/logistics/hangar
 	name = "\improper Hangar"
+	req_access = list()
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -717,14 +732,17 @@
 /area/hallway/commandoffices
 	name = "\improper Command Offices Hallway"
 	icon_state = "hallC1"
+	req_access = list(access_bridge)
 
 /area/hallway/commandport
 	name = "\improper Command Port Hallway"
 	icon_state = "hallP"
+	req_access = list(access_bridge)
 
 /area/hallway/commandstarboard
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
+	req_access = list(access_bridge)
 
 //bottom/fourth deck
 
