@@ -161,12 +161,11 @@
 			if(removable_organs.len > 1)
 				organ_to_remove = input(user, "Which organ do you want to remove?") as null|anything in removable_organs
 			if(organ_to_remove)
+				if(organ_to_remove.damage > (organ_to_remove.max_damage * 0.75))
+					if(alert(user, "This organ is too damaged to be reattached if removed. Remove anyways?", "Organ Removal", "No", "Yes") == "No")
+						return FALSE
 				return organ_to_remove
 	return FALSE
-
-	if(O.damage > (O.max_damage * 0.75))
-		if(alert(user, "This organ is too damaged to be reattached if removed. Remove anyways?", "Organ Removal", "No", "Yes") == "No")
-			return 0
 
 /decl/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
