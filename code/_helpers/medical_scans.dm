@@ -305,9 +305,9 @@
 			if(E["brute_dam"] + E["burn_dam"] == 0)
 				row += "None</td>"
 			if(E["brute_dam"])
-				row += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma</span><br>"
+				row += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma ([E["brute_dam"]])</span><br>"
 			if(E["burn_dam"])
-				row += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns</span></td>"
+				row += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns ([E["burn_dam"]])</span></td>"
 			row += "<td>"
 			row += "<span class='bad'>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
 			row += "</td>"
