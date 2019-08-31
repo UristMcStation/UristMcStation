@@ -101,6 +101,7 @@
 /proc/display_medical_data_header(var/list/scan, skill_level = SKILL_DEFAULT)
 	//In case of problems, abort.
 	var/dat = list()
+	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
 
 	if(!scan["name"])
 		return "<center><span class='bad'><strong>SCAN READOUT ERROR.</strong></span></center>"
@@ -126,6 +127,7 @@
 
 	var/list/subdat = list()
 	var/dat = list()
+	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
 
 	//Brain activity
 	/*
@@ -273,6 +275,8 @@
 
 	var/list/subdat = list()
 	var/dat = list()
+	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
+
 	//External Organs
 	/*
 			<tr><td colspan='2'><center>
@@ -364,6 +368,7 @@
 		return "<center><span class='bad'><strong>SCAN READOUT ERROR.</strong></span></center>"
 
 	var/dat = list()
+	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
 
 	if(TT)
 		dat += "<tt>"
