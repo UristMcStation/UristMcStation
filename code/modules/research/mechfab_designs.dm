@@ -385,6 +385,7 @@
 
 /datum/design/item/mecha_tracking
 	name = "Exosuit tracking beacon"
+	id = "mecha_tracking"
 	build_type = MECHFAB
 	time = 5
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
