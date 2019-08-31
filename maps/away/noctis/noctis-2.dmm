@@ -1878,7 +1878,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "ev" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -2483,7 +2483,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/bridge)
 "fw" = (
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -3006,7 +3006,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "gs" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -3146,7 +3146,7 @@
 /area/noctis/bridge)
 "gG" = (
 /obj/effect/floor_decal/corner/grey/mono,
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	icon_state = "computer";
 	dir = 1
 	},
