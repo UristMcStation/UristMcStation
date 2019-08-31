@@ -277,6 +277,18 @@
 		src.welding = 0
 		update_icon()
 
+/*
+ * URIST EDIT by IRRA in 19-08-14
+ * Simplify the code and use the 'take_general_damage' proc instead of
+ * direct assignment to the 'damage' variable. The organ already handles the
+ * behaviour written in the old code. - The last bit is kept because it is the
+ * only one that makes sense, with some modification.
+ *
+ * The updated code in Bay's upstream as of the time of this fix still uses
+ * the practice mentioned above.
+ *
+ * JFC, Bay. When will you have a solid grip on your fucking spaghetti?
+ */
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
 /obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
@@ -286,32 +298,44 @@
 		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
 		if(!E)
 			return
+
+		// Calculate how much damage to deal
 		var/safety = H.eyecheck()
+		var/damage_amount = 0
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
 				to_chat(H, "<span class='warning'>Your eyes sting a little.</span>")
-				E.damage += rand(1, 2)
+				damage_amount = rand(1, 2)
 				if(E.damage > 12)
-					H.eye_blurry += rand(3,6)
+					damage_amount += rand(3,6)
 			if(FLASH_PROTECTION_NONE)
 				to_chat(H, "<span class='warning'>Your eyes burn.</span>")
-				E.damage += rand(2, 4)
+				damage_amount = rand(2, 4)
 				if(E.damage > 10)
-					E.damage += rand(4,10)
+					damage_amount += rand(4,10)
 			if(FLASH_PROTECTION_REDUCED)
 				to_chat(H, "<span class='danger'>Your equipment intensifies the welder's glow. Your eyes itch and burn severely.</span>")
 				H.eye_blurry += rand(12,20)
-				E.damage += rand(12, 16)
+				damage_amount = rand(12, 16)
+		// If any damage, lash it out
+		if(damage_amount)
+			E.take_general_damage(damage_amount)
+
+		// Additional behaviour for extra immersion and flavour to the actions
 		if(safety<FLASH_PROTECTION_MAJOR)
 			if(E.damage > 10)
 				to_chat(user, "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>")
-			if (E.damage >= E.min_bruised_damage)
-				to_chat(H, "<span class='danger'>You go blind!</span>")
+
+			else if (E.damage < E.min_broken_damage && E.damage >= E.min_bruised_damage)
+				to_chat(H, "<span class='danger'>You momentarily go blind!</span>")
 				H.eye_blind = 5
 				H.eye_blurry = 5
 				H.disabilities |= NEARSIGHTED
 				spawn(100)
 					H.disabilities &= ~NEARSIGHTED
+/*
+ * END URIST EDIT
+ */
 
 /obj/item/weapon/weldingtool/attack(mob/living/M, mob/living/user, target_zone)
 	if(ishuman(M))
