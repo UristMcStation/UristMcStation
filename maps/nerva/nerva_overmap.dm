@@ -1,7 +1,7 @@
 /obj/effect/overmap/ship/combat/nerva
 	name = "ICS Nerva"
 	shipid = "nerva"
-	vessel_mass = 200 //bigger than wyrm, smaller than torch
+	vessel_mass = 25000 //bigger than wyrm, smaller than torch
 	fore_dir = EAST
 	start_x = 6
 	start_y = 7
@@ -48,3 +48,4 @@
 	name = "Trajan"
 	shuttle = "Trajan"
 	fore_dir = NORTH
+	vessel_mass = 2000
