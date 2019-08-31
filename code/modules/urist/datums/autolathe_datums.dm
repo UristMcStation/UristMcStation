@@ -100,6 +100,12 @@
 	path = /obj/item/weapon/hammer/smithing
 	category = "Tools"
 
+/datum/autolathe/recipe/magazine_c20r_rubber
+	name = "ammunition (10mm, rubber)"
+	path = /obj/item/ammo_magazine/a10mm/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
 //torpedo
 
 /datum/autolathe/recipe/torpedo_casing

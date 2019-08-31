@@ -34,8 +34,6 @@
 	. = list()
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
-	. += "<tr><td>Set All: </td><td>"
-	. += "<a href='?src=\ref[src];set_all=high'>High</a> <a href='?src=\ref[src];set_all=low'>Low</a> <a href='?src=\ref[src];set_all=never'>Never</a></br></br>"
 	var/list/all_antag_types = GLOB.all_antag_types_
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
@@ -96,7 +94,7 @@
 		pref.never_be_special_role |= href_list["add_never"]
 		return TOPIC_REFRESH
 
-	if(href_list["select_all"])		
+	if(href_list["select_all"])
 		var/selection = text2num(href_list["select_all"])
 		var/list/roles = valid_special_roles(FALSE)
 
@@ -104,11 +102,11 @@
 			switch(selection)
 				if(0)
 					pref.be_special_role -= id
-					pref.never_be_special_role |= id					
+					pref.never_be_special_role |= id
 				if(1)
 					pref.be_special_role -= id
-					pref.never_be_special_role -= id					
-				if(2)					
+					pref.never_be_special_role -= id
+				if(2)
 					pref.be_special_role |= id
 					pref.never_be_special_role -= id
 		return TOPIC_REFRESH
@@ -132,7 +130,7 @@
 		if(!ghost_trap.list_as_special_role)
 			continue
 		if(!include_bans)
-			if(banned_from_ghost_role(preference_mob(), ghost_trap))		
+			if(banned_from_ghost_role(preference_mob(), ghost_trap))
 				continue
 		private_valid_special_roles += ghost_trap.pref_check
 
