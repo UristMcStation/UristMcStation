@@ -42,7 +42,7 @@ var/datum/controller/payment_controller/payment_controller
 					continue
 
 				else
-					var/datum/job/job = job_master.occupations_by_title[H.mind.assigned_role]
+					var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
 					var/economic_modifier = job.economic_power * payment_modifier
 
 					var/datum/transaction/T = new("[H.name]", "Automated Payroll Deposit", economic_modifier, "[GLOB.using_map.station_name] Automated Payroll System")

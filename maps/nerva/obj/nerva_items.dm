@@ -129,7 +129,7 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/station_account)
+	startswith = list(/obj/item/weapon/card/id/station_account)
 	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
 /obj/item/weapon/storage/lockbox/station_account/attack_hand(mob/living/user as mob)

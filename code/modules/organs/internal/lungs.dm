@@ -244,7 +244,7 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(((damage / max_damage * species.total_health) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS] || world.time > last_failed_breath + 8 MINUTES)
+	if(((damage / max_damage * species.total_health) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS])
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)

@@ -161,11 +161,6 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
-/obj/structure/wall_frame/take_damage(dam)
-	if(dam)
-		damage = max(0, damage + dam)
-		update_damage()
-	return
 //Subtypes
 /obj/structure/wall_frame/standard
 	paint_color = COLOR_GUNMETAL

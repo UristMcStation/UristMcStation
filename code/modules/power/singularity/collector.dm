@@ -233,7 +233,7 @@ var/global/list/rad_collectors = list()
 		if(removed.gas["phoron"] == 0)
 			investigate_log("<font color='red'>out of fuel</font>.","singulo")
 			active = 0
-			update_icons()
+			on_update_icon()
 		else
 			removed.adjust_gas("phoron", -0.001*drainratio)
 			env.merge(removed)
@@ -274,7 +274,7 @@ var/global/list/rad_collectors = list()
 	var/turf/T = get_turf(src)
 	pipe = locate(/obj/machinery/atmospherics/pipe/cap) in T
 
-/obj/machinery/power/rad_collector/pipenet/update_icons()
+/obj/machinery/power/rad_collector/pipenet/on_update_icon()
 	overlays.Cut()
 	if(pipe)
 		overlays += image('icons/obj/singularity.dmi', "ptank")

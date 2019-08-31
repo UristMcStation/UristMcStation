@@ -28,9 +28,6 @@
 	take_damage(damage)
 	return 1
 
-/obj/structure/proc/take_damage(var/damage)
-	return
-
 /obj/structure/Destroy()
 	var/turf/T = get_turf(src)
 	if(T && parts)

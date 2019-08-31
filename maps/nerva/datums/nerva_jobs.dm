@@ -328,6 +328,7 @@
 	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/mime
 
+/* //This hasn't worked for a while,
 /datum/job/mime/equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(.)
@@ -336,6 +337,7 @@
 		H.verbs += /client/proc/mimewall
 		H.mind.special_verbs += /client/proc/mimespeak
 		H.mind.special_verbs += /client/proc/mimewall
+*/
 
 //Clown :^)
 
@@ -354,4 +356,4 @@
 /datum/job/clown/equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(.)
-		H.mutations.Add(CLUMSY)
+		H.mutations.Add(MUTATION_CLUMSY)

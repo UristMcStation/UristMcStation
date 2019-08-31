@@ -25,8 +25,6 @@
 	name = "exploration corvette"
 	color = "#640000"
 	vessel_mass = 40
-	default_delay = 15 SECONDS
-	speed_mod = 0.1 MINUTE
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
 		"Raptor" = list("nav_noctis_raptor")
@@ -107,4 +105,3 @@
 	name = "titanium"
 	icon_state = "sheet-silver"
 	default_type = "titanium"
-	apply_colour = 1
