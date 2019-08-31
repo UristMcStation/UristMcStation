@@ -1,3 +1,6 @@
+/datum/design/item/biostorage
+	category = BIOMEDICAL_DEVICES
+
 /datum/design/item/biostorage/AssembleDesignName()
 	..()
 	name = "Biological intelligence storage ([item_name])"

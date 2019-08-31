@@ -1,3 +1,6 @@
+/datum/design/item/syringe
+	category = BIOMEDICAL_DEVICES
+
 /datum/design/item/syringe/AssembleDesignName()
 	name = "Syringe prototype ([item_name])"
 

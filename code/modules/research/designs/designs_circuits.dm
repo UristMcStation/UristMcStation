@@ -1,5 +1,6 @@
 /datum/design/circuit
 	build_type = IMPRINTER
+	category = GENERAL_CIRCUITS
 	req_tech = list(TECH_DATA = 2)
 	materials = list(MATERIAL_PLASTIC = 1000, MATERIAL_ALUMINIUM = 1000)
 	chemicals = list(/datum/reagent/acid = 20)
@@ -11,8 +12,10 @@
 		var/obj/item/weapon/circuitboard/C = build_path
 		if(initial(C.board_type) == "machine")
 			name = "Machine circuit design ([item_name])"
+			category = MACHINERY_CIRCUITS
 		else if(initial(C.board_type) == "computer")
 			name = "Computer circuit design ([item_name])"
+			category = COMPUTER_CIRCUITS
 		else
 			name = "Circuit design ([item_name])"
 
@@ -424,6 +427,7 @@
 
 /datum/design/circuit/mecha
 	req_tech = list(TECH_DATA = 3)
+	category = EXOSUIT_CIRCUITS
 
 /datum/design/circuit/mecha/AssembleDesignName()
 	name = "Exosuit module circuit design ([name])"
@@ -502,6 +506,7 @@
 
 /datum/design/circuit/tcom
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
+	category = TELECOMMS_CIRCUITS
 
 /datum/design/circuit/tcom/AssembleDesignName()
 	name = "Telecommunications machinery circuit design ([name])"
@@ -589,3 +594,4 @@
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/weapon/circuitboard/aicore
 	sort_string = "XAAAA"
+	category = AI_CIRCUITS

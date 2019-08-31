@@ -1,5 +1,6 @@
 /datum/design/item/implant
 	materials = list(MATERIAL_ALUMINIUM = 50, MATERIAL_GLASS = 50)
+	category = BIOMEDICAL_DEVICES
 
 /datum/design/item/implant/AssembleDesignName()
 	..()

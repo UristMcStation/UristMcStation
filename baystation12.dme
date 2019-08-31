@@ -2660,6 +2660,7 @@
 #include "code\modules\research\designs\designs_syringe.dm"
 #include "code\modules\research\designs\designs_tool.dm"
 #include "code\modules\research\designs\designs_weapon.dm"
+#include "code\modules\research\designs\~designs.dm"
 #include "code\modules\security levels\keycard authentication.dm"
 #include "code\modules\shield_generators\floor_diffuser.dm"
 #include "code\modules\shield_generators\handheld_diffuser.dm"

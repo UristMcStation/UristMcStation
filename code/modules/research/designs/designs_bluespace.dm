@@ -1,3 +1,6 @@
+/datum/design/item/bluespace
+	category = BLUESPACE_DEVICES
+
 /datum/design/item/bluespace/AssembleDesignName()
 	..()
 	name = "Bluespace device ([item_name])"

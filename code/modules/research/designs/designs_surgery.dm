@@ -1,3 +1,6 @@
+/datum/design/item/surgery
+	category = BIOMEDICAL_DEVICES
+
 /datum/design/item/surgery/AssembleDesignName()
 	..()
 	name = "Surgical tool design ([item_name])"

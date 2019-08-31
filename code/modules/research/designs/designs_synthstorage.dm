@@ -1,3 +1,6 @@
+/datum/design/item/synthstorage
+	category = GENERAL_DEVICES
+
 /datum/design/item/synthstorage/AssembleDesignName()
 	..()
 	name = "Synthetic intelligence storage ([item_name])"

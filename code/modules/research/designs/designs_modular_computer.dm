@@ -1,3 +1,6 @@
+/datum/design/item/modularcomponent
+	category = MODULAR_COMPUTER_DEVICES
+
 // Drives
 /datum/design/item/modularcomponent/disk/AssembleDesignName()
 	..()

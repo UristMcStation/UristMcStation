@@ -18,6 +18,24 @@ other types of metals and chemistry for reagents).
 */
 //Note: More then one of these can be added to a design.
 
+//Used for PROTOLATHE CONSTRUCTABLES
+#define MACHINE_PARTS "Machine Parts"
+#define WEAPON_DESIGNS "Weapon Designs"
+#define BLUESPACE_DEVICES "Bluespace Devices"
+#define BIOMEDICAL_DEVICES "Biomedical Devices"
+#define TOOL_DESIGNS "Tool Designs"
+#define GENERAL_DEVICES "General Devices"
+#define MODULAR_COMPUTER_DEVICES "Modular Computer Components"
+#define RIG_MODULES "RIG Modules"
+//Used for CIRCUIT IMPRINTER CONSTRUCTABLES
+#define GENERAL_CIRCUITS "General Circuitry"
+#define EXOSUIT_CIRCUITS "Exosuit Circuitry"
+#define AI_CIRCUITS "AI Module Circuitry"
+#define MACHINERY_CIRCUITS "Machinery Circuitry"
+#define TELECOMMS_CIRCUITS "Telecommunications Circuitry"
+#define COMPUTER_CIRCUITS "Computer Circuitry"
+#define MODULAR_COMPUTER_CIRCUIT "Modular Computer Circuitry"
+
 /datum/design						//Datum for object designs, used in construction
 	var/name = null					//Name of the created object. If null it will be 'guessed' from build_path if possible.
 	var/desc = null					//Description of the created object. If null it will use group_desc and name where applicable.
@@ -62,3 +80,4 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item
 	build_type = PROTOLATHE
+	category = GENERAL_DEVICES

@@ -1,5 +1,6 @@
 /datum/design/item/stock_part
 	build_type = PROTOLATHE
+	category = MACHINE_PARTS
 
 /datum/design/item/stock_part/AssembleDesignName()
 	..()
