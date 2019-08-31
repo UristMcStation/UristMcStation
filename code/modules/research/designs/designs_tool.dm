@@ -49,6 +49,11 @@
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 100)
 	build_path = /obj/item/inducer
 
+/datum/design/item/tool/inducer/Fabricate()
+	var/obj/item/inducer/I = ..()
+	QDEL_NULL(I.cell)
+	return I
+
 /datum/design/item/tool/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
