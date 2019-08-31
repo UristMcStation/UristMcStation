@@ -1,10 +1,23 @@
 /*
  * Neeeeeeeeeeerrrrrrrrrrrrrvvvvvvvvvvvvvvvaaaaaaaaaaaaaaa
  */
-//CDN
+
+/decl/closet_appearance/secure_closet/command/nervacap
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"cap" = COLOR_GOLD
+	)
+
 /obj/structure/closet/secure_closet/nervacap
 	name = "captains's locker"
 	req_access = list(access_captain)
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervacap
 
 /obj/structure/closet/secure_closet/nervacap/WillContain()
 	return list(
@@ -29,10 +42,23 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel/cap)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/captain, /obj/item/weapon/storage/backpack/messenger/com))
 	)
-//CDN
+
+/decl/closet_appearance/secure_closet/command/nervafo
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"fo" = COLOR_GOLD
+	)
+
 /obj/structure/closet/secure_closet/nervafo
 	name = "first officer's locker"
 	req_access = list(access_fo)
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervafo
 
 /obj/structure/closet/secure_closet/nervafo/WillContain()
 	return list(
@@ -57,10 +83,18 @@
 		/obj/item/weapon/folder/blue,
 		/obj/item/weapon/storage/box/imprinting
 	)
-//CDN
+
+/decl/closet_appearance/secure_closet/command/nervaso
+	color = "#4f637d"
+	extra_decals = list(
+		"stripe_vertical_mid_partial" = COLOR_GOLD,
+		"so" = COLOR_GOLD
+	)
+
 /obj/structure/closet/secure_closet/nervaso
 	name = "second officer's locker"
 	req_access = list(access_hop)
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervaso
 
 /obj/structure/closet/secure_closet/nervaso/WillContain()
 	return list(
@@ -77,9 +111,9 @@
 		/obj/item/weapon/gun/energy/gun/small/secure,
 	)
 
-//CDN
 /obj/structure/closet/secure_closet/nervasec
 	name = "security officer's locker"
+	closet_appearance = /decl/closet_appearance/secure_closet/security
 	req_access = list(access_brig)
 
 /obj/structure/closet/secure_closet/nervasec/WillContain()
@@ -145,10 +179,11 @@
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
-//CDN
+
 /obj/structure/closet/secure_closet/science_nerva
 	name = "Nanotrasen scientist's locker"
 	req_access = list(access_xenoarch)
+	closet_appearance = /decl/closet_appearance/secure_closet/expedition/science
 
 /obj/structure/closet/secure_closet/science_nerva/WillContain()
 	return list(
@@ -177,7 +212,7 @@
 /obj/structure/closet/secure_closet/nervaammo
 	name = "ammunition locker"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
+	closet_appearance = /decl/closet_appearance/secure_closet/security
 
 /obj/structure/closet/secure_closet/nervaammo/WillContain()
 	return list(
