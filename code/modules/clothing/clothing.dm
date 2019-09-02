@@ -429,7 +429,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/head/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
-	ret.overlays.Cut()
+	// ret.overlays.Cut() -- URIST EDIT BY IRRA IN 2019-08-19 - Seriously, whose fucking idea was /this/? No wonder why Bay's shit's broke as fuck
 	if(on && slot == slot_head_str)
 		if(ishuman(user_mob))
 			var/mob/living/carbon/human/user_human = user_mob
