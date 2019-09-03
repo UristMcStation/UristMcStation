@@ -490,6 +490,61 @@
 	..()
 	new /obj/item/stack/material/phoron(get_turf(holder.my_atom), created_volume)
 
+/datum/chemical_reaction/uraniumsolidification
+	name = "Solid Uranium"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/frostoil = 5, /datum/reagent/uranium = 20)
+	result_amount = 1
+
+/datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
+
+/datum/chemical_reaction/goldsolidification
+	name = "Solid Gold"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/frostoil = 5, /datum/reagent/gold = 20)
+	result_amount = 1
+
+/datum/chemical_reaction/goldsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/gold(get_turf(holder.my_atom), created_volume)
+
+/datum/chemical_reaction/silversolidification
+	name = "Solid Silver"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/frostoil = 5, /datum/reagent/silver = 20)
+	result_amount = 1
+
+/datum/chemical_reaction/silversolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/silver(get_turf(holder.my_atom), created_volume)
+
+/datum/chemical_reaction/steelsolidification
+	name = "Solid Steel"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 20, /datum/reagent/frostoil = 5, /datum/reagent/carbon = 5)
+	result_amount = 1
+
+/datum/chemical_reaction/steelsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/steel(get_turf(holder.my_atom), created_volume)
+
+/datum/chemical_reaction/mhydrogensolidification
+	name = "Solid Metallic Hydrogen"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/frostoil = 5, /datum/reagent/hydrazine = 20)
+	result_amount = 1
+
+/datum/chemical_reaction/mhydrogensolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/mhydrogen(get_turf(holder.my_atom), created_volume)
+
+/datum/chemical_reaction/ironsolidification
+	name = "Solid Iron"
+	result = null
+	required_reagents = list(/datum/reagent/iron = 25, /datum/reagent/frostoil = 5)
+	inhibitors = list(/datum/reagent/carbon = 5)
+	result_amount = 1
+
+/datum/chemical_reaction/ironsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/stack/material/iron(get_turf(holder.my_atom), created_volume)
+
 /datum/chemical_reaction/plastication
 	name = "Plastic"
 	result = null
@@ -558,6 +613,7 @@
 	name = "EMP Pulse"
 	result = null
 	required_reagents = list(/datum/reagent/uranium = 1, /datum/reagent/iron = 1) // Yes, laugh, it's the best recipe I could think of that makes a little bit of sense
+	inhibitors = list(/datum/reagent/frostoil = 5) // so you dont emp everyone with the new uranium solidifying
 	result_amount = 2
 	mix_message = "The solution bubbles vigorously!"
 
