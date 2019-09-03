@@ -11,7 +11,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	conductive = 0
 	chem_products = list(
-				/datum/reagent/toxin/plasticide = 20
+				/datum/reagent/toxin/plasticide = 2 // originally 20, which could lead to duping of plastic
 				)
 	sale_price = 1
 
