@@ -22,13 +22,13 @@
 	name = "identification card"
 	desc = "A card issued to the ship's clown."
 	icon_state = "clown"
-	job_access_type = /datum/job/assistant
+	job_access_type = /datum/job/clown
 
 /obj/item/weapon/card/id/civilian/mime
 	name = "identification card"
 	desc = "A card issued to the ship's mime."
 	icon_state = "mime"
-	job_access_type = /datum/job/assistant
+	job_access_type = /datum/job/mime
 
 /obj/item/weapon/card/id/nerva_scientist
 	name = "identification card"
