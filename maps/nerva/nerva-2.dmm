@@ -13665,10 +13665,10 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/door/window/westleft,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
 "awZ" = (
