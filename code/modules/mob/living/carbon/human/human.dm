@@ -1378,11 +1378,8 @@
 	if(!current_limb || !S || !U)
 		return
 
-	var/fail_prob = skill_fail_chance(SKILL_MEDICAL, 60, SKILL_ADEPT, 3)
-	if(self)
-		fail_prob += skill_fail_chance(SKILL_MEDICAL, 20, SKILL_EXPERT, 1)
 	var/datum/gender/T = gender_datums[get_gender()]
-	if(prob(fail_prob))
+	if(self && prob(15))
 		visible_message( \
 		"<span class='danger'>[U] pops [self ? "[T.his]" : "[S]'s"] [current_limb.joint] in the WRONG place!</span>", \
 		"<span class='danger'>[self ? "You pop" : "[U] pops"] your [current_limb.joint] in the WRONG place!</span>" \

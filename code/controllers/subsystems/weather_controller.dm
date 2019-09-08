@@ -4,6 +4,7 @@
 /var/global/list/pending_weathers = list()
 
 SUBSYSTEM_DEF(weather)
+	name = "Weather"
 	wait = 1 SECOND
 	var/weather_change_ticks = 50 //delays weather changes by N scheduler intervals
 	var/current_wcticks = 0

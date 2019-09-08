@@ -3,7 +3,7 @@
 	icon = 'icons/obj/guns/foundation.dmi'
 	icon_state = "foundation"
 	desc = "The CF 'Troubleshooter', a compact plastic-composite weapon designed for concealed carry by Cuchulain Foundation field agents. Smells faintly of copper."
-	ammo_type = /obj/item/ammo_casing/pistol/magnum/nullglass
+	ammo_type = /obj/item/ammo_casing/c44/nullglass
 
 /obj/item/weapon/gun/projectile/revolver/foundation/disrupts_psionics()
 	return FALSE
@@ -19,6 +19,6 @@
 
 /obj/item/weapon/storage/briefcase/foundation/New()
 	..()
-	new /obj/item/ammo_magazine/speedloader/magnum/nullglass(src)
+	new /obj/item/ammo_magazine/c44/nullglass(src)
 	new /obj/item/weapon/gun/projectile/revolver/foundation(src)
 	make_exact_fit()

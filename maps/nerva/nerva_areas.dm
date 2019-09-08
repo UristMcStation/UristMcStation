@@ -527,9 +527,11 @@
 
 /area/logistics/primtool
 	name = "\improper General Storage"
+	req_access = list()
 
 /area/logistics/auxtool
 	name = "\improper Auxiliary Storage"
+	req_access = list()
 
 /area/logistics/uppercargo
 	name = "\improper Upper Cargo Bay"

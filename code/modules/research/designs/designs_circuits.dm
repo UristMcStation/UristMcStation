@@ -425,6 +425,13 @@
 	build_path = /obj/item/weapon/circuitboard/bsaback
 	sort_string = "KCAAE"
 
+/datum/design/circuit/bsa
+	name = "bluespace artillery control"
+	id = "bsacomp"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
+	build_path = /obj/item/weapon/circuitboard/bsa
+	sort_string = "KCAAF"
+
 /datum/design/circuit/mecha
 	req_tech = list(TECH_DATA = 3)
 	category = EXOSUIT_CIRCUITS

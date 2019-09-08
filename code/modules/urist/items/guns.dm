@@ -369,7 +369,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3MAG"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/pistol
+	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
 	max_ammo = 32
