@@ -6497,10 +6497,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
-"ln" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/wall/r_wall,
-/area/hallway/centralfourth)
 "lo" = (
 /obj/machinery/door/airlock/glass{
 	name = "Holodeck"
@@ -21646,7 +21642,7 @@
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
 	name = "Cargo Workshop";
-	req_access = list(31,55)
+	req_one_access = list(31,55)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -40373,7 +40369,7 @@ gL
 gL
 gL
 gL
-ln
+ll
 mf
 no
 oc

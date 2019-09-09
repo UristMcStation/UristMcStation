@@ -25,6 +25,7 @@
 
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
+	#include "loadout/loadout_hands.dm"
 	#include "loadout/loadout_head.dm"
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"

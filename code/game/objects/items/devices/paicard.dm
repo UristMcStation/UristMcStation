@@ -331,3 +331,32 @@
 		var/rendered = "<span class='message'>[msg]</span>"
 		pai.show_message(rendered, type)
 	..()
+
+/obj/item/device/paicard/attack_ghost(var/mob/observer/ghost/user)
+	if(!user.MayRespawn(1))
+		return
+	if(jobban_isbanned(user, "pAI"))
+		to_chat(user, "<span class='danger'>You are banned from being a pAI.</span>")
+		return
+	if(pai)
+		to_chat(user, "This card already has a personality on it.")
+		return
+	if(looking_for_personality)
+		paiController.recruitWindow(user)
+		return
+	var/confirm = alert(user, "Are you sure you want to become a pAI?", "Become pAI", "No", "Yes")
+	if(confirm != "Yes")
+		return
+	var/name = sanitizeSafe(input("Enter a name for your pAI", "pAI Name") as text, MAX_NAME_LEN)
+	if(pai || looking_for_personality)
+		return //in case someone else already went into it or started a pai request by the time this is finished
+	pai = new(src)
+	if(!name)
+		pai.SetName(pick(GLOB.ninja_names))
+	else
+		pai.SetName(name)
+	pai.real_name = pai.name
+	pai.key = user.key
+	setPersonality(pai)
+	if(pai.mind) update_antag_icons(pai.mind)
+	visible_message("<span class='notice'>The pAI turns on by itself. Spooky.</span>")
