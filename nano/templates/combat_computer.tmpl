@@ -1,0 +1,80 @@
+<hr>
+<span><h2>Available Weaponry</h2></span>
+<hr>
+<div class='block'>
+	<table style="width:100%">
+	<tr><th style="width:10%">Action<th style="width:20%">Weapon<th style="width:20%">Status<th style="width:10%">Strength (Anti-Armour)<th style="width:10%">Strength (Anti-Shield)<th style="width:10%">Ignores Shields<th style="width:20%">Location
+	{{for data.existing_weapons}}
+		<tr>
+		{{if value.status == "Ready to Fire"}}
+			{{if data.target == 1}}
+				<td><center><b>{{:helper.link('Fire', null, {'fire' : value.ref})}}</b></center>
+			{{else data.target == 0}}
+				<td><center><s><b>Fire</b></s></center>
+			{{/if}}
+		{{else value.status != "Ready to Fire"}}
+				<td><center><s><b>Fire</b></s></center>			
+		{{/if}}
+		<td><center>{{:value.name}}</center>
+		<td><center>{{:value.status}}</center>
+		<td><center>{{:value.strengthhull}}</center>
+		<td><center>{{:value.strengthshield}}</center>
+		{{if value.shieldpass == 1}}
+			<td><center>Yes</center>
+		{{else value.shieldpass == 0}}
+			<td><center>No</center>
+		{{/if}}
+		<td><center>{{:value.location}}</center>
+	{{/for}}
+	</table>
+</div>
+<br>
+{{if data.target == 1}}
+	<hr>
+	<span><h2>Targeted Vessel</h2></span>
+	<hr>
+	<div class='block'>
+		<div class = "item">
+			<div class="itemLabel">
+				Name:
+			</div>
+			<div class="itemContent">
+				{{:data.targetname}}
+			</div>
+		</div>
+		<div class = "item">
+			<div class="itemLabel">
+				Hull Integrity:
+			</div>
+			<div class="itemContent">
+				{{:data.targethealth}}%
+			</div>
+		</div>
+		<div class = "item">
+			<div class="itemLabel">
+				Shield Strength:
+			</div>
+			<div class="itemContent">
+				{{:data.targetshield}}
+			</div>
+		</div>
+		<div class='block'>
+		<h3>Target Components</h3>
+		{{for data.target_components}}
+			<div class = "item">
+				<div class="itemLabel">
+					Component: {{:value.componentname}}
+				</div>
+				<div class="itemContent">
+					Status: {{:value.componentstatus}}							
+				</div>
+				{{if value.componenttargeted == 1}}
+					<b>{{:helper.link('Unset Target', null, {'unsettarget' : null})}}</b>
+				{{else value.componenttargeted == 0}}
+					{{:helper.link('Set Target', null, {'settarget' : value.ref})}}
+				{{/if}}
+			</div>		
+		{{/for}}
+		</div>
+	</div>
+{{/if}}

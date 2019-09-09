@@ -68,7 +68,8 @@
 		new /datum/shipcomponents/engines/standard,
 		new /datum/shipcomponents/weapons/smallmissile/battery,
 		new /datum/shipcomponents/weapons/heavylaser,
-		new /datum/shipcomponents/weapons/autocannon
+		new /datum/shipcomponents/weapons/autocannon,
+		new /datum/shipcomponents/point_defence/basic
 	)
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen
@@ -115,7 +116,9 @@
 		new /datum/shipcomponents/weapons/lightlaser/dual,
 		new /datum/shipcomponents/weapons/lightlaser/dual,
 		new /datum/shipcomponents/engines/fighter,
-		new /datum/shipcomponents/weapons/smallmissile/battery
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/weapons/autocannon,
+		new /datum/shipcomponents/point_defence/light
 	)
 
 	..()
@@ -144,7 +147,8 @@
 		new /datum/shipcomponents/weapons/alien/light,
 		new /datum/shipcomponents/weapons/alien/heavy,
 		new /datum/shipcomponents/weapons/smallalienmissile,
-		new /datum/shipcomponents/weapons/smallalienmissile
+		new /datum/shipcomponents/weapons/smallalienmissile,
+		new /datum/shipcomponents/point_defence/alienlight
 	)
 
 	..()
@@ -167,7 +171,8 @@
 		new /datum/shipcomponents/weapons/bigalienmissile,
 		new /datum/shipcomponents/weapons/bigalienmissile,
 		new /datum/shipcomponents/weapons/smallalienmissile/battery,
-		new /datum/shipcomponents/weapons/alientorpedo
+		new /datum/shipcomponents/weapons/alientorpedo,
+		new /datum/shipcomponents/point_defence/alienstandard
 	)
 
 	..()
@@ -220,7 +225,8 @@
 		new /datum/shipcomponents/weapons/lightlaser/dual,
 		new /datum/shipcomponents/weapons/lightlaser/dual,
 		new /datum/shipcomponents/engines/fighter,
-		new /datum/shipcomponents/weapons/smallmissile/battery
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/point_defence/light
 	)
 
 	..()
