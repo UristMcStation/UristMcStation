@@ -1530,7 +1530,7 @@
 	name = "Virology Emergency Quarantine Control";
 	pixel_x = 28;
 	pixel_y = 6;
-	req_access = list(5)
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
@@ -1538,7 +1538,7 @@
 	name = "Infirmary Emergency Quarantine Control";
 	pixel_x = 28;
 	pixel_y = -6;
-	req_access = list(5)
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -1685,7 +1685,7 @@
 	name = "Armory Blast Doors";
 	pixel_x = 0;
 	pixel_y = 22;
-	req_access = list(19)
+	req_access = list("ACCESS_ARMORY")
 	},
 /obj/item/weapon/gun/projectile/automatic/hi2521smg,
 /obj/item/weapon/gun/projectile/automatic/hi2521smg,
@@ -7328,7 +7328,7 @@
 	name = "Boarding Armory Blast Doors";
 	pixel_x = 0;
 	pixel_y = 22;
-	req_access = list(19)
+	req_access = list("ACCESS_ARMORY")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
@@ -7731,14 +7731,14 @@
 	name = "Infirmary Entrance Control";
 	pixel_x = -24;
 	pixel_y = 6;
-	req_access = list(5)
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "infirmaryentrylock";
 	name = "Infirmary Entrance Lockdown Control";
 	pixel_x = -24;
 	pixel_y = -6;
-	req_access = list(5)
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -8576,7 +8576,7 @@
 	name = "Charging Port Shutter Control";
 	pixel_x = -24;
 	pixel_y = -6;
-	req_access = list(5)
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/machinery/mech_recharger,
 /obj/item/weapon/storage/toolbox/emergency,
@@ -8704,13 +8704,15 @@
 	id = "chemcounter";
 	name = "Chemistry Counter Lockdown Control";
 	pixel_x = -6;
-	pixel_y = -21
+	pixel_y = -21;
+	req_access = list("ACCESS_CHEMISTRY")
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "chemwindow";
 	name = "Chemistry Window Shutters Control";
 	pixel_x = 6;
-	pixel_y = -21
+	pixel_y = -21;
+	req_access = list("ACCESS_CHEMISTRY")
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/syringes,
@@ -9157,7 +9159,7 @@
 	name = "Engine Waste Handling";
 	pixel_x = 0;
 	pixel_y = 26;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -13209,7 +13211,7 @@
 "awe" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/eastleft{
-	req_access = list(28)
+	req_access = list("ACCESS_BAR")
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
@@ -13967,21 +13969,21 @@
 	name = "Bridge Inner Lockdown";
 	pixel_x = 5;
 	pixel_y = -5;
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridgeview";
 	name = "Bridge Viewport Blast Doors";
 	pixel_x = -5;
 	pixel_y = -5;
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	pixel_x = 0;
 	pixel_y = 5;
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -14014,7 +14016,7 @@
 	name = "Reactor Ventillatory Control";
 	pixel_x = 0;
 	pixel_y = 25;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Supermatter Core"
@@ -14080,7 +14082,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = -25;
-	req_access = list(10);
+	req_access = list("ACCESS_ENGINE_EQUIP");
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -15178,7 +15180,7 @@
 	name = "Engine Emitter Blast Door";
 	pixel_x = -26;
 	pixel_y = 6;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -15660,7 +15662,8 @@
 	id = "meetingroomshutters";
 	name = "Meeting Room Privacy Shutter";
 	pixel_x = 0;
-	pixel_y = 6
+	pixel_y = 6;
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/item/weapon/material/ashtray/bronze{
 	pixel_y = -6
@@ -16956,7 +16959,7 @@
 	name = "Boarding Armory Blast Doors";
 	pixel_x = 0;
 	pixel_y = 22;
-	req_access = list(20)
+	req_access = list("ACCESS_ARMORY")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -18122,7 +18125,7 @@
 	name = "Reactor Blast Doors";
 	pixel_x = -30;
 	pixel_y = 28;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
@@ -18130,7 +18133,7 @@
 	name = "Engine Emitter Blast Door";
 	pixel_x = -30;
 	pixel_y = 38;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -19277,7 +19280,9 @@
 /obj/machinery/door/window/brigdoor/southleft{
 	req_access = list(57)
 	},
-/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/northleft{
+	req_access = list()
+	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
@@ -20126,7 +20131,8 @@
 	id = "soofficeshutters";
 	name = "Second Officer Privacy Shutter";
 	pixel_x = -24;
-	pixel_y = -6
+	pixel_y = -6;
+	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
 	},
 /turf/simulated/floor/carpet,
 /area/command/hop)
@@ -20797,7 +20803,9 @@
 "aJp" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/westleft,
+/obj/machinery/door/window/westleft{
+	req_access = list()
+	},
 /obj/machinery/door/window/brigdoor/eastleft{
 	req_access = list(57)
 	},
@@ -22194,7 +22202,7 @@
 	name = "Engine Room Blast Doors";
 	pixel_x = 0;
 	pixel_y = -3;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine waste handling.";
@@ -22202,7 +22210,7 @@
 	name = "Engine Waste Handling";
 	pixel_x = -6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/button/remote/emitter{
 	desc = "A remote control-switch for the engine emitter.";
@@ -22210,7 +22218,7 @@
 	name = "Engine Emitter";
 	pixel_x = 6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -22236,7 +22244,7 @@
 	name = "Engine Emitter Blast Door";
 	pixel_x = 0;
 	pixel_y = 26;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (NORTHEAST)";
@@ -24640,7 +24648,7 @@
 	name = "Engine Radiator Viewport Shutters";
 	pixel_x = 0;
 	pixel_y = -25;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -24678,7 +24686,7 @@
 	name = "Engine Hatch Bolt Control";
 	pixel_x = -24;
 	pixel_y = -10;
-	req_access = list(10);
+	req_access = list("ACCESS_ENGINE_EQUIP");
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -24687,7 +24695,7 @@
 	name = "Engine Ventillatory Control";
 	pixel_x = -24;
 	pixel_y = 10;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/structure/table/reinforced,
 /obj/item/device/radio,
@@ -25541,7 +25549,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/window/brigdoor/northleft{
 	name = "emergency core eject";
-	req_access = list(11)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -25628,10 +25636,10 @@
 /area/engineering/tcommsmon)
 "aQR" = (
 /obj/machinery/door/window/brigdoor/eastright{
-	req_access = list(61)
+	req_access = list("ACCESS_TELECOMS")
 	},
 /obj/machinery/door/window/brigdoor/westleft{
-	req_access = list(61)
+	req_access = list("ACCESS_TELECOMS")
 	},
 /obj/structure/cable/fadeblue{
 	d1 = 4;
@@ -26141,6 +26149,10 @@
 /area/engineering/smmon)
 "aRS" = (
 /obj/effect/floor_decal/corner/fadeblue/three_quarters,
+/obj/item/modular_computer/console/preset/sysadmin{
+	icon_state = "console";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcommsmon)
 "aRT" = (
@@ -26972,7 +26984,7 @@
 	master_tag = "primarydeck_airlock";
 	pixel_x = -26;
 	pixel_y = -8;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
@@ -28168,7 +28180,7 @@
 	master_tag = "primarydeck_airlock";
 	pixel_x = 8;
 	pixel_y = 26;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "EVA Airlock External";
@@ -29191,7 +29203,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/northleft{
+	req_access = list()
+	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
@@ -29434,14 +29448,14 @@
 	name = "Brig Lockdown";
 	pixel_x = 26;
 	pixel_y = -6;
-	req_access = list(2)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Prison Lockdown";
 	name = "Prison Lockdown";
 	pixel_x = 26;
 	pixel_y = 6;
-	req_access = list(2)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)

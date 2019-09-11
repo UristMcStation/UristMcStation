@@ -118,10 +118,12 @@
 
 /area/civilian/freezer
 	name = "\improper Kitchen Freezer"
+	req_access = list(access_kitchen)
 
 /area/civilian/kitchen
 	name = "\improper Kitchen"
 	icon_state = "kitchen"
+	req_access = list(access_kitchen)
 
 /area/civilian/messhall
 	name = "\improper Mess Hall"

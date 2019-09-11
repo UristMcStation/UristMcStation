@@ -433,7 +433,7 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
@@ -943,7 +943,7 @@
 	frequency = 1379;
 	id_tag = "solar_tool_airlock3";
 	pixel_x = 25;
-	req_access = list(13);
+	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "solar_tool_pump3";
 	tag_chamber_sensor = "solar_tool_sensor3";
 	tag_exterior_door = "solar_tool_outer3";
@@ -1662,7 +1662,7 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -2027,7 +2027,7 @@
 	name = "Rear Hatch Control";
 	pixel_x = 0;
 	pixel_y = -32;
-	req_access = list(74)
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -2326,12 +2326,11 @@
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "ek" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (NORTH)";
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/bed/chair/shuttle/blue{
 	icon_state = "shuttle_chair_preview";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "el" = (
@@ -2714,7 +2713,7 @@
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "eV" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/chair/shuttle/blue,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "eW" = (
@@ -2879,8 +2878,7 @@
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/main)
 "fl" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -3351,8 +3349,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "fW" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -3530,8 +3527,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "gm" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -3789,8 +3785,7 @@
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/main)
 "gS" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -3980,7 +3975,7 @@
 	name = "Protective Shutters Control";
 	pixel_x = 32;
 	pixel_y = -24;
-	req_access = list(74)
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /obj/structure/bed/chair/shuttle/blue,
 /obj/machinery/button/remote/blast_door{
@@ -3988,7 +3983,7 @@
 	name = "Rear Hatch Control";
 	pixel_x = 32;
 	pixel_y = -34;
-	req_access = list(74)
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
@@ -4128,8 +4123,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "ht" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -6665,7 +6659,7 @@
 /obj/item/clothing/mask/gas/half,
 /obj/machinery/door/window/brigdoor/eastleft{
 	dir = 2;
-	req_access = list(41)
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8101,7 +8095,7 @@
 	name = "Expedition Prep Access Control";
 	pixel_x = -25;
 	pixel_y = 0;
-	req_access = list(75)
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
@@ -14370,7 +14364,9 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/eastleft,
+/obj/machinery/door/window/eastleft{
+	req_access = list()
+	},
 /obj/machinery/door/window/brigdoor/westright{
 	req_access = list(31)
 	},
@@ -19822,8 +19818,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "Id" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
@@ -19930,8 +19925,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "In" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
+/obj/structure/bed/chair/shuttle/black{
 	icon_state = "shuttle_chair_preview";
 	dir = 4
 	},
