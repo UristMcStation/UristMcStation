@@ -36,3 +36,12 @@
 		var/obj/item/clothing/under/pants/urist/pant_type = pant
 		pants[initial(pant_type.name)] = pant_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pants))
+
+/*
+ * Loadout definitions unique to NERVA
+ */
+
+/datum/gear/uniform/nervasecfield
+	display_name = "uniform, field (Security)"
+	path = /obj/item/clothing/under/urist/nerva/secfield
+	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
