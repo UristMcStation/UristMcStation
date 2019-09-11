@@ -3,6 +3,7 @@
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = /obj/item/ammo_magazine/c45m
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "colt"
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -45,6 +46,7 @@
 /obj/item/weapon/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 	allowed_magazines = /obj/item/ammo_magazine/c45m
@@ -67,6 +69,7 @@
 /obj/item/weapon/gun/projectile/sec/wood
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications. Uses .45 rounds."
 	name = "custom .45 Pistol"
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secgundark"
 	accuracy = 0
 
@@ -83,6 +86,7 @@
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A handgun with an integral silencer. Uses .45 rounds."
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "silenced_pistol"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = ".45"
@@ -114,6 +118,7 @@
 /obj/item/weapon/gun/projectile/magnum_pistol
 	name = ".50 magnum pistol"
 	desc = "The HelTek Magnus, a robust Terran handgun that uses .50 AE ammo."
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "magnum"
 	item_state = "revolver"
 	force = 9
@@ -139,7 +144,7 @@
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds."
-	icon = 'icons/obj/guns/gyropistol.dmi'
+	icon = 'icons/urist/items/gyropistol.dmi'
 	icon_state = "gyropistol"
 	max_shells = 8
 	caliber = "75"
@@ -181,7 +186,7 @@
 /obj/item/weapon/gun/projectile/pistol
 	name = "holdout pistol"
 	desc = "The Lumoco Arms P3 Whisper. A small, easily concealable gun. Uses 9mm rounds."
-	icon = 'icons/obj/guns/holdout_pistol.dmi'
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "pistol"
 	item_state = null
 	w_class = ITEM_SIZE_SMALL
@@ -228,7 +233,7 @@
 /obj/item/weapon/gun/projectile/pistol/on_update_icon()
 	..()
 	if(silenced)
-		icon_state = "pistol-silencer"
+		icon_state = "silenced_pistol"
 	else
 		icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))

@@ -1,7 +1,17 @@
+
+/obj/item/weapon/gun/projectile/shotgun
+	icon = 'icons/urist/items/shotguns.dmi'
+
+/obj/item/weapon/gun/projectile/shotgun/on_update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-empty"
+
 /obj/item/weapon/gun/projectile/shotgun/pump
 	name = "shotgun"
 	desc = "The mass-produced W-T Remmington 29x shotgun is a favourite of police and security forces on many worlds. Useful for sweeping alleys."
-	icon = 'icons/obj/guns/shotguns.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 4
@@ -35,6 +45,7 @@
 
 	if(chambered)//We have a shell in the chamber
 		chambered.dropInto(loc)//Eject casing
+		chambered.dropped()//Update to global scale sprites
 		if(LAZYLEN(chambered.fall_sounds))
 			playsound(loc, pick(chambered.fall_sounds), 50, 1)
 		chambered = null
@@ -59,7 +70,6 @@
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	icon = 'icons/obj/guns/shotguns.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
 	//SPEEDLOADER because rapid unloading.

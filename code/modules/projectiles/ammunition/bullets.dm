@@ -16,6 +16,7 @@
 	desc = "A 20mm bullet casing."
 	caliber = "75"
 	projectile_type = /obj/item/projectile/bullet/gyro
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 
@@ -111,18 +112,28 @@
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12 gauge slug."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
+	var/global_icon = "slshell-casing"
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
 	fall_sounds = list('sound/weapons/guns/shotgun_fall.ogg')
+
+/obj/item/ammo_casing/shotgun/dropped()
+	if(!BB)
+		if(istype(loc, /turf))
+			icon_state = global_icon
+		else
+			icon_state = spent_icon
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
+	global_icon = "gshell-casing"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
 
@@ -131,6 +142,7 @@
 	desc = "A blank shell."
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
+	global_icon = "blshell-casing"
 	projectile_type = /obj/item/projectile/bullet/blank
 	matter = list(MATERIAL_STEEL = 90)
 
@@ -139,6 +151,7 @@
 	desc = "A practice shell."
 	icon_state = "pshell"
 	spent_icon = "pshell-spent"
+	global_icon = "pshell-casing"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list(MATERIAL_STEEL = 90)
 
@@ -147,6 +160,7 @@
 	desc = "A beanbag shell."
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
+	global_icon = "bshell-casing"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
 	matter = list(MATERIAL_STEEL = 180)
 
@@ -178,12 +192,14 @@
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "556casing"
 	spent_icon = "556casing-spent"
 
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "14.5mm"
@@ -193,6 +209,8 @@
 /obj/item/ammo_casing/a145/apds
 	name = "APDS shell casing"
 	desc = "A 14.5mm Armour Piercing Discarding Sabot shell."
+	icon_state = "APlcasing"
+	spent_icon = "APlcasing-spent"
 	projectile_type = /obj/item/projectile/bullet/rifle/a145/apds
 
 /obj/item/ammo_casing/a762
@@ -248,5 +266,6 @@
 	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
+	global_icon = "empshell-casing"
 	projectile_type  = /obj/item/projectile/ion
 	matter = list(MATERIAL_STEEL = 260, MATERIAL_URANIUM = 200)

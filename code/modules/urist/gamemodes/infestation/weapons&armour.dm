@@ -483,6 +483,7 @@
 /obj/item/ammo_casing/a132x108mm
 	name = "shell casing"
 	desc = "A 13.2x108mm shell."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "13.2x108mm"

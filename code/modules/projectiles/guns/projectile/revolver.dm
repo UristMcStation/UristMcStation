@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
 	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .44 Magnum ammo."
-	icon = 'icons/obj/guns/revolvers.dmi'
+	icon = 'icons/urist/items/revolvers.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = ".357"
@@ -17,6 +17,13 @@
 	accuracy_power = 8
 	one_hand_penalty = 2
 	bulk = 3
+
+/obj/item/weapon/gun/projectile/revolver/on_update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "[initial(icon_state)]-loaded"
+	else
+		icon_state = "[initial(icon_state)]-empty"
 
 /obj/item/weapon/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))
@@ -85,18 +92,11 @@
 /obj/item/weapon/gun/projectile/revolver/deckard
 	name = "Deckard .38"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
-	icon_state = "deckard-empty"
+	icon_state = "deckard"
 	ammo_type = /obj/item/ammo_magazine/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/deckard/emp
 	ammo_type = /obj/item/ammo_casing/c38/emp
-
-/obj/item/weapon/gun/projectile/revolver/deckard/on_update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "deckard-loaded"
-	else
-		icon_state = "deckard-empty"
 
 /obj/item/weapon/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))

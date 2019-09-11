@@ -1,6 +1,7 @@
 /obj/item/ammo_magazine/a44
 	name = "speed loader (.44 Magnum)"
 	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "44"
 	caliber = ".44"
 	ammo_type = /obj/item/ammo_casing/a44
@@ -11,6 +12,7 @@
 /obj/item/ammo_magazine/c50
 	name = "speed loader (.50)"
 	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "50"
 	caliber = ".50"
 	ammo_type = /obj/item/ammo_casing/a50
@@ -21,7 +23,8 @@
 /obj/item/ammo_magazine/c357
 	name = "speed loader (.357 Magnum)"
 	desc = "A speed loader for revolvers."
-	icon_state = "357"
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/c357
 	matter = list(MATERIAL_STEEL = 450)
 	caliber = ".357"
@@ -30,12 +33,13 @@
 
 /obj/item/ammo_magazine/c357/rubber
 	name = "speed loader (.357 Magnum, rubber)"
-	icon_state = "357_r"
+	icon_state = "38_r"
 	ammo_type = /obj/item/ammo_casing/c357/rubber
 
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
 	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "38"
 	caliber = ".38"
 	matter = list(MATERIAL_STEEL = 360)
@@ -51,7 +55,8 @@
 /obj/item/ammo_magazine/c44
 	name = "speed loader (.44 magnum)"
 	desc = "A speed loader for revolvers."
-	icon_state = "38"
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "44"
 	ammo_type = /obj/item/ammo_casing/c44
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
 	caliber = ".44"
@@ -60,7 +65,7 @@
 
 /obj/item/ammo_magazine/c44/rubber
 	name = "speed loader (.44 magnum, rubber)"
-	icon_state = "R38"
+	icon_state = "44_r"
 	ammo_type = /obj/item/ammo_casing/c44/rubber
 
 /obj/item/ammo_magazine/shotholder
@@ -81,7 +86,7 @@
 		var/image/I = image(icon, "shotholder-marking")
 		I.color = marking_color
 		overlays += I
-	
+
 /obj/item/ammo_magazine/shotholder/shell
 	name = "shotgun shell holder"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -112,6 +117,7 @@
 
 /obj/item/ammo_magazine/c45m
 	name = "magazine (.45)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -137,6 +143,7 @@
 
 /obj/item/ammo_magazine/c45mds
 	name = "double-stack magazine (.45)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "45ds"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -150,6 +157,7 @@
 
 /obj/item/ammo_magazine/c45mds/rubber
 	name = "double-stack magazine (.45, rubber)"
+	icon_state = "R45ds"
 	ammo_type = /obj/item/ammo_casing/c45/rubber
 
 /obj/item/ammo_magazine/c45mds/practice
@@ -158,10 +166,12 @@
 
 /obj/item/ammo_magazine/c45mds/flash
 	name = "double-stack magazine (.45, flash)"
+	icon_state = "F45ds"
 	ammo_type = /obj/item/ammo_casing/c45/flash
 
 /obj/item/ammo_magazine/c45uzi
 	name = "stick magazine (.45)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "uzi45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -175,6 +185,7 @@
 
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "9x19p"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -189,10 +200,12 @@
 
 /obj/item/ammo_magazine/mc9mm/flash
 	name = "magazine (9mm, flash)"
+	icon_state = "F9x19"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/mc9mmds
 	name = "double-stack magazine (9mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "9mmds"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -206,6 +219,7 @@
 
 /obj/item/ammo_magazine/mc9mmds/rubber
 	name = "double-stack magazine (9mm, rubber)"
+	icon_state = "R9mmds"
 	ammo_type = /obj/item/ammo_casing/c9mm/rubber
 
 /obj/item/ammo_magazine/mc9mmds/practice
@@ -214,6 +228,7 @@
 
 /obj/item/ammo_magazine/mc9mmds/flash
 	name = "double-stack magazine (9mm, flash)"
+	icon_state = "F9mmds"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/box/c9mm
@@ -248,6 +263,7 @@
 
 /obj/item/ammo_magazine/mc9mmt
 	name = "top mounted magazine (9mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "9mmt"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -261,6 +277,7 @@
 
 /obj/item/ammo_magazine/mc9mmt/rubber
 	name = "top mounted magazine (9mm, rubber)"
+	icon_state = "R9mmt"
 	ammo_type = /obj/item/ammo_casing/c9mm/rubber
 
 /obj/item/ammo_magazine/mc9mmt/practice
@@ -269,6 +286,7 @@
 
 /obj/item/ammo_magazine/mc9mmt/flash
 	name = "top mounted magazine (9mm, flash)"
+	icon_state = "F9mmt"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/box/c45
@@ -285,6 +303,7 @@
 
 /obj/item/ammo_magazine/a10mm
 	name = "submachine gun magazine (10mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "10mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -324,6 +343,7 @@
 
 /obj/item/ammo_magazine/a762
 	name = "magazine (7.62mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "762"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -342,6 +362,7 @@
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "50ae"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -356,6 +377,7 @@
 
 /obj/item/ammo_magazine/a75
 	name = "ammo magazine (20mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "20mm"
 	mag_type = MAGAZINE
 	caliber = "75"
@@ -382,6 +404,7 @@
 
 /obj/item/ammo_magazine/c556
 	name = "magazine (5.56mm)"
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "c556"
 	mag_type = MAGAZINE
 	caliber = "a556"

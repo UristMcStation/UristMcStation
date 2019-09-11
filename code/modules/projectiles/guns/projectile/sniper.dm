@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
 	desc = "A portable anti-armour rifle fitted with a scope, the HI PTR-7 Rifle was originally designed to used against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	icon = 'icons/obj/guns/heavysniper.dmi'
+	icon = 'icons/urist/items/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper" //sort of placeholder
 	w_class = ITEM_SIZE_HUGE
@@ -29,7 +29,10 @@
 /obj/item/weapon/gun/projectile/heavysniper/on_update_icon()
 	..()
 	if(bolt_open)
-		icon_state = "heavysniper-open"
+		if(loaded.len)
+			icon_state = "heavysniper-open"
+		else
+			icon_state = "heavysniper-empty"
 	else
 		icon_state = "heavysniper"
 
