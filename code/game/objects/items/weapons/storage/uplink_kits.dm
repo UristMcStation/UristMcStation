@@ -91,7 +91,7 @@
 /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver
 	startswith = list(
 		/obj/item/weapon/gun/projectile/revolver,
-		/obj/item/ammo_magazine/a44
+		/obj/item/ammo_magazine/c357
 	)
 
 /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver2
