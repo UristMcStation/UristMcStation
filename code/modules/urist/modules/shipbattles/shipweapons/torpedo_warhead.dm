@@ -116,15 +116,8 @@
 	if(safety && !forced)
 		visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
-	if(forced)
-		visible_message("<span class='danger'>[src] pings, begining a short countdown!</span>")
-		playsound(src.loc, 'sound/machines/ping.ogg', 25, 0, 10)
-		playsound(src.loc, 'sound/items/countdown.ogg', 25, 0, 10)
-		spawn(4 SECONDS)
-			explosion(get_turf(src), 1, 3, 5)
-			qdel(src)
-	if(!safety)
-		if(prob(15)) // Small chance for the warhead's safeties to engage briefly.
+	if(!safety || forced)
+		if(!forced && prob(15)) // Small chance for the warhead's safeties to engage briefly.
 			visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
 			return
@@ -132,11 +125,11 @@
 		playsound(src.loc, 'sound/machines/ping.ogg', 25, 0, 10)
 		playsound(src.loc, 'sound/items/countdown.ogg', 25, 0, 10)
 		spawn(4 SECONDS)
-			if(safety) //if the madlads somehow disarm this thing BEFORE detonation ...
+			if(!forced && safety) //if the madlads somehow disarm this thing BEFORE detonation ...
 				visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
 				return
-			explosion(get_turf(src), 1, 3, 5)
+			explosion(get_turf(src), 0, 2, 4)
 			qdel(src)
 
 /datum/wires/torpedowarhead

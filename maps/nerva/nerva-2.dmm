@@ -6081,10 +6081,15 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/shipweapons/beam/lightlaser,
+/obj/machinery/shipweapons/beam/lightlaser{
+	shipid = "nerva"
+	},
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/structure/shipweapons/hardpoint/nerva{
+	attached = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
@@ -13654,10 +13659,10 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/door/window/westleft,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled,
 /area/civilian/hydro)
 "awZ" = (

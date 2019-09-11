@@ -9,7 +9,7 @@
 	var/passshield = 0
 	var/shielddamage = 0
 	var/hulldamage = 0
-	var/shipid = "nerva"
+	var/shipid = null
 	var/canfire = 0
 	var/recharging = 0
 	var/charged = 0
@@ -25,6 +25,8 @@
 	var/obj/effect/overmap/ship/combat/homeship = null
 	var/firing = FALSE
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
+	var/status = "Ready to Fire"
+	var/datum/shipcomponents/targeted_component
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
@@ -41,6 +43,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	else
+		UpdateStatus()
 		update_use_power(2)
 		recharging = 1
 		update_icon()
@@ -50,6 +53,7 @@
 			update_use_power(1)
 			recharging = 0
 			update_icon()
+			UpdateStatus()
 
 /obj/machinery/shipweapons/power_change()
 	if(!charged && !recharging) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
@@ -69,7 +73,6 @@
 					if(charged) //just in case, we check again
 						if(!firing)
 							user << "<span class='warning'>You fire the [src.name].</span>"
-							firing = TRUE
 							Fire()
 					else
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
@@ -91,13 +94,17 @@
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess
 	if(!target) //maybe make it fire and recharge if people are dumb?
-		firing = FALSE
 		return
 
 	if(shipid && !linkedcomputer)
 		ConnectWeapons()
+		return
 
 	else
+		if(!firing)
+			firing = TRUE
+
+		UpdateStatus()
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
 		//do the firing stuff
 
@@ -122,7 +129,7 @@
 
 								shieldbuffer = (hulldamage-shieldbuffer) //hulldamage is slightly mitigated by the existing shield
 								if(shieldbuffer <=0) //but if the shield was really strong, we don't do anything
-									return
+									continue
 
 								else
 									OM.health -= shieldbuffer
@@ -141,22 +148,40 @@
 								OM.boarding = 1
 								OM.boarded()
 
-						OM.health -= hulldamage
+						if(targeted_component)
+							TargetedHit(OM, hulldamage)
 
-						if(prob(component_hit))
-							HitComponents(OM)
-							MapFire()
+						else
+							OM.health -= hulldamage
+
+							if(prob(component_hit))
+								HitComponents(OM)
+								MapFire()
 
 				else if(passshield) //do we pass through the shield? let's do our damage
-					if(OM.shields)
-						var/muted_damage = (hulldamage * 0.5)
-						OM.health -= muted_damage
-					else if(!OM.shields)
-						OM.health -= hulldamage
+					//not so fast, we've got point defence now
+					for(var/datum/shipcomponents/point_defence/PD in OM.components)
+						if(!PD.broken && prob(PD.intercept_chance))
+							continue
 
-					if(prob(component_hit))
-						HitComponents(OM)
-						MapFire()
+						else
+							if(OM.shields)
+								var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
+								if(targeted_component)
+									TargetedHit(OM, muted_damage)
+								else
+									OM.health -= muted_damage
+
+							else if(!OM.shields)
+								if(targeted_component)
+									TargetedHit(OM, hulldamage)
+
+								else
+									OM.health -= hulldamage
+
+							if(!targeted_component && prob(component_hit))
+								HitComponents(OM)
+								MapFire()
 
 				if(OM.health <= (OM.maxHealth * 0.5))
 
@@ -177,6 +202,7 @@
 		//insert firing animations here
 		playsound(src, fire_sound, 40, 1)
 
+
 		if(fire_anim)
 			icon_state = "[initial(icon_state)]-firing"
 			spawn(fire_anim)
@@ -189,6 +215,7 @@
 			Charging() //time to recharge
 
 		firing = FALSE
+		UpdateStatus()
 
 /obj/machinery/shipweapons/proc/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
@@ -202,6 +229,16 @@
 
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
+
+/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hulldamage)
+	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
+	if(!targeted_component.broken)
+		targeted_component.health -= (hulldamage * 0.5) //we do more damage for aimed shots
+
+		if(targeted_component.health <= 0)
+			targeted_component.BlowUp()
+
+	OM.health -= (hulldamage * 0.5) //but we also do less damage to the hull in general if we're aiming at systems
 
 /obj/machinery/shipweapons/update_icon()
 	..()
@@ -223,6 +260,26 @@
 		if(src.shipid == CC.shipid)
 			CC.linkedweapons += src
 			linkedcomputer = CC
+
+	for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+		if(C.shipid == src.shipid)
+			homeship = C
+
+/obj/machinery/shipweapons/proc/UpdateStatus()
+	if(recharging)
+		status = "Recharging"
+
+	if(firing)
+		status = "Firing"
+
+	if(!canfire)
+		status = "Unable to Fire"
+
+	if(!charged && !recharging)
+		status = "Unable to Fire"
+
+	else
+		status = "Ready to Fire"
 
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
 	var/turf/T = get_turf(src)
