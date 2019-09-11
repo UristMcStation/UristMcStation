@@ -66,6 +66,7 @@
 		for(var/obj/machinery/shipweapons/SW in SSmachines.machinery) //and the weapons
 			if(SW.shipid == src.shipid)
 				SW.target = null
+				SW.targeted_component = null
 
 		target.target_ship = null
 		src.target = null

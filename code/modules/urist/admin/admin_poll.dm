@@ -379,7 +379,7 @@
 
 	//usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
 
-	var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
+	var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly])")
 	if(!poll_query.Execute())
 		usr << "Adding poll failed: [poll_query.ErrorMsg()]"
 		return

@@ -5,6 +5,7 @@
 	var/health = 100
 	var/mob/living/simple_animal/hostile/overmapship/mastership = null
 	var/broken = FALSE
+	var/targeted = TRUE
 
 /datum/shipcomponents/proc/BlowUp()
 //	qdel(src)
@@ -96,6 +97,11 @@
 	evasion_chance = 10
 	health = 100
 
+/datum/shipcomponents/engines/standardlarge
+	name = "large standard engines"
+	evasion_chance = 8
+	health = 125
+
 /datum/shipcomponents/engines/combat
 	name = "high performance combat engines"
 	evasion_chance = 20
@@ -114,4 +120,44 @@
 /datum/shipcomponents/engines/alien_heavy
 	name = "heavy alien engines"
 	evasion_chance = 15
+	health = 250
+
+//point defence
+
+/datum/shipcomponents/point_defence
+	var/intercept_chance = 0
+
+/datum/shipcomponents/point_defence/basic
+	name = "rudimentary point defence"
+	intercept_chance = 5
+	health = 50
+
+/datum/shipcomponents/point_defence/light
+	name = "light point defence"
+	intercept_chance = 8
+	health = 75
+
+/datum/shipcomponents/point_defence/med
+	name = "standard point defence"
+	intercept_chance = 10
+	health = 100
+
+/datum/shipcomponents/point_defence/advanced
+	name = "advanced point defence"
+	intercept_chance = 15
+	health = 150
+
+/datum/shipcomponents/point_defence/alienlight
+	name = "light alien point defence systems"
+	intercept_chance = 17
+	health = 150
+
+/datum/shipcomponents/point_defence/alienstandard
+	name = "standard alien point defence systems"
+	intercept_chance = 20
+	health = 200
+
+/datum/shipcomponents/point_defence/alienheavy
+	name = "advanced alien point defence systems"
+	intercept_chance = 25
 	health = 250

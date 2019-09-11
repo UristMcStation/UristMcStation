@@ -1,6 +1,7 @@
 <hr>
 <span>Current balance: {{:data.credits}} {{:data.currency}}</span>
 <hr>
+<div class='block'>
 <table style="width:100%">
 <tr><th style="width:15%">Contract<th style="width:50%">Description<th style="width:15%">Issuer<th style="width:10%">Value<th style="width:5%">Required Amount<th style="width:5%">Amount Completed
 {{for data.existing_contracts}}
@@ -13,3 +14,4 @@
 	<td><center>{{:value.progress}}</center>
 {{/for}}
 </table>
+</div>

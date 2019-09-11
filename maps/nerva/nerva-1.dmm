@@ -9889,6 +9889,7 @@
 	dir = 4;
 	icon_state = "torpedo";
 	pixel_y = -32;
+	shipid = "nerva";
 	tag = "icon-torpedo (EAST)"
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
