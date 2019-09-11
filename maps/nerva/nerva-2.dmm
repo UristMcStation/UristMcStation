@@ -6085,10 +6085,15 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/shipweapons/beam/lightlaser,
+/obj/machinery/shipweapons/beam/lightlaser{
+	shipid = "nerva"
+	},
 /obj/effect/floor_decal/corner/fadeblue{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/structure/shipweapons/hardpoint/nerva{
+	attached = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
