@@ -12,8 +12,9 @@ Gale212 - Head Admin
 Acemuto10 - Game Master
 Wommy - Game Master
 Stefender - Game Master
-Lyeos - Retired Admin
 Capesh - Game Master
+Irrationalist - Game Master
+Lady_Blanc - Game Master
 
 Scrdest - Coder
 
@@ -21,9 +22,7 @@ Vakothu - Dev Mod
 Licton15 - Moderator
 MisterPaper - Moderator
 D.E.Machina - Moderator
-Irrationalist - Moderator
 laniakeaa - Moderator
-Lady_Blanc - Moderator
 
 AseaHeru - Mentor
 Mapleguy555 - Mentor
@@ -35,4 +34,5 @@ MisterTeeth - Inactive Admin
 Zty8212000 - Inactive Admin
 Nienhaus2 - Retired Admin
 MrBarman - Retired Admin
+Lyeos - Retired Admin
 #Electronics
