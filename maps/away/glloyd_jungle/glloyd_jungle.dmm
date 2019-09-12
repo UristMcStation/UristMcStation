@@ -606,8 +606,7 @@
 /area/planet/jungle/away)
 "bZ" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Mining Station Communications";
-	req_access = list(48)
+	name = "Mining Station Communications"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1959,8 +1958,7 @@
 /area/jungleoutpost/medbay)
 "fl" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Outpost";
-	req_access = list(1)
+	name = "Security Outpost"
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
@@ -1970,8 +1968,7 @@
 /area/jungleoutpost/engi)
 "fm" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Outpost";
-	req_access = list(1)
+	name = "Security Outpost"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1989,8 +1986,7 @@
 /area/jungleoutpost/engi)
 "fp" = (
 /obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering";
-	req_access = list(32)
+	name = "Engineering"
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
@@ -2001,8 +1997,7 @@
 "fq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass/engineering{
-	name = "Engineering";
-	req_access = list(32)
+	name = "Engineering"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2726,8 +2721,7 @@
 /area/jungleoutpost/engi)
 "gZ" = (
 /obj/machinery/door/airlock/atmos{
-	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	name = "Outpost Atmospherics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -2802,15 +2796,13 @@
 /area/jungleoutpost/engi)
 "hi" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Outpost Storage";
-	req_access = list(1)
+	name = "Security Outpost Storage"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/jungleoutpost/engi)
 "hj" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Outpost Storage";
-	req_access = list(1)
+	name = "Security Outpost Storage"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3339,8 +3331,7 @@
 /area/jungleoutpost/engi)
 "in" = (
 /obj/machinery/door/airlock/glass/atmos{
-	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	name = "Outpost Atmospherics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -3487,8 +3478,7 @@
 /area/jungleoutpost/engi)
 "iz" = (
 /obj/machinery/door/airlock/atmos{
-	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	name = "Outpost Atmospherics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
