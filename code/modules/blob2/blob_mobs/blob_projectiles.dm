@@ -9,7 +9,7 @@
 	fire_sound = 'sound/effects/slime_squish.ogg'
 	var/splatter = FALSE			// Will this make a cloud of reagents?
 	var/splatter_volume = 5			// The volume of its chemical container, for said cloud of reagents.
-	var/list/my_chems = list("mold")
+	var/list/my_chems = list("toxin")
 
 /obj/item/projectile/energy/blob/splattering
 	splatter = TRUE
@@ -53,14 +53,14 @@
 /obj/item/projectile/energy/blob/acid
 	damage_type = BURN
 	check_armour = "bio"
-	my_chems = list("sacid", "mold")
+	my_chems = list("sacid", "toxin")
 
 /obj/item/projectile/energy/blob/acid/splattering
 	splatter = TRUE
 
 /obj/item/projectile/energy/blob/combustible
 	splatter = TRUE
-	my_chems = list("fuel", "mold")
+	my_chems = list("fuel", "toxin")
 
 /obj/item/projectile/energy/blob/freezing
 	my_chems = list("frostoil")
