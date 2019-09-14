@@ -34,9 +34,9 @@
 
 	var/spore_type = /mob/living/simple_animal/hostile/blob/spore
 	var/ranged_spores = FALSE			// For proper spores of the type above.
-//	var/spore_firesound = 'sound/effects/slime_squish.ogg'
+	var/spore_firesound = 'sound/effects/slime_squish.ogg'
 	var/spore_range = 7					// The range the spore can fire.
-//	var/spore_projectile = /obj/item/projectile/energy/blob
+	var/spore_projectile = /obj/item/projectile/energy/blob
 
 	var/factory_type = /obj/structure/blob/factory
 	var/resource_type = /obj/structure/blob/resource
@@ -120,7 +120,7 @@
 	brute_multiplier = 0.25
 	burn_multiplier = 0.6
 	ai_aggressiveness = 50 //Really doesn't like you near it.
-	spore_type = /mob/living/simple_animal/hostile/hivebot/swarm
+	spore_type = /mob/living/simple_animal/hostile/blob/spore/swarm
 
 /datum/blob_type/fabrication_swarm/on_received_damage(var/obj/structure/blob/B, damage, damage_type, mob/living/attacker)
 	if(istype(B, /obj/structure/blob/normal))
@@ -619,7 +619,7 @@
 	spore_type = /mob/living/simple_animal/hostile/blob/spore/weak
 	ranged_spores = TRUE
 	spore_range = 3
-//	spore_projectile = /obj/item/projectile/energy/blob/splattering
+	spore_projectile = /obj/item/projectile/energy/blob/splattering
 	factory_type = /obj/structure/blob/factory/sluggish
 	resource_type = /obj/structure/blob/resource/sluggish
 

@@ -37,10 +37,11 @@
 		if(istype(S))
 			S.overmind = overmind
 			overmind.blob_mobs.Add(S)
-	//		if(overmind.blob_type.ranged_spores)
-	//			S.projectiletype = overmind.blob_type.spore_projectile
-			//	S.projectilesound = overmind.blob_type.spore_firesound
-//		else //Other mobs don't add themselves in New. Ew.
+			if(overmind.blob_type.ranged_spores)
+				S.projectiletype = overmind.blob_type.spore_projectile
+				S.projectilesound = overmind.blob_type.spore_firesound
+				S.ranged = TRUE
+		else //Other mobs don't add themselves in New. Ew.
 //			S.nest = src
 			spores += S
 		S.update_icons()

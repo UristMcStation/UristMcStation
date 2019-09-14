@@ -1334,6 +1334,7 @@
 #include "code\modules\blob2\resource.dm"
 #include "code\modules\blob2\shield.dm"
 #include "code\modules\blob2\blob_mobs\blob_mob.dm"
+#include "code\modules\blob2\blob_mobs\blob_projectiles.dm"
 #include "code\modules\blob2\blob_mobs\spore.dm"
 #include "code\modules\blob2\overmind\blob_overmind_types.dm"
 #include "code\modules\blob2\overmind\blob_powers.dm"

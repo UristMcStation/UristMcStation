@@ -106,3 +106,24 @@
 /mob/living/simple_animal/hostile/blob/spore/GetIdCard()
 	if(infested) // If we've infested someone, use their ID.
 		return infested.GetIdCard()
+
+//Fabrication Swarm
+
+/mob/living/simple_animal/hostile/blob/spore/swarm
+	name = "Hivebot"
+	desc = "A small robot"
+	icon = 'icons/mob/hivebot.dmi'
+	icon_state = "basic"
+	icon_living = "basic"
+	icon_dead = "basic"
+	health = 15
+	maxHealth = 15
+	melee_damage_lower = 2
+	melee_damage_upper = 3
+	attacktext = "clawed"
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+	speed = 4
+
+	bleed_colour = SYNTH_BLOOD_COLOUR

@@ -102,8 +102,3 @@
 
 /mob/living/simple_animal/hostile/hivebot/tele/rapid
 	bot_type = /mob/living/simple_animal/hostile/hivebot/rapid
-
-
-/mob/living/simple_animal/hostile/hivebot/swarm
-	pass_flags = PASS_FLAG_BLOB | PASS_FLAG_TABLE
-	faction = "blob"
