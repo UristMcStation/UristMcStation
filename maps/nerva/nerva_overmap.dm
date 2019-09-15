@@ -49,3 +49,9 @@
 	shuttle = "Trajan"
 	fore_dir = NORTH
 	vessel_mass = 2000
+
+/obj/effect/overmap/ship/landable/hadrian
+	name = "Hadrian"
+	shuttle = "Hadrian"
+	fore_dir = EAST
+	vessel_mass = 1500
