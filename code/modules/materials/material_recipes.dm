@@ -28,7 +28,7 @@
 	. += new/datum/stack_recipe/spoon(src)
 	. += new/datum/stack_recipe/ring(src)
 	. += new/datum/stack_recipe/clipboard(src)
-		
+
 	if(integrity>50)
 		. += new/datum/stack_recipe/furniture/chair(src) //NOTE: the wood material has it's own special chair recipe
 		. += new/datum/stack_recipe_list("padded [display_name] chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/padded))
@@ -82,6 +82,12 @@
 	. += new/datum/stack_recipe/fire_alarm(src)
 	. += new/datum/stack_recipe_list("modular computer frames", create_recipe_list(/datum/stack_recipe/computer))
 
+	. += new/datum/stack_recipe_list("filing cabinets", list(
+		new/datum/stack_recipe/furniture/filingcabinet(src),
+		new/datum/stack_recipe/furniture/chestdrawer(src),
+		new/datum/stack_recipe/furniture/tallfilingcabinet(src)
+		))
+
 /material/plasteel/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipies below don't support composite materials
@@ -89,6 +95,8 @@
 	. += new/datum/stack_recipe/ai_core(src)
 	. += new/datum/stack_recipe/furniture/crate(src)
 	. += new/datum/stack_recipe/grip(src)
+
+	. += new/datum/stack_recipe/scrapshield(src)
 
 /material/stone/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -124,6 +132,16 @@
 	. += new/datum/stack_recipe/coilgun(src)
 	. += new/datum/stack_recipe/stick(src)
 	. += new/datum/stack_recipe/noticeboard(src)
+
+	. += new/datum/stack_recipe/imprifleframe(src)
+	. += new/datum/stack_recipe/furniture/undies_wardrobe(src)
+	. += new/datum/stack_recipe/furniture/cabinet(src)
+	. += new/datum/stack_recipe/furniture/coatrack(src)
+	. += new/datum/stack_recipe/furniture/woodfilingcabinet(src)
+	. += new/datum/stack_recipe/furniture/woodrack(src)
+	. += new/datum/stack_recipe/furniture/raft(src)
+	. += new/datum/stack_recipe/paddle(src)
+	. += new/datum/stack_recipe/woodrod(src)
 
 /material/wood/mahogany/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -163,4 +181,4 @@
 	if(reinforce_material)	//recipies below don't support composite materials
 		return
 	. += new/datum/stack_recipe/furniture/table_frame(src)
-	. += new/datum/stack_recipe/grenade(src) 
+	. += new/datum/stack_recipe/grenade(src)
