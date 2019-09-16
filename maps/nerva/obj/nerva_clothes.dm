@@ -268,7 +268,7 @@
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
+	icon = 'maps/torch/icons/obj/uniques.dmi'
 	icon_state = "command_exp_rig"
 	armor = list(melee = 35, bullet = 25, laser = 20, energy = 35, bomb = 40, bio = 100, rad = 100)
 
@@ -286,24 +286,24 @@
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/obj/solgov-head.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
+	icon = 'maps/torch/icons/obj/obj_head_solgov.dmi'
+	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
 	camera = /obj/machinery/camera/network/command
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command/exploration
-	icon = 'maps/torch/icons/mob/onmob_suit_solgov.dmi'
+	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
 	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/magboots/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-feet.dmi'
-	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/solgov-feet.dmi')
+	icon = 'maps/torch/icons/obj/obj_feet_solgov.dmi'
+	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/onmob_feet_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/gloves/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-hands.dmi'
-	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/solgov-hands.dmi')
+	icon = 'maps/torch/icons/obj/obj_hands_solgov.dmi'
+	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/weapon/rig/command/exploration/equipped
