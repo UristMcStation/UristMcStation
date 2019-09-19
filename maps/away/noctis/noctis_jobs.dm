@@ -7,13 +7,14 @@
 			The last job you did with your team was taking over this small exploration ship for the purposes of refitting it for combat, \
 			however, your shift is long past due and nobody seems to have woken you up."
 
-/datum/job/submap/noctis_crew/New()
+/datum/job/submap/noctis_crew/New(var/datum/submap/_owner, var/abstract_job = FALSE)
 	if(prob(90))
 		title = "Exploration Crewmember"
 		total_positions = 3
 		outfit_type = /decl/hierarchy/outfit/job/exploration_crew
 		info = "You've recently been contracted as a general crew member for an outer ring exploration vessel in search of abormal artifacts. \
 				It appears, however, that your ship has been raided while you were in cryosleep, leaving it as a half functional mess floating through space."
+	..()
 
 /obj/effect/submap_landmark/spawnpoint/hijacker
 	name = "Hijacker"
