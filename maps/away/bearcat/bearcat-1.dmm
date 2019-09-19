@@ -378,7 +378,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/stamp/cargo,
 /obj/item/weapon/stamp/denied,
-/obj/item/weapon/clipboard,
+/obj/random/clipboard,
 /obj/item/device/radio,
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -415,7 +415,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_port)
@@ -539,7 +539,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/escape_star)
@@ -1013,7 +1013,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/item/weapon/hand/missing_card,
 /obj/item/weapon/hand/missing_card,
@@ -1036,7 +1036,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/structure/closet/crate,
 /obj/random/soap,
@@ -1102,7 +1102,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/structure/closet,
 /obj/random/clothing,
@@ -1587,7 +1587,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/usedup,
@@ -1608,7 +1608,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/structure/closet,
 /obj/random/gloves,
@@ -2071,7 +2071,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2109,7 +2109,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/structure/closet,
 /obj/random/clothing,
@@ -2375,7 +2375,7 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 32;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/weapon/circuitboard/mineral_processing,
@@ -2404,7 +2404,7 @@
 /obj/item/weapon/cell/high,
 /obj/machinery/alarm{
 	pixel_y = 32;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/item/weapon/tape_roll,
 /obj/machinery/light_switch{
@@ -2922,7 +2922,7 @@
 "fs" = (
 /obj/item/weapon/tape_roll,
 /obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/rods/fifty,
+/obj/item/stack/material/rods/fifty,
 /obj/item/stack/material/steel/fifty,
 /obj/item/stack/material/plastic/fifty,
 /obj/item/stack/material/steel/fifty,
@@ -2962,7 +2962,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)

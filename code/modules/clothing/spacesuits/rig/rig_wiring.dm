@@ -22,7 +22,6 @@
 		if(RIG_SECURITY)
 			if(mended)
 				rig.req_access = initial(rig.req_access)
-				rig.req_one_access = initial(rig.req_one_access)
 		if(RIG_INTERFACE_SHOCK)
 			rig.electrified = mended ? 0 : -1
 			rig.shock(usr,100)
@@ -52,6 +51,6 @@
 
 /datum/wires/rig/CanUse(var/mob/living/L)
 	var/obj/item/weapon/rig/rig = holder
-	if(rig.open)
+	if(rig.p_open)
 		return 1
 	return 0

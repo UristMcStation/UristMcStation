@@ -110,7 +110,7 @@
 	..()
 	src.update_icon()
 
-/obj/item/robot_parts/robot_suit/update_icon()
+/obj/item/robot_parts/robot_suit/on_update_icon()
 	src.overlays.Cut()
 	if(src.parts[BP_L_ARM])
 		src.overlays += "l_arm+o"
@@ -127,13 +127,13 @@
 
 /obj/item/robot_parts/robot_suit/proc/check_completion()
 	if(src.parts[BP_L_ARM] && src.parts[BP_R_ARM] && src.parts[BP_L_LEG] && src.parts[BP_R_LEG] && src.parts[BP_CHEST] && src.parts[BP_HEAD])
-		feedback_inc("cyborg_frames_built",1)
+		SSstatistics.add_field("cyborg_frames_built",1)
 		return 1
 	return 0
 
 /obj/item/robot_parts/robot_suit/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL && !parts[BP_L_ARM] && !parts[BP_R_ARM] && !parts[BP_L_LEG] && !parts[BP_R_LEG] && !parts[BP_CHEST] && !parts[BP_HEAD])
+	if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_STEEL && !parts[BP_L_ARM] && !parts[BP_R_ARM] && !parts[BP_L_LEG] && !parts[BP_R_LEG] && !parts[BP_CHEST] && !parts[BP_HEAD])
 		var/obj/item/stack/material/M = W
 		if (M.use(1))
 			var/obj/item/weapon/secbot_assembly/ed209_assembly/B = new /obj/item/weapon/secbot_assembly/ed209_assembly(get_turf(src))
@@ -215,7 +215,7 @@
 				cell_component.wrapped = O.cell
 				cell_component.installed = 1
 
-			feedback_inc("cyborg_birth",1)
+			SSstatistics.add_field("cyborg_birth",1)
 			callHook("borgify", list(O))
 			O.Namepick()
 
@@ -327,13 +327,6 @@
 				add_flashes(W,user)
 		else
 			add_flashes(W,user)
-	else if(istype(W, /obj/item/weapon/stock_parts/manipulator))
-		to_chat(user, "<span class='notice'>You install some manipulators and modify the head, creating a functional spider-bot!</span>")
-		new /mob/living/simple_animal/spiderbot(get_turf(loc))
-		qdel(W)
-		qdel(src)
-		return
-	return
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W as obj, mob/user as mob) //Made into a seperate proc to avoid copypasta
 	if(src.flash1 && src.flash2)

@@ -24,20 +24,20 @@
 /turf/simulated/floor/airless,
 /area/unishi/bridge)
 "ag" = (
-/obj/machinery/computer/engines,
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled,
 /area/unishi/bridge)
 "ah" = (
-/obj/machinery/computer/navigation,
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled,
 /area/unishi/bridge)
 "ai" = (
-/obj/machinery/computer/helm,
+/obj/machinery/computer/ship/helm,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/unishi/bridge)
 "aj" = (
-/obj/machinery/computer/sensors,
+/obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled,
 /area/unishi/bridge)
 "ak" = (
@@ -180,7 +180,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/bridge)
@@ -203,6 +203,9 @@
 /area/unishi/bridge)
 "aO" = (
 /turf/simulated/floor/airless,
+/area/space)
+"aP" = (
+/turf/simulated/wall/titanium,
 /area/space)
 "aQ" = (
 /obj/machinery/light/small{
@@ -454,9 +457,9 @@
 /area/unishi/living)
 "bC" = (
 /obj/structure/closet,
-/obj/item/ammo_magazine/a357,
-/obj/item/ammo_magazine/a357,
-/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a44,
+/obj/item/ammo_magazine/a44,
+/obj/item/ammo_magazine/a44,
 /obj/item/weapon/gun/projectile/revolver/mateba,
 /obj/item/weapon/handcuffs,
 /obj/machinery/light/small{
@@ -769,7 +772,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/unishi/med)
@@ -794,7 +797,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -919,7 +922,7 @@
 "cA" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
-/area/unishi/lounge)
+/area/space)
 "cB" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
@@ -1480,7 +1483,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/unishi/kitchen)
@@ -1988,7 +1991,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -6182,7 +6185,7 @@ aa
 aa
 aa
 aa
-bM
+aP
 aa
 aa
 aa
@@ -6283,8 +6286,8 @@ aa
 aa
 aa
 aa
-be
-bM
+aP
+aP
 aa
 aa
 aa
@@ -6319,7 +6322,7 @@ aa
 aa
 aa
 aa
-be
+aP
 aa
 aa
 aa
@@ -6378,43 +6381,20 @@ aa
 aa
 aa
 aa
+ae
 aO
 aO
 aO
 aO
 aO
-aO
-be
-be
-bM
-bM
-bM
-bM
-bM
-bM
-aO
-aO
-aO
-aO
-aO
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 aO
 aO
 aO
@@ -6424,6 +6404,29 @@ be
 be
 be
 be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+aP
+aP
+aP
+aO
+aO
+aO
+aO
+aO
+aP
+aP
+aP
+aP
 aa
 aa
 aa
@@ -6478,13 +6481,13 @@ aa
 aa
 aa
 aa
-aO
-aO
 aC
-aD
-aD
-aD
-aD
+ae
+ae
+aP
+aP
+aP
+aP
 be
 be
 bC
@@ -6514,19 +6517,19 @@ be
 be
 be
 be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 aa
 aa
 aa
@@ -6626,8 +6629,8 @@ be
 be
 be
 be
-be
-be
+aP
+aP
 aO
 aa
 aa
@@ -7618,12 +7621,12 @@ bW
 cG
 cK
 cG
-dA
-dA
-dA
-dA
-dA
-dA
+aP
+aP
+aP
+aP
+aP
+aP
 dA
 dI
 dP
@@ -7646,8 +7649,8 @@ be
 be
 be
 be
-be
-be
+aP
+aP
 aO
 aa
 aa
@@ -7702,13 +7705,13 @@ aa
 aa
 aa
 aa
-aO
-aO
-aO
-aD
-aD
-aD
-aD
+ae
+ae
+ae
+aP
+aP
+aP
+aP
 be
 be
 bL
@@ -7716,41 +7719,41 @@ bP
 bY
 cf
 co
-bW
+aP
 cA
 cA
 cA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 aa
 aa
 aa
@@ -7812,46 +7815,46 @@ aO
 aO
 aO
 aO
-be
-be
-be
-be
-be
-be
-bW
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 aO
 aO
 aO
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
-be
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
 aO
 aa
 aa
 aa
 aa
-be
-be
-be
-be
+aP
+aP
+aP
+aP
 aa
 aa
 aa
@@ -7915,8 +7918,8 @@ aa
 aa
 aa
 aa
-be
-be
+aP
+aP
 aa
 aa
 aa
@@ -7951,7 +7954,7 @@ aa
 aa
 aa
 aa
-be
+aP
 aa
 aa
 aa
@@ -8018,7 +8021,7 @@ aa
 aa
 aa
 aa
-be
+aP
 aa
 aa
 aa

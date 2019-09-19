@@ -268,7 +268,7 @@
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
+	icon = 'maps/torch/icons/obj/uniques.dmi'
 	icon_state = "command_exp_rig"
 	armor = list(melee = 35, bullet = 25, laser = 20, energy = 35, bomb = 40, bio = 100, rad = 100)
 
@@ -286,23 +286,24 @@
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/obj/solgov-head.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
+	icon = 'maps/torch/icons/obj/obj_head_solgov.dmi'
+	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
+	camera = /obj/machinery/camera/network/command
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-suit.dmi'
-	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/solgov-suit.dmi')
+	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
+	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/magboots/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-feet.dmi'
-	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/solgov-feet.dmi')
+	icon = 'maps/torch/icons/obj/obj_feet_solgov.dmi'
+	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/onmob_feet_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/gloves/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-hands.dmi'
-	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/solgov-hands.dmi')
+	icon = 'maps/torch/icons/obj/obj_hands_solgov.dmi'
+	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/weapon/rig/command/exploration/equipped
@@ -312,58 +313,3 @@
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/cooling_unit
 		)
-
-
-//nerva captain
-/*
-/obj/item/weapon/rig/command/nervacap
-	name = "Captain's command HCM"
-	suit_type = "captain's command hardsuit"
-	desc = "A high-tech powered suit adorned with ceremonial frills of crimson and gold. Cost more to produce and manufacture than the ship you're on right now."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
-	icon_state = "command_exp_rig"
-	armor = list(melee = 65, bullet = 50, laser = 50, energy = 25, bomb = 50, bio = 100, rad = 100) //same as cappy's regular armour
-
-	online_slowdown = 0.25
-	offline_slowdown = 2
-	offline_vision_restriction = TINT_HEAVY
-
-	chest_type = /obj/item/clothing/suit/space/rig/command/nervacap
-	helm_type = /obj/item/clothing/head/helmet/space/rig/command/nervacap
-	boot_type = /obj/item/clothing/shoes/magboots/rig/command/nervacap
-	glove_type = /obj/item/clothing/gloves/rig/command/nervacap
-
-	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
-	req_access = list(access_captain)
-
-/obj/item/clothing/head/helmet/space/rig/command/nervacap
-	light_overlay = "helmet_light_dual"
-	icon = 'icons/urist/items/clothes/head'
-	item_icons = list(slot_head_str = 'icons/uristmob/head.dmi')
-	camera = /obj/machinery/camera/network/command
-	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
-
-/obj/item/clothing/suit/space/rig/command/nervacap
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	item_icons = list(slot_wear_suit_str = 'icons/uristmob/clothes.dmi')
-	species_restricted = list(SPECIES_HUMAN)
-
-/obj/item/clothing/shoes/magboots/rig/command/nervacap
-	icon = 'icons/urist/items/clothes/shoes.dmi'
-	item_icons = list(slot_shoes_str = 'icons/uristmob/shoes.dmi')
-	species_restricted = list(SPECIES_HUMAN)
-
-/obj/item/clothing/gloves/rig/command/nervacap
-	icon = 'icons/urist/items/clothes/gloves.dmi'
-	item_icons = list(slot_gloves_str = 'icons/uristmob/gloves.dmi')
-	species_restricted = list(SPECIES_HUMAN)
-
-/obj/item/weapon/rig/command/nervacap/equipped
-
-	initial_modules = list(
-		/obj/item/rig_module/mounted/egun,
-		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/flash,
-		/obj/item/rig_module/cooling_unit
-		)
-*/

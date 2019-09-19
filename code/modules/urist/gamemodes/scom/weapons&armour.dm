@@ -99,7 +99,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
 
-/obj/item/weapon/gun/projectile/sniper/verb/scope()
+/obj/item/weapon/gun/projectile/sniper/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -169,7 +169,7 @@
 //ammo
 
 /obj/item/weapon/storage/box/c20ammo
-	name = "box of c20r ammo"
+	name = "box of smg ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
 	New()
@@ -184,9 +184,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
 
 /obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"

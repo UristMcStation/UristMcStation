@@ -381,14 +381,14 @@
 /area/rescue_base/base)
 "aW" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/stunshells,
-/obj/item/weapon/storage/box/stunshells,
-/obj/item/weapon/storage/box/beanbags,
-/obj/item/weapon/storage/box/beanbags,
-/obj/item/weapon/storage/box/shotgunammo,
-/obj/item/weapon/storage/box/shotgunammo,
-/obj/item/weapon/storage/box/shotgunshells,
-/obj/item/weapon/storage/box/shotgunshells,
+/obj/item/weapon/storage/box/ammo/stunshells,
+/obj/item/weapon/storage/box/ammo/stunshells,
+/obj/item/weapon/storage/box/ammo/beanbags,
+/obj/item/weapon/storage/box/ammo/beanbags,
+/obj/item/weapon/storage/box/ammo/shotgunammo,
+/obj/item/weapon/storage/box/ammo/shotgunammo,
+/obj/item/weapon/storage/box/ammo/shotgunshells,
+/obj/item/weapon/storage/box/ammo/shotgunshells,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -976,8 +976,6 @@
 /area/rescue_base/base)
 "cc" = (
 /obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -1591,8 +1589,6 @@
 /area/rescue_base/base)
 "cY" = (
 /obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "insignias closet"
 	},
@@ -1700,8 +1696,6 @@
 /area/rescue_base/base)
 "di" = (
 /obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "insignias closet"
 	},
@@ -2192,8 +2186,6 @@
 /area/rescue_base/base)
 "ed" = (
 /obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "insignias closet"
 	},
@@ -4754,7 +4746,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "jP" = (
-/obj/effect/decal/cleanable/blood/edge{
+/obj/effect/decal/cleanable/blood{
 	tag = "icon-bloodsquare (NORTHEAST)";
 	icon_state = "bloodsquare";
 	dir = 5
@@ -5165,8 +5157,6 @@
 /area/syndicate_mothership/raider_base)
 "kO" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed";
 	name = "Clothing Storage"
 	},
@@ -6182,7 +6172,7 @@
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/edge{
+/obj/effect/decal/cleanable/blood{
 	tag = "icon-bloodsquare (NORTHWEST)";
 	icon_state = "bloodsquare";
 	dir = 9
@@ -6412,7 +6402,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "nx" = (
-/obj/effect/decal/cleanable/blood/edge{
+/obj/effect/decal/cleanable/blood{
 	tag = "icon-bloodsquare (NORTHWEST)";
 	icon_state = "bloodsquare";
 	dir = 9
@@ -7162,8 +7152,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
-	master_tag = "vox_west_control";
-	req_one_access = list(150)
+	master_tag = "vox_west_control"
 	},
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
@@ -7833,8 +7822,7 @@
 	command = "cycle_interior";
 	frequency = 1331;
 	master_tag = "vox_west_control";
-	pixel_x = -22;
-	req_one_access = list(150)
+	pixel_x = -22
 	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
@@ -10102,8 +10090,8 @@
 	},
 /area/ninja_dojo/dojo)
 "ww" = (
-/turf/unsimulated/floor/snow,
 /obj/structure/flora/grass/both,
+/turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	tag = "icon-gravsnow_corner (SOUTHEAST)";
 	icon_state = "gravsnow_corner";
@@ -10190,10 +10178,10 @@
 	},
 /area/syndicate_mothership)
 "wI" = (
-/turf/simulated/floor/tiled/white,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/white,
 /turf/simulated/shuttle/wall{
 	dir = 8;
 	icon_state = "swall_c"
@@ -10291,7 +10279,7 @@
 /area/syndicate_mothership)
 "wU" = (
 /obj/structure/bed/nice,
-/obj/item/weapon/bedsheet/syndie,
+/obj/item/clothing/mask/urist/bandana/bedsheet/syndie,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -10316,10 +10304,10 @@
 	},
 /area/space)
 "wY" = (
-/turf/simulated/floor/tiled/white,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/white,
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c"
 	},
@@ -10679,8 +10667,8 @@
 	},
 /area/ninja_dojo/dojo)
 "xS" = (
-/turf/unsimulated/floor/snow,
 /obj/structure/flora/tree/pine,
+/turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	tag = "icon-gravsnow_corner";
 	icon_state = "gravsnow_corner"
@@ -10694,8 +10682,8 @@
 	},
 /area/syndicate_mothership)
 "xU" = (
-/turf/unsimulated/floor/snow,
 /obj/structure/flora/grass/both,
+/turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	tag = "icon-gravsnow_corner";
 	icon_state = "gravsnow_corner"
@@ -11193,8 +11181,6 @@
 /area/syndicate_mothership)
 "ze" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed";
 	name = "Wardrobe"
 	},
@@ -11210,8 +11196,7 @@
 	},
 /obj/machinery/alarm{
 	frequency = 1439;
-	pixel_y = 23;
-	req_one_access = list(201)
+	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (SOUTHEAST)";
@@ -11462,8 +11447,6 @@
 /area/merchant_station)
 "zE" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed";
 	name = "Wardrobe"
 	},
@@ -11475,8 +11458,7 @@
 "zF" = (
 /obj/machinery/alarm{
 	frequency = 1439;
-	pixel_y = 23;
-	req_one_access = list(201)
+	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (SOUTHEAST)";
@@ -11623,8 +11605,6 @@
 /area/wizard_station)
 "zX" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/suit/wizrobe/red,
@@ -11637,8 +11617,6 @@
 /area/wizard_station)
 "zY" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/suit/wizrobe/marisa,
@@ -11651,8 +11629,6 @@
 /area/wizard_station)
 "zZ" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/suit/wizrobe/magusblue,
@@ -11664,8 +11640,6 @@
 /area/wizard_station)
 "Aa" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
@@ -12204,21 +12178,16 @@
 /area/wizard_station)
 "Bq" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/under/psysuit,
 /obj/item/clothing/suit/wizrobe/psypurple,
-/obj/item/clothing/head/wizard/amp,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/wizard_station)
 "Br" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/shoes/sandal/marisa{
@@ -12239,8 +12208,6 @@
 /area/wizard_station)
 "Bs" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/clothing/suit/wizrobe/magusred,
@@ -12252,8 +12219,6 @@
 /area/wizard_station)
 "Bt" = (
 /obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/storage/briefcase,
@@ -12398,8 +12363,7 @@
 "BL" = (
 /obj/machinery/alarm{
 	frequency = 1439;
-	pixel_y = 23;
-	req_one_access = list(201)
+	pixel_y = 23
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -12839,7 +12803,7 @@
 /area/wizard_station)
 "CM" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/storage/fancy/candle_box,
+/obj/item/weapon/storage/candle_box,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -13408,8 +13372,7 @@
 "Ea" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -25;
-	req_one_access = list(201)
+	pixel_y = -25
 	},
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -13552,8 +13515,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(201)
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
@@ -13610,8 +13572,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(201)
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -15561,8 +15522,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(201)
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -16541,8 +16501,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(201)
+	pixel_y = 0
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -17046,8 +17005,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(201)
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)

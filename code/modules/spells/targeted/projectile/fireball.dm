@@ -27,6 +27,7 @@
 	var/ex_flash = 5
 
 	hud_state = "wiz_fireball"
+	cast_sound = 'sound/magic/fireball.ogg'
 
 /spell/targeted/projectile/dumbfire/fireball/prox_cast(var/list/targets, spell_holder)
 	for(var/mob/living/M in targets)
@@ -44,6 +45,9 @@
 	ex_flash++
 
 	return "The spell [src] now has a larger explosion."
+
+/spell/targeted/projectile/dumbfire/fireball/tower
+	charge_max = 2
 
 //PROJECTILE
 

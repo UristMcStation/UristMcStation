@@ -236,7 +236,7 @@
 /decl/hierarchy/outfit/nanotrasensci
 	name = "Nanotrasen scientist"
 	uniform = /obj/item/clothing/under/rank/scientist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
 	back = /obj/item/weapon/storage/backpack/nt
 	l_ear = /obj/item/device/radio/headset/headset_sci

@@ -6,13 +6,7 @@
 /turf/unsimulated/mask,
 /area/mine/unexplored)
 "ac" = (
-/turf/simulated/floor/exoplanet/grass/skylight,
-/area/icarus/open)
-"ad" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav1{
-	autoset = 1
-	},
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "ae" = (
 /turf/simulated/mineral,
@@ -40,7 +34,7 @@
 /area/icarus/vessel)
 "al" = (
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "am" = (
 /obj/structure/bed/chair/comfy/black,
@@ -64,7 +58,7 @@
 /area/icarus/open)
 "ar" = (
 /obj/structure/flora/tree/dead,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "as" = (
 /turf/simulated/wall/r_wall,
@@ -75,7 +69,7 @@
 /area/icarus/vessel)
 "au" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/flame/lighter/zippo/random,
 /obj/random/smokes,
 /turf/simulated/floor/wood,
 /area/icarus/vessel)
@@ -89,7 +83,7 @@
 /area/icarus/vessel)
 "ax" = (
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "ay" = (
 /obj/item/weapon/shreddedp,
@@ -846,7 +840,7 @@
 /area/icarus/vessel)
 "cM" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "cN" = (
 /obj/structure/table/standard,
@@ -1277,7 +1271,7 @@
 "ed" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ee" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1301,7 +1295,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ei" = (
 /obj/random/trash,
@@ -1327,7 +1321,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "en" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1371,7 +1365,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/mask/breath/emergency,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ew" = (
 /obj/structure/table/standard,
@@ -1399,7 +1393,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/scalpel,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1407,7 +1401,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1416,7 +1410,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/bedsheet/orange,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1428,7 +1422,7 @@
 /area/icarus/open)
 "eE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "eF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1436,7 +1430,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/mask/surgical,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1445,35 +1439,35 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/plate,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/material/kitchen/utensil/knife,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/padded,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/snack,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1483,7 +1477,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1492,7 +1486,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/plate,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1500,14 +1494,14 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1515,8 +1509,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1524,7 +1518,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1535,7 +1529,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1546,7 +1540,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eT" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1556,7 +1550,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eU" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1565,8 +1559,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1574,31 +1568,31 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/snack,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/storage/pill_bottle/antidexafen,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1610,7 +1604,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1618,7 +1612,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/storage/bag/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1626,7 +1620,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1638,7 +1632,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fe" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1651,7 +1645,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ff" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1662,29 +1656,29 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1698,7 +1692,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1712,12 +1706,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1726,7 +1720,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1736,14 +1730,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/material,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/rods,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/obj/item/stack/material/rods,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1752,28 +1746,22 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/material,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fs" = (
 /obj/effect/icarus/irradiate,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
-/area/icarus/open)
-"ft" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav2{
-	autoset = 1
-	},
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "fu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1796,13 +1784,13 @@
 /area/icarus/open)
 "fy" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "fz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "fA" = (
 /turf/simulated/floor/airless{
@@ -1823,7 +1811,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "fE" = (
 /obj/random/material,
@@ -1832,12 +1820,12 @@
 "fF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "fG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "fH" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -1993,7 +1981,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/vessel)
 "gj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2568,7 +2556,7 @@
 "hV" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "hW" = (
 /obj/structure/grille,
@@ -2578,7 +2566,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "hY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -2597,7 +2585,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ib" = (
 /obj/effect/decal/cleanable/ash,
@@ -2605,7 +2593,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ic" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -2615,7 +2603,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ie" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2624,7 +2612,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "if" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2633,7 +2621,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ig" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2642,14 +2630,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/trolley,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ih" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ii" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2661,7 +2649,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	anchored = 0
 	},
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ij" = (
 /obj/effect/decal/cleanable/ash,
@@ -2670,7 +2658,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "ik" = (
 /obj/effect/decal/cleanable/ash,
@@ -2680,7 +2668,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/desert/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "il" = (
 /obj/effect/decal/cleanable/ash,
@@ -2688,70 +2676,33 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/ore/slag,
-/turf/simulated/floor/exoplanet/desert/skylight,
-/area/icarus/open)
-"im" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav3{
-	autoset = 1
-	},
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/unsimulated/beach/sand,
 /area/icarus/open)
 "in" = (
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "io" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/grass/skylight,
+/turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "ip" = (
 /obj/effect/landmark/random_gen/asteroid,
 /turf/unsimulated/mineral,
 /area/space)
-"ke" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"Il" = (
-/obj/structure/cable,
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "16-0";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"ON" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
-"Xp" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/icarus/vessel)
+"jb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav1,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"kb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav2,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
+"lb" = (
+/obj/effect/shuttle_landmark/nav_icarus/nav3,
+/turf/simulated/floor/exoplanet/grass,
+/area/icarus/open)
 
 (1,1,1) = {"
 aa
@@ -9335,7 +9286,7 @@ ac
 ac
 ac
 ac
-ft
+kb
 ac
 ac
 ac
@@ -11875,7 +11826,7 @@ ac
 ac
 ac
 ac
-ad
+jb
 ac
 ac
 ac
@@ -23899,11 +23850,11 @@ es
 ah
 ah
 as
-ON
-ke
-Xp
-ke
-Il
+fD
+fD
+fz
+fD
+fz
 fD
 fD
 fD
@@ -24102,11 +24053,11 @@ ah
 ah
 as
 fK
-ah
+fA
 fY
-ah
-ah
-ah
+fz
+fz
+fz
 fz
 fF
 gx
@@ -24306,10 +24257,10 @@ as
 fL
 ah
 fY
-ah
-ah
-ah
-ah
+fD
+fy
+fD
+fD
 fz
 gf
 gG
@@ -24509,8 +24460,8 @@ fM
 ah
 fY
 ah
-ah
-ah
+fz
+fy
 ah
 gk
 ge
@@ -24711,8 +24662,8 @@ fN
 ah
 fY
 ge
-ah
-ah
+fz
+fz
 ah
 ah
 ge
@@ -38885,7 +38836,7 @@ ac
 ac
 ac
 ac
-im
+lb
 ac
 ac
 ac

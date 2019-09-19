@@ -9,9 +9,9 @@
 	plane = ABOVE_HUMAN_PLANE // this needs to be fairly high so it displays over most things, but it needs to be under lighting
 	interact_offline = 1
 	layer = ABOVE_HUMAN_LAYER
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE
 
 	var/on = 0
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'
@@ -57,10 +57,26 @@
 			node = target
 			break
 
+/obj/machinery/atmospherics/unary/cryo_cell/examine(mob/user)
+	. = ..()
+	if (. && user.Adjacent(src))
+		if (beaker)
+			to_chat(user, "It is loaded with a beaker.")
+		if (occupant)
+			occupant.examine(user)
+
 /obj/machinery/atmospherics/unary/cryo_cell/Process()
 	..()
 	if(!node)
 		return
+
+	var/has_air_contents = FALSE
+	if(air_contents) //Check this even if it's unpowered
+		ADJUST_ATOM_TEMPERATURE(src, air_contents.temperature)
+		if(beaker)
+			QUEUE_TEMPERATURE_ATOMS(beaker)
+		has_air_contents = TRUE
+
 	if(!on)
 		return
 
@@ -68,7 +84,7 @@
 		if(occupant.stat != 2)
 			process_occupant()
 
-	if(air_contents)
+	if(has_air_contents)
 		temperature_archived = air_contents.temperature
 		heat_gas_contents()
 		expel_gas()
@@ -195,22 +211,22 @@
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 		if(!user.unEquip(G, src))
-			return
+			return // Temperature will be adjusted on Entered()
 		beaker =  G
 		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/grab))
-		if(!ismob(G:affecting))
+		var/obj/item/grab/grab = G
+		if(!ismob(grab.affecting))
 			return
-		for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-			if(M.Victim == G:affecting)
-				to_chat(usr, "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head.")
+		for(var/mob/living/carbon/slime/M in range(1,grab.affecting))
+			if(M.Victim == grab.affecting)
+				to_chat(user, "[grab.affecting.name] will not fit into the cryo because they have a slime latched onto their head.")
 				return
-		var/mob/M = G:affecting
-		if(put_mob(M))
+		if(put_mob(grab.affecting))
 			qdel(G)
 	return
 
-/obj/machinery/atmospherics/unary/cryo_cell/update_icon()
+/obj/machinery/atmospherics/unary/cryo_cell/on_update_icon()
 	overlays.Cut()
 	icon_state = "pod[on]"
 	var/image/I
@@ -274,9 +290,11 @@
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
+	SetName(initial(name))
 	return
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
@@ -303,9 +321,10 @@
 		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	add_fingerprint(usr)
 	update_icon()
+	SetName("[name] ([occupant])")
 	return 1
 
 	//Like grab-putting, but for mouse-dropping.
@@ -356,9 +375,7 @@
 	return
 
 /obj/machinery/atmospherics/unary/cryo_cell/return_air()
-	if(on)
-		return air_contents
-	..()
+	return air_contents
 
 //This proc literally only exists for cryo cells.
 /atom/proc/return_air_for_internal_lifeform()

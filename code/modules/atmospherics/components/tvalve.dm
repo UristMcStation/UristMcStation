@@ -22,7 +22,7 @@
 	icon_state = "map_tvalve1"
 	state = 1
 
-/obj/machinery/atmospherics/tvalve/update_icon(animation)
+/obj/machinery/atmospherics/tvalve/on_update_icon(animation)
 	if(animation)
 		flick("tvalve[src.state][!src.state]",src)
 	else
@@ -100,8 +100,6 @@
 	return null
 
 /obj/machinery/atmospherics/tvalve/Destroy()
-	loc = null
-
 	if(node1)
 		node1.disconnect(src)
 		qdel(network_node1)
@@ -116,7 +114,7 @@
 	node2 = null
 	node3 = null
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/tvalve/proc/go_to_side()
 
@@ -289,7 +287,7 @@
 	icon_state = "map_tvalve1"
 	state = 1
 
-/obj/machinery/atmospherics/tvalve/digital/update_icon()
+/obj/machinery/atmospherics/tvalve/digital/on_update_icon()
 	..()
 	if(!powered())
 		icon_state = "tvalvenopower"
@@ -321,7 +319,7 @@
 		set_frequency(frequency)
 
 /obj/machinery/atmospherics/tvalve/digital/receive_signal(datum/signal/signal)
-	if(!signal.data["tag"] || (signal.data["tag"] != id))
+	if(!signal.data["tag"] || signal.data["tag"] != id)
 		return 0
 
 	switch(signal.data["command"])
@@ -405,7 +403,7 @@
 	update_icon()
 	update_underlays()
 
-/obj/machinery/atmospherics/tvalve/mirrored/update_icon(animation)
+/obj/machinery/atmospherics/tvalve/mirrored/on_update_icon(animation)
 	if(animation)
 		flick("tvalvem[src.state][!src.state]",src)
 	else
@@ -424,7 +422,7 @@
 	icon_state = "map_tvalvem1"
 	state = 1
 
-/obj/machinery/atmospherics/tvalve/mirrored/digital/update_icon()
+/obj/machinery/atmospherics/tvalve/mirrored/digital/on_update_icon()
 	..()
 	if(!powered())
 		icon_state = "tvalvemnopower"
@@ -454,7 +452,7 @@
 		set_frequency(frequency)
 
 /obj/machinery/atmospherics/tvalve/mirrored/digital/receive_signal(datum/signal/signal)
-	if(!signal.data["tag"] || (signal.data["tag"] != id))
+	if(!signal.data["tag"] || signal.data["tag"] != id)
 		return 0
 
 	switch(signal.data["command"])

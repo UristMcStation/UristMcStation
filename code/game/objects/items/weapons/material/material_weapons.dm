@@ -12,13 +12,15 @@
 	edge = 0
 
 	var/applies_material_colour = 1
+	var/applies_material_name = 1 //if false, does not rename item to 'material item.name'
 	var/unbreakable
 	var/force_divisor = 0.5
 	var/thrown_force_divisor = 0.5
 	var/attack_cooldown_modifier
-	var/default_material = DEFAULT_WALL_MATERIAL
+	var/default_material = MATERIAL_STEEL
 	var/material/material
 	var/drops_debris = 1
+	var/furniture_icon  //icon states for non-material colorable overlay, i.e. handles
 
 /obj/item/weapon/material/New(var/newloc, var/material_key)
 	..(newloc)
@@ -54,10 +56,7 @@
 	if(!material)
 		qdel(src)
 	else
-		SetName("[material.display_name] [initial(name)]")
 		health = round(material.integrity/10)
-		if(applies_material_colour)
-			color = material.icon_colour
 		if(material.products_need_process())
 			START_PROCESSING(SSobj, src)
 		if(material.conductive)
@@ -65,14 +64,28 @@
 		else
 			obj_flags &= (~OBJ_FLAG_CONDUCTIBLE)
 		update_force()
+		if(applies_material_name)
+			SetName("[material.display_name] [initial(name)]")
+		update_icon()
+
+/obj/item/weapon/material/on_update_icon()
+	overlays.Cut()
+	if(applies_material_colour)
+		color = material.icon_colour
+		alpha = 100 + material.opacity * 255
+	if(furniture_icon)
+		var/image/I = image(icon, icon_state = furniture_icon)
+		I.appearance_flags = RESET_COLOR
+		overlays += I
 
 /obj/item/weapon/material/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/weapon/material/apply_hit_effect()
+/obj/item/weapon/material/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	. = ..()
-	check_shatter()
+	if(material.is_brittle() || target.getarmor(hit_zone, "melee") >= material.hardness/5)
+		check_shatter()
 
 /obj/item/weapon/material/on_parry()
 	check_shatter()

@@ -78,7 +78,7 @@
 	R.overlays += stampoverlay
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
-	R.loc = D
+	R.forceMove(D)
 	D.wrapped = R
 	D.SetName("small parcel - 'EFTPOS access code'")
 
@@ -230,7 +230,7 @@
 				if(!linked_account.suspended)
 					var/attempt_pin = ""
 					var/datum/money_account/D = get_account(C.associated_account_number)
-					if(D.security_level)
+					if(D && D.security_level)
 						attempt_pin = input("Enter pin code", "EFTPOS transaction") as num
 						D = null
 					D = attempt_account_access(C.associated_account_number, attempt_pin, 2)

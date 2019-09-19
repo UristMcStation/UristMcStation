@@ -66,7 +66,7 @@
 	var/fire = 0
 
 /turf/unsimulated/wall/urist/other/ex_act(severity)
-	if(ticker.mode == "event")
+	if(SSticker.mode == "event")
 		switch(severity)
 			if(1.0)
 				src.ChangeTurf(get_base_turf_by_area(src))

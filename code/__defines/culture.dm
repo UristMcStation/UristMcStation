@@ -2,16 +2,17 @@
 #define TAG_HOMEWORLD "home_system"
 #define TAG_FACTION   "faction"
 #define TAG_RELIGION  "religion"
+
 #define ALL_CULTURAL_TAGS list( \
-	TAG_CULTURE = "Culture", \
-	TAG_HOMEWORLD = "Homeworld", \
-	TAG_FACTION = "Faction", \
-	TAG_RELIGION = "Beliefs" \
+	TAG_CULTURE =   "Culture", \
+	TAG_HOMEWORLD = "Residence", \
+	TAG_FACTION =   "Faction", \
+	TAG_RELIGION =  "Beliefs" \
 	)
 
 // Cultural IDs.
 #define FACTION_SOL_CENTRAL    "Sol Central Government"
-#define FACTION_TERRAN_CONFED  "Terran Colonial Confederation"
+#define FACTION_INDIE_CONFED  "Gilgamesh Colonial Confederation"
 #define FACTION_NANOTRASEN     "NanoTrasen"
 #define FACTION_FREETRADE      "Free Trade Union"
 #define FACTION_HEPHAESTUS     "Hephaestus Industries"
@@ -19,6 +20,8 @@
 #define FACTION_FLEET          "SCG Fleet"
 #define FACTION_EXPEDITIONARY  "Expeditionary Corps"
 #define FACTION_PCRC           "Proxima Centauri Risk Control"
+#define FACTION_CORPORATE       "Expeditionary Corps Organisation"
+#define FACTION_DAIS           "Deimos Advanced Information Systems"
 #define FACTION_OTHER          "Other Faction"
 #define FACTION_TEST_SUBJECTS  "Test Subjects"
 
@@ -38,6 +41,7 @@
 #define HOME_SYSTEM_LORDANIA   "Lordania"
 #define HOME_SYSTEM_KINGSTON   "Kingston"
 #define HOME_SYSTEM_GAIA       "Gaia"
+#define HOME_SYSTEM_MAGNITKA   "Magnitka"
 #define HOME_SYSTEM_STATELESS  "Stateless"
 #define HOME_SYSTEM_OTHER      "Other System"
 #define HOME_SYSTEM_DEEP_SPACE "Deep Space"
@@ -139,6 +143,7 @@
 #define FACTION_UNATHI_SAVANNAH     "Savannah Clans"
 #define FACTION_UNATHI_DIAMOND_PEAK "Diamond Peak Clans"
 #define FACTION_UNATHI_SALT_SWAMP   "Salt Swamp Clans"
+#define FACTION_UNATHI_YEOSA		"Yeosa Clans"
 
 #define RELIGION_UNATHI_STRATAGEM    "Grand Stratagem"
 #define RELIGION_UNATHI_PRECURSOR    "Precursor"
@@ -151,6 +156,17 @@
 #define CULTURE_XENOPHAGE_S    "Xenophage Sentinel"
 #define CULTURE_XENOPHAGE_Q    "Xenophage Queen"
 #define FACTION_XENOPHAGE      "Xenophage Hive"
+
+// Nabber grades.
+#define CULTURE_NABBER_CMINUS "Grade C-"
+#define CULTURE_NABBER_C      "Grade C"
+#define CULTURE_NABBER_CPLUS  "Grade C+"
+#define CULTURE_NABBER_BMINUS "Grade B-"
+#define CULTURE_NABBER_B      "Grade B"
+#define CULTURE_NABBER_BPLUS  "Grade B+"
+#define CULTURE_NABBER_AMINUS "Grade A-"
+#define CULTURE_NABBER_A      "Grade A"
+#define CULTURE_NABBER_APLUS  "Grade A+"
 
 // Teshari culture. TODO?: Add more Factions
 #define CULTURE_TESHARI           "Teshari"

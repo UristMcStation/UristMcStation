@@ -26,8 +26,9 @@
 	var/p_x = 16
 	var/p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
 
-	var/accuracy = 0
+	var/hitchance_mod = 0
 	var/dispersion = 0.0
+	var/distance_falloff = 2  //multiplier, higher value means accuracy drops faster with distance
 
 	var/damage = 10
 	var/damage_type = BRUTE //BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
@@ -58,6 +59,7 @@
 
 	var/fire_sound
 	var/miss_sounds
+	var/shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 
 	var/vacuum_traversal = 1 //Determines if the projectile can exist in vacuum, if false, the projectile will be deleted if it enters vacuum.
 
@@ -107,7 +109,7 @@
 			T.hotspot_expose(700, 5)
 
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
-/obj/item/projectile/proc/can_embed()
+/obj/item/projectile/can_embed()
 	//embed must be enabled and damage type must be brute
 	if(!embed || damage_type != BRUTE)
 		return 0
@@ -171,7 +173,7 @@
 		qdel(src)
 		return 0
 
-	loc = get_turf(user) //move the projectile out into the world
+	dropInto(user.loc) //move the projectile out into the world
 
 	firer = user
 	shot_from = launcher.name
@@ -190,12 +192,21 @@
 	setup_trajectory(starting_loc, new_target)
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
-/obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/special_miss_modifier=0)
 	if(!istype(target_mob))
 		return
 
 	//roll to-hit
-	miss_modifier = max(15*(distance-2) - round(15*accuracy) + miss_modifier, 0)
+	var/miss_modifier = max(distance_falloff*(distance)*(distance) - hitchance_mod + special_miss_modifier, -30)
+	//makes moving targets harder to hit, and stationary easier to hit
+	var/movment_mod = min(5, (world.time - target_mob.l_move_time) - 20)
+	//running in a straight line isnt as helpful tho
+	if(movment_mod < 0)
+		if(target_mob.last_move == get_dir(firer, target_mob))
+			movment_mod *= 0.25
+		else if(target_mob.last_move == get_dir(target_mob,firer))
+			movment_mod *= 0.5
+	miss_modifier -= movment_mod
 	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
@@ -241,7 +252,7 @@
 		return 0 //no
 
 	if(A == firer)
-		loc = A.loc
+		forceMove(A.loc)
 		return 0 //cannot shoot yourself
 
 	if((bumped && !forced) || (A in permutated))
@@ -281,12 +292,8 @@
 	//the bullet passes through a dense object!
 	if(passthrough)
 		//move ourselves onto A so we can continue on our way.
-		if(A)
-			if(istype(A, /turf))
-				loc = A
-			else
-				loc = A.loc
-			permutated.Add(A)
+		forceMove(get_turf(A))
+		permutated.Add(A)
 		bumped = 0 //reset bumped variable!
 		return 0
 
@@ -422,7 +429,7 @@
 
 /obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area)
 	if(A == firer)
-		loc = A.loc
+		forceMove(A.loc)
 		return //cannot shoot yourself
 	if(istype(A, /obj/item/projectile))
 		return

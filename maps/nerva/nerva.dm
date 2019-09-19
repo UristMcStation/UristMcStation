@@ -54,6 +54,7 @@
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/voxship/voxship.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/destroyed_colony/destroyed_colony.dm"
 	#include "../away/noctis/noctis.dm"

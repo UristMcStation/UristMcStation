@@ -20,7 +20,7 @@
 	open = 1
 	icon_state = "map_valve1"
 
-/obj/machinery/atmospherics/valve/update_icon(animation)
+/obj/machinery/atmospherics/valve/on_update_icon(animation)
 	if(animation)
 		flick("valve[src.open][!src.open]",src)
 	else
@@ -72,8 +72,6 @@
 	return null
 
 /obj/machinery/atmospherics/valve/Destroy()
-	loc = null
-
 	if(node1)
 		node1.disconnect(src)
 		qdel(network_node1)
@@ -244,7 +242,7 @@
 	open = 1
 	icon_state = "map_valve1"
 
-/obj/machinery/atmospherics/valve/digital/update_icon()
+/obj/machinery/atmospherics/valve/digital/on_update_icon()
 	..()
 	if(!powered())
 		icon_state = "valve[open]nopower"
@@ -261,7 +259,7 @@
 		set_frequency(frequency)
 
 /obj/machinery/atmospherics/valve/digital/receive_signal(datum/signal/signal)
-	if(!signal.data["tag"] || (signal.data["tag"] != id))
+	if(!signal.data["tag"] || signal.data["tag"] != id)
 		return 0
 
 	switch(signal.data["command"])

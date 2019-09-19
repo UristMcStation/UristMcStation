@@ -9,19 +9,32 @@
 	var/volume = 30
 	var/label_text
 
-/obj/item/weapon/reagent_containers/verb/set_APTFT() //set amount_per_transfer_from_this
+/obj/item/weapon/reagent_containers/proc/cannot_interact(mob/user)
+	if(!CanPhysicallyInteract(user))
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
+		return TRUE
+	if(ismob(loc) && loc != user)
+		to_chat(usr, "<span class='notice'>You can't set transfer amounts while [src] is being held by someone else.</span>")
+		return TRUE
+	return FALSE
+
+/obj/item/weapon/reagent_containers/verb/set_amount_per_transfer_from_this()
 	set name = "Set transfer amount"
 	set category = "Object"
-	set src in range(0)
+	set src in range(1)
+	if (cannot_interact(usr))
+		return
 	var/N = input("Amount per transfer from this:","[src]") as null|anything in cached_number_list_decode(possible_transfer_amounts)
+	if (cannot_interact(usr)) // because input takes time and the situation can change
+		return
 	if(N)
 		amount_per_transfer_from_this = N
 
 /obj/item/weapon/reagent_containers/New()
-	if(!possible_transfer_amounts)
-		src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
-	..() //Lots of things need reagents in Initialize, don't move this
+	..()
+	if(!possible_transfer_amounts)
+		src.verbs -= /obj/item/weapon/reagent_containers/verb/set_amount_per_transfer_from_this
 
 /obj/item/weapon/reagent_containers/attack_self(mob/user as mob)
 	return
@@ -182,7 +195,7 @@
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	playsound(src, 'sound/effects/pour.ogg', 25, 1)
-	to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution to \the [target].</span>")
+	to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution to \the [target].  \The [src] now contains [src.reagents.total_volume] units.</span>")
 	return 1
 
 /obj/item/weapon/reagent_containers/do_surgery(mob/living/carbon/M, mob/living/user)
@@ -191,8 +204,7 @@
 
 /obj/item/weapon/reagent_containers/AltClick(var/mob/user)
 	if(possible_transfer_amounts)
-		if(CanPhysicallyInteract(user))
-			set_APTFT()
+		set_amount_per_transfer_from_this()
 	else
 		return ..()
 
@@ -202,3 +214,9 @@
 		return
 	if(hasHUD(user, HUD_SCIENCE))
 		to_chat(user, "<span class='notice'>The [src] contains: [reagents.get_reagents()].</span>")
+
+/obj/item/weapon/reagent_containers/ex_act(severity)
+	if(reagents)
+		for(var/datum/reagent/R in reagents.reagent_list)
+			R.ex_act(src, severity)
+	..()

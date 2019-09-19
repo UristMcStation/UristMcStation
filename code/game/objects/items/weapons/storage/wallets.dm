@@ -37,7 +37,8 @@
 		/obj/item/device/paicard,
 		/obj/item/weapon/stamp,
 		/obj/item/weapon/key,
-		/obj/item/clothing/accessory/badge)
+		/obj/item/clothing/accessory/badge,
+		/obj/item/clothing/accessory/medal)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null
@@ -66,7 +67,7 @@
 			front_id = W
 			update_icon()
 
-/obj/item/weapon/storage/wallet/update_icon()
+/obj/item/weapon/storage/wallet/on_update_icon()
 	overlays.Cut()
 	if(front_id)
 		var/tiny_state = "id-generic"

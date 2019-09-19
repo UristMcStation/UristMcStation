@@ -28,9 +28,6 @@
 /obj/effect/shuttle_landmark/merchant/out,
 /turf/space,
 /area/space)
-"ah" = (
-/turf/simulated/wall/r_wall,
-/area/hallway/centralfirst)
 "ai" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -59,7 +56,7 @@
 	icon_state = "securearea";
 	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "al" = (
 /obj/machinery/airlock_sensor{
@@ -91,10 +88,6 @@
 	pixel_x = 21
 	},
 /turf/simulated/floor/plating,
-/area/hallway/centralfirst)
-"an" = (
-/obj/structure/sign/warning/docking_area,
-/turf/simulated/wall/r_wall,
 /area/hallway/centralfirst)
 "ao" = (
 /obj/machinery/door/airlock/external{
@@ -152,7 +145,6 @@
 	id_tag = "merchant_shuttle_station_dock";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_one_access = list(13,80);
 	tag_airpump = "merchant_shuttle_station_pump";
 	tag_chamber_sensor = "merchant_shuttle_station_sensor";
 	tag_exterior_door = "merchant_shuttle_station_exterior";
@@ -173,14 +165,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "ax" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
 	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "ay" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -323,7 +315,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aN" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afp)
 "aO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -558,7 +550,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bi" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/hallway/centralfirst)
 "bj" = (
 /obj/machinery/door/airlock/maintenance{
@@ -572,11 +564,11 @@
 	icon_state = "intact";
 	dir = 5
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "bl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "bm" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -667,7 +659,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "by" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/central)
 "bz" = (
 /obj/structure/ladder,
@@ -716,7 +708,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bE" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/central)
 "bF" = (
 /obj/machinery/space_heater,
@@ -810,7 +802,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bU" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/abandonedwarehouse)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1052,7 +1044,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cp" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afp)
 "cq" = (
 /obj/machinery/door/airlock/maintenance{
@@ -1062,7 +1054,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cr" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/dockingcheckpoint)
 "cs" = (
 /obj/machinery/door/airlock/maintenance{
@@ -1151,7 +1143,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "cC" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fp)
 "cD" = (
 /obj/item/weapon/stool/padded,
@@ -1307,7 +1299,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
 "cU" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fore)
 "cV" = (
 /obj/structure/disposalpipe/segment,
@@ -1676,7 +1668,6 @@
 	display_name = "Main Dock";
 	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_airlock";
-	req_one_access = list(13,80);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
 	tag_exterior_door = "nuke_shuttle_dock_outer";
@@ -1824,7 +1815,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/afp)
 "dT" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/first_emergency_storage)
 "dU" = (
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -2230,7 +2221,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "eI" = (
 /obj/machinery/door/airlock/maintenance{
@@ -2295,9 +2286,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"eO" = (
-/turf/simulated/wall/r_wall,
-/area/maintenance/mainsolar)
 "eP" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
@@ -2596,7 +2584,7 @@
 	icon_state = "doors";
 	dir = 8
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
 "fs" = (
 /obj/structure/cable{
@@ -2786,8 +2774,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -23;
-	pixel_y = -22;
-	req_one_access = list(13,80)
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -3250,8 +3237,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -24;
-	pixel_y = -6;
-	req_one_access = list(13,80)
+	pixel_y = -6
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -3274,7 +3260,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gy" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/civilian/first_deck_lobby)
 "gz" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -3299,7 +3285,7 @@
 /turf/simulated/floor/tiled,
 /area/civilian/first_deck_lobby)
 "gB" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/first_deck_lobby)
 "gC" = (
 /obj/machinery/door/airlock/maintenance{
@@ -3387,7 +3373,7 @@
 	icon_state = "shock";
 	dir = 8
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
 "gP" = (
 /obj/machinery/power/apc{
@@ -3572,7 +3558,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "hk" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/first_deck_atmos)
 "hl" = (
 /obj/machinery/door/airlock/engineering{
@@ -4101,7 +4087,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "ib" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/topgun)
 "ic" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -4300,7 +4286,7 @@
 	icon_state = "doors";
 	dir = 8
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/central)
 "iv" = (
 /obj/structure/cable/yellow{
@@ -5043,7 +5029,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
 "jK" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afs)
 "jL" = (
 /obj/effect/floor_decal/urist/nervalogo{
@@ -5368,7 +5354,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "kh" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afs)
 "ki" = (
 /obj/structure/closet/emcloset,
@@ -5570,7 +5556,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "kA" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/first_deck_storage)
 "kB" = (
 /obj/machinery/light{
@@ -6081,7 +6067,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ln" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fs)
 "lo" = (
 /obj/machinery/light,
@@ -6683,7 +6669,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "me" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/fs)
 "mf" = (
 /obj/random/powercell,
@@ -6859,7 +6845,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "mE" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/substation/first_deck)
 "mF" = (
 /obj/machinery/door/airlock/maintenance{
@@ -7496,7 +7482,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "nG" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/abandonedcheckpoint)
 "nH" = (
 /obj/machinery/door/airlock/maintenance{
@@ -8121,7 +8107,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "oU" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/aftsolar)
 "oV" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -8191,7 +8177,7 @@
 	name = "HIGH VOLTAGE";
 	pixel_y = 0
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/aftsolar)
 "pd" = (
 /obj/random/toolbox,
@@ -8856,7 +8842,6 @@
 	id_tag = "skipjack_shuttle_dock_airlock";
 	pixel_x = 24;
 	pixel_y = -24;
-	req_one_access = list(13,80);
 	tag_airpump = "skipjack_shuttle_dock_pump";
 	tag_chamber_sensor = "skipjack_shuttle_dock_sensor";
 	tag_exterior_door = "skipjack_shuttle_dock_outer";
@@ -25670,10 +25655,10 @@ ar
 ar
 ar
 ar
-ah
+qk
 as
 as
-ah
+qk
 ar
 ar
 ar
@@ -28278,17 +28263,17 @@ aa
 aa
 aa
 aa
-ah
-ah
-an
+qk
+qk
+qu
 as
 as
 as
-ah
-ah
-ah
-ah
-ah
+qk
+qk
+qk
+qk
+qk
 cf
 cr
 cI
@@ -28325,10 +28310,10 @@ bi
 bi
 bi
 qb
-ah
-ah
-ah
-ah
+qk
+qk
+qk
+qk
 aa
 aa
 aa
@@ -28885,10 +28870,10 @@ aa
 aa
 aa
 ak
-ah
-ah
-ah
-ah
+qk
+qk
+qk
+qk
 aB
 aQ
 bi
@@ -29494,7 +29479,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aE
 aT
 bi
@@ -29696,7 +29681,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aF
 aU
 bi
@@ -29898,7 +29883,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aB
 aV
 bi
@@ -30100,7 +30085,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aG
 aW
 bj
@@ -30302,10 +30287,10 @@ aa
 aa
 aa
 aa
-ah
+qk
 aH
 aX
-ah
+qk
 by
 by
 by
@@ -31110,10 +31095,10 @@ aa
 aa
 aa
 aa
-ah
+qk
 aL
 aL
-ah
+qk
 ar
 ar
 ar
@@ -31730,11 +31715,11 @@ by
 by
 by
 by
-eO
+eP
 fr
 gd
 gO
-eO
+eP
 hK
 dI
 jg
@@ -31936,7 +31921,7 @@ eP
 fs
 ge
 gP
-eO
+eP
 hL
 iu
 jg
@@ -32138,7 +32123,7 @@ eP
 ft
 gf
 gQ
-eO
+eP
 hM
 bE
 jh
@@ -32336,11 +32321,11 @@ ar
 ar
 ar
 ar
-eO
+eP
 fu
 gg
 gR
-eO
+eP
 hN
 bE
 jg
@@ -32542,7 +32527,7 @@ eQ
 eQ
 gh
 eQ
-eO
+eP
 hO
 bE
 ji

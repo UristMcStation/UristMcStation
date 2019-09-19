@@ -13,7 +13,7 @@
 				return 0
 		return 1
 
-	var/datum/trade_item/T = trade_controller.trade_items_by_type[O.type]
+	var/datum/trade_item/T = SStrade_controller.trade_items_by_type[O.type]
 	if(T)
 		if(!T.sellable)
 			return 0
@@ -66,7 +66,7 @@
 		return total_value
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[tradingobject.type]
+	T = SStrade_controller.trade_items_by_type[tradingobject.type]
 	if(T)
 		if(!T.sellable)
 			return 0

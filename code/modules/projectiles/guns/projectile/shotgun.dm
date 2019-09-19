@@ -1,3 +1,14 @@
+
+/obj/item/weapon/gun/projectile/shotgun
+	icon = 'icons/urist/items/shotguns.dmi'
+
+/obj/item/weapon/gun/projectile/shotgun/on_update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-empty"
+
 /obj/item/weapon/gun/projectile/shotgun/pump
 	name = "shotgun"
 	desc = "The mass-produced W-T Remmington 29x shotgun is a favourite of police and security forces on many worlds. Useful for sweeping alleys."
@@ -13,7 +24,8 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	one_hand_penalty = 2
+	one_hand_penalty = 8
+	bulk = 6
 	var/recentpump = 0 // to prevent spammage
 	wielded_item_state = "gun_wielded"
 	load_sound = 'sound/weapons/guns/interaction/shotgun_instert.ogg'
@@ -32,7 +44,8 @@
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(chambered)//We have a shell in the chamber
-		chambered.forceMove(get_turf(src))//Eject casing
+		chambered.dropInto(loc)//Eject casing
+		chambered.dropped()//Update to global scale sprites
 		if(LAZYLEN(chambered.fall_sounds))
 			playsound(loc, pick(chambered.fall_sounds), 50, 1)
 		chambered = null
@@ -52,7 +65,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
-	one_hand_penalty = 3 //a little heavier than the regular shotgun
+	one_hand_penalty = 8
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
@@ -105,7 +118,8 @@
 			item_state = "sawnshotgun"
 			w_class = ITEM_SIZE_NORMAL
 			force = 5
-			one_hand_penalty = 0
+			one_hand_penalty = 4
+			bulk = 2
 			slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
 			SetName("sawn-off shotgun")
@@ -123,4 +137,5 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = ITEM_SIZE_NORMAL
 	force = 5
-	one_hand_penalty = 0
+	one_hand_penalty = 4
+	bulk = 2

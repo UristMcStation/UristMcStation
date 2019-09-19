@@ -401,7 +401,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/mc9mm/bhp
 	icon = 'icons/urist/items/guns.dmi'
-	name = "Browning HP magazine (9mm)"
+	name = "Browning HP magazine (10mm)"
 	icon_state = "BROWNHPMAG"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -792,7 +792,7 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
 	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
-	one_hand_penalty = 1
+	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(

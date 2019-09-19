@@ -66,25 +66,6 @@
 
 		qdel(src)*/
 
-//spears
-/obj/item/weapon/material/twohanded/spear
-	item_icons = DEF_URIST_INHANDS
-//	icon = 'icons/urist/items/improvised.dmi'
-	icon_state = "spearglass0"
-	name = "spear"
-	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
-	force_divisor = 0.33
-	unwielded_force_divisor = 0.20
-	w_class = 4.0
-	slot_flags = SLOT_BACK
-	throwforce = 15
-	//flags = NOSHIELD
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
-	edge = 1
-	sharp = 1
-	base_icon = "spearglass"
-
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod
 	name = "stunprod"

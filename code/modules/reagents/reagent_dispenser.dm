@@ -19,7 +19,7 @@
 	create_reagents(initial_capacity)
 
 	if (!possible_transfer_amounts)
-		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+		src.verbs -= /obj/structure/reagent_dispensers/verb/set_amount_per_transfer_from_this
 
 	for(var/reagent_type in initial_reagent_types)
 		var/reagent_ratio = initial_reagent_types[reagent_type]
@@ -37,11 +37,17 @@
 	else
 		to_chat(user, "<span class='notice'>Nothing.</span>")
 
-/obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
+/obj/structure/reagent_dispensers/verb/set_amount_per_transfer_from_this()
 	set name = "Set transfer amount"
 	set category = "Object"
 	set src in view(1)
+	if(!CanPhysicallyInteract(usr))
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
+		return
 	var/N = input("Amount per transfer from this:","[src]") as null|anything in cached_number_list_decode(possible_transfer_amounts)
+	if(!CanPhysicallyInteract(usr))  // because input takes time and the situation can change
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
+		return
 	if (N)
 		amount_per_transfer_from_this = N
 
@@ -65,8 +71,7 @@
 
 /obj/structure/reagent_dispensers/AltClick(var/mob/user)
 	if(possible_transfer_amounts)
-		if(CanPhysicallyInteract(user))
-			set_APTFT()
+		set_amount_per_transfer_from_this()
 	else
 		return ..()
 
@@ -78,10 +83,64 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 10
+	var/modded = 0
+	var/fill_level = FLUID_SHALLOW // Can be adminbussed for silly room-filling tanks.
 	possible_transfer_amounts = "10;25;50;100"
 	initial_capacity = 50000
 	initial_reagent_types = list(/datum/reagent/water = 1)
 	atom_flags = ATOM_FLAG_CLIMBABLE
+
+/obj/structure/reagent_dispensers/watertank/proc/drain_water()
+	if(reagents.total_volume <= 0)
+		return
+
+	// To prevent it from draining while in a container.
+	if(!isturf(src.loc))
+		return
+
+	// Check for depth first, and pass if the water's too high. A four foot high water tank
+	// cannot jettison water above the level of a grown adult's head!
+	var/turf/T = get_turf(src)
+
+	if(!T || T.get_fluid_depth() > fill_level)
+		return
+
+	// For now, this cheats and only checks/leaks water, pending additions to the fluid system.
+	var/W = reagents.remove_reagent(/datum/reagent/water, amount_per_transfer_from_this * 5)
+	if(W > 0)
+		// Artificially increased flow - a 1:1 rate doesn't result in very much water at all.
+		T.add_fluid(W * 100, /datum/reagent/water)
+
+/obj/structure/reagent_dispensers/watertank/examine(mob/user)
+	. = ..()
+
+	if(modded)
+		to_chat(user, "<span class='warning'>Someone has wrenched open its tap - it's spilling everywhere!</span>")
+
+/obj/structure/reagent_dispensers/watertank/attackby(obj/item/weapon/W, mob/user)
+	src.add_fingerprint(user)
+	if(isWrench(W))
+		modded = !modded
+		user.visible_message("<span class='notice'>\The [user] wrenches \the [src]'s tap [modded ? "open" : "shut"].</span>", \
+			"<span class='notice'>You wrench [src]'s drain [modded ? "open" : "shut"].</span>")
+
+		if (modded)
+			log_and_message_admins("opened a water tank at [get_area(loc)], leaking water.")
+			// Allows the water tank to continuously expel water, differing it from the fuel tank.
+			START_PROCESSING(SSprocessing, src)
+		else
+			STOP_PROCESSING(SSprocessing, src)
+
+	return ..()
+
+/obj/structure/reagent_dispensers/watertank/Process()
+	if(modded)
+		drain_water()
+
+/obj/structure/reagent_dispensers/watertank/Destroy()
+	. = ..()
+
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -95,8 +154,8 @@
 	atom_flags = ATOM_FLAG_CLIMBABLE
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
-	if(!..(user, 2))
-		return
+	. = ..()
+
 	if (modded)
 		to_chat(user, "<span class='warning'>The faucet is wrenched open, leaking fuel!</span>")
 	if(rig)
@@ -107,9 +166,9 @@
 		usr.visible_message("<span class='notice'>\The [usr] begins to detach \the [rig] from \the [src].</span>", "<span class='notice'>You begin to detach \the [rig] from \the [src].</span>")
 		if(do_after(usr, 20, src))
 			usr.visible_message("<span class='notice'>\The [usr] detaches \the [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
-			rig.loc = get_turf(usr)
+			rig.dropInto(usr.loc)
 			rig = null
-			overlays = new/list()
+			overlays.Cut()
 
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
@@ -168,23 +227,15 @@
 		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
 			explode()
 
-/obj/structure/reagent_dispensers/fueltank/ex_act()
-	explode()
-
 /obj/structure/reagent_dispensers/fueltank/proc/explode()
-	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
-	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
-	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
-	if(src)
-		qdel(src)
+	for(var/datum/reagent/R in reagents.reagent_list)
+		R.ex_act(src, 1)
+	qdel(src)
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if (modded)
 		explode()
-	else if (temperature > T0C+500)
+	else if (exposed_temperature > T0C+500)
 		explode()
 	return ..()
 

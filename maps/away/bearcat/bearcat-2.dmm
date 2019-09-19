@@ -45,7 +45,7 @@
 /turf/simulated/floor/bluegrid/airless,
 /area/ship/scrap/command/bridge)
 "ah" = (
-/obj/machinery/computer/helm,
+/obj/machinery/computer/ship/helm,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/bluegrid/airless,
 /area/ship/scrap/command/bridge)
@@ -84,7 +84,7 @@
 	layer = 2.4;
 	level = 2
 	},
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 4
 	},
@@ -98,7 +98,7 @@
 /turf/simulated/floor/tiled/dark/usedup,
 /area/ship/scrap/command/bridge)
 "ao" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -192,7 +192,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/dark/usedup,
 /area/ship/scrap/command/bridge)
@@ -238,10 +238,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
-"aG" = (
-/obj/machinery/ntnet_relay,
-/turf/simulated/floor/bluegrid/airless,
-/area/ship/scrap/comms)
 "aH" = (
 /turf/simulated/floor/bluegrid/airless,
 /area/ship/scrap/comms)
@@ -303,7 +299,7 @@
 /obj/item/device/taperecorder,
 /obj/item/device/camera,
 /obj/item/weapon/storage/backpack/dufflebag/syndie,
-/obj/item/weapon/storage/box/shotgunshells,
+/obj/item/weapon/storage/box/ammo/shotgunshells,
 /obj/item/weapon/handcuffs,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
@@ -328,7 +324,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
@@ -456,7 +452,7 @@
 	icon_state = "alarm0";
 	pixel_x = 0;
 	pixel_y = -32;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/computer/message_monitor{
 	icon_state = "computer";
@@ -475,7 +471,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -586,7 +582,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/dock)
@@ -1062,7 +1058,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/dock)
@@ -1086,7 +1082,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/usedup,
@@ -1237,7 +1233,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/saloon)
@@ -1525,7 +1521,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/cryo)
@@ -2132,7 +2128,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
@@ -2218,7 +2214,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo)
@@ -2699,7 +2695,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/kitchen)
@@ -2939,7 +2935,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/hallway/port)
@@ -3024,7 +3020,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/open,
 /area/ship/scrap/crew/hallway/starboard)
@@ -3075,7 +3071,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	icon_state = "intact";
@@ -3450,7 +3446,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/unused)
@@ -3940,7 +3936,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/fire)
@@ -3963,7 +3959,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/hallway)
@@ -4104,7 +4100,7 @@
 	icon_state = "alarm0";
 	pixel_x = 0;
 	pixel_y = -32;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/hallway)
@@ -4657,7 +4653,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/power)
 "hM" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "hN" = (
@@ -4749,7 +4745,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 1
 	},
@@ -4815,7 +4811,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
@@ -4829,7 +4825,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/usedup,
@@ -5193,13 +5189,13 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/power)
 "iO" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /mob/living/simple_animal/hostile/carp,
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "iP" = (
 /obj/item/stack/material/steel,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "iQ" = (
@@ -5257,7 +5253,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
@@ -5267,7 +5263,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
@@ -5357,7 +5353,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/power)
 "jc" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/ship/scrap/maintenance/power)
 "jd" = (
@@ -5538,7 +5534,7 @@
 /turf/simulated/wall,
 /area/ship/scrap/maintenance/power)
 "jB" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/space)
 "jC" = (
@@ -5620,7 +5616,7 @@
 /area/ship/scrap/maintenance/engine/aft)
 "jN" = (
 /obj/item/stack/material/steel,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/ship/scrap/maintenance/engine/aft)
 "jO" = (
@@ -5684,7 +5680,7 @@
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jX" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/ship/scrap/maintenance/engine/aft)
 "jY" = (
@@ -5747,7 +5743,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/toilets)
@@ -5926,7 +5922,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/hidden)
@@ -12633,7 +12629,7 @@ xU
 Yv
 Yv
 ar
-aG
+aH
 aO
 aX
 Yv

@@ -13,6 +13,8 @@
 	var/using_scanner = 0	//Whether or not the program is synched with the scanner module.
 	var/data_buffer = ""	//Buffers scan output for saving/viewing.
 	var/scan_file_type = /datum/computer_file/data/text		//The type of file the data will be saved to.
+	var/list/metadata_buffer = list()
+	var/paper_type
 
 /datum/computer_file/program/scanner/proc/connect_scanner()	//If already connected, will reconnect.
 	if(!computer || !computer.scanner)
@@ -28,12 +30,13 @@
 	if(computer && computer.scanner && (src == computer.scanner.driver) )
 		computer.scanner.driver = null
 	data_buffer = null
+	metadata_buffer.Cut()
 	return 1
 
 /datum/computer_file/program/scanner/proc/save_scan(name)
 	if(!data_buffer)
 		return 0
-	if(!create_file(name, data_buffer, scan_file_type))
+	if(!create_file(name, data_buffer, scan_file_type, metadata_buffer.Copy()))
 		return 0
 	return 1
 
@@ -64,6 +67,7 @@
 
 	if(href_list["scan"])
 		if(check_scanning())
+			metadata_buffer.Cut()
 			computer.scanner.run_scan(usr, src)
 		return 1
 
@@ -94,7 +98,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "scanner.tmpl", name, 575, 700, state = state)
+		ui = new(user, src, ui_key, "scanner.tmpl", name, 600, 700, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()

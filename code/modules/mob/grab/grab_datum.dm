@@ -15,6 +15,7 @@
 	var/can_absorb = 0							// Whether this grab state is strong enough to, as a changeling, absorb the person you're grabbing.
 	var/shield_assailant = 0					// Whether the person you're grabbing will shield you from bullets.,,
 	var/point_blank_mult = 1					// How much the grab increases point blank damage.
+	var/damage_stage = 1						// Affects how much damage is being dealt using certain actions.
 	var/same_tile = 0							// If the grabbed person and the grabbing person are on the same tile.
 	var/ladder_carry = 0						// If the grabber can carry the grabbed person up or down ladders.
 	var/can_throw = 0							// If the grabber can throw the person grabbed.
@@ -99,13 +100,14 @@
 	let_go_effect(G)
 	G.force_drop()
 
-/datum/grab/proc/process(var/obj/item/grab/G)
-	var/diff_zone = G.target_change()
-	if(diff_zone && G.special_target_functional)
-		special_target_change(G, diff_zone)
-	else
+/datum/grab/proc/on_target_change(var/obj/item/grab/G, old_zone, new_zone)
+	G.special_target_functional = check_special_target(G)
+	if(G.special_target_functional)
+		special_target_change(G, old_zone, new_zone)
 		special_target_effect(G)
 
+/datum/grab/proc/process(var/obj/item/grab/G)
+	special_target_effect(G)
 	process_effect(G)
 
 /datum/grab/proc/throw_held(var/obj/item/grab/G)

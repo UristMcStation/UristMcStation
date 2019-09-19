@@ -628,8 +628,6 @@ proc/dd_sortedTextList(list/incoming)
 /datum/alarm/dd_SortValue()
 	return "[sanitize_old(last_name)]"
 
-#define subtypesof(prototype) (typesof(prototype) - prototype)
-
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)
@@ -746,3 +744,9 @@ proc/dd_sortedTextList(list/incoming)
 			.[i] = .(.[i])
 
 #define IS_VALID_INDEX(list, index) (list.len && index > 0 && index <= list.len)
+
+// Returns the first key where T fulfills ispath
+/proc/get_ispath_key(var/list/L, var/T)
+	for(var/key in L)
+		if(ispath(T, key))
+			return key

@@ -11,6 +11,7 @@
 
 /datum/uplink_item/item/stealth_items/spy
 	name = "Bug Kit"
+	desc = "For when you want to conduct voyeurism from afar."
 	item_cost = 8
 	path = /obj/item/weapon/storage/box/syndie_kit/spy
 
@@ -21,6 +22,7 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
+	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 	item_cost = 20
 	path = /obj/item/weapon/storage/backpack/chameleon/sydie_kit
 
@@ -42,9 +44,15 @@
 /datum/uplink_item/item/stealth_items/smugglers_satchel
 	name = "Smuggler's Satchel"
 	item_cost = 8
-	path = /obj/item/weapon/storage/backpack/satchel_flat
+	path = /obj/item/weapon/storage/backpack/satchel/flat
 
 /datum/uplink_item/item/stealth_items/sneakies
 	name = "Sneakies"
 	item_cost = 4
 	path = /obj/item/clothing/shoes/laceup/sneakies
+
+/datum/uplink_item/item/stealth_items/smuggler_satchel
+	name = "Smuggler's Satchel"
+	desc = "This satchel is thin enough to be hidden in the gap between plating and tiling, great for stashing your stolen goods. Comes with a crowbar and a floor tile inside."
+	item_cost = 20
+	path = /obj/item/weapon/storage/backpack/satchel/flat

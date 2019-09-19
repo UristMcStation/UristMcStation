@@ -33,8 +33,8 @@
 		/obj/item/ammo_magazine/a556/a22 = 60,
 		/obj/item/ammo_magazine/a762mm/a18 = 60,
 		/obj/item/ammo_magazine/a9mm = 60,
-		/obj/item/weapon/storage/box/shotgunammo = 60,
-		/obj/item/weapon/storage/box/shotgunshells = 60,
+		/obj/item/weapon/storage/box/ammo/shotgunammo = 60,
+		/obj/item/weapon/storage/box/ammo/shotgunshells = 60,
 		/obj/item/ammo_magazine/c45m/a7 = 60,
 		/obj/item/ammo_magazine/a132x108mm/stripper = 10,
 		//guns,
@@ -52,12 +52,12 @@
 		/obj/item/weapon/storage/box/large/mines = 3
 		)
 	contraband = list(
-		/obj/item/weapon/storage/box/flashshells = 5,
-		/obj/item/weapon/storage/box/beanbags = 5,
+		/obj/item/weapon/storage/box/ammo/flashshells = 5,
+		/obj/item/weapon/storage/box/ammo/beanbags = 5,
 		/obj/item/ammo_magazine/c38 = 10,
 		/obj/item/ammo_magazine/c45m = 10,
 		/obj/item/ammo_magazine/a762 = 10,
-		/obj/item/ammo_magazine/c556 = 10
+		/obj/item/ammo_magazine/a556 = 10
 		)
 
 //Assault mode clothing and armor vender

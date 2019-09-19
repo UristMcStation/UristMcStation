@@ -64,7 +64,7 @@
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
 				icon_state = "0"
-				circuit.loc = loc
+				circuit.dropInto(loc)
 				circuit = null
 		if(2)
 			if(isScrewdriver(P) && circuit)
@@ -97,7 +97,7 @@
 					var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( loc )
 					A.amount = 5
 
-			if(istype(P, /obj/item/stack/material) && P.get_material_name() == "rglass")
+			if(istype(P, /obj/item/stack/material) && P.get_material_name() == MATERIAL_REINFORCED_GLASS)
 				var/obj/item/stack/RG = P
 				if (RG.get_amount() < 2)
 					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
@@ -162,7 +162,7 @@
 			if(isCrowbar(P) && brain)
 				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
-				brain.loc = loc
+				brain.dropInto(loc)
 				brain = null
 				icon_state = "3"
 
@@ -195,7 +195,7 @@
 					if(A) //if there's no brain, the mob is deleted and a structure/AIcore is created
 						A.on_mob_init()
 						A.rename_self("ai", 1)
-				feedback_inc("cyborg_ais_created",1)
+				SSstatistics.add_field("cyborg_ais_created",1)
 				qdel(src)
 
 /obj/structure/AIcore/deactivated
@@ -217,7 +217,7 @@
 	transfer.aiRestorePowerRoutine = 0
 	transfer.control_disabled = 0
 	transfer.ai_radio.disabledAi = 0
-	transfer.loc = get_turf(src)
+	transfer.dropInto(src)
 	transfer.create_eyeobj()
 	transfer.cancel_camera()
 	to_chat(user, "<span class='notice'>Transfer successful:</span> [transfer.name] ([rand(1000,9999)].exe) downloaded to host terminal. Local copy wiped.")

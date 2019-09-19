@@ -410,7 +410,7 @@
 		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> You feel a familiar sensation in your skull that quickly dissipates.</span>")
 		return 0
 	if(!C.vampire_affected(mind))
-		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith of [ticker.Bible_deity_name] has kept your mind clear of all evil</span>")
+		C.visible_message("<span class='warning'> [C] seems to resist the infection!</span>", "<span class='notice'> Your faith has kept your mind clear of all evil</span>")
 	if(!ishumanoid(C))
 		C.visible_message("<span class='warning'> [C] seems unaffected by the infection!</span>","<span class='notice'> Your simple mind briefly registers an undescribable sensation, but it quickly dissipates among your usual concerns.</span>")
 		return 0

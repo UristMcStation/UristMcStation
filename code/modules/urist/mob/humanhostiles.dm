@@ -33,7 +33,6 @@
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
@@ -53,7 +52,7 @@
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
+	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 100
 	health = 100
 

@@ -347,8 +347,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/grille/wood
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	rodpath = /obj/item/stack/woodrods
+	init_material = MATERIAL_WOOD
 
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"
@@ -469,7 +468,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodenbarricade-old"
 	health = 50
 	maxhealth = 50
-	use_material_colour = 0
 
 /obj/structure/barricade/wooden/crude/snow
 	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."

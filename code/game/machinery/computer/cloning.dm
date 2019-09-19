@@ -395,7 +395,7 @@
 		if(subject.isSynthetic())
 			scantemp = "Error: Subject is not organic."
 			return
-	if (NOCLONE in subject.mutations)
+	if (MUTATION_NOCLONE in subject.mutations)
 		scantemp = "Error: Major genetic degradation."
 		return
 	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)

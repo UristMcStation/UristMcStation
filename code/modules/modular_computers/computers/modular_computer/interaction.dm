@@ -28,8 +28,18 @@
 	if(enabled)
 		bsod = 1
 		update_icon()
-		shutdown_computer()
 		to_chat(usr, "You press a hard-reset button on \the [src]. It displays a brief debug screen before shutting down.")
+		if(updating)
+			updating = FALSE
+			updates = 0
+			update_progress = 0
+			if(prob(10))
+				visible_message("<span class='warning'>[src] emits some ominous clicks.</span>")
+				hard_drive.take_damage(hard_drive.damage_malfunction)
+			else if(prob(5))
+				visible_message("<span class='warning'>[src] emits some ominous clicks.</span>")
+				hard_drive.take_damage(hard_drive.damage_failure)
+		shutdown_computer(FALSE)
 		spawn(2 SECONDS)
 			bsod = 0
 			update_icon()
@@ -97,9 +107,7 @@
 
 	if(istype(stored_pen))
 		to_chat(usr, "<span class='notice'>You remove [stored_pen] from [src].</span>")
-		stored_pen.forceMove(get_turf(src))
-		if(!issilicon(usr))
-			usr.put_in_hands(stored_pen)
+		usr.put_in_hands(stored_pen) // Silicons will drop it anyway.
 		stored_pen = null
 		update_verbs()
 
@@ -121,9 +129,7 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.event_idremoved(1)
 
-	card_slot.stored_card.forceMove(get_turf(src))
-	if(!issilicon(user))
-		user.put_in_hands(card_slot.stored_card)
+	user.put_in_hands(card_slot.stored_card)
 	to_chat(user, "You remove [card_slot.stored_card] from [src].")
 	card_slot.stored_card = null
 	update_uis()
@@ -148,7 +154,7 @@
 		to_chat(user, "There is no intellicard connected to \the [src].")
 		return
 
-	ai_slot.stored_card.forceMove(get_turf(src))
+	ai_slot.stored_card.dropInto(loc)
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
 	update_uis()
@@ -285,7 +291,7 @@
 
 	if(enabled && .)
 		to_chat(user, "The time [stationtime2text()] is displayed in the corner of the screen.")
-		
+
 	if(card_slot && card_slot.stored_card)
 		to_chat(user, "The [card_slot.stored_card] is inserted into it.")
 
@@ -298,3 +304,8 @@
 	. = ..()
 	if(scanner)
 		scanner.do_on_afterattack(user, target, proximity)
+
+obj/item/modular_computer/CtrlAltClick(mob/user)
+	if(!CanPhysicallyInteract(user))
+		return
+	open_terminal(user)

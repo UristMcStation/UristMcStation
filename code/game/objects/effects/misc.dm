@@ -17,7 +17,7 @@
 /obj/effect/paint
 	name = "coat of paint"
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "white"
+	icon_state = "wall_paint_effect"
 	plane = TURF_PLANE
 	layer = TURF_DETAIL_LAYER
 	blend_mode = BLEND_MULTIPLY
@@ -30,7 +30,8 @@
 		W.update_icon()
 	var/obj/structure/wall_frame/WF = locate() in loc
 	if(WF)
-		WF.color = color
+		WF.paint_color = color
+		WF.update_icon()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/paint/pink

@@ -87,9 +87,8 @@
 	light_up = TRUE
 	update_icon()
 
-/obj/structure/lift/button/update_icon()
+/obj/structure/lift/button/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
-
 	if(light_up)
 		icon_state = "[bis.base_icon_state]_lit"
 	else

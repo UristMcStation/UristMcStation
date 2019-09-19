@@ -166,8 +166,8 @@
 /obj/structure/table/standard,
 /obj/item/device/multitool,
 /obj/item/weapon/crowbar/prybar,
-/obj/item/weapon/weldingtool/crystal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/weapon/weldingtool/electric,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
 "aE" = (
@@ -356,7 +356,7 @@
 	},
 /obj/structure/closet,
 /obj/item/weapon/tank/jetpack/carbondioxide,
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /obj/item/weapon/tank/oxygen/red,
 /obj/item/weapon/tank/oxygen/red,
 /obj/item/weapon/extinguisher/mini,
@@ -856,7 +856,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
@@ -906,7 +906,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
@@ -993,7 +993,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
@@ -1012,7 +1012,7 @@
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
@@ -1021,7 +1021,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -1058,7 +1058,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/blue{
@@ -2304,7 +2304,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -3919,7 +3919,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
@@ -4106,7 +4106,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /obj/effect/floor_decal/borderfloor,
 /obj/structure/table/standard,
@@ -4242,7 +4242,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
@@ -4252,7 +4252,7 @@
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/secure{
@@ -5236,7 +5236,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
@@ -5395,7 +5395,7 @@
 	pixel_x = 24;
 	pixel_y = 0;
 	req_access = list(850);
-	req_one_access = newlist()
+	!INVALID_VAR! = newlist()
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combust)

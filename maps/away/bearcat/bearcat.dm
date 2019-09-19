@@ -8,7 +8,7 @@
 	archetype = /decl/submap_archetype/derelict/bearcat
 
 /decl/submap_archetype/derelict/bearcat
-	descriptor = "derelict"
+	descriptor = "derelict cargo vessel"
 	map = "Bearcat Wreck"
 	crew_jobs = list(
 		/datum/job/submap/bearcat_captain,
@@ -19,8 +19,7 @@
 	name = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 60
-	default_delay = 20 SECONDS
-	speed_mod = 0.1 MINUTE
+	max_speed = 1/(10 SECONDS)
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
 		"Damselfly" = list("nav_bearcat_dock")
@@ -65,7 +64,7 @@
 /obj/effect/shuttle_landmark/lift/top
 	name = "Top Deck"
 	landmark_tag = "nav_bearcat_lift_top"
-	autoset = 1
+	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/lift/bottom
 	name = "Lower Deck"
@@ -83,11 +82,9 @@
 
 /obj/machinery/door/airlock/autoname/command
 	door_color = COLOR_COMMAND_BLUE
-	req_access = list(access_heads)
 
 /obj/machinery/door/airlock/autoname/engineering
 	door_color = COLOR_AMBER
-	req_access = list(access_engine)
 
 /turf/simulated/floor/usedup
 	initial_gas = list("carbon_dioxide" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)

@@ -2,14 +2,22 @@
  * Neeeeeeeeeeerrrrrrrrrrrrrvvvvvvvvvvvvvvvaaaaaaaaaaaaaaa
  */
 
+/decl/closet_appearance/secure_closet/command/nervacap
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"cap" = COLOR_GOLD
+	)
+
 /obj/structure/closet/secure_closet/nervacap
 	name = "captains's locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_off = "capsecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervacap
 
 /obj/structure/closet/secure_closet/nervacap/WillContain()
 	return list(
@@ -31,18 +39,26 @@
 		/obj/item/device/holowarrant,
 		/obj/item/weapon/folder/blue,
 		/obj/item/weapon/flame/lighter/zippo/vanity/black,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel_cap)),
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/captain, /obj/item/weapon/storage/backpack/satchel/cap)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/captain, /obj/item/weapon/storage/backpack/messenger/com))
+	)
+
+/decl/closet_appearance/secure_closet/command/nervafo
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"fo" = COLOR_GOLD
 	)
 
 /obj/structure/closet/secure_closet/nervafo
 	name = "first officer's locker"
 	req_access = list(access_fo)
-	icon_state = "twosolsecure1"
-	icon_closed = "twosolsecure"
-	icon_locked = "twosolsecure1"
-	icon_opened = "twosolsecureopen"
-	icon_off = "twosolsecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervafo
 
 /obj/structure/closet/secure_closet/nervafo/WillContain()
 	return list(
@@ -68,14 +84,17 @@
 		/obj/item/weapon/storage/box/imprinting
 	)
 
+/decl/closet_appearance/secure_closet/command/nervaso
+	color = "#4f637d"
+	extra_decals = list(
+		"stripe_vertical_mid_partial" = COLOR_GOLD,
+		"so" = COLOR_GOLD
+	)
+
 /obj/structure/closet/secure_closet/nervaso
 	name = "second officer's locker"
 	req_access = list(access_hop)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_off = "hopsecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/command/nervaso
 
 /obj/structure/closet/secure_closet/nervaso/WillContain()
 	return list(
@@ -92,15 +111,10 @@
 		/obj/item/weapon/gun/energy/gun/small/secure,
 	)
 
-
 /obj/structure/closet/secure_closet/nervasec
 	name = "security officer's locker"
+	closet_appearance = /decl/closet_appearance/secure_closet/security
 	req_access = list(access_brig)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_off = "secoff"
 
 /obj/structure/closet/secure_closet/nervasec/WillContain()
 	return list(
@@ -125,19 +139,14 @@
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
-
 
 /obj/structure/closet/secure_closet/nervacos
 	name = "chief of security's locker"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_off = "hossecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/security/hos
 
 /obj/structure/closet/secure_closet/nervacos/WillContain()
 	return list(
@@ -167,18 +176,14 @@
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/taperecorder,
 		/obj/item/weapon/hand_labeler,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/dufflebag/sec, /obj/item/weapon/storage/backpack/messenger/sec))
 	)
 
 /obj/structure/closet/secure_closet/science_nerva
 	name = "Nanotrasen scientist's locker"
 	req_access = list(access_xenoarch)
-	icon_state = "secureres1"
-	icon_closed = "secureres"
-	icon_locked = "secureres1"
-	icon_opened = "secureresopen"
-	icon_off = "secureresoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/expedition/science
 
 /obj/structure/closet/secure_closet/science_nerva/WillContain()
 	return list(
@@ -200,22 +205,18 @@
 		/obj/item/clothing/glasses/meson,
 		/obj/item/device/radio,
 		/obj/item/device/flashlight/lantern,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/toxins, /obj/item/weapon/storage/backpack/satchel_tox)),
+		new /datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/toxins, /obj/item/weapon/storage/backpack/satchel/tox)),
 		new /datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 50)
 		)
 
 /obj/structure/closet/secure_closet/nervaammo
 	name = "ammunition locker"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_off = "hossecureoff"
+	closet_appearance = /decl/closet_appearance/secure_closet/security
 
 /obj/structure/closet/secure_closet/nervaammo/WillContain()
 	return list(
 		/obj/item/weapon/storage/box/nervaammo = 3,
-		/obj/item/weapon/storage/box/shotgunammo,
-		/obj/item/weapon/storage/box/shotgunshells
+		/obj/item/weapon/storage/box/ammo/shotgunammo,
+		/obj/item/weapon/storage/box/ammo/shotgunshells
 		)

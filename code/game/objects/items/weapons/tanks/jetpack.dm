@@ -60,7 +60,7 @@
 		src.ion_trail.stop()
 		return 0
 
-	var/datum/gas_mixture/G = src.air_contents.remove(num)
+	var/datum/gas_mixture/G = remove_air(num)
 
 	var/allgases = G.gas["carbon_dioxide"] + G.gas["nitrogen"] + G.gas["oxygen"] + G.gas["phoron"]
 	if(allgases >= 0.005)
@@ -118,7 +118,7 @@
 		src.ion_trail.stop()
 		return 0
 
-	var/datum/gas_mixture/G = pressure_vessel.air_contents.remove(num)
+	var/datum/gas_mixture/G = pressure_vessel.remove_air(num)
 
 	if(G.total_moles >= 0.005)
 		return 1

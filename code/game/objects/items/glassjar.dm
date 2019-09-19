@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "jar"
 	w_class = ITEM_SIZE_SMALL
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
@@ -43,14 +43,14 @@
 	switch(contains)
 		if(1)
 			for(var/obj/O in src)
-				O.loc = user.loc
+				O.dropInto(user.loc)
 			to_chat(user, "<span class='notice'>You take money out of \the [src].</span>")
 			contains = 0
 			update_icon()
 			return
 		if(2)
 			for(var/mob/M in src)
-				M.loc = user.loc
+				M.dropInto(user.loc)
 				user.visible_message("<span class='notice'>[user] releases [M] from \the [src].</span>", "<span class='notice'>You release [M] from \the [src].</span>")
 			contains = 0
 			update_icon()
@@ -76,7 +76,7 @@
 		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "thalers" : "thaler"] into \the [src].</span>")
 		update_icon()
 
-/obj/item/glass_jar/update_icon() // Also updates name and desc
+/obj/item/glass_jar/on_update_icon() // Also updates name and desc
 	underlays.Cut()
 	overlays.Cut()
 	switch(contains)

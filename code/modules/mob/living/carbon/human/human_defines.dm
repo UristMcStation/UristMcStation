@@ -88,6 +88,7 @@
 	var/equipment_light_protection
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
+	var/public_record = ""
 	var/med_record = ""
 	var/sec_record = ""
 	var/gen_record = ""
@@ -97,6 +98,8 @@
 	var/datum/mil_rank/char_rank = null
 
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
+
+	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
 	var/obj/machinery/machine_visual //machine that is currently applying visual effects to this mob. Only used for camera monitors currently.
 

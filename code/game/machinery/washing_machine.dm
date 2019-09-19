@@ -21,14 +21,22 @@
 	//1 = hacked
 	var/gibs_ready = 0
 	var/obj/crayon
+	var/obj/item/weapon/reagent_containers/pill/detergent/detergent
+	obj_flags = OBJ_FLAG_ANCHORABLE
+	clicksound = "button"
+	clickvol = 40
+
+	// Power
+	idle_power_usage = 10
+	active_power_usage = 150
 
 /obj/machinery/washing_machine/Initialize()
 	. = ..()
 	build_default_parts(/obj/item/weapon/circuitboard/washing_machine)
 
 /obj/machinery/washing_machine/Destroy()
-	qdel(crayon)
-	crayon = null
+	QDEL_NULL(crayon)
+	QDEL_NULL(detergent)
 	. = ..()
 
 /obj/machinery/washing_machine/verb/start()
@@ -39,31 +47,48 @@
 	if(!istype(usr, /mob/living)) //ew ew ew usr, but it's the only way to check.
 		return
 
+	if(!anchored)
+		to_chat(usr, "\The [src] must be secured to the floor.")
+		return
+
 	if( state != 4 )
-		to_chat(usr, "The washing machine cannot run in this state.")
+		to_chat(usr, "\The [src] cannot run in this state.")
+		return
+
+	if(!powered())
+		to_chat(usr, SPAN_WARNING("\The [src] is unpowered."))
 		return
 
 	if( locate(/mob,contents) )
 		state = 8
 	else
 		state = 5
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
-	sleep(200)
+	addtimer(CALLBACK(src, /obj/machinery/washing_machine/proc/wash), 20 SECONDS, TIMER_UNIQUE)
+
+/obj/machinery/washing_machine/proc/wash()
 	for(var/atom/A in contents)
-		A.clean_blood()
+		if(detergent)
+			A.clean_blood()
 		if(isitem(A))
 			var/obj/item/I = A
-			I.decontaminate()
+			if(detergent)
+				I.decontaminate()
 			if(crayon && iscolorablegloves(I))
 				var/obj/item/clothing/gloves/C = I
 				C.color = crayon.color
 			if(istype(A, /obj/item/clothing))
 				var/obj/item/clothing/C = A
 				C.ironed_state = WRINKLES_WRINKLY
+				if(detergent)
+					C.change_smell(SMELL_CLEAN)
+					addtimer(CALLBACK(C, /obj/item/clothing/proc/change_smell), detergent.smell_clean_time, TIMER_UNIQUE | TIMER_OVERRIDE)
+	QDEL_NULL(detergent)
 
 	//Tanning!
-	for(var/obj/item/stack/material/hairlesshide/HH in contents)
-		var/obj/item/stack/material/wetleather/WL = new(src)
+	for(var/obj/item/stack/hairlesshide/HH in contents)
+		var/obj/item/stack/wetleather/WL = new(src)
 		WL.amount = HH.amount
 		qdel(HH)
 //we'll keep in the old method, but the main method will be dunking them in the water the planet
@@ -72,6 +97,7 @@
 		WL.amount = AH.amount
 		qdel(AH)
 
+	update_use_power(POWER_USE_IDLE)
 	if( locate(/mob,contents) )
 		state = 7
 		gibs_ready = 1
@@ -86,10 +112,9 @@
 
 	sleep(20)
 	if(state in list(1,3,6) )
-		usr.loc = src.loc
+		usr.dropInto(loc)
 
-
-/obj/machinery/washing_machine/update_icon()
+/obj/machinery/washing_machine/on_update_icon()
 	icon_state = "wm_[state][panel]"
 
 /obj/machinery/washing_machine/attackby(obj/item/W as obj, mob/user as mob)
@@ -101,8 +126,8 @@
 		if(default_part_replacement(user, W))
 			return
 
-	if(istype(W,/obj/item/weapon/pen/crayon) || istype(W,/obj/item/weapon/stamp))
-		if( state in list(	1, 3, 6 ) )
+	if(istype(W,/obj/item/weapon/pen/crayon))
+		if(state in list(1, 3, 6))
 			if(!crayon)
 				if(!user.unEquip(W, src))
 					return
@@ -111,16 +136,34 @@
 				..()
 		else
 			..()
+	else if(istype(W,/obj/item/weapon/reagent_containers/pill/detergent))
+		if(state in list(1, 3, 6))
+			if(!detergent)
+				if(!user.unEquip(W, src))
+					return
+				detergent = W
+			else
+				..()
+		else
+			..()
+	else if((obj_flags & OBJ_FLAG_ANCHORABLE) && isWrench(W))
+		if(state in list( 5, 8 ))
+			to_chat(user, SPAN_WARNING("\The [src] is currently running."))
+			return
+		else
+			wrench_floor_bolts(user)
+			update_use_power(anchored)
+			return
 	else if(istype(W,/obj/item/grab))
-		if( (state == 1) && hacked)
+		if((state == 1) && hacked)
 			var/obj/item/grab/G = W
 			if(ishuman(G.assailant) && iscorgi(G.affecting))
-				G.affecting.loc = src
+				G.affecting.forceMove(src)
 				qdel(G)
 				state = 3
 		else
 			..()
-	else if(istype(W,/obj/item/stack/material/hairlesshide) || \
+	else if(istype(W,/obj/item/stack/hairlesshide) || \
 		istype(W,/obj/item/clothing/under)  || \
 		istype(W,/obj/item/clothing/mask)   || \
 		istype(W,/obj/item/clothing/head)   || \
@@ -168,9 +211,9 @@
 					return
 				state = 3
 			else
-				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
+				to_chat(user, SPAN_NOTICE("You can't put the item in right now."))
 		else
-			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is full"))
 	else
 		..()
 	update_icon()
@@ -184,17 +227,20 @@
 			for(var/atom/movable/O in contents)
 				if(!(O in component_parts))
 					O.forceMove(loc)
+			crayon = null
+			detergent = null
 		if(3)
 			state = 4
 		if(4)
 			state = 3
 			for(var/atom/movable/O in contents)
 				if(!(O in component_parts))
-					O.forceMove(get_turf(src))
+					O.dropInto(loc)
 			crayon = null
+			detergent = null
 			state = 1
 		if(5)
-			to_chat(user, "<span class='warning'>The [src] is busy.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is busy."))
 		if(6)
 			state = 7
 		if(7)
@@ -207,7 +253,7 @@
 				if(!(O in component_parts))
 					O.forceMove(src.loc)
 			crayon = null
+			detergent = null
 			state = 1
-
 
 	update_icon()

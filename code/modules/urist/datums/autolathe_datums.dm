@@ -84,11 +84,6 @@
 	path = /obj/item/weapon/cane
 	category = "General"
 
-/datum/autolathe/recipe/magazine_38cal_rubber
-	name = "ammunition (.38, rubber)"
-	path = /obj/item/ammo_magazine/c38/rubber
-	category = "Arms and Ammunition"
-
 /datum/autolathe/recipe/canesword
 	name = "canesword"
 	path = /obj/item/weapon/cane/concealed
@@ -104,6 +99,12 @@
 	name = "smithing hammer"
 	path = /obj/item/weapon/hammer/smithing
 	category = "Tools"
+
+/datum/autolathe/recipe/magazine_c20r_rubber
+	name = "ammunition (10mm, rubber)"
+	path = /obj/item/ammo_magazine/a10mm/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
 
 //torpedo
 

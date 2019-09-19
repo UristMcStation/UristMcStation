@@ -10,6 +10,7 @@ var/list/fusion_reactions
 	var/instability = 0
 	var/list/products = list()
 	var/minimum_reaction_temperature = 100
+	var/priority = 100
 
 /decl/fusion_reaction/proc/handle_reaction_special(var/obj/effect/fusion_em_field/holder)
 	return 0
@@ -51,12 +52,14 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	energy_consumption = 1
 	energy_production = 2
 	products = list("helium" = 1)
+	priority = 10
 
 /decl/fusion_reaction/deuterium_deuterium
 	p_react = "deuterium"
 	s_react = "deuterium"
 	energy_consumption = 1
 	energy_production = 2
+	priority = 0
 
 // Advanced production reactions (todo)
 /decl/fusion_reaction/deuterium_helium
@@ -97,7 +100,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 /decl/fusion_reaction/iron_iron
 	p_react = "iron"
 	s_react = "iron"
-	products = list("silver" = 1, "gold" = 1, "platinum" = 1) // Not realistic but w/e
+	products = list("silver" = 10, "gold" = 10, "platinum" = 10) // Not realistic but w/e
 	energy_consumption = 10
 	energy_production = 0
 	instability = 2
@@ -109,7 +112,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 	energy_consumption = 10
 	energy_production = 0
 	instability = 5
-	products = list("mydrogen" = 1)
+	products = list("mhydrogen" = 1)
 	minimum_reaction_temperature = 8000
 
 // VERY UNIDEAL REACTIONS.
@@ -141,7 +144,7 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 				H.hallucination(rand(100,150), 51)
 
 	for(var/obj/machinery/fusion_fuel_injector/I in range(world.view, origin))
-		if(I.cur_assembly && I.cur_assembly.fuel_type == "supermatter")
+		if(I.cur_assembly && I.cur_assembly.fuel_type == MATERIAL_SUPERMATTER)
 			explosion(get_turf(I), 1, 2, 3)
 			spawn(5)
 				if(I && I.loc)

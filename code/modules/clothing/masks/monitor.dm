@@ -7,7 +7,7 @@
 	body_parts_covered = EYES
 	dir = SOUTH
 
-	icon = 'icons/obj/clothing/monitor.dmi'
+	icon = 'icons/obj/clothing/obj_head_ipc.dmi'
 	icon_override = 'icons/mob/monitor_icons.dmi'
 	icon_state = "ipc_blank"
 	item_state = null
@@ -86,7 +86,7 @@
 		monitor_state_index = choice
 		update_icon()
 
-/obj/item/clothing/mask/monitor/update_icon()
+/obj/item/clothing/mask/monitor/on_update_icon()
 	if(!(monitor_state_index in monitor_states))
 		monitor_state_index = initial(monitor_state_index)
 	icon_state = monitor_states[monitor_state_index]

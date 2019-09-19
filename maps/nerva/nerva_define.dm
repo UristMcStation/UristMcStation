@@ -47,14 +47,14 @@
 	default_law_type = /datum/ai_laws/manifest
 	use_overmap = 1
 
-	num_exoplanets = 2
-	planet_size = list(129,129)
+	num_exoplanets = 1
 
 	away_site_budget = 6
 
 	date_offset = 560
 
 	base_floor_type = /turf/simulated/floor/reinforced/airless
+	base_floor_area = /area/maintenance/exterior
 
 	species_to_job_blacklist = list(
 		/datum/species/unathi  = list(/datum/job/captain),

@@ -1,7 +1,7 @@
 /obj/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
 	anchored = 0
-	use_power = 0 //The drill takes power directly from a cell.
+	use_power = POWER_USE_OFF //The drill takes power directly from a cell.
 	density = 1
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER //So it draws over mobs in the tile north of it.
@@ -19,16 +19,16 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		"iron" = /obj/item/weapon/ore/iron,
-		"uranium" = /obj/item/weapon/ore/uranium,
-		"gold" = /obj/item/weapon/ore/gold,
-		"silver" = /obj/item/weapon/ore/silver,
-		"diamond" = /obj/item/weapon/ore/diamond,
-		"phoron" = /obj/item/weapon/ore/phoron,
-		"osmium" = /obj/item/weapon/ore/osmium,
-		"hydrogen" = /obj/item/weapon/ore/hydrogen,
-		"silicates" = /obj/item/weapon/ore/glass,
-		"carbonaceous rock" = /obj/item/weapon/ore/coal
+		MATERIAL_IRON     = /obj/item/weapon/ore/iron,
+		MATERIAL_URANIUM =  /obj/item/weapon/ore/uranium,
+		MATERIAL_GOLD =     /obj/item/weapon/ore/gold,
+		MATERIAL_SILVER =   /obj/item/weapon/ore/silver,
+		MATERIAL_DIAMOND =  /obj/item/weapon/ore/diamond,
+		MATERIAL_PHORON =   /obj/item/weapon/ore/phoron,
+		MATERIAL_OSMIUM =   /obj/item/weapon/ore/osmium,
+		MATERIAL_HYDROGEN = /obj/item/weapon/ore/hydrogen,
+		MATERIAL_SAND =     /obj/item/weapon/ore/glass,
+		MATERIAL_GRAPHENE = /obj/item/weapon/ore/coal
 		)
 
 	//Upgrades
@@ -175,7 +175,7 @@
 
 	if (panel_open && cell && user.Adjacent(src))
 		to_chat(user, "You take out \the [cell].")
-		cell.loc = get_turf(user)
+		cell.dropInto(user.loc)
 		component_parts -= cell
 		cell = null
 		return
@@ -201,7 +201,7 @@
 
 	update_icon()
 
-/obj/machinery/mining/drill/update_icon()
+/obj/machinery/mining/drill/on_update_icon()
 	if(need_player_check)
 		icon_state = "mining_drill_error"
 	else if(active)
@@ -288,7 +288,7 @@
 	var/obj/structure/ore_box/B = locate() in orange(1)
 	if(B)
 		for(var/obj/item/weapon/ore/O in contents)
-			O.loc = B
+			O.forceMove(B)
 		to_chat(usr, "<span class='notice'>You unload the drill's storage cache into the ore box.</span>")
 	else
 		to_chat(usr, "<span class='notice'>You must move an ore box up to the drill before you can unload it.</span>")

@@ -2,12 +2,9 @@
 //This is for procs to replace all the goddamn 'in world's that are chilling around the code
 
 var/global/list/cable_list = list()					//Index for all cables, so that powernets don't have to look through the entire world all the time
-var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
 var/global/list/landmarks_list = list()				//list of all landmarks created
-var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
-var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 
 #define all_genders_define_list list(MALE,FEMALE,PLURAL,NEUTER)
 #define all_genders_text_list list("Male","Female","Plural","Neuter")
@@ -16,7 +13,6 @@ var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/all_species[0]
 var/global/list/all_languages[0]
 var/global/list/language_keys[0]					// Table of say codes for all languages
-var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
 var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
 var/list/mannequins_
@@ -114,20 +110,6 @@ var/global/list/string_slot_flags = list(
 		var/datum/sprite_accessory/marking/M = new path()
 		GLOB.body_marking_styles_list[M.name] = M
 
-	//Surgery Steps - Initialize all /datum/surgery_step into a list
-	paths = typesof(/datum/surgery_step)-/datum/surgery_step
-	for(var/T in paths)
-		var/datum/surgery_step/S = new T
-		surgery_steps += S
-	sort_surgeries()
-
-	//List of job. I can't believe this was calculated multiple times per tick!
-	paths = typesof(/datum/job)-/datum/job
-	paths -= exclude_jobs
-	for(var/T in paths)
-		var/datum/job/J = new T
-		joblist[J.title] = J
-
 	//Languages and species.
 	paths = typesof(/datum/language)-/datum/language
 	for(var/T in paths)
@@ -152,11 +134,8 @@ var/global/list/string_slot_flags = list(
 		S = new T
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
-
 		if(!(S.spawn_flags & SPECIES_IS_RESTRICTED))
 			playable_species += S.name
-		if(S.spawn_flags & SPECIES_IS_WHITELISTED)
-			whitelisted_species += S.name
 
 	//Grabs
 	paths = typesof(/datum/grab) - /datum/grab
@@ -176,21 +155,7 @@ var/global/list/string_slot_flags = list(
 
 	return 1
 
-/* // Uncomment to debug chemical reaction list.
-/client/verb/debug_chemical_list()
-
-	for (var/reaction in chemical_reactions_list)
-		. += "chemical_reactions_list\[\"[reaction]\"\] = \"[chemical_reactions_list[reaction]]\"\n"
-		if(islist(chemical_reactions_list[reaction]))
-			var/list/L = chemical_reactions_list[reaction]
-			for(var/t in L)
-				. += "    has: [t]\n"
-	log_debug(.)
-
-*/
-
 //*** params cache
-
 var/global/list/paramslist_cache = list()
 
 #define cached_key_number_decode(key_number_data) cached_params_decode(key_number_data, /proc/key_number_decode)

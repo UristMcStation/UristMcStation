@@ -365,7 +365,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
-	desc = "A black leather coat. A corporate logo is proudly displayed on the back."
+	desc = "A black leather coat. The NanoTrasen logo is proudly displayed on the back."
 	icon_state = "leather_jacket_nt"
 
 //This one has buttons for some reason
@@ -379,7 +379,7 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
-	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
+	desc = "A brown leather coat. The NanoTrasen logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"
 	icon_open = "brown_jacket_nt_open"
 	icon_closed = "brown_jacket_nt"
@@ -419,14 +419,14 @@
 	icon_closed = "mu_hoodie"
 
 /obj/item/clothing/suit/storage/toggle/hoodie/nt
-	name = "NanoTrasen hoodie"
-	desc = "A warm, blue sweatshirt.  It proudly bears the silver NanoTrasen insignia lettering on the back.  The edges are trimmed with silver."
+	name = "\improper NanoTrasen hoodie"
+	desc = "A warm, blue sweatshirt. It proudly bears the NanoTrasen logo on the back. The edges are trimmed with silver."
 	icon_state = "nt_hoodie"
 	icon_open = "nt_hoodie_open"
 	icon_closed = "nt_hoodie"
 
 /obj/item/clothing/suit/storage/toggle/hoodie/smw
-	name = "Space Mountain Wind hoodie"
+	name = "\improper Space Mountain Wind hoodie"
 	desc = "A warm, black sweatshirt.  It has the logo for the popular softdrink Space Mountain Wind on both the front and the back."
 	icon_state = "smw_hoodie"
 	icon_open = "smw_hoodie_open"
@@ -471,6 +471,12 @@
 	icon_state = "sciponcho"
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "sciponcho"
+
+/obj/item/clothing/suit/poncho/roles/science/nanotrasen
+	name = "\improper NanoTrasen poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a few red stripes, colors of NanoTrasen. Go NanoTrasen!"
+	icon_state = "sciponcho_nt"
+	item_state = "sciponcho_nt"
 
 /obj/item/clothing/suit/poncho/roles/cargo
 	name = "cargo poncho"
@@ -517,9 +523,9 @@
 	icon_open = "trackjacketwhite_open"
 	icon_closed = "trackjacketwhite"
 
-/obj/item/clothing/suit/storage/toggle/track/tcc
-	name = "TCC track jacket"
-	desc = "A Terran track jacket, for the truly cheeki breeki."
+/obj/item/clothing/suit/storage/toggle/track/gcc
+	name = "GCC track jacket"
+	desc = "An Independent track jacket, for the truly cheeki breeki."
 	icon_state = "trackjackettcc"
 	icon_open = "trackjackettcc_open"
 	icon_closed = "trackjackettcc"

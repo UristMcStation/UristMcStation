@@ -25,10 +25,13 @@ SUBSYSTEM_DEF(supply)
 		"time" = "Base station supply",
 		"manifest" = "From exported manifests",
 		"crate" = "From exported crates",
-		"virology" = "From uploaded antibody data",
+		"virology_antibodies" = "From uploaded antibody data",
+		"virology_dishes" = "From exported virus dishes",
 		"gep" = "From uploaded good explorer points",
 		"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
+	//virus dishes uniqueness
+	var/list/sold_virus_strains = list()
 
 /datum/controller/subsystem/supply/Initialize()
 	. = ..()
@@ -49,9 +52,11 @@ SUBSYSTEM_DEF(supply)
 		)
 
 	//Build master supply list
-	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
+	var/decl/hierarchy/supply_pack/root = decls_repository.get_decl(/decl/hierarchy/supply_pack)
+	for(var/decl/hierarchy/supply_pack/sp in root.children)
 		if(sp.is_category())
-			for(var/decl/hierarchy/supply_pack/spc in sp.children)
+			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendents())
+				spc.setup()
 				master_supply_list += spc
 
 	for(var/material/mat in SSmaterials.materials)
@@ -156,18 +161,28 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					// Sell materials
-					if(istype(A, /obj/item/stack))
-						if(!GLOB.using_map.using_new_cargo) //Bay sucks cock, so now we're just doing it through our price system
-							var/obj/item/stack/P = A
-							var/material/material = P.get_material()
-							if(material.sale_price > 0)
-								material_count[material.display_name] += P.get_amount() * material.sale_price
-							continue
+					if(istype(A, /obj/item/stack/material))
+						var/obj/item/stack/material/P = A
+						if(P.material && P.material.sale_price > 0)
+							material_count[P.material.display_name] += P.get_amount() * P.material.sale_price * P.matter_multiplier
+						if(P.reinf_material && P.reinf_material.sale_price > 0)
+							material_count[P.reinf_material.display_name] += P.get_amount() * P.reinf_material.sale_price * P.matter_multiplier * 0.5
+						continue
 
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))
 						var/obj/item/weapon/disk/survey/D = A
 						add_points_from_source(round(D.Value() * 0.005), "gep")
+
+					// Sell virus dishes.
+					if(istype(A, /obj/item/weapon/virusdish))
+						//Obviously the dish must be unique and never sold before.
+						var/obj/item/weapon/virusdish/dish = A
+						if(dish.analysed && istype(dish.virus2) && dish.virus2.uniqueID)
+							if(!(dish.virus2.uniqueID in sold_virus_strains))
+								add_points_from_source(5, "virology_dishes")
+								sold_virus_strains += dish.virus2.uniqueID
+
 			qdel(AM)
 
 	if(material_count.len)
@@ -250,6 +265,6 @@ SUBSYSTEM_DEF(supply)
 	var/datum/trade_item/T
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[object.type]
+	T = SStrade_controller.trade_items_by_type[object.type]
 	if(T)
 		return T.value

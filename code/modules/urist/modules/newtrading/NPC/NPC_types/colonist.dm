@@ -92,7 +92,7 @@
 		/obj/item/clothing/head/soft/yellow\
 		)
 	gloves = list(\
-		/obj/item/clothing/gloves/duty,\
+		/obj/item/clothing/gloves/thick/duty,\
 		/obj/item/clothing/gloves/thick\
 	)
 	suits = list(\
@@ -137,7 +137,7 @@
 	hat_chance = 75
 	gloves = list(\
 		/obj/item/clothing/gloves/botanic_leather,\
-		/obj/item/clothing/gloves/duty,\
+		/obj/item/clothing/gloves/thick/duty,\
 		/obj/item/clothing/gloves/insulated\
 		)
 	glove_chance = 66

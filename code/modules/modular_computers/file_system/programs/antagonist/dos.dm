@@ -20,11 +20,12 @@
 	dos_speed = 0
 	switch(ntnet_status)
 		if(1)
-			dos_speed = NTNETSPEED_LOWSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_LOWSIGNAL
 		if(2)
-			dos_speed = NTNETSPEED_HIGHSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_HIGHSIGNAL
 		if(3)
-			dos_speed = NTNETSPEED_ETHERNET * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_ETHERNET
+	dos_speed *= NTNETSPEED_DOS_AMPLIFICATION
 	if(target && executed)
 		target.dos_overload += dos_speed
 		if(!target.operable())
@@ -100,10 +101,14 @@
 		error = ""
 		return 1
 	if(href_list["PRG_execute"])
-		if(target)
-			executed = 1
-			target.dos_sources.Add(src)
-			if(ntnet_global.intrusion_detection_enabled)
-				ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting relay [target.uid] detected from device: [computer.network_card.get_network_tag()]")
-				ntnet_global.intrusion_detection_alarm = 1
+		if(!target)
+			return 1
+		executed = 1
+		target.dos_sources.Add(src)
+
+		var/list/sources_to_show = list(computer.network_card.get_network_tag())
+
+		if(ntnet_global.intrusion_detection_enabled)
+			ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting relay [target.uid] detected from [length(sources_to_show)] device\s: [english_list(sources_to_show)]")
+			ntnet_global.intrusion_detection_alarm = 1
 		return 1

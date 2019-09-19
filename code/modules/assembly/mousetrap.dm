@@ -3,7 +3,7 @@
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
 	icon_state = "mousetrap"
 	origin_tech = list(TECH_COMBAT = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "waste" = 10)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_WASTE = 10)
 	var/armed = 0
 
 
@@ -53,7 +53,7 @@
 		if(!armed)
 			to_chat(user, "<span class='notice'>You arm [src].</span>")
 		else
-			if((CLUMSY in user.mutations) && prob(50))
+			if((MUTATION_CLUMSY in user.mutations) && prob(50))
 				var/which_hand = BP_L_HAND
 				if(!user.hand)
 					which_hand = BP_R_HAND
@@ -69,7 +69,7 @@
 
 	attack_hand(mob/living/user as mob)
 		if(armed)
-			if((CLUMSY in user.mutations) && prob(50))
+			if((MUTATION_CLUMSY in user.mutations) && prob(50))
 				var/which_hand = BP_L_HAND
 				if(!user.hand)
 					which_hand = BP_R_HAND

@@ -148,8 +148,8 @@ VOTE_AUTOTRANSFER_INITIAL 108000
 ##autovote delay (deciseconds) before sequential automatic transfer votes are called (default 30 minutes)
 VOTE_AUTOTRANSFER_INTERVAL 18000
 
-## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 100
+## Time left (seconds) before round start when automatic gamemote vote is called (default 160).
+VOTE_AUTOGAMEMODE_TIMELEFT 160
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE
@@ -204,6 +204,9 @@ GUEST_BAN
 
 ## GitHub address
 # GITHUBURL https://github.com/example-user/example-repository
+
+## GitHub new issue address
+# ISSUEREPORTURL https://github.com/example-user/example-repository/issues/new
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
@@ -262,6 +265,9 @@ USEALIENWHITELIST
 
 ## Password used for authorizing external tools that can apply bans
 #BAN_COMMS_PASSWORD
+
+## BYOND builds that will result the client using them to be banned.
+#FORBIDDEN_VERSIONS 512.0001;512.0002
 
 ## Export address where external tools that monitor logins are located
 #LOGIN_EXPORT_ADDR
@@ -409,3 +415,9 @@ RADIATION_LOWER_LIMIT 0.15
 
 ## Uncomment this to prevent players from printing copy/pasted circuits
 #DISABLE_CIRCUIT_PRINTING
+
+##Clients will be unable to connect unless their version is equal to or higher than this (a number, e.g. 511)
+#MINIMUM_BYOND_VERSION
+
+## Clients will be unable to connect unless their build is equal to or higher than this (a number, e.g. 1000)
+#MINIMUM_BYOND_BUILD

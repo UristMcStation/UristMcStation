@@ -1,7 +1,3 @@
-#define SOLID 1
-#define LIQUID 2
-#define GAS 3
-
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +10,6 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
 	layer = BELOW_OBJ_LAYER //Beakers were appearing below it
-	use_power = 1
 	idle_power_usage = 20
 	clicksound = "button"
 	clickvol = 20
@@ -78,10 +73,10 @@
 
 	if (href_list["ejectp"])
 		if(loaded_pill_bottle)
-			loaded_pill_bottle.loc = src.loc
+			loaded_pill_bottle.dropInto(loc)
 			loaded_pill_bottle = null
 	else if(href_list["close"])
-		usr << browse(null, "window=chemmaster")
+		show_browser(usr, null, "window=chem_master")
 		usr.unset_machine()
 		return
 
@@ -183,8 +178,7 @@
 				reagents.trans_to_obj(P,amount_per_pill)
 				if(src.loaded_pill_bottle)
 					if(loaded_pill_bottle.contents.len < loaded_pill_bottle.max_storage_space)
-						P.loc = loaded_pill_bottle
-						src.updateUsrDialog()
+						P.forceMove(loaded_pill_bottle)
 
 		else if (href_list["createbottle"])
 			if(!condi)
@@ -302,20 +296,23 @@
 	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 	var/inuse = 0
 	var/obj/item/weapon/reagent_containers/beaker = null
 	var/limit = 10
 	var/list/holdingitems = list()
+	var/list/bag_whitelist = list(
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/weapon/storage/plants
+	) // These bags will fast-empty into the grinder.
 
 /obj/machinery/reagentgrinder/New()
 	..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 	return
 
-/obj/machinery/reagentgrinder/update_icon()
+/obj/machinery/reagentgrinder/on_update_icon()
 	icon_state = "juicer"+num2text(!isnull(beaker))
 	return
 
@@ -342,21 +339,22 @@
 	if(!istype(O))
 		return
 
-	if(istype(O,/obj/item/weapon/storage/plants))
-		var/obj/item/weapon/storage/plants/bag = O
+	if(is_type_in_list(O, bag_whitelist))
+		var/obj/item/weapon/storage/bag = O
 		var/failed = 1
-		for(var/obj/item/G in O.contents)
+		for(var/obj/item/G in O)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
 			failed = 0
-			bag.remove_from_storage(G, src)
+			bag.remove_from_storage(G, src, 1)
 			holdingitems += G
 			if(holdingitems && holdingitems.len >= limit)
 				break
 
 		if(failed)
-			to_chat(user, "Nothing in the plant bag is usable.")
+			to_chat(user, "Nothing in \the [O] is usable.")
 			return 1
+		bag.finish_bulk_removal()
 
 		if(!O.contents.len)
 			to_chat(user, "You empty \the [O] into \the [src].")
@@ -369,7 +367,7 @@
 	if(istype(O,/obj/item/stack/material))
 		var/obj/item/stack/material/stack = O
 		var/material/material = stack.material
-		if(!material.chem_products.len)
+		if(!length(material.chem_products))
 			to_chat(user, "\The [material.name] is unable to produce any usable reagents.")
 			return 1
 		else
@@ -475,7 +473,7 @@
 		return
 
 	for(var/obj/item/O in holdingitems)
-		O.loc = src.loc
+		O.dropInto(loc)
 		holdingitems -= O
 	holdingitems.Cut()
 

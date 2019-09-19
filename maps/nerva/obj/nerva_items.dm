@@ -104,10 +104,11 @@
 
 //station account card
 
-/obj/item/weapon/card/station_account
+/obj/item/weapon/card/id/station_account
 	name = "ICS Nerva account card"
 	desc = "A banking card with access to the ICS Nerva's main account."
-	icon_state = "data"
+	item_state = "silver_id"
+	detail_color = COLOR_COMMAND_BLUE
 
 /*
 /obj/item/weapon/card/station_account/New()
@@ -128,12 +129,12 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/station_account)
+	startswith = list(/obj/item/weapon/card/id/station_account)
 	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
 /obj/item/weapon/storage/lockbox/station_account/attack_hand(mob/living/user as mob)
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 
@@ -141,7 +142,7 @@
 
 /obj/item/weapon/storage/lockbox/station_account/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 
@@ -149,7 +150,7 @@
 
 /obj/item/weapon/storage/lockbox/station_account/emag_act()
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 

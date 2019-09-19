@@ -28,8 +28,8 @@
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
-/obj/machinery/portable_atmospherics/powered/pump/update_icon()
-	src.overlays = 0
+/obj/machinery/portable_atmospherics/powered/pump/on_update_icon()
+	overlays.Cut()
 
 	if(on && cell && cell.charge)
 		icon_state = "psiphon:1"
@@ -90,6 +90,8 @@
 				power_draw = pump_gas(src, air_contents, environment, transfer_moles, power_rating)
 			else
 				power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
+			if(holding)
+				holding.queue_icon_update()
 
 	if (power_draw < 0)
 		last_flow_rate = 0
@@ -99,7 +101,7 @@
 		if(!powered() && cell)
 			cell.use(power_draw * CELLRATE)
 		else
-			use_power(power_draw)
+			use_power_oneoff(power_draw)
 		last_power_draw = power_draw
 
 		update_connected_network()

@@ -26,6 +26,7 @@
 	radio = new(src)
 	radio.listening = FALSE
 	radio.set_frequency(ENT_FREQ)
+	radio.power_usage = 0
 	. = ..()
 
 /obj/item/device/camera/tvcamera/examine()
@@ -56,7 +57,7 @@
 	if (href_list["focus"])
 		change_size()
 	if(href_list["channel"])
-		var/nc = input(usr, "Channel name", "Select new channel name", channel) as text|null
+		var/nc = sanitize(input(usr, "Channel name", "Select new channel name", channel) as text|null)
 		if(nc)
 			channel = nc
 			camera.c_tag = channel
@@ -77,7 +78,7 @@
 	if(!href_list["close"])
 		attack_self(usr)
 
-/obj/item/device/camera/tvcamera/update_icon()
+/obj/item/device/camera/tvcamera/on_update_icon()
 	..()
 	if(camera.status)
 		icon_state = "camcorder_on"
@@ -112,7 +113,7 @@ Using robohead because of restricting to roboticist */
 	var/buildstep = 0
 	w_class = ITEM_SIZE_LARGE
 
-/obj/item/weapon/TVAssembly/attackby(W, mob/user)
+/obj/item/weapon/TVAssembly/attackby(var/obj/item/W, var/mob/user)
 	switch(buildstep)
 		if(0)
 			if(istype(W, /obj/item/robot_parts/robot_component/camera))

@@ -7,7 +7,6 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 20
 	power_channel = LIGHT
 	var/on = 0
@@ -28,7 +27,7 @@
 	connected_area.set_lightswitch(on)
 	update_icon()
 
-/obj/machinery/light_switch/update_icon()
+/obj/machinery/light_switch/on_update_icon()
 	if(!overlay)
 		overlay = image(icon, "light1-overlay")
 		overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE

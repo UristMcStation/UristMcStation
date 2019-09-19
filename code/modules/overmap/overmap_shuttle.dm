@@ -68,32 +68,32 @@
 /datum/shuttle/autodock/overmap/proc/try_consume_fuel() //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
 	if(!fuel_consumption)
 		return 1 //shuttles with zero fuel consumption are magic and can always launch
-	else
-		if(fuel_ports.len)
-			var/list/obj/item/weapon/tank/fuel_tanks = list()
-			for(var/obj/structure/FP in fuel_ports) //loop through fuel ports and assemble list of all fuel tanks
-				if(FP.contents.len)
-					var/obj/item/weapon/tank/FT = FP.contents[1]
-					if(istype(FT))
-						fuel_tanks += FT
-			if(!fuel_tanks.len)
-				return 0 //can't launch if you have no fuel TANKS in the ports
-			var/total_flammable_gas_moles = 0
-			for(var/obj/item/weapon/tank/FT in fuel_tanks)
-				total_flammable_gas_moles += FT.air_contents.get_by_flag(XGM_GAS_FUEL)
-			if(total_flammable_gas_moles >= fuel_consumption) //launch is possible, so start consuming that fuel
-				var/fuel_to_consume = fuel_consumption
-				for(var/obj/item/weapon/tank/FT in fuel_tanks) //loop through tanks, consume their fuel one by one
-					if(FT.air_contents.get_by_flag(XGM_GAS_FUEL) >= fuel_to_consume)
-						FT.air_contents.remove_by_flag(XGM_GAS_FUEL, fuel_to_consume)
-						return 1 //ALL REQUIRED FUEL HAS BEEN CONSUMED, GO FOR LAUNCH!
-					else //this tank doesn't have enough to launch shuttle by itself, so remove all its fuel, then continue loop
-						fuel_to_consume -= FT.air_contents.get_by_flag(XGM_GAS_FUEL)
-						FT.air_contents.remove_by_flag(XGM_GAS_FUEL, FT.air_contents.get_by_flag(XGM_GAS_FUEL))
-			else
-				return 0 //can't launch if you have insufficient fuel
-		else
-			return 0 //can't launch if you have no fuel PORTS at all
+	if(!fuel_ports.len)
+		return 0 //Nowhere to get fuel from
+	var/list/obj/item/weapon/tank/fuel_tanks = list()
+	for(var/obj/structure/FP in fuel_ports) //loop through fuel ports and assemble list of all fuel tanks
+		var/obj/item/weapon/tank/FT = locate() in FP
+		if(FT)
+			fuel_tanks += FT
+	if(!fuel_tanks.len)
+		return 0 //can't launch if you have no fuel TANKS in the ports
+	var/total_flammable_gas_moles = 0
+	for(var/obj/item/weapon/tank/FT in fuel_tanks)
+		total_flammable_gas_moles += FT.air_contents.get_by_flag(XGM_GAS_FUEL)
+	if(total_flammable_gas_moles < fuel_consumption) //not enough fuel
+		return 0
+	// We are going to succeed if we got to here, so start consuming that fuel
+	var/fuel_to_consume = fuel_consumption
+	for(var/obj/item/weapon/tank/FT in fuel_tanks) //loop through tanks, consume their fuel one by one
+		var/fuel_available = FT.air_contents.get_by_flag(XGM_GAS_FUEL)
+		if(!fuel_available) // Didn't even have fuel.
+			continue
+		if(fuel_available >= fuel_to_consume)
+			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_to_consume)
+			return 1 //ALL REQUIRED FUEL HAS BEEN CONSUMED, GO FOR LAUNCH!
+		else //this tank doesn't have enough to launch shuttle by itself, so remove all its fuel, then continue loop
+			fuel_to_consume -= fuel_available
+			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
 
 /obj/structure/fuel_port
 	name = "fuel port"
@@ -108,8 +108,9 @@
 	var/opened = 0
 	var/parent_shuttle
 
-/obj/structure/fuel_port/New()
-	src.contents.Add(new/obj/item/weapon/tank/hydrogen)
+/obj/structure/fuel_port/Initialize()
+	. = ..()
+	new /obj/item/weapon/tank/hydrogen(src)
 
 /obj/structure/fuel_port/attack_hand(mob/user as mob)
 	if(!opened)
@@ -119,7 +120,7 @@
 		user.put_in_hands(contents[1])
 	update_icon()
 
-/obj/structure/fuel_port/update_icon()
+/obj/structure/fuel_port/on_update_icon()
 	if(opened)
 		if(contents.len > 0)
 			icon_state = icon_full
@@ -145,3 +146,7 @@
 		if(contents.len == 0)
 			user.unEquip(W, src)
 	update_icon()
+
+// Walls hide stuff inside them, but we want to be visible.
+/obj/structure/fuel_port/hide()
+	return

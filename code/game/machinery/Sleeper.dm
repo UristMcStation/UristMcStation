@@ -12,13 +12,12 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/pump
-	var/list/stasis_settings = list(1, 2, 5)
+	var/list/stasis_settings = list(1, 2, 5, 10)
 	var/stasis = 1
 	var/max_amount = 20
 
-	use_power = 1
 	idle_power_usage = 15
-	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
+	active_power_usage = 1 KILOWATTS //builtin health analyzer, dialysis machine, injectors.
 
 /obj/machinery/sleeper/Initialize()
 	. = ..()
@@ -26,6 +25,14 @@
 	component_parts += beaker
 	build_default_parts(/obj/item/weapon/circuitboard/sleeper)
 	update_icon()
+
+/obj/machinery/sleeper/examine(mob/user)
+	. = ..()
+	if (. && user.Adjacent(src))
+		if (beaker)
+			to_chat(user, "It is loaded with a beaker.")
+		if(occupant)
+			occupant.examine(user)
 
 /obj/machinery/sleeper/Process()
 	if(stat & (NOPOWER|BROKEN))
@@ -45,15 +52,17 @@
 	if(pump > 0)
 		if(beaker && istype(occupant))
 			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
-				for(var/datum/reagent/x in occupant.ingested.reagent_list)
-					occupant.ingested.trans_to_obj(beaker, 3)
+				var/datum/reagents/ingested = occupant.get_ingested_reagents()
+				if(ingested)
+					for(var/datum/reagent/x in ingested.reagent_list)
+						ingested.trans_to_obj(beaker, 3)
 		else
 			toggle_pump()
 
 	if(iscarbon(occupant) && stasis > 1)
 		occupant.SetStasis(stasis)
 
-/obj/machinery/sleeper/update_icon()
+/obj/machinery/sleeper/on_update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
@@ -129,6 +138,7 @@
 		var/nstasis = text2num(href_list["stasis"])
 		if(stasis != nstasis && nstasis in stasis_settings)
 			stasis = text2num(href_list["stasis"])
+			change_power_consumption(initial(active_power_usage) + 5 KILOWATTS * (stasis-1), POWER_USE_ACTIVE)
 			return TOPIC_REFRESH
 
 /obj/machinery/sleeper/attack_ai(var/mob/user)
@@ -230,14 +240,7 @@
 		if(occupant)
 			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 			return
-		M.stop_pulling()
-		if(M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		update_use_power(2)
-		occupant = M
-		update_icon()
+		set_occupant(M)
 
 /obj/machinery/sleeper/proc/go_out()
 	if(!occupant)
@@ -246,15 +249,28 @@
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.dropInto(loc)
-	occupant = null
+	set_occupant(null)
 
 	for(var/obj/O in (contents - component_parts)) // In case an object was dropped inside or something. Excludes the beaker and component parts.
 		if(O == beaker)
 			continue
 		O.dropInto(loc)
-	update_use_power(1)
-	update_icon()
 	toggle_filter()
+
+/obj/machinery/sleeper/proc/set_occupant(var/mob/living/carbon/occupant)
+	src.occupant = occupant
+	update_icon()
+	if(!occupant)
+		SetName(initial(name))
+		update_use_power(POWER_USE_IDLE)
+		return
+	occupant.forceMove(src)
+	occupant.stop_pulling()
+	if(occupant.client)
+		occupant.client.perspective = EYE_PERSPECTIVE
+		occupant.client.eye = src
+	SetName("[name] ([occupant])")
+	update_use_power(POWER_USE_ACTIVE)
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
@@ -270,7 +286,7 @@
 	var/chemical_type = available_chemicals[chemical_name]
 	if(occupant && occupant.reagents)
 		if(occupant.reagents.get_reagent_amount(chemical_type) + amount <= max_amount)
-			use_power(amount * CHEM_SYNTH_ENERGY)
+			use_power_oneoff(amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical_type, amount)
 			to_chat(user, "Occupant now has [occupant.reagents.get_reagent_amount(chemical_type)] unit\s of [chemical_name] in their bloodstream.")
 		else

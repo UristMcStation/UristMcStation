@@ -179,7 +179,7 @@
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
-		use_power(7500) //This might need tweaking.
+		use_power_oneoff(7500, EQUIP) //This might need tweaking.
 		return
 
 	else if((!occupant) || (occupant.loc != src))

@@ -18,12 +18,11 @@
 /obj/structure/dispenser/phoron
 	oxygentanks = 0
 
-
-/obj/structure/dispenser/New()
+/obj/structure/dispenser/Initialize()
+	. = ..()
 	update_icon()
 
-
-/obj/structure/dispenser/update_icon()
+/obj/structure/dispenser/on_update_icon()
 	overlays.Cut()
 	switch(oxygentanks)
 		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
@@ -96,7 +95,7 @@
 					oxytanks.Remove(O)
 				else
 					O = new /obj/item/weapon/tank/oxygen(loc)
-				O.loc = loc
+				O.dropInto(loc)
 				to_chat(usr, "<span class='notice'>You take [O] out of [src].</span>")
 				oxygentanks--
 				update_icon()
@@ -108,7 +107,7 @@
 					platanks.Remove(P)
 				else
 					P = new /obj/item/weapon/tank/phoron(loc)
-				P.loc = loc
+				P.dropInto(loc)
 				to_chat(usr, "<span class='notice'>You take [P] out of [src].</span>")
 				phorontanks--
 				update_icon()

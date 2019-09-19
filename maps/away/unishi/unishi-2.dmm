@@ -11,7 +11,7 @@
 /area/unishi/library)
 "ad" = (
 /turf/simulated/wall/titanium,
-/area/unishi/classroom)
+/area/space)
 "ae" = (
 /obj/structure/table/woodentable,
 /obj/random/advdevice,
@@ -119,7 +119,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/carpet/red,
 /area/unishi/library)
@@ -162,7 +162,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/unishi/chem)
@@ -375,7 +375,7 @@
 /area/unishi/common)
 "ba" = (
 /obj/structure/closet/secure_closet/scientist{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/common)
@@ -395,7 +395,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/unishi/chem)
@@ -791,7 +791,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/dark,
 /area/unishi/classroom)
@@ -1102,6 +1102,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/unishi/toxins)
+"cL" = (
+/obj/machinery/door/blast/regular{
+	icon_state = "pdoor1";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "cM" = (
 /obj/structure/bed/chair/office/comfy/black{
 	dir = 4
@@ -1178,7 +1185,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/weapon/clipboard,
+/obj/random/clipboard,
 /obj/item/weapon/folder/white,
 /obj/item/weapon/pen/reagent/sleepy,
 /turf/simulated/floor/tiled,
@@ -1251,7 +1258,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/unishi/meeting)
@@ -1351,7 +1358,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/unishi/toxins)
@@ -1454,6 +1461,9 @@
 	},
 /turf/simulated/wall/titanium,
 /area/unishi/toxins)
+"dJ" = (
+/turf/simulated/wall/titanium,
+/area/unishi/hydro)
 "dK" = (
 /obj/structure/bed/chair/office{
 	dir = 1
@@ -1604,7 +1614,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/item/stack/material/diamond/ten,
 /obj/item/stack/material/steel/fifty,
@@ -1952,7 +1962,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/unishi/xenobio)
@@ -2024,7 +2034,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/unishi/hydro)
@@ -2063,7 +2073,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/dark,
 /area/unishi/common)
@@ -2173,10 +2183,13 @@
 /area/unishi/common)
 "ft" = (
 /obj/machinery/door/airlock/science,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/border_only,
 /turf/simulated/floor,
 /area/unishi/common)
+"fu" = (
+/obj/effect/wingrille_spawn/reinforced,
+/turf/simulated/floor,
+/area/space)
 "fv" = (
 /obj/structure/flora/pottedplant/aquatic,
 /turf/simulated/floor/tiled/dark,
@@ -2356,7 +2369,7 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/dark,
 /area/unishi/smresearch)
@@ -2512,6 +2525,9 @@
 	},
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor,
+/area/unishi/smresearch)
+"gn" = (
+/turf/space,
 /area/unishi/smresearch)
 "go" = (
 /obj/effect/decal/cleanable/vomit,
@@ -3081,6 +3097,20 @@
 	dir = 1
 	},
 /turf/simulated/wall/titanium,
+/area/unishi/smresearch)
+"hF" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/unishi/smresearch)
+"hG" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/space,
 /area/unishi/smresearch)
 
 (1,1,1) = {"
@@ -7302,40 +7332,40 @@ aa
 aa
 aa
 ad
-cr
-cr
-cr
-cr
-cr
-dq
-dq
-dq
-dq
-el
-el
-el
-el
-el
-el
-fh
-fh
-fp
-fp
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+fu
+fu
 fK
 fK
 fK
 fK
 fK
 fK
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+gn
 aa
 aa
 aa
@@ -7391,10 +7421,10 @@ aa
 aa
 aa
 aa
-ax
-ax
-ax
-ax
+ad
+ad
+ad
+ad
 ad
 ad
 ad
@@ -7437,7 +7467,7 @@ gW
 fK
 fK
 fK
-aa
+gn
 aa
 aa
 aa
@@ -7491,7 +7521,7 @@ aa
 aa
 aa
 aa
-ab
+ax
 ax
 ax
 ax
@@ -7539,7 +7569,7 @@ fK
 fK
 fK
 fK
-aa
+gn
 aa
 aa
 aa
@@ -7588,12 +7618,12 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+ad
+ad
+ad
+ad
+ad
+ax
 aA
 aL
 aT
@@ -7641,7 +7671,7 @@ fL
 ge
 fK
 fK
-aa
+gn
 aa
 aa
 aa
@@ -7695,7 +7725,7 @@ ak
 ak
 ak
 ak
-ak
+ay
 aB
 aM
 aM
@@ -7797,7 +7827,7 @@ al
 aq
 au
 av
-ak
+ay
 aC
 aN
 aU
@@ -7899,7 +7929,7 @@ am
 aq
 ao
 av
-ak
+ay
 aD
 aO
 aV
@@ -8608,12 +8638,12 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+ad
+ad
+ad
+ad
+ad
+ad
 aK
 aS
 ba
@@ -8661,7 +8691,7 @@ hd
 hd
 hz
 hD
-hg
+hF
 aa
 aa
 aa
@@ -8715,21 +8745,21 @@ aa
 aa
 aa
 aa
-ab
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 cy
 cJ
 cV
@@ -8763,7 +8793,7 @@ fN
 fN
 fN
 fK
-gJ
+hG
 aa
 aa
 aa
@@ -8819,19 +8849,19 @@ aa
 aa
 aa
 aa
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
-fh
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 cy
 cK
 cy
@@ -8865,7 +8895,7 @@ gW
 fK
 fK
 fK
-gJ
+hG
 aa
 aa
 aa
@@ -8933,14 +8963,14 @@ aa
 aa
 aa
 aa
-fh
-dp
-cK
-dp
-dp
-dp
-dp
-dp
+ad
+ad
+cL
+ad
+ad
+ad
+ad
+dJ
 dW
 dW
 dW
@@ -8958,7 +8988,7 @@ fK
 fK
 fK
 fK
-fK
+ad
 gw
 gJ
 gU

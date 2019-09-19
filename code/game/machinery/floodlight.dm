@@ -19,7 +19,7 @@
 	cell = new/obj/item/weapon/cell/crap(src)
 	..()
 
-/obj/machinery/floodlight/update_icon()
+/obj/machinery/floodlight/on_update_icon()
 	overlays.Cut()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
@@ -117,7 +117,7 @@
 		if(unlocked)
 			if(open)
 				open = 0
-				overlays = null
+				overlays.Cut()
 				to_chat(user, "You crowbar the battery panel in place.")
 			else
 				if(unlocked)

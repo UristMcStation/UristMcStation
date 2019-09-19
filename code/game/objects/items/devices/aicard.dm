@@ -10,13 +10,6 @@
 
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/weapon/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob)
-	if (!istype (M, /mob/living/silicon/decoy))
-		return ..()
-	else
-		M.death()
-		to_chat(user, "<b>ERROR ERROR ERROR</b>")
-
 /obj/item/weapon/aicard/attack_self(mob/user)
 
 	ui_interact(user)
@@ -76,7 +69,7 @@
 		update_icon()
 	return 1
 
-/obj/item/weapon/aicard/update_icon()
+/obj/item/weapon/aicard/on_update_icon()
 	overlays.Cut()
 	if(carded_ai)
 		if (!carded_ai.control_disabled)

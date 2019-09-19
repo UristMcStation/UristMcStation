@@ -8,7 +8,8 @@
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
-	if(embedded_flag || (stomach_contents && stomach_contents.len))
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	if(embedded_flag || (stomach && stomach.contents.len))
 		handle_embedded_and_stomach_objects() //Moving with objects stuck in you can cause bad times.
 
 	if(CE_SPEEDBOOST in chem_effects)
@@ -58,7 +59,7 @@
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if(FAT in src.mutations)
+	if(MUTATION_FAT in src.mutations)
 		tally += 1.5
 	if (bodytemperature < 283.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75
@@ -116,8 +117,28 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip()
-	if(species.species_flags & SPECIES_FLAG_NO_SLIP)
+	if(species.check_no_slip(src))
 		return 1
 	if(shoes && (shoes.item_flags & ITEM_FLAG_NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+
+/mob/living/carbon/human/Move()
+	. = ..()
+	if(.) //We moved
+		handle_leg_damage()
+
+/mob/living/carbon/human/proc/handle_leg_damage()
+	if(!can_feel_pain())
+		return
+	var/crutches = 0
+	for(var/obj/item/weapon/cane/C in list(l_hand, r_hand))
+		if(istype(C))
+			crutches++
+	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = get_organ(organ_name)
+		if(E && (E.is_dislocated() || E.is_broken()))
+			if(crutches)
+				crutches--
+			else
+				E.add_pain(10)

@@ -16,7 +16,6 @@
 	start_pressure = 45 * ONE_ATMOSPHERE
 	var/temperature_resistance = 1000 + T0C
 	volume = 1000
-	use_power = 0
 	interact_offline = 1 // Allows this to be used when not in powered area.
 	var/release_log = ""
 	var/update_flag = 0
@@ -145,7 +144,7 @@
 	else
 		return 0
 
-/obj/machinery/portable_atmospherics/canister/update_icon()
+/obj/machinery/portable_atmospherics/canister/on_update_icon()
 /*
 update_flag
 1 = holding
@@ -157,7 +156,7 @@ update_flag
 */
 
 	if (src.destroyed)
-		src.overlays = 0
+		overlays.Cut()
 		src.icon_state = text("[]-1", src.canister_color)
 		return
 
@@ -167,7 +166,7 @@ update_flag
 	if(check_change()) //Returns 1 if no change needed to icons.
 		return
 
-	src.overlays = 0
+	overlays.Cut()
 
 	if(update_flag & 1)
 		overlays += "can-open"
@@ -232,6 +231,8 @@ update_flag
 			var/returnval = pump_gas_passive(src, air_contents, environment, transfer_moles)
 			if(returnval >= 0)
 				src.update_icon()
+				if(holding)
+					holding.queue_icon_update()
 
 	if(air_contents.return_pressure() < 1)
 		can_label = 1

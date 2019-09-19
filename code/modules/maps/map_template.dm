@@ -44,8 +44,7 @@
 	return TRUE
 
 /datum/map_template/proc/init_atoms(var/list/atoms)
-
-	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
+	if (SSatoms.init_state == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
 
 	var/list/turf/turfs = list()
@@ -63,22 +62,34 @@
 		if(istype(A, /obj/machinery))
 			machines += A
 
-	SSatoms.InitializeAtoms(atoms)
+	SSatoms.InitializeAtoms() // The atoms should have been getting queued there. This flushes the queue.
 
 	SSmachines.setup_powernets_for_cables(cables)
 	SSmachines.setup_atmos_machinery(atmos_machines)
 
-	for (var/obj/machinery/machine in machines)
+	for (var/i in machines)
+		var/obj/machinery/machine = i
 		machine.power_change()
 
-	for (var/turf/T in turfs)
+	for (var/i in turfs)
+		var/turf/T = i
 		T.post_change()
+		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
+			T.turf_flags |= TURF_FLAG_NORUINS
+		if(template_flags & TEMPLATE_FLAG_NO_RADS)
+			qdel(SSradiation.sources_assoc[i])
 
-/datum/map_template/proc/init_shuttles()
+/datum/map_template/proc/pre_init_shuttles()
+	. = SSshuttle.block_queue
+	SSshuttle.block_queue = TRUE
+
+/datum/map_template/proc/init_shuttles(var/pre_init_state)
 	for (var/shuttle_type in shuttles_to_initialise)
-		SSshuttle.initialise_shuttle(shuttle_type)
+		LAZYADD(SSshuttle.shuttles_to_initialize, shuttle_type) // queue up for init.
+	SSshuttle.block_queue = pre_init_state
+	SSshuttle.clear_init_queue() // We will flush the queue unless there were other blockers, in which case they will do it.
 
-/datum/map_template/proc/load_new_z()
+/datum/map_template/proc/load_new_z(no_changeturf = TRUE)
 
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
@@ -89,9 +100,10 @@
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/list/atoms_to_initialise = list()
+	var/shuttle_state = pre_init_shuttles()
 
 	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf=TRUE)
+		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
 		if (M)
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
@@ -107,7 +119,7 @@
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
-	init_shuttles()
+	init_shuttles(shuttle_state)
 	for(var/light_z = initial_z to world.maxz)
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
@@ -126,6 +138,7 @@
 		return
 
 	var/list/atoms_to_initialise = list()
+	var/shuttle_state = pre_init_shuttles()
 
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, clear_contents=(template_flags & TEMPLATE_FLAG_CLEAR_CONTENTS))
@@ -136,7 +149,7 @@
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
-	init_shuttles()
+	init_shuttles(shuttle_state)
 	SSlighting.InitializeTurfs(atoms_to_initialise)	// Hopefully no turfs get placed on new coords by SSatoms.
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
 	loaded++

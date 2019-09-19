@@ -9,15 +9,21 @@
 	var/list/transfer_amounts = list(REM, 1, 2)
 	var/transfer_amount = 1
 
-/obj/structure/iv_drip/verb/set_APTFT()
+/obj/structure/iv_drip/verb/set_amount_per_transfer_from_this()
 	set name = "Set IV transfer amount"
 	set category = "Object"
 	set src in range(1)
+	if(!CanPhysicallyInteract(usr))
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
+		return
 	var/N = input("Amount per transfer from this:","[src]") as null|anything in transfer_amounts
+	if(!CanPhysicallyInteract(usr)) // because input takes time and the situation can change
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
+		return
 	if(N)
 		transfer_amount = N
 
-/obj/structure/iv_drip/queue_icon_update()
+/obj/structure/iv_drip/on_update_icon()
 	if(attached)
 		icon_state = "hooked"
 	else
@@ -154,14 +160,9 @@
 	set category = "Object"
 	set name = "Toggle IV Mode"
 	set src in view(1)
-
-	if(!istype(usr, /mob/living))
-		to_chat(usr, "<span class='warning'>You can't do that.</span>")
+	if(!CanPhysicallyInteract(usr))
+		to_chat(usr, "<span class='notice'>You're in no condition to do that!'</span>")
 		return
-
-	if(usr.incapacitated())
-		return
-
 	mode = !mode
 	to_chat(usr, "The IV drip is now [mode ? "injecting" : "taking blood"].")
 
@@ -190,6 +191,14 @@
 	attached = null
 
 /obj/structure/iv_drip/proc/hook_up(mob/living/carbon/human/target, mob/user)
-	visible_message("\The [usr] hooks \the [target] up to \the [src].")
-	attached = target
-	START_PROCESSING(SSobj,src)
+	if(do_IV_hookup(target, user, src))
+		attached = target
+		START_PROCESSING(SSobj,src)
+
+/proc/do_IV_hookup(mob/living/carbon/human/target, mob/user, obj/IV)
+	to_chat(user, "<span class='notice'>You start to hook up \the [target] to \the [IV].</span>")
+	if(!do_after(user, 2 SECONDS, target))
+		return FALSE
+
+	user.visible_message("\The [user] hooks \the [target] up to \the [IV].")
+	return TRUE

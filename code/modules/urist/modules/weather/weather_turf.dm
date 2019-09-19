@@ -13,9 +13,9 @@
 	weather_enabled = 1
 	if(dynamic)
 		weather_dynamic = dynamic
-	if(weatherProcess)
-		if(!(src in weatherProcess.weather_cache))
-			weatherProcess.weather_cache += src
+	if(SSweather)
+		if(!(src in SSweather.weather_cache))
+			SSweather.weather_cache += src
 	else
 		if(!(src in pending_weathers))
 			pending_weathers += src
@@ -56,9 +56,9 @@
 
 //Something entered the weather zone so the weather has to do work
 /turf/proc/weather_activate()
-	if(weatherProcess)
+	if(SSweather)
 		if(!(weather_safe)) //does not process effects, so don't bother
-			weatherProcess.active_cache += src
+			SSweather.active_cache += src
 
 /turf/proc/inflictW()
 	if(!(weather_safe))
