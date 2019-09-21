@@ -68,7 +68,8 @@
 	if(incombat)
 		shipfire()
 		for(var/datum/shipcomponents/M in src.components)
-			M.DoActivate()
+			if(M.broken == TRUE)
+				M.DoActivate()
 
 	for(var/datum/shipcomponents/shield/S in src.components)
 		if(!S.broken && !S.recharging)

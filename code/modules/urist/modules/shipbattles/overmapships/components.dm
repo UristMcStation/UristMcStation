@@ -257,6 +257,7 @@
 /datum/shipcomponents/shield_disruptor/DoActivate()
 	if(last_activation > world.time)
 		return
+
 	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
 		if(S.z in GLOB.using_map.station_levels)
 			if(S.running == SHIELD_RUNNING)
@@ -330,7 +331,6 @@
 
 /datum/shipcomponents/repair_module/DoActivate()
 	var/did_repair //if it did a repair, activate cooldown, otherwise it gets another try on the next life() tick
-
 	if(last_activation > world.time)
 		return
 	//hull repair stuffs
@@ -364,7 +364,7 @@
 
 	//module restoration
 	else if(can_fix_broken)
-		else if(prob(module_restore_prob))
+		if(prob(module_restore_prob))
 			for(var/datum/shipcomponents/M in mastership.components)
 				if(M.broken == FALSE)
 					continue
@@ -380,4 +380,29 @@
 
 
 //Cloaking Modules
+
+/datum/shipcomponents/cloaking_module
+	name = "cloaking module"
+	var/evasion_increase = 10 //increase master ship evasion by this much
+	var/active = FALSE
+
+/datum/shipcomponents/cloaking_module/DoActivate()
+	if(active)
+		return
+	for(var/datum/shipcomponents/engines/E in mastership.components)
+		if((E.evasion_chance + evasion_increase) > 90)
+			var/new_evasion_chance = Clamp(evasion_increase, 0, 90)
+			E.evasion_chance += new_evasion_chance
+			active = TRUE
+		else
+			E.evasion_chance += evasion_increase
+			active = TRUE
+
+/datum/shipcomponents/cloaking_module/BlowUp()
+	for(var/datum/shipcomponents/engines/E in mastership.components)
+		E.evasion_chance -= evasion_increase
+	active = FALSE
+	..()
+
+
 
