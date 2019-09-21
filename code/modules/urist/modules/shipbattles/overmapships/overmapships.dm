@@ -67,6 +67,8 @@
 /mob/living/simple_animal/hostile/overmapship/Life() //here we do the attacking stuff. i hate that this is life, but fuck.
 	if(incombat)
 		shipfire()
+		for(var/datum/shipcomponents/M in src.components)
+			M.DoActivate()
 
 	for(var/datum/shipcomponents/shield/S in src.components)
 		if(!S.broken && !S.recharging)
