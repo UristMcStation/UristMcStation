@@ -69,6 +69,8 @@
 		shipfire()
 		for(var/datum/shipcomponents/M in src.components)
 			if(M.broken == TRUE)
+				return
+			else
 				M.DoActivate()
 
 	for(var/datum/shipcomponents/shield/S in src.components)
