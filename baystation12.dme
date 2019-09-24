@@ -2910,6 +2910,7 @@
 #include "code\modules\urist\modules\shipbattles\shipweapons\missile_weapons.dm"
 #include "code\modules\urist\modules\shipbattles\shipweapons\ship_projectiles.dm"
 #include "code\modules\urist\modules\shipbattles\shipweapons\shipweapons.dm"
+#include "code\modules\urist\modules\shipbattles\shipweapons\shipweapons2.dm"
 #include "code\modules\urist\modules\shipbattles\shipweapons\torpedo_warhead.dm"
 #include "code\modules\urist\modules\shipbattles\shipweapons\weapon_construction.dm"
 #include "code\modules\urist\modules\weather\area_climates.dm"
