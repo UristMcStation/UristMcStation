@@ -200,6 +200,9 @@
 	if(last_boarding > world.time) //Are we too early?
 		return
 
+	if(mastership.boarding = TRUE)
+		return //they have better things to do than board the Nerva right now.
+
 	boarding_failure_chance = 0 //Zero this var out.
 
 	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
