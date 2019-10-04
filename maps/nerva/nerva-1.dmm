@@ -15699,6 +15699,8 @@
 	density = 0;
 	pixel_y = -30
 	},
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/aluminium/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "AA" = (
@@ -15730,6 +15732,8 @@
 	dir = 1;
 	icon_state = "camera"
 	},
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "AC" = (
