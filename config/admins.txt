@@ -7,21 +7,15 @@
 
 Nyxodile - Host
 glloyd - Head Admin
-CoraiUnki - Game Master
-Gale212 - Head Admin
-Acemuto10 - Game Master
-Wommy - Game Master
 Stefender - Game Master
-Capesh - Game Master
-Irrationalist - Game Master
 Lady_Blanc - Game Master
 MisterPaper - Game Master
+Capesh - Game Master
 
 Scrdest - Coder
 
 Vakothu - Dev Mod
 Licton15 - Moderator
-D.E.Machina - Moderator
 laniakeaa - Moderator
 
 AseaHeru - Mentor
@@ -29,6 +23,13 @@ Mapleguy555 - Mentor
 Lance77am - Mentor
 Mentor_Knight - Mentor
 
+
+#D.E.Machina - Moderator
+Irrationalist - Retired Admin
+CoraiUnki - Inactive Admin
+Gale212 - Retired Admin
+Acemuto10 - Inactive Admin
+Wommy - Inactive Admin
 hanspanda - Inactive Admin
 Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
