@@ -124,3 +124,53 @@
 /obj/item/clothing/suit/radiation/New()
 	..()
 	slowdown_per_slot[slot_shoes] = 1.5
+
+// Big Bulky Radiation Suits. Hiss not included - Yellow
+/obj/item/clothing/head/biohazard
+		name = "biohazard hood"
+		icon = 'icons/urist/items/clothes/head.dmi'
+		icon_override = 'icons/uristmob/head.dmi'
+		body_parts_covered = FACE|EYES
+		w_class = 3.0
+		flags_inv = HIDEEARS
+		item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
+		armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+
+/obj/item/clothing/suit/biohazardsuit
+	name = "biohazard suit"
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	body_parts_covered = FACE|EYES
+	w_class = 3.0
+	flags_inv = HIDEEARS
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
+	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+
+
+/obj/item/clothing/head/biohazard/bulkyyellowhood
+	name = "Bulky Radiation Hood"
+	icon_state = "bulky_yellow_hood"
+	desc = "A bulky yellow hood designed to protect the user from radiation."
+	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+
+/obj/item/clothing/suit/biohazardsuit/bulkyyellow
+	name = "Bulky Radiation Suit"
+	desc = "A bulky yellow radiation suit, designed to protect the user from radiation exposure."
+	icon_state = "bulky_yellow"
+	item_state_slots = list(
+		slot_l_hand_str = "rad_suit",
+		slot_r_hand_str = "rad_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.50
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEGLOVES|HIDESHOES
+
+/obj/item/clothing/suit/radiation/New()
+	..()
+	slowdown_per_slot[slot_shoes] = 1.5

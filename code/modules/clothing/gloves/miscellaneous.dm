@@ -156,3 +156,16 @@
 	permeability_coefficient = 0.03
 	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 
+
+/obj/item/clothing/gloves/biohazard
+	name = "gloves"
+	icon = 'icons/urist/items/clothes/gloves.dmi'
+	icon_override = 'icons/uristmob/gloves.dmi'
+	body_parts_covered = HANDS|ARMS
+
+/obj/item/clothing/gloves/biohazard/rubbergloves
+	desc = "These rubber gloves are made to assist in protecting the user from biological hazards."
+	name = "rubber gloves"
+	icon_state = "rubbergloves"
+	item_state = "rubbergloves"
+	body_parts_covered = HANDS|ARMS
