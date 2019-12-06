@@ -55,7 +55,7 @@
 
 /turf/simulated/floor/grass
 	name = "grass patch"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
