@@ -59,6 +59,24 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	dat = seclaw
 
+// ICS Nerva version of Space Law.
+
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw
+	name = "ICS Nerva - Security Law & Regulation Guidelines."
+	desc = "A book describing the multiple sentencings for different crimes aboard the ICS Nerva."
+	icon = 'icons/urist/items/library.dmi'
+	icon_state = "icsnervalaw"
+	author = "ICS Nerva Security Team"
+	title = "Security Law & Regulation Guidelines"
+
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw/New()
+	..()
+
+	var/nervalaw = file2text('ingame_manuals/icsnervalaw.html')
+	if(!nervalaw)
+		nervalaw = "Error loading help (file /ingame_manuals/icsnervalaw.html is probably missing). Please report this to server administration staff."
+
+	dat = nervalaw
 
 /obj/effect/decal/warning_stripes/urist
 	name = "warning decal"
