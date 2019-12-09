@@ -229,13 +229,14 @@
 /datum/job/scientist
 	minimal_player_age = 0
 	title = "Nanotrasen Scientist"
+	alt_titles = list("Nanotrasen Xenobiologist", "Nanotrasen Anomalist", "Nanotrasen Xenobotanist")
 	supervisors = "Nanotrasen Central Command and the captain."
 	total_positions = 3
 	spawn_positions = 3
 	hud_icon = "hudblueshield"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
-	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition)
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_maint_tunnels)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition, access_network, access_maint_tunnels)
 
 /datum/job/scientist/get_description_blurb()
 	return "You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
