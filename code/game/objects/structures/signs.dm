@@ -442,7 +442,7 @@
 	icon = 'icons/urist/decals/urist.dmi'
 
 /obj/structure/sign/osha/radiationsignyellow
-	name = "RADATION WARNING!"
+	name = "RADIATION WARNING!"
 	desc = "A warning sign advising you of a radioactive area."
 	icon_state = "radiationsign"
 
