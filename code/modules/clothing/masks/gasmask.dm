@@ -183,22 +183,3 @@
 	filter_water = TRUE
 	body_parts_covered = FACE
 	w_class = 2
-
-/obj/item/clothing/mask/gas/biohazard
-	name = "respirator"
-	desc = "A fully enclosed respirator that can be connected to an air supply. Filters harmful gases from the air while protecting the users face."
-	icon = 'icons/urist/items/clothes/masks.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
-	body_parts_covered = FACE|EYES
-	w_class = 3.0
-	flags_inv = HIDEEARS
-	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
-	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
-
-/obj/item/clothing/mask/gas/biohazard/biohazardrespirator
-	name = "biohazard respirator"
-	desc = "A fully enclosed respirator that can be connected to an air supply. Filters harmful gases from the air while protecting the users face."
-	icon_state = "respirator"
-	item_state = "respirator"
-	body_parts_covered = FACE|EYES
-	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
