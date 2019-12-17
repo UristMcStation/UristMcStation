@@ -20,6 +20,10 @@
 	path = /obj/item/clothing/under/dress/dress_hop
 	allowed_roles = list("Head of Personnel")
 
+/datum/gear/uniform/dresssuit
+	display_name = "amish suit"
+	path = /obj/item/clothing/under/sl_suit
+
 /datum/gear/uniform/navysecsuit
 	display_name = "uniform, navyblue (Security)"
 	path = /obj/item/clothing/under/rank/security/navyblue
