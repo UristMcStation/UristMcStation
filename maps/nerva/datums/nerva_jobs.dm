@@ -297,10 +297,13 @@
 
 /datum/job/janitor
 	economic_power = 2
+	title = "Janitor"
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
+	access = list(access_maint_tunnels, access_bar, access_janitor, access_medical, access_mailsorting, access_hydroponics, access_library)
+
 
 /datum/job/janitor/get_description_blurb()
 	return "You are the Janitor aboard the ICS Nerva. It is your job to clean this vessel from top to bottom. This may include mopping, dealing with pest problems, fixing plumbing and ensuring all trash is disposed of. You answer directly to the Second Officer."
