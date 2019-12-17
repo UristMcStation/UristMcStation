@@ -16,8 +16,14 @@
 /datum/job/ai
 	minimal_player_age = 7
 
+/datum/job/ai/get_description_blurb()
+	return "You are the Artifical Intelligence installed to the ICS Nerva. Ensure that you follow all directives specified to you as stated by the lawset you have been designated to follow. You answer to all of the crew, unless your lawset states otherwise. Failure to follow your lawset may result in removal."
+
 /datum/job/cyborg
 	minimal_player_age = 0
+
+/datum/job/ai/get_description_blurb()
+	return "You are a Cyborg, purposed for use on the ICS Nerva. Ensure that you follow all directives specified to you by your lawset, You answer directly to all crew and the AI, unless you are not slaved to them. Failure to follow your lawset may result in your removal."
 
 /datum/job/blueshield
 	title = "Bodyguard"
@@ -44,7 +50,7 @@
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
 			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield)
-
+// Bodyguard's Job Verb is basically already stated in his supervisor setup.
 /datum/job/firstofficer
 	title = "First Officer"
 	supervisors = "the captain"
@@ -137,10 +143,18 @@
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload,
 			            access_expedition_shuttle_helm, access_expedition)
 
+/datum/job/chief_engineer/get_description_blurb()
+	return	"You are the Chief Engineer, as the Chief Engineer, it is your job to oversee the Engineering Staff to ensure that all elements of engineering are being performed safely. This includes overseeing the supermatter's power generation, ensuring all atmospheric flown through the air are not contaminated, stopping possible fires from occuring and forwarding engineer supply requests to the Cargo Team. Thus, you are a direct supervivor for the Engineering Staff, ensure that all of your staff are well-organized and know what tasks to work on, as you may be held responsible for catastrophic damage from engine-failure and gas leaks. You answer directly to the Captain and the First Officer, remember that in the event of a Supermatter explosion, you can eject the crystal to space and that your suit is completley fire proof to assist in stopping fires."
+
+
 /datum/job/engineer
 	minimal_player_age = 0
 	total_positions = 5
 	spawn_positions = 3
+
+/datum/job/engineer/get_description_blurb()
+	return	"You are part of the Engineering Team aboard the ICS Nerva. As an Engineer, it is your job to ensure the ICS Nerva has fully operational power, thrust for flight and air to breathe. Ensure that the Supermatter Crystal is fully operational to generate power and that sufficent gas is used for thrust. You are directly responsible for the Ship's well-being, this includes fixing interior and exterior breaches caused by damage, firefighting from gas leaks and optimizing machines to function to their fullest. You answer directly to the Chief Engineer. Remember to always help your engineers."
+
 
 //cargo
 
@@ -158,6 +172,9 @@
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
 
+/datum/job/qm/get_description_blurb()
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away-missions, salvaging and mining and arming the ICS Nerva if attacks occur. Thus, you are a Directive Supervisor for the supply and culinary staff. As Quartermaster, it is your job to discuss with the Second Officer organizing awaymissions and to prevent supply crew from manufactoring dangerous arms without direct permission."
+
 /datum/job/cargo_tech
 	minimal_player_age = 0
 	economic_power = 4
@@ -174,6 +191,9 @@
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research)
 
+/datum/job/cargo_tech/get_description_blurb()
+	return	"You are part of the Supply Department on the ICS Nerva. As part of the Supply Team, it is your job to obtain any shipped crates ordered from nearby stations by your Quartermaster, conduct away-missions with approval, salvage derelict stations and vessels for materials/artifacts to sell, conduct R&D work and mine for minerals at nearby Asteroid Belts. You answer directly to the Quartermaster, ensure that you do not use the R&D and Autolathes as a way to manufacture firearms for personal use, as this may lead to dismissal. Remember to pack radio equipment, suitable internals and EVA equipment when conducting salvage, mining and away-missions."
+
 //medbay
 
 /datum/job/cmo
@@ -188,6 +208,9 @@
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
 			access_expedition_shuttle_helm, access_expedition)
 
+/datum/job/cmo/get_description_blurb()
+	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff to ensuring they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
+
 /datum/job/doctor
 	minimal_player_age = 0
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels)
@@ -196,7 +219,8 @@
 		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
 		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
 		)
-
+/datum/job/doctor/get_description_blurb()
+	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is within job to ensure all crew remain healthy, this may involve scanning paitents in the bodyscanners to find internal injuries, perform medical surgery to fix ailemtns, produce beneficial medicine to assist the crew and provide and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their lifesign sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
 //sec
 
 /datum/job/hos
@@ -216,6 +240,9 @@
 			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 			            access_expedition_shuttle_helm, access_expedition)
 
+/datum/job/hos/get_description_blurb()
+	return	"You are the Chief of Security, as the Chief of Security, it is your job to oversee your Security team to ensure they follow the correct procedures when responding to arrests and threats, managing and overseeing brigging, ensuring all crew present are held on the manifest. Thus, you are held accountable of the Security Team's actions. As the Chief of Security, it is also your job to arrest criminals, assist officers in distress, organize and speak with Command Staff about away-teams and out-bound communications and in cases in which there are no command staff present, act as Acting Captain. You answer directly to the Captain and the First Officer, remember to follow the specified law guidelines and avoid putting yourself in danger when you are on your own."
+
 /datum/job/officer
 	minimal_player_age = 0
 	supervisors = "the chief of security."
@@ -224,6 +251,8 @@
 	access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
 	minimal_access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
 
+/datum/job/officer/get_description_blurb()
+	return	"You are part of the Security Department, ensuring the protection of the crew from danger during the voyage of the ICS Nerva. It is your job to oversee and protect your crew, which includes reporting threats, making arrests while following set law guidelines, collecting evidence to aid arrests and cataloging evidence. Ensure that you only use lethal weaponry when there is a credible threat to your life, or you may suffer repercussions and dismissal. You answer directly to the Chief of Security."
 //sci
 
 /datum/job/scientist
@@ -239,17 +268,20 @@
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition, access_network, access_maint_tunnels)
 
 /datum/job/scientist/get_description_blurb()
-	return "You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
+	return	"You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
 
 //misc
 
 /datum/job/assistant
 	alt_titles = list(
-	"Technical Assistant","Medical Intern","Cargo Assistant", "Security Deputy",
+	"Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /decl/hierarchy/outfit/job/service/gardener,
 	"Clown" = /decl/hierarchy/outfit/job/clown,
 	"Mime" = /decl/hierarchy/outfit/job/mime
 	)
+
+/datum/job/assistant/get_description_blurb()
+	return	"You are an Assistant onboard the ICS Nerva. Try to assist your assigned department to the best of your abilities and avoid getting into trouble. Remember that you can ask the Second Officer if you would like to be assigned a new role."
 
 /datum/job/chef
 	economic_power = 3
@@ -259,12 +291,19 @@
 	supervisors = "the quartermaster and the second officer."
 	minimal_player_age = 0
 
+/datum/job/chef/get_description_blurb()
+	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Quartermaster and the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
+
+
 /datum/job/janitor
 	economic_power = 2
 	supervisors = "the second officer."
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
+
+/datum/job/janitor/get_description_blurb()
+	return "You are the Janitor aboard the ICS Nerva. It is your job to clean this vessel from top to bottom. This may include mopping, dealing with pest problems, fixing plumbing and ensuring all trash is disposed of. You answer directly to the Second Officer."
 
 /datum/job/chaplain
 	minimal_player_age = 0
@@ -287,6 +326,8 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/chaplain
 
+// Chaplain can't really have a job blurb as he has medical and civvie roles.
+
 /datum/job/merchant
 	total_positions = 0
 	spawn_positions = 0
@@ -308,6 +349,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/stowaway
 	latejoin_at_spawnpoints = 1
 	announced = FALSE
+
+/datum/job/stowaway/get_description_blurb()
+	return	"Survive."
 
 //vox
 /datum/map/nerva
@@ -338,6 +382,8 @@
 		H.mind.special_verbs += /client/proc/mimespeak
 		H.mind.special_verbs += /client/proc/mimewall
 
+/datum/job/mime/get_description_blurb()
+	return	"-- .. -- . / -- --- - .... . .-. / ... .... .- .-.. .-.. / ... .- ...- . / ..- ... / .- .-.. .-.. -.-.--"
 //Clown :^)
 
 /datum/job/clown
@@ -356,3 +402,6 @@
 	. = ..()
 	if(.)
 		H.mutations.Add(CLUMSY)
+
+/datum/job/clown/get_description_blurb()
+	return	"You are the Clown aboard the ICS Nerva, try your best to entertainment the crew. You could answer to the Second Officer, but who would do that?"
