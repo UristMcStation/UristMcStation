@@ -1241,6 +1241,7 @@
 					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 3,
 					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 5,
 					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 4,
+					/obj/item/weapon/material/kitchen/chopsticks = 10,
 					)
 
 	prices = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 40,
@@ -1248,6 +1249,7 @@
 					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 50,
 					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 60,
 					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 45,
+					/obj/item/weapon/material/kitchen/chopsticks = 10,
 					)
 	premium = list(/obj/item/weapon/soap/gold = 1)
 	contraband = list(/obj/)
