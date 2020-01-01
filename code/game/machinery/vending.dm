@@ -1225,3 +1225,29 @@
 					/obj/item/weapon/reagent_containers/food/snacks/old/hotdog = 1,
 					/obj/item/weapon/reagent_containers/food/snacks/old/taco = 1
 					)
+
+/obj/machinery/vending/whitedragon
+	name = "White Dragon"
+	desc = "A vendor shining with bright lamps, it appears to be selling oriental food."
+	vend_delay = 30
+	icon = 'icons/urist/structures&machinery/uristvendors.dmi'
+	icon_state = "whitedragon"
+	product_slogans = list("Award-winning sushi!",
+		"Go off-world!", "MSG negotiable!", "500 years of traditional food!")
+	product_ads = list ("Mmm, so tasty!",
+		"Try our new sauces!", "Rich in sesame oil!", "Why not try a surprise pack?", "Yayakuza recommends!")
+	products = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 5,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 4,
+					)
+
+	prices = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 40,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 40,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 50,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 60,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 45,
+					)
+	premium = list(/obj/item/weapon/soap/gold = 1)
+	contraband = list(/obj/)

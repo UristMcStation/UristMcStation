@@ -474,3 +474,12 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "terran_helm"
 	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
 	var/obj/item/weapon/storage/fancy/cigarettes/cigs
+
+// Headbands
+
+/obj/item/clothing/head/urist/headband
+	name = "Ancient Headband"
+	desc = "An ancient cloth headband, with a red cirlce in the middle."
+	icon_state = "headband"
+	item_state = "risingsun"
+	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

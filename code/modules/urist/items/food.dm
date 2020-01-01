@@ -107,3 +107,68 @@
 		..()
 		reagents.add_reagent(/datum/reagent/nutriment, 4)
 		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri
+	name = "Umeboshi Onigiri"
+	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to be filled with Umeboshi."
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "onigiri"
+	trash = /obj/item/trash/onigiri
+	filling_color = "#eddd00"
+
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/nutriment, 3)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2
+	name = "Katsoubushi Onigiri"
+	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to be filled with Katsuobushi."
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "onigiri2"
+	trash = /obj/item/trash/onigiri
+	filling_color = "#eddd00"
+
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/nutriment, 4)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4
+	name = "Cat-Shaped Onigiri"
+	desc = "A riceball made of white rice, wrapped in seaweed. This one appears to shaped into a cute face!"
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "onigiri4"
+	trash = /obj/item/trash/onigiri
+	filling_color = "#eddd00"
+
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/nutriment, 3)
+		bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango
+	name = "Yakidango Skewers"
+	desc = "A skewer of Dangos. Made often of rice flour, they look delicious."
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "yakidango-s"
+	trash = /obj/item/trash/skewers
+	filling_color = "#7a3d11"
+
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/nutriment, 5)
+		bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso
+	name = "Miso Ramen"
+	desc = "A small recycable bowl containing piping hot Ramen. The label reads that it is the Miso flavour variant."
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "ramen-o"
+	trash = /obj/item/trash/ramenbowl
+	filling_color = "#7a3d11"
+
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/nutriment, 5)
+		bitesize = 3
