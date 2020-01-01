@@ -113,7 +113,7 @@
 /obj/item/trash/onigiri
 	name = "onigiri remains"
 	icon = 'icons/urist/items/uristtrash.dmi'
-	icon_state = "onigiri_trash"
+	icon_state = "onigiri-trash"
 
 /obj/item/trash/ramenbowl
 	name = "empty ramen bowl"
