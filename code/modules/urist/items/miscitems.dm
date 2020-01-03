@@ -457,9 +457,9 @@
 
 /obj/item/weapon/reagent_containers/glass/survivalcanteen
 	name = "survival canteen"
-	desc = "A stainless steel screw-topped green survival canteen with a broown cover, which can hold a fair amount of liquid for travel."
+	desc = "A stainless steel screw-topped green survival canteen with a brown cover, which can hold a fair amount of liquid for travel."
 	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "survivalcanteen"
+	icon_state = "canteen"
 
 
 
