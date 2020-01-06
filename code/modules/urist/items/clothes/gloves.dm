@@ -53,7 +53,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 
 /obj/item/clothing/gloves/biohazard
 	desc = "These rubber gloves are made to assist in protecting the user from biological hazards."
-	name = "rubber gloves"
+	name = "biohazard rubber gloves"
 	icon = 'icons/urist/items/clothes/gloves.dmi'
 	icon_override = 'icons/uristmob/gloves.dmi'
 	icon_state = "rubbergloves"
