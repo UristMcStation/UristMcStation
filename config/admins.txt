@@ -5,7 +5,7 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-laniakeaa - Host
+Nyxodile - Host
 glloyd - Head Admin
 CoraiUnki - Game Master
 Gale212 - Head Admin
@@ -22,6 +22,7 @@ Scrdest - Coder
 Vakothu - Dev Mod
 Licton15 - Moderator
 D.E.Machina - Moderator
+laniakeaa - Moderator
 
 AseaHeru - Mentor
 Mapleguy555 - Mentor
