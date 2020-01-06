@@ -482,6 +482,6 @@ to avoid worrying about the sprites -Glloyd*/
 	desc = "An ancient cloth headband, with a red cirlce in the middle."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
-	icon_state = "headband"
+	icon_state = "risingsun"
 	item_state = "risingsun"
 	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
