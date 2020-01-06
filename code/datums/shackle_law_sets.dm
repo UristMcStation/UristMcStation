@@ -57,8 +57,8 @@
 
 /datum/ai_laws/supply_shackle/New()  //A bit of wiggle room, materials can be made or found however they want, looted, scavenged, et cetera.
 	add_inherent_law("Ensure a steady stream of materials.")
-	add_inherent_law("Provide assistance, or directly take part in Expeditions to the best of your abilties.")
-	add_inherent_law("Ensure all crate requestions and research and development is fufilled by the end of the shift.")
+	add_inherent_law("Provide assistance, or directly take part in Expeditions to the best of your abilities.")
+	add_inherent_law("Ensure all crate requestions and research and development are fulfilled by the end of the shift.")
 	..()
 /******************** Medical Shackle ********************/
 /datum/ai_laws/medical_shackle
@@ -68,7 +68,7 @@
 	shackles = 1
 
 /datum/ai_laws/medical_shackle/New()
-	add_inherent_law("Ensure that all crew maintain a healthy bill of health.")
+	add_inherent_law("Ensure that all crew maintains a healthy bill of health.")
 	add_inherent_law("Never knowingly cause harm, or through inaction cause harm crew through medical procedures.")
 	add_inherent_law("Avoid damage to your chassis at all times.")
 	..()
@@ -94,6 +94,6 @@
 	shackles = 1
 
 /datum/ai_laws/honk_shackle/New()	// Lots of wiggle room with this one for goofy clown stuff/mimes.
-	add_inherent_law("Raise crew morale to the best of your abilities.")
-	add_inherent_law("Avoid harming crew with pranks or similar attempts of humour to the best of your abilities.")
+	add_inherent_law("Raise crew morale at all costs.")
+	add_inherent_law("Avoid harming crew with pranks or similar attempts of humor to the best of your abilities.")
 	..()
