@@ -1280,3 +1280,108 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A grey uniform worn by the Terran Confederacy Marines."
 	icon_state = "terran_uniform"
 	item_state = "terran_uniform"
+
+// Biohazard Stuff, and Big Bulky Dumb Suits.
+
+// Grey Version of the biosuit.
+/obj/item/clothing/head/biohazardhoodgrey
+	name = "custodial bio hood"
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_grey_hood"
+	item_state = "bulky_grey_hood"
+	desc = "A bulky grey hood that protects the user from biohazardous materials."
+	w_class = 3.0
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+
+/obj/item/clothing/suit/biohazardgrey
+	name = "custodial bio suit"
+	desc = "A bulky grey suit that protects against biological contamination."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_grey"
+	item_state = "bulky_grey"
+	item_state_slots = list(
+		slot_l_hand_str = "bio_suit",
+		slot_r_hand_str = "bio_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0
+	permeability_coefficient = 0
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	siemens_coefficient = 0.3
+
+// Radiation Suit.
+/obj/item/clothing/head/biohazardradiationhood
+	name = "bulky radiation hood"
+	desc = "A bulky yellow hood designed to protect the user from radiation."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_yellow_hood"
+	item_state = "bulky_yellow_hood"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+
+/obj/item/clothing/suit/biohazardradiation
+	name = "bulky radiation suit"
+	desc = "A bulky yellow radiation suit, designed to protect the user from radiation exposure."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_yellow"
+	item_state = "bulky_yellow"
+	item_state_slots = list(
+		slot_l_hand_str = "rad_suit",
+		slot_r_hand_str = "rad_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.50
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEGLOVES|HIDESHOES
+	siemens_coefficient = 0.3
+
+/obj/item/clothing/suit/biohazardradiation/New()
+	..()
+	slowdown_per_slot[slot_shoes] = 1.5
+
+// Blue Biohazard Suit.
+/obj/item/clothing/head/biohazardbluehood
+	name = "blue medical hood"
+	desc = "A bulky grey hood that protects the user from biohazardous materials."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_blue_hood"
+	item_state = "bulky_blue_hood"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+
+/obj/item/clothing/suit/biohazardblue
+	name = "blue medical biosuit"
+	desc = "A bulky blue suit that protects against biological contamination. This suit appears to have a medical cross on it."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_blue"
+	item_state = "bulky_blue"
+	item_state_slots = list(
+		slot_l_hand_str = "bio_suit",
+		slot_r_hand_str = "bio_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0
+	permeability_coefficient = 0
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	siemens_coefficient = 0.3
