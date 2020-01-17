@@ -123,3 +123,4 @@
 
 /obj/item/clothing/suit/radiation/New()
 	..()
+	slowdown_per_slot[slot_shoes] = 1.5

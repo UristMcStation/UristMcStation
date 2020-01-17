@@ -155,3 +155,4 @@
 	siemens_coefficient = 0.7
 	permeability_coefficient = 0.03
 	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
+	
