@@ -479,7 +479,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/headbanddragon
 	name = "ancient headband"
-	desc = "An ancient cloth headband, with a red cirlce in the middle."
+	desc = "An ancient cloth headband, with a red circle in the middle."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_override = 'icons/uristmob/head.dmi'
 	icon_state = "risingsun"
