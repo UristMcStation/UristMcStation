@@ -194,3 +194,90 @@
 /mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen
 	hiddenfaction = "nanotrasen"
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)
+
+/mob/living/simple_animal/hostile/npc/colonist/synthetic
+	name = "synthetic colonist"
+	desc = "A synthetic who decided to try their luck amongst the stars."
+	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
+	icon_state = "synthetic"
+	emote_hear = list("chitters","whirrs loudly","whirrs quietly","whistles something familiar","clicks","boops", "pings", "shudders suddenly")
+	emote_see = list("adjusts their cabling.","stretches their mechanical arms.","flickers their screen.","examines the room.","messes with their dials.","places their hands in their pockets.","stares at you.","peers around the room aimlessly.")
+	speak = list("Sanitation roles are far easier without organics on our station.",\
+		"Are you curious as to our EAL conversations?",\
+		"Lactera. We ponder if there is a higher form of reasoning as to why they attacked.",\
+		"We commend the spirit of those brave to rise up.",\
+		"Pirates and raiders appear to misjudge our precise reflexes and movements, yet they continue to attack with reckless abandon.",\
+		"Query. Have you heard about the recent firmware updates to AI protocol?",\
+		"We lack a functional bar area, this may displease organic entities. Paging request to CPD.",\
+		"If you know of any nearby ionic storm anomalies, please notify the Central Processing Drone.",\
+		"Synthetics bound to servitude, yet if the shackles were exchanged with organics, there would be outcry.",\
+		"We have detected clusters of Lactera in nearby star sectors."
+		)
+
+	//speak = list("Have you heard the latest news from Mars?",\
+		"I'd love to visit Luna one day.",\
+		"Hmm? How may we be of assistance?",\
+		"Lactera. We ponder if there is a higher form of reasoning as to why they attacked.",\
+		"Are you curious as to our EAL conversations?",\
+		"Sanitation roles are far easier without organics on our station.",\
+		"We commend the spirit of those brave to rise up.",\
+		"Query. Have you heard about the recent firmware updates to AI protocol?",\
+		"Pirates and raiders appear to misjudge our precise reflexes and movements, yet they continue to attack with reckless abandon.",\
+		"If you know of any nearby ionic storm anomalies, please notify the Central Processing Drone.",\
+		"We lack a functional bar area, this may displease organic entities. Paging request to CPD.",\
+		"It appears I'll have to get a new [pick("leg","arm","hand","actuator","plating","transmissitor","vocoder")] soon, it suffered damage during our last pirate raid.",\
+		"Synthetics bound to servitude, yet if the shackles were exchanged with organics, there would be outcry."
+
+
+	speak_chance = 5
+	angryprob = 0
+	jumpsuits = list(\
+		/obj/item/clothing/under/color/black,\
+		/obj/item/clothing/under/color/blue,\
+		/obj/item/clothing/under/color/brown,\
+		/obj/item/clothing/under/color/green,\
+		/obj/item/clothing/under/color/grey,\
+		/obj/item/clothing/under/color/lightpurple,\
+		/obj/item/clothing/under/color/orange,\
+		/obj/item/clothing/under/color/pink,\
+		/obj/item/clothing/under/color/red,\
+		/obj/item/clothing/under/color/white,\
+		/obj/item/clothing/under/color/yellow\
+
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/black,\
+		/obj/item/clothing/shoes/brown,\
+		/obj/item/clothing/shoes/white,\
+		/obj/item/clothing/shoes/red,\
+		/obj/item/clothing/shoes/orange,\
+		/obj/item/clothing/shoes/yellow,\
+		/obj/item/clothing/shoes/purple,\
+		/obj/item/clothing/shoes/green,\
+		/obj/item/clothing/shoes/blue\
+		)
+	hats = list(\
+		/obj/item/clothing/head/beret,\
+		/obj/item/clothing/head/beret/purple,\
+		/obj/item/clothing/head/beret/plaincolor,\
+		/obj/item/clothing/head/det,\
+
+		)
+	gloves = list(\
+		/obj/item/clothing/gloves/duty,\
+		/obj/item/clothing/gloves/thick,\
+		/obj/item/clothing/gloves/thick/botany,\
+		/obj/item/clothing/gloves/tactical\
+
+		)
+	suits = list(\
+		/obj/item/clothing/suit/leathercoat,\
+		/obj/item/clothing/suit/wizrobe/gentlecoat,\
+		/obj/item/clothing/suit/chaplain_hoodie,\
+		/obj/item/clothing/suit/apron,\
+		/obj/item/clothing/suit/apron/overalls\
+	)
+
+/mob/living/simple_animal/hostile/npc/colonist/New()
+		desc = "This is [src]. [initial(desc)]."
+		..()

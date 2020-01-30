@@ -57,3 +57,6 @@
 
 /datum/trade_category/ntkitchencontract
 	name = "ntkitchencontract"
+
+/datum/trade_category/pranks
+	name = "pranks"

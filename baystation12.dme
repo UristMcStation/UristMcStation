@@ -2892,6 +2892,7 @@
 #include "code\modules\urist\modules\newtrading\trade\trade_items\contracts.dm"
 #include "code\modules\urist\modules\newtrading\trade\trade_items\crops.dm"
 #include "code\modules\urist\modules\newtrading\trade\trade_items\food.dm"
+#include "code\modules\urist\modules\newtrading\trade\trade_items\pranks.dm"
 #include "code\modules\urist\modules\newtrading\trade\trade_items\tools.dm"
 #include "code\modules\urist\modules\organs\disintegratable.dm"
 #include "code\modules\urist\modules\resourcetech\hunter.dm"

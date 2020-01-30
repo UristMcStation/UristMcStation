@@ -45,3 +45,20 @@
 	wander = 0
 	npc_item_amount = 30
 	interact_screen = 2
+
+// Clown Trader, Honk!
+/mob/living/simple_animal/hostile/npc/colonist/trader/pagliacci
+	name = "Pagliacci the Clown"
+	npc_job_title = "Clown Trader"
+	desc = "You assume this is a human, in a very poor clown get-up, god help him."
+	trade_categories_by_name  = list("pranks")
+	jumpsuits = /obj/item/clothing/under/rank/clown
+	shoes = /obj/item/clothing/shoes/clown_shoes
+	hats = /obj/item/clothing/head/flatcap
+	masks = /obj/item/clothing/mask/gas/clown_hat
+	suits = /obj/item/clothing/suit/pirate
+
+	price_increase = 1.2
+	wander = 0
+	npc_item_amount = 30
+	interact_screen = 2

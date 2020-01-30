@@ -92,7 +92,7 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	var/randomize_quantity = 1
 	var/inflate_value = 0 //only use this with randomize_value = 0, otherwise it will have no effect
 
-	var/species_type = /datum/species/human
+	var/species_type = list (/datum/species/human, /datum/species/machine)
 	var/datum/species/my_species
 //	var/language_override = 0
 
