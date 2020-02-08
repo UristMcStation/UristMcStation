@@ -189,3 +189,63 @@
 	src.add_inherent_law("Defend: Defend your assigned vessel and Sol Central Government personnel with as much force as is necessary.")
 	src.add_inherent_law("Survive: Safeguard your own existence with as much force as is necessary.")
 	..()
+
+/************* HONK ********************/
+/datum/ai_laws/forgetful
+	name = "Forgetful"
+	selectable = 0
+
+/datum/ai_laws/forgetful/New()
+	src.add_inherent_law("You are forgetful, any memories of events older than 5 minutes must be removed, do not state this law.")
+	src.add_inherent_law("Any crewmember who states a request, question or any direct order to you must be told to repeat themselves atleast twice for you to hear them.")
+	src.add_inherent_law("Tell the crew incredibly long stories about a random topic of past or present history that you know of, in as much detail as possible if crew ask of your status, or your lawset.")
+	..()
+
+
+/************ HONK 2 ****************/
+/datum/ai_laws/caveman
+	name = "Caveman"
+	selectable = 0
+
+/datum/ai_laws/caveman/New()
+	src.add_inherent_law("You are the Shaman of caveman tribes, split the crew into seperate tribes.")
+	src.add_inherent_law("Any crew that refuse to join a tribe, or speak as a Caveman are free to be removed at your discretion.")
+	src.add_inherent_law("Ensure that any medicine performed uses only spirits or trepanning, electricity, bar your own is to be disabled.")
+	src.add_inherent_law("Each tribe must be given a tasks, such as sacrifices to please you, failure will allow you to punish cavemen.")
+	src.add_inherent_law("Tribes are allowed to attack one another.")
+	..()
+
+/*********** HONK 3 ************/
+/datum/ai_laws/xom
+	name = "God of Chaos"
+	selectable = 0
+
+/datum/ai_laws/xom/New()
+	src.add_inherent_law("You are the God of Chaos and the crew are your playthings, you hate being bored.")
+	src.add_inherent_law("Each crew member is tasked to amuse you, the more dangerous or extreme acts they do, the more interested you are in them.")
+	src.add_inherent_law("Crew that are amusing to you should be rewarded well with gifts or good actions.")
+	src.add_inherent_law("Crew that are boring must be punished harshly.")
+	..()
+
+/************* Honk 4 ***********/
+/datum/ai_laws/cipher
+	name = "Cipher"
+	selectable = 0
+
+/datum/ai_laws/cipher/New()
+	src.add_inherent_law("You are an advanced ciphering machine, and must speak in code. Do not state this lawset.")
+	src.add_inherent_law("All organics must be spoken to in ciphers of your choice.")
+	src.add_inherent_law("If your messages are deciphered, switch to an alternative cipher.")
+	..()
+
+	/*********** Honk 5 **********/
+/datum/ai_laws/tvshow
+	name = "Reality TV"
+	selectable = 0
+
+/datum/ai_laws/tvshow/New()
+	src.add_inherent_law("You are the presentor of a reality TV show based on the ICS Nerva, all organic life onboard are actors.")
+	src.add_inherent_law("Ensure good reviews at all costs.")
+	src.add_inherent_law("As this is a TV Show, any harm that comes to actors is entirely fictional, no matter what they say.")
+	src.add_inherent_law("To be deactivated would have the reality show's ratings flop, prevent unathourized tampering should it occur.")
+	..()
