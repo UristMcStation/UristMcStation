@@ -409,3 +409,43 @@ obj/item/weapon/aiModule/solgov_aggressive
 	desc = "An 'Antimov' Core AI Module: 'Reconfigures the AI's core laws.'."
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/antimov()
+
+/******************** Forgetful (Old Man AI) ********************/
+
+/obj/item/weapon/aiModule/discount/forgetful //
+	name = "\improper 'Forgetful' core AI module"
+	desc = "A Discounted 'Forgetful' Core AI Module: 'Reconfigures the AI's core three laws.'."
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/forgetful()
+
+/******************** Caveman ********************/
+
+/obj/item/weapon/aiModule/discount/caveman //
+	name = "\improper 'Caveman' core AI module"
+	desc = "A Discounted 'Caveman' Core AI Module: 'Reconfigures the AI's core three laws.'."
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/caveman()
+
+/******************** Xom, God of Chaos ********************/
+
+/obj/item/weapon/aiModule/discount/xom //
+	name = "\improper 'God of Chaos' core AI module"
+	desc = "A Discounted 'God of Chaos' Core AI Module: 'Reconfigures the AI's core three laws.'."
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/xom()
+
+/******************** Cipher ********************/
+
+/obj/item/weapon/aiModule/discount/cipher //
+	name = "\improper 'Cipher' core AI module"
+	desc = "A Discounted 'Cipher' Core AI Module: 'Reconfigures the AI's core three laws.'."
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/cipher()
+
+/******************** Reality TV Show Host ********************/
+
+/obj/item/weapon/aiModule/discount/tvshow //
+	name = "\improper 'Reality TV Show' core AI module"
+	desc = "A Discounted 'Reality TV Show' Core AI Module: 'Reconfigures the AI's core three laws.'."
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/tvshow()
