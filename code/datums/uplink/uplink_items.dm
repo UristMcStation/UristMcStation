@@ -31,6 +31,7 @@ var/datum/uplink/uplink = new()
 	var/desc
 	var/item_cost = 0
 	var/list/antag_costs = list()			// Allows specific antag roles to purchase at a different cost
+	var/list/allowed_roles = list() //Allows for job specific tator gear. >FUCKBAY<
 	var/datum/uplink_category/category		// Item category
 	var/list/datum/antagonist/antag_roles = list("Exclude", MODE_DEITY)	// Antag roles this item is displayed to. If empty, display to all. If it includes 'Exclude", anybody except this role can view it
 
