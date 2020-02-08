@@ -114,3 +114,15 @@
 	item_cost = 30
 	path = /obj/item/device/radio/intercept
 	desc = "A radio that can intercept secure radio channels. Doesn't fit in pockets."
+
+/datum/uplink_item/item/tools/discountai
+	name = "Random Discount AI Board"
+	item_cost = 40
+	desc = "A random AI board from the discount section, this probably won't end well."
+	path = /obj/item/weapon/aiModule/discount
+	allowed_roles = list("Clown")
+
+/datum/uplink_item/item/tools/discountai/get_goods(var/obj/item/device/uplink/U, var/loc)
+	var/discountai_type = pick(typesof(path))
+	var/obj/item/I = new discountai_type(loc)
+	return I
