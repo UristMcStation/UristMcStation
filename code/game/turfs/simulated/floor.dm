@@ -2,6 +2,7 @@
 	name = "plating"
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
+	permit_ao = TRUE
 
 	// Damage to flooring.
 	var/broken
@@ -26,7 +27,7 @@
 
 /turf/simulated/floor/is_plating()
 	return !flooring
-	
+
 /turf/simulated/floor/protects_atom(var/atom/A)
 	return (A.level <= 1 && !is_plating()) || ..()
 

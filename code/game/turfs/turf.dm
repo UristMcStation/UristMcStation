@@ -49,6 +49,7 @@
 
 /turf/update_icon()
 	update_flood_overlay()
+	queue_ao(FALSE)
 
 /turf/proc/update_flood_overlay()
 	if(is_flooded(absolute = TRUE))
