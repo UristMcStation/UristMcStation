@@ -348,6 +348,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "grille"
 	rodpath = /obj/item/stack/woodrods
 
 /obj/structure/raft //just a fucking raft
