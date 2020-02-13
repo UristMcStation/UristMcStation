@@ -27,7 +27,7 @@
 	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting."
 	selection_color = "#004a7f"
 	req_admin_notify = 1
-	minimal_player_age = 0
+	minimal_player_age = 3
 	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/bodyguard
 	hud_icon = "hudbodyguard"
