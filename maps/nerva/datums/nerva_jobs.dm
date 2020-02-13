@@ -234,7 +234,7 @@
 	supervisors = "Nanotrasen Central Command and the captain."
 	total_positions = 3
 	spawn_positions = 3
-	hud_icon = "hudblueshield"
+	hud_icon = "hudscientist"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_maint_tunnels)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition, access_network, access_maint_tunnels)
@@ -364,6 +364,7 @@
 	department_flag = SCI
 	title = "Senior Scientist"
 	supervisors = "Nanotrasen Central Command"
+	hud_icon = "hudresearchdirector"
 	total_positions = 1
 	spawn_positions = 1
 	req_admin_notify = 1
