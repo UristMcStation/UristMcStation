@@ -58,6 +58,13 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/sec
 
+/obj/item/device/radio/headset/heads/nerva_senior
+	name = "senior scientist headset"
+	desc = "The headset of the Nerva's Senior Scientist."
+	icon_state = "nt_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/senior
+
 //encryption keys
 
 /obj/item/device/encryptionkey/nerva/nt
@@ -89,6 +96,11 @@
 	name = "security radio encryption key"
 	icon_state = "sec_cypherkey"
 	channels = list("Security" = 1, "Combat" = 0)
+
+/obj/item/device/encryptionkey/nerva/senior
+	name = "senior nanotrasen encryption key"
+	icon_state = "rd_cypherkey"
+	channels = list("Command" = 1, "Science" = 1, "Medical" = 1)
 
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"

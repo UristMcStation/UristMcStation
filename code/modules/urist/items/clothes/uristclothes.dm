@@ -1280,3 +1280,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A grey uniform worn by the Terran Confederacy Marines."
 	icon_state = "terran_uniform"
 	item_state = "terran_uniform"
+
+// Recycled the old RD clothes as who needs sprites, huh? - Shipper
+/obj/item/clothing/under/urist/seniorscientist
+	name = "senior scientist uniform"
+	desc = "It's a uniform worn by Senior Scientists. Its fabric provides minor protection from biological contaminants."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "nervaseniorrd"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)

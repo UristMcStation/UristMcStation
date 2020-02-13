@@ -8,7 +8,8 @@
 						/datum/job/scientist, /datum/job/chaplain,
 						/datum/job/mime, /datum/job/clown,
 						/datum/job/merchant, /datum/job/stowaway,
-						/datum/job/ai, /datum/job/cyborg
+						/datum/job/ai, /datum/job/cyborg,
+						/datum/job/seniorscientist
 						)
 
 //general command
@@ -356,3 +357,23 @@
 	. = ..()
 	if(.)
 		H.mutations.Add(CLUMSY)
+
+/datum/job/seniorscientist
+	minimal_player_age = 3
+	department = "Science"
+	department_flag = SCI
+	title = "Senior Scientist"
+	supervisors = "Nanotrasen Central Command"
+	total_positions = 1
+	spawn_positions = 1
+	req_admin_notify = 1
+	outfit_type = /decl/hierarchy/outfit/job/nerva/seniorscientist
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network,
+		 						access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
+								access_library, access_research, access_heads_vault, access_RC_announce, access_keycard_auth, access_gateway, access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network,
+		 						access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
+								access_library, access_research, access_heads_vault, access_RC_announce, access_keycard_auth, access_gateway, access_expedition_shuttle_helm, access_expedition)
+
+/datum/job/seniorscientist/get_description_blurb()
+	return "You are a well-respected Senior Scientist working for Nanotrasen's interests. It is your job to manage your science team to ensure that Nanotrasen's research advances. You answer directly to Nanotrasen Central Command itself, which you can fax directly."
