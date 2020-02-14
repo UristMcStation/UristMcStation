@@ -124,5 +124,4 @@
 		return FALSE
 
 	log_bad("[shuttle]: [main_area.type] had a size of [main_size] but [checked_area.type] had a size of [checked_size].")
-	return TRUE
-*/
+	return TRUE */
