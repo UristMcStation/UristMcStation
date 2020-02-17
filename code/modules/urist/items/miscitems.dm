@@ -460,25 +460,3 @@
 	desc = "A stainless steel screw-topped green survival canteen with a brown cover, which can hold a fair amount of liquid for travel."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "canteen"
-
-
-
-
-
-
-
-
-// /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle
-// 	name = "bottled water"
-// 	desc = "Pure drinking water, imported from the Martian poles."
-// 	icon_state = "waterbottle"
-// 	center_of_mass = "x=15;y=8"
-
-// /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/New()
-// ..()
-// 	reagents.add_reagent(/datum/reagent/water, 30)
-
-// /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/open(mob/user)
-// 	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
-// 	to_chat(user, "<span class='notice'>You twist open \the [src], destroying the safety seal!</span>")
-// 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
