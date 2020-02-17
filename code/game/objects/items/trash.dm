@@ -110,5 +110,25 @@
 	name = "bread tube"
 	icon_state = "tastybread"
 
+/obj/item/trash/onigiri
+	name = "onigiri remains"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state = "onigiri-trash"
+
+/obj/item/trash/ramenbowl
+	name = "empty ramen bowl"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state = "ramen-trash"
+
+/obj/item/trash/skewers
+	name = "empty skewers"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state = "yakidango-trash"
+
+/obj/item/trash/surpriseonigiri
+	name = "surprise pack"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state = "surprise-o"
+
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
