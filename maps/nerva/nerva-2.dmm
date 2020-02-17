@@ -16299,7 +16299,7 @@
 	p_open = 0
 	},
 /obj/machinery/shield_diffuser,
-/turf/simulated/floor/reinforced/nitrogen,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/engine)
 "aBG" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
