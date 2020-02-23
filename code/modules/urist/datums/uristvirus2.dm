@@ -74,7 +74,7 @@
 	speed = 3
 	spreadtype = "Contact"
 	var/max_stage = 4
-	var/list/affected_species = list(SPECIES_HUMAN,SPECIES_TESHARI,SPECIES_SKREL) // It'd be funny if Vox got Salmonella.
+	var/list/affected_species = list(SPECIES_HUMAN,SPECIES_TESHARI,SPECIES_SKRELL) // It'd be funny if Vox got Salmonella.
 
 /datum/disease2/disease/salmonella/New()
 	..()
@@ -84,7 +84,7 @@
 	var/datum/disease/effect/dehydration/E2 = new()	// Dehydration, Stage 2.
 	E2.stage = 2
 	effects += E2
-	var/datum/disease/effect/choking/E3 = new()	// Nausea, Stage 3.
+	var/datum/disease/effect/nausea/E3 = new()	// Nausea, Stage 3.
 	E3.stage = 3
 	effects += E3
 	var/datum/disease2/effect/vomiting/E4 = new()	// Vomiting Stage 4.
@@ -133,7 +133,7 @@
 	var/datum/disease/effect/parasitesevere/E3 = new()	// Parasite Severe Pain
 	E3.stage = 3
 	effects += E3
-	var/datum/disease2/effect/organs/E4 = new()	// Infectious Spores Stage 4.	TODO This has serious balance considerations, as this is LETHAL.
+	var/datum/disease2/effect/organs/E4 = new()	// Infectious Spores Stage 4.	TODO Decide if I should keep organ loss from bad parasites, potentional for griffing.
 	E4.stage = 4
 	effects += E4
 
@@ -156,7 +156,7 @@
 	var/datum/disease/effect/stomachparalysis/E3 = new()	// Stomach Paralysis
 	E3.stage = 3
 	effects += E3
-	var/datum/disease2/effect/toxins/E4 = new()	// Toxins...
+	var/datum/disease2/effect/toxins/E4 = new()	// Toxins...	// Bay handles toxins realisticly, so we have to be careful with this.
 	E4.stage = 4
 	effects += E4
 
@@ -170,7 +170,7 @@
 
 // Stomach Gurgling
 /datum/disease/effect/stomachbad	// Stomach unsettled.
-	name = "Stomach Unsettled Syndrome"
+	name = "Gastritis Syndrome"
 	stage = 1
 	badness = VIRUS_COMMON
 	delay = 60
@@ -196,9 +196,9 @@
 	activate(var/mob/living/carbon/human/mob,var/multiplier)
 		to_chat(mob, "<span class='warning'>Your head is spinning and you feel nauseous.</span>")
 
-// Sickly
+// Vomiting
 /datum/disease2/effect/vomiting	// Causes the person to vomit, gross.
-	name = "Sickly Syndrome"
+	name = "Emesis Syndrome"
 	stage = 3
 	badness = VIRUS_MILD
 	delay = 90
@@ -209,7 +209,7 @@
 
 // Stomach paralysis
 /datum/disease/effect/stomachparalysis		// Causes person to fall to floor in pain.
-	name = "Severe Stomach Paralysis Syndrome"
+	name = "Gastroparaesis Syndrome"
 	stage = 4
 	badness = VIRUS_ENGINEERED
 	delay = 150 SECONDS
@@ -224,9 +224,9 @@
 
 
 
-// Parasite Squirm
+// Parasite Growing.
 /datum/disease2/effect/parasitesgrowth // You can feel something squirming in you, also gross.
-	name = "Parasitic Growth Syndrome"
+	name = "Taeniasis Growth Syndrome"
 	stage = 1
 	badness = VIRUS_COMMON
 	delay = 30
@@ -235,7 +235,7 @@
 
 // Parasite Hunger Pangs.
 /datum/disease2/effect/parasitepang
-	name = "Parasitic Hunger Pang Syndrome"
+	name = "Taeniasis Polyphagia Syndrome"
 	stage = 2
 	badness = VIRUS_COMMON
 	delay = 45
@@ -245,18 +245,18 @@
 
 // Parasite Hurting Organs.
 /datum/disease/effect/parasiteorgan   // Parasite starting to hurt you.
-	name = "Parasite Attack Syndrome"
+	name = "Ostertagia Dysfunction Syndrome"
 	stage = 2
 	badness = VIRUS_ENGINEERED
 	delay = 60
 	activate(var/mob/living/carbon/human/mob,var/multipler)
 		to_chat(mob, "<span class='warning'>You really don't feel good.</span>")
-		mob.custom_pain("Something deep inside of you starts to sting badly.", 5)
+		mob.custom_pain("Something deep inside of you starts to sting badly.", 10)
 
 
-// Parasite Harvesting
+// Parasite Leeching Nutrition.
 /datum/disease/effect/parasiteharvest // Parasite leaching your nutrition away.
-	name = "Parasitic Nutrition Harvesting Syndrome"
+	name = "Taeniasis Polyphagia Nutritional Syndrome"
 	stage = 3
 	badness = VIRUS_MILD
 	delay = 90
@@ -267,20 +267,20 @@
 
 // Parasite Organ Severe
 /datum/disease/effect/parasitesevere
-	name = "Severe Parasite Organ Attack Syndrome"
+	name = "Severe Ostertagia Organ Dysfunction Syndrome"	// Parasites really start to hurt you.
 	stage = 3
 	badness = VIRUS_ENGINEERED
 	delay = 60
 	activate(var/mob/living/carbon/human/mob,var/multiplier)
 		to_chat(mob, "<span class='warning'You feel really awful.")
-		mob.custom_pain("You feel a horrible burning sensation inside of you!", 15)
+		mob.custom_pain("You feel a horrible burning sensation inside of you!", 20)
 
 
 													// Spore/Fungi Related Food Poisoning \\
 
 //Shortness of Breath
 /datum/disease/effect/shortbreath			// Shortness of Breath
-	name = "Shortness of Breath Syndrome"
+	name = "Dyspnea Syndrome"
 	stage = 1
 	badness = VIRUS_COMMON
 	delay = 30
@@ -289,8 +289,8 @@
 		to_chat(mob, "<span class='warning'>Your struggle to breath.</span>")
 
 // Mushroom Taste
-/datum/disease/effect/moldtaste // Can taste mold, like the time you bit into bread and realized it was blue, man.
-	name = "Fungal Taste Syndrome"
+/datum/disease/effect/moldtaste // An inflammatory response to fungal infection, causes you to taste fungi, not metal like usual.
+	name = "Fungal Inflammatory Response Syndrome"
 	stage = 2
 	badness = VIRUS_MILD
 	delay = 60
@@ -300,7 +300,7 @@
 
 // Choking
 /datum/disease/effect/choking
-	name = "Choking Syndrome"
+	name = "Asphyxiation Syndrome"
 	stage = 2
 	badness = VIRUS_ENGINEERED
 	delay = 60
@@ -312,7 +312,7 @@
 
 // Spore Hurling
 /datum/disease/effect/sporehurl //Coughing/Hurling up contagious spores.
-	name = "Spore Hurling Syndrome"
+	name = "Spore Tussis Syndrome"
 	stage = 4
 	badness = VIRUS_ENGINEERED
 	delay = 60
