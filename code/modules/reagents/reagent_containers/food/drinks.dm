@@ -9,6 +9,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
+	var/static/drinksounds = list('sound/urist/drink1.ogg', 'sound/urist/drink2.ogg', 'sound/urist/drink3.ogg', 'sound/urist/drink4.ogg')
 	var/filling_states   // List of percentages full that have icons
 	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
 	var/base_icon = null // Base icon name for fill states
@@ -71,7 +72,13 @@
 	to_chat(user, "<span class='notice'>You swallow a gulp from \the [src].</span>")
 
 /obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
-	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+	playsound(user.loc, pick(drinksounds), rand(10, 50), 1)
+
+//	playsound(src, pick(climbsounds), 50)
+//	playsound(target_ladder, pick(climbsounds), 50)
+//	return M.Move(T)
+//	/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+//		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))
