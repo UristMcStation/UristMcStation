@@ -350,3 +350,47 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain/New()
 	..()
 	reagents.add_reagent(/datum/reagent/drink/happybrain, 30)
+
+// Juicebox Trash Shit.
+
+// Trash Happy Brain Carton
+/obj/item/trash/urist/happybrain_trash
+	name = "empty happy brain carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "happybrain_trash"
+
+	// Trash Royal Mix Carton
+/obj/item/trash/urist/royal_trash
+	name = "empty royal mix carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "royal_trash"
+
+// Trash Mingus Dew Carton
+/obj/item/trash/urist/mingus_trash
+	name = "empty mingus dew carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "mingus_trash"
+
+// Trash Mango Reinhardt Carton
+/obj/item/trash/urist/mango_trash
+	name = "empty mango reinhardt carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "mango_trash"
+
+// Trash Starman Sparkle Carton
+/obj/item/trash/urist/starman_trash
+	name = "empty starman sparkle carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "starman_trash"
+
+// Trash Red Kola Carton
+/obj/item/trash/urist/redkola_trash
+	name = "empty red kola carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "redkola_trash"
+
+// Trash Aloha Coe Carton
+/obj/item/trash/urist/aloha_trash
+	name = "empty aloha coe carton"
+	icon = 'icons/urist/items/uristtrash.dmi'
+	icon_state= "aloha_trash"
