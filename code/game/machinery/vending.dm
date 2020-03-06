@@ -648,6 +648,13 @@
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
 					/obj/item/weapon/reagent_containers/food/condiment/mint,
 					/obj/item/weapon/reagent_containers/food/drinks/ice = 10,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mingusdew =5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mangoreinhardt = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/starman = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/royal = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/redkola = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/aloha = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain = 5,
 					/obj/item/weapon/glass_extra/stick = 15,
 					/obj/item/weapon/glass_extra/straw = 15)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumwine = 2,
@@ -723,12 +730,20 @@
 	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10, /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10)
+					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10, /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain = 5,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/aloha = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/redkola = 5,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/royal = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/starman = 5,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mangoreinhardt = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mingusdew = 5)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5, /obj/item/weapon/reagent_containers/food/snacks/liquidfood = 6)
 	prices = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 1,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 1,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 2,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 1,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 1)
+					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/aloha = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/redkola = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/royal = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/starman = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mangoreinhardt = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mingusdew = 1)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 /obj/machinery/vending/fitness
