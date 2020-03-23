@@ -18,6 +18,7 @@
 	var/list/standard_security_levels               // List of all normally selectable security levels
 	var/list/comm_console_security_levels           // List of all selectable security levels for the command and communication console - basically standard_security_levels - 1
 
+
 /decl/security_state/New()
 	// Setup the severe security level
 	if(!(severe_security_level in all_security_levels))
@@ -147,6 +148,7 @@
 
 	var/up_description
 	var/down_description
+	var/security_level_lightmode
 
 // Called when we're switching from a lower security level to this one.
 /decl/security_level/proc/switching_up_to()
@@ -190,6 +192,14 @@
 	for(var/obj/machinery/firealarm/FA in SSmachines.machinery)
 		if(FA.z in GLOB.using_map.contact_levels)
 			FA.update_icon()
+	for(var/obj/machinery/power/apc/A in GLOB.global_apc_list)
+		if(!A.z in GLOB.using_map.station_levels)
+			continue
+			var/turf/T = get_turf(A)
+			if(!istype(T.loc,/area/hallway/))
+				continue
+				A.set_light_color(security_level_lightmode)
+				CHECK_TICK
 	post_status("alert")
 
 /decl/security_level/default/code_green

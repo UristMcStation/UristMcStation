@@ -41,6 +41,8 @@
 #define APC_UPOVERLAY_LOCKED 8
 #define APC_UPOVERLAY_OPERATING 16
 
+GLOBAL_LIST_INIT(global_apc_list,list())
+
 // Various APC types
 /obj/machinery/power/apc/critical
 	is_critical = 1
@@ -1286,6 +1288,21 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 	locked = 1
 	update_icon()
 	return 1
+
+	/obj/machinery/power/apc/proc/set_light_color(var/color) //just changes the colors of the ship's lighting.
+	var/lightmode
+	switch(color)
+		if("red")
+			lightmode = LIGHTMODE_RED
+		if("blue")
+			lightmode = LIGHTMODE_BLUE
+		if("delta")
+			lightmode = LIGHTMODE_DELTA
+		if("reset")
+			lightmode = null
+	for(var/obj/machinery/light/L in area)
+		INVOKE_ASYNC(L, /obj/machinery/light.proc/set_mode, lightmode)
+		CHECK_TICK
 
 /obj/item/weapon/module/power_control
 	name = "power control module"

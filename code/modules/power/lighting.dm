@@ -576,6 +576,9 @@
 	b_colour = "#fffee0"
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_outer_range = 4, l_max_bright = 1, l_color = "#da0205"),
+		LIGHTMODE_RED = list(l_outer_range = 4, l_max_bright = 1, l_color = "#f50c0c"),
+		LIGHTMODE_DELTA = list(l_outer_range = 4, l_max_bright = 1, l_color = "#ffd000"),
+		LIGHTMODE_BLUE = list(l_outer_range = 4, l_max_bright = 1, l_color = "#0d45fc")
 		)
 	sound_on = 'sound/machines/lightson.ogg'
 
