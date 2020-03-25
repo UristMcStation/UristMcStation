@@ -1289,7 +1289,7 @@ obj/machinery/power/apc/proc/autoset(var/cur_state, var/on)
 	update_icon()
 	return 1
 
-	/obj/machinery/power/apc/proc/set_light_color(var/color) //just changes the colors of the ship's lighting.
+/obj/machinery/power/apc/proc/set_light_color(var/color) //just changes the colors of the ship's lighting.
 	var/lightmode
 	switch(color)
 		if("red")
