@@ -261,6 +261,7 @@
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "juicebox-test"
 
+// Add the noise and the straw overlay to show it's open.
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox(mob/user)
 	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You take the straw out of \the [src], piercing the film!</span>")
@@ -273,7 +274,7 @@
 	desc = "Give me my damn Mingus Dew!"
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "mingus"
-	trash = /obj/item/trash/mingus_trash
+	trash = /obj/item/trash/urist/mingus_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mingusdew/New()
 	..()
@@ -285,7 +286,7 @@
 	desc = "The thinking man's pop!"
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "mango"
-	trash = /obj/item/trash/mango_trash
+	trash = /obj/item/trash/urist/mango_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/mangoreinhardt/New()
 	..()
@@ -297,7 +298,7 @@
 	desc = "A popular drink near some of the outer rimworlds, known for it's unique taste."
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "starman"
-	trash = /obj/item/trash/starman_trash
+	trash = /obj/item/trash/urist/starman_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/starman/New()
 	..()
@@ -309,7 +310,7 @@
 	desc = "A mixture of cranberries and some other strange spices in a Juicebox."
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "royal"
-	trash = /obj/item/trash/royal_trash
+	trash = /obj/item/trash/urist/royal_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/royal/New()
 	..()
@@ -321,7 +322,7 @@
 	desc = "Sparkling, tasty and refreshing. A great companion on any adventure."
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "redkola"
-	trash = /obj/item/trash/redkola_trash
+	trash = /obj/item/trash/urist/redkola_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/redkola/New()
 	..()
@@ -333,7 +334,7 @@
 	desc = "A juicebox full of delicious tropical coconut flavors."
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "aloha"
-	trash = /obj/item/trash/aloha_trash
+	trash = /obj/item/trash/urist/aloha_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/aloha/New()
 	..()
@@ -345,7 +346,7 @@
 	desc = "I feel happy, don't you?"
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "happybrain"
-	trash = /obj/item/trash/happybrain_trash
+	trash = /obj/item/trash/urist/happybrain_trash
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/happybrain/New()
 	..()
