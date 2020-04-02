@@ -65,6 +65,7 @@
 	name = "white cane"
 	desc = "A white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
 	icon_state = "whitecane"
+	item_state = "whitecane"
 
 /obj/item/weapon/cane/white/attack(mob/M as mob, mob/user as mob)
     if(user.a_intent == I_HELP)
@@ -80,6 +81,7 @@
 	name = "telescopic white cane"
 	desc = "A telescopic white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
 	icon_state = "whitecane1in"
+	item_state = "whitecanein"
 	item_icons = list(
 			slot_l_hand_str = 'icons/mob/onmob/items/lefthand.dmi',
 			slot_r_hand_str = 'icons/mob/onmob/items/righthand.dmi',
