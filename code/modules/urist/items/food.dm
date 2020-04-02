@@ -262,7 +262,7 @@
 	icon_state = "juicebox-test"
 
 // Add the noise and the straw overlay to show it's open.
-/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox(mob/user)
+/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox
 	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You take the straw out of \the [src], piercing the film!</span>")
 	overlays += image('icons/urist/items/uristfood.dmi', "straw_overlay", overlay_layer)
