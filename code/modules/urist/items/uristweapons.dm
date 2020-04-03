@@ -198,6 +198,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	w_class = 4.0
 	slot_flags = SLOT_BELT|SLOT_BACK
 
+//a simple crutch, with a more medical look then the gentleman's cane
+
 /obj/item/weapon/cane/crutch
 	name ="crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
@@ -208,6 +210,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		)
 	icon_state = "crutch"
 	item_state = "crutch"
+
+//a white cane for the blind or visually impared
 
 /obj/item/weapon/cane/white
 	name = "white cane"
@@ -220,6 +224,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "whitecane"
 	item_state = "whitecane"
 
+//the code for tapping someone with the cane
+
 /obj/item/weapon/cane/white/attack(mob/M as mob, mob/user as mob)
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
@@ -228,6 +234,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		. = ..()
 
 
+//a telescopic white cane, click on it in hand to extend and retract it
 //Code for Telescopic White Cane writen by Gozulio
 
 /obj/item/weapon/cane/white/collapsible
@@ -244,6 +251,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	w_class = ITEM_SIZE_SMALL
 	force = 3
 	var/on = 0
+
+//the code to make the cane extend and retract
 
 /obj/item/weapon/cane/white/collapsible/attack_self(mob/user as mob)
 	on = !on
