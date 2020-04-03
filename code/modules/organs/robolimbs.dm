@@ -176,14 +176,14 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/cenilimisybernetics
 	company = "Cenilimi Cybernetics"
 	desc = "This prosthetic is created by a Teshari-owned company, for Teshari."
-	icon = 'icons/mob/human_races/cyberlimbs/cenilimicybernetics/cenilimicybernetics.dmi'
+	icon = 'icons/uristmob/species/teshari/cenilimicybernetics/cenilimicybernetics.dmi'
 	restricted_to = list(SPECIES_RESOMI)
 	species_cannot_use = list()
 
 /datum/robolimb/unbrandedteshari
 	company = "Unbranded - Teshari"
 	desc = "This prosthetic is small and fit for nonhuman proportions."
-	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_teshari.dmi'
+	icon = 'icons/uristmob/species/teshari/unbranded/unbranded.dmi'
 	restricted_to = list(SPECIES_RESOMI)
 	species_cannot_use = list()
 
