@@ -2740,6 +2740,9 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
+"eY" = (
+/turf/simulated/wall/prepainted,
+/area/space)
 "eZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6;
@@ -6790,6 +6793,15 @@
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"lP" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "lQ" = (
 /obj/structure/closet/emcloset,
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -10673,25 +10685,23 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/fourth_deck/fs)
 "sk" = (
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (SOUTHEAST)";
-	icon_state = "intact-scrubbers";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
+	d2 = 8;
+	icon_state = "1-8";
+	tag = ""
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
@@ -11328,61 +11338,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "ta" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"tb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/machinery/light/small/red,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"tc" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHWEST)";
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact (SOUTHWEST)"
-	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "td" = (
@@ -11786,6 +11745,11 @@
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"tU" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora)
 "tV" = (
 /obj/structure/catwalk,
 /obj/machinery/door/airlock/maintenance{
@@ -12087,6 +12051,14 @@
 /obj/item/weapon/storage/box/masks,
 /obj/item/weapon/storage/box/gloves,
 /obj/item/clothing/accessory/armband/whitered,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "uE" = (
@@ -12094,6 +12066,10 @@
 	dir = 10
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "uF" = (
@@ -12107,6 +12083,10 @@
 /obj/machinery/light/chromatic{
 	icon_state = "tube1";
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -12188,30 +12168,40 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "uM" = (
-/obj/effect/floor_decal/corner/purple{
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "uN" = (
-/obj/machinery/radiocarbon_spectrometer,
-/turf/simulated/floor/tiled/white,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "uO" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled/white,
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "uP" = (
-/obj/structure/table/glass,
-/obj/machinery/recharger,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "uQ" = (
 /obj/structure/closet/emcloset,
@@ -13154,6 +13144,10 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wx" = (
@@ -13246,83 +13240,58 @@
 /obj/machinery/atmospherics/binary/pump{
 	name = "Xenoflora Supply"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wD" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Isolation Supply"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wE" = (
-/obj/effect/floor_decal/corner/purple{
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wF" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 10
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/reinforced,
+/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "wG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "wH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
+/obj/item/weapon/weldingtool,
+/obj/item/weapon/melee/baton/loaded,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "wI" = (
 /obj/machinery/door/airlock/research{
@@ -13366,13 +13335,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
-"wM" = (
-/obj/structure/table/rack,
-/obj/random/toolbox,
-/obj/random/junk,
-/obj/random/junk,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "wN" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/power/apc{
@@ -13754,6 +13716,10 @@
 	dir = 4;
 	icon_state = "camera"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "xu" = (
@@ -13886,65 +13852,44 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "xC" = (
-/obj/effect/floor_decal/corner/purple{
-	icon_state = "corner_white";
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+/obj/machinery/camera/network/research{
+	c_tag = "Xenobotany  Starboard";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (SOUTHWEST)";
+	icon_state = "intact-supply";
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHWEST)";
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenoflora)
-"xD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
-	dir = 8
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "anomaly_inner_sensor";
+	pixel_x = 24;
+	pixel_y = 0
 	},
-/obj/structure/table/glass,
-/obj/item/weapon/wrench,
-/obj/item/weapon/weldingtool,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/obj/item/weapon/melee/baton/loaded,
-/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "xE" = (
-/obj/machinery/power/emitter/anchored,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"xF" = (
-/obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "xG" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -14470,6 +14415,10 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "yq" = (
@@ -14561,46 +14510,51 @@
 /area/rnd/xenobiology/xenoflora)
 "yy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+	dir = 9
 	},
-/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHEAST)";
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "yz" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 10
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "anomaly_inner";
+	locked = 1;
+	name = "Anomaly Lab Exterior Airlock";
+	req_access = list(55)
 	},
-/obj/structure/cable,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "yA" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
 	},
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "yB" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -14865,6 +14819,14 @@
 /area/rnd/dorms)
 "zd" = (
 /obj/machinery/seed_storage/xenobotany,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ze" = (
@@ -14884,6 +14846,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "zf" = (
@@ -14928,6 +14894,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "zi" = (
@@ -14948,6 +14918,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "zj" = (
@@ -14960,6 +14934,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -14976,107 +14954,67 @@
 /area/rnd/xenobiology/xenoflora)
 "zl" = (
 /obj/structure/cable{
-	d1 = 4;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-8";
+	tag = ""
 	},
-/obj/machinery/door/airlock/glass/research{
-	name = "Isolation Room 2";
-	req_access = list(55)
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "zm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "zn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHEAST)";
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "zo" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/alarm/monitor/isolation{
-	alarm_id = "cell1";
-	dir = 8;
-	icon_state = "alarm0";
-	name = "Anomaly Isolation";
-	pixel_x = 24;
-	tag = "icon-alarm0 (WEST)"
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "anomaly_exterior_sensor";
+	pixel_x = 24;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"zq" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"zr" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"zs" = (
-/obj/structure/catwalk,
-/obj/machinery/light/small/red{
-	icon_state = "firelight1";
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "zt" = (
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
@@ -15330,6 +15268,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"zT" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "zU" = (
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15383,6 +15332,14 @@
 	dir = 5
 	},
 /obj/structure/closet/l3closet/scientist,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "Aa" = (
@@ -15390,59 +15347,54 @@
 	dir = 9
 	},
 /obj/machinery/botany/editor,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "Ab" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/rnd/xenobiology/xenoflora)
-"Ac" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "Ad" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "Ae" = (
-/obj/structure/anomaly_container,
-/obj/machinery/artifact,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/camera/network/research{
-	c_tag = "Anomaly Storage";
-	dir = 8;
-	icon_state = "camera"
+/obj/structure/closet/l3closet/scientist,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (SOUTHEAST)";
+	icon_state = "warning";
+	dir = 6
 	},
+/obj/structure/sign/warning/internals_required{
+	pixel_y = -32
+	},
+/obj/machinery/light/chromatic,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "Af" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 6
+/obj/machinery/artifact_scanpad,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/chromatic{
+	icon_state = "tube1";
+	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Ag" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -15465,50 +15417,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Ah" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/random/junk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"Ai" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHWEST)";
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact (SOUTHWEST)"
-	},
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
+/obj/structure/anomaly_container,
+/obj/machinery/artifact,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Aj" = (
 /obj/structure/table/rack,
 /obj/random/maintenance,
@@ -15926,46 +15839,10 @@
 /obj/item/stack/medical/ointment,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"AT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/obj/machinery/artifact_scanpad,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"AU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
-	dir = 8
-	},
-/obj/machinery/artifact_analyser,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
-"AV" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "AW" = (
 /turf/simulated/wall/r_wall/false{
 	icon_state = "rfalse"
 	},
-/area/maintenance/fourth_deck/fs)
-"AX" = (
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "AY" = (
 /obj/effect/landmark{
@@ -19218,6 +19095,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
+"GV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "GX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -20223,21 +20113,22 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
 "II" = (
-/obj/machinery/light/chromatic{
-	icon_state = "tube1";
+/obj/structure/bed/chair,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/table/glass,
-/obj/machinery/camera/network/research{
-	c_tag = "Xenobotany Fore";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/machinery/cell_charger,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "IK" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -20380,6 +20271,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
+"Jn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Jp" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20411,6 +20311,14 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"Jv" = (
+/obj/machinery/radiocarbon_spectrometer,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -20470,6 +20378,10 @@
 /obj/structure/sign/xenoflora{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "JJ" = (
@@ -20505,6 +20417,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/hadrian/main)
+"JZ" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
 "Kf" = (
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -20524,6 +20439,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"Kl" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "anomaly_exterior";
+	locked = 1;
+	name = "Engineering External Access";
+	req_access = list(55)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Ko" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -20547,6 +20473,27 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"Kv" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -20558,6 +20505,13 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"KB" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "KC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -20680,6 +20634,22 @@
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/r_wall/prepainted,
 /area/rnd/storage)
+"KT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "La" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -20699,6 +20669,23 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/cargo_lift/lift)
+"Li" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Ll" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Lp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -20777,6 +20764,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"LI" = (
+/obj/item/weapon/reagent_containers/syringe,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "LK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -20801,6 +20792,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
+"LM" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"LQ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "Mb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -20817,21 +20824,26 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/security/nuke_storage)
+"Md" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Me" = (
 /obj/structure/cable{
-	d1 = 4;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHWEST)";
 	icon_state = "intact-scrubbers";
-	dir = 4
+	dir = 9
 	},
-/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	icon_state = "intact-supply";
+	tag = "icon-intact (SOUTHWEST)"
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -20942,6 +20954,31 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
+"MV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHEAST)";
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
+"MW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "MY" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
@@ -20964,6 +21001,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"Ni" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "No" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -20981,6 +21025,47 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/virology)
+"Ns" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	tag = "icon-intact (EAST)";
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Nz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "ND" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/monotile,
@@ -21022,6 +21107,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"NO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (NORTHEAST)";
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHEAST)";
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -21041,6 +21146,20 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"NW" = (
+/obj/machinery/disposal/deliveryChute{
+	dir = 8;
+	icon_state = "intake";
+	name = "Anomaly Lab Chute"
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "NX" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -21056,6 +21175,19 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"Oe" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Og" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora)
 "Oh" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21069,6 +21201,31 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/cargo)
+"Oj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"Oo" = (
+/obj/machinery/recharger,
+/obj/structure/sign/warning/smoking{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 9
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Oq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -21119,6 +21276,24 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
+"OB" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (SOUTHWEST)";
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "anomaly_lab_airlock";
+	pixel_y = -30;
+	req_access = list(55);
+	tag_airpump = "anomaly_pump";
+	tag_chamber_sensor = "anomaly_chamber_sensor";
+	tag_exterior_door = "anomaly_exterior";
+	tag_interior_door = "anomaly_inner"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "OC" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -21277,9 +21452,39 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration_shuttle/cockpit)
+"PF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	layer = 2.4;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
+"PG" = (
+/obj/effect/decal/cleanable/ash,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "PJ" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/cargo_lift/lift)
+"PL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHWEST)";
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "PO" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
@@ -21308,6 +21513,69 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
+"PT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Qc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	icon_state = "intact-supply";
+	tag = "icon-intact (SOUTHWEST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHWEST)";
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	tag = ""
+	},
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"Qj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "Qp" = (
 /obj/structure/table/standard,
 /obj/random/toolbox,
@@ -21465,11 +21733,6 @@
 /obj/item/weapon/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
-"Ra" = (
-/obj/structure/closet/crate,
-/obj/random/advdevice,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Rc" = (
 /obj/effect/floor_decal/corner/purple/three_quarters{
 	tag = "icon-corner_white_three_quarters (EAST)";
@@ -21498,6 +21761,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
+"Rf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Ri" = (
+/obj/machinery/power/emitter/anchored,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Rk" = (
 /obj/machinery/computer/general_air_control{
 	tag = "icon-computer (WEST)";
@@ -21531,6 +21808,43 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"Rt" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Rw" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
+"Rx" = (
+/obj/structure/closet/secure_closet/science_nerva,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Ry" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -21648,6 +21962,10 @@
 /area/hadrian/storage)
 "Sq" = (
 /obj/machinery/botany/extractor,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "Su" = (
@@ -21685,6 +22003,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
+"SH" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "SI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21792,6 +22117,18 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"To" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTHEAST)";
+	icon_state = "warning";
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	id_tag = "anomaly_pump"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Tz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21817,6 +22154,18 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"TD" = (
+/obj/structure/sign/urist/nt{
+	pixel_y = 32
+	},
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "TF" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -21834,6 +22183,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"TH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "TI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21888,6 +22254,22 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
+"Uo" = (
+/obj/structure/railing/mapped,
+/obj/machinery/disposal,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 10
+	},
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Ux" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -21948,6 +22330,22 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"UQ" = (
+/obj/machinery/artifact_analyser,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Anomaly Lab Sample Room";
+	dir = 8;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "UR" = (
 /obj/machinery/conveyor{
 	id = "Trajanmain"
@@ -21968,6 +22366,22 @@
 	icon_state = "crateopen";
 	opened = 1
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"Vg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Vi" = (
@@ -22050,6 +22464,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
+"Vx" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora)
 "Vy" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular/open{
@@ -22126,6 +22549,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"Wa" = (
+/obj/machinery/recharger,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Wb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/anomaly_container,
@@ -22183,6 +22612,28 @@
 "Wo" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/fourth_emergency_storage)
+"Wp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Wq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass/mining{
@@ -22253,10 +22704,33 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/fourth_deck/fs)
+"WE" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "WG" = (
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/r_wall/prepainted,
 /area/rnd/chemlab)
+"WJ" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "WK" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/effect/paint/silver,
@@ -22266,6 +22740,40 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
 /area/maintenance/fourth_deck/afp)
+"WZ" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"Xf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	tag = "icon-intact-supply (EAST)";
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "Xk" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/nuke_storage)
@@ -22365,6 +22873,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/antonine_hangar/start)
+"XU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (SOUTHEAST)";
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "Yg" = (
 /obj/structure/closet,
 /obj/random/maintenance/clean,
@@ -22401,6 +22926,21 @@
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
+"Yr" = (
+/obj/structure/railing/mapped,
+/obj/item/device/healthanalyzer,
+/obj/item/weapon/wrench,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "Yx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -22456,6 +22996,28 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"YH" = (
+/obj/machinery/light/chromatic{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Xenobotany Fore";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/machinery/cell_charger,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 26
+	},
+/obj/effect/floor_decal/floordetail/edgedrain{
+	icon_state = "edge";
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "YL" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -22565,6 +23127,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
+"Ze" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "Zk" = (
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 /obj/item/weapon/storage/belt/urist/bandolier,
@@ -22637,6 +23206,26 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"ZB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "ZD" = (
 /obj/structure/sign/warning/secure_area{
 	icon_state = "securearea";
@@ -22644,6 +23233,14 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/safe_room)
+"ZE" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/rnd/xenobiology/xenoflora)
 "ZQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	tag = "icon-intact-supply (NORTHWEST)";
@@ -46433,7 +47030,7 @@ kQ
 sY
 tM
 uD
-vK
+Qj
 ww
 xt
 yp
@@ -46639,7 +47236,7 @@ vK
 vT
 vT
 vT
-vT
+WJ
 Yz
 vS
 Bu
@@ -47848,7 +48445,7 @@ sY
 tM
 uJ
 vP
-vT
+KB
 xz
 yv
 zi
@@ -48448,13 +49045,13 @@ nE
 nE
 nE
 nE
-rI
 sj
+XU
 Me
 tM
-vT
-vT
-vT
+zT
+LQ
+Ze
 Hq
 Vq
 Oh
@@ -48651,18 +49248,18 @@ oA
 pu
 nE
 rJ
-sj
+KT
 ta
 tN
 uM
-uM
+ZB
 wE
 xC
 yy
 zl
 Ab
 tM
-tM
+rI
 Ag
 CK
 Dw
@@ -48853,18 +49450,18 @@ oB
 pv
 nE
 rI
-sj
-tb
+KT
+oI
 tM
 uN
-vS
+Kv
 wF
-xD
+tM
 yz
 zm
-Ac
-AT
 tM
+tM
+rI
 Ag
 CK
 Dw
@@ -49056,17 +49653,17 @@ pw
 qB
 rK
 sk
-tc
-tM
+oI
+Ll
 uO
-vT
+TH
 wG
 xE
 yA
 zn
-Ad
-AU
+OB
 tM
+rI
 Ag
 CK
 Dw
@@ -49258,17 +49855,17 @@ px
 nE
 nE
 sm
-rI
-tM
+oI
+Li
 uP
 II
 wH
-xF
-tM
+xE
+To
 zo
 Ae
 tM
-tM
+oI
 Ag
 CK
 Dx
@@ -49460,23 +50057,23 @@ py
 qC
 nE
 sl
-sj
 oI
-oI
+LM
+Rf
+PT
+Wa
 tM
-wI
+Kl
+Vx
 tM
 tM
-tM
-tM
-tM
-tM
+rI
 Ag
 CK
 CL
 CL
 CL
-aa
+oI
 aa
 aa
 aa
@@ -49662,23 +50259,23 @@ pA
 qD
 nE
 sm
-sj
-tO
-uQ
-tM
-wJ
-xG
-yB
-tM
+oI
+Rx
+Oe
+Ns
+Jv
+xE
+Ad
+GV
 Af
-AV
-AV
-Ai
-CL
-CL
-aa
-aa
-aa
+tM
+rI
+Ag
+CK
+FM
+rI
+uQ
+oI
 aa
 aa
 aa
@@ -49864,23 +50461,23 @@ JM
 RP
 nE
 sm
-sj
-tP
-uR
+oI
+Oo
+SH
+Rw
+Uo
+Og
+Jn
+PL
+PF
 tM
-wK
-xH
-yC
-tM
+rI
 Ag
+sj
+tQ
+rI
+uR
 oI
-oI
-oI
-oI
-oI
-aa
-aa
-aa
 aa
 aa
 aa
@@ -50066,23 +50663,23 @@ pB
 Tb
 nE
 sm
-td
-tQ
-uS
-tM
-wL
-xI
-yD
-tM
+oI
+TD
+Ni
+ZE
+Ri
+xE
+PG
+MV
 Ah
+tM
+rI
+Ag
+td
+rI
+rI
+uS
 oI
-BA
-Cf
-oI
-oI
-aa
-aa
-aa
 aa
 aa
 aa
@@ -50268,23 +50865,23 @@ pB
 qF
 nE
 sm
+oI
+YH
+lP
+Rt
+Yr
+tU
+NW
+Xf
+UQ
+tM
+rI
+WZ
 sj
 tR
-uT
-tM
-tM
-tM
-tM
-tM
-Ag
-oI
-rJ
 rI
-CM
+uT
 oI
-aa
-aa
-aa
 aa
 aa
 aa
@@ -50470,23 +51067,23 @@ pC
 nE
 nE
 sm
-sj
-sj
-sj
-sj
-wM
-xJ
-uQ
-Ra
-Ag
 oI
-BB
-Cg
-CN
 oI
-aa
-aa
-aa
+oI
+oI
+oI
+oI
+oI
+wI
+tM
+tM
+oI
+Wp
+sj
+sj
+sj
+oI
+oI
 aa
 aa
 aa
@@ -50677,17 +51274,17 @@ te
 te
 oH
 te
-te
-te
-zq
-Ai
+NO
 oI
-BC
-tP
-CO
+wJ
+xG
+yB
 oI
-aa
-aa
+Wp
+tO
+oI
+oI
+oI
 aa
 aa
 aa
@@ -50878,17 +51475,17 @@ oI
 oI
 oI
 oI
+rI
+Nz
+oI
+wK
+xH
+yC
+oI
+Wp
+Aj
 oI
 oI
-oI
-zr
-tO
-oI
-BD
-rJ
-CP
-oI
-aa
 aa
 aa
 aa
@@ -51079,18 +51676,18 @@ aa
 aa
 tf
 aa
-aa
-tf
-aa
 oI
-zr
-Aj
+Md
+Nz
 oI
-BE
-tQ
-CP
+wL
+xI
+yD
 oI
-aa
+Wp
+Ak
+oI
+oI
 aa
 aa
 aa
@@ -51281,18 +51878,18 @@ aa
 aa
 tf
 aa
-aa
-tf
-aa
 oI
-zs
-Ak
+tO
+Nz
 oI
-BF
-Ch
-CQ
 oI
-aa
+oI
+oI
+oI
+Wp
+Al
+oI
+oI
 aa
 aa
 aa
@@ -51485,16 +52082,16 @@ Xk
 rO
 rO
 rO
-rO
+Vg
+MW
+WE
+Oj
+Oj
+Oj
+Qc
+Am
+AW
 oI
-zv
-Al
-oI
-rI
-Ci
-CR
-oI
-aa
 aa
 aa
 aa
@@ -51689,14 +52286,14 @@ rO
 rO
 rO
 oI
-zv
-Am
-AW
-BG
-rI
-CS
+zt
+sj
+sj
+An
+sj
 oI
-aa
+AW
+oI
 aa
 aa
 aa
@@ -51891,13 +52488,13 @@ Ug
 JB
 rO
 oI
-zt
+zv
+rI
 sj
+AY
+LI
+BI
 oI
-AW
-oI
-oI
-oI
 aa
 aa
 aa
@@ -51905,7 +52502,7 @@ aa
 aa
 aa
 aa
-aa
+eY
 aa
 aa
 aa
@@ -52094,11 +52691,12 @@ My
 rO
 oI
 zv
+rI
 sj
-AX
 BH
+AZ
+BJ
 oI
-oI
 aa
 aa
 aa
@@ -52110,8 +52708,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -52296,9 +52893,10 @@ wN
 rO
 oI
 zv
-An
-AY
-BI
+oI
+oI
+oI
+oI
 oI
 oI
 aa
@@ -52312,8 +52910,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -52498,11 +53095,13 @@ rO
 rO
 oI
 zv
-sj
-AZ
-BJ
+rI
+oI
+BA
+Cf
 oI
 oI
+oI
 aa
 aa
 aa
@@ -52513,9 +53112,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -52700,11 +53297,13 @@ Kh
 Zy
 oI
 zv
+rI
+oI
+rJ
+rI
+CM
 oI
 oI
-oI
-oI
-oI
 aa
 aa
 aa
@@ -52715,9 +53314,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -52902,24 +53499,24 @@ rO
 rO
 oI
 zv
+rI
+oI
+BB
+Cg
+CN
 oI
 oI
-BK
-oI
-oI
 aa
 aa
 aa
 aa
 aa
 aa
+JZ
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -53106,9 +53703,11 @@ oI
 zw
 Ao
 oI
+BC
+tP
+CO
 oI
 oI
-oI
 aa
 aa
 aa
@@ -53119,9 +53718,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+JZ
 aa
 aa
 aa
@@ -53308,11 +53905,11 @@ oI
 zx
 Ap
 oI
+BD
+rJ
+CP
 oI
 oI
-aa
-aa
-aa
 aa
 aa
 aa
@@ -53510,11 +54107,11 @@ oI
 oI
 Aq
 oI
+BE
+tQ
+CP
 oI
-aa
-aa
-aa
-aa
+oI
 aa
 aa
 aa
@@ -53712,11 +54309,11 @@ oI
 zy
 zz
 oI
+BF
+Ch
+CQ
 oI
-aa
-aa
-aa
-aa
+oI
 aa
 aa
 aa
@@ -53914,11 +54511,11 @@ uX
 zz
 zx
 oI
+rI
+Ci
+CR
 oI
-aa
-aa
-aa
-aa
+oI
 aa
 aa
 aa
@@ -54115,12 +54712,12 @@ oI
 oI
 zA
 Ar
+AW
+BG
+rI
+CS
 oI
 oI
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -54318,11 +54915,11 @@ oI
 oI
 oI
 oI
+AW
 oI
-aa
-aa
-aa
-aa
+oI
+oI
+oI
 aa
 aa
 aa
@@ -54521,9 +55118,9 @@ oI
 oI
 oI
 oI
-aa
-aa
-aa
+BK
+oI
+oI
 aa
 aa
 aa
@@ -54722,9 +55319,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+oI
+oI
+oI
 aa
 aa
 aa
