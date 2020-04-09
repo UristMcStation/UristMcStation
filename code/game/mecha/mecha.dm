@@ -360,13 +360,13 @@
 	if(state)
 		occupant_message("<font color='red'>Maintenance protocols in effect.</font>")
 		return
-	if(!user.skill_check(SKILL_MECH, HAS_PERK))
+/*	if(!user.skill_check(SKILL_MECH, HAS_PERK))     We don't want to use yer damn skills - Shippy
 		if(prob(5))
 			if((. = do_move(turn(direction, pick(90, 270)), 2)))
 				user.visible_message("<span class='warning'>\The [src] swerves wildly!</span>", "<span class='warning'>You hit the wrong control: [src] swerves wildly!</span>")
 			return
 		if(prob(5))
-			return do_move(direction, rand(5,12))
+			return do_move(direction, rand(5,12)) */
 	return do_move(direction)
 
 /obj/mecha/proc/do_move(direction, number = 1)
