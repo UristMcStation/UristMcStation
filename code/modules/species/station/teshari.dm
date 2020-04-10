@@ -93,6 +93,7 @@
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver/teshari,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/teshari,

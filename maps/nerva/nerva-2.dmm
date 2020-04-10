@@ -9904,6 +9904,8 @@
 	dir = 8;
 	pixel_x = -24
 	},
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "arD" = (
@@ -19843,6 +19845,8 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHA" = (
