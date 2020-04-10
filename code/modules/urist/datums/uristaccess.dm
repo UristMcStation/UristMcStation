@@ -15,13 +15,13 @@
 	id = access_mime
 	desc = "Silent Access"
 
-/var/const/access_theatre = 46
+/var/const/access_theatre = "ACCESS_THEATRE" //46
 /datum/access/theatre
 	id = access_theatre
 	desc = "Theatre"
 	region = ACCESS_REGION_GENERAL
 
-/var/const/access_blueshield = "ACCESS_BLUESHIELD"
+/var/const/access_blueshield = "ACCESS_BLUESHIELD" //52
 /datum/access/blueshield
 	id = access_blueshield
 	desc = "Blueshield Access"
