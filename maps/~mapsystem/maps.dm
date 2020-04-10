@@ -227,6 +227,9 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(!planet_size)
 		planet_size = list(world.maxx, world.maxy)
 
+	if(!date_offset)
+		game_year = 2556
+
 /datum/map/proc/setup_map()
 	var/lobby_track_type
 	if(lobby_tracks.len)
