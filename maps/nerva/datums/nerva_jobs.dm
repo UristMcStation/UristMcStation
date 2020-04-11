@@ -1,5 +1,5 @@
 /datum/map/nerva
-	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield,
+	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/seniorscientist, /datum/job/blueshield,
 						/datum/job/chef, /datum/job/janitor, /datum/job/assistant,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
@@ -122,8 +122,9 @@
 
 /datum/job/seniorscientist
 	minimal_player_age = 2
-	head_position = 1
 	department = "Science"
+	total_positions = 1
+	spawn_positions = 1
 	department_flag = COM|SCI
 	selection_color = "#ad6bad"
 	req_admin_notify = 1

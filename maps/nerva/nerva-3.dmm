@@ -16711,9 +16711,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/seniornt{
-	req_access = list("ACCESS_SENIOR_NT_OFFICE")
-	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/simulated/floor/wood/walnut,
 /area/command/seniorntbedroom)
 "Wc" = (

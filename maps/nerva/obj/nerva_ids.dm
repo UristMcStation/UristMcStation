@@ -44,7 +44,8 @@
 /obj/item/weapon/card/id/nerva_senior_scientist
 	name = "identification card"
 	desc = "A card issued to senior Nanotrasen scientists."
-	icon_state = "sciGold"
+	detail_color = COLOR_PALE_PURPLE_GRAY
+	extra_details = list("goldstripe")
 	job_access_type = /datum/job/seniorscientist
 
 /obj/item/weapon/card/id/medical/psychiatrist/nerva
