@@ -20,4 +20,4 @@ datum/objective/steal
 			"the captain's soap" = /obj/item/weapon/soap/deluxe,
 			"the ICS Nerva station account card" = /obj/item/weapon/card/station_account,
 			"circuit board (AI Core)" = /obj/item/weapon/circuitboard/aicore
-		)
+	)

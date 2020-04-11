@@ -8,6 +8,7 @@
 	#include "nerva_overmap.dm"
 	#include "nerva_shuttles.dm"
 	#include "nerva_unit_testing.dm"
+	#include "nerva_traitor.dm"
 	#include "datums/nerva_jobs.dm"
 	#include "datums/nerva_access_datums.dm"
 	#include "datums/nerva_outfits.dm"
